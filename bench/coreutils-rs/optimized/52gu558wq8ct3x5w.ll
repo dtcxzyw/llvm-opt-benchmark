@@ -3061,7 +3061,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %6), !noalias !926
   %.sroa.040.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 32
   %67 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !922
-  %68 = extractelement <2 x i64> %67, i64 0
+  %68 = load i64, ptr %.0.i.i2.i, align 8, !noalias !922, !noundef !5
   %69 = add i64 %68, 1
   store i64 %69, ptr %.0.i.i2.i, align 8, !noalias !922
   call void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h669c5cbd89b26057E.llvm.12199688689760991293(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef 24, i64 noundef 16, i64 noundef %1, i1 noundef zeroext true), !noalias !926

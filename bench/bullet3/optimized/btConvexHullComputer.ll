@@ -4736,6 +4736,7 @@ entry:
   %6 = load float, ptr %p.i, align 16
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
   %7 = load float, ptr %arrayidx5.i.i, align 4
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %8 = load <4 x float>, ptr %p.i, align 16
   %9 = shufflevector <4 x float> %8, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
   %arrayidx13.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -4760,15 +4761,15 @@ entry:
   %arrayidx11.i.i21 = getelementptr inbounds i8, ptr %p.i2, i64 8
   %14 = load float, ptr %arrayidx11.i.i21, align 8
   %mul14.i.i23 = fmul float %10, %14
-  %15 = load <2 x float>, ptr %this, align 8
-  %16 = extractelement <2 x float> %15, i64 1
-  %mul8.i.i = fmul float %7, %16
+  %15 = load float, ptr %arrayidx7.i.i, align 4
+  %16 = load <2 x float>, ptr %this, align 8
+  %mul8.i.i = fmul float %7, %15
   %17 = insertelement <2 x float> %9, float %6, i64 1
   %18 = insertelement <2 x float> poison, float %10, i64 0
-  %19 = shufflevector <2 x float> %18, <2 x float> %15, <2 x i32> <i32 0, i32 2>
+  %19 = shufflevector <2 x float> %18, <2 x float> %16, <2 x i32> <i32 0, i32 2>
   %20 = fmul <2 x float> %17, %19
   %21 = load <2 x float>, ptr %p.i2, align 8
-  %22 = fmul <2 x float> %15, %21
+  %22 = fmul <2 x float> %16, %21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %p.i2)
   %23 = extractelement <2 x float> %20, i64 0
   %24 = fneg float %23

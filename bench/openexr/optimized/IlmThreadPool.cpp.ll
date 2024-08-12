@@ -381,14 +381,14 @@ define linkonce_odr hidden void @_ZN13IlmThread_3_210ThreadPool4Data11setProvide
 entry:
   %__lock.i.i = alloca %"struct.std::_Sp_locker", align 1
   %curp = alloca %"class.std::shared_ptr", align 8
-  %0 = load ptr, ptr %provider, align 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %provider, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %provider, align 8
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN13IlmThread_3_218ThreadPoolProviderEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -409,10 +409,9 @@ _ZNSt10shared_ptrIN13IlmThread_3_218ThreadPoolProviderEED2Ev.exit: ; preds = %en
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %__lock.i.i), !noalias !6
   call void @_ZNSt10_Sp_lockerC1EPKv(ptr noundef nonnull align 1 dereferenceable(2) %__lock.i.i, ptr noundef nonnull %this) #23, !noalias !12
   %5 = load ptr, ptr %this, align 8, !noalias !12
-  store ptr %0, ptr %this, align 8, !noalias !12
   %_M_refcount.i.i1.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %_M_refcount.i.i1.i, align 8, !noalias !12
-  store ptr %1, ptr %_M_refcount.i.i1.i, align 8, !noalias !12
+  store <2 x ptr> %1, ptr %this, align 8, !noalias !12
   store ptr %5, ptr %curp, align 8, !alias.scope !12
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %curp, i64 8
   store ptr %6, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !12
@@ -2432,16 +2431,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 call.i.noexc:                                     ; preds = %for.body
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProviderEFvSt10shared_ptrINS4_21DefaultThreadPoolDataEEEPS5_S8_EEEEEE, i64 16), ptr %call.i13, align 8
   %_M_func.i.i = getelementptr inbounds i8, ptr %call.i13, i64 8
-  %7 = load ptr, ptr %_data, align 8
-  store ptr %7, ptr %_M_func.i.i, align 8
-  %_M_refcount.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i13, i64 16
-  %8 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %_data, align 8
+  store <2 x ptr> %8, ptr %_M_func.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %call.i.noexc
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i

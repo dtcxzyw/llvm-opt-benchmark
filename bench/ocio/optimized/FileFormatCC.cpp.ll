@@ -954,7 +954,7 @@ define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalFileFormat12
 entry:
   %os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %cdl = alloca %"class.std::shared_ptr.33", align 8
+  %cdl = alloca %"class.std::shared_ptr.33", align 16
   %ref.tmp20 = alloca %"class.std::shared_ptr.13", align 8
   %untypedCachedFile.val = load ptr, ptr %untypedCachedFile, align 8
   %1 = getelementptr i8, ptr %untypedCachedFile, i64 8
@@ -1057,17 +1057,16 @@ if.end:                                           ; preds = %if.then.i.i, %if.el
 
 invoke.cont12:                                    ; preds = %if.end
   %m_transform = getelementptr inbounds i8, ptr %3, i64 8
-  %13 = load ptr, ptr %m_transform, align 8
-  store ptr %13, ptr %cdl, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %cdl, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  %14 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %14, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %14, null
+  %13 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %14 = load <2 x ptr>, ptr %m_transform, align 8
+  store <2 x ptr> %14, ptr %cdl, align 16
+  %cmp.not.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12CDLTransformEEC2INS0_16CDLTransformImplEvEERKS_IT_E.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont12
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i11
@@ -1088,7 +1087,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12CDLTransformEEC2INS0_16CDLTransformImp
 
 invoke.cont16:                                    ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12CDLTransformEEC2INS0_16CDLTransformImplEvEERKS_IT_E.exit
   %cmp.not = icmp eq i32 %call17, 1
-  %.pre = load ptr, ptr %cdl, align 8
+  %.pre = load ptr, ptr %cdl, align 16
   br i1 %cmp.not, label %if.end30, label %if.then18
 
 if.then18:                                        ; preds = %invoke.cont16
@@ -1132,7 +1131,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 _ZSt20dynamic_pointer_castIN19OpenColorIO_v2_4dev12CDLTransformENS0_9TransformEESt10shared_ptrIT_ERKS3_IT0_E.exit: ; preds = %invoke.cont24, %dynamic_cast.end.i, %if.then.i, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %ref.tmp19.sroa.0.0 = phi ptr [ %21, %if.then.i ], [ %21, %if.else.i.i.i.i.i.i ], [ %21, %if.then.i.i.i.i.i.i ], [ null, %dynamic_cast.end.i ], [ null, %invoke.cont24 ]
   %ref.tmp19.sroa.4.0 = phi ptr [ null, %if.then.i ], [ %22, %if.else.i.i.i.i.i.i ], [ %22, %if.then.i.i.i.i.i.i ], [ null, %dynamic_cast.end.i ], [ null, %invoke.cont24 ]
-  store ptr %ref.tmp19.sroa.0.0, ptr %cdl, align 8
+  store ptr %ref.tmp19.sroa.0.0, ptr %cdl, align 16
   %26 = load ptr, ptr %_M_refcount.i.i, align 8
   store ptr %ref.tmp19.sroa.4.0, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i.i12 = icmp eq ptr %26, null
@@ -1281,7 +1280,7 @@ if.end8.sink.split.i.i.i.i52:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev9TransformEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev9TransformEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12CDLTransformEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i39, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i49, %if.end8.sink.split.i.i.i.i52
-  %48 = load ptr, ptr %cdl, align 8
+  %48 = load ptr, ptr %cdl, align 16
   %vtable27 = load ptr, ptr %48, align 8
   %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 88
   %49 = load ptr, ptr %vfn28, align 8
@@ -2032,21 +2031,20 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalCachedFileD2Ev.exit: ; preds = %ent
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalCachedFile11getCDLGroupEv(ptr noalias sret(%"class.std::shared_ptr.10") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.13", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.13", align 16
   tail call void @_ZN19OpenColorIO_v2_4dev14GroupTransform6CreateEv(ptr sret(%"class.std::shared_ptr.10") align 8 %agg.result)
   %0 = load ptr, ptr %agg.result, align 8
   %m_transform = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = load ptr, ptr %m_transform, align 8
-  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %m_transform, align 8
+  store <2 x ptr> %2, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev9TransformEEC2INS0_16CDLTransformImplEvEERKS_IT_E.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

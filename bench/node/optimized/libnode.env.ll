@@ -75453,7 +75453,7 @@ _ZN4node18DeserializeRequestD2Ev.exit:            ; preds = %_ZNSt7__cxx114listI
 define dso_local void @_ZN4node11Environment22RunDeserializeRequestsEv(ptr noundef nonnull align 8 dereferenceable(2872) %this) local_unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  %request = alloca %"struct.node::DeserializeRequest", align 8
+  %request = alloca %"struct.node::DeserializeRequest", align 16
   %isolate_.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %0) #24
@@ -75479,12 +75479,11 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4node18DeserializeRequestD2Ev.exit
   %5 = phi ptr [ %4, %while.body.lr.ph ], [ %19, %_ZN4node18DeserializeRequestD2Ev.exit ]
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
-  %6 = load ptr, ptr %_M_storage.i.i.i, align 8
-  store ptr %6, ptr %request, align 8
   %holder3.i = getelementptr inbounds i8, ptr %5, i64 24
-  %7 = load ptr, ptr %holder3.i, align 8
-  store ptr %7, ptr %holder.i, align 8
-  %cmp.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %holder3.i, align 8
+  %7 = load <2 x ptr>, ptr %_M_storage.i.i.i, align 8
+  store <2 x ptr> %7, ptr %request, align 16
+  %cmp.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.i.i.i, label %_ZN4node18DeserializeRequestC2EOS0_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body
@@ -75496,7 +75495,7 @@ if.then.i.i:                                      ; preds = %while.body
 _ZN4node18DeserializeRequestC2EOS0_.exit:         ; preds = %while.body, %if.then.i.i
   %8 = phi ptr [ %5, %while.body ], [ %.pre, %if.then.i.i ]
   %index4.i = getelementptr inbounds i8, ptr %5, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %index.i, ptr noundef nonnull align 8 dereferenceable(16) %index4.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %index.i, ptr noundef nonnull align 8 dereferenceable(16) %index4.i, i64 16, i1 false)
   %9 = load i64, ptr %_M_size.i.i.i, align 8
   %sub.i.i.i = add i64 %9, -1
   store i64 %sub.i.i.i, ptr %_M_size.i.i.i, align 8
@@ -75523,8 +75522,8 @@ if.end.i43:                                       ; preds = %_ZNSt7__cxx114listI
 
 _ZN2v89LocalBaseINS_6ObjectEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %_ZNSt7__cxx114listIN4node18DeserializeRequestESaIS2_EE9pop_frontEv.exit, %if.end.i43
   %retval.i39.sroa.0.1 = phi ptr [ %call.i, %if.end.i43 ], [ null, %_ZNSt7__cxx114listIN4node18DeserializeRequestESaIS2_EE9pop_frontEv.exit ]
-  %13 = load ptr, ptr %request, align 8
-  %14 = load i32, ptr %index.i, align 8
+  %13 = load ptr, ptr %request, align 16
+  %14 = load i32, ptr %index.i, align 16
   %15 = load ptr, ptr %info, align 8
   call void %13(ptr %call2.i, ptr %retval.i39.sroa.0.1, i32 noundef %14, ptr noundef %15) #24
   %16 = load ptr, ptr %holder.i, align 8

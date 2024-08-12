@@ -9865,7 +9865,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %7), !noalias !2834
   %.sroa.048.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %69, i64 32
   %86 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !2830
-  %87 = extractelement <2 x i64> %86, i64 0
+  %87 = load i64, ptr %.0.i.i2.i, align 8, !noalias !2830, !noundef !4
   %88 = add i64 %87, 1
   store i64 %88, ptr %.0.i.i2.i, align 8, !noalias !2830
   call void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hbcbf9a473c334496E.llvm.6509629623965917624(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %35, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 8, i64 noundef 16, i64 noundef %2, i1 noundef zeroext true), !noalias !2834
@@ -9952,7 +9952,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i128:
 107:                                              ; preds = %97, %.noexc132
   %.0.i.i2.i130 = phi ptr [ %101, %.noexc132 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %97 ]
   %108 = load <2 x i64>, ptr %.0.i.i2.i130, align 8, !noalias !2853
-  %109 = extractelement <2 x i64> %108, i64 0
+  %109 = load i64, ptr %.0.i.i2.i130, align 8, !noalias !2853, !noundef !4
   %110 = add i64 %109, 1
   store i64 %110, ptr %.0.i.i2.i130, align 8, !noalias !2853
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33)
@@ -10003,7 +10003,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i139:
 121:                                              ; preds = %111, %.noexc143
   %.0.i.i2.i141 = phi ptr [ %115, %.noexc143 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %111 ]
   %122 = load <2 x i64>, ptr %.0.i.i2.i141, align 8, !noalias !2864
-  %123 = extractelement <2 x i64> %122, i64 0
+  %123 = load i64, ptr %.0.i.i2.i141, align 8, !noalias !2864, !noundef !4
   %124 = add i64 %123, 1
   store i64 %124, ptr %.0.i.i2.i141, align 8, !noalias !2864
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32)

@@ -6469,15 +6469,15 @@ define noundef zeroext i1 @_ZN2cv14solvePnPRansacERKNS_11_InputArrayES2_RKNS_17_
   %12 = alloca %"class.cv::Range", align 4
   %13 = alloca %"class.cv::Range", align 8
   %14 = alloca %"class.cv::Range", align 4
-  %15 = alloca %"struct.cv::Ptr.34", align 8
+  %15 = alloca %"struct.cv::Ptr.34", align 16
   %16 = alloca %"struct.cv::Ptr.38", align 8
-  %17 = alloca %"struct.cv::Ptr.42", align 8
+  %17 = alloca %"struct.cv::Ptr.42", align 16
   %18 = alloca %"class.cv::Mat", align 8
   %19 = alloca i32, align 4
   %20 = alloca %"class.cv::Mat", align 8
   %21 = alloca %"class.cv::Mat", align 8
   %22 = alloca %"class.cv::Mat", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %23 = invoke noundef zeroext i1 @_ZNK2cv11_InputArray5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %24 unwind label %116
 
@@ -6492,17 +6492,16 @@ define noundef zeroext i1 @_ZN2cv14solvePnPRansacERKNS_11_InputArrayES2_RKNS_17_
 
 28:                                               ; preds = %26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  %29 = load ptr, ptr %15, align 8
-  store ptr %29, ptr %17, align 8
-  %30 = getelementptr inbounds i8, ptr %17, i64 8
-  %31 = getelementptr inbounds i8, ptr %15, i64 8
-  %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr %30, align 8
-  %.not.i.i.i.i = icmp eq ptr %32, null
+  %29 = getelementptr inbounds i8, ptr %17, i64 8
+  %30 = getelementptr inbounds i8, ptr %15, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = load <2 x ptr>, ptr %15, align 16
+  store <2 x ptr> %32, ptr %17, align 16
+  %.not.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrIKNS_4usac5ModelEEC2IS2_EERKNS0_IT_EE.exit, label %33
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %35, 0
   br i1 %.not.i.i.i.i.i, label %39, label %36
@@ -6530,7 +6529,7 @@ _ZN2cv3PtrIKNS_4usac5ModelEEC2IS2_EERKNS0_IT_EE.exit: ; preds = %28, %36, %39
           to label %46 unwind label %118
 
 46:                                               ; preds = %44
-  %47 = load ptr, ptr %30, align 8
+  %47 = load ptr, ptr %29, align 8
   %.not.i.i.i.i25 = icmp eq ptr %47, null
   br i1 %.not.i.i.i.i25, label %_ZN2cv3PtrIKNS_4usac5ModelEED2Ev.exit, label %48
 
@@ -6885,7 +6884,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_4usac12RansacOutputEED2Ev.exit
 
 _ZN2cv3PtrINS_4usac12RansacOutputEED2Ev.exit:     ; preds = %161, %180, %193, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i33
-  %198 = load ptr, ptr %31, align 8
+  %198 = load ptr, ptr %30, align 8
   %.not.i.i.i.i34 = icmp eq ptr %198, null
   br i1 %.not.i.i.i.i34, label %_ZN2cv3PtrINS_4usac5ModelEED2Ev.exit, label %199
 

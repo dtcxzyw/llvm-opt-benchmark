@@ -121,16 +121,14 @@ _ZNSt10shared_ptrIN9grpc_core11DNSResolverEEaSEOS2_.exit: ; preds = %entry, %_ZN
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
 define void @_ZN9grpc_core14GetDNSResolverEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load ptr, ptr @_ZN9grpc_core12_GLOBAL__N_114g_dns_resolverE, align 16
-  store ptr %0, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core12_GLOBAL__N_114g_dns_resolverE, i64 8), align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core12_GLOBAL__N_114g_dns_resolverE, i64 8), align 8
+  %1 = load <2 x ptr>, ptr @_ZN9grpc_core12_GLOBAL__N_114g_dns_resolverE, align 16
+  store <2 x ptr> %1, ptr %agg.result, align 8
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core11DNSResolverEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

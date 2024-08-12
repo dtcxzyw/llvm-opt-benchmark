@@ -8671,22 +8671,21 @@ define linkonce_odr void @_ZNSt6vectorIN2cv3MatESaIS1_EE14_M_fill_assignEmRKS1_(
   %16 = load ptr, ptr %15, align 16
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %5, align 8
-  store ptr %20, ptr %15, align 16
+  %19 = load <2 x ptr>, ptr %18, align 8
+  %20 = load ptr, ptr %18, align 8
   %21 = load <2 x ptr>, ptr %4, align 16
   store ptr %17, ptr %4, align 16
-  store ptr %19, ptr %14, align 8
+  store <2 x ptr> %19, ptr %14, align 8
   store <2 x ptr> %21, ptr %0, align 8
   store ptr %16, ptr %5, align 8
-  %.not4.i.i.i.i = icmp eq ptr %17, %19
+  %.not4.i.i.i.i = icmp eq ptr %17, %20
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %13, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i ], [ %17, %13 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #23
   %22 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 96
-  %.not.i.i.i.i = icmp eq ptr %22, %19
+  %.not.i.i.i.i = icmp eq ptr %22, %20
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
 
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i

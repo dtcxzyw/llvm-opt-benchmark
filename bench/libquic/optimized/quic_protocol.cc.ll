@@ -844,29 +844,27 @@ declare noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN3net15QuicStreamFrameC2EjbmtSt10unique_ptrIA_cNS_19StreamBufferDeleterEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, i32 noundef %stream_id, i1 noundef zeroext %fin, i64 noundef %offset, i16 noundef zeroext %data_length, ptr nocapture noundef %buffer) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load i64, ptr %buffer, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
-  %1 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  store ptr null, ptr %add.ptr.i.i.i.i.i, align 8
   %frombool.i = zext i1 %fin to i8
-  store i32 %stream_id, ptr %this, align 8
   %fin3.i = getelementptr inbounds i8, ptr %this, i64 4
-  store i8 %frombool.i, ptr %fin3.i, align 4
   %data_length5.i = getelementptr inbounds i8, ptr %this, i64 6
-  store i16 %data_length, ptr %data_length5.i, align 2
   %data_buffer6.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr null, ptr %data_buffer6.i, align 8
   %offset7.i = getelementptr inbounds i8, ptr %this, i64 16
-  store i64 %offset, ptr %offset7.i, align 8
   %buffer8.i = getelementptr inbounds i8, ptr %this, i64 24
-  store i64 %0, ptr %buffer8.i, align 8
-  %2 = getelementptr inbounds i8, ptr %this, i64 32
-  store i64 %1, ptr %2, align 8
-  %cmp.i.i.not.i = icmp eq i64 %1, 0
+  %0 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
+  %1 = load <2 x i64>, ptr %buffer, align 8
+  store ptr null, ptr %add.ptr.i.i.i.i.i, align 8
+  store i32 %stream_id, ptr %this, align 8
+  store i8 %frombool.i, ptr %fin3.i, align 4
+  store i16 %data_length, ptr %data_length5.i, align 2
+  store ptr null, ptr %data_buffer6.i, align 8
+  store i64 %offset, ptr %offset7.i, align 8
+  store <2 x i64> %1, ptr %buffer8.i, align 8
+  %cmp.i.i.not.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %.cast = inttoptr i64 %1 to ptr
+  %.cast = inttoptr i64 %0 to ptr
   store ptr %.cast, ptr %data_buffer6.i, align 8
   br label %if.end
 

@@ -3157,53 +3157,51 @@ define linkonce_odr hidden void @_ZN25G1EvacuateRegionsBaseTask4workEj(ptr nound
   %10 = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 32
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 40
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 8
-  %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef ptr @_ZN23G1ParScanThreadStateSet16state_for_workerEj(ptr noundef nonnull align 8 dereferenceable(480) %19, i32 noundef %1) #18
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1352
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %20, i64 392
-  store ptr %24, ptr %25, align 8
-  %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
-  %28 = load ptr, ptr %27, align 8
-  tail call void %28(ptr noundef nonnull align 8 dereferenceable(436) %0, ptr noundef nonnull %20, i32 noundef %1) #18
-  %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
-  %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(436) %0, ptr noundef nonnull %20, i32 noundef %1) #18
-  %32 = load ptr, ptr %11, align 8
-  %.not.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i, label %34, label %33
+  %13 = load <2 x ptr>, ptr %12, align 8
+  %14 = load ptr, ptr %12, align 8
+  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call noundef ptr @_ZN23G1ParScanThreadStateSet16state_for_workerEj(ptr noundef nonnull align 8 dereferenceable(480) %18, i32 noundef %1) #18
+  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 1352
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %19, i64 392
+  store ptr %23, ptr %24, align 8
+  %25 = load ptr, ptr %0, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %27 = load ptr, ptr %26, align 8
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(436) %0, ptr noundef nonnull %19, i32 noundef %1) #18
+  %28 = load ptr, ptr %0, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %30 = load ptr, ptr %29, align 8
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(436) %0, ptr noundef nonnull %19, i32 noundef %1) #18
+  %31 = load ptr, ptr %11, align 8
+  %.not.i.i.i.i = icmp eq ptr %31, null
+  br i1 %.not.i.i.i.i, label %33, label %32
 
-33:                                               ; preds = %2
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %17) #18
+32:                                               ; preds = %2
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %16) #18
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %11) #18
-  br label %34
+  br label %33
 
-34:                                               ; preds = %33, %2
-  %35 = load ptr, ptr %12, align 8
-  %.not8.i.i.i.i = icmp eq ptr %35, %13
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %36
+33:                                               ; preds = %32, %2
+  %34 = load ptr, ptr %12, align 8
+  %.not8.i.i.i.i = icmp eq ptr %34, %14
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %35
 
-36:                                               ; preds = %34
+35:                                               ; preds = %33
   store ptr %11, ptr %10, align 8
-  store ptr %13, ptr %12, align 8
-  store ptr %15, ptr %14, align 8
+  store <2 x ptr> %13, ptr %12, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %34, %36
-  %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(436) %0, i32 noundef %1) #18
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %33, %35
+  %36 = load ptr, ptr %0, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %38 = load ptr, ptr %37, align 8
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(436) %0, i32 noundef %1) #18
   ret void
 }
 

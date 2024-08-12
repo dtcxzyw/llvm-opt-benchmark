@@ -3317,10 +3317,10 @@ _ZNSt8functionIFvPhlRKN5arrow6StatusEEEC2EOS6_.exit.i.i: ; preds = %if.then10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 40), ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i64 16, i1 false)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   %5 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 56), align 8
+  %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 56), align 8
   store ptr @_ZNSt17_Function_handlerIFvPhlRKN5arrow6StatusEEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 56), align 8
   store <2 x ptr> %5, ptr %_M_manager.i.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPhlRKN5arrow6StatusEEPS5_E9_M_invokeERKSt9_Any_dataOS0_OlS4_, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 64), align 8
-  %6 = extractelement <2 x ptr> %5, i64 0
   %tobool.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i, label %invoke.cont12, label %if.then.i.i.i.i
 
@@ -3407,10 +3407,10 @@ _ZNSt8functionIFvPhlRKN5arrow6StatusEEEC2EOS6_.exit.i.i29: ; preds = %if.then15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 40), ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp16, i64 16, i1 false)
   %_M_manager.i.i.i30 = getelementptr inbounds i8, ptr %ref.tmp.i.i19, i64 16
   %18 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 56), align 8
+  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 56), align 8
   store ptr @_ZNSt17_Function_handlerIFvPhlRKN5arrow6StatusEEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 56), align 8
   store <2 x ptr> %18, ptr %_M_manager.i.i.i30, align 8
   store ptr @_ZNSt17_Function_handlerIFvPhlRKN5arrow6StatusEEPS5_E9_M_invokeERKSt9_Any_dataOS0_OlS4_, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 64), align 8
-  %19 = extractelement <2 x ptr> %18, i64 0
   %tobool.not.i.i.i.i31 = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i.i31, label %invoke.cont18, label %if.then.i.i.i.i32
 
@@ -3492,10 +3492,10 @@ _ZNSt8functionIFvPhlRKN5arrow6StatusEEEC2EOS6_.exit.i.i65: ; preds = %if.then21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 40), ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp22, i64 16, i1 false)
   %_M_manager.i.i.i66 = getelementptr inbounds i8, ptr %ref.tmp.i.i55, i64 16
   %30 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 56), align 8
+  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 56), align 8
   store ptr @_ZNSt17_Function_handlerIFvPhlRKN5arrow6StatusEEPS5_E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 56), align 8
   store <2 x ptr> %30, ptr %_M_manager.i.i.i66, align 8
   store ptr @_ZNSt17_Function_handlerIFvPhlRKN5arrow6StatusEEPS5_E9_M_invokeERKSt9_Any_dataOS0_OlS4_, ptr getelementptr inbounds (i8, ptr @_ZZN5arrow12_GLOBAL__N_110DebugState8InstanceEvE8instance, i64 64), align 8
-  %31 = extractelement <2 x ptr> %30, i64 0
   %tobool.not.i.i.i.i67 = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.i.i67, label %invoke.cont24, label %if.then.i.i.i.i68
 

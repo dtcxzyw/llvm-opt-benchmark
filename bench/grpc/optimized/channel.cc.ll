@@ -517,7 +517,6 @@ invoke.cont30:                                    ; preds = %invoke.cont20, %inv
           to label %call.i.i2.i.i.noexc unwind label %lpad27
 
 call.i.i2.i.i.noexc:                              ; preds = %invoke.cont30
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %on_destroy = getelementptr inbounds i8, ptr %28, i64 56
   store ptr %27, ptr %call.i.i2.i.i31, align 8
@@ -528,18 +527,17 @@ call.i.i2.i.i.noexc:                              ; preds = %invoke.cont30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %on_destroy, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %28, i64 72
-  %30 = load ptr, ptr %_M_manager3.i.i, align 8
-  store ptr %30, ptr %_M_manager.i.i.i, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN9grpc_core7ChannelC1EbbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_11ChannelArgsE24grpc_compression_optionsNS1_13RefCountedPtrI18grpc_channel_stackEEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager3.i.i, align 8
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %28, i64 80
-  %31 = load ptr, ptr %_M_invoker4.i.i, align 8
-  store ptr %31, ptr %_M_invoker.i.i, align 8
+  %30 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %31 = load ptr, ptr %_M_manager3.i.i, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN9grpc_core7ChannelC1EbbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_11ChannelArgsE24grpc_compression_optionsNS1_13RefCountedPtrI18grpc_channel_stackEEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %_M_manager3.i.i, align 8
+  store <2 x ptr> %30, ptr %_M_manager.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN9grpc_core7ChannelC1EbbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_11ChannelArgsE24grpc_compression_optionsNS1_13RefCountedPtrI18grpc_channel_stackEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %30, null
+  %tobool.not.i.i.i = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.i, label %"_ZZN9grpc_core7ChannelC1EbbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11ChannelArgsE24grpc_compression_optionsNS_13RefCountedPtrI18grpc_channel_stackEEEN3$_0D2Ev.exit", label %if.then.i.i.i30
 
 if.then.i.i.i30:                                  ; preds = %call.i.i2.i.i.noexc
-  %call.i.i.i = invoke noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %"_ZZN9grpc_core7ChannelC1EbbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11ChannelArgsE24grpc_compression_optionsNS_13RefCountedPtrI18grpc_channel_stackEEEN3$_0D2Ev.exit" unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i30

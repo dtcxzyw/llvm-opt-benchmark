@@ -15205,24 +15205,23 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_131AddFilterChainDataForSourcePortERKNS_11FilterChainEjPSt3mapItNS_19XdsListenerResource14FilterChainMap24FilterChainDataSharedPtrESt4lessItESaISt4pairIKtS7_EEEPNS_16ValidationErrorsE(ptr noundef nonnull align 8 dereferenceable(184) %filter_chain, i32 noundef %port, ptr noundef %ports_map, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %port.addr = alloca i32, align 4
-  %ref.tmp = alloca %"struct.grpc_core::XdsListenerResource::FilterChainMap::FilterChainDataSharedPtr", align 8
+  %ref.tmp = alloca %"struct.grpc_core::XdsListenerResource::FilterChainMap::FilterChainDataSharedPtr", align 16
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp3 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   store i32 %port, ptr %port.addr, align 4
   %filter_chain_data = getelementptr inbounds i8, ptr %filter_chain, i64 168
-  %0 = load ptr, ptr %filter_chain_data, align 8
-  store ptr %0, ptr %ref.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %filter_chain, i64 176
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %filter_chain_data, align 8
+  store <2 x ptr> %1, ptr %ref.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core19XdsListenerResource15FilterChainDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

@@ -2440,18 +2440,17 @@ _ZN11opencv_test12_GLOBAL__N_111cvtFrameFmtERSt6vectorIN2cv3MatESaIS3_EES6_.exit
 
 131:                                              ; preds = %._crit_edge
   %132 = load ptr, ptr %2, align 8
-  %133 = load ptr, ptr %14, align 8
-  %134 = getelementptr inbounds i8, ptr %2, i64 16
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %7, i64 8
-  %137 = load <2 x ptr>, ptr %7, align 16
-  store <2 x ptr> %137, ptr %2, align 8
-  %138 = getelementptr inbounds i8, ptr %7, i64 16
-  %139 = load ptr, ptr %138, align 16
-  store ptr %139, ptr %134, align 8
+  %133 = getelementptr inbounds i8, ptr %2, i64 16
+  %134 = getelementptr inbounds i8, ptr %7, i64 8
+  %135 = load <2 x ptr>, ptr %7, align 16
+  %136 = getelementptr inbounds i8, ptr %7, i64 16
+  %137 = load ptr, ptr %136, align 16
   store ptr %132, ptr %7, align 16
-  store ptr %133, ptr %136, align 8
-  store ptr %135, ptr %138, align 16
+  %138 = load <2 x ptr>, ptr %14, align 8
+  %139 = load ptr, ptr %14, align 8
+  store <2 x ptr> %135, ptr %2, align 8
+  store ptr %137, ptr %133, align 8
+  store <2 x ptr> %138, ptr %134, align 8
   br label %140
 
 .critedge33:                                      ; preds = %76, %_ZN7testing7MessageD2Ev.exit
@@ -2461,7 +2460,7 @@ _ZN11opencv_test12_GLOBAL__N_111cvtFrameFmtERSt6vectorIN2cv3MatESaIS3_EES6_.exit
   br label %140
 
 140:                                              ; preds = %_ZN11opencv_test12_GLOBAL__N_111cvtFrameFmtERSt6vectorIN2cv3MatESaIS3_EES6_.exit, %131, %.critedge33
-  %141 = phi ptr [ %127, %_ZN11opencv_test12_GLOBAL__N_111cvtFrameFmtERSt6vectorIN2cv3MatESaIS3_EES6_.exit ], [ %133, %131 ], [ %.pre46, %.critedge33 ]
+  %141 = phi ptr [ %127, %_ZN11opencv_test12_GLOBAL__N_111cvtFrameFmtERSt6vectorIN2cv3MatESaIS3_EES6_.exit ], [ %139, %131 ], [ %.pre46, %.critedge33 ]
   %142 = phi ptr [ %128, %_ZN11opencv_test12_GLOBAL__N_111cvtFrameFmtERSt6vectorIN2cv3MatESaIS3_EES6_.exit ], [ %132, %131 ], [ %.pre, %.critedge33 ]
   %.not4.i.i.i.i = icmp eq ptr %142, %141
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i

@@ -1180,51 +1180,49 @@ define hidden void @_ZN9ScopeDesc6verifyEv(ptr nocapture noundef nonnull readonl
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 32
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
-  %14 = load i64, ptr %13, align 8
+  %10 = load <2 x ptr>, ptr %9, align 8
+  %11 = load ptr, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = load i64, ptr %12, align 8
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %4) #8
-  %15 = load ptr, ptr %0, align 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
-  %18 = load ptr, ptr %17, align 8
-  %19 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(88) %15) #8
-  br i1 %19, label %.loopexit, label %20
+  %14 = load ptr, ptr %0, align 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %17 = load ptr, ptr %16, align 8
+  %18 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(88) %14) #8
+  br i1 %18, label %.loopexit, label %19
 
-20:                                               ; preds = %1
-  %21 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %21, align 1
+19:                                               ; preds = %1
+  %20 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %20, align 1
   call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 291, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #9
   unreachable
 
 .loopexit:                                        ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
-  %23 = load i32, ptr %22, align 8
-  %24 = call noundef ptr @_ZN9ScopeDesc19decode_scope_valuesEi(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i32 noundef %23)
+  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = load i32, ptr %21, align 8
+  %23 = call noundef ptr @_ZN9ScopeDesc19decode_scope_valuesEi(ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i32 noundef %22)
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #8
-  %25 = load ptr, ptr %8, align 8
-  %.not.i.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.i.i, label %27, label %26
+  %24 = load ptr, ptr %8, align 8
+  %.not.i.i.i.i = icmp eq ptr %24, null
+  br i1 %.not.i.i.i.i, label %26, label %25
 
-26:                                               ; preds = %.loopexit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %14) #8
+25:                                               ; preds = %.loopexit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %13) #8
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %8) #8
-  br label %27
+  br label %26
 
-27:                                               ; preds = %26, %.loopexit
-  %28 = load ptr, ptr %9, align 8
-  %.not8.i.i.i.i = icmp eq ptr %28, %10
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %29
+26:                                               ; preds = %25, %.loopexit
+  %27 = load ptr, ptr %9, align 8
+  %.not8.i.i.i.i = icmp eq ptr %27, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %28
 
-29:                                               ; preds = %27
+28:                                               ; preds = %26
   store ptr %8, ptr %7, align 8
-  store ptr %10, ptr %9, align 8
-  store ptr %12, ptr %11, align 8
+  store <2 x ptr> %10, ptr %9, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %27, %29
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %26, %28
   ret void
 }
 

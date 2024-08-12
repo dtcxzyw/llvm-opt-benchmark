@@ -6185,18 +6185,17 @@ declare void @_ZN6hermes3hbc15BytecodeVisitor27visitInstructionsInFunctionEj(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes30FunctionBasicBlockStatsVisitorC2ESt10shared_ptrINS_3hbc14BCProviderBaseEERSt13unordered_mapIPKhtSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_tEEEmRNS_25FunctionRuntimeStatisticsERS5_ItmS8_ItESA_ItESaISC_IKtmEEERS5_IPKvjS8_ISS_ESA_ISS_ESaISC_IKSS_jEEERN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %bcProvider, ptr noundef nonnull align 8 dereferenceable(56) %profileIndexMap, i64 noundef %totalProfileRuntimeInstructionCount, ptr noundef nonnull align 8 dereferenceable(72) %funcStat, ptr noundef nonnull align 8 dereferenceable(56) %funcExecInfo, ptr noundef nonnull align 8 dereferenceable(56) %jumpTargets, ptr noundef nonnull align 8 dereferenceable(36) %os) unnamed_addr #0 comdat align 2 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr", align 8
-  %0 = load ptr, ptr %bcProvider, align 8
-  store ptr %0, ptr %agg.tmp, align 8
+  %agg.tmp = alloca %"class.std::shared_ptr", align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %bcProvider, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %bcProvider, align 8
+  store <2 x ptr> %1, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

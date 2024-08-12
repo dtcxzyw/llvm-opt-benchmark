@@ -16669,6 +16669,8 @@ GenImageColor.exit:
   %11 = sitofp i32 %10 to float
   %12 = tail call <2 x float> @MeasureTextEx(ptr noundef nonnull byval(%struct.Font) align 8 %1, ptr noundef %2, float noundef %11, float noundef %4) #50
   %13 = tail call <2 x float> @MeasureTextEx(ptr noundef nonnull byval(%struct.Font) align 8 %1, ptr noundef %2, float noundef %3, float noundef %4) #50
+  %.sroa.033.0.vec.extract = extractelement <2 x float> %12, i64 0
+  %.sroa.033.4.vec.extract = extractelement <2 x float> %12, i64 1
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %14 = fptosi <2 x float> %12 to <2 x i32>
   %15 = extractelement <2 x i32> %14, i64 0
@@ -16769,36 +16771,34 @@ GenImageColor.exit:
 
 ._crit_edge:                                      ; preds = %69, %GenImageColor.exit
   %.sroa.030.4.vec.extract = extractelement <2 x float> %13, i64 1
-  %73 = extractelement <2 x float> %12, i64 1
-  %74 = fcmp une float %.sroa.030.4.vec.extract, %73
-  br i1 %74, label %75, label %90
+  %73 = fcmp une float %.sroa.030.4.vec.extract, %.sroa.033.4.vec.extract
+  br i1 %73, label %74, label %88
 
-75:                                               ; preds = %._crit_edge
-  %76 = fdiv float %.sroa.030.4.vec.extract, %73
-  %77 = fpext float %76 to double
-  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.47, double noundef %77) #50
-  %78 = getelementptr inbounds i8, ptr %1, i64 12
-  %79 = load i32, ptr %78, align 4
+74:                                               ; preds = %._crit_edge
+  %75 = fdiv float %.sroa.030.4.vec.extract, %.sroa.033.4.vec.extract
+  %76 = fpext float %75 to double
+  call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.47, double noundef %76) #50
+  %77 = getelementptr inbounds i8, ptr %1, i64 12
+  %78 = load i32, ptr %77, align 4
   call void @GetFontDefault(ptr dead_on_unwind nonnull writable sret(%struct.Font) align 8 %7) #50
-  %80 = getelementptr inbounds i8, ptr %7, i64 12
-  %81 = load i32, ptr %80, align 4
-  %82 = icmp eq i32 %79, %81
-  %83 = extractelement <2 x float> %12, i64 0
-  %84 = fmul float %83, %76
+  %79 = getelementptr inbounds i8, ptr %7, i64 12
+  %80 = load i32, ptr %79, align 4
+  %81 = icmp eq i32 %78, %80
+  %82 = fmul float %.sroa.033.0.vec.extract, %75
+  %83 = fptosi float %82 to i32
+  %84 = fmul float %.sroa.033.4.vec.extract, %75
   %85 = fptosi float %84 to i32
-  %86 = fmul float %73, %76
-  %87 = fptosi float %86 to i32
-  br i1 %82, label %88, label %89
+  br i1 %81, label %86, label %87
 
-88:                                               ; preds = %75
-  call void @ImageResizeNN(ptr noundef nonnull %0, i32 noundef %85, i32 noundef %87)
-  br label %90
+86:                                               ; preds = %74
+  call void @ImageResizeNN(ptr noundef nonnull %0, i32 noundef %83, i32 noundef %85)
+  br label %88
 
-89:                                               ; preds = %75
-  call void @ImageResize(ptr noundef nonnull %0, i32 noundef %85, i32 noundef %87)
-  br label %90
+87:                                               ; preds = %74
+  call void @ImageResize(ptr noundef nonnull %0, i32 noundef %83, i32 noundef %85)
+  br label %88
 
-90:                                               ; preds = %88, %89, %._crit_edge
+88:                                               ; preds = %86, %87, %._crit_edge
   ret void
 }
 
@@ -16935,16 +16935,16 @@ define void @ImageDraw(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @ImageResize(ptr noundef nonnull %8, i32 noundef %56, i32 noundef %.pre-phi272)
   %63 = load <2 x i32>, ptr %.0187.sroa.gep192, align 8
-  %64 = sitofp <2 x i32> %63 to <2 x float>
-  %65 = extractelement <2 x i32> %63, i64 0
+  %64 = load i32, ptr %.0187.sroa.gep192, align 8
+  %65 = sitofp <2 x i32> %63 to <2 x float>
   br label %66
 
 66:                                               ; preds = %62, %57
-  %67 = phi i32 [ %65, %62 ], [ %22, %57 ]
+  %67 = phi i32 [ %64, %62 ], [ %22, %57 ]
   %.0188 = phi i1 [ true, %62 ], [ false, %57 ]
   %.0187.sroa.phi200 = phi ptr [ %8, %62 ], [ %1, %57 ]
   %.sroa.0101.2 = phi <2 x float> [ zeroinitializer, %62 ], [ %.sroa.0101.1, %57 ]
-  %.sroa.20.4 = phi <2 x float> [ %64, %62 ], [ %.sroa.20.3, %57 ]
+  %.sroa.20.4 = phi <2 x float> [ %65, %62 ], [ %.sroa.20.3, %57 ]
   %.0187.sroa.phi200.sroa.phi = getelementptr inbounds i8, ptr %.0187.sroa.phi200, i64 20
   %.sroa.074.0.vec.extract = extractelement <2 x float> %4, i64 0
   %68 = fcmp olt float %.sroa.074.0.vec.extract, 0.000000e+00
@@ -17662,26 +17662,28 @@ GetPixelDataSize.exit:                            ; preds = %75, %.thread
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @SetPixelColor(ptr nocapture noundef writeonly %0, i32 %1, i32 noundef %2) local_unnamed_addr #16 {
+  %.sroa.039.0.extract.trunc = trunc i32 %1 to i8
   %.sroa.8.0.extract.shift = lshr i32 %1, 8
   %.sroa.8.0.extract.trunc = trunc i32 %.sroa.8.0.extract.shift to i8
   %.sroa.15.0.extract.shift = lshr i32 %1, 16
-  %4 = trunc i32 %1 to i8
-  %5 = trunc i32 %.sroa.15.0.extract.shift to i8
+  %.sroa.15.0.extract.trunc = trunc i32 %.sroa.15.0.extract.shift to i8
   %.sroa.22.0.extract.shift = lshr i32 %1, 24
   %.sroa.22.0.extract.trunc = trunc nuw i32 %.sroa.22.0.extract.shift to i8
-  switch i32 %2, label %117 [
-    i32 1, label %6
+  switch i32 %2, label %123 [
+    i32 1, label %4
     i32 2, label %21
     i32 3, label %36
-    i32 5, label %56
-    i32 6, label %82
-    i32 4, label %110
-    i32 7, label %113
+    i32 5, label %58
+    i32 6, label %86
+    i32 4, label %116
+    i32 7, label %119
   ]
 
-6:                                                ; preds = %3
+4:                                                ; preds = %3
+  %5 = trunc i32 %.sroa.15.0.extract.shift to i8
+  %6 = trunc i32 %1 to i8
   %7 = insertelement <2 x i8> poison, i8 %5, i64 0
-  %8 = insertelement <2 x i8> %7, i8 %4, i64 1
+  %8 = insertelement <2 x i8> %7, i8 %6, i64 1
   %9 = uitofp <2 x i8> %8 to <2 x float>
   %10 = uitofp i8 %.sroa.8.0.extract.trunc to float
   %11 = fdiv float %10, 2.550000e+02
@@ -17695,14 +17697,14 @@ define void @SetPixelColor(ptr nocapture noundef writeonly %0, i32 %1, i32 nound
   %19 = fmul float %18, 2.550000e+02
   %20 = fptoui float %19 to i8
   store i8 %20, ptr %0, align 1
-  br label %117
+  br label %123
 
 21:                                               ; preds = %3
-  %22 = uitofp i8 %4 to float
+  %22 = uitofp i8 %.sroa.039.0.extract.trunc to float
   %23 = fdiv float %22, 2.550000e+02
   %24 = uitofp i8 %.sroa.8.0.extract.trunc to float
   %25 = fdiv float %24, 2.550000e+02
-  %26 = uitofp i8 %5 to float
+  %26 = uitofp i8 %.sroa.15.0.extract.trunc to float
   %27 = fdiv float %26, 2.550000e+02
   %28 = fmul float %23, 0x3FD322D0E0000000
   %29 = fmul float %25, 0x3FE2C8B440000000
@@ -17714,110 +17716,116 @@ define void @SetPixelColor(ptr nocapture noundef writeonly %0, i32 %1, i32 nound
   store i8 %34, ptr %0, align 1
   %35 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %.sroa.22.0.extract.trunc, ptr %35, align 1
-  br label %117
+  br label %123
 
 36:                                               ; preds = %3
-  %37 = uitofp i8 %5 to float
-  %38 = fdiv float %37, 2.550000e+02
-  %39 = fmul float %38, 3.100000e+01
-  %40 = tail call float @llvm.round.f32(float %39)
-  %41 = fptoui float %40 to i8
-  %42 = insertelement <2 x i8> poison, i8 %4, i64 0
-  %43 = insertelement <2 x i8> %42, i8 %.sroa.8.0.extract.trunc, i64 1
-  %44 = uitofp <2 x i8> %43 to <2 x float>
-  %45 = fdiv <2 x float> %44, <float 2.550000e+02, float 2.550000e+02>
-  %46 = fmul <2 x float> %45, <float 3.100000e+01, float 6.300000e+01>
-  %47 = tail call <2 x float> @llvm.round.v2f32(<2 x float> %46)
-  %48 = fptoui <2 x float> %47 to <2 x i8>
-  %49 = zext <2 x i8> %48 to <2 x i16>
-  %50 = shl <2 x i16> %49, <i16 11, i16 5>
-  %51 = zext i8 %41 to i16
-  %52 = extractelement <2 x i16> %50, i64 0
-  %53 = or disjoint i16 %52, %51
-  %54 = extractelement <2 x i16> %50, i64 1
-  %55 = or i16 %53, %54
-  store i16 %55, ptr %0, align 2
-  br label %117
+  %37 = trunc i32 %1 to i8
+  %38 = insertelement <2 x i8> poison, i8 %37, i64 0
+  %39 = trunc i32 %.sroa.8.0.extract.shift to i8
+  %40 = insertelement <2 x i8> %38, i8 %39, i64 1
+  %41 = uitofp <2 x i8> %40 to <2 x float>
+  %42 = uitofp i8 %.sroa.15.0.extract.trunc to float
+  %43 = fdiv float %42, 2.550000e+02
+  %44 = fmul float %43, 3.100000e+01
+  %45 = tail call float @llvm.round.f32(float %44)
+  %46 = fptoui float %45 to i8
+  %47 = fdiv <2 x float> %41, <float 2.550000e+02, float 2.550000e+02>
+  %48 = fmul <2 x float> %47, <float 3.100000e+01, float 6.300000e+01>
+  %49 = tail call <2 x float> @llvm.round.v2f32(<2 x float> %48)
+  %50 = fptoui <2 x float> %49 to <2 x i8>
+  %51 = zext <2 x i8> %50 to <2 x i16>
+  %52 = shl <2 x i16> %51, <i16 11, i16 5>
+  %53 = zext i8 %46 to i16
+  %54 = extractelement <2 x i16> %52, i64 0
+  %55 = or disjoint i16 %54, %53
+  %56 = extractelement <2 x i16> %52, i64 1
+  %57 = or i16 %55, %56
+  store i16 %57, ptr %0, align 2
+  br label %123
 
-56:                                               ; preds = %3
-  %57 = uitofp i8 %4 to float
-  %58 = fdiv float %57, 2.550000e+02
-  %59 = uitofp i8 %.sroa.22.0.extract.trunc to float
-  %60 = fdiv float %59, 2.550000e+02
-  %61 = fmul float %58, 3.100000e+01
-  %62 = tail call float @llvm.round.f32(float %61)
-  %63 = fptoui float %62 to i8
-  %64 = fcmp ogt float %60, 0x3FC9191920000000
-  %65 = zext i8 %63 to i16
-  %66 = shl i16 %65, 11
-  %67 = insertelement <2 x i8> poison, i8 %.sroa.8.0.extract.trunc, i64 0
-  %68 = insertelement <2 x i8> %67, i8 %5, i64 1
-  %69 = uitofp <2 x i8> %68 to <2 x float>
-  %70 = fdiv <2 x float> %69, <float 2.550000e+02, float 2.550000e+02>
-  %71 = fmul <2 x float> %70, <float 3.100000e+01, float 3.100000e+01>
-  %72 = tail call <2 x float> @llvm.round.v2f32(<2 x float> %71)
-  %73 = fptoui <2 x float> %72 to <2 x i8>
-  %74 = zext <2 x i8> %73 to <2 x i16>
-  %75 = shl nuw nsw <2 x i16> %74, <i16 6, i16 1>
-  %76 = zext i1 %64 to i16
-  %77 = or disjoint i16 %66, %76
-  %78 = extractelement <2 x i16> %75, i64 0
-  %79 = or i16 %77, %78
-  %80 = extractelement <2 x i16> %75, i64 1
-  %81 = or i16 %79, %80
-  store i16 %81, ptr %0, align 2
-  br label %117
+58:                                               ; preds = %3
+  %59 = trunc i32 %1 to i8
+  %60 = insertelement <2 x i8> poison, i8 %59, i64 0
+  %61 = trunc i32 %.sroa.8.0.extract.shift to i8
+  %62 = insertelement <2 x i8> %60, i8 %61, i64 1
+  %63 = uitofp <2 x i8> %62 to <2 x float>
+  %64 = uitofp i8 %.sroa.15.0.extract.trunc to float
+  %65 = fdiv float %64, 2.550000e+02
+  %66 = uitofp i8 %.sroa.22.0.extract.trunc to float
+  %67 = fdiv float %66, 2.550000e+02
+  %68 = fmul float %65, 3.100000e+01
+  %69 = tail call float @llvm.round.f32(float %68)
+  %70 = fptoui float %69 to i8
+  %71 = fcmp ogt float %67, 0x3FC9191920000000
+  %72 = fdiv <2 x float> %63, <float 2.550000e+02, float 2.550000e+02>
+  %73 = fmul <2 x float> %72, <float 3.100000e+01, float 3.100000e+01>
+  %74 = tail call <2 x float> @llvm.round.v2f32(<2 x float> %73)
+  %75 = fptoui <2 x float> %74 to <2 x i8>
+  %76 = zext <2 x i8> %75 to <2 x i16>
+  %77 = shl <2 x i16> %76, <i16 11, i16 6>
+  %78 = zext i8 %70 to i16
+  %79 = shl nuw nsw i16 %78, 1
+  %80 = zext i1 %71 to i16
+  %81 = extractelement <2 x i16> %77, i64 0
+  %82 = or disjoint i16 %81, %80
+  %83 = extractelement <2 x i16> %77, i64 1
+  %84 = or i16 %82, %83
+  %85 = or i16 %84, %79
+  store i16 %85, ptr %0, align 2
+  br label %123
 
-82:                                               ; preds = %3
-  %83 = uitofp i8 %4 to float
-  %84 = fdiv float %83, 2.550000e+02
-  %85 = uitofp i8 %.sroa.22.0.extract.trunc to float
-  %86 = fdiv float %85, 2.550000e+02
-  %87 = fmul float %84, 1.500000e+01
-  %88 = tail call float @llvm.round.f32(float %87)
-  %89 = fptoui float %88 to i8
-  %90 = fmul float %86, 1.500000e+01
-  %91 = tail call float @llvm.round.f32(float %90)
-  %92 = fptoui float %91 to i8
-  %93 = zext i8 %89 to i16
-  %94 = shl i16 %93, 12
-  %95 = insertelement <2 x i8> poison, i8 %.sroa.8.0.extract.trunc, i64 0
-  %96 = insertelement <2 x i8> %95, i8 %5, i64 1
-  %97 = uitofp <2 x i8> %96 to <2 x float>
-  %98 = fdiv <2 x float> %97, <float 2.550000e+02, float 2.550000e+02>
-  %99 = fmul <2 x float> %98, <float 1.500000e+01, float 1.500000e+01>
-  %100 = tail call <2 x float> @llvm.round.v2f32(<2 x float> %99)
-  %101 = fptoui <2 x float> %100 to <2 x i8>
-  %102 = zext <2 x i8> %101 to <2 x i16>
-  %103 = shl nuw <2 x i16> %102, <i16 8, i16 4>
-  %104 = zext i8 %92 to i16
-  %105 = or disjoint i16 %94, %104
-  %106 = extractelement <2 x i16> %103, i64 0
-  %107 = or i16 %105, %106
-  %108 = extractelement <2 x i16> %103, i64 1
-  %109 = or i16 %107, %108
-  store i16 %109, ptr %0, align 2
-  br label %117
+86:                                               ; preds = %3
+  %87 = trunc i32 %1 to i8
+  %88 = insertelement <2 x i8> poison, i8 %87, i64 0
+  %89 = trunc i32 %.sroa.8.0.extract.shift to i8
+  %90 = insertelement <2 x i8> %88, i8 %89, i64 1
+  %91 = uitofp <2 x i8> %90 to <2 x float>
+  %92 = uitofp i8 %.sroa.15.0.extract.trunc to float
+  %93 = fdiv float %92, 2.550000e+02
+  %94 = uitofp i8 %.sroa.22.0.extract.trunc to float
+  %95 = fdiv float %94, 2.550000e+02
+  %96 = fmul float %93, 1.500000e+01
+  %97 = tail call float @llvm.round.f32(float %96)
+  %98 = fptoui float %97 to i8
+  %99 = fmul float %95, 1.500000e+01
+  %100 = tail call float @llvm.round.f32(float %99)
+  %101 = fptoui float %100 to i8
+  %102 = fdiv <2 x float> %91, <float 2.550000e+02, float 2.550000e+02>
+  %103 = fmul <2 x float> %102, <float 1.500000e+01, float 1.500000e+01>
+  %104 = tail call <2 x float> @llvm.round.v2f32(<2 x float> %103)
+  %105 = fptoui <2 x float> %104 to <2 x i8>
+  %106 = zext <2 x i8> %105 to <2 x i16>
+  %107 = shl <2 x i16> %106, <i16 12, i16 8>
+  %108 = zext i8 %98 to i16
+  %109 = shl nuw nsw i16 %108, 4
+  %110 = zext i8 %101 to i16
+  %111 = extractelement <2 x i16> %107, i64 0
+  %112 = or disjoint i16 %111, %110
+  %113 = extractelement <2 x i16> %107, i64 1
+  %114 = or i16 %112, %113
+  %115 = or i16 %114, %109
+  store i16 %115, ptr %0, align 2
+  br label %123
 
-110:                                              ; preds = %3
-  store i8 %4, ptr %0, align 1
-  %111 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %.sroa.8.0.extract.trunc, ptr %111, align 1
-  %112 = getelementptr inbounds i8, ptr %0, i64 2
-  store i8 %5, ptr %112, align 1
-  br label %117
+116:                                              ; preds = %3
+  store i8 %.sroa.039.0.extract.trunc, ptr %0, align 1
+  %117 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %.sroa.8.0.extract.trunc, ptr %117, align 1
+  %118 = getelementptr inbounds i8, ptr %0, i64 2
+  store i8 %.sroa.15.0.extract.trunc, ptr %118, align 1
+  br label %123
 
-113:                                              ; preds = %3
-  store i8 %4, ptr %0, align 1
-  %114 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %.sroa.8.0.extract.trunc, ptr %114, align 1
-  %115 = getelementptr inbounds i8, ptr %0, i64 2
-  store i8 %5, ptr %115, align 1
-  %116 = getelementptr inbounds i8, ptr %0, i64 3
-  store i8 %.sroa.22.0.extract.trunc, ptr %116, align 1
-  br label %117
+119:                                              ; preds = %3
+  store i8 %.sroa.039.0.extract.trunc, ptr %0, align 1
+  %120 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %.sroa.8.0.extract.trunc, ptr %120, align 1
+  %121 = getelementptr inbounds i8, ptr %0, i64 2
+  store i8 %.sroa.15.0.extract.trunc, ptr %121, align 1
+  %122 = getelementptr inbounds i8, ptr %0, i64 3
+  store i8 %.sroa.22.0.extract.trunc, ptr %122, align 1
+  br label %123
 
-117:                                              ; preds = %3, %113, %110, %82, %56, %36, %21, %6
+123:                                              ; preds = %3, %119, %116, %86, %58, %36, %21, %4
   ret void
 }
 
@@ -18117,8 +18125,11 @@ define { <2 x float>, <2 x float> } @GetImageAlphaBorder(ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define void @ImageAlphaClear(ptr nocapture noundef readonly %0, i32 %1, float noundef %2) local_unnamed_addr #4 {
+  %.sroa.0.0.extract.trunc = trunc i32 %1 to i8
   %.sroa.7.0.extract.shift = lshr i32 %1, 8
+  %.sroa.7.0.extract.trunc = trunc i32 %.sroa.7.0.extract.shift to i8
   %.sroa.12.0.extract.shift = lshr i32 %1, 16
+  %.sroa.12.0.extract.trunc = trunc i32 %.sroa.12.0.extract.shift to i8
   %.sroa.17.0.extract.shift = lshr i32 %1, 24
   %4 = trunc i32 %1 to i8
   %5 = trunc nuw i32 %.sroa.17.0.extract.shift to i8
@@ -18128,6 +18139,7 @@ define void @ImageAlphaClear(ptr nocapture noundef readonly %0, i32 %1, float no
   %9 = trunc i32 %.sroa.7.0.extract.shift to i8
   %10 = insertelement <4 x i8> %8, i8 %9, i64 2
   %11 = insertelement <4 x i8> %10, i8 %4, i64 3
+  %.sroa.17.0.extract.trunc = trunc nuw i32 %.sroa.17.0.extract.shift to i8
   %12 = load ptr, ptr %0, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit, label %14
@@ -18306,13 +18318,13 @@ define void @ImageAlphaClear(ptr nocapture noundef readonly %0, i32 %1, float no
   br i1 %154, label %.lr.ph126, label %.loopexit
 
 .lr.ph126:                                        ; preds = %.preheader
-  %155 = uitofp i8 %4 to float
+  %155 = uitofp i8 %.sroa.0.0.extract.trunc to float
   %156 = fdiv float %155, 2.550000e+02
-  %157 = uitofp i8 %9 to float
+  %157 = uitofp i8 %.sroa.7.0.extract.trunc to float
   %158 = fdiv float %157, 2.550000e+02
-  %159 = uitofp i8 %7 to float
+  %159 = uitofp i8 %.sroa.12.0.extract.trunc to float
   %160 = fdiv float %159, 2.550000e+02
-  %161 = uitofp i8 %5 to float
+  %161 = uitofp i8 %.sroa.17.0.extract.trunc to float
   %162 = fdiv float %161, 2.550000e+02
   br label %308
 
@@ -18338,10 +18350,10 @@ define void @ImageAlphaClear(ptr nocapture noundef readonly %0, i32 %1, float no
 
 176:                                              ; preds = %.lr.ph134
   %177 = getelementptr i8, ptr %174, i64 -1
-  store i8 %4, ptr %177, align 1
+  store i8 %.sroa.0.0.extract.trunc, ptr %177, align 1
   %178 = load ptr, ptr %0, align 8
   %179 = getelementptr inbounds i8, ptr %178, i64 %indvars.iv153
-  store i8 %5, ptr %179, align 1
+  store i8 %.sroa.17.0.extract.trunc, ptr %179, align 1
   %.pre163 = load i32, ptr %15, align 8
   %.pre164 = load i32, ptr %19, align 4
   br label %180
@@ -18365,15 +18377,15 @@ define void @ImageAlphaClear(ptr nocapture noundef readonly %0, i32 %1, float no
 
 .lr.ph132:                                        ; preds = %187
   %.lobit = lshr i32 %1, 31
-  %192 = uitofp i8 %7 to float
+  %192 = uitofp i8 %.sroa.12.0.extract.trunc to float
   %193 = fmul float %192, 3.100000e+01
   %194 = tail call float @llvm.round.f32(float %193)
   %195 = fptoui float %194 to i8
-  %196 = uitofp i8 %9 to float
+  %196 = uitofp i8 %.sroa.7.0.extract.trunc to float
   %197 = fmul float %196, 3.100000e+01
   %198 = tail call float @llvm.round.f32(float %197)
   %199 = fptoui float %198 to i8
-  %200 = uitofp i8 %4 to float
+  %200 = uitofp i8 %.sroa.0.0.extract.trunc to float
   %201 = fmul float %200, 3.100000e+01
   %202 = tail call float @llvm.round.f32(float %201)
   %203 = fptoui float %202 to i8
@@ -18425,19 +18437,19 @@ define void @ImageAlphaClear(ptr nocapture noundef readonly %0, i32 %1, float no
   br i1 %234, label %.lr.ph130, label %.loopexit
 
 .lr.ph130:                                        ; preds = %230
-  %235 = uitofp i8 %5 to float
+  %235 = uitofp i8 %.sroa.17.0.extract.trunc to float
   %236 = fmul float %235, 1.500000e+01
   %237 = tail call float @llvm.round.f32(float %236)
   %238 = fptoui float %237 to i8
-  %239 = uitofp i8 %7 to float
+  %239 = uitofp i8 %.sroa.12.0.extract.trunc to float
   %240 = fmul float %239, 1.500000e+01
   %241 = tail call float @llvm.round.f32(float %240)
   %242 = fptoui float %241 to i8
-  %243 = uitofp i8 %9 to float
+  %243 = uitofp i8 %.sroa.7.0.extract.trunc to float
   %244 = fmul float %243, 1.500000e+01
   %245 = tail call float @llvm.round.f32(float %244)
   %246 = fptoui float %245 to i8
-  %247 = uitofp i8 %4 to float
+  %247 = uitofp i8 %.sroa.0.0.extract.trunc to float
   %248 = fmul float %247, 1.500000e+01
   %249 = tail call float @llvm.round.f32(float %248)
   %250 = fptoui float %249 to i8
@@ -18504,18 +18516,18 @@ define void @ImageAlphaClear(ptr nocapture noundef readonly %0, i32 %1, float no
 
 291:                                              ; preds = %.lr.ph128
   %292 = getelementptr i8, ptr %289, i64 -3
-  store i8 %4, ptr %292, align 1
+  store i8 %.sroa.0.0.extract.trunc, ptr %292, align 1
   %293 = load ptr, ptr %0, align 8
   %294 = getelementptr i8, ptr %293, i64 %indvars.iv144
   %295 = getelementptr i8, ptr %294, i64 -2
-  store i8 %9, ptr %295, align 1
+  store i8 %.sroa.7.0.extract.trunc, ptr %295, align 1
   %296 = load ptr, ptr %0, align 8
   %297 = getelementptr i8, ptr %296, i64 %indvars.iv144
   %298 = getelementptr i8, ptr %297, i64 -1
-  store i8 %7, ptr %298, align 1
+  store i8 %.sroa.12.0.extract.trunc, ptr %298, align 1
   %299 = load ptr, ptr %0, align 8
   %300 = getelementptr inbounds i8, ptr %299, i64 %indvars.iv144
-  store i8 %5, ptr %300, align 1
+  store i8 %.sroa.17.0.extract.trunc, ptr %300, align 1
   %.pre157 = load i32, ptr %15, align 8
   %.pre158 = load i32, ptr %19, align 4
   br label %301
@@ -21872,461 +21884,481 @@ GetPixelDataSize.exit:                            ; preds = %28, %.thread
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ImageDrawPixel(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 %3) local_unnamed_addr #31 {
+  %.sroa.0172.0.extract.trunc = trunc i32 %3 to i8
   %.sroa.14.0.extract.shift = lshr i32 %3, 8
+  %5 = trunc i32 %3 to i8
+  %6 = insertelement <2 x i8> poison, i8 %5, i64 0
+  %7 = trunc i32 %.sroa.14.0.extract.shift to i8
+  %8 = insertelement <2 x i8> %6, i8 %7, i64 1
+  %9 = trunc i32 %3 to i8
+  %10 = insertelement <2 x i8> poison, i8 %9, i64 0
+  %11 = trunc i32 %.sroa.14.0.extract.shift to i8
+  %12 = insertelement <2 x i8> %10, i8 %11, i64 1
+  %13 = trunc i32 %3 to i8
+  %14 = insertelement <2 x i8> poison, i8 %13, i64 0
+  %15 = trunc i32 %.sroa.14.0.extract.shift to i8
+  %16 = insertelement <2 x i8> %14, i8 %15, i64 1
   %.sroa.14.0.extract.trunc = trunc i32 %.sroa.14.0.extract.shift to i8
   %.sroa.27.0.extract.shift = lshr i32 %3, 16
-  %5 = trunc i32 %3 to i8
-  %6 = trunc i32 %.sroa.27.0.extract.shift to i8
-  %7 = insertelement <2 x i8> poison, i8 %6, i64 0
-  %8 = insertelement <2 x i8> %7, i8 %5, i64 1
+  %17 = trunc i32 %3 to i8
+  %18 = trunc i32 %.sroa.27.0.extract.shift to i8
+  %19 = insertelement <2 x i8> poison, i8 %18, i64 0
+  %20 = insertelement <2 x i8> %19, i8 %17, i64 1
+  %21 = trunc i32 %3 to i8
+  %22 = trunc i32 %.sroa.27.0.extract.shift to i8
+  %23 = insertelement <2 x i8> poison, i8 %22, i64 0
+  %24 = insertelement <2 x i8> %23, i8 %21, i64 1
+  %25 = trunc i32 %3 to i8
+  %26 = trunc i32 %.sroa.27.0.extract.shift to i8
+  %27 = insertelement <2 x i8> poison, i8 %26, i64 0
+  %28 = insertelement <2 x i8> %27, i8 %25, i64 1
+  %29 = trunc i32 %3 to i8
+  %30 = trunc i32 %.sroa.27.0.extract.shift to i8
+  %31 = insertelement <2 x i8> poison, i8 %30, i64 0
+  %32 = insertelement <2 x i8> %31, i8 %29, i64 1
+  %.sroa.27.0.extract.trunc = trunc i32 %.sroa.27.0.extract.shift to i8
   %.sroa.40.0.extract.shift = lshr i32 %3, 24
   %.sroa.40.0.extract.trunc = trunc nuw i32 %.sroa.40.0.extract.shift to i8
-  %9 = load ptr, ptr %0, align 8
-  %10 = icmp eq ptr %9, null
-  %11 = icmp slt i32 %1, 0
-  %or.cond = or i1 %11, %10
-  br i1 %or.cond, label %374, label %12
+  %33 = load ptr, ptr %0, align 8
+  %34 = icmp eq ptr %33, null
+  %35 = icmp slt i32 %1, 0
+  %or.cond = or i1 %35, %34
+  br i1 %or.cond, label %392, label %36
 
-12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = load i32, ptr %13, align 8
-  %15 = icmp sle i32 %14, %1
-  %16 = icmp slt i32 %2, 0
-  %or.cond3 = or i1 %16, %15
-  br i1 %or.cond3, label %374, label %17
+36:                                               ; preds = %4
+  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = load i32, ptr %37, align 8
+  %39 = icmp sle i32 %38, %1
+  %40 = icmp slt i32 %2, 0
+  %or.cond3 = or i1 %40, %39
+  br i1 %or.cond3, label %392, label %41
 
-17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 12
-  %19 = load i32, ptr %18, align 4
-  %.not = icmp sgt i32 %19, %2
-  br i1 %.not, label %20, label %374
+41:                                               ; preds = %36
+  %42 = getelementptr inbounds i8, ptr %0, i64 12
+  %43 = load i32, ptr %42, align 4
+  %.not = icmp sgt i32 %43, %2
+  br i1 %.not, label %44, label %392
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 20
-  %22 = load i32, ptr %21, align 4
-  switch i32 %22, label %374 [
-    i32 1, label %23
-    i32 2, label %40
-    i32 3, label %66
-    i32 5, label %90
-    i32 6, label %120
-    i32 4, label %152
-    i32 7, label %174
-    i32 8, label %204
-    i32 9, label %219
-    i32 10, label %247
-    i32 11, label %285
-    i32 12, label %301
-    i32 13, label %332
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds i8, ptr %0, i64 20
+  %46 = load i32, ptr %45, align 4
+  switch i32 %46, label %392 [
+    i32 1, label %47
+    i32 2, label %64
+    i32 3, label %90
+    i32 5, label %112
+    i32 6, label %140
+    i32 4, label %170
+    i32 7, label %192
+    i32 8, label %222
+    i32 9, label %237
+    i32 10, label %265
+    i32 11, label %303
+    i32 12, label %319
+    i32 13, label %350
   ]
 
-23:                                               ; preds = %20
-  %24 = uitofp <2 x i8> %8 to <2 x float>
-  %25 = uitofp i8 %.sroa.14.0.extract.trunc to float
-  %26 = fdiv float %25, 2.550000e+02
-  %27 = fmul float %26, 0x3FE2C8B440000000
-  %28 = fdiv <2 x float> %24, <float 2.550000e+02, float 2.550000e+02>
-  %29 = fmul <2 x float> %28, <float 0x3FBD2F1AA0000000, float 0x3FD322D0E0000000>
-  %30 = extractelement <2 x float> %29, i64 1
-  %31 = fadd float %30, %27
-  %32 = extractelement <2 x float> %29, i64 0
-  %33 = fadd float %32, %31
-  %34 = fmul float %33, 2.550000e+02
-  %35 = fptoui float %34 to i8
-  %36 = mul nsw i32 %14, %2
-  %37 = add nuw nsw i32 %36, %1
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds i8, ptr %9, i64 %38
-  store i8 %35, ptr %39, align 1
-  br label %374
+47:                                               ; preds = %44
+  %48 = uitofp <2 x i8> %20 to <2 x float>
+  %49 = uitofp i8 %.sroa.14.0.extract.trunc to float
+  %50 = fdiv float %49, 2.550000e+02
+  %51 = fmul float %50, 0x3FE2C8B440000000
+  %52 = fdiv <2 x float> %48, <float 2.550000e+02, float 2.550000e+02>
+  %53 = fmul <2 x float> %52, <float 0x3FBD2F1AA0000000, float 0x3FD322D0E0000000>
+  %54 = extractelement <2 x float> %53, i64 1
+  %55 = fadd float %54, %51
+  %56 = extractelement <2 x float> %53, i64 0
+  %57 = fadd float %56, %55
+  %58 = fmul float %57, 2.550000e+02
+  %59 = fptoui float %58 to i8
+  %60 = mul nsw i32 %38, %2
+  %61 = add nuw nsw i32 %60, %1
+  %62 = zext nneg i32 %61 to i64
+  %63 = getelementptr inbounds i8, ptr %33, i64 %62
+  store i8 %59, ptr %63, align 1
+  br label %392
 
-40:                                               ; preds = %20
-  %41 = uitofp i8 %.sroa.14.0.extract.trunc to float
-  %42 = fdiv float %41, 2.550000e+02
-  %43 = fmul float %42, 0x3FE2C8B440000000
-  %44 = uitofp <2 x i8> %8 to <2 x float>
-  %45 = fdiv <2 x float> %44, <float 2.550000e+02, float 2.550000e+02>
-  %46 = fmul <2 x float> %45, <float 0x3FBD2F1AA0000000, float 0x3FD322D0E0000000>
-  %47 = extractelement <2 x float> %46, i64 1
-  %48 = fadd float %47, %43
-  %49 = extractelement <2 x float> %46, i64 0
-  %50 = fadd float %49, %48
-  %51 = fmul float %50, 2.550000e+02
-  %52 = fptoui float %51 to i8
-  %53 = mul nsw i32 %14, %2
-  %54 = add nuw nsw i32 %53, %1
-  %55 = shl nuw nsw i32 %54, 1
-  %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds i8, ptr %9, i64 %56
-  store i8 %52, ptr %57, align 1
-  %58 = load ptr, ptr %0, align 8
-  %59 = load i32, ptr %13, align 8
-  %60 = mul nsw i32 %59, %2
-  %61 = add nsw i32 %60, %1
-  %62 = shl nsw i32 %61, 1
-  %63 = or disjoint i32 %62, 1
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i8, ptr %58, i64 %64
-  store i8 %.sroa.40.0.extract.trunc, ptr %65, align 1
-  br label %374
+64:                                               ; preds = %44
+  %65 = uitofp <2 x i8> %24 to <2 x float>
+  %66 = uitofp i8 %.sroa.14.0.extract.trunc to float
+  %67 = fdiv float %66, 2.550000e+02
+  %68 = fmul float %67, 0x3FE2C8B440000000
+  %69 = fdiv <2 x float> %65, <float 2.550000e+02, float 2.550000e+02>
+  %70 = fmul <2 x float> %69, <float 0x3FBD2F1AA0000000, float 0x3FD322D0E0000000>
+  %71 = extractelement <2 x float> %70, i64 1
+  %72 = fadd float %71, %68
+  %73 = extractelement <2 x float> %70, i64 0
+  %74 = fadd float %73, %72
+  %75 = fmul float %74, 2.550000e+02
+  %76 = fptoui float %75 to i8
+  %77 = mul nsw i32 %38, %2
+  %78 = add nuw nsw i32 %77, %1
+  %79 = shl nuw nsw i32 %78, 1
+  %80 = zext nneg i32 %79 to i64
+  %81 = getelementptr inbounds i8, ptr %33, i64 %80
+  store i8 %76, ptr %81, align 1
+  %82 = load ptr, ptr %0, align 8
+  %83 = load i32, ptr %37, align 8
+  %84 = mul nsw i32 %83, %2
+  %85 = add nsw i32 %84, %1
+  %86 = shl nsw i32 %85, 1
+  %87 = or disjoint i32 %86, 1
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds i8, ptr %82, i64 %88
+  store i8 %.sroa.40.0.extract.trunc, ptr %89, align 1
+  br label %392
 
-66:                                               ; preds = %20
-  %67 = uitofp i8 %6 to float
-  %68 = fdiv float %67, 2.550000e+02
-  %69 = fmul float %68, 3.100000e+01
-  %70 = tail call float @llvm.round.f32(float %69)
-  %71 = fptoui float %70 to i8
-  %72 = insertelement <2 x i8> poison, i8 %5, i64 0
-  %73 = insertelement <2 x i8> %72, i8 %.sroa.14.0.extract.trunc, i64 1
-  %74 = uitofp <2 x i8> %73 to <2 x float>
-  %75 = fdiv <2 x float> %74, <float 2.550000e+02, float 2.550000e+02>
-  %76 = fmul <2 x float> %75, <float 3.100000e+01, float 6.300000e+01>
-  %77 = tail call <2 x float> @llvm.round.v2f32(<2 x float> %76)
-  %78 = fptoui <2 x float> %77 to <2 x i8>
-  %79 = zext <2 x i8> %78 to <2 x i16>
-  %80 = shl <2 x i16> %79, <i16 11, i16 5>
-  %81 = zext i8 %71 to i16
-  %82 = extractelement <2 x i16> %80, i64 0
-  %83 = or disjoint i16 %82, %81
-  %84 = extractelement <2 x i16> %80, i64 1
-  %85 = or i16 %83, %84
-  %86 = mul nsw i32 %14, %2
-  %87 = add nuw nsw i32 %86, %1
-  %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds i16, ptr %9, i64 %88
-  store i16 %85, ptr %89, align 2
-  br label %374
+90:                                               ; preds = %44
+  %91 = uitofp <2 x i8> %8 to <2 x float>
+  %92 = uitofp i8 %.sroa.27.0.extract.trunc to float
+  %93 = fdiv float %92, 2.550000e+02
+  %94 = fmul float %93, 3.100000e+01
+  %95 = tail call float @llvm.round.f32(float %94)
+  %96 = fptoui float %95 to i8
+  %97 = fdiv <2 x float> %91, <float 2.550000e+02, float 2.550000e+02>
+  %98 = fmul <2 x float> %97, <float 3.100000e+01, float 6.300000e+01>
+  %99 = tail call <2 x float> @llvm.round.v2f32(<2 x float> %98)
+  %100 = fptoui <2 x float> %99 to <2 x i8>
+  %101 = zext <2 x i8> %100 to <2 x i16>
+  %102 = shl <2 x i16> %101, <i16 11, i16 5>
+  %103 = zext i8 %96 to i16
+  %104 = extractelement <2 x i16> %102, i64 0
+  %105 = or disjoint i16 %104, %103
+  %106 = extractelement <2 x i16> %102, i64 1
+  %107 = or i16 %105, %106
+  %108 = mul nsw i32 %38, %2
+  %109 = add nuw nsw i32 %108, %1
+  %110 = zext nneg i32 %109 to i64
+  %111 = getelementptr inbounds i16, ptr %33, i64 %110
+  store i16 %107, ptr %111, align 2
+  br label %392
 
-90:                                               ; preds = %20
-  %91 = uitofp i8 %5 to float
-  %92 = fdiv float %91, 2.550000e+02
-  %93 = uitofp i8 %.sroa.40.0.extract.trunc to float
-  %94 = fdiv float %93, 2.550000e+02
-  %95 = fmul float %92, 3.100000e+01
-  %96 = tail call float @llvm.round.f32(float %95)
-  %97 = fptoui float %96 to i8
-  %98 = fcmp ogt float %94, 0x3FC9191920000000
-  %99 = zext i8 %97 to i16
-  %100 = shl i16 %99, 11
-  %101 = insertelement <2 x i8> poison, i8 %.sroa.14.0.extract.trunc, i64 0
-  %102 = insertelement <2 x i8> %101, i8 %6, i64 1
-  %103 = uitofp <2 x i8> %102 to <2 x float>
-  %104 = fdiv <2 x float> %103, <float 2.550000e+02, float 2.550000e+02>
-  %105 = fmul <2 x float> %104, <float 3.100000e+01, float 3.100000e+01>
-  %106 = tail call <2 x float> @llvm.round.v2f32(<2 x float> %105)
-  %107 = fptoui <2 x float> %106 to <2 x i8>
-  %108 = zext <2 x i8> %107 to <2 x i16>
-  %109 = shl nuw nsw <2 x i16> %108, <i16 6, i16 1>
-  %110 = zext i1 %98 to i16
-  %111 = or disjoint i16 %100, %110
-  %112 = extractelement <2 x i16> %109, i64 0
-  %113 = or i16 %111, %112
-  %114 = extractelement <2 x i16> %109, i64 1
-  %115 = or i16 %113, %114
-  %116 = mul nsw i32 %14, %2
-  %117 = add nuw nsw i32 %116, %1
-  %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds i16, ptr %9, i64 %118
-  store i16 %115, ptr %119, align 2
-  br label %374
+112:                                              ; preds = %44
+  %113 = uitofp <2 x i8> %12 to <2 x float>
+  %114 = uitofp i8 %.sroa.27.0.extract.trunc to float
+  %115 = fdiv float %114, 2.550000e+02
+  %116 = uitofp i8 %.sroa.40.0.extract.trunc to float
+  %117 = fdiv float %116, 2.550000e+02
+  %118 = fmul float %115, 3.100000e+01
+  %119 = tail call float @llvm.round.f32(float %118)
+  %120 = fptoui float %119 to i8
+  %121 = fcmp ogt float %117, 0x3FC9191920000000
+  %122 = fdiv <2 x float> %113, <float 2.550000e+02, float 2.550000e+02>
+  %123 = fmul <2 x float> %122, <float 3.100000e+01, float 3.100000e+01>
+  %124 = tail call <2 x float> @llvm.round.v2f32(<2 x float> %123)
+  %125 = fptoui <2 x float> %124 to <2 x i8>
+  %126 = zext <2 x i8> %125 to <2 x i16>
+  %127 = shl <2 x i16> %126, <i16 11, i16 6>
+  %128 = zext i8 %120 to i16
+  %129 = shl nuw nsw i16 %128, 1
+  %130 = zext i1 %121 to i16
+  %131 = extractelement <2 x i16> %127, i64 0
+  %132 = or disjoint i16 %131, %130
+  %133 = extractelement <2 x i16> %127, i64 1
+  %134 = or i16 %132, %133
+  %135 = or i16 %134, %129
+  %136 = mul nsw i32 %38, %2
+  %137 = add nuw nsw i32 %136, %1
+  %138 = zext nneg i32 %137 to i64
+  %139 = getelementptr inbounds i16, ptr %33, i64 %138
+  store i16 %135, ptr %139, align 2
+  br label %392
 
-120:                                              ; preds = %20
-  %121 = uitofp i8 %5 to float
-  %122 = fdiv float %121, 2.550000e+02
-  %123 = uitofp i8 %.sroa.40.0.extract.trunc to float
-  %124 = fdiv float %123, 2.550000e+02
-  %125 = fmul float %122, 1.500000e+01
-  %126 = tail call float @llvm.round.f32(float %125)
-  %127 = fptoui float %126 to i8
-  %128 = fmul float %124, 1.500000e+01
-  %129 = tail call float @llvm.round.f32(float %128)
-  %130 = fptoui float %129 to i8
-  %131 = zext i8 %127 to i16
-  %132 = shl i16 %131, 12
-  %133 = insertelement <2 x i8> poison, i8 %.sroa.14.0.extract.trunc, i64 0
-  %134 = insertelement <2 x i8> %133, i8 %6, i64 1
-  %135 = uitofp <2 x i8> %134 to <2 x float>
-  %136 = fdiv <2 x float> %135, <float 2.550000e+02, float 2.550000e+02>
-  %137 = fmul <2 x float> %136, <float 1.500000e+01, float 1.500000e+01>
-  %138 = tail call <2 x float> @llvm.round.v2f32(<2 x float> %137)
-  %139 = fptoui <2 x float> %138 to <2 x i8>
-  %140 = zext <2 x i8> %139 to <2 x i16>
-  %141 = shl nuw <2 x i16> %140, <i16 8, i16 4>
-  %142 = zext i8 %130 to i16
-  %143 = or disjoint i16 %132, %142
-  %144 = extractelement <2 x i16> %141, i64 0
-  %145 = or i16 %143, %144
-  %146 = extractelement <2 x i16> %141, i64 1
-  %147 = or i16 %145, %146
-  %148 = mul nsw i32 %14, %2
-  %149 = add nuw nsw i32 %148, %1
-  %150 = zext nneg i32 %149 to i64
-  %151 = getelementptr inbounds i16, ptr %9, i64 %150
-  store i16 %147, ptr %151, align 2
-  br label %374
+140:                                              ; preds = %44
+  %141 = uitofp <2 x i8> %16 to <2 x float>
+  %142 = uitofp i8 %.sroa.27.0.extract.trunc to float
+  %143 = fdiv float %142, 2.550000e+02
+  %144 = uitofp i8 %.sroa.40.0.extract.trunc to float
+  %145 = fdiv float %144, 2.550000e+02
+  %146 = fmul float %143, 1.500000e+01
+  %147 = tail call float @llvm.round.f32(float %146)
+  %148 = fptoui float %147 to i8
+  %149 = fmul float %145, 1.500000e+01
+  %150 = tail call float @llvm.round.f32(float %149)
+  %151 = fptoui float %150 to i8
+  %152 = fdiv <2 x float> %141, <float 2.550000e+02, float 2.550000e+02>
+  %153 = fmul <2 x float> %152, <float 1.500000e+01, float 1.500000e+01>
+  %154 = tail call <2 x float> @llvm.round.v2f32(<2 x float> %153)
+  %155 = fptoui <2 x float> %154 to <2 x i8>
+  %156 = zext <2 x i8> %155 to <2 x i16>
+  %157 = shl <2 x i16> %156, <i16 12, i16 8>
+  %158 = zext i8 %148 to i16
+  %159 = shl nuw nsw i16 %158, 4
+  %160 = zext i8 %151 to i16
+  %161 = extractelement <2 x i16> %157, i64 0
+  %162 = or disjoint i16 %161, %160
+  %163 = extractelement <2 x i16> %157, i64 1
+  %164 = or i16 %162, %163
+  %165 = or i16 %164, %159
+  %166 = mul nsw i32 %38, %2
+  %167 = add nuw nsw i32 %166, %1
+  %168 = zext nneg i32 %167 to i64
+  %169 = getelementptr inbounds i16, ptr %33, i64 %168
+  store i16 %165, ptr %169, align 2
+  br label %392
 
-152:                                              ; preds = %20
-  %153 = mul nsw i32 %14, %2
-  %154 = add nuw nsw i32 %153, %1
-  %155 = mul nsw i32 %154, 3
-  %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds i8, ptr %9, i64 %156
-  store i8 %5, ptr %157, align 1
-  %158 = load ptr, ptr %0, align 8
-  %159 = load i32, ptr %13, align 8
-  %160 = mul nsw i32 %159, %2
-  %161 = add nsw i32 %160, %1
-  %162 = mul nsw i32 %161, 3
-  %163 = sext i32 %162 to i64
-  %164 = getelementptr i8, ptr %158, i64 %163
-  %165 = getelementptr i8, ptr %164, i64 1
-  store i8 %.sroa.14.0.extract.trunc, ptr %165, align 1
-  %166 = load ptr, ptr %0, align 8
-  %167 = load i32, ptr %13, align 8
-  %168 = mul nsw i32 %167, %2
-  %169 = add nsw i32 %168, %1
-  %170 = mul nsw i32 %169, 3
-  %171 = sext i32 %170 to i64
-  %172 = getelementptr i8, ptr %166, i64 %171
-  %173 = getelementptr i8, ptr %172, i64 2
-  store i8 %6, ptr %173, align 1
-  br label %374
+170:                                              ; preds = %44
+  %171 = mul nsw i32 %38, %2
+  %172 = add nuw nsw i32 %171, %1
+  %173 = mul nsw i32 %172, 3
+  %174 = zext nneg i32 %173 to i64
+  %175 = getelementptr inbounds i8, ptr %33, i64 %174
+  store i8 %.sroa.0172.0.extract.trunc, ptr %175, align 1
+  %176 = load ptr, ptr %0, align 8
+  %177 = load i32, ptr %37, align 8
+  %178 = mul nsw i32 %177, %2
+  %179 = add nsw i32 %178, %1
+  %180 = mul nsw i32 %179, 3
+  %181 = sext i32 %180 to i64
+  %182 = getelementptr i8, ptr %176, i64 %181
+  %183 = getelementptr i8, ptr %182, i64 1
+  store i8 %.sroa.14.0.extract.trunc, ptr %183, align 1
+  %184 = load ptr, ptr %0, align 8
+  %185 = load i32, ptr %37, align 8
+  %186 = mul nsw i32 %185, %2
+  %187 = add nsw i32 %186, %1
+  %188 = mul nsw i32 %187, 3
+  %189 = sext i32 %188 to i64
+  %190 = getelementptr i8, ptr %184, i64 %189
+  %191 = getelementptr i8, ptr %190, i64 2
+  store i8 %.sroa.27.0.extract.trunc, ptr %191, align 1
+  br label %392
 
-174:                                              ; preds = %20
-  %175 = mul nsw i32 %14, %2
-  %176 = add nuw nsw i32 %175, %1
-  %177 = shl nsw i32 %176, 2
-  %178 = zext nneg i32 %177 to i64
-  %179 = getelementptr inbounds i8, ptr %9, i64 %178
-  store i8 %5, ptr %179, align 1
-  %180 = load ptr, ptr %0, align 8
-  %181 = load i32, ptr %13, align 8
-  %182 = mul nsw i32 %181, %2
-  %183 = add nsw i32 %182, %1
-  %184 = shl nsw i32 %183, 2
-  %185 = or disjoint i32 %184, 1
-  %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds i8, ptr %180, i64 %186
-  store i8 %.sroa.14.0.extract.trunc, ptr %187, align 1
-  %188 = load ptr, ptr %0, align 8
-  %189 = load i32, ptr %13, align 8
-  %190 = mul nsw i32 %189, %2
-  %191 = add nsw i32 %190, %1
-  %192 = shl nsw i32 %191, 2
-  %193 = or disjoint i32 %192, 2
-  %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds i8, ptr %188, i64 %194
-  store i8 %6, ptr %195, align 1
-  %196 = load ptr, ptr %0, align 8
-  %197 = load i32, ptr %13, align 8
-  %198 = mul nsw i32 %197, %2
-  %199 = add nsw i32 %198, %1
-  %200 = shl nsw i32 %199, 2
-  %201 = or disjoint i32 %200, 3
-  %202 = sext i32 %201 to i64
-  %203 = getelementptr inbounds i8, ptr %196, i64 %202
-  store i8 %.sroa.40.0.extract.trunc, ptr %203, align 1
-  br label %374
+192:                                              ; preds = %44
+  %193 = mul nsw i32 %38, %2
+  %194 = add nuw nsw i32 %193, %1
+  %195 = shl nsw i32 %194, 2
+  %196 = zext nneg i32 %195 to i64
+  %197 = getelementptr inbounds i8, ptr %33, i64 %196
+  store i8 %.sroa.0172.0.extract.trunc, ptr %197, align 1
+  %198 = load ptr, ptr %0, align 8
+  %199 = load i32, ptr %37, align 8
+  %200 = mul nsw i32 %199, %2
+  %201 = add nsw i32 %200, %1
+  %202 = shl nsw i32 %201, 2
+  %203 = or disjoint i32 %202, 1
+  %204 = sext i32 %203 to i64
+  %205 = getelementptr inbounds i8, ptr %198, i64 %204
+  store i8 %.sroa.14.0.extract.trunc, ptr %205, align 1
+  %206 = load ptr, ptr %0, align 8
+  %207 = load i32, ptr %37, align 8
+  %208 = mul nsw i32 %207, %2
+  %209 = add nsw i32 %208, %1
+  %210 = shl nsw i32 %209, 2
+  %211 = or disjoint i32 %210, 2
+  %212 = sext i32 %211 to i64
+  %213 = getelementptr inbounds i8, ptr %206, i64 %212
+  store i8 %.sroa.27.0.extract.trunc, ptr %213, align 1
+  %214 = load ptr, ptr %0, align 8
+  %215 = load i32, ptr %37, align 8
+  %216 = mul nsw i32 %215, %2
+  %217 = add nsw i32 %216, %1
+  %218 = shl nsw i32 %217, 2
+  %219 = or disjoint i32 %218, 3
+  %220 = sext i32 %219 to i64
+  %221 = getelementptr inbounds i8, ptr %214, i64 %220
+  store i8 %.sroa.40.0.extract.trunc, ptr %221, align 1
+  br label %392
 
-204:                                              ; preds = %20
-  %205 = uitofp i8 %.sroa.14.0.extract.trunc to float
-  %206 = fdiv float %205, 2.550000e+02
-  %207 = fmul float %206, 0x3FE2C8B440000000
-  %208 = uitofp <2 x i8> %8 to <2 x float>
-  %209 = fdiv <2 x float> %208, <float 2.550000e+02, float 2.550000e+02>
-  %210 = fmul <2 x float> %209, <float 0x3FBD2F1AA0000000, float 0x3FD322D0E0000000>
-  %211 = extractelement <2 x float> %210, i64 1
-  %212 = fadd float %211, %207
-  %213 = extractelement <2 x float> %210, i64 0
-  %214 = fadd float %213, %212
-  %215 = mul nsw i32 %14, %2
-  %216 = add nuw nsw i32 %215, %1
-  %217 = zext nneg i32 %216 to i64
-  %218 = getelementptr inbounds float, ptr %9, i64 %217
-  store float %214, ptr %218, align 4
-  br label %374
-
-219:                                              ; preds = %20
-  %220 = uitofp i8 %5 to float
-  %221 = fdiv float %220, 2.550000e+02
-  %222 = uitofp i8 %.sroa.14.0.extract.trunc to float
-  %223 = fdiv float %222, 2.550000e+02
-  %224 = uitofp i8 %6 to float
+222:                                              ; preds = %44
+  %223 = uitofp <2 x i8> %28 to <2 x float>
+  %224 = uitofp i8 %.sroa.14.0.extract.trunc to float
   %225 = fdiv float %224, 2.550000e+02
-  %226 = mul nsw i32 %14, %2
-  %227 = add nuw nsw i32 %226, %1
-  %228 = mul nsw i32 %227, 3
-  %229 = zext nneg i32 %228 to i64
-  %230 = getelementptr inbounds float, ptr %9, i64 %229
-  store float %221, ptr %230, align 4
-  %231 = load ptr, ptr %0, align 8
-  %232 = load i32, ptr %13, align 8
-  %233 = mul nsw i32 %232, %2
-  %234 = add nsw i32 %233, %1
-  %235 = mul nsw i32 %234, 3
-  %236 = sext i32 %235 to i64
-  %237 = getelementptr float, ptr %231, i64 %236
-  %238 = getelementptr i8, ptr %237, i64 4
-  store float %223, ptr %238, align 4
-  %239 = load ptr, ptr %0, align 8
-  %240 = load i32, ptr %13, align 8
-  %241 = mul nsw i32 %240, %2
-  %242 = add nsw i32 %241, %1
-  %243 = mul nsw i32 %242, 3
-  %244 = sext i32 %243 to i64
-  %245 = getelementptr float, ptr %239, i64 %244
-  %246 = getelementptr i8, ptr %245, i64 8
-  store float %225, ptr %246, align 4
-  br label %374
+  %226 = fmul float %225, 0x3FE2C8B440000000
+  %227 = fdiv <2 x float> %223, <float 2.550000e+02, float 2.550000e+02>
+  %228 = fmul <2 x float> %227, <float 0x3FBD2F1AA0000000, float 0x3FD322D0E0000000>
+  %229 = extractelement <2 x float> %228, i64 1
+  %230 = fadd float %229, %226
+  %231 = extractelement <2 x float> %228, i64 0
+  %232 = fadd float %231, %230
+  %233 = mul nsw i32 %38, %2
+  %234 = add nuw nsw i32 %233, %1
+  %235 = zext nneg i32 %234 to i64
+  %236 = getelementptr inbounds float, ptr %33, i64 %235
+  store float %232, ptr %236, align 4
+  br label %392
 
-247:                                              ; preds = %20
-  %248 = uitofp i8 %5 to float
-  %249 = fdiv float %248, 2.550000e+02
-  %250 = uitofp i8 %.sroa.14.0.extract.trunc to float
-  %251 = fdiv float %250, 2.550000e+02
-  %252 = uitofp i8 %6 to float
-  %253 = fdiv float %252, 2.550000e+02
-  %254 = uitofp i8 %.sroa.40.0.extract.trunc to float
-  %255 = fdiv float %254, 2.550000e+02
-  %256 = mul nsw i32 %14, %2
-  %257 = add nuw nsw i32 %256, %1
-  %258 = shl nsw i32 %257, 2
-  %259 = zext nneg i32 %258 to i64
-  %260 = getelementptr inbounds float, ptr %9, i64 %259
-  store float %249, ptr %260, align 4
-  %261 = load ptr, ptr %0, align 8
-  %262 = load i32, ptr %13, align 8
-  %263 = mul nsw i32 %262, %2
-  %264 = add nsw i32 %263, %1
-  %265 = shl nsw i32 %264, 2
-  %266 = or disjoint i32 %265, 1
-  %267 = sext i32 %266 to i64
-  %268 = getelementptr inbounds float, ptr %261, i64 %267
-  store float %251, ptr %268, align 4
-  %269 = load ptr, ptr %0, align 8
-  %270 = load i32, ptr %13, align 8
-  %271 = mul nsw i32 %270, %2
-  %272 = add nsw i32 %271, %1
-  %273 = shl nsw i32 %272, 2
-  %274 = or disjoint i32 %273, 2
-  %275 = sext i32 %274 to i64
-  %276 = getelementptr inbounds float, ptr %269, i64 %275
-  store float %253, ptr %276, align 4
-  %277 = load ptr, ptr %0, align 8
-  %278 = load i32, ptr %13, align 8
-  %279 = mul nsw i32 %278, %2
-  %280 = add nsw i32 %279, %1
-  %281 = shl nsw i32 %280, 2
-  %282 = or disjoint i32 %281, 3
-  %283 = sext i32 %282 to i64
-  %284 = getelementptr inbounds float, ptr %277, i64 %283
-  store float %255, ptr %284, align 4
-  br label %374
+237:                                              ; preds = %44
+  %238 = uitofp i8 %.sroa.0172.0.extract.trunc to float
+  %239 = fdiv float %238, 2.550000e+02
+  %240 = uitofp i8 %.sroa.14.0.extract.trunc to float
+  %241 = fdiv float %240, 2.550000e+02
+  %242 = uitofp i8 %.sroa.27.0.extract.trunc to float
+  %243 = fdiv float %242, 2.550000e+02
+  %244 = mul nsw i32 %38, %2
+  %245 = add nuw nsw i32 %244, %1
+  %246 = mul nsw i32 %245, 3
+  %247 = zext nneg i32 %246 to i64
+  %248 = getelementptr inbounds float, ptr %33, i64 %247
+  store float %239, ptr %248, align 4
+  %249 = load ptr, ptr %0, align 8
+  %250 = load i32, ptr %37, align 8
+  %251 = mul nsw i32 %250, %2
+  %252 = add nsw i32 %251, %1
+  %253 = mul nsw i32 %252, 3
+  %254 = sext i32 %253 to i64
+  %255 = getelementptr float, ptr %249, i64 %254
+  %256 = getelementptr i8, ptr %255, i64 4
+  store float %241, ptr %256, align 4
+  %257 = load ptr, ptr %0, align 8
+  %258 = load i32, ptr %37, align 8
+  %259 = mul nsw i32 %258, %2
+  %260 = add nsw i32 %259, %1
+  %261 = mul nsw i32 %260, 3
+  %262 = sext i32 %261 to i64
+  %263 = getelementptr float, ptr %257, i64 %262
+  %264 = getelementptr i8, ptr %263, i64 8
+  store float %243, ptr %264, align 4
+  br label %392
 
-285:                                              ; preds = %20
-  %286 = uitofp i8 %.sroa.14.0.extract.trunc to float
-  %287 = fdiv float %286, 2.550000e+02
-  %288 = fmul float %287, 0x3FE2C8B440000000
-  %289 = uitofp <2 x i8> %8 to <2 x float>
-  %290 = fdiv <2 x float> %289, <float 2.550000e+02, float 2.550000e+02>
-  %291 = fmul <2 x float> %290, <float 0x3FBD2F1AA0000000, float 0x3FD322D0E0000000>
-  %292 = extractelement <2 x float> %291, i64 1
-  %293 = fadd float %292, %288
-  %294 = extractelement <2 x float> %291, i64 0
-  %295 = fadd float %294, %293
-  %296 = tail call fastcc zeroext i16 @FloatToHalf(float noundef %295)
-  %297 = mul nsw i32 %14, %2
-  %298 = add nuw nsw i32 %297, %1
-  %299 = zext nneg i32 %298 to i64
-  %300 = getelementptr inbounds i16, ptr %9, i64 %299
-  store i16 %296, ptr %300, align 2
-  br label %374
+265:                                              ; preds = %44
+  %266 = uitofp i8 %.sroa.0172.0.extract.trunc to float
+  %267 = fdiv float %266, 2.550000e+02
+  %268 = uitofp i8 %.sroa.14.0.extract.trunc to float
+  %269 = fdiv float %268, 2.550000e+02
+  %270 = uitofp i8 %.sroa.27.0.extract.trunc to float
+  %271 = fdiv float %270, 2.550000e+02
+  %272 = uitofp i8 %.sroa.40.0.extract.trunc to float
+  %273 = fdiv float %272, 2.550000e+02
+  %274 = mul nsw i32 %38, %2
+  %275 = add nuw nsw i32 %274, %1
+  %276 = shl nsw i32 %275, 2
+  %277 = zext nneg i32 %276 to i64
+  %278 = getelementptr inbounds float, ptr %33, i64 %277
+  store float %267, ptr %278, align 4
+  %279 = load ptr, ptr %0, align 8
+  %280 = load i32, ptr %37, align 8
+  %281 = mul nsw i32 %280, %2
+  %282 = add nsw i32 %281, %1
+  %283 = shl nsw i32 %282, 2
+  %284 = or disjoint i32 %283, 1
+  %285 = sext i32 %284 to i64
+  %286 = getelementptr inbounds float, ptr %279, i64 %285
+  store float %269, ptr %286, align 4
+  %287 = load ptr, ptr %0, align 8
+  %288 = load i32, ptr %37, align 8
+  %289 = mul nsw i32 %288, %2
+  %290 = add nsw i32 %289, %1
+  %291 = shl nsw i32 %290, 2
+  %292 = or disjoint i32 %291, 2
+  %293 = sext i32 %292 to i64
+  %294 = getelementptr inbounds float, ptr %287, i64 %293
+  store float %271, ptr %294, align 4
+  %295 = load ptr, ptr %0, align 8
+  %296 = load i32, ptr %37, align 8
+  %297 = mul nsw i32 %296, %2
+  %298 = add nsw i32 %297, %1
+  %299 = shl nsw i32 %298, 2
+  %300 = or disjoint i32 %299, 3
+  %301 = sext i32 %300 to i64
+  %302 = getelementptr inbounds float, ptr %295, i64 %301
+  store float %273, ptr %302, align 4
+  br label %392
 
-301:                                              ; preds = %20
-  %302 = uitofp i8 %5 to float
-  %303 = fdiv float %302, 2.550000e+02
-  %304 = uitofp i8 %.sroa.14.0.extract.trunc to float
-  %305 = fdiv float %304, 2.550000e+02
-  %306 = uitofp i8 %6 to float
-  %307 = fdiv float %306, 2.550000e+02
-  %308 = tail call fastcc zeroext i16 @FloatToHalf(float noundef %303)
-  %309 = mul nsw i32 %14, %2
-  %310 = add nuw nsw i32 %309, %1
-  %311 = mul nsw i32 %310, 3
-  %312 = zext nneg i32 %311 to i64
-  %313 = getelementptr inbounds i16, ptr %9, i64 %312
-  store i16 %308, ptr %313, align 2
-  %314 = tail call fastcc zeroext i16 @FloatToHalf(float noundef %305)
-  %315 = load ptr, ptr %0, align 8
-  %316 = load i32, ptr %13, align 8
-  %317 = mul nsw i32 %316, %2
-  %318 = add nsw i32 %317, %1
-  %319 = mul nsw i32 %318, 3
-  %320 = sext i32 %319 to i64
-  %321 = getelementptr i16, ptr %315, i64 %320
-  %322 = getelementptr i8, ptr %321, i64 2
-  store i16 %314, ptr %322, align 2
-  %323 = tail call fastcc zeroext i16 @FloatToHalf(float noundef %307)
-  %324 = load ptr, ptr %0, align 8
-  %325 = load i32, ptr %13, align 8
-  %326 = mul nsw i32 %325, %2
-  %327 = add nsw i32 %326, %1
-  %328 = mul nsw i32 %327, 3
-  %329 = sext i32 %328 to i64
-  %330 = getelementptr i16, ptr %324, i64 %329
-  %331 = getelementptr i8, ptr %330, i64 4
-  store i16 %323, ptr %331, align 2
-  br label %374
+303:                                              ; preds = %44
+  %304 = uitofp <2 x i8> %32 to <2 x float>
+  %305 = uitofp i8 %.sroa.14.0.extract.trunc to float
+  %306 = fdiv float %305, 2.550000e+02
+  %307 = fmul float %306, 0x3FE2C8B440000000
+  %308 = fdiv <2 x float> %304, <float 2.550000e+02, float 2.550000e+02>
+  %309 = fmul <2 x float> %308, <float 0x3FBD2F1AA0000000, float 0x3FD322D0E0000000>
+  %310 = extractelement <2 x float> %309, i64 1
+  %311 = fadd float %310, %307
+  %312 = extractelement <2 x float> %309, i64 0
+  %313 = fadd float %312, %311
+  %314 = tail call fastcc zeroext i16 @FloatToHalf(float noundef %313)
+  %315 = mul nsw i32 %38, %2
+  %316 = add nuw nsw i32 %315, %1
+  %317 = zext nneg i32 %316 to i64
+  %318 = getelementptr inbounds i16, ptr %33, i64 %317
+  store i16 %314, ptr %318, align 2
+  br label %392
 
-332:                                              ; preds = %20
-  %333 = uitofp i8 %5 to float
-  %334 = fdiv float %333, 2.550000e+02
-  %335 = uitofp i8 %.sroa.14.0.extract.trunc to float
-  %336 = fdiv float %335, 2.550000e+02
-  %337 = uitofp i8 %6 to float
-  %338 = fdiv float %337, 2.550000e+02
-  %339 = uitofp i8 %.sroa.40.0.extract.trunc to float
-  %340 = fdiv float %339, 2.550000e+02
-  %341 = tail call fastcc zeroext i16 @FloatToHalf(float noundef %334)
-  %342 = mul nsw i32 %14, %2
-  %343 = add nuw nsw i32 %342, %1
-  %344 = shl nsw i32 %343, 2
-  %345 = zext nneg i32 %344 to i64
-  %346 = getelementptr inbounds i16, ptr %9, i64 %345
-  store i16 %341, ptr %346, align 2
-  %347 = tail call fastcc zeroext i16 @FloatToHalf(float noundef %336)
-  %348 = load ptr, ptr %0, align 8
-  %349 = load i32, ptr %13, align 8
-  %350 = mul nsw i32 %349, %2
-  %351 = add nsw i32 %350, %1
-  %352 = shl nsw i32 %351, 2
-  %353 = or disjoint i32 %352, 1
-  %354 = sext i32 %353 to i64
-  %355 = getelementptr inbounds i16, ptr %348, i64 %354
-  store i16 %347, ptr %355, align 2
-  %356 = tail call fastcc zeroext i16 @FloatToHalf(float noundef %338)
-  %357 = load ptr, ptr %0, align 8
-  %358 = load i32, ptr %13, align 8
-  %359 = mul nsw i32 %358, %2
-  %360 = add nsw i32 %359, %1
-  %361 = shl nsw i32 %360, 2
-  %362 = or disjoint i32 %361, 2
-  %363 = sext i32 %362 to i64
-  %364 = getelementptr inbounds i16, ptr %357, i64 %363
-  store i16 %356, ptr %364, align 2
-  %365 = tail call fastcc zeroext i16 @FloatToHalf(float noundef %340)
+319:                                              ; preds = %44
+  %320 = uitofp i8 %.sroa.0172.0.extract.trunc to float
+  %321 = fdiv float %320, 2.550000e+02
+  %322 = uitofp i8 %.sroa.14.0.extract.trunc to float
+  %323 = fdiv float %322, 2.550000e+02
+  %324 = uitofp i8 %.sroa.27.0.extract.trunc to float
+  %325 = fdiv float %324, 2.550000e+02
+  %326 = tail call fastcc zeroext i16 @FloatToHalf(float noundef %321)
+  %327 = mul nsw i32 %38, %2
+  %328 = add nuw nsw i32 %327, %1
+  %329 = mul nsw i32 %328, 3
+  %330 = zext nneg i32 %329 to i64
+  %331 = getelementptr inbounds i16, ptr %33, i64 %330
+  store i16 %326, ptr %331, align 2
+  %332 = tail call fastcc zeroext i16 @FloatToHalf(float noundef %323)
+  %333 = load ptr, ptr %0, align 8
+  %334 = load i32, ptr %37, align 8
+  %335 = mul nsw i32 %334, %2
+  %336 = add nsw i32 %335, %1
+  %337 = mul nsw i32 %336, 3
+  %338 = sext i32 %337 to i64
+  %339 = getelementptr i16, ptr %333, i64 %338
+  %340 = getelementptr i8, ptr %339, i64 2
+  store i16 %332, ptr %340, align 2
+  %341 = tail call fastcc zeroext i16 @FloatToHalf(float noundef %325)
+  %342 = load ptr, ptr %0, align 8
+  %343 = load i32, ptr %37, align 8
+  %344 = mul nsw i32 %343, %2
+  %345 = add nsw i32 %344, %1
+  %346 = mul nsw i32 %345, 3
+  %347 = sext i32 %346 to i64
+  %348 = getelementptr i16, ptr %342, i64 %347
+  %349 = getelementptr i8, ptr %348, i64 4
+  store i16 %341, ptr %349, align 2
+  br label %392
+
+350:                                              ; preds = %44
+  %351 = uitofp i8 %.sroa.0172.0.extract.trunc to float
+  %352 = fdiv float %351, 2.550000e+02
+  %353 = uitofp i8 %.sroa.14.0.extract.trunc to float
+  %354 = fdiv float %353, 2.550000e+02
+  %355 = uitofp i8 %.sroa.27.0.extract.trunc to float
+  %356 = fdiv float %355, 2.550000e+02
+  %357 = uitofp i8 %.sroa.40.0.extract.trunc to float
+  %358 = fdiv float %357, 2.550000e+02
+  %359 = tail call fastcc zeroext i16 @FloatToHalf(float noundef %352)
+  %360 = mul nsw i32 %38, %2
+  %361 = add nuw nsw i32 %360, %1
+  %362 = shl nsw i32 %361, 2
+  %363 = zext nneg i32 %362 to i64
+  %364 = getelementptr inbounds i16, ptr %33, i64 %363
+  store i16 %359, ptr %364, align 2
+  %365 = tail call fastcc zeroext i16 @FloatToHalf(float noundef %354)
   %366 = load ptr, ptr %0, align 8
-  %367 = load i32, ptr %13, align 8
+  %367 = load i32, ptr %37, align 8
   %368 = mul nsw i32 %367, %2
   %369 = add nsw i32 %368, %1
   %370 = shl nsw i32 %369, 2
-  %371 = or disjoint i32 %370, 3
+  %371 = or disjoint i32 %370, 1
   %372 = sext i32 %371 to i64
   %373 = getelementptr inbounds i16, ptr %366, i64 %372
   store i16 %365, ptr %373, align 2
-  br label %374
+  %374 = tail call fastcc zeroext i16 @FloatToHalf(float noundef %356)
+  %375 = load ptr, ptr %0, align 8
+  %376 = load i32, ptr %37, align 8
+  %377 = mul nsw i32 %376, %2
+  %378 = add nsw i32 %377, %1
+  %379 = shl nsw i32 %378, 2
+  %380 = or disjoint i32 %379, 2
+  %381 = sext i32 %380 to i64
+  %382 = getelementptr inbounds i16, ptr %375, i64 %381
+  store i16 %374, ptr %382, align 2
+  %383 = tail call fastcc zeroext i16 @FloatToHalf(float noundef %358)
+  %384 = load ptr, ptr %0, align 8
+  %385 = load i32, ptr %37, align 8
+  %386 = mul nsw i32 %385, %2
+  %387 = add nsw i32 %386, %1
+  %388 = shl nsw i32 %387, 2
+  %389 = or disjoint i32 %388, 3
+  %390 = sext i32 %389 to i64
+  %391 = getelementptr inbounds i16, ptr %384, i64 %390
+  store i16 %383, ptr %391, align 2
+  br label %392
 
-374:                                              ; preds = %20, %4, %12, %17, %332, %301, %285, %247, %219, %204, %174, %152, %120, %90, %66, %40, %23
+392:                                              ; preds = %44, %4, %36, %41, %350, %319, %303, %265, %237, %222, %192, %170, %140, %112, %90, %64, %47
   ret void
 }
 

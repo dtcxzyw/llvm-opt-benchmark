@@ -186,17 +186,15 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %call8, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %3 = load ptr, ptr %__begin2.sroa.0.022, align 8
-  store ptr %3, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.022, i64 8
-  %4 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %4, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %4 = load <2 x ptr>, ptr %__begin2.sroa.0.022, align 8
+  store <2 x ptr> %4, ptr %agg.result, align 8
+  %cmp.not.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -260,17 +258,15 @@ _ZNSt10unique_ptrIN6hermes2vm20ChromeStackFrameNodeESt14default_deleteIS2_EED2Ev
   store ptr null, ptr %ref.tmp, align 8
   %13 = load ptr, ptr %_M_finish.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %13, i64 -16
-  %14 = load ptr, ptr %add.ptr.i.i, align 8
-  store ptr %14, ptr %agg.result, align 8
-  %_M_refcount.i.i8 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i9 = getelementptr inbounds i8, ptr %13, i64 -8
-  %15 = load ptr, ptr %_M_refcount3.i.i9, align 8
-  store ptr %15, ptr %_M_refcount.i.i8, align 8
-  %cmp.not.i.i.i10 = icmp eq ptr %15, null
+  %14 = load ptr, ptr %_M_refcount3.i.i9, align 8
+  %15 = load <2 x ptr>, ptr %add.ptr.i.i, align 8
+  store <2 x ptr> %15, ptr %agg.result, align 8
+  %cmp.not.i.i.i10 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i10, label %return, label %if.then.i.i.i11
 
 if.then.i.i.i11:                                  ; preds = %_ZNSt10unique_ptrIN6hermes2vm20ChromeStackFrameNodeESt14default_deleteIS2_EED2Ev.exit
-  %_M_use_count.i.i.i.i12 = getelementptr inbounds i8, ptr %15, i64 8
+  %_M_use_count.i.i.i.i12 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i13 = icmp eq i8 %16, 0
   br i1 %tobool.i.not.i.i.i.i13, label %if.else.i.i.i.i.i16, label %if.then.i.i.i.i.i14
@@ -295,7 +291,7 @@ declare noundef zeroext i1 @_ZN6hermes2vmeqERKNS0_16SamplingProfiler10StackFrame
 define hidden void @_ZN6hermes2vm17ChromeTraceFormat6createEjRKN4llvh8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_12DenseMapInfoImEENS2_6detail12DenseMapPairImS9_EEEERKSt6vectorINS0_16SamplingProfiler10StackTraceESaISK_EE(ptr noalias sret(%"class.hermes::vm::ChromeTraceFormat") align 8 %agg.result, i32 noundef %pid, ptr noundef nonnull align 8 dereferenceable(20) %threadNames, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %sampledStacks) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
-  %leafNode = alloca %"class.std::shared_ptr", align 8
+  %leafNode = alloca %"class.std::shared_ptr", align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %call.i = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #15, !noalias !7
   store i32 1, ptr %call.i, align 8, !noalias !7
@@ -338,15 +334,14 @@ for.body.lr.ph:                                   ; preds = %_ZNSt10unique_ptrIN
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit60
   %frameIdGen.sroa.0.0180 = phi i32 [ 2, %for.body.lr.ph ], [ %frameIdGen.sroa.0.1.lcssa, %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit60 ]
   %__begin2.sroa.0.0179 = phi ptr [ %1, %for.body.lr.ph ], [ %incdec.ptr.i61, %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit60 ]
-  %3 = load ptr, ptr %root_.i, align 8
-  store ptr %3, ptr %leafNode, align 8
-  %4 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %4, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %4 = load <2 x ptr>, ptr %root_.i, align 8
+  store <2 x ptr> %4, ptr %leafNode, align 16
+  %cmp.not.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -373,7 +368,7 @@ for.body9:                                        ; preds = %_ZNSt10shared_ptrIN
   %__begin3.sroa.0.0177 = phi ptr [ %incdec.ptr.i.i, %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit ], [ %8, %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEC2ERKS3_.exit ]
   %frameIdGen.sroa.0.1176 = phi i32 [ %frameIdGen.sroa.0.2, %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit ], [ %frameIdGen.sroa.0.0180, %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEC2ERKS3_.exit ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0177, i64 -24
-  %10 = load ptr, ptr %leafNode, align 8
+  %10 = load ptr, ptr %leafNode, align 16
   %children_.i = getelementptr inbounds i8, ptr %10, i64 40
   %11 = load ptr, ptr %children_.i, align 8, !noalias !18
   %_M_finish.i.i = getelementptr inbounds i8, ptr %10, i64 48
@@ -876,7 +871,7 @@ _ZN6hermes2vm20ChromeStackFrameNode17findOrAddNewChildERNS0_22ChromeFrameIdGener
   %frameIdGen.sroa.0.2 = phi i32 [ %inc.i.i, %_ZNSt10unique_ptrIN6hermes2vm20ChromeStackFrameNodeESt14default_deleteIS2_EED2Ev.exit.i ], [ %inc.i.i, %if.else.i.i.i.i.i16.i ], [ %inc.i.i, %if.then.i.i.i.i.i14.i ], [ %frameIdGen.sroa.0.1176, %if.then.i6 ], [ %frameIdGen.sroa.0.1176, %if.else.i.i.i.i.i.i ], [ %frameIdGen.sroa.0.1176, %if.then.i.i.i.i.i.i ]
   %ref.tmp11.sroa.0.0 = phi ptr [ %72, %_ZNSt10unique_ptrIN6hermes2vm20ChromeStackFrameNodeESt14default_deleteIS2_EED2Ev.exit.i ], [ %72, %if.else.i.i.i.i.i16.i ], [ %72, %if.then.i.i.i.i.i14.i ], [ %14, %if.then.i6 ], [ %14, %if.else.i.i.i.i.i.i ], [ %14, %if.then.i.i.i.i.i.i ]
   %ref.tmp11.sroa.4.0 = phi ptr [ null, %_ZNSt10unique_ptrIN6hermes2vm20ChromeStackFrameNodeESt14default_deleteIS2_EED2Ev.exit.i ], [ %73, %if.else.i.i.i.i.i16.i ], [ %73, %if.then.i.i.i.i.i14.i ], [ null, %if.then.i6 ], [ %15, %if.else.i.i.i.i.i.i ], [ %15, %if.then.i.i.i.i.i.i ]
-  store ptr %ref.tmp11.sroa.0.0, ptr %leafNode, align 8
+  store ptr %ref.tmp11.sroa.0.0, ptr %leafNode, align 16
   %77 = load ptr, ptr %_M_refcount.i.i, align 8
   store ptr %ref.tmp11.sroa.4.0, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i.i8 = icmp eq ptr %77, null
@@ -956,7 +951,7 @@ _ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit: ; preds = %if.en
 
 for.end:                                          ; preds = %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit, %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEC2ERKS3_.exit
   %frameIdGen.sroa.0.1.lcssa = phi i32 [ %frameIdGen.sroa.0.0180, %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEEC2ERKS3_.exit ], [ %frameIdGen.sroa.0.2, %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit ]
-  %88 = load ptr, ptr %leafNode, align 8
+  %88 = load ptr, ptr %leafNode, align 16
   %hitCount_.i = getelementptr inbounds i8, ptr %88, i64 64
   %89 = load i32, ptr %hitCount_.i, align 8
   %inc.i24 = add i32 %89, 1
@@ -2208,17 +2203,15 @@ entry:
   store i32 0, ptr %NumBuckets5.i.i.i.i, align 8
   %root_.i.i = getelementptr inbounds i8, ptr %s, i64 48
   %root_4.i.i = getelementptr inbounds i8, ptr %chromeTrace, i64 32
-  %4 = load ptr, ptr %root_4.i.i, align 8
-  store ptr %4, ptr %root_.i.i, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %chromeTrace, i64 40
-  %5 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
-  store ptr %5, ptr %_M_refcount.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  %5 = load <2 x ptr>, ptr %root_4.i.i, align 8
+  store <2 x ptr> %5, ptr %root_.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializerC2ERKNS0_16SamplingProfilerERNS_11JSONEmitterEONS0_17ChromeTraceFormatE.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -2242,15 +2235,12 @@ _ZN6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializerC2ERKNS0_16SamplingProfile
   store ptr %10, ptr %sampleEvents_.i.i, align 8
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 72
   %_M_finish3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %chromeTrace, i64 56
-  %11 = load ptr, ptr %_M_finish3.i.i.i.i.i.i, align 8
-  store ptr %11, ptr %_M_finish.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 80
-  %_M_end_of_storage4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %chromeTrace, i64 64
-  %12 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i, align 8
-  store ptr %12, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8
+  %11 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i.i.i, align 8
+  %12 = load ptr, ptr %_M_finish3.i.i.i.i.i.i, align 8
+  store <2 x ptr> %11, ptr %_M_finish.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sampleEvents_5.i.i, i8 0, i64 24, i1 false)
   call void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %9) #14
-  %cmp.i.i.i = icmp eq ptr %10, %11
+  %cmp.i.i.i = icmp eq ptr %10, %12
   br i1 %cmp.i.i.i, label %if.end.i, label %for.body.i.i.preheader
 
 for.body.i.i.preheader:                           ; preds = %_ZN6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializerC2ERKNS0_16SamplingProfilerERNS_11JSONEmitterEONS0_17ChromeTraceFormatE.exit
@@ -2360,7 +2350,7 @@ _ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit.i.i: ; preds = %i
   %31 = load ptr, ptr %json_.i, align 8
   call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %31, i32 noundef %30) #14
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08.i.i, i64 40
-  %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %11
+  %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %12
   br i1 %cmp.i.not.i.i, label %_ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer11emitSamplesEv.exit.i, label %for.body.i.i
 
 _ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer11emitSamplesEv.exit.i: ; preds = %_ZNSt10shared_ptrIN6hermes2vm20ChromeStackFrameNodeEED2Ev.exit.i.i

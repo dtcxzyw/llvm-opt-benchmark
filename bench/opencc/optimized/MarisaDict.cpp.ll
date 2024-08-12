@@ -922,32 +922,30 @@ _ZNSt6vectorIPKN6opencc9DictEntryESaIS3_EED2Ev.exit: ; preds = %63, %62, %60
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
 define void @_ZNK6opencc10MarisaDict10GetLexiconEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8
-  store ptr %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %.not.i.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN6opencc7LexiconEEC2ERKS2_.exit, label %8
+  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = load ptr, ptr %4, align 8
+  %6 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %6, ptr %0, align 8
+  %.not.i.i.i = icmp eq ptr %5, null
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN6opencc7LexiconEEC2ERKS2_.exit, label %7
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
-  %10 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i = icmp eq i8 %10, 0
-  br i1 %.not.i.i.i.i, label %14, label %11
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i = icmp eq i8 %9, 0
+  br i1 %.not.i.i.i.i, label %13, label %10
 
-11:                                               ; preds = %8
-  %12 = load i32, ptr %9, align 4
-  %13 = add nsw i32 %12, 1
-  store i32 %13, ptr %9, align 4
+10:                                               ; preds = %7
+  %11 = load i32, ptr %8, align 4
+  %12 = add nsw i32 %11, 1
+  store i32 %12, ptr %8, align 4
   br label %_ZNSt10shared_ptrIN6opencc7LexiconEEC2ERKS2_.exit
 
-14:                                               ; preds = %8
-  %15 = atomicrmw volatile add ptr %9, i32 1 acq_rel, align 4
+13:                                               ; preds = %7
+  %14 = atomicrmw volatile add ptr %8, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN6opencc7LexiconEEC2ERKS2_.exit
 
-_ZNSt10shared_ptrIN6opencc7LexiconEEC2ERKS2_.exit: ; preds = %2, %11, %14
+_ZNSt10shared_ptrIN6opencc7LexiconEEC2ERKS2_.exit: ; preds = %2, %10, %13
   ret void
 }
 
@@ -956,7 +954,7 @@ define void @_ZN6opencc10MarisaDict11NewFromFileEP8_IO_FILE(ptr dead_on_unwind n
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::shared_ptr.22", align 8
-  %6 = alloca %"class.std::shared_ptr", align 8
+  %6 = alloca %"class.std::shared_ptr", align 16
   %7 = alloca %"class.marisa::Agent", align 8
   %8 = alloca %"class.std::vector", align 16
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1073,17 +1071,16 @@ _ZNSt10shared_ptrIN6opencc10MarisaDictEEC2IS1_vEEPT_.exit: ; preds = %26
 49:                                               ; preds = %48
   %50 = load ptr, ptr %5, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 8
-  %52 = load ptr, ptr %51, align 8
-  store ptr %52, ptr %6, align 8
-  %53 = getelementptr inbounds i8, ptr %6, i64 8
-  %54 = getelementptr inbounds i8, ptr %50, i64 16
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %53, align 8
-  %.not.i.i.i = icmp eq ptr %55, null
+  %52 = getelementptr inbounds i8, ptr %6, i64 8
+  %53 = getelementptr inbounds i8, ptr %50, i64 16
+  %54 = load ptr, ptr %53, align 8
+  %55 = load <2 x ptr>, ptr %51, align 8
+  store <2 x ptr> %55, ptr %6, align 16
+  %.not.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN6opencc7LexiconEEC2ERKS2_.exit, label %56
 
 56:                                               ; preds = %49
-  %57 = getelementptr inbounds i8, ptr %55, i64 8
+  %57 = getelementptr inbounds i8, ptr %54, i64 8
   %58 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %58, 0
   br i1 %.not.i.i.i.i, label %62, label %59
@@ -1108,7 +1105,7 @@ _ZNSt10shared_ptrIN6opencc7LexiconEEC2ERKS2_.exit: ; preds = %49, %59, %62
 
 65:                                               ; preds = %64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %66 = load ptr, ptr %6, align 8
+  %66 = load ptr, ptr %6, align 16
   %67 = getelementptr inbounds i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %66, align 8
@@ -1344,7 +1341,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS2_EES5_EvT_
 
 _ZNSt6vectorISt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS2_EESaIS5_EED2Ev.exit57: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i55, %148
   call void @_ZN6marisa5AgentD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #25
-  %149 = load ptr, ptr %53, align 8
+  %149 = load ptr, ptr %52, align 8
   %.not.i.i.i58 = icmp eq ptr %149, null
   br i1 %.not.i.i.i58, label %_ZNSt10shared_ptrIN6opencc7LexiconEED2Ev.exit, label %150
 
@@ -3074,53 +3071,51 @@ define void @_ZNK6opencc10MarisaDict15SerializeToFileEP8_IO_FILE(ptr nocapture n
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6opencc16SerializedValuesE, i64 16), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 8
-  %10 = load ptr, ptr %8, align 8
-  store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %11, align 8
-  %.not.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i.i, label %_ZN6opencc16SerializedValuesC2ERKSt10shared_ptrINS_7LexiconEE.exit, label %14
+  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = load ptr, ptr %10, align 8
+  %12 = load <2 x ptr>, ptr %8, align 8
+  store <2 x ptr> %12, ptr %9, align 8
+  %.not.i.i.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i.i.i, label %_ZN6opencc16SerializedValuesC2ERKSt10shared_ptrINS_7LexiconEE.exit, label %13
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
-  %16 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i = icmp eq i8 %16, 0
-  br i1 %.not.i.i.i.i.i, label %20, label %17
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i = icmp eq i8 %15, 0
+  br i1 %.not.i.i.i.i.i, label %19, label %16
 
-17:                                               ; preds = %14
-  %18 = load i32, ptr %15, align 4
-  %19 = add nsw i32 %18, 1
-  store i32 %19, ptr %15, align 4
+16:                                               ; preds = %13
+  %17 = load i32, ptr %14, align 4
+  %18 = add nsw i32 %17, 1
+  store i32 %18, ptr %14, align 4
   br label %_ZN6opencc16SerializedValuesC2ERKSt10shared_ptrINS_7LexiconEE.exit
 
-20:                                               ; preds = %14
-  %21 = atomicrmw volatile add ptr %15, i32 1 acq_rel, align 4
+19:                                               ; preds = %13
+  %20 = atomicrmw volatile add ptr %14, i32 1 acq_rel, align 4
   %.pre = load ptr, ptr %7, align 8
   br label %_ZN6opencc16SerializedValuesC2ERKSt10shared_ptrINS_7LexiconEE.exit
 
-_ZN6opencc16SerializedValuesC2ERKSt10shared_ptrINS_7LexiconEE.exit: ; preds = %2, %17, %20
-  %22 = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN6opencc16SerializedValuesE, i64 16), %2 ], [ getelementptr inbounds (i8, ptr @_ZTVN6opencc16SerializedValuesE, i64 16), %17 ], [ %.pre, %20 ]
-  %23 = load ptr, ptr %22, align 8
-  invoke void %23(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %1)
+_ZN6opencc16SerializedValuesC2ERKSt10shared_ptrINS_7LexiconEE.exit: ; preds = %2, %16, %19
+  %21 = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN6opencc16SerializedValuesE, i64 16), %2 ], [ getelementptr inbounds (i8, ptr @_ZTVN6opencc16SerializedValuesE, i64 16), %16 ], [ %.pre, %19 ]
+  %22 = load ptr, ptr %21, align 8
+  invoke void %22(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %1)
           to label %_ZNSt10unique_ptrIN6opencc16SerializedValuesESt14default_deleteIS1_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN6opencc16SerializedValuesESt14default_deleteIS1_EED2Ev.exit7
 
 _ZNSt10unique_ptrIN6opencc16SerializedValuesESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN6opencc16SerializedValuesC2ERKSt10shared_ptrINS_7LexiconEE.exit
-  %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
-  %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(24) %7) #25
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %25 = load ptr, ptr %24, align 8
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(24) %7) #25
   ret void
 
 _ZNSt10unique_ptrIN6opencc16SerializedValuesESt14default_deleteIS1_EED2Ev.exit7: ; preds = %_ZN6opencc16SerializedValuesC2ERKSt10shared_ptrINS_7LexiconEE.exit
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
-  %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(24) %7) #25
-  resume { ptr, i32 } %27
+  %27 = load ptr, ptr %7, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %29 = load ptr, ptr %28, align 8
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(24) %7) #25
+  resume { ptr, i32 } %26
 }
 
 ; Function Attrs: nofree nounwind
@@ -3139,52 +3134,50 @@ define void @_ZThn8_NK6opencc10MarisaDict15SerializeToFileEP8_IO_FILE(ptr nocapt
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6opencc16SerializedValuesE, i64 16), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 8
-  %10 = load ptr, ptr %8, align 8
-  store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %11, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i.i.i, label %_ZN6opencc16SerializedValuesC2ERKSt10shared_ptrINS_7LexiconEE.exit.i, label %14
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = load <2 x ptr>, ptr %8, align 8
+  store <2 x ptr> %12, ptr %9, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i.i.i.i, label %_ZN6opencc16SerializedValuesC2ERKSt10shared_ptrINS_7LexiconEE.exit.i, label %13
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
-  %16 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %16, 0
-  br i1 %.not.i.i.i.i.i.i, label %20, label %17
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %15, 0
+  br i1 %.not.i.i.i.i.i.i, label %19, label %16
 
-17:                                               ; preds = %14
-  %18 = load i32, ptr %15, align 4
-  %19 = add nsw i32 %18, 1
-  store i32 %19, ptr %15, align 4
+16:                                               ; preds = %13
+  %17 = load i32, ptr %14, align 4
+  %18 = add nsw i32 %17, 1
+  store i32 %18, ptr %14, align 4
   br label %_ZN6opencc16SerializedValuesC2ERKSt10shared_ptrINS_7LexiconEE.exit.i
 
-20:                                               ; preds = %14
-  %21 = atomicrmw volatile add ptr %15, i32 1 acq_rel, align 4
+19:                                               ; preds = %13
+  %20 = atomicrmw volatile add ptr %14, i32 1 acq_rel, align 4
   %.pre.i = load ptr, ptr %7, align 8
   br label %_ZN6opencc16SerializedValuesC2ERKSt10shared_ptrINS_7LexiconEE.exit.i
 
-_ZN6opencc16SerializedValuesC2ERKSt10shared_ptrINS_7LexiconEE.exit.i: ; preds = %20, %17, %2
-  %22 = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN6opencc16SerializedValuesE, i64 16), %2 ], [ getelementptr inbounds (i8, ptr @_ZTVN6opencc16SerializedValuesE, i64 16), %17 ], [ %.pre.i, %20 ]
-  %23 = load ptr, ptr %22, align 8
-  invoke void %23(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %1)
+_ZN6opencc16SerializedValuesC2ERKSt10shared_ptrINS_7LexiconEE.exit.i: ; preds = %19, %16, %2
+  %21 = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN6opencc16SerializedValuesE, i64 16), %2 ], [ getelementptr inbounds (i8, ptr @_ZTVN6opencc16SerializedValuesE, i64 16), %16 ], [ %.pre.i, %19 ]
+  %22 = load ptr, ptr %21, align 8
+  invoke void %22(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %1)
           to label %_ZNK6opencc10MarisaDict15SerializeToFileEP8_IO_FILE.exit unwind label %_ZNSt10unique_ptrIN6opencc16SerializedValuesESt14default_deleteIS1_EED2Ev.exit7.i
 
 _ZNSt10unique_ptrIN6opencc16SerializedValuesESt14default_deleteIS1_EED2Ev.exit7.i: ; preds = %_ZN6opencc16SerializedValuesC2ERKSt10shared_ptrINS_7LexiconEE.exit.i
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
-  %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(24) %7) #25
-  resume { ptr, i32 } %24
+  %24 = load ptr, ptr %7, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %26 = load ptr, ptr %25, align 8
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(24) %7) #25
+  resume { ptr, i32 } %23
 
 _ZNK6opencc10MarisaDict15SerializeToFileEP8_IO_FILE.exit: ; preds = %_ZN6opencc16SerializedValuesC2ERKSt10shared_ptrINS_7LexiconEE.exit.i
-  %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
-  %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef nonnull align 8 dereferenceable(24) %7) #25
+  %27 = load ptr, ptr %7, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %29 = load ptr, ptr %28, align 8
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(24) %7) #25
   ret void
 }
 

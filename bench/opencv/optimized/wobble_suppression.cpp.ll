@@ -2017,18 +2017,17 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt10_ConstructIN2cv9videostab28KeypointBasedMotionEstimatorEJRKNS0_3PtrINS1_23MotionEstimatorRansacL2EEEEEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.cv::Ptr.23", align 8
-  %4 = load ptr, ptr %1, align 8
-  store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %.not.i.i.i.i = icmp eq ptr %7, null
+  %3 = alloca %"struct.cv::Ptr.23", align 16
+  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %7, ptr %3, align 16
+  %.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_9videostab19MotionEstimatorBaseEEC2INS1_23MotionEstimatorRansacL2EEERKNS0_IT_EE.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %.not.i.i.i.i.i, label %14, label %11
@@ -2048,7 +2047,7 @@ _ZN2cv3PtrINS_9videostab19MotionEstimatorBaseEEC2INS1_23MotionEstimatorRansacL2E
           to label %16 unwind label %52
 
 16:                                               ; preds = %_ZN2cv3PtrINS_9videostab19MotionEstimatorBaseEEC2INS1_23MotionEstimatorRansacL2EEERKNS0_IT_EE.exit
-  %17 = load ptr, ptr %5, align 8
+  %17 = load ptr, ptr %4, align 8
   %.not.i.i.i.i3 = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i3, label %_ZN2cv3PtrINS_9videostab19MotionEstimatorBaseEED2Ev.exit, label %18
 

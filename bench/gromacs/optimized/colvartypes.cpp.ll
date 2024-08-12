@@ -819,75 +819,75 @@ define void @_ZNK12colvarmodule10quaternion25position_derivative_innerERKNS_7rve
   %22 = fneg double %7
   %23 = load <2 x double>, ptr %1, align 8
   %24 = shufflevector <2 x double> %23, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %25 = load <2 x double>, ptr %20, align 8
-  %26 = insertelement <2 x double> poison, double %22, i64 0
-  %27 = insertelement <2 x double> %26, double %7, i64 1
-  %28 = fmul <2 x double> %25, %27
-  %29 = insertelement <2 x double> poison, double %11, i64 0
-  %30 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> zeroinitializer
-  %31 = fmul <2 x double> %30, %24
-  %32 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %33 = fmul <2 x double> %32, %23
-  %34 = extractelement <2 x double> %23, i64 1
-  %35 = fmul double %34, %19
-  %36 = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> zeroinitializer
-  %37 = shufflevector <2 x double> %31, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %38 = insertelement <2 x double> %37, double %35, i64 1
-  %39 = fmul <2 x double> %36, %38
-  %40 = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> zeroinitializer
-  %41 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %33, <2 x double> %40, <2 x double> %39)
-  %42 = insertelement <2 x double> poison, double %21, i64 0
-  %43 = shufflevector <2 x double> %42, <2 x double> poison, <2 x i32> zeroinitializer
-  %44 = fmul <2 x double> %24, %43
-  %45 = shufflevector <2 x double> %44, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %46 = insertelement <2 x double> poison, double %18, i64 0
-  %47 = shufflevector <2 x double> %46, <2 x double> poison, <2 x i32> zeroinitializer
-  %48 = insertelement <2 x double> %30, double %19, i64 1
-  %49 = fmul <2 x double> %25, %48
-  %50 = shufflevector <2 x double> %49, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %51 = insertelement <2 x double> poison, double %16, i64 0
-  %52 = shufflevector <2 x double> %51, <2 x double> poison, <2 x i32> zeroinitializer
-  %53 = fmul <2 x double> %52, %25
-  %54 = extractelement <2 x double> %25, i64 0
-  %55 = fmul double %7, %54
-  %56 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %57 = insertelement <2 x double> %56, double %55, i64 1
-  %58 = fmul double %6, -2.000000e+00
-  %59 = fmul double %54, %21
-  %60 = extractelement <2 x double> %23, i64 0
-  %61 = fmul double %60, %22
-  %62 = extractelement <2 x double> %25, i64 1
+  %25 = extractelement <2 x double> %23, i64 0
+  %26 = load <2 x double>, ptr %20, align 8
+  %27 = insertelement <2 x double> poison, double %22, i64 0
+  %28 = insertelement <2 x double> %27, double %7, i64 1
+  %29 = fmul <2 x double> %26, %28
+  %30 = insertelement <2 x double> poison, double %11, i64 0
+  %31 = shufflevector <2 x double> %30, <2 x double> poison, <2 x i32> zeroinitializer
+  %32 = fmul <2 x double> %31, %24
+  %33 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %34 = fmul <2 x double> %33, %23
+  %35 = extractelement <2 x double> %23, i64 1
+  %36 = fmul double %35, %19
+  %37 = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> zeroinitializer
+  %38 = shufflevector <2 x double> %32, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %39 = insertelement <2 x double> %38, double %36, i64 1
+  %40 = fmul <2 x double> %37, %39
+  %41 = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> zeroinitializer
+  %42 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %34, <2 x double> %41, <2 x double> %40)
+  %43 = insertelement <2 x double> poison, double %21, i64 0
+  %44 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> zeroinitializer
+  %45 = fmul <2 x double> %24, %44
+  %46 = shufflevector <2 x double> %45, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %47 = insertelement <2 x double> poison, double %18, i64 0
+  %48 = shufflevector <2 x double> %47, <2 x double> poison, <2 x i32> zeroinitializer
+  %49 = insertelement <2 x double> %31, double %19, i64 1
+  %50 = fmul <2 x double> %26, %49
+  %51 = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %52 = insertelement <2 x double> poison, double %16, i64 0
+  %53 = shufflevector <2 x double> %52, <2 x double> poison, <2 x i32> zeroinitializer
+  %54 = fmul <2 x double> %53, %26
+  %55 = extractelement <2 x double> %26, i64 0
+  %56 = fmul double %7, %55
+  %57 = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %58 = insertelement <2 x double> %57, double %56, i64 1
+  %59 = fmul double %6, -2.000000e+00
+  %60 = fmul double %55, %21
+  %61 = fmul double %25, %22
+  %62 = extractelement <2 x double> %26, i64 1
   %63 = fmul double %11, %62
-  %64 = fmul double %60, %19
-  %65 = fmul <2 x double> %24, %52
-  %66 = shufflevector <2 x double> %45, <2 x double> %65, <2 x i32> <i32 3, i32 1>
-  %67 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %66, <2 x double> %47, <2 x double> %41)
-  %68 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %50, <2 x double> %40, <2 x double> %67)
-  %69 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %53, <2 x double> %40, <2 x double> %68)
-  %70 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %57, <2 x double> %36, <2 x double> %69)
-  %71 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %44, <2 x double> %36, <2 x double> %70)
-  %72 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %28, <2 x double> %47, <2 x double> %71)
-  %73 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %31, <2 x double> %47, <2 x double> %72)
+  %64 = fmul double %25, %19
+  %65 = fmul <2 x double> %24, %53
+  %66 = shufflevector <2 x double> %46, <2 x double> %65, <2 x i32> <i32 3, i32 1>
+  %67 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %66, <2 x double> %48, <2 x double> %42)
+  %68 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %51, <2 x double> %41, <2 x double> %67)
+  %69 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %54, <2 x double> %41, <2 x double> %68)
+  %70 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %58, <2 x double> %37, <2 x double> %69)
+  %71 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %45, <2 x double> %37, <2 x double> %70)
+  %72 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %29, <2 x double> %48, <2 x double> %71)
+  %73 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %32, <2 x double> %48, <2 x double> %72)
   store <2 x double> %73, ptr %0, align 8
-  %74 = insertelement <2 x double> poison, double %58, i64 0
+  %74 = insertelement <2 x double> poison, double %59, i64 0
   %75 = shufflevector <2 x double> %74, <2 x double> poison, <2 x i32> zeroinitializer
-  %76 = fmul <2 x double> %75, %25
+  %76 = fmul <2 x double> %75, %26
   %77 = shufflevector <2 x double> %76, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %78 = fmul <2 x double> %36, %50
-  %79 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %77, <2 x double> %40, <2 x double> %78)
-  %80 = shufflevector <2 x double> %53, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %81 = insertelement <2 x double> %80, double %59, i64 1
-  %82 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %81, <2 x double> %47, <2 x double> %79)
-  %83 = insertelement <2 x double> %37, double %64, i64 0
-  %84 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %83, <2 x double> %40, <2 x double> %82)
-  %85 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %65, <2 x double> %40, <2 x double> %84)
-  %86 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %33, <2 x double> %36, <2 x double> %85)
-  %87 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %53, <2 x double> %36, <2 x double> %86)
-  %88 = shufflevector <2 x double> %33, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %78 = fmul <2 x double> %37, %51
+  %79 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %77, <2 x double> %41, <2 x double> %78)
+  %80 = shufflevector <2 x double> %54, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %81 = insertelement <2 x double> %80, double %60, i64 1
+  %82 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %81, <2 x double> %48, <2 x double> %79)
+  %83 = insertelement <2 x double> %38, double %64, i64 0
+  %84 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %83, <2 x double> %41, <2 x double> %82)
+  %85 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %65, <2 x double> %41, <2 x double> %84)
+  %86 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %34, <2 x double> %37, <2 x double> %85)
+  %87 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %54, <2 x double> %37, <2 x double> %86)
+  %88 = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %89 = insertelement <2 x double> %88, double %61, i64 1
-  %90 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %89, <2 x double> %47, <2 x double> %87)
-  %91 = insertelement <2 x double> %49, double %63, i64 1
-  %92 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %91, <2 x double> %47, <2 x double> %90)
+  %90 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %89, <2 x double> %48, <2 x double> %87)
+  %91 = insertelement <2 x double> %50, double %63, i64 1
+  %92 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %91, <2 x double> %48, <2 x double> %90)
   %93 = shufflevector <2 x double> %92, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   store <2 x double> %93, ptr %5, align 8
   ret void
@@ -2538,38 +2538,38 @@ common.resume:                                    ; preds = %411, %437, %463, %4
   %348 = load <2 x double>, ptr %346, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %305, i8 0, i64 368, i1 false)
   store double %345, ptr %4, align 16
+  %349 = extractelement <2 x double> %348, i64 0
+  %350 = extractelement <2 x double> %348, i64 1
   store <2 x double> %348, ptr %306, align 8
-  %349 = fneg <2 x double> %348
-  %350 = extractelement <2 x double> %349, i64 1
-  store double %350, ptr %308, align 8
-  %351 = extractelement <2 x double> %348, i64 0
-  store double %351, ptr %309, align 16
+  %351 = fneg <2 x double> %348
+  %352 = extractelement <2 x double> %351, i64 1
+  store double %352, ptr %308, align 8
+  store double %349, ptr %309, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %310, ptr noundef nonnull align 16 dereferenceable(24) %307, i64 24, i1 false)
-  %352 = extractelement <2 x double> %348, i64 1
-  store double %352, ptr %311, align 16
+  store double %350, ptr %311, align 16
   store double %347, ptr %312, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %313, ptr noundef nonnull align 16 dereferenceable(24) %311, i64 24, i1 false)
-  %353 = extractelement <2 x double> %349, i64 0
+  %353 = extractelement <2 x double> %351, i64 0
   store double %353, ptr %314, align 16
   store double %345, ptr %315, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %316, ptr noundef nonnull align 16 dereferenceable(24) %314, i64 24, i1 false)
   store double %345, ptr %317, align 8
-  store <2 x double> %349, ptr %318, align 16
-  store double %351, ptr %319, align 8
+  store <2 x double> %351, ptr %318, align 16
+  store double %349, ptr %319, align 8
   store double %345, ptr %320, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %321, ptr noundef nonnull align 8 dereferenceable(24) %319, i64 24, i1 false)
-  store double %352, ptr %322, align 8
+  store double %350, ptr %322, align 8
   store double %345, ptr %323, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %324, ptr noundef nonnull align 8 dereferenceable(24) %322, i64 24, i1 false)
   store double %347, ptr %325, align 16
-  store double %351, ptr %326, align 8
-  store double %350, ptr %327, align 16
-  store double %352, ptr %329, align 8
-  store double %351, ptr %330, align 16
+  store double %349, ptr %326, align 8
+  store double %352, ptr %327, align 16
+  store double %350, ptr %329, align 8
+  store double %349, ptr %330, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %331, ptr noundef nonnull align 16 dereferenceable(24) %328, i64 24, i1 false)
   store double %347, ptr %332, align 8
   store double %353, ptr %333, align 16
-  store double %352, ptr %334, align 8
+  store double %350, ptr %334, align 8
   invoke void @_ZNK19rotation_derivativeIN12colvarmodule7rvectorES1_E20calc_derivative_implERA4_A4_KS1_PS1_PNS0_8vector1dIS1_EEPNS0_8matrix2dIS1_EE(ptr noundef nonnull align 8 dereferenceable(664) %54, ptr noundef nonnull align 8 dereferenceable(384) %4, ptr noundef nonnull %55, ptr noundef nonnull %56, ptr noundef nonnull %57)
           to label %_ZNK19rotation_derivativeIN12colvarmodule7rvectorES1_E26calc_derivative_wrt_group2EmPS1_PNS0_8vector1dIS1_EEPNS0_8matrix2dIS1_EE.exit unwind label %.loopexit.split-lp.loopexit
 
@@ -7269,38 +7269,38 @@ common.resume:                                    ; preds = %411, %437, %463, %4
   %348 = load <2 x double>, ptr %346, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %305, i8 0, i64 368, i1 false)
   store double %345, ptr %4, align 16
+  %349 = extractelement <2 x double> %348, i64 0
+  %350 = extractelement <2 x double> %348, i64 1
   store <2 x double> %348, ptr %306, align 8
-  %349 = fneg <2 x double> %348
-  %350 = extractelement <2 x double> %349, i64 1
-  store double %350, ptr %308, align 8
-  %351 = extractelement <2 x double> %348, i64 0
-  store double %351, ptr %309, align 16
+  %351 = fneg <2 x double> %348
+  %352 = extractelement <2 x double> %351, i64 1
+  store double %352, ptr %308, align 8
+  store double %349, ptr %309, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %310, ptr noundef nonnull align 16 dereferenceable(24) %307, i64 24, i1 false)
-  %352 = extractelement <2 x double> %348, i64 1
-  store double %352, ptr %311, align 16
+  store double %350, ptr %311, align 16
   store double %347, ptr %312, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %313, ptr noundef nonnull align 16 dereferenceable(24) %311, i64 24, i1 false)
-  %353 = extractelement <2 x double> %349, i64 0
+  %353 = extractelement <2 x double> %351, i64 0
   store double %353, ptr %314, align 16
   store double %345, ptr %315, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %316, ptr noundef nonnull align 16 dereferenceable(24) %314, i64 24, i1 false)
   store double %345, ptr %317, align 8
-  store <2 x double> %349, ptr %318, align 16
-  store double %351, ptr %319, align 8
+  store <2 x double> %351, ptr %318, align 16
+  store double %349, ptr %319, align 8
   store double %345, ptr %320, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %321, ptr noundef nonnull align 8 dereferenceable(24) %319, i64 24, i1 false)
-  store double %352, ptr %322, align 8
+  store double %350, ptr %322, align 8
   store double %345, ptr %323, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %324, ptr noundef nonnull align 8 dereferenceable(24) %322, i64 24, i1 false)
   store double %347, ptr %325, align 16
-  store double %351, ptr %326, align 8
-  store double %350, ptr %327, align 16
-  store double %352, ptr %329, align 8
-  store double %351, ptr %330, align 16
+  store double %349, ptr %326, align 8
+  store double %352, ptr %327, align 16
+  store double %350, ptr %329, align 8
+  store double %349, ptr %330, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %331, ptr noundef nonnull align 16 dereferenceable(24) %328, i64 24, i1 false)
   store double %347, ptr %332, align 8
   store double %353, ptr %333, align 16
-  store double %352, ptr %334, align 8
+  store double %350, ptr %334, align 8
   invoke void @_ZNK19rotation_derivativeIN12colvarmodule4atomENS0_7rvectorEE20calc_derivative_implERA4_A4_KS2_PS2_PNS0_8vector1dIS2_EEPNS0_8matrix2dIS2_EE(ptr noundef nonnull align 8 dereferenceable(664) %54, ptr noundef nonnull align 8 dereferenceable(384) %4, ptr noundef nonnull %55, ptr noundef nonnull %56, ptr noundef nonnull %57)
           to label %_ZNK19rotation_derivativeIN12colvarmodule4atomENS0_7rvectorEE26calc_derivative_wrt_group2EmPS2_PNS0_8vector1dIS2_EEPNS0_8matrix2dIS2_EE.exit unwind label %.loopexit.split-lp
 

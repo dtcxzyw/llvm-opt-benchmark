@@ -198,71 +198,72 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox5MergeERKNS_8NullableIS1
   call void @_ZN5ZXing6Pdf41711BoundingBoxC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %4)
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load <2 x i32>, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
-  %17 = getelementptr inbounds i8, ptr %1, i64 64
-  %18 = getelementptr inbounds i8, ptr %1, i64 88
-  %19 = load i8, ptr %15, align 8
-  %20 = trunc i8 %19 to i1
-  %21 = load i8, ptr %17, align 8
-  %22 = trunc i8 %21 to i1
-  %23 = select i1 %20, i1 true, i1 %22
-  br i1 %23, label %24, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread
+  %15 = load i32, ptr %13, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds i8, ptr %1, i64 64
+  %19 = getelementptr inbounds i8, ptr %1, i64 88
+  %20 = load i8, ptr %16, align 8
+  %21 = trunc i8 %20 to i1
+  %22 = load i8, ptr %18, align 8
+  %23 = trunc i8 %22 to i1
+  %24 = select i1 %21, i1 true, i1 %23
+  br i1 %24, label %25, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread
 
-24:                                               ; preds = %12
-  %25 = load i8, ptr %16, align 8
-  %26 = trunc i8 %25 to i1
-  %.pre.i = load i8, ptr %18, align 8
+25:                                               ; preds = %12
+  %26 = load i8, ptr %17, align 8
+  %27 = trunc i8 %26 to i1
+  %.pre.i = load i8, ptr %19, align 8
   %.pre27.i = trunc i8 %.pre.i to i1
-  %.not.i = xor i1 %20, true
+  %.not.i = xor i1 %21, true
   %brmerge.not.i = and i1 %.not.i, %.pre27.i
-  %or.cond.not.i = select i1 %26, i1 true, i1 %brmerge.not.i
-  %not..i = xor i1 %22, true
-  %27 = select i1 %not..i, i1 true, i1 %.pre27.i
-  %or.cond28.i = select i1 %or.cond.not.i, i1 %27, i1 false
-  br i1 %or.cond28.i, label %28, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread
+  %or.cond.not.i = select i1 %27, i1 true, i1 %brmerge.not.i
+  %not..i = xor i1 %23, true
+  %28 = select i1 %not..i, i1 true, i1 %.pre27.i
+  %or.cond28.i = select i1 %or.cond.not.i, i1 %28, i1 false
+  br i1 %or.cond28.i, label %29, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread
 
-28:                                               ; preds = %24
+29:                                               ; preds = %25
   store <2 x i32> %14, ptr %4, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull readonly align 8 dereferenceable(24) %15, i64 24, i1 false)
-  %30 = getelementptr inbounds i8, ptr %4, i64 32
+  %30 = getelementptr inbounds i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull readonly align 8 dereferenceable(24) %16, i64 24, i1 false)
-  %31 = getelementptr inbounds i8, ptr %4, i64 56
+  %31 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull readonly align 8 dereferenceable(24) %17, i64 24, i1 false)
-  %32 = getelementptr inbounds i8, ptr %4, i64 80
+  %32 = getelementptr inbounds i8, ptr %4, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull readonly align 8 dereferenceable(24) %18, i64 24, i1 false)
-  %33 = load i8, ptr %29, align 8
-  %34 = trunc i8 %33 to i1
-  br i1 %34, label %46, label %35
+  %33 = getelementptr inbounds i8, ptr %4, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull readonly align 8 dereferenceable(24) %19, i64 24, i1 false)
+  %34 = load i8, ptr %30, align 8
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %47, label %36
 
-35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %4, i64 72
-  %37 = load double, ptr %36, align 8
-  %38 = fptrunc double %37 to float
-  %39 = fpext float %38 to double
-  store i8 1, ptr %29, align 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 16
-  store double 0.000000e+00, ptr %40, align 8
-  %.sroa.224.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 24
-  store double %39, ptr %.sroa.224.0..sroa_idx.i, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 96
-  %42 = load double, ptr %41, align 8
-  %43 = fptrunc double %42 to float
-  %44 = fpext float %43 to double
+36:                                               ; preds = %29
+  %37 = getelementptr inbounds i8, ptr %4, i64 72
+  %38 = load double, ptr %37, align 8
+  %39 = fptrunc double %38 to float
+  %40 = fpext float %39 to double
   store i8 1, ptr %30, align 8
-  %45 = getelementptr inbounds i8, ptr %4, i64 40
-  store double 0.000000e+00, ptr %45, align 8
+  %41 = getelementptr inbounds i8, ptr %4, i64 16
+  store double 0.000000e+00, ptr %41, align 8
+  %.sroa.224.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 24
+  store double %40, ptr %.sroa.224.0..sroa_idx.i, align 8
+  %42 = getelementptr inbounds i8, ptr %4, i64 96
+  %43 = load double, ptr %42, align 8
+  %44 = fptrunc double %43 to float
+  %45 = fpext float %44 to double
+  store i8 1, ptr %31, align 8
+  %46 = getelementptr inbounds i8, ptr %4, i64 40
+  store double 0.000000e+00, ptr %46, align 8
   %.sroa.222.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48
-  store double %44, ptr %.sroa.222.0..sroa_idx.i, align 8
+  store double %45, ptr %.sroa.222.0..sroa_idx.i, align 8
   br label %64
 
-46:                                               ; preds = %28
-  %47 = load i8, ptr %31, align 8
-  %48 = trunc i8 %47 to i1
-  br i1 %48, label %._crit_edge.i, label %49
+47:                                               ; preds = %29
+  %48 = load i8, ptr %32, align 8
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %._crit_edge.i, label %50
 
-._crit_edge.i:                                    ; preds = %46
+._crit_edge.i:                                    ; preds = %47
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %4, i64 24
   %.pre.i14 = load double, ptr %.phi.trans.insert.i, align 8
   %.phi.trans.insert25.i = getelementptr inbounds i8, ptr %4, i64 72
@@ -273,16 +274,15 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox5MergeERKNS_8NullableIS1
   %.pre30.i = load double, ptr %.phi.trans.insert29.i, align 8
   br label %64
 
-49:                                               ; preds = %46
-  %50 = extractelement <2 x i32> %14, i64 0
-  %51 = add nsw i32 %50, -1
+50:                                               ; preds = %47
+  %51 = add nsw i32 %15, -1
   %52 = sitofp i32 %51 to float
   %53 = getelementptr inbounds i8, ptr %4, i64 24
   %54 = load double, ptr %53, align 8
   %55 = fptrunc double %54 to float
   %56 = fpext float %52 to double
   %57 = fpext float %55 to double
-  store i8 1, ptr %31, align 8
+  store i8 1, ptr %32, align 8
   %58 = getelementptr inbounds i8, ptr %4, i64 64
   store double %56, ptr %58, align 8
   %.sroa.220.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 72
@@ -291,18 +291,18 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox5MergeERKNS_8NullableIS1
   %60 = load double, ptr %59, align 8
   %61 = fptrunc double %60 to float
   %62 = fpext float %61 to double
-  store i8 1, ptr %32, align 8
+  store i8 1, ptr %33, align 8
   %63 = getelementptr inbounds i8, ptr %4, i64 88
   store double %56, ptr %63, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 96
   store double %62, ptr %.sroa.2.0..sroa_idx.i, align 8
   br label %64
 
-64:                                               ; preds = %35, %._crit_edge.i, %49
-  %65 = phi double [ %.pre30.i, %._crit_edge.i ], [ %62, %49 ], [ %42, %35 ]
-  %66 = phi double [ %.pre28.i, %._crit_edge.i ], [ %60, %49 ], [ %44, %35 ]
-  %67 = phi double [ %.pre26.i, %._crit_edge.i ], [ %57, %49 ], [ %37, %35 ]
-  %68 = phi double [ %.pre.i14, %._crit_edge.i ], [ %54, %49 ], [ %39, %35 ]
+64:                                               ; preds = %36, %._crit_edge.i, %50
+  %65 = phi double [ %.pre30.i, %._crit_edge.i ], [ %62, %50 ], [ %43, %36 ]
+  %66 = phi double [ %.pre28.i, %._crit_edge.i ], [ %60, %50 ], [ %45, %36 ]
+  %67 = phi double [ %.pre26.i, %._crit_edge.i ], [ %57, %50 ], [ %38, %36 ]
+  %68 = phi double [ %.pre.i14, %._crit_edge.i ], [ %54, %50 ], [ %40, %36 ]
   %69 = getelementptr inbounds i8, ptr %4, i64 16
   %70 = load <2 x double>, ptr %69, align 8
   %71 = shufflevector <2 x double> %70, <2 x double> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
@@ -333,8 +333,8 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox5MergeERKNS_8NullableIS1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %93, ptr noundef nonnull align 8 dereferenceable(120) %4, i64 120, i1 false)
   br label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread
 
-_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread: ; preds = %24, %12, %64, %11, %7
-  %.0 = phi i1 [ true, %7 ], [ true, %11 ], [ true, %64 ], [ false, %12 ], [ false, %24 ]
+_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread: ; preds = %25, %12, %64, %11, %7
+  %.0 = phi i1 [ true, %7 ], [ true, %11 ], [ true, %64 ], [ false, %12 ], [ false, %25 ]
   ret i1 %.0
 }
 

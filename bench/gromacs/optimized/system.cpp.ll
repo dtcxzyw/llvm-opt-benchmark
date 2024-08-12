@@ -426,7 +426,7 @@ define void @_ZN6gmxapi6System4Impl6launchERKSt10shared_ptrINS_7ContextEE(ptr de
 8:                                                ; preds = %3
   %9 = load ptr, ptr %1, align 8
   invoke void @_ZN6gmxapi7Context6launchERKNS_8WorkflowE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.3") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(48) %9)
-          to label %_ZNSt10shared_ptrIN6gmxapi7SessionEED2Ev.exit unwind label %66
+          to label %_ZNSt10shared_ptrIN6gmxapi7SessionEED2Ev.exit unwind label %67
 
 _ZNSt10shared_ptrIN6gmxapi7SessionEED2Ev.exit:    ; preds = %8
   %10 = load <2 x ptr>, ptr %4, align 16
@@ -435,7 +435,7 @@ _ZNSt10shared_ptrIN6gmxapi7SessionEED2Ev.exit:    ; preds = %8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %11 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6gmxapi10MDWorkSpec10getModulesEv(ptr noundef nonnull align 8 dereferenceable(8) %.pre)
-          to label %12 unwind label %66
+          to label %12 unwind label %67
 
 12:                                               ; preds = %_ZNSt10shared_ptrIN6gmxapi7SessionEED2Ev.exit
   %13 = load ptr, ptr %11, align 8
@@ -449,129 +449,130 @@ _ZNSt10shared_ptrIN6gmxapi7SessionEED2Ev.exit:    ; preds = %8
   br label %17
 
 17:                                               ; preds = %.lr.ph, %_ZNSt10shared_ptrIN6gmxapi8MDModuleEED2Ev.exit
-  %.sroa.019.024 = phi ptr [ %13, %.lr.ph ], [ %65, %_ZNSt10shared_ptrIN6gmxapi8MDModuleEED2Ev.exit ]
+  %.sroa.019.024 = phi ptr [ %13, %.lr.ph ], [ %66, %_ZNSt10shared_ptrIN6gmxapi8MDModuleEED2Ev.exit ]
   %18 = load ptr, ptr %0, align 8
-  %19 = load <2 x ptr>, ptr %.sroa.019.024, align 8
-  store <2 x ptr> %19, ptr %6, align 16
-  %20 = extractelement <2 x ptr> %19, i64 1
+  %19 = getelementptr inbounds i8, ptr %.sroa.019.024, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = load <2 x ptr>, ptr %.sroa.019.024, align 8
+  store <2 x ptr> %21, ptr %6, align 16
   %.not.i.i.i11 = icmp eq ptr %20, null
-  br i1 %.not.i.i.i11, label %_ZNSt10shared_ptrIN6gmxapi8MDModuleEEC2ERKS2_.exit, label %21
+  br i1 %.not.i.i.i11, label %_ZNSt10shared_ptrIN6gmxapi8MDModuleEEC2ERKS2_.exit, label %22
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
-  %23 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i12 = icmp eq i8 %23, 0
-  br i1 %.not.i.i.i.i12, label %27, label %24
+22:                                               ; preds = %17
+  %23 = getelementptr inbounds i8, ptr %20, i64 8
+  %24 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i12 = icmp eq i8 %24, 0
+  br i1 %.not.i.i.i.i12, label %28, label %25
 
-24:                                               ; preds = %21
-  %25 = load i32, ptr %22, align 4
-  %26 = add nsw i32 %25, 1
-  store i32 %26, ptr %22, align 4
+25:                                               ; preds = %22
+  %26 = load i32, ptr %23, align 4
+  %27 = add nsw i32 %26, 1
+  store i32 %27, ptr %23, align 4
   br label %_ZNSt10shared_ptrIN6gmxapi8MDModuleEEC2ERKS2_.exit
 
-27:                                               ; preds = %21
-  %28 = atomicrmw volatile add ptr %22, i32 1 acq_rel, align 4
+28:                                               ; preds = %22
+  %29 = atomicrmw volatile add ptr %23, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN6gmxapi8MDModuleEEC2ERKS2_.exit
 
-_ZNSt10shared_ptrIN6gmxapi8MDModuleEEC2ERKS2_.exit: ; preds = %17, %24, %27
+_ZNSt10shared_ptrIN6gmxapi8MDModuleEEC2ERKS2_.exit: ; preds = %17, %25, %28
   invoke void @_ZN6gmxapi19addSessionRestraintEPNS_7SessionESt10shared_ptrINS_8MDModuleEE(ptr dead_on_unwind nonnull writable sret(%"class.gmxapi::Status") align 8 %5, ptr noundef %18, ptr noundef nonnull %6)
-          to label %29 unwind label %68
+          to label %30 unwind label %69
 
-29:                                               ; preds = %_ZNSt10shared_ptrIN6gmxapi8MDModuleEEC2ERKS2_.exit
+30:                                               ; preds = %_ZNSt10shared_ptrIN6gmxapi8MDModuleEEC2ERKS2_.exit
   call void @_ZN6gmxapi6StatusD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
-  %30 = load ptr, ptr %16, align 8
-  %.not.i.i.i13 = icmp eq ptr %30, null
-  br i1 %.not.i.i.i13, label %_ZNSt10shared_ptrIN6gmxapi8MDModuleEED2Ev.exit, label %31
+  %31 = load ptr, ptr %16, align 8
+  %.not.i.i.i13 = icmp eq ptr %31, null
+  br i1 %.not.i.i.i13, label %_ZNSt10shared_ptrIN6gmxapi8MDModuleEED2Ev.exit, label %32
 
-31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %30, i64 8
-  %33 = load atomic i64, ptr %32 acquire, align 8
-  %34 = icmp eq i64 %33, 4294967297
-  %35 = trunc i64 %33 to i32
-  br i1 %34, label %36, label %41
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds i8, ptr %31, i64 8
+  %34 = load atomic i64, ptr %33 acquire, align 8
+  %35 = icmp eq i64 %34, 4294967297
+  %36 = trunc i64 %34 to i32
+  br i1 %35, label %37, label %42
 
-36:                                               ; preds = %31
-  store i32 0, ptr %32, align 8
-  %37 = getelementptr inbounds i8, ptr %30, i64 12
-  store i32 0, ptr %37, align 4
-  %38 = load ptr, ptr %30, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
-  %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %30) #14
+37:                                               ; preds = %32
+  store i32 0, ptr %33, align 8
+  %38 = getelementptr inbounds i8, ptr %31, i64 12
+  store i32 0, ptr %38, align 4
+  %39 = load ptr, ptr %31, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %41 = load ptr, ptr %40, align 8
+  call void %41(ptr noundef nonnull align 8 dereferenceable(16) %31) #14
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18
 
-41:                                               ; preds = %31
-  %42 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i14 = icmp eq i8 %42, 0
-  br i1 %.not.i.i.i.i14, label %45, label %43
+42:                                               ; preds = %32
+  %43 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i14 = icmp eq i8 %43, 0
+  br i1 %.not.i.i.i.i14, label %46, label %44
 
-43:                                               ; preds = %41
-  %44 = add nsw i32 %35, -1
-  store i32 %44, ptr %32, align 4
-  br label %47
+44:                                               ; preds = %42
+  %45 = add nsw i32 %36, -1
+  store i32 %45, ptr %33, align 4
+  br label %48
 
-45:                                               ; preds = %41
-  %46 = atomicrmw volatile add ptr %32, i32 -1 acq_rel, align 4
-  br label %47
+46:                                               ; preds = %42
+  %47 = atomicrmw volatile add ptr %33, i32 -1 acq_rel, align 4
+  br label %48
 
-47:                                               ; preds = %45, %43
-  %.0.i.i.i.i15 = phi i32 [ %35, %43 ], [ %46, %45 ]
-  %48 = icmp eq i32 %.0.i.i.i.i15, 1
-  br i1 %48, label %49, label %_ZNSt10shared_ptrIN6gmxapi8MDModuleEED2Ev.exit
+48:                                               ; preds = %46, %44
+  %.0.i.i.i.i15 = phi i32 [ %36, %44 ], [ %47, %46 ]
+  %49 = icmp eq i32 %.0.i.i.i.i15, 1
+  br i1 %49, label %50, label %_ZNSt10shared_ptrIN6gmxapi8MDModuleEED2Ev.exit
 
-49:                                               ; preds = %47
-  %50 = load ptr, ptr %30, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
-  %52 = load ptr, ptr %51, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(16) %30) #14
-  %53 = getelementptr inbounds i8, ptr %30, i64 12
-  %54 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i16 = icmp eq i8 %54, 0
-  br i1 %.not.i.i.i.i.i.i16, label %58, label %55
+50:                                               ; preds = %48
+  %51 = load ptr, ptr %31, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 16
+  %53 = load ptr, ptr %52, align 8
+  call void %53(ptr noundef nonnull align 8 dereferenceable(16) %31) #14
+  %54 = getelementptr inbounds i8, ptr %31, i64 12
+  %55 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i16 = icmp eq i8 %55, 0
+  br i1 %.not.i.i.i.i.i.i16, label %59, label %56
 
-55:                                               ; preds = %49
-  %56 = load i32, ptr %53, align 4
-  %57 = add nsw i32 %56, -1
-  store i32 %57, ptr %53, align 4
-  br label %60
+56:                                               ; preds = %50
+  %57 = load i32, ptr %54, align 4
+  %58 = add nsw i32 %57, -1
+  store i32 %58, ptr %54, align 4
+  br label %61
 
-58:                                               ; preds = %49
-  %59 = atomicrmw volatile add ptr %53, i32 -1 acq_rel, align 4
-  br label %60
+59:                                               ; preds = %50
+  %60 = atomicrmw volatile add ptr %54, i32 -1 acq_rel, align 4
+  br label %61
 
-60:                                               ; preds = %58, %55
-  %.0.i.i.i.i.i.i17 = phi i32 [ %56, %55 ], [ %59, %58 ]
-  %61 = icmp eq i32 %.0.i.i.i.i.i.i17, 1
-  br i1 %61, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18, label %_ZNSt10shared_ptrIN6gmxapi8MDModuleEED2Ev.exit
+61:                                               ; preds = %59, %56
+  %.0.i.i.i.i.i.i17 = phi i32 [ %57, %56 ], [ %60, %59 ]
+  %62 = icmp eq i32 %.0.i.i.i.i.i.i17, 1
+  br i1 %62, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18, label %_ZNSt10shared_ptrIN6gmxapi8MDModuleEED2Ev.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18: ; preds = %60, %36
-  %62 = load ptr, ptr %30, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
-  %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(16) %30) #14
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18: ; preds = %61, %37
+  %63 = load ptr, ptr %31, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 24
+  %65 = load ptr, ptr %64, align 8
+  call void %65(ptr noundef nonnull align 8 dereferenceable(16) %31) #14
   br label %_ZNSt10shared_ptrIN6gmxapi8MDModuleEED2Ev.exit
 
-_ZNSt10shared_ptrIN6gmxapi8MDModuleEED2Ev.exit:   ; preds = %29, %47, %60, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18
-  %65 = getelementptr inbounds i8, ptr %.sroa.019.024, i64 16
-  %.not22 = icmp eq ptr %65, %15
+_ZNSt10shared_ptrIN6gmxapi8MDModuleEED2Ev.exit:   ; preds = %30, %48, %61, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i18
+  %66 = getelementptr inbounds i8, ptr %.sroa.019.024, i64 16
+  %.not22 = icmp eq ptr %66, %15
   br i1 %.not22, label %.loopexit, label %17
 
-66:                                               ; preds = %_ZNSt10shared_ptrIN6gmxapi7SessionEED2Ev.exit, %8
-  %67 = landingpad { ptr, i32 }
+67:                                               ; preds = %_ZNSt10shared_ptrIN6gmxapi7SessionEED2Ev.exit, %8
+  %68 = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %71
 
-68:                                               ; preds = %_ZNSt10shared_ptrIN6gmxapi8MDModuleEEC2ERKS2_.exit
-  %69 = landingpad { ptr, i32 }
+69:                                               ; preds = %_ZNSt10shared_ptrIN6gmxapi8MDModuleEEC2ERKS2_.exit
+  %70 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN6gmxapi8MDModuleEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
-  br label %70
+  br label %71
 
 .loopexit:                                        ; preds = %_ZNSt10shared_ptrIN6gmxapi8MDModuleEED2Ev.exit, %12, %3
   ret void
 
-70:                                               ; preds = %68, %66
-  %.pn = phi { ptr, i32 } [ %69, %68 ], [ %67, %66 ]
+71:                                               ; preds = %69, %67
+  %.pn = phi { ptr, i32 } [ %70, %69 ], [ %68, %67 ]
   call void @_ZNSt10shared_ptrIN6gmxapi7SessionEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
   resume { ptr, i32 } %.pn
 }
@@ -815,29 +816,30 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
 define void @_ZN6gmxapi7getWorkERKNS_6System4ImplE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
-  %3 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %3, ptr %0, align 8
-  %4 = extractelement <2 x ptr> %3, i64 1
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %5, ptr %0, align 8
   %.not.i.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN6gmxapi8WorkflowEEC2ERKS2_.exit, label %5
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN6gmxapi8WorkflowEEC2ERKS2_.exit, label %6
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
-  %7 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i = icmp eq i8 %7, 0
-  br i1 %.not.i.i.i.i, label %11, label %8
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i = icmp eq i8 %8, 0
+  br i1 %.not.i.i.i.i, label %12, label %9
 
-8:                                                ; preds = %5
-  %9 = load i32, ptr %6, align 4
-  %10 = add nsw i32 %9, 1
-  store i32 %10, ptr %6, align 4
+9:                                                ; preds = %6
+  %10 = load i32, ptr %7, align 4
+  %11 = add nsw i32 %10, 1
+  store i32 %11, ptr %7, align 4
   br label %_ZNSt10shared_ptrIN6gmxapi8WorkflowEEC2ERKS2_.exit
 
-11:                                               ; preds = %5
-  %12 = atomicrmw volatile add ptr %6, i32 1 acq_rel, align 4
+12:                                               ; preds = %6
+  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN6gmxapi8WorkflowEEC2ERKS2_.exit
 
-_ZNSt10shared_ptrIN6gmxapi8WorkflowEEC2ERKS2_.exit: ; preds = %2, %8, %11
+_ZNSt10shared_ptrIN6gmxapi8WorkflowEEC2ERKS2_.exit: ; preds = %2, %9, %12
   ret void
 }
 

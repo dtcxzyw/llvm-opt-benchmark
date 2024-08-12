@@ -10003,20 +10003,20 @@ invoke.cont1895:                                  ; preds = %while.end.i.i3041, 
   store <2 x float> %724, ptr %dir, align 8
   %ref.tmp1880.sroa.2.0.dir.sroa_idx = getelementptr inbounds i8, ptr %706, i64 -264
   store float %sub5.i, ptr %ref.tmp1880.sroa.2.0.dir.sroa_idx, align 8
+  %727 = extractelement <2 x float> %724, i64 0
   %mul2.i.i = fmul float %sub5.i, 5.000000e-01
-  %727 = fmul <2 x float> %724, <float 5.000000e-01, float 5.000000e-01>
-  %728 = load <2 x float>, ptr %center1, align 8
-  %729 = fadd <2 x float> %727, %728
-  %730 = load float, ptr %z.i2954, align 8
-  %add5.i3062 = fadd float %mul2.i.i, %730
+  %728 = fmul <2 x float> %724, <float 5.000000e-01, float 5.000000e-01>
+  %729 = load <2 x float>, ptr %center1, align 8
+  %730 = fadd <2 x float> %728, %729
+  %731 = load float, ptr %z.i2954, align 8
+  %add5.i3062 = fadd float %mul2.i.i, %731
   %center1893 = getelementptr inbounds i8, ptr %706, i64 -296
-  store <2 x float> %729, ptr %center1893, align 8
+  store <2 x float> %730, ptr %center1893, align 8
   %ref.tmp1884.sroa.2.0.center1893.sroa_idx = getelementptr inbounds i8, ptr %706, i64 -288
   store float %add5.i3062, ptr %ref.tmp1884.sroa.2.0.center1893.sroa_idx, align 8
-  %731 = fmul <2 x float> %724, %724
-  %mul4.i.i = extractelement <2 x float> %731, i64 1
-  %732 = extractelement <2 x float> %724, i64 0
-  %733 = call float @llvm.fmuladd.f32(float %732, float %732, float %mul4.i.i)
+  %732 = fmul <2 x float> %724, %724
+  %mul4.i.i = extractelement <2 x float> %732, i64 1
+  %733 = call float @llvm.fmuladd.f32(float %727, float %727, float %mul4.i.i)
   %734 = call noundef float @llvm.fmuladd.f32(float %sub5.i, float %sub5.i, float %733)
   %sqrt.i = call noundef float @llvm.sqrt.f32(float %734)
   %cmp1897 = fcmp olt float %sqrt.i, 0x3F847AE140000000

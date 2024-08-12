@@ -721,87 +721,85 @@ define hidden noundef ptr @_ZN36TemplateAssertionPredicateExpression5cloneERK35T
   %11 = getelementptr inbounds i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %10, i64 32
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 40
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 8
-  %18 = load i64, ptr %17, align 8
+  %14 = load <2 x ptr>, ptr %13, align 8
+  %15 = load ptr, ptr %13, align 8
+  %16 = getelementptr inbounds i8, ptr %10, i64 8
+  %17 = load i64, ptr %16, align 8
   call void @_ZN25DataNodesOnPathsToTargetsC2EPFbPK4NodeES4_(ptr noundef nonnull align 8 dereferenceable(160) %5, ptr noundef nonnull @_ZN40TemplateAssertionPredicateExpressionNode22is_maybe_in_expressionEPK4Node, ptr noundef nonnull @"_ZZN36TemplateAssertionPredicateExpression5cloneERK35TransformStrategyForOpaqueLoopNodesP4NodeP14PhaseIdealLoopEN3$_08__invokeEPKS3_")
-  %19 = load ptr, ptr %0, align 8
-  call void @_ZN25DataNodesOnPathsToTargets20collect_target_nodesEP4Node(ptr noundef nonnull align 8 dereferenceable(160) %5, ptr noundef %19)
+  %18 = load ptr, ptr %0, align 8
+  call void @_ZN25DataNodesOnPathsToTargets20collect_target_nodesEP4Node(ptr noundef nonnull align 8 dereferenceable(160) %5, ptr noundef %18)
   call void @_ZN25DataNodesOnPathsToTargets27backtrack_from_target_nodesEv(ptr noundef nonnull align 8 dereferenceable(160) %5)
-  %20 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %3, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 16
-  %23 = load i64, ptr @MaxNodeLimit, align 8
-  %24 = trunc i64 %23 to i32
-  store i32 107, ptr %22, align 8
-  %25 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 856, i32 noundef 0) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %25, i8 0, i64 856, i1 false)
-  %26 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %6, i64 32
-  store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 36
-  store i32 %24, ptr %28, align 4
+  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %19, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %6, i64 16
+  %22 = load i64, ptr @MaxNodeLimit, align 8
+  %23 = trunc i64 %22 to i32
+  store i32 107, ptr %21, align 8
+  %24 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 856, i32 noundef 0) #8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %24, i8 0, i64 856, i1 false)
+  %25 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr %24, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %6, i64 32
+  store i32 0, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %6, i64 36
+  store i32 %23, ptr %27, align 4
   call void @_ZN13DataNodeGraph48clone_data_nodes_and_transform_opaque_loop_nodesERK35TransformStrategyForOpaqueLoopNodesP4Node(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) #8
   call void @_ZN13DataNodeGraph30rewire_clones_to_cloned_inputsEv(ptr noundef nonnull align 8 dereferenceable(40) %6) #8
-  %29 = load ptr, ptr %0, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %31 = trunc i64 %30 to i32
-  %32 = lshr i32 %31, 3
-  %33 = xor i32 %32, %31
-  %34 = load i32, ptr %22, align 8
-  %35 = urem i32 %33, %34
-  %36 = load ptr, ptr %26, align 8
-  %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds ptr, ptr %36, i64 %37
+  %28 = load ptr, ptr %0, align 8
+  %29 = ptrtoint ptr %28 to i64
+  %30 = trunc i64 %29 to i32
+  %31 = lshr i32 %30, 3
+  %32 = xor i32 %31, %30
+  %33 = load i32, ptr %21, align 8
+  %34 = urem i32 %32, %33
+  %35 = load ptr, ptr %25, align 8
+  %36 = zext i32 %34 to i64
+  %37 = getelementptr inbounds ptr, ptr %35, i64 %36
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %46, %4
-  %.in = phi ptr [ %47, %46 ], [ %38, %4 ]
-  %39 = load ptr, ptr %.in, align 8, !nonnull !9, !noundef !9
-  %40 = load i32, ptr %39, align 8
-  %41 = icmp eq i32 %40, %33
-  br i1 %41, label %42, label %46
+.lr.ph.i.i.i:                                     ; preds = %45, %4
+  %.in = phi ptr [ %46, %45 ], [ %37, %4 ]
+  %38 = load ptr, ptr %.in, align 8, !nonnull !9, !noundef !9
+  %39 = load i32, ptr %38, align 8
+  %40 = icmp eq i32 %39, %32
+  br i1 %40, label %41, label %45
 
-42:                                               ; preds = %.lr.ph.i.i.i
-  %43 = getelementptr inbounds i8, ptr %39, i64 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = icmp eq ptr %29, %44
-  br i1 %45, label %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3getERKS2_.exit, label %46
+41:                                               ; preds = %.lr.ph.i.i.i
+  %42 = getelementptr inbounds i8, ptr %38, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp eq ptr %28, %43
+  br i1 %44, label %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3getERKS2_.exit, label %45
 
-46:                                               ; preds = %42, %.lr.ph.i.i.i
-  %47 = getelementptr inbounds i8, ptr %39, i64 24
+45:                                               ; preds = %41, %.lr.ph.i.i.i
+  %46 = getelementptr inbounds i8, ptr %38, i64 24
   br label %.lr.ph.i.i.i
 
-_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3getERKS2_.exit: ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %39, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = load ptr, ptr %12, align 8
-  %.not.i.i.i.i = icmp eq ptr %50, null
-  br i1 %.not.i.i.i.i, label %52, label %51
+_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3getERKS2_.exit: ; preds = %41
+  %47 = getelementptr inbounds i8, ptr %38, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %12, align 8
+  %.not.i.i.i.i = icmp eq ptr %49, null
+  br i1 %.not.i.i.i.i, label %51, label %50
 
-51:                                               ; preds = %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3getERKS2_.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %10, i64 noundef %18) #8
+50:                                               ; preds = %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3getERKS2_.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %10, i64 noundef %17) #8
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %12) #8
-  br label %52
+  br label %51
 
-52:                                               ; preds = %51, %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3getERKS2_.exit
-  %53 = load ptr, ptr %13, align 8
-  %.not8.i.i.i.i = icmp eq ptr %53, %14
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %54
+51:                                               ; preds = %50, %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP4NodeS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS7EES2_S2_LS4_1ELS5_7EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE3getERKS2_.exit
+  %52 = load ptr, ptr %13, align 8
+  %.not8.i.i.i.i = icmp eq ptr %52, %15
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %53
 
-54:                                               ; preds = %52
+53:                                               ; preds = %51
   store ptr %12, ptr %11, align 8
-  store ptr %14, ptr %13, align 8
-  store ptr %16, ptr %15, align 8
+  store <2 x ptr> %14, ptr %13, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %52, %54
-  ret ptr %49
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %51, %53
+  ret ptr %48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

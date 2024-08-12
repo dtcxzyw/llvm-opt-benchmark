@@ -1769,20 +1769,20 @@ _update_nice.exit.i:                              ; preds = %724, %722, %715, %u
   %756 = getelementptr inbounds i8, ptr %752, i64 4186
   %757 = getelementptr inbounds i8, ptr %752, i64 4152
   %758 = load <2 x i16>, ptr %756, align 2
+  %759 = load i16, ptr %756, align 2
   store <2 x i16> %758, ptr %757, align 8
-  %759 = getelementptr inbounds i8, ptr %752, i64 4190
-  %760 = load i16, ptr %759, align 2
-  %761 = getelementptr inbounds i8, ptr %752, i64 4156
-  store i16 %760, ptr %761, align 4
-  %762 = getelementptr inbounds i8, ptr %752, i64 4192
-  %763 = load i16, ptr %762, align 8
-  %764 = getelementptr inbounds i8, ptr %752, i64 4184
-  store i16 %763, ptr %764, align 8
-  %765 = getelementptr inbounds i8, ptr %752, i64 4194
-  %766 = load i16, ptr %765, align 2
-  %767 = getelementptr inbounds i8, ptr %752, i64 4158
-  store i16 %766, ptr %767, align 2
-  %768 = extractelement <2 x i16> %758, i64 0
+  %760 = getelementptr inbounds i8, ptr %752, i64 4190
+  %761 = load i16, ptr %760, align 2
+  %762 = getelementptr inbounds i8, ptr %752, i64 4156
+  store i16 %761, ptr %762, align 4
+  %763 = getelementptr inbounds i8, ptr %752, i64 4192
+  %764 = load i16, ptr %763, align 8
+  %765 = getelementptr inbounds i8, ptr %752, i64 4184
+  store i16 %764, ptr %765, align 8
+  %766 = getelementptr inbounds i8, ptr %752, i64 4194
+  %767 = load i16, ptr %766, align 2
+  %768 = getelementptr inbounds i8, ptr %752, i64 4158
+  store i16 %767, ptr %768, align 2
   br label %855
 
 769:                                              ; preds = %737
@@ -1881,20 +1881,20 @@ _update_nice.exit.i:                              ; preds = %724, %722, %715, %u
   %831 = getelementptr inbounds i8, ptr %830, i64 4186
   %832 = getelementptr inbounds i8, ptr %830, i64 4152
   %833 = load <2 x i16>, ptr %831, align 2
+  %834 = load i16, ptr %831, align 2
   store <2 x i16> %833, ptr %832, align 8
-  %834 = getelementptr inbounds i8, ptr %830, i64 4200
-  %835 = load i16, ptr %834, align 8
-  %836 = getelementptr inbounds i8, ptr %830, i64 4156
-  store i16 %835, ptr %836, align 4
-  %837 = getelementptr inbounds i8, ptr %830, i64 4202
-  %838 = load i16, ptr %837, align 2
-  %839 = getelementptr inbounds i8, ptr %830, i64 4184
-  store i16 %838, ptr %839, align 8
-  %840 = getelementptr inbounds i8, ptr %830, i64 4194
-  %841 = load i16, ptr %840, align 2
-  %842 = getelementptr inbounds i8, ptr %830, i64 4158
-  store i16 %841, ptr %842, align 2
-  %843 = extractelement <2 x i16> %833, i64 0
+  %835 = getelementptr inbounds i8, ptr %830, i64 4200
+  %836 = load i16, ptr %835, align 8
+  %837 = getelementptr inbounds i8, ptr %830, i64 4156
+  store i16 %836, ptr %837, align 4
+  %838 = getelementptr inbounds i8, ptr %830, i64 4202
+  %839 = load i16, ptr %838, align 2
+  %840 = getelementptr inbounds i8, ptr %830, i64 4184
+  store i16 %839, ptr %840, align 8
+  %841 = getelementptr inbounds i8, ptr %830, i64 4194
+  %842 = load i16, ptr %841, align 2
+  %843 = getelementptr inbounds i8, ptr %830, i64 4158
+  store i16 %842, ptr %843, align 2
   br label %855
 
 .critedge.i:                                      ; preds = %800, %795, %788, %787, %..critedge_crit_edge.i
@@ -1916,7 +1916,7 @@ _update_nice.exit.i:                              ; preds = %724, %722, %715, %u
   br label %855
 
 855:                                              ; preds = %.critedge.i, %829, %776, %755, %._crit_edge.i86
-  %856 = phi i16 [ %.pre87.i, %._crit_edge.i86 ], [ %768, %755 ], [ %843, %829 ], [ %844, %.critedge.i ], [ %772, %776 ]
+  %856 = phi i16 [ %.pre87.i, %._crit_edge.i86 ], [ %759, %755 ], [ %834, %829 ], [ %844, %.critedge.i ], [ %772, %776 ]
   %857 = phi ptr [ %752, %._crit_edge.i86 ], [ %752, %755 ], [ %830, %829 ], [ %752, %.critedge.i ], [ %752, %776 ]
   %858 = getelementptr inbounds i8, ptr %857, i64 4196
   %859 = load i16, ptr %858, align 4

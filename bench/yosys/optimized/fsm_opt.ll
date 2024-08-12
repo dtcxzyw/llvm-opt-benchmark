@@ -3218,16 +3218,15 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit.i109.i:            ; preds = %986, %_ZN5Yosys5RTL
   %992 = add nsw i32 %991, -1
   store i32 %992, ptr %0, align 8
   %993 = load ptr, ptr %48, align 8
-  %994 = load ptr, ptr %85, align 8
-  %995 = load ptr, ptr %102, align 8
-  %996 = load <2 x ptr>, ptr %31, align 16
-  store <2 x ptr> %996, ptr %48, align 8
-  %997 = load ptr, ptr %737, align 16
-  store ptr %997, ptr %102, align 8
+  %994 = load <2 x ptr>, ptr %31, align 16
+  %995 = load ptr, ptr %737, align 16
   store ptr %993, ptr %31, align 16
-  store ptr %994, ptr %736, align 8
-  store ptr %995, ptr %737, align 16
-  %.not.i.i.i84 = icmp eq ptr %994, %993
+  %996 = load <2 x ptr>, ptr %85, align 8
+  %997 = load ptr, ptr %85, align 8
+  store <2 x ptr> %994, ptr %48, align 8
+  store ptr %995, ptr %102, align 8
+  store <2 x ptr> %996, ptr %736, align 8
+  %.not.i.i.i84 = icmp eq ptr %997, %993
   br i1 %.not.i.i.i84, label %_ZSt8_DestroyIPN5Yosys7FsmData12transition_tES2_EvT_S4_RSaIT0_E.exit.i.i93, label %.lr.ph.i.i.i.i.i112.i
 
 .lr.ph.i.i.i.i.i112.i:                            ; preds = %989, %_ZSt8_DestroyIN5Yosys7FsmData12transition_tEEvPT_.exit.i.i.i.i.i.i
@@ -3253,7 +3252,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i.i.i.i.i.i.i:   ; preds = %1000, %.lr.ph.i.i.i
 
 _ZSt8_DestroyIN5Yosys7FsmData12transition_tEEvPT_.exit.i.i.i.i.i.i: ; preds = %1003, %_ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i.i.i.i.i.i.i
   %1004 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i113.i, i64 72
-  %.not.i.i.i.i.i115.i = icmp eq ptr %1004, %994
+  %.not.i.i.i.i.i115.i = icmp eq ptr %1004, %997
   br i1 %.not.i.i.i.i.i115.i, label %_ZNSt6vectorIN5Yosys7FsmData12transition_tESaIS2_EE5clearEv.exit.i, label %.lr.ph.i.i.i.i.i112.i, !llvm.loop !8
 
 _ZNSt6vectorIN5Yosys7FsmData12transition_tESaIS2_EE5clearEv.exit.i: ; preds = %_ZSt8_DestroyIN5Yosys7FsmData12transition_tEEvPT_.exit.i.i.i.i.i.i
@@ -4207,16 +4206,15 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit.i105.i:            ; preds = %1297, %_ZN5Yosys5RT
   %1303 = add nsw i32 %1302, -1
   store i32 %1303, ptr %0, align 8
   %1304 = load ptr, ptr %48, align 8
-  %1305 = load ptr, ptr %85, align 8
-  %1306 = load ptr, ptr %102, align 8
-  %1307 = load <2 x ptr>, ptr %24, align 16
-  store <2 x ptr> %1307, ptr %48, align 8
-  %1308 = load ptr, ptr %1056, align 16
-  store ptr %1308, ptr %102, align 8
+  %1305 = load <2 x ptr>, ptr %24, align 16
+  %1306 = load ptr, ptr %1056, align 16
   store ptr %1304, ptr %24, align 16
-  store ptr %1305, ptr %1055, align 8
-  store ptr %1306, ptr %1056, align 16
-  %.not.i.i.i171 = icmp eq ptr %1305, %1304
+  %1307 = load <2 x ptr>, ptr %85, align 8
+  %1308 = load ptr, ptr %85, align 8
+  store <2 x ptr> %1305, ptr %48, align 8
+  store ptr %1306, ptr %102, align 8
+  store <2 x ptr> %1307, ptr %1055, align 8
+  %.not.i.i.i171 = icmp eq ptr %1308, %1304
   br i1 %.not.i.i.i171, label %_ZSt8_DestroyIPN5Yosys7FsmData12transition_tES2_EvT_S4_RSaIT0_E.exit.i.i185, label %.lr.ph.i.i.i.i.i108.i
 
 .lr.ph.i.i.i.i.i108.i:                            ; preds = %1300, %_ZSt8_DestroyIN5Yosys7FsmData12transition_tEEvPT_.exit.i.i.i.i.i.i174
@@ -4242,7 +4240,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i.i.i.i.i.i.i172: ; preds = %1311, %.lr.ph.i.i.
 
 _ZSt8_DestroyIN5Yosys7FsmData12transition_tEEvPT_.exit.i.i.i.i.i.i174: ; preds = %1314, %_ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i.i.i.i.i.i.i172
   %1315 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i109.i, i64 72
-  %.not.i.i.i.i.i111.i175 = icmp eq ptr %1315, %1305
+  %.not.i.i.i.i.i111.i175 = icmp eq ptr %1315, %1308
   br i1 %.not.i.i.i.i.i111.i175, label %_ZNSt6vectorIN5Yosys7FsmData12transition_tESaIS2_EE5clearEv.exit.i176, label %.lr.ph.i.i.i.i.i108.i, !llvm.loop !8
 
 _ZNSt6vectorIN5Yosys7FsmData12transition_tESaIS2_EE5clearEv.exit.i176: ; preds = %_ZSt8_DestroyIN5Yosys7FsmData12transition_tEEvPT_.exit.i.i.i.i.i.i174
@@ -6763,18 +6761,17 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit117.i:            ; preds = %2093, %_ZSt8_Destro
 
 ._crit_edge200.i:                                 ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit117.i, %._crit_edge191.i
   %2100 = load ptr, ptr %48, align 8
-  %2101 = load ptr, ptr %85, align 8
-  %2102 = load ptr, ptr %102, align 8
-  %2103 = getelementptr inbounds i8, ptr %5, i64 8
-  %2104 = load <2 x ptr>, ptr %5, align 16
-  store <2 x ptr> %2104, ptr %48, align 8
-  %2105 = getelementptr inbounds i8, ptr %5, i64 16
-  %2106 = load ptr, ptr %2105, align 16
-  store ptr %2106, ptr %102, align 8
+  %2101 = getelementptr inbounds i8, ptr %5, i64 8
+  %2102 = load <2 x ptr>, ptr %5, align 16
+  %2103 = getelementptr inbounds i8, ptr %5, i64 16
+  %2104 = load ptr, ptr %2103, align 16
   store ptr %2100, ptr %5, align 16
-  store ptr %2101, ptr %2103, align 8
-  store ptr %2102, ptr %2105, align 16
-  %.not.i.i.i311 = icmp eq ptr %2101, %2100
+  %2105 = load <2 x ptr>, ptr %85, align 8
+  %2106 = load ptr, ptr %85, align 8
+  store <2 x ptr> %2102, ptr %48, align 8
+  store ptr %2104, ptr %102, align 8
+  store <2 x ptr> %2105, ptr %2101, align 8
+  %.not.i.i.i311 = icmp eq ptr %2106, %2100
   br i1 %.not.i.i.i311, label %_ZSt8_DestroyIPN5Yosys7FsmData12transition_tES2_EvT_S4_RSaIT0_E.exit.i.i326, label %.lr.ph.i.i.i.i.i118.i
 
 .lr.ph.i.i.i.i.i118.i:                            ; preds = %._crit_edge200.i, %_ZSt8_DestroyIN5Yosys7FsmData12transition_tEEvPT_.exit.i.i.i.i.i.i315
@@ -6800,11 +6797,11 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i.i.i.i.i.i.i313: ; preds = %2109, %.lr.ph.i.i.
 
 _ZSt8_DestroyIN5Yosys7FsmData12transition_tEEvPT_.exit.i.i.i.i.i.i315: ; preds = %2112, %_ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i.i.i.i.i.i.i313
   %2113 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i119.i, i64 72
-  %.not.i.i.i.i.i120.i = icmp eq ptr %2113, %2101
+  %.not.i.i.i.i.i120.i = icmp eq ptr %2113, %2106
   br i1 %.not.i.i.i.i.i120.i, label %_ZNSt6vectorIN5Yosys7FsmData12transition_tESaIS2_EE5clearEv.exit.i316, label %.lr.ph.i.i.i.i.i118.i, !llvm.loop !8
 
 _ZNSt6vectorIN5Yosys7FsmData12transition_tESaIS2_EE5clearEv.exit.i316: ; preds = %_ZSt8_DestroyIN5Yosys7FsmData12transition_tEEvPT_.exit.i.i.i.i.i.i315
-  store ptr %2100, ptr %2103, align 8
+  store ptr %2100, ptr %2101, align 8
   %.pre204.i = load ptr, ptr %5, align 16
   %.not4.i.i.i.i.i317 = icmp eq ptr %.pre204.i, %2100
   br i1 %.not4.i.i.i.i.i317, label %_ZSt8_DestroyIPN5Yosys7FsmData12transition_tES2_EvT_S4_RSaIT0_E.exit.i.i326, label %.lr.ph.i.i.i.i.i318

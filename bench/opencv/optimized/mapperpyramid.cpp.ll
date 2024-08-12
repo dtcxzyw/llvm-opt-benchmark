@@ -62,7 +62,7 @@ define void @_ZNK2cv3reg13MapperPyramid9calculateERKNS_11_InputArrayES4_NS_3PtrI
   %8 = alloca %"class.cv::_OutputArray", align 8
   %9 = alloca %"struct.cv::Ptr.0", align 8
   %10 = alloca %"class.cv::Mat", align 8
-  %11 = alloca %"struct.cv::Ptr.0", align 8
+  %11 = alloca %"struct.cv::Ptr.0", align 16
   %12 = alloca %"class.std::vector", align 8
   %13 = alloca %"class.std::vector", align 8
   %14 = alloca %"class.cv::_InputArray", align 8
@@ -76,8 +76,8 @@ define void @_ZNK2cv3reg13MapperPyramid9calculateERKNS_11_InputArrayES4_NS_3PtrI
   %22 = alloca %"struct.cv::Ptr.0", align 8
   %23 = alloca %"class.cv::_InputArray", align 8
   %24 = alloca %"class.cv::_InputArray", align 8
-  %25 = alloca %"struct.cv::Ptr.0", align 8
-  %26 = alloca %"struct.cv::Ptr.0", align 8
+  %25 = alloca %"struct.cv::Ptr.0", align 16
+  %26 = alloca %"struct.cv::Ptr.0", align 16
   %27 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %2), !noalias !4
   %28 = icmp eq i32 %27, 65536
   br i1 %28, label %29, label %32
@@ -590,7 +590,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i55: ; preds = %_ZNSt6vector
   br i1 %.not, label %253, label %246
 
 246:                                              ; preds = %245
-  %247 = load ptr, ptr %11, align 8
+  %247 = load ptr, ptr %11, align 16
   %248 = load ptr, ptr %247, align 8
   %249 = getelementptr inbounds i8, ptr %248, i64 48
   %250 = load ptr, ptr %249, align 8
@@ -618,15 +618,14 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i55: ; preds = %_ZNSt6vector
   store i32 0, ptr %225, align 4
   store i32 16842752, ptr %24, align 8
   store ptr %21, ptr %226, align 8
-  %257 = load ptr, ptr %11, align 8
-  store ptr %257, ptr %25, align 8
-  %258 = load ptr, ptr %228, align 8
-  store ptr %258, ptr %227, align 8
-  %.not.i.i.i.i65 = icmp eq ptr %258, null
+  %257 = load ptr, ptr %228, align 8
+  %258 = load <2 x ptr>, ptr %11, align 16
+  store <2 x ptr> %258, ptr %25, align 16
+  %.not.i.i.i.i65 = icmp eq ptr %257, null
   br i1 %.not.i.i.i.i65, label %_ZN2cv3PtrINS_3reg3MapEEC2ERKS3_.exit, label %259
 
 259:                                              ; preds = %.lr.ph128
-  %260 = getelementptr inbounds i8, ptr %258, i64 8
+  %260 = getelementptr inbounds i8, ptr %257, i64 8
   %261 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i66 = icmp eq i8 %261, 0
   br i1 %.not.i.i.i.i.i66, label %265, label %262
@@ -650,7 +649,7 @@ _ZN2cv3PtrINS_3reg3MapEEC2ERKS3_.exit:            ; preds = %.lr.ph128, %262, %2
 
 270:                                              ; preds = %_ZN2cv3PtrINS_3reg3MapEEC2ERKS3_.exit
   %271 = load ptr, ptr %22, align 8
-  store ptr %271, ptr %11, align 8
+  store ptr %271, ptr %11, align 16
   %272 = load ptr, ptr %229, align 8
   %273 = load ptr, ptr %228, align 8
   %.not.i.i.i.i67 = icmp eq ptr %272, %273
@@ -924,17 +923,16 @@ _ZN2cv3PtrINS_3reg3MapEED2Ev.exit94:              ; preds = %_ZN2cv3PtrINS_3reg3
 
 ._crit_edge133:                                   ; preds = %._crit_edge129, %._crit_edge
   %396 = load ptr, ptr %4, align 8
-  %397 = load ptr, ptr %11, align 8
-  store ptr %397, ptr %26, align 8
-  %398 = getelementptr inbounds i8, ptr %26, i64 8
-  %399 = getelementptr inbounds i8, ptr %11, i64 8
-  %400 = load ptr, ptr %399, align 8
-  store ptr %400, ptr %398, align 8
-  %.not.i.i.i.i95 = icmp eq ptr %400, null
+  %397 = getelementptr inbounds i8, ptr %26, i64 8
+  %398 = getelementptr inbounds i8, ptr %11, i64 8
+  %399 = load ptr, ptr %398, align 8
+  %400 = load <2 x ptr>, ptr %11, align 16
+  store <2 x ptr> %400, ptr %26, align 16
+  %.not.i.i.i.i95 = icmp eq ptr %399, null
   br i1 %.not.i.i.i.i95, label %_ZN2cv3PtrINS_3reg3MapEEC2ERKS3_.exit97, label %401
 
 401:                                              ; preds = %._crit_edge133
-  %402 = getelementptr inbounds i8, ptr %400, i64 8
+  %402 = getelementptr inbounds i8, ptr %399, i64 8
   %403 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i96 = icmp eq i8 %403, 0
   br i1 %.not.i.i.i.i.i96, label %407, label %404
@@ -957,7 +955,7 @@ _ZN2cv3PtrINS_3reg3MapEEC2ERKS3_.exit97:          ; preds = %._crit_edge133, %40
           to label %412 unwind label %495
 
 412:                                              ; preds = %_ZN2cv3PtrINS_3reg3MapEEC2ERKS3_.exit97
-  %413 = load ptr, ptr %398, align 8
+  %413 = load ptr, ptr %397, align 8
   %.not.i.i.i.i98 = icmp eq ptr %413, null
   br i1 %.not.i.i.i.i98, label %_ZN2cv3PtrINS_3reg3MapEED2Ev.exit104, label %414
 
@@ -1081,7 +1079,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i112: ; preds = %.lr.ph.i.i.i.i1
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit114
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit114:       ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i112, %459
-  %460 = load ptr, ptr %399, align 8
+  %460 = load ptr, ptr %398, align 8
   %.not.i.i.i.i115 = icmp eq ptr %460, null
   br i1 %.not.i.i.i.i115, label %_ZN2cv3PtrINS_3reg3MapEED2Ev.exit121, label %461
 

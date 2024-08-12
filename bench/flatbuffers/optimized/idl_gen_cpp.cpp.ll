@@ -39799,20 +39799,18 @@ if.then3:                                         ; preds = %if.else
   %element.i = getelementptr inbounds i8, ptr %type, i64 4
   %4 = load i32, ptr %element.i, align 4, !noalias !241
   %struct_def.i = getelementptr inbounds i8, ptr %type, i64 8
-  %5 = load ptr, ptr %struct_def.i, align 8, !noalias !241
   %enum_def.i = getelementptr inbounds i8, ptr %type, i64 16
-  %6 = load ptr, ptr %enum_def.i, align 8, !noalias !241
   %fixed_length.i = getelementptr inbounds i8, ptr %type, i64 24
-  %7 = load i16, ptr %fixed_length.i, align 8, !noalias !241
+  %5 = load i16, ptr %fixed_length.i, align 8, !noalias !241
   store i32 %4, ptr %element_type, align 8, !alias.scope !241
   %element.i.i = getelementptr inbounds i8, ptr %element_type, i64 4
   store i32 0, ptr %element.i.i, align 4, !alias.scope !241
   %struct_def.i.i = getelementptr inbounds i8, ptr %element_type, i64 8
-  store ptr %5, ptr %struct_def.i.i, align 8, !alias.scope !241
-  %enum_def.i.i = getelementptr inbounds i8, ptr %element_type, i64 16
-  store ptr %6, ptr %enum_def.i.i, align 8, !alias.scope !241
+  %6 = load ptr, ptr %enum_def.i, align 8, !noalias !241
+  %7 = load <2 x ptr>, ptr %struct_def.i, align 8, !noalias !241
+  store <2 x ptr> %7, ptr %struct_def.i.i, align 8, !alias.scope !241
   %fixed_length.i.i = getelementptr inbounds i8, ptr %element_type, i64 24
-  store i16 %7, ptr %fixed_length.i.i, align 8, !alias.scope !241
+  store i16 %5, ptr %fixed_length.i.i, align 8, !alias.scope !241
   %cmp.not.i = icmp ne ptr %6, null
   %8 = add i32 %4, -1
   %9 = icmp ult i32 %8, 10
@@ -47175,20 +47173,18 @@ sw.bb2:                                           ; preds = %entry, %entry
   %element.i = getelementptr inbounds i8, ptr %type, i64 4
   %3 = load i32, ptr %element.i, align 4, !noalias !89
   %struct_def.i = getelementptr inbounds i8, ptr %type, i64 8
-  %4 = load ptr, ptr %struct_def.i, align 8, !noalias !283
   %enum_def.i = getelementptr inbounds i8, ptr %type, i64 16
-  %5 = load ptr, ptr %enum_def.i, align 8, !noalias !89
   %fixed_length.i = getelementptr inbounds i8, ptr %type, i64 24
-  %6 = load i16, ptr %fixed_length.i, align 8, !noalias !283
+  %4 = load i16, ptr %fixed_length.i, align 8, !noalias !283
   store i32 %3, ptr %ref.tmp3, align 8, !alias.scope !283
   %element.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 4
   store i32 0, ptr %element.i.i, align 4, !alias.scope !283
   %struct_def.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
-  store ptr %4, ptr %struct_def.i.i, align 8, !alias.scope !283
-  %enum_def.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
-  store ptr %5, ptr %enum_def.i.i, align 8, !alias.scope !283
+  %5 = load ptr, ptr %enum_def.i, align 8, !noalias !89
+  %6 = load <2 x ptr>, ptr %struct_def.i, align 8, !noalias !89
+  store <2 x ptr> %6, ptr %struct_def.i.i, align 8, !alias.scope !283
   %fixed_length.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 24
-  store i16 %6, ptr %fixed_length.i.i, align 8, !alias.scope !283
+  store i16 %4, ptr %fixed_length.i.i, align 8, !alias.scope !283
   %scoped_enums.i = getelementptr inbounds i8, ptr %this, i64 683
   %7 = load i8, ptr %scoped_enums.i, align 1
   %tobool.i = trunc i8 %7 to i1
@@ -47868,20 +47864,18 @@ entry:
   %element.i = getelementptr inbounds i8, ptr %type, i64 4
   %0 = load i32, ptr %element.i, align 4, !noalias !295
   %struct_def.i = getelementptr inbounds i8, ptr %type, i64 8
-  %1 = load ptr, ptr %struct_def.i, align 8, !noalias !295
   %enum_def.i = getelementptr inbounds i8, ptr %type, i64 16
-  %2 = load ptr, ptr %enum_def.i, align 8, !noalias !295
   %fixed_length.i = getelementptr inbounds i8, ptr %type, i64 24
-  %3 = load i16, ptr %fixed_length.i, align 8, !noalias !295
+  %1 = load i16, ptr %fixed_length.i, align 8, !noalias !295
   store i32 %0, ptr %element_type, align 8, !alias.scope !295
   %element.i.i = getelementptr inbounds i8, ptr %element_type, i64 4
   store i32 0, ptr %element.i.i, align 4, !alias.scope !295
   %struct_def.i.i = getelementptr inbounds i8, ptr %element_type, i64 8
-  store ptr %1, ptr %struct_def.i.i, align 8, !alias.scope !295
-  %enum_def.i.i = getelementptr inbounds i8, ptr %element_type, i64 16
-  store ptr %2, ptr %enum_def.i.i, align 8, !alias.scope !295
+  %2 = load ptr, ptr %enum_def.i, align 8, !noalias !295
+  %3 = load <2 x ptr>, ptr %struct_def.i, align 8, !noalias !295
+  store <2 x ptr> %3, ptr %struct_def.i.i, align 8, !alias.scope !295
   %fixed_length.i.i = getelementptr inbounds i8, ptr %element_type, i64 24
-  store i16 %3, ptr %fixed_length.i.i, align 8, !alias.scope !295
+  store i16 %1, ptr %fixed_length.i.i, align 8, !alias.scope !295
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
   %call.i8 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
           to label %call.i.noexc unwind label %lpad
@@ -65844,25 +65838,22 @@ if.then:                                          ; preds = %cond.end
   %element.i = getelementptr inbounds i8, ptr %field, i64 204
   %7 = load i32, ptr %element.i, align 4, !noalias !402
   %struct_def.i = getelementptr inbounds i8, ptr %field, i64 208
-  %8 = load ptr, ptr %struct_def.i, align 8, !noalias !402
-  %enum_def.i = getelementptr inbounds i8, ptr %field, i64 216
-  %9 = load ptr, ptr %enum_def.i, align 8, !noalias !402
   %fixed_length.i = getelementptr inbounds i8, ptr %field, i64 224
-  %10 = load i16, ptr %fixed_length.i, align 8, !noalias !402
+  %8 = load i16, ptr %fixed_length.i, align 8, !noalias !402
   store i32 %7, ptr %vtype, align 8, !alias.scope !402
   %element.i.i = getelementptr inbounds i8, ptr %vtype, i64 4
   store i32 0, ptr %element.i.i, align 4, !alias.scope !402
   %struct_def.i.i = getelementptr inbounds i8, ptr %vtype, i64 8
-  store ptr %8, ptr %struct_def.i.i, align 8, !alias.scope !402
-  %enum_def.i.i = getelementptr inbounds i8, ptr %vtype, i64 16
-  store ptr %9, ptr %enum_def.i.i, align 8, !alias.scope !402
+  %9 = load <2 x ptr>, ptr %struct_def.i, align 8, !noalias !402
+  %10 = load ptr, ptr %struct_def.i, align 8, !noalias !402
+  store <2 x ptr> %9, ptr %struct_def.i.i, align 8, !alias.scope !402
   %fixed_length.i.i = getelementptr inbounds i8, ptr %vtype, i64 24
-  store i16 %10, ptr %fixed_length.i.i, align 8, !alias.scope !402
+  store i16 %8, ptr %fixed_length.i.i, align 8, !alias.scope !402
   %cmp.i = icmp eq i32 %7, 15
   br i1 %cmp.i, label %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit, label %cond.false18
 
 _ZN11flatbuffers8IsStructERKNS_4TypeE.exit:       ; preds = %if.then
-  %fixed.i = getelementptr inbounds i8, ptr %8, i64 272
+  %fixed.i = getelementptr inbounds i8, ptr %10, i64 272
   %11 = load i8, ptr %fixed.i, align 8
   %tobool.i = trunc i8 %11 to i1
   br i1 %tobool.i, label %cond.true10, label %cond.false18
@@ -65887,7 +65878,7 @@ lpad.i24:                                         ; preds = %.noexc27
   br label %cleanup.action31
 
 invoke.cont14:                                    ; preds = %.noexc27
-  invoke void @_ZNK11flatbuffers13BaseGenerator15WrapInNameSpaceERKNS_10DefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(200) %8, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11)
+  invoke void @_ZNK11flatbuffers13BaseGenerator15WrapInNameSpaceERKNS_10DefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(200) %10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11)
           to label %cleanup.action unwind label %cleanup.action24
 
 cond.false18:                                     ; preds = %if.then, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit

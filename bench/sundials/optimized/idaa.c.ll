@@ -2840,83 +2840,83 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   store double %208, ptr %209, align 8
   %210 = getelementptr inbounds i8, ptr %203, i64 252
   %211 = load <4 x i32>, ptr %162, align 8
+  %212 = load i32, ptr %162, align 8
   store <4 x i32> %211, ptr %210, align 4
-  %212 = load i32, ptr %163, align 8
-  %213 = getelementptr inbounds i8, ptr %203, i64 248
-  store i32 %212, ptr %213, align 8
-  %214 = getelementptr inbounds i8, ptr %203, i64 272
-  %215 = load <2 x double>, ptr %164, align 8
-  store <2 x double> %215, ptr %214, align 8
-  %216 = load double, ptr %165, align 8
-  %217 = getelementptr inbounds i8, ptr %203, i64 288
-  store double %216, ptr %217, align 8
-  %218 = getelementptr inbounds i8, ptr %203, i64 296
-  %219 = load <2 x double>, ptr %166, align 8
-  store <2 x double> %219, ptr %218, align 8
-  %220 = getelementptr inbounds i8, ptr %203, i64 312
-  %221 = load <2 x double>, ptr %167, align 8
-  store <2 x double> %221, ptr %220, align 8
-  %222 = load double, ptr %168, align 8
-  %223 = getelementptr inbounds i8, ptr %203, i64 328
-  store double %222, ptr %223, align 8
-  %224 = load double, ptr %169, align 8
-  %225 = getelementptr inbounds i8, ptr %203, i64 336
-  store double %224, ptr %225, align 8
+  %213 = load i32, ptr %163, align 8
+  %214 = getelementptr inbounds i8, ptr %203, i64 248
+  store i32 %213, ptr %214, align 8
+  %215 = getelementptr inbounds i8, ptr %203, i64 272
+  %216 = load <2 x double>, ptr %164, align 8
+  store <2 x double> %216, ptr %215, align 8
+  %217 = load double, ptr %165, align 8
+  %218 = getelementptr inbounds i8, ptr %203, i64 288
+  store double %217, ptr %218, align 8
+  %219 = getelementptr inbounds i8, ptr %203, i64 296
+  %220 = load <2 x double>, ptr %166, align 8
+  store <2 x double> %220, ptr %219, align 8
+  %221 = getelementptr inbounds i8, ptr %203, i64 312
+  %222 = load <2 x double>, ptr %167, align 8
+  store <2 x double> %222, ptr %221, align 8
+  %223 = load double, ptr %168, align 8
+  %224 = getelementptr inbounds i8, ptr %203, i64 328
+  store double %223, ptr %224, align 8
+  %225 = load double, ptr %169, align 8
+  %226 = getelementptr inbounds i8, ptr %203, i64 336
+  store double %225, ptr %226, align 8
   store double %199, ptr %203, align 8
-  %226 = getelementptr inbounds i8, ptr %203, i64 344
-  %227 = getelementptr inbounds i8, ptr %203, i64 392
-  %228 = getelementptr inbounds i8, ptr %203, i64 440
-  %229 = getelementptr inbounds i8, ptr %203, i64 488
-  %230 = getelementptr inbounds i8, ptr %203, i64 536
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %226, ptr noundef nonnull align 8 dereferenceable(48) %170, i64 48, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %227, ptr noundef nonnull align 8 dereferenceable(48) %171, i64 48, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %228, ptr noundef nonnull align 8 dereferenceable(48) %172, i64 48, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %229, ptr noundef nonnull align 8 dereferenceable(48) %173, i64 48, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %230, ptr noundef nonnull align 8 dereferenceable(48) %174, i64 48, i1 false)
-  %231 = load i32, ptr %175, align 8
-  %.not.i180 = icmp eq i32 %231, 0
-  br i1 %.not.i180, label %236, label %232
+  %227 = getelementptr inbounds i8, ptr %203, i64 344
+  %228 = getelementptr inbounds i8, ptr %203, i64 392
+  %229 = getelementptr inbounds i8, ptr %203, i64 440
+  %230 = getelementptr inbounds i8, ptr %203, i64 488
+  %231 = getelementptr inbounds i8, ptr %203, i64 536
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %227, ptr noundef nonnull align 8 dereferenceable(48) %170, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %228, ptr noundef nonnull align 8 dereferenceable(48) %171, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %229, ptr noundef nonnull align 8 dereferenceable(48) %172, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %230, ptr noundef nonnull align 8 dereferenceable(48) %173, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %231, ptr noundef nonnull align 8 dereferenceable(48) %174, i64 48, i1 false)
+  %232 = load i32, ptr %175, align 8
+  %.not.i180 = icmp eq i32 %232, 0
+  br i1 %.not.i180, label %237, label %233
 
-232:                                              ; preds = %205
-  %233 = load i32, ptr %176, align 8
-  %234 = icmp ne i32 %233, 0
-  %235 = zext i1 %234 to i32
-  br label %236
+233:                                              ; preds = %205
+  %234 = load i32, ptr %176, align 8
+  %235 = icmp ne i32 %234, 0
+  %236 = zext i1 %235 to i32
+  br label %237
 
-236:                                              ; preds = %232, %205
-  %237 = phi i32 [ 0, %205 ], [ %235, %232 ]
-  %238 = getelementptr inbounds i8, ptr %203, i64 64
-  store i32 %237, ptr %238, align 8
-  %239 = load i32, ptr %177, align 4
-  %240 = getelementptr inbounds i8, ptr %203, i64 120
-  store i32 %239, ptr %240, align 8
-  %.not80.i = icmp eq i32 %239, 0
-  br i1 %.not80.i, label %244, label %241
+237:                                              ; preds = %233, %205
+  %238 = phi i32 [ 0, %205 ], [ %236, %233 ]
+  %239 = getelementptr inbounds i8, ptr %203, i64 64
+  store i32 %238, ptr %239, align 8
+  %240 = load i32, ptr %177, align 4
+  %241 = getelementptr inbounds i8, ptr %203, i64 120
+  store i32 %240, ptr %241, align 8
+  %.not80.i = icmp eq i32 %240, 0
+  br i1 %.not80.i, label %245, label %242
 
-241:                                              ; preds = %236
-  %242 = load i32, ptr %178, align 8
-  %243 = getelementptr inbounds i8, ptr %203, i64 124
-  store i32 %242, ptr %243, align 4
-  br label %244
+242:                                              ; preds = %237
+  %243 = load i32, ptr %178, align 8
+  %244 = getelementptr inbounds i8, ptr %203, i64 124
+  store i32 %243, ptr %244, align 4
+  br label %245
 
-244:                                              ; preds = %241, %236
-  %245 = load i32, ptr %179, align 8
-  %.not81.i = icmp eq i32 %245, 0
-  br i1 %.not81.i, label %250, label %246
+245:                                              ; preds = %242, %237
+  %246 = load i32, ptr %179, align 8
+  %.not81.i = icmp eq i32 %246, 0
+  br i1 %.not81.i, label %251, label %247
 
-246:                                              ; preds = %244
-  %247 = load i32, ptr %180, align 4
-  %248 = icmp ne i32 %247, 0
-  %249 = zext i1 %248 to i32
-  br label %250
+247:                                              ; preds = %245
+  %248 = load i32, ptr %180, align 4
+  %249 = icmp ne i32 %248, 0
+  %250 = zext i1 %249 to i32
+  br label %251
 
-250:                                              ; preds = %246, %244
-  %251 = phi i32 [ 0, %244 ], [ %249, %246 ]
-  %252 = getelementptr inbounds i8, ptr %203, i64 176
-  store i32 %251, ptr %252, align 8
-  %253 = extractelement <4 x i32> %211, i64 0
-  %254 = icmp slt i32 %253, 4
-  %255 = add nsw i32 %253, 2
+251:                                              ; preds = %247, %245
+  %252 = phi i32 [ 0, %245 ], [ %250, %247 ]
+  %253 = getelementptr inbounds i8, ptr %203, i64 176
+  store i32 %252, ptr %253, align 8
+  %254 = icmp slt i32 %212, 4
+  %255 = add nsw i32 %212, 2
   %spec.select.i = select i1 %254, i32 %255, i32 6
   %256 = getelementptr inbounds i8, ptr %203, i64 584
   store i32 %spec.select.i, ptr %256, align 8
@@ -2924,11 +2924,11 @@ define i32 @IDASolveF(ptr noundef %0, double noundef %1, ptr noundef %2, ptr nou
   %.not82.i = icmp eq i32 %257, 0
   br i1 %.not82.i, label %258, label %259
 
-258:                                              ; preds = %250
+258:                                              ; preds = %251
   tail call void @free(ptr noundef nonnull %203) #9
   br label %IDAAckpntNew.exit.thread
 
-259:                                              ; preds = %250
+259:                                              ; preds = %251
   tail call fastcc void @IDAAckpntCopyVectors(ptr noundef nonnull %0, ptr noundef nonnull %203)
   %260 = load ptr, ptr %160, align 8
   %261 = getelementptr inbounds i8, ptr %203, i64 592

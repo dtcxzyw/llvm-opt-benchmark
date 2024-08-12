@@ -5273,7 +5273,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   %232 = getelementptr inbounds i8, ptr %101, i64 64
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %101, i64 96
   %233 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !788
-  %234 = extractelement <2 x i64> %233, i64 0
+  %234 = load i64, ptr %.0.i.i2.i, align 8, !noalias !788, !noundef !10
   %235 = add i64 %234, 1
   store i64 %235, ptr %.0.i.i2.i, align 8, !noalias !788
   store ptr %215, ptr %228, align 8
@@ -7986,7 +7986,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   %115 = getelementptr inbounds i8, ptr %12, i64 64
   %.sroa.018.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 96
   %116 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !1254
-  %117 = extractelement <2 x i64> %116, i64 0
+  %117 = load i64, ptr %.0.i.i2.i, align 8, !noalias !1254, !noundef !10
   %118 = add i64 %117, 1
   store i64 %118, ptr %.0.i.i2.i, align 8, !noalias !1254
   store ptr %95, ptr %111, align 8
@@ -13647,7 +13647,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   %.0.i.i2.i = phi ptr [ %1728, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %1726 ]
   %.sroa.411.0..sroa_idx.i = getelementptr inbounds i8, ptr %86, i64 32
   %1732 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !2099
-  %1733 = extractelement <2 x i64> %1732, i64 0
+  %1733 = load i64, ptr %.0.i.i2.i, align 8, !noalias !2099, !noundef !10
   %1734 = add i64 %1733, 1
   store i64 %1734, ptr %.0.i.i2.i, align 8, !noalias !2099
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) @anon.38476532626945bb04fe24ad10240d6e.102, i64 32, i1 false), !noalias !2084

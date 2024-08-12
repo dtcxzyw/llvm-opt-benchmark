@@ -11032,298 +11032,296 @@ define hidden void @_ZN10ciTypeFlow10flow_typesEv(ptr noundef nonnull align 8 de
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 32
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
-  %13 = load i64, ptr %12, align 8
-  %14 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
-  store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr %0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
-  store i32 -1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 12
-  store i32 -1, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 80
-  %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 76
-  %24 = load i32, ptr %23, align 4
-  %25 = add nsw i32 %24, %22
-  %26 = load ptr, ptr %0, align 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = sext i32 %25 to i64
-  %29 = shl nsw i64 %28, 3
-  %30 = getelementptr inbounds i8, ptr %27, i64 40
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %27, i64 32
-  %33 = load ptr, ptr %32, align 8
-  %34 = ptrtoint ptr %31 to i64
-  %35 = ptrtoint ptr %33 to i64
-  %36 = sub i64 %34, %35
-  %.not.i.i.i = icmp ult i64 %36, %29
-  br i1 %.not.i.i.i, label %39, label %37
+  %9 = load <2 x ptr>, ptr %8, align 8
+  %10 = load ptr, ptr %8, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = load i64, ptr %11, align 8
+  %13 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
+  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  store i64 0, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %13, i64 16
+  store ptr %0, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  store i32 -1, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %13, i64 12
+  store i32 -1, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 80
+  %21 = load i32, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %19, i64 76
+  %23 = load i32, ptr %22, align 4
+  %24 = add nsw i32 %23, %21
+  %25 = load ptr, ptr %0, align 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = sext i32 %24 to i64
+  %28 = shl nsw i64 %27, 3
+  %29 = getelementptr inbounds i8, ptr %26, i64 40
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %26, i64 32
+  %32 = load ptr, ptr %31, align 8
+  %33 = ptrtoint ptr %30 to i64
+  %34 = ptrtoint ptr %32 to i64
+  %35 = sub i64 %33, %34
+  %.not.i.i.i = icmp ult i64 %35, %28
+  br i1 %.not.i.i.i, label %38, label %36
 
-37:                                               ; preds = %1
-  %38 = getelementptr inbounds i8, ptr %33, i64 %29
-  store ptr %38, ptr %32, align 8
+36:                                               ; preds = %1
+  %37 = getelementptr inbounds i8, ptr %32, i64 %28
+  store ptr %37, ptr %31, align 8
   br label %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i
 
-39:                                               ; preds = %1
-  %40 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %27, i64 noundef %29, i32 noundef 0) #14
+38:                                               ; preds = %1
+  %39 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %26, i64 noundef %28, i32 noundef 0) #14
   br label %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i
 
-_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i: ; preds = %39, %37
-  %.0.i.i.i = phi ptr [ %33, %37 ], [ %40, %39 ]
-  store ptr %.0.i.i.i, ptr %14, align 8
-  %41 = icmp sgt i32 %25, 0
-  br i1 %41, label %.lr.ph.preheader.i, label %_ZN10ciTypeFlow11StateVectorC2EPS_.exit
+_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i: ; preds = %38, %36
+  %.0.i.i.i = phi ptr [ %32, %36 ], [ %39, %38 ]
+  store ptr %.0.i.i.i, ptr %13, align 8
+  %40 = icmp sgt i32 %24, 0
+  br i1 %40, label %.lr.ph.preheader.i, label %_ZN10ciTypeFlow11StateVectorC2EPS_.exit
 
 .lr.ph.preheader.i:                               ; preds = %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i
-  %wide.trip.count.i = zext nneg i32 %25 to i64
+  %wide.trip.count.i = zext nneg i32 %24 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %42 = tail call noundef ptr @_ZN6ciType4makeE9BasicType(i8 noundef zeroext 14) #14
-  %43 = load ptr, ptr %14, align 8
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv.i
-  store ptr %42, ptr %44, align 8
+  %41 = tail call noundef ptr @_ZN6ciType4makeE9BasicType(i8 noundef zeroext 14) #14
+  %42 = load ptr, ptr %13, align 8
+  %43 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv.i
+  store ptr %41, ptr %43, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN10ciTypeFlow11StateVectorC2EPS_.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZN10ciTypeFlow11StateVectorC2EPS_.exit:          ; preds = %.lr.ph.i, %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i
-  %45 = getelementptr inbounds i8, ptr %14, i64 24
-  store i32 -1, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %14, i64 28
-  store i32 0, ptr %46, align 4
-  store i64 0, ptr %15, align 8
-  %47 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #14
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
-  %49 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 4, i32 noundef 8) #14
-  store i32 0, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %47, i64 12
-  store i32 4, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %47, i64 16
-  store ptr %49, ptr %51, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 32, i1 false)
-  %52 = getelementptr inbounds i8, ptr %47, i64 24
-  store i64 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 16
-  %54 = load i32, ptr %53, align 8
-  %.not.i = icmp eq i32 %54, -1
-  %55 = select i1 %.not.i, i32 0, i32 %54
-  %56 = load ptr, ptr %19, align 8
-  %57 = tail call noundef ptr @_ZN8ciMethod17get_method_blocksEv(ptr noundef nonnull align 8 dereferenceable(160) %56) #14
-  %58 = tail call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %57, i32 noundef %55) #14
-  %59 = load i32, ptr %58, align 4
-  %60 = tail call noundef ptr @_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %59, ptr noundef readonly %47, i32 noundef 0)
-  %61 = tail call noundef ptr @_ZN10ciTypeFlow15get_start_stateEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
-  %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 88
-  %64 = load ptr, ptr %63, align 8
-  %65 = icmp ne ptr %64, null
-  %66 = getelementptr inbounds i8, ptr %0, i64 24
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp ne ptr %67, null
-  %69 = select i1 %65, i1 true, i1 %68
-  br i1 %69, label %.loopexit, label %70
+  %44 = getelementptr inbounds i8, ptr %13, i64 24
+  store i32 -1, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %13, i64 28
+  store i32 0, ptr %45, align 4
+  store i64 0, ptr %14, align 8
+  %46 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #14
+  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %48 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 4, i32 noundef 8) #14
+  store i32 0, ptr %47, align 4
+  %49 = getelementptr inbounds i8, ptr %46, i64 12
+  store i32 4, ptr %49, align 4
+  %50 = getelementptr inbounds i8, ptr %46, i64 16
+  store ptr %48, ptr %50, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 0, i64 32, i1 false)
+  %51 = getelementptr inbounds i8, ptr %46, i64 24
+  store i64 0, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %53 = load i32, ptr %52, align 8
+  %.not.i = icmp eq i32 %53, -1
+  %54 = select i1 %.not.i, i32 0, i32 %53
+  %55 = load ptr, ptr %18, align 8
+  %56 = tail call noundef ptr @_ZN8ciMethod17get_method_blocksEv(ptr noundef nonnull align 8 dereferenceable(160) %55) #14
+  %57 = tail call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %56, i32 noundef %54) #14
+  %58 = load i32, ptr %57, align 4
+  %59 = tail call noundef ptr @_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %58, ptr noundef readonly %46, i32 noundef 0)
+  %60 = tail call noundef ptr @_ZN10ciTypeFlow15get_start_stateEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
+  %61 = load ptr, ptr %0, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 88
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp ne ptr %63, null
+  %65 = getelementptr inbounds i8, ptr %0, i64 24
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp ne ptr %66, null
+  %68 = select i1 %64, i1 true, i1 %67
+  br i1 %68, label %.loopexit, label %69
 
-70:                                               ; preds = %_ZN10ciTypeFlow11StateVectorC2EPS_.exit
-  %71 = getelementptr inbounds i8, ptr %60, i64 56
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 12
-  %74 = load i32, ptr %73, align 4
-  %75 = icmp eq i32 %74, -1
-  br i1 %75, label %76, label %79
+69:                                               ; preds = %_ZN10ciTypeFlow11StateVectorC2EPS_.exit
+  %70 = getelementptr inbounds i8, ptr %59, i64 56
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 12
+  %73 = load i32, ptr %72, align 4
+  %74 = icmp eq i32 %73, -1
+  br i1 %74, label %75, label %78
 
-76:                                               ; preds = %70
-  %77 = getelementptr inbounds i8, ptr %61, i64 12
-  %78 = load i32, ptr %77, align 4
-  store i32 %78, ptr %73, align 4
-  br label %79
+75:                                               ; preds = %69
+  %76 = getelementptr inbounds i8, ptr %60, i64 12
+  %77 = load i32, ptr %76, align 4
+  store i32 %77, ptr %72, align 4
+  br label %78
 
-79:                                               ; preds = %76, %70
-  %80 = getelementptr inbounds i8, ptr %72, i64 8
-  %81 = load i32, ptr %80, align 8
-  %82 = icmp eq i32 %81, -1
-  br i1 %82, label %83, label %99
+78:                                               ; preds = %75, %69
+  %79 = getelementptr inbounds i8, ptr %71, i64 8
+  %80 = load i32, ptr %79, align 8
+  %81 = icmp eq i32 %80, -1
+  br i1 %81, label %82, label %98
 
-83:                                               ; preds = %79
-  %84 = getelementptr inbounds i8, ptr %61, i64 8
-  %85 = load i32, ptr %84, align 8
-  store i32 %85, ptr %80, align 8
-  %86 = getelementptr inbounds i8, ptr %72, i64 16
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 80
-  %91 = load i32, ptr %90, align 8
-  %92 = add nsw i32 %91, %85
-  %93 = icmp sgt i32 %92, 0
-  br i1 %93, label %.lr.ph31.preheader.i.i, label %_ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds i8, ptr %60, i64 8
+  %84 = load i32, ptr %83, align 8
+  store i32 %84, ptr %79, align 8
+  %85 = getelementptr inbounds i8, ptr %71, i64 16
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 80
+  %90 = load i32, ptr %89, align 8
+  %91 = add nsw i32 %90, %84
+  %92 = icmp sgt i32 %91, 0
+  br i1 %92, label %.lr.ph31.preheader.i.i, label %_ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit
 
-.lr.ph31.preheader.i.i:                           ; preds = %83
-  %wide.trip.count36.i.i = zext nneg i32 %92 to i64
+.lr.ph31.preheader.i.i:                           ; preds = %82
+  %wide.trip.count36.i.i = zext nneg i32 %91 to i64
   br label %.lr.ph31.i.i
 
 .lr.ph31.i.i:                                     ; preds = %.lr.ph31.i.i, %.lr.ph31.preheader.i.i
   %indvars.iv33.i.i = phi i64 [ 0, %.lr.ph31.preheader.i.i ], [ %indvars.iv.next34.i.i, %.lr.ph31.i.i ]
-  %94 = load ptr, ptr %61, align 8
-  %95 = getelementptr inbounds ptr, ptr %94, i64 %indvars.iv33.i.i
-  %96 = load ptr, ptr %95, align 8
-  %97 = load ptr, ptr %72, align 8
-  %98 = getelementptr inbounds ptr, ptr %97, i64 %indvars.iv33.i.i
-  store ptr %96, ptr %98, align 8
+  %93 = load ptr, ptr %60, align 8
+  %94 = getelementptr inbounds ptr, ptr %93, i64 %indvars.iv33.i.i
+  %95 = load ptr, ptr %94, align 8
+  %96 = load ptr, ptr %71, align 8
+  %97 = getelementptr inbounds ptr, ptr %96, i64 %indvars.iv33.i.i
+  store ptr %95, ptr %97, align 8
   %indvars.iv.next34.i.i = add nuw nsw i64 %indvars.iv33.i.i, 1
   %exitcond37.not.i.i = icmp eq i64 %indvars.iv.next34.i.i, %wide.trip.count36.i.i
   br i1 %exitcond37.not.i.i, label %_ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit, label %.lr.ph31.i.i, !llvm.loop !22
 
-99:                                               ; preds = %79
-  %100 = getelementptr inbounds i8, ptr %72, i64 16
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 8
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 80
-  %105 = load i32, ptr %104, align 8
-  %106 = add nsw i32 %105, %81
-  %107 = icmp sgt i32 %106, 0
-  br i1 %107, label %.lr.ph.preheader.i.i, label %_ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit
+98:                                               ; preds = %78
+  %99 = getelementptr inbounds i8, ptr %71, i64 16
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 8
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 80
+  %104 = load i32, ptr %103, align 8
+  %105 = add nsw i32 %104, %80
+  %106 = icmp sgt i32 %105, 0
+  br i1 %106, label %.lr.ph.preheader.i.i, label %_ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit
 
-.lr.ph.preheader.i.i:                             ; preds = %99
-  %wide.trip.count.i.i = zext nneg i32 %106 to i64
+.lr.ph.preheader.i.i:                             ; preds = %98
+  %wide.trip.count.i.i = zext nneg i32 %105 to i64
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %122, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %122 ]
-  %108 = load ptr, ptr %72, align 8
-  %109 = getelementptr inbounds ptr, ptr %108, i64 %indvars.iv.i.i
-  %110 = load ptr, ptr %109, align 8
-  %111 = load ptr, ptr %61, align 8
-  %112 = getelementptr inbounds ptr, ptr %111, i64 %indvars.iv.i.i
-  %113 = load ptr, ptr %112, align 8
-  %114 = icmp eq ptr %110, %113
-  br i1 %114, label %122, label %115
+.lr.ph.i.i:                                       ; preds = %121, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %121 ]
+  %107 = load ptr, ptr %71, align 8
+  %108 = getelementptr inbounds ptr, ptr %107, i64 %indvars.iv.i.i
+  %109 = load ptr, ptr %108, align 8
+  %110 = load ptr, ptr %60, align 8
+  %111 = getelementptr inbounds ptr, ptr %110, i64 %indvars.iv.i.i
+  %112 = load ptr, ptr %111, align 8
+  %113 = icmp eq ptr %109, %112
+  br i1 %113, label %121, label %114
 
-115:                                              ; preds = %.lr.ph.i.i
-  %116 = load ptr, ptr %100, align 8
-  %117 = tail call noundef ptr @_ZN10ciTypeFlow11StateVector18type_meet_internalEP6ciTypeS2_PS_(ptr noundef %110, ptr noundef %113, ptr noundef %116)
-  %118 = icmp eq ptr %110, %117
-  br i1 %118, label %122, label %119
+114:                                              ; preds = %.lr.ph.i.i
+  %115 = load ptr, ptr %99, align 8
+  %116 = tail call noundef ptr @_ZN10ciTypeFlow11StateVector18type_meet_internalEP6ciTypeS2_PS_(ptr noundef %109, ptr noundef %112, ptr noundef %115)
+  %117 = icmp eq ptr %109, %116
+  br i1 %117, label %121, label %118
 
-119:                                              ; preds = %115
-  %120 = load ptr, ptr %72, align 8
-  %121 = getelementptr inbounds ptr, ptr %120, i64 %indvars.iv.i.i
-  store ptr %117, ptr %121, align 8
-  br label %122
+118:                                              ; preds = %114
+  %119 = load ptr, ptr %71, align 8
+  %120 = getelementptr inbounds ptr, ptr %119, i64 %indvars.iv.i.i
+  store ptr %116, ptr %120, align 8
+  br label %121
 
-122:                                              ; preds = %119, %115, %.lr.ph.i.i
+121:                                              ; preds = %118, %114, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit, label %.lr.ph.i.i, !llvm.loop !23
 
-_ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit: ; preds = %122, %.lr.ph31.i.i, %83, %99
-  tail call void @_ZN10ciTypeFlow13df_flow_typesEPNS_5BlockEbPNS_11StateVectorEPNS_6JsrSetE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %60, i1 noundef zeroext true, ptr noundef nonnull %14, ptr noundef nonnull %47)
-  %123 = load ptr, ptr %0, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 88
-  %125 = load ptr, ptr %124, align 8
-  %126 = icmp ne ptr %125, null
-  %127 = load ptr, ptr %66, align 8
-  %128 = icmp ne ptr %127, null
-  %129 = select i1 %126, i1 true, i1 %128
-  br i1 %129, label %.loopexit, label %130
+_ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit: ; preds = %121, %.lr.ph31.i.i, %82, %98
+  tail call void @_ZN10ciTypeFlow13df_flow_typesEPNS_5BlockEbPNS_11StateVectorEPNS_6JsrSetE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %59, i1 noundef zeroext true, ptr noundef nonnull %13, ptr noundef nonnull %46)
+  %122 = load ptr, ptr %0, align 8
+  %123 = getelementptr inbounds i8, ptr %122, i64 88
+  %124 = load ptr, ptr %123, align 8
+  %125 = icmp ne ptr %124, null
+  %126 = load ptr, ptr %65, align 8
+  %127 = icmp ne ptr %126, null
+  %128 = select i1 %125, i1 true, i1 %127
+  br i1 %128, label %.loopexit, label %129
 
-130:                                              ; preds = %_ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit
-  %131 = getelementptr inbounds i8, ptr %0, i64 72
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 16
-  %134 = load ptr, ptr %133, align 8
-  %.not = icmp eq ptr %134, null
-  br i1 %.not, label %151, label %135
+129:                                              ; preds = %_ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit
+  %130 = getelementptr inbounds i8, ptr %0, i64 72
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr inbounds i8, ptr %131, i64 16
+  %133 = load ptr, ptr %132, align 8
+  %.not = icmp eq ptr %133, null
+  br i1 %.not, label %150, label %134
 
-135:                                              ; preds = %130
-  %136 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %123) #14
-  %137 = icmp sgt i32 %136, 3
-  br i1 %137, label %138, label %151
+134:                                              ; preds = %129
+  %135 = tail call noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265) %122) #14
+  %136 = icmp sgt i32 %135, 3
+  br i1 %136, label %137, label %150
 
-138:                                              ; preds = %135
-  %139 = tail call noundef zeroext i1 @_ZN10ciTypeFlow16clone_loop_headsEPNS_11StateVectorEPNS_6JsrSetE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %14, ptr noundef nonnull %47)
-  br i1 %139, label %140, label %151
+137:                                              ; preds = %134
+  %138 = tail call noundef zeroext i1 @_ZN10ciTypeFlow16clone_loop_headsEPNS_11StateVectorEPNS_6JsrSetE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %13, ptr noundef nonnull %46)
+  br i1 %138, label %139, label %150
 
-140:                                              ; preds = %138
-  %141 = load ptr, ptr %131, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 16
-  store ptr null, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %0, i64 56
-  %144 = load ptr, ptr %143, align 8
-  %.not1924 = icmp eq ptr %144, null
+139:                                              ; preds = %137
+  %140 = load ptr, ptr %130, align 8
+  %141 = getelementptr inbounds i8, ptr %140, i64 16
+  store ptr null, ptr %141, align 8
+  %142 = getelementptr inbounds i8, ptr %0, i64 56
+  %143 = load ptr, ptr %142, align 8
+  %.not1924 = icmp eq ptr %143, null
   br i1 %.not1924, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %140, %.lr.ph
-  %.025 = phi ptr [ %146, %.lr.ph ], [ %144, %140 ]
-  %145 = getelementptr inbounds i8, ptr %.025, i64 104
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %.025, i64 80
-  store i32 -1, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %.025, i64 84
-  store i32 -1, ptr %148, align 4
-  %149 = getelementptr inbounds i8, ptr %.025, i64 89
-  store i8 0, ptr %149, align 1
-  %150 = getelementptr inbounds i8, ptr %.025, i64 90
-  store i8 0, ptr %150, align 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %145, i8 0, i64 16, i1 false)
-  %.not19 = icmp eq ptr %146, null
+.lr.ph:                                           ; preds = %139, %.lr.ph
+  %.025 = phi ptr [ %145, %.lr.ph ], [ %143, %139 ]
+  %144 = getelementptr inbounds i8, ptr %.025, i64 104
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds i8, ptr %.025, i64 80
+  store i32 -1, ptr %146, align 8
+  %147 = getelementptr inbounds i8, ptr %.025, i64 84
+  store i32 -1, ptr %147, align 4
+  %148 = getelementptr inbounds i8, ptr %.025, i64 89
+  store i8 0, ptr %148, align 1
+  %149 = getelementptr inbounds i8, ptr %.025, i64 90
+  store i8 0, ptr %149, align 2
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %144, i8 0, i64 16, i1 false)
+  %.not19 = icmp eq ptr %145, null
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !61
 
-._crit_edge:                                      ; preds = %.lr.ph, %140
-  tail call void @_ZN10ciTypeFlow13df_flow_typesEPNS_5BlockEbPNS_11StateVectorEPNS_6JsrSetE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %60, i1 noundef zeroext false, ptr noundef nonnull %14, ptr noundef nonnull %47)
-  br label %151
+._crit_edge:                                      ; preds = %.lr.ph, %139
+  tail call void @_ZN10ciTypeFlow13df_flow_typesEPNS_5BlockEbPNS_11StateVectorEPNS_6JsrSetE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %59, i1 noundef zeroext false, ptr noundef nonnull %13, ptr noundef nonnull %46)
+  br label %150
 
-151:                                              ; preds = %138, %._crit_edge, %135, %130
-  %152 = getelementptr inbounds i8, ptr %0, i64 48
-  %153 = load ptr, ptr %152, align 8
-  %154 = icmp eq ptr %153, null
-  br i1 %154, label %.loopexit, label %.lr.ph27
+150:                                              ; preds = %137, %._crit_edge, %134, %129
+  %151 = getelementptr inbounds i8, ptr %0, i64 48
+  %152 = load ptr, ptr %151, align 8
+  %153 = icmp eq ptr %152, null
+  br i1 %153, label %.loopexit, label %.lr.ph27
 
-.lr.ph27:                                         ; preds = %151, %.lr.ph27
-  %155 = phi ptr [ %159, %.lr.ph27 ], [ %153, %151 ]
-  %156 = getelementptr inbounds i8, ptr %155, i64 96
-  %157 = load ptr, ptr %156, align 8
-  store ptr %157, ptr %152, align 8
-  store ptr null, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %155, i64 92
-  store i8 0, ptr %158, align 4
-  tail call void @_ZN10ciTypeFlow10flow_blockEPNS_5BlockEPNS_11StateVectorEPNS_6JsrSetE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %155, ptr noundef nonnull %14, ptr noundef nonnull %47)
-  %159 = load ptr, ptr %152, align 8
-  %160 = icmp eq ptr %159, null
-  br i1 %160, label %.loopexit, label %.lr.ph27, !llvm.loop !62
+.lr.ph27:                                         ; preds = %150, %.lr.ph27
+  %154 = phi ptr [ %158, %.lr.ph27 ], [ %152, %150 ]
+  %155 = getelementptr inbounds i8, ptr %154, i64 96
+  %156 = load ptr, ptr %155, align 8
+  store ptr %156, ptr %151, align 8
+  store ptr null, ptr %155, align 8
+  %157 = getelementptr inbounds i8, ptr %154, i64 92
+  store i8 0, ptr %157, align 4
+  tail call void @_ZN10ciTypeFlow10flow_blockEPNS_5BlockEPNS_11StateVectorEPNS_6JsrSetE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %154, ptr noundef nonnull %13, ptr noundef nonnull %46)
+  %158 = load ptr, ptr %151, align 8
+  %159 = icmp eq ptr %158, null
+  br i1 %159, label %.loopexit, label %.lr.ph27, !llvm.loop !62
 
-.loopexit:                                        ; preds = %.lr.ph27, %151, %_ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit, %_ZN10ciTypeFlow11StateVectorC2EPS_.exit
-  %161 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i = icmp eq ptr %161, null
-  br i1 %.not.i.i.i.i, label %163, label %162
+.loopexit:                                        ; preds = %.lr.ph27, %150, %_ZN10ciTypeFlow5Block4meetEPKNS_11StateVectorE.exit, %_ZN10ciTypeFlow11StateVectorC2EPS_.exit
+  %160 = load ptr, ptr %7, align 8
+  %.not.i.i.i.i = icmp eq ptr %160, null
+  br i1 %.not.i.i.i.i, label %162, label %161
 
-162:                                              ; preds = %.loopexit
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %13) #14
+161:                                              ; preds = %.loopexit
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %12) #14
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %7) #14
-  br label %163
+  br label %162
 
-163:                                              ; preds = %162, %.loopexit
-  %164 = load ptr, ptr %8, align 8
-  %.not8.i.i.i.i = icmp eq ptr %164, %9
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %165
+162:                                              ; preds = %161, %.loopexit
+  %163 = load ptr, ptr %8, align 8
+  %.not8.i.i.i.i = icmp eq ptr %163, %10
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %164
 
-165:                                              ; preds = %163
+164:                                              ; preds = %162
   store ptr %7, ptr %6, align 8
-  store ptr %9, ptr %8, align 8
-  store ptr %11, ptr %10, align 8
+  store <2 x ptr> %9, ptr %8, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %163, %165
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %162, %164
   ret void
 }
 
@@ -11661,362 +11659,361 @@ define hidden noundef zeroext i1 @_ZN10ciTypeFlow15is_dominated_byEii(ptr nocapt
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 32
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 40
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
-  %15 = load i64, ptr %14, align 8
-  %16 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #14
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
-  %18 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 4, i32 noundef 8) #14
-  store i32 0, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %16, i64 12
-  store i32 4, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
-  store ptr %18, ptr %20, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false)
-  %21 = getelementptr inbounds i8, ptr %16, i64 24
-  store i64 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef ptr @_ZN8ciMethod17get_method_blocksEv(ptr noundef nonnull align 8 dereferenceable(160) %23) #14
-  %25 = tail call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %24, i32 noundef %1) #14
-  %26 = load i32, ptr %25, align 4
-  %27 = load ptr, ptr %22, align 8
-  %28 = tail call noundef ptr @_ZN8ciMethod17get_method_blocksEv(ptr noundef nonnull align 8 dereferenceable(160) %27) #14
-  %29 = tail call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %28, i32 noundef %2) #14
-  %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
-  %32 = load ptr, ptr %31, align 8
-  %33 = sext i32 %26 to i64
-  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit, label %37
+  %11 = load <2 x ptr>, ptr %10, align 8
+  %12 = load ptr, ptr %10, align 8
+  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = load i64, ptr %13, align 8
+  %15 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #14
+  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 4, i32 noundef 8) #14
+  store i32 0, ptr %16, align 4
+  %18 = getelementptr inbounds i8, ptr %15, i64 12
+  store i32 4, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  store ptr %17, ptr %19, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false)
+  %20 = getelementptr inbounds i8, ptr %15, i64 24
+  store i64 0, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call noundef ptr @_ZN8ciMethod17get_method_blocksEv(ptr noundef nonnull align 8 dereferenceable(160) %22) #14
+  %24 = tail call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %23, i32 noundef %1) #14
+  %25 = load i32, ptr %24, align 4
+  %26 = load ptr, ptr %21, align 8
+  %27 = tail call noundef ptr @_ZN8ciMethod17get_method_blocksEv(ptr noundef nonnull align 8 dereferenceable(160) %26) #14
+  %28 = tail call noundef ptr @_ZN14ciMethodBlocks16block_containingEi(ptr noundef nonnull align 8 dereferenceable(40) %27, i32 noundef %2) #14
+  %29 = load i32, ptr %28, align 4
+  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = load ptr, ptr %30, align 8
+  %32 = sext i32 %25 to i64
+  %33 = getelementptr inbounds ptr, ptr %31, i64 %32
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit, label %36
 
-37:                                               ; preds = %3
-  %38 = load i32, ptr %35, align 4
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph.i, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit
+36:                                               ; preds = %3
+  %37 = load i32, ptr %34, align 4
+  %38 = icmp sgt i32 %37, 0
+  br i1 %38, label %.lr.ph.i, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit
 
-.lr.ph.i:                                         ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %35, i64 8
-  %41 = load ptr, ptr %40, align 8
-  %wide.trip.count.i = zext nneg i32 %38 to i64
-  br label %42
+.lr.ph.i:                                         ; preds = %36
+  %39 = getelementptr inbounds i8, ptr %34, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %wide.trip.count.i = zext nneg i32 %37 to i64
+  br label %41
 
-42:                                               ; preds = %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i, %.lr.ph.i
+41:                                               ; preds = %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i ]
-  %43 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv.i
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 88
-  %46 = load i8, ptr %45, align 8
-  %47 = trunc i8 %46 to i1
-  br i1 %47, label %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i, label %48
+  %42 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv.i
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 88
+  %45 = load i8, ptr %44, align 8
+  %46 = trunc i8 %45 to i1
+  br i1 %46, label %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i, label %47
 
-48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %44, i64 64
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
-  %52 = load i32, ptr %51, align 4
-  %53 = load i32, ptr %17, align 4
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit, label %55
+47:                                               ; preds = %41
+  %48 = getelementptr inbounds i8, ptr %43, i64 64
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %51 = load i32, ptr %50, align 4
+  %52 = load i32, ptr %16, align 4
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit, label %54
 
-55:                                               ; preds = %48
-  %.not.i.i.i = icmp eq i32 %52, %53
+54:                                               ; preds = %47
+  %.not.i.i.i = icmp eq i32 %51, %52
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i
 
-.preheader.i.i.i:                                 ; preds = %55
-  %56 = icmp sgt i32 %52, 0
-  br i1 %56, label %.lr.ph.i.i.i, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit
+.preheader.i.i.i:                                 ; preds = %54
+  %55 = icmp sgt i32 %51, 0
+  br i1 %55, label %.lr.ph.i.i.i, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i
-  %57 = getelementptr inbounds i8, ptr %50, i64 16
-  %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr %20, align 8
-  %wide.trip.count.i.i.i = zext nneg i32 %52 to i64
-  br label %61
+  %56 = getelementptr inbounds i8, ptr %49, i64 16
+  %57 = load ptr, ptr %56, align 8
+  %58 = load ptr, ptr %19, align 8
+  %wide.trip.count.i.i.i = zext nneg i32 %51 to i64
+  br label %60
 
-60:                                               ; preds = %68
+59:                                               ; preds = %67
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit, label %61, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit, label %60, !llvm.loop !8
 
-61:                                               ; preds = %60, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %60 ]
-  %62 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv.i.i.i
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds ptr, ptr %59, i64 %indvars.iv.i.i.i
-  %65 = load ptr, ptr %64, align 8
-  %66 = load i32, ptr %63, align 4
-  %67 = load i32, ptr %65, align 4
-  %.not18.i.i.i = icmp eq i32 %66, %67
-  br i1 %.not18.i.i.i, label %68, label %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i
+60:                                               ; preds = %59, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %59 ]
+  %61 = getelementptr inbounds ptr, ptr %57, i64 %indvars.iv.i.i.i
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv.i.i.i
+  %64 = load ptr, ptr %63, align 8
+  %65 = load i32, ptr %62, align 4
+  %66 = load i32, ptr %64, align 4
+  %.not18.i.i.i = icmp eq i32 %65, %66
+  br i1 %.not18.i.i.i, label %67, label %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i
 
-68:                                               ; preds = %61
-  %69 = getelementptr inbounds i8, ptr %63, i64 4
-  %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %65, i64 4
-  %72 = load i32, ptr %71, align 4
-  %.not19.i.i.i = icmp eq i32 %70, %72
-  br i1 %.not19.i.i.i, label %60, label %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i
+67:                                               ; preds = %60
+  %68 = getelementptr inbounds i8, ptr %62, i64 4
+  %69 = load i32, ptr %68, align 4
+  %70 = getelementptr inbounds i8, ptr %64, i64 4
+  %71 = load i32, ptr %70, align 4
+  %.not19.i.i.i = icmp eq i32 %69, %71
+  br i1 %.not19.i.i.i, label %59, label %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i
 
-_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i: ; preds = %68, %61, %55, %42
+_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i: ; preds = %67, %60, %54, %41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit, label %42, !llvm.loop !15
+  br i1 %exitcond.not.i, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit, label %41, !llvm.loop !15
 
-_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit: ; preds = %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i, %48, %.preheader.i.i.i, %60, %37, %3
-  %.0.i = phi ptr [ null, %3 ], [ null, %37 ], [ %44, %60 ], [ null, %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i ], [ %44, %.preheader.i.i.i ], [ %44, %48 ]
-  %73 = sext i32 %30 to i64
-  %74 = getelementptr inbounds ptr, ptr %32, i64 %73
-  %75 = load ptr, ptr %74, align 8
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61, label %77
+_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit: ; preds = %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i, %47, %.preheader.i.i.i, %59, %36, %3
+  %.0.i = phi ptr [ null, %3 ], [ null, %36 ], [ %43, %59 ], [ null, %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i ], [ %43, %.preheader.i.i.i ], [ %43, %47 ]
+  %72 = sext i32 %29 to i64
+  %73 = getelementptr inbounds ptr, ptr %31, i64 %72
+  %74 = load ptr, ptr %73, align 8
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61, label %76
 
-77:                                               ; preds = %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit
-  %78 = load i32, ptr %75, align 4
-  %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %.lr.ph.i46, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61
+76:                                               ; preds = %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit
+  %77 = load i32, ptr %74, align 4
+  %78 = icmp sgt i32 %77, 0
+  br i1 %78, label %.lr.ph.i46, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61
 
-.lr.ph.i46:                                       ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %75, i64 8
-  %81 = load ptr, ptr %80, align 8
-  %wide.trip.count.i47 = zext nneg i32 %78 to i64
-  br label %82
+.lr.ph.i46:                                       ; preds = %76
+  %79 = getelementptr inbounds i8, ptr %74, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %wide.trip.count.i47 = zext nneg i32 %77 to i64
+  br label %81
 
-82:                                               ; preds = %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i50, %.lr.ph.i46
+81:                                               ; preds = %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i50, %.lr.ph.i46
   %indvars.iv.i48 = phi i64 [ 0, %.lr.ph.i46 ], [ %indvars.iv.next.i51, %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i50 ]
-  %83 = getelementptr inbounds ptr, ptr %81, i64 %indvars.iv.i48
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 88
-  %86 = load i8, ptr %85, align 8
-  %87 = trunc i8 %86 to i1
-  br i1 %87, label %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i50, label %88
+  %82 = getelementptr inbounds ptr, ptr %80, i64 %indvars.iv.i48
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds i8, ptr %83, i64 88
+  %85 = load i8, ptr %84, align 8
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i50, label %87
 
-88:                                               ; preds = %82
-  %89 = getelementptr inbounds i8, ptr %84, i64 64
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 8
-  %92 = load i32, ptr %91, align 4
-  %93 = load i32, ptr %17, align 4
-  %94 = icmp eq i32 %93, 0
-  br i1 %94, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61, label %95
+87:                                               ; preds = %81
+  %88 = getelementptr inbounds i8, ptr %83, i64 64
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %91 = load i32, ptr %90, align 4
+  %92 = load i32, ptr %16, align 4
+  %93 = icmp eq i32 %92, 0
+  br i1 %93, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61, label %94
 
-95:                                               ; preds = %88
-  %.not.i.i.i49 = icmp eq i32 %92, %93
+94:                                               ; preds = %87
+  %.not.i.i.i49 = icmp eq i32 %91, %92
   br i1 %.not.i.i.i49, label %.preheader.i.i.i53, label %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i50
 
-.preheader.i.i.i53:                               ; preds = %95
-  %96 = icmp sgt i32 %92, 0
-  br i1 %96, label %.lr.ph.i.i.i54, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61
+.preheader.i.i.i53:                               ; preds = %94
+  %95 = icmp sgt i32 %91, 0
+  br i1 %95, label %.lr.ph.i.i.i54, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61
 
 .lr.ph.i.i.i54:                                   ; preds = %.preheader.i.i.i53
-  %97 = getelementptr inbounds i8, ptr %90, i64 16
-  %98 = load ptr, ptr %97, align 8
-  %99 = load ptr, ptr %20, align 8
-  %wide.trip.count.i.i.i55 = zext nneg i32 %92 to i64
-  br label %101
+  %96 = getelementptr inbounds i8, ptr %89, i64 16
+  %97 = load ptr, ptr %96, align 8
+  %98 = load ptr, ptr %19, align 8
+  %wide.trip.count.i.i.i55 = zext nneg i32 %91 to i64
+  br label %100
 
-100:                                              ; preds = %108
+99:                                               ; preds = %107
   %indvars.iv.next.i.i.i59 = add nuw nsw i64 %indvars.iv.i.i.i56, 1
   %exitcond.not.i.i.i60 = icmp eq i64 %indvars.iv.next.i.i.i59, %wide.trip.count.i.i.i55
-  br i1 %exitcond.not.i.i.i60, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61, label %101, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i60, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61, label %100, !llvm.loop !8
 
-101:                                              ; preds = %100, %.lr.ph.i.i.i54
-  %indvars.iv.i.i.i56 = phi i64 [ 0, %.lr.ph.i.i.i54 ], [ %indvars.iv.next.i.i.i59, %100 ]
-  %102 = getelementptr inbounds ptr, ptr %98, i64 %indvars.iv.i.i.i56
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds ptr, ptr %99, i64 %indvars.iv.i.i.i56
-  %105 = load ptr, ptr %104, align 8
-  %106 = load i32, ptr %103, align 4
-  %107 = load i32, ptr %105, align 4
-  %.not18.i.i.i57 = icmp eq i32 %106, %107
-  br i1 %.not18.i.i.i57, label %108, label %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i50
+100:                                              ; preds = %99, %.lr.ph.i.i.i54
+  %indvars.iv.i.i.i56 = phi i64 [ 0, %.lr.ph.i.i.i54 ], [ %indvars.iv.next.i.i.i59, %99 ]
+  %101 = getelementptr inbounds ptr, ptr %97, i64 %indvars.iv.i.i.i56
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds ptr, ptr %98, i64 %indvars.iv.i.i.i56
+  %104 = load ptr, ptr %103, align 8
+  %105 = load i32, ptr %102, align 4
+  %106 = load i32, ptr %104, align 4
+  %.not18.i.i.i57 = icmp eq i32 %105, %106
+  br i1 %.not18.i.i.i57, label %107, label %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i50
 
-108:                                              ; preds = %101
-  %109 = getelementptr inbounds i8, ptr %103, i64 4
-  %110 = load i32, ptr %109, align 4
-  %111 = getelementptr inbounds i8, ptr %105, i64 4
-  %112 = load i32, ptr %111, align 4
-  %.not19.i.i.i58 = icmp eq i32 %110, %112
-  br i1 %.not19.i.i.i58, label %100, label %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i50
+107:                                              ; preds = %100
+  %108 = getelementptr inbounds i8, ptr %102, i64 4
+  %109 = load i32, ptr %108, align 4
+  %110 = getelementptr inbounds i8, ptr %104, i64 4
+  %111 = load i32, ptr %110, align 4
+  %.not19.i.i.i58 = icmp eq i32 %109, %111
+  br i1 %.not19.i.i.i58, label %99, label %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i50
 
-_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i50: ; preds = %108, %101, %95, %82
+_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i50: ; preds = %107, %100, %94, %81
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i48, 1
   %exitcond.not.i52 = icmp eq i64 %indvars.iv.next.i51, %wide.trip.count.i47
-  br i1 %exitcond.not.i52, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61, label %82, !llvm.loop !15
+  br i1 %exitcond.not.i52, label %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61, label %81, !llvm.loop !15
 
-_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61: ; preds = %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i50, %88, %.preheader.i.i.i53, %100, %77, %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit
-  %.0.i45 = phi ptr [ null, %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit ], [ null, %77 ], [ %84, %100 ], [ null, %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i50 ], [ %84, %.preheader.i.i.i53 ], [ %84, %88 ]
-  %113 = getelementptr inbounds i8, ptr %0, i64 32
+_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61: ; preds = %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i50, %87, %.preheader.i.i.i53, %99, %76, %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit
+  %.0.i45 = phi ptr [ null, %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit ], [ null, %76 ], [ %83, %99 ], [ null, %_ZN10ciTypeFlow5Block18is_compatible_withEPNS_6JsrSetE.exit.i50 ], [ %83, %.preheader.i.i.i53 ], [ %83, %87 ]
+  %112 = getelementptr inbounds i8, ptr %0, i64 32
+  %113 = load ptr, ptr %112, align 8
   %114 = load ptr, ptr %113, align 8
-  %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 56
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 16
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 64
-  %121 = load i32, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %115, i64 84
-  %123 = load i32, ptr %122, align 4
-  %124 = getelementptr inbounds i8, ptr %.0.i45, i64 56
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 16
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 64
-  %129 = load i32, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %.0.i45, i64 84
-  %131 = load i32, ptr %130, align 4
-  %132 = sub i32 %123, %121
-  %133 = sub i32 %131, %129
-  %134 = icmp eq i32 %132, %133
-  br i1 %134, label %232, label %135
+  %115 = getelementptr inbounds i8, ptr %114, i64 56
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds i8, ptr %116, i64 16
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds i8, ptr %118, i64 64
+  %120 = load i32, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %114, i64 84
+  %122 = load i32, ptr %121, align 4
+  %123 = getelementptr inbounds i8, ptr %.0.i45, i64 56
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 16
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds i8, ptr %126, i64 64
+  %128 = load i32, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %.0.i45, i64 84
+  %130 = load i32, ptr %129, align 4
+  %131 = sub i32 %122, %120
+  %132 = sub i32 %130, %128
+  %133 = icmp eq i32 %131, %132
+  br i1 %133, label %231, label %134
 
-135:                                              ; preds = %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61
-  %136 = getelementptr inbounds i8, ptr %0, i64 64
-  %137 = load i32, ptr %136, align 8
-  %138 = sext i32 %137 to i64
-  %139 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %138, i32 noundef 0) #14
-  %140 = icmp sgt i32 %137, 0
-  br i1 %140, label %.lr.ph.preheader, label %.critedge
+134:                                              ; preds = %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61
+  %135 = getelementptr inbounds i8, ptr %0, i64 64
+  %136 = load i32, ptr %135, align 8
+  %137 = sext i32 %136 to i64
+  %138 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %137, i32 noundef 0) #14
+  %139 = icmp sgt i32 %136, 0
+  br i1 %139, label %.lr.ph.preheader, label %.critedge
 
-.lr.ph.preheader:                                 ; preds = %135
-  %141 = zext nneg i32 %137 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %139, i8 1, i64 %141, i1 false)
+.lr.ph.preheader:                                 ; preds = %134
+  %140 = zext nneg i32 %136 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %138, i8 1, i64 %140, i1 false)
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph.preheader, %135
-  %142 = load ptr, ptr %113, align 8
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 56
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 16
-  %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 64
-  %149 = load i32, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %143, i64 84
-  %151 = load i32, ptr %150, align 4
-  %152 = xor i32 %151, -1
-  %153 = add i32 %149, %152
-  %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds i8, ptr %139, i64 %154
-  store i8 0, ptr %155, align 1
-  %156 = getelementptr inbounds i8, ptr %0, i64 56
-  %157 = load ptr, ptr %156, align 8
-  %158 = icmp eq ptr %157, null
-  br i1 %158, label %.split.us, label %.lr.ph80.outer
+.critedge:                                        ; preds = %.lr.ph.preheader, %134
+  %141 = load ptr, ptr %112, align 8
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds i8, ptr %142, i64 56
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds i8, ptr %144, i64 16
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds i8, ptr %146, i64 64
+  %148 = load i32, ptr %147, align 8
+  %149 = getelementptr inbounds i8, ptr %142, i64 84
+  %150 = load i32, ptr %149, align 4
+  %151 = xor i32 %150, -1
+  %152 = add i32 %148, %151
+  %153 = sext i32 %152 to i64
+  %154 = getelementptr inbounds i8, ptr %138, i64 %153
+  store i8 0, ptr %154, align 1
+  %155 = getelementptr inbounds i8, ptr %0, i64 56
+  %156 = load ptr, ptr %155, align 8
+  %157 = icmp eq ptr %156, null
+  br i1 %157, label %.split.us, label %.lr.ph80.outer
 
-._crit_edge:                                      ; preds = %214
-  %.04073.pr = load ptr, ptr %156, align 8
+._crit_edge:                                      ; preds = %213
+  %.04073.pr = load ptr, ptr %155, align 8
   %.not74 = icmp eq ptr %.04073.pr, null
   %or.cond = select i1 %.175.ph.not, i1 true, i1 %.not74
   br i1 %or.cond, label %.split.us, label %.lr.ph80.outer.backedge
 
 .critedge.splitthread-pre-split:                  ; preds = %.thread
-  %.04073.pr.old = load ptr, ptr %156, align 8
+  %.04073.pr.old = load ptr, ptr %155, align 8
   %.not74.old = icmp eq ptr %.04073.pr.old, null
   br i1 %.not74.old, label %.split.us, label %.lr.ph80.outer.backedge
 
 .lr.ph80.outer:                                   ; preds = %.critedge, %.lr.ph80.outer.backedge
-  %.04076.ph = phi ptr [ %.04076.ph.be, %.lr.ph80.outer.backedge ], [ %157, %.critedge ]
+  %.04076.ph = phi ptr [ %.04076.ph.be, %.lr.ph80.outer.backedge ], [ %156, %.critedge ]
   %.175.ph.not = phi i1 [ %.175.ph.not.be, %.lr.ph80.outer.backedge ], [ true, %.critedge ]
   br label %.lr.ph80
 
-.lr.ph80:                                         ; preds = %.lr.ph80.outer, %214
-  %.04076 = phi ptr [ %.040, %214 ], [ %.04076.ph, %.lr.ph80.outer ]
-  %159 = getelementptr inbounds i8, ptr %.04076, i64 80
-  %160 = load i32, ptr %159, align 8
-  %161 = icmp eq i32 %160, 0
-  br i1 %161, label %214, label %162
+.lr.ph80:                                         ; preds = %.lr.ph80.outer, %213
+  %.04076 = phi ptr [ %.040, %213 ], [ %.04076.ph, %.lr.ph80.outer ]
+  %158 = getelementptr inbounds i8, ptr %.04076, i64 80
+  %159 = load i32, ptr %158, align 8
+  %160 = icmp eq i32 %159, 0
+  br i1 %160, label %213, label %161
 
-162:                                              ; preds = %.lr.ph80
-  %163 = getelementptr inbounds i8, ptr %.04076, i64 56
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 16
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 64
-  %168 = load i32, ptr %167, align 8
-  %169 = getelementptr inbounds i8, ptr %.04076, i64 84
-  %170 = load i32, ptr %169, align 4
-  %171 = xor i32 %170, -1
-  %172 = add i32 %168, %171
-  %173 = load ptr, ptr %124, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 16
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 64
-  %177 = load i32, ptr %176, align 8
-  %178 = load i32, ptr %130, align 4
-  %179 = xor i32 %178, -1
-  %180 = add i32 %177, %179
-  %181 = icmp eq i32 %172, %180
-  br i1 %181, label %.thr_comm, label %.preheader
+161:                                              ; preds = %.lr.ph80
+  %162 = getelementptr inbounds i8, ptr %.04076, i64 56
+  %163 = load ptr, ptr %162, align 8
+  %164 = getelementptr inbounds i8, ptr %163, i64 16
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr inbounds i8, ptr %165, i64 64
+  %167 = load i32, ptr %166, align 8
+  %168 = getelementptr inbounds i8, ptr %.04076, i64 84
+  %169 = load i32, ptr %168, align 4
+  %170 = xor i32 %169, -1
+  %171 = add i32 %167, %170
+  %172 = load ptr, ptr %123, align 8
+  %173 = getelementptr inbounds i8, ptr %172, i64 16
+  %174 = load ptr, ptr %173, align 8
+  %175 = getelementptr inbounds i8, ptr %174, i64 64
+  %176 = load i32, ptr %175, align 8
+  %177 = load i32, ptr %129, align 4
+  %178 = xor i32 %177, -1
+  %179 = add i32 %176, %178
+  %180 = icmp eq i32 %171, %179
+  br i1 %180, label %.thr_comm, label %.preheader
 
-.preheader:                                       ; preds = %162
-  %182 = getelementptr inbounds i8, ptr %.04076, i64 32
-  %183 = load i32, ptr %182, align 4
-  %184 = icmp sgt i32 %183, 0
-  br i1 %184, label %.lr.ph72, label %.thr_comm
+.preheader:                                       ; preds = %161
+  %181 = getelementptr inbounds i8, ptr %.04076, i64 32
+  %182 = load i32, ptr %181, align 4
+  %183 = icmp sgt i32 %182, 0
+  br i1 %183, label %.lr.ph72, label %.thr_comm
 
 .lr.ph72:                                         ; preds = %.preheader
-  %185 = getelementptr inbounds i8, ptr %.04076, i64 40
-  %186 = load ptr, ptr %185, align 8
-  %wide.trip.count = zext nneg i32 %183 to i64
-  br label %188
+  %184 = getelementptr inbounds i8, ptr %.04076, i64 40
+  %185 = load ptr, ptr %184, align 8
+  %wide.trip.count = zext nneg i32 %182 to i64
+  br label %187
 
-187:                                              ; preds = %188
+186:                                              ; preds = %187
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thr_comm, label %188, !llvm.loop !67
+  br i1 %exitcond.not, label %.thr_comm, label %187, !llvm.loop !67
 
-188:                                              ; preds = %.lr.ph72, %187
-  %indvars.iv = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next, %187 ]
-  %189 = getelementptr inbounds ptr, ptr %186, i64 %indvars.iv
-  %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 56
-  %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 16
-  %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 64
-  %196 = load i32, ptr %195, align 8
-  %197 = getelementptr inbounds i8, ptr %190, i64 84
-  %198 = load i32, ptr %197, align 4
-  %199 = xor i32 %198, -1
-  %200 = add i32 %196, %199
-  %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds i8, ptr %139, i64 %201
-  %203 = load i8, ptr %202, align 1
-  %204 = trunc i8 %203 to i1
-  br i1 %204, label %187, label %209
+187:                                              ; preds = %.lr.ph72, %186
+  %indvars.iv = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next, %186 ]
+  %188 = getelementptr inbounds ptr, ptr %185, i64 %indvars.iv
+  %189 = load ptr, ptr %188, align 8
+  %190 = getelementptr inbounds i8, ptr %189, i64 56
+  %191 = load ptr, ptr %190, align 8
+  %192 = getelementptr inbounds i8, ptr %191, i64 16
+  %193 = load ptr, ptr %192, align 8
+  %194 = getelementptr inbounds i8, ptr %193, i64 64
+  %195 = load i32, ptr %194, align 8
+  %196 = getelementptr inbounds i8, ptr %189, i64 84
+  %197 = load i32, ptr %196, align 4
+  %198 = xor i32 %197, -1
+  %199 = add i32 %195, %198
+  %200 = sext i32 %199 to i64
+  %201 = getelementptr inbounds i8, ptr %138, i64 %200
+  %202 = load i8, ptr %201, align 1
+  %203 = trunc i8 %202 to i1
+  br i1 %203, label %186, label %208
 
-.thr_comm:                                        ; preds = %187, %.preheader, %162
-  %205 = sext i32 %172 to i64
-  %206 = getelementptr inbounds i8, ptr %139, i64 %205
-  %207 = load i8, ptr %206, align 1
-  %208 = trunc i8 %207 to i1
-  br i1 %208, label %214, label %.thread
+.thr_comm:                                        ; preds = %186, %.preheader, %161
+  %204 = sext i32 %171 to i64
+  %205 = getelementptr inbounds i8, ptr %138, i64 %204
+  %206 = load i8, ptr %205, align 1
+  %207 = trunc i8 %206 to i1
+  br i1 %207, label %213, label %.thread
 
-209:                                              ; preds = %188
-  %210 = sext i32 %172 to i64
-  %211 = getelementptr inbounds i8, ptr %139, i64 %210
-  %212 = load i8, ptr %211, align 1
-  %213 = trunc i8 %212 to i1
-  br i1 %213, label %.thread, label %214
+208:                                              ; preds = %187
+  %209 = sext i32 %171 to i64
+  %210 = getelementptr inbounds i8, ptr %138, i64 %209
+  %211 = load i8, ptr %210, align 1
+  %212 = trunc i8 %211 to i1
+  br i1 %212, label %.thread, label %213
 
-214:                                              ; preds = %.thr_comm, %209, %.lr.ph80
-  %215 = getelementptr inbounds i8, ptr %.04076, i64 104
-  %.040 = load ptr, ptr %215, align 8
+213:                                              ; preds = %.thr_comm, %208, %.lr.ph80
+  %214 = getelementptr inbounds i8, ptr %.04076, i64 104
+  %.040 = load ptr, ptr %214, align 8
   %.not = icmp eq ptr %.040, null
   br i1 %.not, label %._crit_edge, label %.lr.ph80, !llvm.loop !68
 
-.thread:                                          ; preds = %.thr_comm, %209
-  %.lcssa102.sink = phi i64 [ %210, %209 ], [ %205, %.thr_comm ]
-  %.03965 = phi i8 [ 0, %209 ], [ 1, %.thr_comm ]
-  %216 = getelementptr inbounds i8, ptr %139, i64 %.lcssa102.sink
-  store i8 %.03965, ptr %216, align 1
-  %217 = getelementptr inbounds i8, ptr %.04076, i64 104
-  %.04088 = load ptr, ptr %217, align 8
+.thread:                                          ; preds = %.thr_comm, %208
+  %.lcssa102.sink = phi i64 [ %209, %208 ], [ %204, %.thr_comm ]
+  %.03965 = phi i8 [ 0, %208 ], [ 1, %.thr_comm ]
+  %215 = getelementptr inbounds i8, ptr %138, i64 %.lcssa102.sink
+  store i8 %.03965, ptr %215, align 1
+  %216 = getelementptr inbounds i8, ptr %.04076, i64 104
+  %.04088 = load ptr, ptr %216, align 8
   %.not89 = icmp eq ptr %.04088, null
   br i1 %.not89, label %.critedge.splitthread-pre-split, label %.lr.ph80.outer.backedge
 
@@ -12026,45 +12023,44 @@ _ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61: ; preds =
   br label %.lr.ph80.outer, !llvm.loop !69
 
 .split.us:                                        ; preds = %._crit_edge, %.critedge.splitthread-pre-split, %.critedge
-  %218 = getelementptr inbounds i8, ptr %.0.i, i64 56
-  %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 16
-  %221 = load ptr, ptr %220, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 64
-  %223 = load i32, ptr %222, align 8
-  %224 = getelementptr inbounds i8, ptr %.0.i, i64 84
-  %225 = load i32, ptr %224, align 4
-  %226 = xor i32 %225, -1
-  %227 = add i32 %223, %226
-  %228 = sext i32 %227 to i64
-  %229 = getelementptr inbounds i8, ptr %139, i64 %228
-  %230 = load i8, ptr %229, align 1
-  %231 = trunc i8 %230 to i1
-  br label %232
+  %217 = getelementptr inbounds i8, ptr %.0.i, i64 56
+  %218 = load ptr, ptr %217, align 8
+  %219 = getelementptr inbounds i8, ptr %218, i64 16
+  %220 = load ptr, ptr %219, align 8
+  %221 = getelementptr inbounds i8, ptr %220, i64 64
+  %222 = load i32, ptr %221, align 8
+  %223 = getelementptr inbounds i8, ptr %.0.i, i64 84
+  %224 = load i32, ptr %223, align 4
+  %225 = xor i32 %224, -1
+  %226 = add i32 %222, %225
+  %227 = sext i32 %226 to i64
+  %228 = getelementptr inbounds i8, ptr %138, i64 %227
+  %229 = load i8, ptr %228, align 1
+  %230 = trunc i8 %229 to i1
+  br label %231
 
-232:                                              ; preds = %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61, %.split.us
-  %.0 = phi i1 [ %231, %.split.us ], [ true, %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61 ]
-  %233 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i = icmp eq ptr %233, null
-  br i1 %.not.i.i.i.i, label %235, label %234
+231:                                              ; preds = %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61, %.split.us
+  %.0 = phi i1 [ %230, %.split.us ], [ true, %_ZN10ciTypeFlow13get_block_forEiPNS_6JsrSetENS_12CreateOptionE.exit61 ]
+  %232 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i = icmp eq ptr %232, null
+  br i1 %.not.i.i.i.i, label %234, label %233
 
-234:                                              ; preds = %232
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %15) #14
+233:                                              ; preds = %231
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %14) #14
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %9) #14
-  br label %235
+  br label %234
 
-235:                                              ; preds = %234, %232
-  %236 = load ptr, ptr %10, align 8
-  %.not8.i.i.i.i = icmp eq ptr %236, %11
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %237
+234:                                              ; preds = %233, %231
+  %235 = load ptr, ptr %10, align 8
+  %.not8.i.i.i.i = icmp eq ptr %235, %12
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %236
 
-237:                                              ; preds = %235
+236:                                              ; preds = %234
   store ptr %9, ptr %8, align 8
-  store ptr %11, ptr %10, align 8
-  store ptr %13, ptr %12, align 8
+  store <2 x ptr> %11, ptr %10, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %235, %237
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %234, %236
   ret i1 %.0
 }
 

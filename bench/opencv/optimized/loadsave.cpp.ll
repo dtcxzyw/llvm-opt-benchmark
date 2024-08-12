@@ -10427,32 +10427,30 @@ define void @_ZN2cv15ImageCollection12releaseCacheEi(ptr nocapture noundef nonnu
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
 define void @_ZN2cv15ImageCollection7getImplEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.25") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %1, align 8
-  store ptr %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8
-  store ptr %6, ptr %4, align 8
-  %.not.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_15ImageCollection4ImplEEC2ERKS3_.exit, label %7
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %5, ptr %0, align 8
+  %.not.i.i.i.i = icmp eq ptr %4, null
+  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_15ImageCollection4ImplEEC2ERKS3_.exit, label %6
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i = icmp eq i8 %9, 0
-  br i1 %.not.i.i.i.i.i, label %13, label %10
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i = icmp eq i8 %8, 0
+  br i1 %.not.i.i.i.i.i, label %12, label %9
 
-10:                                               ; preds = %7
-  %11 = load i32, ptr %8, align 4
-  %12 = add nsw i32 %11, 1
-  store i32 %12, ptr %8, align 4
+9:                                                ; preds = %6
+  %10 = load i32, ptr %7, align 4
+  %11 = add nsw i32 %10, 1
+  store i32 %11, ptr %7, align 4
   br label %_ZN2cv3PtrINS_15ImageCollection4ImplEEC2ERKS3_.exit
 
-13:                                               ; preds = %7
-  %14 = atomicrmw volatile add ptr %8, i32 1 acq_rel, align 4
+12:                                               ; preds = %6
+  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4
   br label %_ZN2cv3PtrINS_15ImageCollection4ImplEEC2ERKS3_.exit
 
-_ZN2cv3PtrINS_15ImageCollection4ImplEEC2ERKS3_.exit: ; preds = %2, %10, %13
+_ZN2cv3PtrINS_15ImageCollection4ImplEEC2ERKS3_.exit: ; preds = %2, %9, %12
   ret void
 }
 

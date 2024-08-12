@@ -514,12 +514,12 @@ invoke.cont85:                                    ; preds = %invoke.cont85.loope
   br i1 %cmp87, label %do.end91, label %for.body.i.i
 
 do.end91:                                         ; preds = %invoke.cont85
+  %56 = load i64, ptr %second, align 8
   %arrayidx.i.i46.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0345, i64 32
   %arrayidx.i.i45.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0345, i64 24
   %arrayidx.i.i44.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0345, i64 16
-  %56 = load i64, ptr %double_cr.i, align 8
-  %57 = extractelement <4 x i64> %51, i64 0
-  %or.i.i86 = or i64 %56, %57
+  %57 = load i64, ptr %double_cr.i, align 8
+  %or.i.i86 = or i64 %57, %56
   store i64 %or.i.i86, ptr %double_cr.i, align 8
   %58 = load i64, ptr %arrayidx.i.i44.i.i, align 8
   %59 = load i64, ptr %arrayidx.i.i20.i.i88, align 8

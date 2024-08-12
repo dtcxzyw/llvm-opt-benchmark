@@ -400,8 +400,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit49:        ; preds = %120, %123
   br label %.outer
 
 .outer:                                           ; preds = %_ZL8calc_lieP9t_liedataP8t_energyffff.exit, %_ZNSt10filesystem7__cxx114pathD2Ev.exit49
-  %.032.ph = phi i32 [ %171, %_ZL8calc_lieP9t_liedataP8t_energyffff.exit ], [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit49 ]
-  %.ph = phi <2 x double> [ %170, %_ZL8calc_lieP9t_liedataP8t_energyffff.exit ], [ zeroinitializer, %_ZNSt10filesystem7__cxx114pathD2Ev.exit49 ]
+  %.032.ph = phi i32 [ %172, %_ZL8calc_lieP9t_liedataP8t_energyffff.exit ], [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit49 ]
+  %.ph = phi <2 x double> [ %171, %_ZL8calc_lieP9t_liedataP8t_energyffff.exit ], [ zeroinitializer, %_ZNSt10filesystem7__cxx114pathD2Ev.exit49 ]
   br label %127
 
 127:                                              ; preds = %.outer, %134
@@ -480,14 +480,14 @@ _ZL8calc_lieP9t_liedataP8t_energyffff.exit:       ; preds = %155, %.preheader.i
   %164 = fmul float %141, %163
   %165 = call noundef float @llvm.fmuladd.f32(float %140, float %162, float %164)
   %166 = fmul float %165, %165
-  %167 = insertelement <2 x float> poison, float %166, i64 0
-  %168 = insertelement <2 x float> %167, float %165, i64 1
-  %169 = fpext <2 x float> %168 to <2 x double>
-  %170 = fadd <2 x double> %.ph, %169
-  %171 = add nuw nsw i32 %.032.ph, 1
-  %172 = load double, ptr %108, align 8
-  %173 = extractelement <2 x double> %169, i64 1
-  %174 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef nonnull @.str.29, double noundef %172, double noundef %173) #14
+  %167 = fpext float %165 to double
+  %168 = insertelement <2 x float> poison, float %166, i64 0
+  %169 = insertelement <2 x float> %168, float %165, i64 1
+  %170 = fpext <2 x float> %169 to <2 x double>
+  %171 = fadd <2 x double> %.ph, %170
+  %172 = add nuw nsw i32 %.032.ph, 1
+  %173 = load double, ptr %108, align 8
+  %174 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef nonnull @.str.29, double noundef %173, double noundef %167) #14
   br label %.outer, !llvm.loop !9
 
 175:                                              ; preds = %33

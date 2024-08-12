@@ -4465,11 +4465,11 @@ cond.true.i.i.i.i.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call, i8 0, i64 56, i1 false)
   store ptr %call, ptr %store, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   %call5.i.i.i.i.i.i.i9 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %cond.true.i.i.i.i.i
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 42, ptr %call5.i.i.i.i.i.i.i9, align 16
   %ref.tmp.sroa.33.0.add.ptr.i.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i9, i64 16
   store i32 1, ptr %ref.tmp.sroa.33.0.add.ptr.i.i.sroa_idx.i.i, align 16
@@ -4512,11 +4512,9 @@ _ZNSt10unique_ptrIN3fmt3v1024dynamic_format_arg_storeINS1_20basic_format_context
   %2 = load ptr, ptr %call, align 8
   store ptr %2, ptr %moved_store, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %moved_store, i64 8
-  %3 = load ptr, ptr %_M_finish.i.i.i, align 8
-  store ptr %3, ptr %_M_finish.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %moved_store, i64 16
-  %4 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %3 = load <2 x ptr>, ptr %_M_finish.i.i.i, align 8
+  %4 = load ptr, ptr %_M_finish.i.i.i, align 8
+  store <2 x ptr> %3, ptr %_M_finish.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call, i8 0, i64 24, i1 false)
   %named_info_.i = getelementptr inbounds i8, ptr %moved_store, i64 24
   %named_info_3.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -4524,12 +4522,9 @@ _ZNSt10unique_ptrIN3fmt3v1024dynamic_format_arg_storeINS1_20basic_format_context
   store ptr %5, ptr %named_info_.i, align 8
   %_M_finish.i.i.i.i3.i = getelementptr inbounds i8, ptr %moved_store, i64 32
   %_M_finish3.i.i.i.i4.i = getelementptr inbounds i8, ptr %call, i64 32
-  %6 = load ptr, ptr %_M_finish3.i.i.i.i4.i, align 8
-  store ptr %6, ptr %_M_finish.i.i.i.i3.i, align 8
-  %_M_end_of_storage.i.i.i.i5.i = getelementptr inbounds i8, ptr %moved_store, i64 40
-  %_M_end_of_storage4.i.i.i.i6.i = getelementptr inbounds i8, ptr %call, i64 40
-  %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i6.i, align 8
-  store ptr %7, ptr %_M_end_of_storage.i.i.i.i5.i, align 8
+  %6 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i4.i, align 8
+  %7 = load ptr, ptr %_M_finish3.i.i.i.i4.i, align 8
+  store <2 x ptr> %6, ptr %_M_finish.i.i.i.i3.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %named_info_3.i, i8 0, i64 24, i1 false)
   %dynamic_args_.i = getelementptr inbounds i8, ptr %moved_store, i64 48
   %dynamic_args_4.i = getelementptr inbounds i8, ptr %call, i64 48
@@ -4538,11 +4533,11 @@ _ZNSt10unique_ptrIN3fmt3v1024dynamic_format_arg_storeINS1_20basic_format_context
   store ptr null, ptr %store, align 8
   %9 = inttoptr i64 %8 to ptr
   call void @_ZdlPv(ptr noundef nonnull %call) #17
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 5
-  %cmp.i.i.i = icmp eq ptr %5, %6
+  %cmp.i.i.i = icmp eq ptr %5, %7
   %cond.i = select i1 %cmp.i.i.i, i64 0, i64 4611686018427387904
   %or.i = or i64 %sub.ptr.div.i.i, %cond.i
   %or3.i = or i64 %or.i, -9223372036854775808

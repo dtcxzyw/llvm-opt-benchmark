@@ -103777,7 +103777,7 @@ _ZN6vectorIPN3smt5enodeELb0EjE7destroyEv.exit.i.i: ; preds = %if.then.i.i.i107, 
 _ZNK6vectorIPN3smt5enodeELb0EjE8capacityEv.exit.i.i.i: ; preds = %_ZN6vectorIPN3smt5enodeELb0EjE7destroyEv.exit.i.i
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %72, i64 -8
   %73 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
-  %74 = extractelement <2 x i32> %73, i64 0
+  %74 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %74 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 3
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 8
@@ -135912,48 +135912,46 @@ if.then14:                                        ; preds = %if.then9
   %_M_last4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.0127, i64 40
   %11 = load ptr, ptr %_M_last4.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_node5.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.0127, i64 48
-  %12 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i.i.i, align 8
-  %_M_finish4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.0127, i64 56
-  %_M_last4.i6.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.0127, i64 72
-  %13 = load ptr, ptr %_M_last4.i6.i.i.i.i.i.i.i.i.i, align 8
+  %_M_first3.i4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.0127, i64 64
   %_M_node5.i8.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.0127, i64 80
-  %14 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i.i, align 8
+  %12 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i.i, align 8
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %e, i64 24
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %e, i64 32
   %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %e, i64 40
   %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %e, i64 48
   %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %e, i64 56
+  %13 = load <2 x ptr>, ptr %_M_node5.i.i.i.i.i.i.i.i.i.i, align 8
+  %14 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i.i.i, align 8
   %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %e, i64 64
-  %15 = load <2 x ptr>, ptr %_M_finish4.i.i.i.i.i.i.i.i.i, align 8
+  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %e, i64 72
+  %15 = load <2 x ptr>, ptr %_M_first3.i4.i.i.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %m_value.i.i, i8 0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %m_value.i.i, ptr noundef nonnull align 8 dereferenceable(80) %m_value3.i.i, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_value3.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i, i64 16, i1 false)
   store ptr %9, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
   store ptr %10, ptr %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
   store ptr %11, ptr %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
-  store ptr %12, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
-  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %e, i64 72
-  store ptr %13, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
+  store <2 x ptr> %13, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
+  store <2 x ptr> %15, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
   %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %e, i64 80
-  store ptr %14, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
+  store ptr %12, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i.i)
-  %cmp3.i.i.i.i.i.i.i.i = icmp ult ptr %12, %14
+  %cmp3.i.i.i.i.i.i.i.i = icmp ult ptr %14, %12
   br i1 %cmp3.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %_ZN7obj_mapI4exprSt5stackIPN3smt10theory_str5T_cutESt5dequeIS5_SaIS5_EEEE13obj_map_entry8set_dataEONSA_8key_dataE.exit
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.then14, %for.body.i.i.i.i.i.i.i.i
-  %__n.04.i.pn.i.i.i.i.i.i.i = phi ptr [ %__n.04.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %12, %if.then14 ]
+  %__n.04.i.pn.i.i.i.i.i.i.i = phi ptr [ %__n.04.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %14, %if.then14 ]
   %__n.04.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.pn.i.i.i.i.i.i.i, i64 8
   %16 = load ptr, ptr %__n.04.i.i.i.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %16) #23
-  %cmp.i.i.i.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i.i.i.i, %14
+  %cmp.i.i.i.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i.i.i.i, %12
   br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %_ZN7obj_mapI4exprSt5stackIPN3smt10theory_str5T_cutESt5dequeIS5_SaIS5_EEEE13obj_map_entry8set_dataEONSA_8key_dataE.exit, !llvm.loop !21
 
 _ZN7obj_mapI4exprSt5stackIPN3smt10theory_str5T_cutESt5dequeIS5_SaIS5_EEEE13obj_map_entry8set_dataEONSA_8key_dataE.exit: ; preds = %for.body.i.i.i.i.i.i.i.i, %if.then14
   store ptr %9, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
   store ptr %10, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
   store ptr %11, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
-  store ptr %12, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
+  store ptr %14, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
   br label %return
 
 if.then17:                                        ; preds = %for.body
@@ -135982,48 +135980,46 @@ if.end21:                                         ; preds = %if.then17, %if.then
   %_M_last4.i.i.i.i.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %new_entry.0, i64 40
   %21 = load ptr, ptr %_M_last4.i.i.i.i.i.i.i.i.i.i39, align 8
   %_M_node5.i.i.i.i.i.i.i.i.i.i40 = getelementptr inbounds i8, ptr %new_entry.0, i64 48
-  %22 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i.i.i40, align 8
-  %_M_finish4.i.i.i.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %new_entry.0, i64 56
-  %_M_last4.i6.i.i.i.i.i.i.i.i.i43 = getelementptr inbounds i8, ptr %new_entry.0, i64 72
-  %23 = load ptr, ptr %_M_last4.i6.i.i.i.i.i.i.i.i.i43, align 8
+  %_M_first3.i4.i.i.i.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %new_entry.0, i64 64
   %_M_node5.i8.i.i.i.i.i.i.i.i.i44 = getelementptr inbounds i8, ptr %new_entry.0, i64 80
-  %24 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i.i44, align 8
+  %22 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i.i44, align 8
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i.i45 = getelementptr inbounds i8, ptr %e, i64 24
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i.i46 = getelementptr inbounds i8, ptr %e, i64 32
   %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i.i.i47 = getelementptr inbounds i8, ptr %e, i64 40
   %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %e, i64 48
   %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i.i49 = getelementptr inbounds i8, ptr %e, i64 56
+  %23 = load <2 x ptr>, ptr %_M_node5.i.i.i.i.i.i.i.i.i.i40, align 8
+  %24 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i.i.i40, align 8
   %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i.i.i50 = getelementptr inbounds i8, ptr %e, i64 64
-  %25 = load <2 x ptr>, ptr %_M_finish4.i.i.i.i.i.i.i.i.i41, align 8
+  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i51 = getelementptr inbounds i8, ptr %e, i64 72
+  %25 = load <2 x ptr>, ptr %_M_first3.i4.i.i.i.i.i.i.i.i.i42, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %m_value.i.i35, i8 0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %m_value.i.i35, ptr noundef nonnull align 8 dereferenceable(80) %m_value3.i.i36, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_value3.i.i36, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i34, i64 16, i1 false)
   store ptr %19, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i.i45, align 8
   store ptr %20, ptr %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i.i46, align 8
   store ptr %21, ptr %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i.i.i47, align 8
-  store ptr %22, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i.i48, align 8
-  store <2 x ptr> %25, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i.i49, align 8
-  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i51 = getelementptr inbounds i8, ptr %e, i64 72
-  store ptr %23, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i51, align 8
+  store <2 x ptr> %23, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i.i48, align 8
+  store <2 x ptr> %25, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i.i.i50, align 8
   %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i52 = getelementptr inbounds i8, ptr %e, i64 80
-  store ptr %24, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i52, align 8
+  store ptr %22, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i52, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i.i34)
-  %cmp3.i.i.i.i.i.i.i.i53 = icmp ult ptr %22, %24
+  %cmp3.i.i.i.i.i.i.i.i53 = icmp ult ptr %24, %22
   br i1 %cmp3.i.i.i.i.i.i.i.i53, label %for.body.i.i.i.i.i.i.i.i54, label %_ZN7obj_mapI4exprSt5stackIPN3smt10theory_str5T_cutESt5dequeIS5_SaIS5_EEEE13obj_map_entry8set_dataEONSA_8key_dataE.exit58
 
 for.body.i.i.i.i.i.i.i.i54:                       ; preds = %if.end21, %for.body.i.i.i.i.i.i.i.i54
-  %__n.04.i.pn.i.i.i.i.i.i.i55 = phi ptr [ %__n.04.i.i.i.i.i.i.i.i56, %for.body.i.i.i.i.i.i.i.i54 ], [ %22, %if.end21 ]
+  %__n.04.i.pn.i.i.i.i.i.i.i55 = phi ptr [ %__n.04.i.i.i.i.i.i.i.i56, %for.body.i.i.i.i.i.i.i.i54 ], [ %24, %if.end21 ]
   %__n.04.i.i.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %__n.04.i.pn.i.i.i.i.i.i.i55, i64 8
   %26 = load ptr, ptr %__n.04.i.i.i.i.i.i.i.i56, align 8
   tail call void @_ZdlPv(ptr noundef %26) #23
-  %cmp.i.i.i.i.i.i.i.i57 = icmp ult ptr %__n.04.i.i.i.i.i.i.i.i56, %24
+  %cmp.i.i.i.i.i.i.i.i57 = icmp ult ptr %__n.04.i.i.i.i.i.i.i.i56, %22
   br i1 %cmp.i.i.i.i.i.i.i.i57, label %for.body.i.i.i.i.i.i.i.i54, label %_ZN7obj_mapI4exprSt5stackIPN3smt10theory_str5T_cutESt5dequeIS5_SaIS5_EEEE13obj_map_entry8set_dataEONSA_8key_dataE.exit58, !llvm.loop !21
 
 _ZN7obj_mapI4exprSt5stackIPN3smt10theory_str5T_cutESt5dequeIS5_SaIS5_EEEE13obj_map_entry8set_dataEONSA_8key_dataE.exit58: ; preds = %for.body.i.i.i.i.i.i.i.i54, %if.end21
   store ptr %19, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i.i49, align 8
   store ptr %20, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i.i.i50, align 8
   store ptr %21, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i51, align 8
-  store ptr %22, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i52, align 8
+  store ptr %24, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i52, align 8
   %27 = load i32, ptr %m_size, align 4
   %inc = add i32 %27, 1
   store i32 %inc, ptr %m_size, align 4
@@ -136066,48 +136062,46 @@ if.then37:                                        ; preds = %if.then31
   %_M_last4.i.i.i.i.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %curr.1130, i64 40
   %32 = load ptr, ptr %_M_last4.i.i.i.i.i.i.i.i.i.i69, align 8
   %_M_node5.i.i.i.i.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %curr.1130, i64 48
-  %33 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i.i.i70, align 8
-  %_M_finish4.i.i.i.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %curr.1130, i64 56
-  %_M_last4.i6.i.i.i.i.i.i.i.i.i73 = getelementptr inbounds i8, ptr %curr.1130, i64 72
-  %34 = load ptr, ptr %_M_last4.i6.i.i.i.i.i.i.i.i.i73, align 8
+  %_M_first3.i4.i.i.i.i.i.i.i.i.i72 = getelementptr inbounds i8, ptr %curr.1130, i64 64
   %_M_node5.i8.i.i.i.i.i.i.i.i.i74 = getelementptr inbounds i8, ptr %curr.1130, i64 80
-  %35 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i.i74, align 8
+  %33 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i.i74, align 8
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i.i75 = getelementptr inbounds i8, ptr %e, i64 24
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i.i76 = getelementptr inbounds i8, ptr %e, i64 32
   %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i.i.i77 = getelementptr inbounds i8, ptr %e, i64 40
   %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i.i78 = getelementptr inbounds i8, ptr %e, i64 48
   %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i.i79 = getelementptr inbounds i8, ptr %e, i64 56
+  %34 = load <2 x ptr>, ptr %_M_node5.i.i.i.i.i.i.i.i.i.i70, align 8
+  %35 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i.i.i70, align 8
   %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i.i.i80 = getelementptr inbounds i8, ptr %e, i64 64
-  %36 = load <2 x ptr>, ptr %_M_finish4.i.i.i.i.i.i.i.i.i71, align 8
+  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i81 = getelementptr inbounds i8, ptr %e, i64 72
+  %36 = load <2 x ptr>, ptr %_M_first3.i4.i.i.i.i.i.i.i.i.i72, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %m_value.i.i65, i8 0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %m_value.i.i65, ptr noundef nonnull align 8 dereferenceable(80) %m_value3.i.i66, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_value3.i.i66, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i64, i64 16, i1 false)
   store ptr %30, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i.i75, align 8
   store ptr %31, ptr %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i.i76, align 8
   store ptr %32, ptr %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i.i.i77, align 8
-  store ptr %33, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i.i78, align 8
-  store <2 x ptr> %36, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i.i79, align 8
-  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i81 = getelementptr inbounds i8, ptr %e, i64 72
-  store ptr %34, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i81, align 8
+  store <2 x ptr> %34, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i.i78, align 8
+  store <2 x ptr> %36, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i.i.i80, align 8
   %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i82 = getelementptr inbounds i8, ptr %e, i64 80
-  store ptr %35, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i82, align 8
+  store ptr %33, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i82, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i.i64)
-  %cmp3.i.i.i.i.i.i.i.i83 = icmp ult ptr %33, %35
+  %cmp3.i.i.i.i.i.i.i.i83 = icmp ult ptr %35, %33
   br i1 %cmp3.i.i.i.i.i.i.i.i83, label %for.body.i.i.i.i.i.i.i.i84, label %_ZN7obj_mapI4exprSt5stackIPN3smt10theory_str5T_cutESt5dequeIS5_SaIS5_EEEE13obj_map_entry8set_dataEONSA_8key_dataE.exit88
 
 for.body.i.i.i.i.i.i.i.i84:                       ; preds = %if.then37, %for.body.i.i.i.i.i.i.i.i84
-  %__n.04.i.pn.i.i.i.i.i.i.i85 = phi ptr [ %__n.04.i.i.i.i.i.i.i.i86, %for.body.i.i.i.i.i.i.i.i84 ], [ %33, %if.then37 ]
+  %__n.04.i.pn.i.i.i.i.i.i.i85 = phi ptr [ %__n.04.i.i.i.i.i.i.i.i86, %for.body.i.i.i.i.i.i.i.i84 ], [ %35, %if.then37 ]
   %__n.04.i.i.i.i.i.i.i.i86 = getelementptr inbounds i8, ptr %__n.04.i.pn.i.i.i.i.i.i.i85, i64 8
   %37 = load ptr, ptr %__n.04.i.i.i.i.i.i.i.i86, align 8
   tail call void @_ZdlPv(ptr noundef %37) #23
-  %cmp.i.i.i.i.i.i.i.i87 = icmp ult ptr %__n.04.i.i.i.i.i.i.i.i86, %35
+  %cmp.i.i.i.i.i.i.i.i87 = icmp ult ptr %__n.04.i.i.i.i.i.i.i.i86, %33
   br i1 %cmp.i.i.i.i.i.i.i.i87, label %for.body.i.i.i.i.i.i.i.i84, label %_ZN7obj_mapI4exprSt5stackIPN3smt10theory_str5T_cutESt5dequeIS5_SaIS5_EEEE13obj_map_entry8set_dataEONSA_8key_dataE.exit88, !llvm.loop !21
 
 _ZN7obj_mapI4exprSt5stackIPN3smt10theory_str5T_cutESt5dequeIS5_SaIS5_EEEE13obj_map_entry8set_dataEONSA_8key_dataE.exit88: ; preds = %for.body.i.i.i.i.i.i.i.i84, %if.then37
   store ptr %30, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i.i79, align 8
   store ptr %31, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i.i.i80, align 8
   store ptr %32, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i81, align 8
-  store ptr %33, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i82, align 8
+  store ptr %35, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i82, align 8
   br label %return
 
 if.then41:                                        ; preds = %for.body29
@@ -136136,48 +136130,46 @@ if.end48:                                         ; preds = %if.then41, %if.then
   %_M_last4.i.i.i.i.i.i.i.i.i.i95 = getelementptr inbounds i8, ptr %new_entry42.0, i64 40
   %42 = load ptr, ptr %_M_last4.i.i.i.i.i.i.i.i.i.i95, align 8
   %_M_node5.i.i.i.i.i.i.i.i.i.i96 = getelementptr inbounds i8, ptr %new_entry42.0, i64 48
-  %43 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i.i.i96, align 8
-  %_M_finish4.i.i.i.i.i.i.i.i.i97 = getelementptr inbounds i8, ptr %new_entry42.0, i64 56
-  %_M_last4.i6.i.i.i.i.i.i.i.i.i99 = getelementptr inbounds i8, ptr %new_entry42.0, i64 72
-  %44 = load ptr, ptr %_M_last4.i6.i.i.i.i.i.i.i.i.i99, align 8
+  %_M_first3.i4.i.i.i.i.i.i.i.i.i98 = getelementptr inbounds i8, ptr %new_entry42.0, i64 64
   %_M_node5.i8.i.i.i.i.i.i.i.i.i100 = getelementptr inbounds i8, ptr %new_entry42.0, i64 80
-  %45 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i.i100, align 8
+  %43 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i.i100, align 8
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i.i101 = getelementptr inbounds i8, ptr %e, i64 24
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i.i102 = getelementptr inbounds i8, ptr %e, i64 32
   %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i.i.i103 = getelementptr inbounds i8, ptr %e, i64 40
   %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i.i104 = getelementptr inbounds i8, ptr %e, i64 48
   %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i.i105 = getelementptr inbounds i8, ptr %e, i64 56
+  %44 = load <2 x ptr>, ptr %_M_node5.i.i.i.i.i.i.i.i.i.i96, align 8
+  %45 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i.i.i96, align 8
   %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i.i.i106 = getelementptr inbounds i8, ptr %e, i64 64
-  %46 = load <2 x ptr>, ptr %_M_finish4.i.i.i.i.i.i.i.i.i97, align 8
+  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i107 = getelementptr inbounds i8, ptr %e, i64 72
+  %46 = load <2 x ptr>, ptr %_M_first3.i4.i.i.i.i.i.i.i.i.i98, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %m_value.i.i91, i8 0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %m_value.i.i91, ptr noundef nonnull align 8 dereferenceable(80) %m_value3.i.i92, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_value3.i.i92, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i90, i64 16, i1 false)
   store ptr %40, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i.i101, align 8
   store ptr %41, ptr %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i.i102, align 8
   store ptr %42, ptr %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i.i.i103, align 8
-  store ptr %43, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i.i104, align 8
-  store <2 x ptr> %46, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i.i105, align 8
-  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i107 = getelementptr inbounds i8, ptr %e, i64 72
-  store ptr %44, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i107, align 8
+  store <2 x ptr> %44, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i.i104, align 8
+  store <2 x ptr> %46, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i.i.i106, align 8
   %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i108 = getelementptr inbounds i8, ptr %e, i64 80
-  store ptr %45, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i108, align 8
+  store ptr %43, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i108, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i.i90)
-  %cmp3.i.i.i.i.i.i.i.i109 = icmp ult ptr %43, %45
+  %cmp3.i.i.i.i.i.i.i.i109 = icmp ult ptr %45, %43
   br i1 %cmp3.i.i.i.i.i.i.i.i109, label %for.body.i.i.i.i.i.i.i.i110, label %_ZN7obj_mapI4exprSt5stackIPN3smt10theory_str5T_cutESt5dequeIS5_SaIS5_EEEE13obj_map_entry8set_dataEONSA_8key_dataE.exit114
 
 for.body.i.i.i.i.i.i.i.i110:                      ; preds = %if.end48, %for.body.i.i.i.i.i.i.i.i110
-  %__n.04.i.pn.i.i.i.i.i.i.i111 = phi ptr [ %__n.04.i.i.i.i.i.i.i.i112, %for.body.i.i.i.i.i.i.i.i110 ], [ %43, %if.end48 ]
+  %__n.04.i.pn.i.i.i.i.i.i.i111 = phi ptr [ %__n.04.i.i.i.i.i.i.i.i112, %for.body.i.i.i.i.i.i.i.i110 ], [ %45, %if.end48 ]
   %__n.04.i.i.i.i.i.i.i.i112 = getelementptr inbounds i8, ptr %__n.04.i.pn.i.i.i.i.i.i.i111, i64 8
   %47 = load ptr, ptr %__n.04.i.i.i.i.i.i.i.i112, align 8
   tail call void @_ZdlPv(ptr noundef %47) #23
-  %cmp.i.i.i.i.i.i.i.i113 = icmp ult ptr %__n.04.i.i.i.i.i.i.i.i112, %45
+  %cmp.i.i.i.i.i.i.i.i113 = icmp ult ptr %__n.04.i.i.i.i.i.i.i.i112, %43
   br i1 %cmp.i.i.i.i.i.i.i.i113, label %for.body.i.i.i.i.i.i.i.i110, label %_ZN7obj_mapI4exprSt5stackIPN3smt10theory_str5T_cutESt5dequeIS5_SaIS5_EEEE13obj_map_entry8set_dataEONSA_8key_dataE.exit114, !llvm.loop !21
 
 _ZN7obj_mapI4exprSt5stackIPN3smt10theory_str5T_cutESt5dequeIS5_SaIS5_EEEE13obj_map_entry8set_dataEONSA_8key_dataE.exit114: ; preds = %for.body.i.i.i.i.i.i.i.i110, %if.end48
   store ptr %40, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i.i105, align 8
   store ptr %41, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i.i.i106, align 8
   store ptr %42, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i107, align 8
-  store ptr %43, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i108, align 8
+  store ptr %45, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i108, align 8
   %48 = load i32, ptr %m_size, align 4
   %inc50 = add i32 %48, 1
   store i32 %inc50, ptr %m_size, align 4
@@ -136337,48 +136329,46 @@ if.then10:                                        ; preds = %for.body8
   %_M_last4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %target_curr.047, i64 40
   %5 = load ptr, ptr %_M_last4.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_node5.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %target_curr.047, i64 48
-  %6 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i.i.i, align 8
-  %_M_finish4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %target_curr.047, i64 56
-  %_M_last4.i6.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %target_curr.047, i64 72
-  %7 = load ptr, ptr %_M_last4.i6.i.i.i.i.i.i.i.i.i, align 8
+  %_M_first3.i4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %target_curr.047, i64 64
   %_M_node5.i8.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %target_curr.047, i64 80
-  %8 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i.i, align 8
+  %6 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i.i, align 8
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %source_curr.051, i64 24
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %source_curr.051, i64 32
   %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %source_curr.051, i64 40
   %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %source_curr.051, i64 48
   %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %source_curr.051, i64 56
+  %7 = load <2 x ptr>, ptr %_M_node5.i.i.i.i.i.i.i.i.i.i, align 8
+  %8 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i.i.i, align 8
   %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %source_curr.051, i64 64
-  %9 = load <2 x ptr>, ptr %_M_finish4.i.i.i.i.i.i.i.i.i, align 8
+  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %source_curr.051, i64 72
+  %9 = load <2 x ptr>, ptr %_M_first3.i4.i.i.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %m_value.i.i, i8 0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %m_value.i.i, ptr noundef nonnull align 8 dereferenceable(80) %m_value3.i.i, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_value3.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i, i64 16, i1 false)
   store ptr %3, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
   store ptr %4, ptr %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
   store ptr %5, ptr %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
-  store ptr %6, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
-  store <2 x ptr> %9, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
-  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %source_curr.051, i64 72
-  store ptr %7, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
+  store <2 x ptr> %7, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
+  store <2 x ptr> %9, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
   %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %source_curr.051, i64 80
-  store ptr %8, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
+  store ptr %6, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i.i)
-  %cmp3.i.i.i.i.i.i.i.i = icmp ult ptr %6, %8
+  %cmp3.i.i.i.i.i.i.i.i = icmp ult ptr %8, %6
   br i1 %cmp3.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %_ZN7obj_mapI4exprSt5stackIPN3smt10theory_str5T_cutESt5dequeIS5_SaIS5_EEEE13obj_map_entryaSEOSB_.exit
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.then10, %for.body.i.i.i.i.i.i.i.i
-  %__n.04.i.pn.i.i.i.i.i.i.i = phi ptr [ %__n.04.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %6, %if.then10 ]
+  %__n.04.i.pn.i.i.i.i.i.i.i = phi ptr [ %__n.04.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %8, %if.then10 ]
   %__n.04.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.pn.i.i.i.i.i.i.i, i64 8
   %10 = load ptr, ptr %__n.04.i.i.i.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %10) #23
-  %cmp.i.i.i.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i.i.i.i, %8
+  %cmp.i.i.i.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i.i.i.i, %6
   br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %_ZN7obj_mapI4exprSt5stackIPN3smt10theory_str5T_cutESt5dequeIS5_SaIS5_EEEE13obj_map_entryaSEOSB_.exit, !llvm.loop !21
 
 _ZN7obj_mapI4exprSt5stackIPN3smt10theory_str5T_cutESt5dequeIS5_SaIS5_EEEE13obj_map_entryaSEOSB_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i, %if.then10
   store ptr %3, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
   store ptr %4, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
   store ptr %5, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
-  store ptr %6, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
+  store ptr %8, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i, align 8
   br label %for.inc23
 
 for.inc:                                          ; preds = %for.body8
@@ -136405,48 +136395,46 @@ if.then16:                                        ; preds = %for.body14
   %_M_last4.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %target_curr.149, i64 40
   %14 = load ptr, ptr %_M_last4.i.i.i.i.i.i.i.i.i.i24, align 8
   %_M_node5.i.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %target_curr.149, i64 48
-  %15 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i.i.i25, align 8
-  %_M_finish4.i.i.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %target_curr.149, i64 56
-  %_M_last4.i6.i.i.i.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %target_curr.149, i64 72
-  %16 = load ptr, ptr %_M_last4.i6.i.i.i.i.i.i.i.i.i28, align 8
+  %_M_first3.i4.i.i.i.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %target_curr.149, i64 64
   %_M_node5.i8.i.i.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %target_curr.149, i64 80
-  %17 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i.i29, align 8
+  %15 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i.i29, align 8
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %source_curr.051, i64 24
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %source_curr.051, i64 32
   %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %source_curr.051, i64 40
   %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %source_curr.051, i64 48
   %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %source_curr.051, i64 56
+  %16 = load <2 x ptr>, ptr %_M_node5.i.i.i.i.i.i.i.i.i.i25, align 8
+  %17 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i.i.i25, align 8
   %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %source_curr.051, i64 64
-  %18 = load <2 x ptr>, ptr %_M_finish4.i.i.i.i.i.i.i.i.i26, align 8
+  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i36 = getelementptr inbounds i8, ptr %source_curr.051, i64 72
+  %18 = load <2 x ptr>, ptr %_M_first3.i4.i.i.i.i.i.i.i.i.i27, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %m_value.i.i20, i8 0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %m_value.i.i20, ptr noundef nonnull align 8 dereferenceable(80) %m_value3.i.i21, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_value3.i.i21, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i.i19, i64 16, i1 false)
   store ptr %12, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i.i30, align 8
   store ptr %13, ptr %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i.i.i31, align 8
   store ptr %14, ptr %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i.i.i32, align 8
-  store ptr %15, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i.i33, align 8
-  store <2 x ptr> %18, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i.i34, align 8
-  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i36 = getelementptr inbounds i8, ptr %source_curr.051, i64 72
-  store ptr %16, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i36, align 8
+  store <2 x ptr> %16, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i.i33, align 8
+  store <2 x ptr> %18, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i.i.i35, align 8
   %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i37 = getelementptr inbounds i8, ptr %source_curr.051, i64 80
-  store ptr %17, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i37, align 8
+  store ptr %15, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i37, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i.i19)
-  %cmp3.i.i.i.i.i.i.i.i38 = icmp ult ptr %15, %17
+  %cmp3.i.i.i.i.i.i.i.i38 = icmp ult ptr %17, %15
   br i1 %cmp3.i.i.i.i.i.i.i.i38, label %for.body.i.i.i.i.i.i.i.i39, label %_ZN7obj_mapI4exprSt5stackIPN3smt10theory_str5T_cutESt5dequeIS5_SaIS5_EEEE13obj_map_entryaSEOSB_.exit43
 
 for.body.i.i.i.i.i.i.i.i39:                       ; preds = %if.then16, %for.body.i.i.i.i.i.i.i.i39
-  %__n.04.i.pn.i.i.i.i.i.i.i40 = phi ptr [ %__n.04.i.i.i.i.i.i.i.i41, %for.body.i.i.i.i.i.i.i.i39 ], [ %15, %if.then16 ]
+  %__n.04.i.pn.i.i.i.i.i.i.i40 = phi ptr [ %__n.04.i.i.i.i.i.i.i.i41, %for.body.i.i.i.i.i.i.i.i39 ], [ %17, %if.then16 ]
   %__n.04.i.i.i.i.i.i.i.i41 = getelementptr inbounds i8, ptr %__n.04.i.pn.i.i.i.i.i.i.i40, i64 8
   %19 = load ptr, ptr %__n.04.i.i.i.i.i.i.i.i41, align 8
   tail call void @_ZdlPv(ptr noundef %19) #23
-  %cmp.i.i.i.i.i.i.i.i42 = icmp ult ptr %__n.04.i.i.i.i.i.i.i.i41, %17
+  %cmp.i.i.i.i.i.i.i.i42 = icmp ult ptr %__n.04.i.i.i.i.i.i.i.i41, %15
   br i1 %cmp.i.i.i.i.i.i.i.i42, label %for.body.i.i.i.i.i.i.i.i39, label %_ZN7obj_mapI4exprSt5stackIPN3smt10theory_str5T_cutESt5dequeIS5_SaIS5_EEEE13obj_map_entryaSEOSB_.exit43, !llvm.loop !21
 
 _ZN7obj_mapI4exprSt5stackIPN3smt10theory_str5T_cutESt5dequeIS5_SaIS5_EEEE13obj_map_entryaSEOSB_.exit43: ; preds = %for.body.i.i.i.i.i.i.i.i39, %if.then16
   store ptr %12, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i.i34, align 8
   store ptr %13, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i.i.i35, align 8
   store ptr %14, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i.i36, align 8
-  store ptr %15, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i37, align 8
+  store ptr %17, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i.i37, align 8
   br label %for.inc23
 
 for.inc19:                                        ; preds = %for.body14

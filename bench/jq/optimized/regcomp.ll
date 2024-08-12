@@ -869,8 +869,8 @@ comp_opt_exact_or_map.exit.thread.i:              ; preds = %select_opt_exact.ex
   store i32 %.sink.i.i, ptr %55, align 8
   %285 = getelementptr inbounds i8, ptr %0, i64 436
   %286 = load <2 x i32>, ptr %85, align 8
+  %287 = load i32, ptr %85, align 8
   store <2 x i32> %286, ptr %285, align 4
-  %287 = extractelement <2 x i32> %286, i64 0
   %.not43.i.i = icmp eq i32 %287, -1
   br i1 %.not43.i.i, label %set_optimize_info_from_tree.exit, label %288
 
@@ -900,8 +900,8 @@ comp_opt_exact_or_map.exit.i:                     ; preds = %297, %214, %distanc
   store i32 4, ptr %55, align 8
   %304 = getelementptr inbounds i8, ptr %0, i64 436
   %305 = load <2 x i32>, ptr %303, align 8
+  %306 = load i32, ptr %303, align 8
   store <2 x i32> %305, ptr %304, align 4
-  %306 = extractelement <2 x i32> %305, i64 0
   %.not.i.i = icmp eq i32 %306, -1
   br i1 %.not.i.i, label %set_optimize_map.exit.i, label %307
 

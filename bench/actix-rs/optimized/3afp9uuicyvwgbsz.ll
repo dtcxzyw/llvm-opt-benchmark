@@ -7703,8 +7703,8 @@ _ZN7tracing4span4Span8do_enter17h91d8a15bd4cd068fE.exit74.i.i: ; preds = %.noexc
   %.sroa.17.3518 = phi i8 [ %.sroa.17.0.ph, %.thread496 ], [ %.sroa.17.3, %584 ]
   %.sroa.20.3517 = phi i16 [ %.sroa.20.0.ph, %.thread496 ], [ %.sroa.20.3, %584 ]
   %.sroa.20340.3516 = phi i32 [ %.sroa.20340.0.ph, %.thread496 ], [ %.sroa.20340.3, %584 ]
-  %590 = phi <2 x ptr> [ %583, %.thread496 ], [ %586, %584 ]
-  %591 = phi <2 x ptr> [ %.ph, %.thread496 ], [ %585, %584 ]
+  %590 = phi <2 x ptr> [ %.ph, %.thread496 ], [ %585, %584 ]
+  %591 = phi <2 x ptr> [ %583, %.thread496 ], [ %586, %584 ]
   %592 = phi <2 x ptr> [ %342, %.thread496 ], [ %587, %584 ]
   %593 = invoke { i64, ptr } @"_ZN2h25proto7streams7streams20Streams$LT$B$C$P$GT$13poll_complete17h9e1a3d2d89625d45E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %185, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull align 8 dereferenceable(888) %1)
           to label %628 unwind label %.loopexit.split-lp.loopexit.loopexit.loopexit.split-lp
@@ -7922,8 +7922,8 @@ _ZN2h25proto7go_away6GoAway20should_close_on_idle17h23a78278eda1eff8E.exit.threa
   %.sroa.8.i.sroa.6.0.ph.be = phi i8 [ %.sroa.8.i.sroa.6.4485, %605 ], [ %.sroa.8.i.sroa.6.4525, %652 ]
   %.sroa.8.i.sroa.7.0.ph.be = phi i16 [ %.sroa.8.i.sroa.7.4486, %605 ], [ %.sroa.8.i.sroa.7.4526, %652 ]
   %.sroa.8.i.sroa.8.0.ph.be = phi i32 [ %.sroa.8.i.sroa.8.4487, %605 ], [ %.sroa.8.i.sroa.8.4527, %652 ]
-  %.ph.be = phi <2 x ptr> [ %597, %605 ], [ %591, %652 ]
-  %.ph2879.be = phi <2 x ptr> [ %598, %605 ], [ %590, %652 ]
+  %.ph.be = phi <2 x ptr> [ %597, %605 ], [ %590, %652 ]
+  %.ph2879.be = phi <2 x ptr> [ %598, %605 ], [ %591, %652 ]
   %.ph2880.be = phi <2 x ptr> [ %599, %605 ], [ %592, %652 ]
   br label %.outer.outer
 
@@ -10086,8 +10086,8 @@ _ZN7tracing4span4Span8do_enter17h91d8a15bd4cd068fE.exit74.i.i: ; preds = %.noexc
   %.sroa.17.3518 = phi i8 [ %.sroa.17.0.ph, %.thread496 ], [ %.sroa.17.3, %583 ]
   %.sroa.20.3517 = phi i16 [ %.sroa.20.0.ph, %.thread496 ], [ %.sroa.20.3, %583 ]
   %.sroa.20340.3516 = phi i32 [ %.sroa.20340.0.ph, %.thread496 ], [ %.sroa.20340.3, %583 ]
-  %589 = phi <2 x ptr> [ %582, %.thread496 ], [ %585, %583 ]
-  %590 = phi <2 x ptr> [ %.ph, %.thread496 ], [ %584, %583 ]
+  %589 = phi <2 x ptr> [ %.ph, %.thread496 ], [ %584, %583 ]
+  %590 = phi <2 x ptr> [ %582, %.thread496 ], [ %585, %583 ]
   %591 = phi <2 x ptr> [ %341, %.thread496 ], [ %586, %583 ]
   %592 = invoke { i64, ptr } @"_ZN2h25proto7streams7streams20Streams$LT$B$C$P$GT$13poll_complete17h6013e57fbd9a7412E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %185, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef nonnull align 8 dereferenceable(896) %1)
           to label %627 unwind label %.loopexit.split-lp.loopexit.loopexit.loopexit.split-lp
@@ -10305,8 +10305,8 @@ _ZN2h25proto7go_away6GoAway20should_close_on_idle17h23a78278eda1eff8E.exit.threa
   %.sroa.8.i.sroa.6.0.ph.be = phi i8 [ %.sroa.8.i.sroa.6.4485, %604 ], [ %.sroa.8.i.sroa.6.4525, %651 ]
   %.sroa.8.i.sroa.7.0.ph.be = phi i16 [ %.sroa.8.i.sroa.7.4486, %604 ], [ %.sroa.8.i.sroa.7.4526, %651 ]
   %.sroa.8.i.sroa.8.0.ph.be = phi i32 [ %.sroa.8.i.sroa.8.4487, %604 ], [ %.sroa.8.i.sroa.8.4527, %651 ]
-  %.ph.be = phi <2 x ptr> [ %596, %604 ], [ %590, %651 ]
-  %.ph2879.be = phi <2 x ptr> [ %597, %604 ], [ %589, %651 ]
+  %.ph.be = phi <2 x ptr> [ %596, %604 ], [ %589, %651 ]
+  %.ph2879.be = phi <2 x ptr> [ %597, %604 ], [ %590, %651 ]
   %.ph2880.be = phi <2 x ptr> [ %598, %604 ], [ %591, %651 ]
   br label %.outer.outer
 

@@ -1310,79 +1310,80 @@ define void @_ZN4LIEF5MachO14SegmentCommand5flagsEj(ptr nocapture noundef nonnul
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr nocapture noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function.68", align 8
-  %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = load <2 x ptr>, ptr %5, align 8
+  %4 = load <2 x ptr>, ptr %1, align 8
+  %5 = load ptr, ptr %1, align 8
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = load ptr, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %8, align 8
-  %9 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-          to label %10 unwind label %_ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 0, ptr %9, align 8
+  %10 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
+          to label %11 unwind label %_ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr %4, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
-  store <2 x ptr> %6, ptr %12, align 8
-  store ptr %9, ptr %3, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIhEEEZN4LIEF5MachO14SegmentCommand7contentES2_E3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %11, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIhEEEZN4LIEF5MachO14SegmentCommand7contentES2_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %7, align 8
-  %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 56
-  %15 = load ptr, ptr %14, align 8
-  invoke void %15(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %3)
-          to label %16 unwind label %23
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  store <2 x ptr> %4, ptr %10, align 8
+  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  store ptr %7, ptr %13, align 8
+  store ptr %10, ptr %3, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIhEEEZN4LIEF5MachO14SegmentCommand7contentES2_E3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %12, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIhEEEZN4LIEF5MachO14SegmentCommand7contentES2_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %8, align 8
+  %14 = load ptr, ptr %0, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 56
+  %16 = load ptr, ptr %15, align 8
+  invoke void %16(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %3)
+          to label %17 unwind label %24
 
-16:                                               ; preds = %10
-  %17 = load ptr, ptr %7, align 8
-  %.not.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit", label %18
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %8, align 8
+  %.not.i.i = icmp eq ptr %18, null
+  br i1 %.not.i.i, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit", label %19
 
-18:                                               ; preds = %16
-  %19 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit" unwind label %20
+19:                                               ; preds = %17
+  %20 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit" unwind label %21
 
-20:                                               ; preds = %18
-  %21 = landingpad { ptr, i32 }
+21:                                               ; preds = %19
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #24
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #24
   unreachable
 
-"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit": ; preds = %18, %16
+"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit": ; preds = %19, %17
   ret void
 
-23:                                               ; preds = %10
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %11
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %25 = load ptr, ptr %7, align 8
-  %.not.i.i5 = icmp eq ptr %25, null
-  br i1 %.not.i.i5, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8", label %26
+  %26 = load ptr, ptr %8, align 8
+  %.not.i.i5 = icmp eq ptr %26, null
+  br i1 %.not.i.i5, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8", label %27
 
-26:                                               ; preds = %23
-  %27 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8" unwind label %28
+27:                                               ; preds = %24
+  %28 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8" unwind label %29
 
-28:                                               ; preds = %26
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %27
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #24
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #24
   unreachable
 
 _ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6:  ; preds = %2
-  %31 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i.i7 = icmp eq ptr %4, null
-  br i1 %.not.i.i.i.i7, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8", label %32
+  %.not.i.i.i.i7 = icmp eq ptr %5, null
+  br i1 %.not.i.i.i.i7, label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8", label %33
 
-32:                                               ; preds = %_ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #21
+33:                                               ; preds = %_ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6
+  tail call void @_ZdlPv(ptr noundef nonnull %5) #21
   br label %"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8"
 
-"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8": ; preds = %26, %23, %_ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6, %32
-  %.pn12 = phi { ptr, i32 } [ %31, %_ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6 ], [ %31, %32 ], [ %24, %23 ], [ %24, %26 ]
+"_ZZN4LIEF5MachO14SegmentCommand7contentESt6vectorIhSaIhEEEN3$_0D2Ev.exit8": ; preds = %27, %24, %_ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6, %33
+  %.pn12 = phi { ptr, i32 } [ %32, %_ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6 ], [ %32, %33 ], [ %25, %24 ], [ %25, %27 ]
   resume { ptr, i32 } %.pn12
 }
 

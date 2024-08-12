@@ -2057,7 +2057,7 @@ define internal i32 @T1_Load_Glyph(ptr noundef %0, ptr noundef %1, i32 noundef %
   store i32 %77, ptr %78, align 8
   %79 = call fastcc i32 @T1_Parse_Glyph_And_Get_Char_String(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %6)
   %.not162 = icmp eq i32 %79, 0
-  br i1 %.not162, label %80, label %279
+  br i1 %.not162, label %80, label %282
 
 80:                                               ; preds = %57
   %.not161 = icmp eq i64 %58, 0
@@ -2101,7 +2101,7 @@ define internal i32 @T1_Load_Glyph(ptr noundef %0, ptr noundef %1, i32 noundef %
   store i64 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx58, align 8
   %105 = getelementptr inbounds i8, ptr %92, i64 12
   store i8 1, ptr %105, align 4
-  br label %262
+  br label %265
 
 106:                                              ; preds = %80
   %107 = getelementptr inbounds i8, ptr %0, i64 48
@@ -2327,55 +2327,59 @@ define internal i32 @T1_Load_Glyph(ptr noundef %0, ptr noundef %1, i32 noundef %
 252:                                              ; preds = %190, %.loopexit
   call void @FT_Outline_Get_CBox(ptr noundef nonnull %37, ptr noundef nonnull %9) #16
   %253 = getelementptr inbounds i8, ptr %9, i64 16
-  %254 = load <2 x i64>, ptr %253, align 16
-  %255 = load <2 x i64>, ptr %9, align 16
-  %256 = sub nsw <2 x i64> %254, %255
-  store <2 x i64> %256, ptr %107, align 8
-  %257 = getelementptr inbounds i8, ptr %0, i64 64
-  %258 = shufflevector <2 x i64> %255, <2 x i64> %254, <2 x i32> <i32 0, i32 3>
-  store <2 x i64> %258, ptr %257, align 8
-  br i1 %.not163, label %262, label %259
+  %254 = getelementptr inbounds i8, ptr %9, i64 24
+  %255 = load i64, ptr %254, align 8
+  %256 = load <2 x i64>, ptr %253, align 16
+  %257 = load <2 x i64>, ptr %9, align 16
+  %258 = load i64, ptr %9, align 16
+  %259 = sub nsw <2 x i64> %256, %257
+  store <2 x i64> %259, ptr %107, align 8
+  %260 = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %258, ptr %260, align 8
+  %261 = getelementptr inbounds i8, ptr %0, i64 72
+  store i64 %255, ptr %261, align 8
+  br i1 %.not163, label %265, label %262
 
-259:                                              ; preds = %252
-  %260 = getelementptr inbounds i8, ptr %0, i64 104
-  %261 = load i64, ptr %260, align 8
-  call void @ft_synthesize_vertical_metrics(ptr noundef nonnull %107, i64 noundef %261) #16
-  br label %262
+262:                                              ; preds = %252
+  %263 = getelementptr inbounds i8, ptr %0, i64 104
+  %264 = load i64, ptr %263, align 8
+  call void @ft_synthesize_vertical_metrics(ptr noundef nonnull %107, i64 noundef %264) #16
+  br label %265
 
-262:                                              ; preds = %252, %259, %90
-  %263 = load ptr, ptr %8, align 8
-  %264 = getelementptr inbounds i8, ptr %0, i64 256
-  store ptr %263, ptr %264, align 8
-  %265 = getelementptr inbounds i8, ptr %8, i64 8
-  %266 = load i32, ptr %265, align 8
-  %267 = zext i32 %266 to i64
-  %268 = getelementptr inbounds i8, ptr %0, i64 264
-  store i64 %267, ptr %268, align 8
-  %269 = getelementptr inbounds i8, ptr %11, i64 240
-  %270 = load ptr, ptr %269, align 8
-  %271 = getelementptr inbounds i8, ptr %270, i64 104
-  %272 = load ptr, ptr %271, align 8
-  %.not165 = icmp eq ptr %272, null
-  br i1 %.not165, label %.thread173, label %273
+265:                                              ; preds = %252, %262, %90
+  %266 = load ptr, ptr %8, align 8
+  %267 = getelementptr inbounds i8, ptr %0, i64 256
+  store ptr %266, ptr %267, align 8
+  %268 = getelementptr inbounds i8, ptr %8, i64 8
+  %269 = load i32, ptr %268, align 8
+  %270 = zext i32 %269 to i64
+  %271 = getelementptr inbounds i8, ptr %0, i64 264
+  store i64 %270, ptr %271, align 8
+  %272 = getelementptr inbounds i8, ptr %11, i64 240
+  %273 = load ptr, ptr %272, align 8
+  %274 = getelementptr inbounds i8, ptr %273, i64 104
+  %275 = load ptr, ptr %274, align 8
+  %.not165 = icmp eq ptr %275, null
+  br i1 %.not165, label %.thread173, label %276
 
-273:                                              ; preds = %262
-  %274 = load ptr, ptr %272, align 8
-  %275 = getelementptr inbounds i8, ptr %274, i64 8
-  %276 = load ptr, ptr %275, align 8
-  %277 = getelementptr inbounds i8, ptr %272, i64 8
-  %278 = load ptr, ptr %277, align 8
-  call void %276(ptr noundef %278, ptr noundef nonnull %8) #16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %264, i8 0, i64 16, i1 false)
-  br label %.thread173
-
-279:                                              ; preds = %57
-  %280 = getelementptr inbounds i8, ptr %15, i64 8
+276:                                              ; preds = %265
+  %277 = load ptr, ptr %275, align 8
+  %278 = getelementptr inbounds i8, ptr %277, i64 8
+  %279 = load ptr, ptr %278, align 8
+  %280 = getelementptr inbounds i8, ptr %275, i64 8
   %281 = load ptr, ptr %280, align 8
-  call void %281(ptr noundef nonnull %5) #16
+  call void %279(ptr noundef %281, ptr noundef nonnull %8) #16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %267, i8 0, i64 16, i1 false)
   br label %.thread173
 
-.thread173:                                       ; preds = %35, %19, %262, %273, %279
-  %.0145171176 = phi i32 [ %79, %279 ], [ 0, %273 ], [ 0, %262 ], [ %56, %35 ], [ 6, %19 ]
+282:                                              ; preds = %57
+  %283 = getelementptr inbounds i8, ptr %15, i64 8
+  %284 = load ptr, ptr %283, align 8
+  call void %284(ptr noundef nonnull %5) #16
+  br label %.thread173
+
+.thread173:                                       ; preds = %35, %19, %265, %276, %282
+  %.0145171176 = phi i32 [ %79, %282 ], [ 0, %276 ], [ 0, %265 ], [ %56, %35 ], [ 6, %19 ]
   ret i32 %.0145171176
 }
 

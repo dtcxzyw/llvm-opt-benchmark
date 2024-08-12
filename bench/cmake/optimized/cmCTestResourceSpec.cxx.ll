@@ -13136,10 +13136,9 @@ _ZNSt8functionIFbRN12_GLOBAL__N_17VersionEPKN4Json5ValueEP11cmJSONStateEEC2ERKSA
   unreachable
 
 _ZNSt8functionIFbRN12_GLOBAL__N_17VersionEPKN4Json5ValueEP11cmJSONStateEEC2ERKSA_.exit.i: ; preds = %274
-  %284 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_113VersionHelperE, i64 24), align 8
-  store ptr %284, ptr %272, align 8
+  %284 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_113VersionHelperE, i64 16), align 8
   %285 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_113VersionHelperE, i64 16), align 8
-  store ptr %285, ptr %271, align 8
+  store <2 x ptr> %284, ptr %271, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22)
   %286 = getelementptr inbounds i8, ptr %22, i64 16
@@ -13594,10 +13593,9 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN12_GLOBAL__N_110TopVersionEE6MemberE
           to label %446 unwind label %449
 
 446:                                              ; preds = %444
-  %447 = load ptr, ptr %268, align 8
-  store ptr %447, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootVersionHelperE, i64 56), align 8
+  %447 = load <2 x ptr>, ptr %269, align 8
   %448 = load ptr, ptr %269, align 8
-  store ptr %448, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootVersionHelperE, i64 48), align 8
+  store <2 x ptr> %447, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_117RootVersionHelperE, i64 48), align 8
   br label %457
 
 449:                                              ; preds = %444
@@ -14197,10 +14195,9 @@ _ZNSt8functionIFbRSt6vectorIN19cmCTestResourceSpec8ResourceESaIS2_EEPKN4Json5Val
   unreachable
 
 _ZNSt8functionIFbRSt6vectorIN19cmCTestResourceSpec8ResourceESaIS2_EEPKN4Json5ValueEP11cmJSONStateEEC2ERKSD_.exit.i: ; preds = %651
-  %661 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_118ResourceListHelperE, i64 24), align 8
-  store ptr %661, ptr %647, align 8
+  %661 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_118ResourceListHelperE, i64 16), align 8
   %662 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_118ResourceListHelperE, i64 16), align 8
-  store ptr %662, ptr %646, align 8
+  store <2 x ptr> %661, ptr %646, align 8
   %.pre.i58 = load ptr, ptr %644, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   %663 = getelementptr inbounds i8, ptr %8, i64 16

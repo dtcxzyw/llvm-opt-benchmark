@@ -23483,7 +23483,7 @@ define hidden void @"_ZN109_$LT$ockam_identity..models..timestamp..TimestampInSe
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @_ZN8minicbor6decode7decoder7Decoder3u6417hdd335378de25aa99E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   %5 = load <2 x i64>, ptr %4, align 16
-  %6 = extractelement <2 x i64> %5, i64 0
+  %6 = load i64, ptr %4, align 16, !range !4, !noundef !5
   %7 = icmp eq i64 %6, 2
   br i1 %7, label %8, label %9
 
@@ -30807,11 +30807,11 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8ce2eff61af33469E.llvm.7889425039173770230.exit.i.i.i.i": ; preds = %2340
   %2347 = getelementptr inbounds i8, ptr %2337, i64 72
-  %2348 = load ptr, ptr %2347, align 8, !alias.scope !4149, !noalias !4071, !nonnull !5, !align !67, !noundef !5
-  %2349 = getelementptr inbounds i8, ptr %2337, i64 80
+  %2348 = getelementptr inbounds i8, ptr %2337, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !4151)
-  %2350 = load ptr, ptr %2349, align 8, !alias.scope !4154, !noalias !4071, !nonnull !5, !noundef !5
-  %2351 = atomicrmw add ptr %2350, i64 1 monotonic, align 8, !noalias !4155
+  %2349 = load ptr, ptr %2348, align 8, !alias.scope !4154, !noalias !4071, !nonnull !5, !noundef !5
+  %2350 = load <2 x ptr>, ptr %2347, align 8, !alias.scope !4143, !noalias !4071
+  %2351 = atomicrmw add ptr %2349, i64 1 monotonic, align 8, !noalias !4155
   %2352 = icmp slt i64 %2351, 0
   br i1 %2352, label %2353, label %2354
 
@@ -30826,9 +30826,7 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
   %2357 = getelementptr inbounds i8, ptr %62, i64 16
   store ptr %2343, ptr %2357, align 8, !noalias !4159
   %.sroa.4.0..sroa_idx.i208.i.i.i = getelementptr inbounds i8, ptr %62, i64 24
-  store ptr %2348, ptr %.sroa.4.0..sroa_idx.i208.i.i.i, align 8, !noalias !4159
-  %.sroa.5.0..sroa_idx.i209.i.i.i = getelementptr inbounds i8, ptr %62, i64 32
-  store ptr %2350, ptr %.sroa.5.0..sroa_idx.i209.i.i.i, align 8, !noalias !4159
+  store <2 x ptr> %2350, ptr %.sroa.4.0..sroa_idx.i208.i.i.i, align 8, !noalias !4159
   %.sroa.6.0..sroa_idx.i210.i.i.i = getelementptr inbounds i8, ptr %62, i64 40
   store ptr %2356, ptr %.sroa.6.0..sroa_idx.i210.i.i.i, align 8, !noalias !4159
   store i64 1, ptr %62, align 8, !noalias !4156

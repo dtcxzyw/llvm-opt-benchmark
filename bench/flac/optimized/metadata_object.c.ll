@@ -196,13 +196,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load <2 x i32>, ptr %object, align 8
+  %2 = load i32, ptr %object, align 8
   store <2 x i32> %1, ptr %call, align 8
   %length = getelementptr inbounds i8, ptr %object, i64 8
-  %2 = load i32, ptr %length, align 8
+  %3 = load i32, ptr %length, align 8
   %length4 = getelementptr inbounds i8, ptr %call, i64 8
-  store i32 %2, ptr %length4, align 8
-  %3 = extractelement <2 x i32> %1, i64 0
-  switch i32 %3, label %sw.default [
+  store i32 %3, ptr %length4, align 8
+  switch i32 %2, label %sw.default [
     i32 0, label %sw.bb
     i32 1, label %return
     i32 2, label %sw.bb8
@@ -221,7 +221,7 @@ sw.bb:                                            ; preds = %if.then
 sw.bb8:                                           ; preds = %if.then
   %4 = load i32, ptr @FLAC__STREAM_METADATA_APPLICATION_ID_LEN, align 4
   %div78 = lshr i32 %4, 3
-  %cmp10 = icmp ult i32 %2, %div78
+  %cmp10 = icmp ult i32 %3, %div78
   br i1 %cmp10, label %if.then11, label %if.end
 
 if.then11:                                        ; preds = %sw.bb8
@@ -237,13 +237,13 @@ if.end:                                           ; preds = %sw.bb8
   %data17 = getelementptr inbounds i8, ptr %call, i64 24
   %data19 = getelementptr inbounds i8, ptr %object, i64 24
   %5 = load ptr, ptr %data19, align 8
-  %cmp.i = icmp ne i32 %2, %div78
+  %cmp.i = icmp ne i32 %3, %div78
   %cmp1.i = icmp ne ptr %5, null
   %or.cond.i = and i1 %cmp.i, %cmp1.i
   br i1 %or.cond.i, label %if.then.i, label %copy_bytes_.exit
 
 if.then.i:                                        ; preds = %if.end
-  %sub = sub nuw i32 %2, %div78
+  %sub = sub nuw i32 %3, %div78
   %conv.i = zext i32 %sub to i64
   %call.i.i = tail call noalias noundef ptr @malloc(i64 noundef %conv.i) #27
   %cmp2.i = icmp eq ptr %call.i.i, null
@@ -604,13 +604,13 @@ sw.default:                                       ; preds = %if.then
   %data158 = getelementptr inbounds i8, ptr %call, i64 16
   %data160 = getelementptr inbounds i8, ptr %object, i64 16
   %31 = load ptr, ptr %data160, align 8
-  %cmp.i141 = icmp ne i32 %2, 0
+  %cmp.i141 = icmp ne i32 %3, 0
   %cmp1.i142 = icmp ne ptr %31, null
   %or.cond.i143 = and i1 %cmp.i141, %cmp1.i142
   br i1 %or.cond.i143, label %if.then.i147, label %copy_bytes_.exit152
 
 if.then.i147:                                     ; preds = %sw.default
-  %conv.i148 = zext i32 %2 to i64
+  %conv.i148 = zext i32 %3 to i64
   %call.i.i149 = tail call noalias noundef ptr @malloc(i64 noundef %conv.i148) #27
   %cmp2.i150 = icmp eq ptr %call.i.i149, null
   br i1 %cmp2.i150, label %if.then165, label %if.end.i151

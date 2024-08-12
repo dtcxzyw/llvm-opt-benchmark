@@ -17219,16 +17219,16 @@ define internal ptr @delta_positive(ptr nocapture noundef readonly %self) #0 {
 entry:
   %days = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load <2 x i32>, ptr %days, align 8
+  %1 = load i32, ptr %days, align 8
   %microseconds = getelementptr inbounds i8, ptr %self, i64 32
-  %1 = load i32, ptr %microseconds, align 8
-  %2 = extractelement <2 x i32> %0, i64 0
-  %3 = add i32 %2, 999999999
+  %2 = load i32, ptr %microseconds, align 8
+  %3 = add i32 %1, 999999999
   %or.cond.i7.i = icmp ult i32 %3, 1999999999
   br i1 %or.cond.i7.i, label %if.end2.i, label %check_delta_day_range.exit.thread.i
 
 check_delta_day_range.exit.thread.i:              ; preds = %entry
   %4 = load ptr, ptr @PyExc_OverflowError, align 8
-  %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull @.str.269, i32 noundef %2, i32 noundef 999999999) #15
+  %call.i.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %4, ptr noundef nonnull @.str.269, i32 noundef %1, i32 noundef 999999999) #15
   br label %new_delta_ex.exit
 
 if.end2.i:                                        ; preds = %entry
@@ -17243,7 +17243,7 @@ if.then5.i:                                       ; preds = %if.end2.i
   %days6.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   store <2 x i32> %0, ptr %days6.i, align 8
   %microseconds8.i = getelementptr inbounds i8, ptr %call3.i, i64 32
-  store i32 %1, ptr %microseconds8.i, align 8
+  store i32 %2, ptr %microseconds8.i, align 8
   br label %new_delta_ex.exit
 
 new_delta_ex.exit:                                ; preds = %check_delta_day_range.exit.thread.i, %if.end2.i, %if.then5.i

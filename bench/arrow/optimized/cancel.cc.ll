@@ -784,13 +784,14 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6Status5St
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
 define void @_ZN5arrow10StopSource5tokenEv(ptr noalias nocapture writeonly sret(%"class.arrow::StopToken") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load <2 x ptr>, ptr %this, align 8
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %this, align 8
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow14StopSourceImplEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -806,7 +807,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN5arrow14StopSourceImplEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow14StopSourceImplEED2Ev.exit: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
-  store <2 x ptr> %0, ptr %agg.result, align 8
+  store <2 x ptr> %1, ptr %agg.result, align 8
   ret void
 }
 
@@ -3112,14 +3113,14 @@ if.end8.sink.split.i.i.i.i53.i:                   ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN5arrow12_GLOBAL__N_115SignalStopStateEED2Ev.exit.i: ; preds = %if.end8.sink.split.i.i.i.i53.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i50.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i40.i, %_ZZN5arrow12_GLOBAL__N_115SignalStopState4InitEvENUlvE_D2Ev.exit.i
   %_M_refcount.i.i62.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  %39 = load <2 x ptr>, ptr %atfork_handler_.i, align 8
-  store <2 x ptr> %39, ptr %agg.tmp.i, align 16
-  %40 = extractelement <2 x ptr> %39, i64 1
-  %cmp.not.i.i.i64.i = icmp eq ptr %40, null
+  %39 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  %40 = load <2 x ptr>, ptr %atfork_handler_.i, align 8
+  store <2 x ptr> %40, ptr %agg.tmp.i, align 16
+  %cmp.not.i.i.i64.i = icmp eq ptr %39, null
   br i1 %cmp.not.i.i.i64.i, label %_ZNSt8weak_ptrIN5arrow8internal13AtForkHandlerEEC2IS2_vEERKSt10shared_ptrIT_E.exit.i, label %if.then.i.i.i65.i
 
 if.then.i.i.i65.i:                                ; preds = %_ZNSt10shared_ptrIN5arrow12_GLOBAL__N_115SignalStopStateEED2Ev.exit.i
-  %_M_weak_count.i.i.i.i66.i = getelementptr inbounds i8, ptr %40, i64 12
+  %_M_weak_count.i.i.i.i66.i = getelementptr inbounds i8, ptr %39, i64 12
   %41 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i67.i = icmp eq i8 %41, 0
   br i1 %tobool.i.i.not.i.i.i.i67.i, label %if.else.i.i.i.i.i70.i, label %if.then.i.i.i.i.i68.i
@@ -4522,15 +4523,16 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %0 = load <2 x ptr>, ptr %__source.val5, align 8
+  %0 = getelementptr i8, ptr %__source.val5, i64 8
+  %call5.val6.i = load ptr, ptr %0, align 8
+  %1 = load <2 x ptr>, ptr %__source.val5, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
-  store <2 x ptr> %0, ptr %call.i.i.i, align 8
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %1, null
+  store <2 x ptr> %1, ptr %call.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %call5.val6.i, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN5arrow12_GLOBAL__N_115SignalStopState4InitEvEUlvE_E15_M_init_functorIRKS4_EEvRSt9_Any_dataOT_.exit.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %sw.bb4.i
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.val6.i, i64 12
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -5727,14 +5729,15 @@ entry:
 call.i.noexc:                                     ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvSt10shared_ptrIN5arrow8internal8SelfPipeEEES7_EEEEEE, i64 16), ptr %call.i1, align 8
   %_M_func.i.i = getelementptr inbounds i8, ptr %call.i1, i64 8
-  %0 = load <2 x ptr>, ptr %__args1, align 8
-  store <2 x ptr> %0, ptr %_M_func.i.i, align 8
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 8
+  %0 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %__args1, align 8
+  store <2 x ptr> %1, ptr %_M_func.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %call.i.noexc
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i

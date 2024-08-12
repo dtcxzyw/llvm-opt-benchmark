@@ -4135,72 +4135,70 @@ define hidden void @_ZNK14G1GCPhaseTimes24debug_phase_merge_remsetEv(ptr nocaptu
   %10 = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 32
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 40
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 8
-  %17 = load i64, ptr %16, align 8
+  %13 = load <2 x ptr>, ptr %12, align 8
+  %14 = load ptr, ptr %12, align 8
+  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %16 = load i64, ptr %15, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %3, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %18) #18
-  %19 = getelementptr inbounds i8, ptr %3, i64 144
-  store i32 2, ptr %19, align 8
+  %17 = getelementptr inbounds i8, ptr %3, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %17) #18
+  %18 = getelementptr inbounds i8, ptr %3, i64 144
+  store i32 2, ptr %18, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 128
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 120
-  %23 = load ptr, ptr %22, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 128
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 120
+  %22 = load ptr, ptr %21, align 8
   call void @_ZN12outputStream2spEi(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef 4) #18
-  call void @_ZNK15WorkerDataArrayIdE16print_summary_onEP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(112) %21, ptr noundef nonnull %3, i1 noundef zeroext true)
+  call void @_ZNK15WorkerDataArrayIdE16print_summary_onEP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(112) %20, ptr noundef nonnull %3, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %2)
-  %24 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_158ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit, label %25
+  %23 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_158ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not.i = icmp eq ptr %23, null
+  br i1 %.not.i, label %_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit, label %24
 
-25:                                               ; preds = %5
+24:                                               ; preds = %5
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %26) #18
-  %27 = getelementptr inbounds i8, ptr %2, i64 144
-  store i32 1, ptr %27, align 8
+  %25 = getelementptr inbounds i8, ptr %2, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %25) #18
+  %26 = getelementptr inbounds i8, ptr %2, i64 144
+  store i32 1, ptr %26, align 8
   %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %2, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_158ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %2, align 8
   call void @_ZN12outputStream2spEi(ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef 4) #18
-  call void @_ZN15WorkerDataArrayIdE10WDAPrinter7detailsEPKS0_P12outputStream(ptr noundef nonnull %21, ptr noundef nonnull %2) #18
+  call void @_ZN15WorkerDataArrayIdE10WDAPrinter7detailsEPKS0_P12outputStream(ptr noundef nonnull %20, ptr noundef nonnull %2) #18
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %2) #18
   br label %_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit
 
-_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit: ; preds = %5, %25
+_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit: ; preds = %5, %24
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %2)
-  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull align 8 poison, ptr noundef %23, i32 noundef 3, ptr noundef nonnull %3, i1 noundef zeroext true)
-  call void @_ZNK14G1GCPhaseTimes23print_thread_work_itemsEP15WorkerDataArrayIdEjP12outputStream(ptr nonnull align 8 poison, ptr noundef nonnull %21, i32 noundef 2, ptr noundef nonnull %3)
+  call void @_ZNK14G1GCPhaseTimes9log_phaseEP15WorkerDataArrayIdEjP12outputStreamb(ptr nonnull align 8 poison, ptr noundef %22, i32 noundef 3, ptr noundef nonnull %3, i1 noundef zeroext true)
+  call void @_ZNK14G1GCPhaseTimes23print_thread_work_itemsEP15WorkerDataArrayIdEjP12outputStream(ptr nonnull align 8 poison, ptr noundef nonnull %20, i32 noundef 2, ptr noundef nonnull %3)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %3) #18
-  %28 = load ptr, ptr %11, align 8
-  %.not.i.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i.i, label %30, label %29
+  %27 = load ptr, ptr %11, align 8
+  %.not.i.i.i.i = icmp eq ptr %27, null
+  br i1 %.not.i.i.i.i, label %29, label %28
 
-29:                                               ; preds = %_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %17) #18
+28:                                               ; preds = %_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %16) #18
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %11) #18
-  br label %30
+  br label %29
 
-30:                                               ; preds = %29, %_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit
-  %31 = load ptr, ptr %12, align 8
-  %.not8.i.i.i.i = icmp eq ptr %31, %13
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %32
+29:                                               ; preds = %28, %_ZNK14G1GCPhaseTimes7detailsI15WorkerDataArrayIdEEEvPT_j.exit
+  %30 = load ptr, ptr %12, align 8
+  %.not8.i.i.i.i = icmp eq ptr %30, %14
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %31
 
-32:                                               ; preds = %30
+31:                                               ; preds = %29
   store ptr %11, ptr %10, align 8
-  store ptr %13, ptr %12, align 8
-  store ptr %15, ptr %14, align 8
+  store <2 x ptr> %13, ptr %12, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %32, %30, %1
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %31, %29, %1
   ret void
 }
 

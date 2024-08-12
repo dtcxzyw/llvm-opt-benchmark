@@ -446,47 +446,45 @@ define hidden void @_ZN5XHeap13out_of_memoryEv(ptr nocapture noundef nonnull rea
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 32
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
-  %13 = load i64, ptr %12, align 8
+  %9 = load <2 x ptr>, ptr %8, align 8
+  %10 = load ptr, ptr %8, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = load i64, ptr %11, align 8
   tail call void @_Z8XStatIncRK12XStatCounterm(ptr noundef nonnull align 8 dereferenceable(72) @_ZL19XCounterOutOfMemory, i64 noundef 1) #12
-  %14 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %21, label %15
+  %13 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %20, label %14
 
-15:                                               ; preds = %1
-  %16 = load ptr, ptr %2, align 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 168
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(888) %16) #12
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.8, ptr noundef %20)
-  br label %21
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %2, align 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 168
+  %18 = load ptr, ptr %17, align 8
+  %19 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(888) %15) #12
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.8, ptr noundef %19)
+  br label %20
 
-21:                                               ; preds = %1, %15
-  %22 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.i.i, label %24, label %23
+20:                                               ; preds = %1, %14
+  %21 = load ptr, ptr %7, align 8
+  %.not.i.i.i.i = icmp eq ptr %21, null
+  br i1 %.not.i.i.i.i, label %23, label %22
 
-23:                                               ; preds = %21
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %13) #12
+22:                                               ; preds = %20
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %12) #12
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %7) #12
-  br label %24
+  br label %23
 
-24:                                               ; preds = %23, %21
-  %25 = load ptr, ptr %8, align 8
-  %.not8.i.i.i.i = icmp eq ptr %25, %9
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %26
+23:                                               ; preds = %22, %20
+  %24 = load ptr, ptr %8, align 8
+  %.not8.i.i.i.i = icmp eq ptr %24, %10
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %25
 
-26:                                               ; preds = %24
+25:                                               ; preds = %23
   store ptr %7, ptr %6, align 8
-  store ptr %9, ptr %8, align 8
-  store ptr %11, ptr %10, align 8
+  store <2 x ptr> %9, ptr %8, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %24, %26
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %23, %25
   ret void
 }
 

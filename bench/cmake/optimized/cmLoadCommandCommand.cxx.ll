@@ -12795,13 +12795,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvR16cmLocalGenera
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %.val7.i = load ptr, ptr %.val6, align 8
   %7 = getelementptr i8, ptr %.val6, i64 8
   %.val8.i = load ptr, ptr %7, align 8
-  %8 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
-  store ptr %.val7.i, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr %.val8.i, ptr %9, align 8
+  %8 = load <2 x ptr>, ptr %.val6, align 8
+  %9 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
+  store <2 x ptr> %8, ptr %9, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val8.i, null
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E15_M_init_functorIRKSG_EEvRSt9_Any_dataOT_.exit.i", label %10
 
@@ -12822,7 +12820,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvR16cmLocalGenera
   br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E15_M_init_functorIRKSG_EEvRSt9_Any_dataOT_.exit.i"
 
 "_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E15_M_init_functorIRKSG_EEvRSt9_Any_dataOT_.exit.i": ; preds = %16, %13, %6
-  store ptr %8, ptr %0, align 8
+  store ptr %9, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_115cmLoadedCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit"
 
 18:                                               ; preds = %3

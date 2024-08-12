@@ -931,13 +931,13 @@ tm_complete_obj_weight.exit.thread:               ; preds = %._crit_edge.i94
   %107 = getelementptr inbounds i8, ptr %97, i64 40
   %108 = getelementptr inbounds i8, ptr %95, i64 40
   %109 = load <4 x i32>, ptr %107, align 8
+  %110 = load i32, ptr %107, align 8
   store <4 x i32> %109, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %97, i64 56
-  %111 = load i32, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %95, i64 56
-  store i32 %111, ptr %112, align 8
-  %113 = extractelement <4 x i32> %109, i64 0
-  %114 = icmp sgt i32 %113, 0
+  %111 = getelementptr inbounds i8, ptr %97, i64 56
+  %112 = load i32, ptr %111, align 8
+  %113 = getelementptr inbounds i8, ptr %95, i64 56
+  store i32 %112, ptr %113, align 8
+  %114 = icmp sgt i32 %110, 0
   br i1 %114, label %.lr.ph.i.i, label %clone_tree.exit.i
 
 .lr.ph.i.i:                                       ; preds = %96, %.lr.ph.i.i

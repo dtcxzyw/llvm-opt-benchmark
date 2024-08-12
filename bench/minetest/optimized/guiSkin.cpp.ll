@@ -2466,11 +2466,10 @@ if.end6:                                          ; preds = %if.end
   %18 = load i32, ptr %r, align 4, !tbaa !47
   store i32 %18, ptr %rect, align 16, !tbaa !47
   %19 = load i32, ptr %Y14, align 4, !tbaa !46
+  %20 = load <2 x i32>, ptr %LowerRightCorner13, align 4, !tbaa !23
   %sub74 = add nsw i32 %19, -1
   store i32 %sub74, ptr %Y, align 4, !tbaa !43
-  store i32 %19, ptr %Y9, align 4, !tbaa !46
-  %20 = load i32, ptr %LowerRightCorner13, align 4, !tbaa !48
-  store i32 %20, ptr %LowerRightCorner, align 8, !tbaa !48
+  store <2 x i32> %20, ptr %LowerRightCorner, align 8, !tbaa !23
   %21 = load ptr, ptr %Driver, align 8, !tbaa !21
   %agg.tmp86.sroa.0.0.copyload = load i32, ptr %spec.select, align 4, !tbaa !23
   %vtable89 = load ptr, ptr %21, align 8, !tbaa !4
@@ -2542,15 +2541,14 @@ if.end:                                           ; preds = %entry
   store i32 %1, ptr %rect, align 4, !tbaa !47
   %LowerRightCorner = getelementptr inbounds i8, ptr %r, i64 8
   %Y = getelementptr inbounds i8, ptr %r, i64 12
-  %2 = load i32, ptr %Y, align 4, !tbaa !46
-  %sub = add nsw i32 %2, -1
   %Y8 = getelementptr inbounds i8, ptr %rect, i64 4
-  store i32 %sub, ptr %Y8, align 4, !tbaa !43
   %LowerRightCorner11 = getelementptr inbounds i8, ptr %rect, i64 8
   %Y12 = getelementptr inbounds i8, ptr %rect, i64 12
-  store i32 %2, ptr %Y12, align 4, !tbaa !46
-  %3 = load i32, ptr %LowerRightCorner, align 4, !tbaa !48
-  store i32 %3, ptr %LowerRightCorner11, align 4, !tbaa !48
+  %2 = load i32, ptr %Y, align 4, !tbaa !46
+  %3 = load <2 x i32>, ptr %LowerRightCorner, align 4, !tbaa !23
+  %sub = add nsw i32 %2, -1
+  store i32 %sub, ptr %Y8, align 4, !tbaa !43
+  store <2 x i32> %3, ptr %LowerRightCorner11, align 4, !tbaa !23
   %arrayidx = getelementptr inbounds i8, ptr %spec.select, i64 4
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %arrayidx, align 4, !tbaa !23
   %vtable = load ptr, ptr %0, align 8, !tbaa !4

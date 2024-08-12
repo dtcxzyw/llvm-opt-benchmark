@@ -4042,15 +4042,15 @@ define internal fastcc void @_ZN5tokio2io4util9read_line22put_back_original_data
 23:                                               ; preds = %19
   %24 = getelementptr inbounds i8, ptr %6, i64 8
   %25 = load <2 x i64>, ptr %24, align 8, !noalias !346
+  %26 = load i64, ptr %24, align 8, !noalias !346
   %.sroa.010.0.copyload = load i64, ptr %7, align 8, !noalias !341
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false), !noalias !5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !346
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !348)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !351)
-  %26 = icmp eq i64 %.sroa.010.0.copyload, -9223372036854775808
-  %27 = extractelement <2 x i64> %25, i64 0
-  br i1 %26, label %34, label %28
+  %27 = icmp eq i64 %.sroa.010.0.copyload, -9223372036854775808
+  br i1 %27, label %34, label %28
 
 28:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !353
@@ -4078,7 +4078,7 @@ define internal fastcc void @_ZN5tokio2io4util9read_line22put_back_original_data
   unreachable
 
 34:                                               ; preds = %23, %.thread
-  %.sroa.6.sroa.6.0 = phi i64 [ %27, %23 ], [ %16, %.thread ]
+  %.sroa.6.sroa.6.0 = phi i64 [ %26, %23 ], [ %16, %.thread ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, i64 16, i1 false), !alias.scope !353
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6.sroa.0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !354

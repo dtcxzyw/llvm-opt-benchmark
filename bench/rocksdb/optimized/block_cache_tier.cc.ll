@@ -1529,14 +1529,15 @@ _ZN7rocksdb14BlockCacheFileC2EPNS_3EnvERKNSt7__cxx1112basic_stringIcSt11char_tra
   %freader_.i.i = getelementptr inbounds i8, ptr %call, i64 160
   store ptr null, ptr %freader_.i.i, align 8
   %log_.i.i = getelementptr inbounds i8, ptr %call, i64 168
-  %6 = load <2 x ptr>, ptr %log, align 8
-  store <2 x ptr> %6, ptr %log_.i.i, align 8
-  %7 = extractelement <2 x ptr> %6, i64 1
-  %cmp.not.i.i.i.i.i = icmp eq ptr %7, null
+  %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
+  %6 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  %7 = load <2 x ptr>, ptr %log, align 8
+  store <2 x ptr> %7, ptr %log_.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont5, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN7rocksdb14BlockCacheFileC2EPNS_3EnvERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.i.i
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i

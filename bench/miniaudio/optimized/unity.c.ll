@@ -9888,18 +9888,16 @@ if.then2.i625:                                    ; preds = %if.end156
   %47 = load i32, ptr %shareMode116, align 8
   %shareMode169 = getelementptr inbounds i8, ptr %descriptorPlayback, i64 8
   store i32 %47, ptr %shareMode169, align 8
-  %48 = load i32, ptr %format120, align 8
   %format172 = getelementptr inbounds i8, ptr %descriptorPlayback, i64 12
-  store i32 %48, ptr %format172, align 4
-  %49 = load i32, ptr %channels124, align 4
-  %channels175 = getelementptr inbounds i8, ptr %descriptorPlayback, i64 16
-  store i32 %49, ptr %channels175, align 8
+  %48 = load i32, ptr %channels124, align 4
+  %49 = load <2 x i32>, ptr %format120, align 8
+  store <2 x i32> %49, ptr %format172, align 4
   %50 = load i32, ptr %sampleRate, align 4
   %sampleRate177 = getelementptr inbounds i8, ptr %descriptorPlayback, i64 20
   store i32 %50, ptr %sampleRate177, align 4
   %channelMap178 = getelementptr inbounds i8, ptr %descriptorPlayback, i64 24
   %51 = load ptr, ptr %pChannelMap131, align 8
-  call void @ma_channel_map_copy_or_default(ptr noundef nonnull %channelMap178, i64 noundef 254, ptr noundef %51, i32 noundef %49)
+  call void @ma_channel_map_copy_or_default(ptr noundef nonnull %channelMap178, i64 noundef 254, ptr noundef %51, i32 noundef %48)
   %periodSizeInFrames = getelementptr inbounds i8, ptr %pConfig, i64 8
   %52 = load i32, ptr %periodSizeInFrames, align 8
   %periodSizeInFrames184 = getelementptr inbounds i8, ptr %descriptorPlayback, i64 280
@@ -9921,17 +9919,15 @@ if.then2.i625:                                    ; preds = %if.end156
   %57 = load i32, ptr %shareMode, align 8
   %shareMode196 = getelementptr inbounds i8, ptr %descriptorCapture, i64 8
   store i32 %57, ptr %shareMode196, align 8
-  %58 = load i32, ptr %format, align 8
   %format199 = getelementptr inbounds i8, ptr %descriptorCapture, i64 12
-  store i32 %58, ptr %format199, align 4
-  %59 = load i32, ptr %channels101, align 4
-  %channels202 = getelementptr inbounds i8, ptr %descriptorCapture, i64 16
-  store i32 %59, ptr %channels202, align 8
+  %58 = load i32, ptr %channels101, align 4
+  %59 = load <2 x i32>, ptr %format, align 8
+  store <2 x i32> %59, ptr %format199, align 4
   %sampleRate204 = getelementptr inbounds i8, ptr %descriptorCapture, i64 20
   store i32 %50, ptr %sampleRate204, align 4
   %channelMap205 = getelementptr inbounds i8, ptr %descriptorCapture, i64 24
   %60 = load ptr, ptr %pChannelMap106, align 8
-  call void @ma_channel_map_copy_or_default(ptr noundef nonnull %channelMap205, i64 noundef 254, ptr noundef %60, i32 noundef %59)
+  call void @ma_channel_map_copy_or_default(ptr noundef nonnull %channelMap205, i64 noundef 254, ptr noundef %60, i32 noundef %58)
   %periodSizeInFrames212 = getelementptr inbounds i8, ptr %descriptorCapture, i64 280
   store i32 %52, ptr %periodSizeInFrames212, align 8
   %periodSizeInMilliseconds214 = getelementptr inbounds i8, ptr %descriptorCapture, i64 284
@@ -20387,25 +20383,25 @@ if.then31.i:                                      ; preds = %if.end24.i
   %17 = shufflevector <2 x double> %14, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %18 = shufflevector <4 x double> %16, <4 x double> %17, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %19 = fptrunc <4 x double> %18 to <4 x float>
-  %20 = extractelement <4 x float> %19, i64 1
-  store float %20, ptr %b033.i, align 8
+  %conv.i22 = fptrunc double %div.i19 to float
+  store float %conv.i22, ptr %b033.i, align 8
   store <4 x float> %19, ptr %b137.i, align 4
   br label %return
 
 if.else.i:                                        ; preds = %if.end24.i
   %b053.i = getelementptr inbounds i8, ptr %pLPF, i64 8
   %div56.i = fdiv double %sub.i, %add.i
-  %21 = extractelement <2 x double> %5, i64 0
-  %div66.i = fdiv double %21, %add.i
-  %22 = insertelement <4 x double> poison, double %div.i19, i64 0
-  %23 = insertelement <4 x double> %22, double %div56.i, i64 1
-  %24 = insertelement <4 x double> %23, double %div66.i, i64 3
-  %25 = fmul <4 x double> %24, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
-  %26 = shufflevector <4 x double> %25, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
-  %27 = fptosi <4 x double> %26 to <4 x i32>
-  store <4 x i32> %27, ptr %b053.i, align 8
-  %28 = extractelement <2 x double> %6, i64 1
-  %div71.i = fdiv double %28, %add.i
+  %20 = extractelement <2 x double> %5, i64 0
+  %div66.i = fdiv double %20, %add.i
+  %21 = insertelement <4 x double> poison, double %div.i19, i64 0
+  %22 = insertelement <4 x double> %21, double %div56.i, i64 1
+  %23 = insertelement <4 x double> %22, double %div66.i, i64 3
+  %24 = fmul <4 x double> %23, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
+  %25 = shufflevector <4 x double> %24, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
+  %26 = fptosi <4 x double> %25 to <4 x i32>
+  store <4 x i32> %26, ptr %b053.i, align 8
+  %27 = extractelement <2 x double> %6, i64 1
+  %div71.i = fdiv double %27, %add.i
   %mul.i53.i = fmul double %div71.i, 1.638400e+04
   %conv.i54.i = fptosi double %mul.i53.i to i32
   %a273.i = getelementptr inbounds i8, ptr %pLPF, i64 24
@@ -20628,25 +20624,25 @@ if.then31.i:                                      ; preds = %if.end24.i
   %17 = shufflevector <2 x double> %14, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %18 = shufflevector <4 x double> %16, <4 x double> %17, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %19 = fptrunc <4 x double> %18 to <4 x float>
-  %20 = extractelement <4 x float> %19, i64 1
-  store float %20, ptr %b033.i, align 8
+  %conv.i15 = fptrunc double %div.i14 to float
+  store float %conv.i15, ptr %b033.i, align 8
   store <4 x float> %19, ptr %b137.i, align 4
   br label %return
 
 if.else.i:                                        ; preds = %if.end24.i
   %b053.i = getelementptr inbounds i8, ptr %pLPF, i64 8
   %div56.i = fdiv double %sub.i, %add.i
-  %21 = extractelement <2 x double> %5, i64 0
-  %div66.i = fdiv double %21, %add.i
-  %22 = insertelement <4 x double> poison, double %div.i14, i64 0
-  %23 = insertelement <4 x double> %22, double %div56.i, i64 1
-  %24 = insertelement <4 x double> %23, double %div66.i, i64 3
-  %25 = fmul <4 x double> %24, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
-  %26 = shufflevector <4 x double> %25, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
-  %27 = fptosi <4 x double> %26 to <4 x i32>
-  store <4 x i32> %27, ptr %b053.i, align 8
-  %28 = extractelement <2 x double> %6, i64 1
-  %div71.i = fdiv double %28, %add.i
+  %20 = extractelement <2 x double> %5, i64 0
+  %div66.i = fdiv double %20, %add.i
+  %21 = insertelement <4 x double> poison, double %div.i14, i64 0
+  %22 = insertelement <4 x double> %21, double %div56.i, i64 1
+  %23 = insertelement <4 x double> %22, double %div66.i, i64 3
+  %24 = fmul <4 x double> %23, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
+  %25 = shufflevector <4 x double> %24, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
+  %26 = fptosi <4 x double> %25 to <4 x i32>
+  store <4 x i32> %26, ptr %b053.i, align 8
+  %27 = extractelement <2 x double> %6, i64 1
+  %div71.i = fdiv double %27, %add.i
   %mul.i53.i = fmul double %div71.i, 1.638400e+04
   %conv.i54.i = fptosi double %mul.i53.i to i32
   %a273.i = getelementptr inbounds i8, ptr %pLPF, i64 24
@@ -22990,25 +22986,25 @@ if.then31.i:                                      ; preds = %if.end24.i
   %17 = shufflevector <2 x double> %14, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %18 = shufflevector <4 x double> %16, <4 x double> %17, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %19 = fptrunc <4 x double> %18 to <4 x float>
-  %20 = extractelement <4 x float> %19, i64 1
-  store float %20, ptr %b033.i, align 8
+  %conv.i22 = fptrunc double %div.i19 to float
+  store float %conv.i22, ptr %b033.i, align 8
   store <4 x float> %19, ptr %b137.i, align 4
   br label %return
 
 if.else.i:                                        ; preds = %if.end24.i
   %b053.i = getelementptr inbounds i8, ptr %pHPF, i64 8
   %div56.i = fdiv double %fneg.i, %add9.i
-  %21 = extractelement <2 x double> %5, i64 0
-  %div66.i = fdiv double %21, %add9.i
-  %22 = insertelement <4 x double> poison, double %div.i19, i64 0
-  %23 = insertelement <4 x double> %22, double %div56.i, i64 1
-  %24 = insertelement <4 x double> %23, double %div66.i, i64 3
-  %25 = fmul <4 x double> %24, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
-  %26 = shufflevector <4 x double> %25, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
-  %27 = fptosi <4 x double> %26 to <4 x i32>
-  store <4 x i32> %27, ptr %b053.i, align 8
-  %28 = extractelement <2 x double> %6, i64 1
-  %div71.i = fdiv double %28, %add9.i
+  %20 = extractelement <2 x double> %5, i64 0
+  %div66.i = fdiv double %20, %add9.i
+  %21 = insertelement <4 x double> poison, double %div.i19, i64 0
+  %22 = insertelement <4 x double> %21, double %div56.i, i64 1
+  %23 = insertelement <4 x double> %22, double %div66.i, i64 3
+  %24 = fmul <4 x double> %23, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
+  %25 = shufflevector <4 x double> %24, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
+  %26 = fptosi <4 x double> %25 to <4 x i32>
+  store <4 x i32> %26, ptr %b053.i, align 8
+  %27 = extractelement <2 x double> %6, i64 1
+  %div71.i = fdiv double %27, %add9.i
   %mul.i53.i = fmul double %div71.i, 1.638400e+04
   %conv.i54.i = fptosi double %mul.i53.i to i32
   %a273.i = getelementptr inbounds i8, ptr %pHPF, i64 24
@@ -23232,25 +23228,25 @@ if.then31.i:                                      ; preds = %if.end24.i
   %17 = shufflevector <2 x double> %14, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %18 = shufflevector <4 x double> %16, <4 x double> %17, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %19 = fptrunc <4 x double> %18 to <4 x float>
-  %20 = extractelement <4 x float> %19, i64 1
-  store float %20, ptr %b033.i, align 8
+  %conv.i15 = fptrunc double %div.i14 to float
+  store float %conv.i15, ptr %b033.i, align 8
   store <4 x float> %19, ptr %b137.i, align 4
   br label %return
 
 if.else.i:                                        ; preds = %if.end24.i
   %b053.i = getelementptr inbounds i8, ptr %pHPF, i64 8
   %div56.i = fdiv double %fneg.i, %add9.i
-  %21 = extractelement <2 x double> %5, i64 0
-  %div66.i = fdiv double %21, %add9.i
-  %22 = insertelement <4 x double> poison, double %div.i14, i64 0
-  %23 = insertelement <4 x double> %22, double %div56.i, i64 1
-  %24 = insertelement <4 x double> %23, double %div66.i, i64 3
-  %25 = fmul <4 x double> %24, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
-  %26 = shufflevector <4 x double> %25, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
-  %27 = fptosi <4 x double> %26 to <4 x i32>
-  store <4 x i32> %27, ptr %b053.i, align 8
-  %28 = extractelement <2 x double> %6, i64 1
-  %div71.i = fdiv double %28, %add9.i
+  %20 = extractelement <2 x double> %5, i64 0
+  %div66.i = fdiv double %20, %add9.i
+  %21 = insertelement <4 x double> poison, double %div.i14, i64 0
+  %22 = insertelement <4 x double> %21, double %div56.i, i64 1
+  %23 = insertelement <4 x double> %22, double %div66.i, i64 3
+  %24 = fmul <4 x double> %23, <double 1.638400e+04, double 1.638400e+04, double poison, double 1.638400e+04>
+  %25 = shufflevector <4 x double> %24, <4 x double> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 3>
+  %26 = fptosi <4 x double> %25 to <4 x i32>
+  store <4 x i32> %26, ptr %b053.i, align 8
+  %27 = extractelement <2 x double> %6, i64 1
+  %div71.i = fdiv double %27, %add9.i
   %mul.i53.i = fmul double %div71.i, 1.638400e+04
   %conv.i54.i = fptosi double %mul.i53.i to i32
   %a273.i = getelementptr inbounds i8, ptr %pHPF, i64 24
@@ -30480,24 +30476,24 @@ entry:
 ; Function Attrs: nounwind uwtable
 define { <2 x float>, float } @ma_vec3f_normalize(<2 x float> %v.coerce0, float %v.coerce1) local_unnamed_addr #38 {
 entry:
-  %0 = extractelement <2 x float> %v.coerce0, i64 0
-  %1 = fmul <2 x float> %v.coerce0, %v.coerce0
-  %mul4.i.i = extractelement <2 x float> %1, i64 1
-  %2 = tail call float @llvm.fmuladd.f32(float %0, float %0, float %mul4.i.i)
-  %3 = tail call float @llvm.fmuladd.f32(float %v.coerce1, float %v.coerce1, float %2)
-  %cmp = fcmp oeq float %3, 0.000000e+00
+  %a.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %v.coerce0, i64 0
+  %0 = fmul <2 x float> %v.coerce0, %v.coerce0
+  %mul4.i.i = extractelement <2 x float> %0, i64 1
+  %1 = tail call float @llvm.fmuladd.f32(float %a.sroa.0.0.vec.extract.i.i, float %a.sroa.0.0.vec.extract.i.i, float %mul4.i.i)
+  %2 = tail call float @llvm.fmuladd.f32(float %v.coerce1, float %v.coerce1, float %1)
+  %cmp = fcmp oeq float %2, 0.000000e+00
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %4 = tail call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %3) #63, !srcloc !336
-  %5 = insertelement <2 x float> poison, float %4, i64 0
-  %6 = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> zeroinitializer
-  %7 = fmul <2 x float> %6, %v.coerce0
-  %mul4 = fmul float %4, %v.coerce1
+  %3 = tail call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %2) #63, !srcloc !336
+  %4 = insertelement <2 x float> poison, float %3, i64 0
+  %5 = shufflevector <2 x float> %4, <2 x float> poison, <2 x i32> zeroinitializer
+  %6 = fmul <2 x float> %5, %v.coerce0
+  %mul4 = fmul float %3, %v.coerce1
   br label %return
 
 return:                                           ; preds = %entry, %if.end
-  %retval.sroa.0.0 = phi <2 x float> [ %7, %if.end ], [ zeroinitializer, %entry ]
+  %retval.sroa.0.0 = phi <2 x float> [ %6, %if.end ], [ zeroinitializer, %entry ]
   %retval.sroa.3.0 = phi float [ %mul4, %if.end ], [ 0.000000e+00, %entry ]
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %retval.sroa.3.0, 1
@@ -34657,24 +34653,24 @@ ma_spatializer_listener_get_direction.exit:       ; preds = %for.cond.i.loopexit
   %retval.sroa.2.0.v1.sroa_idx.i.i151 = getelementptr inbounds i8, ptr %pListener, i64 72
   %retval.sroa.2.0.copyload.i.i152 = load float, ptr %retval.sroa.2.0.v1.sroa_idx.i.i151, align 4
   store atomic volatile i32 0, ptr %lock.i.i143 release, align 4
+  %a.sroa.0.0.vec.extract.i.i.i = extractelement <2 x float> %retval.sroa.0.0.copyload.i.i150, i64 0
   %25 = fmul <2 x float> %retval.sroa.0.0.copyload.i.i150, %retval.sroa.0.0.copyload.i.i150
   %mul4.i.i.i = extractelement <2 x float> %25, i64 1
-  %26 = extractelement <2 x float> %retval.sroa.0.0.copyload.i.i150, i64 0
-  %27 = tail call float @llvm.fmuladd.f32(float %26, float %26, float %mul4.i.i.i)
-  %28 = tail call float @llvm.fmuladd.f32(float %retval.sroa.2.0.copyload.i.i152, float %retval.sroa.2.0.copyload.i.i152, float %27)
-  %cmp.i158 = fcmp oeq float %28, 0.000000e+00
+  %26 = tail call float @llvm.fmuladd.f32(float %a.sroa.0.0.vec.extract.i.i.i, float %a.sroa.0.0.vec.extract.i.i.i, float %mul4.i.i.i)
+  %27 = tail call float @llvm.fmuladd.f32(float %retval.sroa.2.0.copyload.i.i152, float %retval.sroa.2.0.copyload.i.i152, float %26)
+  %cmp.i158 = fcmp oeq float %27, 0.000000e+00
   br i1 %cmp.i158, label %ma_vec3f_normalize.exit, label %if.end.i159
 
 if.end.i159:                                      ; preds = %ma_spatializer_listener_get_direction.exit
-  %29 = tail call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %28) #63, !srcloc !336
-  %30 = insertelement <2 x float> poison, float %29, i64 0
-  %31 = shufflevector <2 x float> %30, <2 x float> poison, <2 x i32> zeroinitializer
-  %32 = fmul <2 x float> %retval.sroa.0.0.copyload.i.i150, %31
-  %mul4.i = fmul float %retval.sroa.2.0.copyload.i.i152, %29
+  %28 = tail call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %27) #63, !srcloc !336
+  %29 = insertelement <2 x float> poison, float %28, i64 0
+  %30 = shufflevector <2 x float> %29, <2 x float> poison, <2 x i32> zeroinitializer
+  %31 = fmul <2 x float> %retval.sroa.0.0.copyload.i.i150, %30
+  %mul4.i = fmul float %retval.sroa.2.0.copyload.i.i152, %28
   br label %ma_vec3f_normalize.exit
 
 ma_vec3f_normalize.exit:                          ; preds = %ma_spatializer_listener_get_direction.exit, %if.end.i159
-  %retval.sroa.0.0.i = phi <2 x float> [ %32, %if.end.i159 ], [ zeroinitializer, %ma_spatializer_listener_get_direction.exit ]
+  %retval.sroa.0.0.i = phi <2 x float> [ %31, %if.end.i159 ], [ zeroinitializer, %ma_spatializer_listener_get_direction.exit ]
   %retval.sroa.3.0.i = phi float [ %mul4.i, %if.end.i159 ], [ 0.000000e+00, %ma_spatializer_listener_get_direction.exit ]
   %worldUp = getelementptr inbounds i8, ptr %pListener, i64 36
   %worldUp.coerce.sroa.0.0.copyload = load <2 x float>, ptr %worldUp, align 4
@@ -34684,6 +34680,7 @@ ma_vec3f_normalize.exit:                          ; preds = %ma_spatializer_list
   %b.sroa.0.4.vec.extract.i = extractelement <2 x float> %worldUp.coerce.sroa.0.0.copyload, i64 1
   %b.sroa.0.0.vec.extract.i = extractelement <2 x float> %worldUp.coerce.sroa.0.0.copyload, i64 0
   %a.sroa.0.0.vec.extract.i = extractelement <2 x float> %retval.sroa.0.0.i, i64 0
+  %32 = fneg float %a.sroa.0.0.vec.extract.i
   %33 = shufflevector <2 x float> %worldUp.coerce.sroa.0.0.copyload, <2 x float> %retval.sroa.0.0.i, <2 x i32> <i32 1, i32 2>
   %34 = fneg <2 x float> %33
   %35 = insertelement <2 x float> poison, float %retval.sroa.3.0.i, i64 0
@@ -34722,23 +34719,23 @@ ma_vec3f_normalize.exit176:                       ; preds = %ma_vec3f_normalize.
   %cmp44 = fcmp oeq float %53, 0.000000e+00
   %axisX.sroa.0.0 = select i1 %cmp44, <2 x float> <float 1.000000e+00, float 0.000000e+00>, <2 x float> %retval.sroa.0.0.i172
   %axisX.sroa.9.0 = select i1 %cmp44, float 0.000000e+00, float %retval.sroa.3.0.i173
+  %a.sroa.0.4.vec.extract.i177 = extractelement <2 x float> %axisX.sroa.0.0, i64 1
   %neg.i179 = fmul float %axisX.sroa.9.0, %41
-  %54 = extractelement <2 x float> %axisX.sroa.0.0, i64 1
-  %55 = tail call float @llvm.fmuladd.f32(float %54, float %retval.sroa.3.0.i, float %neg.i179)
-  %56 = fneg <2 x float> %axisX.sroa.0.0
-  %57 = extractelement <2 x float> %56, i64 0
-  %neg9.i182 = fmul float %retval.sroa.3.0.i, %57
-  %58 = tail call float @llvm.fmuladd.f32(float %axisX.sroa.9.0, float %a.sroa.0.0.vec.extract.i, float %neg9.i182)
-  %shift = shufflevector <2 x float> %56, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %59 = fmul <2 x float> %retval.sroa.0.0.i, %shift
-  %neg15.i183 = extractelement <2 x float> %59, i64 0
-  %60 = extractelement <2 x float> %axisX.sroa.0.0, i64 0
-  %61 = tail call float @llvm.fmuladd.f32(float %60, float %a.sroa.0.4.vec.extract.i, float %neg15.i183)
+  %54 = tail call float @llvm.fmuladd.f32(float %a.sroa.0.4.vec.extract.i177, float %retval.sroa.3.0.i, float %neg.i179)
+  %a.sroa.0.0.vec.extract.i181 = extractelement <2 x float> %axisX.sroa.0.0, i64 0
+  %55 = fneg <2 x float> %axisX.sroa.0.0
+  %56 = extractelement <2 x float> %55, i64 0
+  %neg9.i182 = fmul float %retval.sroa.3.0.i, %56
+  %57 = tail call float @llvm.fmuladd.f32(float %axisX.sroa.9.0, float %a.sroa.0.0.vec.extract.i, float %neg9.i182)
+  %shift = shufflevector <2 x float> %55, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %58 = fmul <2 x float> %retval.sroa.0.0.i, %shift
+  %neg15.i183 = extractelement <2 x float> %58, i64 0
+  %59 = tail call float @llvm.fmuladd.f32(float %a.sroa.0.0.vec.extract.i181, float %a.sroa.0.4.vec.extract.i, float %neg15.i183)
   %handedness = getelementptr inbounds i8, ptr %pListener, i64 16
-  %62 = load i32, ptr %handedness, align 8
-  %cmp56 = icmp eq i32 %62, 1
+  %60 = load i32, ptr %handedness, align 8
+  %cmp56 = icmp eq i32 %60, 1
   %fneg2.i = fneg float %axisX.sroa.9.0
-  %axisX.sroa.0.1 = select i1 %cmp56, <2 x float> %56, <2 x float> %axisX.sroa.0.0
+  %axisX.sroa.0.1 = select i1 %cmp56, <2 x float> %55, <2 x float> %axisX.sroa.0.0
   %axisX.sroa.9.1 = select i1 %cmp56, float %fneg2.i, float %axisX.sroa.9.0
   %fneg98 = fneg float %retval.sroa.3.0.i
   br i1 %cmp.not, label %if.end159, label %if.then119
@@ -34747,38 +34744,37 @@ if.then119:                                       ; preds = %ma_vec3f_normalize.
   %b.sroa.0.0.vec.extract.i195 = extractelement <2 x float> %retval.sroa.0.0.copyload.i.i132, i64 0
   %b.sroa.0.4.vec.extract.i197 = extractelement <2 x float> %retval.sroa.0.0.copyload.i.i132, i64 1
   %mul4.i217 = fmul float %b.sroa.0.4.vec.extract.i197, %41
-  %63 = extractelement <2 x float> %34, i64 1
-  %64 = tail call float @llvm.fmuladd.f32(float %63, float %b.sroa.0.0.vec.extract.i195, float %mul4.i217)
-  %65 = tail call float @llvm.fmuladd.f32(float %fneg98, float %retval.sroa.2.0.copyload.i.i134, float %64)
+  %61 = tail call float @llvm.fmuladd.f32(float %32, float %b.sroa.0.0.vec.extract.i195, float %mul4.i217)
+  %62 = tail call float @llvm.fmuladd.f32(float %fneg98, float %retval.sroa.2.0.copyload.i.i134, float %61)
   %spatializerPosition.sroa.0.0.vec.extract = extractelement <2 x float> %retval.sroa.0.0.copyload.i.i94, i64 0
   %spatializerPosition.sroa.0.4.vec.extract = extractelement <2 x float> %retval.sroa.0.0.copyload.i.i94, i64 1
-  %66 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i.i132, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %67 = shufflevector <2 x float> %axisX.sroa.0.1, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %68 = insertelement <2 x float> %67, float %58, i64 1
-  %69 = fmul <2 x float> %66, %68
-  %70 = insertelement <2 x float> %axisX.sroa.0.1, float %55, i64 1
-  %71 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i.i132, <2 x float> poison, <2 x i32> zeroinitializer
-  %72 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %70, <2 x float> %71, <2 x float> %69)
-  %73 = insertelement <2 x float> poison, float %axisX.sroa.9.1, i64 0
-  %74 = insertelement <2 x float> %73, float %61, i64 1
-  %75 = insertelement <2 x float> poison, float %retval.sroa.2.0.copyload.i.i134, i64 0
-  %76 = shufflevector <2 x float> %75, <2 x float> poison, <2 x i32> zeroinitializer
-  %77 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %74, <2 x float> %76, <2 x float> %72)
-  %78 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i.i94, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %79 = fmul <2 x float> %78, %68
-  %80 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i.i94, <2 x float> poison, <2 x i32> zeroinitializer
-  %81 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %70, <2 x float> %80, <2 x float> %79)
-  %82 = insertelement <2 x float> poison, float %retval.sroa.2.0.copyload.i.i96, i64 0
-  %83 = shufflevector <2 x float> %82, <2 x float> poison, <2 x i32> zeroinitializer
-  %84 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %74, <2 x float> %83, <2 x float> %81)
-  %85 = fsub <2 x float> %84, %77
-  store <2 x float> %85, ptr %pRelativePos, align 4
+  %63 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i.i132, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %64 = shufflevector <2 x float> %axisX.sroa.0.1, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %65 = insertelement <2 x float> %64, float %57, i64 1
+  %66 = fmul <2 x float> %63, %65
+  %67 = insertelement <2 x float> %axisX.sroa.0.1, float %54, i64 1
+  %68 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i.i132, <2 x float> poison, <2 x i32> zeroinitializer
+  %69 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %67, <2 x float> %68, <2 x float> %66)
+  %70 = insertelement <2 x float> poison, float %axisX.sroa.9.1, i64 0
+  %71 = insertelement <2 x float> %70, float %59, i64 1
+  %72 = insertelement <2 x float> poison, float %retval.sroa.2.0.copyload.i.i134, i64 0
+  %73 = shufflevector <2 x float> %72, <2 x float> poison, <2 x i32> zeroinitializer
+  %74 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %71, <2 x float> %73, <2 x float> %69)
+  %75 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i.i94, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %76 = fmul <2 x float> %75, %65
+  %77 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i.i94, <2 x float> poison, <2 x i32> zeroinitializer
+  %78 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %67, <2 x float> %77, <2 x float> %76)
+  %79 = insertelement <2 x float> poison, float %retval.sroa.2.0.copyload.i.i96, i64 0
+  %80 = shufflevector <2 x float> %79, <2 x float> poison, <2 x i32> zeroinitializer
+  %81 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %71, <2 x float> %80, <2 x float> %78)
+  %82 = fsub <2 x float> %81, %74
+  store <2 x float> %82, ptr %pRelativePos, align 4
   %mul152 = fmul float %spatializerPosition.sroa.0.4.vec.extract, %41
-  %86 = tail call float @llvm.fmuladd.f32(float %63, float %spatializerPosition.sroa.0.0.vec.extract, float %mul152)
-  %87 = tail call float @llvm.fmuladd.f32(float %fneg98, float %retval.sroa.2.0.copyload.i.i96, float %86)
-  %88 = fsub float %87, %65
+  %83 = tail call float @llvm.fmuladd.f32(float %32, float %spatializerPosition.sroa.0.0.vec.extract, float %mul152)
+  %84 = tail call float @llvm.fmuladd.f32(float %fneg98, float %retval.sroa.2.0.copyload.i.i96, float %83)
+  %85 = fsub float %84, %62
   %z158 = getelementptr inbounds i8, ptr %pRelativePos, i64 8
-  store float %88, ptr %z158, align 4
+  store float %85, ptr %z158, align 4
   br label %if.end159
 
 if.end159:                                        ; preds = %if.then119, %ma_vec3f_normalize.exit176
@@ -34787,27 +34783,26 @@ if.end159:                                        ; preds = %if.then119, %ma_vec
 if.then161:                                       ; preds = %if.end159
   %spatializerDirection.sroa.0.0.vec.extract = extractelement <2 x float> %retval.sroa.0.0.copyload.i.i113, i64 0
   %spatializerDirection.sroa.0.4.vec.extract = extractelement <2 x float> %retval.sroa.0.0.copyload.i.i113, i64 1
-  %89 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i.i113, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %90 = shufflevector <2 x float> %axisX.sroa.0.1, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %91 = insertelement <2 x float> %90, float %58, i64 1
-  %92 = fmul <2 x float> %89, %91
-  %93 = insertelement <2 x float> %axisX.sroa.0.1, float %55, i64 1
-  %94 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i.i113, <2 x float> poison, <2 x i32> zeroinitializer
-  %95 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %93, <2 x float> %94, <2 x float> %92)
-  %96 = insertelement <2 x float> poison, float %axisX.sroa.9.1, i64 0
-  %97 = insertelement <2 x float> %96, float %61, i64 1
-  %98 = insertelement <2 x float> poison, float %retval.sroa.2.0.copyload.i.i115, i64 0
-  %99 = shufflevector <2 x float> %98, <2 x float> poison, <2 x i32> zeroinitializer
-  %100 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %97, <2 x float> %99, <2 x float> %95)
-  store <2 x float> %100, ptr %pRelativeDir, align 4
+  %86 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i.i113, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %87 = shufflevector <2 x float> %axisX.sroa.0.1, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %88 = insertelement <2 x float> %87, float %57, i64 1
+  %89 = fmul <2 x float> %86, %88
+  %90 = insertelement <2 x float> %axisX.sroa.0.1, float %54, i64 1
+  %91 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i.i113, <2 x float> poison, <2 x i32> zeroinitializer
+  %92 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %90, <2 x float> %91, <2 x float> %89)
+  %93 = insertelement <2 x float> poison, float %axisX.sroa.9.1, i64 0
+  %94 = insertelement <2 x float> %93, float %59, i64 1
+  %95 = insertelement <2 x float> poison, float %retval.sroa.2.0.copyload.i.i115, i64 0
+  %96 = shufflevector <2 x float> %95, <2 x float> poison, <2 x i32> zeroinitializer
+  %97 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %94, <2 x float> %96, <2 x float> %92)
+  store <2 x float> %97, ptr %pRelativeDir, align 4
   %mul190 = fmul float %spatializerDirection.sroa.0.4.vec.extract, %41
-  %101 = extractelement <2 x float> %34, i64 1
-  %102 = tail call float @llvm.fmuladd.f32(float %101, float %spatializerDirection.sroa.0.0.vec.extract, float %mul190)
-  %103 = tail call float @llvm.fmuladd.f32(float %fneg98, float %retval.sroa.2.0.copyload.i.i115, float %102)
+  %98 = tail call float @llvm.fmuladd.f32(float %32, float %spatializerDirection.sroa.0.0.vec.extract, float %mul190)
+  %99 = tail call float @llvm.fmuladd.f32(float %fneg98, float %retval.sroa.2.0.copyload.i.i115, float %98)
   br label %if.end196.sink.split
 
 if.end196.sink.split:                             ; preds = %ma_spatializer_get_direction.exit, %if.then161
-  %.sink = phi float [ %103, %if.then161 ], [ %retval.sroa.2.0.copyload.i.i78, %ma_spatializer_get_direction.exit ]
+  %.sink = phi float [ %99, %if.then161 ], [ %retval.sroa.2.0.copyload.i.i78, %ma_spatializer_get_direction.exit ]
   %z194 = getelementptr inbounds i8, ptr %pRelativeDir, i64 8
   store float %.sink, ptr %z194, align 4
   br label %if.end196
@@ -48753,6 +48748,7 @@ if.end3:                                          ; preds = %if.end
   %innerConfig.sroa.0.0.copyload = load i32, ptr %pConfig, align 8
   %innerConfig.sroa.2.0.pConfig.sroa_idx = getelementptr inbounds i8, ptr %pConfig, i64 4
   %0 = load <2 x i32>, ptr %innerConfig.sroa.2.0.pConfig.sroa_idx, align 4
+  %innerConfig.sroa.2.0.copyload = load i32, ptr %innerConfig.sroa.2.0.pConfig.sroa_idx, align 4
   %innerConfig.sroa.447.0.pConfig.sroa_idx = getelementptr inbounds i8, ptr %pConfig, i64 16
   %innerConfig.sroa.447.0.copyload = load i64, ptr %innerConfig.sroa.447.0.pConfig.sroa_idx, align 8
   %innerConfig.sroa.6.0.pConfig.sroa_idx = getelementptr inbounds i8, ptr %pConfig, i64 24
@@ -48794,8 +48790,7 @@ ma_allocation_callbacks_init_copy.exit:           ; preds = %lor.lhs.false.i, %l
   %idxprom.i = zext i32 %innerConfig.sroa.0.0.copyload to i64
   %arrayidx.i = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %idxprom.i
   %1 = load i32, ptr %arrayidx.i, align 4
-  %2 = extractelement <2 x i32> %0, i64 0
-  %mul.i = mul i32 %1, %2
+  %mul.i = mul i32 %1, %innerConfig.sroa.2.0.copyload
   %conv = zext i32 %mul.i to i64
   %mul = mul i64 %innerConfig.sroa.447.0.copyload, %conv
   %add = add i64 %mul, 151
@@ -48807,9 +48802,8 @@ ma_allocation_callbacks_init_copy.exit:           ; preds = %lor.lhs.false.i, %l
 ma_allocation_callbacks_init_copy.exit.thread:    ; preds = %land.lhs.true7.i
   %idxprom.i63 = zext i32 %innerConfig.sroa.0.0.copyload to i64
   %arrayidx.i64 = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %idxprom.i63
-  %3 = load i32, ptr %arrayidx.i64, align 4
-  %4 = extractelement <2 x i32> %0, i64 0
-  %mul.i65 = mul i32 %3, %4
+  %2 = load i32, ptr %arrayidx.i64, align 4
+  %mul.i65 = mul i32 %2, %innerConfig.sroa.2.0.copyload
   %conv66 = zext i32 %mul.i65 to i64
   %mul67 = mul i64 %innerConfig.sroa.447.0.copyload, %conv66
   %add68 = add i64 %mul67, 151
@@ -48826,31 +48820,31 @@ ma_malloc.exit:                                   ; preds = %ma_allocation_callb
   br i1 %cmp12, label %return, label %if.end15
 
 if.end15:                                         ; preds = %ma_malloc.exit
-  %5 = load ptr, ptr %innerConfig.sroa.6.0.pConfig.sroa_idx, align 8
-  %cmp16.not = icmp eq ptr %5, null
+  %3 = load ptr, ptr %innerConfig.sroa.6.0.pConfig.sroa_idx, align 8
+  %cmp16.not = icmp eq ptr %3, null
   %_pExtraData23 = getelementptr inbounds i8, ptr %call.i, i64 148
   br i1 %cmp16.not, label %if.else, label %if.then18
 
 if.then18:                                        ; preds = %if.end15
-  %cmp.i = icmp eq ptr %_pExtraData23, %5
+  %cmp.i = icmp eq ptr %_pExtraData23, %3
   br i1 %cmp.i, label %if.then2.i.i, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then18
-  %6 = load i32, ptr %innerConfig.sroa.2.0.pConfig.sroa_idx, align 4
-  %7 = load i32, ptr %pConfig, align 8
-  %8 = load i64, ptr %innerConfig.sroa.447.0.pConfig.sroa_idx, align 8
-  %idxprom.i.i = zext i32 %7 to i64
+  %4 = load i32, ptr %innerConfig.sroa.2.0.pConfig.sroa_idx, align 4
+  %5 = load i32, ptr %pConfig, align 8
+  %6 = load i64, ptr %innerConfig.sroa.447.0.pConfig.sroa_idx, align 8
+  %idxprom.i.i = zext i32 %5 to i64
   %arrayidx.i.i = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %idxprom.i.i
-  %9 = load i32, ptr %arrayidx.i.i, align 4
-  %mul.i.i = mul i32 %9, %6
+  %7 = load i32, ptr %arrayidx.i.i, align 4
+  %mul.i.i = mul i32 %7, %4
   %conv.i = zext i32 %mul.i.i to i64
-  %mul.i26 = mul i64 %8, %conv.i
+  %mul.i26 = mul i64 %6, %conv.i
   %cmp.i.not11.i = icmp eq i64 %mul.i26, 0
   br i1 %cmp.i.not11.i, label %if.then2.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i, %while.body.i.i
   %dst.addr.i.014.i = phi ptr [ %add.ptr.i.i, %while.body.i.i ], [ %_pExtraData23, %if.end.i ]
-  %src.addr.i.013.i = phi ptr [ %add.ptr2.i.i, %while.body.i.i ], [ %5, %if.end.i ]
+  %src.addr.i.013.i = phi ptr [ %add.ptr2.i.i, %while.body.i.i ], [ %3, %if.end.i ]
   %sizeInBytes.addr.i.012.i = phi i64 [ %sub.i.i, %while.body.i.i ], [ %mul.i26, %if.end.i ]
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %sizeInBytes.addr.i.012.i, i64 4294967295)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %dst.addr.i.014.i, ptr noundef nonnull align 1 dereferenceable(1) %src.addr.i.013.i, i64 %spec.store.select.i, i1 false)
@@ -48861,15 +48855,15 @@ while.body.i.i:                                   ; preds = %if.end.i, %while.bo
   br i1 %cmp.i.not.i, label %if.then2.i.i, label %while.body.i.i, !llvm.loop !51
 
 if.else:                                          ; preds = %if.end15
-  %10 = load i64, ptr %innerConfig.sroa.447.0.pConfig.sroa_idx, align 8
-  %11 = load i32, ptr %pConfig, align 8
-  %12 = load i32, ptr %innerConfig.sroa.2.0.pConfig.sroa_idx, align 4
-  %cmp.i27 = icmp eq i32 %11, 1
+  %8 = load i64, ptr %innerConfig.sroa.447.0.pConfig.sroa_idx, align 8
+  %9 = load i32, ptr %pConfig, align 8
+  %10 = load i32, ptr %innerConfig.sroa.2.0.pConfig.sroa_idx, align 4
+  %cmp.i27 = icmp eq i32 %9, 1
   br i1 %cmp.i27, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.else
-  %conv.i37 = zext i32 %12 to i64
-  %mul.i38 = mul i64 %10, %conv.i37
+  %conv.i37 = zext i32 %10 to i64
+  %mul.i38 = mul i64 %8, %conv.i37
   %cmp119.not.i = icmp eq i64 %mul.i38, 0
   br i1 %cmp119.not.i, label %if.then2.i.i, label %for.body.preheader.i
 
@@ -48878,12 +48872,12 @@ for.body.preheader.i:                             ; preds = %if.then.i
   br label %if.then2.i.i
 
 if.else.i:                                        ; preds = %if.else
-  %idxprom.i.i28 = zext i32 %11 to i64
+  %idxprom.i.i28 = zext i32 %9 to i64
   %arrayidx.i.i29 = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %idxprom.i.i28
-  %13 = load i32, ptr %arrayidx.i.i29, align 4
-  %mul.i.i30 = mul i32 %13, %12
+  %11 = load i32, ptr %arrayidx.i.i29, align 4
+  %mul.i.i30 = mul i32 %11, %10
   %conv3.i = zext i32 %mul.i.i30 to i64
-  %mul4.i = mul i64 %10, %conv3.i
+  %mul4.i = mul i64 %8, %conv3.i
   %cmp.i.not16.i = icmp eq i64 %mul4.i, 0
   br i1 %cmp.i.not16.i, label %if.then2.i.i, label %while.body.i.i31
 
@@ -48904,8 +48898,8 @@ if.then2.i.i:                                     ; preds = %while.body.i.i, %wh
   br i1 %cmp4.i40, label %if.end.i43, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then2.i.i
-  %14 = getelementptr inbounds i8, ptr %call.i, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %14, i8 0, i64 24, i1 false)
+  %12 = getelementptr inbounds i8, ptr %call.i, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   store ptr @g_ma_audio_buffer_ref_data_source_vtable, ptr %call.i, align 8
   %rangeBegInFrames.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 0, ptr %rangeBegInFrames.i.i.i, align 8
@@ -51532,16 +51526,14 @@ lor.lhs.false8.thread.i.i.i:                      ; preds = %if.end4
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %if.end4
   %allocationCallbacks.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 144
-  %tmp.sroa.0.0.copyload12.i.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i.i, ptr %allocationCallbacks.i.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 152
-  store ptr %tmp.sroa.3.0.copyload13.i.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
+  %3 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %3, ptr %allocationCallbacks.i.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 160
   store ptr %tmp.sroa.4.0.copyload14.i.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 168
@@ -51561,26 +51553,26 @@ ma_dr_wav_init.exit:                              ; preds = %lor.lhs.false8.thre
   br i1 %cmp10.not.not, label %return, label %if.end12
 
 if.end12:                                         ; preds = %ma_dr_wav_init.exit
-  %3 = load i32, ptr %format.i, align 8
-  %cmp.i12 = icmp eq i32 %3, 0
+  %4 = load i32, ptr %format.i, align 8
+  %cmp.i12 = icmp eq i32 %4, 0
   br i1 %cmp.i12, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %if.end12
   %translatedFormatTag.i = getelementptr inbounds i8, ptr %pWav, i64 228
-  %4 = load i16, ptr %translatedFormatTag.i, align 4
-  %cond = icmp eq i16 %4, 1
+  %5 = load i16, ptr %translatedFormatTag.i, align 4
+  %cond = icmp eq i16 %5, 1
   br i1 %cond, label %sw.bb.i, label %if.end48.sink.split.i
 
 sw.bb.i:                                          ; preds = %if.then.i
   %bitsPerSample.i = getelementptr inbounds i8, ptr %pWav, i64 226
-  %5 = load i16, ptr %bitsPerSample.i, align 2
-  %6 = add i16 %5, -8
-  %7 = tail call i16 @llvm.fshl.i16(i16 %6, i16 %6, i16 13)
-  %8 = icmp ult i16 %7, 4
-  br i1 %8, label %switch.lookup, label %if.end48.sink.split.i
+  %6 = load i16, ptr %bitsPerSample.i, align 2
+  %7 = add i16 %6, -8
+  %8 = tail call i16 @llvm.fshl.i16(i16 %7, i16 %7, i16 13)
+  %9 = icmp ult i16 %8, 4
+  br i1 %9, label %switch.lookup, label %if.end48.sink.split.i
 
 switch.lookup:                                    ; preds = %sw.bb.i
-  %narrow = add nuw nsw i16 %7, 1
+  %narrow = add nuw nsw i16 %8, 1
   %switch.offset = zext nneg i16 %narrow to i32
   br label %if.end48.sink.split.i
 
@@ -51626,16 +51618,14 @@ lor.lhs.false8.thread.i.i:                        ; preds = %if.end.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %if.end.i.i
   %allocationCallbacks.i.i = getelementptr inbounds i8, ptr %pWav, i64 32
-  %tmp.sroa.0.0.copyload12.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i, ptr %allocationCallbacks.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pWav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pWav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pWav, i64 56
@@ -51758,16 +51748,14 @@ lor.lhs.false8.thread.i.i.i.i:                    ; preds = %if.end.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i: ; preds = %if.end.i.i
   %allocationCallbacks.i.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 144
-  %tmp.sroa.0.0.copyload12.i.i.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i.i.i, ptr %allocationCallbacks.i.i.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 152
-  store ptr %tmp.sroa.3.0.copyload13.i.i.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
+  %3 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %3, ptr %allocationCallbacks.i.i.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 160
   store ptr %tmp.sroa.4.0.copyload14.i.i.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 168
@@ -51791,26 +51779,26 @@ return.sink.split.i.i.i:                          ; preds = %if.end.i.i.i, %lor.
   br label %return
 
 if.end4:                                          ; preds = %if.end.i.i.i
-  %3 = load i32, ptr %format.i, align 8
-  %cmp.i5 = icmp eq i32 %3, 0
+  %4 = load i32, ptr %format.i, align 8
+  %cmp.i5 = icmp eq i32 %4, 0
   br i1 %cmp.i5, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %if.end4
   %translatedFormatTag.i = getelementptr inbounds i8, ptr %pWav, i64 228
-  %4 = load i16, ptr %translatedFormatTag.i, align 4
-  %cond = icmp eq i16 %4, 1
+  %5 = load i16, ptr %translatedFormatTag.i, align 4
+  %cond = icmp eq i16 %5, 1
   br i1 %cond, label %sw.bb.i, label %if.end48.sink.split.i
 
 sw.bb.i:                                          ; preds = %if.then.i
   %bitsPerSample.i = getelementptr inbounds i8, ptr %pWav, i64 226
-  %5 = load i16, ptr %bitsPerSample.i, align 2
-  %6 = add i16 %5, -8
-  %7 = tail call i16 @llvm.fshl.i16(i16 %6, i16 %6, i16 13)
-  %8 = icmp ult i16 %7, 4
-  br i1 %8, label %switch.lookup, label %if.end48.sink.split.i
+  %6 = load i16, ptr %bitsPerSample.i, align 2
+  %7 = add i16 %6, -8
+  %8 = tail call i16 @llvm.fshl.i16(i16 %7, i16 %7, i16 13)
+  %9 = icmp ult i16 %8, 4
+  br i1 %9, label %switch.lookup, label %if.end48.sink.split.i
 
 switch.lookup:                                    ; preds = %sw.bb.i
-  %narrow = add nuw nsw i16 %7, 1
+  %narrow = add nuw nsw i16 %8, 1
   %switch.offset = zext nneg i16 %narrow to i32
   br label %if.end48.sink.split.i
 
@@ -51861,16 +51849,14 @@ lor.lhs.false8.thread.i.i.i:                      ; preds = %if.end.i.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %if.end.i.i.i
   %allocationCallbacks.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 32
-  %tmp.sroa.0.0.copyload12.i.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i.i, ptr %allocationCallbacks.i.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 56
@@ -51968,16 +51954,14 @@ lor.lhs.false8.thread.i.i.i.i:                    ; preds = %if.end.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i: ; preds = %if.end.i.i
   %allocationCallbacks.i.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 144
-  %tmp.sroa.0.0.copyload12.i.i.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i.i.i, ptr %allocationCallbacks.i.i.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 152
-  store ptr %tmp.sroa.3.0.copyload13.i.i.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
+  %4 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %4, ptr %allocationCallbacks.i.i.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 160
   store ptr %tmp.sroa.4.0.copyload14.i.i.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 168
@@ -52006,26 +51990,26 @@ ma_dr_wav_init_file_w.exit.thread:                ; preds = %if.end, %return.sin
 
 if.end4:                                          ; preds = %if.end.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pFile.i.i)
-  %4 = load i32, ptr %format.i, align 8
-  %cmp.i5 = icmp eq i32 %4, 0
+  %5 = load i32, ptr %format.i, align 8
+  %cmp.i5 = icmp eq i32 %5, 0
   br i1 %cmp.i5, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %if.end4
   %translatedFormatTag.i = getelementptr inbounds i8, ptr %pWav, i64 228
-  %5 = load i16, ptr %translatedFormatTag.i, align 4
-  %cond = icmp eq i16 %5, 1
+  %6 = load i16, ptr %translatedFormatTag.i, align 4
+  %cond = icmp eq i16 %6, 1
   br i1 %cond, label %sw.bb.i, label %if.end48.sink.split.i
 
 sw.bb.i:                                          ; preds = %if.then.i
   %bitsPerSample.i = getelementptr inbounds i8, ptr %pWav, i64 226
-  %6 = load i16, ptr %bitsPerSample.i, align 2
-  %7 = add i16 %6, -8
-  %8 = call i16 @llvm.fshl.i16(i16 %7, i16 %7, i16 13)
-  %9 = icmp ult i16 %8, 4
-  br i1 %9, label %switch.lookup, label %if.end48.sink.split.i
+  %7 = load i16, ptr %bitsPerSample.i, align 2
+  %8 = add i16 %7, -8
+  %9 = call i16 @llvm.fshl.i16(i16 %8, i16 %8, i16 13)
+  %10 = icmp ult i16 %9, 4
+  br i1 %10, label %switch.lookup, label %if.end48.sink.split.i
 
 switch.lookup:                                    ; preds = %sw.bb.i
-  %narrow = add nuw nsw i16 %8, 1
+  %narrow = add nuw nsw i16 %9, 1
   %switch.offset = zext nneg i16 %narrow to i32
   br label %if.end48.sink.split.i
 
@@ -52075,16 +52059,14 @@ lor.lhs.false8.thread.i.i.i:                      ; preds = %if.end.i.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %if.end.i.i.i
   %allocationCallbacks.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 32
-  %tmp.sroa.0.0.copyload12.i.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i.i, ptr %allocationCallbacks.i.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
+  %2 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %2, ptr %allocationCallbacks.i.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 56
@@ -52181,16 +52163,14 @@ lor.lhs.false8.thread.i.i.i:                      ; preds = %if.end.i.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %if.end.i.i.i
   %allocationCallbacks.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 144
-  %tmp.sroa.0.0.copyload12.i.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i.i, ptr %allocationCallbacks.i.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 152
-  store ptr %tmp.sroa.3.0.copyload13.i.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
+  %3 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %3, ptr %allocationCallbacks.i.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 160
   store ptr %tmp.sroa.4.0.copyload14.i.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pWav, i64 168
@@ -52216,26 +52196,26 @@ ma_dr_wav_init_memory.exit:                       ; preds = %lor.lhs.false8.thre
   br i1 %cmp2.not.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %ma_dr_wav_init_memory.exit
-  %3 = load i32, ptr %format.i, align 8
-  %cmp.i5 = icmp eq i32 %3, 0
+  %4 = load i32, ptr %format.i, align 8
+  %cmp.i5 = icmp eq i32 %4, 0
   br i1 %cmp.i5, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %if.end4
   %translatedFormatTag.i = getelementptr inbounds i8, ptr %pWav, i64 228
-  %4 = load i16, ptr %translatedFormatTag.i, align 4
-  %cond = icmp eq i16 %4, 1
+  %5 = load i16, ptr %translatedFormatTag.i, align 4
+  %cond = icmp eq i16 %5, 1
   br i1 %cond, label %sw.bb.i, label %if.end48.sink.split.i
 
 sw.bb.i:                                          ; preds = %if.then.i
   %bitsPerSample.i = getelementptr inbounds i8, ptr %pWav, i64 226
-  %5 = load i16, ptr %bitsPerSample.i, align 2
-  %6 = add i16 %5, -8
-  %7 = tail call i16 @llvm.fshl.i16(i16 %6, i16 %6, i16 13)
-  %8 = icmp ult i16 %7, 4
-  br i1 %8, label %switch.lookup, label %if.end48.sink.split.i
+  %6 = load i16, ptr %bitsPerSample.i, align 2
+  %7 = add i16 %6, -8
+  %8 = tail call i16 @llvm.fshl.i16(i16 %7, i16 %7, i16 13)
+  %9 = icmp ult i16 %8, 4
+  br i1 %9, label %switch.lookup, label %if.end48.sink.split.i
 
 switch.lookup:                                    ; preds = %sw.bb.i
-  %narrow = add nuw nsw i16 %7, 1
+  %narrow = add nuw nsw i16 %8, 1
   %switch.offset = zext nneg i16 %narrow to i32
   br label %if.end48.sink.split.i
 
@@ -52281,16 +52261,14 @@ lor.lhs.false8.thread.i.i:                        ; preds = %if.end.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %if.end.i.i
   %allocationCallbacks.i.i = getelementptr inbounds i8, ptr %pWav, i64 32
-  %tmp.sroa.0.0.copyload12.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i, ptr %allocationCallbacks.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pWav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pWav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pWav, i64 56
@@ -59716,16 +59694,14 @@ lor.lhs.false.thread.i.i:                         ; preds = %if.end4
   br label %if.end.i.i
 
 ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %if.end4
-  %tmp.sroa.0.0.copyload16.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload17.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload18.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload19.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload16.i.i, ptr %allocationCallbacks.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6824
-  store ptr %tmp.sroa.3.0.copyload17.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i, align 8
+  %tmp.sroa.3.0.copyload17.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
+  %2 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %2, ptr %allocationCallbacks.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6832
   store ptr %tmp.sroa.4.0.copyload18.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6840
@@ -59748,27 +59724,27 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, 
 
 if.then10.i.i:                                    ; preds = %if.end.i.i
   %pData.i.i = getelementptr inbounds i8, ptr %pMP3, i64 16136
-  %2 = load ptr, ptr %pData.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %2, null
+  %3 = load ptr, ptr %pData.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i, label %return, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then10.i.i
-  %3 = load ptr, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i, align 8
-  %cmp2.not.i.i.i = icmp eq ptr %3, null
+  %4 = load ptr, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i, align 8
+  %cmp2.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp2.not.i.i.i, label %return, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
-  %4 = load ptr, ptr %allocationCallbacks.i.i, align 8
-  tail call void %3(ptr noundef nonnull %2, ptr noundef %4) #63
+  %5 = load ptr, ptr %allocationCallbacks.i.i, align 8
+  tail call void %4(ptr noundef nonnull %3, ptr noundef %5) #63
   br label %return
 
 if.end12:                                         ; preds = %if.end.i.i
   %mp3FrameChannels.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6848
   %channels.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6780
-  %5 = load <2 x i32>, ptr %mp3FrameChannels.i.i, align 8
-  store <2 x i32> %5, ptr %channels.i.i, align 4
-  %6 = getelementptr i8, ptr %pConfig, i64 4
-  %pConfig.val = load i32, ptr %6, align 4
+  %6 = load <2 x i32>, ptr %mp3FrameChannels.i.i, align 8
+  store <2 x i32> %6, ptr %channels.i.i, align 4
+  %7 = getelementptr i8, ptr %pConfig, i64 4
+  %pConfig.val = load i32, ptr %7, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %seekPointCount.i.i)
   store i32 %pConfig.val, ptr %seekPointCount.i.i, align 4
   %cmp.not.i.i = icmp eq i32 %pConfig.val, 0
@@ -59781,13 +59757,13 @@ if.then.i.i:                                      ; preds = %if.end12
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %onMalloc.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %7 = load ptr, ptr %onMalloc.i.i.i, align 8
-  %cmp1.not.i.i.i = icmp eq ptr %7, null
+  %8 = load ptr, ptr %onMalloc.i.i.i, align 8
+  %cmp1.not.i.i.i = icmp eq ptr %8, null
   br i1 %cmp1.not.i.i.i, label %ma_mp3_post_init.exit, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
-  %8 = load ptr, ptr %pAllocationCallbacks, align 8
-  %call.i.i.i16 = tail call ptr %7(i64 noundef %mul.i.i, ptr noundef %8) #63
+  %9 = load ptr, ptr %pAllocationCallbacks, align 8
+  %call.i.i.i16 = tail call ptr %8(i64 noundef %mul.i.i, ptr noundef %9) #63
   br label %ma_malloc.exit.i.i
 
 if.else4.i.i.i:                                   ; preds = %if.then.i.i
@@ -59809,13 +59785,13 @@ if.end.i.i.i17:                                   ; preds = %if.end5.i.i
 
 if.then2.i13.i.i:                                 ; preds = %if.end.i.i.i17
   %onFree.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
-  %9 = load ptr, ptr %onFree.i.i.i, align 8
-  %cmp3.not.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %onFree.i.i.i, align 8
+  %cmp3.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp3.not.i.i.i, label %ma_mp3_post_init.exit, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then2.i13.i.i
-  %10 = load ptr, ptr %pAllocationCallbacks, align 8
-  call void %9(ptr noundef nonnull %retval.0.i.i.i, ptr noundef %10) #63
+  %11 = load ptr, ptr %pAllocationCallbacks, align 8
+  call void %10(ptr noundef nonnull %retval.0.i.i.i, ptr noundef %11) #63
   br label %ma_mp3_post_init.exit
 
 if.else7.i.i.i:                                   ; preds = %if.end.i.i.i17
@@ -59823,15 +59799,15 @@ if.else7.i.i.i:                                   ; preds = %if.end.i.i.i17
   br label %ma_mp3_post_init.exit
 
 if.end16.i.i:                                     ; preds = %if.end5.i.i
-  %11 = load i32, ptr %seekPointCount.i.i, align 4
-  %cmp1.i.i.i = icmp eq i32 %11, 0
+  %12 = load i32, ptr %seekPointCount.i.i, align 4
+  %cmp1.i.i.i = icmp eq i32 %12, 0
   %seekPointCount4.i.i.i = getelementptr inbounds i8, ptr %pMP3, i64 16104
   %pSeekPoints5.i.i.i = getelementptr inbounds i8, ptr %pMP3, i64 16096
   %.pSeekPoints.i.i.i = select i1 %cmp1.i.i.i, ptr null, ptr %retval.0.i.i.i
-  store i32 %11, ptr %seekPointCount4.i.i.i, align 8
+  store i32 %12, ptr %seekPointCount4.i.i.i, align 8
   store ptr %.pSeekPoints.i.i.i, ptr %pSeekPoints5.i.i.i, align 8
   %seekPointCount17.i.i = getelementptr inbounds i8, ptr %pMP3, i64 16176
-  store i32 %11, ptr %seekPointCount17.i.i, align 8
+  store i32 %12, ptr %seekPointCount17.i.i, align 8
   %pSeekPoints18.i.i = getelementptr inbounds i8, ptr %pMP3, i64 16184
   store ptr %retval.0.i.i.i, ptr %pSeekPoints18.i.i, align 8
   br label %ma_mp3_post_init.exit
@@ -59875,16 +59851,14 @@ lor.lhs.false.thread.i:                           ; preds = %if.end
   br label %if.end.i
 
 ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %if.end
-  %tmp.sroa.0.0.copyload16.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload17.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload18.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload19.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i, align 8
-  store ptr %tmp.sroa.0.0.copyload16.i, ptr %allocationCallbacks.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pMP3, i64 6712
-  store ptr %tmp.sroa.3.0.copyload17.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i, align 8
+  %tmp.sroa.3.0.copyload17.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
+  %0 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %0, ptr %allocationCallbacks.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pMP3, i64 6720
   store ptr %tmp.sroa.4.0.copyload18.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pMP3, i64 6728
@@ -59907,25 +59881,25 @@ if.end.i:                                         ; preds = %lor.lhs.false.i, %l
 
 if.then10.i:                                      ; preds = %if.end.i
   %pData.i = getelementptr inbounds i8, ptr %pMP3, i64 16024
-  %0 = load ptr, ptr %pData.i, align 8
-  %cmp.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %pData.i, align 8
+  %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then10.i
-  %1 = load ptr, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i, align 8
-  %cmp2.not.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i, align 8
+  %cmp2.not.i.i = icmp eq ptr %2, null
   br i1 %cmp2.not.i.i, label %return, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  %2 = load ptr, ptr %allocationCallbacks.i, align 8
-  tail call void %1(ptr noundef nonnull %0, ptr noundef %2) #63
+  %3 = load ptr, ptr %allocationCallbacks.i, align 8
+  tail call void %2(ptr noundef nonnull %1, ptr noundef %3) #63
   br label %return
 
 if.end12.i:                                       ; preds = %if.end.i
   %mp3FrameChannels.i = getelementptr inbounds i8, ptr %pMP3, i64 6736
   %channels.i = getelementptr inbounds i8, ptr %pMP3, i64 6668
-  %3 = load <2 x i32>, ptr %mp3FrameChannels.i, align 8
-  store <2 x i32> %3, ptr %channels.i, align 4
+  %4 = load <2 x i32>, ptr %mp3FrameChannels.i, align 8
+  store <2 x i32> %4, ptr %channels.i, align 4
   br label %return
 
 return:                                           ; preds = %if.end12.i, %if.then3.i.i, %if.end.i.i, %if.then10.i, %lor.lhs.false.i, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i, %entry
@@ -60125,16 +60099,14 @@ lor.lhs.false.thread.i.i:                         ; preds = %if.end.i
   br label %if.end.i.i
 
 ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %if.end.i
-  %tmp.sroa.0.0.copyload16.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload17.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload18.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload19.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload16.i.i, ptr %allocationCallbacks.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6712
-  store ptr %tmp.sroa.3.0.copyload17.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i, align 8
+  %tmp.sroa.3.0.copyload17.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
+  %0 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %0, ptr %allocationCallbacks.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6720
   store ptr %tmp.sroa.4.0.copyload18.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6728
@@ -60157,25 +60129,25 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, 
 
 if.then10.i.i:                                    ; preds = %if.end.i.i
   %pData.i.i = getelementptr inbounds i8, ptr %pMP3, i64 16024
-  %0 = load ptr, ptr %pData.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %pData.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %if.then3, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then10.i.i
-  %1 = load ptr, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i, align 8
-  %cmp2.not.i.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i, align 8
+  %cmp2.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp2.not.i.i.i, label %if.then3, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
-  %2 = load ptr, ptr %allocationCallbacks.i.i, align 8
-  tail call void %1(ptr noundef nonnull %0, ptr noundef %2) #63
+  %3 = load ptr, ptr %allocationCallbacks.i.i, align 8
+  tail call void %2(ptr noundef nonnull %1, ptr noundef %3) #63
   br label %if.then3
 
 ma_dr_mp3_init.exit:                              ; preds = %if.end.i.i
   %mp3FrameChannels.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6736
   %channels.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6668
-  %3 = load <2 x i32>, ptr %mp3FrameChannels.i.i, align 8
-  store <2 x i32> %3, ptr %channels.i.i, align 4
+  %4 = load <2 x i32>, ptr %mp3FrameChannels.i.i, align 8
+  store <2 x i32> %4, ptr %channels.i.i, align 4
   br label %return
 
 if.then3:                                         ; preds = %if.end, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %if.then10.i.i, %if.end.i.i.i, %if.then3.i.i.i, %lor.lhs.false.i.i
@@ -60348,16 +60320,14 @@ lor.lhs.false.thread.i.i:                         ; preds = %if.end.i
   br label %if.end.i.i
 
 ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %if.end.i
-  %tmp.sroa.0.0.copyload16.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload17.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload18.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload19.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload16.i.i, ptr %allocationCallbacks.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6712
-  store ptr %tmp.sroa.3.0.copyload17.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i, align 8
+  %tmp.sroa.3.0.copyload17.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6720
   store ptr %tmp.sroa.4.0.copyload18.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6728
@@ -60380,30 +60350,30 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, 
 
 if.then10.i.i:                                    ; preds = %if.end.i.i
   %pData.i.i = getelementptr inbounds i8, ptr %pMP3, i64 16024
-  %1 = load ptr, ptr %pData.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %pData.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i.i, label %if.then3, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then10.i.i
-  %2 = load ptr, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i, align 8
-  %cmp2.not.i.i.i = icmp eq ptr %2, null
+  %3 = load ptr, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i, align 8
+  %cmp2.not.i.i.i = icmp eq ptr %3, null
   br i1 %cmp2.not.i.i.i, label %if.then3, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
-  %3 = load ptr, ptr %allocationCallbacks.i.i, align 8
-  call void %2(ptr noundef nonnull %1, ptr noundef %3) #63
+  %4 = load ptr, ptr %allocationCallbacks.i.i, align 8
+  call void %3(ptr noundef nonnull %2, ptr noundef %4) #63
   br label %if.then3
 
 ma_dr_mp3_init.exit:                              ; preds = %if.end.i.i
   %mp3FrameChannels.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6736
   %channels.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6668
-  %4 = load <2 x i32>, ptr %mp3FrameChannels.i.i, align 8
-  store <2 x i32> %4, ptr %channels.i.i, align 4
+  %5 = load <2 x i32>, ptr %mp3FrameChannels.i.i, align 8
+  store <2 x i32> %5, ptr %channels.i.i, align 4
   br label %return
 
 if.then3:                                         ; preds = %if.end, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i, %if.then10.i.i, %if.end.i.i.i, %if.then3.i.i.i, %lor.lhs.false.i.i
-  %5 = load ptr, ptr %pFile, align 8
-  %call4 = call i32 @fclose(ptr noundef %5)
+  %6 = load ptr, ptr %pFile, align 8
+  %call4 = call i32 @fclose(ptr noundef %6)
   br label %return
 
 return:                                           ; preds = %ma_dr_mp3_init.exit, %entry, %if.then3
@@ -60484,16 +60454,14 @@ lor.lhs.false.thread.i.i:                         ; preds = %if.end4.i
   br label %if.end.i.i
 
 ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %if.end4.i
-  %tmp.sroa.0.0.copyload16.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload17.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload18.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload19.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload16.i.i, ptr %allocationCallbacks.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6824
-  store ptr %tmp.sroa.3.0.copyload17.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i, align 8
+  %tmp.sroa.3.0.copyload17.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
+  %2 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %2, ptr %allocationCallbacks.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6832
   store ptr %tmp.sroa.4.0.copyload18.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6840
@@ -60516,27 +60484,27 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, 
 
 if.then10.i.i:                                    ; preds = %if.end.i.i
   %pData.i.i = getelementptr inbounds i8, ptr %pMP3, i64 16136
-  %2 = load ptr, ptr %pData.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %2, null
+  %3 = load ptr, ptr %pData.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i, label %return, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then10.i.i
-  %3 = load ptr, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i, align 8
-  %cmp2.not.i.i.i = icmp eq ptr %3, null
+  %4 = load ptr, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i, align 8
+  %cmp2.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp2.not.i.i.i, label %return, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
-  %4 = load ptr, ptr %allocationCallbacks.i.i, align 8
-  tail call void %3(ptr noundef nonnull %2, ptr noundef %4) #63
+  %5 = load ptr, ptr %allocationCallbacks.i.i, align 8
+  tail call void %4(ptr noundef nonnull %3, ptr noundef %5) #63
   br label %return
 
 if.end4:                                          ; preds = %if.end.i.i
   %mp3FrameChannels.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6848
   %channels.i.i = getelementptr inbounds i8, ptr %pMP3, i64 6780
-  %5 = load <2 x i32>, ptr %mp3FrameChannels.i.i, align 8
-  store <2 x i32> %5, ptr %channels.i.i, align 4
-  %6 = getelementptr i8, ptr %pConfig, i64 4
-  %pConfig.val = load i32, ptr %6, align 4
+  %6 = load <2 x i32>, ptr %mp3FrameChannels.i.i, align 8
+  store <2 x i32> %6, ptr %channels.i.i, align 4
+  %7 = getelementptr i8, ptr %pConfig, i64 4
+  %pConfig.val = load i32, ptr %7, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %seekPointCount.i.i)
   store i32 %pConfig.val, ptr %seekPointCount.i.i, align 4
   %cmp.not.i.i = icmp eq i32 %pConfig.val, 0
@@ -60549,13 +60517,13 @@ if.then.i.i:                                      ; preds = %if.end4
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %onMalloc.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %7 = load ptr, ptr %onMalloc.i.i.i, align 8
-  %cmp1.not.i.i.i = icmp eq ptr %7, null
+  %8 = load ptr, ptr %onMalloc.i.i.i, align 8
+  %cmp1.not.i.i.i = icmp eq ptr %8, null
   br i1 %cmp1.not.i.i.i, label %ma_mp3_post_init.exit, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
-  %8 = load ptr, ptr %pAllocationCallbacks, align 8
-  %call.i.i.i9 = tail call ptr %7(i64 noundef %mul.i.i, ptr noundef %8) #63
+  %9 = load ptr, ptr %pAllocationCallbacks, align 8
+  %call.i.i.i9 = tail call ptr %8(i64 noundef %mul.i.i, ptr noundef %9) #63
   br label %ma_malloc.exit.i.i
 
 if.else4.i.i.i:                                   ; preds = %if.then.i.i
@@ -60577,13 +60545,13 @@ if.end.i.i.i10:                                   ; preds = %if.end5.i.i
 
 if.then2.i13.i.i:                                 ; preds = %if.end.i.i.i10
   %onFree.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
-  %9 = load ptr, ptr %onFree.i.i.i, align 8
-  %cmp3.not.i.i.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %onFree.i.i.i, align 8
+  %cmp3.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp3.not.i.i.i, label %ma_mp3_post_init.exit, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then2.i13.i.i
-  %10 = load ptr, ptr %pAllocationCallbacks, align 8
-  call void %9(ptr noundef nonnull %retval.0.i.i.i, ptr noundef %10) #63
+  %11 = load ptr, ptr %pAllocationCallbacks, align 8
+  call void %10(ptr noundef nonnull %retval.0.i.i.i, ptr noundef %11) #63
   br label %ma_mp3_post_init.exit
 
 if.else7.i.i.i:                                   ; preds = %if.end.i.i.i10
@@ -60591,15 +60559,15 @@ if.else7.i.i.i:                                   ; preds = %if.end.i.i.i10
   br label %ma_mp3_post_init.exit
 
 if.end16.i.i:                                     ; preds = %if.end5.i.i
-  %11 = load i32, ptr %seekPointCount.i.i, align 4
-  %cmp1.i.i.i = icmp eq i32 %11, 0
+  %12 = load i32, ptr %seekPointCount.i.i, align 4
+  %cmp1.i.i.i = icmp eq i32 %12, 0
   %seekPointCount4.i.i.i = getelementptr inbounds i8, ptr %pMP3, i64 16104
   %pSeekPoints5.i.i.i = getelementptr inbounds i8, ptr %pMP3, i64 16096
   %.pSeekPoints.i.i.i = select i1 %cmp1.i.i.i, ptr null, ptr %retval.0.i.i.i
-  store i32 %11, ptr %seekPointCount4.i.i.i, align 8
+  store i32 %12, ptr %seekPointCount4.i.i.i, align 8
   store ptr %.pSeekPoints.i.i.i, ptr %pSeekPoints5.i.i.i, align 8
   %seekPointCount17.i.i = getelementptr inbounds i8, ptr %pMP3, i64 16176
-  store i32 %11, ptr %seekPointCount17.i.i, align 8
+  store i32 %12, ptr %seekPointCount17.i.i, align 8
   %pSeekPoints18.i.i = getelementptr inbounds i8, ptr %pMP3, i64 16184
   store ptr %retval.0.i.i.i, ptr %pSeekPoints18.i.i, align 8
   br label %ma_mp3_post_init.exit
@@ -60653,16 +60621,14 @@ lor.lhs.false.thread.i:                           ; preds = %if.end4
   br label %if.end.i
 
 ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %if.end4
-  %tmp.sroa.0.0.copyload16.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload17.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload18.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload19.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i, align 8
-  store ptr %tmp.sroa.0.0.copyload16.i, ptr %allocationCallbacks.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pMP3, i64 6712
-  store ptr %tmp.sroa.3.0.copyload17.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i, align 8
+  %tmp.sroa.3.0.copyload17.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
+  %0 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %0, ptr %allocationCallbacks.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pMP3, i64 6720
   store ptr %tmp.sroa.4.0.copyload18.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pMP3, i64 6728
@@ -60685,25 +60651,25 @@ if.end.i:                                         ; preds = %lor.lhs.false.i, %l
 
 if.then10.i:                                      ; preds = %if.end.i
   %pData.i = getelementptr inbounds i8, ptr %pMP3, i64 16024
-  %0 = load ptr, ptr %pData.i, align 8
-  %cmp.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %pData.i, align 8
+  %cmp.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then10.i
-  %1 = load ptr, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i, align 8
-  %cmp2.not.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i, align 8
+  %cmp2.not.i.i = icmp eq ptr %2, null
   br i1 %cmp2.not.i.i, label %return, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  %2 = load ptr, ptr %allocationCallbacks.i, align 8
-  tail call void %1(ptr noundef nonnull %0, ptr noundef %2) #63
+  %3 = load ptr, ptr %allocationCallbacks.i, align 8
+  tail call void %2(ptr noundef nonnull %1, ptr noundef %3) #63
   br label %return
 
 if.end12.i:                                       ; preds = %if.end.i
   %mp3FrameChannels.i = getelementptr inbounds i8, ptr %pMP3, i64 6736
   %channels.i = getelementptr inbounds i8, ptr %pMP3, i64 6668
-  %3 = load <2 x i32>, ptr %mp3FrameChannels.i, align 8
-  store <2 x i32> %3, ptr %channels.i, align 4
+  %4 = load <2 x i32>, ptr %mp3FrameChannels.i, align 8
+  store <2 x i32> %4, ptr %channels.i, align 4
   br label %return
 
 return:                                           ; preds = %if.end12.i, %if.then3.i.i, %if.end.i.i, %if.then10.i, %lor.lhs.false.i, %ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i, %if.end, %entry
@@ -67453,33 +67419,31 @@ if.end:                                           ; preds = %ma_malloc.exit
   %spec.select = select i1 %cmp10, i32 3, i32 1
   %6 = getelementptr inbounds i8, ptr %wavFormat, i64 4
   store i32 %spec.select, ptr %6, align 4
-  %7 = load ptr, ptr %onMalloc.i, align 8
   %onRealloc = getelementptr inbounds i8, ptr %pEncoder, i64 32
-  %8 = load ptr, ptr %onRealloc, align 8
+  %7 = load ptr, ptr %onRealloc, align 8
   %onFree = getelementptr inbounds i8, ptr %pEncoder, i64 40
-  %9 = load ptr, ptr %onFree, align 8
-  %10 = load ptr, ptr %allocationCallbacks1, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %call.i, i8 0, i64 400, i1 false)
+  %8 = load ptr, ptr %onFree, align 8
   %onWrite15.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  store ptr @ma_encoder__internal_on_write_wav, ptr %onWrite15.i.i, align 8
   %onSeek16.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  store ptr @ma_encoder__internal_on_seek_wav, ptr %onSeek16.i.i, align 8
   %pUserData17.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
-  store ptr %pEncoder, ptr %pUserData17.i.i, align 8
   %allocationCallbacks.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
-  store ptr %10, ptr %allocationCallbacks.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
-  store ptr %7, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i, align 8
+  %9 = load ptr, ptr %onMalloc.i, align 8
+  %10 = load <2 x ptr>, ptr %allocationCallbacks1, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %call.i, i8 0, i64 400, i1 false)
+  store ptr @ma_encoder__internal_on_write_wav, ptr %onWrite15.i.i, align 8
+  store ptr @ma_encoder__internal_on_seek_wav, ptr %onSeek16.i.i, align 8
+  store ptr %pEncoder, ptr %pUserData17.i.i, align 8
+  store <2 x ptr> %10, ptr %allocationCallbacks.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
-  store ptr %8, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i, align 8
+  store ptr %7, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
-  store ptr %9, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i, align 8
-  %cmp19.i.i = icmp eq ptr %9, null
+  store ptr %8, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i, align 8
+  %cmp19.i.i = icmp eq ptr %8, null
   br i1 %cmp19.i.i, label %return, label %lor.lhs.false20.i.i
 
 lor.lhs.false20.i.i:                              ; preds = %if.end
-  %cmp22.i.i = icmp eq ptr %7, null
-  %cmp25.i.i = icmp eq ptr %8, null
+  %cmp22.i.i = icmp eq ptr %9, null
+  %cmp25.i.i = icmp eq ptr %7, null
   %or.cond45.i.i = select i1 %cmp22.i.i, i1 %cmp25.i.i, i1 false
   br i1 %or.cond45.i.i, label %return, label %ma_dr_wav_init_write.exit
 
@@ -69488,6 +69452,7 @@ ma_pulsewave_set_duty_cycle.exit:                 ; preds = %entry
   %sampleRate = getelementptr inbounds i8, ptr %pConfig, i64 8
   %0 = load i32, ptr %sampleRate, align 8
   %amplitude = getelementptr inbounds i8, ptr %pConfig, i64 24
+  %frequency = getelementptr inbounds i8, ptr %pConfig, i64 32
   %1 = getelementptr inbounds i8, ptr %pWaveform, i64 64
   %rangeBegInFrames.i.i = getelementptr inbounds i8, ptr %pWaveform, i64 8
   %rangeEndInFrames.i.i = getelementptr inbounds i8, ptr %pWaveform, i64 16
@@ -69499,8 +69464,9 @@ ma_pulsewave_set_duty_cycle.exit:                 ; preds = %entry
   %config.sroa.3.0.config.i.sroa_idx = getelementptr inbounds i8, ptr %pWaveform, i64 80
   %config.sroa.4.0.config.i.sroa_idx = getelementptr inbounds i8, ptr %pWaveform, i64 84
   %config.sroa.5.0.config.i.sroa_idx = getelementptr inbounds i8, ptr %pWaveform, i64 88
-  %2 = load <2 x double>, ptr %amplitude, align 8
-  %3 = load <2 x i32>, ptr %pConfig, align 8
+  %2 = load double, ptr %frequency, align 8
+  %3 = load <2 x double>, ptr %amplitude, align 8
+  %4 = load <2 x i32>, ptr %pConfig, align 8
   store i64 0, ptr %1, align 1
   store ptr @g_ma_waveform_data_source_vtable, ptr %pWaveform, align 8
   store i64 0, ptr %rangeBegInFrames.i.i, align 8
@@ -69509,13 +69475,12 @@ ma_pulsewave_set_duty_cycle.exit:                 ; preds = %entry
   store i64 -1, ptr %loopEndInFrames.i.i, align 8
   store ptr %pWaveform, ptr %pCurrent.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pNext.i.i, i8 0, i64 16, i1 false)
-  store <2 x i32> %3, ptr %config.i, align 8
+  store <2 x i32> %4, ptr %config.i, align 8
   store i32 %0, ptr %config.sroa.3.0.config.i.sroa_idx, align 8
   store i32 1, ptr %config.sroa.4.0.config.i.sroa_idx, align 4
-  store <2 x double> %2, ptr %config.sroa.5.0.config.i.sroa_idx, align 8
+  store <2 x double> %3, ptr %config.sroa.5.0.config.i.sroa_idx, align 8
   %conv.i.i = uitofp i32 %0 to double
-  %4 = extractelement <2 x double> %2, i64 1
-  %div.i.i = fdiv double %conv.i.i, %4
+  %div.i.i = fdiv double %conv.i.i, %2
   %div1.i.i = fdiv double 1.000000e+00, %div.i.i
   %advance.i = getelementptr inbounds i8, ptr %pWaveform, i64 104
   store double %div1.i.i, ptr %advance.i, align 8
@@ -87062,26 +87027,26 @@ if.end6:                                          ; preds = %ma_sound_get_engine
   %relativePos.coerce.sroa.0.0.copyload = load <2 x float>, ptr %relativePos, align 8
   %relativePos.coerce.sroa.2.0.relativePos.sroa_idx = getelementptr inbounds i8, ptr %relativePos, i64 8
   %relativePos.coerce.sroa.2.0.copyload = load float, ptr %relativePos.coerce.sroa.2.0.relativePos.sroa_idx, align 8
+  %a.sroa.0.0.vec.extract.i = extractelement <2 x float> %relativePos.coerce.sroa.0.0.copyload, i64 0
   %1 = fmul <2 x float> %relativePos.coerce.sroa.0.0.copyload, %relativePos.coerce.sroa.0.0.copyload
   %mul4.i.i.i = extractelement <2 x float> %1, i64 1
-  %2 = extractelement <2 x float> %relativePos.coerce.sroa.0.0.copyload, i64 0
-  %3 = call float @llvm.fmuladd.f32(float %2, float %2, float %mul4.i.i.i)
-  %4 = call float @llvm.fmuladd.f32(float %relativePos.coerce.sroa.2.0.copyload, float %relativePos.coerce.sroa.2.0.copyload, float %3)
-  %cmp.i6 = fcmp oeq float %4, 0.000000e+00
+  %2 = call float @llvm.fmuladd.f32(float %a.sroa.0.0.vec.extract.i, float %a.sroa.0.0.vec.extract.i, float %mul4.i.i.i)
+  %3 = call float @llvm.fmuladd.f32(float %relativePos.coerce.sroa.2.0.copyload, float %relativePos.coerce.sroa.2.0.copyload, float %2)
+  %cmp.i6 = fcmp oeq float %3, 0.000000e+00
   br i1 %cmp.i6, label %ma_vec3f_normalize.exit, label %if.end.i7
 
 if.end.i7:                                        ; preds = %if.end6
   %fneg2.i = fneg float %relativePos.coerce.sroa.2.0.copyload
-  %5 = fneg <2 x float> %relativePos.coerce.sroa.0.0.copyload
-  %6 = call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %4) #63, !srcloc !336
-  %7 = insertelement <2 x float> poison, float %6, i64 0
-  %8 = shufflevector <2 x float> %7, <2 x float> poison, <2 x i32> zeroinitializer
-  %9 = fmul <2 x float> %8, %5
-  %mul4.i = fmul float %6, %fneg2.i
+  %4 = fneg <2 x float> %relativePos.coerce.sroa.0.0.copyload
+  %5 = call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %3) #63, !srcloc !336
+  %6 = insertelement <2 x float> poison, float %5, i64 0
+  %7 = shufflevector <2 x float> %6, <2 x float> poison, <2 x i32> zeroinitializer
+  %8 = fmul <2 x float> %7, %4
+  %mul4.i = fmul float %5, %fneg2.i
   br label %ma_vec3f_normalize.exit
 
 ma_vec3f_normalize.exit:                          ; preds = %if.end6, %if.end.i7
-  %retval.sroa.0.0.i = phi <2 x float> [ %9, %if.end.i7 ], [ zeroinitializer, %if.end6 ]
+  %retval.sroa.0.0.i = phi <2 x float> [ %8, %if.end.i7 ], [ zeroinitializer, %if.end6 ]
   %retval.sroa.3.0.i = phi float [ %mul4.i, %if.end.i7 ], [ 0.000000e+00, %if.end6 ]
   %.fca.0.insert.i = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { <2 x float>, float } %.fca.0.insert.i, float %retval.sroa.3.0.i, 1
@@ -89185,26 +89150,26 @@ if.end6.i:                                        ; preds = %ma_sound_get_engine
   %relativePos.coerce.sroa.0.0.copyload.i = load <2 x float>, ptr %relativePos.i, align 8
   %relativePos.coerce.sroa.2.0.relativePos.sroa_idx.i = getelementptr inbounds i8, ptr %relativePos.i, i64 8
   %relativePos.coerce.sroa.2.0.copyload.i = load float, ptr %relativePos.coerce.sroa.2.0.relativePos.sroa_idx.i, align 8
+  %a.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %relativePos.coerce.sroa.0.0.copyload.i, i64 0
   %1 = fmul <2 x float> %relativePos.coerce.sroa.0.0.copyload.i, %relativePos.coerce.sroa.0.0.copyload.i
   %mul4.i.i.i.i = extractelement <2 x float> %1, i64 1
-  %2 = extractelement <2 x float> %relativePos.coerce.sroa.0.0.copyload.i, i64 0
-  %3 = call float @llvm.fmuladd.f32(float %2, float %2, float %mul4.i.i.i.i)
-  %4 = call float @llvm.fmuladd.f32(float %relativePos.coerce.sroa.2.0.copyload.i, float %relativePos.coerce.sroa.2.0.copyload.i, float %3)
-  %cmp.i6.i = fcmp oeq float %4, 0.000000e+00
+  %2 = call float @llvm.fmuladd.f32(float %a.sroa.0.0.vec.extract.i.i, float %a.sroa.0.0.vec.extract.i.i, float %mul4.i.i.i.i)
+  %3 = call float @llvm.fmuladd.f32(float %relativePos.coerce.sroa.2.0.copyload.i, float %relativePos.coerce.sroa.2.0.copyload.i, float %2)
+  %cmp.i6.i = fcmp oeq float %3, 0.000000e+00
   br i1 %cmp.i6.i, label %ma_vec3f_normalize.exit.i, label %if.end.i7.i
 
 if.end.i7.i:                                      ; preds = %if.end6.i
   %fneg2.i.i = fneg float %relativePos.coerce.sroa.2.0.copyload.i
-  %5 = fneg <2 x float> %relativePos.coerce.sroa.0.0.copyload.i
-  %6 = call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %4) #63, !srcloc !336
-  %7 = insertelement <2 x float> poison, float %6, i64 0
-  %8 = shufflevector <2 x float> %7, <2 x float> poison, <2 x i32> zeroinitializer
-  %9 = fmul <2 x float> %8, %5
-  %mul4.i.i = fmul float %6, %fneg2.i.i
+  %4 = fneg <2 x float> %relativePos.coerce.sroa.0.0.copyload.i
+  %5 = call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %3) #63, !srcloc !336
+  %6 = insertelement <2 x float> poison, float %5, i64 0
+  %7 = shufflevector <2 x float> %6, <2 x float> poison, <2 x i32> zeroinitializer
+  %8 = fmul <2 x float> %7, %4
+  %mul4.i.i = fmul float %5, %fneg2.i.i
   br label %ma_vec3f_normalize.exit.i
 
 ma_vec3f_normalize.exit.i:                        ; preds = %if.end.i7.i, %if.end6.i
-  %retval.sroa.0.0.i.i = phi <2 x float> [ %9, %if.end.i7.i ], [ zeroinitializer, %if.end6.i ]
+  %retval.sroa.0.0.i.i = phi <2 x float> [ %8, %if.end.i7.i ], [ zeroinitializer, %if.end6.i ]
   %retval.sroa.3.0.i.i = phi float [ %mul4.i.i, %if.end.i7.i ], [ 0.000000e+00, %if.end6.i ]
   %.fca.0.insert.i.i = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.0.i.i, 0
   %.fca.1.insert.i.i = insertvalue { <2 x float>, float } %.fca.0.insert.i.i, float %retval.sroa.3.0.i.i, 1
@@ -90194,16 +90159,14 @@ lor.lhs.false8.thread.i:                          ; preds = %if.end.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %if.end.i
   %allocationCallbacks.i = getelementptr inbounds i8, ptr %pWav, i64 32
-  %tmp.sroa.0.0.copyload12.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i, ptr %allocationCallbacks.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i, align 8
+  %tmp.sroa.3.0.copyload13.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 56
@@ -92479,16 +92442,14 @@ lor.lhs.false8.thread.i:                          ; preds = %if.end.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %if.end.i
   %allocationCallbacks.i = getelementptr inbounds i8, ptr %pWav, i64 32
-  %tmp.sroa.0.0.copyload12.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i, ptr %allocationCallbacks.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i, align 8
+  %tmp.sroa.3.0.copyload13.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 56
@@ -92564,16 +92525,14 @@ lor.lhs.false20.thread.i:                         ; preds = %if.end14.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %if.end14.i
   %allocationCallbacks.i = getelementptr inbounds i8, ptr %pWav, i64 32
-  %tmp.sroa.0.0.copyload34.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload35.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload36.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload37.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i, align 8
-  store ptr %tmp.sroa.0.0.copyload34.i, ptr %allocationCallbacks.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 40
-  store ptr %tmp.sroa.3.0.copyload35.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i, align 8
+  %tmp.sroa.3.0.copyload35.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 48
   store ptr %tmp.sroa.4.0.copyload36.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 56
@@ -92588,36 +92547,36 @@ lor.lhs.false20.i:                                ; preds = %ma_dr_wav_copy_allo
   br i1 %or.cond45.i, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false20.i, %lor.lhs.false20.thread.i
-  %1 = load i32, ptr %format.i, align 4
-  %conv.i = trunc i32 %1 to i16
+  %2 = load i32, ptr %format.i, align 4
+  %conv.i = trunc i32 %2 to i16
   %fmt.i = getelementptr inbounds i8, ptr %pWav, i64 68
   store i16 %conv.i, ptr %fmt.i, align 4
   %channels.i = getelementptr inbounds i8, ptr %pFormat, i64 8
-  %2 = load i32, ptr %channels.i, align 4
-  %conv29.i = trunc i32 %2 to i16
+  %3 = load i32, ptr %channels.i, align 4
+  %conv29.i = trunc i32 %3 to i16
   %channels31.i = getelementptr inbounds i8, ptr %pWav, i64 70
   store i16 %conv29.i, ptr %channels31.i, align 2
   %sampleRate.i = getelementptr inbounds i8, ptr %pFormat, i64 12
-  %3 = load i32, ptr %sampleRate.i, align 4
+  %4 = load i32, ptr %sampleRate.i, align 4
   %sampleRate33.i = getelementptr inbounds i8, ptr %pWav, i64 72
-  store i32 %3, ptr %sampleRate33.i, align 4
+  store i32 %4, ptr %sampleRate33.i, align 4
   %bitsPerSample.i = getelementptr inbounds i8, ptr %pFormat, i64 16
-  %4 = load i32, ptr %bitsPerSample.i, align 4
-  %mul.i = mul i32 %4, %3
-  %5 = load i32, ptr %channels.i, align 4
-  %mul36.i = mul i32 %mul.i, %5
+  %5 = load i32, ptr %bitsPerSample.i, align 4
+  %mul.i = mul i32 %5, %4
+  %6 = load i32, ptr %channels.i, align 4
+  %mul36.i = mul i32 %mul.i, %6
   %div32.i = lshr i32 %mul36.i, 3
   %avgBytesPerSec.i = getelementptr inbounds i8, ptr %pWav, i64 76
   store i32 %div32.i, ptr %avgBytesPerSec.i, align 4
-  %6 = load i32, ptr %channels.i, align 4
-  %7 = load i32, ptr %bitsPerSample.i, align 4
-  %mul40.i = mul i32 %7, %6
+  %7 = load i32, ptr %channels.i, align 4
+  %8 = load i32, ptr %bitsPerSample.i, align 4
+  %mul40.i = mul i32 %8, %7
   %div4133.i = lshr i32 %mul40.i, 3
   %conv42.i = trunc i32 %div4133.i to i16
   %blockAlign.i = getelementptr inbounds i8, ptr %pWav, i64 80
   store i16 %conv42.i, ptr %blockAlign.i, align 4
-  %8 = load i32, ptr %bitsPerSample.i, align 4
-  %conv45.i = trunc i32 %8 to i16
+  %9 = load i32, ptr %bitsPerSample.i, align 4
+  %conv45.i = trunc i32 %9 to i16
   %bitsPerSample47.i = getelementptr inbounds i8, ptr %pWav, i64 82
   store i16 %conv45.i, ptr %bitsPerSample47.i, align 2
   %extendedSize.i = getelementptr inbounds i8, ptr %pWav, i64 84
@@ -93045,16 +93004,14 @@ lor.lhs.false20.thread.i:                         ; preds = %if.end14.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %if.end14.i
   %allocationCallbacks.i = getelementptr inbounds i8, ptr %pWav, i64 32
-  %tmp.sroa.0.0.copyload34.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload35.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload36.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload37.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i, align 8
-  store ptr %tmp.sroa.0.0.copyload34.i, ptr %allocationCallbacks.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 40
-  store ptr %tmp.sroa.3.0.copyload35.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i, align 8
+  %tmp.sroa.3.0.copyload35.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 48
   store ptr %tmp.sroa.4.0.copyload36.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 56
@@ -93069,36 +93026,36 @@ lor.lhs.false20.i:                                ; preds = %ma_dr_wav_copy_allo
   br i1 %or.cond45.i, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false20.i, %lor.lhs.false20.thread.i
-  %1 = load i32, ptr %format.i, align 4
-  %conv.i = trunc i32 %1 to i16
+  %2 = load i32, ptr %format.i, align 4
+  %conv.i = trunc i32 %2 to i16
   %fmt.i = getelementptr inbounds i8, ptr %pWav, i64 68
   store i16 %conv.i, ptr %fmt.i, align 4
   %channels.i = getelementptr inbounds i8, ptr %pFormat, i64 8
-  %2 = load i32, ptr %channels.i, align 4
-  %conv29.i = trunc i32 %2 to i16
+  %3 = load i32, ptr %channels.i, align 4
+  %conv29.i = trunc i32 %3 to i16
   %channels31.i = getelementptr inbounds i8, ptr %pWav, i64 70
   store i16 %conv29.i, ptr %channels31.i, align 2
   %sampleRate.i = getelementptr inbounds i8, ptr %pFormat, i64 12
-  %3 = load i32, ptr %sampleRate.i, align 4
+  %4 = load i32, ptr %sampleRate.i, align 4
   %sampleRate33.i = getelementptr inbounds i8, ptr %pWav, i64 72
-  store i32 %3, ptr %sampleRate33.i, align 4
+  store i32 %4, ptr %sampleRate33.i, align 4
   %bitsPerSample.i = getelementptr inbounds i8, ptr %pFormat, i64 16
-  %4 = load i32, ptr %bitsPerSample.i, align 4
-  %mul.i = mul i32 %4, %3
-  %5 = load i32, ptr %channels.i, align 4
-  %mul36.i = mul i32 %mul.i, %5
+  %5 = load i32, ptr %bitsPerSample.i, align 4
+  %mul.i = mul i32 %5, %4
+  %6 = load i32, ptr %channels.i, align 4
+  %mul36.i = mul i32 %mul.i, %6
   %div32.i = lshr i32 %mul36.i, 3
   %avgBytesPerSec.i = getelementptr inbounds i8, ptr %pWav, i64 76
   store i32 %div32.i, ptr %avgBytesPerSec.i, align 4
-  %6 = load i32, ptr %channels.i, align 4
-  %7 = load i32, ptr %bitsPerSample.i, align 4
-  %mul40.i = mul i32 %7, %6
+  %7 = load i32, ptr %channels.i, align 4
+  %8 = load i32, ptr %bitsPerSample.i, align 4
+  %mul40.i = mul i32 %8, %7
   %div4133.i = lshr i32 %mul40.i, 3
   %conv42.i = trunc i32 %div4133.i to i16
   %blockAlign.i = getelementptr inbounds i8, ptr %pWav, i64 80
   store i16 %conv42.i, ptr %blockAlign.i, align 4
-  %8 = load i32, ptr %bitsPerSample.i, align 4
-  %conv45.i = trunc i32 %8 to i16
+  %9 = load i32, ptr %bitsPerSample.i, align 4
+  %conv45.i = trunc i32 %9 to i16
   %bitsPerSample47.i = getelementptr inbounds i8, ptr %pWav, i64 82
   store i16 %conv45.i, ptr %bitsPerSample47.i, align 2
   %extendedSize.i = getelementptr inbounds i8, ptr %pWav, i64 84
@@ -93173,16 +93130,14 @@ lor.lhs.false20.thread.i:                         ; preds = %if.end14.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %if.end14.i
   %allocationCallbacks.i = getelementptr inbounds i8, ptr %pWav, i64 32
-  %tmp.sroa.0.0.copyload34.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload35.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload36.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload37.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i, align 8
-  store ptr %tmp.sroa.0.0.copyload34.i, ptr %allocationCallbacks.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 40
-  store ptr %tmp.sroa.3.0.copyload35.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i, align 8
+  %tmp.sroa.3.0.copyload35.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 48
   store ptr %tmp.sroa.4.0.copyload36.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 56
@@ -93197,36 +93152,36 @@ lor.lhs.false20.i:                                ; preds = %ma_dr_wav_copy_allo
   br i1 %or.cond45.i, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false20.i, %lor.lhs.false20.thread.i
-  %1 = load i32, ptr %format.i, align 4
-  %conv.i = trunc i32 %1 to i16
+  %2 = load i32, ptr %format.i, align 4
+  %conv.i = trunc i32 %2 to i16
   %fmt.i = getelementptr inbounds i8, ptr %pWav, i64 68
   store i16 %conv.i, ptr %fmt.i, align 4
   %channels.i = getelementptr inbounds i8, ptr %pFormat, i64 8
-  %2 = load i32, ptr %channels.i, align 4
-  %conv29.i = trunc i32 %2 to i16
+  %3 = load i32, ptr %channels.i, align 4
+  %conv29.i = trunc i32 %3 to i16
   %channels31.i = getelementptr inbounds i8, ptr %pWav, i64 70
   store i16 %conv29.i, ptr %channels31.i, align 2
   %sampleRate.i = getelementptr inbounds i8, ptr %pFormat, i64 12
-  %3 = load i32, ptr %sampleRate.i, align 4
+  %4 = load i32, ptr %sampleRate.i, align 4
   %sampleRate33.i = getelementptr inbounds i8, ptr %pWav, i64 72
-  store i32 %3, ptr %sampleRate33.i, align 4
+  store i32 %4, ptr %sampleRate33.i, align 4
   %bitsPerSample.i = getelementptr inbounds i8, ptr %pFormat, i64 16
-  %4 = load i32, ptr %bitsPerSample.i, align 4
-  %mul.i = mul i32 %4, %3
-  %5 = load i32, ptr %channels.i, align 4
-  %mul36.i = mul i32 %mul.i, %5
+  %5 = load i32, ptr %bitsPerSample.i, align 4
+  %mul.i = mul i32 %5, %4
+  %6 = load i32, ptr %channels.i, align 4
+  %mul36.i = mul i32 %mul.i, %6
   %div32.i = lshr i32 %mul36.i, 3
   %avgBytesPerSec.i = getelementptr inbounds i8, ptr %pWav, i64 76
   store i32 %div32.i, ptr %avgBytesPerSec.i, align 4
-  %6 = load i32, ptr %channels.i, align 4
-  %7 = load i32, ptr %bitsPerSample.i, align 4
-  %mul40.i = mul i32 %7, %6
+  %7 = load i32, ptr %channels.i, align 4
+  %8 = load i32, ptr %bitsPerSample.i, align 4
+  %mul40.i = mul i32 %8, %7
   %div4133.i = lshr i32 %mul40.i, 3
   %conv42.i = trunc i32 %div4133.i to i16
   %blockAlign.i = getelementptr inbounds i8, ptr %pWav, i64 80
   store i16 %conv42.i, ptr %blockAlign.i, align 4
-  %8 = load i32, ptr %bitsPerSample.i, align 4
-  %conv45.i = trunc i32 %8 to i16
+  %9 = load i32, ptr %bitsPerSample.i, align 4
+  %conv45.i = trunc i32 %9 to i16
   %bitsPerSample47.i = getelementptr inbounds i8, ptr %pWav, i64 82
   store i16 %conv45.i, ptr %bitsPerSample47.i, align 2
   %extendedSize.i = getelementptr inbounds i8, ptr %pWav, i64 84
@@ -93334,16 +93289,14 @@ lor.lhs.false8.thread.i.i:                        ; preds = %if.end.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %if.end.i.i
   %allocationCallbacks.i.i = getelementptr inbounds i8, ptr %pWav, i64 32
-  %tmp.sroa.0.0.copyload12.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i, ptr %allocationCallbacks.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pWav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pWav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pWav, i64 56
@@ -93406,16 +93359,14 @@ lor.lhs.false8.thread.i.i:                        ; preds = %if.end.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %if.end.i.i
   %allocationCallbacks.i.i = getelementptr inbounds i8, ptr %pWav, i64 32
-  %tmp.sroa.0.0.copyload12.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i, ptr %allocationCallbacks.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pWav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
+  %2 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %2, ptr %allocationCallbacks.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pWav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pWav, i64 56
@@ -93481,16 +93432,14 @@ lor.lhs.false8.thread.i.i:                        ; preds = %if.end.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %if.end.i.i
   %allocationCallbacks.i.i = getelementptr inbounds i8, ptr %pWav, i64 32
-  %tmp.sroa.0.0.copyload12.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i, ptr %allocationCallbacks.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pWav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pWav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pWav, i64 56
@@ -93554,16 +93503,14 @@ lor.lhs.false8.thread.i.i:                        ; preds = %if.end.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %if.end.i.i
   %allocationCallbacks.i.i = getelementptr inbounds i8, ptr %pWav, i64 32
-  %tmp.sroa.0.0.copyload12.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i, ptr %allocationCallbacks.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pWav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
+  %2 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %2, ptr %allocationCallbacks.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pWav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pWav, i64 56
@@ -93763,16 +93710,14 @@ lor.lhs.false8.thread.i:                          ; preds = %if.end.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %if.end.i
   %allocationCallbacks.i = getelementptr inbounds i8, ptr %pWav, i64 32
-  %tmp.sroa.0.0.copyload12.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i, ptr %allocationCallbacks.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i, align 8
+  %tmp.sroa.3.0.copyload13.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 56
@@ -93910,16 +93855,14 @@ lor.lhs.false8.thread.i:                          ; preds = %if.end.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %if.end.i
   %allocationCallbacks.i = getelementptr inbounds i8, ptr %pWav, i64 32
-  %tmp.sroa.0.0.copyload12.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i, ptr %allocationCallbacks.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i, align 8
+  %tmp.sroa.3.0.copyload13.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 56
@@ -94001,16 +93944,14 @@ lor.lhs.false20.thread.i:                         ; preds = %if.end14.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %if.end14.i
   %allocationCallbacks.i = getelementptr inbounds i8, ptr %pWav, i64 32
-  %tmp.sroa.0.0.copyload34.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload35.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload36.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload37.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i, align 8
-  store ptr %tmp.sroa.0.0.copyload34.i, ptr %allocationCallbacks.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 40
-  store ptr %tmp.sroa.3.0.copyload35.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i, align 8
+  %tmp.sroa.3.0.copyload35.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 48
   store ptr %tmp.sroa.4.0.copyload36.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 56
@@ -94025,36 +93966,36 @@ lor.lhs.false20.i:                                ; preds = %ma_dr_wav_copy_allo
   br i1 %or.cond45.i, label %return, label %if.end3
 
 if.end3:                                          ; preds = %lor.lhs.false20.i, %lor.lhs.false20.thread.i
-  %1 = load i32, ptr %format.i, align 4
-  %conv.i = trunc i32 %1 to i16
+  %2 = load i32, ptr %format.i, align 4
+  %conv.i = trunc i32 %2 to i16
   %fmt.i = getelementptr inbounds i8, ptr %pWav, i64 68
   store i16 %conv.i, ptr %fmt.i, align 4
   %channels.i = getelementptr inbounds i8, ptr %pFormat, i64 8
-  %2 = load i32, ptr %channels.i, align 4
-  %conv29.i = trunc i32 %2 to i16
+  %3 = load i32, ptr %channels.i, align 4
+  %conv29.i = trunc i32 %3 to i16
   %channels31.i = getelementptr inbounds i8, ptr %pWav, i64 70
   store i16 %conv29.i, ptr %channels31.i, align 2
   %sampleRate.i = getelementptr inbounds i8, ptr %pFormat, i64 12
-  %3 = load i32, ptr %sampleRate.i, align 4
+  %4 = load i32, ptr %sampleRate.i, align 4
   %sampleRate33.i = getelementptr inbounds i8, ptr %pWav, i64 72
-  store i32 %3, ptr %sampleRate33.i, align 4
+  store i32 %4, ptr %sampleRate33.i, align 4
   %bitsPerSample.i = getelementptr inbounds i8, ptr %pFormat, i64 16
-  %4 = load i32, ptr %bitsPerSample.i, align 4
-  %mul.i = mul i32 %4, %3
-  %5 = load i32, ptr %channels.i, align 4
-  %mul36.i = mul i32 %mul.i, %5
+  %5 = load i32, ptr %bitsPerSample.i, align 4
+  %mul.i = mul i32 %5, %4
+  %6 = load i32, ptr %channels.i, align 4
+  %mul36.i = mul i32 %mul.i, %6
   %div32.i = lshr i32 %mul36.i, 3
   %avgBytesPerSec.i = getelementptr inbounds i8, ptr %pWav, i64 76
   store i32 %div32.i, ptr %avgBytesPerSec.i, align 4
-  %6 = load i32, ptr %channels.i, align 4
-  %7 = load i32, ptr %bitsPerSample.i, align 4
-  %mul40.i = mul i32 %7, %6
+  %7 = load i32, ptr %channels.i, align 4
+  %8 = load i32, ptr %bitsPerSample.i, align 4
+  %mul40.i = mul i32 %8, %7
   %div4133.i = lshr i32 %mul40.i, 3
   %conv42.i = trunc i32 %div4133.i to i16
   %blockAlign.i = getelementptr inbounds i8, ptr %pWav, i64 80
   store i16 %conv42.i, ptr %blockAlign.i, align 4
-  %8 = load i32, ptr %bitsPerSample.i, align 4
-  %conv45.i = trunc i32 %8 to i16
+  %9 = load i32, ptr %bitsPerSample.i, align 4
+  %conv45.i = trunc i32 %9 to i16
   %bitsPerSample47.i = getelementptr inbounds i8, ptr %pWav, i64 82
   store i16 %conv45.i, ptr %bitsPerSample47.i, align 2
   %extendedSize.i = getelementptr inbounds i8, ptr %pWav, i64 84
@@ -96435,16 +96376,14 @@ lor.lhs.false8.thread.i.i.i:                      ; preds = %if.end.i.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %if.end.i.i.i
   %allocationCallbacks.i.i.i = getelementptr inbounds i8, ptr %wav, i64 32
-  %tmp.sroa.0.0.copyload12.i.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i.i, ptr %allocationCallbacks.i.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %wav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %wav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %wav, i64 56
@@ -96633,16 +96572,14 @@ lor.lhs.false8.thread.i.i.i:                      ; preds = %if.end.i.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %if.end.i.i.i
   %allocationCallbacks.i.i.i = getelementptr inbounds i8, ptr %wav, i64 32
-  %tmp.sroa.0.0.copyload12.i.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i.i, ptr %allocationCallbacks.i.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %wav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %wav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %wav, i64 56
@@ -96831,16 +96768,14 @@ lor.lhs.false8.thread.i.i.i:                      ; preds = %if.end.i.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %if.end.i.i.i
   %allocationCallbacks.i.i.i = getelementptr inbounds i8, ptr %wav, i64 32
-  %tmp.sroa.0.0.copyload12.i.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i.i, ptr %allocationCallbacks.i.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %wav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %wav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %wav, i64 56
@@ -97032,16 +96967,14 @@ lor.lhs.false8.thread.i.i.i.i:                    ; preds = %if.end.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i: ; preds = %if.end.i.i
   %allocationCallbacks.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 32
-  %tmp.sroa.0.0.copyload12.i.i.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i.i.i, ptr %allocationCallbacks.i.i.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i.i.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i.i.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i.i.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 56
@@ -97131,16 +97064,14 @@ lor.lhs.false8.thread.i.i.i.i:                    ; preds = %if.end.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i: ; preds = %if.end.i.i
   %allocationCallbacks.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 32
-  %tmp.sroa.0.0.copyload12.i.i.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i.i.i, ptr %allocationCallbacks.i.i.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i.i.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i.i.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i.i.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 56
@@ -97230,16 +97161,14 @@ lor.lhs.false8.thread.i.i.i.i:                    ; preds = %if.end.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i: ; preds = %if.end.i.i
   %allocationCallbacks.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 32
-  %tmp.sroa.0.0.copyload12.i.i.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i.i.i, ptr %allocationCallbacks.i.i.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i.i.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i.i.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i.i.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 56
@@ -97328,16 +97257,14 @@ lor.lhs.false8.thread.i.i.i.i:                    ; preds = %if.end.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i: ; preds = %if.end.i.i
   %allocationCallbacks.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 32
-  %tmp.sroa.0.0.copyload12.i.i.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i.i.i, ptr %allocationCallbacks.i.i.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i.i.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
+  %2 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %2, ptr %allocationCallbacks.i.i.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i.i.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 56
@@ -97431,16 +97358,14 @@ lor.lhs.false8.thread.i.i.i.i:                    ; preds = %if.end.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i: ; preds = %if.end.i.i
   %allocationCallbacks.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 32
-  %tmp.sroa.0.0.copyload12.i.i.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i.i.i, ptr %allocationCallbacks.i.i.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i.i.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
+  %2 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %2, ptr %allocationCallbacks.i.i.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i.i.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 56
@@ -97534,16 +97459,14 @@ lor.lhs.false8.thread.i.i.i.i:                    ; preds = %if.end.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i: ; preds = %if.end.i.i
   %allocationCallbacks.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 32
-  %tmp.sroa.0.0.copyload12.i.i.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i.i.i, ptr %allocationCallbacks.i.i.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i.i.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i.i, align 8
+  %2 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %2, ptr %allocationCallbacks.i.i.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i.i.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %wav, i64 56
@@ -97635,16 +97558,14 @@ lor.lhs.false8.thread.i.i.i:                      ; preds = %if.end.i.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %if.end.i.i.i
   %allocationCallbacks.i.i.i = getelementptr inbounds i8, ptr %wav, i64 32
-  %tmp.sroa.0.0.copyload12.i.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i.i, ptr %allocationCallbacks.i.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %wav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %wav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %wav, i64 56
@@ -97733,16 +97654,14 @@ lor.lhs.false8.thread.i.i.i:                      ; preds = %if.end.i.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %if.end.i.i.i
   %allocationCallbacks.i.i.i = getelementptr inbounds i8, ptr %wav, i64 32
-  %tmp.sroa.0.0.copyload12.i.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i.i, ptr %allocationCallbacks.i.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %wav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %wav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %wav, i64 56
@@ -97831,16 +97750,14 @@ lor.lhs.false8.thread.i.i.i:                      ; preds = %if.end.i.i.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %if.end.i.i.i
   %allocationCallbacks.i.i.i = getelementptr inbounds i8, ptr %wav, i64 32
-  %tmp.sroa.0.0.copyload12.i.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload13.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload14.i.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload15.i.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload12.i.i.i, ptr %allocationCallbacks.i.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %wav, i64 40
-  store ptr %tmp.sroa.3.0.copyload13.i.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i.i, align 8
+  %tmp.sroa.3.0.copyload13.i.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %wav, i64 48
   store ptr %tmp.sroa.4.0.copyload14.i.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %wav, i64 56
@@ -107695,16 +107612,14 @@ lor.lhs.false.thread.i.i:                         ; preds = %if.end.i
   br label %if.end.i.i
 
 ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %if.end.i
-  %tmp.sroa.0.0.copyload16.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload17.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload18.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload19.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload16.i.i, ptr %allocationCallbacks.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %mp3, i64 6712
-  store ptr %tmp.sroa.3.0.copyload17.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i, align 8
+  %tmp.sroa.3.0.copyload17.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
+  %0 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %0, ptr %allocationCallbacks.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %mp3, i64 6720
   store ptr %tmp.sroa.4.0.copyload18.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %mp3, i64 6728
@@ -107727,25 +107642,25 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, 
 
 if.then10.i.i:                                    ; preds = %if.end.i.i
   %pData.i.i = getelementptr inbounds i8, ptr %mp3, i64 16024
-  %0 = load ptr, ptr %pData.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %pData.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %return, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then10.i.i
-  %1 = load ptr, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i, align 8
-  %cmp2.not.i.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i, align 8
+  %cmp2.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp2.not.i.i.i, label %return, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
-  %2 = load ptr, ptr %allocationCallbacks.i.i, align 8
-  call void %1(ptr noundef nonnull %0, ptr noundef %2) #63
+  %3 = load ptr, ptr %allocationCallbacks.i.i, align 8
+  call void %2(ptr noundef nonnull %1, ptr noundef %3) #63
   br label %return
 
 if.end:                                           ; preds = %if.end.i.i
   %mp3FrameChannels.i.i = getelementptr inbounds i8, ptr %mp3, i64 6736
   %channels.i.i = getelementptr inbounds i8, ptr %mp3, i64 6668
-  %3 = load <2 x i32>, ptr %mp3FrameChannels.i.i, align 8
-  store <2 x i32> %3, ptr %channels.i.i, align 4
+  %4 = load <2 x i32>, ptr %mp3FrameChannels.i.i, align 8
+  store <2 x i32> %4, ptr %channels.i.i, align 4
   %call1 = call fastcc ptr @ma_dr_mp3__full_read_and_close_f32(ptr noundef nonnull %mp3, ptr noundef %pConfig, ptr noundef %pTotalFrameCount)
   br label %return
 
@@ -107947,16 +107862,14 @@ lor.lhs.false.thread.i.i:                         ; preds = %if.end.i
   br label %if.end.i.i
 
 ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %if.end.i
-  %tmp.sroa.0.0.copyload16.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload17.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload18.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload19.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload16.i.i, ptr %allocationCallbacks.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %mp3, i64 6712
-  store ptr %tmp.sroa.3.0.copyload17.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i, align 8
+  %tmp.sroa.3.0.copyload17.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
+  %0 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %0, ptr %allocationCallbacks.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %mp3, i64 6720
   store ptr %tmp.sroa.4.0.copyload18.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %mp3, i64 6728
@@ -107979,25 +107892,25 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, 
 
 if.then10.i.i:                                    ; preds = %if.end.i.i
   %pData.i.i = getelementptr inbounds i8, ptr %mp3, i64 16024
-  %0 = load ptr, ptr %pData.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %pData.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %return, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then10.i.i
-  %1 = load ptr, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i, align 8
-  %cmp2.not.i.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i, align 8
+  %cmp2.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp2.not.i.i.i, label %return, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
-  %2 = load ptr, ptr %allocationCallbacks.i.i, align 8
-  call void %1(ptr noundef nonnull %0, ptr noundef %2) #63
+  %3 = load ptr, ptr %allocationCallbacks.i.i, align 8
+  call void %2(ptr noundef nonnull %1, ptr noundef %3) #63
   br label %return
 
 if.end:                                           ; preds = %if.end.i.i
   %mp3FrameChannels.i.i = getelementptr inbounds i8, ptr %mp3, i64 6736
   %channels.i.i = getelementptr inbounds i8, ptr %mp3, i64 6668
-  %3 = load <2 x i32>, ptr %mp3FrameChannels.i.i, align 8
-  store <2 x i32> %3, ptr %channels.i.i, align 4
+  %4 = load <2 x i32>, ptr %mp3FrameChannels.i.i, align 8
+  store <2 x i32> %4, ptr %channels.i.i, align 4
   %call1 = call fastcc ptr @ma_dr_mp3__full_read_and_close_s16(ptr noundef nonnull %mp3, ptr noundef %pConfig, ptr noundef %pTotalFrameCount)
   br label %return
 
@@ -108254,16 +108167,14 @@ lor.lhs.false.thread.i.i:                         ; preds = %if.end4.i
   br label %if.end.i.i
 
 ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %if.end4.i
-  %tmp.sroa.0.0.copyload16.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload17.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload18.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload19.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload16.i.i, ptr %allocationCallbacks.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %mp3, i64 6712
-  store ptr %tmp.sroa.3.0.copyload17.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i, align 8
+  %tmp.sroa.3.0.copyload17.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
+  %0 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %0, ptr %allocationCallbacks.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %mp3, i64 6720
   store ptr %tmp.sroa.4.0.copyload18.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %mp3, i64 6728
@@ -108286,25 +108197,25 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, 
 
 if.then10.i.i:                                    ; preds = %if.end.i.i
   %pData.i.i = getelementptr inbounds i8, ptr %mp3, i64 16024
-  %0 = load ptr, ptr %pData.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %pData.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %return, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then10.i.i
-  %1 = load ptr, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i, align 8
-  %cmp2.not.i.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i, align 8
+  %cmp2.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp2.not.i.i.i, label %return, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
-  %2 = load ptr, ptr %allocationCallbacks.i.i, align 8
-  call void %1(ptr noundef nonnull %0, ptr noundef %2) #63
+  %3 = load ptr, ptr %allocationCallbacks.i.i, align 8
+  call void %2(ptr noundef nonnull %1, ptr noundef %3) #63
   br label %return
 
 if.end:                                           ; preds = %if.end.i.i
   %mp3FrameChannels.i.i = getelementptr inbounds i8, ptr %mp3, i64 6736
   %channels.i.i = getelementptr inbounds i8, ptr %mp3, i64 6668
-  %3 = load <2 x i32>, ptr %mp3FrameChannels.i.i, align 8
-  store <2 x i32> %3, ptr %channels.i.i, align 4
+  %4 = load <2 x i32>, ptr %mp3FrameChannels.i.i, align 8
+  store <2 x i32> %4, ptr %channels.i.i, align 4
   %call1 = call fastcc ptr @ma_dr_mp3__full_read_and_close_f32(ptr noundef nonnull %mp3, ptr noundef %pConfig, ptr noundef %pTotalFrameCount)
   br label %return
 
@@ -108348,16 +108259,14 @@ lor.lhs.false.thread.i.i:                         ; preds = %if.end4.i
   br label %if.end.i.i
 
 ma_dr_mp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %if.end4.i
-  %tmp.sroa.0.0.copyload16.i.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload17.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload18.i.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload19.i.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i.i, align 8
-  store ptr %tmp.sroa.0.0.copyload16.i.i, ptr %allocationCallbacks.i.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %mp3, i64 6712
-  store ptr %tmp.sroa.3.0.copyload17.i.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i.i, align 8
+  %tmp.sroa.3.0.copyload17.i.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i.i, align 8
+  %0 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %0, ptr %allocationCallbacks.i.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %mp3, i64 6720
   store ptr %tmp.sroa.4.0.copyload18.i.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i.i = getelementptr inbounds i8, ptr %mp3, i64 6728
@@ -108380,25 +108289,25 @@ if.end.i.i:                                       ; preds = %lor.lhs.false.i.i, 
 
 if.then10.i.i:                                    ; preds = %if.end.i.i
   %pData.i.i = getelementptr inbounds i8, ptr %mp3, i64 16024
-  %0 = load ptr, ptr %pData.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %pData.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %return, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then10.i.i
-  %1 = load ptr, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i, align 8
-  %cmp2.not.i.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %tmp.sroa.5.0.allocationCallbacks.sroa_idx2629.i.i, align 8
+  %cmp2.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp2.not.i.i.i, label %return, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
-  %2 = load ptr, ptr %allocationCallbacks.i.i, align 8
-  call void %1(ptr noundef nonnull %0, ptr noundef %2) #63
+  %3 = load ptr, ptr %allocationCallbacks.i.i, align 8
+  call void %2(ptr noundef nonnull %1, ptr noundef %3) #63
   br label %return
 
 if.end:                                           ; preds = %if.end.i.i
   %mp3FrameChannels.i.i = getelementptr inbounds i8, ptr %mp3, i64 6736
   %channels.i.i = getelementptr inbounds i8, ptr %mp3, i64 6668
-  %3 = load <2 x i32>, ptr %mp3FrameChannels.i.i, align 8
-  store <2 x i32> %3, ptr %channels.i.i, align 4
+  %4 = load <2 x i32>, ptr %mp3FrameChannels.i.i, align 8
+  store <2 x i32> %4, ptr %channels.i.i, align 4
   %call1 = call fastcc ptr @ma_dr_mp3__full_read_and_close_s16(ptr noundef nonnull %mp3, ptr noundef %pConfig, ptr noundef %pTotalFrameCount)
   br label %return
 
@@ -132849,16 +132758,14 @@ lor.lhs.false20.thread.i:                         ; preds = %if.end14.i
 
 ma_dr_wav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %if.end14.i
   %allocationCallbacks.i = getelementptr inbounds i8, ptr %pWav, i64 32
-  %tmp.sroa.0.0.copyload34.i = load ptr, ptr %pAllocationCallbacks, align 8
   %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 8
-  %tmp.sroa.3.0.copyload35.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 16
   %tmp.sroa.4.0.copyload36.i = load ptr, ptr %tmp.sroa.4.0.pAllocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pAllocationCallbacks, i64 24
   %tmp.sroa.5.0.copyload37.i = load ptr, ptr %tmp.sroa.5.0.pAllocationCallbacks.sroa_idx.i, align 8
-  store ptr %tmp.sroa.0.0.copyload34.i, ptr %allocationCallbacks.i, align 8
-  %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 40
-  store ptr %tmp.sroa.3.0.copyload35.i, ptr %tmp.sroa.3.0.allocationCallbacks.sroa_idx.i, align 8
+  %tmp.sroa.3.0.copyload35.i = load ptr, ptr %tmp.sroa.3.0.pAllocationCallbacks.sroa_idx.i, align 8
+  %1 = load <2 x ptr>, ptr %pAllocationCallbacks, align 8
+  store <2 x ptr> %1, ptr %allocationCallbacks.i, align 8
   %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 48
   store ptr %tmp.sroa.4.0.copyload36.i, ptr %tmp.sroa.4.0.allocationCallbacks.sroa_idx.i, align 8
   %tmp.sroa.5.0.allocationCallbacks.sroa_idx.i = getelementptr inbounds i8, ptr %pWav, i64 56
@@ -132873,36 +132780,36 @@ lor.lhs.false20.i:                                ; preds = %ma_dr_wav_copy_allo
   br i1 %or.cond45.i, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false20.i, %lor.lhs.false20.thread.i
-  %1 = load i32, ptr %format.i, align 4
-  %conv.i = trunc i32 %1 to i16
+  %2 = load i32, ptr %format.i, align 4
+  %conv.i = trunc i32 %2 to i16
   %fmt.i = getelementptr inbounds i8, ptr %pWav, i64 68
   store i16 %conv.i, ptr %fmt.i, align 4
   %channels.i = getelementptr inbounds i8, ptr %pFormat, i64 8
-  %2 = load i32, ptr %channels.i, align 4
-  %conv29.i = trunc i32 %2 to i16
+  %3 = load i32, ptr %channels.i, align 4
+  %conv29.i = trunc i32 %3 to i16
   %channels31.i = getelementptr inbounds i8, ptr %pWav, i64 70
   store i16 %conv29.i, ptr %channels31.i, align 2
   %sampleRate.i = getelementptr inbounds i8, ptr %pFormat, i64 12
-  %3 = load i32, ptr %sampleRate.i, align 4
+  %4 = load i32, ptr %sampleRate.i, align 4
   %sampleRate33.i = getelementptr inbounds i8, ptr %pWav, i64 72
-  store i32 %3, ptr %sampleRate33.i, align 4
+  store i32 %4, ptr %sampleRate33.i, align 4
   %bitsPerSample.i = getelementptr inbounds i8, ptr %pFormat, i64 16
-  %4 = load i32, ptr %bitsPerSample.i, align 4
-  %mul.i = mul i32 %4, %3
-  %5 = load i32, ptr %channels.i, align 4
-  %mul36.i = mul i32 %mul.i, %5
+  %5 = load i32, ptr %bitsPerSample.i, align 4
+  %mul.i = mul i32 %5, %4
+  %6 = load i32, ptr %channels.i, align 4
+  %mul36.i = mul i32 %mul.i, %6
   %div32.i = lshr i32 %mul36.i, 3
   %avgBytesPerSec.i = getelementptr inbounds i8, ptr %pWav, i64 76
   store i32 %div32.i, ptr %avgBytesPerSec.i, align 4
-  %6 = load i32, ptr %channels.i, align 4
-  %7 = load i32, ptr %bitsPerSample.i, align 4
-  %mul40.i = mul i32 %7, %6
+  %7 = load i32, ptr %channels.i, align 4
+  %8 = load i32, ptr %bitsPerSample.i, align 4
+  %mul40.i = mul i32 %8, %7
   %div4133.i = lshr i32 %mul40.i, 3
   %conv42.i = trunc i32 %div4133.i to i16
   %blockAlign.i = getelementptr inbounds i8, ptr %pWav, i64 80
   store i16 %conv42.i, ptr %blockAlign.i, align 4
-  %8 = load i32, ptr %bitsPerSample.i, align 4
-  %conv45.i = trunc i32 %8 to i16
+  %9 = load i32, ptr %bitsPerSample.i, align 4
+  %conv45.i = trunc i32 %9 to i16
   %bitsPerSample47.i = getelementptr inbounds i8, ptr %pWav, i64 82
   store i16 %conv45.i, ptr %bitsPerSample47.i, align 2
   %extendedSize.i = getelementptr inbounds i8, ptr %pWav, i64 84
@@ -135706,7 +135613,7 @@ if.end.i71:                                       ; preds = %if.end131
 if.else10.i.preheader:                            ; preds = %if.end.i71
   %33 = extractelement <4 x i8> %.fr3, i64 3
   %34 = extractelement <4 x i8> %.fr3, i64 2
-  %35 = extractelement <4 x i8> %.fr3, i64 1
+  %35 = load i8, ptr %arrayidx2.i.i, align 1
   br label %if.else10.i
 
 if.then3.i:                                       ; preds = %if.end20.i, %if.end.i71
@@ -135755,9 +135662,9 @@ if.end29.i114:                                    ; preds = %if.end.i77
 
 if.else10.i:                                      ; preds = %if.else10.i.preheader, %if.end20.i
   %bytesRead.1 = phi i32 [ %add21.i, %if.end20.i ], [ 4, %if.else10.i.preheader ]
-  %46 = phi i8 [ %53, %if.end20.i ], [ %33, %if.else10.i.preheader ]
-  %47 = phi i8 [ %52, %if.end20.i ], [ %34, %if.else10.i.preheader ]
-  %48 = phi i8 [ %51, %if.end20.i ], [ %35, %if.else10.i.preheader ]
+  %46 = phi i8 [ %49, %if.end20.i ], [ %33, %if.else10.i.preheader ]
+  %47 = phi i8 [ %51, %if.end20.i ], [ %34, %if.else10.i.preheader ]
+  %48 = phi i8 [ %52, %if.end20.i ], [ %35, %if.else10.i.preheader ]
   store i8 %48, ptr %id.i, align 4
   store i8 %47, ptr %arrayidx2.i.i, align 1
   store i8 %46, ptr %arrayidx7.i.i, align 2
@@ -135767,14 +135674,14 @@ if.else10.i:                                      ; preds = %if.else10.i.prehead
 
 if.end20.i:                                       ; preds = %if.else10.i
   %add21.i = add i32 %bytesRead.1, 1
-  %49 = load <4 x i8>, ptr %id.i, align 4
-  %.fr4 = freeze <4 x i8> %49
+  %49 = load i8, ptr %arrayidx11.i.i, align 1
+  %50 = load <4 x i8>, ptr %id.i, align 4
+  %51 = load i8, ptr %arrayidx7.i.i, align 2
+  %52 = load i8, ptr %arrayidx2.i.i, align 1
+  %.fr4 = freeze <4 x i8> %50
   %.fr4.scalar = bitcast <4 x i8> %.fr4 to i32
-  %50 = icmp eq i32 %.fr4.scalar, 1399285583
-  %51 = extractelement <4 x i8> %.fr4, i64 1
-  %52 = extractelement <4 x i8> %.fr4, i64 2
-  %53 = extractelement <4 x i8> %.fr4, i64 3
-  br i1 %50, label %if.then3.i, label %if.else10.i
+  %53 = icmp eq i32 %.fr4.scalar, 1399285583
+  br i1 %53, label %if.then3.i, label %if.else10.i
 
 ma_dr_flac_ogg__read_page_header.exit.thread:     ; preds = %if.end131, %if.else10.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %id.i)
@@ -135917,7 +135824,7 @@ if.end.i:                                         ; preds = %if.end.i.lr.ph, %fo
 if.else10.i.preheader:                            ; preds = %if.end.i
   %6 = extractelement <4 x i8> %.fr, i64 3
   %7 = extractelement <4 x i8> %.fr, i64 2
-  %8 = extractelement <4 x i8> %.fr, i64 1
+  %8 = load i8, ptr %arrayidx2.i.i, align 1
   br label %if.else10.i
 
 if.then3.i:                                       ; preds = %if.end20.i, %if.end.i
@@ -136004,9 +135911,9 @@ for.body38.i:                                     ; preds = %if.end29.i44, %for.
 
 if.else10.i:                                      ; preds = %if.else10.i.preheader, %if.end20.i
   %bytesRead.0 = phi i32 [ %add21.i, %if.end20.i ], [ 4, %if.else10.i.preheader ]
-  %23 = phi i8 [ %30, %if.end20.i ], [ %6, %if.else10.i.preheader ]
-  %24 = phi i8 [ %29, %if.end20.i ], [ %7, %if.else10.i.preheader ]
-  %25 = phi i8 [ %28, %if.end20.i ], [ %8, %if.else10.i.preheader ]
+  %23 = phi i8 [ %26, %if.end20.i ], [ %6, %if.else10.i.preheader ]
+  %24 = phi i8 [ %28, %if.end20.i ], [ %7, %if.else10.i.preheader ]
+  %25 = phi i8 [ %29, %if.end20.i ], [ %8, %if.else10.i.preheader ]
   store i8 %25, ptr %id.i, align 4
   store i8 %24, ptr %arrayidx2.i.i, align 1
   store i8 %23, ptr %arrayidx7.i.i, align 2
@@ -136016,14 +135923,14 @@ if.else10.i:                                      ; preds = %if.else10.i.prehead
 
 if.end20.i:                                       ; preds = %if.else10.i
   %add21.i = add i32 %bytesRead.0, 1
-  %26 = load <4 x i8>, ptr %id.i, align 4
-  %.fr116 = freeze <4 x i8> %26
+  %26 = load i8, ptr %arrayidx11.i.i, align 1
+  %27 = load <4 x i8>, ptr %id.i, align 4
+  %28 = load i8, ptr %arrayidx7.i.i, align 2
+  %29 = load i8, ptr %arrayidx2.i.i, align 1
+  %.fr116 = freeze <4 x i8> %27
   %.fr116.scalar = bitcast <4 x i8> %.fr116 to i32
-  %27 = icmp eq i32 %.fr116.scalar, 1399285583
-  %28 = extractelement <4 x i8> %.fr116, i64 1
-  %29 = extractelement <4 x i8> %.fr116, i64 2
-  %30 = extractelement <4 x i8> %.fr116, i64 3
-  br i1 %27, label %if.then3.i, label %if.else10.i
+  %30 = icmp eq i32 %.fr116.scalar, 1399285583
+  br i1 %30, label %if.then3.i, label %if.else10.i
 
 ma_dr_flac_ogg__read_page_header.exit.thread:     ; preds = %for.cond.backedge, %if.else10.i, %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %id.i)

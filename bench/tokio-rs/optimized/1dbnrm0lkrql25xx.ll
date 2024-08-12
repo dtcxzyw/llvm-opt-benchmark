@@ -36,7 +36,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hf539cbf6
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load <2 x i64>, ptr %4, align 8
-  %9 = extractelement <2 x i64> %8, i64 0
+  %9 = load i64, ptr %4, align 8, !noundef !8
   %10 = add i64 %9, 1
   store i64 %10, ptr %4, align 8
   store <2 x i64> %8, ptr %7, align 8

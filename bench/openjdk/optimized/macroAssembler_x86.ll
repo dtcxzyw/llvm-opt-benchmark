@@ -10667,38 +10667,36 @@ define hidden void @_ZN14MacroAssembler13unimplementedEPKc(ptr noundef nonnull a
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 32
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 40
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
-  %15 = load i64, ptr %14, align 8
+  %11 = load <2 x ptr>, ptr %10, align 8
+  %12 = load ptr, ptr %10, align 8
+  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = load i64, ptr %13, align 8
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %3, i64 noundef 0) #18
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.28, ptr noundef %1) #18
-  %16 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %3, i1 noundef zeroext false) #18
-  %17 = call noundef ptr @_ZN17AbstractAssembler11code_stringEPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %16) #18
+  %15 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %3, i1 noundef zeroext false) #18
+  %16 = call noundef ptr @_ZN17AbstractAssembler11code_stringEPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %15) #18
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %3) #18
-  %18 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i = icmp eq ptr %18, null
-  br i1 %.not.i.i.i.i, label %20, label %19
+  %17 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i = icmp eq ptr %17, null
+  br i1 %.not.i.i.i.i, label %19, label %18
 
-19:                                               ; preds = %2
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %15) #18
+18:                                               ; preds = %2
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %14) #18
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %9) #18
-  br label %20
+  br label %19
 
-20:                                               ; preds = %19, %2
-  %21 = load ptr, ptr %10, align 8
-  %.not8.i.i.i.i = icmp eq ptr %21, %11
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %22
+19:                                               ; preds = %18, %2
+  %20 = load ptr, ptr %10, align 8
+  %.not8.i.i.i.i = icmp eq ptr %20, %12
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %21
 
-22:                                               ; preds = %20
+21:                                               ; preds = %19
   store ptr %9, ptr %8, align 8
-  store ptr %11, ptr %10, align 8
-  store ptr %13, ptr %12, align 8
+  store <2 x ptr> %11, ptr %10, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %20, %22
-  call void @_ZN14MacroAssembler4stopEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %17)
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %19, %21
+  call void @_ZN14MacroAssembler4stopEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %16)
   ret void
 }
 

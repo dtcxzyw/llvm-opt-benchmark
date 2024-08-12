@@ -59,7 +59,7 @@ $_ZNSt10_HashtableIPN3ade4NodeESt4pairIKS2_NS0_6passes13TraverseStateEESaIS7_ENS
 define hidden void @_ZNK3ade6passes11CheckCyclesclERKNS0_11PassContextE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unordered_map", align 8
   %4 = alloca %"struct.ade::util::Range::MapRange", align 8
-  %5 = alloca %"class.ade::Handle", align 8
+  %5 = alloca %"class.ade::Handle", align 16
   %6 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr %6, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 8
@@ -91,16 +91,15 @@ define hidden void @_ZNK3ade6passes11CheckCyclesclERKNS0_11PassContextE(ptr noca
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %17 = load ptr, ptr %.sroa.021.029, align 8, !noalias !13
-  store ptr %17, ptr %5, align 8, !alias.scope !13
-  %18 = getelementptr inbounds i8, ptr %.sroa.021.029, i64 8
-  %19 = load ptr, ptr %18, align 8, !noalias !13
-  store ptr %19, ptr %14, align 8, !alias.scope !13
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %19, null
+  %17 = getelementptr inbounds i8, ptr %.sroa.021.029, i64 8
+  %18 = load ptr, ptr %17, align 8, !noalias !13
+  %19 = load <2 x ptr>, ptr %.sroa.021.029, align 8, !noalias !13
+  store <2 x ptr> %19, ptr %5, align 16, !alias.scope !13
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %19, i64 12
+  %21 = getelementptr inbounds i8, ptr %18, i64 12
   %22 = load i8, ptr @__libc_single_threaded, align 1, !noalias !13
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %22, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESE_EENS_5Graph12HandleMapperEEEE8iteratordeEv.exit, label %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESE_EENS_5Graph12HandleMapperEEEE8iteratordeEv.exit.thread
@@ -118,7 +117,7 @@ _ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__no
   br i1 %.not.i.i.i.i.i, label %_ZNK3ade6HandleINS_4NodeEE3getEv.exit, label %26
 
 26:                                               ; preds = %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESE_EENS_5Graph12HandleMapperEEEE8iteratordeEv.exit.thread, %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESE_EENS_5Graph12HandleMapperEEEE8iteratordeEv.exit
-  %.pr35 = phi ptr [ %19, %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESE_EENS_5Graph12HandleMapperEEEE8iteratordeEv.exit.thread ], [ %.pr.pre, %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESE_EENS_5Graph12HandleMapperEEEE8iteratordeEv.exit ]
+  %.pr35 = phi ptr [ %18, %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESE_EENS_5Graph12HandleMapperEEEE8iteratordeEv.exit.thread ], [ %.pr.pre, %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESE_EENS_5Graph12HandleMapperEEEE8iteratordeEv.exit ]
   %27 = getelementptr inbounds i8, ptr %.pr35, i64 8
   %28 = load atomic i32, ptr %27 monotonic, align 8, !noalias !14
   br label %29
@@ -139,7 +138,7 @@ _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i
   %35 = load atomic i32, ptr %27 monotonic, align 8, !noalias !14
   %.fr.i.i.i.i = freeze i32 %35
   %.not.i.i.i.i = icmp eq i32 %.fr.i.i.i.i, 0
-  %36 = load ptr, ptr %5, align 8, !noalias !14
+  %36 = load ptr, ptr %5, align 16, !noalias !14
   %spec.select.i = select i1 %.not.i.i.i.i, ptr null, ptr %36
   %37 = load atomic i64, ptr %27 acquire, align 8
   %38 = icmp eq i64 %37, 4294967297

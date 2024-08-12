@@ -2401,11 +2401,11 @@ declare ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN8WasmEdge6Plugin6Plugin4loadERKNSt10filesystem7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::error_code", align 8
-  %3 = alloca %"class.std::filesystem::__cxx11::recursive_directory_iterator", align 8
+  %3 = alloca %"class.std::filesystem::__cxx11::recursive_directory_iterator", align 16
   %4 = alloca %"class.std::filesystem::__cxx11::recursive_directory_iterator", align 8
-  %5 = alloca %"class.std::filesystem::__cxx11::recursive_directory_iterator", align 8
+  %5 = alloca %"class.std::filesystem::__cxx11::recursive_directory_iterator", align 16
   %6 = alloca %"class.std::filesystem::__cxx11::recursive_directory_iterator", align 8
-  %7 = alloca %"class.std::filesystem::__cxx11::recursive_directory_iterator", align 8
+  %7 = alloca %"class.std::filesystem::__cxx11::recursive_directory_iterator", align 16
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2423,7 +2423,7 @@ define noundef zeroext i1 @_ZN8WasmEdge6Plugin6Plugin4loadERKNSt10filesystem7__c
   %trunc = trunc i64 %14 to i8
   switch i8 %trunc, label %.critedge25.thread [
     i8 2, label %17
-    i8 1, label %67
+    i8 1, label %65
   ]
 
 17:                                               ; preds = %16
@@ -2431,187 +2431,183 @@ define noundef zeroext i1 @_ZN8WasmEdge6Plugin6Plugin4loadERKNSt10filesystem7__c
           to label %_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKNS0_4pathENS_17directory_optionsERSt10error_code.exit unwind label %.loopexit.split-lp
 
 _ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKNS0_4pathENS_17directory_optionsERSt10error_code.exit: ; preds = %17
-  %18 = load ptr, ptr %3, align 8
-  store ptr %18, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %19, align 8
-  %.not.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKS1_.exit, label %22
+  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = load <2 x ptr>, ptr %3, align 16
+  store <2 x ptr> %20, ptr %5, align 16
+  %.not.i.i.i = icmp eq ptr %19, null
+  br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKS1_.exit, label %21
 
-22:                                               ; preds = %_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKNS0_4pathENS_17directory_optionsERSt10error_code.exit
-  %23 = getelementptr inbounds i8, ptr %21, i64 8
-  %24 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i = icmp eq i8 %24, 0
-  br i1 %.not.i.i.i.i, label %28, label %25
+21:                                               ; preds = %_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKNS0_4pathENS_17directory_optionsERSt10error_code.exit
+  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %23 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i = icmp eq i8 %23, 0
+  br i1 %.not.i.i.i.i, label %27, label %24
 
-25:                                               ; preds = %22
-  %26 = load i32, ptr %23, align 4
-  %27 = add nsw i32 %26, 1
-  store i32 %27, ptr %23, align 4
+24:                                               ; preds = %21
+  %25 = load i32, ptr %22, align 4
+  %26 = add nsw i32 %25, 1
+  store i32 %26, ptr %22, align 4
   br label %_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKS1_.exit
 
-28:                                               ; preds = %22
-  %29 = atomicrmw volatile add ptr %23, i32 1 acq_rel, align 4
+27:                                               ; preds = %21
+  %28 = atomicrmw volatile add ptr %22, i32 1 acq_rel, align 4
   br label %_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKS1_.exit
 
-_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKS1_.exit: ; preds = %_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKNS0_4pathENS_17directory_optionsERSt10error_code.exit, %25, %28
+_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKS1_.exit: ; preds = %_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKNS0_4pathENS_17directory_optionsERSt10error_code.exit, %24, %27
   call void @_ZNSt12__shared_ptrINSt10filesystem7__cxx1128recursive_directory_iterator10_Dir_stackELN9__gnu_cxx12_Lock_policyE2EEC1EOS6_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5) #25
   call void @_ZNSt10filesystem7__cxx1128recursive_directory_iteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #25
-  %30 = load ptr, ptr %3, align 8
-  store ptr %30, ptr %7, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 8
-  %32 = load ptr, ptr %20, align 8
-  store ptr %32, ptr %31, align 8
-  %.not.i.i.i26 = icmp eq ptr %32, null
-  br i1 %.not.i.i.i26, label %_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKS1_.exit28, label %33
+  %29 = load ptr, ptr %18, align 8
+  %30 = load <2 x ptr>, ptr %3, align 16
+  store <2 x ptr> %30, ptr %7, align 16
+  %.not.i.i.i26 = icmp eq ptr %29, null
+  br i1 %.not.i.i.i26, label %_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKS1_.exit28, label %31
 
-33:                                               ; preds = %_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKS1_.exit
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
-  %35 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i27 = icmp eq i8 %35, 0
-  br i1 %.not.i.i.i.i27, label %39, label %36
+31:                                               ; preds = %_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKS1_.exit
+  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i27 = icmp eq i8 %33, 0
+  br i1 %.not.i.i.i.i27, label %37, label %34
 
-36:                                               ; preds = %33
-  %37 = load i32, ptr %34, align 4
-  %38 = add nsw i32 %37, 1
-  store i32 %38, ptr %34, align 4
+34:                                               ; preds = %31
+  %35 = load i32, ptr %32, align 4
+  %36 = add nsw i32 %35, 1
+  store i32 %36, ptr %32, align 4
   br label %_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKS1_.exit28
 
-39:                                               ; preds = %33
-  %40 = atomicrmw volatile add ptr %34, i32 1 acq_rel, align 4
+37:                                               ; preds = %31
+  %38 = atomicrmw volatile add ptr %32, i32 1 acq_rel, align 4
   br label %_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKS1_.exit28
 
-_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKS1_.exit28: ; preds = %_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKS1_.exit, %36, %39
+_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKS1_.exit28: ; preds = %_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKS1_.exit, %34, %37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !alias.scope !12
   call void @_ZNSt12__shared_ptrINSt10filesystem7__cxx1128recursive_directory_iterator10_Dir_stackELN9__gnu_cxx12_Lock_policyE2EEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #25
   call void @_ZNSt10filesystem7__cxx1128recursive_directory_iteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #25
-  %41 = getelementptr inbounds i8, ptr %6, i64 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 8
-  %43 = getelementptr inbounds i8, ptr %9, i64 32
-  br label %44
+  %39 = getelementptr inbounds i8, ptr %6, i64 8
+  %40 = getelementptr inbounds i8, ptr %4, i64 8
+  %41 = getelementptr inbounds i8, ptr %9, i64 32
+  br label %42
 
-44:                                               ; preds = %.critedge.thread, %_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKS1_.exit28
+42:                                               ; preds = %.critedge.thread, %_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKS1_.exit28
   %.023 = phi i1 [ false, %_ZNSt10filesystem7__cxx1128recursive_directory_iteratorC2ERKS1_.exit28 ], [ %.1, %.critedge.thread ]
-  %45 = load ptr, ptr %41, align 8
-  %46 = load ptr, ptr %42, align 8
-  %.not34 = icmp eq ptr %46, %45
-  br i1 %.not34, label %47, label %48
+  %43 = load ptr, ptr %39, align 8
+  %44 = load ptr, ptr %40, align 8
+  %.not34 = icmp eq ptr %44, %43
+  br i1 %.not34, label %45, label %46
 
-47:                                               ; preds = %44
+45:                                               ; preds = %42
   call void @_ZNSt10filesystem7__cxx1128recursive_directory_iteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #25
   call void @_ZNSt10filesystem7__cxx1128recursive_directory_iteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #25
   call void @_ZNSt10filesystem7__cxx1128recursive_directory_iteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #25
   br label %.critedge25.thread
 
-48:                                               ; preds = %44
-  %49 = call noundef nonnull align 8 dereferenceable(41) ptr @_ZNKSt10filesystem7__cxx1128recursive_directory_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #25
-  %50 = getelementptr inbounds i8, ptr %49, i64 40
-  %51 = load i8, ptr %50, align 8
-  switch i8 %51, label %52 [
-    i8 0, label %53
-    i8 3, label %53
+46:                                               ; preds = %42
+  %47 = call noundef nonnull align 8 dereferenceable(41) ptr @_ZNKSt10filesystem7__cxx1128recursive_directory_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #25
+  %48 = getelementptr inbounds i8, ptr %47, i64 40
+  %49 = load i8, ptr %48, align 8
+  switch i8 %49, label %50 [
+    i8 0, label %51
+    i8 3, label %51
   ]
 
-52:                                               ; preds = %48
+50:                                               ; preds = %46
   store i32 0, ptr %2, align 8
   store ptr %13, ptr %12, align 8
   br label %_ZNKSt10filesystem7__cxx1115directory_entry15is_regular_fileERSt10error_code.exit
 
-53:                                               ; preds = %48, %48
-  %54 = call i64 @_ZNSt10filesystem6statusERKNS_7__cxx114pathERSt10error_code(ptr noundef nonnull align 8 dereferenceable(40) %49, ptr noundef nonnull align 8 dereferenceable(16) %2) #25
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %54 to i8
+51:                                               ; preds = %46, %46
+  %52 = call i64 @_ZNSt10filesystem6statusERKNS_7__cxx114pathERSt10error_code(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(16) %2) #25
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %52 to i8
   br label %_ZNKSt10filesystem7__cxx1115directory_entry15is_regular_fileERSt10error_code.exit
 
-_ZNKSt10filesystem7__cxx1115directory_entry15is_regular_fileERSt10error_code.exit: ; preds = %52, %53
-  %.0.i.i = phi i8 [ %51, %52 ], [ %.sroa.0.0.extract.trunc.i.i, %53 ]
-  %55 = icmp eq i8 %.0.i.i, 1
-  br i1 %55, label %56, label %.critedge.thread
+_ZNKSt10filesystem7__cxx1115directory_entry15is_regular_fileERSt10error_code.exit: ; preds = %50, %51
+  %.0.i.i = phi i8 [ %49, %50 ], [ %.sroa.0.0.extract.trunc.i.i, %51 ]
+  %53 = icmp eq i8 %.0.i.i, 1
+  br i1 %53, label %54, label %.critedge.thread
 
-56:                                               ; preds = %_ZNKSt10filesystem7__cxx1115directory_entry15is_regular_fileERSt10error_code.exit
-  invoke void @_ZNKSt10filesystem7__cxx114path9extensionEv(ptr dead_on_unwind nonnull writable sret(%"class.std::filesystem::__cxx11::path") align 8 %9, ptr noundef nonnull align 8 dereferenceable(40) %49)
-          to label %57 unwind label %.loopexit
+54:                                               ; preds = %_ZNKSt10filesystem7__cxx1115directory_entry15is_regular_fileERSt10error_code.exit
+  invoke void @_ZNKSt10filesystem7__cxx114path9extensionEv(ptr dead_on_unwind nonnull writable sret(%"class.std::filesystem::__cxx11::path") align 8 %9, ptr noundef nonnull align 8 dereferenceable(40) %47)
+          to label %55 unwind label %.loopexit
 
-57:                                               ; preds = %56
+55:                                               ; preds = %54
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %58 unwind label %.loopexit
+          to label %56 unwind label %.loopexit
 
-58:                                               ; preds = %57
-  %59 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.11) #25
-  %60 = icmp eq i32 %59, 0
+56:                                               ; preds = %55
+  %57 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.11) #25
+  %58 = icmp eq i32 %57, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #25
-  %61 = load ptr, ptr %43, align 8
-  %.not.i.i.i29 = icmp eq ptr %61, null
-  br i1 %.not.i.i.i29, label %.critedge, label %62
+  %59 = load ptr, ptr %41, align 8
+  %.not.i.i.i29 = icmp eq ptr %59, null
+  br i1 %.not.i.i.i29, label %.critedge, label %60
 
-62:                                               ; preds = %58
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull %61) #25
+60:                                               ; preds = %56
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %41, ptr noundef nonnull %59) #25
   br label %.critedge
 
-.critedge:                                        ; preds = %62, %58
-  store ptr null, ptr %43, align 8
+.critedge:                                        ; preds = %60, %56
+  store ptr null, ptr %41, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
-  br i1 %60, label %63, label %.critedge.thread
+  br i1 %58, label %61, label %.critedge.thread
 
-63:                                               ; preds = %.critedge
-  %64 = call noundef zeroext i1 @_ZN8WasmEdge6Plugin6Plugin8loadFileERKNSt10filesystem7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(40) %49) #25
-  %65 = or i1 %.023, %64
+61:                                               ; preds = %.critedge
+  %62 = call noundef zeroext i1 @_ZN8WasmEdge6Plugin6Plugin8loadFileERKNSt10filesystem7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(40) %47) #25
+  %63 = or i1 %.023, %62
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %_ZNKSt10filesystem7__cxx1115directory_entry15is_regular_fileERSt10error_code.exit, %.critedge, %63
-  %.1 = phi i1 [ %65, %63 ], [ %.023, %.critedge ], [ %.023, %_ZNKSt10filesystem7__cxx1115directory_entry15is_regular_fileERSt10error_code.exit ]
-  %66 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10filesystem7__cxx1128recursive_directory_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %44 unwind label %.loopexit
+.critedge.thread:                                 ; preds = %_ZNKSt10filesystem7__cxx1115directory_entry15is_regular_fileERSt10error_code.exit, %.critedge, %61
+  %.1 = phi i1 [ %63, %61 ], [ %.023, %.critedge ], [ %.023, %_ZNKSt10filesystem7__cxx1115directory_entry15is_regular_fileERSt10error_code.exit ]
+  %64 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10filesystem7__cxx1128recursive_directory_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %42 unwind label %.loopexit
 
-67:                                               ; preds = %16
+65:                                               ; preds = %16
   invoke void @_ZNKSt10filesystem7__cxx114path9extensionEv(ptr dead_on_unwind nonnull writable sret(%"class.std::filesystem::__cxx11::path") align 8 %11, ptr noundef nonnull align 8 dereferenceable(40) %0)
-          to label %68 unwind label %.loopexit.split-lp
+          to label %66 unwind label %.loopexit.split-lp
 
-68:                                               ; preds = %67
+66:                                               ; preds = %65
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %69 unwind label %.loopexit.split-lp
+          to label %67 unwind label %.loopexit.split-lp
 
-69:                                               ; preds = %68
-  %70 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.11) #25
-  %71 = icmp eq i32 %70, 0
+67:                                               ; preds = %66
+  %68 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.11) #25
+  %69 = icmp eq i32 %68, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
-  %72 = getelementptr inbounds i8, ptr %11, i64 32
-  %73 = load ptr, ptr %72, align 8
-  %.not.i.i.i31 = icmp eq ptr %73, null
-  br i1 %.not.i.i.i31, label %.critedge25, label %74
+  %70 = getelementptr inbounds i8, ptr %11, i64 32
+  %71 = load ptr, ptr %70, align 8
+  %.not.i.i.i31 = icmp eq ptr %71, null
+  br i1 %.not.i.i.i31, label %.critedge25, label %72
 
-74:                                               ; preds = %69
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %72, ptr noundef nonnull %73) #25
+72:                                               ; preds = %67
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %70, ptr noundef nonnull %71) #25
   br label %.critedge25
 
-.critedge25:                                      ; preds = %74, %69
-  store ptr null, ptr %72, align 8
+.critedge25:                                      ; preds = %72, %67
+  store ptr null, ptr %70, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #25
-  br i1 %71, label %75, label %.critedge25.thread
+  br i1 %69, label %73, label %.critedge25.thread
 
-75:                                               ; preds = %.critedge25
-  %76 = call noundef zeroext i1 @_ZN8WasmEdge6Plugin6Plugin8loadFileERKNSt10filesystem7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(40) %0) #25
+73:                                               ; preds = %.critedge25
+  %74 = call noundef zeroext i1 @_ZN8WasmEdge6Plugin6Plugin8loadFileERKNSt10filesystem7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(40) %0) #25
   br label %.critedge25.thread
 
-.critedge25.thread:                               ; preds = %16, %1, %.critedge25, %75, %47
-  %.020 = phi i1 [ %.023, %47 ], [ %76, %75 ], [ false, %.critedge25 ], [ false, %1 ], [ false, %16 ]
+.critedge25.thread:                               ; preds = %16, %1, %.critedge25, %73, %45
+  %.020 = phi i1 [ %.023, %45 ], [ %74, %73 ], [ false, %.critedge25 ], [ false, %1 ], [ false, %16 ]
   ret i1 %.020
 
-.loopexit:                                        ; preds = %56, %.critedge.thread, %57
+.loopexit:                                        ; preds = %54, %.critedge.thread, %55
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
-  br label %77
+  br label %75
 
-.loopexit.split-lp:                               ; preds = %67, %17, %68
+.loopexit.split-lp:                               ; preds = %65, %17, %66
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %77
+  br label %75
 
-77:                                               ; preds = %.loopexit.split-lp, %.loopexit
+75:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %78 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %78) #26
+  %76 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %76) #26
   unreachable
 }
 
@@ -16578,14 +16574,14 @@ _ZN3fmt2v86detail17write_significandIcNS0_8appenderEmEET0_S4_T1_i.exit: ; preds 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEeTnNSt9enable_ifIXsr3std17is_floating_pointIT1_EE5valueEiE4typeELi0EEET0_S8_S5_NS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %0, x86_fp80 noundef %1, i64 %2, i64 %3, ptr %4) local_unnamed_addr #6 comdat personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.anon.156, align 8
-  %7 = alloca %"struct.fmt::v8::basic_format_specs", align 8
+  %7 = alloca %"struct.fmt::v8::basic_format_specs", align 16
   %8 = alloca %class.anon.141, align 8
-  %9 = alloca %"struct.fmt::v8::basic_format_specs", align 8
+  %9 = alloca %"struct.fmt::v8::basic_format_specs", align 16
   %10 = alloca %"struct.fmt::v8::detail::error_handler", align 1
   %11 = alloca %"class.fmt::v8::basic_memory_buffer.147", align 8
   %12 = alloca %"class.std::allocator.35", align 1
   %13 = alloca %"struct.fmt::v8::detail::big_decimal_fp", align 8
-  store i64 %2, ptr %9, align 8
+  store i64 %2, ptr %9, align 16
   %14 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %3, ptr %14, align 8
   %15 = call i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
@@ -16620,13 +16616,11 @@ define linkonce_odr ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEeTnNSt9enable_if
 
 31:                                               ; preds = %29
   %32 = fcmp oeq x86_fp80 %.0, 0xK7FFF8000000000000000
-  %.sroa.016.0.copyload = load i64, ptr %9, align 8
-  %.sroa.2.0.copyload = load i64, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  store i64 %.sroa.016.0.copyload, ptr %7, align 8
-  %33 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %.sroa.2.0.copyload, ptr %33, align 8
+  %.sroa.2.0.copyload = load i64, ptr %14, align 8
+  %33 = load <2 x i64>, ptr %9, align 16
+  store <2 x i64> %33, ptr %7, align 16
   %34 = and i64 %.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %34, 72057594843234304
   br i1 %or.cond.i, label %35, label %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -16693,13 +16687,13 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %48
   %66 = getelementptr inbounds i8, ptr %65, i64 %63
   store i8 %53, ptr %66, align 1
   %67 = and i32 %.sroa.5.0, -65281
-  %68 = load i32, ptr %9, align 8
+  %68 = load i32, ptr %9, align 16
   %.not35 = icmp eq i32 %68, 0
   br i1 %.not35, label %71, label %69
 
 69:                                               ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit
   %70 = add nsw i32 %68, -1
-  store i32 %70, ptr %9, align 8
+  store i32 %70, ptr %9, align 16
   br label %71
 
 71:                                               ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit, %69, %44
@@ -29309,14 +29303,14 @@ _ZN3fmt2v86detail18make_write_int_argIiEENS1_13write_int_argINSt11conditionalIXa
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEfTnNSt9enable_ifIXsr3std17is_floating_pointIT1_EE5valueEiE4typeELi0EEET0_S8_S5_NS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %0, float noundef %1, i64 %2, i64 %3, ptr %4) local_unnamed_addr #6 comdat personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.anon.156, align 8
-  %7 = alloca %"struct.fmt::v8::basic_format_specs", align 8
+  %7 = alloca %"struct.fmt::v8::basic_format_specs", align 16
   %8 = alloca %class.anon.141, align 8
-  %9 = alloca %"struct.fmt::v8::basic_format_specs", align 8
+  %9 = alloca %"struct.fmt::v8::basic_format_specs", align 16
   %10 = alloca %"struct.fmt::v8::detail::error_handler", align 1
   %11 = alloca %"class.fmt::v8::basic_memory_buffer.147", align 8
   %12 = alloca %"class.std::allocator.35", align 1
   %13 = alloca %"struct.fmt::v8::detail::big_decimal_fp", align 8
-  store i64 %2, ptr %9, align 8
+  store i64 %2, ptr %9, align 16
   %14 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %3, ptr %14, align 8
   %15 = call i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
@@ -29351,13 +29345,11 @@ define linkonce_odr ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEfTnNSt9enable_if
 
 31:                                               ; preds = %29
   %32 = fcmp oeq float %.0, 0x7FF0000000000000
-  %.sroa.016.0.copyload = load i64, ptr %9, align 8
-  %.sroa.2.0.copyload = load i64, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  store i64 %.sroa.016.0.copyload, ptr %7, align 8
-  %33 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %.sroa.2.0.copyload, ptr %33, align 8
+  %.sroa.2.0.copyload = load i64, ptr %14, align 8
+  %33 = load <2 x i64>, ptr %9, align 16
+  store <2 x i64> %33, ptr %7, align 16
   %34 = and i64 %.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %34, 72057594843234304
   br i1 %or.cond.i, label %35, label %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -29424,13 +29416,13 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %48
   %66 = getelementptr inbounds i8, ptr %65, i64 %63
   store i8 %53, ptr %66, align 1
   %67 = and i32 %.sroa.5.0, -65281
-  %68 = load i32, ptr %9, align 8
+  %68 = load i32, ptr %9, align 16
   %.not35 = icmp eq i32 %68, 0
   br i1 %.not35, label %71, label %69
 
 69:                                               ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit
   %70 = add nsw i32 %68, -1
-  store i32 %70, ptr %9, align 8
+  store i32 %70, ptr %9, align 16
   br label %71
 
 71:                                               ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit, %69, %44
@@ -29598,14 +29590,14 @@ declare noundef i32 @_ZN3fmt2v86detail12format_floatIdEEiT_iNS1_11float_specsERN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEdTnNSt9enable_ifIXsr3std17is_floating_pointIT1_EE5valueEiE4typeELi0EEET0_S8_S5_NS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %0, double noundef %1, i64 %2, i64 %3, ptr %4) local_unnamed_addr #6 comdat personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.anon.156, align 8
-  %7 = alloca %"struct.fmt::v8::basic_format_specs", align 8
+  %7 = alloca %"struct.fmt::v8::basic_format_specs", align 16
   %8 = alloca %class.anon.141, align 8
-  %9 = alloca %"struct.fmt::v8::basic_format_specs", align 8
+  %9 = alloca %"struct.fmt::v8::basic_format_specs", align 16
   %10 = alloca %"struct.fmt::v8::detail::error_handler", align 1
   %11 = alloca %"class.fmt::v8::basic_memory_buffer.147", align 8
   %12 = alloca %"class.std::allocator.35", align 1
   %13 = alloca %"struct.fmt::v8::detail::big_decimal_fp", align 8
-  store i64 %2, ptr %9, align 8
+  store i64 %2, ptr %9, align 16
   %14 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %3, ptr %14, align 8
   %15 = call i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
@@ -29640,13 +29632,11 @@ define linkonce_odr ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEdTnNSt9enable_if
 
 31:                                               ; preds = %29
   %32 = fcmp oeq double %.0, 0x7FF0000000000000
-  %.sroa.016.0.copyload = load i64, ptr %9, align 8
-  %.sroa.2.0.copyload = load i64, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  store i64 %.sroa.016.0.copyload, ptr %7, align 8
-  %33 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %.sroa.2.0.copyload, ptr %33, align 8
+  %.sroa.2.0.copyload = load i64, ptr %14, align 8
+  %33 = load <2 x i64>, ptr %9, align 16
+  store <2 x i64> %33, ptr %7, align 16
   %34 = and i64 %.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %34, 72057594843234304
   br i1 %or.cond.i, label %35, label %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -29713,13 +29703,13 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %48
   %66 = getelementptr inbounds i8, ptr %65, i64 %63
   store i8 %53, ptr %66, align 1
   %67 = and i32 %.sroa.5.0, -65281
-  %68 = load i32, ptr %9, align 8
+  %68 = load i32, ptr %9, align 16
   %.not35 = icmp eq i32 %68, 0
   br i1 %.not35, label %71, label %69
 
 69:                                               ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit
   %70 = add nsw i32 %68, -1
-  store i32 %70, ptr %9, align 8
+  store i32 %70, ptr %9, align 16
   br label %71
 
 71:                                               ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit, %69, %44

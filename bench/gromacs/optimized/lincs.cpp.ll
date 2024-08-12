@@ -9214,8 +9214,8 @@ define internal fastcc void @_ZN3gmxL13lincs_warningEP12gmx_domdec_tNS_8ArrayRef
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %24
 
-24:                                               ; preds = %.lr.ph, %102
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %102 ]
+24:                                               ; preds = %.lr.ph, %113
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %113 ]
   %25 = getelementptr inbounds %"struct.(anonymous namespace)::AtomPair", ptr %19, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4
   %27 = getelementptr inbounds i8, ptr %25, i64 4
@@ -9224,7 +9224,7 @@ define internal fastcc void @_ZN3gmxL13lincs_warningEP12gmx_domdec_tNS_8ArrayRef
   %30 = getelementptr inbounds %"class.gmx::BasicVector", ptr %1, i64 %29
   %31 = sext i32 %28 to i64
   %32 = getelementptr inbounds %"class.gmx::BasicVector", ptr %1, i64 %31
-  br i1 %.not, label %39, label %33
+  br i1 %.not, label %41, label %33
 
 33:                                               ; preds = %24
   %34 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %3, ptr noundef nonnull %30, ptr noundef nonnull %32, ptr noundef nonnull %9)
@@ -9236,111 +9236,120 @@ define internal fastcc void @_ZN3gmxL13lincs_warningEP12gmx_domdec_tNS_8ArrayRef
   %.pre15 = load float, ptr %10, align 8
   %.pre16 = load float, ptr %21, align 4
   %.pre17 = load float, ptr %22, align 8
-  br label %60
+  %39 = insertelement <2 x float> poison, float %.pre14, i64 0
+  %40 = insertelement <2 x float> %39, float %.pre17, i64 1
+  br label %67
 
-39:                                               ; preds = %24
-  %40 = load <2 x float>, ptr %30, align 4
-  %41 = load <2 x float>, ptr %32, align 4
-  %42 = fsub <2 x float> %40, %41
-  %43 = getelementptr inbounds i8, ptr %30, i64 8
-  %44 = load float, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %32, i64 8
+41:                                               ; preds = %24
+  %42 = load <2 x float>, ptr %30, align 4
+  %43 = load <2 x float>, ptr %32, align 4
+  %44 = fsub <2 x float> %42, %43
+  %45 = getelementptr inbounds i8, ptr %30, i64 8
   %46 = load float, ptr %45, align 4
-  %47 = fsub float %44, %46
-  store <2 x float> %42, ptr %9, align 8
-  store float %47, ptr %20, align 8
-  %48 = getelementptr inbounds %"class.gmx::BasicVector", ptr %2, i64 %29
-  %49 = getelementptr inbounds %"class.gmx::BasicVector", ptr %2, i64 %31
-  %50 = getelementptr inbounds i8, ptr %48, i64 8
-  %51 = load float, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %49, i64 8
-  %53 = load float, ptr %52, align 4
-  %54 = fsub float %51, %53
-  %55 = load <2 x float>, ptr %48, align 4
-  %56 = load <2 x float>, ptr %49, align 4
-  %57 = fsub <2 x float> %55, %56
-  store <2 x float> %57, ptr %10, align 8
-  store float %54, ptr %22, align 8
-  %58 = extractelement <2 x float> %57, i64 0
-  %59 = extractelement <2 x float> %57, i64 1
-  br label %60
+  %47 = getelementptr inbounds i8, ptr %32, i64 8
+  %48 = load float, ptr %47, align 4
+  store <2 x float> %44, ptr %9, align 8
+  %49 = getelementptr inbounds %"class.gmx::BasicVector", ptr %2, i64 %29
+  %50 = getelementptr inbounds %"class.gmx::BasicVector", ptr %2, i64 %31
+  %51 = getelementptr inbounds i8, ptr %49, i64 8
+  %52 = load float, ptr %51, align 4
+  %53 = getelementptr inbounds i8, ptr %50, i64 8
+  %54 = load float, ptr %53, align 4
+  %55 = insertelement <2 x float> poison, float %46, i64 0
+  %56 = insertelement <2 x float> %55, float %52, i64 1
+  %57 = insertelement <2 x float> poison, float %48, i64 0
+  %58 = insertelement <2 x float> %57, float %54, i64 1
+  %59 = fsub <2 x float> %56, %58
+  %60 = extractelement <2 x float> %59, i64 1
+  %61 = extractelement <2 x float> %59, i64 0
+  store float %61, ptr %20, align 8
+  %62 = load <2 x float>, ptr %49, align 4
+  %63 = load <2 x float>, ptr %50, align 4
+  %64 = fsub <2 x float> %62, %63
+  store <2 x float> %64, ptr %10, align 8
+  store float %60, ptr %22, align 8
+  %65 = extractelement <2 x float> %64, i64 0
+  %66 = extractelement <2 x float> %64, i64 1
+  br label %67
 
-60:                                               ; preds = %39, %33
-  %61 = phi float [ %54, %39 ], [ %.pre17, %33 ]
-  %62 = phi float [ %59, %39 ], [ %.pre16, %33 ]
-  %63 = phi float [ %58, %39 ], [ %.pre15, %33 ]
-  %64 = phi float [ %47, %39 ], [ %.pre14, %33 ]
-  %65 = phi <2 x float> [ %42, %39 ], [ %38, %33 ]
-  %66 = extractelement <2 x float> %65, i64 1
-  %67 = fmul float %66, %66
-  %68 = extractelement <2 x float> %65, i64 0
-  %69 = call float @llvm.fmuladd.f32(float %68, float %68, float %67)
-  %70 = call noundef float @llvm.fmuladd.f32(float %64, float %64, float %69)
-  %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %70)
-  %71 = fmul float %62, %62
-  %72 = call float @llvm.fmuladd.f32(float %63, float %63, float %71)
-  %73 = call noundef float @llvm.fmuladd.f32(float %61, float %61, float %72)
-  %sqrt.i.i40 = call noundef float @llvm.sqrt.f32(float %73)
-  %74 = fmul float %66, %62
-  %75 = call float @llvm.fmuladd.f32(float %68, float %63, float %74)
-  %76 = call noundef float @llvm.fmuladd.f32(float %64, float %61, float %75)
-  %77 = fmul float %sqrt.i.i, %sqrt.i.i40
-  %78 = fdiv float %76, %77
-  %79 = fcmp olt float %78, %15
-  br i1 %79, label %80, label %102
+67:                                               ; preds = %41, %33
+  %68 = phi float [ %60, %41 ], [ %.pre17, %33 ]
+  %69 = phi float [ %66, %41 ], [ %.pre16, %33 ]
+  %70 = phi float [ %65, %41 ], [ %.pre15, %33 ]
+  %71 = phi float [ %61, %41 ], [ %.pre14, %33 ]
+  %72 = phi <2 x float> [ %44, %41 ], [ %38, %33 ]
+  %73 = phi <2 x float> [ %59, %41 ], [ %40, %33 ]
+  %74 = extractelement <2 x float> %72, i64 1
+  %75 = extractelement <2 x float> %72, i64 0
+  %76 = shufflevector <2 x float> %72, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %77 = insertelement <2 x float> %76, float %69, i64 1
+  %78 = fmul <2 x float> %77, %77
+  %79 = insertelement <2 x float> %72, float %70, i64 1
+  %80 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %79, <2 x float> %79, <2 x float> %78)
+  %81 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %73, <2 x float> %73, <2 x float> %80)
+  %82 = call <2 x float> @llvm.sqrt.v2f32(<2 x float> %81)
+  %83 = fmul float %74, %69
+  %84 = call float @llvm.fmuladd.f32(float %75, float %70, float %83)
+  %85 = call noundef float @llvm.fmuladd.f32(float %71, float %68, float %84)
+  %86 = extractelement <2 x float> %82, i64 0
+  %87 = extractelement <2 x float> %82, i64 1
+  %88 = fmul float %86, %87
+  %89 = fdiv float %85, %88
+  %90 = fcmp olt float %89, %15
+  br i1 %90, label %91, label %113
 
-80:                                               ; preds = %60
-  %81 = load ptr, ptr @stderr, align 8
-  %82 = call noundef i32 @_Z8ddglatnrPK12gmx_domdec_ti(ptr noundef %0, i32 noundef %26)
-  %83 = call noundef i32 @_Z8ddglatnrPK12gmx_domdec_ti(ptr noundef %0, i32 noundef %28)
-  %84 = call noundef float @acosf(float noundef %78) #17
-  %85 = fpext float %84 to double
-  %86 = fmul double %85, 0x404CA5DC1A63C1F8
-  %87 = fpext float %sqrt.i.i to double
-  %88 = fpext float %sqrt.i.i40 to double
-  %89 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
-  %90 = load float, ptr %89, align 4
-  %91 = fpext float %90 to double
-  %92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %81, ptr noundef nonnull @.str.35, i32 noundef %82, i32 noundef %83, double noundef %86, double noundef %87, double noundef %88, double noundef %91) #38
-  %93 = call float @llvm.fabs.f32(float %sqrt.i.i40)
-  %94 = fcmp ueq float %93, 0x7FF0000000000000
-  br i1 %94, label %95, label %99
+91:                                               ; preds = %67
+  %92 = load ptr, ptr @stderr, align 8
+  %93 = call noundef i32 @_Z8ddglatnrPK12gmx_domdec_ti(ptr noundef %0, i32 noundef %26)
+  %94 = call noundef i32 @_Z8ddglatnrPK12gmx_domdec_ti(ptr noundef %0, i32 noundef %28)
+  %95 = call noundef float @acosf(float noundef %89) #17
+  %96 = fpext float %95 to double
+  %97 = fmul double %96, 0x404CA5DC1A63C1F8
+  %98 = fpext float %86 to double
+  %99 = fpext float %87 to double
+  %100 = getelementptr inbounds float, ptr %23, i64 %indvars.iv
+  %101 = load float, ptr %100, align 4
+  %102 = fpext float %101 to double
+  %103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef nonnull @.str.35, i32 noundef %93, i32 noundef %94, double noundef %97, double noundef %98, double noundef %99, double noundef %102) #38
+  %104 = call float @llvm.fabs.f32(float %87)
+  %105 = fcmp ueq float %104, 0x7FF0000000000000
+  br i1 %105, label %106, label %110
 
-95:                                               ; preds = %80
+106:                                              ; preds = %91
   call void @_ZNSt10filesystem7__cxx114pathC2IA121_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 1 dereferenceable(121) @.str.18, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 2352, ptr noundef nonnull @.str.36) #34
-          to label %96 unwind label %97
+          to label %107 unwind label %108
 
-96:                                               ; preds = %95
+107:                                              ; preds = %106
   unreachable
 
-97:                                               ; preds = %95
-  %98 = landingpad { ptr, i32 }
+108:                                              ; preds = %106
+  %109 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #17
-  resume { ptr, i32 } %98
+  resume { ptr, i32 } %109
 
-99:                                               ; preds = %80
-  %100 = load i32, ptr %7, align 4
-  %101 = add nsw i32 %100, 1
-  store i32 %101, ptr %7, align 4
-  br label %102
+110:                                              ; preds = %91
+  %111 = load i32, ptr %7, align 4
+  %112 = add nsw i32 %111, 1
+  store i32 %112, ptr %7, align 4
+  br label %113
 
-102:                                              ; preds = %60, %99
+113:                                              ; preds = %67, %110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !141
 
-._crit_edge:                                      ; preds = %102, %8
-  %103 = load i32, ptr %7, align 4
-  %104 = icmp sgt i32 %103, %6
-  br i1 %104, label %105, label %106
+._crit_edge:                                      ; preds = %113, %8
+  %114 = load i32, ptr %7, align 4
+  %115 = icmp sgt i32 %114, %6
+  br i1 %115, label %116, label %117
 
-105:                                              ; preds = %._crit_edge
-  call void @_ZN3gmx28too_many_constraint_warningsE19ConstraintAlgorithmi(i32 noundef 0, i32 noundef %103) #34
+116:                                              ; preds = %._crit_edge
+  call void @_ZN3gmx28too_many_constraint_warningsE19ConstraintAlgorithmi(i32 noundef 0, i32 noundef %114) #34
   unreachable
 
-106:                                              ; preds = %._crit_edge
+117:                                              ; preds = %._crit_edge
   ret void
 }
 
@@ -10691,6 +10700,9 @@ declare float @llvm.sqrt.f32(float) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #30
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <2 x float> @llvm.sqrt.v2f32(<2 x float>) #30
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

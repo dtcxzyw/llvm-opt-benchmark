@@ -2045,12 +2045,12 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
   %3 = alloca %struct.krb5_keytab_entry_st, align 8
   %4 = alloca ptr, align 8
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %125, label %6
+  br i1 %5, label %124, label %6
 
 6:                                                ; preds = %1
   %7 = load i8, ptr %0, align 1
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %125, label %9
+  br i1 %8, label %124, label %9
 
 9:                                                ; preds = %6
   %.b = load i1, ptr @read_keytab_file.first_time, align 4
@@ -2059,7 +2059,7 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
 10:                                               ; preds = %9
   store i1 true, ptr @read_keytab_file.first_time, align 4
   %11 = tail call i32 @krb5_init_context(ptr noundef nonnull @krb5_ctx) #16
-  switch i32 %11, label %125 [
+  switch i32 %11, label %124 [
     i32 -1765328249, label %12
     i32 0, label %12
   ]
@@ -2073,7 +2073,7 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8
   %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, ptr noundef nonnull %0) #18
-  br label %125
+  br label %124
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr @krb5_ctx, align 8
@@ -2099,9 +2099,9 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
 30:                                               ; preds = %18
   %31 = load ptr, ptr @stderr, align 8
   %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.1, ptr noundef nonnull %0) #18
-  br label %125
+  br label %124
 
-33:                                               ; preds = %.lr.ph84, %106
+33:                                               ; preds = %.lr.ph84, %105
   %34 = call ptr @wmem_epan_scope() #16
   %35 = call noalias ptr @wmem_alloc0(ptr noundef %34, i64 noundef 392) #16
   %36 = getelementptr inbounds i8, ptr %35, i64 308
@@ -2189,62 +2189,60 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
   %91 = phi i64 [ %89, %84 ], [ %78, %._crit_edge ]
   %92 = getelementptr i8, ptr %.0.lcssa, i64 %91
   store i8 0, ptr %92, align 1
-  %93 = load i32, ptr %27, align 4
-  %94 = getelementptr inbounds i8, ptr %35, i64 8
-  store i32 %93, ptr %94, align 8
-  %95 = load i32, ptr %28, align 8
-  %96 = getelementptr inbounds i8, ptr %35, i64 12
-  store i32 %95, ptr %96, align 4
-  %97 = getelementptr inbounds i8, ptr %35, i64 16
-  %98 = load ptr, ptr %29, align 8
-  %99 = call i32 @llvm.umin.i32(i32 %95, i32 32)
-  %100 = zext nneg i32 %99 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %97, ptr align 1 %98, i64 %100, i1 false)
+  %93 = getelementptr inbounds i8, ptr %35, i64 8
+  %94 = load i32, ptr %28, align 8
+  %95 = load <2 x i32>, ptr %27, align 4
+  store <2 x i32> %95, ptr %93, align 8
+  %96 = getelementptr inbounds i8, ptr %35, i64 16
+  %97 = load ptr, ptr %29, align 8
+  %98 = call i32 @llvm.umin.i32(i32 %94, i32 32)
+  %99 = zext nneg i32 %98 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %96, ptr align 1 %97, i64 %99, i1 false)
   store ptr %35, ptr @enc_key_list, align 8
-  %101 = load ptr, ptr @krb5_ctx, align 8
-  %102 = call i32 @krb5_free_keytab_entry_contents(ptr noundef %101, ptr noundef nonnull %3) #16
-  %.not74 = icmp eq i32 %102, 0
-  br i1 %.not74, label %106, label %103
+  %100 = load ptr, ptr @krb5_ctx, align 8
+  %101 = call i32 @krb5_free_keytab_entry_contents(ptr noundef %100, ptr noundef nonnull %3) #16
+  %.not74 = icmp eq i32 %101, 0
+  br i1 %.not74, label %105, label %102
 
-103:                                              ; preds = %90
-  %104 = load ptr, ptr @stderr, align 8
-  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.8, i32 noundef %102) #18
-  br label %106
+102:                                              ; preds = %90
+  %103 = load ptr, ptr @stderr, align 8
+  %104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.8, i32 noundef %101) #18
+  br label %105
 
-106:                                              ; preds = %103, %90
-  %107 = load ptr, ptr @kerberos_longterm_keys, align 8
-  call fastcc void @kerberos_key_map_insert(ptr noundef %107, ptr noundef nonnull %35)
-  %108 = load ptr, ptr @krb5_ctx, align 8
-  %109 = load ptr, ptr %2, align 8
-  %110 = call i32 @krb5_kt_next_entry(ptr noundef %108, ptr noundef %109, ptr noundef nonnull %3, ptr noundef nonnull %4) #16
-  %111 = icmp eq i32 %110, 0
-  br i1 %111, label %33, label %.critedge, !llvm.loop !6
+105:                                              ; preds = %102, %90
+  %106 = load ptr, ptr @kerberos_longterm_keys, align 8
+  call fastcc void @kerberos_key_map_insert(ptr noundef %106, ptr noundef nonnull %35)
+  %107 = load ptr, ptr @krb5_ctx, align 8
+  %108 = load ptr, ptr %2, align 8
+  %109 = call i32 @krb5_kt_next_entry(ptr noundef %107, ptr noundef %108, ptr noundef nonnull %3, ptr noundef nonnull %4) #16
+  %110 = icmp eq i32 %109, 0
+  br i1 %110, label %33, label %.critedge, !llvm.loop !6
 
-.critedge:                                        ; preds = %106, %.preheader
-  %112 = load ptr, ptr @krb5_ctx, align 8
-  %113 = load ptr, ptr %2, align 8
-  %114 = call i32 @krb5_kt_end_seq_get(ptr noundef %112, ptr noundef %113, ptr noundef nonnull %4) #16
-  %.not75 = icmp eq i32 %114, 0
-  br i1 %.not75, label %118, label %115
+.critedge:                                        ; preds = %105, %.preheader
+  %111 = load ptr, ptr @krb5_ctx, align 8
+  %112 = load ptr, ptr %2, align 8
+  %113 = call i32 @krb5_kt_end_seq_get(ptr noundef %111, ptr noundef %112, ptr noundef nonnull %4) #16
+  %.not75 = icmp eq i32 %113, 0
+  br i1 %.not75, label %117, label %114
 
-115:                                              ; preds = %.critedge
-  %116 = load ptr, ptr @stderr, align 8
-  %117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.9, i32 noundef %114) #18
-  br label %118
+114:                                              ; preds = %.critedge
+  %115 = load ptr, ptr @stderr, align 8
+  %116 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.9, i32 noundef %113) #18
+  br label %117
 
-118:                                              ; preds = %115, %.critedge
-  %119 = load ptr, ptr @krb5_ctx, align 8
-  %120 = load ptr, ptr %2, align 8
-  %121 = call i32 @krb5_kt_close(ptr noundef %119, ptr noundef %120) #16
-  %.not76 = icmp eq i32 %121, 0
-  br i1 %.not76, label %125, label %122
+117:                                              ; preds = %114, %.critedge
+  %118 = load ptr, ptr @krb5_ctx, align 8
+  %119 = load ptr, ptr %2, align 8
+  %120 = call i32 @krb5_kt_close(ptr noundef %118, ptr noundef %119) #16
+  %.not76 = icmp eq i32 %120, 0
+  br i1 %.not76, label %124, label %121
 
-122:                                              ; preds = %118
-  %123 = load ptr, ptr @stderr, align 8
-  %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %123, ptr noundef nonnull @.str.10, i32 noundef %121) #18
-  br label %125
+121:                                              ; preds = %117
+  %122 = load ptr, ptr @stderr, align 8
+  %123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.10, i32 noundef %120) #18
+  br label %124
 
-125:                                              ; preds = %10, %1, %6, %122, %118, %30, %15
+124:                                              ; preds = %10, %1, %6, %121, %117, %30, %15
   ret void
 }
 

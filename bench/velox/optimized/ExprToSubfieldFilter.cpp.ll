@@ -5242,14 +5242,15 @@ invoke.cont7:                                     ; preds = %if.end
   %12 = load i32, ptr %arrayidx.i28, align 4
   %elements_.i = getelementptr inbounds i8, ptr %6, i64 136
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %elements, i64 8
-  %13 = load <2 x ptr>, ptr %elements_.i, align 8
-  store <2 x ptr> %13, ptr %elements, align 16
-  %14 = extractelement <2 x ptr> %13, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %14, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %6, i64 144
+  %13 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %14 = load <2 x ptr>, ptr %elements_.i, align 8
+  store <2 x ptr> %14, ptr %elements, align 16
+  %cmp.not.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont7
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -8648,14 +8649,15 @@ entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 16
   %agg.tmp3 = alloca %"class.boost::intrusive_ptr", align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %0 = load <2 x ptr>, ptr %type, align 8
-  store <2 x ptr> %0, ptr %agg.tmp, align 16
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %type, i64 8
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %type, align 8
+  store <2 x ptr> %1, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

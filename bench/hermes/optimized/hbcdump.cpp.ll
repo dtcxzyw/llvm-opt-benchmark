@@ -2477,7 +2477,7 @@ define internal fastcc void @_ZL16enterCommandLoopRN4llvh11raw_ostreamESt10share
 entry:
   %disassembler = alloca %"class.hermes::hbc::BytecodeDisassembler", align 8
   %analyzer = alloca %"class.hermes::ProfileAnalyzer", align 8
-  %agg.tmp8 = alloca %"class.std::shared_ptr.120", align 8
+  %agg.tmp8 = alloca %"class.std::shared_ptr.120", align 16
   %agg.tmp9 = alloca %"class.llvh::Optional.123", align 8
   %line = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %bcProvider, align 8
@@ -2611,16 +2611,15 @@ _ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit: ; preds = %_ZN6hermes
   %or.i = or disjoint i32 %switch.select99, 32
   %options.1 = select i1 %tobool.i.i, i32 %or.i, i32 %switch.select99
   store i32 %options.1, ptr %options_.i93, align 8
-  %19 = load ptr, ptr %bcProvider, align 8
-  store ptr %19, ptr %agg.tmp8, align 8
   %_M_refcount.i.i17 = getelementptr inbounds i8, ptr %agg.tmp8, i64 8
-  %20 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %20, ptr %_M_refcount.i.i17, align 8
-  %cmp.not.i.i.i19 = icmp eq ptr %20, null
+  %19 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %20 = load <2 x ptr>, ptr %bcProvider, align 8
+  store <2 x ptr> %20, ptr %agg.tmp8, align 16
+  %cmp.not.i.i.i19 = icmp eq ptr %19, null
   br i1 %cmp.not.i.i.i19, label %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_.exit26, label %if.then.i.i.i20
 
 if.then.i.i.i20:                                  ; preds = %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit
-  %_M_use_count.i.i.i.i21 = getelementptr inbounds i8, ptr %20, i64 8
+  %_M_use_count.i.i.i.i21 = getelementptr inbounds i8, ptr %19, i64 8
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i22 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i22, label %if.else.i.i.i.i.i25, label %if.then.i.i.i.i.i23

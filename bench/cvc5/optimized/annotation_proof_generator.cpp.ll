@@ -538,11 +538,11 @@ eh.resume:                                        ; preds = %lpad5, %lpad
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal24AnnotationProofGenerator11getProofForENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(320) %this, ptr noundef %f) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %pf = alloca %"class.std::shared_ptr", align 8
+  %pf = alloca %"class.std::shared_ptr", align 16
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp13 = alloca %"class.std::shared_ptr", align 8
   %ref.tmp27 = alloca %"class.std::shared_ptr", align 16
-  %agg.tmp32 = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp32 = alloca %"class.std::shared_ptr", align 16
   %d_proofs = getelementptr inbounds i8, ptr %this, i64 208
   %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load i64, ptr %_M_element_count.i.i.i.i, align 8, !noalias !6
@@ -789,7 +789,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i53
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %invoke.cont, %if.then.i.i47, %if.then13.i.i53
-  %45 = load ptr, ptr %pf, align 8
+  %45 = load ptr, ptr %pf, align 16
   %cmp.i.not.i = icmp eq ptr %45, null
   br i1 %cmp.i.not.i, label %if.then12, label %if.end20
 
@@ -923,16 +923,15 @@ invoke.cont22:                                    ; preds = %if.else.i.i.i.i.i70
   br i1 %cmp.not, label %if.end38, label %invoke.cont28
 
 invoke.cont28:                                    ; preds = %invoke.cont22
-  %64 = load ptr, ptr %pf, align 8
-  store ptr %64, ptr %agg.tmp32, align 8
   %_M_refcount.i.i74 = getelementptr inbounds i8, ptr %agg.tmp32, i64 8
-  %65 = load ptr, ptr %_M_refcount3.i.i63, align 8
-  store ptr %65, ptr %_M_refcount.i.i74, align 8
-  %cmp.not.i.i.i76 = icmp eq ptr %65, null
+  %64 = load ptr, ptr %_M_refcount3.i.i63, align 8
+  %65 = load <2 x ptr>, ptr %pf, align 16
+  store <2 x ptr> %65, ptr %agg.tmp32, align 16
+  %cmp.not.i.i.i76 = icmp eq ptr %64, null
   br i1 %cmp.not.i.i.i76, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit83, label %if.then.i.i.i77
 
 if.then.i.i.i77:                                  ; preds = %invoke.cont28
-  %_M_use_count.i.i.i.i78 = getelementptr inbounds i8, ptr %65, i64 8
+  %_M_use_count.i.i.i.i78 = getelementptr inbounds i8, ptr %64, i64 8
   %66 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i79 = icmp eq i8 %66, 0
   br i1 %tobool.i.not.i.i.i.i79, label %if.else.i.i.i.i.i82, label %if.then.i.i.i.i.i80

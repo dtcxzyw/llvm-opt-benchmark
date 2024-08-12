@@ -830,7 +830,7 @@ declare void @_ZN17grpc_event_engine12experimental30CreateAndPrepareListenerSock
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN17grpc_event_engine12experimental23PosixEngineListenerImpl22ListenerAsyncAcceptors6AppendENS0_24ListenerSocketsContainer14ListenerSocketE(ptr noundef nonnull align 16 dereferenceable(80) %this, ptr noundef byval(%"struct.grpc_event_engine::experimental::ListenerSocketsContainer::ListenerSocket") align 8 %socket) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr", align 16
   %agg.tmp2 = alloca %"class.std::shared_ptr.11", align 8
   %agg.tmp11 = alloca %"class.absl::lts_20230802::StatusOr", align 8
   %acceptors_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -838,17 +838,16 @@ entry:
   %listener_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %listener_, align 8
   %engine_ = getelementptr inbounds i8, ptr %0, i64 104
-  %1 = load ptr, ptr %engine_, align 8
-  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %0, i64 112
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %engine_, align 8
+  store <2 x ptr> %2, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -1182,7 +1181,7 @@ entry:
   %peer_name = alloca %"class.absl::lts_20230802::StatusOr.38", align 8
   %ref.tmp82 = alloca %"class.std::__cxx11::basic_string", align 8
   %endpoint = alloca %"class.std::unique_ptr.46", align 8
-  %agg.tmp108 = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp108 = alloca %"class.std::shared_ptr", align 16
   %ref.tmp112 = alloca %"class.grpc_event_engine::experimental::MemoryAllocator", align 8
   %ref.tmp117 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp118 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -1507,16 +1506,15 @@ invoke.cont102:                                   ; preds = %invoke.cont94
 invoke.cont106:                                   ; preds = %invoke.cont102
   %56 = load ptr, ptr %listener_, align 8
   %engine_111 = getelementptr inbounds i8, ptr %56, i64 104
-  %57 = load ptr, ptr %engine_111, align 8
-  store ptr %57, ptr %agg.tmp108, align 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %56, i64 112
-  %58 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %58, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %58, null
+  %57 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %58 = load <2 x ptr>, ptr %engine_111, align 8
+  store <2 x ptr> %58, ptr %agg.tmp108, align 16
+  %cmp.not.i.i.i = icmp eq ptr %57, null
   br i1 %cmp.not.i.i.i, label %invoke.cont120, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont106
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %58, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 8
   %59 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %59, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -4874,7 +4872,7 @@ declare void @_ZN9grpc_core4Fork17DoDecExecCtxCountEv() local_unnamed_addr #0
 define internal fastcc void @"_ZZN17grpc_event_engine12experimental23PosixEngineListenerImpl24HandleExternalConnectionEiiPNS0_11SliceBufferEEN3$_0clEv"(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %endpoint = alloca %"class.std::unique_ptr.46", align 8
-  %agg.tmp7 = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp7 = alloca %"class.std::shared_ptr", align 16
   %ref.tmp = alloca %"class.grpc_event_engine::experimental::MemoryAllocator", align 8
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -4903,17 +4901,16 @@ entry:
   %9 = load ptr, ptr %vfn5, align 8
   %call6 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %3, i64 %5, ptr %6, i1 noundef zeroext %call3)
   %engine_ = getelementptr inbounds i8, ptr %0, i64 104
-  %10 = load ptr, ptr %engine_, align 8
-  store ptr %10, ptr %agg.tmp7, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %0, i64 112
-  %11 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %11, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %11 = load <2 x ptr>, ptr %engine_, align 8
+  store <2 x ptr> %11, ptr %agg.tmp7, align 16
+  %cmp.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i, label %invoke.cont, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

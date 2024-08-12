@@ -2683,15 +2683,15 @@ define weak_odr void @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4
   %37 = load ptr, ptr %36, align 16
   %. = select i1 %.not, ptr %16, ptr %32
   %38 = getelementptr inbounds i8, ptr %8, i64 60
-  %39 = load <4 x i32>, ptr %38, align 4
-  %40 = extractelement <4 x i32> %39, i64 3
-  %41 = select i1 %.not, i32 %40, i32 %35
+  %39 = load i32, ptr %27, align 8, !noalias !24
+  %40 = load <4 x i32>, ptr %38, align 4
+  %41 = select i1 %.not, i32 %39, i32 %35
   %42 = zext i32 %41 to i64
   %43 = getelementptr inbounds %"class.mitsuba::ref.101", ptr %37, i64 %42
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %., align 8, !alias.scope !24
   store float %29, ptr %9, align 8, !alias.scope !24
-  store <4 x i32> %39, ptr %33, align 4
+  store <4 x i32> %40, ptr %33, align 4
   br label %45
 
 45:                                               ; preds = %6, %31
@@ -2756,15 +2756,15 @@ define weak_odr void @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4
   %36 = load ptr, ptr %35, align 16
   %. = select i1 %.not, ptr %15, ptr %31
   %37 = getelementptr inbounds i8, ptr %7, i64 60
-  %38 = load <4 x i32>, ptr %37, align 4
-  %39 = extractelement <4 x i32> %38, i64 3
-  %40 = select i1 %.not, i32 %39, i32 %34
+  %38 = load i32, ptr %26, align 8, !noalias !27
+  %39 = load <4 x i32>, ptr %37, align 4
+  %40 = select i1 %.not, i32 %38, i32 %34
   %41 = zext i32 %40 to i64
   %42 = getelementptr inbounds %"class.mitsuba::ref.101", ptr %36, i64 %41
   %43 = load ptr, ptr %42, align 8
   store ptr %43, ptr %., align 8, !alias.scope !27
   store float %28, ptr %8, align 8, !alias.scope !27
-  store <4 x i32> %38, ptr %32, align 4
+  store <4 x i32> %39, ptr %32, align 4
   br label %44
 
 44:                                               ; preds = %30, %.critedge
@@ -2948,14 +2948,14 @@ define weak_odr void @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4
   %. = select i1 %.not, ptr %13, ptr %29
   store float %26, ptr %0, align 8, !alias.scope !30
   %35 = getelementptr inbounds i8, ptr %6, i64 60
-  %36 = load <4 x i32>, ptr %35, align 4
-  %37 = extractelement <4 x i32> %36, i64 3
-  %38 = select i1 %.not, i32 %37, i32 %32
+  %36 = load i32, ptr %24, align 8, !noalias !30
+  %37 = load <4 x i32>, ptr %35, align 4
+  %38 = select i1 %.not, i32 %36, i32 %32
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds %"class.mitsuba::ref.101", ptr %34, i64 %39
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %., align 8, !alias.scope !30
-  store <4 x i32> %36, ptr %30, align 4
+  store <4 x i32> %37, ptr %30, align 4
   br label %42
 
 42:                                               ; preds = %28, %.critedge
@@ -3018,14 +3018,14 @@ define weak_odr void @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4
   %. = select i1 %.not, ptr %13, ptr %29
   store float %26, ptr %0, align 8
   %35 = getelementptr inbounds i8, ptr %6, i64 60
-  %36 = load <4 x i32>, ptr %35, align 4
-  %37 = extractelement <4 x i32> %36, i64 3
-  %38 = select i1 %.not, i32 %37, i32 %32
+  %36 = load i32, ptr %24, align 8
+  %37 = load <4 x i32>, ptr %35, align 4
+  %38 = select i1 %.not, i32 %36, i32 %32
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds %"class.mitsuba::ref.101", ptr %34, i64 %39
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %., align 8
-  store <4 x i32> %36, ptr %30, align 4
+  store <4 x i32> %37, ptr %30, align 4
   br label %42
 
 42:                                               ; preds = %28, %.critedge
@@ -6898,15 +6898,15 @@ define weak_odr void @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4
   %34 = load ptr, ptr %33, align 16, !noalias !105
   %. = select i1 %.not, ptr %13, ptr %29
   %35 = getelementptr inbounds i8, ptr %5, i64 60
-  %36 = load <4 x i32>, ptr %35, align 4, !noalias !105
-  %37 = extractelement <4 x i32> %36, i64 3
-  %38 = select i1 %.not, i32 %37, i32 %32
+  %36 = load i32, ptr %24, align 8, !noalias !102
+  %37 = load <4 x i32>, ptr %35, align 4, !noalias !105
+  %38 = select i1 %.not, i32 %36, i32 %32
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds %"class.mitsuba::ref.101", ptr %34, i64 %39
   %41 = load ptr, ptr %40, align 8, !noalias !105
   store ptr %41, ptr %., align 8, !alias.scope !99, !noalias !105
   store float %26, ptr %6, align 8, !alias.scope !99, !noalias !105
-  store <4 x i32> %36, ptr %30, align 4, !noalias !105
+  store <4 x i32> %37, ptr %30, align 4, !noalias !105
   br label %42
 
 42:                                               ; preds = %28, %.critedge

@@ -3029,13 +3029,13 @@ while.end:                                        ; preds = %while.end.loopexit,
 for.body795.preheader:                            ; preds = %while.end
   %box780.sroa.29.0.copyload = load float, ptr %Z5.i1283, align 4, !tbaa !12
   %add6.i1692 = fadd nsz float %346, %box780.sroa.29.0.copyload
-  %349 = load <2 x float>, ptr %pos_f, align 4, !tbaa !12
-  %350 = load <4 x float>, ptr %box_0, align 4, !tbaa !12
-  %351 = shufflevector <2 x float> %349, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %352 = insertelement <4 x float> %351, float %346, i64 2
-  %353 = shufflevector <4 x float> %352, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
-  %354 = fadd nsz <4 x float> %350, %353
-  %355 = extractelement <2 x float> %349, i64 1
+  %349 = load float, ptr %Y.i1194, align 4, !tbaa !60
+  %350 = load <2 x float>, ptr %pos_f, align 4, !tbaa !12
+  %351 = load <4 x float>, ptr %box_0, align 4, !tbaa !12
+  %352 = shufflevector <2 x float> %350, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %353 = insertelement <4 x float> %352, float %346, i64 2
+  %354 = shufflevector <4 x float> %353, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
+  %355 = fadd nsz <4 x float> %351, %354
   br label %for.body795
 
 for.cond.cleanup794:                              ; preds = %if.end860, %while.end
@@ -3055,12 +3055,12 @@ _ZNSt6vectorI19NearbyCollisionInfoSaIS0_EED2Ev.exit1697: ; preds = %if.then.i.i.
   br label %nrvo.skipdtor
 
 for.body795:                                      ; preds = %if.end860, %for.body795.preheader
-  %356 = phi float [ %379, %if.end860 ], [ %355, %for.body795.preheader ]
+  %356 = phi float [ %379, %if.end860 ], [ %349, %for.body795.preheader ]
   %__begin1.sroa.0.02220 = phi ptr [ %incdec.ptr.i1714, %if.end860 ], [ %347, %for.body795.preheader ]
   %box780.sroa.29.02215 = phi float [ %box780.sroa.29.2, %if.end860 ], [ %add6.i1692, %for.body795.preheader ]
   %357 = phi i8 [ %381, %if.end860 ], [ %agg.result.promoted, %for.body795.preheader ]
   %358 = phi i8 [ %380, %if.end860 ], [ %standing_on_object.i.promoted, %for.body795.preheader ]
-  %359 = phi <4 x float> [ %382, %if.end860 ], [ %354, %for.body795.preheader ]
+  %359 = phi <4 x float> [ %382, %if.end860 ], [ %355, %for.body795.preheader ]
   %MaxEdge800 = getelementptr inbounds i8, ptr %__begin1.sroa.0.02220, i64 40
   %360 = load float, ptr %MaxEdge800, align 4, !tbaa !18
   %361 = extractelement <4 x float> %359, i64 0
@@ -3102,7 +3102,7 @@ if.then830:                                       ; preds = %if.then827
   store float %add837, ptr %Y.i1194, align 4, !tbaa !60
   %370 = load <4 x float>, ptr %box_0, align 4, !tbaa !12
   %box780.sroa.29.0.copyload1906 = load float, ptr %Z5.i1283, align 4, !tbaa !12
-  %371 = insertelement <4 x float> %353, float %add837, i64 1
+  %371 = insertelement <4 x float> %354, float %add837, i64 1
   %372 = fadd nsz <4 x float> %370, %371
   %add6.i1711 = fadd nsz float %346, %box780.sroa.29.0.copyload1906
   br label %if.end845

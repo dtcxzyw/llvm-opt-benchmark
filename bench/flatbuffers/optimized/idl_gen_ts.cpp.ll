@@ -21759,7 +21759,6 @@ for.body1551.lr.ph:                               ; preds = %invoke.cont1537
   %add.ptr.i1795 = getelementptr inbounds i8, ptr %ss.i1794, i64 16
   %element.i.i1824 = getelementptr inbounds i8, ptr %vector_type, i64 4
   %struct_def.i.i1825 = getelementptr inbounds i8, ptr %vector_type, i64 8
-  %enum_def.i.i1826 = getelementptr inbounds i8, ptr %vector_type, i64 16
   %fixed_length.i.i1827 = getelementptr inbounds i8, ptr %vector_type, i64 24
   %element.i.i1840 = getelementptr inbounds i8, ptr %type1688, i64 4
   %struct_def.i8.i = getelementptr inbounds i8, ptr %type1688, i64 8
@@ -22275,16 +22274,15 @@ invoke.cont1687:                                  ; preds = %invoke.cont1682, %i
   %element.i1820 = getelementptr inbounds i8, ptr %444, i64 204
   %492 = load i32, ptr %element.i1820, align 4, !noalias !388
   %struct_def.i1821 = getelementptr inbounds i8, ptr %444, i64 208
-  %493 = load ptr, ptr %struct_def.i1821, align 8, !noalias !388
   %enum_def.i1822 = getelementptr inbounds i8, ptr %444, i64 216
-  %494 = load ptr, ptr %enum_def.i1822, align 8, !noalias !388
   %fixed_length.i1823 = getelementptr inbounds i8, ptr %444, i64 224
-  %495 = load i16, ptr %fixed_length.i1823, align 8, !noalias !388
+  %493 = load i16, ptr %fixed_length.i1823, align 8, !noalias !388
   store i32 %492, ptr %vector_type, align 8, !alias.scope !388
   store i32 0, ptr %element.i.i1824, align 4, !alias.scope !388
-  store ptr %493, ptr %struct_def.i.i1825, align 8, !alias.scope !388
-  store ptr %494, ptr %enum_def.i.i1826, align 8, !alias.scope !388
-  store i16 %495, ptr %fixed_length.i.i1827, align 8, !alias.scope !388
+  %494 = load ptr, ptr %enum_def.i1822, align 8, !noalias !388
+  %495 = load <2 x ptr>, ptr %struct_def.i1821, align 8, !noalias !388
+  store <2 x ptr> %495, ptr %struct_def.i.i1825, align 8, !alias.scope !388
+  store i16 %493, ptr %fixed_length.i.i1827, align 8, !alias.scope !388
   call void @llvm.experimental.noalias.scope.decl(metadata !391)
   %cmp.i1828 = icmp eq i32 %492, 1
   br i1 %cmp.i1828, label %cond.true.i1830, label %invoke.cont1689
@@ -30346,7 +30344,6 @@ for.body.lr.ph:                                   ; preds = %if.end123
   %namer_ = getelementptr inbounds i8, ptr %this, i64 128
   %element.i.i1019 = getelementptr inbounds i8, ptr %vectortype696, i64 4
   %struct_def.i.i1020 = getelementptr inbounds i8, ptr %vectortype696, i64 8
-  %enum_def.i.i1021 = getelementptr inbounds i8, ptr %vectortype696, i64 16
   %fixed_length.i.i1022 = getelementptr inbounds i8, ptr %vectortype696, i64 24
   %object_name.i1410 = getelementptr inbounds i8, ptr %ref.tmp971, i64 160
   %rel_file_path.i1411 = getelementptr inbounds i8, ptr %ref.tmp971, i64 128
@@ -30375,7 +30372,6 @@ for.body.lr.ph:                                   ; preds = %if.end123
   %import_statement.i1532 = getelementptr inbounds i8, ptr %ref.tmp1080, i64 32
   %element.i.i = getelementptr inbounds i8, ptr %vectortype, i64 4
   %struct_def.i.i = getelementptr inbounds i8, ptr %vectortype, i64 8
-  %enum_def.i.i = getelementptr inbounds i8, ptr %vectortype, i64 16
   %fixed_length.i.i = getelementptr inbounds i8, ptr %vectortype, i64 24
   %object_name.i896 = getelementptr inbounds i8, ptr %ref.tmp554, i64 160
   %rel_file_path.i897 = getelementptr inbounds i8, ptr %ref.tmp554, i64 128
@@ -30904,16 +30900,15 @@ invoke.cont291:                                   ; preds = %if.else224
   %element.i = getelementptr inbounds i8, ptr %64, i64 204
   %106 = load i32, ptr %element.i, align 4, !noalias !571
   %struct_def.i = getelementptr inbounds i8, ptr %64, i64 208
-  %107 = load ptr, ptr %struct_def.i, align 8, !noalias !571
   %enum_def.i = getelementptr inbounds i8, ptr %64, i64 216
-  %108 = load ptr, ptr %enum_def.i, align 8, !noalias !571
   %fixed_length.i = getelementptr inbounds i8, ptr %64, i64 224
-  %109 = load i16, ptr %fixed_length.i, align 8, !noalias !571
+  %107 = load i16, ptr %fixed_length.i, align 8, !noalias !571
   store i32 %106, ptr %vectortype, align 8, !alias.scope !571
   store i32 0, ptr %element.i.i, align 4, !alias.scope !571
-  store ptr %107, ptr %struct_def.i.i, align 8, !alias.scope !571
-  store ptr %108, ptr %enum_def.i.i, align 8, !alias.scope !571
-  store i16 %109, ptr %fixed_length.i.i, align 8, !alias.scope !571
+  %108 = load ptr, ptr %enum_def.i, align 8, !noalias !571
+  %109 = load <2 x ptr>, ptr %struct_def.i, align 8, !noalias !571
+  store <2 x ptr> %109, ptr %struct_def.i.i, align 8, !alias.scope !571
+  store i16 %107, ptr %fixed_length.i.i, align 8, !alias.scope !571
   invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias nonnull align 8 %vectortypename, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %vectortype, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont292 unwind label %lpad158
 
@@ -32803,16 +32798,15 @@ invoke.cont699:                                   ; preds = %if.else224
   %element.i1015 = getelementptr inbounds i8, ptr %64, i64 204
   %226 = load i32, ptr %element.i1015, align 4, !noalias !646
   %struct_def.i1016 = getelementptr inbounds i8, ptr %64, i64 208
-  %227 = load ptr, ptr %struct_def.i1016, align 8, !noalias !646
   %enum_def.i1017 = getelementptr inbounds i8, ptr %64, i64 216
-  %228 = load ptr, ptr %enum_def.i1017, align 8, !noalias !646
   %fixed_length.i1018 = getelementptr inbounds i8, ptr %64, i64 224
-  %229 = load i16, ptr %fixed_length.i1018, align 8, !noalias !646
+  %227 = load i16, ptr %fixed_length.i1018, align 8, !noalias !646
   store i32 %226, ptr %vectortype696, align 8, !alias.scope !646
   store i32 0, ptr %element.i.i1019, align 4, !alias.scope !646
-  store ptr %227, ptr %struct_def.i.i1020, align 8, !alias.scope !646
-  store ptr %228, ptr %enum_def.i.i1021, align 8, !alias.scope !646
-  store i16 %229, ptr %fixed_length.i.i1022, align 8, !alias.scope !646
+  %228 = load ptr, ptr %enum_def.i1017, align 8, !noalias !646
+  %229 = load <2 x ptr>, ptr %struct_def.i1016, align 8, !noalias !646
+  store <2 x ptr> %229, ptr %struct_def.i.i1020, align 8, !alias.scope !646
+  store i16 %227, ptr %fixed_length.i.i1022, align 8, !alias.scope !646
   invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias nonnull align 8 %vectortypename700, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %vectortype696, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont701 unwind label %lpad158
 

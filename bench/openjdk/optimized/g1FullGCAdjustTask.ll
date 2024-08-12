@@ -687,79 +687,77 @@ define hidden void @_ZN18G1FullGCAdjustTask4workEj(ptr noundef nonnull align 8 d
   %17 = getelementptr inbounds i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %16, i64 32
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 40
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 8
-  %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 488
-  %28 = load ptr, ptr %27, align 8
-  %29 = zext i32 %1 to i64
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %29
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
-  %33 = load ptr, ptr %32, align 8
-  tail call void @_ZN14PreservedMarks21adjust_during_full_gcEv(ptr noundef nonnull align 8 dereferenceable(72) %33) #9
+  %20 = load <2 x ptr>, ptr %19, align 8
+  %21 = load ptr, ptr %19, align 8
+  %22 = getelementptr inbounds i8, ptr %16, i64 8
+  %23 = load i64, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 488
+  %27 = load ptr, ptr %26, align 8
+  %28 = zext i32 %1 to i64
+  %29 = getelementptr inbounds ptr, ptr %27, i64 %28
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %32 = load ptr, ptr %31, align 8
+  tail call void @_ZN14PreservedMarks21adjust_during_full_gcEv(ptr noundef nonnull align 8 dereferenceable(72) %32) #9
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV17AlwaysTrueClosure, i64 16), ptr %4, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 352
-  %35 = getelementptr inbounds i8, ptr %0, i64 952
-  call void @_ZN13WeakProcessor4Task4workI17AlwaysTrueClosure15G1AdjustClosureEEvjPT_PT0_(ptr noundef nonnull align 8 dereferenceable(584) %34, i32 noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %35)
+  %33 = getelementptr inbounds i8, ptr %0, i64 352
+  %34 = getelementptr inbounds i8, ptr %0, i64 952
+  call void @_ZN13WeakProcessor4Task4workI17AlwaysTrueClosure15G1AdjustClosureEEvjPT_PT0_(ptr noundef nonnull align 8 dereferenceable(584) %33, i32 noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %34)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15CLDToOopClosure, i64 16), ptr %5, align 8
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 16
-  store i32 8, ptr %37, align 8
+  %35 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %34, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %5, i64 16
+  store i32 8, ptr %36, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19NMethodToOopClosure, i64 16), ptr %6, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %35, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 16
-  store i8 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 32
-  call void @_ZN15G1RootProcessor17process_all_rootsEP10OopClosureP10CLDClosureP14NMethodClosure(ptr noundef nonnull align 8 dereferenceable(320) %40, ptr noundef nonnull %35, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
-  %41 = load ptr, ptr %25, align 8
-  %42 = getelementptr inbounds i8, ptr %7, i64 8
-  store i8 1, ptr %42, align 8
+  %37 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %34, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %6, i64 16
+  store i8 1, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  call void @_ZN15G1RootProcessor17process_all_rootsEP10OopClosureP10CLDClosureP14NMethodClosure(ptr noundef nonnull align 8 dereferenceable(320) %39, ptr noundef nonnull %34, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
+  %40 = load ptr, ptr %24, align 8
+  %41 = getelementptr inbounds i8, ptr %7, i64 8
+  store i8 1, ptr %41, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV21G1AdjustRegionClosure, i64 16), ptr %7, align 8
-  %43 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %41, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %7, i64 24
-  %45 = call noundef ptr @_ZN15G1FullCollector11mark_bitmapEv(ptr noundef nonnull align 8 dereferenceable(824) %41) #9
-  store ptr %45, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %7, i64 32
-  store i32 %1, ptr %46, align 8
-  %47 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 936
-  call void @_ZNK15G1CollectedHeap42heap_region_par_iterate_from_worker_offsetEP19G1HeapRegionClosureP19G1HeapRegionClaimerj(ptr noundef nonnull align 8 dereferenceable(1488) %47, ptr noundef nonnull %7, ptr noundef nonnull %48, i32 noundef %1) #9
-  %49 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #9
-  %50 = extractvalue { i64, i64 } %49, 0
-  store i64 %50, ptr %8, align 8
-  %51 = getelementptr inbounds i8, ptr %8, i64 8
-  %52 = extractvalue { i64, i64 } %49, 1
-  store i64 %52, ptr %51, align 8
+  %42 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr %40, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %7, i64 24
+  %44 = call noundef ptr @_ZN15G1FullCollector11mark_bitmapEv(ptr noundef nonnull align 8 dereferenceable(824) %40) #9
+  store ptr %44, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %7, i64 32
+  store i32 %1, ptr %45, align 8
+  %46 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 936
+  call void @_ZNK15G1CollectedHeap42heap_region_par_iterate_from_worker_offsetEP19G1HeapRegionClosureP19G1HeapRegionClaimerj(ptr noundef nonnull align 8 dereferenceable(1488) %46, ptr noundef nonnull %7, ptr noundef nonnull %47, i32 noundef %1) #9
+  %48 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #9
+  %49 = extractvalue { i64, i64 } %48, 0
+  store i64 %49, ptr %8, align 8
+  %50 = getelementptr inbounds i8, ptr %8, i64 8
+  %51 = extractvalue { i64, i64 } %48, 1
+  store i64 %51, ptr %50, align 8
   call void @_ZN12G1FullGCTask8log_taskEPKcjRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceES7_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.4, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %8) #9
-  %53 = load ptr, ptr %18, align 8
-  %.not.i.i.i.i = icmp eq ptr %53, null
-  br i1 %.not.i.i.i.i, label %55, label %54
+  %52 = load ptr, ptr %18, align 8
+  %.not.i.i.i.i = icmp eq ptr %52, null
+  br i1 %.not.i.i.i.i, label %54, label %53
 
-54:                                               ; preds = %2
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %16, i64 noundef %24) #9
+53:                                               ; preds = %2
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %16, i64 noundef %23) #9
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %18) #9
-  br label %55
+  br label %54
 
-55:                                               ; preds = %54, %2
-  %56 = load ptr, ptr %19, align 8
-  %.not8.i.i.i.i = icmp eq ptr %56, %20
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %57
+54:                                               ; preds = %53, %2
+  %55 = load ptr, ptr %19, align 8
+  %.not8.i.i.i.i = icmp eq ptr %55, %21
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %56
 
-57:                                               ; preds = %55
+56:                                               ; preds = %54
   store ptr %18, ptr %17, align 8
-  store ptr %20, ptr %19, align 8
-  store ptr %22, ptr %21, align 8
+  store <2 x ptr> %20, ptr %19, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %55, %57
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %54, %56
   ret void
 }
 

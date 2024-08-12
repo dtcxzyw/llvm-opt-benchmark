@@ -1787,13 +1787,14 @@ lpad.body:                                        ; preds = %lpad16.i, %ehcleanu
   resume { ptr, i32 } %eh.lpad-body
 
 _ZN5arrow6StatusD2Ev.exit66:                      ; preds = %_ZN5arrow6StatusD2Ev.exit
-  %184 = load <2 x ptr>, ptr %converter, align 16
-  %185 = extractelement <2 x ptr> %184, i64 1
-  %cmp.not.i.i.i67 = icmp eq ptr %185, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %converter, i64 8
+  %184 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %185 = load <2 x ptr>, ptr %converter, align 16
+  %cmp.not.i.i.i67 = icmp eq ptr %184, null
   br i1 %cmp.not.i.i.i67, label %_ZN5arrow8internal20checked_pointer_castINS_11SparseIndexENS_14SparseCOOIndexEEESt10shared_ptrIT_ES4_IT0_E.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit66
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %185, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %184, i64 8
   %186 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %186, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.then.i.i.i.i.i71, label %if.then.i.i.i.i.i71.thread
@@ -1823,7 +1824,7 @@ if.else.i.i.i.i.i.i.i76:                          ; preds = %if.then.i.i.i.i.i71
 _ZN5arrow8internal20checked_pointer_castINS_11SparseIndexENS_14SparseCOOIndexEEESt10shared_ptrIT_ES4_IT0_E.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit66, %if.then.i.i.i.i.i.i.i74, %if.else.i.i.i.i.i.i.i76
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %out_sparse_index, i64 8
   %191 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store <2 x ptr> %184, ptr %out_sparse_index, align 8
+  store <2 x ptr> %185, ptr %out_sparse_index, align 8
   %cmp.not.i.i.i.i77 = icmp eq ptr %191, null
   br i1 %cmp.not.i.i.i.i77, label %_ZNSt10shared_ptrIN5arrow11SparseIndexEED2Ev.exit, label %if.then.i.i.i.i78
 
@@ -1899,7 +1900,7 @@ _ZNSt10shared_ptrIN5arrow11SparseIndexEED2Ev.exit: ; preds = %if.end8.sink.split
   br i1 %cmp.not.i.i.i67, label %_ZNSt10shared_ptrIN5arrow14SparseCOOIndexEED2Ev.exit, label %if.then.i.i.i120
 
 if.then.i.i.i120:                                 ; preds = %_ZNSt10shared_ptrIN5arrow11SparseIndexEED2Ev.exit
-  %_M_use_count.i.i.i.i121 = getelementptr inbounds i8, ptr %185, i64 8
+  %_M_use_count.i.i.i.i121 = getelementptr inbounds i8, ptr %184, i64 8
   %202 = load atomic i64, ptr %_M_use_count.i.i.i.i121 acquire, align 8
   %cmp.i.i.i.i122 = icmp eq i64 %202, 4294967297
   %203 = trunc i64 %202 to i32
@@ -1907,12 +1908,12 @@ if.then.i.i.i120:                                 ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i145:                               ; preds = %if.then.i.i.i120
   store i32 0, ptr %_M_use_count.i.i.i.i121, align 8
-  %_M_weak_count.i.i.i.i146 = getelementptr inbounds i8, ptr %185, i64 12
+  %_M_weak_count.i.i.i.i146 = getelementptr inbounds i8, ptr %184, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i146, align 4
-  %vtable.i.i.i.i147 = load ptr, ptr %185, align 8
+  %vtable.i.i.i.i147 = load ptr, ptr %184, align 8
   %vfn.i.i.i.i148 = getelementptr inbounds i8, ptr %vtable.i.i.i.i147, i64 16
   %204 = load ptr, ptr %vfn.i.i.i.i148, align 8
-  call void %204(ptr noundef nonnull align 8 dereferenceable(16) %185) #19
+  call void %204(ptr noundef nonnull align 8 dereferenceable(16) %184) #19
   br label %if.end8.sink.split.i.i.i.i140
 
 if.end.i.i.i.i123:                                ; preds = %if.then.i.i.i120
@@ -1935,11 +1936,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i127: ; preds = %if.el
   br i1 %cmp6.i.i.i.i129, label %if.then7.i.i.i.i130, label %_ZNSt10shared_ptrIN5arrow14SparseCOOIndexEED2Ev.exit
 
 if.then7.i.i.i.i130:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i127
-  %vtable.i.i.i.i.i.i131 = load ptr, ptr %185, align 8
+  %vtable.i.i.i.i.i.i131 = load ptr, ptr %184, align 8
   %vfn.i.i.i.i.i.i132 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i131, i64 16
   %207 = load ptr, ptr %vfn.i.i.i.i.i.i132, align 8
-  call void %207(ptr noundef nonnull align 8 dereferenceable(16) %185) #19
-  %_M_weak_count.i.i.i.i.i.i133 = getelementptr inbounds i8, ptr %185, i64 12
+  call void %207(ptr noundef nonnull align 8 dereferenceable(16) %184) #19
+  %_M_weak_count.i.i.i.i.i.i133 = getelementptr inbounds i8, ptr %184, i64 12
   %208 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i134 = icmp eq i8 %208, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i134, label %if.else.i.i.i.i.i.i.i143, label %if.then.i.i.i.i.i.i.i135
@@ -1960,10 +1961,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i137: ; preds = %i
   br i1 %cmp.i.i.i.i.i.i139, label %if.end8.sink.split.i.i.i.i140, label %_ZNSt10shared_ptrIN5arrow14SparseCOOIndexEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i140:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i137, %if.then.i.i.i.i145
-  %vtable2.i.i.i.i.i.i141 = load ptr, ptr %185, align 8
+  %vtable2.i.i.i.i.i.i141 = load ptr, ptr %184, align 8
   %vfn3.i.i.i.i.i.i142 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i141, i64 24
   %211 = load ptr, ptr %vfn3.i.i.i.i.i.i142, align 8
-  call void %211(ptr noundef nonnull align 8 dereferenceable(16) %185) #19
+  call void %211(ptr noundef nonnull align 8 dereferenceable(16) %184) #19
   br label %_ZNSt10shared_ptrIN5arrow14SparseCOOIndexEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow14SparseCOOIndexEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN5arrow11SparseIndexEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i127, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i137, %if.end8.sink.split.i.i.i.i140
@@ -2925,14 +2926,14 @@ for.cond67.preheader:                             ; preds = %invoke.cont65
 for.end81:                                        ; preds = %invoke.cont65, %invoke.cont65.us333, %invoke.cont65.us, %_ZN5arrow6StatusD2Ev.exit148.split.split.us
   call void @llvm.experimental.noalias.scope.decl(metadata !83)
   %_M_refcount.i.i.i162 = getelementptr inbounds i8, ptr %ref.tmp83, i64 8
-  %86 = load <2 x ptr>, ptr %type_.i31, align 8, !noalias !83
-  store <2 x ptr> %86, ptr %ref.tmp83, align 16, !alias.scope !83
-  %87 = extractelement <2 x ptr> %86, i64 1
-  %cmp.not.i.i.i.i164 = icmp eq ptr %87, null
+  %86 = load ptr, ptr %_M_refcount3.i.i.i33, align 8, !noalias !83
+  %87 = load <2 x ptr>, ptr %type_.i31, align 8, !noalias !83
+  store <2 x ptr> %87, ptr %ref.tmp83, align 16, !alias.scope !83
+  %cmp.not.i.i.i.i164 = icmp eq ptr %86, null
   br i1 %cmp.not.i.i.i.i164, label %_ZNK5arrow12SparseTensor4typeEv.exit171, label %if.then.i.i.i.i165
 
 if.then.i.i.i.i165:                               ; preds = %for.end81
-  %_M_use_count.i.i.i.i.i166 = getelementptr inbounds i8, ptr %87, i64 8
+  %_M_use_count.i.i.i.i.i166 = getelementptr inbounds i8, ptr %86, i64 8
   %88 = load i8, ptr @__libc_single_threaded, align 1, !noalias !83
   %tobool.i.not.i.i.i.i.i167 = icmp eq i8 %88, 0
   br i1 %tobool.i.not.i.i.i.i.i167, label %if.else.i.i.i.i.i.i170, label %if.then.i.i.i.i.i.i168
@@ -17312,16 +17313,17 @@ entry:
   %ref.tmp.i = alloca %"class.std::__shared_ptr.1", align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %__r)
-  %0 = load <2 x ptr>, ptr %this, align 8
-  %1 = load <2 x ptr>, ptr %ref.tmp.i, align 16
-  store <2 x ptr> %1, ptr %this, align 8
-  store <2 x ptr> %0, ptr %ref.tmp.i, align 16
-  %2 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %this, align 8
+  %2 = load <2 x ptr>, ptr %ref.tmp.i, align 16
+  store <2 x ptr> %2, ptr %this, align 8
+  store <2 x ptr> %1, ptr %ref.tmp.i, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EEaSIS1_St14default_deleteIS1_EEENSt9enable_ifIXsr6__and_ISt20__sp_compatible_withIPT_PS1_ESt14is_convertibleINSt10unique_ptrISA_T0_E7pointerESC_ESt21is_move_constructibleISG_EEE5valueERS4_E4typeEOSH_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %3, 4294967297
   %4 = trunc i64 %3 to i32
@@ -17329,12 +17331,12 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %2, align 8
+  %vtable.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(16) %2) #19
+  call void %5(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -17357,11 +17359,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EEaSIS1_St14default_deleteIS1_EEENSt9enable_ifIXsr6__and_ISt20__sp_compatible_withIPT_PS1_ESt14is_convertibleINSt10unique_ptrISA_T0_E7pointerESC_ESt21is_move_constructibleISG_EEE5valueERS4_E4typeEOSH_.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %2, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %2) #19
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
+  call void %8(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -17382,10 +17384,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EEaSIS1_St14default_deleteIS1_EEENSt9enable_ifIXsr6__and_ISt20__sp_compatible_withIPT_PS1_ESt14is_convertibleINSt10unique_ptrISA_T0_E7pointerESC_ESt21is_move_constructibleISG_EEE5valueERS4_E4typeEOSH_.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %2, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %12 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %2) #19
+  call void %12(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   br label %_ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EEaSIS1_St14default_deleteIS1_EEENSt9enable_ifIXsr6__and_ISt20__sp_compatible_withIPT_PS1_ESt14is_convertibleINSt10unique_ptrISA_T0_E7pointerESC_ESt21is_move_constructibleISG_EEE5valueERS4_E4typeEOSH_.exit
 
 _ZNSt12__shared_ptrIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2EEaSIS1_St14default_deleteIS1_EEENSt9enable_ifIXsr6__and_ISt20__sp_compatible_withIPT_PS1_ESt14is_convertibleINSt10unique_ptrISA_T0_E7pointerESC_ESt21is_move_constructibleISG_EEE5valueERS4_E4typeEOSH_.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i

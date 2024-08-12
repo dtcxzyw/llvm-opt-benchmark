@@ -5759,17 +5759,15 @@ cleanup.done:                                     ; preds = %_ZN9__gnu_cxx27__ex
 if.then:                                          ; preds = %entry, %if.end8.sink.split.i.i.i.i, %cleanup.action, %cleanup.done
   tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
   %serializedScope_.i16 = getelementptr inbounds i8, ptr %S, i64 128
-  %16 = load ptr, ptr %serializedScope_.i16, align 8, !noalias !86
-  store ptr %16, ptr %agg.result, align 8, !alias.scope !86
-  %_M_refcount.i.i.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i.i18 = getelementptr inbounds i8, ptr %S, i64 136
-  %17 = load ptr, ptr %_M_refcount3.i.i.i18, align 8, !noalias !86
-  store ptr %17, ptr %_M_refcount.i.i.i17, align 8, !alias.scope !86
-  %cmp.not.i.i.i.i19 = icmp eq ptr %17, null
+  %16 = load ptr, ptr %_M_refcount3.i.i.i18, align 8, !noalias !86
+  %17 = load <2 x ptr>, ptr %serializedScope_.i16, align 8, !noalias !86
+  store <2 x ptr> %17, ptr %agg.result, align 8, !alias.scope !86
+  %cmp.not.i.i.i.i19 = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i.i19, label %return, label %if.then.i.i.i.i20
 
 if.then.i.i.i.i20:                                ; preds = %if.then
-  %_M_use_count.i.i.i.i.i21 = getelementptr inbounds i8, ptr %17, i64 8
+  %_M_use_count.i.i.i.i.i21 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load i8, ptr @__libc_single_threaded, align 1, !noalias !86
   %tobool.i.not.i.i.i.i.i22 = icmp eq i8 %18, 0
   br i1 %tobool.i.not.i.i.i.i.i22, label %if.else.i.i.i.i.i.i25, label %if.then.i.i.i.i.i.i23

@@ -182,9 +182,9 @@ define hidden void @_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hcba9c
 25:                                               ; preds = %9
   store i64 0, ptr %5, align 8
   %26 = load <2 x i64>, ptr %13, align 8
+  %27 = load i64, ptr %13, align 8, !noundef !9
   store <2 x i64> %26, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %27 = extractelement <2 x i64> %26, i64 0
   br label %19
 
 28:                                               ; preds = %9
@@ -384,9 +384,9 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
 24:                                               ; preds = %15
   store i64 0, ptr %6, align 8, !alias.scope !48, !noalias !53
   %25 = load <2 x i64>, ptr %18, align 8, !noalias !55
+  %26 = load i64, ptr %18, align 8, !noalias !55, !noundef !9
   store <2 x i64> %25, ptr %8, align 8, !alias.scope !48, !noalias !53
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !55
-  %26 = extractelement <2 x i64> %25, i64 0
   br label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h4db2195cffbeb9eaE.exit
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h4db2195cffbeb9eaE.exit.thread: ; preds = %15
@@ -485,9 +485,9 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
 24:                                               ; preds = %15
   store i64 0, ptr %6, align 8, !alias.scope !72, !noalias !77
   %25 = load <2 x i64>, ptr %18, align 8, !noalias !79
+  %26 = load i64, ptr %18, align 8, !noalias !79, !noundef !9
   store <2 x i64> %25, ptr %8, align 8, !alias.scope !72, !noalias !77
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !79
-  %26 = extractelement <2 x i64> %25, i64 0
   br label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hcba9c7e47689174bE.llvm.678384216342861276.exit
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hcba9c7e47689174bE.llvm.678384216342861276.exit.thread: ; preds = %15
@@ -602,9 +602,9 @@ define hidden noundef ptr @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT
 32:                                               ; preds = %21
   store i64 0, ptr %5, align 8, !alias.scope !96, !noalias !101
   %33 = load <2 x i64>, ptr %26, align 8, !noalias !103
+  %34 = load i64, ptr %26, align 8, !noalias !103, !noundef !9
   store <2 x i64> %33, ptr %7, align 8, !alias.scope !96, !noalias !101
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !103
-  %34 = extractelement <2 x i64> %33, i64 0
   br label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hcba9c7e47689174bE.llvm.678384216342861276.exit
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hcba9c7e47689174bE.llvm.678384216342861276.exit.thread: ; preds = %21
@@ -717,9 +717,9 @@ define hidden noundef ptr @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT
 32:                                               ; preds = %21
   store i64 0, ptr %5, align 8, !alias.scope !123, !noalias !128
   %33 = load <2 x i64>, ptr %26, align 8, !noalias !130
+  %34 = load i64, ptr %26, align 8, !noalias !130, !noundef !9
   store <2 x i64> %33, ptr %7, align 8, !alias.scope !123, !noalias !128
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !130
-  %34 = extractelement <2 x i64> %33, i64 0
   br label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h4db2195cffbeb9eaE.exit
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h4db2195cffbeb9eaE.exit.thread: ; preds = %21
@@ -833,9 +833,9 @@ define hidden void @"_ZN85_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
 25:                                               ; preds = %8
   store i64 0, ptr %4, align 8, !alias.scope !152, !noalias !156
   %26 = load <2 x i64>, ptr %13, align 8, !noalias !157
+  %27 = load i64, ptr %13, align 8, !noalias !157, !noundef !9
   store <2 x i64> %26, ptr %6, align 8, !alias.scope !152, !noalias !156
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !157
-  %27 = extractelement <2 x i64> %26, i64 0
   br label %19
 
 28:                                               ; preds = %8

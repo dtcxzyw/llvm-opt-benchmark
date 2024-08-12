@@ -1583,7 +1583,7 @@ _ZN11actix_files5named10none_match17h15dbef8a48879156E.exit: ; preds = %_ZN10act
   %356 = getelementptr inbounds i8, ptr %1, i64 200
   %357 = load ptr, ptr %356, align 8, !alias.scope !264, !noalias !267, !nonnull !5, !noundef !5
   %358 = load <2 x i64>, ptr %355, align 8, !alias.scope !259, !noalias !262
-  %359 = extractelement <2 x i64> %358, i64 0
+  %359 = load i64, ptr %355, align 8, !alias.scope !264, !noalias !267, !noundef !5
   %360 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h92d9969cd6bb1ab7E"(i64 noundef %359, i1 noundef zeroext false)
           to label %.noexc.i unwind label %366, !noalias !243
 
@@ -3047,7 +3047,7 @@ _ZN9actix_web8response7builder19HttpResponseBuilder4body17h28e678b2f55982feE.exi
   %831 = getelementptr inbounds i8, ptr %1, i64 200
   %832 = load ptr, ptr %831, align 8, !alias.scope !531, !noalias !534, !nonnull !5, !noundef !5
   %833 = load <2 x i64>, ptr %830, align 8, !alias.scope !526, !noalias !529
-  %834 = extractelement <2 x i64> %833, i64 0
+  %834 = load i64, ptr %830, align 8, !alias.scope !531, !noalias !534, !noundef !5
   %835 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h92d9969cd6bb1ab7E"(i64 noundef %834, i1 noundef zeroext false)
           to label %.noexc.i335 unwind label %841, !noalias !512
 

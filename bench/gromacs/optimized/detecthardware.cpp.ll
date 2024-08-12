@@ -974,20 +974,20 @@ _ZNSt6vectorISt10unique_ptrI17DeviceInformationSt14default_deleteIS1_EESaIS4_EED
   %182 = insertelement <4 x ptr> %181, ptr %167, i64 2
   %183 = insertelement <4 x ptr> %182, ptr %175, i64 3
   %184 = load <2 x ptr>, ptr %176, align 8
-  %185 = load <2 x ptr>, ptr %174, align 8
+  %185 = load ptr, ptr %176, align 8
+  %186 = load <2 x ptr>, ptr %174, align 8
   store <4 x ptr> %183, ptr %13, align 16
-  store <2 x ptr> %185, ptr %173, align 8
+  store <2 x ptr> %186, ptr %173, align 8
   store ptr %180, ptr %177, align 8
   store <2 x ptr> %184, ptr %178, align 16
-  %186 = extractelement <2 x ptr> %184, i64 0
-  %.not4.i.i.i.i.i19 = icmp eq ptr %175, %186
+  %.not4.i.i.i.i.i19 = icmp eq ptr %175, %185
   br i1 %.not4.i.i.i.i.i19, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i20
 
 .lr.ph.i.i.i.i.i20:                               ; preds = %162, %.lr.ph.i.i.i.i.i20
   %.05.i.i.i.i.i21 = phi ptr [ %187, %.lr.ph.i.i.i.i.i20 ], [ %175, %162 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i21) #15
   %187 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i21, i64 32
-  %.not.i.i.i.i.i22 = icmp eq ptr %187, %186
+  %.not.i.i.i.i.i22 = icmp eq ptr %187, %185
   br i1 %.not.i.i.i.i.i22, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i20, !llvm.loop !5
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %.lr.ph.i.i.i.i.i20

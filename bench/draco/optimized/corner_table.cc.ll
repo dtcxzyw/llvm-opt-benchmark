@@ -632,8 +632,8 @@ _ZNK5draco11CornerTable6VertexENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
   %161 = getelementptr inbounds %struct.VertexEdgePair, ptr %.sroa.0149.0, i64 %indvars.iv.next202
   %162 = getelementptr inbounds %struct.VertexEdgePair, ptr %.sroa.0149.0, i64 %indvars.iv201
   %163 = load <2 x i32>, ptr %161, align 4
+  %164 = load i32, ptr %161, align 4
   store <2 x i32> %163, ptr %162, align 4
-  %164 = extractelement <2 x i32> %163, i64 0
   %165 = icmp eq i32 %164, -1
   br i1 %165, label %168, label %.preheader, !llvm.loop !9
 

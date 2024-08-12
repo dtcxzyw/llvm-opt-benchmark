@@ -767,14 +767,14 @@ _ZNSt6vectorIN6casadi8FunctionESaIS1_EED2Ev.exit: ; preds = %45, %_ZSt8_DestroyI
 ; Function Attrs: mustprogress nounwind uwtable
 define void @casadi_c_clear() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 16), align 8, !noalias !8
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 32), align 8, !noalias !8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 40), align 8, !noalias !8
+  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 40), align 8, !noalias !8
+  %3 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 32), align 8, !noalias !8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 72), align 8
-  %5 = icmp ult ptr %3, %4
+  %5 = icmp ult ptr %2, %4
   br i1 %5, label %.lr.ph.i.i.i, label %_ZNSt5dequeIiSaIiEE5clearEv.exit
 
 .lr.ph.i.i.i:                                     ; preds = %0, %.lr.ph.i.i.i
-  %.06.i.pn.i.i = phi ptr [ %.06.i.i.i, %.lr.ph.i.i.i ], [ %3, %0 ]
+  %.06.i.pn.i.i = phi ptr [ %.06.i.i.i, %.lr.ph.i.i.i ], [ %2, %0 ]
   %.06.i.i.i = getelementptr inbounds i8, ptr %.06.i.pn.i.i, i64 8
   %6 = load ptr, ptr %.06.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %6) #19
@@ -783,8 +783,7 @@ define void @casadi_c_clear() local_unnamed_addr #3 personality ptr @__gxx_perso
 
 _ZNSt5dequeIiSaIiEE5clearEv.exit:                 ; preds = %.lr.ph.i.i.i, %0
   store <2 x ptr> %1, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 48), align 8
-  store ptr %2, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 64), align 8
-  store ptr %3, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 72), align 8
+  store <2 x ptr> %3, ptr getelementptr inbounds (i8, ptr @_ZL19casadi_c_load_stack, i64 64), align 8
   %8 = load ptr, ptr @_ZL25casadi_c_loaded_functions, align 8
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL25casadi_c_loaded_functions, i64 8), align 8
   %.not.i.i = icmp eq ptr %9, %8

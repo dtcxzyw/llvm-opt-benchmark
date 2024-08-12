@@ -3561,26 +3561,26 @@ _ZN2cv4UMat7releaseEv.exit.i:                     ; preds = %.lr.ph.i.i, %.noexc
   %73 = getelementptr inbounds i8, ptr %8, i64 4
   %74 = getelementptr inbounds i8, ptr %8, i64 8
   %75 = load <4 x i32>, ptr %8, align 16
+  %76 = load i32, ptr %73, align 4
   store <4 x i32> %75, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %8, i64 16
-  %77 = load ptr, ptr %76, align 16
-  store ptr %77, ptr %16, align 8
-  %78 = getelementptr inbounds i8, ptr %8, i64 24
-  %79 = load i32, ptr %78, align 8
-  store i32 %79, ptr %17, align 8
-  %80 = getelementptr inbounds i8, ptr %8, i64 32
-  %81 = load ptr, ptr %80, align 16
-  store ptr %81, ptr %18, align 8
-  %82 = getelementptr inbounds i8, ptr %8, i64 40
-  %83 = load i64, ptr %82, align 8
-  store i64 %83, ptr %19, align 8
-  %84 = load ptr, ptr %21, align 8
-  %.not.i = icmp eq ptr %84, %22
-  %85 = extractelement <4 x i32> %75, i64 1
+  %77 = getelementptr inbounds i8, ptr %8, i64 16
+  %78 = load ptr, ptr %77, align 16
+  store ptr %78, ptr %16, align 8
+  %79 = getelementptr inbounds i8, ptr %8, i64 24
+  %80 = load i32, ptr %79, align 8
+  store i32 %80, ptr %17, align 8
+  %81 = getelementptr inbounds i8, ptr %8, i64 32
+  %82 = load ptr, ptr %81, align 16
+  store ptr %82, ptr %18, align 8
+  %83 = getelementptr inbounds i8, ptr %8, i64 40
+  %84 = load i64, ptr %83, align 8
+  store i64 %84, ptr %19, align 8
+  %85 = load ptr, ptr %21, align 8
+  %.not.i = icmp eq ptr %85, %22
   br i1 %.not.i, label %87, label %86
 
 86:                                               ; preds = %_ZN2cv4UMat7releaseEv.exit.i
-  invoke void @_ZN2cv8fastFreeEPv(ptr noundef %84)
+  invoke void @_ZN2cv8fastFreeEPv(ptr noundef %85)
           to label %.noexc77 unwind label %108
 
 .noexc77:                                         ; preds = %86
@@ -3590,8 +3590,8 @@ _ZN2cv4UMat7releaseEv.exit.i:                     ; preds = %.lr.ph.i.i, %.noexc
   br label %87
 
 87:                                               ; preds = %.noexc77, %_ZN2cv4UMat7releaseEv.exit.i
-  %88 = phi i32 [ %.pre93, %.noexc77 ], [ %85, %_ZN2cv4UMat7releaseEv.exit.i ]
-  %89 = phi ptr [ %22, %.noexc77 ], [ %84, %_ZN2cv4UMat7releaseEv.exit.i ]
+  %88 = phi i32 [ %.pre93, %.noexc77 ], [ %76, %_ZN2cv4UMat7releaseEv.exit.i ]
+  %89 = phi ptr [ %22, %.noexc77 ], [ %85, %_ZN2cv4UMat7releaseEv.exit.i ]
   %90 = icmp slt i32 %88, 3
   %91 = getelementptr inbounds i8, ptr %8, i64 56
   %92 = load ptr, ptr %91, align 8
@@ -3621,7 +3621,7 @@ _ZN2cv4UMat7releaseEv.exit.i:                     ; preds = %.lr.ph.i.i, %.noexc
 104:                                              ; preds = %100, %93
   store i32 1124007936, ptr %8, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %73, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %80, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %81, i8 0, i64 16, i1 false)
   br label %_ZN2cv4UMataSEOS0_.exit
 
 _ZN2cv4UMataSEOS0_.exit:                          ; preds = %104, %_ZNK2cv4UMatclEPKNS_5RangeE.exit

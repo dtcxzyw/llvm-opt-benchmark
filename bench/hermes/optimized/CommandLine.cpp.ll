@@ -12003,17 +12003,15 @@ _ZNSt8functionIFvRN4llvh11raw_ostreamEEEC2ERKS4_.exit.i: ; preds = %if.then.i.i,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZL22OverrideVersionPrinter, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22OverrideVersionPrinter, i64 16), align 8
-  store ptr %3, ptr %_M_manager.i.i, align 8
-  %_M_invoker.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22OverrideVersionPrinter, i64 24), align 8
-  store ptr %4, ptr %_M_invoker.i1.i, align 8
+  %3 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZL22OverrideVersionPrinter, i64 16), align 8
+  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL22OverrideVersionPrinter, i64 16), align 8
+  store <2 x ptr> %3, ptr %_M_manager.i.i, align 8
   store <2 x ptr> %2, ptr getelementptr inbounds (i8, ptr @_ZL22OverrideVersionPrinter, i64 16), align 8
-  %tobool.not.i.i.i = icmp eq ptr %3, null
+  %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFvRN4llvh11raw_ostreamEEEaSERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8functionIFvRN4llvh11raw_ostreamEEEC2ERKS4_.exit.i
-  %call.i.i.i = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3) #27
+  %call.i.i.i = call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3) #27
   br label %_ZNSt8functionIFvRN4llvh11raw_ostreamEEEaSERKS4_.exit
 
 _ZNSt8functionIFvRN4llvh11raw_ostreamEEEaSERKS4_.exit: ; preds = %_ZNSt8functionIFvRN4llvh11raw_ostreamEEEC2ERKS4_.exit.i, %if.then.i.i.i

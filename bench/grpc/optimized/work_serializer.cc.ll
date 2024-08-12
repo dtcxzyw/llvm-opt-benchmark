@@ -2988,8 +2988,8 @@ _ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperC2EOS2_
   %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
   %_M_invoker2.i.i.i = getelementptr inbounds i8, ptr %__b, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i, i8 0, i64 24, i1 false)
-  %3 = load ptr, ptr %_M_invoker2.i.i.i, align 8
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %__b, i64 16
+  %3 = load <2 x ptr>, ptr %_M_manager.i.i.i.i.i, align 8
   %4 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.not.i.i.i, label %_ZNSt8functionIFvvEEC2EOS1_.exit.i.i, label %if.then.i.i.i
@@ -3011,9 +3011,8 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.i.i:             ; preds = %if.then.i.i.i, %_ZN
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager.i.i.i3 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   store ptr %6, ptr %_M_manager.i.i.i3, align 8
-  store ptr %4, ptr %_M_manager.i.i.i.i, align 8
   store ptr %5, ptr %_M_invoker.i.i.i, align 8
-  store ptr %3, ptr %_M_invoker2.i.i, align 8
+  store <2 x ptr> %3, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i, label %_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperaSEOS2_.exit, label %if.then.i.i.i.i
 
@@ -3031,7 +3030,6 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
 _ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperaSEOS2_.exit: ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit.i.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i5)
-  %_M_invoker.i.i.i6 = getelementptr inbounds i8, ptr %ref.tmp.i.i5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i5, i8 0, i64 24, i1 false)
   %tobool.not.i.i.not.i.i.i9 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.not.i.i.i9, label %_ZNSt8functionIFvvEEC2EOS1_.exit.i.i11, label %if.then.i.i.i10
@@ -3047,17 +3045,16 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.i.i11:           ; preds = %if.then.i.i.i10, %_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__b, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i4, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i4)
   %_M_manager.i.i.i12 = getelementptr inbounds i8, ptr %ref.tmp.i.i5, i64 16
-  %9 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
-  store ptr %9, ptr %_M_manager.i.i.i12, align 8
+  %9 = load <2 x ptr>, ptr %_M_manager.i.i.i.i.i, align 8
+  %10 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   store ptr %1, ptr %_M_manager.i.i.i.i.i, align 8
-  %10 = load ptr, ptr %_M_invoker2.i.i.i, align 8
-  store ptr %10, ptr %_M_invoker.i.i.i6, align 8
+  store <2 x ptr> %9, ptr %_M_manager.i.i.i12, align 8
   store ptr %0, ptr %_M_invoker2.i.i.i, align 8
-  %tobool.not.i.i.i.i15 = icmp eq ptr %9, null
+  %tobool.not.i.i.i.i15 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i15, label %_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperD2Ev.exit, label %if.then.i.i.i.i16
 
 if.then.i.i.i.i16:                                ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit.i.i11
-  %call.i.i.i.i17 = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i5, i32 noundef 3)
+  %call.i.i.i.i17 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i5, i32 noundef 3)
           to label %_ZN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperD2Ev.exit unwind label %terminate.lpad.i.i.i.i18
 
 terminate.lpad.i.i.i.i18:                         ; preds = %if.then.i.i.i.i16

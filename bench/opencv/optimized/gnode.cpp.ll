@@ -193,10 +193,10 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv5GNodeC2ERKNS_5GCallE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.cv::GCall", align 8
+  %3 = alloca %"class.cv::GCall", align 16
   %4 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #13
   %5 = load ptr, ptr %1, align 8
-  store ptr %5, ptr %3, align 8
+  store ptr %5, ptr %3, align 16
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -212,7 +212,7 @@ _ZN2cv5GCallC2ERKS0_.exit.thread:                 ; preds = %2
   %11 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %5, ptr %11, align 8
   store ptr null, ptr %9, align 8
-  br label %29
+  br label %30
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %8, i64 8
@@ -230,53 +230,52 @@ _ZN2cv5GCallC2ERKS0_.exit.thread6:                ; preds = %12
   store i64 1, ptr %15, align 8
   store ptr %5, ptr %16, align 8
   store ptr %8, ptr %9, align 8
-  br label %20
+  br label %21
 
 _ZN2cv5GCallC2ERKS0_.exit:                        ; preds = %12
   %19 = atomicrmw volatile add ptr %13, i32 1 acq_rel, align 4
-  %.pre = load ptr, ptr %3, align 8
-  %.pre4 = load ptr, ptr %6, align 8
   store i32 1, ptr %4, align 8
   store i64 1, ptr %15, align 8
-  store ptr %.pre, ptr %16, align 8
-  store ptr %.pre4, ptr %9, align 8
+  %.pre4 = load ptr, ptr %6, align 8
+  %20 = load <2 x ptr>, ptr %3, align 16
+  store <2 x ptr> %20, ptr %16, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.pre4, null
-  br i1 %.not.i.i.i.i.i.i.i, label %29, label %20
+  br i1 %.not.i.i.i.i.i.i.i, label %30, label %21
 
-20:                                               ; preds = %_ZN2cv5GCallC2ERKS0_.exit.thread6, %_ZN2cv5GCallC2ERKS0_.exit
-  %21 = phi ptr [ %8, %_ZN2cv5GCallC2ERKS0_.exit.thread6 ], [ %.pre4, %_ZN2cv5GCallC2ERKS0_.exit ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
-  %23 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %23, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %27, label %24
+21:                                               ; preds = %_ZN2cv5GCallC2ERKS0_.exit.thread6, %_ZN2cv5GCallC2ERKS0_.exit
+  %22 = phi ptr [ %8, %_ZN2cv5GCallC2ERKS0_.exit.thread6 ], [ %.pre4, %_ZN2cv5GCallC2ERKS0_.exit ]
+  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %24, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %28, label %25
 
-24:                                               ; preds = %20
-  %25 = load i32, ptr %22, align 4
-  %26 = add nsw i32 %25, 1
-  store i32 %26, ptr %22, align 4
-  br label %29
+25:                                               ; preds = %21
+  %26 = load i32, ptr %23, align 4
+  %27 = add nsw i32 %26, 1
+  store i32 %27, ptr %23, align 4
+  br label %30
 
-27:                                               ; preds = %20
-  %28 = atomicrmw volatile add ptr %22, i32 1 acq_rel, align 4
-  br label %29
+28:                                               ; preds = %21
+  %29 = atomicrmw volatile add ptr %23, i32 1 acq_rel, align 4
+  br label %30
 
-29:                                               ; preds = %_ZN2cv5GCallC2ERKS0_.exit.thread, %27, %24, %_ZN2cv5GCallC2ERKS0_.exit
-  %30 = getelementptr inbounds i8, ptr %4, i64 32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #12
+30:                                               ; preds = %_ZN2cv5GCallC2ERKS0_.exit.thread, %28, %25, %_ZN2cv5GCallC2ERKS0_.exit
+  %31 = getelementptr inbounds i8, ptr %4, i64 32
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #12
   store ptr %4, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull %4)
-          to label %_ZNSt10shared_ptrIN2cv5GNode4PrivEEC2IS2_vEEPT_.exit unwind label %32
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull %4)
+          to label %_ZNSt10shared_ptrIN2cv5GNode4PrivEEC2IS2_vEEPT_.exit unwind label %33
 
-_ZNSt10shared_ptrIN2cv5GNode4PrivEEC2IS2_vEEPT_.exit: ; preds = %29
+_ZNSt10shared_ptrIN2cv5GNode4PrivEEC2IS2_vEEPT_.exit: ; preds = %30
   call void @_ZN2cv5GCallD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
   ret void
 
-32:                                               ; preds = %29
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %30
+  %34 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv5GCallD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
-  resume { ptr, i32 } %33
+  resume { ptr, i32 } %34
 }
 
 ; Function Attrs: nounwind

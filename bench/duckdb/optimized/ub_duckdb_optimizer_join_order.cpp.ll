@@ -47759,18 +47759,15 @@ _ZN6duckdb15RelationsToTDomC2EOS0_.exit:          ; preds = %if.then.i.i.i.i.i, 
   %9 = load ptr, ptr %filters4.i, align 8, !tbaa !474
   store ptr %9, ptr %filters.i, align 8, !tbaa !474
   %_M_finish3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 88
-  %10 = load ptr, ptr %_M_finish3.i.i.i.i.i.i, align 8, !tbaa !478
-  store ptr %10, ptr %_M_finish.i.i.i.i.i.i, align 8, !tbaa !478
-  %_M_end_of_storage4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 96
   %column_names5.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 104
-  %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i, align 8, !tbaa !477
-  store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !tbaa !477
+  %10 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i.i.i, align 8, !tbaa !27
+  %11 = load ptr, ptr %_M_finish3.i.i.i.i.i.i, align 8, !tbaa !478
+  store <2 x ptr> %10, ptr %_M_finish.i.i.i.i.i.i, align 8, !tbaa !27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %filters4.i, i8 0, i64 24, i1 false)
-  %12 = load ptr, ptr %column_names5.i, align 8, !tbaa !341
-  store ptr %12, ptr %column_names.i, align 8, !tbaa !341
   %_M_finish3.i.i.i.i.i10.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 112
-  %13 = load ptr, ptr %_M_finish3.i.i.i.i.i10.i, align 8, !tbaa !342
-  store ptr %13, ptr %_M_finish.i.i.i.i.i9.i, align 8, !tbaa !342
+  %12 = load ptr, ptr %_M_finish3.i.i.i.i.i10.i, align 8, !tbaa !342
+  %13 = load <2 x ptr>, ptr %column_names5.i, align 8, !tbaa !27
+  store <2 x ptr> %13, ptr %column_names.i, align 8, !tbaa !27
   %_M_end_of_storage4.i.i.i.i.i12.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 120
   %14 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i12.i, align 8, !tbaa !445
   store ptr %14, ptr %_M_end_of_storage.i.i.i.i.i11.i, align 8, !tbaa !445
@@ -47793,8 +47790,8 @@ if.then.i.i.i.i57:                                ; preds = %_ZN6duckdb15Relatio
 if.end.i.i.i.i36:                                 ; preds = %if.then.i.i.i.i57, %_ZN6duckdb15RelationsToTDomC2EOS0_.exit
   %16 = phi ptr [ %_M_single_bucket.i.i.i.i33, %if.then.i.i.i.i57 ], [ %8, %_ZN6duckdb15RelationsToTDomC2EOS0_.exit ]
   %tobool.not.i.i.i.i.i37 = icmp eq ptr %7, null
-  %17 = insertelement <2 x ptr> poison, ptr %11, i64 0
-  %18 = insertelement <2 x ptr> %17, ptr %12, i64 1
+  %17 = shufflevector <2 x ptr> %10, <2 x ptr> poison, <2 x i32> <i32 1, i32 poison>
+  %18 = shufflevector <2 x ptr> %17, <2 x ptr> %13, <2 x i32> <i32 0, i32 2>
   br i1 %tobool.not.i.i.i.i.i37, label %_ZN6duckdb15RelationsToTDomC2EOS0_.exit58, label %if.then.i.i.i.i.i38
 
 if.then.i.i.i.i.i38:                              ; preds = %if.end.i.i.i.i36
@@ -47812,8 +47809,8 @@ if.then.i.i.i.i.i38:                              ; preds = %if.end.i.i.i.i36
 
 _ZN6duckdb15RelationsToTDomC2EOS0_.exit58:        ; preds = %if.then.i.i.i.i.i38, %if.end.i.i.i.i36
   %21 = phi ptr [ %14, %if.end.i.i.i.i36 ], [ %.pre112, %if.then.i.i.i.i.i38 ]
-  %22 = phi ptr [ %13, %if.end.i.i.i.i36 ], [ %.pre111, %if.then.i.i.i.i.i38 ]
-  %23 = phi ptr [ %10, %if.end.i.i.i.i36 ], [ %.pre108, %if.then.i.i.i.i.i38 ]
+  %22 = phi ptr [ %12, %if.end.i.i.i.i36 ], [ %.pre111, %if.then.i.i.i.i.i38 ]
+  %23 = phi ptr [ %11, %if.end.i.i.i.i36 ], [ %.pre108, %if.then.i.i.i.i.i38 ]
   %24 = phi ptr [ %9, %if.end.i.i.i.i36 ], [ %.pre107, %if.then.i.i.i.i.i38 ]
   %25 = phi <2 x ptr> [ %18, %if.end.i.i.i.i36 ], [ %20, %if.then.i.i.i.i.i38 ]
   store i64 0, ptr %_M_next_resize.i.i.i.i.i.i42, align 8, !tbaa !498

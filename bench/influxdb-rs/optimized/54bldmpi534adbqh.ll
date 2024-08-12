@@ -2218,17 +2218,17 @@ common.ret:                                       ; preds = %502, %495, %152
   %174 = getelementptr inbounds i8, ptr %1, i64 328
   %175 = getelementptr inbounds i8, ptr %1, i64 312
   %176 = load <2 x ptr>, ptr %175, align 8, !noalias !295
+  %177 = load ptr, ptr %175, align 8, !noalias !295, !nonnull !23, !align !56, !noundef !23
   store <2 x ptr> %176, ptr %174, align 8, !noalias !295
-  %177 = getelementptr inbounds i8, ptr %1, i64 344
-  %178 = load i64, ptr %171, align 8, !range !329, !noalias !295, !noundef !23
-  %179 = getelementptr inbounds i8, ptr %1, i64 304
-  %180 = load i64, ptr %179, align 8, !noalias !295
-  store i64 %178, ptr %177, align 8, !noalias !295
-  %181 = getelementptr inbounds i8, ptr %1, i64 352
-  store i64 %180, ptr %181, align 8, !noalias !295
-  %182 = getelementptr inbounds i8, ptr %1, i64 400
-  store ptr %174, ptr %182, align 8, !noalias !295
-  %183 = extractelement <2 x ptr> %176, i64 0
+  %178 = getelementptr inbounds i8, ptr %1, i64 344
+  %179 = load i64, ptr %171, align 8, !range !329, !noalias !295, !noundef !23
+  %180 = getelementptr inbounds i8, ptr %1, i64 304
+  %181 = load i64, ptr %180, align 8, !noalias !295
+  store i64 %179, ptr %178, align 8, !noalias !295
+  %182 = getelementptr inbounds i8, ptr %1, i64 352
+  store i64 %181, ptr %182, align 8, !noalias !295
+  %183 = getelementptr inbounds i8, ptr %1, i64 400
+  store ptr %174, ptr %183, align 8, !noalias !295
   br label %187
 
 184:                                              ; preds = %163
@@ -2246,7 +2246,7 @@ common.ret:                                       ; preds = %502, %495, %152
 187:                                              ; preds = %169, %166
   %188 = phi ptr [ %165, %166 ], [ %170, %169 ]
   %189 = phi ptr [ %164, %166 ], [ %171, %169 ]
-  %190 = phi ptr [ %.pre212.i, %166 ], [ %183, %169 ]
+  %190 = phi ptr [ %.pre212.i, %166 ], [ %177, %169 ]
   %191 = phi ptr [ %.pre.i, %166 ], [ %174, %169 ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %10), !noalias !295
   %192 = getelementptr inbounds i8, ptr %1, i64 400

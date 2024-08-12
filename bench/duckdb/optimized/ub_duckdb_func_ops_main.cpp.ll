@@ -6239,10 +6239,9 @@ sw.default.i1132:                                 ; preds = %invoke.cont138
 
 .noexc:                                           ; preds = %sw.default.i1132
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i40.i)
-  %_M_invoker2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i40.i, i8 0, i64 24, i1 false), !noalias !70
-  %78 = load ptr, ptr %_M_invoker2.i.i.i, align 8, !tbaa !48, !noalias !70
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 16
+  %78 = load <2 x ptr>, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !43, !noalias !70
   %79 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !51, !noalias !70
   %tobool.not.i.i.not.i.i.i = icmp eq ptr %79, null
   br i1 %tobool.not.i.i.not.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i1133, label %if.then.i.i41.i
@@ -6254,9 +6253,7 @@ if.then.i.i41.i:                                  ; preds = %.noexc
 _ZNSt14_Function_baseD2Ev.exit.i1133:             ; preds = %if.then.i.i41.i, %.noexc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp139, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i40.i, i64 16, i1 false)
   %_M_manager3.i.i43.i = getelementptr inbounds i8, ptr %agg.tmp139, i64 16
-  store ptr %79, ptr %_M_manager3.i.i43.i, align 8, !tbaa !43, !alias.scope !70
-  %_M_invoker4.i.i44.i = getelementptr inbounds i8, ptr %agg.tmp139, i64 24
-  store ptr %78, ptr %_M_invoker4.i.i44.i, align 8, !tbaa !43, !alias.scope !70
+  store <2 x ptr> %78, ptr %_M_manager3.i.i43.i, align 8, !tbaa !43, !alias.scope !70
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i40.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7.i) #23, !noalias !70
   br label %invoke.cont143
@@ -9927,11 +9924,9 @@ if.then118:                                       ; preds = %invoke.cont114
 invoke.cont122:                                   ; preds = %if.then118
   %function = getelementptr inbounds i8, ptr %bound_function, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #23
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %ref.tmp119, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i8 0, i64 24, i1 false)
-  %79 = load ptr, ptr %_M_invoker2.i.i, align 8, !tbaa !48
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp119, i64 16
+  %79 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8, !tbaa !43
   %80 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !51
   %tobool.not.i.i.not.i.i = icmp eq ptr %80, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i, label %if.then.i.i277
@@ -9949,18 +9944,15 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %bound_function, i64 192
-  %81 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  store ptr %81, ptr %_M_manager.i.i, align 8, !tbaa !43
-  store ptr %80, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %bound_function, i64 200
-  %82 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  store ptr %82, ptr %_M_invoker.i.i, align 8, !tbaa !43
-  store ptr %79, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  %tobool.not.i.i = icmp eq ptr %81, null
+  %81 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %82 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  store <2 x ptr> %81, ptr %_M_manager.i.i, align 8, !tbaa !43
+  store <2 x ptr> %79, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %tobool.not.i.i = icmp eq ptr %82, null
   br i1 %tobool.not.i.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i4.i
 
 if.then.i4.i:                                     ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i
-  %call.i.i = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %82(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i4.i
@@ -10339,11 +10331,9 @@ if.then:                                          ; preds = %invoke.cont
 invoke.cont3:                                     ; preds = %if.then
   %function = getelementptr inbounds i8, ptr %bound_function, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #23
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i8 0, i64 24, i1 false)
-  %13 = load ptr, ptr %_M_invoker2.i.i, align 8, !tbaa !48
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %13 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8, !tbaa !43
   %14 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !51
   %tobool.not.i.i.not.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i, label %if.then.i.i
@@ -10361,14 +10351,11 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %bound_function, i64 192
-  %15 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  store ptr %15, ptr %_M_manager.i.i, align 8, !tbaa !43
-  store ptr %14, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %bound_function, i64 200
-  %16 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  store ptr %16, ptr %_M_invoker.i.i, align 8, !tbaa !43
-  store ptr %13, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  %tobool.not.i.i = icmp eq ptr %15, null
+  %15 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %16 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  store <2 x ptr> %15, ptr %_M_manager.i.i, align 8, !tbaa !43
+  store <2 x ptr> %13, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %tobool.not.i.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit.thread, label %if.then.i4.i
 
 _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit.thread: ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i
@@ -10376,7 +10363,7 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS
   br label %_ZNSt14_Function_baseD2Ev.exit
 
 if.then.i4.i:                                     ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i
-  %call.i.i53 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i53 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i4.i
@@ -11039,11 +11026,9 @@ if.end72:                                         ; preds = %invoke.cont68, %if.
 invoke.cont77:                                    ; preds = %if.end72
   %function78 = getelementptr inbounds i8, ptr %1, i64 256
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #23
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %ref.tmp73, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i8 0, i64 24, i1 false)
-  %19 = load ptr, ptr %_M_invoker2.i.i, align 8, !tbaa !48
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp73, i64 16
+  %19 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8, !tbaa !43
   %20 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !51
   %tobool.not.i.i.not.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i, label %if.then.i.i
@@ -11061,18 +11046,15 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %1, i64 272
-  %21 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  store ptr %21, ptr %_M_manager.i.i, align 8, !tbaa !43
-  store ptr %20, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %1, i64 280
-  %22 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  store ptr %22, ptr %_M_invoker.i.i, align 8, !tbaa !43
-  store ptr %19, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  %tobool.not.i.i = icmp eq ptr %21, null
+  %21 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %22 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  store <2 x ptr> %21, ptr %_M_manager.i.i, align 8, !tbaa !43
+  store <2 x ptr> %19, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %tobool.not.i.i = icmp eq ptr %22, null
   br i1 %tobool.not.i.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i4.i
 
 if.then.i4.i:                                     ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i
-  %call.i.i = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i4.i
@@ -13794,11 +13776,9 @@ invoke.cont7:                                     ; preds = %if.then
 invoke.cont9:                                     ; preds = %invoke.cont7
   %function = getelementptr inbounds i8, ptr %bound_function, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #23
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %_M_invoker2.i.i, align 8, !tbaa !48
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %0 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8, !tbaa !43
   %1 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !51
   %tobool.not.i.i.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i, label %if.then.i.i
@@ -13816,14 +13796,11 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %bound_function, i64 192
-  %2 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  store ptr %2, ptr %_M_manager.i.i, align 8, !tbaa !43
-  store ptr %1, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %bound_function, i64 200
-  %3 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  store ptr %3, ptr %_M_invoker.i.i, align 8, !tbaa !43
-  store ptr %0, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %2 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  store <2 x ptr> %2, ptr %_M_manager.i.i, align 8, !tbaa !43
+  store <2 x ptr> %0, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit.thread, label %if.then.i4.i
 
 _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit.thread: ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i
@@ -13831,7 +13808,7 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS
   br label %_ZNSt14_Function_baseD2Ev.exit
 
 if.then.i4.i:                                     ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i
-  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i4.i
@@ -13905,11 +13882,9 @@ invoke.cont17:                                    ; preds = %if.then13
 invoke.cont19:                                    ; preds = %invoke.cont17
   %function20 = getelementptr inbounds i8, ptr %bound_function, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i87) #23
-  %_M_invoker.i.i88 = getelementptr inbounds i8, ptr %ref.tmp.i87, i64 24
-  %_M_invoker2.i.i89 = getelementptr inbounds i8, ptr %ref.tmp14, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i87, i8 0, i64 24, i1 false)
-  %12 = load ptr, ptr %_M_invoker2.i.i89, align 8, !tbaa !48
   %_M_manager.i.i.i.i90 = getelementptr inbounds i8, ptr %ref.tmp14, i64 16
+  %12 = load <2 x ptr>, ptr %_M_manager.i.i.i.i90, align 8, !tbaa !43
   %13 = load ptr, ptr %_M_manager.i.i.i.i90, align 8, !tbaa !51
   %tobool.not.i.i.not.i.i91 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.not.i.i91, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i93, label %if.then.i.i92
@@ -13927,14 +13902,11 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i86)
   %_M_manager.i.i94 = getelementptr inbounds i8, ptr %ref.tmp.i87, i64 16
   %_M_manager3.i.i95 = getelementptr inbounds i8, ptr %bound_function, i64 192
-  %14 = load ptr, ptr %_M_manager3.i.i95, align 8, !tbaa !43
-  store ptr %14, ptr %_M_manager.i.i94, align 8, !tbaa !43
-  store ptr %13, ptr %_M_manager3.i.i95, align 8, !tbaa !43
-  %_M_invoker4.i.i96 = getelementptr inbounds i8, ptr %bound_function, i64 200
-  %15 = load ptr, ptr %_M_invoker4.i.i96, align 8, !tbaa !43
-  store ptr %15, ptr %_M_invoker.i.i88, align 8, !tbaa !43
-  store ptr %12, ptr %_M_invoker4.i.i96, align 8, !tbaa !43
-  %tobool.not.i.i97 = icmp eq ptr %14, null
+  %14 = load <2 x ptr>, ptr %_M_manager3.i.i95, align 8, !tbaa !43
+  %15 = load ptr, ptr %_M_manager3.i.i95, align 8, !tbaa !43
+  store <2 x ptr> %14, ptr %_M_manager.i.i94, align 8, !tbaa !43
+  store <2 x ptr> %12, ptr %_M_manager3.i.i95, align 8, !tbaa !43
+  %tobool.not.i.i97 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i97, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit101.thread, label %if.then.i4.i98
 
 _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit101.thread: ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i93
@@ -13942,7 +13914,7 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS
   br label %_ZNSt14_Function_baseD2Ev.exit107
 
 if.then.i4.i98:                                   ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i93
-  %call.i.i99 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i87, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i87, i32 noundef 3)
+  %call.i.i99 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i87, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i87, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit101 unwind label %terminate.lpad.i.i100
 
 terminate.lpad.i.i100:                            ; preds = %if.then.i4.i98
@@ -14006,11 +13978,9 @@ invoke.cont31:                                    ; preds = %if.then27
 invoke.cont33:                                    ; preds = %invoke.cont31
   %function34 = getelementptr inbounds i8, ptr %bound_function, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i109) #23
-  %_M_invoker.i.i110 = getelementptr inbounds i8, ptr %ref.tmp.i109, i64 24
-  %_M_invoker2.i.i111 = getelementptr inbounds i8, ptr %ref.tmp28, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i109, i8 0, i64 24, i1 false)
-  %22 = load ptr, ptr %_M_invoker2.i.i111, align 8, !tbaa !48
   %_M_manager.i.i.i.i112 = getelementptr inbounds i8, ptr %ref.tmp28, i64 16
+  %22 = load <2 x ptr>, ptr %_M_manager.i.i.i.i112, align 8, !tbaa !43
   %23 = load ptr, ptr %_M_manager.i.i.i.i112, align 8, !tbaa !51
   %tobool.not.i.i.not.i.i113 = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.not.i.i113, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i115, label %if.then.i.i114
@@ -14028,14 +13998,11 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i108)
   %_M_manager.i.i116 = getelementptr inbounds i8, ptr %ref.tmp.i109, i64 16
   %_M_manager3.i.i117 = getelementptr inbounds i8, ptr %bound_function, i64 192
-  %24 = load ptr, ptr %_M_manager3.i.i117, align 8, !tbaa !43
-  store ptr %24, ptr %_M_manager.i.i116, align 8, !tbaa !43
-  store ptr %23, ptr %_M_manager3.i.i117, align 8, !tbaa !43
-  %_M_invoker4.i.i118 = getelementptr inbounds i8, ptr %bound_function, i64 200
-  %25 = load ptr, ptr %_M_invoker4.i.i118, align 8, !tbaa !43
-  store ptr %25, ptr %_M_invoker.i.i110, align 8, !tbaa !43
-  store ptr %22, ptr %_M_invoker4.i.i118, align 8, !tbaa !43
-  %tobool.not.i.i119 = icmp eq ptr %24, null
+  %24 = load <2 x ptr>, ptr %_M_manager3.i.i117, align 8, !tbaa !43
+  %25 = load ptr, ptr %_M_manager3.i.i117, align 8, !tbaa !43
+  store <2 x ptr> %24, ptr %_M_manager.i.i116, align 8, !tbaa !43
+  store <2 x ptr> %22, ptr %_M_manager3.i.i117, align 8, !tbaa !43
+  %tobool.not.i.i119 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i119, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit123.thread, label %if.then.i4.i120
 
 _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit123.thread: ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i115
@@ -14043,7 +14010,7 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS
   br label %_ZNSt14_Function_baseD2Ev.exit129
 
 if.then.i4.i120:                                  ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i115
-  %call.i.i121 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i109, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i109, i32 noundef 3)
+  %call.i.i121 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i109, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i109, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit123 unwind label %terminate.lpad.i.i122
 
 terminate.lpad.i.i122:                            ; preds = %if.then.i4.i120
@@ -14103,11 +14070,9 @@ invoke.cont42:                                    ; preds = %if.else38
 invoke.cont44:                                    ; preds = %invoke.cont42
   %function45 = getelementptr inbounds i8, ptr %bound_function, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i131) #23
-  %_M_invoker.i.i132 = getelementptr inbounds i8, ptr %ref.tmp.i131, i64 24
-  %_M_invoker2.i.i133 = getelementptr inbounds i8, ptr %ref.tmp39, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i131, i8 0, i64 24, i1 false)
-  %32 = load ptr, ptr %_M_invoker2.i.i133, align 8, !tbaa !48
   %_M_manager.i.i.i.i134 = getelementptr inbounds i8, ptr %ref.tmp39, i64 16
+  %32 = load <2 x ptr>, ptr %_M_manager.i.i.i.i134, align 8, !tbaa !43
   %33 = load ptr, ptr %_M_manager.i.i.i.i134, align 8, !tbaa !51
   %tobool.not.i.i.not.i.i135 = icmp eq ptr %33, null
   br i1 %tobool.not.i.i.not.i.i135, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i137, label %if.then.i.i136
@@ -14125,14 +14090,11 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i130)
   %_M_manager.i.i138 = getelementptr inbounds i8, ptr %ref.tmp.i131, i64 16
   %_M_manager3.i.i139 = getelementptr inbounds i8, ptr %bound_function, i64 192
-  %34 = load ptr, ptr %_M_manager3.i.i139, align 8, !tbaa !43
-  store ptr %34, ptr %_M_manager.i.i138, align 8, !tbaa !43
-  store ptr %33, ptr %_M_manager3.i.i139, align 8, !tbaa !43
-  %_M_invoker4.i.i140 = getelementptr inbounds i8, ptr %bound_function, i64 200
-  %35 = load ptr, ptr %_M_invoker4.i.i140, align 8, !tbaa !43
-  store ptr %35, ptr %_M_invoker.i.i132, align 8, !tbaa !43
-  store ptr %32, ptr %_M_invoker4.i.i140, align 8, !tbaa !43
-  %tobool.not.i.i141 = icmp eq ptr %34, null
+  %34 = load <2 x ptr>, ptr %_M_manager3.i.i139, align 8, !tbaa !43
+  %35 = load ptr, ptr %_M_manager3.i.i139, align 8, !tbaa !43
+  store <2 x ptr> %34, ptr %_M_manager.i.i138, align 8, !tbaa !43
+  store <2 x ptr> %32, ptr %_M_manager3.i.i139, align 8, !tbaa !43
+  %tobool.not.i.i141 = icmp eq ptr %35, null
   br i1 %tobool.not.i.i141, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit145.thread, label %if.then.i4.i142
 
 _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit145.thread: ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i137
@@ -14140,7 +14102,7 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS
   br label %_ZNSt14_Function_baseD2Ev.exit151
 
 if.then.i4.i142:                                  ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i137
-  %call.i.i143 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i131, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i131, i32 noundef 3)
+  %call.i.i143 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i131, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i131, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit145 unwind label %terminate.lpad.i.i144
 
 terminate.lpad.i.i144:                            ; preds = %if.then.i4.i142
@@ -16328,10 +16290,9 @@ sw.default.i843:                                  ; preds = %invoke.cont138
 
 .noexc:                                           ; preds = %sw.default.i843
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i40.i)
-  %_M_invoker2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i40.i, i8 0, i64 24, i1 false), !noalias !137
-  %78 = load ptr, ptr %_M_invoker2.i.i.i, align 8, !tbaa !48, !noalias !137
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 16
+  %78 = load <2 x ptr>, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !43, !noalias !137
   %79 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !51, !noalias !137
   %tobool.not.i.i.not.i.i.i = icmp eq ptr %79, null
   br i1 %tobool.not.i.i.not.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i844, label %if.then.i.i41.i
@@ -16343,9 +16304,7 @@ if.then.i.i41.i:                                  ; preds = %.noexc
 _ZNSt14_Function_baseD2Ev.exit.i844:              ; preds = %if.then.i.i41.i, %.noexc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp139, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i40.i, i64 16, i1 false)
   %_M_manager3.i.i43.i = getelementptr inbounds i8, ptr %agg.tmp139, i64 16
-  store ptr %79, ptr %_M_manager3.i.i43.i, align 8, !tbaa !43, !alias.scope !137
-  %_M_invoker4.i.i44.i = getelementptr inbounds i8, ptr %agg.tmp139, i64 24
-  store ptr %78, ptr %_M_invoker4.i.i44.i, align 8, !tbaa !43, !alias.scope !137
+  store <2 x ptr> %78, ptr %_M_manager3.i.i43.i, align 8, !tbaa !43, !alias.scope !137
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i40.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7.i) #23, !noalias !137
   br label %invoke.cont143
@@ -18991,11 +18950,9 @@ if.then114:                                       ; preds = %invoke.cont110
 invoke.cont118:                                   ; preds = %if.then114
   %function = getelementptr inbounds i8, ptr %bound_function, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #23
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %ref.tmp115, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i8 0, i64 24, i1 false)
-  %79 = load ptr, ptr %_M_invoker2.i.i, align 8, !tbaa !48
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp115, i64 16
+  %79 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8, !tbaa !43
   %80 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !51
   %tobool.not.i.i.not.i.i = icmp eq ptr %80, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i, label %if.then.i.i273
@@ -19013,18 +18970,15 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %bound_function, i64 192
-  %81 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  store ptr %81, ptr %_M_manager.i.i, align 8, !tbaa !43
-  store ptr %80, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %bound_function, i64 200
-  %82 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  store ptr %82, ptr %_M_invoker.i.i, align 8, !tbaa !43
-  store ptr %79, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  %tobool.not.i.i = icmp eq ptr %81, null
+  %81 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %82 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  store <2 x ptr> %81, ptr %_M_manager.i.i, align 8, !tbaa !43
+  store <2 x ptr> %79, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %tobool.not.i.i = icmp eq ptr %82, null
   br i1 %tobool.not.i.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i4.i
 
 if.then.i4.i:                                     ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i
-  %call.i.i = invoke noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %82(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i4.i
@@ -19315,11 +19269,9 @@ if.then:                                          ; preds = %invoke.cont
 invoke.cont3:                                     ; preds = %if.then
   %function = getelementptr inbounds i8, ptr %bound_function, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #23
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i8 0, i64 24, i1 false)
-  %13 = load ptr, ptr %_M_invoker2.i.i, align 8, !tbaa !48
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %13 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8, !tbaa !43
   %14 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !51
   %tobool.not.i.i.not.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i, label %if.then.i.i
@@ -19337,14 +19289,11 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %bound_function, i64 192
-  %15 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  store ptr %15, ptr %_M_manager.i.i, align 8, !tbaa !43
-  store ptr %14, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %bound_function, i64 200
-  %16 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  store ptr %16, ptr %_M_invoker.i.i, align 8, !tbaa !43
-  store ptr %13, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  %tobool.not.i.i = icmp eq ptr %15, null
+  %15 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %16 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  store <2 x ptr> %15, ptr %_M_manager.i.i, align 8, !tbaa !43
+  store <2 x ptr> %13, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %tobool.not.i.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit.thread, label %if.then.i4.i
 
 _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit.thread: ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i
@@ -19352,7 +19301,7 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS
   br label %_ZNSt14_Function_baseD2Ev.exit
 
 if.then.i4.i:                                     ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i
-  %call.i.i53 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i53 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i4.i
@@ -19987,11 +19936,9 @@ if.end72:                                         ; preds = %invoke.cont68, %if.
 invoke.cont77:                                    ; preds = %if.end72
   %function78 = getelementptr inbounds i8, ptr %1, i64 256
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #23
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %ref.tmp73, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i8 0, i64 24, i1 false)
-  %19 = load ptr, ptr %_M_invoker2.i.i, align 8, !tbaa !48
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp73, i64 16
+  %19 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8, !tbaa !43
   %20 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !51
   %tobool.not.i.i.not.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i, label %if.then.i.i
@@ -20009,18 +19956,15 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %1, i64 272
-  %21 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  store ptr %21, ptr %_M_manager.i.i, align 8, !tbaa !43
-  store ptr %20, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %1, i64 280
-  %22 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  store ptr %22, ptr %_M_invoker.i.i, align 8, !tbaa !43
-  store ptr %19, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  %tobool.not.i.i = icmp eq ptr %21, null
+  %21 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %22 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  store <2 x ptr> %21, ptr %_M_manager.i.i, align 8, !tbaa !43
+  store <2 x ptr> %19, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %tobool.not.i.i = icmp eq ptr %22, null
   br i1 %tobool.not.i.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i4.i
 
 if.then.i4.i:                                     ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i
-  %call.i.i = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i4.i
@@ -22288,11 +22232,9 @@ if.then150:                                       ; preds = %invoke.cont146
 invoke.cont155:                                   ; preds = %if.then150
   %function = getelementptr inbounds i8, ptr %bound_function, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #23
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %ref.tmp151, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i8 0, i64 24, i1 false)
-  %76 = load ptr, ptr %_M_invoker2.i.i, align 8, !tbaa !48
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp151, i64 16
+  %76 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8, !tbaa !43
   %77 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !51
   %tobool.not.i.i.not.i.i = icmp eq ptr %77, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i, label %if.then.i.i289
@@ -22310,18 +22252,15 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %bound_function, i64 192
-  %78 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  store ptr %78, ptr %_M_manager.i.i, align 8, !tbaa !43
-  store ptr %77, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %bound_function, i64 200
-  %79 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  store ptr %79, ptr %_M_invoker.i.i, align 8, !tbaa !43
-  store ptr %76, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  %tobool.not.i.i = icmp eq ptr %78, null
+  %78 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %79 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  store <2 x ptr> %78, ptr %_M_manager.i.i, align 8, !tbaa !43
+  store <2 x ptr> %76, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %tobool.not.i.i = icmp eq ptr %79, null
   br i1 %tobool.not.i.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i4.i
 
 if.then.i4.i:                                     ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i
-  %call.i.i = invoke noundef zeroext i1 %78(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i4.i
@@ -23254,11 +23193,9 @@ if.end72:                                         ; preds = %invoke.cont68, %if.
 invoke.cont77:                                    ; preds = %if.end72
   %function78 = getelementptr inbounds i8, ptr %1, i64 256
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #23
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %ref.tmp73, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i8 0, i64 24, i1 false)
-  %19 = load ptr, ptr %_M_invoker2.i.i, align 8, !tbaa !48
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp73, i64 16
+  %19 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8, !tbaa !43
   %20 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !51
   %tobool.not.i.i.not.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i, label %if.then.i.i
@@ -23276,18 +23213,15 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %1, i64 272
-  %21 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  store ptr %21, ptr %_M_manager.i.i, align 8, !tbaa !43
-  store ptr %20, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %1, i64 280
-  %22 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  store ptr %22, ptr %_M_invoker.i.i, align 8, !tbaa !43
-  store ptr %19, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  %tobool.not.i.i = icmp eq ptr %21, null
+  %21 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %22 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  store <2 x ptr> %21, ptr %_M_manager.i.i, align 8, !tbaa !43
+  store <2 x ptr> %19, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %tobool.not.i.i = icmp eq ptr %22, null
   br i1 %tobool.not.i.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i4.i
 
 if.then.i4.i:                                     ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i
-  %call.i.i = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i4.i
@@ -23473,7 +23407,6 @@ for.body.lr.ph:                                   ; preds = %invoke.cont6
   %_M_finish.i787 = getelementptr inbounds i8, ptr %agg.tmp127, i64 8
   %_M_manager3.i.i31.i = getelementptr inbounds i8, ptr %agg.tmp152, i64 16
   %_M_invoker4.i.i33.i = getelementptr inbounds i8, ptr %agg.tmp152, i64 24
-  %_M_invoker2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 24
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 16
   %_M_finish.i.i.i500 = getelementptr inbounds i8, ptr %functions, i64 40
   %_M_end_of_storage.i.i.i501 = getelementptr inbounds i8, ptr %functions, i64 48
@@ -24438,7 +24371,7 @@ sw.default.i497:                                  ; preds = %invoke.cont151
 .noexc499:                                        ; preds = %sw.default.i497
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i40.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i40.i, i8 0, i64 24, i1 false), !noalias !184
-  %108 = load ptr, ptr %_M_invoker2.i.i.i, align 8, !tbaa !48, !noalias !184
+  %108 = load <2 x ptr>, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !43, !noalias !184
   %109 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !51, !noalias !184
   %tobool.not.i.i.not.i.i.i = icmp eq ptr %109, null
   br i1 %tobool.not.i.i.not.i.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i498, label %if.then.i.i41.i
@@ -24449,8 +24382,7 @@ if.then.i.i41.i:                                  ; preds = %.noexc499
 
 _ZNSt14_Function_baseD2Ev.exit.i498:              ; preds = %if.then.i.i41.i, %.noexc499
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp152, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i40.i, i64 16, i1 false)
-  store ptr %109, ptr %_M_manager3.i.i31.i, align 8, !tbaa !43, !alias.scope !184
-  store ptr %108, ptr %_M_invoker4.i.i33.i, align 8, !tbaa !43, !alias.scope !184
+  store <2 x ptr> %108, ptr %_M_manager3.i.i31.i, align 8, !tbaa !43, !alias.scope !184
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i40.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp7.i) #23, !noalias !184
   br label %invoke.cont156
@@ -25523,11 +25455,9 @@ if.then:                                          ; preds = %invoke.cont
 invoke.cont3:                                     ; preds = %if.then
   %function = getelementptr inbounds i8, ptr %bound_function, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #23
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i8 0, i64 24, i1 false)
-  %13 = load ptr, ptr %_M_invoker2.i.i, align 8, !tbaa !48
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %13 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8, !tbaa !43
   %14 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !51
   %tobool.not.i.i.not.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i, label %if.then.i.i
@@ -25545,14 +25475,11 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %bound_function, i64 192
-  %15 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  store ptr %15, ptr %_M_manager.i.i, align 8, !tbaa !43
-  store ptr %14, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %bound_function, i64 200
-  %16 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  store ptr %16, ptr %_M_invoker.i.i, align 8, !tbaa !43
-  store ptr %13, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  %tobool.not.i.i = icmp eq ptr %15, null
+  %15 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %16 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  store <2 x ptr> %15, ptr %_M_manager.i.i, align 8, !tbaa !43
+  store <2 x ptr> %13, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %tobool.not.i.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit.thread, label %if.then.i4.i
 
 _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit.thread: ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i
@@ -25560,7 +25487,7 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS
   br label %_ZNSt14_Function_baseD2Ev.exit
 
 if.then.i4.i:                                     ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i
-  %call.i.i53 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i53 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i4.i
@@ -26197,11 +26124,9 @@ if.end72:                                         ; preds = %invoke.cont68, %if.
 invoke.cont77:                                    ; preds = %if.end72
   %function78 = getelementptr inbounds i8, ptr %1, i64 256
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #23
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %ref.tmp73, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i8 0, i64 24, i1 false)
-  %19 = load ptr, ptr %_M_invoker2.i.i, align 8, !tbaa !48
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp73, i64 16
+  %19 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8, !tbaa !43
   %20 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !51
   %tobool.not.i.i.not.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i, label %if.then.i.i
@@ -26219,18 +26144,15 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %1, i64 272
-  %21 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  store ptr %21, ptr %_M_manager.i.i, align 8, !tbaa !43
-  store ptr %20, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %1, i64 280
-  %22 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  store ptr %22, ptr %_M_invoker.i.i, align 8, !tbaa !43
-  store ptr %19, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  %tobool.not.i.i = icmp eq ptr %21, null
+  %21 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %22 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  store <2 x ptr> %21, ptr %_M_manager.i.i, align 8, !tbaa !43
+  store <2 x ptr> %19, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %tobool.not.i.i = icmp eq ptr %22, null
   br i1 %tobool.not.i.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i4.i
 
 if.then.i4.i:                                     ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i
-  %call.i.i = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i4.i
@@ -34838,11 +34760,9 @@ if.end74:                                         ; preds = %invoke.cont69, %if.
 invoke.cont79:                                    ; preds = %if.end74
   %function80 = getelementptr inbounds i8, ptr %1, i64 256
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #23
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %ref.tmp75, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i8 0, i64 24, i1 false)
-  %19 = load ptr, ptr %_M_invoker2.i.i, align 8, !tbaa !48
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp75, i64 16
+  %19 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8, !tbaa !43
   %20 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !51
   %tobool.not.i.i.not.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i, label %if.then.i.i
@@ -34860,18 +34780,15 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %1, i64 272
-  %21 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  store ptr %21, ptr %_M_manager.i.i, align 8, !tbaa !43
-  store ptr %20, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %1, i64 280
-  %22 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  store ptr %22, ptr %_M_invoker.i.i, align 8, !tbaa !43
-  store ptr %19, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  %tobool.not.i.i = icmp eq ptr %21, null
+  %21 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %22 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  store <2 x ptr> %21, ptr %_M_manager.i.i, align 8, !tbaa !43
+  store <2 x ptr> %19, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %tobool.not.i.i = icmp eq ptr %22, null
   br i1 %tobool.not.i.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i4.i
 
 if.then.i4.i:                                     ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i
-  %call.i.i = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i4.i
@@ -58774,12 +58691,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -58863,7 +58777,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -59167,12 +59081,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -59256,7 +59167,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -60670,12 +60581,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -60759,7 +60667,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -60999,12 +60907,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -61088,7 +60993,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -62337,12 +62242,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -62426,7 +62328,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -62666,12 +62568,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -62755,7 +62654,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -64010,12 +63909,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -64099,7 +63995,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -64339,12 +64235,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -64428,7 +64321,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -67087,12 +66980,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -67176,7 +67066,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -67480,12 +67370,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -67569,7 +67456,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -68983,12 +68870,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -69072,7 +68956,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -69312,12 +69196,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -69401,7 +69282,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -70650,12 +70531,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -70739,7 +70617,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -70979,12 +70857,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -71068,7 +70943,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -72323,12 +72198,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -72412,7 +72284,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -72652,12 +72524,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -72741,7 +72610,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -88165,12 +88034,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -88254,7 +88120,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -88494,12 +88360,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -88583,7 +88446,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -89833,12 +89696,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -89922,7 +89782,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -90162,12 +90022,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -90251,7 +90108,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -117933,11 +117790,9 @@ if.end72:                                         ; preds = %invoke.cont68, %if.
 invoke.cont77:                                    ; preds = %if.end72
   %function78 = getelementptr inbounds i8, ptr %1, i64 256
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #23
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %ref.tmp73, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i8 0, i64 24, i1 false)
-  %19 = load ptr, ptr %_M_invoker2.i.i, align 8, !tbaa !48
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp73, i64 16
+  %19 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8, !tbaa !43
   %20 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !51
   %tobool.not.i.i.not.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i, label %if.then.i.i
@@ -117955,18 +117810,15 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %1, i64 272
-  %21 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  store ptr %21, ptr %_M_manager.i.i, align 8, !tbaa !43
-  store ptr %20, ptr %_M_manager3.i.i, align 8, !tbaa !43
-  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %1, i64 280
-  %22 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  store ptr %22, ptr %_M_invoker.i.i, align 8, !tbaa !43
-  store ptr %19, ptr %_M_invoker4.i.i, align 8, !tbaa !43
-  %tobool.not.i.i = icmp eq ptr %21, null
+  %21 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %22 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  store <2 x ptr> %21, ptr %_M_manager.i.i, align 8, !tbaa !43
+  store <2 x ptr> %19, ptr %_M_manager3.i.i, align 8, !tbaa !43
+  %tobool.not.i.i = icmp eq ptr %22, null
   br i1 %tobool.not.i.i, label %_ZNSt14_Function_baseD2Ev.exit, label %if.then.i4.i
 
 if.then.i4.i:                                     ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i
-  %call.i.i = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i4.i
@@ -139947,12 +139799,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -140036,7 +139885,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -140340,12 +140189,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -140429,7 +140275,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -141843,12 +141689,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -141932,7 +141775,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -142172,12 +142015,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -142261,7 +142101,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -143510,12 +143350,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -143599,7 +143436,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -143839,12 +143676,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -143928,7 +143762,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -145183,12 +145017,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -145272,7 +145103,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -145512,12 +145343,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -145601,7 +145429,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -148260,12 +148088,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -148349,7 +148174,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -148653,12 +148478,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -148742,7 +148564,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -150156,12 +149978,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -150245,7 +150064,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -150485,12 +150304,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -150574,7 +150390,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -151823,12 +151639,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -151912,7 +151725,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -152152,12 +151965,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -152241,7 +152051,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -153496,12 +153306,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -153585,7 +153392,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -153825,12 +153632,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -153914,7 +153718,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -168382,12 +168186,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -168471,7 +168272,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -168711,12 +168512,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -168800,7 +168598,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -170050,12 +169848,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -170139,7 +169934,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -170379,12 +170174,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -170468,7 +170260,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -171720,12 +171512,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -171809,7 +171598,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -172063,12 +171852,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -172152,7 +171938,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -203952,12 +203738,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -204041,7 +203824,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -204281,12 +204064,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -204370,7 +204150,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -205620,12 +205400,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -205709,7 +205486,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -205949,12 +205726,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -206038,7 +205812,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -207376,12 +207150,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -207465,7 +207236,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -207769,12 +207540,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -207858,7 +207626,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -209272,12 +209040,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -209361,7 +209126,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -209601,12 +209366,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -209690,7 +209452,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -210939,12 +210701,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -211028,7 +210787,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -211268,12 +211027,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -211357,7 +211113,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -212612,12 +212368,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -212701,7 +212454,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -212941,12 +212694,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -213030,7 +212780,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -214285,12 +214035,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -214374,7 +214121,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -214678,12 +214425,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -214767,7 +214511,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -216181,12 +215925,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -216270,7 +216011,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -216510,12 +216251,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -216599,7 +216337,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -217848,12 +217586,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -217937,7 +217672,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -218177,12 +217912,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -218266,7 +217998,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -219521,12 +219253,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -219610,7 +219339,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -219850,12 +219579,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !254
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !255
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !255
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !279
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !279
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !43
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !255
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !43
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !30
@@ -219939,7 +219665,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !256
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64

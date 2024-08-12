@@ -3516,17 +3516,15 @@ define linkonce_odr void @_ZNK5folly14AsyncUDPSocket27getOverrideNetOpsDispatche
 entry:
   %netops_ = getelementptr inbounds i8, ptr %this, i64 752
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
-  %0 = load ptr, ptr %netops_, align 16, !tbaa !160, !noalias !157
-  store ptr %0, ptr %agg.result, align 8, !tbaa !160, !alias.scope !157
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 760
-  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !153, !noalias !157
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8, !tbaa !153, !alias.scope !157
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !153, !noalias !157
+  %1 = load <2 x ptr>, ptr %netops_, align 16, !tbaa !97, !noalias !157
+  store <2 x ptr> %1, ptr %agg.result, align 8, !tbaa !97, !alias.scope !157
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK5folly6netops19DispatcherContainer11getOverrideEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31, !noalias !157
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

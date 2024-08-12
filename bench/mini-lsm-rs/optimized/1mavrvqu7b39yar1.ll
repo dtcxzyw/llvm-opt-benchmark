@@ -172,7 +172,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.11246
   %.0.i.i2.i = phi ptr [ %7, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.11246187030462519964.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 8), %3 ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
   %10 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !36
-  %11 = extractelement <2 x i64> %10, i64 0
+  %11 = load i64, ptr %.0.i.i2.i, align 8, !noalias !36, !noundef !16
   %12 = add i64 %11, 1
   store i64 %12, ptr %.0.i.i2.i, align 8, !noalias !36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) @anon.96775935ede547741b85d59639f87438.12.llvm.11246187030462519964, i64 32, i1 false)
@@ -245,7 +245,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hd9bee80e
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load <2 x i64>, ptr %4, align 8
-  %9 = extractelement <2 x i64> %8, i64 0
+  %9 = load i64, ptr %4, align 8, !noundef !16
   %10 = add i64 %9, 1
   store i64 %10, ptr %4, align 8
   store <2 x i64> %8, ptr %7, align 8
@@ -3668,7 +3668,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.11246
   %.0.i.i2.i = phi ptr [ %4, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.11246187030462519964.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 8), %1 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !879
-  %9 = extractelement <2 x i64> %8, i64 0
+  %9 = load i64, ptr %.0.i.i2.i, align 8, !noalias !879, !noundef !16
   %10 = add i64 %9, 1
   store i64 %10, ptr %.0.i.i2.i, align 8, !noalias !879
   store <2 x i64> %8, ptr %7, align 8

@@ -75396,8 +75396,8 @@ define linkonce_odr hidden ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6det
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJSt6vectorIiSaIiEEEE7executeINS_6class_I21NoBraceInitializationJEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSE_DpRKT0_EUlRNS2_16value_and_holderES7_E_vJSN_S7_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSE_PFT0_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clES14_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.pybind11::detail::argument_loader.1272", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  %3 = alloca %"class.pybind11::detail::argument_loader.1272", align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -75414,7 +75414,7 @@ define linkonce_odr hidden ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6det
           to label %_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderESt6vectorIiSaIiEEEE9load_argsERNS0_13function_callE.exit unwind label %14
 
 _ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderESt6vectorIiSaIiEEEE9load_argsERNS0_13function_callE.exit: ; preds = %2
-  br i1 %13, label %16, label %40
+  br i1 %13, label %16, label %41
 
 14:                                               ; preds = %2
   %15 = landingpad { ptr, i32 }
@@ -75428,78 +75428,79 @@ _ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderESt6vectorIiSaIiEEE
   %20 = and i16 %19, 32
   %.not = icmp eq i16 %20, 0
   %21 = load ptr, ptr %4, align 8
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
-  %24 = load <2 x ptr>, ptr %23, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  br i1 %.not, label %30, label %25
+  %22 = load <2 x ptr>, ptr %3, align 16
+  %23 = load ptr, ptr %3, align 16
+  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = load ptr, ptr %24, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false)
+  br i1 %.not, label %31, label %26
 
-25:                                               ; preds = %16
-  %26 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %.sink.split unwind label %27
+26:                                               ; preds = %16
+  %27 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
+          to label %.sink.split unwind label %28
 
-27:                                               ; preds = %25
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %26
+  %29 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i3.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.i3.i.i, label %_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderESt6vectorIiSaIiEEEED2Ev.exit23, label %29
+  %.not.i.i.i3.i.i = icmp eq ptr %23, null
+  br i1 %.not.i.i.i3.i.i, label %_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderESt6vectorIiSaIiEEEED2Ev.exit23, label %30
 
-29:                                               ; preds = %27
-  call void @_ZdlPv(ptr noundef nonnull %22) #31
+30:                                               ; preds = %28
+  call void @_ZdlPv(ptr noundef nonnull %23) #31
   br label %.body
 
-30:                                               ; preds = %16
-  %31 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
-          to label %.sink.split unwind label %32
+31:                                               ; preds = %16
+  %32 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
+          to label %.sink.split unwind label %33
 
-32:                                               ; preds = %30
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %31
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i3.i.i17 = icmp eq ptr %22, null
-  br i1 %.not.i.i.i3.i.i17, label %_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderESt6vectorIiSaIiEEEED2Ev.exit23, label %34
+  %.not.i.i.i3.i.i17 = icmp eq ptr %23, null
+  br i1 %.not.i.i.i3.i.i17, label %_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderESt6vectorIiSaIiEEEED2Ev.exit23, label %35
 
-34:                                               ; preds = %32
-  call void @_ZdlPv(ptr noundef nonnull %22) #31
+35:                                               ; preds = %33
+  call void @_ZdlPv(ptr noundef nonnull %23) #31
   br label %.body
 
-.sink.split:                                      ; preds = %30, %25
-  %.sink35 = phi ptr [ %26, %25 ], [ %31, %30 ]
-  store ptr %22, ptr %.sink35, align 8
-  %35 = getelementptr inbounds i8, ptr %.sink35, i64 8
-  store <2 x ptr> %24, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %21, i64 24
-  %37 = load ptr, ptr %36, align 8
-  store ptr %.sink35, ptr %37, align 8
-  %38 = load i64, ptr @_Py_NoneStruct, align 8
-  %39 = add nsw i64 %38, 1
-  store i64 %39, ptr @_Py_NoneStruct, align 8
-  br label %40
+.sink.split:                                      ; preds = %31, %26
+  %.sink35 = phi ptr [ %27, %26 ], [ %32, %31 ]
+  store <2 x ptr> %22, ptr %.sink35, align 8
+  %36 = getelementptr inbounds i8, ptr %.sink35, i64 16
+  store ptr %25, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %21, i64 24
+  %38 = load ptr, ptr %37, align 8
+  store ptr %.sink35, ptr %38, align 8
+  %39 = load i64, ptr @_Py_NoneStruct, align 8
+  %40 = add nsw i64 %39, 1
+  store i64 %40, ptr @_Py_NoneStruct, align 8
+  br label %41
 
-40:                                               ; preds = %.sink.split, %_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderESt6vectorIiSaIiEEEE9load_argsERNS0_13function_callE.exit
+41:                                               ; preds = %.sink.split, %_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderESt6vectorIiSaIiEEEE9load_argsERNS0_13function_callE.exit
   %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderESt6vectorIiSaIiEEEE9load_argsERNS0_13function_callE.exit ], [ @_Py_NoneStruct, %.sink.split ]
-  %41 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %41, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderESt6vectorIiSaIiEEEED2Ev.exit, label %42
+  %42 = load ptr, ptr %3, align 16
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %42, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderESt6vectorIiSaIiEEEED2Ev.exit, label %43
 
-42:                                               ; preds = %40
-  call void @_ZdlPv(ptr noundef nonnull %41) #31
+43:                                               ; preds = %41
+  call void @_ZdlPv(ptr noundef nonnull %42) #31
   br label %_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderESt6vectorIiSaIiEEEED2Ev.exit
 
-_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderESt6vectorIiSaIiEEEED2Ev.exit: ; preds = %40, %42
+_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderESt6vectorIiSaIiEEEED2Ev.exit: ; preds = %41, %43
   ret ptr %.sroa.0.0
 
-.body:                                            ; preds = %34, %29, %14
-  %.pn.ph = phi { ptr, i32 } [ %33, %34 ], [ %28, %29 ], [ %15, %14 ]
-  %.pr = load ptr, ptr %3, align 8
+.body:                                            ; preds = %35, %30, %14
+  %.pn.ph = phi { ptr, i32 } [ %34, %35 ], [ %29, %30 ], [ %15, %14 ]
+  %.pr = load ptr, ptr %3, align 16
   %.not.i.i.i.i.i.i.i.i.i.i22 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i22, label %_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderESt6vectorIiSaIiEEEED2Ev.exit23, label %43
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i22, label %_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderESt6vectorIiSaIiEEEED2Ev.exit23, label %44
 
-43:                                               ; preds = %.body
+44:                                               ; preds = %.body
   call void @_ZdlPv(ptr noundef nonnull %.pr) #31
   br label %_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderESt6vectorIiSaIiEEEED2Ev.exit23
 
-_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderESt6vectorIiSaIiEEEED2Ev.exit23: ; preds = %27, %32, %.body, %43
-  %.pn27 = phi { ptr, i32 } [ %.pn.ph, %.body ], [ %.pn.ph, %43 ], [ %28, %27 ], [ %33, %32 ]
+_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderESt6vectorIiSaIiEEEED2Ev.exit23: ; preds = %28, %33, %.body, %44
+  %.pn27 = phi { ptr, i32 } [ %.pn.ph, %.body ], [ %.pn.ph, %44 ], [ %29, %28 ], [ %34, %33 ]
   resume { ptr, i32 } %.pn27
 }
 

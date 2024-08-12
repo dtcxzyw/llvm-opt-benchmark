@@ -5986,8 +5986,8 @@ if.then.i.i28:                                    ; preds = %invoke.cont29
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i28
   %17 = load <2 x ptr>, ptr %_M_manager.i.i25, align 8
+  %18 = load ptr, ptr %_M_manager.i.i25, align 8
   store <2 x ptr> %17, ptr %_M_manager.i.i.i27, align 8
-  %18 = extractelement <2 x ptr> %17, i64 0
   br label %invoke.cont31
 
 lpad.i.i:                                         ; preds = %if.then.i.i28
@@ -6088,9 +6088,9 @@ _ZNSt8functionIFvPvEEC2ERKS2_.exit.i:             ; preds = %invoke.cont.i.i50, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %del_fn, i64 16
   %35 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %36 = load ptr, ptr %_M_manager3.i.i, align 8
   store <2 x ptr> %35, ptr %_M_manager.i.i.i38, align 8
   store <2 x ptr> %34, ptr %_M_manager3.i.i, align 8
-  %36 = extractelement <2 x ptr> %35, i64 0
   %tobool.not.i.i4.i = icmp eq ptr %36, null
   br i1 %tobool.not.i.i4.i, label %invoke.cont35, label %if.then.i.i5.i
 

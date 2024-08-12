@@ -12031,47 +12031,45 @@ define linkonce_odr hidden void @_ZN34PCAddThreadRootsMarkingTaskClosure9do_thre
   %9 = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 32
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 40
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 8
-  %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = load i32, ptr %17, align 8
-  %19 = tail call noundef ptr @_ZN20ParCompactionManager28gc_thread_compaction_managerEj(i32 noundef %18) #25
+  %12 = load <2 x ptr>, ptr %11, align 8
+  %13 = load ptr, ptr %11, align 8
+  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %15 = load i64, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = load i32, ptr %16, align 8
+  %18 = tail call noundef ptr @_ZN20ParCompactionManager28gc_thread_compaction_managerEj(i32 noundef %17) #25
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20PCMarkAndPushClosure, i64 16), ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %3, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 16
-  store i8 0, ptr %22, align 8
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %18, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %3, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  store i8 0, ptr %21, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV21MarkingNMethodClosure, i64 16), ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 17
-  store i8 1, ptr %23, align 1
+  %22 = getelementptr inbounds i8, ptr %4, i64 17
+  store i8 1, ptr %22, align 1
   call void @_ZN6Thread7oops_doEP10OopClosureP14NMethodClosure(ptr noundef nonnull align 8 dereferenceable(888) %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #25
-  call void @_ZN20ParCompactionManager21follow_marking_stacksEv(ptr noundef nonnull align 8 dereferenceable(2200) %19) #25
-  %24 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i, label %26, label %25
+  call void @_ZN20ParCompactionManager21follow_marking_stacksEv(ptr noundef nonnull align 8 dereferenceable(2200) %18) #25
+  %23 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i = icmp eq ptr %23, null
+  br i1 %.not.i.i.i.i, label %25, label %24
 
-25:                                               ; preds = %2
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %16) #25
+24:                                               ; preds = %2
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %15) #25
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %10) #25
-  br label %26
+  br label %25
 
-26:                                               ; preds = %25, %2
-  %27 = load ptr, ptr %11, align 8
-  %.not8.i.i.i.i = icmp eq ptr %27, %12
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %28
+25:                                               ; preds = %24, %2
+  %26 = load ptr, ptr %11, align 8
+  %.not8.i.i.i.i = icmp eq ptr %26, %13
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %27
 
-28:                                               ; preds = %26
+27:                                               ; preds = %25
   store ptr %10, ptr %9, align 8
-  store ptr %12, ptr %11, align 8
-  store ptr %14, ptr %13, align 8
+  store <2 x ptr> %12, ptr %11, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %26, %28
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %25, %27
   ret void
 }
 
@@ -12215,120 +12213,118 @@ _ZN17PSParallelCompact25adjust_pointers_in_spacesEjPVj.exit: ; preds = %15, %17
   %31 = getelementptr inbounds i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %30, i64 32
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %30, i64 40
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %30, i64 8
-  %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 912
-  %40 = load i32, ptr %39, align 8
-  %41 = icmp ugt i32 %40, 1
-  tail call void @_ZN7Threads25possibly_parallel_oops_doEbP10OopClosureP14NMethodClosure(i1 noundef zeroext %41, ptr noundef nonnull @_ZL25pc_adjust_pointer_closure, ptr noundef null) #25
-  %42 = load ptr, ptr %32, align 8
-  %.not.i.i.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i.i.i, label %44, label %43
+  %34 = load <2 x ptr>, ptr %33, align 8
+  %35 = load ptr, ptr %33, align 8
+  %36 = getelementptr inbounds i8, ptr %30, i64 8
+  %37 = load i64, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 912
+  %39 = load i32, ptr %38, align 8
+  %40 = icmp ugt i32 %39, 1
+  tail call void @_ZN7Threads25possibly_parallel_oops_doEbP10OopClosureP14NMethodClosure(i1 noundef zeroext %40, ptr noundef nonnull @_ZL25pc_adjust_pointer_closure, ptr noundef null) #25
+  %41 = load ptr, ptr %32, align 8
+  %.not.i.i.i.i = icmp eq ptr %41, null
+  br i1 %.not.i.i.i.i, label %43, label %42
 
-43:                                               ; preds = %_ZN17PSParallelCompact25adjust_pointers_in_spacesEjPVj.exit
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %30, i64 noundef %38) #25
+42:                                               ; preds = %_ZN17PSParallelCompact25adjust_pointers_in_spacesEjPVj.exit
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %30, i64 noundef %37) #25
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %32) #25
-  br label %44
+  br label %43
 
-44:                                               ; preds = %43, %_ZN17PSParallelCompact25adjust_pointers_in_spacesEjPVj.exit
-  %45 = load ptr, ptr %33, align 8
-  %.not8.i.i.i.i = icmp eq ptr %45, %34
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %46
+43:                                               ; preds = %42, %_ZN17PSParallelCompact25adjust_pointers_in_spacesEjPVj.exit
+  %44 = load ptr, ptr %33, align 8
+  %.not8.i.i.i.i = icmp eq ptr %44, %35
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %45
 
-46:                                               ; preds = %44
+45:                                               ; preds = %43
   store ptr %32, ptr %31, align 8
-  store ptr %34, ptr %33, align 8
-  store ptr %36, ptr %35, align 8
+  store <2 x ptr> %34, ptr %33, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %44, %46
-  %47 = getelementptr inbounds i8, ptr %0, i64 624
-  %48 = getelementptr inbounds i8, ptr %3, i64 8
-  br label %49
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %43, %45
+  %46 = getelementptr inbounds i8, ptr %0, i64 624
+  %47 = getelementptr inbounds i8, ptr %3, i64 8
+  br label %48
 
-49:                                               ; preds = %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI22PCAdjustPointerClosureEEvPT_.exit.i, %_ZN12ResourceMarkD2Ev.exit
+48:                                               ; preds = %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI22PCAdjustPointerClosureEEvPT_.exit.i, %_ZN12ResourceMarkD2Ev.exit
   %indvars.iv.i4 = phi i64 [ 0, %_ZN12ResourceMarkD2Ev.exit ], [ %indvars.iv.next.i5, %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI22PCAdjustPointerClosureEEvPT_.exit.i ]
-  %50 = getelementptr inbounds [5 x ptr], ptr %47, i64 0, i64 %indvars.iv.i4
-  %51 = load ptr, ptr %50, align 8
+  %49 = getelementptr inbounds [5 x ptr], ptr %46, i64 0, i64 %indvars.iv.i4
+  %50 = load ptr, ptr %49, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %52 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %51, ptr noundef nonnull %3) #25
-  br i1 %52, label %.lr.ph.i.i.i.i, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI22PCAdjustPointerClosureEEvPT_.exit.i
+  %51 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef nonnull %3) #25
+  br i1 %51, label %.lr.ph.i.i.i.i, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI22PCAdjustPointerClosureEEvPT_.exit.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %51, i64 8
-  br label %54
+.lr.ph.i.i.i.i:                                   ; preds = %48
+  %52 = getelementptr inbounds i8, ptr %50, i64 8
+  br label %53
 
-54:                                               ; preds = %72, %.lr.ph.i.i.i.i
-  %55 = load i64, ptr %3, align 8
-  br label %56
+53:                                               ; preds = %71, %.lr.ph.i.i.i.i
+  %54 = load i64, ptr %3, align 8
+  br label %55
 
-56:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI22PCAdjustPointerClosureEEEEEEbT_.exit.i.i.i.i, %54
-  %.0.i.i.i.i = phi i64 [ %55, %54 ], [ %69, %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI22PCAdjustPointerClosureEEEEEEbT_.exit.i.i.i.i ]
-  %57 = load ptr, ptr %53, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
-  %59 = getelementptr inbounds ptr, ptr %58, i64 %.0.i.i.i.i
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 512
-  %62 = load volatile i64, ptr %61, align 8
-  %.not9.i.i.i.i.i.i = icmp eq i64 %62, 0
+55:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI22PCAdjustPointerClosureEEEEEEbT_.exit.i.i.i.i, %53
+  %.0.i.i.i.i = phi i64 [ %54, %53 ], [ %68, %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI22PCAdjustPointerClosureEEEEEEbT_.exit.i.i.i.i ]
+  %56 = load ptr, ptr %52, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 24
+  %58 = getelementptr inbounds ptr, ptr %57, i64 %.0.i.i.i.i
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 512
+  %61 = load volatile i64, ptr %60, align 8
+  %.not9.i.i.i.i.i.i = icmp eq i64 %61, 0
   br i1 %.not9.i.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI22PCAdjustPointerClosureEEEEEEbT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %56, %.lr.ph.i.i.i.i.i.i
-  %.0810.i.i.i.i.i.i = phi i64 [ %65, %.lr.ph.i.i.i.i.i.i ], [ %62, %56 ]
-  %63 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0810.i.i.i.i.i.i, i1 true)
-  %64 = shl nuw i64 1, %63
-  %65 = xor i64 %64, %.0810.i.i.i.i.i.i
-  %66 = getelementptr inbounds [64 x ptr], ptr %60, i64 0, i64 %63
-  %67 = load ptr, ptr @_ZL25pc_adjust_pointer_closure, align 8
-  %68 = load ptr, ptr %67, align 8
-  call void %68(ptr noundef nonnull align 8 dereferenceable(16) @_ZL25pc_adjust_pointer_closure, ptr noundef nonnull %66) #25
-  %.not.i.i.i.i.i.i = icmp eq i64 %64, %.0810.i.i.i.i.i.i
+.lr.ph.i.i.i.i.i.i:                               ; preds = %55, %.lr.ph.i.i.i.i.i.i
+  %.0810.i.i.i.i.i.i = phi i64 [ %64, %.lr.ph.i.i.i.i.i.i ], [ %61, %55 ]
+  %62 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0810.i.i.i.i.i.i, i1 true)
+  %63 = shl nuw i64 1, %62
+  %64 = xor i64 %63, %.0810.i.i.i.i.i.i
+  %65 = getelementptr inbounds [64 x ptr], ptr %59, i64 0, i64 %62
+  %66 = load ptr, ptr @_ZL25pc_adjust_pointer_closure, align 8
+  %67 = load ptr, ptr %66, align 8
+  call void %67(ptr noundef nonnull align 8 dereferenceable(16) @_ZL25pc_adjust_pointer_closure, ptr noundef nonnull %65) #25
+  %.not.i.i.i.i.i.i = icmp eq i64 %63, %.0810.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI22PCAdjustPointerClosureEEEEEEbT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !62
 
-_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI22PCAdjustPointerClosureEEEEEEbT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %56
-  %69 = add i64 %.0.i.i.i.i, 1
-  %70 = load i64, ptr %48, align 8
-  %71 = icmp ult i64 %69, %70
-  br i1 %71, label %56, label %72, !llvm.loop !63
+_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI22PCAdjustPointerClosureEEEEEEbT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %55
+  %68 = add i64 %.0.i.i.i.i, 1
+  %69 = load i64, ptr %47, align 8
+  %70 = icmp ult i64 %68, %69
+  br i1 %70, label %55, label %71, !llvm.loop !63
 
-72:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI22PCAdjustPointerClosureEEEEEEbT_.exit.i.i.i.i
-  %73 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %51, ptr noundef nonnull %3) #25
-  br i1 %73, label %54, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI22PCAdjustPointerClosureEEvPT_.exit.i, !llvm.loop !64
+71:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_13BasicParState12AlwaysTrueFnINS_5OopFnI22PCAdjustPointerClosureEEEEEEbT_.exit.i.i.i.i
+  %72 = call noundef zeroext i1 @_ZN10OopStorage13BasicParState18claim_next_segmentEPNS0_13IterationDataE(ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef nonnull %3) #25
+  br i1 %72, label %53, label %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI22PCAdjustPointerClosureEEvPT_.exit.i, !llvm.loop !64
 
-_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI22PCAdjustPointerClosureEEvPT_.exit.i: ; preds = %72, %49
+_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI22PCAdjustPointerClosureEEvPT_.exit.i: ; preds = %71, %48
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
   %.not.i6 = icmp eq i64 %indvars.iv.next.i5, 5
-  br i1 %.not.i6, label %_ZN27OopStorageSetStrongParStateILb0ELb0EE7oops_doI22PCAdjustPointerClosureEEvPT_.exit, label %49
+  br i1 %.not.i6, label %_ZN27OopStorageSetStrongParStateILb0ELb0EE7oops_doI22PCAdjustPointerClosureEEvPT_.exit, label %48
 
 _ZN27OopStorageSetStrongParStateILb0ELb0EE7oops_doI22PCAdjustPointerClosureEEvPT_.exit: ; preds = %_ZN10OopStorage8ParStateILb0ELb0EE7oops_doI22PCAdjustPointerClosureEEvPT_.exit.i
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15CLDToOopClosure, i64 16), ptr %4, align 8
-  %74 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr @_ZL25pc_adjust_pointer_closure, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %4, i64 16
-  store i32 8, ptr %75, align 8
+  %73 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr @_ZL25pc_adjust_pointer_closure, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %4, i64 16
+  store i32 8, ptr %74, align 8
   call void @_ZN20ClassLoaderDataGraph6cld_doEP10CLDClosure(ptr noundef nonnull %4) #25
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV17AlwaysTrueClosure, i64 16), ptr %5, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 40
-  call void @_ZN13WeakProcessor4Task4workI17AlwaysTrueClosure22PCAdjustPointerClosureEEvjPT_PT0_(ptr noundef nonnull align 8 dereferenceable(584) %76, i32 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull @_ZL25pc_adjust_pointer_closure)
-  %77 = getelementptr inbounds i8, ptr %0, i64 24
-  %78 = call noundef zeroext i1 @_ZN12SubTasksDone14try_claim_taskEj(ptr noundef nonnull align 8 dereferenceable(12) %77, i32 noundef 0) #25
-  br i1 %78, label %79, label %82
+  %75 = getelementptr inbounds i8, ptr %0, i64 40
+  call void @_ZN13WeakProcessor4Task4workI17AlwaysTrueClosure22PCAdjustPointerClosureEEvjPT_PT0_(ptr noundef nonnull align 8 dereferenceable(584) %75, i32 noundef %1, ptr noundef nonnull %5, ptr noundef nonnull @_ZL25pc_adjust_pointer_closure)
+  %76 = getelementptr inbounds i8, ptr %0, i64 24
+  %77 = call noundef zeroext i1 @_ZN12SubTasksDone14try_claim_taskEj(ptr noundef nonnull align 8 dereferenceable(12) %76, i32 noundef 0) #25
+  br i1 %77, label %78, label %81
 
-79:                                               ; preds = %_ZN27OopStorageSetStrongParStateILb0ELb0EE7oops_doI22PCAdjustPointerClosureEEvPT_.exit
+78:                                               ; preds = %_ZN27OopStorageSetStrongParStateILb0ELb0EE7oops_doI22PCAdjustPointerClosureEEvPT_.exit
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19NMethodToOopClosure, i64 16), ptr %6, align 8
-  %80 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr @_ZL25pc_adjust_pointer_closure, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %6, i64 16
-  store i8 1, ptr %81, align 8
+  %79 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr @_ZL25pc_adjust_pointer_closure, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %6, i64 16
+  store i8 1, ptr %80, align 8
   call void @_ZN9CodeCache11nmethods_doEP14NMethodClosure(ptr noundef nonnull %6) #25
-  br label %82
+  br label %81
 
-82:                                               ; preds = %79, %_ZN27OopStorageSetStrongParStateILb0ELb0EE7oops_doI22PCAdjustPointerClosureEEvPT_.exit
+81:                                               ; preds = %78, %_ZN27OopStorageSetStrongParStateILb0ELb0EE7oops_doI22PCAdjustPointerClosureEEvPT_.exit
   ret void
 }
 

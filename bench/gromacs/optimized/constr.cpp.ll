@@ -5416,15 +5416,15 @@ define void @_ZN3gmx18do_constrain_firstEP8_IO_FILEPNS_11ConstraintsERK10t_input
   store ptr %58, ptr %15, align 8
   %63 = getelementptr inbounds i8, ptr %15, i64 8
   %64 = load <2 x ptr>, ptr %59, align 8
+  %65 = load ptr, ptr %59, align 8
   store <2 x ptr> %64, ptr %63, align 8
   store ptr %58, ptr %16, align 8
-  %65 = getelementptr inbounds i8, ptr %16, i64 8
-  %66 = extractelement <2 x ptr> %64, i64 0
-  %67 = ptrtoint ptr %66 to i64
+  %66 = getelementptr inbounds i8, ptr %16, i64 8
+  %67 = ptrtoint ptr %65 to i64
   %68 = ptrtoint ptr %58 to i64
   %69 = sub i64 %67, %68
   %70 = getelementptr inbounds i8, ptr %58, i64 %69
-  store ptr %70, ptr %65, align 8
+  store ptr %70, ptr %66, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   %71 = invoke noundef zeroext i1 @_ZN3gmx11Constraints4Impl5applyEblifNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEEES5_NS_8ArrayRefIS4_EEPA3_KffPfS5_bPA3_fNS_18ConstraintVariableE(ptr noundef nonnull align 8 dereferenceable(264) %60, i1 noundef zeroext true, i64 noundef %33, i32 noundef 0, float noundef 1.000000e+00, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull byval(%"class.gmx::ArrayRef.119") align 8 %16, ptr noundef %7, float noundef %8, ptr noundef nonnull %25, ptr noundef nonnull %17, i1 noundef zeroext false, ptr noundef null, i32 noundef 1)
           to label %_ZN3gmx11Constraints5applyEblifNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEEES4_NS_8ArrayRefIS3_EEPA3_KffPfS4_bPA3_fNS_18ConstraintVariableE.exit74 unwind label %38

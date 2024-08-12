@@ -1585,14 +1585,14 @@ if.then.i132:                                     ; preds = %if.then19
   %214 = load i64, ptr %outbuf_relative_start_pos, align 8
   %215 = load i64, ptr %num_stream_bytes, align 8
   %216 = load i64, ptr %byte_counter, align 8
-  %217 = load ptr, ptr %tcp_tracer, align 8
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 2184
-  %218 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %218, null
+  %217 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
+  %218 = load <2 x ptr>, ptr %tcp_tracer, align 8
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %217, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core16ContextListEntryEEE9constructIS1_JPvRlS6_RmRSt10shared_ptrINS0_18TcpTracerInterfaceEEEEEvRS2_PT_DpOT0_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i132
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %218, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %217, i64 8
   %219 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %219, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -1616,9 +1616,7 @@ _ZNSt16allocator_traitsISaIN9grpc_core16ContextListEntryEEE9constructIS1_JPvRlS6
   %byte_offset_in_stream_.i.i.i.i = getelementptr inbounds i8, ptr %212, i64 24
   store i64 %216, ptr %byte_offset_in_stream_.i.i.i.i, align 8
   %tcp_tracer_.i.i.i.i = getelementptr inbounds i8, ptr %212, i64 32
-  store ptr %217, ptr %tcp_tracer_.i.i.i.i, align 8
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %212, i64 40
-  store ptr %218, ptr %_M_refcount.i.i.i.i.i.i, align 8
+  store <2 x ptr> %218, ptr %tcp_tracer_.i.i.i.i, align 8
   %222 = load ptr, ptr %_M_finish.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %222, i64 48
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
@@ -7058,14 +7056,14 @@ _ZNSt12_Vector_baseIN9grpc_core16ContextListEntryESaIS1_EE11_M_allocateEm.exit: 
   %4 = load i64, ptr %__args1, align 8
   %5 = load i64, ptr %__args3, align 8
   %6 = load i64, ptr %__args5, align 8
-  %7 = load ptr, ptr %__args7, align 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__args7, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %__args7, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIN9grpc_core16ContextListEntryESaIS1_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -7089,9 +7087,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
   %byte_offset_in_stream_.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   store i64 %6, ptr %byte_offset_in_stream_.i.i.i, align 8
   %tcp_tracer_.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
-  store ptr %7, ptr %tcp_tracer_.i.i.i, align 8
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 40
-  store ptr %8, ptr %_M_refcount.i.i.i.i.i, align 8
+  store <2 x ptr> %8, ptr %tcp_tracer_.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN9grpc_core16ContextListEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i
 

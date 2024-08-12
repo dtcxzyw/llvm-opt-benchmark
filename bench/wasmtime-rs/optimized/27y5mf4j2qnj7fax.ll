@@ -2645,16 +2645,17 @@ define hidden void @_ZN14cranelift_wasm15func_translator14FuncTranslator14transl
   %56 = getelementptr inbounds i8, ptr %45, i64 16
   %57 = getelementptr inbounds i8, ptr %45, i64 24
   %58 = load <2 x i64>, ptr %52, align 8
+  %59 = load i64, ptr %52, align 8, !noundef !4
   store <2 x i64> %58, ptr %56, align 8
-  %59 = getelementptr inbounds i8, ptr %45, i64 32
-  store i8 %54, ptr %59, align 8
-  %60 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
-  %61 = icmp ult i64 %60, 6
-  tail call void @llvm.assume(i1 %61)
-  %62 = icmp ugt i64 %60, 4
-  br i1 %62, label %65, label %63
+  %60 = getelementptr inbounds i8, ptr %45, i64 32
+  store i8 %54, ptr %60, align 8
+  %61 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
+  %62 = icmp ult i64 %61, 6
+  tail call void @llvm.assume(i1 %62)
+  %63 = icmp ugt i64 %61, 4
+  br i1 %63, label %66, label %64
 
-63:                                               ; preds = %6, %81
+64:                                               ; preds = %6, %81
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41)
   invoke void @_ZN18cranelift_frontend8frontend15FunctionBuilder3new17h78c7de348701dd41E(ptr noalias nocapture noundef nonnull sret({ ptr, ptr, i32, i32 }) align 8 dereferenceable(24) %41, ptr noalias noundef nonnull align 8 dereferenceable(872) %4, ptr noalias noundef nonnull align 8 dereferenceable(360) %1)
           to label %82 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -2684,29 +2685,28 @@ define hidden void @_ZN14cranelift_wasm15func_translator14FuncTranslator14transl
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %63, %65, %69, %82, %84, %85, %87, %88, %89, %90, %_ZN14cranelift_wasm15func_translator23declare_wasm_parameters17h782657d8c70c81f7E.exit, %132, %133, %137, %420, %448, %450, %91, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.thread.i, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.i, %167, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit58.thread.i, %.loopexit143.i, %201, %274, %295, %298, %._crit_edge.i113, %328, %380, %383, %390, %402, %404, %406, %.noexc130, %.noexc131
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke, %64, %66, %69, %82, %84, %85, %87, %88, %89, %90, %_ZN14cranelift_wasm15func_translator23declare_wasm_parameters17h782657d8c70c81f7E.exit, %132, %133, %137, %420, %448, %450, %91, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.thread.i, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.i, %167, %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit58.thread.i, %.loopexit143.i, %201, %274, %295, %298, %._crit_edge.i113, %328, %380, %383, %390, %402, %404, %406, %.noexc130, %.noexc131
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %330
   %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %330 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit174, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit177, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit180, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit183, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %64 = icmp ne ptr %48, null
-  call void @llvm.assume(i1 %64)
+  %65 = icmp ne ptr %48, null
+  call void @llvm.assume(i1 %65)
   invoke fastcc void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$GT$$GT$17h81978bde837cd0ddE"(ptr %47, ptr nonnull %48) #26
           to label %common.resume unwind label %479
 
-65:                                               ; preds = %6
+66:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %44)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42)
-  %66 = extractelement <2 x i64> %58, i64 0
-  %67 = sub i64 %51, %66
+  %67 = sub i64 %51, %59
   store i64 %67, ptr %42, align 8
   %68 = invoke noundef align 8 dereferenceable(776) ptr @"_ZN85_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..Deref$GT$5deref17h5b2c5c33452cbb1eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(872) %4)
           to label %69 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-69:                                               ; preds = %65
+69:                                               ; preds = %66
   %70 = getelementptr inbounds i8, ptr %4, i64 856
   %71 = getelementptr inbounds i8, ptr %68, i64 416
   store ptr %42, ptr %43, align 8
@@ -2736,9 +2736,9 @@ define hidden void @_ZN14cranelift_wasm15func_translator14FuncTranslator14transl
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %43)
-  br label %63
+  br label %64
 
-82:                                               ; preds = %63
+82:                                               ; preds = %64
   %83 = invoke noundef i32 @_ZN14cranelift_wasm15func_translator10cur_srcloc17h32a0320a8e879097E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %45)
           to label %84 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

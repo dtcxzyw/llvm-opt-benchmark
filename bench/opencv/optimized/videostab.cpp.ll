@@ -1234,7 +1234,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef %1)
   %136 = alloca %"class.std::__cxx11::basic_string", align 8
   %137 = alloca %"class.std::__cxx11::basic_string", align 8
   %138 = alloca %"class.std::allocator", align 1
-  %139 = alloca %"struct.cv::Ptr.21", align 8
+  %139 = alloca %"struct.cv::Ptr.21", align 16
   %140 = alloca %"struct.cv::Ptr.21", align 8
   %141 = alloca %"class.std::__cxx11::basic_string", align 8
   %142 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1270,7 +1270,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef %1)
   %172 = alloca %"class.std::__cxx11::basic_string", align 8
   %173 = alloca %"class.std::__cxx11::basic_string", align 8
   %174 = alloca %"class.std::allocator", align 1
-  %175 = alloca %"struct.cv::Ptr.21", align 8
+  %175 = alloca %"struct.cv::Ptr.21", align 16
   %176 = alloca %"struct.cv::Ptr.21", align 8
   %177 = alloca %"class.std::__cxx11::basic_string", align 8
   %178 = alloca %"class.std::allocator", align 1
@@ -4701,17 +4701,16 @@ _ZN2cv3PtrINS_9videostab24ImageMotionEstimatorBaseEED2Ev.exit725: ; preds = %_ZN
 _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit731: ; preds = %1369
   call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %1372 = getelementptr inbounds i8, ptr %1368, i64 8
-  %1373 = load ptr, ptr %1372, align 8, !noalias !48
-  store ptr %1373, ptr %139, align 8, !alias.scope !48
-  %1374 = getelementptr inbounds i8, ptr %139, i64 8
-  %1375 = getelementptr inbounds i8, ptr %1368, i64 16
-  %1376 = load ptr, ptr %1375, align 8, !noalias !48
-  store ptr %1376, ptr %1374, align 8, !alias.scope !48
-  %.not.i.i.i.i.i732 = icmp eq ptr %1376, null
+  %1373 = getelementptr inbounds i8, ptr %139, i64 8
+  %1374 = getelementptr inbounds i8, ptr %1368, i64 16
+  %1375 = load ptr, ptr %1374, align 8, !noalias !48
+  %1376 = load <2 x ptr>, ptr %1372, align 8, !noalias !48
+  store <2 x ptr> %1376, ptr %139, align 16, !alias.scope !48
+  %.not.i.i.i.i.i732 = icmp eq ptr %1375, null
   br i1 %.not.i.i.i.i.i732, label %_ZNK2cv9videostab20WobbleSuppressorBase15motionEstimatorEv.exit734, label %1377
 
 1377:                                             ; preds = %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit731
-  %1378 = getelementptr inbounds i8, ptr %1376, i64 8
+  %1378 = getelementptr inbounds i8, ptr %1375, i64 8
   %1379 = load i8, ptr @__libc_single_threaded, align 1, !noalias !48
   %.not.i.i.i.i.i.i733 = icmp eq i8 %1379, 0
   br i1 %.not.i.i.i.i.i.i733, label %1383, label %1380
@@ -4749,7 +4748,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab18ToFileMoti
 
 1390:                                             ; preds = %.noexc735
   store ptr %1388, ptr %1372, align 8
-  %1391 = load ptr, ptr %1375, align 8
+  %1391 = load ptr, ptr %1374, align 8
   %.not.i.i.i.i.i738 = icmp eq ptr %1385, %1391
   br i1 %.not.i.i.i.i.i738, label %_ZN2cv9videostab20WobbleSuppressorBase18setMotionEstimatorENS_3PtrINS0_24ImageMotionEstimatorBaseEEE.exit751, label %1392
 
@@ -4769,7 +4768,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv9videostab18ToFileMoti
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i.i.i741
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i.i.i741: ; preds = %1397, %1394
-  %.pr.i.i.i.i.i742 = load ptr, ptr %1375, align 8
+  %.pr.i.i.i.i.i742 = load ptr, ptr %1374, align 8
   %.not8.i.i.i.i.i744 = icmp eq ptr %.pr.i.i.i.i.i742, null
   br i1 %.not8.i.i.i.i.i744, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i747, label %1399
 
@@ -4842,7 +4841,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i747
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i747: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i750, %1428, %1415, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exitthread-pre-split.i.i.i.i.i741
-  store ptr %1385, ptr %1375, align 8
+  store ptr %1385, ptr %1374, align 8
   br label %_ZN2cv9videostab20WobbleSuppressorBase18setMotionEstimatorENS_3PtrINS0_24ImageMotionEstimatorBaseEEE.exit751
 
 _ZN2cv9videostab20WobbleSuppressorBase18setMotionEstimatorENS_3PtrINS0_24ImageMotionEstimatorBaseEEE.exit751: ; preds = %1390, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i.i.i747
@@ -4911,7 +4910,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_9videostab18ToFileMotionWriterEED2Ev.exit
 
 _ZN2cv3PtrINS_9videostab18ToFileMotionWriterEED2Ev.exit: ; preds = %1446, %1458, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i757
-  %.pre1458 = load ptr, ptr %1374, align 8
+  %.pre1458 = load ptr, ptr %1373, align 8
   %.not.i.i.i.i765 = icmp eq ptr %.pre1458, null
   br i1 %.not.i.i.i.i765, label %_ZN2cv3PtrINS_9videostab24ImageMotionEstimatorBaseEED2Ev.exit771, label %1463
 
@@ -7394,16 +7393,15 @@ _ZN2cv3PtrINS_9videostab24ImageMotionEstimatorBaseEED2Ev.exit1023: ; preds = %_Z
 
 _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit1029: ; preds = %2461
   call void @llvm.experimental.noalias.scope.decl(metadata !92)
-  %2464 = load ptr, ptr %1901, align 8, !noalias !92
-  store ptr %2464, ptr %175, align 8, !alias.scope !92
-  %2465 = getelementptr inbounds i8, ptr %175, i64 8
-  %2466 = load ptr, ptr %1903, align 8, !noalias !92
-  store ptr %2466, ptr %2465, align 8, !alias.scope !92
-  %.not.i.i.i.i.i1030 = icmp eq ptr %2466, null
+  %2464 = getelementptr inbounds i8, ptr %175, i64 8
+  %2465 = load ptr, ptr %1903, align 8, !noalias !92
+  %2466 = load <2 x ptr>, ptr %1901, align 8, !noalias !92
+  store <2 x ptr> %2466, ptr %175, align 16, !alias.scope !92
+  %.not.i.i.i.i.i1030 = icmp eq ptr %2465, null
   br i1 %.not.i.i.i.i.i1030, label %_ZNK2cv9videostab14StabilizerBase15motionEstimatorEv.exit1032, label %2467
 
 2467:                                             ; preds = %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit1029
-  %2468 = getelementptr inbounds i8, ptr %2466, i64 8
+  %2468 = getelementptr inbounds i8, ptr %2465, i64 8
   %2469 = load i8, ptr @__libc_single_threaded, align 1, !noalias !92
   %.not.i.i.i.i.i.i1031 = icmp eq i8 %2469, 0
   br i1 %.not.i.i.i.i.i.i1031, label %2473, label %2470
@@ -7604,7 +7602,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_9videostab18ToFileMotionWriterEED2Ev.exit1065
 
 _ZN2cv3PtrINS_9videostab18ToFileMotionWriterEED2Ev.exit1065: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i1057, %2547, %2535
-  %2552 = load ptr, ptr %2465, align 8
+  %2552 = load ptr, ptr %2464, align 8
   %.not.i.i.i.i1066 = icmp eq ptr %2552, null
   br i1 %.not.i.i.i.i1066, label %_ZN2cv3PtrINS_9videostab24ImageMotionEstimatorBaseEED2Ev.exit1072, label %2553
 
@@ -11435,8 +11433,8 @@ define linkonce_odr hidden void @_ZN2cv9videostab15MaskFrameSource15setMaskCallb
   call void @__clang_call_terminate(ptr %22) #23
   unreachable
 
-common.resume:                                    ; preds = %50, %48, %15, %18
-  %common.resume.op = phi { ptr, i32 } [ %16, %18 ], [ %16, %15 ], [ %49, %48 ], [ %49, %50 ]
+common.resume:                                    ; preds = %49, %47, %15, %18
+  %common.resume.op = phi { ptr, i32 } [ %16, %18 ], [ %16, %15 ], [ %48, %47 ], [ %48, %49 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZSt4bindIRSt8functionIFvRN2cv3MatEEEJRKSt12_PlaceholderILi1EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_.exit: ; preds = %2, %11
@@ -11447,7 +11445,7 @@ _ZSt4bindIRSt8functionIFvRN2cv3MatEEEJRKSt12_PlaceholderILi1EEEENSt12_Bind_helpe
   %26 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %26, align 8
   %27 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
-          to label %.noexc unwind label %48
+          to label %.noexc unwind label %47
 
 .noexc:                                           ; preds = %_ZSt4bindIRSt8functionIFvRN2cv3MatEEEJRKSt12_PlaceholderILi1EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_.exit
   %28 = getelementptr inbounds i8, ptr %27, i64 24
@@ -11464,75 +11462,73 @@ _ZSt4bindIRSt8functionIFvRN2cv3MatEEEJRKSt12_PlaceholderILi1EEEENSt12_Bind_helpe
   br label %_ZNSt8functionIFvRN2cv3MatEEEC2ISt5_BindIFS4_St12_PlaceholderILi1EEEEvEEOT_.exit.i
 
 _ZNSt8functionIFvRN2cv3MatEEEC2ISt5_BindIFS4_St12_PlaceholderILi1EEEEvEEOT_.exit.i: ; preds = %29, %.noexc
-  %31 = getelementptr inbounds i8, ptr %3, i64 24
-  %32 = getelementptr inbounds i8, ptr %3, i64 16
+  %31 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %27, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
-  %34 = load ptr, ptr %33, align 8
-  store ptr %34, ptr %32, align 8
-  store ptr @_ZNSt17_Function_handlerIFvRN2cv3MatEESt5_BindIFSt8functionIS3_ESt12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
-  %36 = load ptr, ptr %35, align 8
-  store ptr %36, ptr %31, align 8
-  store ptr @_ZNSt17_Function_handlerIFvRN2cv3MatEESt5_BindIFSt8functionIS3_ESt12_PlaceholderILi1EEEEE9_M_invokeERKSt9_Any_dataS2_, ptr %35, align 8
-  %.not.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i, label %.thread, label %37
+  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %34 = load <2 x ptr>, ptr %32, align 8
+  %35 = load ptr, ptr %32, align 8
+  store ptr @_ZNSt17_Function_handlerIFvRN2cv3MatEESt5_BindIFSt8functionIS3_ESt12_PlaceholderILi1EEEEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %32, align 8
+  store <2 x ptr> %34, ptr %31, align 8
+  store ptr @_ZNSt17_Function_handlerIFvRN2cv3MatEESt5_BindIFSt8functionIS3_ESt12_PlaceholderILi1EEEEE9_M_invokeERKSt9_Any_dataS2_, ptr %33, align 8
+  %.not.i.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i.i, label %.thread, label %36
 
 .thread:                                          ; preds = %_ZNSt8functionIFvRN2cv3MatEEEC2ISt5_BindIFS4_St12_PlaceholderILi1EEEEvEEOT_.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   br label %_ZNSt5_BindIFSt8functionIFvRN2cv3MatEEESt12_PlaceholderILi1EEEED2Ev.exit
 
-37:                                               ; preds = %_ZNSt8functionIFvRN2cv3MatEEEC2ISt5_BindIFS4_St12_PlaceholderILi1EEEEvEEOT_.exit.i
-  %38 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %42 unwind label %39
+36:                                               ; preds = %_ZNSt8functionIFvRN2cv3MatEEEC2ISt5_BindIFS4_St12_PlaceholderILi1EEEEvEEOT_.exit.i
+  %37 = invoke noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %41 unwind label %38
 
-39:                                               ; preds = %37
-  %40 = landingpad { ptr, i32 }
+38:                                               ; preds = %36
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #23
+  %40 = extractvalue { ptr, i32 } %39, 0
+  call void @__clang_call_terminate(ptr %40) #23
   unreachable
 
-42:                                               ; preds = %37
+41:                                               ; preds = %36
   %.pre = load ptr, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %.not.i.i.i2 = icmp eq ptr %.pre, null
-  br i1 %.not.i.i.i2, label %_ZNSt5_BindIFSt8functionIFvRN2cv3MatEEESt12_PlaceholderILi1EEEED2Ev.exit, label %43
+  br i1 %.not.i.i.i2, label %_ZNSt5_BindIFSt8functionIFvRN2cv3MatEEESt12_PlaceholderILi1EEEED2Ev.exit, label %42
 
-43:                                               ; preds = %42
-  %44 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %_ZNSt5_BindIFSt8functionIFvRN2cv3MatEEESt12_PlaceholderILi1EEEED2Ev.exit unwind label %45
+42:                                               ; preds = %41
+  %43 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %_ZNSt5_BindIFSt8functionIFvRN2cv3MatEEESt12_PlaceholderILi1EEEED2Ev.exit unwind label %44
 
-45:                                               ; preds = %43
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %42
+  %45 = landingpad { ptr, i32 }
           catch ptr null
-  %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #23
+  %46 = extractvalue { ptr, i32 } %45, 0
+  call void @__clang_call_terminate(ptr %46) #23
   unreachable
 
-_ZNSt5_BindIFSt8functionIFvRN2cv3MatEEESt12_PlaceholderILi1EEEED2Ev.exit: ; preds = %.thread, %42, %43
+_ZNSt5_BindIFSt8functionIFvRN2cv3MatEEESt12_PlaceholderILi1EEEED2Ev.exit: ; preds = %.thread, %41, %42
   ret void
 
-48:                                               ; preds = %_ZSt4bindIRSt8functionIFvRN2cv3MatEEEJRKSt12_PlaceholderILi1EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_.exit
-  %49 = landingpad { ptr, i32 }
+47:                                               ; preds = %_ZSt4bindIRSt8functionIFvRN2cv3MatEEEJRKSt12_PlaceholderILi1EEEENSt12_Bind_helperIXsr15__is_socketlikeIT_EE5valueESC_JDpT0_EE4typeEOSC_DpOSD_.exit
+  %48 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i3 = icmp eq ptr %24, null
-  br i1 %.not.i.i.i3, label %common.resume, label %50
+  br i1 %.not.i.i.i3, label %common.resume, label %49
 
-50:                                               ; preds = %48
-  %51 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %common.resume unwind label %52
+49:                                               ; preds = %47
+  %50 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %common.resume unwind label %51
 
-52:                                               ; preds = %50
-  %53 = landingpad { ptr, i32 }
+51:                                               ; preds = %49
+  %52 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #23
+  %53 = extractvalue { ptr, i32 } %52, 0
+  call void @__clang_call_terminate(ptr %53) #23
   unreachable
 }
 
@@ -14159,18 +14155,17 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt10_ConstructIN2cv9videostab28KeypointBasedMotionEstimatorEJRKNS0_3PtrINS1_17MotionEstimatorL1EEEEEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.cv::Ptr.152", align 8
-  %4 = load ptr, ptr %1, align 8
-  store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %.not.i.i.i.i = icmp eq ptr %7, null
+  %3 = alloca %"struct.cv::Ptr.152", align 16
+  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %7, ptr %3, align 16
+  %.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_9videostab19MotionEstimatorBaseEEC2INS1_17MotionEstimatorL1EEERKNS0_IT_EE.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %.not.i.i.i.i.i, label %14, label %11
@@ -14190,7 +14185,7 @@ _ZN2cv3PtrINS_9videostab19MotionEstimatorBaseEEC2INS1_17MotionEstimatorL1EEERKNS
           to label %16 unwind label %52
 
 16:                                               ; preds = %_ZN2cv3PtrINS_9videostab19MotionEstimatorBaseEEC2INS1_17MotionEstimatorL1EEERKNS0_IT_EE.exit
-  %17 = load ptr, ptr %5, align 8
+  %17 = load ptr, ptr %4, align 8
   %.not.i.i.i.i3 = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i3, label %_ZN2cv3PtrINS_9videostab19MotionEstimatorBaseEED2Ev.exit, label %18
 
@@ -15890,18 +15885,17 @@ declare void @_ZN2cv9videostab23MotionEstimatorRansacL2C1ENS0_11MotionModelE(ptr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt10_ConstructIN2cv9videostab28KeypointBasedMotionEstimatorEJRKNS0_3PtrINS1_23MotionEstimatorRansacL2EEEEEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.cv::Ptr.152", align 8
-  %4 = load ptr, ptr %1, align 8
-  store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %.not.i.i.i.i = icmp eq ptr %7, null
+  %3 = alloca %"struct.cv::Ptr.152", align 16
+  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %7, ptr %3, align 16
+  %.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_9videostab19MotionEstimatorBaseEEC2INS1_23MotionEstimatorRansacL2EEERKNS0_IT_EE.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %.not.i.i.i.i.i, label %14, label %11
@@ -15921,7 +15915,7 @@ _ZN2cv3PtrINS_9videostab19MotionEstimatorBaseEEC2INS1_23MotionEstimatorRansacL2E
           to label %16 unwind label %52
 
 16:                                               ; preds = %_ZN2cv3PtrINS_9videostab19MotionEstimatorBaseEEC2INS1_23MotionEstimatorRansacL2EEERKNS0_IT_EE.exit
-  %17 = load ptr, ptr %5, align 8
+  %17 = load ptr, ptr %4, align 8
   %.not.i.i.i.i3 = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i3, label %_ZN2cv3PtrINS_9videostab19MotionEstimatorBaseEED2Ev.exit, label %18
 
@@ -16182,86 +16176,84 @@ _ZNKSt6vectorIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE12_M_check_lenEmP
 _ZNSt12_Vector_baseIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"struct.cv::Ptr.29", ptr %23, i64 %19
-  %25 = load ptr, ptr %2, align 8
-  store ptr %25, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %26, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_9videostab13InpainterBaseEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, label %29
+  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = load <2 x ptr>, ptr %2, align 8
+  store <2 x ptr> %27, ptr %24, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_9videostab13InpainterBaseEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, label %28
 
-29:                                               ; preds = %_ZNSt12_Vector_baseIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_M_allocateEm.exit
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
-  %31 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %35, label %32
+28:                                               ; preds = %_ZNSt12_Vector_baseIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_M_allocateEm.exit
+  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %30, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %34, label %31
 
-32:                                               ; preds = %29
-  %33 = load i32, ptr %30, align 4
-  %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %30, align 4
+31:                                               ; preds = %28
+  %32 = load i32, ptr %29, align 4
+  %33 = add nsw i32 %32, 1
+  store i32 %33, ptr %29, align 4
   br label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_9videostab13InpainterBaseEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit
 
-35:                                               ; preds = %29
-  %36 = atomicrmw volatile add ptr %30, i32 1 acq_rel, align 4
+34:                                               ; preds = %28
+  %35 = atomicrmw volatile add ptr %29, i32 1 acq_rel, align 4
   br label %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_9videostab13InpainterBaseEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit
 
-_ZNSt16allocator_traitsISaIN2cv3PtrINS0_9videostab13InpainterBaseEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_M_allocateEm.exit, %32, %35
+_ZNSt16allocator_traitsISaIN2cv3PtrINS0_9videostab13InpainterBaseEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_M_allocateEm.exit, %31, %34
   %.not10.i.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_9videostab13InpainterBaseEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_9videostab13InpainterBaseEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
-  %.0911.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_9videostab13InpainterBaseEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
+  %.012.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_9videostab13InpainterBaseEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
+  %.0911.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_9videostab13InpainterBaseEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !188)
-  %37 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %38 = load <2 x ptr>, ptr %.0911.i.i.i.i, align 8, !alias.scope !188, !noalias !185
-  store ptr null, ptr %37, align 8, !alias.scope !188, !noalias !185
-  store <2 x ptr> %38, ptr %.012.i.i.i.i, align 8, !alias.scope !185, !noalias !188
+  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
+  %37 = load <2 x ptr>, ptr %.0911.i.i.i.i, align 8, !alias.scope !188, !noalias !185
+  store ptr null, ptr %36, align 8, !alias.scope !188, !noalias !185
+  store <2 x ptr> %37, ptr %.012.i.i.i.i, align 8, !alias.scope !185, !noalias !188
   store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !188, !noalias !185
-  %39 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
-  %40 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %39, %1
+  %38 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
+  %39 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp eq ptr %38, %1
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !190
 
 _ZNSt6vectorIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_9videostab13InpainterBaseEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_9videostab13InpainterBaseEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ], [ %40, %.lr.ph.i.i.i.i ]
-  %41 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv3PtrINS0_9videostab13InpainterBaseEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ], [ %39, %.lr.ph.i.i.i.i ]
+  %40 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not10.i.i.i.i16 = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %.lr.ph.i.i.i.i17
-  %.012.i.i.i.i18 = phi ptr [ %45, %.lr.ph.i.i.i.i17 ], [ %41, %_ZNSt6vectorIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
-  %.0911.i.i.i.i19 = phi ptr [ %44, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
+  %.012.i.i.i.i18 = phi ptr [ %44, %.lr.ph.i.i.i.i17 ], [ %40, %_ZNSt6vectorIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
+  %.0911.i.i.i.i19 = phi ptr [ %43, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
-  %42 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 8
-  %43 = load <2 x ptr>, ptr %.0911.i.i.i.i19, align 8, !alias.scope !194, !noalias !191
-  store ptr null, ptr %42, align 8, !alias.scope !194, !noalias !191
-  store <2 x ptr> %43, ptr %.012.i.i.i.i18, align 8, !alias.scope !191, !noalias !194
+  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 8
+  %42 = load <2 x ptr>, ptr %.0911.i.i.i.i19, align 8, !alias.scope !194, !noalias !191
+  store ptr null, ptr %41, align 8, !alias.scope !194, !noalias !191
+  store <2 x ptr> %42, ptr %.012.i.i.i.i18, align 8, !alias.scope !191, !noalias !194
   store ptr null, ptr %.0911.i.i.i.i19, align 8, !alias.scope !194, !noalias !191
-  %44 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
-  %45 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 16
-  %.not.i.i.i.i20 = icmp eq ptr %44, %5
+  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
+  %44 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 16
+  %.not.i.i.i.i20 = icmp eq ptr %43, %5
   br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !190
 
 _ZNSt6vectorIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22: ; preds = %.lr.ph.i.i.i.i17, %_ZNSt6vectorIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit
-  %.0.lcssa.i.i.i.i21 = phi ptr [ %41, %_ZNSt6vectorIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ], [ %45, %.lr.ph.i.i.i.i17 ]
+  %.0.lcssa.i.i.i.i21 = phi ptr [ %40, %_ZNSt6vectorIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ], [ %44, %.lr.ph.i.i.i.i17 ]
   %.not.i23 = icmp eq ptr %6, null
-  br i1 %.not.i23, label %_ZNSt12_Vector_baseIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE13_M_deallocateEPS4_m.exit, label %46
+  br i1 %.not.i23, label %_ZNSt12_Vector_baseIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE13_M_deallocateEPS4_m.exit, label %45
 
-46:                                               ; preds = %_ZNSt6vectorIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22
+45:                                               ; preds = %_ZNSt6vectorIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22
   tail call void @_ZdlPv(ptr noundef nonnull %6) #26
   br label %_ZNSt12_Vector_baseIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE13_M_deallocateEPS4_m.exit
 
-_ZNSt12_Vector_baseIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %46
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN2cv3PtrINS0_9videostab13InpainterBaseEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %45
+  %46 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8
-  %48 = getelementptr inbounds %"struct.cv::Ptr.29", ptr %23, i64 %16
-  store ptr %48, ptr %47, align 8
+  %47 = getelementptr inbounds %"struct.cv::Ptr.29", ptr %23, i64 %16
+  store ptr %47, ptr %46, align 8
   ret void
 }
 
@@ -16985,18 +16977,17 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt10_ConstructIN2cv9videostab18ToFileMotionWriterEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_3PtrINS1_24ImageMotionEstimatorBaseEEEEEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"struct.cv::Ptr.21", align 8
-  %5 = load ptr, ptr %2, align 8
-  store ptr %5, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
-  %.not.i.i.i.i = icmp eq ptr %8, null
+  %4 = alloca %"struct.cv::Ptr.21", align 16
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = load <2 x ptr>, ptr %2, align 8
+  store <2 x ptr> %8, ptr %4, align 16
+  %.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_9videostab24ImageMotionEstimatorBaseEEC2ERKS3_.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %.not.i.i.i.i.i, label %15, label %12
@@ -17016,7 +17007,7 @@ _ZN2cv3PtrINS_9videostab24ImageMotionEstimatorBaseEEC2ERKS3_.exit: ; preds = %3,
           to label %17 unwind label %53
 
 17:                                               ; preds = %_ZN2cv3PtrINS_9videostab24ImageMotionEstimatorBaseEEC2ERKS3_.exit
-  %18 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr %5, align 8
   %.not.i.i.i.i4 = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i4, label %_ZN2cv3PtrINS_9videostab24ImageMotionEstimatorBaseEED2Ev.exit, label %19
 

@@ -7637,11 +7637,11 @@ if.end30:                                         ; preds = %_ZStmiRKSt15_Deque_
   %_M_first.i.i183 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_last.i.i185 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %36 = load <2 x ptr>, ptr %_M_first3.i.i, align 8, !noalias !283
+  %37 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !283
   store <2 x ptr> %36, ptr %_M_first.i.i183, align 8, !alias.scope !286
   %_M_node.i.i187 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr %35, ptr %_M_node.i.i187, align 8, !alias.scope !286
   %sub.ptr.lhs.cast.i.i189 = ptrtoint ptr %34 to i64
-  %37 = extractelement <2 x ptr> %36, i64 0
   %sub.ptr.rhs.cast.i.i190 = ptrtoint ptr %37 to i64
   %sub.ptr.sub.i.i191 = sub i64 %sub.ptr.lhs.cast.i.i189, %sub.ptr.rhs.cast.i.i190
   %sub.ptr.div.i.i192 = ashr exact i64 %sub.ptr.sub.i.i191, 5

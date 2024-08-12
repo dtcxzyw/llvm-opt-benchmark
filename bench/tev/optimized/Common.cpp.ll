@@ -6301,37 +6301,35 @@ define linkonce_odr dso_local void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcE
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false)
   %16 = getelementptr inbounds i8, ptr %5, i64 56
   %17 = getelementptr inbounds i8, ptr %1, i64 40
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 64
-  %20 = getelementptr inbounds i8, ptr %1, i64 48
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %19, align 8
-  %.not.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i, label %25, label %22
+  %18 = getelementptr inbounds i8, ptr %1, i64 48
+  %19 = load ptr, ptr %18, align 8
+  %20 = load <2 x ptr>, ptr %17, align 8
+  store <2 x ptr> %20, ptr %16, align 8
+  %.not.i.i.i = icmp eq ptr %19, null
+  br i1 %.not.i.i.i, label %24, label %21
 
-22:                                               ; preds = %4
-  %23 = getelementptr inbounds i8, ptr %21, i64 8
-  %24 = atomicrmw add ptr %23, i64 1 monotonic, align 8
-  br label %25
+21:                                               ; preds = %4
+  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %23 = atomicrmw add ptr %22, i64 1 monotonic, align 8
+  br label %24
 
-25:                                               ; preds = %22, %4
-  %26 = zext i1 %2 to i8
-  %27 = getelementptr inbounds i8, ptr %5, i64 72
-  %28 = getelementptr inbounds i8, ptr %1, i64 56
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 80
-  store i32 %3, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 84
-  store i8 %26, ptr %31, align 4
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
-  store ptr %5, ptr %33, align 8
-  %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  %36 = load ptr, ptr %35, align 8
-  store ptr %36, ptr %6, align 8
+24:                                               ; preds = %21, %4
+  %25 = zext i1 %2 to i8
+  %26 = getelementptr inbounds i8, ptr %5, i64 72
+  %27 = getelementptr inbounds i8, ptr %1, i64 56
+  %28 = load ptr, ptr %27, align 8
+  store ptr %28, ptr %26, align 8
+  %29 = getelementptr inbounds i8, ptr %5, i64 80
+  store i32 %3, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %5, i64 84
+  store i8 %25, ptr %30, align 4
+  %31 = load ptr, ptr %6, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  store ptr %5, ptr %32, align 8
+  %33 = load ptr, ptr %6, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8
+  store ptr %35, ptr %6, align 8
   ret void
 }
 
@@ -16873,13 +16871,12 @@ _ZNSt3__15dequeINS_7__stateIcEENS_9allocatorIS2_EEE5beginB8ne190000Ev.exit.i: ; 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %331, i8 0, i64 24, i1 false)
   %339 = getelementptr inbounds i8, ptr %319, i64 -16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %339, ptr noundef nonnull align 8 dereferenceable(13) %159, i64 13, i1 false)
-  %340 = load i64, ptr %20, align 8
-  %341 = add i64 %340, -1
-  store i64 %341, ptr %20, align 8
-  %342 = load i64, ptr %21, align 8
-  %343 = add i64 %342, 1
-  store i64 %343, ptr %21, align 8
-  %344 = add i64 %342, %341
+  %340 = load i64, ptr %21, align 8
+  %341 = load <2 x i64>, ptr %20, align 8
+  %342 = add <2 x i64> %341, <i64 -1, i64 1>
+  store <2 x i64> %342, ptr %20, align 8
+  %343 = extractelement <2 x i64> %342, i64 0
+  %344 = add i64 %340, %343
   %345 = load ptr, ptr %19, align 8
   %346 = udiv i64 %344, 42
   %347 = getelementptr inbounds ptr, ptr %345, i64 %346
@@ -33746,13 +33743,13 @@ _ZN3fmt2v96detail17write_significandIcNS0_8appenderEmEET0_S4_T1_i.exit: ; preds 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEeTnNSt3__19enable_ifIXsr17is_floating_pointIT1_EE5valueEiE4typeELi0EEET0_S9_S6_NS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %0, x86_fp80 noundef %1, i64 %2, i64 %3, ptr %4) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.anon.221, align 8
-  %7 = alloca %"struct.fmt::v9::basic_format_specs", align 8
+  %7 = alloca %"struct.fmt::v9::basic_format_specs", align 16
   %8 = alloca %class.anon.207, align 8
-  %9 = alloca %"struct.fmt::v9::basic_format_specs", align 8
+  %9 = alloca %"struct.fmt::v9::basic_format_specs", align 16
   %10 = alloca %"struct.fmt::v9::detail::error_handler", align 1
   %11 = alloca %"class.fmt::v9::basic_memory_buffer", align 8
   %12 = alloca %"struct.fmt::v9::detail::big_decimal_fp", align 8
-  store i64 %2, ptr %9, align 8
+  store i64 %2, ptr %9, align 16
   %13 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %3, ptr %13, align 8
   %14 = call i64 @_ZN3fmt2v96detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
@@ -33787,13 +33784,11 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEeTnNSt
 
 30:                                               ; preds = %28
   %31 = fcmp uno x86_fp80 %.0, 0xK00000000000000000000
-  %.sroa.019.0.copyload = load i64, ptr %9, align 8
-  %.sroa.2.0.copyload = load i64, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  store i64 %.sroa.019.0.copyload, ptr %7, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %.sroa.2.0.copyload, ptr %32, align 8
+  %.sroa.2.0.copyload = load i64, ptr %13, align 8
+  %32 = load <2 x i64>, ptr %9, align 16
+  store <2 x i64> %32, ptr %7, align 16
   %33 = and i64 %.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %33, 72057594843234304
   br i1 %or.cond.i, label %34, label %_ZN3fmt2v96detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -33860,13 +33855,13 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit:
   %65 = getelementptr inbounds i8, ptr %64, i64 %62
   store i8 %52, ptr %65, align 1
   %66 = and i32 %.sroa.5.0, -65281
-  %67 = load i32, ptr %9, align 8
+  %67 = load i32, ptr %9, align 16
   %.not37 = icmp eq i32 %67, 0
   br i1 %.not37, label %70, label %68
 
 68:                                               ; preds = %_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit
   %69 = add nsw i32 %67, -1
-  store i32 %69, ptr %9, align 8
+  store i32 %69, ptr %9, align 16
   br label %70
 
 70:                                               ; preds = %_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit, %68, %43
@@ -50324,13 +50319,13 @@ _ZN3fmt2v96detail18make_write_int_argIiEENS1_13write_int_argINSt3__111conditiona
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEfTnNSt3__19enable_ifIXsr17is_floating_pointIT1_EE5valueEiE4typeELi0EEET0_S9_S6_NS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %0, float noundef %1, i64 %2, i64 %3, ptr %4) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.anon.221, align 8
-  %7 = alloca %"struct.fmt::v9::basic_format_specs", align 8
+  %7 = alloca %"struct.fmt::v9::basic_format_specs", align 16
   %8 = alloca %class.anon.207, align 8
-  %9 = alloca %"struct.fmt::v9::basic_format_specs", align 8
+  %9 = alloca %"struct.fmt::v9::basic_format_specs", align 16
   %10 = alloca %"struct.fmt::v9::detail::error_handler", align 1
   %11 = alloca %"class.fmt::v9::basic_memory_buffer", align 8
   %12 = alloca %"struct.fmt::v9::detail::big_decimal_fp", align 8
-  store i64 %2, ptr %9, align 8
+  store i64 %2, ptr %9, align 16
   %13 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %3, ptr %13, align 8
   %14 = call i64 @_ZN3fmt2v96detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
@@ -50365,13 +50360,11 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEfTnNSt
 
 30:                                               ; preds = %28
   %31 = fcmp uno float %.0, 0.000000e+00
-  %.sroa.019.0.copyload = load i64, ptr %9, align 8
-  %.sroa.2.0.copyload = load i64, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  store i64 %.sroa.019.0.copyload, ptr %7, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %.sroa.2.0.copyload, ptr %32, align 8
+  %.sroa.2.0.copyload = load i64, ptr %13, align 8
+  %32 = load <2 x i64>, ptr %9, align 16
+  store <2 x i64> %32, ptr %7, align 16
   %33 = and i64 %.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %33, 72057594843234304
   br i1 %or.cond.i, label %34, label %_ZN3fmt2v96detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -50438,13 +50431,13 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit:
   %65 = getelementptr inbounds i8, ptr %64, i64 %62
   store i8 %52, ptr %65, align 1
   %66 = and i32 %.sroa.5.0, -65281
-  %67 = load i32, ptr %9, align 8
+  %67 = load i32, ptr %9, align 16
   %.not37 = icmp eq i32 %67, 0
   br i1 %.not37, label %70, label %68
 
 68:                                               ; preds = %_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit
   %69 = add nsw i32 %67, -1
-  store i32 %69, ptr %9, align 8
+  store i32 %69, ptr %9, align 16
   br label %70
 
 70:                                               ; preds = %_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit, %68, %43
@@ -51552,13 +51545,13 @@ _ZN3fmt2v96detail14format_decimalIcmEENS1_21format_decimal_resultIPT_EES5_T0_i.e
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEdTnNSt3__19enable_ifIXsr17is_floating_pointIT1_EE5valueEiE4typeELi0EEET0_S9_S6_NS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %0, double noundef %1, i64 %2, i64 %3, ptr %4) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.anon.221, align 8
-  %7 = alloca %"struct.fmt::v9::basic_format_specs", align 8
+  %7 = alloca %"struct.fmt::v9::basic_format_specs", align 16
   %8 = alloca %class.anon.207, align 8
-  %9 = alloca %"struct.fmt::v9::basic_format_specs", align 8
+  %9 = alloca %"struct.fmt::v9::basic_format_specs", align 16
   %10 = alloca %"struct.fmt::v9::detail::error_handler", align 1
   %11 = alloca %"class.fmt::v9::basic_memory_buffer", align 8
   %12 = alloca %"struct.fmt::v9::detail::big_decimal_fp", align 8
-  store i64 %2, ptr %9, align 8
+  store i64 %2, ptr %9, align 16
   %13 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %3, ptr %13, align 8
   %14 = call i64 @_ZN3fmt2v96detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
@@ -51593,13 +51586,11 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail5writeIcNS0_8appenderEdTnNSt
 
 30:                                               ; preds = %28
   %31 = fcmp uno double %.0, 0.000000e+00
-  %.sroa.019.0.copyload = load i64, ptr %9, align 8
-  %.sroa.2.0.copyload = load i64, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  store i64 %.sroa.019.0.copyload, ptr %7, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %.sroa.2.0.copyload, ptr %32, align 8
+  %.sroa.2.0.copyload = load i64, ptr %13, align 8
+  %32 = load <2 x i64>, ptr %9, align 16
+  store <2 x i64> %32, ptr %7, align 16
   %33 = and i64 %.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %33, 72057594843234304
   br i1 %or.cond.i, label %34, label %_ZN3fmt2v96detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -51666,13 +51657,13 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit:
   %65 = getelementptr inbounds i8, ptr %64, i64 %62
   store i8 %52, ptr %65, align 1
   %66 = and i32 %.sroa.5.0, -65281
-  %67 = load i32, ptr %9, align 8
+  %67 = load i32, ptr %9, align 16
   %.not37 = icmp eq i32 %67, 0
   br i1 %.not37, label %70, label %68
 
 68:                                               ; preds = %_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit
   %69 = add nsw i32 %67, -1
-  store i32 %69, ptr %9, align 8
+  store i32 %69, ptr %9, align 16
   br label %70
 
 70:                                               ; preds = %_ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit, %68, %43

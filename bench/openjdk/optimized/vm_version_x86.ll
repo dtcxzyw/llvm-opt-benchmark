@@ -4135,85 +4135,83 @@ define hidden void @_ZN10VM_Version10initializeEv() local_unnamed_addr #1 align 
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 32
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
-  %14 = load i64, ptr %13, align 8
-  %15 = tail call noundef ptr @_ZN10BufferBlob6createEPKcj(ptr noundef nonnull @.str.123, i32 noundef 2000) #14
-  store ptr %15, ptr @_ZL9stub_blob, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %18
+  %10 = load <2 x ptr>, ptr %9, align 8
+  %11 = load ptr, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = load i64, ptr %12, align 8
+  %14 = tail call noundef ptr @_ZN10BufferBlob6createEPKcj(ptr noundef nonnull @.str.123, i32 noundef 2000) #14
+  store ptr %14, ptr @_ZL9stub_blob, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %17
 
-17:                                               ; preds = %0
+16:                                               ; preds = %0
   tail call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.124, ptr noundef null) #14
   %.pre = load ptr, ptr @_ZL9stub_blob, align 8
-  br label %18
+  br label %17
 
-18:                                               ; preds = %17, %0
-  %19 = phi ptr [ %.pre, %17 ], [ %15, %0 ]
-  call void @_ZN10CodeBufferC1EP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef %19) #14
+17:                                               ; preds = %16, %0
+  %18 = phi ptr [ %.pre, %16 ], [ %14, %0 ]
+  call void @_ZN10CodeBufferC1EP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef %18) #14
   call void @_ZN17StubCodeGeneratorC2EP10CodeBufferb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %1, i1 noundef zeroext false) #14
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV24VM_Version_StubGenerator, i64 16), ptr %2, align 8
-  %20 = call noundef ptr @_ZN24VM_Version_StubGenerator21generate_get_cpu_infoEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
-  store ptr %20, ptr @_ZL17get_cpu_info_stub, align 8
-  %21 = call noundef ptr @_ZN24VM_Version_StubGenerator20generate_detect_virtEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
-  store ptr %21, ptr @_ZL16detect_virt_stub, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 16
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
-  %27 = load ptr, ptr %26, align 8
-  %28 = load i8, ptr @UseAPX, align 1
-  %29 = and i8 %28, 1
-  %30 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %31 = or i64 %30, 1152921504606846976
-  store i64 %31, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %19 = call noundef ptr @_ZN24VM_Version_StubGenerator21generate_get_cpu_infoEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
+  store ptr %19, ptr @_ZL17get_cpu_info_stub, align 8
+  %20 = call noundef ptr @_ZN24VM_Version_StubGenerator20generate_detect_virtEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
+  store ptr %20, ptr @_ZL16detect_virt_stub, align 8
+  %21 = getelementptr inbounds i8, ptr %2, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = load i8, ptr @UseAPX, align 1
+  %28 = and i8 %27, 1
+  %29 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %30 = or i64 %29, 1152921504606846976
+  store i64 %30, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
   store i8 1, ptr @UseAPX, align 1
-  call void @_ZN9Assembler5mov64E8Registerl(ptr noundef nonnull align 8 dereferenceable(40) %23, i32 16, i64 noundef 0) #14
-  %32 = load ptr, ptr %22, align 8
-  call void @_ZN9Assembler5mov64E8Registerl(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 31, i64 noundef 0) #14
-  store i8 %29, ptr @UseAPX, align 1
+  call void @_ZN9Assembler5mov64E8Registerl(ptr noundef nonnull align 8 dereferenceable(40) %22, i32 16, i64 noundef 0) #14
+  %31 = load ptr, ptr %21, align 8
+  call void @_ZN9Assembler5mov64E8Registerl(ptr noundef nonnull align 8 dereferenceable(40) %31, i32 31, i64 noundef 0) #14
+  store i8 %28, ptr @UseAPX, align 1
   store i64 0, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %33 = load ptr, ptr %22, align 8
-  call void @_ZN9Assembler3retEi(ptr noundef nonnull align 8 dereferenceable(40) %33, i32 noundef 0) #14
-  store ptr %27, ptr @_ZL25clear_apx_test_state_stub, align 8
+  %32 = load ptr, ptr %21, align 8
+  call void @_ZN9Assembler3retEi(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 0) #14
+  store ptr %26, ptr @_ZL25clear_apx_test_state_stub, align 8
   call void @_ZN10VM_Version22get_processor_featuresEv()
   call void @_ZN9Assembler23precompute_instructionsEv() #14
-  %34 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %35 = and i64 %34, 70368744177664
-  %.not = icmp eq i64 %35, 0
-  br i1 %.not, label %37, label %36
+  %33 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %34 = and i64 %33, 70368744177664
+  %.not = icmp eq i64 %34, 0
+  br i1 %.not, label %36, label %35
 
-36:                                               ; preds = %18
+35:                                               ; preds = %17
   call void @_ZN10VM_Version21check_virtualizationsEv()
-  br label %37
+  br label %36
 
-37:                                               ; preds = %36, %18
+36:                                               ; preds = %35, %17
   call void @_ZN17StubCodeGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #14
   call void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448) %1) #14
-  %38 = load ptr, ptr %8, align 8
-  %.not.i.i.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i.i.i, label %40, label %39
+  %37 = load ptr, ptr %8, align 8
+  %.not.i.i.i.i = icmp eq ptr %37, null
+  br i1 %.not.i.i.i.i, label %39, label %38
 
-39:                                               ; preds = %37
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %14) #14
+38:                                               ; preds = %36
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %13) #14
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %8) #14
-  br label %40
+  br label %39
 
-40:                                               ; preds = %39, %37
-  %41 = load ptr, ptr %9, align 8
-  %.not8.i.i.i.i = icmp eq ptr %41, %10
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %42
+39:                                               ; preds = %38, %36
+  %40 = load ptr, ptr %9, align 8
+  %.not8.i.i.i.i = icmp eq ptr %40, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %41
 
-42:                                               ; preds = %40
+41:                                               ; preds = %39
   store ptr %8, ptr %7, align 8
-  store ptr %10, ptr %9, align 8
-  store ptr %12, ptr %11, align 8
+  store <2 x ptr> %10, ptr %9, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %40, %42
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %39, %41
   ret void
 }
 
@@ -6535,51 +6533,49 @@ define hidden void @_ZN10VM_Version14initialize_tscEv() local_unnamed_addr #1 al
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 32
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
-  %14 = load i64, ptr %13, align 8
-  %15 = tail call noundef ptr @_ZN10BufferBlob6createEPKcj(ptr noundef nonnull @.str.125, i32 noundef 550) #14
-  store ptr %15, ptr @_ZL28cpuid_brand_string_stub_blob, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %18
+  %10 = load <2 x ptr>, ptr %9, align 8
+  %11 = load ptr, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = load i64, ptr %12, align 8
+  %14 = tail call noundef ptr @_ZN10BufferBlob6createEPKcj(ptr noundef nonnull @.str.125, i32 noundef 550) #14
+  store ptr %14, ptr @_ZL28cpuid_brand_string_stub_blob, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %17
 
-17:                                               ; preds = %0
+16:                                               ; preds = %0
   tail call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.126, ptr noundef null) #14
   %.pre = load ptr, ptr @_ZL28cpuid_brand_string_stub_blob, align 8
-  br label %18
+  br label %17
 
-18:                                               ; preds = %17, %0
-  %19 = phi ptr [ %.pre, %17 ], [ %15, %0 ]
-  call void @_ZN10CodeBufferC1EP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef %19) #14
+17:                                               ; preds = %16, %0
+  %18 = phi ptr [ %.pre, %16 ], [ %14, %0 ]
+  call void @_ZN10CodeBufferC1EP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef %18) #14
   call void @_ZN17StubCodeGeneratorC2EP10CodeBufferb(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %1, i1 noundef zeroext false) #14
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV24VM_Version_StubGenerator, i64 16), ptr %2, align 8
-  %20 = call noundef ptr @_ZN24VM_Version_StubGenerator28generate_getCPUIDBrandStringEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
-  store ptr %20, ptr @_ZL24getCPUIDBrandString_stub, align 8
+  %19 = call noundef ptr @_ZN24VM_Version_StubGenerator28generate_getCPUIDBrandStringEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
+  store ptr %19, ptr @_ZL24getCPUIDBrandString_stub, align 8
   call void @_ZN17StubCodeGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #14
   call void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448) %1) #14
-  %21 = load ptr, ptr %8, align 8
-  %.not.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i, label %23, label %22
+  %20 = load ptr, ptr %8, align 8
+  %.not.i.i.i.i = icmp eq ptr %20, null
+  br i1 %.not.i.i.i.i, label %22, label %21
 
-22:                                               ; preds = %18
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %14) #14
+21:                                               ; preds = %17
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %13) #14
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %8) #14
-  br label %23
+  br label %22
 
-23:                                               ; preds = %22, %18
-  %24 = load ptr, ptr %9, align 8
-  %.not8.i.i.i.i = icmp eq ptr %24, %10
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %25
+22:                                               ; preds = %21, %17
+  %23 = load ptr, ptr %9, align 8
+  %.not8.i.i.i.i = icmp eq ptr %23, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %24
 
-25:                                               ; preds = %23
+24:                                               ; preds = %22
   store ptr %8, ptr %7, align 8
-  store ptr %10, ptr %9, align 8
-  store ptr %12, ptr %11, align 8
+  store <2 x ptr> %10, ptr %9, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %23, %25
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %22, %24
   ret void
 }
 

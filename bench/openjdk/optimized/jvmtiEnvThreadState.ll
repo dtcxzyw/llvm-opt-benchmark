@@ -869,74 +869,72 @@ define linkonce_odr hidden void @_ZN25GetCurrentLocationClosure9do_threadEP6Thre
   %9 = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 32
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 40
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 8
-  %16 = load i64, ptr %15, align 8
+  %12 = load <2 x ptr>, ptr %11, align 8
+  %13 = load ptr, ptr %11, align 8
+  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %15 = load i64, ptr %14, align 8
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %4, ptr noundef %1, i32 noundef 0, i32 noundef 1, i32 noundef 0) #13
-  %17 = getelementptr inbounds i8, ptr %1, i64 1128
-  %18 = load volatile i32, ptr %17, align 4
+  %16 = getelementptr inbounds i8, ptr %1, i64 1128
+  %17 = load volatile i32, ptr %16, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
-  %19 = add i32 %18, -57003
-  %20 = icmp ult i32 %19, 4
-  br i1 %20, label %38, label %21
+  %18 = add i32 %17, -57003
+  %19 = icmp ult i32 %18, 4
+  br i1 %19, label %37, label %20
 
-21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %1, i64 928
-  %23 = load volatile ptr, ptr %22, align 8
-  %.not13 = icmp eq ptr %23, null
-  br i1 %.not13, label %38, label %24
+20:                                               ; preds = %2
+  %21 = getelementptr inbounds i8, ptr %1, i64 928
+  %22 = load volatile ptr, ptr %21, align 8
+  %.not13 = icmp eq ptr %22, null
+  br i1 %.not13, label %37, label %23
 
-24:                                               ; preds = %21
+23:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #13, !noalias !13
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %21) #13, !noalias !13
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %3, ptr noundef nonnull align 8 dereferenceable(1800) %1) #13
-  %25 = call noundef ptr @_ZN10JavaThread16last_java_vframeE5frameP11RegisterMap(ptr noundef nonnull align 8 dereferenceable(1800) %1, ptr noundef nonnull byval(%class.frame) align 8 %3, ptr noundef nonnull %4) #13
+  %24 = call noundef ptr @_ZN10JavaThread16last_java_vframeE5frameP11RegisterMap(ptr noundef nonnull align 8 dereferenceable(1800) %1, ptr noundef nonnull byval(%class.frame) align 8 %3, ptr noundef nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  %.not = icmp eq ptr %25, null
-  br i1 %.not, label %38, label %26
+  %.not = icmp eq ptr %24, null
+  br i1 %.not, label %37, label %25
 
-26:                                               ; preds = %24
-  %27 = load ptr, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 48
-  %29 = load ptr, ptr %28, align 8
-  %30 = call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(5064) %25) #13
-  %31 = call noundef ptr @_ZN6Method10jmethod_idEv(ptr noundef nonnull align 8 dereferenceable(88) %30) #13
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %31, ptr %32, align 8
-  %33 = load ptr, ptr %25, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 56
-  %35 = load ptr, ptr %34, align 8
-  %36 = call noundef i32 %35(ptr noundef nonnull align 8 dereferenceable(5064) %25) #13
-  %37 = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 %36, ptr %37, align 8
-  br label %38
+25:                                               ; preds = %23
+  %26 = load ptr, ptr %24, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 48
+  %28 = load ptr, ptr %27, align 8
+  %29 = call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(5064) %24) #13
+  %30 = call noundef ptr @_ZN6Method10jmethod_idEv(ptr noundef nonnull align 8 dereferenceable(88) %29) #13
+  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %30, ptr %31, align 8
+  %32 = load ptr, ptr %24, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 56
+  %34 = load ptr, ptr %33, align 8
+  %35 = call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(5064) %24) #13
+  %36 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 %35, ptr %36, align 8
+  br label %37
 
-38:                                               ; preds = %24, %26, %21, %2
-  %39 = getelementptr inbounds i8, ptr %0, i64 52
-  store i8 1, ptr %39, align 4
-  %40 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i.i, label %42, label %41
+37:                                               ; preds = %23, %25, %20, %2
+  %38 = getelementptr inbounds i8, ptr %0, i64 52
+  store i8 1, ptr %38, align 4
+  %39 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i.i.i, label %41, label %40
 
-41:                                               ; preds = %38
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %16) #13
+40:                                               ; preds = %37
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %15) #13
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %10) #13
-  br label %42
+  br label %41
 
-42:                                               ; preds = %41, %38
-  %43 = load ptr, ptr %11, align 8
-  %.not8.i.i.i.i = icmp eq ptr %43, %12
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %44
+41:                                               ; preds = %40, %37
+  %42 = load ptr, ptr %11, align 8
+  %.not8.i.i.i.i = icmp eq ptr %42, %13
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %43
 
-44:                                               ; preds = %42
+43:                                               ; preds = %41
   store ptr %10, ptr %9, align 8
-  store ptr %12, ptr %11, align 8
-  store ptr %14, ptr %13, align 8
+  store <2 x ptr> %12, ptr %11, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %42, %44
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %41, %43
   ret void
 }
 
@@ -970,64 +968,62 @@ define linkonce_odr hidden void @_ZN25GetCurrentLocationClosure10do_vthreadE6Han
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 32
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
-  %14 = load i64, ptr %13, align 8
-  %15 = icmp eq ptr %1, null
-  br i1 %15, label %_ZNK6HandleclEv.exit, label %16
+  %10 = load <2 x ptr>, ptr %9, align 8
+  %11 = load ptr, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = load i64, ptr %12, align 8
+  %14 = icmp eq ptr %1, null
+  br i1 %14, label %_ZNK6HandleclEv.exit, label %15
 
-16:                                               ; preds = %2
-  %17 = load ptr, ptr %1, align 8
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %1, align 8
   br label %_ZNK6HandleclEv.exit
 
-_ZNK6HandleclEv.exit:                             ; preds = %2, %16
-  %18 = phi ptr [ %17, %16 ], [ null, %2 ]
-  %19 = tail call noundef ptr @_ZN12JvmtiEnvBase15get_vthread_jvfEP7oopDesc(ptr noundef %18) #13
-  %.not = icmp eq ptr %19, null
-  br i1 %.not, label %32, label %20
+_ZNK6HandleclEv.exit:                             ; preds = %2, %15
+  %17 = phi ptr [ %16, %15 ], [ null, %2 ]
+  %18 = tail call noundef ptr @_ZN12JvmtiEnvBase15get_vthread_jvfEP7oopDesc(ptr noundef %17) #13
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %31, label %19
 
-20:                                               ; preds = %_ZNK6HandleclEv.exit
-  %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 48
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(5064) %19) #13
-  %25 = tail call noundef ptr @_ZN6Method10jmethod_idEv(ptr noundef nonnull align 8 dereferenceable(88) %24) #13
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %25, ptr %26, align 8
-  %27 = load ptr, ptr %19, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 56
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call noundef i32 %29(ptr noundef nonnull align 8 dereferenceable(5064) %19) #13
-  %31 = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 %30, ptr %31, align 8
-  br label %32
+19:                                               ; preds = %_ZNK6HandleclEv.exit
+  %20 = load ptr, ptr %18, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 48
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(5064) %18) #13
+  %24 = tail call noundef ptr @_ZN6Method10jmethod_idEv(ptr noundef nonnull align 8 dereferenceable(88) %23) #13
+  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %24, ptr %25, align 8
+  %26 = load ptr, ptr %18, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 56
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(5064) %18) #13
+  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  store i32 %29, ptr %30, align 8
+  br label %31
 
-32:                                               ; preds = %20, %_ZNK6HandleclEv.exit
-  %33 = getelementptr inbounds i8, ptr %0, i64 52
-  store i8 1, ptr %33, align 4
-  %34 = load ptr, ptr %8, align 8
-  %.not.i.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i.i, label %36, label %35
+31:                                               ; preds = %19, %_ZNK6HandleclEv.exit
+  %32 = getelementptr inbounds i8, ptr %0, i64 52
+  store i8 1, ptr %32, align 4
+  %33 = load ptr, ptr %8, align 8
+  %.not.i.i.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i.i.i, label %35, label %34
 
-35:                                               ; preds = %32
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %14) #13
+34:                                               ; preds = %31
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %13) #13
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %8) #13
-  br label %36
+  br label %35
 
-36:                                               ; preds = %35, %32
-  %37 = load ptr, ptr %9, align 8
-  %.not8.i.i.i.i = icmp eq ptr %37, %10
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %38
+35:                                               ; preds = %34, %31
+  %36 = load ptr, ptr %9, align 8
+  %.not8.i.i.i.i = icmp eq ptr %36, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %37
 
-38:                                               ; preds = %36
+37:                                               ; preds = %35
   store ptr %8, ptr %7, align 8
-  store ptr %10, ptr %9, align 8
-  store ptr %12, ptr %11, align 8
+  store <2 x ptr> %10, ptr %9, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %36, %38
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %35, %37
   ret void
 }
 

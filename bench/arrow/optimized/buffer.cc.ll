@@ -1766,7 +1766,7 @@ entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 16
   %_M_refcount4.i.i = getelementptr inbounds i8, ptr %buf, i64 8
   %0 = load <2 x ptr>, ptr %buf, align 8
-  %1 = extractelement <2 x ptr> %0, i64 0
+  %1 = load ptr, ptr %buf, align 8
   %memory_manager_ = getelementptr inbounds i8, ptr %1, i64 64
   %2 = load ptr, ptr %memory_manager_, align 8
   store ptr null, ptr %_M_refcount4.i.i, align 8

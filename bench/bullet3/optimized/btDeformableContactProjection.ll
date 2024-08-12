@@ -4213,22 +4213,22 @@ if.else42:                                        ; preds = %if.else
   %51 = load ptr, ptr %m_data.i72, align 8
   %idxprom.i73 = sext i32 %retval.sroa.0.0.copyload.i to i64
   %arrayidx.i74 = getelementptr inbounds %class.btVector3, ptr %51, i64 %idxprom.i73
+  %52 = extractelement <2 x float> %6, i64 0
   %arrayidx10.i78 = getelementptr inbounds i8, ptr %arrayidx.i74, i64 8
-  %52 = load float, ptr %arrayidx10.i78, align 4
-  %53 = load <2 x float>, ptr %arrayidx.i74, align 4
-  %54 = fmul <2 x float> %6, %53
-  %mul8.i77 = extractelement <2 x float> %54, i64 1
-  %55 = extractelement <2 x float> %53, i64 0
-  %56 = extractelement <2 x float> %6, i64 0
-  %57 = tail call float @llvm.fmuladd.f32(float %55, float %56, float %mul8.i77)
-  %58 = tail call noundef float @llvm.fmuladd.f32(float %52, float %dir0.sroa.7.0.copyload, float %57)
+  %53 = load float, ptr %arrayidx10.i78, align 4
+  %54 = load <2 x float>, ptr %arrayidx.i74, align 4
+  %55 = fmul <2 x float> %6, %54
+  %mul8.i77 = extractelement <2 x float> %55, i64 1
+  %56 = extractelement <2 x float> %54, i64 0
+  %57 = tail call float @llvm.fmuladd.f32(float %56, float %52, float %mul8.i77)
+  %58 = tail call noundef float @llvm.fmuladd.f32(float %53, float %dir0.sroa.7.0.copyload, float %57)
   %59 = insertelement <2 x float> poison, float %58, i64 0
   %60 = shufflevector <2 x float> %59, <2 x float> poison, <2 x i32> zeroinitializer
   %61 = fmul <2 x float> %6, %60
   %mul8.i.i84 = fmul float %dir0.sroa.7.0.copyload, %58
-  %62 = fsub <2 x float> %53, %61
+  %62 = fsub <2 x float> %54, %61
   store <2 x float> %62, ptr %arrayidx.i74, align 4
-  %sub13.i99 = fsub float %52, %mul8.i.i84
+  %sub13.i99 = fsub float %53, %mul8.i.i84
   store float %sub13.i99, ptr %arrayidx10.i78, align 4
   br label %for.inc
 

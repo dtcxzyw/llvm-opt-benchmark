@@ -986,9 +986,9 @@ _ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit: ; preds = %entry, %_ZN
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i16 @_ZN4node6crypto17RandomPrimeTraits12EncodeOutputEPNS_11EnvironmentERKNS0_17RandomPrimeConfigEPNS0_10ByteSourceEPN2v85LocalINS9_5ValueEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %params, ptr nocapture readnone %unused, ptr nocapture noundef writeonly %result) local_unnamed_addr #5 align 2 {
 entry:
-  %store = alloca %"class.std::shared_ptr.286", align 8
+  %store = alloca %"class.std::shared_ptr.286", align 16
   %ref.tmp = alloca %"class.std::unique_ptr.289", align 8
-  %agg.tmp18 = alloca %"class.std::shared_ptr.286", align 8
+  %agg.tmp18 = alloca %"class.std::shared_ptr.286", align 16
   %prime = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load ptr, ptr %prime, align 8
   %call1 = tail call i32 @BN_num_bits(ptr noundef %0) #17
@@ -1011,7 +1011,7 @@ _ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i: ; preds = %entry
 _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i
   store ptr null, ptr %ref.tmp, align 8
   %3 = load ptr, ptr %prime, align 8
-  %4 = load ptr, ptr %store, align 8
+  %4 = load ptr, ptr %store, align 16
   %call7 = call noundef ptr @_ZNK2v812BackingStore4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
   %call9 = call i32 @BN_bn2binpad(ptr noundef %3, ptr noundef %call7, i32 noundef %div) #17
   %cmp.not = icmp eq i32 %div, %call9
@@ -1024,17 +1024,16 @@ do.body13:                                        ; preds = %_ZNSt10unique_ptrIN
 
 do.end15:                                         ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit
   %5 = load ptr, ptr %isolate_.i, align 8
-  %6 = load ptr, ptr %store, align 8
-  store ptr %6, ptr %agg.tmp18, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp18, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %store, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %store, align 16
+  store <2 x ptr> %7, ptr %agg.tmp18, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.end15
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

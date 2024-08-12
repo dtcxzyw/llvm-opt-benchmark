@@ -6430,34 +6430,34 @@ _ZNK9hb_face_t8get_upemEv.exit:                   ; preds = %1, %6
   %15 = fdiv <2 x float> %12, %14
   store <2 x float> %15, ptr %10, align 4
   %16 = getelementptr inbounds i8, ptr %0, i64 88
-  %17 = icmp slt <2 x i32> %11, zeroinitializer
-  %18 = sub nsw <2 x i32> zeroinitializer, %11
-  %19 = zext <2 x i32> %18 to <2 x i64>
-  %20 = mul nsw <2 x i64> %19, <i64 -65536, i64 -65536>
-  %21 = zext <2 x i32> %11 to <2 x i64>
-  %22 = shl nuw nsw <2 x i64> %21, <i64 16, i64 16>
-  %23 = select <2 x i1> %17, <2 x i64> %20, <2 x i64> %22
-  %24 = sitofp <2 x i64> %23 to <2 x float>
-  %25 = fdiv <2 x float> %24, %14
-  %26 = fptosi <2 x float> %25 to <2 x i64>
-  store <2 x i64> %26, ptr %16, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 48
-  %28 = getelementptr inbounds i8, ptr %0, i64 60
-  %29 = load <2 x float>, ptr %27, align 8
-  %30 = fmul <2 x float> %29, %12
-  %31 = fadd <2 x float> %30, <float 5.000000e-01, float 5.000000e-01>
-  %32 = tail call <2 x float> @llvm.floor.v2f32(<2 x float> %31)
-  %33 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %32)
-  %34 = fptosi <2 x float> %33 to <2 x i32>
-  store <2 x i32> %34, ptr %28, align 4
-  %35 = extractelement <2 x i32> %11, i64 1
-  %.not = icmp eq i32 %35, 0
-  %36 = getelementptr inbounds i8, ptr %0, i64 68
-  %37 = load float, ptr %36, align 4
-  %38 = extractelement <2 x float> %12, i64 0
-  %39 = fmul float %37, %38
-  %40 = extractelement <2 x float> %12, i64 1
-  %41 = fdiv float %39, %40
+  %17 = extractelement <2 x i32> %11, i64 1
+  %18 = icmp slt <2 x i32> %11, zeroinitializer
+  %19 = sub nsw <2 x i32> zeroinitializer, %11
+  %20 = zext <2 x i32> %19 to <2 x i64>
+  %21 = mul nsw <2 x i64> %20, <i64 -65536, i64 -65536>
+  %22 = zext <2 x i32> %11 to <2 x i64>
+  %23 = shl nuw nsw <2 x i64> %22, <i64 16, i64 16>
+  %24 = select <2 x i1> %18, <2 x i64> %21, <2 x i64> %23
+  %25 = sitofp <2 x i64> %24 to <2 x float>
+  %26 = fdiv <2 x float> %25, %14
+  %27 = fptosi <2 x float> %26 to <2 x i64>
+  store <2 x i64> %27, ptr %16, align 8
+  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = extractelement <2 x float> %12, i64 0
+  %30 = getelementptr inbounds i8, ptr %0, i64 60
+  %31 = extractelement <2 x float> %12, i64 1
+  %32 = load <2 x float>, ptr %28, align 8
+  %33 = fmul <2 x float> %32, %12
+  %34 = fadd <2 x float> %33, <float 5.000000e-01, float 5.000000e-01>
+  %35 = tail call <2 x float> @llvm.floor.v2f32(<2 x float> %34)
+  %36 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %35)
+  %37 = fptosi <2 x float> %36 to <2 x i32>
+  store <2 x i32> %37, ptr %30, align 4
+  %.not = icmp eq i32 %17, 0
+  %38 = getelementptr inbounds i8, ptr %0, i64 68
+  %39 = load float, ptr %38, align 4
+  %40 = fmul float %39, %29
+  %41 = fdiv float %40, %31
   %42 = select i1 %.not, float 0.000000e+00, float %41
   %43 = getelementptr inbounds i8, ptr %0, i64 72
   store float %42, ptr %43, align 8

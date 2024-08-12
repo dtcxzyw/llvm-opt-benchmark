@@ -482,32 +482,32 @@ define dso_local void @_ZN15Sample_SoloMesh15handleDebugModeEv(ptr nocapture nou
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp ne ptr %4, null
-  br i1 %.not, label %5, label %43
+  br i1 %.not, label %5, label %41
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load <2 x ptr>, ptr %6, align 8
   %8 = icmp ne <2 x ptr> %7, zeroinitializer
-  %9 = shufflevector <2 x i1> %8, <2 x i1> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
-  %10 = zext <4 x i1> %9 to <4 x i8>
-  store <4 x i8> %10, ptr %2, align 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 4
-  %12 = extractelement <2 x i1> %8, i64 0
-  %13 = zext i1 %12 to i8
-  store i8 %13, ptr %11, align 4
+  %9 = extractelement <2 x i1> %8, i64 0
+  %10 = shufflevector <2 x i1> %8, <2 x i1> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
+  %11 = zext i1 %9 to i8
+  %12 = zext <4 x i1> %10 to <4 x i8>
+  store <4 x i8> %12, ptr %2, align 16
+  %13 = getelementptr inbounds i8, ptr %2, i64 4
+  store i8 %11, ptr %13, align 4
   %14 = getelementptr inbounds i8, ptr %2, i64 5
   store i8 1, ptr %14, align 1
   %15 = getelementptr inbounds i8, ptr %0, i64 216
   %16 = getelementptr inbounds i8, ptr %2, i64 6
   %17 = load <2 x ptr>, ptr %15, align 8
   %18 = icmp ne <2 x ptr> %17, zeroinitializer
-  %19 = shufflevector <2 x i1> %18, <2 x i1> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
-  %20 = zext <4 x i1> %19 to <4 x i8>
-  store <4 x i8> %20, ptr %16, align 2
-  %21 = getelementptr inbounds i8, ptr %2, i64 10
-  %22 = extractelement <2 x i1> %18, i64 1
-  %23 = zext i1 %22 to i8
-  store i8 %23, ptr %21, align 2
+  %19 = extractelement <2 x i1> %18, i64 1
+  %20 = zext i1 %19 to i8
+  %21 = shufflevector <2 x i1> %18, <2 x i1> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
+  %22 = zext <4 x i1> %21 to <4 x i8>
+  store <4 x i8> %22, ptr %16, align 2
+  %23 = getelementptr inbounds i8, ptr %2, i64 10
+  store i8 %20, ptr %23, align 2
   %24 = getelementptr inbounds i8, ptr %0, i64 232
   %25 = load ptr, ptr %24, align 8
   %26 = icmp ne ptr %25, null
@@ -526,285 +526,283 @@ define dso_local void @_ZN15Sample_SoloMesh15handleDebugModeEv(ptr nocapture nou
   %37 = getelementptr inbounds i8, ptr %2, i64 16
   %38 = zext i1 %36 to i8
   store i8 %38, ptr %37, align 16
-  %39 = extractelement <2 x i1> %8, i64 0
-  %40 = extractelement <2 x i1> %8, i64 1
-  %41 = extractelement <2 x i1> %18, i64 0
-  %42 = extractelement <2 x i1> %18, i64 1
-  br label %43
+  %39 = extractelement <2 x i1> %8, i64 1
+  %40 = extractelement <2 x i1> %18, i64 0
+  br label %41
 
-43:                                               ; preds = %5, %1
-  %44 = phi i1 [ %36, %5 ], [ false, %1 ]
-  %45 = phi i1 [ %31, %5 ], [ false, %1 ]
-  %46 = phi i1 [ %26, %5 ], [ false, %1 ]
-  %47 = phi i1 [ %42, %5 ], [ false, %1 ]
-  %48 = phi i1 [ %41, %5 ], [ false, %1 ]
-  %49 = phi i1 [ %40, %5 ], [ false, %1 ]
-  %50 = phi i1 [ %39, %5 ], [ false, %1 ]
-  br label %51
+41:                                               ; preds = %5, %1
+  %42 = phi i1 [ %36, %5 ], [ false, %1 ]
+  %43 = phi i1 [ %31, %5 ], [ false, %1 ]
+  %44 = phi i1 [ %26, %5 ], [ false, %1 ]
+  %45 = phi i1 [ %19, %5 ], [ false, %1 ]
+  %46 = phi i1 [ %40, %5 ], [ false, %1 ]
+  %47 = phi i1 [ %39, %5 ], [ false, %1 ]
+  %48 = phi i1 [ %9, %5 ], [ false, %1 ]
+  br label %49
 
-51:                                               ; preds = %43, %51
-  %indvars.iv = phi i64 [ 0, %43 ], [ %indvars.iv.next, %51 ]
-  %.0913 = phi i32 [ 0, %43 ], [ %spec.select, %51 ]
-  %52 = getelementptr inbounds [17 x i8], ptr %2, i64 0, i64 %indvars.iv
-  %53 = load i8, ptr %52, align 1
-  %54 = and i8 %53, 1
-  %55 = xor i8 %54, 1
-  %56 = zext nneg i8 %55 to i32
-  %spec.select = add nuw nsw i32 %.0913, %56
+49:                                               ; preds = %41, %49
+  %indvars.iv = phi i64 [ 0, %41 ], [ %indvars.iv.next, %49 ]
+  %.0913 = phi i32 [ 0, %41 ], [ %spec.select, %49 ]
+  %50 = getelementptr inbounds [17 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %51 = load i8, ptr %50, align 1
+  %52 = and i8 %51, 1
+  %53 = xor i8 %52, 1
+  %54 = zext nneg i8 %53 to i32
+  %spec.select = add nuw nsw i32 %.0913, %54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 17
-  br i1 %exitcond.not, label %57, label %51, !llvm.loop !5
+  br i1 %exitcond.not, label %55, label %49, !llvm.loop !5
 
-57:                                               ; preds = %51
-  %58 = icmp eq i32 %spec.select, 17
-  br i1 %58, label %147, label %59
+55:                                               ; preds = %49
+  %56 = icmp eq i32 %spec.select, 17
+  br i1 %56, label %145, label %57
 
-59:                                               ; preds = %57
+57:                                               ; preds = %55
   tail call void @_Z10imguiLabelPKc(ptr noundef nonnull @.str.10)
-  %60 = getelementptr inbounds i8, ptr %0, i64 352
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp eq i32 %61, 5
-  %63 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.11, i1 noundef zeroext %62, i1 noundef zeroext %.not)
-  br i1 %63, label %64, label %._crit_edge
+  %58 = getelementptr inbounds i8, ptr %0, i64 352
+  %59 = load i32, ptr %58, align 8
+  %60 = icmp eq i32 %59, 5
+  %61 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.11, i1 noundef zeroext %60, i1 noundef zeroext %.not)
+  br i1 %61, label %62, label %._crit_edge
 
-._crit_edge:                                      ; preds = %59
-  %.pre = load i32, ptr %60, align 8
-  br label %65
+._crit_edge:                                      ; preds = %57
+  %.pre = load i32, ptr %58, align 8
+  br label %63
 
-64:                                               ; preds = %59
-  store i32 5, ptr %60, align 8
-  br label %65
+62:                                               ; preds = %57
+  store i32 5, ptr %58, align 8
+  br label %63
 
-65:                                               ; preds = %._crit_edge, %64
-  %66 = phi i32 [ %.pre, %._crit_edge ], [ 5, %64 ]
-  %67 = icmp eq i32 %66, 0
-  %68 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.12, i1 noundef zeroext %67, i1 noundef zeroext %50)
-  br i1 %68, label %69, label %._crit_edge17
+63:                                               ; preds = %._crit_edge, %62
+  %64 = phi i32 [ %.pre, %._crit_edge ], [ 5, %62 ]
+  %65 = icmp eq i32 %64, 0
+  %66 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.12, i1 noundef zeroext %65, i1 noundef zeroext %48)
+  br i1 %66, label %67, label %._crit_edge17
 
-._crit_edge17:                                    ; preds = %65
-  %.pre18 = load i32, ptr %60, align 8
-  br label %70
+._crit_edge17:                                    ; preds = %63
+  %.pre18 = load i32, ptr %58, align 8
+  br label %68
 
-69:                                               ; preds = %65
-  store i32 0, ptr %60, align 8
-  br label %70
+67:                                               ; preds = %63
+  store i32 0, ptr %58, align 8
+  br label %68
 
-70:                                               ; preds = %._crit_edge17, %69
-  %71 = phi i32 [ %.pre18, %._crit_edge17 ], [ 0, %69 ]
-  %72 = icmp eq i32 %71, 4
-  %73 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.13, i1 noundef zeroext %72, i1 noundef zeroext %50)
-  br i1 %73, label %74, label %._crit_edge19
+68:                                               ; preds = %._crit_edge17, %67
+  %69 = phi i32 [ %.pre18, %._crit_edge17 ], [ 0, %67 ]
+  %70 = icmp eq i32 %69, 4
+  %71 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.13, i1 noundef zeroext %70, i1 noundef zeroext %48)
+  br i1 %71, label %72, label %._crit_edge19
 
-._crit_edge19:                                    ; preds = %70
-  %.pre20 = load i32, ptr %60, align 8
-  br label %75
+._crit_edge19:                                    ; preds = %68
+  %.pre20 = load i32, ptr %58, align 8
+  br label %73
 
-74:                                               ; preds = %70
-  store i32 4, ptr %60, align 8
-  br label %75
+72:                                               ; preds = %68
+  store i32 4, ptr %58, align 8
+  br label %73
 
-75:                                               ; preds = %._crit_edge19, %74
-  %76 = phi i32 [ %.pre20, %._crit_edge19 ], [ 4, %74 ]
-  %77 = icmp eq i32 %76, 1
-  %78 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.14, i1 noundef zeroext %77, i1 noundef zeroext %50)
-  br i1 %78, label %79, label %._crit_edge21
+73:                                               ; preds = %._crit_edge19, %72
+  %74 = phi i32 [ %.pre20, %._crit_edge19 ], [ 4, %72 ]
+  %75 = icmp eq i32 %74, 1
+  %76 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.14, i1 noundef zeroext %75, i1 noundef zeroext %48)
+  br i1 %76, label %77, label %._crit_edge21
 
-._crit_edge21:                                    ; preds = %75
-  %.pre22 = load i32, ptr %60, align 8
-  br label %80
+._crit_edge21:                                    ; preds = %73
+  %.pre22 = load i32, ptr %58, align 8
+  br label %78
 
-79:                                               ; preds = %75
-  store i32 1, ptr %60, align 8
-  br label %80
+77:                                               ; preds = %73
+  store i32 1, ptr %58, align 8
+  br label %78
 
-80:                                               ; preds = %._crit_edge21, %79
-  %81 = phi i32 [ %.pre22, %._crit_edge21 ], [ 1, %79 ]
-  %82 = icmp eq i32 %81, 2
-  %83 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.15, i1 noundef zeroext %82, i1 noundef zeroext %50)
-  br i1 %83, label %84, label %._crit_edge23
+78:                                               ; preds = %._crit_edge21, %77
+  %79 = phi i32 [ %.pre22, %._crit_edge21 ], [ 1, %77 ]
+  %80 = icmp eq i32 %79, 2
+  %81 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.15, i1 noundef zeroext %80, i1 noundef zeroext %48)
+  br i1 %81, label %82, label %._crit_edge23
 
-._crit_edge23:                                    ; preds = %80
-  %.pre24 = load i32, ptr %60, align 8
-  br label %85
+._crit_edge23:                                    ; preds = %78
+  %.pre24 = load i32, ptr %58, align 8
+  br label %83
 
-84:                                               ; preds = %80
-  store i32 2, ptr %60, align 8
-  br label %85
+82:                                               ; preds = %78
+  store i32 2, ptr %58, align 8
+  br label %83
 
-85:                                               ; preds = %._crit_edge23, %84
-  %86 = phi i32 [ %.pre24, %._crit_edge23 ], [ 2, %84 ]
-  %87 = icmp eq i32 %86, 3
-  %88 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.16, i1 noundef zeroext %87, i1 noundef zeroext %49)
-  br i1 %88, label %89, label %._crit_edge25
+83:                                               ; preds = %._crit_edge23, %82
+  %84 = phi i32 [ %.pre24, %._crit_edge23 ], [ 2, %82 ]
+  %85 = icmp eq i32 %84, 3
+  %86 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.16, i1 noundef zeroext %85, i1 noundef zeroext %47)
+  br i1 %86, label %87, label %._crit_edge25
 
-._crit_edge25:                                    ; preds = %85
-  %.pre26 = load i32, ptr %60, align 8
-  br label %90
+._crit_edge25:                                    ; preds = %83
+  %.pre26 = load i32, ptr %58, align 8
+  br label %88
 
-89:                                               ; preds = %85
-  store i32 3, ptr %60, align 8
-  br label %90
+87:                                               ; preds = %83
+  store i32 3, ptr %58, align 8
+  br label %88
 
-90:                                               ; preds = %._crit_edge25, %89
-  %91 = phi i32 [ %.pre26, %._crit_edge25 ], [ 3, %89 ]
-  %92 = icmp eq i32 %91, 6
-  %93 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.17, i1 noundef zeroext %92, i1 noundef zeroext %48)
-  br i1 %93, label %94, label %._crit_edge27
+88:                                               ; preds = %._crit_edge25, %87
+  %89 = phi i32 [ %.pre26, %._crit_edge25 ], [ 3, %87 ]
+  %90 = icmp eq i32 %89, 6
+  %91 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.17, i1 noundef zeroext %90, i1 noundef zeroext %46)
+  br i1 %91, label %92, label %._crit_edge27
 
-._crit_edge27:                                    ; preds = %90
-  %.pre28 = load i32, ptr %60, align 8
-  br label %95
+._crit_edge27:                                    ; preds = %88
+  %.pre28 = load i32, ptr %58, align 8
+  br label %93
 
-94:                                               ; preds = %90
-  store i32 6, ptr %60, align 8
-  br label %95
+92:                                               ; preds = %88
+  store i32 6, ptr %58, align 8
+  br label %93
 
-95:                                               ; preds = %._crit_edge27, %94
-  %96 = phi i32 [ %.pre28, %._crit_edge27 ], [ 6, %94 ]
-  %97 = icmp eq i32 %96, 7
-  %98 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.18, i1 noundef zeroext %97, i1 noundef zeroext %48)
-  br i1 %98, label %100, label %._crit_edge29
+93:                                               ; preds = %._crit_edge27, %92
+  %94 = phi i32 [ %.pre28, %._crit_edge27 ], [ 6, %92 ]
+  %95 = icmp eq i32 %94, 7
+  %96 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.18, i1 noundef zeroext %95, i1 noundef zeroext %46)
+  br i1 %96, label %98, label %._crit_edge29
 
-._crit_edge29:                                    ; preds = %95
-  %.pre30 = load i32, ptr %60, align 8
-  %99 = icmp eq i32 %.pre30, 8
-  br label %101
+._crit_edge29:                                    ; preds = %93
+  %.pre30 = load i32, ptr %58, align 8
+  %97 = icmp eq i32 %.pre30, 8
+  br label %99
 
-100:                                              ; preds = %95
-  store i32 7, ptr %60, align 8
-  br label %101
+98:                                               ; preds = %93
+  store i32 7, ptr %58, align 8
+  br label %99
 
-101:                                              ; preds = %._crit_edge29, %100
-  %102 = phi i1 [ %99, %._crit_edge29 ], [ false, %100 ]
-  %103 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.19, i1 noundef zeroext %102, i1 noundef zeroext %47)
-  br i1 %103, label %105, label %._crit_edge31
+99:                                               ; preds = %._crit_edge29, %98
+  %100 = phi i1 [ %97, %._crit_edge29 ], [ false, %98 ]
+  %101 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.19, i1 noundef zeroext %100, i1 noundef zeroext %45)
+  br i1 %101, label %103, label %._crit_edge31
 
-._crit_edge31:                                    ; preds = %101
-  %.pre32 = load i32, ptr %60, align 8
-  %104 = icmp eq i32 %.pre32, 9
-  br label %106
+._crit_edge31:                                    ; preds = %99
+  %.pre32 = load i32, ptr %58, align 8
+  %102 = icmp eq i32 %.pre32, 9
+  br label %104
 
-105:                                              ; preds = %101
-  store i32 8, ptr %60, align 8
-  br label %106
+103:                                              ; preds = %99
+  store i32 8, ptr %58, align 8
+  br label %104
 
-106:                                              ; preds = %._crit_edge31, %105
-  %107 = phi i1 [ %104, %._crit_edge31 ], [ false, %105 ]
-  %108 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.20, i1 noundef zeroext %107, i1 noundef zeroext %47)
-  br i1 %108, label %110, label %._crit_edge33
+104:                                              ; preds = %._crit_edge31, %103
+  %105 = phi i1 [ %102, %._crit_edge31 ], [ false, %103 ]
+  %106 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.20, i1 noundef zeroext %105, i1 noundef zeroext %45)
+  br i1 %106, label %108, label %._crit_edge33
 
-._crit_edge33:                                    ; preds = %106
-  %.pre34 = load i32, ptr %60, align 8
-  %109 = icmp eq i32 %.pre34, 10
-  br label %111
+._crit_edge33:                                    ; preds = %104
+  %.pre34 = load i32, ptr %58, align 8
+  %107 = icmp eq i32 %.pre34, 10
+  br label %109
 
-110:                                              ; preds = %106
-  store i32 9, ptr %60, align 8
-  br label %111
+108:                                              ; preds = %104
+  store i32 9, ptr %58, align 8
+  br label %109
 
-111:                                              ; preds = %._crit_edge33, %110
-  %112 = phi i1 [ %109, %._crit_edge33 ], [ false, %110 ]
-  %113 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.21, i1 noundef zeroext %112, i1 noundef zeroext %47)
-  br i1 %113, label %115, label %._crit_edge35
+109:                                              ; preds = %._crit_edge33, %108
+  %110 = phi i1 [ %107, %._crit_edge33 ], [ false, %108 ]
+  %111 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.21, i1 noundef zeroext %110, i1 noundef zeroext %45)
+  br i1 %111, label %113, label %._crit_edge35
 
-._crit_edge35:                                    ; preds = %111
-  %.pre36 = load i32, ptr %60, align 8
-  %114 = icmp eq i32 %.pre36, 11
-  br label %116
+._crit_edge35:                                    ; preds = %109
+  %.pre36 = load i32, ptr %58, align 8
+  %112 = icmp eq i32 %.pre36, 11
+  br label %114
 
-115:                                              ; preds = %111
-  store i32 10, ptr %60, align 8
-  br label %116
+113:                                              ; preds = %109
+  store i32 10, ptr %58, align 8
+  br label %114
 
-116:                                              ; preds = %._crit_edge35, %115
-  %117 = phi i1 [ %114, %._crit_edge35 ], [ false, %115 ]
-  %118 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.22, i1 noundef zeroext %117, i1 noundef zeroext %46)
-  br i1 %118, label %120, label %._crit_edge37
+114:                                              ; preds = %._crit_edge35, %113
+  %115 = phi i1 [ %112, %._crit_edge35 ], [ false, %113 ]
+  %116 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.22, i1 noundef zeroext %115, i1 noundef zeroext %44)
+  br i1 %116, label %118, label %._crit_edge37
 
-._crit_edge37:                                    ; preds = %116
-  %.pre38 = load i32, ptr %60, align 8
-  %119 = icmp eq i32 %.pre38, 12
-  br label %121
+._crit_edge37:                                    ; preds = %114
+  %.pre38 = load i32, ptr %58, align 8
+  %117 = icmp eq i32 %.pre38, 12
+  br label %119
 
-120:                                              ; preds = %116
-  store i32 11, ptr %60, align 8
-  br label %121
+118:                                              ; preds = %114
+  store i32 11, ptr %58, align 8
+  br label %119
 
-121:                                              ; preds = %._crit_edge37, %120
-  %122 = phi i1 [ %119, %._crit_edge37 ], [ false, %120 ]
-  %123 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.23, i1 noundef zeroext %122, i1 noundef zeroext %46)
-  br i1 %123, label %125, label %._crit_edge39
+119:                                              ; preds = %._crit_edge37, %118
+  %120 = phi i1 [ %117, %._crit_edge37 ], [ false, %118 ]
+  %121 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.23, i1 noundef zeroext %120, i1 noundef zeroext %44)
+  br i1 %121, label %123, label %._crit_edge39
 
-._crit_edge39:                                    ; preds = %121
-  %.pre40 = load i32, ptr %60, align 8
-  %124 = icmp eq i32 %.pre40, 13
-  br label %126
+._crit_edge39:                                    ; preds = %119
+  %.pre40 = load i32, ptr %58, align 8
+  %122 = icmp eq i32 %.pre40, 13
+  br label %124
 
-125:                                              ; preds = %121
-  store i32 12, ptr %60, align 8
-  br label %126
+123:                                              ; preds = %119
+  store i32 12, ptr %58, align 8
+  br label %124
 
-126:                                              ; preds = %._crit_edge39, %125
-  %127 = phi i1 [ %124, %._crit_edge39 ], [ false, %125 ]
-  %128 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.24, i1 noundef zeroext %127, i1 noundef zeroext %46)
-  br i1 %128, label %130, label %._crit_edge41
+124:                                              ; preds = %._crit_edge39, %123
+  %125 = phi i1 [ %122, %._crit_edge39 ], [ false, %123 ]
+  %126 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.24, i1 noundef zeroext %125, i1 noundef zeroext %44)
+  br i1 %126, label %128, label %._crit_edge41
 
-._crit_edge41:                                    ; preds = %126
-  %.pre42 = load i32, ptr %60, align 8
-  %129 = icmp eq i32 %.pre42, 14
-  br label %131
+._crit_edge41:                                    ; preds = %124
+  %.pre42 = load i32, ptr %58, align 8
+  %127 = icmp eq i32 %.pre42, 14
+  br label %129
 
-130:                                              ; preds = %126
-  store i32 13, ptr %60, align 8
-  br label %131
+128:                                              ; preds = %124
+  store i32 13, ptr %58, align 8
+  br label %129
 
-131:                                              ; preds = %._crit_edge41, %130
-  %132 = phi i1 [ %129, %._crit_edge41 ], [ false, %130 ]
-  %133 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.25, i1 noundef zeroext %132, i1 noundef zeroext %46)
-  br i1 %133, label %135, label %._crit_edge43
+129:                                              ; preds = %._crit_edge41, %128
+  %130 = phi i1 [ %127, %._crit_edge41 ], [ false, %128 ]
+  %131 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.25, i1 noundef zeroext %130, i1 noundef zeroext %44)
+  br i1 %131, label %133, label %._crit_edge43
 
-._crit_edge43:                                    ; preds = %131
-  %.pre44 = load i32, ptr %60, align 8
-  %134 = icmp eq i32 %.pre44, 15
-  br label %136
+._crit_edge43:                                    ; preds = %129
+  %.pre44 = load i32, ptr %58, align 8
+  %132 = icmp eq i32 %.pre44, 15
+  br label %134
 
-135:                                              ; preds = %131
-  store i32 14, ptr %60, align 8
-  br label %136
+133:                                              ; preds = %129
+  store i32 14, ptr %58, align 8
+  br label %134
 
-136:                                              ; preds = %._crit_edge43, %135
-  %137 = phi i1 [ %134, %._crit_edge43 ], [ false, %135 ]
-  %138 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.26, i1 noundef zeroext %137, i1 noundef zeroext %45)
-  br i1 %138, label %140, label %._crit_edge45
+134:                                              ; preds = %._crit_edge43, %133
+  %135 = phi i1 [ %132, %._crit_edge43 ], [ false, %133 ]
+  %136 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.26, i1 noundef zeroext %135, i1 noundef zeroext %43)
+  br i1 %136, label %138, label %._crit_edge45
 
-._crit_edge45:                                    ; preds = %136
-  %.pre46 = load i32, ptr %60, align 8
-  %139 = icmp eq i32 %.pre46, 16
-  br label %141
+._crit_edge45:                                    ; preds = %134
+  %.pre46 = load i32, ptr %58, align 8
+  %137 = icmp eq i32 %.pre46, 16
+  br label %139
 
-140:                                              ; preds = %136
-  store i32 15, ptr %60, align 8
-  br label %141
+138:                                              ; preds = %134
+  store i32 15, ptr %58, align 8
+  br label %139
 
-141:                                              ; preds = %._crit_edge45, %140
-  %142 = phi i1 [ %139, %._crit_edge45 ], [ false, %140 ]
-  %143 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.27, i1 noundef zeroext %142, i1 noundef zeroext %44)
-  br i1 %143, label %144, label %145
+139:                                              ; preds = %._crit_edge45, %138
+  %140 = phi i1 [ %137, %._crit_edge45 ], [ false, %138 ]
+  %141 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.27, i1 noundef zeroext %140, i1 noundef zeroext %42)
+  br i1 %141, label %142, label %143
 
-144:                                              ; preds = %141
-  store i32 16, ptr %60, align 8
-  br label %145
+142:                                              ; preds = %139
+  store i32 16, ptr %58, align 8
+  br label %143
 
-145:                                              ; preds = %144, %141
+143:                                              ; preds = %142, %139
   %.not11 = icmp eq i32 %spec.select, 0
-  br i1 %.not11, label %147, label %146
+  br i1 %.not11, label %145, label %144
 
-146:                                              ; preds = %145
+144:                                              ; preds = %143
   tail call void @_Z10imguiValuePKc(ptr noundef nonnull @.str.28)
   tail call void @_Z10imguiValuePKc(ptr noundef nonnull @.str.29)
-  br label %147
+  br label %145
 
-147:                                              ; preds = %57, %146, %145
+145:                                              ; preds = %55, %144, %143
   ret void
 }
 

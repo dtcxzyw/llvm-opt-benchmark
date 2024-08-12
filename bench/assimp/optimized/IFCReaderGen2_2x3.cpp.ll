@@ -296,11 +296,11 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvert", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %arg = alloca %"class.std::shared_ptr.29", align 8
+  %arg = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::allocator", align 1
-  %arg31 = alloca %"class.std::shared_ptr.29", align 8
+  %arg31 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp42 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp46 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp47 = alloca %"class.std::allocator", align 1
@@ -356,17 +356,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 do.body:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.29", ptr %1, i64 %call
-  %4 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !4
-  store ptr %4, ptr %arg, align 8, !alias.scope !4
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !4
-  store ptr %5, ptr %_M_refcount.i.i.i, align 8, !alias.scope !4
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !4
+  %5 = load <2 x ptr>, ptr %add.ptr.i.i, align 8, !noalias !4
+  store <2 x ptr> %5, ptr %arg, align 16, !alias.scope !4
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !4
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -466,17 +465,16 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit: ; preds = %invoke.
   %20 = load ptr, ptr %members.i, align 8, !noalias !7
   %21 = getelementptr %"class.std::shared_ptr.29", ptr %20, i64 %call
   %add.ptr.i.i23 = getelementptr i8, ptr %21, i64 16
-  %22 = load ptr, ptr %add.ptr.i.i23, align 8, !noalias !7
-  store ptr %22, ptr %arg31, align 8, !alias.scope !7
   %_M_refcount.i.i.i24 = getelementptr inbounds i8, ptr %arg31, i64 8
   %_M_refcount3.i.i.i25 = getelementptr i8, ptr %21, i64 24
-  %23 = load ptr, ptr %_M_refcount3.i.i.i25, align 8, !noalias !7
-  store ptr %23, ptr %_M_refcount.i.i.i24, align 8, !alias.scope !7
-  %cmp.not.i.i.i.i26 = icmp eq ptr %23, null
+  %22 = load ptr, ptr %_M_refcount3.i.i.i25, align 8, !noalias !7
+  %23 = load <2 x ptr>, ptr %add.ptr.i.i23, align 8, !noalias !7
+  store <2 x ptr> %23, ptr %arg31, align 16, !alias.scope !7
+  %cmp.not.i.i.i.i26 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i.i26, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit33, label %if.then.i.i.i.i27
 
 if.then.i.i.i.i27:                                ; preds = %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit
-  %_M_use_count.i.i.i.i.i28 = getelementptr inbounds i8, ptr %23, i64 8
+  %_M_use_count.i.i.i.i.i28 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i8, ptr @__libc_single_threaded, align 1, !noalias !7
   %tobool.i.not.i.i.i.i.i29 = icmp eq i8 %24, 0
   br i1 %tobool.i.not.i.i.i.i.i29, label %if.else.i.i.i.i.i.i32, label %if.then.i.i.i.i.i.i30
@@ -1587,11 +1585,11 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvert.875", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %arg = alloca %"class.std::shared_ptr.29", align 8
+  %arg = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::allocator", align 1
-  %arg31 = alloca %"class.std::shared_ptr.29", align 8
+  %arg31 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp42 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp46 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp47 = alloca %"class.std::allocator", align 1
@@ -1647,17 +1645,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 do.body:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.29", ptr %1, i64 %call
-  %4 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !16
-  store ptr %4, ptr %arg, align 8, !alias.scope !16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !16
-  store ptr %5, ptr %_M_refcount.i.i.i, align 8, !alias.scope !16
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !16
+  %5 = load <2 x ptr>, ptr %add.ptr.i.i, align 8, !noalias !16
+  store <2 x ptr> %5, ptr %arg, align 16, !alias.scope !16
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !16
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -1757,17 +1754,16 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit: ; preds = %invoke.
   %20 = load ptr, ptr %members.i, align 8, !noalias !19
   %21 = getelementptr %"class.std::shared_ptr.29", ptr %20, i64 %call
   %add.ptr.i.i23 = getelementptr i8, ptr %21, i64 16
-  %22 = load ptr, ptr %add.ptr.i.i23, align 8, !noalias !19
-  store ptr %22, ptr %arg31, align 8, !alias.scope !19
   %_M_refcount.i.i.i24 = getelementptr inbounds i8, ptr %arg31, i64 8
   %_M_refcount3.i.i.i25 = getelementptr i8, ptr %21, i64 24
-  %23 = load ptr, ptr %_M_refcount3.i.i.i25, align 8, !noalias !19
-  store ptr %23, ptr %_M_refcount.i.i.i24, align 8, !alias.scope !19
-  %cmp.not.i.i.i.i26 = icmp eq ptr %23, null
+  %22 = load ptr, ptr %_M_refcount3.i.i.i25, align 8, !noalias !19
+  %23 = load <2 x ptr>, ptr %add.ptr.i.i23, align 8, !noalias !19
+  store <2 x ptr> %23, ptr %arg31, align 16, !alias.scope !19
+  %cmp.not.i.i.i.i26 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i.i26, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit33, label %if.then.i.i.i.i27
 
 if.then.i.i.i.i27:                                ; preds = %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit
-  %_M_use_count.i.i.i.i.i28 = getelementptr inbounds i8, ptr %23, i64 8
+  %_M_use_count.i.i.i.i.i28 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i8, ptr @__libc_single_threaded, align 1, !noalias !19
   %tobool.i.not.i.i.i.i.i29 = icmp eq i8 %24, 0
   br i1 %tobool.i.not.i.i.i.i.i29, label %if.else.i.i.i.i.i.i32, label %if.then.i.i.i.i.i.i30
@@ -2063,15 +2059,15 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvert.876", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %arg = alloca %"class.std::shared_ptr.29", align 8
+  %arg = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::allocator", align 1
-  %arg31 = alloca %"class.std::shared_ptr.29", align 8
+  %arg31 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp42 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp46 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp47 = alloca %"class.std::allocator", align 1
-  %arg71 = alloca %"class.std::shared_ptr.29", align 8
+  %arg71 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp82 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp86 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp87 = alloca %"class.std::allocator", align 1
@@ -2127,17 +2123,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 do.body:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %4 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !22
-  store ptr %4, ptr %arg, align 8, !alias.scope !22
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
-  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !22
-  store ptr %5, ptr %_M_refcount.i.i.i, align 8, !alias.scope !22
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !22
+  %5 = load <2 x ptr>, ptr %add.ptr.i.i, align 8, !noalias !22
+  store <2 x ptr> %5, ptr %arg, align 16, !alias.scope !22
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !22
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -2236,17 +2231,16 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit: ; preds = %invoke.
   call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %20 = load ptr, ptr %members.i, align 8, !noalias !25
   %add.ptr.i.i32 = getelementptr inbounds i8, ptr %20, i64 32
-  %21 = load ptr, ptr %add.ptr.i.i32, align 8, !noalias !25
-  store ptr %21, ptr %arg31, align 8, !alias.scope !25
   %_M_refcount.i.i.i33 = getelementptr inbounds i8, ptr %arg31, i64 8
   %_M_refcount3.i.i.i34 = getelementptr inbounds i8, ptr %20, i64 40
-  %22 = load ptr, ptr %_M_refcount3.i.i.i34, align 8, !noalias !25
-  store ptr %22, ptr %_M_refcount.i.i.i33, align 8, !alias.scope !25
-  %cmp.not.i.i.i.i35 = icmp eq ptr %22, null
+  %21 = load ptr, ptr %_M_refcount3.i.i.i34, align 8, !noalias !25
+  %22 = load <2 x ptr>, ptr %add.ptr.i.i32, align 8, !noalias !25
+  store <2 x ptr> %22, ptr %arg31, align 16, !alias.scope !25
+  %cmp.not.i.i.i.i35 = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i.i35, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit42, label %if.then.i.i.i.i36
 
 if.then.i.i.i.i36:                                ; preds = %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit
-  %_M_use_count.i.i.i.i.i37 = getelementptr inbounds i8, ptr %22, i64 8
+  %_M_use_count.i.i.i.i.i37 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load i8, ptr @__libc_single_threaded, align 1, !noalias !25
   %tobool.i.not.i.i.i.i.i38 = icmp eq i8 %23, 0
   br i1 %tobool.i.not.i.i.i.i.i38, label %if.else.i.i.i.i.i.i41, label %if.then.i.i.i.i.i.i39
@@ -2420,17 +2414,16 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit77: ; preds = %invok
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %46 = load ptr, ptr %members.i, align 8, !noalias !28
   %add.ptr.i.i79 = getelementptr inbounds i8, ptr %46, i64 48
-  %47 = load ptr, ptr %add.ptr.i.i79, align 8, !noalias !28
-  store ptr %47, ptr %arg71, align 8, !alias.scope !28
   %_M_refcount.i.i.i80 = getelementptr inbounds i8, ptr %arg71, i64 8
   %_M_refcount3.i.i.i81 = getelementptr inbounds i8, ptr %46, i64 56
-  %48 = load ptr, ptr %_M_refcount3.i.i.i81, align 8, !noalias !28
-  store ptr %48, ptr %_M_refcount.i.i.i80, align 8, !alias.scope !28
-  %cmp.not.i.i.i.i82 = icmp eq ptr %48, null
+  %47 = load ptr, ptr %_M_refcount3.i.i.i81, align 8, !noalias !28
+  %48 = load <2 x ptr>, ptr %add.ptr.i.i79, align 8, !noalias !28
+  store <2 x ptr> %48, ptr %arg71, align 16, !alias.scope !28
+  %cmp.not.i.i.i.i82 = icmp eq ptr %47, null
   br i1 %cmp.not.i.i.i.i82, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit89, label %if.then.i.i.i.i83
 
 if.then.i.i.i.i83:                                ; preds = %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit77
-  %_M_use_count.i.i.i.i.i84 = getelementptr inbounds i8, ptr %48, i64 8
+  %_M_use_count.i.i.i.i.i84 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = load i8, ptr @__libc_single_threaded, align 1, !noalias !28
   %tobool.i.not.i.i.i.i.i85 = icmp eq i8 %49, 0
   br i1 %tobool.i.not.i.i.i.i.i85, label %if.else.i.i.i.i.i.i88, label %if.then.i.i.i.i.i.i86
@@ -5243,7 +5236,7 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvertList.889", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %arg = alloca %"class.std::shared_ptr.29", align 8
+  %arg = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::allocator", align 1
@@ -5296,17 +5289,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 do.body:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.29", ptr %1, i64 %call
-  %4 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !61
-  store ptr %4, ptr %arg, align 8, !alias.scope !61
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !61
-  store ptr %5, ptr %_M_refcount.i.i.i, align 8, !alias.scope !61
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !61
+  %5 = load <2 x ptr>, ptr %add.ptr.i.i, align 8, !noalias !61
+  store <2 x ptr> %5, ptr %arg, align 16, !alias.scope !61
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !61
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -5518,11 +5510,11 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvert.875", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %arg = alloca %"class.std::shared_ptr.29", align 8
+  %arg = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::allocator", align 1
-  %arg31 = alloca %"class.std::shared_ptr.29", align 8
+  %arg31 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp42 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp46 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp47 = alloca %"class.std::allocator", align 1
@@ -5578,17 +5570,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 do.body:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.29", ptr %1, i64 %call
-  %4 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !64
-  store ptr %4, ptr %arg, align 8, !alias.scope !64
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !64
-  store ptr %5, ptr %_M_refcount.i.i.i, align 8, !alias.scope !64
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !64
+  %5 = load <2 x ptr>, ptr %add.ptr.i.i, align 8, !noalias !64
+  store <2 x ptr> %5, ptr %arg, align 16, !alias.scope !64
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !64
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -5688,17 +5679,16 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit: ; preds = %invoke.
   %20 = load ptr, ptr %members.i, align 8, !noalias !67
   %21 = getelementptr %"class.std::shared_ptr.29", ptr %20, i64 %call
   %add.ptr.i.i23 = getelementptr i8, ptr %21, i64 16
-  %22 = load ptr, ptr %add.ptr.i.i23, align 8, !noalias !67
-  store ptr %22, ptr %arg31, align 8, !alias.scope !67
   %_M_refcount.i.i.i24 = getelementptr inbounds i8, ptr %arg31, i64 8
   %_M_refcount3.i.i.i25 = getelementptr i8, ptr %21, i64 24
-  %23 = load ptr, ptr %_M_refcount3.i.i.i25, align 8, !noalias !67
-  store ptr %23, ptr %_M_refcount.i.i.i24, align 8, !alias.scope !67
-  %cmp.not.i.i.i.i26 = icmp eq ptr %23, null
+  %22 = load ptr, ptr %_M_refcount3.i.i.i25, align 8, !noalias !67
+  %23 = load <2 x ptr>, ptr %add.ptr.i.i23, align 8, !noalias !67
+  store <2 x ptr> %23, ptr %arg31, align 16, !alias.scope !67
+  %cmp.not.i.i.i.i26 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i.i26, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit33, label %if.then.i.i.i.i27
 
 if.then.i.i.i.i27:                                ; preds = %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit
-  %_M_use_count.i.i.i.i.i28 = getelementptr inbounds i8, ptr %23, i64 8
+  %_M_use_count.i.i.i.i.i28 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i8, ptr @__libc_single_threaded, align 1, !noalias !67
   %tobool.i.not.i.i.i.i.i29 = icmp eq i8 %24, 0
   br i1 %tobool.i.not.i.i.i.i.i29, label %if.else.i.i.i.i.i.i32, label %if.then.i.i.i.i.i.i30
@@ -6002,11 +5992,11 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvert.890", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %arg = alloca %"class.std::shared_ptr.29", align 8
+  %arg = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::allocator", align 1
-  %arg31 = alloca %"class.std::shared_ptr.29", align 8
+  %arg31 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp42 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp46 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp47 = alloca %"class.std::allocator", align 1
@@ -6062,17 +6052,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 do.body:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.29", ptr %1, i64 %call
-  %4 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !70
-  store ptr %4, ptr %arg, align 8, !alias.scope !70
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !70
-  store ptr %5, ptr %_M_refcount.i.i.i, align 8, !alias.scope !70
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !70
+  %5 = load <2 x ptr>, ptr %add.ptr.i.i, align 8, !noalias !70
+  store <2 x ptr> %5, ptr %arg, align 16, !alias.scope !70
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !70
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -6172,17 +6161,16 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit: ; preds = %invoke.
   %20 = load ptr, ptr %members.i, align 8, !noalias !73
   %21 = getelementptr %"class.std::shared_ptr.29", ptr %20, i64 %call
   %add.ptr.i.i23 = getelementptr i8, ptr %21, i64 16
-  %22 = load ptr, ptr %add.ptr.i.i23, align 8, !noalias !73
-  store ptr %22, ptr %arg31, align 8, !alias.scope !73
   %_M_refcount.i.i.i24 = getelementptr inbounds i8, ptr %arg31, i64 8
   %_M_refcount3.i.i.i25 = getelementptr i8, ptr %21, i64 24
-  %23 = load ptr, ptr %_M_refcount3.i.i.i25, align 8, !noalias !73
-  store ptr %23, ptr %_M_refcount.i.i.i24, align 8, !alias.scope !73
-  %cmp.not.i.i.i.i26 = icmp eq ptr %23, null
+  %22 = load ptr, ptr %_M_refcount3.i.i.i25, align 8, !noalias !73
+  %23 = load <2 x ptr>, ptr %add.ptr.i.i23, align 8, !noalias !73
+  store <2 x ptr> %23, ptr %arg31, align 16, !alias.scope !73
+  %cmp.not.i.i.i.i26 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i.i26, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit33, label %if.then.i.i.i.i27
 
 if.then.i.i.i.i27:                                ; preds = %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit
-  %_M_use_count.i.i.i.i.i28 = getelementptr inbounds i8, ptr %23, i64 8
+  %_M_use_count.i.i.i.i.i28 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i8, ptr @__libc_single_threaded, align 1, !noalias !73
   %tobool.i.not.i.i.i.i.i29 = icmp eq i8 %24, 0
   br i1 %tobool.i.not.i.i.i.i.i29, label %if.else.i.i.i.i.i.i32, label %if.then.i.i.i.i.i.i30
@@ -7344,7 +7332,7 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvertList.893", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %arg = alloca %"class.std::shared_ptr.29", align 8
+  %arg = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::allocator", align 1
@@ -7397,17 +7385,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 do.body:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.29", ptr %1, i64 %call.i
-  %4 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !85
-  store ptr %4, ptr %arg, align 8, !alias.scope !85
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !85
-  store ptr %5, ptr %_M_refcount.i.i.i, align 8, !alias.scope !85
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !85
+  %5 = load <2 x ptr>, ptr %add.ptr.i.i, align 8, !noalias !85
+  store <2 x ptr> %5, ptr %arg, align 16, !alias.scope !85
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !85
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -7627,7 +7614,7 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvertList.895", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %arg = alloca %"class.std::shared_ptr.29", align 8
+  %arg = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::allocator", align 1
@@ -7680,17 +7667,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 do.body:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.29", ptr %1, i64 %call.i
-  %4 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !88
-  store ptr %4, ptr %arg, align 8, !alias.scope !88
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !88
-  store ptr %5, ptr %_M_refcount.i.i.i, align 8, !alias.scope !88
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !88
+  %5 = load <2 x ptr>, ptr %add.ptr.i.i, align 8, !noalias !88
+  store <2 x ptr> %5, ptr %arg, align 16, !alias.scope !88
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !88
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -9381,7 +9367,7 @@ entry:
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp14 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp15 = alloca %"class.std::allocator", align 1
-  %arg34 = alloca %"class.std::shared_ptr.29", align 8
+  %arg34 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp45 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp49 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp50 = alloca %"class.std::allocator", align 1
@@ -9634,17 +9620,16 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit: ; preds = %cleanup
   %31 = load ptr, ptr %members.i, align 8, !noalias !112
   %32 = getelementptr %"class.std::shared_ptr.29", ptr %31, i64 %call
   %add.ptr.i.i24 = getelementptr i8, ptr %32, i64 16
-  %33 = load ptr, ptr %add.ptr.i.i24, align 8, !noalias !112
-  store ptr %33, ptr %arg34, align 8, !alias.scope !112
   %_M_refcount.i.i.i25 = getelementptr inbounds i8, ptr %arg34, i64 8
   %_M_refcount3.i.i.i26 = getelementptr i8, ptr %32, i64 24
-  %34 = load ptr, ptr %_M_refcount3.i.i.i26, align 8, !noalias !112
-  store ptr %34, ptr %_M_refcount.i.i.i25, align 8, !alias.scope !112
-  %cmp.not.i.i.i.i27 = icmp eq ptr %34, null
+  %33 = load ptr, ptr %_M_refcount3.i.i.i26, align 8, !noalias !112
+  %34 = load <2 x ptr>, ptr %add.ptr.i.i24, align 8, !noalias !112
+  store <2 x ptr> %34, ptr %arg34, align 16, !alias.scope !112
+  %cmp.not.i.i.i.i27 = icmp eq ptr %33, null
   br i1 %cmp.not.i.i.i.i27, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit34, label %if.then.i.i.i.i28
 
 if.then.i.i.i.i28:                                ; preds = %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit
-  %_M_use_count.i.i.i.i.i29 = getelementptr inbounds i8, ptr %34, i64 8
+  %_M_use_count.i.i.i.i.i29 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load i8, ptr @__libc_single_threaded, align 1, !noalias !112
   %tobool.i.not.i.i.i.i.i30 = icmp eq i8 %35, 0
   br i1 %tobool.i.not.i.i.i.i.i30, label %if.else.i.i.i.i.i.i33, label %if.then.i.i.i.i.i.i31
@@ -10198,7 +10183,7 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvert.896", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator", align 1
-  %arg30 = alloca %"class.std::shared_ptr.29", align 8
+  %arg30 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp41 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp45 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp46 = alloca %"class.std::allocator", align 1
@@ -10460,17 +10445,16 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit: ; preds = %_ZNK6As
   tail call void @llvm.experimental.noalias.scope.decl(metadata !121)
   %36 = load ptr, ptr %members.i, align 8, !noalias !121
   %add.ptr.i.i = getelementptr inbounds i8, ptr %36, i64 16
-  %37 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !121
-  store ptr %37, ptr %arg30, align 8, !alias.scope !121
   %_M_refcount.i.i.i32 = getelementptr inbounds i8, ptr %arg30, i64 8
   %_M_refcount3.i.i.i33 = getelementptr inbounds i8, ptr %36, i64 24
-  %38 = load ptr, ptr %_M_refcount3.i.i.i33, align 8, !noalias !121
-  store ptr %38, ptr %_M_refcount.i.i.i32, align 8, !alias.scope !121
-  %cmp.not.i.i.i.i34 = icmp eq ptr %38, null
+  %37 = load ptr, ptr %_M_refcount3.i.i.i33, align 8, !noalias !121
+  %38 = load <2 x ptr>, ptr %add.ptr.i.i, align 8, !noalias !121
+  store <2 x ptr> %38, ptr %arg30, align 16, !alias.scope !121
+  %cmp.not.i.i.i.i34 = icmp eq ptr %37, null
   br i1 %cmp.not.i.i.i.i34, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit41, label %if.then.i.i.i.i35
 
 if.then.i.i.i.i35:                                ; preds = %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit
-  %_M_use_count.i.i.i.i.i36 = getelementptr inbounds i8, ptr %38, i64 8
+  %_M_use_count.i.i.i.i.i36 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load i8, ptr @__libc_single_threaded, align 1, !noalias !121
   %tobool.i.not.i.i.i.i.i37 = icmp eq i8 %39, 0
   br i1 %tobool.i.not.i.i.i.i.i37, label %if.else.i.i.i.i.i.i40, label %if.then.i.i.i.i.i.i38
@@ -11574,7 +11558,7 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvertList.897", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %arg = alloca %"class.std::shared_ptr.29", align 8
+  %arg = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::allocator", align 1
@@ -11627,17 +11611,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 do.body:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.29", ptr %1, i64 %call
-  %4 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !130
-  store ptr %4, ptr %arg, align 8, !alias.scope !130
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !130
-  store ptr %5, ptr %_M_refcount.i.i.i, align 8, !alias.scope !130
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !130
+  %5 = load <2 x ptr>, ptr %add.ptr.i.i, align 8, !noalias !130
+  store <2 x ptr> %5, ptr %arg, align 16, !alias.scope !130
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !130
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -12458,11 +12441,11 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvert", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %arg = alloca %"class.std::shared_ptr.29", align 8
+  %arg = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::allocator", align 1
-  %arg31 = alloca %"class.std::shared_ptr.29", align 8
+  %arg31 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp42 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp46 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp47 = alloca %"class.std::allocator", align 1
@@ -12518,17 +12501,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 do.body:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.29", ptr %1, i64 %call
-  %4 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !139
-  store ptr %4, ptr %arg, align 8, !alias.scope !139
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !139
-  store ptr %5, ptr %_M_refcount.i.i.i, align 8, !alias.scope !139
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !139
+  %5 = load <2 x ptr>, ptr %add.ptr.i.i, align 8, !noalias !139
+  store <2 x ptr> %5, ptr %arg, align 16, !alias.scope !139
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !139
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -12628,17 +12610,16 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit: ; preds = %invoke.
   %20 = load ptr, ptr %members.i, align 8, !noalias !142
   %21 = getelementptr %"class.std::shared_ptr.29", ptr %20, i64 %call
   %add.ptr.i.i23 = getelementptr i8, ptr %21, i64 16
-  %22 = load ptr, ptr %add.ptr.i.i23, align 8, !noalias !142
-  store ptr %22, ptr %arg31, align 8, !alias.scope !142
   %_M_refcount.i.i.i24 = getelementptr inbounds i8, ptr %arg31, i64 8
   %_M_refcount3.i.i.i25 = getelementptr i8, ptr %21, i64 24
-  %23 = load ptr, ptr %_M_refcount3.i.i.i25, align 8, !noalias !142
-  store ptr %23, ptr %_M_refcount.i.i.i24, align 8, !alias.scope !142
-  %cmp.not.i.i.i.i26 = icmp eq ptr %23, null
+  %22 = load ptr, ptr %_M_refcount3.i.i.i25, align 8, !noalias !142
+  %23 = load <2 x ptr>, ptr %add.ptr.i.i23, align 8, !noalias !142
+  store <2 x ptr> %23, ptr %arg31, align 16, !alias.scope !142
+  %cmp.not.i.i.i.i26 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i.i26, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit33, label %if.then.i.i.i.i27
 
 if.then.i.i.i.i27:                                ; preds = %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit
-  %_M_use_count.i.i.i.i.i28 = getelementptr inbounds i8, ptr %23, i64 8
+  %_M_use_count.i.i.i.i.i28 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i8, ptr @__libc_single_threaded, align 1, !noalias !142
   %tobool.i.not.i.i.i.i.i29 = icmp eq i8 %24, 0
   br i1 %tobool.i.not.i.i.i.i.i29, label %if.else.i.i.i.i.i.i32, label %if.then.i.i.i.i.i.i30
@@ -12971,7 +12952,7 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvertList.889", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator", align 1
-  %arg = alloca %"class.std::shared_ptr.29", align 8
+  %arg = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::allocator", align 1
@@ -13022,17 +13003,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 
 do.body:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
-  %4 = load ptr, ptr %1, align 8, !noalias !145
-  store ptr %4, ptr %arg, align 8, !alias.scope !145
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !145
-  store ptr %5, ptr %_M_refcount.i.i.i, align 8, !alias.scope !145
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !145
+  %5 = load <2 x ptr>, ptr %1, align 8, !noalias !145
+  store <2 x ptr> %5, ptr %arg, align 16, !alias.scope !145
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !145
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -13261,7 +13241,7 @@ entry:
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp14 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp15 = alloca %"class.std::allocator", align 1
-  %arg34 = alloca %"class.std::shared_ptr.29", align 8
+  %arg34 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp45 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp49 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp50 = alloca %"class.std::allocator", align 1
@@ -13514,17 +13494,16 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit: ; preds = %cleanup
   %31 = load ptr, ptr %members.i, align 8, !noalias !151
   %32 = getelementptr %"class.std::shared_ptr.29", ptr %31, i64 %call
   %add.ptr.i.i24 = getelementptr i8, ptr %32, i64 16
-  %33 = load ptr, ptr %add.ptr.i.i24, align 8, !noalias !151
-  store ptr %33, ptr %arg34, align 8, !alias.scope !151
   %_M_refcount.i.i.i25 = getelementptr inbounds i8, ptr %arg34, i64 8
   %_M_refcount3.i.i.i26 = getelementptr i8, ptr %32, i64 24
-  %34 = load ptr, ptr %_M_refcount3.i.i.i26, align 8, !noalias !151
-  store ptr %34, ptr %_M_refcount.i.i.i25, align 8, !alias.scope !151
-  %cmp.not.i.i.i.i27 = icmp eq ptr %34, null
+  %33 = load ptr, ptr %_M_refcount3.i.i.i26, align 8, !noalias !151
+  %34 = load <2 x ptr>, ptr %add.ptr.i.i24, align 8, !noalias !151
+  store <2 x ptr> %34, ptr %arg34, align 16, !alias.scope !151
+  %cmp.not.i.i.i.i27 = icmp eq ptr %33, null
   br i1 %cmp.not.i.i.i.i27, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit34, label %if.then.i.i.i.i28
 
 if.then.i.i.i.i28:                                ; preds = %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit
-  %_M_use_count.i.i.i.i.i29 = getelementptr inbounds i8, ptr %34, i64 8
+  %_M_use_count.i.i.i.i.i29 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load i8, ptr @__libc_single_threaded, align 1, !noalias !151
   %tobool.i.not.i.i.i.i.i30 = icmp eq i8 %35, 0
   br i1 %tobool.i.not.i.i.i.i.i30, label %if.else.i.i.i.i.i.i33, label %if.then.i.i.i.i.i.i31
@@ -13796,7 +13775,7 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvertList.889", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator", align 1
-  %arg = alloca %"class.std::shared_ptr.29", align 8
+  %arg = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::allocator", align 1
@@ -13847,17 +13826,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 
 do.body:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !154)
-  %4 = load ptr, ptr %1, align 8, !noalias !154
-  store ptr %4, ptr %arg, align 8, !alias.scope !154
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !154
-  store ptr %5, ptr %_M_refcount.i.i.i, align 8, !alias.scope !154
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !154
+  %5 = load <2 x ptr>, ptr %1, align 8, !noalias !154
+  store <2 x ptr> %5, ptr %arg, align 16, !alias.scope !154
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !154
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -14089,7 +14067,7 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvert", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %arg = alloca %"class.std::shared_ptr.29", align 8
+  %arg = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::allocator", align 1
@@ -14149,17 +14127,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 do.body:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.29", ptr %1, i64 %call
-  %4 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !157
-  store ptr %4, ptr %arg, align 8, !alias.scope !157
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !157
-  store ptr %5, ptr %_M_refcount.i.i.i, align 8, !alias.scope !157
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !157
+  %5 = load <2 x ptr>, ptr %add.ptr.i.i, align 8, !noalias !157
+  store <2 x ptr> %5, ptr %arg, align 16, !alias.scope !157
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !157
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -14615,7 +14592,7 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvertList.906", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator", align 1
-  %arg = alloca %"class.std::shared_ptr.29", align 8
+  %arg = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::allocator", align 1
@@ -14666,17 +14643,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 
 do.body:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
-  %4 = load ptr, ptr %1, align 8, !noalias !163
-  store ptr %4, ptr %arg, align 8, !alias.scope !163
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !163
-  store ptr %5, ptr %_M_refcount.i.i.i, align 8, !alias.scope !163
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !163
+  %5 = load <2 x ptr>, ptr %1, align 8, !noalias !163
+  store <2 x ptr> %5, ptr %arg, align 16, !alias.scope !163
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !163
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -14882,19 +14858,19 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvert.908", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %arg = alloca %"class.std::shared_ptr.29", align 8
+  %arg = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::allocator", align 1
-  %arg31 = alloca %"class.std::shared_ptr.29", align 8
+  %arg31 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp42 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp46 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp47 = alloca %"class.std::allocator", align 1
-  %arg71 = alloca %"class.std::shared_ptr.29", align 8
+  %arg71 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp82 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp86 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp87 = alloca %"class.std::allocator", align 1
-  %arg111 = alloca %"class.std::shared_ptr.29", align 8
+  %arg111 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp122 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp126 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp127 = alloca %"class.std::allocator", align 1
@@ -14950,17 +14926,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 do.body:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !166)
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.29", ptr %1, i64 %call
-  %4 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !166
-  store ptr %4, ptr %arg, align 8, !alias.scope !166
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !166
-  store ptr %5, ptr %_M_refcount.i.i.i, align 8, !alias.scope !166
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !166
+  %5 = load <2 x ptr>, ptr %add.ptr.i.i, align 8, !noalias !166
+  store <2 x ptr> %5, ptr %arg, align 16, !alias.scope !166
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !166
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -15060,17 +15035,16 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit: ; preds = %invoke.
   %20 = load ptr, ptr %members.i, align 8, !noalias !169
   %21 = getelementptr %"class.std::shared_ptr.29", ptr %20, i64 %call
   %add.ptr.i.i41 = getelementptr i8, ptr %21, i64 16
-  %22 = load ptr, ptr %add.ptr.i.i41, align 8, !noalias !169
-  store ptr %22, ptr %arg31, align 8, !alias.scope !169
   %_M_refcount.i.i.i42 = getelementptr inbounds i8, ptr %arg31, i64 8
   %_M_refcount3.i.i.i43 = getelementptr i8, ptr %21, i64 24
-  %23 = load ptr, ptr %_M_refcount3.i.i.i43, align 8, !noalias !169
-  store ptr %23, ptr %_M_refcount.i.i.i42, align 8, !alias.scope !169
-  %cmp.not.i.i.i.i44 = icmp eq ptr %23, null
+  %22 = load ptr, ptr %_M_refcount3.i.i.i43, align 8, !noalias !169
+  %23 = load <2 x ptr>, ptr %add.ptr.i.i41, align 8, !noalias !169
+  store <2 x ptr> %23, ptr %arg31, align 16, !alias.scope !169
+  %cmp.not.i.i.i.i44 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i.i44, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit51, label %if.then.i.i.i.i45
 
 if.then.i.i.i.i45:                                ; preds = %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit
-  %_M_use_count.i.i.i.i.i46 = getelementptr inbounds i8, ptr %23, i64 8
+  %_M_use_count.i.i.i.i.i46 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i8, ptr @__libc_single_threaded, align 1, !noalias !169
   %tobool.i.not.i.i.i.i.i47 = icmp eq i8 %24, 0
   br i1 %tobool.i.not.i.i.i.i.i47, label %if.else.i.i.i.i.i.i50, label %if.then.i.i.i.i.i.i48
@@ -15245,17 +15219,16 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit85: ; preds = %invok
   %47 = load ptr, ptr %members.i, align 8, !noalias !172
   %48 = getelementptr %"class.std::shared_ptr.29", ptr %47, i64 %call
   %add.ptr.i.i87 = getelementptr i8, ptr %48, i64 32
-  %49 = load ptr, ptr %add.ptr.i.i87, align 8, !noalias !172
-  store ptr %49, ptr %arg71, align 8, !alias.scope !172
   %_M_refcount.i.i.i88 = getelementptr inbounds i8, ptr %arg71, i64 8
   %_M_refcount3.i.i.i89 = getelementptr i8, ptr %48, i64 40
-  %50 = load ptr, ptr %_M_refcount3.i.i.i89, align 8, !noalias !172
-  store ptr %50, ptr %_M_refcount.i.i.i88, align 8, !alias.scope !172
-  %cmp.not.i.i.i.i90 = icmp eq ptr %50, null
+  %49 = load ptr, ptr %_M_refcount3.i.i.i89, align 8, !noalias !172
+  %50 = load <2 x ptr>, ptr %add.ptr.i.i87, align 8, !noalias !172
+  store <2 x ptr> %50, ptr %arg71, align 16, !alias.scope !172
+  %cmp.not.i.i.i.i90 = icmp eq ptr %49, null
   br i1 %cmp.not.i.i.i.i90, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit97, label %if.then.i.i.i.i91
 
 if.then.i.i.i.i91:                                ; preds = %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit85
-  %_M_use_count.i.i.i.i.i92 = getelementptr inbounds i8, ptr %50, i64 8
+  %_M_use_count.i.i.i.i.i92 = getelementptr inbounds i8, ptr %49, i64 8
   %51 = load i8, ptr @__libc_single_threaded, align 1, !noalias !172
   %tobool.i.not.i.i.i.i.i93 = icmp eq i8 %51, 0
   br i1 %tobool.i.not.i.i.i.i.i93, label %if.else.i.i.i.i.i.i96, label %if.then.i.i.i.i.i.i94
@@ -15436,17 +15409,16 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit133: ; preds = %invo
   %74 = load ptr, ptr %members.i, align 8, !noalias !175
   %75 = getelementptr %"class.std::shared_ptr.29", ptr %74, i64 %call
   %add.ptr.i.i135 = getelementptr i8, ptr %75, i64 48
-  %76 = load ptr, ptr %add.ptr.i.i135, align 8, !noalias !175
-  store ptr %76, ptr %arg111, align 8, !alias.scope !175
   %_M_refcount.i.i.i136 = getelementptr inbounds i8, ptr %arg111, i64 8
   %_M_refcount3.i.i.i137 = getelementptr i8, ptr %75, i64 56
-  %77 = load ptr, ptr %_M_refcount3.i.i.i137, align 8, !noalias !175
-  store ptr %77, ptr %_M_refcount.i.i.i136, align 8, !alias.scope !175
-  %cmp.not.i.i.i.i138 = icmp eq ptr %77, null
+  %76 = load ptr, ptr %_M_refcount3.i.i.i137, align 8, !noalias !175
+  %77 = load <2 x ptr>, ptr %add.ptr.i.i135, align 8, !noalias !175
+  store <2 x ptr> %77, ptr %arg111, align 16, !alias.scope !175
+  %cmp.not.i.i.i.i138 = icmp eq ptr %76, null
   br i1 %cmp.not.i.i.i.i138, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit145, label %if.then.i.i.i.i139
 
 if.then.i.i.i.i139:                               ; preds = %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit133
-  %_M_use_count.i.i.i.i.i140 = getelementptr inbounds i8, ptr %77, i64 8
+  %_M_use_count.i.i.i.i.i140 = getelementptr inbounds i8, ptr %76, i64 8
   %78 = load i8, ptr @__libc_single_threaded, align 1, !noalias !175
   %tobool.i.not.i.i.i.i.i141 = icmp eq i8 %78, 0
   br i1 %tobool.i.not.i.i.i.i.i141, label %if.else.i.i.i.i.i.i144, label %if.then.i.i.i.i.i.i142
@@ -15753,7 +15725,7 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvert.876", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %arg = alloca %"class.std::shared_ptr.29", align 8
+  %arg = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::allocator", align 1
@@ -15809,17 +15781,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 do.body:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.29", ptr %1, i64 %call
-  %4 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !178
-  store ptr %4, ptr %arg, align 8, !alias.scope !178
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !178
-  store ptr %5, ptr %_M_refcount.i.i.i, align 8, !alias.scope !178
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !178
+  %5 = load <2 x ptr>, ptr %add.ptr.i.i, align 8, !noalias !178
+  store <2 x ptr> %5, ptr %arg, align 16, !alias.scope !178
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !178
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -16105,11 +16076,11 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvert", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %arg = alloca %"class.std::shared_ptr.29", align 8
+  %arg = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::allocator", align 1
-  %arg31 = alloca %"class.std::shared_ptr.29", align 8
+  %arg31 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp42 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp46 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp47 = alloca %"class.std::allocator", align 1
@@ -16165,17 +16136,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 do.body:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !181)
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.29", ptr %1, i64 %call
-  %4 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !181
-  store ptr %4, ptr %arg, align 8, !alias.scope !181
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !181
-  store ptr %5, ptr %_M_refcount.i.i.i, align 8, !alias.scope !181
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !181
+  %5 = load <2 x ptr>, ptr %add.ptr.i.i, align 8, !noalias !181
+  store <2 x ptr> %5, ptr %arg, align 16, !alias.scope !181
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !181
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -16275,17 +16245,16 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit: ; preds = %invoke.
   %20 = load ptr, ptr %members.i, align 8, !noalias !184
   %21 = getelementptr %"class.std::shared_ptr.29", ptr %20, i64 %call
   %add.ptr.i.i23 = getelementptr i8, ptr %21, i64 16
-  %22 = load ptr, ptr %add.ptr.i.i23, align 8, !noalias !184
-  store ptr %22, ptr %arg31, align 8, !alias.scope !184
   %_M_refcount.i.i.i24 = getelementptr inbounds i8, ptr %arg31, i64 8
   %_M_refcount3.i.i.i25 = getelementptr i8, ptr %21, i64 24
-  %23 = load ptr, ptr %_M_refcount3.i.i.i25, align 8, !noalias !184
-  store ptr %23, ptr %_M_refcount.i.i.i24, align 8, !alias.scope !184
-  %cmp.not.i.i.i.i26 = icmp eq ptr %23, null
+  %22 = load ptr, ptr %_M_refcount3.i.i.i25, align 8, !noalias !184
+  %23 = load <2 x ptr>, ptr %add.ptr.i.i23, align 8, !noalias !184
+  store <2 x ptr> %23, ptr %arg31, align 16, !alias.scope !184
+  %cmp.not.i.i.i.i26 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i.i26, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit33, label %if.then.i.i.i.i27
 
 if.then.i.i.i.i27:                                ; preds = %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit
-  %_M_use_count.i.i.i.i.i28 = getelementptr inbounds i8, ptr %23, i64 8
+  %_M_use_count.i.i.i.i.i28 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i8, ptr @__libc_single_threaded, align 1, !noalias !184
   %tobool.i.not.i.i.i.i.i29 = icmp eq i8 %24, 0
   br i1 %tobool.i.not.i.i.i.i.i29, label %if.else.i.i.i.i.i.i32, label %if.then.i.i.i.i.i.i30
@@ -16682,11 +16651,11 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvert.876", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %arg = alloca %"class.std::shared_ptr.29", align 8
+  %arg = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::allocator", align 1
-  %arg31 = alloca %"class.std::shared_ptr.29", align 8
+  %arg31 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp42 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp46 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp47 = alloca %"class.std::allocator", align 1
@@ -16742,17 +16711,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 do.body:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.29", ptr %1, i64 %call
-  %4 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !187
-  store ptr %4, ptr %arg, align 8, !alias.scope !187
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !187
-  store ptr %5, ptr %_M_refcount.i.i.i, align 8, !alias.scope !187
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !187
+  %5 = load <2 x ptr>, ptr %add.ptr.i.i, align 8, !noalias !187
+  store <2 x ptr> %5, ptr %arg, align 16, !alias.scope !187
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !187
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -16852,17 +16820,16 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit: ; preds = %invoke.
   %20 = load ptr, ptr %members.i, align 8, !noalias !190
   %21 = getelementptr %"class.std::shared_ptr.29", ptr %20, i64 %call
   %add.ptr.i.i23 = getelementptr i8, ptr %21, i64 16
-  %22 = load ptr, ptr %add.ptr.i.i23, align 8, !noalias !190
-  store ptr %22, ptr %arg31, align 8, !alias.scope !190
   %_M_refcount.i.i.i24 = getelementptr inbounds i8, ptr %arg31, i64 8
   %_M_refcount3.i.i.i25 = getelementptr i8, ptr %21, i64 24
-  %23 = load ptr, ptr %_M_refcount3.i.i.i25, align 8, !noalias !190
-  store ptr %23, ptr %_M_refcount.i.i.i24, align 8, !alias.scope !190
-  %cmp.not.i.i.i.i26 = icmp eq ptr %23, null
+  %22 = load ptr, ptr %_M_refcount3.i.i.i25, align 8, !noalias !190
+  %23 = load <2 x ptr>, ptr %add.ptr.i.i23, align 8, !noalias !190
+  store <2 x ptr> %23, ptr %arg31, align 16, !alias.scope !190
+  %cmp.not.i.i.i.i26 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i.i26, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit33, label %if.then.i.i.i.i27
 
 if.then.i.i.i.i27:                                ; preds = %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit
-  %_M_use_count.i.i.i.i.i28 = getelementptr inbounds i8, ptr %23, i64 8
+  %_M_use_count.i.i.i.i.i28 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i8, ptr @__libc_single_threaded, align 1, !noalias !190
   %tobool.i.not.i.i.i.i.i29 = icmp eq i8 %24, 0
   br i1 %tobool.i.not.i.i.i.i.i29, label %if.else.i.i.i.i.i.i32, label %if.then.i.i.i.i.i.i30
@@ -17207,7 +17174,7 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvertList.902", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %arg = alloca %"class.std::shared_ptr.29", align 8
+  %arg = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::allocator", align 1
@@ -17263,17 +17230,16 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
 do.body:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.29", ptr %1, i64 %call
-  %4 = load ptr, ptr %add.ptr.i.i, align 8, !noalias !193
-  store ptr %4, ptr %arg, align 8, !alias.scope !193
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %arg, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !193
-  store ptr %5, ptr %_M_refcount.i.i.i, align 8, !alias.scope !193
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !193
+  %5 = load <2 x ptr>, ptr %add.ptr.i.i, align 8, !noalias !193
+  store <2 x ptr> %5, ptr %arg, align 16, !alias.scope !193
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !193
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -17482,7 +17448,7 @@ entry:
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp14 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp15 = alloca %"class.std::allocator", align 1
-  %arg316 = alloca %"class.std::shared_ptr.29", align 8
+  %arg316 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp327 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp331 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp332 = alloca %"class.std::allocator", align 1
@@ -19031,17 +18997,16 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit589: ; preds = %clea
   %229 = load ptr, ptr %members.i, align 8, !noalias !217
   %230 = getelementptr %"class.std::shared_ptr.29", ptr %229, i64 %call
   %add.ptr.i.i591 = getelementptr i8, ptr %230, i64 112
-  %231 = load ptr, ptr %add.ptr.i.i591, align 8, !noalias !217
-  store ptr %231, ptr %arg316, align 8, !alias.scope !217
   %_M_refcount.i.i.i592 = getelementptr inbounds i8, ptr %arg316, i64 8
   %_M_refcount3.i.i.i593 = getelementptr i8, ptr %230, i64 120
-  %232 = load ptr, ptr %_M_refcount3.i.i.i593, align 8, !noalias !217
-  store ptr %232, ptr %_M_refcount.i.i.i592, align 8, !alias.scope !217
-  %cmp.not.i.i.i.i594 = icmp eq ptr %232, null
+  %231 = load ptr, ptr %_M_refcount3.i.i.i593, align 8, !noalias !217
+  %232 = load <2 x ptr>, ptr %add.ptr.i.i591, align 8, !noalias !217
+  store <2 x ptr> %232, ptr %arg316, align 16, !alias.scope !217
+  %cmp.not.i.i.i.i594 = icmp eq ptr %231, null
   br i1 %cmp.not.i.i.i.i594, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit601, label %if.then.i.i.i.i595
 
 if.then.i.i.i.i595:                               ; preds = %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev.exit589
-  %_M_use_count.i.i.i.i.i596 = getelementptr inbounds i8, ptr %232, i64 8
+  %_M_use_count.i.i.i.i.i596 = getelementptr inbounds i8, ptr %231, i64 8
   %233 = load i8, ptr @__libc_single_threaded, align 1, !noalias !217
   %tobool.i.not.i.i.i.i.i597 = icmp eq i8 %233, 0
   br i1 %tobool.i.not.i.i.i.i.i597, label %if.else.i.i.i.i.i.i600, label %if.then.i.i.i.i.i.i598
@@ -20093,7 +20058,7 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvert.872", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %ref.tmp15 = alloca %"class.std::shared_ptr.29", align 8
+  %ref.tmp15 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp20 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp22 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp23 = alloca %"class.std::allocator", align 1
@@ -20312,16 +20277,15 @@ _ZNSt6vectorIN6Assimp4STEP4LazyINS0_3IFC10Schema_2x312IfcFaceBoundEEESaIS6_EE9pu
   call void @llvm.experimental.noalias.scope.decl(metadata !252)
   %22 = load ptr, ptr %members.i, align 8, !noalias !252
   %add.ptr.i.i38 = getelementptr inbounds %"class.std::shared_ptr.29", ptr %22, i64 %i.058
-  %23 = load ptr, ptr %add.ptr.i.i38, align 8, !noalias !252
-  store ptr %23, ptr %ref.tmp15, align 8, !alias.scope !252
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i38, i64 8
-  %24 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !252
-  store ptr %24, ptr %_M_refcount.i.i.i, align 8, !alias.scope !252
-  %cmp.not.i.i.i.i39 = icmp eq ptr %24, null
+  %23 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !252
+  %24 = load <2 x ptr>, ptr %add.ptr.i.i38, align 8, !noalias !252
+  store <2 x ptr> %24, ptr %ref.tmp15, align 16, !alias.scope !252
+  %cmp.not.i.i.i.i39 = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i.i39, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i40
 
 if.then.i.i.i.i40:                                ; preds = %_ZNSt6vectorIN6Assimp4STEP4LazyINS0_3IFC10Schema_2x312IfcFaceBoundEEESaIS6_EE9push_backEOS6_.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load i8, ptr @__libc_single_threaded, align 1, !noalias !252
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %25, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -20802,7 +20766,7 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvert.884", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %ref.tmp19 = alloca %"class.std::shared_ptr.29", align 8
+  %ref.tmp19 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp24 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp26 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp27 = alloca %"class.std::allocator", align 1
@@ -21011,16 +20975,15 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %if.then.i.i35, %_ZN
   call void @llvm.experimental.noalias.scope.decl(metadata !257)
   %20 = load ptr, ptr %members.i, align 8, !noalias !257
   %add.ptr.i.i38 = getelementptr inbounds %"class.std::shared_ptr.29", ptr %20, i64 %i.060
-  %21 = load ptr, ptr %add.ptr.i.i38, align 8, !noalias !257
-  store ptr %21, ptr %ref.tmp19, align 8, !alias.scope !257
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i38, i64 8
-  %22 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !257
-  store ptr %22, ptr %_M_refcount.i.i.i, align 8, !alias.scope !257
-  %cmp.not.i.i.i.i39 = icmp eq ptr %22, null
+  %21 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !257
+  %22 = load <2 x ptr>, ptr %add.ptr.i.i38, align 8, !noalias !257
+  store <2 x ptr> %22, ptr %ref.tmp19, align 16, !alias.scope !257
+  %cmp.not.i.i.i.i39 = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i.i39, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i40
 
 if.then.i.i.i.i40:                                ; preds = %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load i8, ptr @__libc_single_threaded, align 1, !noalias !257
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %23, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i41
@@ -21406,7 +21369,7 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvert.908", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %ref.tmp15 = alloca %"class.std::shared_ptr.29", align 8
+  %ref.tmp15 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp20 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp22 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp23 = alloca %"class.std::allocator", align 1
@@ -21629,16 +21592,15 @@ _ZNSt6vectorIN6Assimp4STEP4LazyINS0_3IFC10Schema_2x317IfcCartesianPointEEESaIS6_
   call void @llvm.experimental.noalias.scope.decl(metadata !272)
   %22 = load ptr, ptr %members.i, align 8, !noalias !272
   %add.ptr.i.i38 = getelementptr inbounds %"class.std::shared_ptr.29", ptr %22, i64 %i.058
-  %23 = load ptr, ptr %add.ptr.i.i38, align 8, !noalias !272
-  store ptr %23, ptr %ref.tmp15, align 8, !alias.scope !272
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i38, i64 8
-  %24 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !272
-  store ptr %24, ptr %_M_refcount.i.i.i, align 8, !alias.scope !272
-  %cmp.not.i.i.i.i39 = icmp eq ptr %24, null
+  %23 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !272
+  %24 = load <2 x ptr>, ptr %add.ptr.i.i38, align 8, !noalias !272
+  store <2 x ptr> %24, ptr %ref.tmp15, align 16, !alias.scope !272
+  %cmp.not.i.i.i.i39 = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i.i39, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i40
 
 if.then.i.i.i.i40:                                ; preds = %_ZNSt6vectorIN6Assimp4STEP4LazyINS0_3IFC10Schema_2x317IfcCartesianPointEEESaIS6_EE9push_backEOS6_.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load i8, ptr @__libc_single_threaded, align 1, !noalias !272
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %25, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -22515,7 +22477,7 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvert.876", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %ref.tmp19 = alloca %"class.std::shared_ptr.29", align 8
+  %ref.tmp19 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp24 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp26 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp27 = alloca %"class.std::allocator", align 1
@@ -22724,16 +22686,15 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %if.then.i.i35, %_ZN
   call void @llvm.experimental.noalias.scope.decl(metadata !285)
   %20 = load ptr, ptr %members.i, align 8, !noalias !285
   %add.ptr.i.i38 = getelementptr inbounds %"class.std::shared_ptr.29", ptr %20, i64 %i.060
-  %21 = load ptr, ptr %add.ptr.i.i38, align 8, !noalias !285
-  store ptr %21, ptr %ref.tmp19, align 8, !alias.scope !285
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i38, i64 8
-  %22 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !285
-  store ptr %22, ptr %_M_refcount.i.i.i, align 8, !alias.scope !285
-  %cmp.not.i.i.i.i39 = icmp eq ptr %22, null
+  %21 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !285
+  %22 = load <2 x ptr>, ptr %add.ptr.i.i38, align 8, !noalias !285
+  store <2 x ptr> %22, ptr %ref.tmp19, align 16, !alias.scope !285
+  %cmp.not.i.i.i.i39 = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i.i39, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i40
 
 if.then.i.i.i.i40:                                ; preds = %_ZNSt6vectorIdSaIdEE9push_backEOd.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load i8, ptr @__libc_single_threaded, align 1, !noalias !285
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %23, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i41
@@ -22932,7 +22893,7 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvert.908", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %ref.tmp15 = alloca %"class.std::shared_ptr.29", align 8
+  %ref.tmp15 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp20 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp22 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp23 = alloca %"class.std::allocator", align 1
@@ -23155,16 +23116,15 @@ _ZNSt6vectorIN6Assimp4STEP4LazyINS0_3IFC10Schema_2x317IfcCartesianPointEEESaIS6_
   call void @llvm.experimental.noalias.scope.decl(metadata !299)
   %22 = load ptr, ptr %members.i, align 8, !noalias !299
   %add.ptr.i.i38 = getelementptr inbounds %"class.std::shared_ptr.29", ptr %22, i64 %i.058
-  %23 = load ptr, ptr %add.ptr.i.i38, align 8, !noalias !299
-  store ptr %23, ptr %ref.tmp15, align 8, !alias.scope !299
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i38, i64 8
-  %24 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !299
-  store ptr %24, ptr %_M_refcount.i.i.i, align 8, !alias.scope !299
-  %cmp.not.i.i.i.i39 = icmp eq ptr %24, null
+  %23 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !299
+  %24 = load <2 x ptr>, ptr %add.ptr.i.i38, align 8, !noalias !299
+  store <2 x ptr> %24, ptr %ref.tmp15, align 16, !alias.scope !299
+  %cmp.not.i.i.i.i39 = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i.i39, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i40
 
 if.then.i.i.i.i40:                                ; preds = %_ZNSt6vectorIN6Assimp4STEP4LazyINS0_3IFC10Schema_2x317IfcCartesianPointEEESaIS6_EE9push_backEOS6_.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load i8, ptr @__libc_single_threaded, align 1, !noalias !299
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %25, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -23461,7 +23421,7 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvert.900", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %ref.tmp15 = alloca %"class.std::shared_ptr.29", align 8
+  %ref.tmp15 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp20 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp22 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp23 = alloca %"class.std::allocator", align 1
@@ -23680,16 +23640,15 @@ _ZNSt6vectorIN6Assimp4STEP4LazyINS0_3IFC10Schema_2x319IfcConnectedFaceSetEEESaIS
   call void @llvm.experimental.noalias.scope.decl(metadata !314)
   %22 = load ptr, ptr %members.i, align 8, !noalias !314
   %add.ptr.i.i38 = getelementptr inbounds %"class.std::shared_ptr.29", ptr %22, i64 %i.058
-  %23 = load ptr, ptr %add.ptr.i.i38, align 8, !noalias !314
-  store ptr %23, ptr %ref.tmp15, align 8, !alias.scope !314
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i38, i64 8
-  %24 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !314
-  store ptr %24, ptr %_M_refcount.i.i.i, align 8, !alias.scope !314
-  %cmp.not.i.i.i.i39 = icmp eq ptr %24, null
+  %23 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !314
+  %24 = load <2 x ptr>, ptr %add.ptr.i.i38, align 8, !noalias !314
+  store <2 x ptr> %24, ptr %ref.tmp15, align 16, !alias.scope !314
+  %cmp.not.i.i.i.i39 = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i.i39, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i40
 
 if.then.i.i.i.i40:                                ; preds = %_ZNSt6vectorIN6Assimp4STEP4LazyINS0_3IFC10Schema_2x319IfcConnectedFaceSetEEESaIS6_EE9push_backEOS6_.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load i8, ptr @__libc_single_threaded, align 1, !noalias !314
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %25, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -24084,7 +24043,7 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvert.905", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %ref.tmp15 = alloca %"class.std::shared_ptr.29", align 8
+  %ref.tmp15 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp20 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp22 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp23 = alloca %"class.std::allocator", align 1
@@ -24303,16 +24262,15 @@ _ZNSt6vectorIN6Assimp4STEP4LazyINS0_3IFC10Schema_2x311IfcPropertyEEESaIS6_EE9pus
   call void @llvm.experimental.noalias.scope.decl(metadata !329)
   %22 = load ptr, ptr %members.i, align 8, !noalias !329
   %add.ptr.i.i38 = getelementptr inbounds %"class.std::shared_ptr.29", ptr %22, i64 %i.058
-  %23 = load ptr, ptr %add.ptr.i.i38, align 8, !noalias !329
-  store ptr %23, ptr %ref.tmp15, align 8, !alias.scope !329
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i38, i64 8
-  %24 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !329
-  store ptr %24, ptr %_M_refcount.i.i.i, align 8, !alias.scope !329
-  %cmp.not.i.i.i.i39 = icmp eq ptr %24, null
+  %23 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !329
+  %24 = load <2 x ptr>, ptr %add.ptr.i.i38, align 8, !noalias !329
+  store <2 x ptr> %24, ptr %ref.tmp15, align 16, !alias.scope !329
+  %cmp.not.i.i.i.i39 = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i.i39, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i40
 
 if.then.i.i.i.i40:                                ; preds = %_ZNSt6vectorIN6Assimp4STEP4LazyINS0_3IFC10Schema_2x311IfcPropertyEEESaIS6_EE9push_backEOS6_.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load i8, ptr @__libc_single_threaded, align 1, !noalias !329
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %25, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -24609,7 +24567,7 @@ entry:
   %ref.tmp.i = alloca %"struct.Assimp::STEP::InternGenericConvert.883", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %ref.tmp15 = alloca %"class.std::shared_ptr.29", align 8
+  %ref.tmp15 = alloca %"class.std::shared_ptr.29", align 16
   %ref.tmp20 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp22 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp23 = alloca %"class.std::allocator", align 1
@@ -24828,16 +24786,15 @@ _ZNSt6vectorIN6Assimp4STEP4LazyINS0_3IFC10Schema_2x314NotImplementedEEESaIS6_EE9
   call void @llvm.experimental.noalias.scope.decl(metadata !344)
   %22 = load ptr, ptr %members.i, align 8, !noalias !344
   %add.ptr.i.i38 = getelementptr inbounds %"class.std::shared_ptr.29", ptr %22, i64 %i.058
-  %23 = load ptr, ptr %add.ptr.i.i38, align 8, !noalias !344
-  store ptr %23, ptr %ref.tmp15, align 8, !alias.scope !344
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i38, i64 8
-  %24 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !344
-  store ptr %24, ptr %_M_refcount.i.i.i, align 8, !alias.scope !344
-  %cmp.not.i.i.i.i39 = icmp eq ptr %24, null
+  %23 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !344
+  %24 = load <2 x ptr>, ptr %add.ptr.i.i38, align 8, !noalias !344
+  store <2 x ptr> %24, ptr %ref.tmp15, align 16, !alias.scope !344
+  %cmp.not.i.i.i.i39 = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i.i39, label %_ZNK6Assimp4STEP7EXPRESS4LISTixEm.exit, label %if.then.i.i.i.i40
 
 if.then.i.i.i.i40:                                ; preds = %_ZNSt6vectorIN6Assimp4STEP4LazyINS0_3IFC10Schema_2x314NotImplementedEEESaIS6_EE9push_backEOS6_.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load i8, ptr @__libc_single_threaded, align 1, !noalias !344
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %25, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

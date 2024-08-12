@@ -20132,25 +20132,24 @@ define linkonce_odr void @_ZN5Eigen8internal26triangular_solver_selectorINS_3Map
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = load i64, ptr %9, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 16, i1 false)
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 %8, ptr %12, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = load i64, ptr %7, align 8
+  %12 = load <2 x i64>, ptr %8, align 8
+  store <2 x i64> %12, ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %4, i64 32
   store i64 %6, ptr %13, align 8
-  store i64 %8, ptr %3, align 8
-  call void @_ZN5Eigen8internal37evaluateProductBlockingSizesHeuristicIddLi4ElEEvRT2_S3_S3_S2_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 1)
-  %14 = load i64, ptr %11, align 8
+  store i64 %11, ptr %3, align 8
+  call void @_ZN5Eigen8internal37evaluateProductBlockingSizesHeuristicIddLi4ElEEvRT2_S3_S3_S2_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 1)
+  %14 = load i64, ptr %9, align 8
   %15 = load i64, ptr %13, align 8
   %16 = mul nsw i64 %15, %14
   %17 = getelementptr inbounds i8, ptr %4, i64 40
   store i64 %16, ptr %17, align 8
-  %18 = load i64, ptr %12, align 8
+  %18 = load i64, ptr %10, align 8
   %19 = mul nsw i64 %18, %15
   %20 = getelementptr inbounds i8, ptr %4, i64 48
   store i64 %19, ptr %20, align 8
@@ -20161,7 +20160,7 @@ define linkonce_odr void @_ZN5Eigen8internal26triangular_solver_selectorINS_3Map
   %24 = load ptr, ptr %1, align 8
   %25 = getelementptr inbounds i8, ptr %1, i64 24
   %26 = load i64, ptr %25, align 8
-  invoke void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi5ELb0ELi0ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %6, i64 noundef %8, ptr noundef nonnull %21, i64 noundef %23, ptr noundef nonnull %24, i64 noundef 1, i64 noundef %26, ptr noundef nonnull align 8 dereferenceable(40) %4)
+  invoke void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi5ELb0ELi0ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %6, i64 noundef %11, ptr noundef nonnull %21, i64 noundef %23, ptr noundef nonnull %24, i64 noundef 1, i64 noundef %26, ptr noundef nonnull align 8 dereferenceable(40) %4)
           to label %27 unwind label %31
 
 27:                                               ; preds = %2
@@ -26173,25 +26172,24 @@ define linkonce_odr void @_ZN5Eigen8internal26triangular_solver_selectorINS_3Ref
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = load i64, ptr %9, align 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 16, i1 false)
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 %8, ptr %12, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = load i64, ptr %7, align 8
+  %12 = load <2 x i64>, ptr %8, align 8
+  store <2 x i64> %12, ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %4, i64 32
   store i64 %6, ptr %13, align 8
-  store i64 %8, ptr %3, align 8
-  call void @_ZN5Eigen8internal37evaluateProductBlockingSizesHeuristicIddLi4ElEEvRT2_S3_S3_S2_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 1)
-  %14 = load i64, ptr %11, align 8
+  store i64 %11, ptr %3, align 8
+  call void @_ZN5Eigen8internal37evaluateProductBlockingSizesHeuristicIddLi4ElEEvRT2_S3_S3_S2_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 1)
+  %14 = load i64, ptr %9, align 8
   %15 = load i64, ptr %13, align 8
   %16 = mul nsw i64 %15, %14
   %17 = getelementptr inbounds i8, ptr %4, i64 40
   store i64 %16, ptr %17, align 8
-  %18 = load i64, ptr %12, align 8
+  %18 = load i64, ptr %10, align 8
   %19 = mul nsw i64 %18, %15
   %20 = getelementptr inbounds i8, ptr %4, i64 48
   store i64 %19, ptr %20, align 8
@@ -26202,7 +26200,7 @@ define linkonce_odr void @_ZN5Eigen8internal26triangular_solver_selectorINS_3Ref
   %24 = load ptr, ptr %1, align 8
   %25 = getelementptr inbounds i8, ptr %1, i64 24
   %26 = load i64, ptr %25, align 8
-  invoke void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi5ELb0ELi0ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %6, i64 noundef %8, ptr noundef nonnull %21, i64 noundef %23, ptr noundef nonnull %24, i64 noundef 1, i64 noundef %26, ptr noundef nonnull align 8 dereferenceable(40) %4)
+  invoke void @_ZN5Eigen8internal23triangular_solve_matrixIdlLi1ELi5ELb0ELi0ELi0ELi1EE3runEllPKdlPdllRNS0_15level3_blockingIddEE(i64 noundef %6, i64 noundef %11, ptr noundef nonnull %21, i64 noundef %23, ptr noundef nonnull %24, i64 noundef 1, i64 noundef %26, ptr noundef nonnull align 8 dereferenceable(40) %4)
           to label %27 unwind label %31
 
 27:                                               ; preds = %2

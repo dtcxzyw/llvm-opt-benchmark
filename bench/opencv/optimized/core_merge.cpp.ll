@@ -398,12 +398,11 @@ _ZN2cv4Mat_IhEC2Eii.exit49:                       ; preds = %_ZNK2cv20MatCommaIn
   store ptr %126, ptr %131, align 8, !alias.scope !17
   %132 = getelementptr inbounds i8, ptr %14, i64 24
   %133 = getelementptr inbounds i8, ptr %1, i64 24
-  %134 = load ptr, ptr %133, align 8, !noalias !17
-  store ptr %134, ptr %132, align 8, !alias.scope !17
-  %135 = getelementptr inbounds i8, ptr %14, i64 32
-  %136 = getelementptr inbounds i8, ptr %1, i64 32
-  %137 = load ptr, ptr %136, align 8, !noalias !17
-  store ptr %137, ptr %135, align 8, !alias.scope !17
+  %134 = getelementptr inbounds i8, ptr %14, i64 32
+  %135 = getelementptr inbounds i8, ptr %1, i64 32
+  %136 = load ptr, ptr %135, align 8, !noalias !17
+  %137 = load <2 x ptr>, ptr %133, align 8, !noalias !17
+  store <2 x ptr> %137, ptr %132, align 8, !alias.scope !17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1)
   store i8 6, ptr %126, align 1
   %.not.i.i.i58 = icmp eq ptr %127, null
@@ -412,7 +411,7 @@ _ZN2cv4Mat_IhEC2Eii.exit49:                       ; preds = %_ZNK2cv20MatCommaIn
 138:                                              ; preds = %125
   %139 = getelementptr inbounds i8, ptr %126, i64 %130
   store ptr %139, ptr %131, align 8
-  %.not1.i.i.i59 = icmp ult ptr %139, %137
+  %.not1.i.i.i59 = icmp ult ptr %139, %136
   br i1 %.not1.i.i.i59, label %_ZN2cv20MatCommaInitializer_IhEcmIiEERS1_T_.exit61, label %140
 
 140:                                              ; preds = %138
@@ -436,7 +435,7 @@ _ZN2cv20MatCommaInitializer_IhEcmIiEERS1_T_.exit61: ; preds = %._ZN2cv20MatComma
   %144 = load i64, ptr %128, align 8
   %145 = getelementptr inbounds i8, ptr %.pre87, i64 %144
   store ptr %145, ptr %131, align 8
-  %146 = load ptr, ptr %135, align 8
+  %146 = load ptr, ptr %134, align 8
   %.not1.i.i.i63 = icmp ult ptr %145, %146
   br i1 %.not1.i.i.i63, label %_ZN2cv20MatCommaInitializer_IhEcmIiEERS1_T_.exit65, label %147
 
@@ -461,7 +460,7 @@ _ZN2cv20MatCommaInitializer_IhEcmIiEERS1_T_.exit65: ; preds = %._ZN2cv20MatComma
   %152 = load ptr, ptr %131, align 8
   %153 = getelementptr inbounds i8, ptr %152, i64 %151
   store ptr %153, ptr %131, align 8
-  %154 = load ptr, ptr %135, align 8
+  %154 = load ptr, ptr %134, align 8
   %.not1.i.i.i67 = icmp ult ptr %153, %154
   br i1 %.not1.i.i.i67, label %_ZN2cv20MatCommaInitializer_IhEcmIiEERS1_T_.exit69, label %155
 

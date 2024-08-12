@@ -8874,12 +8874,12 @@ define linkonce_odr hidden void @_ZN2cv3dnn24DetectionOutputLayerImpl10DecodeBBo
   %35 = insertelement <2 x float> %34, float %33, i64 1
   %36 = insertelement <2 x float> poison, float %26, i64 0
   %37 = insertelement <2 x float> %36, float %29, i64 1
-  br label %77
+  br label %79
 
 38:                                               ; preds = %8
   %39 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.28) #25
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %69
+  br i1 %40, label %41, label %71
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8906,129 +8906,132 @@ define linkonce_odr hidden void @_ZN2cv3dnn24DetectionOutputLayerImpl10DecodeBBo
   %63 = fneg <2 x double> %62
   %64 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %63, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %61)
   %65 = fptrunc <2 x double> %64 to <2 x float>
+  %66 = extractelement <2 x float> %65, i64 1
+  %67 = extractelement <2 x float> %65, i64 0
   store <2 x float> %65, ptr %7, align 4
-  %66 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %62, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %61)
-  %67 = fptrunc <2 x double> %66 to <2 x float>
-  %68 = extractelement <2 x float> %67, i64 0
-  store float %68, ptr %43, align 4
-  br label %77
+  %68 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %62, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %61)
+  %69 = fptrunc <2 x double> %68 to <2 x float>
+  %70 = extractelement <2 x float> %69, i64 0
+  store float %70, ptr %43, align 4
+  br label %79
 
-69:                                               ; preds = %38
+71:                                               ; preds = %38
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #25
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.45, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %70 unwind label %72
+          to label %72 unwind label %74
 
-70:                                               ; preds = %69
+72:                                               ; preds = %71
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -5, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @__func__._ZN2cv3dnn24DetectionOutputLayerImpl10DecodeBBoxILb1EEEvRKNS0_4util14NormalizedBBoxERKSt6vectorIfSaIfEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS6_bS6_RS4_, ptr noundef nonnull @.str.15, i32 noundef 729) #26
-          to label %71 unwind label %74
+          to label %73 unwind label %76
 
-71:                                               ; preds = %70
+73:                                               ; preds = %72
   unreachable
 
-72:                                               ; preds = %69
-  %73 = landingpad { ptr, i32 }
-          cleanup
-  br label %76
-
-74:                                               ; preds = %70
+74:                                               ; preds = %71
   %75 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
-  br label %76
+  br label %78
 
-76:                                               ; preds = %74, %72
-  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %73, %72 ]
+76:                                               ; preds = %72
+  %77 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
+  br label %78
+
+78:                                               ; preds = %76, %74
+  %.pn = phi { ptr, i32 } [ %77, %76 ], [ %75, %74 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #25
   resume { ptr, i32 } %.pn
 
-77:                                               ; preds = %41, %18
-  %78 = phi <2 x float> [ %67, %41 ], [ %35, %18 ]
-  %79 = phi <2 x float> [ %65, %41 ], [ %37, %18 ]
-  %80 = getelementptr inbounds i8, ptr %7, i64 12
-  %81 = extractelement <2 x float> %78, i64 1
-  store float %81, ptr %80, align 4
-  br i1 %3, label %82, label %120
+79:                                               ; preds = %41, %18
+  %80 = phi float [ %70, %41 ], [ %31, %18 ]
+  %81 = phi float [ %66, %41 ], [ %29, %18 ]
+  %82 = phi float [ %67, %41 ], [ %26, %18 ]
+  %83 = phi <2 x float> [ %69, %41 ], [ %35, %18 ]
+  %84 = phi <2 x float> [ %65, %41 ], [ %37, %18 ]
+  %85 = extractelement <2 x float> %83, i64 1
+  %86 = getelementptr inbounds i8, ptr %7, i64 12
+  store float %85, ptr %86, align 4
+  br i1 %3, label %87, label %122
 
-82:                                               ; preds = %77
-  %83 = getelementptr inbounds i8, ptr %4, i64 8
-  %84 = load float, ptr %83, align 4
-  %85 = extractelement <2 x float> %79, i64 0
-  %86 = fcmp olt float %84, %85
-  %87 = select i1 %86, float %84, float %85
-  %88 = load float, ptr %4, align 4
-  %89 = fcmp olt float %87, %88
-  %90 = getelementptr inbounds i8, ptr %7, i64 4
-  %91 = getelementptr inbounds i8, ptr %4, i64 12
-  %92 = getelementptr inbounds i8, ptr %4, i64 4
-  %93 = getelementptr inbounds i8, ptr %7, i64 8
-  %94 = getelementptr inbounds i8, ptr %7, i64 12
-  %95 = select i1 %89, float %88, float %87
-  store float %95, ptr %7, align 4
-  %96 = load float, ptr %91, align 4
-  %97 = extractelement <2 x float> %79, i64 1
-  %98 = fcmp olt float %96, %97
-  %99 = select i1 %98, float %96, float %97
-  %100 = load float, ptr %92, align 4
-  %101 = fcmp olt float %99, %100
-  %102 = select i1 %101, float %100, float %99
-  store float %102, ptr %90, align 4
-  %103 = load float, ptr %83, align 4
-  %104 = extractelement <2 x float> %78, i64 0
-  %105 = fcmp olt float %103, %104
-  %106 = select i1 %105, float %103, float %104
-  %107 = load float, ptr %4, align 4
-  %108 = fcmp olt float %106, %107
-  %109 = select i1 %108, float %107, float %106
-  store float %109, ptr %93, align 4
-  %110 = load float, ptr %91, align 4
-  %111 = fcmp olt float %110, %81
-  %112 = select i1 %111, float %110, float %81
-  %113 = load float, ptr %92, align 4
-  %114 = fcmp olt float %112, %113
-  %115 = select i1 %114, float %113, float %112
-  store float %115, ptr %94, align 4
-  %116 = insertelement <2 x float> poison, float %109, i64 0
-  %117 = insertelement <2 x float> %116, float %115, i64 1
-  %118 = insertelement <2 x float> poison, float %95, i64 0
-  %119 = insertelement <2 x float> %118, float %102, i64 1
-  br label %120
+87:                                               ; preds = %79
+  %88 = getelementptr inbounds i8, ptr %4, i64 8
+  %89 = load float, ptr %88, align 4
+  %90 = fcmp olt float %89, %82
+  %91 = select i1 %90, float %89, float %82
+  %92 = load float, ptr %4, align 4
+  %93 = fcmp olt float %91, %92
+  %94 = getelementptr inbounds i8, ptr %7, i64 4
+  %95 = getelementptr inbounds i8, ptr %4, i64 12
+  %96 = getelementptr inbounds i8, ptr %4, i64 4
+  %97 = getelementptr inbounds i8, ptr %7, i64 8
+  %98 = getelementptr inbounds i8, ptr %7, i64 12
+  %99 = select i1 %93, float %92, float %91
+  store float %99, ptr %7, align 4
+  %100 = load float, ptr %95, align 4
+  %101 = fcmp olt float %100, %81
+  %102 = select i1 %101, float %100, float %81
+  %103 = load float, ptr %96, align 4
+  %104 = fcmp olt float %102, %103
+  %105 = select i1 %104, float %103, float %102
+  store float %105, ptr %94, align 4
+  %106 = load float, ptr %88, align 4
+  %107 = fcmp olt float %106, %80
+  %108 = select i1 %107, float %106, float %80
+  %109 = load float, ptr %4, align 4
+  %110 = fcmp olt float %108, %109
+  %111 = select i1 %110, float %109, float %108
+  store float %111, ptr %97, align 4
+  %112 = load float, ptr %95, align 4
+  %113 = fcmp olt float %112, %85
+  %114 = select i1 %113, float %112, float %85
+  %115 = load float, ptr %96, align 4
+  %116 = fcmp olt float %114, %115
+  %117 = select i1 %116, float %115, float %114
+  store float %117, ptr %98, align 4
+  %118 = insertelement <2 x float> poison, float %111, i64 0
+  %119 = insertelement <2 x float> %118, float %117, i64 1
+  %120 = insertelement <2 x float> poison, float %99, i64 0
+  %121 = insertelement <2 x float> %120, float %105, i64 1
+  br label %122
 
-120:                                              ; preds = %82, %77
-  %121 = phi <2 x float> [ %117, %82 ], [ %78, %77 ]
-  %122 = phi <2 x float> [ %119, %82 ], [ %79, %77 ]
-  %123 = getelementptr inbounds i8, ptr %7, i64 20
-  store float 0.000000e+00, ptr %123, align 4
-  %124 = getelementptr inbounds i8, ptr %7, i64 16
-  store i8 0, ptr %124, align 4
-  %125 = extractelement <2 x float> %121, i64 0
-  %126 = extractelement <2 x float> %122, i64 0
-  %127 = fcmp olt float %125, %126
-  %128 = fcmp olt <2 x float> %121, %122
-  %129 = extractelement <2 x i1> %128, i64 1
-  %or.cond = select i1 %127, i1 true, i1 %129
-  br i1 %or.cond, label %_ZN2cv3dnn24DetectionOutputLayerImpl8BBoxSizeERKNS0_4util14NormalizedBBoxEb.exit, label %130
+122:                                              ; preds = %87, %79
+  %123 = phi float [ %105, %87 ], [ %81, %79 ]
+  %124 = phi float [ %117, %87 ], [ %85, %79 ]
+  %125 = phi float [ %99, %87 ], [ %82, %79 ]
+  %126 = phi float [ %111, %87 ], [ %80, %79 ]
+  %127 = phi <2 x float> [ %119, %87 ], [ %83, %79 ]
+  %128 = phi <2 x float> [ %121, %87 ], [ %84, %79 ]
+  %129 = getelementptr inbounds i8, ptr %7, i64 20
+  store float 0.000000e+00, ptr %129, align 4
+  %130 = getelementptr inbounds i8, ptr %7, i64 16
+  store i8 0, ptr %130, align 4
+  %131 = fcmp olt float %126, %125
+  %132 = fcmp olt float %124, %123
+  %or.cond = select i1 %131, i1 true, i1 %132
+  br i1 %or.cond, label %_ZN2cv3dnn24DetectionOutputLayerImpl8BBoxSizeERKNS0_4util14NormalizedBBoxEb.exit, label %133
 
-130:                                              ; preds = %120
-  %131 = fsub <2 x float> %121, %122
-  br i1 %5, label %132, label %135
+133:                                              ; preds = %122
+  %134 = fsub <2 x float> %127, %128
+  br i1 %5, label %135, label %138
 
-132:                                              ; preds = %130
-  %shift = shufflevector <2 x float> %131, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %133 = fmul <2 x float> %131, %shift
-  %134 = extractelement <2 x float> %133, i64 0
+135:                                              ; preds = %133
+  %shift = shufflevector <2 x float> %134, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %136 = fmul <2 x float> %134, %shift
+  %137 = extractelement <2 x float> %136, i64 0
   br label %_ZN2cv3dnn24DetectionOutputLayerImpl8BBoxSizeERKNS0_4util14NormalizedBBoxEb.exit
 
-135:                                              ; preds = %130
-  %136 = fadd <2 x float> %131, <float 1.000000e+00, float 1.000000e+00>
-  %shift89 = shufflevector <2 x float> %136, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %137 = fmul <2 x float> %136, %shift89
-  %138 = extractelement <2 x float> %137, i64 0
+138:                                              ; preds = %133
+  %139 = fadd <2 x float> %134, <float 1.000000e+00, float 1.000000e+00>
+  %shift89 = shufflevector <2 x float> %139, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %140 = fmul <2 x float> %139, %shift89
+  %141 = extractelement <2 x float> %140, i64 0
   br label %_ZN2cv3dnn24DetectionOutputLayerImpl8BBoxSizeERKNS0_4util14NormalizedBBoxEb.exit
 
-_ZN2cv3dnn24DetectionOutputLayerImpl8BBoxSizeERKNS0_4util14NormalizedBBoxEb.exit: ; preds = %120, %132, %135
-  %.0.i = phi float [ %134, %132 ], [ %138, %135 ], [ 0.000000e+00, %120 ]
-  store float %.0.i, ptr %123, align 4
-  store i8 1, ptr %124, align 4
+_ZN2cv3dnn24DetectionOutputLayerImpl8BBoxSizeERKNS0_4util14NormalizedBBoxEb.exit: ; preds = %122, %135, %138
+  %.0.i = phi float [ %137, %135 ], [ %141, %138 ], [ 0.000000e+00, %122 ]
+  store float %.0.i, ptr %129, align 4
+  store i8 1, ptr %130, align 4
   ret void
 }
 
@@ -9077,12 +9080,12 @@ define linkonce_odr hidden void @_ZN2cv3dnn24DetectionOutputLayerImpl10DecodeBBo
   %44 = insertelement <2 x float> %43, float %42, i64 1
   %45 = insertelement <2 x float> poison, float %35, i64 0
   %46 = insertelement <2 x float> %45, float %38, i64 1
-  br label %86
+  br label %88
 
 47:                                               ; preds = %8
   %48 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.28) #25
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %78
+  br i1 %49, label %50, label %80
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds i8, ptr %0, i64 8
@@ -9109,129 +9112,132 @@ define linkonce_odr hidden void @_ZN2cv3dnn24DetectionOutputLayerImpl10DecodeBBo
   %72 = fneg <2 x double> %71
   %73 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %72, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %70)
   %74 = fptrunc <2 x double> %73 to <2 x float>
+  %75 = extractelement <2 x float> %74, i64 1
+  %76 = extractelement <2 x float> %74, i64 0
   store <2 x float> %74, ptr %7, align 4
-  %75 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %71, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %70)
-  %76 = fptrunc <2 x double> %75 to <2 x float>
-  %77 = extractelement <2 x float> %76, i64 0
-  store float %77, ptr %52, align 4
-  br label %86
+  %77 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %71, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> %70)
+  %78 = fptrunc <2 x double> %77 to <2 x float>
+  %79 = extractelement <2 x float> %78, i64 0
+  store float %79, ptr %52, align 4
+  br label %88
 
-78:                                               ; preds = %47
+80:                                               ; preds = %47
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #25
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.45, ptr noundef nonnull align 1 dereferenceable(1) %10)
-          to label %79 unwind label %81
+          to label %81 unwind label %83
 
-79:                                               ; preds = %78
+81:                                               ; preds = %80
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -5, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @__func__._ZN2cv3dnn24DetectionOutputLayerImpl10DecodeBBoxILb1EEEvRKNS0_4util14NormalizedBBoxERKSt6vectorIfSaIfEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS6_bS6_RS4_, ptr noundef nonnull @.str.15, i32 noundef 729) #26
-          to label %80 unwind label %83
+          to label %82 unwind label %85
 
-80:                                               ; preds = %79
+82:                                               ; preds = %81
   unreachable
 
-81:                                               ; preds = %78
-  %82 = landingpad { ptr, i32 }
-          cleanup
-  br label %85
-
-83:                                               ; preds = %79
+83:                                               ; preds = %80
   %84 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
-  br label %85
+  br label %87
 
-85:                                               ; preds = %83, %81
-  %.pn = phi { ptr, i32 } [ %84, %83 ], [ %82, %81 ]
+85:                                               ; preds = %81
+  %86 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
+  br label %87
+
+87:                                               ; preds = %85, %83
+  %.pn = phi { ptr, i32 } [ %86, %85 ], [ %84, %83 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #25
   resume { ptr, i32 } %.pn
 
-86:                                               ; preds = %50, %27
-  %87 = phi <2 x float> [ %76, %50 ], [ %44, %27 ]
-  %88 = phi <2 x float> [ %74, %50 ], [ %46, %27 ]
-  %89 = getelementptr inbounds i8, ptr %7, i64 12
-  %90 = extractelement <2 x float> %87, i64 1
-  store float %90, ptr %89, align 4
-  br i1 %3, label %91, label %129
+88:                                               ; preds = %50, %27
+  %89 = phi float [ %79, %50 ], [ %40, %27 ]
+  %90 = phi float [ %75, %50 ], [ %38, %27 ]
+  %91 = phi float [ %76, %50 ], [ %35, %27 ]
+  %92 = phi <2 x float> [ %78, %50 ], [ %44, %27 ]
+  %93 = phi <2 x float> [ %74, %50 ], [ %46, %27 ]
+  %94 = extractelement <2 x float> %92, i64 1
+  %95 = getelementptr inbounds i8, ptr %7, i64 12
+  store float %94, ptr %95, align 4
+  br i1 %3, label %96, label %131
 
-91:                                               ; preds = %86
-  %92 = getelementptr inbounds i8, ptr %4, i64 8
-  %93 = load float, ptr %92, align 4
-  %94 = extractelement <2 x float> %88, i64 0
-  %95 = fcmp olt float %93, %94
-  %96 = select i1 %95, float %93, float %94
-  %97 = load float, ptr %4, align 4
-  %98 = fcmp olt float %96, %97
-  %99 = getelementptr inbounds i8, ptr %7, i64 4
-  %100 = getelementptr inbounds i8, ptr %4, i64 12
-  %101 = getelementptr inbounds i8, ptr %4, i64 4
-  %102 = getelementptr inbounds i8, ptr %7, i64 8
-  %103 = getelementptr inbounds i8, ptr %7, i64 12
-  %104 = select i1 %98, float %97, float %96
-  store float %104, ptr %7, align 4
-  %105 = load float, ptr %100, align 4
-  %106 = extractelement <2 x float> %88, i64 1
-  %107 = fcmp olt float %105, %106
-  %108 = select i1 %107, float %105, float %106
-  %109 = load float, ptr %101, align 4
-  %110 = fcmp olt float %108, %109
-  %111 = select i1 %110, float %109, float %108
-  store float %111, ptr %99, align 4
-  %112 = load float, ptr %92, align 4
-  %113 = extractelement <2 x float> %87, i64 0
-  %114 = fcmp olt float %112, %113
-  %115 = select i1 %114, float %112, float %113
-  %116 = load float, ptr %4, align 4
-  %117 = fcmp olt float %115, %116
-  %118 = select i1 %117, float %116, float %115
-  store float %118, ptr %102, align 4
-  %119 = load float, ptr %100, align 4
-  %120 = fcmp olt float %119, %90
-  %121 = select i1 %120, float %119, float %90
-  %122 = load float, ptr %101, align 4
-  %123 = fcmp olt float %121, %122
-  %124 = select i1 %123, float %122, float %121
-  store float %124, ptr %103, align 4
-  %125 = insertelement <2 x float> poison, float %118, i64 0
-  %126 = insertelement <2 x float> %125, float %124, i64 1
-  %127 = insertelement <2 x float> poison, float %104, i64 0
-  %128 = insertelement <2 x float> %127, float %111, i64 1
-  br label %129
+96:                                               ; preds = %88
+  %97 = getelementptr inbounds i8, ptr %4, i64 8
+  %98 = load float, ptr %97, align 4
+  %99 = fcmp olt float %98, %91
+  %100 = select i1 %99, float %98, float %91
+  %101 = load float, ptr %4, align 4
+  %102 = fcmp olt float %100, %101
+  %103 = getelementptr inbounds i8, ptr %7, i64 4
+  %104 = getelementptr inbounds i8, ptr %4, i64 12
+  %105 = getelementptr inbounds i8, ptr %4, i64 4
+  %106 = getelementptr inbounds i8, ptr %7, i64 8
+  %107 = getelementptr inbounds i8, ptr %7, i64 12
+  %108 = select i1 %102, float %101, float %100
+  store float %108, ptr %7, align 4
+  %109 = load float, ptr %104, align 4
+  %110 = fcmp olt float %109, %90
+  %111 = select i1 %110, float %109, float %90
+  %112 = load float, ptr %105, align 4
+  %113 = fcmp olt float %111, %112
+  %114 = select i1 %113, float %112, float %111
+  store float %114, ptr %103, align 4
+  %115 = load float, ptr %97, align 4
+  %116 = fcmp olt float %115, %89
+  %117 = select i1 %116, float %115, float %89
+  %118 = load float, ptr %4, align 4
+  %119 = fcmp olt float %117, %118
+  %120 = select i1 %119, float %118, float %117
+  store float %120, ptr %106, align 4
+  %121 = load float, ptr %104, align 4
+  %122 = fcmp olt float %121, %94
+  %123 = select i1 %122, float %121, float %94
+  %124 = load float, ptr %105, align 4
+  %125 = fcmp olt float %123, %124
+  %126 = select i1 %125, float %124, float %123
+  store float %126, ptr %107, align 4
+  %127 = insertelement <2 x float> poison, float %120, i64 0
+  %128 = insertelement <2 x float> %127, float %126, i64 1
+  %129 = insertelement <2 x float> poison, float %108, i64 0
+  %130 = insertelement <2 x float> %129, float %114, i64 1
+  br label %131
 
-129:                                              ; preds = %91, %86
-  %130 = phi <2 x float> [ %126, %91 ], [ %87, %86 ]
-  %131 = phi <2 x float> [ %128, %91 ], [ %88, %86 ]
-  %132 = getelementptr inbounds i8, ptr %7, i64 20
-  store float 0.000000e+00, ptr %132, align 4
-  %133 = getelementptr inbounds i8, ptr %7, i64 16
-  store i8 0, ptr %133, align 4
-  %134 = extractelement <2 x float> %130, i64 0
-  %135 = extractelement <2 x float> %131, i64 0
-  %136 = fcmp olt float %134, %135
-  %137 = fcmp olt <2 x float> %130, %131
-  %138 = extractelement <2 x i1> %137, i64 1
-  %or.cond = select i1 %136, i1 true, i1 %138
-  br i1 %or.cond, label %_ZN2cv3dnn24DetectionOutputLayerImpl8BBoxSizeERKNS0_4util14NormalizedBBoxEb.exit, label %139
+131:                                              ; preds = %96, %88
+  %132 = phi float [ %114, %96 ], [ %90, %88 ]
+  %133 = phi float [ %126, %96 ], [ %94, %88 ]
+  %134 = phi float [ %108, %96 ], [ %91, %88 ]
+  %135 = phi float [ %120, %96 ], [ %89, %88 ]
+  %136 = phi <2 x float> [ %128, %96 ], [ %92, %88 ]
+  %137 = phi <2 x float> [ %130, %96 ], [ %93, %88 ]
+  %138 = getelementptr inbounds i8, ptr %7, i64 20
+  store float 0.000000e+00, ptr %138, align 4
+  %139 = getelementptr inbounds i8, ptr %7, i64 16
+  store i8 0, ptr %139, align 4
+  %140 = fcmp olt float %135, %134
+  %141 = fcmp olt float %133, %132
+  %or.cond = select i1 %140, i1 true, i1 %141
+  br i1 %or.cond, label %_ZN2cv3dnn24DetectionOutputLayerImpl8BBoxSizeERKNS0_4util14NormalizedBBoxEb.exit, label %142
 
-139:                                              ; preds = %129
-  %140 = fsub <2 x float> %130, %131
-  br i1 %5, label %141, label %144
+142:                                              ; preds = %131
+  %143 = fsub <2 x float> %136, %137
+  br i1 %5, label %144, label %147
 
-141:                                              ; preds = %139
-  %shift = shufflevector <2 x float> %140, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %142 = fmul <2 x float> %140, %shift
-  %143 = extractelement <2 x float> %142, i64 0
+144:                                              ; preds = %142
+  %shift = shufflevector <2 x float> %143, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %145 = fmul <2 x float> %143, %shift
+  %146 = extractelement <2 x float> %145, i64 0
   br label %_ZN2cv3dnn24DetectionOutputLayerImpl8BBoxSizeERKNS0_4util14NormalizedBBoxEb.exit
 
-144:                                              ; preds = %139
-  %145 = fadd <2 x float> %140, <float 1.000000e+00, float 1.000000e+00>
-  %shift93 = shufflevector <2 x float> %145, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %146 = fmul <2 x float> %145, %shift93
-  %147 = extractelement <2 x float> %146, i64 0
+147:                                              ; preds = %142
+  %148 = fadd <2 x float> %143, <float 1.000000e+00, float 1.000000e+00>
+  %shift93 = shufflevector <2 x float> %148, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %149 = fmul <2 x float> %148, %shift93
+  %150 = extractelement <2 x float> %149, i64 0
   br label %_ZN2cv3dnn24DetectionOutputLayerImpl8BBoxSizeERKNS0_4util14NormalizedBBoxEb.exit
 
-_ZN2cv3dnn24DetectionOutputLayerImpl8BBoxSizeERKNS0_4util14NormalizedBBoxEb.exit: ; preds = %129, %141, %144
-  %.0.i = phi float [ %143, %141 ], [ %147, %144 ], [ 0.000000e+00, %129 ]
-  store float %.0.i, ptr %132, align 4
-  store i8 1, ptr %133, align 4
+_ZN2cv3dnn24DetectionOutputLayerImpl8BBoxSizeERKNS0_4util14NormalizedBBoxEb.exit: ; preds = %131, %144, %147
+  %.0.i = phi float [ %146, %144 ], [ %150, %147 ], [ 0.000000e+00, %131 ]
+  store float %.0.i, ptr %138, align 4
+  store i8 1, ptr %139, align 4
   ret void
 }
 

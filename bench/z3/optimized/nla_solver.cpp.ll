@@ -93,7 +93,6 @@ entry:
   %m_relevant.i = getelementptr inbounds i8, ptr %0, i64 224
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %is_relevant, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, i8 0, i64 32, i1 false)
   %1 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
@@ -137,17 +136,15 @@ _ZNSt8functionIFbjEEC2ERKS1_.exit.i.i:            ; preds = %invoke.cont.i.i.i, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_relevant.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %0, i64 240
-  %8 = load ptr, ptr %_M_manager3.i.i.i, align 8
-  store ptr %8, ptr %_M_manager.i.i.i.i, align 8
-  %_M_invoker4.i2.i.i = getelementptr inbounds i8, ptr %0, i64 248
-  %9 = load ptr, ptr %_M_invoker4.i2.i.i, align 8
-  store ptr %9, ptr %_M_invoker.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %_M_manager3.i.i.i, align 8
+  %9 = load ptr, ptr %_M_manager3.i.i.i, align 8
+  store <2 x ptr> %8, ptr %_M_manager.i.i.i.i, align 8
   store <2 x ptr> %7, ptr %_M_manager3.i.i.i, align 8
-  %tobool.not.i.i4.i.i = icmp eq ptr %8, null
+  %tobool.not.i.i4.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i4.i.i, label %_ZN3nla4core12set_relevantERSt8functionIFbjEE.exit, label %if.then.i.i5.i.i
 
 if.then.i.i5.i.i:                                 ; preds = %_ZNSt8functionIFbjEEC2ERKS1_.exit.i.i
-  %call.i.i6.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
+  %call.i.i6.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
           to label %_ZN3nla4core12set_relevantERSt8functionIFbjEE.exit unwind label %terminate.lpad.i.i7.i.i
 
 terminate.lpad.i.i7.i.i:                          ; preds = %if.then.i.i5.i.i

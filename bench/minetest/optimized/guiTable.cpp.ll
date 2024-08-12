@@ -9101,22 +9101,20 @@ if.then43:                                        ; preds = %if.end35
   %OriginalSize.i = getelementptr inbounds i8, ptr %27, i64 72
   store i64 0, ptr %source_rect, align 8, !tbaa.struct !310
   %LowerRightCorner.i = getelementptr inbounds i8, ptr %source_rect, i64 8
-  %31 = load i32, ptr %OriginalSize.i, align 4, !tbaa !105
   %Height.i = getelementptr inbounds i8, ptr %27, i64 76
-  %32 = load i32, ptr %Height.i, align 4, !tbaa !106
-  store i32 %31, ptr %LowerRightCorner.i, align 8, !tbaa !311
-  %Y.i.i = getelementptr inbounds i8, ptr %source_rect, i64 12
-  store i32 %32, ptr %Y.i.i, align 4, !tbaa !312
+  %31 = load i32, ptr %Height.i, align 4, !tbaa !106
+  %32 = load <2 x i32>, ptr %OriginalSize.i, align 4, !tbaa !89
+  store <2 x i32> %32, ptr %LowerRightCorner.i, align 8, !tbaa !89
   %Y.i111 = getelementptr inbounds i8, ptr %row_rect, i64 12
   %33 = load i32, ptr %Y.i111, align 4, !tbaa !84
   %34 = lshr i64 %28, 32
   %35 = trunc nuw i64 %34 to i32
   %sub.i = sub nsw i32 %33, %35
-  %cmp52 = icmp slt i32 %32, %sub.i
+  %cmp52 = icmp slt i32 %31, %sub.i
   br i1 %cmp52, label %if.then53, label %if.else56
 
 if.then53:                                        ; preds = %if.then43
-  %sub = sub nsw i32 %sub.i, %32
+  %sub = sub nsw i32 %sub.i, %31
   %div = sdiv i32 %sub, 2
   %Y54 = getelementptr inbounds i8, ptr %dest_pos, i64 4
   %add55 = add nsw i32 %div, %35
@@ -9124,6 +9122,7 @@ if.then53:                                        ; preds = %if.then43
   br label %if.end59
 
 if.else56:                                        ; preds = %if.then43
+  %Y.i.i = getelementptr inbounds i8, ptr %source_rect, i64 12
   store i32 %sub.i, ptr %Y.i.i, align 4, !tbaa !84
   br label %if.end59
 

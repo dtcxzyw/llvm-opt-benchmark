@@ -607,9 +607,9 @@ entry:
   %localDirNorm = alloca %class.btVector3, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %localDirNorm, ptr noundef nonnull align 4 dereferenceable(16) %localDir, i64 16, i1 false)
   %0 = load <2 x float>, ptr %localDirNorm, align 8
-  %1 = fmul <2 x float> %0, %0
-  %mul8.i.i = extractelement <2 x float> %1, i64 1
+  %1 = extractelement <2 x float> %0, i64 1
   %2 = extractelement <2 x float> %0, i64 0
+  %mul8.i.i = fmul float %1, %1
   %3 = tail call float @llvm.fmuladd.f32(float %2, float %2, float %mul8.i.i)
   %arrayidx10.i.i = getelementptr inbounds i8, ptr %localDirNorm, i64 8
   %4 = load float, ptr %arrayidx10.i.i, align 8
@@ -624,17 +624,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %6 = phi float [ -1.000000e+00, %if.then ], [ %4, %entry ]
-  %7 = phi <2 x float> [ <float -1.000000e+00, float -1.000000e+00>, %if.then ], [ %0, %entry ]
-  %8 = fmul <2 x float> %7, %7
-  %mul8.i.i.i.i = extractelement <2 x float> %8, i64 1
-  %9 = extractelement <2 x float> %7, i64 0
-  %10 = tail call float @llvm.fmuladd.f32(float %9, float %9, float %mul8.i.i.i.i)
+  %7 = phi float [ -1.000000e+00, %if.then ], [ %1, %entry ]
+  %8 = phi float [ -1.000000e+00, %if.then ], [ %2, %entry ]
+  %9 = phi <2 x float> [ <float -1.000000e+00, float -1.000000e+00>, %if.then ], [ %0, %entry ]
+  %mul8.i.i.i.i = fmul float %7, %7
+  %10 = tail call float @llvm.fmuladd.f32(float %8, float %8, float %mul8.i.i.i.i)
   %11 = tail call noundef float @llvm.fmuladd.f32(float %6, float %6, float %10)
   %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %11)
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
   %12 = insertelement <2 x float> poison, float %div.i.i, i64 0
   %13 = shufflevector <2 x float> %12, <2 x float> poison, <2 x i32> zeroinitializer
-  %14 = fmul <2 x float> %7, %13
+  %14 = fmul <2 x float> %9, %13
   store <2 x float> %14, ptr %localDirNorm, align 8
   %mul7.i.i.i = fmul float %6, %div.i.i
   store float %mul7.i.i.i, ptr %arrayidx10.i.i, align 8

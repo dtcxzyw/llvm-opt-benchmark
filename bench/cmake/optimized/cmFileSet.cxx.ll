@@ -586,7 +586,7 @@ define dso_local void @_ZNK9cmFileSet18CompileFileEntriesEv(ptr dead_on_unwind n
   %3 = alloca %class.cmList, align 8
   %4 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
   %5 = alloca %class.cmGeneratorExpression, align 8
-  %6 = alloca %class.cmListFileBacktrace, align 8
+  %6 = alloca %class.cmListFileBacktrace, align 16
   %7 = alloca %"class.std::unique_ptr.287", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -672,15 +672,14 @@ _ZN6cmListD2Ev.exit:                              ; preds = %_ZSt8_DestroyIPNSt7
 30:                                               ; preds = %.lr.ph, %_ZNSt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS0_EED2Ev.exit
   %.sroa.024.035 = phi ptr [ %19, %.lr.ph ], [ %108, %_ZNSt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS0_EED2Ev.exit ]
   %31 = load ptr, ptr %1, align 8
-  %32 = load ptr, ptr %22, align 8
-  store ptr %32, ptr %6, align 8
-  %33 = load ptr, ptr %23, align 8
-  store ptr %33, ptr %14, align 8
-  %.not.i.i.i.i.i17 = icmp eq ptr %33, null
+  %32 = load ptr, ptr %23, align 8
+  %33 = load <2 x ptr>, ptr %22, align 8
+  store <2 x ptr> %33, ptr %6, align 16
+  %.not.i.i.i.i.i17 = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i.i17, label %_ZN19cmListFileBacktraceC2ERKS_.exit, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = getelementptr inbounds i8, ptr %32, i64 8
   %36 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %36, 0
   br i1 %.not.i.i.i.i.i.i, label %40, label %37
@@ -1111,7 +1110,7 @@ define dso_local void @_ZNK9cmFileSet23CompileDirectoryEntriesEv(ptr dead_on_unw
   %3 = alloca %class.cmList, align 8
   %4 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
   %5 = alloca %class.cmGeneratorExpression, align 8
-  %6 = alloca %class.cmListFileBacktrace, align 8
+  %6 = alloca %class.cmListFileBacktrace, align 16
   %7 = alloca %"class.std::unique_ptr.287", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -1197,15 +1196,14 @@ _ZN6cmListD2Ev.exit:                              ; preds = %_ZSt8_DestroyIPNSt7
 30:                                               ; preds = %.lr.ph, %_ZNSt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS0_EED2Ev.exit
   %.sroa.024.035 = phi ptr [ %19, %.lr.ph ], [ %108, %_ZNSt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS0_EED2Ev.exit ]
   %31 = load ptr, ptr %1, align 8
-  %32 = load ptr, ptr %22, align 8
-  store ptr %32, ptr %6, align 8
-  %33 = load ptr, ptr %23, align 8
-  store ptr %33, ptr %14, align 8
-  %.not.i.i.i.i.i17 = icmp eq ptr %33, null
+  %32 = load ptr, ptr %23, align 8
+  %33 = load <2 x ptr>, ptr %22, align 8
+  store <2 x ptr> %33, ptr %6, align 16
+  %.not.i.i.i.i.i17 = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i.i17, label %_ZN19cmListFileBacktraceC2ERKS_.exit, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = getelementptr inbounds i8, ptr %32, i64 8
   %36 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %36, 0
   br i1 %.not.i.i.i.i.i.i, label %40, label %37
@@ -1468,7 +1466,7 @@ define dso_local void @_ZNK9cmFileSet24EvaluateDirectoryEntriesERKSt6vectorISt10
   %18 = alloca %"class.std::__cxx11::basic_string", align 8
   %19 = alloca %"class.std::__cxx11::basic_string", align 8
   %20 = alloca %"class.std::__cxx11::basic_string", align 8
-  %21 = alloca %class.cmListFileBacktrace, align 8
+  %21 = alloca %class.cmListFileBacktrace, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %22 = load ptr, ptr %2, align 8
   %23 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1682,16 +1680,15 @@ _ZN6cmListC2ESt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8)
   %99 = load ptr, ptr %.sroa.065.098, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
-  %100 = load ptr, ptr %99, align 8, !noalias !59
-  store ptr %100, ptr %21, align 8, !alias.scope !59
-  %101 = getelementptr inbounds i8, ptr %99, i64 8
-  %102 = load ptr, ptr %101, align 8, !noalias !59
-  store ptr %102, ptr %42, align 8, !alias.scope !59
-  %.not.i.i.i.i.i.i = icmp eq ptr %102, null
+  %100 = getelementptr inbounds i8, ptr %99, i64 8
+  %101 = load ptr, ptr %100, align 8, !noalias !59
+  %102 = load <2 x ptr>, ptr %99, align 8, !noalias !59
+  store <2 x ptr> %102, ptr %21, align 16, !alias.scope !59
+  %.not.i.i.i.i.i.i = icmp eq ptr %101, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK29cmCompiledGeneratorExpression12GetBacktraceEv.exit, label %103
 
 103:                                              ; preds = %98
-  %104 = getelementptr inbounds i8, ptr %102, i64 8
+  %104 = getelementptr inbounds i8, ptr %101, i64 8
   %105 = load i8, ptr @__libc_single_threaded, align 1, !noalias !59
   %.not.i.i.i.i.i.i.i = icmp eq i8 %105, 0
   br i1 %.not.i.i.i.i.i.i.i, label %109, label %106
@@ -2045,7 +2042,7 @@ define dso_local void @_ZNK9cmFileSet17EvaluateFileEntryERKSt6vectorINSt7__cxx11
   %21 = alloca %"class.std::__cxx11::basic_string", align 8
   %22 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %23 = alloca %"class.std::__cxx11::basic_string", align 8
-  %24 = alloca %class.cmListFileBacktrace, align 8
+  %24 = alloca %class.cmListFileBacktrace, align 16
   %25 = load ptr, ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #17
   %26 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK29cmCompiledGeneratorExpression8EvaluateEP16cmLocalGeneratorRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK17cmGeneratorTargetP31cmGeneratorExpressionDAGCheckerSC_S9_(ptr noundef nonnull align 8 dereferenceable(360) %25, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %6, ptr noundef %7, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(32) %12)
@@ -2301,17 +2298,16 @@ _ZN6cmListC2ESt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 98:                                               ; preds = %97
   %99 = load ptr, ptr %3, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  %100 = load ptr, ptr %99, align 8, !noalias !74
-  store ptr %100, ptr %24, align 8, !alias.scope !74
-  %101 = getelementptr inbounds i8, ptr %24, i64 8
-  %102 = getelementptr inbounds i8, ptr %99, i64 8
-  %103 = load ptr, ptr %102, align 8, !noalias !74
-  store ptr %103, ptr %101, align 8, !alias.scope !74
-  %.not.i.i.i.i.i.i = icmp eq ptr %103, null
+  %100 = getelementptr inbounds i8, ptr %24, i64 8
+  %101 = getelementptr inbounds i8, ptr %99, i64 8
+  %102 = load ptr, ptr %101, align 8, !noalias !74
+  %103 = load <2 x ptr>, ptr %99, align 8, !noalias !74
+  store <2 x ptr> %103, ptr %24, align 16, !alias.scope !74
+  %.not.i.i.i.i.i.i = icmp eq ptr %102, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNK29cmCompiledGeneratorExpression12GetBacktraceEv.exit, label %104
 
 104:                                              ; preds = %98
-  %105 = getelementptr inbounds i8, ptr %103, i64 8
+  %105 = getelementptr inbounds i8, ptr %102, i64 8
   %106 = load i8, ptr @__libc_single_threaded, align 1, !noalias !74
   %.not.i.i.i.i.i.i.i = icmp eq i8 %106, 0
   br i1 %.not.i.i.i.i.i.i.i, label %110, label %107
@@ -2331,7 +2327,7 @@ _ZNK29cmCompiledGeneratorExpression12GetBacktraceEv.exit: ; preds = %98, %107, %
           to label %112 unwind label %148
 
 112:                                              ; preds = %_ZNK29cmCompiledGeneratorExpression12GetBacktraceEv.exit
-  %113 = load ptr, ptr %101, align 8
+  %113 = load ptr, ptr %100, align 8
   %.not.i.i.i.i.i = icmp eq ptr %113, null
   br i1 %.not.i.i.i.i.i, label %_ZN19cmListFileBacktraceD2Ev.exit, label %114
 

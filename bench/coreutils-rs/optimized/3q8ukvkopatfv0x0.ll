@@ -13707,13 +13707,13 @@ define hidden void @"_ZN5uu_pr24split_lines_if_form_feed28_$u7b$$u7b$closure$u7d
 53:                                               ; preds = %45
   %54 = getelementptr inbounds i8, ptr %9, i64 8
   %55 = load <2 x i64>, ptr %54, align 8, !noalias !3356
+  %56 = load i64, ptr %54, align 8, !noalias !3356
   %.sroa.069.0.copyload = load i64, ptr %13, align 8, !noalias !3351
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.664.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !noalias !5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !3356
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  %56 = icmp eq i64 %.sroa.069.0.copyload, -9223372036854775808
-  %57 = extractelement <2 x i64> %55, i64 0
-  br i1 %56, label %64, label %58
+  %57 = icmp eq i64 %.sroa.069.0.copyload, -9223372036854775808
+  br i1 %57, label %64, label %58
 
 58:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10), !noalias !3358
@@ -13741,7 +13741,7 @@ define hidden void @"_ZN5uu_pr24split_lines_if_form_feed28_$u7b$$u7b$closure$u7d
   unreachable
 
 64:                                               ; preds = %.thread101, %53
-  %.sroa.664.sroa.6.0 = phi i64 [ %57, %53 ], [ %42, %.thread101 ]
+  %.sroa.664.sroa.6.0 = phi i64 [ %56, %53 ], [ %42, %.thread101 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.664.sroa.0, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.664.sroa.0)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12)
@@ -13974,12 +13974,12 @@ define hidden void @"_ZN5uu_pr24split_lines_if_form_feed28_$u7b$$u7b$closure$u7d
 
 138:                                              ; preds = %134
   %139 = load <2 x i64>, ptr %30, align 8, !noalias !3429
+  %140 = load i64, ptr %30, align 8, !noalias !3429
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i.i, i64 16, i1 false), !noalias !5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !3429
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  %140 = icmp eq i64 %129, -9223372036854775808
-  %141 = extractelement <2 x i64> %139, i64 0
-  br i1 %140, label %148, label %142
+  %141 = icmp eq i64 %129, -9223372036854775808
+  br i1 %141, label %148, label %142
 
 142:                                              ; preds = %138
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11), !noalias !3430
@@ -14007,7 +14007,7 @@ define hidden void @"_ZN5uu_pr24split_lines_if_form_feed28_$u7b$$u7b$closure$u7d
   unreachable
 
 148:                                              ; preds = %.thread104, %138
-  %.sroa.6.sroa.6.0 = phi i64 [ %141, %138 ], [ %.sroa.6.sroa.6.0.copyload118, %.thread104 ]
+  %.sroa.6.sroa.6.0 = phi i64 [ %140, %138 ], [ %.sroa.6.sroa.6.0.copyload118, %.thread104 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6.sroa.0)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15)

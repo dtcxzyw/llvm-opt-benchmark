@@ -182,7 +182,7 @@ define hidden void @_ZN2cv10xobjdetect14WBDetectorImpl5trainERKNSt7__cxx1112basi
   %18 = alloca %"class.std::allocator.5", align 1
   %19 = alloca %"class.cv::Mat", align 8
   %20 = alloca %"class.cv::Mat", align 8
-  %21 = alloca %"struct.cv::Ptr.13", align 8
+  %21 = alloca %"struct.cv::Ptr.13", align 16
   %22 = alloca %"struct.cv::Ptr.17", align 8
   %23 = alloca %"class.std::vector", align 8
   %24 = alloca %"class.std::vector.21", align 8
@@ -194,7 +194,7 @@ define hidden void @_ZN2cv10xobjdetect14WBDetectorImpl5trainERKNSt7__cxx1112basi
   %30 = alloca %"class.cv::Mat", align 8
   %31 = alloca %"class.std::vector.26", align 8
   %32 = alloca %"class.cv::Mat_.31", align 8
-  %33 = alloca %"struct.cv::Ptr.13", align 8
+  %33 = alloca %"struct.cv::Ptr.13", align 16
   %34 = alloca %"class.cv::Mat_.32", align 8
   %35 = alloca %"class.cv::_InputArray", align 8
   %36 = alloca %"class.cv::_OutputArray", align 8
@@ -720,7 +720,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
           to label %197 unwind label %337
 
 197:                                              ; preds = %196
-  %198 = load ptr, ptr %21, align 8
+  %198 = load ptr, ptr %21, align 16
   invoke void @_ZN2cv10xobjdetect15CvFeatureParams6createEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.17") align 8 %22)
           to label %199 unwind label %339
 
@@ -807,7 +807,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_10xobjdetect15CvFeatureParamsEED2Ev.exit
 
 _ZN2cv3PtrINS_10xobjdetect15CvFeatureParamsEED2Ev.exit: ; preds = %204, %223, %236, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %241 = load ptr, ptr %21, align 8
+  %241 = load ptr, ptr %21, align 16
   %242 = getelementptr inbounds i8, ptr %241, i64 16
   %243 = load i32, ptr %242, align 8
   %244 = load ptr, ptr %80, align 8
@@ -933,7 +933,7 @@ _ZN2cv4Mat_IhEC2Eii.exit110:                      ; preds = %297
 .lr.ph313:                                        ; preds = %306, %._crit_edge
   %311 = phi ptr [ %355, %._crit_edge ], [ %308, %306 ]
   %.054311 = phi i64 [ %353, %._crit_edge ], [ 0, %306 ]
-  %312 = load ptr, ptr %21, align 8
+  %312 = load ptr, ptr %21, align 16
   invoke void @_ZN2cv10xobjdetect9WaldBoost19get_feature_indicesEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.0") align 8 %28, ptr noundef nonnull align 8 dereferenceable(128) %261)
           to label %313 unwind label %.loopexit.split-lp209.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -964,7 +964,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %318, %320
 
 322:                                              ; preds = %.lr.ph, %329
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %329 ]
-  %323 = load ptr, ptr %21, align 8
+  %323 = load ptr, ptr %21, align 16
   %324 = load ptr, ptr %323, align 8
   %325 = getelementptr inbounds i8, ptr %324, i64 48
   %326 = load ptr, ptr %325, align 8
@@ -1079,7 +1079,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %318, %320
 .lr.ph318:                                        ; preds = %.preheader219, %._crit_edge316
   %361 = phi ptr [ %393, %._crit_edge316 ], [ %309, %.preheader219 ]
   %.052317 = phi i64 [ %391, %._crit_edge316 ], [ 0, %.preheader219 ]
-  %362 = load ptr, ptr %21, align 8
+  %362 = load ptr, ptr %21, align 16
   invoke void @_ZN2cv10xobjdetect9WaldBoost19get_feature_indicesEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.0") align 8 %29, ptr noundef nonnull align 8 dereferenceable(128) %261)
           to label %363 unwind label %.loopexit.split-lp209.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -1110,7 +1110,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit115:                 ; preds = %368, %370
 
 372:                                              ; preds = %.lr.ph315, %379
   %indvars.iv400 = phi i64 [ 0, %.lr.ph315 ], [ %indvars.iv.next401, %379 ]
-  %373 = load ptr, ptr %21, align 8
+  %373 = load ptr, ptr %21, align 16
   %374 = load ptr, ptr %373, align 8
   %375 = getelementptr inbounds i8, ptr %374, i64 48
   %376 = load ptr, ptr %375, align 8
@@ -1236,15 +1236,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit115:                 ; preds = %368, %370
   %441 = and i32 %440, -4096
   %442 = or disjoint i32 %441, 5
   store i32 %442, ptr %32, align 8
-  %443 = load ptr, ptr %21, align 8
-  store ptr %443, ptr %33, align 8
-  %444 = load ptr, ptr %269, align 8
-  store ptr %444, ptr %268, align 8
-  %.not.i.i.i.i118 = icmp eq ptr %444, null
+  %443 = load ptr, ptr %269, align 8
+  %444 = load <2 x ptr>, ptr %21, align 16
+  store <2 x ptr> %444, ptr %33, align 16
+  %.not.i.i.i.i118 = icmp eq ptr %443, null
   br i1 %.not.i.i.i.i118, label %_ZN2cv3PtrINS_10xobjdetect18CvFeatureEvaluatorEEC2ERKS3_.exit, label %445
 
 445:                                              ; preds = %439
-  %446 = getelementptr inbounds i8, ptr %444, i64 8
+  %446 = getelementptr inbounds i8, ptr %443, i64 8
   %447 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i119 = icmp eq i8 %447, 0
   br i1 %.not.i.i.i.i.i119, label %451, label %448
@@ -2211,8 +2210,8 @@ define hidden void @_ZN2cv10xobjdetect14WBDetectorImpl6detectERKNS_3MatERSt6vect
   %5 = alloca %"class.cv::Mat", align 8
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"struct.cv::Ptr.17", align 8
-  %8 = alloca %"struct.cv::Ptr.13", align 8
-  %9 = alloca %"struct.cv::Ptr.13", align 8
+  %8 = alloca %"struct.cv::Ptr.13", align 16
+  %9 = alloca %"struct.cv::Ptr.13", align 16
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator.5", align 1
   call void @_ZNK2cv3Mat5cloneEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %5, ptr noundef nonnull align 8 dereferenceable(96) %1)
@@ -2340,7 +2339,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %_ZNSt6vectorIfSaIfE
           to label %56 unwind label %125
 
 56:                                               ; preds = %55
-  %57 = load ptr, ptr %8, align 8
+  %57 = load ptr, ptr %8, align 16
   %58 = load ptr, ptr %7, align 8
   %59 = load ptr, ptr %57, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 16
@@ -2350,17 +2349,16 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %_ZNSt6vectorIfSaIfE
 
 62:                                               ; preds = %56
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  %64 = load ptr, ptr %8, align 8
-  store ptr %64, ptr %9, align 8
-  %65 = getelementptr inbounds i8, ptr %9, i64 8
-  %66 = getelementptr inbounds i8, ptr %8, i64 8
-  %67 = load ptr, ptr %66, align 8
-  store ptr %67, ptr %65, align 8
-  %.not.i.i.i.i = icmp eq ptr %67, null
+  %64 = getelementptr inbounds i8, ptr %9, i64 8
+  %65 = getelementptr inbounds i8, ptr %8, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = load <2 x ptr>, ptr %8, align 16
+  store <2 x ptr> %67, ptr %9, align 16
+  %.not.i.i.i.i = icmp eq ptr %66, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_10xobjdetect18CvFeatureEvaluatorEEC2ERKS3_.exit, label %68
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds i8, ptr %67, i64 8
+  %69 = getelementptr inbounds i8, ptr %66, i64 8
   %70 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %70, 0
   br i1 %.not.i.i.i.i.i, label %74, label %71
@@ -2380,7 +2378,7 @@ _ZN2cv3PtrINS_10xobjdetect18CvFeatureEvaluatorEEC2ERKS3_.exit: ; preds = %62, %7
           to label %76 unwind label %129
 
 76:                                               ; preds = %_ZN2cv3PtrINS_10xobjdetect18CvFeatureEvaluatorEEC2ERKS3_.exit
-  %77 = load ptr, ptr %65, align 8
+  %77 = load ptr, ptr %64, align 8
   %.not.i.i.i.i21 = icmp eq ptr %77, null
   br i1 %.not.i.i.i.i21, label %_ZN2cv3PtrINS_10xobjdetect18CvFeatureEvaluatorEED2Ev.exit, label %78
 
@@ -2513,7 +2511,7 @@ _ZN2cv3PtrINS_10xobjdetect18CvFeatureEvaluatorEED2Ev.exit: ; preds = %76, %94, %
   br label %213
 
 139:                                              ; preds = %_ZN2cv3PtrINS_10xobjdetect18CvFeatureEvaluatorEED2Ev.exit
-  %140 = load ptr, ptr %66, align 8
+  %140 = load ptr, ptr %65, align 8
   %.not.i.i.i.i23 = icmp eq ptr %140, null
   br i1 %.not.i.i.i.i23, label %_ZN2cv3PtrINS_10xobjdetect18CvFeatureEvaluatorEED2Ev.exit29, label %141
 

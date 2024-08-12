@@ -30207,11 +30207,11 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8ce2eff61af33469E.llvm.7889425039173770230.exit.i.i.i": ; preds = %1691
   %1698 = getelementptr inbounds i8, ptr %1688, i64 72
-  %1699 = load ptr, ptr %1698, align 8, !alias.scope !4018, !noalias !3940, !nonnull !5, !align !14, !noundef !5
-  %1700 = getelementptr inbounds i8, ptr %1688, i64 80
+  %1699 = getelementptr inbounds i8, ptr %1688, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !4020)
-  %1701 = load ptr, ptr %1700, align 8, !alias.scope !4023, !noalias !3940, !nonnull !5, !noundef !5
-  %1702 = atomicrmw add ptr %1701, i64 1 monotonic, align 8, !noalias !4024
+  %1700 = load ptr, ptr %1699, align 8, !alias.scope !4023, !noalias !3940, !nonnull !5, !noundef !5
+  %1701 = load <2 x ptr>, ptr %1698, align 8, !alias.scope !4012, !noalias !3940
+  %1702 = atomicrmw add ptr %1700, i64 1 monotonic, align 8, !noalias !4024
   %1703 = icmp slt i64 %1702, 0
   br i1 %1703, label %1704, label %1705
 
@@ -30226,9 +30226,7 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
   %1708 = getelementptr inbounds i8, ptr %28, i64 16
   store ptr %1694, ptr %1708, align 8, !noalias !4028
   %.sroa.4.0..sroa_idx.i208.i.i = getelementptr inbounds i8, ptr %28, i64 24
-  store ptr %1699, ptr %.sroa.4.0..sroa_idx.i208.i.i, align 8, !noalias !4028
-  %.sroa.5.0..sroa_idx.i209.i.i = getelementptr inbounds i8, ptr %28, i64 32
-  store ptr %1701, ptr %.sroa.5.0..sroa_idx.i209.i.i, align 8, !noalias !4028
+  store <2 x ptr> %1701, ptr %.sroa.4.0..sroa_idx.i208.i.i, align 8, !noalias !4028
   %.sroa.6.0..sroa_idx.i210.i.i = getelementptr inbounds i8, ptr %28, i64 40
   store ptr %1707, ptr %.sroa.6.0..sroa_idx.i210.i.i, align 8, !noalias !4028
   store i64 1, ptr %28, align 8, !noalias !4025
@@ -32863,15 +32861,15 @@ common.ret:                                       ; preds = %720, %717, %118
 
 .thread294.i:                                     ; preds = %160
   %171 = load ptr, ptr %143, align 8, !noalias !4355, !nonnull !5, !align !14, !noundef !5
-  %172 = insertelement <2 x ptr> poison, ptr %171, i64 0
-  %173 = shufflevector <2 x ptr> %172, <2 x ptr> poison, <2 x i32> zeroinitializer
-  %174 = getelementptr i8, <2 x ptr> %173, <2 x i64> <i64 16, i64 32>
+  %172 = getelementptr inbounds i8, ptr %171, i64 32
+  %173 = insertelement <2 x ptr> poison, ptr %171, i64 0
+  %174 = shufflevector <2 x ptr> %173, <2 x ptr> poison, <2 x i32> zeroinitializer
+  %175 = getelementptr i8, <2 x ptr> %174, <2 x i64> <i64 16, i64 32>
+  %176 = getelementptr inbounds i8, ptr %171, i64 16
   %.sroa.7220.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 248
-  %175 = getelementptr inbounds i8, ptr %171, i64 16
-  store ptr %175, ptr %.sroa.7220.0..sroa_idx.i, align 8, !noalias !4355
+  store ptr %176, ptr %.sroa.7220.0..sroa_idx.i, align 8, !noalias !4355
   %.sroa.8221.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 256
-  %176 = getelementptr inbounds i8, ptr %171, i64 32
-  store ptr %176, ptr %.sroa.8221.0..sroa_idx.i, align 8, !noalias !4355
+  store ptr %172, ptr %.sroa.8221.0..sroa_idx.i, align 8, !noalias !4355
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 266
   store i8 0, ptr %.sroa.10.0..sroa_idx.i, align 2, !noalias !4355
   %177 = getelementptr inbounds i8, ptr %1, i64 208
@@ -32967,7 +32965,7 @@ common.ret:                                       ; preds = %720, %717, %118
 201:                                              ; preds = %._crit_edge, %.thread294.i
   %202 = phi ptr [ %.sroa.10.0..sroa_idx.i, %.thread294.i ], [ %.phi.trans.insert.i, %._crit_edge ]
   %203 = phi ptr [ %177, %.thread294.i ], [ %197, %._crit_edge ]
-  %204 = phi <2 x ptr> [ %174, %.thread294.i ], [ %198, %._crit_edge ]
+  %204 = phi <2 x ptr> [ %175, %.thread294.i ], [ %198, %._crit_edge ]
   %205 = getelementptr inbounds i8, ptr %1, i64 264
   store i8 0, ptr %205, align 8, !noalias !4402
   %206 = getelementptr inbounds i8, ptr %1, i64 265

@@ -1128,83 +1128,84 @@ _ZNKSt6vectorISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplE
 _ZNSt12_Vector_baseISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"class.std::shared_ptr", ptr %23, i64 %19
-  %25 = load <2 x ptr>, ptr %2, align 8
-  store <2 x ptr> %25, ptr %24, align 8
-  %26 = extractelement <2 x ptr> %25, i64 1
+  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = load <2 x ptr>, ptr %2, align 8
+  store <2 x ptr> %27, ptr %24, align 8
   %.not.i.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, label %27
+  br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, label %28
 
-27:                                               ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_M_allocateEm.exit
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
-  %29 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %29, 0
-  br i1 %.not.i.i.i.i.i.i, label %33, label %30
+28:                                               ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_M_allocateEm.exit
+  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %30, 0
+  br i1 %.not.i.i.i.i.i.i, label %34, label %31
 
-30:                                               ; preds = %27
-  %31 = load i32, ptr %28, align 4
-  %32 = add nsw i32 %31, 1
-  store i32 %32, ptr %28, align 4
+31:                                               ; preds = %28
+  %32 = load i32, ptr %29, align 4
+  %33 = add nsw i32 %32, 1
+  store i32 %33, ptr %29, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit
 
-33:                                               ; preds = %27
-  %34 = atomicrmw volatile add ptr %28, i32 1 acq_rel, align 4
+34:                                               ; preds = %28
+  %35 = atomicrmw volatile add ptr %29, i32 1 acq_rel, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit
 
-_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_M_allocateEm.exit, %30, %33
+_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_M_allocateEm.exit, %31, %34
   %.not10.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
-  %.0911.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
+  %.012.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
+  %.0911.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %35 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
-  %36 = load <2 x ptr>, ptr %.0911.i.i.i, align 8, !alias.scope !17, !noalias !14
-  store ptr null, ptr %35, align 8, !alias.scope !17, !noalias !14
-  store <2 x ptr> %36, ptr %.012.i.i.i, align 8, !alias.scope !14, !noalias !17
+  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
+  %37 = load <2 x ptr>, ptr %.0911.i.i.i, align 8, !alias.scope !17, !noalias !14
+  store ptr null, ptr %36, align 8, !alias.scope !17, !noalias !14
+  store <2 x ptr> %37, ptr %.012.i.i.i, align 8, !alias.scope !14, !noalias !17
   store ptr null, ptr %.0911.i.i.i, align 8, !alias.scope !17, !noalias !14
-  %37 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  %.not.i.i.i = icmp eq ptr %37, %1
+  %38 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %39 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %.not.i.i.i = icmp eq ptr %38, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i, !llvm.loop !19
 
 _ZNSt6vectorISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ], [ %38, %.lr.ph.i.i.i ]
-  %39 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 16
+  %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ], [ %39, %.lr.ph.i.i.i ]
+  %40 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 16
   %.not10.i.i.i16 = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %.lr.ph.i.i.i17
-  %.012.i.i.i18 = phi ptr [ %43, %.lr.ph.i.i.i17 ], [ %39, %_ZNSt6vectorISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
-  %.0911.i.i.i19 = phi ptr [ %42, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
+  %.012.i.i.i18 = phi ptr [ %44, %.lr.ph.i.i.i17 ], [ %40, %_ZNSt6vectorISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
+  %.0911.i.i.i19 = phi ptr [ %43, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  %40 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 8
-  %41 = load <2 x ptr>, ptr %.0911.i.i.i19, align 8, !alias.scope !23, !noalias !20
-  store ptr null, ptr %40, align 8, !alias.scope !23, !noalias !20
-  store <2 x ptr> %41, ptr %.012.i.i.i18, align 8, !alias.scope !20, !noalias !23
+  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 8
+  %42 = load <2 x ptr>, ptr %.0911.i.i.i19, align 8, !alias.scope !23, !noalias !20
+  store ptr null, ptr %41, align 8, !alias.scope !23, !noalias !20
+  store <2 x ptr> %42, ptr %.012.i.i.i18, align 8, !alias.scope !20, !noalias !23
   store ptr null, ptr %.0911.i.i.i19, align 8, !alias.scope !23, !noalias !20
-  %42 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
-  %43 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
-  %.not.i.i.i20 = icmp eq ptr %42, %5
+  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
+  %44 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
+  %.not.i.i.i20 = icmp eq ptr %43, %5
   br i1 %.not.i.i.i20, label %_ZNSt6vectorISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !19
 
 _ZNSt6vectorISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit
-  %.0.lcssa.i.i.i21 = phi ptr [ %39, %_ZNSt6vectorISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ], [ %43, %.lr.ph.i.i.i17 ]
+  %.0.lcssa.i.i.i21 = phi ptr [ %40, %_ZNSt6vectorISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ], [ %44, %.lr.ph.i.i.i17 ]
   %.not.i23 = icmp eq ptr %6, null
-  br i1 %.not.i23, label %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE13_M_deallocateEPS4_m.exit, label %44
+  br i1 %.not.i23, label %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE13_M_deallocateEPS4_m.exit, label %45
 
-44:                                               ; preds = %_ZNSt6vectorISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22
+45:                                               ; preds = %_ZNSt6vectorISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22
   tail call void @_ZdlPv(ptr noundef nonnull %6) #34
   br label %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE13_M_deallocateEPS4_m.exit
 
-_ZNSt12_Vector_baseISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %44
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN3gmx8internal34AnalysisNeighborhoodPairSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %45
+  %46 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %46 = getelementptr inbounds %"class.std::shared_ptr", ptr %23, i64 %16
-  store ptr %46, ptr %45, align 8
+  %47 = getelementptr inbounds %"class.std::shared_ptr", ptr %23, i64 %16
+  store ptr %47, ptr %46, align 8
   ret void
 }
 
@@ -4035,83 +4036,84 @@ _ZNKSt6vectorISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaI
 _ZNSt12_Vector_baseISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"class.std::shared_ptr.38", ptr %23, i64 %19
-  %25 = load <2 x ptr>, ptr %2, align 8
-  store <2 x ptr> %25, ptr %24, align 8
-  %26 = extractelement <2 x ptr> %25, i64 1
+  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = load <2 x ptr>, ptr %2, align 8
+  store <2 x ptr> %27, ptr %24, align 8
   %.not.i.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, label %27
+  br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, label %28
 
-27:                                               ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_M_allocateEm.exit
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
-  %29 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %29, 0
-  br i1 %.not.i.i.i.i.i.i, label %33, label %30
+28:                                               ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_M_allocateEm.exit
+  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %30, 0
+  br i1 %.not.i.i.i.i.i.i, label %34, label %31
 
-30:                                               ; preds = %27
-  %31 = load i32, ptr %28, align 4
-  %32 = add nsw i32 %31, 1
-  store i32 %32, ptr %28, align 4
+31:                                               ; preds = %28
+  %32 = load i32, ptr %29, align 4
+  %33 = add nsw i32 %32, 1
+  store i32 %33, ptr %29, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit
 
-33:                                               ; preds = %27
-  %34 = atomicrmw volatile add ptr %28, i32 1 acq_rel, align 4
+34:                                               ; preds = %28
+  %35 = atomicrmw volatile add ptr %29, i32 1 acq_rel, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit
 
-_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_M_allocateEm.exit, %30, %33
+_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_M_allocateEm.exit, %31, %34
   %.not10.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
-  %.0911.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
+  %.012.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
+  %.0911.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
-  %35 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
-  %36 = load <2 x ptr>, ptr %.0911.i.i.i, align 8, !alias.scope !58, !noalias !55
-  store ptr null, ptr %35, align 8, !alias.scope !58, !noalias !55
-  store <2 x ptr> %36, ptr %.012.i.i.i, align 8, !alias.scope !55, !noalias !58
+  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
+  %37 = load <2 x ptr>, ptr %.0911.i.i.i, align 8, !alias.scope !58, !noalias !55
+  store ptr null, ptr %36, align 8, !alias.scope !58, !noalias !55
+  store <2 x ptr> %37, ptr %.012.i.i.i, align 8, !alias.scope !55, !noalias !58
   store ptr null, ptr %.0911.i.i.i, align 8, !alias.scope !58, !noalias !55
-  %37 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  %.not.i.i.i = icmp eq ptr %37, %1
+  %38 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %39 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %.not.i.i.i = icmp eq ptr %38, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i, !llvm.loop !60
 
 _ZNSt6vectorISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ], [ %38, %.lr.ph.i.i.i ]
-  %39 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 16
+  %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ], [ %39, %.lr.ph.i.i.i ]
+  %40 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 16
   %.not10.i.i.i16 = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %.lr.ph.i.i.i17
-  %.012.i.i.i18 = phi ptr [ %43, %.lr.ph.i.i.i17 ], [ %39, %_ZNSt6vectorISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
-  %.0911.i.i.i19 = phi ptr [ %42, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
+  %.012.i.i.i18 = phi ptr [ %44, %.lr.ph.i.i.i17 ], [ %40, %_ZNSt6vectorISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
+  %.0911.i.i.i19 = phi ptr [ %43, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  %40 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 8
-  %41 = load <2 x ptr>, ptr %.0911.i.i.i19, align 8, !alias.scope !64, !noalias !61
-  store ptr null, ptr %40, align 8, !alias.scope !64, !noalias !61
-  store <2 x ptr> %41, ptr %.012.i.i.i18, align 8, !alias.scope !61, !noalias !64
+  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 8
+  %42 = load <2 x ptr>, ptr %.0911.i.i.i19, align 8, !alias.scope !64, !noalias !61
+  store ptr null, ptr %41, align 8, !alias.scope !64, !noalias !61
+  store <2 x ptr> %42, ptr %.012.i.i.i18, align 8, !alias.scope !61, !noalias !64
   store ptr null, ptr %.0911.i.i.i19, align 8, !alias.scope !64, !noalias !61
-  %42 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
-  %43 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
-  %.not.i.i.i20 = icmp eq ptr %42, %5
+  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
+  %44 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
+  %.not.i.i.i20 = icmp eq ptr %43, %5
   br i1 %.not.i.i.i20, label %_ZNSt6vectorISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !60
 
 _ZNSt6vectorISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit
-  %.0.lcssa.i.i.i21 = phi ptr [ %39, %_ZNSt6vectorISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ], [ %43, %.lr.ph.i.i.i17 ]
+  %.0.lcssa.i.i.i21 = phi ptr [ %40, %_ZNSt6vectorISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit ], [ %44, %.lr.ph.i.i.i17 ]
   %.not.i23 = icmp eq ptr %6, null
-  br i1 %.not.i23, label %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE13_M_deallocateEPS4_m.exit, label %44
+  br i1 %.not.i23, label %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE13_M_deallocateEPS4_m.exit, label %45
 
-44:                                               ; preds = %_ZNSt6vectorISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22
+45:                                               ; preds = %_ZNSt6vectorISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22
   tail call void @_ZdlPv(ptr noundef nonnull %6) #34
   br label %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE13_M_deallocateEPS4_m.exit
 
-_ZNSt12_Vector_baseISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %44
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %45
+  %46 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %46 = getelementptr inbounds %"class.std::shared_ptr.38", ptr %23, i64 %16
-  store ptr %46, ptr %45, align 8
+  %47 = getelementptr inbounds %"class.std::shared_ptr.38", ptr %23, i64 %16
+  store ptr %47, ptr %46, align 8
   ret void
 }
 
@@ -4634,40 +4636,41 @@ define noundef zeroext i1 @_ZNK3gmx26AnalysisNeighborhoodSearch8isWithinERKNS_29
   store i32 %20, ptr %8, align 4
   %21 = getelementptr inbounds i8, ptr %1, i64 8
   %22 = getelementptr inbounds i8, ptr %3, i64 16
-  %23 = load <2 x ptr>, ptr %21, align 8
-  store <2 x ptr> %23, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 48
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp ne ptr %28, null
-  %30 = extractelement <2 x ptr> %23, i64 1
-  %.not.i = icmp eq ptr %30, null
-  %or.cond.i = select i1 %29, i1 %.not.i, i1 false
-  br i1 %or.cond.i, label %31, label %32
+  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = load ptr, ptr %23, align 8
+  %25 = load <2 x ptr>, ptr %21, align 8
+  store <2 x ptr> %25, ptr %22, align 8
+  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %27, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %4, i64 48
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp ne ptr %30, null
+  %.not.i = icmp eq ptr %24, null
+  %or.cond.i = select i1 %31, i1 %.not.i, i1 false
+  br i1 %or.cond.i, label %32, label %33
 
-31:                                               ; preds = %6
+32:                                               ; preds = %6
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29AnalysisNeighborhoodPositionsEENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 1035) #33
   unreachable
 
-32:                                               ; preds = %6
-  %33 = getelementptr inbounds i8, ptr %1, i64 4
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp slt i32 %34, 0
-  br i1 %35, label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29AnalysisNeighborhoodPositionsE.exit, label %36
+33:                                               ; preds = %6
+  %34 = getelementptr inbounds i8, ptr %1, i64 4
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp slt i32 %35, 0
+  br i1 %36, label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29AnalysisNeighborhoodPositionsE.exit, label %37
 
-36:                                               ; preds = %32
-  %37 = add nuw nsw i32 %34, 1
-  store i32 %37, ptr %8, align 4
+37:                                               ; preds = %33
+  %38 = add nuw nsw i32 %35, 1
+  store i32 %38, ptr %8, align 4
   br label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29AnalysisNeighborhoodPositionsE.exit
 
-_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29AnalysisNeighborhoodPositionsE.exit: ; preds = %32, %36
-  %.sink.i = phi i32 [ %34, %36 ], [ 0, %32 ]
+_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29AnalysisNeighborhoodPositionsE.exit: ; preds = %33, %37
+  %.sink.i = phi i32 [ %35, %37 ], [ 0, %33 ]
   call void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl5resetEi(ptr noundef nonnull align 8 dereferenceable(140) %3, i32 noundef %.sink.i)
-  %38 = call noundef zeroext i1 @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10searchNextIPFbifPKfEEEbT_(ptr noundef nonnull align 8 dereferenceable(140) %3, ptr noundef nonnull @_ZN3gmx12_GLOBAL__N_112withinActionEifPKf)
-  ret i1 %38
+  %39 = call noundef zeroext i1 @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10searchNextIPFbifPKfEEEbT_(ptr noundef nonnull align 8 dereferenceable(140) %3, ptr noundef nonnull @_ZN3gmx12_GLOBAL__N_112withinActionEifPKf)
+  ret i1 %39
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5510,42 +5513,43 @@ define noundef float @_ZNK3gmx26AnalysisNeighborhoodSearch15minimumDistanceERKNS
   store i32 %24, ptr %12, align 4
   %25 = getelementptr inbounds i8, ptr %1, i64 8
   %26 = getelementptr inbounds i8, ptr %3, i64 16
-  %27 = load <2 x ptr>, ptr %25, align 8
-  store <2 x ptr> %27, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 48
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp ne ptr %32, null
-  %34 = extractelement <2 x ptr> %27, i64 1
-  %.not.i = icmp eq ptr %34, null
-  %or.cond.i = select i1 %33, i1 %.not.i, i1 false
-  br i1 %or.cond.i, label %35, label %36
+  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %28 = load ptr, ptr %27, align 8
+  %29 = load <2 x ptr>, ptr %25, align 8
+  store <2 x ptr> %29, ptr %26, align 8
+  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %31, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %8, i64 48
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp ne ptr %34, null
+  %.not.i = icmp eq ptr %28, null
+  %or.cond.i = select i1 %35, i1 %.not.i, i1 false
+  br i1 %or.cond.i, label %36, label %37
 
-35:                                               ; preds = %10
+36:                                               ; preds = %10
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29AnalysisNeighborhoodPositionsEENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 1035) #33
   unreachable
 
-36:                                               ; preds = %10
-  %37 = getelementptr inbounds i8, ptr %1, i64 4
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp slt i32 %38, 0
-  br i1 %39, label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29AnalysisNeighborhoodPositionsE.exit, label %40
+37:                                               ; preds = %10
+  %38 = getelementptr inbounds i8, ptr %1, i64 4
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp slt i32 %39, 0
+  br i1 %40, label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29AnalysisNeighborhoodPositionsE.exit, label %41
 
-40:                                               ; preds = %36
-  %41 = add nuw nsw i32 %38, 1
-  store i32 %41, ptr %12, align 4
+41:                                               ; preds = %37
+  %42 = add nuw nsw i32 %39, 1
+  store i32 %42, ptr %12, align 4
   br label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29AnalysisNeighborhoodPositionsE.exit
 
-_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29AnalysisNeighborhoodPositionsE.exit: ; preds = %36, %40
-  %.sink.i = phi i32 [ %38, %40 ], [ 0, %36 ]
+_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29AnalysisNeighborhoodPositionsE.exit: ; preds = %37, %41
+  %.sink.i = phi i32 [ %39, %41 ], [ 0, %37 ]
   call void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl5resetEi(ptr noundef nonnull align 8 dereferenceable(140) %3, i32 noundef %.sink.i)
-  %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
-  %44 = load float, ptr %43, align 8
-  store float %44, ptr %4, align 4
+  %43 = load ptr, ptr %0, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = load float, ptr %44, align 8
+  store float %45, ptr %4, align 4
   store i32 -1, ptr %5, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false)
   store ptr %5, ptr %7, align 8
@@ -5554,9 +5558,9 @@ _ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29Analysi
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %6, ptr %.sroa.3.0..sroa_idx, align 8
   call fastcc void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10searchNextINS_12_GLOBAL__N_113MindistActionEEEbT_(ptr noundef nonnull align 8 dereferenceable(140) %3, ptr noundef nonnull byval(%"class.gmx::(anonymous namespace)::MindistAction") align 8 %7)
-  %45 = load float, ptr %4, align 4
-  %46 = call noundef float @sqrtf(float noundef %45) #31
-  ret float %46
+  %46 = load float, ptr %4, align 4
+  %47 = call noundef float @sqrtf(float noundef %46) #31
+  ret float %47
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6384,42 +6388,43 @@ define void @_ZNK3gmx26AnalysisNeighborhoodSearch12nearestPointERKNS_29AnalysisN
   store i32 %25, ptr %13, align 4
   %26 = getelementptr inbounds i8, ptr %2, i64 8
   %27 = getelementptr inbounds i8, ptr %4, i64 16
-  %28 = load <2 x ptr>, ptr %26, align 8
-  store <2 x ptr> %28, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 24
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %9, i64 48
-  %33 = load ptr, ptr %32, align 8
-  %34 = icmp ne ptr %33, null
-  %35 = extractelement <2 x ptr> %28, i64 1
-  %.not.i = icmp eq ptr %35, null
-  %or.cond.i = select i1 %34, i1 %.not.i, i1 false
-  br i1 %or.cond.i, label %36, label %37
+  %28 = getelementptr inbounds i8, ptr %2, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %30 = load <2 x ptr>, ptr %26, align 8
+  store <2 x ptr> %30, ptr %27, align 8
+  %31 = getelementptr inbounds i8, ptr %2, i64 24
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %32, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %9, i64 48
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp ne ptr %35, null
+  %.not.i = icmp eq ptr %29, null
+  %or.cond.i = select i1 %36, i1 %.not.i, i1 false
+  br i1 %or.cond.i, label %37, label %38
 
-36:                                               ; preds = %11
+37:                                               ; preds = %11
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29AnalysisNeighborhoodPositionsEENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 1035) #33
   unreachable
 
-37:                                               ; preds = %11
-  %38 = getelementptr inbounds i8, ptr %2, i64 4
-  %39 = load i32, ptr %38, align 4
-  %40 = icmp slt i32 %39, 0
-  br i1 %40, label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29AnalysisNeighborhoodPositionsE.exit, label %41
+38:                                               ; preds = %11
+  %39 = getelementptr inbounds i8, ptr %2, i64 4
+  %40 = load i32, ptr %39, align 4
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29AnalysisNeighborhoodPositionsE.exit, label %42
 
-41:                                               ; preds = %37
-  %42 = add nuw nsw i32 %39, 1
-  store i32 %42, ptr %13, align 4
+42:                                               ; preds = %38
+  %43 = add nuw nsw i32 %40, 1
+  store i32 %43, ptr %13, align 4
   br label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29AnalysisNeighborhoodPositionsE.exit
 
-_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29AnalysisNeighborhoodPositionsE.exit: ; preds = %37, %41
-  %.sink.i = phi i32 [ %39, %41 ], [ 0, %37 ]
+_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29AnalysisNeighborhoodPositionsE.exit: ; preds = %38, %42
+  %.sink.i = phi i32 [ %40, %42 ], [ 0, %38 ]
   call void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl5resetEi(ptr noundef nonnull align 8 dereferenceable(140) %4, i32 noundef %.sink.i)
-  %43 = load ptr, ptr %1, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
-  %45 = load float, ptr %44, align 8
-  store float %45, ptr %5, align 4
+  %44 = load ptr, ptr %1, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = load float, ptr %45, align 8
+  store float %46, ptr %5, align 4
   store i32 -1, ptr %6, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, i8 0, i64 12, i1 false)
   store ptr %6, ptr %8, align 8
@@ -6428,20 +6433,20 @@ _ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29Analysi
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %7, ptr %.sroa.3.0..sroa_idx, align 8
   call fastcc void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10searchNextINS_12_GLOBAL__N_113MindistActionEEEbT_(ptr noundef nonnull align 8 dereferenceable(140) %4, ptr noundef nonnull byval(%"class.gmx::(anonymous namespace)::MindistAction") align 8 %8)
-  %46 = load i32, ptr %6, align 4
-  %47 = load float, ptr %5, align 4
-  store i32 %46, ptr %0, align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 0, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
-  %50 = load float, ptr %7, align 4
-  %51 = getelementptr inbounds i8, ptr %7, i64 4
-  %52 = load <2 x float>, ptr %51, align 4
-  %53 = insertelement <4 x float> poison, float %47, i64 0
-  %54 = insertelement <4 x float> %53, float %50, i64 1
-  %55 = shufflevector <2 x float> %52, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %56 = shufflevector <4 x float> %54, <4 x float> %55, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  store <4 x float> %56, ptr %49, align 4
+  %47 = load i32, ptr %6, align 4
+  %48 = load float, ptr %5, align 4
+  store i32 %47, ptr %0, align 4
+  %49 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 0, ptr %49, align 4
+  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %51 = load float, ptr %7, align 4
+  %52 = getelementptr inbounds i8, ptr %7, i64 4
+  %53 = load <2 x float>, ptr %52, align 4
+  %54 = insertelement <4 x float> poison, float %48, i64 0
+  %55 = insertelement <4 x float> %54, float %51, i64 1
+  %56 = shufflevector <2 x float> %53, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %57 = shufflevector <4 x float> %55, <4 x float> %56, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  store <4 x float> %57, ptr %50, align 4
   ret void
 }
 

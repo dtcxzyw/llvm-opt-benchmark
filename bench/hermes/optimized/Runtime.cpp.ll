@@ -562,7 +562,7 @@ entry:
   %ref.tmp = alloca %"class.hermes::vm::GCConfig", align 8
   %sp = alloca %"class.std::shared_ptr.10", align 16
   %ref.tmp5 = alloca %"class.std::unique_ptr", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.10", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.10", align 16
   %agg.tmp7 = alloca %"class.std::shared_ptr.10", align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(56) %runtimeConfig, i64 56, i1 false)
@@ -623,14 +623,11 @@ _ZNK6hermes2vm13RuntimeConfig11getGCConfigEv.exit.thread: ; preds = %_ZNSt8funct
 
 _ZNK6hermes2vm13RuntimeConfig11getGCConfigEv.exit: ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEEC2ERKS6_.exit.i.i
   %Callback_7.i.i = getelementptr inbounds i8, ptr %runtimeConfig, i64 168
-  %_M_invoker.i10.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 192
   %_M_manager.i.i11.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 184
   %call3.i12.i.i = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Callback_7.i.i, i32 noundef 2) #26
-  %_M_invoker4.i13.i.i = getelementptr inbounds i8, ptr %runtimeConfig, i64 192
-  %8 = load ptr, ptr %_M_invoker4.i13.i.i, align 8, !noalias !4
-  store ptr %8, ptr %_M_invoker.i10.i.i, align 8, !alias.scope !4
+  %8 = load <2 x ptr>, ptr %_M_manager.i.i.i7.i.i, align 8, !noalias !4
   %9 = load ptr, ptr %_M_manager.i.i.i7.i.i, align 8, !noalias !4
-  store ptr %9, ptr %_M_manager.i.i11.i.i, align 8, !alias.scope !4
+  store <2 x ptr> %8, ptr %_M_manager.i.i11.i.i, align 8, !alias.scope !4
   %MaxHeapSize_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %10 = load i32, ptr %MaxHeapSize_.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %9, null
@@ -681,17 +678,16 @@ _ZNKSt14default_deleteIN6hermes2vm15StorageProviderEEclEPS2_.exit.i: ; preds = %
 
 _ZNSt10unique_ptrIN6hermes2vm15StorageProviderESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZN6hermes2vm8GCConfigD2Ev.exit, %_ZNKSt14default_deleteIN6hermes2vm15StorageProviderEEclEPS2_.exit.i
   store ptr null, ptr %ref.tmp5, align 8
-  %18 = load ptr, ptr %sp, align 16
-  store ptr %18, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %sp, i64 8
-  %19 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %19, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %19, null
+  %18 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %19 = load <2 x ptr>, ptr %sp, align 16
+  store <2 x ptr> %19, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6hermes2vm15StorageProviderEEC2ERKS3_.exit, label %if.then.i.i.i6
 
 if.then.i.i.i6:                                   ; preds = %_ZNSt10unique_ptrIN6hermes2vm15StorageProviderESt14default_deleteIS2_EED2Ev.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %20, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -944,15 +940,12 @@ define linkonce_odr hidden void @_ZN6hermes2vm11HeapRuntimeINS0_7RuntimeEE6creat
 entry:
   %ptrOrError.i = alloca %"class.llvh::ErrorOr", align 8
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-  %0 = load ptr, ptr %sp, align 8
-  %_M_refcount4.i.i = getelementptr inbounds i8, ptr %sp, i64 8
-  %1 = load ptr, ptr %_M_refcount4.i.i, align 8
+  %0 = load <2 x ptr>, ptr %sp, align 8
+  %1 = load ptr, ptr %sp, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sp, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ptrOrError.i)
-  store ptr %0, ptr %call, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8
-  call void @_ZN6hermes2vm15StorageProvider10newStorageEPKc(ptr nonnull sret(%"class.llvh::ErrorOr") align 8 %ptrOrError.i, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.178) #26
+  store <2 x ptr> %0, ptr %call, align 8
+  call void @_ZN6hermes2vm15StorageProvider10newStorageEPKc(ptr nonnull sret(%"class.llvh::ErrorOr") align 8 %ptrOrError.i, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.178) #26
   %HasError.i.i = getelementptr inbounds i8, ptr %ptrOrError.i, i64 16
   %bf.load.i.i = load i8, ptr %HasError.i.i, align 8
   %bf.cast.i.i = trunc i8 %bf.load.i.i to i1
@@ -1740,7 +1733,7 @@ entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::allocator", align 1
   %ref.tmp = alloca %"class.hermes::vm::GCConfig", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.7", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.7", align 16
   %agg.tmp23 = alloca %"class.std::shared_ptr.10", align 16
   %agg.tmp45 = alloca %"class.std::function.178", align 8
   %ref.tmp48 = alloca %"class.hermes::vm::GCConfig", align 8
@@ -2050,17 +2043,16 @@ if.then.i9.i.i:                                   ; preds = %_ZNSt8functionIFvRK
 _ZNK6hermes2vm13RuntimeConfig11getGCConfigEv.exit: ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEEC2ERKS6_.exit.i.i, %if.then.i9.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %CrashMgr_.i = getelementptr inbounds i8, ptr %runtimeConfig, i64 352
-  %16 = load ptr, ptr %CrashMgr_.i, align 8, !noalias !10
-  store ptr %16, ptr %agg.tmp, align 8, !alias.scope !10
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %runtimeConfig, i64 360
-  %17 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !10
-  store ptr %17, ptr %_M_refcount.i.i.i, align 8, !alias.scope !10
-  %cmp.not.i.i.i.i = icmp eq ptr %17, null
+  %16 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !10
+  %17 = load <2 x ptr>, ptr %CrashMgr_.i, align 8, !noalias !10
+  store <2 x ptr> %17, ptr %agg.tmp, align 16, !alias.scope !10
+  %cmp.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6hermes2vm13RuntimeConfig11getCrashMgrEv.exit, label %if.then.i.i.i.i39
 
 if.then.i.i.i.i39:                                ; preds = %_ZNK6hermes2vm13RuntimeConfig11getGCConfigEv.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load i8, ptr @__libc_single_threaded, align 1, !noalias !10
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %18, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -2338,16 +2330,14 @@ _ZN6hermes2vm8GCConfigD2Ev.exit:                  ; preds = %_ZNSt8functionIFvRK
   store ptr null, ptr %stackPointer_, align 8
   %crashMgr_ = getelementptr inbounds i8, ptr %this, i64 9480
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  %58 = load ptr, ptr %CrashMgr_.i, align 8, !noalias !13
-  store ptr %58, ptr %crashMgr_, align 8, !alias.scope !13
-  %_M_refcount.i.i.i88 = getelementptr inbounds i8, ptr %this, i64 9488
-  %59 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !13
-  store ptr %59, ptr %_M_refcount.i.i.i88, align 8, !alias.scope !13
-  %cmp.not.i.i.i.i90 = icmp eq ptr %59, null
+  %58 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !13
+  %59 = load <2 x ptr>, ptr %CrashMgr_.i, align 8, !noalias !13
+  store <2 x ptr> %59, ptr %crashMgr_, align 8, !alias.scope !13
+  %cmp.not.i.i.i.i90 = icmp eq ptr %58, null
   br i1 %cmp.not.i.i.i.i90, label %_ZNK6hermes2vm13RuntimeConfig11getCrashMgrEv.exit97, label %if.then.i.i.i.i91
 
 if.then.i.i.i.i91:                                ; preds = %_ZN6hermes2vm8GCConfigD2Ev.exit
-  %_M_use_count.i.i.i.i.i92 = getelementptr inbounds i8, ptr %59, i64 8
+  %_M_use_count.i.i.i.i.i92 = getelementptr inbounds i8, ptr %58, i64 8
   %60 = load i8, ptr @__libc_single_threaded, align 1, !noalias !13
   %tobool.i.not.i.i.i.i.i93 = icmp eq i8 %60, 0
   br i1 %tobool.i.not.i.i.i.i.i93, label %if.else.i.i.i.i.i.i96, label %if.then.i.i.i.i.i.i94
@@ -2492,29 +2482,22 @@ _ZNK6hermes2vm13RuntimeConfig11getGCConfigEv.exit134.thread: ; preds = %_ZNSt8fu
 
 _ZNK6hermes2vm13RuntimeConfig11getGCConfigEv.exit134: ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEEC2ERKS6_.exit.i.i124
   %Callback_7.i.i129 = getelementptr inbounds i8, ptr %runtimeConfig, i64 168
-  %_M_invoker.i10.i.i130 = getelementptr inbounds i8, ptr %ref.tmp48, i64 192
   %_M_manager.i.i11.i.i131 = getelementptr inbounds i8, ptr %ref.tmp48, i64 184
   %call3.i12.i.i132 = call noundef zeroext i1 %74(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i125, ptr noundef nonnull align 8 dereferenceable(16) %Callback_7.i.i129, i32 noundef 2) #26
-  %_M_invoker4.i13.i.i133 = getelementptr inbounds i8, ptr %runtimeConfig, i64 192
-  %75 = load ptr, ptr %_M_invoker4.i13.i.i133, align 8, !noalias !16
-  store ptr %75, ptr %_M_invoker.i10.i.i130, align 8, !alias.scope !16
+  %75 = load <2 x ptr>, ptr %_M_manager.i.i.i7.i.i, align 8, !noalias !16
   %76 = load ptr, ptr %_M_manager.i.i.i7.i.i, align 8, !noalias !16
-  store ptr %76, ptr %_M_manager.i.i11.i.i131, align 8, !alias.scope !16
-  call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  store <2 x ptr> %75, ptr %_M_manager.i.i11.i.i131, align 8, !alias.scope !16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gcEventCallback_, i8 0, i64 32, i1 false), !alias.scope !22
   %tobool.not.i.i.not.i.i = icmp eq ptr %76, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i144, label %_ZNK6hermes2vm8GCConfig11getCallbackEv.exit
 
 _ZNK6hermes2vm8GCConfig11getCallbackEv.exit:      ; preds = %_ZNK6hermes2vm13RuntimeConfig11getGCConfigEv.exit134
   %_M_manager.i.i.i.i135 = getelementptr inbounds i8, ptr %ref.tmp48, i64 184
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 9816
   %_M_manager.i.i.i138 = getelementptr inbounds i8, ptr %this, i64 9808
   %call3.i.i = call noundef zeroext i1 %76(ptr noundef nonnull align 8 dereferenceable(16) %gcEventCallback_, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i125, i32 noundef 2) #26
-  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %ref.tmp48, i64 192
-  %77 = load ptr, ptr %_M_invoker4.i.i, align 8, !noalias !22
-  store ptr %77, ptr %_M_invoker.i.i, align 8, !alias.scope !22
+  %77 = load <2 x ptr>, ptr %_M_manager.i.i.i.i135, align 8
   %78 = load ptr, ptr %_M_manager.i.i.i.i135, align 8
-  store ptr %78, ptr %_M_manager.i.i.i138, align 8, !alias.scope !22
+  store <2 x ptr> %77, ptr %_M_manager.i.i.i138, align 8, !alias.scope !22
   %tobool.not.i.i.i140 = icmp eq ptr %78, null
   br i1 %tobool.not.i.i.i140, label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i144, label %if.then.i.i.i141
 
@@ -2962,19 +2945,18 @@ do.end:                                           ; preds = %_ZN6hermes2vm7Runti
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes2vm9GCStorageC2ERNS0_6GCBase11GCCallbacksERNS0_11PointerBaseERKNS0_8GCConfigESt10shared_ptrINS0_12CrashManagerEESA_INS0_15StorageProviderEEj(ptr noundef nonnull align 8 dereferenceable(8152) %this, ptr noundef nonnull align 8 dereferenceable(8) %gcCallbacks, ptr noundef nonnull align 1 dereferenceable(1) %pointerBase, ptr noundef nonnull align 8 dereferenceable(200) %gcConfig, ptr noundef %crashMgr, ptr noundef %provider, i32 noundef %vmExperimentFlags) unnamed_addr #0 comdat align 2 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.7", align 8
-  %agg.tmp2 = alloca %"class.std::shared_ptr.10", align 8
-  %0 = load ptr, ptr %crashMgr, align 8
-  store ptr %0, ptr %agg.tmp, align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.7", align 16
+  %agg.tmp2 = alloca %"class.std::shared_ptr.10", align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %crashMgr, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %crashMgr, align 8
+  store <2 x ptr> %1, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6hermes2vm12CrashManagerEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -2990,17 +2972,16 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN6hermes2vm12CrashManagerEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIN6hermes2vm12CrashManagerEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %5 = load ptr, ptr %provider, align 8
-  store ptr %5, ptr %agg.tmp2, align 8
   %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   %_M_refcount3.i.i2 = getelementptr inbounds i8, ptr %provider, i64 8
-  %6 = load ptr, ptr %_M_refcount3.i.i2, align 8
-  store ptr %6, ptr %_M_refcount.i.i1, align 8
-  %cmp.not.i.i.i3 = icmp eq ptr %6, null
+  %5 = load ptr, ptr %_M_refcount3.i.i2, align 8
+  %6 = load <2 x ptr>, ptr %provider, align 8
+  store <2 x ptr> %6, ptr %agg.tmp2, align 16
+  %cmp.not.i.i.i3 = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIN6hermes2vm15StorageProviderEEC2ERKS3_.exit, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt10shared_ptrIN6hermes2vm12CrashManagerEEC2ERKS3_.exit
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i6 = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i6, label %if.else.i.i.i.i.i9, label %if.then.i.i.i.i.i7
@@ -14462,17 +14443,15 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10s
 _ZNSt12_Vector_baseISt10shared_ptrIN6hermes3hbc20BCProviderFromBufferEESaIS4_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIN6hermes3hbc20BCProviderFromBufferEESaIS4_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10shared_ptrIN6hermes3hbc20BCProviderFromBufferEESaIS4_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::shared_ptr.208", ptr %cond.i10, i64 %sub.ptr.div.i
-  %3 = load ptr, ptr %__args, align 8
-  store ptr %3, ptr %add.ptr, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %4 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
-  store ptr %4, ptr %_M_refcount.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  %4 = load <2 x ptr>, ptr %__args, align 8
+  store <2 x ptr> %4, ptr %add.ptr, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN6hermes3hbc20BCProviderFromBufferEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN6hermes3hbc20BCProviderFromBufferEESaIS4_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i

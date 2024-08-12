@@ -6748,24 +6748,23 @@ invoke.cont4:                                     ; preds = %if.then.i.i, %if.el
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #48
   %3 = load ptr, ptr %dest, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %dest, i64 8
-  %4 = load ptr, ptr %_M_finish.i.i.i, align 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %dest, i64 16
-  %5 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
-  %6 = load <2 x ptr>, ptr %parsed, align 16
-  store <2 x ptr> %6, ptr %dest, align 8
-  %7 = load ptr, ptr %_M_end_of_storage.i.i, align 16
-  store ptr %7, ptr %_M_end_of_storage.i.i.i, align 8
+  %4 = load <2 x ptr>, ptr %parsed, align 16
+  %5 = load ptr, ptr %_M_end_of_storage.i.i, align 16
   store ptr %3, ptr %parsed, align 16
-  store ptr %4, ptr %_M_finish.i.i, align 8
-  store ptr %5, ptr %_M_end_of_storage.i.i, align 16
-  %cmp.not3.i.i.i.i = icmp eq ptr %3, %4
+  %6 = load <2 x ptr>, ptr %_M_finish.i.i.i, align 8
+  %7 = load ptr, ptr %_M_finish.i.i.i, align 8
+  store <2 x ptr> %4, ptr %dest, align 8
+  store ptr %5, ptr %_M_end_of_storage.i.i.i, align 8
+  store <2 x ptr> %6, ptr %_M_finish.i.i, align 8
+  %cmp.not3.i.i.i.i = icmp eq ptr %3, %7
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %invoke.cont4, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %3, %invoke.cont4 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #48
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %4
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %7
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !19
 
 invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i

@@ -3553,13 +3553,13 @@ if.then13:                                        ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @_ZN8facebook5velox10BaseVector14createInternalERKSt10shared_ptrIKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr nonnull sret(%"class.std::shared_ptr") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %type_10, i32 noundef %add, ptr noundef %30), !noalias !19
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %31 = load <2 x ptr>, ptr %ref.tmp.i, align 16, !noalias !19
-  %32 = extractelement <2 x ptr> %31, i64 1
-  %cmp.not.i.i.i.i.i = icmp eq ptr %32, null
+  %31 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !19
+  %32 = load <2 x ptr>, ptr %ref.tmp.i, align 16, !noalias !19
+  %cmp.not.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN8facebook5velox10BaseVector6createIS1_EESt10shared_ptrIT_ERKS3_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit, label %if.then.i.i.i.i.i6
 
 if.then.i.i.i.i.i6:                               ; preds = %if.then13
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load i8, ptr @__libc_single_threaded, align 1, !noalias !22
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %33, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i38, label %if.then.i.i.i.i.i.i.i7
@@ -3651,7 +3651,7 @@ _ZN8facebook5velox10BaseVector6createIS1_EESt10shared_ptrIT_ERKS3_IKNS0_4TypeEEi
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %_M_refcount3.i.i.i40 = getelementptr inbounds i8, ptr %this, i64 128
   %46 = load ptr, ptr %_M_refcount3.i.i.i40, align 8
-  store <2 x ptr> %31, ptr %vector_8, align 8
+  store <2 x ptr> %32, ptr %vector_8, align 8
   %cmp.not.i.i.i.i41 = icmp eq ptr %46, null
   br i1 %cmp.not.i.i.i.i41, label %if.end20, label %if.then.i.i.i.i42
 
@@ -7487,13 +7487,13 @@ if.then2:                                         ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @_ZN8facebook5velox10BaseVector14createInternalERKSt10shared_ptrIKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr nonnull sret(%"class.std::shared_ptr") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %type_, i32 noundef 0, ptr noundef %2), !noalias !51
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %3 = load <2 x ptr>, ptr %ref.tmp.i, align 16, !noalias !51
-  %4 = extractelement <2 x ptr> %3, i64 1
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !51
+  %4 = load <2 x ptr>, ptr %ref.tmp.i, align 16, !noalias !51
+  %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN8facebook5velox10BaseVector6createIS1_EESt10shared_ptrIT_ERKS3_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then2
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !54
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -7585,7 +7585,7 @@ _ZN8facebook5velox10BaseVector6createIS1_EESt10shared_ptrIT_ERKS3_IKNS0_4TypeEEi
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %18 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store <2 x ptr> %3, ptr %vector_44, align 8
+  store <2 x ptr> %4, ptr %vector_44, align 8
   %cmp.not.i.i.i.i1 = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i.i1, label %if.end, label %if.then.i.i.i.i2
 

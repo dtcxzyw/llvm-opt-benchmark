@@ -825,36 +825,36 @@ define range(i32 0, 2) i32 @If_CutPerformCheck75(ptr noundef %0, ptr nocapture n
   %8 = alloca [4 x i64], align 16
   %9 = alloca [1000 x i8], align 16
   %10 = load <2 x i64>, ptr %1, align 8
+  %11 = load i64, ptr %1, align 8
   store <2 x i64> %10, ptr %8, align 16
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
-  %13 = load <2 x i64>, ptr %12, align 8
-  store <2 x i64> %13, ptr %11, align 16
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 84
-  %17 = load i32, ptr %16, align 4
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %18, label %Abc_TtMinimumBase.exit
+  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = load <2 x i64>, ptr %13, align 8
+  store <2 x i64> %14, ptr %12, align 16
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 84
+  %18 = load i32, ptr %17, align 4
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %19, label %Abc_TtMinimumBase.exit
 
-18:                                               ; preds = %5
-  %19 = icmp slt i32 %3, 1
-  br i1 %19, label %Abc_TtMinimumBase.exit.thread, label %.lr.ph.i
+19:                                               ; preds = %5
+  %20 = icmp slt i32 %3, 1
+  br i1 %20, label %Abc_TtMinimumBase.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %18
-  %20 = icmp ult i32 %3, 7
-  %21 = add nsw i32 %3, -6
-  %22 = shl nuw i32 1, %21
-  %.fr.i.i = freeze i32 %22
-  %23 = sext i32 %.fr.i.i to i64
-  %24 = getelementptr inbounds i64, ptr %8, i64 %23
+.lr.ph.i:                                         ; preds = %19
+  %21 = icmp ult i32 %3, 7
+  %22 = add nsw i32 %3, -6
+  %23 = shl nuw i32 1, %22
+  %.fr.i.i = freeze i32 %23
+  %24 = sext i32 %.fr.i.i to i64
+  %25 = getelementptr inbounds i64, ptr %8, i64 %24
   %smax55.i.i = tail call i32 @llvm.smax.i32(i32 %.fr.i.i, i32 1)
   %wide.trip.count56.i.i = zext nneg i32 %smax55.i.i to i64
-  br i1 %20, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  br i1 %21, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
   %wide.trip.count41.i = zext nneg i32 %3 to i64
-  %25 = extractelement <2 x i64> %10, i64 0
   br label %Abc_TtHasVar.exit.us.i
 
 Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.us.i, %.lr.ph.split.us.i
@@ -864,10 +864,10 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
   %26 = trunc nuw nsw i64 %indvars.iv38.i to i32
   %27 = shl nuw i32 1, %26
   %28 = zext nneg i32 %27 to i64
-  %29 = lshr i64 %25, %28
+  %29 = lshr i64 %11, %28
   %30 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv38.i
   %31 = load i64, ptr %30, align 8
-  %32 = xor i64 %29, %25
+  %32 = xor i64 %29, %11
   %33 = and i64 %32, %31
   %34 = icmp ne i64 %33, 0
   %35 = zext i1 %34 to i32
@@ -879,7 +879,7 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
   br i1 %exitcond42.not.i, label %._crit_edge.i, label %Abc_TtHasVar.exit.us.i, !llvm.loop !20
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
-  %.not47.i.i = icmp eq i32 %21, 31
+  %.not47.i.i = icmp eq i32 %22, 31
   br i1 %.not47.i.i, label %Abc_TtMinimumBase.exit.thread, label %.lr.ph.split.split.preheader.i
 
 .lr.ph.split.split.preheader.i:                   ; preds = %.lr.ph.split.i
@@ -952,7 +952,7 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
 
 ._crit_edge.us.i.i:                               ; preds = %57
   %64 = getelementptr inbounds i64, ptr %.03142.us.i.i, i64 %54
-  %65 = icmp ult ptr %64, %24
+  %65 = icmp ult ptr %64, %25
   br i1 %65, label %.preheader.us.i.i, label %.loopexit.i, !llvm.loop !22
 
 Abc_TtHasVar.exit.i.loopexit:                     ; preds = %58
@@ -986,7 +986,7 @@ Abc_TtHasVar.exit.i:                              ; preds = %44, %Abc_TtHasVar.e
   br i1 %.not1.i, label %Abc_TtMinimumBase.exit, label %.lr.ph53.i.i
 
 .lr.ph53.i.i:                                     ; preds = %68
-  %71 = select i1 %20, i32 1, i32 %.fr.i.i
+  %71 = select i1 %21, i32 1, i32 %.fr.i.i
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i64, ptr %8, i64 %72
   %74 = icmp sgt i32 %71, 0
@@ -1131,11 +1131,11 @@ Abc_TtMinimumBase.exit:                           ; preds = %78, %.lr.ph53.i.i, 
   br i1 %.not20, label %._crit_edge, label %Abc_TtMinimumBase.exit.thread
 
 ._crit_edge:                                      ; preds = %130
-  %.pre = load ptr, ptr %14, align 8
+  %.pre = load ptr, ptr %15, align 8
   br label %132
 
 132:                                              ; preds = %._crit_edge, %128
-  %133 = phi ptr [ %.pre, %._crit_edge ], [ %15, %128 ]
+  %133 = phi ptr [ %.pre, %._crit_edge ], [ %16, %128 ]
   %134 = getelementptr inbounds i8, ptr %133, i64 172
   %135 = load i32, ptr %134, align 4
   %.not21 = icmp eq i32 %135, 0
@@ -1188,8 +1188,8 @@ Dau_DsdCheckDecAndExist.exit:                     ; preds = %144, %148
   %.25 = zext i1 %.not24 to i32
   br label %Abc_TtMinimumBase.exit.thread
 
-Abc_TtMinimumBase.exit.thread:                    ; preds = %18, %.lr.ph.split.i, %154, %152, %Dau_DsdCheckDecAndExist.exit, %141, %130, %Abc_TtMinimumBase.exit
-  %.0 = phi i32 [ 1, %Abc_TtMinimumBase.exit ], [ 1, %130 ], [ 0, %141 ], [ %.0.i, %Dau_DsdCheckDecAndExist.exit ], [ 1, %152 ], [ %.25, %154 ], [ 1, %.lr.ph.split.i ], [ 1, %18 ]
+Abc_TtMinimumBase.exit.thread:                    ; preds = %19, %.lr.ph.split.i, %154, %152, %Dau_DsdCheckDecAndExist.exit, %141, %130, %Abc_TtMinimumBase.exit
+  %.0 = phi i32 [ 1, %Abc_TtMinimumBase.exit ], [ 1, %130 ], [ 0, %141 ], [ %.0.i, %Dau_DsdCheckDecAndExist.exit ], [ 1, %152 ], [ %.25, %154 ], [ 1, %.lr.ph.split.i ], [ 1, %19 ]
   ret i32 %.0
 }
 

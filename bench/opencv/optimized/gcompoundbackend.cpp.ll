@@ -43,7 +43,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZZN2cv4gapi8compound7backendEvE12this_backend = internal global %"class.cv::gapi::GBackend" zeroinitializer, align 8
+@_ZZN2cv4gapi8compound7backendEvE12this_backend = internal global %"class.cv::gapi::GBackend" zeroinitializer, align 16
 @_ZGVZN2cv4gapi8compound7backendEvE12this_backend = internal global i64 0, align 8
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv4gapi8GBackend4PrivESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt23_Sp_counted_ptr_inplaceIN2cv4gapi8GBackend4PrivESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv4gapi8GBackend4PrivESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv4gapi8GBackend4PrivESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv4gapi8GBackend4PrivESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv4gapi8GBackend4PrivESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv4gapi8GBackend4PrivESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
@@ -83,7 +83,7 @@ define void @_ZN2cv4gapi8compound7backendEv(ptr dead_on_unwind noalias nocapture
 7:                                                ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %8 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #11
-          to label %9 unwind label %28
+          to label %9 unwind label %27
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds i8, ptr %2, i64 8
@@ -97,7 +97,7 @@ define void @_ZN2cv4gapi8compound7backendEv(ptr dead_on_unwind noalias nocapture
   store ptr %8, ptr %10, align 8, !alias.scope !5
   store ptr %13, ptr %2, align 8, !alias.scope !5
   invoke void @_ZN2cv4gapi8GBackendC1EOSt10shared_ptrINS1_4PrivEE(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN2cv4gapi8compound7backendEvE12this_backend, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %14 unwind label %30
+          to label %14 unwind label %29
 
 14:                                               ; preds = %9
   call void @_ZNSt10shared_ptrIN2cv4gapi8GBackend4PrivEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #10
@@ -106,46 +106,44 @@ define void @_ZN2cv4gapi8compound7backendEv(ptr dead_on_unwind noalias nocapture
   br label %16
 
 16:                                               ; preds = %14, %5, %1
-  %17 = load ptr, ptr @_ZZN2cv4gapi8compound7backendEvE12this_backend, align 8
-  store ptr %17, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2cv4gapi8compound7backendEvE12this_backend, i64 8), align 8
-  store ptr %19, ptr %18, align 8
-  %.not.i.i.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i.i.i, label %_ZN2cv4gapi8GBackendC2ERKS1_.exit, label %20
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2cv4gapi8compound7backendEvE12this_backend, i64 8), align 8
+  %18 = load <2 x ptr>, ptr @_ZZN2cv4gapi8compound7backendEvE12this_backend, align 16
+  store <2 x ptr> %18, ptr %0, align 8
+  %.not.i.i.i.i = icmp eq ptr %17, null
+  br i1 %.not.i.i.i.i, label %_ZN2cv4gapi8GBackendC2ERKS1_.exit, label %19
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
-  %22 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i = icmp eq i8 %22, 0
-  br i1 %.not.i.i.i.i.i, label %26, label %23
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %21 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i = icmp eq i8 %21, 0
+  br i1 %.not.i.i.i.i.i, label %25, label %22
 
-23:                                               ; preds = %20
-  %24 = load i32, ptr %21, align 4
-  %25 = add nsw i32 %24, 1
-  store i32 %25, ptr %21, align 4
+22:                                               ; preds = %19
+  %23 = load i32, ptr %20, align 4
+  %24 = add nsw i32 %23, 1
+  store i32 %24, ptr %20, align 4
   br label %_ZN2cv4gapi8GBackendC2ERKS1_.exit
 
-26:                                               ; preds = %20
-  %27 = atomicrmw volatile add ptr %21, i32 1 acq_rel, align 4
+25:                                               ; preds = %19
+  %26 = atomicrmw volatile add ptr %20, i32 1 acq_rel, align 4
   br label %_ZN2cv4gapi8GBackendC2ERKS1_.exit
 
-_ZN2cv4gapi8GBackendC2ERKS1_.exit:                ; preds = %16, %23, %26
+_ZN2cv4gapi8GBackendC2ERKS1_.exit:                ; preds = %16, %22, %25
   ret void
 
-28:                                               ; preds = %7
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %7
+  %28 = landingpad { ptr, i32 }
           cleanup
-  br label %32
+  br label %31
 
-30:                                               ; preds = %9
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %9
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN2cv4gapi8GBackend4PrivEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #10
-  br label %32
+  br label %31
 
-32:                                               ; preds = %30, %28
-  %.pn = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
+31:                                               ; preds = %29, %27
+  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ]
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cv4gapi8compound7backendEvE12this_backend) #10
   resume { ptr, i32 } %.pn
 }

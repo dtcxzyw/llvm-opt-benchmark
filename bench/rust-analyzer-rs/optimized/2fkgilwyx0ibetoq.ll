@@ -498,9 +498,9 @@ define void @"_ZN77_$LT$cfg..CfgOptions$u20$as$u20$core..iter..traits..collect..
   store ptr %.sroa.0.sroa.0.0.copyload, ptr %3, align 8, !noalias !119
   %.sroa.54.0..sroa_idx5.i = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load <2 x i64>, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
-  %10 = extractelement <2 x i64> %9, i64 0
-  %11 = getelementptr i8, ptr %.sroa.0.sroa.0.0.copyload, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 1
+  %.sroa.0.sroa.4.0.copyload = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %10 = getelementptr i8, ptr %.sroa.0.sroa.0.0.copyload, i64 %.sroa.0.sroa.4.0.copyload
+  %11 = getelementptr i8, ptr %10, i64 1
   store <2 x i64> %9, ptr %.sroa.54.0..sroa_idx5.i, align 8, !noalias !119
   %.sroa.610.0..sroa_idx11.i = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %.sroa.0.sroa.6.0.copyload, ptr %.sroa.610.0..sroa_idx11.i, align 8, !noalias !119
@@ -512,7 +512,7 @@ define void @"_ZN77_$LT$cfg..CfgOptions$u20$as$u20$core..iter..traits..collect..
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %8, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
   %.sroa.01.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %12, ptr %.sroa.01.sroa.6.0..sroa_idx, align 8
+  store ptr %11, ptr %.sroa.01.sroa.6.0..sroa_idx, align 8
   %.sroa.01.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   store i16 %7, ptr %.sroa.01.sroa.7.0..sroa_idx, align 8
   %.sroa.01.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56

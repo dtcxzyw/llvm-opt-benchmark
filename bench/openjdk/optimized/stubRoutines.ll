@@ -631,93 +631,91 @@ define internal fastcc noundef ptr @_ZL16initialize_stubsN17StubCodeGenerator9St
   %13 = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %12, i64 32
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 40
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 8
-  %20 = load i64, ptr %19, align 8
-  %21 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE144ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not = icmp eq ptr %21, null
-  %22 = select i1 %.not, ptr null, ptr @_ZN7LogImplILN6LogTag4typeE144ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz
-  call void @_ZN9TraceTimeC1EPKcPFvS1_zE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %3, ptr noundef %22) #13
-  %23 = load i64, ptr @CodeEntryAlignment, align 8
-  %24 = trunc i64 %23 to i32
-  %25 = mul i32 %24, %2
-  %26 = add i32 %25, %1
-  %27 = call noundef ptr @_ZN10BufferBlob6createEPKcj(ptr noundef %4, i32 noundef %26) #13
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %31
+  %16 = load <2 x ptr>, ptr %15, align 8
+  %17 = load ptr, ptr %15, align 8
+  %18 = getelementptr inbounds i8, ptr %12, i64 8
+  %19 = load i64, ptr %18, align 8
+  %20 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE144ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not = icmp eq ptr %20, null
+  %21 = select i1 %.not, ptr null, ptr @_ZN7LogImplILN6LogTag4typeE144ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz
+  call void @_ZN9TraceTimeC1EPKcPFvS1_zE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %3, ptr noundef %21) #13
+  %22 = load i64, ptr @CodeEntryAlignment, align 8
+  %23 = trunc i64 %22 to i32
+  %24 = mul i32 %23, %2
+  %25 = add i32 %24, %1
+  %26 = call noundef ptr @_ZN10BufferBlob6createEPKcj(ptr noundef %4, i32 noundef %25) #13
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %30
 
-29:                                               ; preds = %5
-  %30 = zext nneg i32 %1 to i64
-  call void (ptr, i32, i64, i32, ptr, ...) @_Z23report_vm_out_of_memoryPKcim11VMErrorTypeS0_z(ptr noundef nonnull @.str.21, i32 noundef 250, i64 noundef %30, i32 noundef -536870911, ptr noundef nonnull @.str.52, ptr noundef %4) #14
+28:                                               ; preds = %5
+  %29 = zext nneg i32 %1 to i64
+  call void (ptr, i32, i64, i32, ptr, ...) @_Z23report_vm_out_of_memoryPKcim11VMErrorTypeS0_z(ptr noundef nonnull @.str.21, i32 noundef 250, i64 noundef %29, i32 noundef -536870911, ptr noundef nonnull @.str.52, ptr noundef %4) #14
   unreachable
 
-31:                                               ; preds = %5
-  call void @_ZN10CodeBufferC1EP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %7, ptr noundef nonnull %27) #13
+30:                                               ; preds = %5
+  call void @_ZN10CodeBufferC1EP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %7, ptr noundef nonnull %26) #13
   call void @_Z22StubGenerator_generateP10CodeBufferN17StubCodeGenerator9StubsKindE(ptr noundef nonnull %7, i32 noundef %0) #13
-  %32 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE150ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not4 = icmp eq ptr %32, null
-  br i1 %.not4, label %55, label %33
+  %31 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE150ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not4 = icmp eq ptr %31, null
+  br i1 %.not4, label %54, label %32
 
-33:                                               ; preds = %31
+32:                                               ; preds = %30
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %8, i1 noundef zeroext false) #13
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %8, align 8
-  %34 = getelementptr inbounds i8, ptr %8, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %34) #13
-  %35 = getelementptr inbounds i8, ptr %8, i64 144
-  store i32 3, ptr %35, align 8
+  %33 = getelementptr inbounds i8, ptr %8, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %33) #13
+  %34 = getelementptr inbounds i8, ptr %8, i64 144
+  store i32 3, ptr %34, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %8, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE150ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %8, align 8
-  %36 = getelementptr inbounds i8, ptr %27, i64 32
-  %37 = load i32, ptr %36, align 8
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i8, ptr %27, i64 %38
-  %40 = ptrtoint ptr %39 to i64
-  %41 = getelementptr inbounds i8, ptr %27, i64 40
-  %42 = load i32, ptr %41, align 8
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i8, ptr %27, i64 %43
-  %45 = ptrtoint ptr %44 to i64
-  %46 = call noundef i32 @_ZNK10CodeBuffer18total_content_sizeEv(ptr noundef nonnull align 8 dereferenceable(448) %7) #13
-  %47 = getelementptr inbounds i8, ptr %7, i64 120
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %7, i64 112
-  %50 = load ptr, ptr %49, align 8
-  %51 = ptrtoint ptr %48 to i64
-  %52 = ptrtoint ptr %50 to i64
-  %53 = sub i64 %51, %52
-  %54 = trunc i64 %53 to i32
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str.53, ptr noundef %4, i64 noundef %40, i64 noundef %45, i32 noundef %46, i32 noundef %54) #13
+  %35 = getelementptr inbounds i8, ptr %26, i64 32
+  %36 = load i32, ptr %35, align 8
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds i8, ptr %26, i64 %37
+  %39 = ptrtoint ptr %38 to i64
+  %40 = getelementptr inbounds i8, ptr %26, i64 40
+  %41 = load i32, ptr %40, align 8
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr inbounds i8, ptr %26, i64 %42
+  %44 = ptrtoint ptr %43 to i64
+  %45 = call noundef i32 @_ZNK10CodeBuffer18total_content_sizeEv(ptr noundef nonnull align 8 dereferenceable(448) %7) #13
+  %46 = getelementptr inbounds i8, ptr %7, i64 120
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %7, i64 112
+  %49 = load ptr, ptr %48, align 8
+  %50 = ptrtoint ptr %47 to i64
+  %51 = ptrtoint ptr %49 to i64
+  %52 = sub i64 %50, %51
+  %53 = trunc i64 %52 to i32
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str.53, ptr noundef %4, i64 noundef %39, i64 noundef %44, i32 noundef %45, i32 noundef %53) #13
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %8) #13
-  br label %55
+  br label %54
 
-55:                                               ; preds = %33, %31
+54:                                               ; preds = %32, %30
   call void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448) %7) #13
   call void @_ZN9TraceTimeD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #13
-  %56 = load ptr, ptr %14, align 8
-  %.not.i.i.i.i = icmp eq ptr %56, null
-  br i1 %.not.i.i.i.i, label %58, label %57
+  %55 = load ptr, ptr %14, align 8
+  %.not.i.i.i.i = icmp eq ptr %55, null
+  br i1 %.not.i.i.i.i, label %57, label %56
 
-57:                                               ; preds = %55
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef %20) #13
+56:                                               ; preds = %54
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef %19) #13
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %14) #13
-  br label %58
+  br label %57
 
-58:                                               ; preds = %57, %55
-  %59 = load ptr, ptr %15, align 8
-  %.not8.i.i.i.i = icmp eq ptr %59, %16
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %60
+57:                                               ; preds = %56, %54
+  %58 = load ptr, ptr %15, align 8
+  %.not8.i.i.i.i = icmp eq ptr %58, %17
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %59
 
-60:                                               ; preds = %58
+59:                                               ; preds = %57
   store ptr %14, ptr %13, align 8
-  store ptr %16, ptr %15, align 8
-  store ptr %18, ptr %17, align 8
+  store <2 x ptr> %16, ptr %15, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %58, %60
-  ret ptr %27
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %57, %59
+  ret ptr %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

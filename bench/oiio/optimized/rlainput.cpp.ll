@@ -2258,16 +2258,17 @@ if.end:                                           ; preds = %entry
   store i16 %11, ptr %FieldRendered.i, align 4
   %NumOfChannelBits.i = getelementptr inbounds i8, ptr %this, i64 874
   %12 = load <4 x i16>, ptr %NumOfChannelBits.i, align 2
-  %13 = tail call <4 x i16> @llvm.bswap.v4i16(<4 x i16> %12)
-  store <4 x i16> %13, ptr %NumOfChannelBits.i, align 2
+  %13 = load i16, ptr %NumOfChannelBits.i, align 2
+  %14 = tail call <4 x i16> @llvm.bswap.v4i16(<4 x i16> %12)
+  store <4 x i16> %14, ptr %NumOfChannelBits.i, align 2
   %NumOfAuxBits.i = getelementptr inbounds i8, ptr %this, i64 882
-  %14 = load i16, ptr %NumOfAuxBits.i, align 2
-  %15 = tail call i16 @llvm.bswap.i16(i16 %14)
-  store i16 %15, ptr %NumOfAuxBits.i, align 2
+  %15 = load i16, ptr %NumOfAuxBits.i, align 2
+  %16 = tail call i16 @llvm.bswap.i16(i16 %15)
+  store i16 %16, ptr %NumOfAuxBits.i, align 2
   %NextOffset.i = getelementptr inbounds i8, ptr %this, i64 952
-  %16 = load i32, ptr %NextOffset.i, align 8
-  %17 = tail call i32 @llvm.bswap.i32(i32 %16)
-  store i32 %17, ptr %NextOffset.i, align 8
+  %17 = load i32, ptr %NextOffset.i, align 8
+  %18 = tail call i32 @llvm.bswap.i32(i32 %17)
+  store i32 %18, ptr %NextOffset.i, align 8
   switch i16 %7, label %if.then8 [
     i16 -2, label %if.end11
     i16 0, label %if.end11
@@ -2278,12 +2279,12 @@ if.then8:                                         ; preds = %if.end
   br label %return
 
 if.end11:                                         ; preds = %if.end, %if.end
-  %18 = extractelement <4 x i16> %13, i64 0
-  %or.cond = icmp ugt i16 %18, 32
-  %19 = extractelement <4 x i16> %13, i64 2
-  %or.cond1 = icmp ugt i16 %19, 32
+  %19 = extractelement <4 x i16> %14, i64 0
+  %or.cond = icmp ugt i16 %19, 32
+  %20 = extractelement <4 x i16> %14, i64 2
+  %or.cond1 = icmp ugt i16 %20, 32
   %or.cond5 = select i1 %or.cond, i1 true, i1 %or.cond1
-  %or.cond2 = icmp ugt i16 %15, 32
+  %or.cond2 = icmp ugt i16 %16, 32
   %or.cond6 = select i1 %or.cond5, i1 true, i1 %or.cond2
   br i1 %or.cond6, label %if.then37, label %if.end38
 
@@ -2292,8 +2293,7 @@ if.then37:                                        ; preds = %if.end11
   br label %return
 
 if.end38:                                         ; preds = %if.end11
-  %20 = extractelement <4 x i16> %12, i64 0
-  %cmp42 = icmp eq i16 %20, 0
+  %cmp42 = icmp eq i16 %13, 0
   br i1 %cmp42, label %if.then43, label %if.end46
 
 if.then43:                                        ; preds = %if.end38
@@ -18768,14 +18768,14 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEeTnNSt9en
 if.end:
   %ref.tmp2.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp.i19 = alloca %class.anon.76, align 8
-  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 8
+  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 16
   %ref.tmp.i = alloca %class.anon.57, align 8
-  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 8
+  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 16
   %ref.tmp = alloca %"struct.fmt::v8::detail::error_handler", align 1
   %buffer = alloca %"class.fmt::v8::basic_memory_buffer", align 8
   %ref.tmp77 = alloca %"class.std::allocator.12", align 1
   %fp = alloca %"struct.fmt::v8::detail::big_decimal_fp", align 8
-  store i64 %specs.coerce0, ptr %specs, align 8
+  store i64 %specs.coerce0, ptr %specs, align 16
   %0 = getelementptr inbounds i8, ptr %specs, i64 8
   store i64 %specs.coerce1, ptr %0, align 8
   %call4 = call i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -18810,13 +18810,11 @@ if.end24:                                         ; preds = %if.else, %if.then9
 
 if.then26:                                        ; preds = %if.end24
   %6 = fcmp oeq x86_fp80 %value.addr.0, 0xK7FFF8000000000000000
-  %agg.tmp28.sroa.0.0.copyload = load i64, ptr %specs, align 8
-  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  store i64 %agg.tmp28.sroa.0.0.copyload, ptr %specs.i, align 8
-  %7 = getelementptr inbounds i8, ptr %specs.i, i64 8
-  store i64 %agg.tmp28.sroa.2.0.copyload, ptr %7, align 8
+  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
+  %7 = load <2 x i64>, ptr %specs, align 16
+  store <2 x i64> %7, ptr %specs.i, align 16
   %8 = and i64 %agg.tmp28.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %8, 72057594843234304
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -18883,13 +18881,13 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %if
   %arrayidx.i.i = getelementptr inbounds i8, ptr %17, i64 %16
   store i8 %12, ptr %arrayidx.i.i, align 1
   %bf.clear70 = and i32 %fspecs.sroa.5.0, -65281
-  %18 = load i32, ptr %specs, align 8
+  %18 = load i32, ptr %specs, align 16
   %cmp72.not = icmp eq i32 %18, 0
   br i1 %cmp72.not, label %if.end76, label %if.then73
 
 if.then73:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit
   %dec = add nsw i32 %18, -1
-  store i32 %dec, ptr %specs, align 8
+  store i32 %dec, ptr %specs, align 16
   br label %if.end76
 
 if.end76:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit, %if.then73, %if.end34
@@ -34984,14 +34982,14 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEfTnNSt9en
 if.end:
   %ref.tmp2.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp.i19 = alloca %class.anon.76, align 8
-  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 8
+  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 16
   %ref.tmp.i = alloca %class.anon.57, align 8
-  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 8
+  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 16
   %ref.tmp = alloca %"struct.fmt::v8::detail::error_handler", align 1
   %buffer = alloca %"class.fmt::v8::basic_memory_buffer", align 8
   %ref.tmp77 = alloca %"class.std::allocator.12", align 1
   %fp = alloca %"struct.fmt::v8::detail::big_decimal_fp", align 8
-  store i64 %specs.coerce0, ptr %specs, align 8
+  store i64 %specs.coerce0, ptr %specs, align 16
   %0 = getelementptr inbounds i8, ptr %specs, i64 8
   store i64 %specs.coerce1, ptr %0, align 8
   %call4 = call i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -35026,13 +35024,11 @@ if.end24:                                         ; preds = %if.else, %if.then9
 
 if.then26:                                        ; preds = %if.end24
   %6 = fcmp oeq float %value.addr.0, 0x7FF0000000000000
-  %agg.tmp28.sroa.0.0.copyload = load i64, ptr %specs, align 8
-  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  store i64 %agg.tmp28.sroa.0.0.copyload, ptr %specs.i, align 8
-  %7 = getelementptr inbounds i8, ptr %specs.i, i64 8
-  store i64 %agg.tmp28.sroa.2.0.copyload, ptr %7, align 8
+  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
+  %7 = load <2 x i64>, ptr %specs, align 16
+  store <2 x i64> %7, ptr %specs.i, align 16
   %8 = and i64 %agg.tmp28.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %8, 72057594843234304
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -35099,13 +35095,13 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %if
   %arrayidx.i.i = getelementptr inbounds i8, ptr %17, i64 %16
   store i8 %12, ptr %arrayidx.i.i, align 1
   %bf.clear70 = and i32 %fspecs.sroa.5.0, -65281
-  %18 = load i32, ptr %specs, align 8
+  %18 = load i32, ptr %specs, align 16
   %cmp72.not = icmp eq i32 %18, 0
   br i1 %cmp72.not, label %if.end76, label %if.then73
 
 if.then73:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit
   %dec = add nsw i32 %18, -1
-  store i32 %dec, ptr %specs, align 8
+  store i32 %dec, ptr %specs, align 16
   br label %if.end76
 
 if.end76:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit, %if.then73, %if.end34
@@ -36185,14 +36181,14 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEdTnNSt9en
 if.end:
   %ref.tmp2.i = alloca %"class.fmt::v8::format_error", align 8
   %ref.tmp.i19 = alloca %class.anon.76, align 8
-  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 8
+  %specs.i = alloca %"struct.fmt::v8::basic_format_specs", align 16
   %ref.tmp.i = alloca %class.anon.57, align 8
-  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 8
+  %specs = alloca %"struct.fmt::v8::basic_format_specs", align 16
   %ref.tmp = alloca %"struct.fmt::v8::detail::error_handler", align 1
   %buffer = alloca %"class.fmt::v8::basic_memory_buffer", align 8
   %ref.tmp77 = alloca %"class.std::allocator.12", align 1
   %fp = alloca %"struct.fmt::v8::detail::big_decimal_fp", align 8
-  store i64 %specs.coerce0, ptr %specs, align 8
+  store i64 %specs.coerce0, ptr %specs, align 16
   %0 = getelementptr inbounds i8, ptr %specs, i64 8
   store i64 %specs.coerce1, ptr %0, align 8
   %call4 = call i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -36227,13 +36223,11 @@ if.end24:                                         ; preds = %if.else, %if.then9
 
 if.then26:                                        ; preds = %if.end24
   %6 = fcmp oeq double %value.addr.0, 0x7FF0000000000000
-  %agg.tmp28.sroa.0.0.copyload = load i64, ptr %specs, align 8
-  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  store i64 %agg.tmp28.sroa.0.0.copyload, ptr %specs.i, align 8
-  %7 = getelementptr inbounds i8, ptr %specs.i, i64 8
-  store i64 %agg.tmp28.sroa.2.0.copyload, ptr %7, align 8
+  %agg.tmp28.sroa.2.0.copyload = load i64, ptr %0, align 8
+  %7 = load <2 x i64>, ptr %specs, align 16
+  store <2 x i64> %7, ptr %specs.i, align 16
   %8 = and i64 %agg.tmp28.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %8, 72057594843234304
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -36300,13 +36294,13 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %if
   %arrayidx.i.i = getelementptr inbounds i8, ptr %17, i64 %16
   store i8 %12, ptr %arrayidx.i.i, align 1
   %bf.clear70 = and i32 %fspecs.sroa.5.0, -65281
-  %18 = load i32, ptr %specs, align 8
+  %18 = load i32, ptr %specs, align 16
   %cmp72.not = icmp eq i32 %18, 0
   br i1 %cmp72.not, label %if.end76, label %if.then73
 
 if.then73:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit
   %dec = add nsw i32 %18, -1
-  store i32 %dec, ptr %specs, align 8
+  store i32 %dec, ptr %specs, align 16
   br label %if.end76
 
 if.end76:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit, %if.then73, %if.end34

@@ -3180,22 +3180,22 @@ define dso_local void @RelationBuildTriggers(ptr nocapture noundef %0) local_unn
   %170 = phi i8 [ %.promoted139, %.lr.ph120 ], [ %219, %SetTriggerFlags.exit ]
   %171 = phi i8 [ %.promoted138, %.lr.ph120 ], [ %200, %SetTriggerFlags.exit ]
   %172 = phi i8 [ %.promoted137, %.lr.ph120 ], [ %190, %SetTriggerFlags.exit ]
-  %173 = phi <16 x i8> [ %167, %.lr.ph120 ], [ %185, %SetTriggerFlags.exit ]
+  %173 = phi <16 x i8> [ %167, %.lr.ph120 ], [ %186, %SetTriggerFlags.exit ]
   %174 = getelementptr %struct.Trigger, ptr %.0101.lcssa, i64 %indvars.iv143
   %175 = getelementptr inbounds i8, ptr %174, i64 20
   %176 = load i16, ptr %175, align 4
   %177 = zext i16 %176 to i32
   %178 = and <16 x i8> %173, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %179 = insertelement <4 x i32> poison, i32 %177, i64 0
-  %180 = shufflevector <4 x i32> %179, <4 x i32> poison, <4 x i32> zeroinitializer
-  %181 = and <4 x i32> %180, <i32 71, i32 83, i32 75, i32 99>
-  %182 = shufflevector <4 x i32> %181, <4 x i32> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2, i32 2, i32 2, i32 2, i32 2, i32 3>
-  %183 = icmp eq <16 x i32> %182, <i32 7, i32 5, i32 69, i32 6, i32 4, i32 19, i32 17, i32 81, i32 18, i32 16, i32 11, i32 9, i32 73, i32 10, i32 8, i32 34>
-  %184 = zext <16 x i1> %183 to <16 x i8>
-  %185 = or <16 x i8> %178, %184
-  store <16 x i8> %185, ptr %161, align 4
-  %186 = extractelement <4 x i32> %181, i64 3
-  %187 = icmp eq i32 %186, 32
+  %179 = and i32 %177, 99
+  %180 = insertelement <4 x i32> poison, i32 %177, i64 0
+  %181 = shufflevector <4 x i32> %180, <4 x i32> poison, <4 x i32> zeroinitializer
+  %182 = and <4 x i32> %181, <i32 71, i32 83, i32 75, i32 99>
+  %183 = shufflevector <4 x i32> %182, <4 x i32> poison, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2, i32 2, i32 2, i32 2, i32 2, i32 3>
+  %184 = icmp eq <16 x i32> %183, <i32 7, i32 5, i32 69, i32 6, i32 4, i32 19, i32 17, i32 81, i32 18, i32 16, i32 11, i32 9, i32 73, i32 10, i32 8, i32 34>
+  %185 = zext <16 x i1> %184 to <16 x i8>
+  %186 = or <16 x i8> %178, %185
+  store <16 x i8> %186, ptr %161, align 4
+  %187 = icmp eq i32 %179, 32
   %188 = and i8 %172, 1
   %189 = zext i1 %187 to i8
   %190 = or i8 %188, %189

@@ -1190,7 +1190,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfb5d002f
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load <2 x i64>, ptr %4, align 8
-  %9 = extractelement <2 x i64> %8, i64 0
+  %9 = load i64, ptr %4, align 8, !noundef !9
   %10 = add i64 %9, 1
   store i64 %10, ptr %4, align 8
   store <2 x i64> %8, ptr %7, align 8
@@ -23076,7 +23076,7 @@ define hidden void @_ZN9itertools11unique_impl6unique17h6fadde9f1d8a73cfE(ptr no
   %.sroa.0.712..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 712
   %.sroa.52.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 744
   %12 = load <2 x i64>, ptr %.0.i.i12, align 8, !noalias !3391
-  %13 = extractelement <2 x i64> %12, i64 0
+  %13 = load i64, ptr %.0.i.i12, align 8, !noalias !3391, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %.0.i.i12, align 8, !noalias !3391
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(712) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(712) %4, i64 712, i1 false)
@@ -23135,7 +23135,7 @@ define hidden void @_ZN9itertools11unique_impl6unique17haff016f76ee52494E(ptr no
   %.0.i.i13 = phi ptr [ %7, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %2 ]
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   %12 = load <2 x i64>, ptr %.0.i.i13, align 8, !noalias !3400
-  %13 = extractelement <2 x i64> %12, i64 0
+  %13 = load i64, ptr %.0.i.i13, align 8, !noalias !3400, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %.0.i.i13, align 8, !noalias !3400
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(128) %4, i64 128, i1 false)
@@ -23196,7 +23196,7 @@ define hidden void @_ZN9itertools11unique_impl6unique17hbc8e3e099df48aeeE(ptr no
   %.sroa.0.32..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 32
   %.sroa.52.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   %12 = load <2 x i64>, ptr %.0.i.i11, align 8, !noalias !3409
-  %13 = extractelement <2 x i64> %12, i64 0
+  %13 = load i64, ptr %.0.i.i11, align 8, !noalias !3409, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %.0.i.i11, align 8, !noalias !3409
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -23254,7 +23254,7 @@ define hidden void @_ZN9itertools11unique_impl9unique_by17h6d15a55e2d0e5389E(ptr
   %12 = getelementptr inbounds i8, ptr %0, i64 48
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   %13 = load <2 x i64>, ptr %.0.i.i7, align 8, !noalias !3418
-  %14 = extractelement <2 x i64> %13, i64 0
+  %14 = load i64, ptr %.0.i.i7, align 8, !noalias !3418, !noundef !9
   %15 = add i64 %14, 1
   store i64 %15, ptr %.0.i.i7, align 8, !noalias !3418
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %12, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 88, i1 false)
@@ -23310,7 +23310,7 @@ define hidden void @_ZN9itertools11unique_impl9unique_by17hd1bf4ea020916004E(ptr
   %12 = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   %13 = load <2 x i64>, ptr %.0.i.i7, align 8, !noalias !3427
-  %14 = extractelement <2 x i64> %13, i64 0
+  %14 = load i64, ptr %.0.i.i7, align 8, !noalias !3427, !noundef !9
   %15 = add i64 %14, 1
   store i64 %15, ptr %.0.i.i7, align 8, !noalias !3427
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)

@@ -17790,8 +17790,8 @@ _ZN4core3ops8function6FnOnce9call_once17h8f19ffcb85ad5365E.exit.thread.thread: ;
 
 975:                                              ; preds = %972
   %976 = load <2 x i32>, ptr %6, align 8, !noalias !3514
+  %977 = load i32, ptr %6, align 8, !range !106, !noalias !3514, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !3514
-  %977 = extractelement <2 x i32> %976, i64 0
   %978 = icmp eq i32 %977, 3
   br i1 %978, label %979, label %981
 

@@ -5360,13 +5360,12 @@ define linkonce_odr void @_ZSt4swapIN5Yosys7hashlib4dictINSt7__cxx1112basic_stri
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds i8, ptr %3, i64 32
-  %15 = load ptr, ptr %13, align 8
-  store ptr %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %14, align 16
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
-  %19 = load ptr, ptr %18, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = load <2 x ptr>, ptr %15, align 8
+  %18 = load <2 x ptr>, ptr %13, align 8
+  %19 = load ptr, ptr %13, align 8
+  store <2 x ptr> %18, ptr %4, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   tail call void @_ZNSt6vectorIN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_15LogExpectedItemENS1_8hash_opsIS8_EEE7entry_tESaISD_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #28
   %20 = load ptr, ptr %11, align 8
@@ -5382,16 +5381,16 @@ define linkonce_odr void @_ZSt4swapIN5Yosys7hashlib4dictINSt7__cxx1112basic_stri
   store <2 x ptr> %24, ptr %1, align 8
   store ptr %20, ptr %23, align 8
   %27 = getelementptr inbounds i8, ptr %1, i64 24
-  %28 = load ptr, ptr %18, align 8
+  %28 = load ptr, ptr %16, align 8
   %29 = load ptr, ptr %27, align 8
   %30 = getelementptr inbounds i8, ptr %1, i64 32
   %31 = getelementptr inbounds i8, ptr %1, i64 40
   %32 = load <2 x ptr>, ptr %13, align 8
   store ptr %29, ptr %13, align 8
   %33 = load ptr, ptr %30, align 8
-  store ptr %33, ptr %16, align 8
+  store ptr %33, ptr %15, align 8
   %34 = load ptr, ptr %31, align 8
-  store ptr %34, ptr %18, align 8
+  store ptr %34, ptr %16, align 8
   store <2 x ptr> %32, ptr %27, align 8
   store ptr %28, ptr %31, align 8
   %35 = load ptr, ptr %1, align 8
@@ -5411,11 +5410,10 @@ define linkonce_odr void @_ZSt4swapIN5Yosys7hashlib4dictINSt7__cxx1112basic_stri
   store <2 x ptr> %39, ptr %3, align 16
   %40 = load <2 x ptr>, ptr %23, align 8
   store ptr %12, ptr %23, align 8
-  store ptr %15, ptr %27, align 8
+  store ptr %19, ptr %27, align 8
   store <2 x ptr> %40, ptr %6, align 16
   %41 = load <2 x ptr>, ptr %30, align 8
-  store ptr %17, ptr %30, align 8
-  store ptr %19, ptr %31, align 8
+  store <2 x ptr> %17, ptr %30, align 8
   store <2 x ptr> %41, ptr %14, align 16
   call void @_ZNSt6vectorIN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_15LogExpectedItemENS1_8hash_opsIS8_EEE7entry_tESaISD_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #28
   %42 = load ptr, ptr %3, align 16
@@ -11295,20 +11293,18 @@ _ZNSt6vectorINSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic
   %25 = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.06.0.copyload = load ptr, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.0.0.copyload = load ptr, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 48
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 112
-  %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 32
+  %28 = getelementptr inbounds i8, ptr %0, i64 112
+  %29 = load i32, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  store ptr %.sroa.06.0.copyload, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 40
-  store ptr %.sroa.0.0.copyload, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 48
-  store ptr %28, ptr %33, align 8
+  store ptr %.sroa.06.0.copyload, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %4, i64 40
+  %32 = load ptr, ptr %27, align 8
+  %33 = load <2 x ptr>, ptr %26, align 8
+  store <2 x ptr> %33, ptr %31, align 8
   %34 = getelementptr inbounds i8, ptr %4, i64 56
-  %35 = getelementptr inbounds i8, ptr %28, i64 16
+  %35 = getelementptr inbounds i8, ptr %32, i64 16
   %36 = load ptr, ptr %35, align 8
   store ptr %36, ptr %34, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 64
@@ -11368,10 +11364,10 @@ _ZNSt12_Vector_baseISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic
   %58 = getelementptr inbounds i8, ptr %4, i64 96
   %59 = getelementptr inbounds i8, ptr %4, i64 104
   %60 = getelementptr inbounds i8, ptr %4, i64 112
-  %61 = and i32 %30, 128
+  %61 = and i32 %29, 128
   %.not.i = icmp eq i32 %61, 0
-  %62 = and i32 %30, -6
-  %spec.select = select i1 %.not.i, i32 %30, i32 %62
+  %62 = and i32 %29, -6
+  %spec.select = select i1 %.not.i, i32 %29, i32 %62
   store i32 %spec.select, ptr %60, align 8
   store i64 %1, ptr %58, align 8
   %63 = getelementptr inbounds i8, ptr %4, i64 24

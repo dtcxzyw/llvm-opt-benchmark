@@ -422,15 +422,15 @@ define linkonce_odr void @_ZN3gmx19changePinningPolicyISt6vectorIiNS_9AllocatorI
   store ptr %14, ptr %11, align 8
   %15 = getelementptr inbounds i8, ptr %3, i64 24
   %16 = load <2 x ptr>, ptr %9, align 8
-  %17 = load <2 x ptr>, ptr %10, align 8
-  store <2 x ptr> %17, ptr %9, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = load <2 x ptr>, ptr %10, align 8
+  store <2 x ptr> %18, ptr %9, align 8
   store <2 x ptr> %16, ptr %8, align 8
   store ptr %12, ptr %15, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  %18 = load i32, ptr %4, align 8
-  store i32 %18, ptr %0, align 4
-  %19 = extractelement <2 x ptr> %16, i64 0
-  %.not.i.i.i.i.i = icmp eq ptr %19, null
+  %19 = load i32, ptr %4, align 8
+  store i32 %19, ptr %0, align 4
+  %.not.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEEaSEOS4_.exit.thread, label %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEEaSEOS4_.exit
 
 _ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEEaSEOS4_.exit.thread: ; preds = %2
@@ -438,7 +438,7 @@ _ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEEaSEOS4_.exit.thread
   br label %_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEED2Ev.exit
 
 _ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEEaSEOS4_.exit: ; preds = %2
-  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull %19) #19
+  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull %17) #19
   %.pr = load ptr, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %.not.i.i.i = icmp eq ptr %.pr, null

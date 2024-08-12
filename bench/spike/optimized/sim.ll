@@ -352,7 +352,7 @@ define void @_ZN5sim_tC2EPK5cfg_tbSt6vectorISt4pairImP14abstract_mem_tESaIS7_EES
   %25 = alloca %"class.std::__cxx11::basic_string", align 8
   %26 = alloca %"class.std::__cxx11::basic_string", align 8
   %27 = alloca i64, align 8
-  %28 = alloca %"class.std::shared_ptr.253", align 8
+  %28 = alloca %"class.std::shared_ptr.253", align 16
   %29 = alloca %"class.std::shared_ptr.253", align 8
   %30 = alloca i64, align 8
   %31 = alloca i64, align 8
@@ -1597,7 +1597,7 @@ _ZNSt6vectorIP11processor_tSaIS1_EED2Ev.exit194:  ; preds = %.loopexit275, %.loo
   br i1 %.not123, label %_ZNSt10shared_ptrI17abstract_device_tED2Ev.exit234, label %518
 
 518:                                              ; preds = %517
-  store ptr %516, ptr %28, align 8
+  store ptr %516, ptr %28, align 16
   store ptr null, ptr %504, align 8
   %519 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %533 unwind label %520
@@ -1781,13 +1781,13 @@ _ZNSt10shared_ptrI17abstract_device_tED2Ev.exit:  ; preds = %_ZN5sim_t10add_devi
   ]
 
 595:                                              ; preds = %_ZNSt10shared_ptrI17abstract_device_tED2Ev.exit
-  %596 = load ptr, ptr %28, align 8, !noalias !7
-  %597 = load ptr, ptr %504, align 8, !noalias !7
-  %.not.i.i.i.i203 = icmp eq ptr %597, null
+  %596 = load ptr, ptr %504, align 8, !noalias !7
+  %597 = load <2 x ptr>, ptr %28, align 16, !noalias !7
+  %.not.i.i.i.i203 = icmp eq ptr %596, null
   br i1 %.not.i.i.i.i203, label %_ZSt19static_pointer_castI7clint_t17abstract_device_tESt10shared_ptrIT_ERKS2_IT0_E.exit, label %598
 
 598:                                              ; preds = %595
-  %599 = getelementptr inbounds i8, ptr %597, i64 8
+  %599 = getelementptr inbounds i8, ptr %596, i64 8
   %600 = load i8, ptr @__libc_single_threaded, align 1, !noalias !7
   %.not.i.i.i.i.i = icmp eq i8 %600, 0
   br i1 %.not.i.i.i.i.i, label %604, label %601
@@ -1803,9 +1803,8 @@ _ZNSt10shared_ptrI17abstract_device_tED2Ev.exit:  ; preds = %_ZN5sim_t10add_devi
   br label %_ZSt19static_pointer_castI7clint_t17abstract_device_tESt10shared_ptrIT_ERKS2_IT0_E.exit
 
 _ZSt19static_pointer_castI7clint_t17abstract_device_tESt10shared_ptrIT_ERKS2_IT0_E.exit: ; preds = %595, %601, %604
-  store ptr %596, ptr %101, align 8
   %606 = load ptr, ptr %509, align 8
-  store ptr %597, ptr %509, align 8
+  store <2 x ptr> %597, ptr %101, align 8
   %.not.i.i.i.i204 = icmp eq ptr %606, null
   br i1 %.not.i.i.i.i204, label %_ZNSt10shared_ptrI7clint_tED2Ev.exit, label %607
 
@@ -1868,13 +1867,13 @@ _ZSt19static_pointer_castI7clint_t17abstract_device_tESt10shared_ptrIT_ERKS2_IT0
   br label %.body195
 
 635:                                              ; preds = %_ZNSt10shared_ptrI17abstract_device_tED2Ev.exit
-  %636 = load ptr, ptr %28, align 8, !noalias !10
-  %637 = load ptr, ptr %504, align 8, !noalias !10
-  %.not.i.i.i.i214 = icmp eq ptr %637, null
+  %636 = load ptr, ptr %504, align 8, !noalias !10
+  %637 = load <2 x ptr>, ptr %28, align 16, !noalias !10
+  %.not.i.i.i.i214 = icmp eq ptr %636, null
   br i1 %.not.i.i.i.i214, label %_ZSt19static_pointer_castI6plic_t17abstract_device_tESt10shared_ptrIT_ERKS2_IT0_E.exit, label %638
 
 638:                                              ; preds = %635
-  %639 = getelementptr inbounds i8, ptr %637, i64 8
+  %639 = getelementptr inbounds i8, ptr %636, i64 8
   %640 = load i8, ptr @__libc_single_threaded, align 1, !noalias !10
   %.not.i.i.i.i.i215 = icmp eq i8 %640, 0
   br i1 %.not.i.i.i.i.i215, label %644, label %641
@@ -1890,9 +1889,8 @@ _ZSt19static_pointer_castI7clint_t17abstract_device_tESt10shared_ptrIT_ERKS2_IT0
   br label %_ZSt19static_pointer_castI6plic_t17abstract_device_tESt10shared_ptrIT_ERKS2_IT0_E.exit
 
 _ZSt19static_pointer_castI6plic_t17abstract_device_tESt10shared_ptrIT_ERKS2_IT0_E.exit: ; preds = %635, %641, %644
-  store ptr %636, ptr %102, align 8
   %646 = load ptr, ptr %508, align 8
-  store ptr %637, ptr %508, align 8
+  store <2 x ptr> %637, ptr %102, align 8
   %.not.i.i.i.i216 = icmp eq ptr %646, null
   br i1 %.not.i.i.i.i216, label %_ZNSt10shared_ptrI7clint_tED2Ev.exit, label %647
 
@@ -5928,86 +5926,84 @@ _ZNKSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE12_M_check_lenEmPKc.exi
 _ZNSt12_Vector_baseISt10shared_ptrI17abstract_device_tESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"class.std::shared_ptr.253", ptr %23, i64 %19
-  %25 = load ptr, ptr %2, align 8
-  store ptr %25, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %26, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrI17abstract_device_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit, label %29
+  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = load <2 x ptr>, ptr %2, align 8
+  store <2 x ptr> %27, ptr %24, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrI17abstract_device_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit, label %28
 
-29:                                               ; preds = %_ZNSt12_Vector_baseISt10shared_ptrI17abstract_device_tESaIS2_EE11_M_allocateEm.exit
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
-  %31 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i.i.i.i.i, label %35, label %32
+28:                                               ; preds = %_ZNSt12_Vector_baseISt10shared_ptrI17abstract_device_tESaIS2_EE11_M_allocateEm.exit
+  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %30, 0
+  br i1 %.not.i.i.i.i.i.i, label %34, label %31
 
-32:                                               ; preds = %29
-  %33 = load i32, ptr %30, align 4
-  %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %30, align 4
+31:                                               ; preds = %28
+  %32 = load i32, ptr %29, align 4
+  %33 = add nsw i32 %32, 1
+  store i32 %33, ptr %29, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrI17abstract_device_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
 
-35:                                               ; preds = %29
-  %36 = atomicrmw volatile add ptr %30, i32 1 acq_rel, align 4
+34:                                               ; preds = %28
+  %35 = atomicrmw volatile add ptr %29, i32 1 acq_rel, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrI17abstract_device_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
 
-_ZNSt16allocator_traitsISaISt10shared_ptrI17abstract_device_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseISt10shared_ptrI17abstract_device_tESaIS2_EE11_M_allocateEm.exit, %32, %35
+_ZNSt16allocator_traitsISaISt10shared_ptrI17abstract_device_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseISt10shared_ptrI17abstract_device_tESaIS2_EE11_M_allocateEm.exit, %31, %34
   %.not10.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaISt10shared_ptrI17abstract_device_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrI17abstract_device_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
-  %.0911.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaISt10shared_ptrI17abstract_device_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
+  %.012.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrI17abstract_device_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
+  %.0911.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaISt10shared_ptrI17abstract_device_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  %37 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
-  %38 = load <2 x ptr>, ptr %.0911.i.i.i, align 8, !alias.scope !30, !noalias !27
-  store ptr null, ptr %37, align 8, !alias.scope !30, !noalias !27
-  store <2 x ptr> %38, ptr %.012.i.i.i, align 8, !alias.scope !27, !noalias !30
+  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
+  %37 = load <2 x ptr>, ptr %.0911.i.i.i, align 8, !alias.scope !30, !noalias !27
+  store ptr null, ptr %36, align 8, !alias.scope !30, !noalias !27
+  store <2 x ptr> %37, ptr %.012.i.i.i, align 8, !alias.scope !27, !noalias !30
   store ptr null, ptr %.0911.i.i.i, align 8, !alias.scope !30, !noalias !27
-  %39 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %40 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  %.not.i.i.i = icmp eq ptr %39, %1
+  %38 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %39 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %.not.i.i.i = icmp eq ptr %38, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !32
 
 _ZNSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrI17abstract_device_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrI17abstract_device_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ], [ %40, %.lr.ph.i.i.i ]
-  %41 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 16
+  %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrI17abstract_device_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ], [ %39, %.lr.ph.i.i.i ]
+  %40 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 16
   %.not10.i.i.i16 = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i17
-  %.012.i.i.i18 = phi ptr [ %45, %.lr.ph.i.i.i17 ], [ %41, %_ZNSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  %.0911.i.i.i19 = phi ptr [ %44, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
+  %.012.i.i.i18 = phi ptr [ %44, %.lr.ph.i.i.i17 ], [ %40, %_ZNSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
+  %.0911.i.i.i19 = phi ptr [ %43, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
-  %42 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 8
-  %43 = load <2 x ptr>, ptr %.0911.i.i.i19, align 8, !alias.scope !36, !noalias !33
-  store ptr null, ptr %42, align 8, !alias.scope !36, !noalias !33
-  store <2 x ptr> %43, ptr %.012.i.i.i18, align 8, !alias.scope !33, !noalias !36
+  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 8
+  %42 = load <2 x ptr>, ptr %.0911.i.i.i19, align 8, !alias.scope !36, !noalias !33
+  store ptr null, ptr %41, align 8, !alias.scope !36, !noalias !33
+  store <2 x ptr> %42, ptr %.012.i.i.i18, align 8, !alias.scope !33, !noalias !36
   store ptr null, ptr %.0911.i.i.i19, align 8, !alias.scope !36, !noalias !33
-  %44 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
-  %45 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
-  %.not.i.i.i20 = icmp eq ptr %44, %5
+  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
+  %44 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
+  %.not.i.i.i20 = icmp eq ptr %43, %5
   br i1 %.not.i.i.i20, label %_ZNSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !32
 
 _ZNSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
-  %.0.lcssa.i.i.i21 = phi ptr [ %41, %_ZNSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %45, %.lr.ph.i.i.i17 ]
+  %.0.lcssa.i.i.i21 = phi ptr [ %40, %_ZNSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %44, %.lr.ph.i.i.i17 ]
   %.not.i23 = icmp eq ptr %6, null
-  br i1 %.not.i23, label %_ZNSt12_Vector_baseISt10shared_ptrI17abstract_device_tESaIS2_EE13_M_deallocateEPS2_m.exit, label %46
+  br i1 %.not.i23, label %_ZNSt12_Vector_baseISt10shared_ptrI17abstract_device_tESaIS2_EE13_M_deallocateEPS2_m.exit, label %45
 
-46:                                               ; preds = %_ZNSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22
+45:                                               ; preds = %_ZNSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22
   tail call void @_ZdlPv(ptr noundef nonnull %6) #29
   br label %_ZNSt12_Vector_baseISt10shared_ptrI17abstract_device_tESaIS2_EE13_M_deallocateEPS2_m.exit
 
-_ZNSt12_Vector_baseISt10shared_ptrI17abstract_device_tESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %46
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseISt10shared_ptrI17abstract_device_tESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrI17abstract_device_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %45
+  %46 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %48 = getelementptr inbounds %"class.std::shared_ptr.253", ptr %23, i64 %16
-  store ptr %48, ptr %47, align 8
+  %47 = getelementptr inbounds %"class.std::shared_ptr.253", ptr %23, i64 %16
+  store ptr %47, ptr %46, align 8
   ret void
 }
 

@@ -1299,36 +1299,36 @@ define noundef i32 @button_released(ptr noundef %0, float noundef %1, float noun
   %46 = sitofp <2 x i32> %45 to <2 x float>
   %47 = load <2 x float>, ptr %9, align 16, !tbaa !23
   %48 = fdiv reassoc nsz arcp contract afn <2 x float> %47, %46
-  %49 = load <2 x float>, ptr %24, align 8, !tbaa !23
-  %50 = fdiv reassoc nsz arcp contract afn <2 x float> %49, %46
-  %51 = extractelement <2 x float> %50, i64 1
-  %52 = extractelement <2 x float> %48, i64 1
-  %53 = fsub reassoc nsz arcp contract afn float %51, %52
-  %54 = fneg reassoc nsz arcp contract afn float %51
-  %55 = fmul reassoc nsz arcp contract afn <2 x float> %50, <float 0x3FB917A760000000, float 0xBFEFD88DA0000000>
-  %56 = fmul reassoc nsz arcp contract afn <2 x float> %48, <float 0x3FB917A760000000, float 0x3FEFD88DA0000000>
-  %57 = shufflevector <2 x float> %56, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %58 = fadd reassoc nsz arcp contract afn <2 x float> %55, %57
-  %59 = fsub reassoc nsz arcp contract afn <2 x float> %55, %57
-  %shift = shufflevector <2 x float> %59, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %60 = fadd reassoc nsz arcp contract afn <2 x float> %58, %shift
-  %61 = extractelement <2 x float> %60, i64 0
-  %62 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %61)
-  %63 = fcmp reassoc nsz arcp contract afn olt float %62, 0x3F1A36E2E0000000
-  br i1 %63, label %.split.loop.exit5.thread, label %.lr.ph.preheader
+  %49 = extractelement <2 x float> %48, i64 1
+  %50 = extractelement <2 x float> %48, i64 0
+  %51 = load <2 x float>, ptr %24, align 8, !tbaa !23
+  %52 = fdiv reassoc nsz arcp contract afn <2 x float> %51, %46
+  %53 = extractelement <2 x float> %52, i64 1
+  %54 = fsub reassoc nsz arcp contract afn float %53, %49
+  %55 = fneg reassoc nsz arcp contract afn float %53
+  %56 = fmul reassoc nsz arcp contract afn <2 x float> %52, <float 0x3FB917A760000000, float 0xBFEFD88DA0000000>
+  %57 = fmul reassoc nsz arcp contract afn <2 x float> %48, <float 0x3FB917A760000000, float 0x3FEFD88DA0000000>
+  %58 = shufflevector <2 x float> %57, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %59 = fadd reassoc nsz arcp contract afn <2 x float> %56, %58
+  %60 = fsub reassoc nsz arcp contract afn <2 x float> %56, %58
+  %shift = shufflevector <2 x float> %60, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %61 = fadd reassoc nsz arcp contract afn <2 x float> %59, %shift
+  %62 = extractelement <2 x float> %61, i64 0
+  %63 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %62)
+  %64 = fcmp reassoc nsz arcp contract afn olt float %63, 0x3F1A36E2E0000000
+  br i1 %64, label %.split.loop.exit5.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %17
-  %64 = fmul reassoc nsz arcp contract afn float %53, 0x3FEF6297C0000000
-  %65 = extractelement <2 x float> %50, i64 0
-  %66 = extractelement <2 x float> %48, i64 0
-  %67 = fsub reassoc nsz arcp contract afn <2 x float> %48, %50
+  %65 = fmul reassoc nsz arcp contract afn float %54, 0x3FEF6297C0000000
+  %66 = extractelement <2 x float> %52, i64 0
+  %67 = fsub reassoc nsz arcp contract afn <2 x float> %48, %52
   %68 = extractelement <2 x float> %67, i64 0
   %69 = fmul reassoc nsz arcp contract afn float %68, 0x3FC8F8B9A0000000
-  %70 = fadd reassoc nsz arcp contract afn float %64, %69
+  %70 = fadd reassoc nsz arcp contract afn float %65, %69
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %97
-  %71 = phi float [ %114, %97 ], [ %61, %.lr.ph.preheader ]
+  %71 = phi float [ %114, %97 ], [ %62, %.lr.ph.preheader ]
   %72 = phi float [ %105, %97 ], [ 0x3FB921FC00000000, %.lr.ph.preheader ]
   %73 = phi float [ %102, %97 ], [ 0xC00921FB60000000, %.lr.ph.preheader ]
   %74 = phi float [ %101, %97 ], [ 0x400AB41B20000000, %.lr.ph.preheader ]
@@ -1347,10 +1347,10 @@ define noundef i32 @button_released(ptr noundef %0, float noundef %1, float noun
   %85 = fmul reassoc nsz arcp contract afn float %84, 5.000000e-01
   %86 = call reassoc nsz arcp contract afn float @llvm.sin.f32(float %85)
   %87 = call reassoc nsz arcp contract afn float @llvm.cos.f32(float %85)
-  %88 = fmul reassoc nsz arcp contract afn float %87, %52
-  %89 = fmul reassoc nsz arcp contract afn float %86, %65
-  %90 = fmul reassoc nsz arcp contract afn float %87, %54
-  %91 = fmul reassoc nsz arcp contract afn float %86, %66
+  %88 = fmul reassoc nsz arcp contract afn float %87, %49
+  %89 = fmul reassoc nsz arcp contract afn float %86, %66
+  %90 = fmul reassoc nsz arcp contract afn float %87, %55
+  %91 = fmul reassoc nsz arcp contract afn float %86, %50
   %92 = fsub reassoc nsz arcp contract afn float %90, %91
   %93 = fadd reassoc nsz arcp contract afn float %88, %89
   %94 = fadd reassoc nsz arcp contract afn float %93, %92
@@ -1369,10 +1369,10 @@ define noundef i32 @button_released(ptr noundef %0, float noundef %1, float noun
   %105 = fmul reassoc nsz arcp contract afn float %104, 5.000000e-01
   %106 = call reassoc nsz arcp contract afn float @llvm.sin.f32(float %105)
   %107 = call reassoc nsz arcp contract afn float @llvm.cos.f32(float %105)
-  %108 = fmul reassoc nsz arcp contract afn float %107, %52
-  %109 = fmul reassoc nsz arcp contract afn float %106, %65
-  %110 = fmul reassoc nsz arcp contract afn float %107, %54
-  %111 = fmul reassoc nsz arcp contract afn float %106, %66
+  %108 = fmul reassoc nsz arcp contract afn float %107, %49
+  %109 = fmul reassoc nsz arcp contract afn float %106, %66
+  %110 = fmul reassoc nsz arcp contract afn float %107, %55
+  %111 = fmul reassoc nsz arcp contract afn float %106, %50
   %112 = fsub reassoc nsz arcp contract afn float %110, %111
   %113 = fadd reassoc nsz arcp contract afn float %108, %109
   %114 = fadd reassoc nsz arcp contract afn float %113, %112
@@ -1392,7 +1392,7 @@ define noundef i32 @button_released(ptr noundef %0, float noundef %1, float noun
 
 .split.loop.exit5.thread:                         ; preds = %17, %.split.loop.exit5
   %121 = phi float [ %119, %.split.loop.exit5 ], [ 0x3FB921FC00000000, %17 ]
-  %122 = fsub reassoc nsz arcp contract afn <2 x float> %50, %48
+  %122 = fsub reassoc nsz arcp contract afn <2 x float> %52, %48
   %123 = extractelement <2 x float> %122, i64 0
   %124 = fcmp reassoc nsz arcp contract afn ogt float %123, 0x3F1A36E2E0000000
   br i1 %124, label %125, label %136
@@ -1436,7 +1436,7 @@ define noundef i32 @button_released(ptr noundef %0, float noundef %1, float noun
   br label %156
 
 153:                                              ; preds = %136
-  %154 = fcmp reassoc nsz arcp contract afn ugt float %53, 0.000000e+00
+  %154 = fcmp reassoc nsz arcp contract afn ugt float %54, 0.000000e+00
   %155 = select i1 %154, float 0x3FF921FB60000000, float 0xBFF921FB60000000
   br label %156
 

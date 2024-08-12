@@ -143,17 +143,15 @@ declare void @_ZN3net17HpackOutputStreamD1Ev(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net12HpackEncoder15EncodeHeaderSetERKSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_ESaISC_EEPSA_(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %representations, ptr noundef %output) local_unnamed_addr #0 align 2 {
 entry:
-  %iter = alloca %"class.net::HpackEncoder::RepresentationIterator", align 8
-  %0 = load ptr, ptr %representations, align 8
-  store ptr %0, ptr %iter, align 8
-  %pseudo_end_.i = getelementptr inbounds i8, ptr %iter, i64 8
+  %iter = alloca %"class.net::HpackEncoder::RepresentationIterator", align 16
   %_M_finish.i.i = getelementptr inbounds i8, ptr %representations, i64 8
-  %1 = load ptr, ptr %_M_finish.i.i, align 8
-  store ptr %1, ptr %pseudo_end_.i, align 8
+  %0 = load ptr, ptr %_M_finish.i.i, align 8
+  %1 = load <2 x ptr>, ptr %representations, align 8
+  store <2 x ptr> %1, ptr %iter, align 16
   %regular_begin_.i = getelementptr inbounds i8, ptr %iter, i64 16
-  store ptr %1, ptr %regular_begin_.i, align 8
+  store ptr %0, ptr %regular_begin_.i, align 16
   %regular_end_.i = getelementptr inbounds i8, ptr %iter, i64 24
-  store ptr %1, ptr %regular_end_.i, align 8
+  store ptr %0, ptr %regular_end_.i, align 8
   call void @_ZN3net12HpackEncoder21EncodeRepresentationsEPNS0_22RepresentationIteratorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr noundef nonnull %iter, ptr noundef %output)
   ret void
 }
@@ -312,12 +310,12 @@ while.end:                                        ; preds = %if.end12, %_ZN3net1
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN3net12HpackEncoder15EncodeHeaderSetERKNS_15SpdyHeaderBlockEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr noundef nonnull readonly align 8 dereferenceable(88) %header_set, ptr noundef %output) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
-  %pseudo_headers = alloca %"class.std::vector.43", align 8
-  %regular_headers = alloca %"class.std::vector.43", align 8
+  %pseudo_headers = alloca %"class.std::vector.43", align 16
+  %regular_headers = alloca %"class.std::vector.43", align 16
   %ref.tmp = alloca %"class.base::BasicStringPiece", align 8
   %iter = alloca %"class.net::HpackEncoder::RepresentationIterator", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pseudo_headers, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %regular_headers, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %pseudo_headers, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %regular_headers, i8 0, i64 24, i1 false)
   %list_.i.i = getelementptr inbounds i8, ptr %header_set, i64 56
   %__begin1.sroa.0.021 = load ptr, ptr %list_.i.i, align 8
   %cmp.i.not22 = icmp eq ptr %__begin1.sroa.0.021, %list_.i.i
@@ -347,7 +345,7 @@ if.then:                                          ; preds = %land.end
 lpad.loopexit:                                    ; preds = %if.then17.invoke, %land.rhs, %invoke.cont7, %if.then, %if.else, %land.lhs.true
   %lpad.loopexit19 = landingpad { ptr, i32 }
           cleanup
-  %.pre28 = load ptr, ptr %regular_headers, align 8
+  %.pre28 = load ptr, ptr %regular_headers, align 16
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %for.end
@@ -356,7 +354,7 @@ lpad.loopexit.split-lp:                           ; preds = %for.end
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %0 = phi ptr [ %.pre28, %lpad.loopexit ], [ %4, %lpad.loopexit.split-lp ]
+  %0 = phi ptr [ %.pre28, %lpad.loopexit ], [ %6, %lpad.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit19, %lpad.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp ]
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EED2Ev.exit, label %if.then.i.i.i
@@ -366,7 +364,7 @@ if.then.i.i.i:                                    ; preds = %lpad
   br label %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EED2Ev.exit: ; preds = %lpad, %if.then.i.i.i
-  %1 = load ptr, ptr %pseudo_headers, align 8
+  %1 = load ptr, ptr %pseudo_headers, align 16
   %tobool.not.i.i.i8 = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i8, label %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EED2Ev.exit10, label %if.then.i.i.i9
 
@@ -407,43 +405,35 @@ for.inc:                                          ; preds = %if.then17.invoke, %
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %.pre = load ptr, ptr %pseudo_headers, align 8
-  %_M_finish.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %pseudo_headers, i64 8
-  %.pre25 = load ptr, ptr %_M_finish.i.i.phi.trans.insert, align 8
-  %.pre26 = load ptr, ptr %regular_headers, align 8
-  %_M_finish.i3.i.phi.trans.insert = getelementptr inbounds i8, ptr %regular_headers, i64 8
-  %.pre27 = load ptr, ptr %_M_finish.i3.i.phi.trans.insert, align 8
+  %3 = load <2 x ptr>, ptr %pseudo_headers, align 16
+  %.pre = load ptr, ptr %pseudo_headers, align 16
+  %4 = load <2 x ptr>, ptr %regular_headers, align 16
+  %.pre26 = load ptr, ptr %regular_headers, align 16
+  %5 = shufflevector <2 x ptr> %3, <2 x ptr> %4, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %invoke.cont2
-  %3 = phi ptr [ %.pre27, %for.end.loopexit ], [ null, %invoke.cont2 ]
-  %4 = phi ptr [ %.pre26, %for.end.loopexit ], [ null, %invoke.cont2 ]
-  %5 = phi ptr [ %.pre25, %for.end.loopexit ], [ null, %invoke.cont2 ]
-  %6 = phi ptr [ %.pre, %for.end.loopexit ], [ null, %invoke.cont2 ]
-  store ptr %6, ptr %iter, align 8
-  %pseudo_end_.i = getelementptr inbounds i8, ptr %iter, i64 8
-  store ptr %5, ptr %pseudo_end_.i, align 8
-  %regular_begin_.i = getelementptr inbounds i8, ptr %iter, i64 16
-  store ptr %4, ptr %regular_begin_.i, align 8
-  %regular_end_.i = getelementptr inbounds i8, ptr %iter, i64 24
-  store ptr %3, ptr %regular_end_.i, align 8
+  %6 = phi ptr [ %.pre26, %for.end.loopexit ], [ null, %invoke.cont2 ]
+  %7 = phi ptr [ %.pre, %for.end.loopexit ], [ null, %invoke.cont2 ]
+  %8 = phi <4 x ptr> [ %5, %for.end.loopexit ], [ zeroinitializer, %invoke.cont2 ]
+  store <4 x ptr> %8, ptr %iter, align 8
   invoke void @_ZN3net12HpackEncoder21EncodeRepresentationsEPNS0_22RepresentationIteratorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(346) %this, ptr noundef nonnull %iter, ptr noundef %output)
           to label %invoke.cont24 unwind label %lpad.loopexit.split-lp
 
 invoke.cont24:                                    ; preds = %for.end
-  %tobool.not.i.i.i11 = icmp eq ptr %4, null
+  %tobool.not.i.i.i11 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i11, label %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EED2Ev.exit13, label %if.then.i.i.i12
 
 if.then.i.i.i12:                                  ; preds = %invoke.cont24
-  call void @_ZdlPv(ptr noundef nonnull %4) #16
+  call void @_ZdlPv(ptr noundef nonnull %6) #16
   br label %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EED2Ev.exit13
 
 _ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EED2Ev.exit13: ; preds = %invoke.cont24, %if.then.i.i.i12
-  %tobool.not.i.i.i14 = icmp eq ptr %6, null
+  %tobool.not.i.i.i14 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i14, label %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EED2Ev.exit16, label %if.then.i.i.i15
 
 if.then.i.i.i15:                                  ; preds = %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EED2Ev.exit13
-  call void @_ZdlPv(ptr noundef nonnull %6) #16
+  call void @_ZdlPv(ptr noundef nonnull %7) #16
   br label %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EED2Ev.exit16
 
 _ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EED2Ev.exit16: ; preds = %_ZNSt6vectorISt4pairIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_ESaISA_EED2Ev.exit13, %if.then.i.i.i15

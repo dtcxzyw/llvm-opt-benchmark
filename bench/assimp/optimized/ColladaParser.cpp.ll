@@ -26438,30 +26438,30 @@ sw.bb44:                                          ; preds = %for.body
   %call.i.i = call noundef float @cosf(float noundef %div) #31
   %call.i57.i = call noundef float @sinf(float noundef %div) #31
   %sub.i87 = fsub float 1.000000e+00, %call.i.i
+  %34 = extractelement <2 x float> %33, i64 0
   %mul8.i = fmul float %32, %call.i57.i
   %neg.i89 = fneg float %mul8.i
-  %34 = insertelement <2 x float> poison, float %call.i.i, i64 0
-  %35 = insertelement <2 x float> %34, float %neg.i89, i64 1
-  %36 = extractelement <2 x float> %33, i64 1
-  %mul11.i = fmul float %36, %call.i57.i
-  %37 = insertelement <2 x float> poison, float %sub.i87, i64 0
-  %38 = shufflevector <2 x float> %37, <2 x float> poison, <2 x i32> zeroinitializer
-  %39 = fmul <2 x float> %33, %38
-  %40 = shufflevector <2 x float> %39, <2 x float> poison, <2 x i32> zeroinitializer
-  %41 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %40, <2 x float> %33, <2 x float> %35)
-  store <2 x float> %41, ptr %rot, align 8
-  %42 = extractelement <2 x float> %39, i64 0
-  %43 = call float @llvm.fmuladd.f32(float %42, float %32, float %mul11.i)
-  store float %43, ptr %a3.i91, align 8
-  %44 = shufflevector <2 x float> %33, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %45 = insertelement <2 x float> poison, float %mul8.i, i64 0
-  %46 = insertelement <2 x float> %45, float %call.i.i, i64 1
-  %47 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %39, <2 x float> %44, <2 x float> %46)
-  store <2 x float> %47, ptr %b1.i92, align 8
-  %48 = extractelement <2 x float> %33, i64 0
-  %mul19.i = fmul float %48, %call.i57.i
+  %35 = insertelement <2 x float> poison, float %call.i.i, i64 0
+  %36 = insertelement <2 x float> %35, float %neg.i89, i64 1
+  %37 = extractelement <2 x float> %33, i64 1
+  %mul11.i = fmul float %37, %call.i57.i
+  %38 = insertelement <2 x float> poison, float %sub.i87, i64 0
+  %39 = shufflevector <2 x float> %38, <2 x float> poison, <2 x i32> zeroinitializer
+  %40 = fmul <2 x float> %33, %39
+  %41 = shufflevector <2 x float> %40, <2 x float> poison, <2 x i32> zeroinitializer
+  %42 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %41, <2 x float> %33, <2 x float> %36)
+  store <2 x float> %42, ptr %rot, align 8
+  %43 = extractelement <2 x float> %40, i64 0
+  %44 = call float @llvm.fmuladd.f32(float %43, float %32, float %mul11.i)
+  store float %44, ptr %a3.i91, align 8
+  %45 = shufflevector <2 x float> %33, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %46 = insertelement <2 x float> poison, float %mul8.i, i64 0
+  %47 = insertelement <2 x float> %46, float %call.i.i, i64 1
+  %48 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %40, <2 x float> %45, <2 x float> %47)
+  store <2 x float> %48, ptr %b1.i92, align 8
+  %mul19.i = fmul float %34, %call.i57.i
   %neg20.i = fneg float %mul19.i
-  %49 = extractelement <2 x float> %39, i64 1
+  %49 = extractelement <2 x float> %40, i64 1
   %50 = call float @llvm.fmuladd.f32(float %49, float %32, float %neg20.i)
   store float %50, ptr %b3.i81, align 8
   %neg24.i = fneg float %mul11.i
@@ -26469,7 +26469,7 @@ sw.bb44:                                          ; preds = %for.body
   %52 = shufflevector <2 x float> %51, <2 x float> poison, <2 x i32> zeroinitializer
   %53 = insertelement <2 x float> poison, float %neg24.i, i64 0
   %54 = insertelement <2 x float> %53, float %mul19.i, i64 1
-  %55 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %39, <2 x float> %52, <2 x float> %54)
+  %55 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %40, <2 x float> %52, <2 x float> %54)
   store <2 x float> %55, ptr %c1.i95, align 8
   %mul28.i = fmul float %32, %sub.i87
   %56 = call float @llvm.fmuladd.f32(float %mul28.i, float %32, float %call.i.i)

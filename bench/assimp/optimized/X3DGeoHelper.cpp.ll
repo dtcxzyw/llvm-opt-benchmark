@@ -513,20 +513,20 @@ entry:
   %_M_storage.i.i.i.i70 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i69, i64 16
   store float %div, ptr %_M_storage.i.i.i.i70, align 4
   %vert_set.sroa.11.12._M_storage.i.i.i.i70.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i69, i64 20
+  %8 = extractelement <2 x float> %2, i64 1
   store <2 x float> %2, ptr %vert_set.sroa.11.12._M_storage.i.i.i.i70.sroa_idx, align 4
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i69, ptr noundef nonnull %pVertices) #20
-  %8 = load i64, ptr %_M_size.i.i.i, align 8
-  %add.i.i.i72 = add i64 %8, 1
+  %9 = load i64, ptr %_M_size.i.i.i, align 8
+  %add.i.i.i72 = add i64 %9, 1
   store i64 %add.i.i.i72, ptr %_M_size.i.i.i, align 8
   %call5.i.i.i.i.i.i73 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
   %_M_storage.i.i.i.i74 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i73, i64 16
   store float %div, ptr %_M_storage.i.i.i.i74, align 4
   %vert_set.sroa.5.0._M_storage.i.i.i.i74.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i73, i64 20
-  %9 = extractelement <2 x float> %3, i64 0
-  store float %9, ptr %vert_set.sroa.5.0._M_storage.i.i.i.i74.sroa_idx, align 4
+  %10 = extractelement <2 x float> %3, i64 0
+  store float %10, ptr %vert_set.sroa.5.0._M_storage.i.i.i.i74.sroa_idx, align 4
   %vert_set.sroa.6.0._M_storage.i.i.i.i74.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i73, i64 24
-  %10 = extractelement <2 x float> %2, i64 1
-  store float %10, ptr %vert_set.sroa.6.0._M_storage.i.i.i.i74.sroa_idx, align 4
+  store float %8, ptr %vert_set.sroa.6.0._M_storage.i.i.i.i74.sroa_idx, align 4
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i73, ptr noundef nonnull %pVertices) #20
   %11 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i76 = add i64 %11, 1
@@ -555,9 +555,9 @@ entry:
   %_M_storage.i.i.i.i86 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i85, i64 16
   store float %fneg, ptr %_M_storage.i.i.i.i86, align 4
   %vert_set.sroa.29.48._M_storage.i.i.i.i86.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i85, i64 20
-  store float %9, ptr %vert_set.sroa.29.48._M_storage.i.i.i.i86.sroa_idx, align 4
+  store float %10, ptr %vert_set.sroa.29.48._M_storage.i.i.i.i86.sroa_idx, align 4
   %vert_set.sroa.30.48._M_storage.i.i.i.i86.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i85, i64 24
-  store float %10, ptr %vert_set.sroa.30.48._M_storage.i.i.i.i86.sroa_idx, align 4
+  store float %8, ptr %vert_set.sroa.30.48._M_storage.i.i.i.i86.sroa_idx, align 4
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i85, ptr noundef nonnull %pVertices) #20
   %14 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i88 = add i64 %14, 1
@@ -593,9 +593,9 @@ entry:
   %_M_storage.i.i.i.i102 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i101, i64 16
   store float %div, ptr %_M_storage.i.i.i.i102, align 4
   %vert_set.sroa.5.0._M_storage.i.i.i.i102.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i101, i64 20
-  store float %9, ptr %vert_set.sroa.5.0._M_storage.i.i.i.i102.sroa_idx, align 4
+  store float %10, ptr %vert_set.sroa.5.0._M_storage.i.i.i.i102.sroa_idx, align 4
   %vert_set.sroa.6.0._M_storage.i.i.i.i102.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i101, i64 24
-  store float %10, ptr %vert_set.sroa.6.0._M_storage.i.i.i.i102.sroa_idx, align 4
+  store float %8, ptr %vert_set.sroa.6.0._M_storage.i.i.i.i102.sroa_idx, align 4
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i101, ptr noundef nonnull %pVertices) #20
   %18 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i104 = add i64 %18, 1
@@ -604,9 +604,9 @@ entry:
   %_M_storage.i.i.i.i106 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i105, i64 16
   store float %fneg, ptr %_M_storage.i.i.i.i106, align 4
   %vert_set.sroa.29.48._M_storage.i.i.i.i106.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i105, i64 20
-  store float %9, ptr %vert_set.sroa.29.48._M_storage.i.i.i.i106.sroa_idx, align 4
+  store float %10, ptr %vert_set.sroa.29.48._M_storage.i.i.i.i106.sroa_idx, align 4
   %vert_set.sroa.30.48._M_storage.i.i.i.i106.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i105, i64 24
-  store float %10, ptr %vert_set.sroa.30.48._M_storage.i.i.i.i106.sroa_idx, align 4
+  store float %8, ptr %vert_set.sroa.30.48._M_storage.i.i.i.i106.sroa_idx, align 4
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i105, ptr noundef nonnull %pVertices) #20
   %19 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i108 = add i64 %19, 1
@@ -655,9 +655,9 @@ entry:
   %_M_storage.i.i.i.i126 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i125, i64 16
   store float %div, ptr %_M_storage.i.i.i.i126, align 4
   %vert_set.sroa.5.0._M_storage.i.i.i.i126.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i125, i64 20
-  store float %9, ptr %vert_set.sroa.5.0._M_storage.i.i.i.i126.sroa_idx, align 4
+  store float %10, ptr %vert_set.sroa.5.0._M_storage.i.i.i.i126.sroa_idx, align 4
   %vert_set.sroa.6.0._M_storage.i.i.i.i126.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i125, i64 24
-  store float %10, ptr %vert_set.sroa.6.0._M_storage.i.i.i.i126.sroa_idx, align 4
+  store float %8, ptr %vert_set.sroa.6.0._M_storage.i.i.i.i126.sroa_idx, align 4
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i125, ptr noundef nonnull %pVertices) #20
   %24 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i128 = add i64 %24, 1
@@ -684,9 +684,9 @@ entry:
   %_M_storage.i.i.i.i138 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i137, i64 16
   store float %fneg, ptr %_M_storage.i.i.i.i138, align 4
   %vert_set.sroa.29.48._M_storage.i.i.i.i138.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i137, i64 20
-  store float %9, ptr %vert_set.sroa.29.48._M_storage.i.i.i.i138.sroa_idx, align 4
+  store float %10, ptr %vert_set.sroa.29.48._M_storage.i.i.i.i138.sroa_idx, align 4
   %vert_set.sroa.30.48._M_storage.i.i.i.i138.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i137, i64 24
-  store float %10, ptr %vert_set.sroa.30.48._M_storage.i.i.i.i138.sroa_idx, align 4
+  store float %8, ptr %vert_set.sroa.30.48._M_storage.i.i.i.i138.sroa_idx, align 4
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i137, ptr noundef nonnull %pVertices) #20
   %27 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i140 = add i64 %27, 1

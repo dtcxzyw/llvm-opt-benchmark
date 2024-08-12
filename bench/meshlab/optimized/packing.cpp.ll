@@ -11683,7 +11683,7 @@ declare double @llvm.fabs.f64(double) #13
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z12IntegerShiftR4MeshRKSt6vectorISt10shared_ptrI9FaceGroupESaIS4_EERKS1_I11TextureSizeSaIS9_EERKSt3mapIS4_iSt4lessIS4_ESaISt4pairIKS4_iEEERKSE_IibSF_IiESaISH_IKibEEE(ptr noundef nonnull align 8 dereferenceable(808) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %3, ptr noundef nonnull readonly align 8 dereferenceable(48) %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
-  %6 = alloca %"class.std::shared_ptr.11", align 8
+  %6 = alloca %"class.std::shared_ptr.11", align 16
   %7 = alloca double, align 8
   %8 = tail call noundef zeroext i1 @_Z32HasWedgeTexCoordStorageAttributeR4Mesh(ptr noundef nonnull align 8 dereferenceable(808) %0)
   br i1 %8, label %10, label %9
@@ -11717,16 +11717,15 @@ define void @_Z12IntegerShiftR4MeshRKSt6vectorISt10shared_ptrI9FaceGroupESaIS4_E
 
 26:                                               ; preds = %.lr.ph125, %_ZNSt10shared_ptrI9FaceGroupED2Ev.exit
   %.sroa.0100.0124 = phi ptr [ %13, %.lr.ph125 ], [ %245, %_ZNSt10shared_ptrI9FaceGroupED2Ev.exit ]
-  %27 = load ptr, ptr %.sroa.0100.0124, align 8
-  store ptr %27, ptr %6, align 8
-  %28 = getelementptr inbounds i8, ptr %.sroa.0100.0124, i64 8
-  %29 = load ptr, ptr %28, align 8
-  store ptr %29, ptr %17, align 8
-  %.not.i.i.i = icmp eq ptr %29, null
+  %27 = getelementptr inbounds i8, ptr %.sroa.0100.0124, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = load <2 x ptr>, ptr %.sroa.0100.0124, align 8
+  store <2 x ptr> %29, ptr %6, align 16
+  %.not.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds i8, ptr %28, i64 8
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %32, 0
   br i1 %.not.i.i.i.i, label %36, label %33
@@ -11747,7 +11746,7 @@ _ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit:       ; preds = %26, %33, %36
   br i1 %.not10.i.i.i, label %_ZNKSt3mapISt10shared_ptrI9FaceGroupEiSt4lessIS2_ESaISt4pairIKS2_iEEE4findERS6_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit
-  %39 = load ptr, ptr %6, align 8
+  %39 = load ptr, ptr %6, align 16
   br label %40
 
 40:                                               ; preds = %40, %.lr.ph.i.i.i

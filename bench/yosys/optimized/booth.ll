@@ -12593,16 +12593,15 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit130.i:            ; preds = %2927, %_ZSt8_Destro
 
 2933:                                             ; preds = %._crit_edge.i367
   %2934 = load ptr, ptr %304, align 16, !noalias !47
-  %2935 = load ptr, ptr %2533, align 8, !noalias !47
-  %2936 = load ptr, ptr %2560, align 16, !noalias !47
-  %2937 = load <2 x ptr>, ptr %79, align 16, !noalias !47
-  store <2 x ptr> %2937, ptr %304, align 16, !noalias !47
-  %2938 = load ptr, ptr %2543, align 16, !noalias !47
-  store ptr %2938, ptr %2560, align 16, !noalias !47
+  %2935 = load <2 x ptr>, ptr %79, align 16, !noalias !47
+  %2936 = load ptr, ptr %2543, align 16, !noalias !47
   store ptr %2934, ptr %79, align 16, !noalias !47
-  store ptr %2935, ptr %2542, align 8, !noalias !47
-  store ptr %2936, ptr %2543, align 16, !noalias !47
-  %.not4.i.i.i.i.i368 = icmp eq ptr %2934, %2935
+  %2937 = load <2 x ptr>, ptr %2533, align 8, !noalias !47
+  %2938 = load ptr, ptr %2533, align 8, !noalias !47
+  store <2 x ptr> %2935, ptr %304, align 16, !noalias !47
+  store ptr %2936, ptr %2560, align 16, !noalias !47
+  store <2 x ptr> %2937, ptr %2542, align 8, !noalias !47
+  %.not4.i.i.i.i.i368 = icmp eq ptr %2934, %2938
   br i1 %.not4.i.i.i.i.i368, label %_ZSt8_DestroyIPN5Yosys5RTLIL7SigSpecES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i369
 
 .lr.ph.i.i.i.i.i369:                              ; preds = %2933, %_ZSt8_DestroyIN5Yosys5RTLIL7SigSpecEEvPT_.exit.i.i.i.i.i
@@ -12655,7 +12654,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i.i: ;
 
 _ZSt8_DestroyIN5Yosys5RTLIL7SigSpecEEvPT_.exit.i.i.i.i.i: ; preds = %2951, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i.i
   %2952 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i370, i64 64
-  %.not.i.i.i.i133.i = icmp eq ptr %2952, %2935
+  %.not.i.i.i.i133.i = icmp eq ptr %2952, %2938
   br i1 %.not.i.i.i.i133.i, label %_ZSt8_DestroyIPN5Yosys5RTLIL7SigSpecES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i369, !llvm.loop !63
 
 _ZSt8_DestroyIPN5Yosys5RTLIL7SigSpecES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN5Yosys5RTLIL7SigSpecEEvPT_.exit.i.i.i.i.i

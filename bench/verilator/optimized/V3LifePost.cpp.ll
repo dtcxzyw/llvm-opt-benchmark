@@ -4995,7 +4995,7 @@ define linkonce_odr dso_local void @_ZN19LifePostElimVisitor5visitEP9AstVarRef(p
   %17 = inttoptr i64 %16 to ptr
   %.not1625 = icmp eq i64 %16, 0
   %.not16 = select i1 %14, i1 true, i1 %.not1625
-  br i1 %.not16, label %72, label %18
+  br i1 %.not16, label %71, label %18
 
 18:                                               ; preds = %10
   %19 = tail call noundef i32 @_ZL5debugv()
@@ -5042,7 +5042,7 @@ _ZlsRSoPK7AstNode.exit22:                         ; preds = %31
   %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
-  br label %73
+  br label %72
 
 39:                                               ; preds = %18, %36
   %40 = call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #22
@@ -5053,7 +5053,7 @@ _ZlsRSoPK7AstNode.exit22:                         ; preds = %31
   %44 = getelementptr inbounds i8, ptr %17, i64 168
   %45 = load ptr, ptr %44, align 8
   invoke void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(152) %40, i16 316, ptr noundef %42)
-          to label %.noexc23 unwind label %70
+          to label %.noexc23 unwind label %69
 
 .noexc23:                                         ; preds = %39
   store ptr getelementptr inbounds (i8, ptr @_ZTV13AstNodeVarRef, i64 16), ptr %40, align 8
@@ -5062,69 +5062,67 @@ _ZlsRSoPK7AstNode.exit22:                         ; preds = %31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
   store i8 %.sroa.0.0.copyload.i, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %40, i64 184
-  %49 = load ptr, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, align 8
-  store ptr %49, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %40, i64 192
-  %51 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, i64 8), align 8
-  store ptr %51, ptr %50, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %51, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i, label %52
+  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, i64 8), align 8
+  %50 = load <2 x ptr>, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, align 8
+  store <2 x ptr> %50, ptr %48, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %49, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i, label %51
 
-52:                                               ; preds = %.noexc23
-  %53 = getelementptr inbounds i8, ptr %51, i64 8
-  %54 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %54, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %58, label %55
+51:                                               ; preds = %.noexc23
+  %52 = getelementptr inbounds i8, ptr %49, i64 8
+  %53 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %53, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %57, label %54
 
-55:                                               ; preds = %52
-  %56 = load i32, ptr %53, align 4
-  %57 = add nsw i32 %56, 1
-  store i32 %57, ptr %53, align 4
+54:                                               ; preds = %51
+  %55 = load i32, ptr %52, align 4
+  %56 = add nsw i32 %55, 1
+  store i32 %56, ptr %52, align 4
   br label %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i
 
-58:                                               ; preds = %52
-  %59 = atomicrmw volatile add ptr %53, i32 1 acq_rel, align 4
+57:                                               ; preds = %51
+  %58 = atomicrmw volatile add ptr %52, i32 1 acq_rel, align 4
   br label %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i
 
-_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i:      ; preds = %58, %55, %.noexc23
+_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i:      ; preds = %57, %54, %.noexc23
   store ptr %45, ptr %46, align 8
   %.not.i.i.i.i = icmp eq ptr %45, null
-  br i1 %.not.i.i.i.i, label %68, label %60
+  br i1 %.not.i.i.i.i, label %67, label %59
 
-60:                                               ; preds = %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i
-  %61 = getelementptr inbounds i8, ptr %45, i64 72
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %40, i64 72
-  %64 = load ptr, ptr %63, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %64, %62
-  br i1 %.not.i.i.i.i.i, label %68, label %65
+59:                                               ; preds = %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i
+  %60 = getelementptr inbounds i8, ptr %45, i64 72
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %40, i64 72
+  %63 = load ptr, ptr %62, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %63, %61
+  br i1 %.not.i.i.i.i.i, label %67, label %64
 
-65:                                               ; preds = %60
-  store ptr %62, ptr %63, align 8
-  %66 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8
-  %67 = add i64 %66, 1
-  store i64 %67, ptr @_ZN7AstNode12s_editCntGblE, align 8
-  br label %68
+64:                                               ; preds = %59
+  store ptr %61, ptr %62, align 8
+  %65 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8
+  %66 = add i64 %65, 1
+  store i64 %66, ptr @_ZN7AstNode12s_editCntGblE, align 8
+  br label %67
 
-68:                                               ; preds = %65, %60, %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i
+67:                                               ; preds = %64, %59, %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTV9AstVarRef, i64 16), ptr %40, align 8
-  %69 = getelementptr inbounds i8, ptr %40, i64 160
-  store ptr %17, ptr %69, align 8
+  %68 = getelementptr inbounds i8, ptr %40, i64 160
+  store ptr %17, ptr %68, align 8
   call void @_ZN7AstNode11replaceWithEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %40)
   call void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %1)
-  br label %72
+  br label %71
 
-70:                                               ; preds = %39
-  %71 = landingpad { ptr, i32 }
+69:                                               ; preds = %39
+  %70 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %40) #19
-  br label %73
+  br label %72
 
-72:                                               ; preds = %68, %10
+71:                                               ; preds = %67, %10
   ret void
 
-73:                                               ; preds = %70, %37
-  %.pn = phi { ptr, i32 } [ %71, %70 ], [ %38, %37 ]
+72:                                               ; preds = %69, %37
+  %.pn = phi { ptr, i32 } [ %70, %69 ], [ %38, %37 ]
   resume { ptr, i32 } %.pn
 }
 

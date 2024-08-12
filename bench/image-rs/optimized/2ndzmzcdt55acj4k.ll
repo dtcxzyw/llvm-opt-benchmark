@@ -28753,9 +28753,9 @@ define void @_ZN5image6codecs3bmp7decoder9Bitfields9from_mask17hd04ce0112de11df8
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds i8, ptr %11, i64 4
-  %16 = load i32, ptr %15, align 4, !noundef !14
-  %17 = getelementptr inbounds i8, ptr %11, i64 8
-  %18 = load i32, ptr %17, align 8, !noundef !14
+  %16 = getelementptr inbounds i8, ptr %11, i64 8
+  %17 = load i32, ptr %16, align 8, !noundef !14
+  %18 = load <2 x i32>, ptr %15, align 4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
   call fastcc void @_ZN5image6codecs3bmp7decoder8Bitfield9from_mask17h2b5eecc6a06cab31E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %10, i32 noundef %2, i32 noundef %5)
@@ -28775,9 +28775,9 @@ define void @_ZN5image6codecs3bmp7decoder9Bitfields9from_mask17hd04ce0112de11df8
 
 23:                                               ; preds = %14
   %24 = getelementptr inbounds i8, ptr %10, i64 4
-  %25 = load i32, ptr %24, align 4, !noundef !14
-  %26 = getelementptr inbounds i8, ptr %10, i64 8
-  %27 = load i32, ptr %26, align 8, !noundef !14
+  %25 = getelementptr inbounds i8, ptr %10, i64 8
+  %26 = load i32, ptr %25, align 8, !noundef !14
+  %27 = load <2 x i32>, ptr %24, align 4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
   call fastcc void @_ZN5image6codecs3bmp7decoder8Bitfield9from_mask17h2b5eecc6a06cab31E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %3, i32 noundef %5)
@@ -28797,9 +28797,9 @@ define void @_ZN5image6codecs3bmp7decoder9Bitfields9from_mask17hd04ce0112de11df8
 
 32:                                               ; preds = %23
   %33 = getelementptr inbounds i8, ptr %9, i64 4
-  %34 = load i32, ptr %33, align 4, !noundef !14
-  %35 = getelementptr inbounds i8, ptr %9, i64 8
-  %36 = load i32, ptr %35, align 8, !noundef !14
+  %34 = getelementptr inbounds i8, ptr %9, i64 8
+  %35 = load i32, ptr %34, align 8, !noundef !14
+  %36 = load <2 x i32>, ptr %33, align 4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   call fastcc void @_ZN5image6codecs3bmp7decoder8Bitfield9from_mask17h2b5eecc6a06cab31E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %4, i32 noundef %5)
@@ -28821,10 +28821,10 @@ define void @_ZN5image6codecs3bmp7decoder9Bitfields9from_mask17hd04ce0112de11df8
   %42 = getelementptr inbounds i8, ptr %8, i64 4
   %43 = load <2 x i32>, ptr %42, align 4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
-  %44 = icmp eq i32 %18, 0
-  %45 = icmp eq i32 %27, 0
+  %44 = icmp eq i32 %17, 0
+  %45 = icmp eq i32 %26, 0
   %or.cond = or i1 %44, %45
-  %46 = icmp eq i32 %36, 0
+  %46 = icmp eq i32 %35, 0
   %or.cond7 = or i1 %or.cond, %46
   br i1 %or.cond7, label %49, label %58
 
@@ -28900,17 +28900,11 @@ define void @_ZN5image6codecs3bmp7decoder9Bitfields9from_mask17hd04ce0112de11df8
 
 58:                                               ; preds = %41
   %59 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %16, ptr %59, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %18, ptr %.sroa.2.0..sroa_idx, align 8
+  store <2 x i32> %18, ptr %59, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %25, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %27, ptr %.sroa.5.0..sroa_idx, align 8
+  store <2 x i32> %27, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %34, ptr %.sroa.7.0..sroa_idx, align 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %36, ptr %.sroa.8.0..sroa_idx, align 8
+  store <2 x i32> %36, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
   store <2 x i32> %43, ptr %.sroa.10.0..sroa_idx, align 4
   store i8 10, ptr %0, align 8

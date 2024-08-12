@@ -3969,13 +3969,13 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_126cmCMakeLanguageCom
   %15 = alloca %class.cmListFileContext, align 8
   %16 = alloca %class.cmListFileBacktrace, align 8
   %17 = alloca %"class.std::vector.4", align 16
-  %18 = alloca %class.cmListFileFunction, align 8
+  %18 = alloca %class.cmListFileFunction, align 16
   %19 = alloca %"class.std::__cxx11::basic_string", align 8
   %20 = alloca %"class.std::vector.4", align 16
   %21 = alloca %"class.std::__cxx11::basic_string", align 8
   %22 = alloca %"class.std::__cxx11::basic_string", align 8
   %23 = alloca %"class.std::__cxx11::basic_string", align 8
-  %24 = alloca %class.cmListFileFunction, align 8
+  %24 = alloca %class.cmListFileFunction, align 16
   %25 = alloca %"class.std::__cxx11::basic_string", align 8
   %26 = alloca %"class.std::optional.588", align 8
   call void @_ZN5cmsys11SystemTools9LowerCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -4355,7 +4355,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN18cmListFileFunction14Imp
   br label %.body59
 
 173:                                              ; preds = %.noexc58
-  store ptr %171, ptr %18, align 8
+  store ptr %171, ptr %18, align 16
   %174 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %168, ptr %174, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -4445,16 +4445,15 @@ _ZNSt6vectorI18cmListFileArgumentSaIS0_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP18
           to label %201 unwind label %265
 
 201:                                              ; preds = %200
-  %202 = load ptr, ptr %18, align 8
-  store ptr %202, ptr %24, align 8
-  %203 = getelementptr inbounds i8, ptr %24, i64 8
-  %204 = load ptr, ptr %174, align 8
-  store ptr %204, ptr %203, align 8
-  %.not.i.i.i.i63 = icmp eq ptr %204, null
+  %202 = getelementptr inbounds i8, ptr %24, i64 8
+  %203 = load ptr, ptr %174, align 8
+  %204 = load <2 x ptr>, ptr %18, align 16
+  store <2 x ptr> %204, ptr %24, align 16
+  %.not.i.i.i.i63 = icmp eq ptr %203, null
   br i1 %.not.i.i.i.i63, label %_ZN18cmListFileFunctionC2ERKS_.exit, label %205
 
 205:                                              ; preds = %201
-  %206 = getelementptr inbounds i8, ptr %204, i64 8
+  %206 = getelementptr inbounds i8, ptr %203, i64 8
   %207 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i64 = icmp eq i8 %207, 0
   br i1 %.not.i.i.i.i.i64, label %211, label %208
@@ -4474,7 +4473,7 @@ _ZN18cmListFileFunctionC2ERKS_.exit:              ; preds = %201, %208, %211
           to label %214 unwind label %267
 
 214:                                              ; preds = %_ZN18cmListFileFunctionC2ERKS_.exit
-  %215 = load ptr, ptr %203, align 8
+  %215 = load ptr, ptr %202, align 8
   %.not.i.i.i.i65 = icmp eq ptr %215, null
   br i1 %.not.i.i.i.i65, label %_ZN18cmListFileFunctionD2Ev.exit, label %216
 

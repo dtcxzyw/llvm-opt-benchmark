@@ -282,16 +282,16 @@ if.then74:                                        ; preds = %entry
   %54 = load <2 x float>, ptr %m_impulse, align 4
   %55 = shufflevector <4 x float> %53, <4 x float> poison, <2 x i32> zeroinitializer
   %56 = fmul <2 x float> %55, %54
+  %57 = extractelement <2 x float> %56, i64 0
+  %58 = extractelement <2 x float> %56, i64 1
   store <2 x float> %56, ptr %m_impulse, align 4
-  %57 = insertelement <2 x float> poison, float %30, i64 0
-  %58 = shufflevector <2 x float> %57, <2 x float> poison, <2 x i32> zeroinitializer
-  %59 = fmul <2 x float> %58, %56
-  %60 = fadd <2 x float> %8, %59
-  %61 = fneg float %32
-  %62 = extractelement <2 x float> %56, i64 0
-  %neg.i46 = fmul float %62, %61
-  %63 = extractelement <2 x float> %56, i64 1
-  %64 = tail call noundef float @llvm.fmuladd.f32(float %34, float %63, float %neg.i46)
+  %59 = insertelement <2 x float> poison, float %30, i64 0
+  %60 = shufflevector <2 x float> %59, <2 x float> poison, <2 x i32> zeroinitializer
+  %61 = fmul <2 x float> %60, %56
+  %62 = fadd <2 x float> %8, %61
+  %63 = fneg float %32
+  %neg.i46 = fmul float %57, %63
+  %64 = tail call noundef float @llvm.fmuladd.f32(float %34, float %58, float %neg.i46)
   %65 = tail call float @llvm.fmuladd.f32(float %31, float %64, float %mul72)
   br label %if.end86
 
@@ -302,7 +302,7 @@ if.else:                                          ; preds = %entry
 
 if.end86:                                         ; preds = %if.else, %if.then74
   %wB.0 = phi float [ %65, %if.then74 ], [ %mul72, %if.else ]
-  %66 = phi <2 x float> [ %60, %if.then74 ], [ %8, %if.else ]
+  %66 = phi <2 x float> [ %62, %if.then74 ], [ %8, %if.else ]
   %67 = load ptr, ptr %velocities, align 8
   %68 = load i32, ptr %m_indexB, align 8
   %idxprom89 = sext i32 %68 to i64
@@ -370,15 +370,15 @@ entry:
   %21 = shufflevector <2 x float> %20, <2 x float> poison, <2 x i32> zeroinitializer
   %22 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %15, <2 x float> %21, <2 x float> %19)
   %23 = fadd <2 x float> %22, %12
+  %24 = extractelement <2 x float> %23, i64 0
   store <2 x float> %23, ptr %m_impulse, align 4
-  %24 = load float, ptr %data, align 8
+  %25 = load float, ptr %data, align 8
   %m_maxForce = getelementptr inbounds i8, ptr %this, i64 164
-  %25 = load float, ptr %m_maxForce, align 4
-  %mul = fmul float %24, %25
-  %26 = fmul <2 x float> %23, %23
-  %mul4.i = extractelement <2 x float> %26, i64 1
-  %27 = extractelement <2 x float> %23, i64 0
-  %28 = tail call noundef float @llvm.fmuladd.f32(float %27, float %27, float %mul4.i)
+  %26 = load float, ptr %m_maxForce, align 4
+  %mul = fmul float %25, %26
+  %27 = fmul <2 x float> %23, %23
+  %mul4.i = extractelement <2 x float> %27, i64 1
+  %28 = tail call noundef float @llvm.fmuladd.f32(float %24, float %24, float %mul4.i)
   %mul20 = fmul float %mul, %mul
   %cmp = fcmp ogt float %28, %mul20
   br i1 %cmp, label %if.then, label %if.end
@@ -444,15 +444,15 @@ entry:
   %1 = load <4 x float>, ptr %m_localAnchorB, align 8
   %y.i.i = getelementptr inbounds i8, ptr %this, i64 132
   %2 = load <4 x float>, ptr %y.i.i, align 4
-  %3 = load <2 x float>, ptr %q.i.i, align 4
-  %4 = shufflevector <2 x float> %3, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %5 = extractelement <2 x float> %3, i64 0
-  %6 = fneg float %5
+  %3 = load float, ptr %q.i.i, align 4
+  %4 = load <2 x float>, ptr %q.i.i, align 4
+  %5 = shufflevector <2 x float> %4, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %6 = fneg float %3
   %7 = shufflevector <4 x float> %2, <4 x float> poison, <2 x i32> zeroinitializer
-  %8 = insertelement <2 x float> %3, float %6, i64 0
+  %8 = insertelement <2 x float> %4, float %6, i64 0
   %9 = fmul <2 x float> %7, %8
   %10 = shufflevector <4 x float> %1, <4 x float> poison, <2 x i32> zeroinitializer
-  %11 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %4, <2 x float> %10, <2 x float> %9)
+  %11 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %5, <2 x float> %10, <2 x float> %9)
   %12 = load <2 x float>, ptr %m_xf.i, align 4
   %13 = fadd <2 x float> %12, %11
   ret <2 x float> %13

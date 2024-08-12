@@ -154,7 +154,7 @@ define noalias noundef ptr @Agi_ManFromGia(ptr nocapture noundef readonly %0) lo
   %43 = or i64 %41, %42
   %44 = load ptr, ptr %8, align 8
   %45 = load <2 x i32>, ptr %11, align 4
-  %46 = extractelement <2 x i32> %45, i64 0
+  %46 = load i32, ptr %11, align 4
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i64, ptr %44, i64 %47
   store i64 %43, ptr %48, align 8

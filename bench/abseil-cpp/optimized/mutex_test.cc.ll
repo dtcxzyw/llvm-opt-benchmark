@@ -15424,7 +15424,6 @@ if.then8:                                         ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
   %2 = load ptr, ptr %_M_manager.i.i.i.i, align 8
@@ -15436,11 +15435,9 @@ if.then.i.i:                                      ; preds = %if.then8
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %callback, i64 24
-  %3 = load ptr, ptr %_M_invoker4.i.i, align 8
-  store ptr %3, ptr %_M_invoker.i.i, align 8
+  %3 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8
   %4 = load ptr, ptr %_M_manager.i.i.i.i, align 8
-  store ptr %4, ptr %_M_manager.i.i.i, align 8
+  store <2 x ptr> %3, ptr %_M_manager.i.i.i, align 8
   br label %_ZNSt8functionIFvvEEC2ERKS1_.exit.i
 
 lpad.i.i:                                         ; preds = %if.then.i.i

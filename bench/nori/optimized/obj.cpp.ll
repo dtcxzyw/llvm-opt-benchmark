@@ -654,9 +654,9 @@ _ZN10filesystem4pathD2Ev.exit:                    ; preds = %_ZSt8_DestroyIPNSt7
   %180 = fdiv <2 x float> %178, %179
   %.sroa.0.8.vec.extract.i = extractelement <4 x float> %177, i64 2
   %181 = fdiv float %.sroa.0.8.vec.extract.i, %.sroa.0.12.vec.extract.i
+  %182 = extractelement <2 x float> %180, i64 1
   store <2 x float> %180, ptr %19, align 8
   store float %181, ptr %130, align 8
-  %182 = extractelement <2 x float> %180, i64 1
   %183 = load <4 x float>, ptr %134, align 8
   %184 = shufflevector <2 x float> %180, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 0>
   %185 = insertelement <4 x float> %184, float %181, i64 2

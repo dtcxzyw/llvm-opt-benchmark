@@ -606,130 +606,23 @@ declare double @log(double noundef) local_unnamed_addr #5
 define void @_ZN2cv31createRANSACPointSetRegistratorERKNS_3PtrINS_19PointSetRegistrator8CallbackEEEiddi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2, double noundef %3, double noundef %4, i32 noundef %5) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %.noexc unwind label %44
+          to label %.noexc unwind label %43
 
 .noexc:                                           ; preds = %6
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv25RANSACPointSetRegistratorE, i64 16), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = load ptr, ptr %1, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %10, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i.i, label %21, label %13
-
-13:                                               ; preds = %.noexc
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
-  %15 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %.not.i.i.i.i.i.i, label %19, label %16
-
-16:                                               ; preds = %13
-  %17 = load i32, ptr %14, align 4
-  %18 = add nsw i32 %17, 1
-  store i32 %18, ptr %14, align 4
-  br label %21
-
-19:                                               ; preds = %13
-  %20 = atomicrmw volatile add ptr %14, i32 1 acq_rel, align 4
-  br label %21
-
-21:                                               ; preds = %19, %16, %.noexc
-  %22 = getelementptr inbounds i8, ptr %7, i64 24
-  store i32 %2, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 32
-  store double %3, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 40
-  store double %4, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 48
-  store i32 %5, ptr %25, align 8
-  store ptr %7, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr null, ptr %26, align 8
-  %27 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
-          to label %_ZN2cv3PtrINS_19PointSetRegistratorEEC2INS_25RANSACPointSetRegistratorEEEPT_.exit unwind label %28
-
-28:                                               ; preds = %21
-  %29 = landingpad { ptr, i32 }
-          catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  %31 = tail call ptr @__cxa_begin_catch(ptr %30) #20
-  %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
-  %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull align 8 dereferenceable(52) %7) #20
-  invoke void @__cxa_rethrow() #21
-          to label %40 unwind label %35
-
-35:                                               ; preds = %28
-  %36 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %37
-
-common.resume:                                    ; preds = %35, %44
-  %common.resume.op = phi { ptr, i32 } [ %45, %44 ], [ %36, %35 ]
-  resume { ptr, i32 } %common.resume.op
-
-37:                                               ; preds = %35
-  %38 = landingpad { ptr, i32 }
-          catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  tail call void @__clang_call_terminate(ptr %39) #23
-  unreachable
-
-40:                                               ; preds = %28
-  unreachable
-
-_ZN2cv3PtrINS_19PointSetRegistratorEEC2INS_25RANSACPointSetRegistratorEEEPT_.exit: ; preds = %21
-  %41 = getelementptr inbounds i8, ptr %27, i64 8
-  store i32 1, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %27, i64 12
-  store i32 1, ptr %42, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv25RANSACPointSetRegistratorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %27, align 8
-  %43 = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr %7, ptr %43, align 8
-  store ptr %27, ptr %26, align 8
-  ret void
-
-44:                                               ; preds = %6
-  %45 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %7) #24
-  br label %common.resume
-}
-
-; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
-
-; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN2cv30createLMeDSPointSetRegistratorERKNS_3PtrINS_19PointSetRegistrator8CallbackEEEidi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2, double noundef %3, i32 noundef %4) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
-  %6 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
-  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %.noexc unwind label %43
-
-.noexc:                                           ; preds = %5
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv25RANSACPointSetRegistratorE, i64 16), ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = load ptr, ptr %1, align 8
-  store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %9, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i.i.i.i.i, label %20, label %12
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %11, ptr %8, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %10, null
+  br i1 %.not.i.i.i.i.i, label %20, label %12
 
 12:                                               ; preds = %.noexc
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds i8, ptr %10, i64 8
   %14 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %14, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %18, label %15
+  %.not.i.i.i.i.i.i = icmp eq i8 %14, 0
+  br i1 %.not.i.i.i.i.i.i, label %18, label %15
 
 15:                                               ; preds = %12
   %16 = load i32, ptr %13, align 4
@@ -742,30 +635,29 @@ define void @_ZN2cv30createLMeDSPointSetRegistratorERKNS_3PtrINS_19PointSetRegis
   br label %20
 
 20:                                               ; preds = %18, %15, %.noexc
-  %21 = getelementptr inbounds i8, ptr %6, i64 24
+  %21 = getelementptr inbounds i8, ptr %7, i64 24
   store i32 %2, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 32
-  store double 0.000000e+00, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %6, i64 40
-  store double %3, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 48
-  store i32 %4, ptr %24, align 8
-  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv24LMeDSPointSetRegistratorE, i64 16), ptr %6, align 8
-  store ptr %6, ptr %0, align 8
+  %22 = getelementptr inbounds i8, ptr %7, i64 32
+  store double %3, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %7, i64 40
+  store double %4, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %7, i64 48
+  store i32 %5, ptr %24, align 8
+  store ptr %7, ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %25, align 8
   %26 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
-          to label %_ZN2cv3PtrINS_19PointSetRegistratorEEC2INS_24LMeDSPointSetRegistratorEEEPT_.exit unwind label %27
+          to label %_ZN2cv3PtrINS_19PointSetRegistratorEEC2INS_25RANSACPointSetRegistratorEEEPT_.exit unwind label %27
 
 27:                                               ; preds = %20
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
   %30 = tail call ptr @__cxa_begin_catch(ptr %29) #20
-  %31 = load ptr, ptr %6, align 8
+  %31 = load ptr, ptr %7, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(52) %6) #20
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(52) %7) #20
   invoke void @__cxa_rethrow() #21
           to label %39 unwind label %34
 
@@ -789,19 +681,123 @@ common.resume:                                    ; preds = %34, %43
 39:                                               ; preds = %27
   unreachable
 
-_ZN2cv3PtrINS_19PointSetRegistratorEEC2INS_24LMeDSPointSetRegistratorEEEPT_.exit: ; preds = %20
+_ZN2cv3PtrINS_19PointSetRegistratorEEC2INS_25RANSACPointSetRegistratorEEEPT_.exit: ; preds = %20
   %40 = getelementptr inbounds i8, ptr %26, i64 8
   store i32 1, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %26, i64 12
   store i32 1, ptr %41, align 4
-  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv24LMeDSPointSetRegistratorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26, align 8
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv25RANSACPointSetRegistratorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %26, align 8
   %42 = getelementptr inbounds i8, ptr %26, i64 16
-  store ptr %6, ptr %42, align 8
+  store ptr %7, ptr %42, align 8
   store ptr %26, ptr %25, align 8
   ret void
 
-43:                                               ; preds = %5
+43:                                               ; preds = %6
   %44 = landingpad { ptr, i32 }
+          cleanup
+  tail call void @_ZdlPv(ptr noundef nonnull %7) #24
+  br label %common.resume
+}
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN2cv30createLMeDSPointSetRegistratorERKNS_3PtrINS_19PointSetRegistrator8CallbackEEEidi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2, double noundef %3, i32 noundef %4) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+  %6 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
+  invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %.noexc unwind label %42
+
+.noexc:                                           ; preds = %5
+  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv25RANSACPointSetRegistratorE, i64 16), ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %10, ptr %7, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %9, null
+  br i1 %.not.i.i.i.i.i.i, label %19, label %11
+
+11:                                               ; preds = %.noexc
+  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %13, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %17, label %14
+
+14:                                               ; preds = %11
+  %15 = load i32, ptr %12, align 4
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %12, align 4
+  br label %19
+
+17:                                               ; preds = %11
+  %18 = atomicrmw volatile add ptr %12, i32 1 acq_rel, align 4
+  br label %19
+
+19:                                               ; preds = %17, %14, %.noexc
+  %20 = getelementptr inbounds i8, ptr %6, i64 24
+  store i32 %2, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %6, i64 32
+  store double 0.000000e+00, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %6, i64 40
+  store double %3, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %6, i64 48
+  store i32 %4, ptr %23, align 8
+  store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv24LMeDSPointSetRegistratorE, i64 16), ptr %6, align 8
+  store ptr %6, ptr %0, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr null, ptr %24, align 8
+  %25 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+          to label %_ZN2cv3PtrINS_19PointSetRegistratorEEC2INS_24LMeDSPointSetRegistratorEEEPT_.exit unwind label %26
+
+26:                                               ; preds = %19
+  %27 = landingpad { ptr, i32 }
+          catch ptr null
+  %28 = extractvalue { ptr, i32 } %27, 0
+  %29 = tail call ptr @__cxa_begin_catch(ptr %28) #20
+  %30 = load ptr, ptr %6, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(52) %6) #20
+  invoke void @__cxa_rethrow() #21
+          to label %38 unwind label %33
+
+33:                                               ; preds = %26
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @__cxa_end_catch()
+          to label %common.resume unwind label %35
+
+common.resume:                                    ; preds = %33, %42
+  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %34, %33 ]
+  resume { ptr, i32 } %common.resume.op
+
+35:                                               ; preds = %33
+  %36 = landingpad { ptr, i32 }
+          catch ptr null
+  %37 = extractvalue { ptr, i32 } %36, 0
+  tail call void @__clang_call_terminate(ptr %37) #23
+  unreachable
+
+38:                                               ; preds = %26
+  unreachable
+
+_ZN2cv3PtrINS_19PointSetRegistratorEEC2INS_24LMeDSPointSetRegistratorEEEPT_.exit: ; preds = %19
+  %39 = getelementptr inbounds i8, ptr %25, i64 8
+  store i32 1, ptr %39, align 8
+  %40 = getelementptr inbounds i8, ptr %25, i64 12
+  store i32 1, ptr %40, align 4
+  store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv24LMeDSPointSetRegistratorELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %25, align 8
+  %41 = getelementptr inbounds i8, ptr %25, i64 16
+  store ptr %6, ptr %41, align 8
+  store ptr %25, ptr %24, align 8
+  ret void
+
+42:                                               ; preds = %5
+  %43 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %6) #24
   br label %common.resume
@@ -4813,10 +4809,10 @@ declare void @_ZN2cv3Mat5zerosEiii(ptr dead_on_unwind writable sret(%"class.cv::
 define void @_ZN2cv16estimateAffine2DERKNS_11_InputArrayES2_RKNS_12_OutputArrayERKNS_10UsacParamsE(ptr dead_on_unwind noalias writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(64) %4) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::Range", align 4
   %7 = alloca %"class.cv::Range", align 8
-  %8 = alloca %"struct.cv::Ptr.29", align 8
+  %8 = alloca %"struct.cv::Ptr.29", align 16
   %9 = alloca %"struct.cv::Ptr.33", align 8
-  %10 = alloca %"struct.cv::Ptr.37", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
+  %10 = alloca %"struct.cv::Ptr.37", align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %11 = invoke noundef zeroext i1 @_ZNK2cv12_OutputArray6neededEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %12 unwind label %86
 
@@ -4826,17 +4822,16 @@ define void @_ZN2cv16estimateAffine2DERKNS_11_InputArrayES2_RKNS_12_OutputArrayE
 
 13:                                               ; preds = %12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %14 = load ptr, ptr %8, align 8
-  store ptr %14, ptr %10, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %15, align 8
-  %.not.i.i.i.i = icmp eq ptr %17, null
+  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = load <2 x ptr>, ptr %8, align 16
+  store <2 x ptr> %17, ptr %10, align 16
+  %.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrIKNS_4usac5ModelEEC2IS2_EERKNS0_IT_EE.exit, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds i8, ptr %16, i64 8
   %20 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %20, 0
   br i1 %.not.i.i.i.i.i, label %24, label %21
@@ -4872,7 +4867,7 @@ _ZN2cv3PtrIKNS_4usac5ModelEEC2IS2_EERKNS0_IT_EE.exit: ; preds = %13, %21, %24
           to label %35 unwind label %88
 
 35:                                               ; preds = %33
-  %36 = load ptr, ptr %15, align 8
+  %36 = load ptr, ptr %14, align 8
   %.not.i.i.i.i10 = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i10, label %_ZN2cv3PtrIKNS_4usac5ModelEED2Ev.exit, label %37
 
@@ -5077,7 +5072,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_4usac12RansacOutputEED2Ev.exit
 
 _ZN2cv3PtrINS_4usac12RansacOutputEED2Ev.exit:     ; preds = %93, %112, %125, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i17
-  %130 = load ptr, ptr %16, align 8
+  %130 = load ptr, ptr %15, align 8
   %.not.i.i.i.i18 = icmp eq ptr %130, null
   br i1 %.not.i.i.i.i18, label %_ZN2cv3PtrINS_4usac5ModelEED2Ev.exit, label %131
 

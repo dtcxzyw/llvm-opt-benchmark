@@ -1977,7 +1977,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_138ST_SR_IM_Sparse_OpticalFlo
   %19 = alloca %"class.std::vector.44", align 8
   %20 = alloca %"class.std::vector.49", align 8
   %21 = alloca %"class.std::vector.54", align 8
-  %22 = alloca %"struct.cv::Ptr", align 8
+  %22 = alloca %"struct.cv::Ptr", align 16
   %23 = alloca %"class.cv::utils::trace::details::Region", align 8
   %24 = alloca %"class.cv::_InputArray", align 8
   %25 = alloca %"class.cv::_InputArray", align 8
@@ -1985,7 +1985,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_138ST_SR_IM_Sparse_OpticalFlo
   %27 = alloca %"class.cv::_InputOutputArray", align 8
   %28 = alloca %"class.cv::_OutputArray", align 8
   %29 = alloca %"class.cv::_OutputArray", align 8
-  %30 = alloca %"struct.cv::Ptr", align 8
+  %30 = alloca %"struct.cv::Ptr", align 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.36, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %31 unwind label %42
@@ -2585,7 +2585,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc92
   store i32 30, ptr %236, align 4
   %237 = getelementptr inbounds i8, ptr %228, i64 40
   store <2 x float> <float 0x3F1A36E2E0000000, float 1.000000e+01>, ptr %237, align 4
-  store ptr %228, ptr %22, align 8
+  store ptr %228, ptr %22, align 16
   %238 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr null, ptr %238, align 8
   %239 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
@@ -2773,15 +2773,14 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc92
   store i64 0, ptr %307, align 8
   store i32 -2113732603, ptr %29, align 8
   store ptr %21, ptr %306, align 8
-  %318 = load ptr, ptr %22, align 8
-  store ptr %318, ptr %30, align 8
-  %319 = load ptr, ptr %238, align 8
-  store ptr %319, ptr %308, align 8
-  %.not.i.i.i.i93 = icmp eq ptr %319, null
+  %318 = load ptr, ptr %238, align 8
+  %319 = load <2 x ptr>, ptr %22, align 16
+  store <2 x ptr> %319, ptr %30, align 16
+  %.not.i.i.i.i93 = icmp eq ptr %318, null
   br i1 %.not.i.i.i.i93, label %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit, label %320
 
 320:                                              ; preds = %317
-  %321 = getelementptr inbounds i8, ptr %319, i64 8
+  %321 = getelementptr inbounds i8, ptr %318, i64 8
   %322 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %322, 0
   br i1 %.not.i.i.i.i.i, label %326, label %323
@@ -7412,14 +7411,14 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_139INTERP_GRID_Dense_OpticalF
   %16 = alloca %"class.testing::Message", align 8
   %17 = alloca %"class.testing::internal::AssertHelper", align 8
   %18 = alloca %"class.std::__cxx11::basic_string", align 8
-  %19 = alloca %"struct.cv::Ptr", align 8
+  %19 = alloca %"struct.cv::Ptr", align 16
   %20 = alloca %"struct.cv::Ptr.102", align 8
   %21 = alloca %"struct.cv::Ptr", align 8
   %22 = alloca %"class.cv::utils::trace::details::Region", align 8
   %23 = alloca %"class.cv::_InputArray", align 8
   %24 = alloca %"class.cv::_InputArray", align 8
   %25 = alloca %"class.cv::_InputOutputArray", align 8
-  %26 = alloca %"struct.cv::Ptr", align 8
+  %26 = alloca %"struct.cv::Ptr", align 16
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.36, ptr noundef nonnull align 1 dereferenceable(1) %6)
@@ -7796,7 +7795,7 @@ _ZN7testing15AssertionResultD2Ev.exit71:          ; preds = %98
   store i32 30, ptr %152, align 4
   %153 = getelementptr inbounds i8, ptr %144, i64 40
   store <2 x float> <float 0x3F1A36E2E0000000, float 1.000000e+01>, ptr %153, align 4
-  store ptr %144, ptr %19, align 8
+  store ptr %144, ptr %19, align 16
   %154 = getelementptr inbounds i8, ptr %19, i64 8
   store ptr null, ptr %154, align 8
   %155 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
@@ -8001,15 +8000,14 @@ _ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEED2Ev.exit: ; preds = %170, %18
   store i64 0, ptr %232, align 8
   store i32 50397184, ptr %25, align 8
   store ptr %2, ptr %231, align 8
-  %243 = load ptr, ptr %19, align 8
-  store ptr %243, ptr %26, align 8
-  %244 = load ptr, ptr %154, align 8
-  store ptr %244, ptr %233, align 8
-  %.not.i.i.i.i72 = icmp eq ptr %244, null
+  %243 = load ptr, ptr %154, align 8
+  %244 = load <2 x ptr>, ptr %19, align 16
+  store <2 x ptr> %244, ptr %26, align 16
+  %.not.i.i.i.i72 = icmp eq ptr %243, null
   br i1 %.not.i.i.i.i72, label %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit, label %245
 
 245:                                              ; preds = %242
-  %246 = getelementptr inbounds i8, ptr %244, i64 8
+  %246 = getelementptr inbounds i8, ptr %243, i64 8
   %247 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i73 = icmp eq i8 %247, 0
   br i1 %.not.i.i.i.i.i73, label %251, label %248

@@ -1250,6 +1250,7 @@ get_boundingbox.exit:                             ; preds = %84, %81
   %123 = shufflevector <2 x double> %122, <2 x double> poison, <2 x i32> zeroinitializer
   %124 = extractelement <2 x double> %116, i64 1
   %125 = extractelement <2 x double> %116, i64 1
+  %invariant.gep859 = getelementptr i8, ptr %4, i64 8
   %126 = extractelement <2 x double> %116, i64 0
   %127 = extractelement <2 x double> %116, i64 0
   br label %128
@@ -1609,14 +1610,15 @@ add_point.exit236:                                ; preds = %290, %287, %.lr.ph5
   br i1 %301, label %302, label %.loopexit
 
 302:                                              ; preds = %.loopexit442
+  %gep = getelementptr double, ptr %invariant.gep859, i64 %131
   %303 = uitofp nneg i32 %.sroa.0.4.extract.trunc821 to double
   %304 = getelementptr inbounds double, ptr %3, i64 %131
   %305 = getelementptr inbounds double, ptr %4, i64 %131
-  %306 = load <2 x double>, ptr %305, align 8
-  %307 = extractelement <2 x double> %306, i64 1
-  %308 = fdiv double %307, %303
+  %306 = load double, ptr %gep, align 8
+  %307 = load <2 x double>, ptr %305, align 8
+  %308 = fdiv double %306, %303
   %309 = load <2 x double>, ptr %304, align 8
-  %310 = fmul <2 x double> %306, <double 5.000000e-01, double 5.000000e-01>
+  %310 = fmul <2 x double> %307, <double 5.000000e-01, double 5.000000e-01>
   %311 = fsub <2 x double> %309, %310
   %.not.i237 = icmp slt i32 %.1421, %.1406
   br i1 %.not.i237, label %add_point.exit239, label %312

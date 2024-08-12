@@ -164,17 +164,16 @@ entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 16
   %ref.tmp2 = alloca %"class.std::shared_ptr.18", align 16
   %ref.tmp3 = alloca %"class.std::shared_ptr.21", align 16
-  %0 = load ptr, ptr %gammaData, align 8
-  store ptr %0, ptr %gamma, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %gamma, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %gammaData, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %gammaData, align 8
+  store <2 x ptr> %1, ptr %gamma, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev11GammaOpDataEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -968,10 +967,10 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_17GammaOpELN9__gnu_cxx12_
 define hidden void @_ZN19OpenColorIO_v2_4dev20CreateGammaTransformERSt10shared_ptrINS_14GroupTransformEERS0_IKNS_2OpEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %group, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %op) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %gammaData = alloca %"class.std::shared_ptr.31", align 8
-  %expTransform = alloca %"class.std::shared_ptr.40", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.46", align 8
-  %expTransform23 = alloca %"class.std::shared_ptr.49", align 8
-  %agg.tmp36 = alloca %"class.std::shared_ptr.46", align 8
+  %expTransform = alloca %"class.std::shared_ptr.40", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.46", align 16
+  %expTransform23 = alloca %"class.std::shared_ptr.49", align 16
+  %agg.tmp36 = alloca %"class.std::shared_ptr.46", align 16
   %op.val = load ptr, ptr %op, align 8
   %0 = getelementptr inbounds i8, ptr %op, i64 8
   %op.val10 = load ptr, ptr %0, align 8
@@ -1166,7 +1165,7 @@ if.then13:                                        ; preds = %_ZNSt10shared_ptrIK
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %if.then13
-  %31 = load ptr, ptr %expTransform, align 8, !nonnull !21, !noundef !21
+  %31 = load ptr, ptr %expTransform, align 16, !nonnull !21, !noundef !21
   %32 = call ptr @__dynamic_cast(ptr nonnull %31, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev27ExponentWithLinearTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev31ExponentWithLinearTransformImplE, i64 0) #14
   %m_data.i38 = getelementptr inbounds i8, ptr %32, i64 8
   %call.i40 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %m_data.i38, ptr noundef nonnull align 8 dereferenceable(168) %29)
@@ -1206,17 +1205,16 @@ lpad14:                                           ; preds = %if.else, %if.then13
 
 invoke.cont20:                                    ; preds = %call8.i.noexc
   %35 = load ptr, ptr %group, align 8
-  %36 = load ptr, ptr %expTransform, align 8
-  store ptr %36, ptr %agg.tmp, align 8
   %_M_refcount.i.i45 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %expTransform, i64 8
-  %37 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %37, ptr %_M_refcount.i.i45, align 8
-  %cmp.not.i.i.i46 = icmp eq ptr %37, null
+  %36 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %37 = load <2 x ptr>, ptr %expTransform, align 16
+  store <2 x ptr> %37, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i46 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i.i46, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev9TransformEEC2INS0_27ExponentWithLinearTransformEvEERKS_IT_E.exit, label %if.then.i.i.i47
 
 if.then.i.i.i47:                                  ; preds = %invoke.cont20
-  %_M_use_count.i.i.i.i48 = getelementptr inbounds i8, ptr %37, i64 8
+  %_M_use_count.i.i.i.i48 = getelementptr inbounds i8, ptr %36, i64 8
   %38 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %38, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i51, label %if.then.i.i.i.i.i49
@@ -1375,7 +1373,7 @@ if.else:                                          ; preds = %_ZNSt10shared_ptrIK
           to label %invoke.cont24 unwind label %lpad14
 
 invoke.cont24:                                    ; preds = %if.else
-  %63 = load ptr, ptr %expTransform23, align 8, !nonnull !21, !noundef !21
+  %63 = load ptr, ptr %expTransform23, align 16, !nonnull !21, !noundef !21
   %64 = call ptr @__dynamic_cast(ptr nonnull %63, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev17ExponentTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev21ExponentTransformImplE, i64 0) #14
   %m_data.i114 = getelementptr inbounds i8, ptr %64, i64 8
   %call.i126 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %m_data.i114, ptr noundef nonnull align 8 dereferenceable(168) %29)
@@ -1410,17 +1408,16 @@ call8.i.noexc131:                                 ; preds = %call6.i.noexc129
 
 invoke.cont33:                                    ; preds = %call8.i.noexc131
   %66 = load ptr, ptr %group, align 8
-  %67 = load ptr, ptr %expTransform23, align 8
-  store ptr %67, ptr %agg.tmp36, align 8
   %_M_refcount.i.i135 = getelementptr inbounds i8, ptr %agg.tmp36, i64 8
   %_M_refcount3.i.i136 = getelementptr inbounds i8, ptr %expTransform23, i64 8
-  %68 = load ptr, ptr %_M_refcount3.i.i136, align 8
-  store ptr %68, ptr %_M_refcount.i.i135, align 8
-  %cmp.not.i.i.i137 = icmp eq ptr %68, null
+  %67 = load ptr, ptr %_M_refcount3.i.i136, align 8
+  %68 = load <2 x ptr>, ptr %expTransform23, align 16
+  store <2 x ptr> %68, ptr %agg.tmp36, align 16
+  %cmp.not.i.i.i137 = icmp eq ptr %67, null
   br i1 %cmp.not.i.i.i137, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev9TransformEEC2INS0_17ExponentTransformEvEERKS_IT_E.exit, label %if.then.i.i.i138
 
 if.then.i.i.i138:                                 ; preds = %invoke.cont33
-  %_M_use_count.i.i.i.i139 = getelementptr inbounds i8, ptr %68, i64 8
+  %_M_use_count.i.i.i.i139 = getelementptr inbounds i8, ptr %67, i64 8
   %69 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i140 = icmp eq i8 %69, 0
   br i1 %tobool.i.not.i.i.i.i140, label %if.else.i.i.i.i.i143, label %if.then.i.i.i.i.i141

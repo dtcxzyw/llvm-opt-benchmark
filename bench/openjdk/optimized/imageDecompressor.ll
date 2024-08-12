@@ -202,7 +202,7 @@ define hidden void @_ZN17ImageDecompressor19decompress_resourceEPhS0_yPK12ImageS
   br label %11
 
 11:                                               ; preds = %.backedge, %5
-  %.035 = phi ptr [ %0, %5 ], [ %66, %.backedge ]
+  %.035 = phi ptr [ %0, %5 ], [ %67, %.backedge ]
   %12 = load i32, ptr %.035, align 1
   store i32 %12, ptr %6, align 8
   %13 = getelementptr inbounds i8, ptr %.035, i64 4
@@ -255,31 +255,31 @@ define hidden void @_ZN17ImageDecompressor19decompress_resourceEPhS0_yPK12ImageS
   store i64 %58, ptr %8, align 8
   %59 = getelementptr inbounds i8, ptr %.035, i64 20
   %60 = load <2 x i32>, ptr %59, align 1
+  %61 = load i32, ptr %59, align 1
   store <2 x i32> %60, ptr %9, align 8
-  %61 = getelementptr inbounds i8, ptr %.035, i64 28
-  %62 = load i8, ptr %61, align 1
-  store i8 %62, ptr %10, align 8
-  %63 = icmp eq i32 %12, -889259270
-  br i1 %63, label %64, label %75
+  %62 = getelementptr inbounds i8, ptr %.035, i64 28
+  %63 = load i8, ptr %62, align 1
+  store i8 %63, ptr %10, align 8
+  %64 = icmp eq i32 %12, -889259270
+  br i1 %64, label %65, label %75
 
-64:                                               ; preds = %11
-  %65 = getelementptr inbounds i8, ptr %.035, i64 29
-  %66 = call noalias noundef nonnull ptr @_Znam(i64 noundef %58) #12
-  %67 = load ptr, ptr %3, align 8
-  %68 = extractelement <2 x i32> %60, i64 0
-  %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds i8, ptr %67, i64 %69
+65:                                               ; preds = %11
+  %66 = getelementptr inbounds i8, ptr %.035, i64 29
+  %67 = call noalias noundef nonnull ptr @_Znam(i64 noundef %58) #12
+  %68 = load ptr, ptr %3, align 8
+  %69 = zext i32 %61 to i64
+  %70 = getelementptr inbounds i8, ptr %68, i64 %69
   %71 = call noundef ptr @_ZN17ImageDecompressor16get_decompressorEPKc(ptr noundef %70)
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr %72, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %65, ptr noundef nonnull %66, ptr noundef nonnull %6, ptr noundef nonnull %3)
+  call void %73(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %6, ptr noundef nonnull %3)
   %.not = icmp eq ptr %.035, %0
   br i1 %.not, label %.backedge, label %74
 
-.backedge:                                        ; preds = %64, %74
+.backedge:                                        ; preds = %65, %74
   br label %11, !llvm.loop !8
 
-74:                                               ; preds = %64
+74:                                               ; preds = %65
   call void @_ZdaPv(ptr noundef nonnull %.035) #13
   br label %.backedge
 

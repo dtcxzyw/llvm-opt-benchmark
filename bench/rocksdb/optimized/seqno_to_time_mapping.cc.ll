@@ -2473,24 +2473,25 @@ invoke.cont:                                      ; preds = %_ZNSt5dequeIN7rocks
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp5.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp6.i.i)
-  %15 = load <4 x ptr>, ptr %_M_start.i, align 8, !noalias !179
+  %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %15 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !179
+  %16 = load <4 x ptr>, ptr %_M_start.i, align 8, !noalias !179
   %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %16 = load ptr, ptr %_M_node5.i.i.i.i, align 8
-  %17 = extractelement <4 x ptr> %15, i64 3
-  %cmp3.i.i.i = icmp ult ptr %17, %16
+  %17 = load ptr, ptr %_M_node5.i.i.i.i, align 8
+  %cmp3.i.i.i = icmp ult ptr %15, %17
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5clearEv.exit
 
 for.body.i.i.i:                                   ; preds = %invoke.cont, %for.body.i.i.i
-  %__n.04.i.pn.i.i = phi ptr [ %__n.04.i.i.i, %for.body.i.i.i ], [ %17, %invoke.cont ]
+  %__n.04.i.pn.i.i = phi ptr [ %__n.04.i.i.i, %for.body.i.i.i ], [ %15, %invoke.cont ]
   %__n.04.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.pn.i.i, i64 8
   %18 = load ptr, ptr %__n.04.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %18) #19
-  %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %16
+  %cmp.i.i.i = icmp ult ptr %__n.04.i.i.i, %17
   br i1 %cmp.i.i.i, label %for.body.i.i.i, label %_ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5clearEv.exit, !llvm.loop !142
 
 _ZNSt5dequeIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE5clearEv.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 80
-  store <4 x ptr> %15, ptr %_M_finish.i, align 8
+  store <4 x ptr> %16, ptr %_M_finish.i, align 8
   %19 = load ptr, ptr %_M_start.i6, align 8
   %20 = load i64, ptr %19, align 8
   %cmp78 = icmp eq i64 %20, 0
@@ -5054,26 +5055,26 @@ entry:
   store <4 x ptr> %2, ptr %agg.tmp2, align 8
   call void @_ZSt13__heap_selectISt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS3_PS3_EN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SA_SA_T0_(ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1, ptr noundef nonnull %agg.tmp2)
   %3 = load <4 x ptr>, ptr %__first, align 8
-  %4 = load ptr, ptr %__middle, align 8
-  %5 = load ptr, ptr %_M_first3.i2, align 8
-  %6 = load ptr, ptr %_M_node5.i6, align 8
-  %7 = extractelement <4 x ptr> %3, i64 3
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %7 to i64
-  %8 = extractelement <4 x ptr> %3, i64 2
-  %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %8 to i64
-  %9 = extractelement <4 x ptr> %3, i64 0
-  %sub.ptr.rhs.cast9.i.i = ptrtoint ptr %9 to i64
+  %4 = load ptr, ptr %__first, align 8
+  %5 = load ptr, ptr %__middle, align 8
+  %6 = load ptr, ptr %_M_first3.i2, align 8
+  %7 = load ptr, ptr %_M_node5.i6, align 8
+  %8 = extractelement <4 x ptr> %3, i64 3
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %8 to i64
+  %9 = extractelement <4 x ptr> %3, i64 2
+  %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.rhs.cast9.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast9.i.i
   %sub.ptr.div11.i.i = ashr exact i64 %sub.ptr.sub10.i.i, 4
-  %sub.ptr.lhs.cast.i.i28 = ptrtoint ptr %6 to i64
+  %sub.ptr.lhs.cast.i.i28 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i29 = sub i64 %sub.ptr.lhs.cast.i.i28, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i30 = ashr exact i64 %sub.ptr.sub.i.i29, 3
-  %tobool.i.i31 = icmp ne ptr %6, null
+  %tobool.i.i31 = icmp ne ptr %7, null
   %conv.neg.i.i32 = sext i1 %tobool.i.i31 to i64
   %sub.i.i33 = add nsw i64 %sub.ptr.div.i.i30, %conv.neg.i.i32
   %mul.i.i34 = shl nsw i64 %sub.i.i33, 5
-  %sub.ptr.lhs.cast3.i.i35 = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast4.i.i36 = ptrtoint ptr %5 to i64
+  %sub.ptr.lhs.cast3.i.i35 = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast4.i.i36 = ptrtoint ptr %6 to i64
   %sub.ptr.sub5.i.i37 = sub i64 %sub.ptr.lhs.cast3.i.i35, %sub.ptr.rhs.cast4.i.i36
   %sub.ptr.div6.i.i38 = ashr exact i64 %sub.ptr.sub5.i.i37, 4
   %add.i.i39 = add nsw i64 %sub.ptr.div6.i.i38, %sub.ptr.div11.i.i
@@ -5084,9 +5085,9 @@ entry:
 while.body.i:                                     ; preds = %entry, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmmEv.exit.i
   %sub.ptr.rhs.cast4.i.i46 = phi i64 [ %sub.ptr.rhs.cast4.i.i.pre-phi, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmmEv.exit.i ], [ %sub.ptr.rhs.cast4.i.i36, %entry ]
   %sub.ptr.lhs.cast.i.i45 = phi i64 [ %sub.ptr.lhs.cast.i.i.pre-phi, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmmEv.exit.i ], [ %sub.ptr.lhs.cast.i.i28, %entry ]
-  %agg.tmp5.sroa.0.044 = phi ptr [ %incdec.ptr.i.i, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmmEv.exit.i ], [ %4, %entry ]
-  %agg.tmp5.sroa.3.043 = phi ptr [ %agg.tmp5.sroa.3.1, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmmEv.exit.i ], [ %5, %entry ]
-  %agg.tmp5.sroa.8.042 = phi ptr [ %agg.tmp5.sroa.8.1, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmmEv.exit.i ], [ %6, %entry ]
+  %agg.tmp5.sroa.0.044 = phi ptr [ %incdec.ptr.i.i, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmmEv.exit.i ], [ %5, %entry ]
+  %agg.tmp5.sroa.3.043 = phi ptr [ %agg.tmp5.sroa.3.1, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmmEv.exit.i ], [ %6, %entry ]
+  %agg.tmp5.sroa.8.042 = phi ptr [ %agg.tmp5.sroa.8.1, %_ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmmEv.exit.i ], [ %7, %entry ]
   %cmp.i.i = icmp eq ptr %agg.tmp5.sroa.0.044, %agg.tmp5.sroa.3.043
   br i1 %cmp.i.i, label %if.then.i.i, label %while.body.i._ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmmEv.exit.i_crit_edge
 
@@ -5116,7 +5117,7 @@ _ZNSt15_Deque_iteratorIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairERS2_PS2_EmmE
   %__value.sroa.0.0.copyload.i.i = load i64, ptr %incdec.ptr.i.i, align 8
   %__value.sroa.2.0.call.sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 -8
   %__value.sroa.2.0.copyload.i.i = load i64, ptr %__value.sroa.2.0.call.sroa_idx.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
   store <4 x ptr> %3, ptr %agg.tmp.i.i, align 8
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.pre-phi.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
@@ -5513,6 +5514,7 @@ entry:
   %agg.tmp = alloca %"struct.std::_Deque_iterator.3", align 8
   %agg.tmp1 = alloca %"struct.std::_Deque_iterator.3", align 8
   %_M_first3.i = getelementptr inbounds i8, ptr %__first, i64 8
+  %_M_last4.i = getelementptr inbounds i8, ptr %__first, i64 16
   %_M_node5.i = getelementptr inbounds i8, ptr %__first, i64 24
   %0 = load <4 x ptr>, ptr %__first, align 8
   store <4 x ptr> %0, ptr %agg.tmp, align 8
@@ -5572,10 +5574,11 @@ if.then:                                          ; preds = %for.body.if.then_cr
   %14 = load ptr, ptr %_M_first3.i2, align 8
   %15 = load ptr, ptr %_M_node5.i6, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  %16 = load <2 x ptr>, ptr %_M_first3.i, align 8
+  %16 = load ptr, ptr %_M_last4.i, align 8
+  %17 = load <2 x ptr>, ptr %_M_first3.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__i.sroa.0.063, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   store ptr %7, ptr %agg.tmp.i, align 8
-  store <2 x ptr> %16, ptr %_M_first.i.i, align 8
+  store <2 x ptr> %17, ptr %_M_first.i.i, align 8
   store ptr %12, ptr %_M_node.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %12 to i64
@@ -5589,8 +5592,7 @@ if.then:                                          ; preds = %for.body.if.then_cr
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 4
-  %17 = extractelement <2 x ptr> %16, i64 1
-  %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %17 to i64
+  %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %16 to i64
   %sub.ptr.rhs.cast9.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast9.i.i
   %sub.ptr.div11.i.i = ashr exact i64 %sub.ptr.sub10.i.i, 4

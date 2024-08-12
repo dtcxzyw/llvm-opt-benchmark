@@ -1453,8 +1453,8 @@ entry:
   %mul7 = fmul float %0, %0
   %1 = load <2 x float>, ptr %xi, align 4
   %2 = extractelement <2 x float> %1, i64 0
-  %conv = fpext float %2 to double
   %3 = extractelement <2 x float> %1, i64 1
+  %conv = fpext float %2 to double
   %conv9 = fpext float %3 to double
   %4 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %1
   %conv12 = fpext float %0 to double

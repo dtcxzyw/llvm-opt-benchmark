@@ -81,16 +81,16 @@ declare void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK20ExpertInfoProxyModel8lessThanERK11QModelIndexS2_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 16
-  %5 = alloca %class.QString, align 8
+  %5 = alloca %class.QString, align 16
   %6 = alloca %class.QString, align 16
-  %7 = alloca %class.QString, align 8
+  %7 = alloca %class.QString, align 16
   %8 = alloca %class.QModelIndex, align 8
   %9 = alloca %class.QModelIndex, align 8
   %10 = alloca %class.QModelIndex, align 8
   %11 = alloca %class.QModelIndex, align 8
-  %12 = alloca %class.QString, align 8
+  %12 = alloca %class.QString, align 16
   %13 = alloca %class.QString, align 16
-  %14 = alloca %class.QString, align 8
+  %14 = alloca %class.QString, align 16
   %15 = alloca %class.QString, align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %16 = getelementptr inbounds i8, ptr %1, i64 16
@@ -226,8 +226,8 @@ _ZNK11QModelIndex6parentEv.exit57:                ; preds = %44, %.critedge
   switch i32 %56, label %.critedge46 [
     i32 0, label %57
     i32 1, label %64
-    i32 2, label %111
-    i32 3, label %118
+    i32 2, label %109
+    i32 3, label %116
   ]
 
 57:                                               ; preds = %54
@@ -236,7 +236,7 @@ _ZNK11QModelIndex6parentEv.exit57:                ; preds = %44, %.critedge
   %60 = getelementptr inbounds i8, ptr %.036, i64 16
   %61 = load i32, ptr %60, align 8
   %.not43 = icmp eq i32 %59, %61
-  br i1 %.not43, label %165, label %62
+  br i1 %.not43, label %161, label %62
 
 62:                                               ; preds = %57
   %63 = icmp slt i32 %59, %61
@@ -265,250 +265,244 @@ _ZN7QStringC2ERK10QByteArray.exit.i:              ; preds = %64
   %73 = getelementptr inbounds i8, ptr %.037, i64 64
   %74 = load i64, ptr %73, align 8, !noalias !19
   call void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %7, i64 %74, ptr %72)
-  %75 = load ptr, ptr %7, align 8, !noalias !16
-  store ptr %75, ptr %12, align 8, !alias.scope !16
-  %76 = getelementptr inbounds i8, ptr %12, i64 8
-  %77 = getelementptr inbounds i8, ptr %7, i64 8
-  %78 = load ptr, ptr %77, align 8, !noalias !16
-  store ptr %78, ptr %76, align 8, !alias.scope !16
-  %79 = getelementptr inbounds i8, ptr %12, i64 16
-  %80 = getelementptr inbounds i8, ptr %7, i64 16
-  %81 = load i64, ptr %80, align 8, !noalias !16
-  store i64 %81, ptr %79, align 8, !alias.scope !16
+  %75 = load <2 x ptr>, ptr %7, align 16, !noalias !16
+  %76 = load ptr, ptr %7, align 16, !noalias !16
+  store <2 x ptr> %75, ptr %12, align 16, !alias.scope !16
+  %77 = getelementptr inbounds i8, ptr %12, i64 16
+  %78 = getelementptr inbounds i8, ptr %7, i64 16
+  %79 = load i64, ptr %78, align 16, !noalias !16
+  store i64 %79, ptr %77, align 16, !alias.scope !16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !16
   call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  %82 = getelementptr inbounds i8, ptr %.036, i64 48
+  %80 = getelementptr inbounds i8, ptr %.036, i64 48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !22
-  %83 = invoke noundef zeroext i1 @_ZNK10QByteArray6isNullEv(ptr noundef nonnull align 8 dereferenceable(24) %82)
-          to label %_ZN7QStringC2ERK10QByteArray.exit.i59 unwind label %84, !noalias !25
+  %81 = invoke noundef zeroext i1 @_ZNK10QByteArray6isNullEv(ptr noundef nonnull align 8 dereferenceable(24) %80)
+          to label %_ZN7QStringC2ERK10QByteArray.exit.i59 unwind label %82, !noalias !25
 
-84:                                               ; preds = %_ZN7QStringC2ERK10QByteArray.exit.i
-  %85 = landingpad { ptr, i32 }
+82:                                               ; preds = %_ZN7QStringC2ERK10QByteArray.exit.i
+  %83 = landingpad { ptr, i32 }
           catch ptr null
-  %86 = extractvalue { ptr, i32 } %85, 0
-  call void @__clang_call_terminate(ptr %86) #12
+  %84 = extractvalue { ptr, i32 } %83, 0
+  call void @__clang_call_terminate(ptr %84) #12
   unreachable
 
 _ZN7QStringC2ERK10QByteArray.exit.i59:            ; preds = %_ZN7QStringC2ERK10QByteArray.exit.i
-  %87 = getelementptr inbounds i8, ptr %.036, i64 56
-  %88 = load ptr, ptr %87, align 8, !noalias !25
-  %.not.i.i.i.i.i60 = icmp eq ptr %88, null
-  %spec.select.i.i.i.i.i61 = select i1 %.not.i.i.i.i.i60, ptr @_ZN10QByteArray6_emptyE, ptr %88
-  %89 = select i1 %83, ptr null, ptr %spec.select.i.i.i.i.i61
-  %90 = getelementptr inbounds i8, ptr %.036, i64 64
-  %91 = load i64, ptr %90, align 8, !noalias !25
-  invoke void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, i64 %91, ptr %89)
-          to label %92 unwind label %107
+  %85 = getelementptr inbounds i8, ptr %.036, i64 56
+  %86 = load ptr, ptr %85, align 8, !noalias !25
+  %.not.i.i.i.i.i60 = icmp eq ptr %86, null
+  %spec.select.i.i.i.i.i61 = select i1 %.not.i.i.i.i.i60, ptr @_ZN10QByteArray6_emptyE, ptr %86
+  %87 = select i1 %81, ptr null, ptr %spec.select.i.i.i.i.i61
+  %88 = getelementptr inbounds i8, ptr %.036, i64 64
+  %89 = load i64, ptr %88, align 8, !noalias !25
+  invoke void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, i64 %89, ptr %87)
+          to label %90 unwind label %105
 
-92:                                               ; preds = %_ZN7QStringC2ERK10QByteArray.exit.i59
-  %93 = load <2 x ptr>, ptr %6, align 16, !noalias !22
-  store <2 x ptr> %93, ptr %13, align 16, !alias.scope !22
-  %94 = getelementptr inbounds i8, ptr %13, i64 16
-  %95 = getelementptr inbounds i8, ptr %6, i64 16
-  %96 = load i64, ptr %95, align 16, !noalias !22
-  store i64 %96, ptr %94, align 16, !alias.scope !22
+90:                                               ; preds = %_ZN7QStringC2ERK10QByteArray.exit.i59
+  %91 = load <2 x ptr>, ptr %6, align 16, !noalias !22
+  store <2 x ptr> %91, ptr %13, align 16, !alias.scope !22
+  %92 = getelementptr inbounds i8, ptr %13, i64 16
+  %93 = getelementptr inbounds i8, ptr %6, i64 16
+  %94 = load i64, ptr %93, align 16, !noalias !22
+  store i64 %94, ptr %92, align 16, !alias.scope !22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !22
-  %97 = call noundef i32 @_ZNK7QString7compareERKS_N2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef 1) #13
-  %98 = load ptr, ptr %13, align 16
-  %.not.i.i.i = icmp eq ptr %98, null
+  %95 = call noundef i32 @_ZNK7QString7compareERKS_N2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef 1) #13
+  %96 = load ptr, ptr %13, align 16
+  %.not.i.i.i = icmp eq ptr %96, null
   br i1 %.not.i.i.i, label %_ZN7QStringD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
 
-_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %92
-  %99 = atomicrmw sub ptr %98, i32 1 seq_cst, align 4
-  %.not.i.i = icmp eq i32 %99, 1
-  br i1 %.not.i.i, label %100, label %_ZN7QStringD2Ev.exit
+_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %90
+  %97 = atomicrmw sub ptr %96, i32 1 seq_cst, align 4
+  %.not.i.i = icmp eq i32 %97, 1
+  br i1 %.not.i.i, label %98, label %_ZN7QStringD2Ev.exit
 
-100:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
-  %101 = load ptr, ptr %13, align 16
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %101, i64 noundef 2, i64 noundef 8) #13
+98:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
+  %99 = load ptr, ptr %13, align 16
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %99, i64 noundef 2, i64 noundef 8) #13
   br label %_ZN7QStringD2Ev.exit
 
-_ZN7QStringD2Ev.exit:                             ; preds = %92, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %100
-  %102 = load ptr, ptr %12, align 8
-  %.not.i.i.i64 = icmp eq ptr %102, null
+_ZN7QStringD2Ev.exit:                             ; preds = %90, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %98
+  %100 = load ptr, ptr %12, align 16
+  %.not.i.i.i64 = icmp eq ptr %100, null
   br i1 %.not.i.i.i64, label %_ZN7QStringD2Ev.exit67, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i65
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i65:    ; preds = %_ZN7QStringD2Ev.exit
-  %103 = atomicrmw sub ptr %102, i32 1 seq_cst, align 4
-  %.not.i.i66 = icmp eq i32 %103, 1
-  br i1 %.not.i.i66, label %104, label %_ZN7QStringD2Ev.exit67
+  %101 = atomicrmw sub ptr %100, i32 1 seq_cst, align 4
+  %.not.i.i66 = icmp eq i32 %101, 1
+  br i1 %.not.i.i66, label %102, label %_ZN7QStringD2Ev.exit67
 
-104:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i65
-  %105 = load ptr, ptr %12, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %105, i64 noundef 2, i64 noundef 8) #13
+102:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i65
+  %103 = load ptr, ptr %12, align 16
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %103, i64 noundef 2, i64 noundef 8) #13
   br label %_ZN7QStringD2Ev.exit67
 
-_ZN7QStringD2Ev.exit67:                           ; preds = %_ZN7QStringD2Ev.exit, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i65, %104
-  %106 = icmp slt i32 %97, 0
-  br i1 %106, label %_ZN7QStringD2Ev.exit100, label %110
+_ZN7QStringD2Ev.exit67:                           ; preds = %_ZN7QStringD2Ev.exit, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i65, %102
+  %104 = icmp slt i32 %95, 0
+  br i1 %104, label %_ZN7QStringD2Ev.exit100, label %108
 
-107:                                              ; preds = %_ZN7QStringC2ERK10QByteArray.exit.i59
-  %108 = landingpad { ptr, i32 }
+105:                                              ; preds = %_ZN7QStringC2ERK10QByteArray.exit.i59
+  %106 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i68 = icmp eq ptr %75, null
+  %.not.i.i.i68 = icmp eq ptr %76, null
   br i1 %.not.i.i.i68, label %_ZN7QStringD2Ev.exit108, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i69
 
-_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i69:    ; preds = %107
-  %109 = atomicrmw sub ptr %75, i32 1 seq_cst, align 4
-  %.not.i.i70 = icmp eq i32 %109, 1
+_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i69:    ; preds = %105
+  %107 = atomicrmw sub ptr %76, i32 1 seq_cst, align 4
+  %.not.i.i70 = icmp eq i32 %107, 1
   br i1 %.not.i.i70, label %_ZN7QStringD2Ev.exit108.sink.split, label %_ZN7QStringD2Ev.exit108
 
-110:                                              ; preds = %_ZN7QStringD2Ev.exit67
-  %.not42 = icmp eq i32 %97, 0
-  br i1 %.not42, label %165, label %_ZN7QStringD2Ev.exit100
+108:                                              ; preds = %_ZN7QStringD2Ev.exit67
+  %.not42 = icmp eq i32 %95, 0
+  br i1 %.not42, label %161, label %_ZN7QStringD2Ev.exit100
 
-111:                                              ; preds = %54
-  %112 = getelementptr inbounds i8, ptr %.037, i64 12
+109:                                              ; preds = %54
+  %110 = getelementptr inbounds i8, ptr %.037, i64 12
+  %111 = load i32, ptr %110, align 4
+  %112 = getelementptr inbounds i8, ptr %.036, i64 12
   %113 = load i32, ptr %112, align 4
-  %114 = getelementptr inbounds i8, ptr %.036, i64 12
-  %115 = load i32, ptr %114, align 4
-  %.not41 = icmp eq i32 %113, %115
-  br i1 %.not41, label %165, label %116
+  %.not41 = icmp eq i32 %111, %113
+  br i1 %.not41, label %161, label %114
 
-116:                                              ; preds = %111
-  %117 = icmp slt i32 %113, %115
+114:                                              ; preds = %109
+  %115 = icmp slt i32 %111, %113
   br label %_ZN7QStringD2Ev.exit100
 
-118:                                              ; preds = %54
+116:                                              ; preds = %54
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  %119 = getelementptr inbounds i8, ptr %.037, i64 24
+  %117 = getelementptr inbounds i8, ptr %.037, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !28
-  %120 = invoke noundef zeroext i1 @_ZNK10QByteArray6isNullEv(ptr noundef nonnull align 8 dereferenceable(24) %119)
-          to label %_ZN7QStringC2ERK10QByteArray.exit.i72 unwind label %121, !noalias !31
+  %118 = invoke noundef zeroext i1 @_ZNK10QByteArray6isNullEv(ptr noundef nonnull align 8 dereferenceable(24) %117)
+          to label %_ZN7QStringC2ERK10QByteArray.exit.i72 unwind label %119, !noalias !31
 
-121:                                              ; preds = %118
-  %122 = landingpad { ptr, i32 }
+119:                                              ; preds = %116
+  %120 = landingpad { ptr, i32 }
           catch ptr null
-  %123 = extractvalue { ptr, i32 } %122, 0
-  call void @__clang_call_terminate(ptr %123) #12
+  %121 = extractvalue { ptr, i32 } %120, 0
+  call void @__clang_call_terminate(ptr %121) #12
   unreachable
 
-_ZN7QStringC2ERK10QByteArray.exit.i72:            ; preds = %118
-  %124 = getelementptr inbounds i8, ptr %.037, i64 32
-  %125 = load ptr, ptr %124, align 8, !noalias !31
-  %.not.i.i.i.i.i73 = icmp eq ptr %125, null
-  %spec.select.i.i.i.i.i74 = select i1 %.not.i.i.i.i.i73, ptr @_ZN10QByteArray6_emptyE, ptr %125
-  %126 = select i1 %120, ptr null, ptr %spec.select.i.i.i.i.i74
-  %127 = getelementptr inbounds i8, ptr %.037, i64 40
-  %128 = load i64, ptr %127, align 8, !noalias !31
-  call void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, i64 %128, ptr %126)
-  %129 = load ptr, ptr %5, align 8, !noalias !28
-  store ptr %129, ptr %14, align 8, !alias.scope !28
-  %130 = getelementptr inbounds i8, ptr %14, i64 8
-  %131 = getelementptr inbounds i8, ptr %5, i64 8
-  %132 = load ptr, ptr %131, align 8, !noalias !28
-  store ptr %132, ptr %130, align 8, !alias.scope !28
-  %133 = getelementptr inbounds i8, ptr %14, i64 16
-  %134 = getelementptr inbounds i8, ptr %5, i64 16
-  %135 = load i64, ptr %134, align 8, !noalias !28
-  store i64 %135, ptr %133, align 8, !alias.scope !28
+_ZN7QStringC2ERK10QByteArray.exit.i72:            ; preds = %116
+  %122 = getelementptr inbounds i8, ptr %.037, i64 32
+  %123 = load ptr, ptr %122, align 8, !noalias !31
+  %.not.i.i.i.i.i73 = icmp eq ptr %123, null
+  %spec.select.i.i.i.i.i74 = select i1 %.not.i.i.i.i.i73, ptr @_ZN10QByteArray6_emptyE, ptr %123
+  %124 = select i1 %118, ptr null, ptr %spec.select.i.i.i.i.i74
+  %125 = getelementptr inbounds i8, ptr %.037, i64 40
+  %126 = load i64, ptr %125, align 8, !noalias !31
+  call void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, i64 %126, ptr %124)
+  %127 = load <2 x ptr>, ptr %5, align 16, !noalias !28
+  %128 = load ptr, ptr %5, align 16, !noalias !28
+  store <2 x ptr> %127, ptr %14, align 16, !alias.scope !28
+  %129 = getelementptr inbounds i8, ptr %14, i64 16
+  %130 = getelementptr inbounds i8, ptr %5, i64 16
+  %131 = load i64, ptr %130, align 16, !noalias !28
+  store i64 %131, ptr %129, align 16, !alias.scope !28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !28
   call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  %136 = getelementptr inbounds i8, ptr %.036, i64 24
+  %132 = getelementptr inbounds i8, ptr %.036, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !34
-  %137 = invoke noundef zeroext i1 @_ZNK10QByteArray6isNullEv(ptr noundef nonnull align 8 dereferenceable(24) %136)
-          to label %_ZN7QStringC2ERK10QByteArray.exit.i76 unwind label %138, !noalias !37
+  %133 = invoke noundef zeroext i1 @_ZNK10QByteArray6isNullEv(ptr noundef nonnull align 8 dereferenceable(24) %132)
+          to label %_ZN7QStringC2ERK10QByteArray.exit.i76 unwind label %134, !noalias !37
 
-138:                                              ; preds = %_ZN7QStringC2ERK10QByteArray.exit.i72
-  %139 = landingpad { ptr, i32 }
+134:                                              ; preds = %_ZN7QStringC2ERK10QByteArray.exit.i72
+  %135 = landingpad { ptr, i32 }
           catch ptr null
-  %140 = extractvalue { ptr, i32 } %139, 0
-  call void @__clang_call_terminate(ptr %140) #12
+  %136 = extractvalue { ptr, i32 } %135, 0
+  call void @__clang_call_terminate(ptr %136) #12
   unreachable
 
 _ZN7QStringC2ERK10QByteArray.exit.i76:            ; preds = %_ZN7QStringC2ERK10QByteArray.exit.i72
-  %141 = getelementptr inbounds i8, ptr %.036, i64 32
-  %142 = load ptr, ptr %141, align 8, !noalias !37
-  %.not.i.i.i.i.i77 = icmp eq ptr %142, null
-  %spec.select.i.i.i.i.i78 = select i1 %.not.i.i.i.i.i77, ptr @_ZN10QByteArray6_emptyE, ptr %142
-  %143 = select i1 %137, ptr null, ptr %spec.select.i.i.i.i.i78
-  %144 = getelementptr inbounds i8, ptr %.036, i64 40
-  %145 = load i64, ptr %144, align 8, !noalias !37
-  invoke void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %4, i64 %145, ptr %143)
-          to label %146 unwind label %161
+  %137 = getelementptr inbounds i8, ptr %.036, i64 32
+  %138 = load ptr, ptr %137, align 8, !noalias !37
+  %.not.i.i.i.i.i77 = icmp eq ptr %138, null
+  %spec.select.i.i.i.i.i78 = select i1 %.not.i.i.i.i.i77, ptr @_ZN10QByteArray6_emptyE, ptr %138
+  %139 = select i1 %133, ptr null, ptr %spec.select.i.i.i.i.i78
+  %140 = getelementptr inbounds i8, ptr %.036, i64 40
+  %141 = load i64, ptr %140, align 8, !noalias !37
+  invoke void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %4, i64 %141, ptr %139)
+          to label %142 unwind label %157
 
-146:                                              ; preds = %_ZN7QStringC2ERK10QByteArray.exit.i76
-  %147 = load <2 x ptr>, ptr %4, align 16, !noalias !34
-  store <2 x ptr> %147, ptr %15, align 16, !alias.scope !34
-  %148 = getelementptr inbounds i8, ptr %15, i64 16
-  %149 = getelementptr inbounds i8, ptr %4, i64 16
-  %150 = load i64, ptr %149, align 16, !noalias !34
-  store i64 %150, ptr %148, align 16, !alias.scope !34
+142:                                              ; preds = %_ZN7QStringC2ERK10QByteArray.exit.i76
+  %143 = load <2 x ptr>, ptr %4, align 16, !noalias !34
+  store <2 x ptr> %143, ptr %15, align 16, !alias.scope !34
+  %144 = getelementptr inbounds i8, ptr %15, i64 16
+  %145 = getelementptr inbounds i8, ptr %4, i64 16
+  %146 = load i64, ptr %145, align 16, !noalias !34
+  store i64 %146, ptr %144, align 16, !alias.scope !34
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !34
-  %151 = call noundef i32 @_ZNK7QString7compareERKS_N2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, i32 noundef 1) #13
-  %152 = load ptr, ptr %15, align 16
-  %.not.i.i.i81 = icmp eq ptr %152, null
+  %147 = call noundef i32 @_ZNK7QString7compareERKS_N2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, i32 noundef 1) #13
+  %148 = load ptr, ptr %15, align 16
+  %.not.i.i.i81 = icmp eq ptr %148, null
   br i1 %.not.i.i.i81, label %_ZN7QStringD2Ev.exit84, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i82
 
-_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i82:    ; preds = %146
-  %153 = atomicrmw sub ptr %152, i32 1 seq_cst, align 4
-  %.not.i.i83 = icmp eq i32 %153, 1
-  br i1 %.not.i.i83, label %154, label %_ZN7QStringD2Ev.exit84
+_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i82:    ; preds = %142
+  %149 = atomicrmw sub ptr %148, i32 1 seq_cst, align 4
+  %.not.i.i83 = icmp eq i32 %149, 1
+  br i1 %.not.i.i83, label %150, label %_ZN7QStringD2Ev.exit84
 
-154:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i82
-  %155 = load ptr, ptr %15, align 16
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %155, i64 noundef 2, i64 noundef 8) #13
+150:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i82
+  %151 = load ptr, ptr %15, align 16
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %151, i64 noundef 2, i64 noundef 8) #13
   br label %_ZN7QStringD2Ev.exit84
 
-_ZN7QStringD2Ev.exit84:                           ; preds = %146, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i82, %154
-  %156 = load ptr, ptr %14, align 8
-  %.not.i.i.i85 = icmp eq ptr %156, null
+_ZN7QStringD2Ev.exit84:                           ; preds = %142, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i82, %150
+  %152 = load ptr, ptr %14, align 16
+  %.not.i.i.i85 = icmp eq ptr %152, null
   br i1 %.not.i.i.i85, label %_ZN7QStringD2Ev.exit88, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i86
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i86:    ; preds = %_ZN7QStringD2Ev.exit84
-  %157 = atomicrmw sub ptr %156, i32 1 seq_cst, align 4
-  %.not.i.i87 = icmp eq i32 %157, 1
-  br i1 %.not.i.i87, label %158, label %_ZN7QStringD2Ev.exit88
+  %153 = atomicrmw sub ptr %152, i32 1 seq_cst, align 4
+  %.not.i.i87 = icmp eq i32 %153, 1
+  br i1 %.not.i.i87, label %154, label %_ZN7QStringD2Ev.exit88
 
-158:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i86
-  %159 = load ptr, ptr %14, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %159, i64 noundef 2, i64 noundef 8) #13
+154:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i86
+  %155 = load ptr, ptr %14, align 16
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %155, i64 noundef 2, i64 noundef 8) #13
   br label %_ZN7QStringD2Ev.exit88
 
-_ZN7QStringD2Ev.exit88:                           ; preds = %_ZN7QStringD2Ev.exit84, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i86, %158
-  %160 = icmp slt i32 %151, 0
-  br i1 %160, label %_ZN7QStringD2Ev.exit100, label %164
+_ZN7QStringD2Ev.exit88:                           ; preds = %_ZN7QStringD2Ev.exit84, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i86, %154
+  %156 = icmp slt i32 %147, 0
+  br i1 %156, label %_ZN7QStringD2Ev.exit100, label %160
 
-161:                                              ; preds = %_ZN7QStringC2ERK10QByteArray.exit.i76
-  %162 = landingpad { ptr, i32 }
+157:                                              ; preds = %_ZN7QStringC2ERK10QByteArray.exit.i76
+  %158 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i89 = icmp eq ptr %129, null
+  %.not.i.i.i89 = icmp eq ptr %128, null
   br i1 %.not.i.i.i89, label %_ZN7QStringD2Ev.exit108, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90
 
-_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90:    ; preds = %161
-  %163 = atomicrmw sub ptr %129, i32 1 seq_cst, align 4
-  %.not.i.i91 = icmp eq i32 %163, 1
+_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90:    ; preds = %157
+  %159 = atomicrmw sub ptr %128, i32 1 seq_cst, align 4
+  %.not.i.i91 = icmp eq i32 %159, 1
   br i1 %.not.i.i91, label %_ZN7QStringD2Ev.exit108.sink.split, label %_ZN7QStringD2Ev.exit108
 
-164:                                              ; preds = %_ZN7QStringD2Ev.exit88
-  %.not = icmp eq i32 %151, 0
-  br i1 %.not, label %165, label %_ZN7QStringD2Ev.exit100
+160:                                              ; preds = %_ZN7QStringD2Ev.exit88
+  %.not = icmp eq i32 %147, 0
+  br i1 %.not, label %161, label %_ZN7QStringD2Ev.exit100
 
-165:                                              ; preds = %57, %110, %111, %164
-  %166 = getelementptr inbounds i8, ptr %.037, i64 8
-  %167 = load i32, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %.036, i64 8
-  %169 = load i32, ptr %168, align 8
-  %170 = icmp ult i32 %167, %169
+161:                                              ; preds = %57, %108, %109, %160
+  %162 = getelementptr inbounds i8, ptr %.037, i64 8
+  %163 = load i32, ptr %162, align 8
+  %164 = getelementptr inbounds i8, ptr %.036, i64 8
+  %165 = load i32, ptr %164, align 8
+  %166 = icmp ult i32 %163, %165
   br label %_ZN7QStringD2Ev.exit100
 
 .critedge46:                                      ; preds = %_ZNK11QModelIndex6parentEv.exit57.thread, %54, %_ZNK11QModelIndex6parentEv.exit57
-  %171 = call noundef zeroext i1 @_ZNK21QSortFilterProxyModel8lessThanERK11QModelIndexS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %167 = call noundef zeroext i1 @_ZNK21QSortFilterProxyModel8lessThanERK11QModelIndexS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZN7QStringD2Ev.exit100
 
-_ZN7QStringD2Ev.exit100:                          ; preds = %.critedge46, %164, %_ZN7QStringD2Ev.exit88, %110, %_ZN7QStringD2Ev.exit67, %165, %116, %62
-  %.038 = phi i1 [ %170, %165 ], [ %117, %116 ], [ %63, %62 ], [ true, %_ZN7QStringD2Ev.exit67 ], [ false, %110 ], [ true, %_ZN7QStringD2Ev.exit88 ], [ false, %164 ], [ %171, %.critedge46 ]
+_ZN7QStringD2Ev.exit100:                          ; preds = %.critedge46, %160, %_ZN7QStringD2Ev.exit88, %108, %_ZN7QStringD2Ev.exit67, %161, %114, %62
+  %.038 = phi i1 [ %166, %161 ], [ %115, %114 ], [ %63, %62 ], [ true, %_ZN7QStringD2Ev.exit67 ], [ false, %108 ], [ true, %_ZN7QStringD2Ev.exit88 ], [ false, %160 ], [ %167, %.critedge46 ]
   ret i1 %.038
 
 _ZN7QStringD2Ev.exit108.sink.split:               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i69
   %.sink146.in = phi ptr [ %12, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i69 ], [ %14, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90 ]
-  %.pn.ph = phi { ptr, i32 } [ %108, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i69 ], [ %162, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90 ]
-  %.sink146 = load ptr, ptr %.sink146.in, align 8
+  %.pn.ph = phi { ptr, i32 } [ %106, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i69 ], [ %158, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90 ]
+  %.sink146 = load ptr, ptr %.sink146.in, align 16
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.sink146, i64 noundef 2, i64 noundef 8) #13
   br label %_ZN7QStringD2Ev.exit108
 
-_ZN7QStringD2Ev.exit108:                          ; preds = %_ZN7QStringD2Ev.exit108.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90, %161, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i69, %107
-  %.pn = phi { ptr, i32 } [ %108, %107 ], [ %108, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i69 ], [ %162, %161 ], [ %162, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90 ], [ %.pn.ph, %_ZN7QStringD2Ev.exit108.sink.split ]
+_ZN7QStringD2Ev.exit108:                          ; preds = %_ZN7QStringD2Ev.exit108.sink.split, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90, %157, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i69, %105
+  %.pn = phi { ptr, i32 } [ %106, %105 ], [ %106, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i69 ], [ %158, %157 ], [ %158, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90 ], [ %.pn.ph, %_ZN7QStringD2Ev.exit108.sink.split ]
   resume { ptr, i32 } %.pn
 }
 
@@ -2185,13 +2179,12 @@ _ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit: ; preds = %_ZN9QtPrivate
   br i1 %7, label %66, label %72
 
 66:                                               ; preds = %_ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit
-  %67 = load ptr, ptr %3, align 8
+  %67 = getelementptr inbounds i8, ptr %3, i64 8
+  %68 = load <2 x ptr>, ptr %3, align 8
+  %69 = load ptr, ptr %3, align 8
   store ptr %59, ptr %3, align 8
-  store ptr %67, ptr %5, align 16
-  %68 = getelementptr inbounds i8, ptr %3, i64 8
-  %69 = load ptr, ptr %68, align 8
-  store ptr %61, ptr %68, align 8
-  store ptr %69, ptr %30, align 8
+  store ptr %61, ptr %67, align 8
+  store <2 x ptr> %68, ptr %5, align 16
   %70 = getelementptr inbounds i8, ptr %3, i64 16
   %71 = load i64, ptr %70, align 8
   store i64 %64, ptr %70, align 8
@@ -2199,7 +2192,7 @@ _ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit: ; preds = %_ZN9QtPrivate
   br label %72
 
 72:                                               ; preds = %66, %_ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit
-  %73 = phi ptr [ %67, %66 ], [ %59, %_ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit ]
+  %73 = phi ptr [ %69, %66 ], [ %59, %_ZN9QtPrivate12QPodArrayOpsIiE10copyAppendEPKiS3_.exit ]
   %.not.i.i32 = icmp eq ptr %73, null
   br i1 %.not.i.i32, label %_ZN17QArrayDataPointerIiED2Ev.exit35, label %_ZN17QArrayDataPointerIiE5derefEv.exit.i33
 

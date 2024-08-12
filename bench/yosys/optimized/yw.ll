@@ -538,7 +538,7 @@ define void @_ZN5Yosys11ReadWitnessC2ERKNSt7__cxx1112basic_stringIcSt11char_trai
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.std::allocator", align 1
   %17 = alloca %"class.std::__cxx11::basic_string", align 8
-  %18 = alloca %"class.json11::Json", align 8
+  %18 = alloca %"class.json11::Json", align 16
   %19 = alloca %"class.std::__cxx11::basic_string", align 8
   %20 = alloca %"class.std::allocator", align 1
   %21 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -922,16 +922,15 @@ _ZNSt6vectorIN5Yosys5RTLIL8IdStringESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyI
           to label %193 unwind label %212
 
 193:                                              ; preds = %191
-  %194 = load ptr, ptr %192, align 8
-  store ptr %194, ptr %18, align 8
-  %195 = getelementptr inbounds i8, ptr %192, i64 8
-  %196 = load ptr, ptr %195, align 8
-  store ptr %196, ptr %138, align 8
-  %.not.i.i.i.i141 = icmp eq ptr %196, null
+  %194 = getelementptr inbounds i8, ptr %192, i64 8
+  %195 = load ptr, ptr %194, align 8
+  %196 = load <2 x ptr>, ptr %192, align 8
+  store <2 x ptr> %196, ptr %18, align 16
+  %.not.i.i.i.i141 = icmp eq ptr %195, null
   br i1 %.not.i.i.i.i141, label %_ZN6json114JsonC2ERKS0_.exit, label %197
 
 197:                                              ; preds = %193
-  %198 = getelementptr inbounds i8, ptr %196, i64 8
+  %198 = getelementptr inbounds i8, ptr %195, i64 8
   %199 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i142 = icmp eq i8 %199, 0
   br i1 %.not.i.i.i.i.i142, label %203, label %200

@@ -207,15 +207,15 @@ define void @Rnm_ManStop(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %76 = fdiv double %75, %73
   %77 = select i1 %.not58, double 0.000000e+00, double %76
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, double noundef %74, double noundef %77)
-  %78 = load <2 x i32>, ptr %5, align 4
-  %79 = sitofp <2 x i32> %78 to <2 x double>
-  %80 = extractelement <2 x double> %79, i64 0
-  %81 = extractelement <2 x double> %79, i64 1
-  %82 = fdiv double %81, %80
-  %83 = fmul double %19, 0x3EB0000000000000
-  %84 = fmul double %29, 0x3EB0000000000000
-  %85 = extractelement <2 x i32> %78, i64 0
-  %86 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %85, double noundef %82, double noundef %83, double noundef %84)
+  %78 = load i32, ptr %5, align 4
+  %79 = load <2 x i32>, ptr %5, align 4
+  %80 = sitofp <2 x i32> %79 to <2 x double>
+  %81 = extractelement <2 x double> %80, i64 0
+  %82 = extractelement <2 x double> %80, i64 1
+  %83 = fdiv double %82, %81
+  %84 = fmul double %19, 0x3EB0000000000000
+  %85 = fmul double %29, 0x3EB0000000000000
+  %86 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %78, double noundef %83, double noundef %84, double noundef %85)
   br label %87
 
 87:                                               ; preds = %7, %4, %3

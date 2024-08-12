@@ -373,20 +373,18 @@ if.then.i.i.i13:                                  ; preds = %lor.lhs.false.i.i, 
   %m_undo_notify.i = getelementptr inbounds i8, ptr %call7, i64 248
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %m_undo_notify.i, i64 16, i1 false)
   store ptr %this, ptr %m_undo_notify.i, align 8
   %agg.tmp.sroa.2.0.m_undo_notify.i.sroa_idx = getelementptr inbounds i8, ptr %call7, i64 256
   store ptr %p, ptr %agg.tmp.sroa.2.0.m_undo_notify.i.sroa_idx, align 8
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %call7, i64 264
-  %24 = load ptr, ptr %_M_manager3.i.i.i, align 8
-  store ptr %24, ptr %_M_manager.i.i.i.i, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf14specrel_plugin13register_nodeEPNS1_5enodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager3.i.i.i, align 8
   %_M_invoker4.i2.i.i = getelementptr inbounds i8, ptr %call7, i64 272
-  %25 = load ptr, ptr %_M_invoker4.i2.i.i, align 8
-  store ptr %25, ptr %_M_invoker.i.i.i, align 8
+  %24 = load <2 x ptr>, ptr %_M_manager3.i.i.i, align 8
+  %25 = load ptr, ptr %_M_manager3.i.i.i, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf14specrel_plugin13register_nodeEPNS1_5enodeEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager3.i.i.i, align 8
+  store <2 x ptr> %24, ptr %_M_manager.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN3euf14specrel_plugin13register_nodeEPNS1_5enodeEE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i2.i.i, align 8
-  %tobool.not.i.i4.i.i = icmp eq ptr %24, null
+  %tobool.not.i.i4.i.i = icmp eq ptr %25, null
   br i1 %tobool.not.i.i4.i.i, label %invoke.cont10.thread, label %if.then.i.i5.i.i
 
 invoke.cont10.thread:                             ; preds = %if.then.i.i.i13
@@ -394,7 +392,7 @@ invoke.cont10.thread:                             ; preds = %if.then.i.i.i13
   br label %if.end11
 
 if.then.i.i5.i.i:                                 ; preds = %if.then.i.i.i13
-  %call.i.i6.i.i = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
+  %call.i.i6.i.i = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
           to label %invoke.cont10 unwind label %terminate.lpad.i.i7.i.i
 
 terminate.lpad.i.i7.i.i:                          ; preds = %if.then.i.i5.i.i

@@ -2102,15 +2102,15 @@ define linkonce_odr hidden void @_ZN8AlgoWrap4evalERKN2cv3MatERKNS0_5Rect_IdEEb(
   br i1 %37, label %_ZN2cvorIdEENS_5Rect_IT_EERKS3_S5_.exit, label %38
 
 38:                                               ; preds = %33
-  %39 = fcmp olt <2 x double> %26, %23
-  %40 = extractelement <2 x i1> %39, i64 0
-  %41 = extractelement <2 x double> %26, i64 0
-  %42 = extractelement <2 x double> %23, i64 0
-  %43 = select i1 %40, double %41, double %42
-  %44 = select i1 %40, double %42, double %41
+  %39 = extractelement <2 x double> %26, i64 0
+  %40 = extractelement <2 x double> %23, i64 0
+  %41 = fcmp olt <2 x double> %26, %23
+  %42 = extractelement <2 x i1> %41, i64 0
+  %43 = select i1 %42, double %39, double %40
+  %44 = select i1 %42, double %40, double %39
   %45 = fcmp olt double %43, 0.000000e+00
   %46 = extractelement <2 x double> %25, i64 0
-  %.sroa.speculated44.i = select i1 %40, double %28, double %46
+  %.sroa.speculated44.i = select i1 %42, double %28, double %46
   %47 = fadd double %43, %.sroa.speculated44.i
   %48 = fcmp olt double %47, %44
   %or.cond = select i1 %45, i1 %48, i1 false
@@ -2119,7 +2119,7 @@ define linkonce_odr hidden void @_ZN8AlgoWrap4evalERKN2cv3MatERKNS0_5Rect_IdEEb(
 49:                                               ; preds = %38
   %50 = extractelement <2 x double> %26, i64 1
   %51 = extractelement <2 x double> %23, i64 1
-  %52 = extractelement <2 x i1> %39, i64 1
+  %52 = extractelement <2 x i1> %41, i64 1
   %.sroa.speculated58.i = select i1 %52, double %50, double %51
   %53 = fcmp olt double %.sroa.speculated58.i, 0.000000e+00
   %54 = extractelement <2 x double> %25, i64 1
@@ -2139,7 +2139,7 @@ define linkonce_odr hidden void @_ZN8AlgoWrap4evalERKN2cv3MatERKNS0_5Rect_IdEEb(
 58:                                               ; preds = %55, %._crit_edge.i
   %.sroa.speculated52.pre-phi.i = phi double [ %.pre64.i, %._crit_edge.i ], [ %.sroa.speculated49.i, %55 ]
   %59 = extractelement <2 x double> %25, i64 0
-  %.sroa.speculated47.i = select i1 %40, double %28, double %59
+  %.sroa.speculated47.i = select i1 %42, double %28, double %59
   %60 = insertelement <2 x double> poison, double %44, i64 0
   %61 = insertelement <2 x double> %60, double %.sroa.speculated52.pre-phi.i, i64 1
   %62 = insertelement <2 x double> poison, double %43, i64 0
@@ -2148,7 +2148,7 @@ define linkonce_odr hidden void @_ZN8AlgoWrap4evalERKN2cv3MatERKNS0_5Rect_IdEEb(
   %65 = insertelement <2 x double> poison, double %.sroa.speculated47.i, i64 0
   %66 = insertelement <2 x double> %65, double %.sroa.speculated36.i, i64 1
   %67 = fsub <2 x double> %66, %64
-  %68 = select <2 x i1> %39, <2 x double> %25, <2 x double> %27
+  %68 = select <2 x i1> %41, <2 x double> %25, <2 x double> %27
   %69 = fcmp olt <2 x double> %68, %67
   %70 = select <2 x i1> %69, <2 x double> %68, <2 x double> %67
   %71 = fcmp ole <2 x double> %70, zeroinitializer

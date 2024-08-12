@@ -22083,7 +22083,6 @@ invoke.cont13:                                    ; preds = %_ZN4cvc58internal11
 invoke.cont16:                                    ; preds = %invoke.cont13
   call void @llvm.experimental.noalias.scope.decl(metadata !142)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %o, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false), !alias.scope !142
   %16 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !noalias !142
@@ -22117,11 +22116,9 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 invoke.cont19:                                    ; preds = %if.then.i.i20
-  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %o, i64 24
-  %21 = load ptr, ptr %_M_invoker4.i.i, align 8, !noalias !142
-  store ptr %21, ptr %_M_invoker.i.i, align 8, !alias.scope !142
+  %21 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8, !noalias !142
   %22 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !noalias !142
-  store ptr %22, ptr %_M_manager.i.i.i, align 8, !alias.scope !142
+  store <2 x ptr> %21, ptr %_M_manager.i.i.i, align 8, !alias.scope !142
   %_M_manager.i.i.i21 = getelementptr inbounds i8, ptr %call17, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call17, i8 0, i64 32, i1 false)
   %tobool.not.i.i.not.i.i24 = icmp eq ptr %22, null

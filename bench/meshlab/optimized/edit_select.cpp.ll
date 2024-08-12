@@ -8004,44 +8004,44 @@ define linkonce_odr noundef i32 @_ZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6v
   %40 = sitofp <2 x i32> %39 to <2 x float>
   %41 = fmul <2 x float> %40, <float 5.000000e-01, float 5.000000e-01>
   %42 = fsub <2 x float> %37, %41
+  %43 = extractelement <2 x float> %42, i64 0
   store <2 x float> %42, ptr %30, align 4
   store <2 x float> %42, ptr %11, align 8
   store float -1.000000e+00, ptr %33, align 8
-  %43 = fadd <2 x float> %41, %37
-  %44 = extractelement <2 x float> %43, i64 0
-  %45 = fadd <2 x float> %41, %37
-  %46 = extractelement <2 x float> %45, i64 1
-  %47 = extractelement <2 x float> %42, i64 0
-  %48 = fcmp ogt float %47, %44
+  %44 = fadd <2 x float> %41, %37
+  %45 = extractelement <2 x float> %44, i64 0
+  %46 = fadd <2 x float> %41, %37
+  %47 = extractelement <2 x float> %46, i64 1
+  %48 = fcmp ogt float %43, %45
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %29
-  store float %44, ptr %11, align 8
+  store float %45, ptr %11, align 8
   br label %50
 
 50:                                               ; preds = %49, %29
   %51 = extractelement <2 x float> %42, i64 1
-  %52 = fcmp ogt float %51, %46
+  %52 = fcmp ogt float %51, %47
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %50
-  store float %46, ptr %31, align 4
+  store float %47, ptr %31, align 4
   br label %54
 
 54:                                               ; preds = %50, %53
-  %55 = fcmp olt float %47, %44
+  %55 = fcmp olt float %43, %45
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %54
-  store float %44, ptr %30, align 4
+  store float %45, ptr %30, align 4
   br label %57
 
 57:                                               ; preds = %56, %54
-  %58 = fcmp olt float %51, %46
+  %58 = fcmp olt float %51, %47
   br i1 %58, label %59, label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit48
 
 59:                                               ; preds = %57
-  store float %46, ptr %32, align 8
+  store float %47, ptr %32, align 8
   br label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit48
 
 _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit48:      ; preds = %59, %57

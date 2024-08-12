@@ -376,11 +376,11 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_118readNetFromDarknetERSiS3_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   %5 = alloca %"class.cv::dnn::dnn4_v20240521::(anonymous namespace)::DarknetImporter", align 8
-  %6 = alloca %"class.cv::dnn::dnn4_v20240521::Net", align 8
+  %6 = alloca %"class.cv::dnn::dnn4_v20240521::Net", align 16
   tail call void @_ZN2cv3dnn14dnn4_v202405213NetC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   invoke void @_ZN2cv7details24setFPDenormalsIgnoreHintEbRNS0_20FPDenormalsModeStateE(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(64) %5)
-          to label %.noexc unwind label %60
+          to label %.noexc unwind label %59
 
 .noexc:                                           ; preds = %3
   %7 = getelementptr inbounds i8, ptr %5, i64 64
@@ -479,54 +479,52 @@ define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_118readNetFr
 
 46:                                               ; preds = %33, %30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %47 = load ptr, ptr %0, align 8
-  store ptr %47, ptr %6, align 8
-  %48 = getelementptr inbounds i8, ptr %6, i64 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
-  %50 = load ptr, ptr %49, align 8
-  store ptr %50, ptr %48, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %50, null
-  br i1 %.not.i.i.i.i.i, label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit, label %51
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = load <2 x ptr>, ptr %0, align 8
+  store <2 x ptr> %49, ptr %6, align 16
+  %.not.i.i.i.i.i = icmp eq ptr %48, null
+  br i1 %.not.i.i.i.i.i, label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit, label %50
 
-51:                                               ; preds = %46
-  %52 = getelementptr inbounds i8, ptr %50, i64 8
-  %53 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %53, 0
-  br i1 %.not.i.i.i.i.i.i, label %57, label %54
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds i8, ptr %48, i64 8
+  %52 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %52, 0
+  br i1 %.not.i.i.i.i.i.i, label %56, label %53
 
-54:                                               ; preds = %51
-  %55 = load i32, ptr %52, align 4
-  %56 = add nsw i32 %55, 1
-  store i32 %56, ptr %52, align 4
+53:                                               ; preds = %50
+  %54 = load i32, ptr %51, align 4
+  %55 = add nsw i32 %54, 1
+  store i32 %55, ptr %51, align 4
   br label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
 
-57:                                               ; preds = %51
-  %58 = atomicrmw volatile add ptr %52, i32 1 acq_rel, align 4
+56:                                               ; preds = %50
+  %57 = atomicrmw volatile add ptr %51, i32 1 acq_rel, align 4
   br label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
 
-_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit:      ; preds = %46, %54, %57
+_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit:      ; preds = %46, %53, %56
   invoke fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_115DarknetImporter11populateNetENS1_3NetE(ptr noundef nonnull align 8 dereferenceable(296) %5, ptr noundef nonnull %6)
-          to label %59 unwind label %62
+          to label %58 unwind label %61
 
-59:                                               ; preds = %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
+58:                                               ; preds = %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
   call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #17
   call fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_115DarknetImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %5) #17
   ret void
 
-60:                                               ; preds = %3
-  %61 = landingpad { ptr, i32 }
+59:                                               ; preds = %3
+  %60 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-62:                                               ; preds = %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
-  %63 = landingpad { ptr, i32 }
+61:                                               ; preds = %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
+  %62 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #17
   call fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_115DarknetImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %5) #17
   br label %.body
 
-.body:                                            ; preds = %60, %41, %62
-  %.pn = phi { ptr, i32 } [ %63, %62 ], [ %61, %60 ], [ %.pn.i, %41 ]
+.body:                                            ; preds = %59, %41, %61
+  %.pn = phi { ptr, i32 } [ %62, %61 ], [ %60, %59 ], [ %.pn.i, %41 ]
   call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   resume { ptr, i32 } %.pn
 }
@@ -538,11 +536,11 @@ declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull
 define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_118readNetFromDarknetERSi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::utils::trace::details::Region", align 8
   %4 = alloca %"class.cv::dnn::dnn4_v20240521::(anonymous namespace)::DarknetImporter", align 8
-  %5 = alloca %"class.cv::dnn::dnn4_v20240521::Net", align 8
+  %5 = alloca %"class.cv::dnn::dnn4_v20240521::Net", align 16
   tail call void @_ZN2cv3dnn14dnn4_v202405213NetC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   invoke void @_ZN2cv7details24setFPDenormalsIgnoreHintEbRNS0_20FPDenormalsModeStateE(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(64) %4)
-          to label %.noexc unwind label %58
+          to label %.noexc unwind label %57
 
 .noexc:                                           ; preds = %2
   %6 = getelementptr inbounds i8, ptr %4, i64 64
@@ -637,54 +635,52 @@ define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_118readNetFr
 
 44:                                               ; preds = %31, %28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %45 = load ptr, ptr %0, align 8
-  store ptr %45, ptr %5, align 8
-  %46 = getelementptr inbounds i8, ptr %5, i64 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
-  %48 = load ptr, ptr %47, align 8
-  store ptr %48, ptr %46, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %48, null
-  br i1 %.not.i.i.i.i.i, label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit, label %49
+  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = load <2 x ptr>, ptr %0, align 8
+  store <2 x ptr> %47, ptr %5, align 16
+  %.not.i.i.i.i.i = icmp eq ptr %46, null
+  br i1 %.not.i.i.i.i.i, label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit, label %48
 
-49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %48, i64 8
-  %51 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %51, 0
-  br i1 %.not.i.i.i.i.i.i, label %55, label %52
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds i8, ptr %46, i64 8
+  %50 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %50, 0
+  br i1 %.not.i.i.i.i.i.i, label %54, label %51
 
-52:                                               ; preds = %49
-  %53 = load i32, ptr %50, align 4
-  %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %50, align 4
+51:                                               ; preds = %48
+  %52 = load i32, ptr %49, align 4
+  %53 = add nsw i32 %52, 1
+  store i32 %53, ptr %49, align 4
   br label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
 
-55:                                               ; preds = %49
-  %56 = atomicrmw volatile add ptr %50, i32 1 acq_rel, align 4
+54:                                               ; preds = %48
+  %55 = atomicrmw volatile add ptr %49, i32 1 acq_rel, align 4
   br label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
 
-_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit:      ; preds = %44, %52, %55
+_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit:      ; preds = %44, %51, %54
   invoke fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_115DarknetImporter11populateNetENS1_3NetE(ptr noundef nonnull align 8 dereferenceable(296) %4, ptr noundef nonnull %5)
-          to label %57 unwind label %60
+          to label %56 unwind label %59
 
-57:                                               ; preds = %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
+56:                                               ; preds = %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
   call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   call fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_115DarknetImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %4) #17
   ret void
 
-58:                                               ; preds = %2
-  %59 = landingpad { ptr, i32 }
+57:                                               ; preds = %2
+  %58 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-60:                                               ; preds = %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
-  %61 = landingpad { ptr, i32 }
+59:                                               ; preds = %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
+  %60 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   call fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_115DarknetImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %4) #17
   br label %.body
 
-.body:                                            ; preds = %58, %39, %60
-  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %59, %58 ], [ %.pn.i, %39 ]
+.body:                                            ; preds = %57, %39, %59
+  %.pn = phi { ptr, i32 } [ %60, %59 ], [ %58, %57 ], [ %.pn.i, %39 ]
   call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   resume { ptr, i32 } %.pn
 }

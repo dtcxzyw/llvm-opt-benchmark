@@ -6889,14 +6889,14 @@ if.end8.sink.split.i.i.i.i127.i:                  ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_112SelfPipeImplEED2Ev.exit.i: ; preds = %if.end8.sink.split.i.i.i.i127.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i124.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i114.i
   %_M_refcount.i.i136.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  %57 = load <2 x ptr>, ptr %atfork_handler_.i.i.i.i.i.i.i.i, align 8, !noalias !199
-  store <2 x ptr> %57, ptr %agg.tmp.i, align 16, !noalias !199
-  %58 = extractelement <2 x ptr> %57, i64 1
-  %cmp.not.i.i.i138.i = icmp eq ptr %58, null
+  %57 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !199
+  %58 = load <2 x ptr>, ptr %atfork_handler_.i.i.i.i.i.i.i.i, align 8, !noalias !199
+  store <2 x ptr> %58, ptr %agg.tmp.i, align 16, !noalias !199
+  %cmp.not.i.i.i138.i = icmp eq ptr %57, null
   br i1 %cmp.not.i.i.i138.i, label %_ZNSt8weak_ptrIN5arrow8internal13AtForkHandlerEEC2IS2_vEERKSt10shared_ptrIT_E.exit.i, label %if.then.i.i.i139.i
 
 if.then.i.i.i139.i:                               ; preds = %_ZNSt10shared_ptrIN5arrow8internal12_GLOBAL__N_112SelfPipeImplEED2Ev.exit.i
-  %_M_weak_count.i.i.i.i140.i = getelementptr inbounds i8, ptr %58, i64 12
+  %_M_weak_count.i.i.i.i140.i = getelementptr inbounds i8, ptr %57, i64 12
   %59 = load i8, ptr @__libc_single_threaded, align 1, !noalias !199
   %tobool.i.i.not.i.i.i.i141.i = icmp eq i8 %59, 0
   br i1 %tobool.i.i.not.i.i.i.i141.i, label %if.else.i.i.i.i.i144.i, label %if.then.i.i.i.i.i142.i
@@ -14464,15 +14464,16 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %0 = load <2 x ptr>, ptr %__source.val5, align 8
+  %0 = getelementptr i8, ptr %__source.val5, i64 8
+  %call5.val6.i = load ptr, ptr %0, align 8
+  %1 = load <2 x ptr>, ptr %__source.val5, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #34
-  store <2 x ptr> %0, ptr %call.i.i.i, align 8
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %1, null
+  store <2 x ptr> %1, ptr %call.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %call5.val6.i, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl4InitEvEUlvE_E15_M_init_functorIRKS5_EEvRSt9_Any_dataOT_.exit.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %sw.bb4.i
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.val6.i, i64 12
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i

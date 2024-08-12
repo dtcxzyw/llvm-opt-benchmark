@@ -2445,121 +2445,119 @@ define hidden void @_ZN16BlockListBuilder10mark_loopsEv(ptr noundef nonnull alig
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 32
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
-  %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
-  %18 = sext i32 %16 to i64
-  tail call void @_ZN14GrowableBitMapI14ResourceBitMapE10initializeEmb(ptr noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %18, i1 noundef zeroext true) #19
-  %19 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call void @_ZN14GrowableBitMapI14ResourceBitMapE10initializeEmb(ptr noundef nonnull align 8 dereferenceable(16) %19, i64 noundef %18, i1 noundef zeroext true) #19
+  %10 = load <2 x ptr>, ptr %9, align 8
+  %11 = load ptr, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = load i32, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = sext i32 %15 to i64
+  tail call void @_ZN14GrowableBitMapI14ResourceBitMapE10initializeEmb(ptr noundef nonnull align 8 dereferenceable(16) %16, i64 noundef %17, i1 noundef zeroext true) #19
+  %18 = getelementptr inbounds i8, ptr %0, i64 88
+  tail call void @_ZN14GrowableBitMapI14ResourceBitMapE10initializeEmb(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %17, i1 noundef zeroext true) #19
   call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef 0, i1 noundef zeroext true) #19
-  %20 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %16, i32 noundef 16) #19
-  %21 = icmp sgt i32 %16, 0
-  br i1 %21, label %.lr.ph.preheader.i.i, label %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit.thread
+  %19 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %15, i32 noundef 16) #19
+  %20 = icmp sgt i32 %15, 0
+  br i1 %20, label %.lr.ph.preheader.i.i, label %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit.thread
 
 _ZN13GrowableArrayI14ResourceBitMapED2Ev.exit.thread: ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %0, i64 104
-  store i32 %16, ptr %22, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  store i32 %15, ptr %21, align 8
   %.sroa.4.0..sroa_idx22 = getelementptr inbounds i8, ptr %0, i64 108
-  store i32 %16, ptr %.sroa.4.0..sroa_idx22, align 4
+  store i32 %15, ptr %.sroa.4.0..sroa_idx22, align 4
   %.sroa.7.0..sroa_idx23 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr %20, ptr %.sroa.7.0..sroa_idx23, align 8
+  store ptr %19, ptr %.sroa.7.0..sroa_idx23, align 8
   %.sroa.10.0..sroa_idx24 = getelementptr inbounds i8, ptr %0, i64 120
   store i64 0, ptr %.sroa.10.0..sroa_idx24, align 8
   br label %._crit_edge
 
 .lr.ph.preheader.i.i:                             ; preds = %1
-  %wide.trip.count.i.i = zext nneg i32 %16 to i64
+  %wide.trip.count.i.i = zext nneg i32 %15 to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %23 = getelementptr inbounds %class.ResourceBitMap, ptr %20, i64 %indvars.iv.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  %22 = getelementptr inbounds %class.ResourceBitMap, ptr %19, i64 %indvars.iv.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !13
 
 _ZN13GrowableArrayI14ResourceBitMapED2Ev.exit:    ; preds = %.lr.ph.i.i
-  %24 = getelementptr inbounds i8, ptr %0, i64 104
-  store i32 %16, ptr %24, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 104
+  store i32 %15, ptr %23, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 108
-  store i32 %16, ptr %.sroa.4.0..sroa_idx, align 4
+  store i32 %15, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr %20, ptr %.sroa.7.0..sroa_idx, align 8
+  store ptr %19, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 120
   store i64 0, ptr %.sroa.10.0..sroa_idx, align 8
-  br i1 %21, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %20, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit
-  %wide.trip.count = zext nneg i32 %16 to i64
+  %wide.trip.count = zext nneg i32 %15 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %25 = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
-  %26 = getelementptr inbounds %class.ResourceBitMap, ptr %25, i64 %indvars.iv
-  call void @_ZN14GrowableBitMapI14ResourceBitMapE10initializeEmb(ptr noundef nonnull align 8 dereferenceable(16) %26, i64 noundef %18, i1 noundef zeroext true) #19
+  %24 = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
+  %25 = getelementptr inbounds %class.ResourceBitMap, ptr %24, i64 %indvars.iv
+  call void @_ZN14GrowableBitMapI14ResourceBitMapE10initializeEmb(ptr noundef nonnull align 8 dereferenceable(16) %25, i64 noundef %17, i1 noundef zeroext true) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit.thread, %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit
-  %27 = phi ptr [ %22, %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit.thread ], [ %24, %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit ], [ %24, %.lr.ph ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 128
-  store i32 0, ptr %28, align 8
-  %29 = load i32, ptr %15, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 132
-  store i32 %29, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %26 = phi ptr [ %21, %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit.thread ], [ %23, %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit ], [ %23, %.lr.ph ]
+  %27 = getelementptr inbounds i8, ptr %0, i64 128
+  store i32 0, ptr %27, align 8
+  %28 = load i32, ptr %14, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 132
+  store i32 %28, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 104
-  %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 136
-  store i32 %37, ptr %38, align 8
-  %39 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN16BlockListBuilder10mark_loopsEP10BlockBeginb(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef nonnull %35, i1 noundef zeroext false)
-  %40 = call noundef zeroext i1 @_ZNK6BitMap8is_emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %39) #19
-  br i1 %40, label %44, label %41
+  %35 = getelementptr inbounds i8, ptr %34, i64 104
+  %36 = load i32, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 136
+  store i32 %36, ptr %37, align 8
+  %38 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN16BlockListBuilder10mark_loopsEP10BlockBeginb(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef nonnull %34, i1 noundef zeroext false)
+  %39 = call noundef zeroext i1 @_ZNK6BitMap8is_emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %38) #19
+  br i1 %39, label %43, label %40
 
-41:                                               ; preds = %._crit_edge
-  %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 99
-  store i8 1, ptr %43, align 1
-  br label %44
+40:                                               ; preds = %._crit_edge
+  %41 = load ptr, ptr %0, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 99
+  store i8 1, ptr %42, align 1
+  br label %43
 
-44:                                               ; preds = %41, %._crit_edge
-  call void @_ZN14GrowableBitMapI14ResourceBitMapE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(16) %17, i64 noundef 0, i1 noundef zeroext true) #19
-  call void @_ZN14GrowableBitMapI14ResourceBitMapE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(16) %19, i64 noundef 0, i1 noundef zeroext true) #19
-  store i32 0, ptr %27, align 4
-  %45 = load ptr, ptr %8, align 8
-  %.not.i.i.i.i = icmp eq ptr %45, null
-  br i1 %.not.i.i.i.i, label %47, label %46
+43:                                               ; preds = %40, %._crit_edge
+  call void @_ZN14GrowableBitMapI14ResourceBitMapE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(16) %16, i64 noundef 0, i1 noundef zeroext true) #19
+  call void @_ZN14GrowableBitMapI14ResourceBitMapE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef 0, i1 noundef zeroext true) #19
+  store i32 0, ptr %26, align 4
+  %44 = load ptr, ptr %8, align 8
+  %.not.i.i.i.i = icmp eq ptr %44, null
+  br i1 %.not.i.i.i.i, label %46, label %45
 
-46:                                               ; preds = %44
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %14) #19
+45:                                               ; preds = %43
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %13) #19
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %8) #19
-  br label %47
+  br label %46
 
-47:                                               ; preds = %46, %44
-  %48 = load ptr, ptr %9, align 8
-  %.not8.i.i.i.i = icmp eq ptr %48, %10
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %49
+46:                                               ; preds = %45, %43
+  %47 = load ptr, ptr %9, align 8
+  %.not8.i.i.i.i = icmp eq ptr %47, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %48
 
-49:                                               ; preds = %47
+48:                                               ; preds = %46
   store ptr %8, ptr %7, align 8
-  store ptr %10, ptr %9, align 8
-  store ptr %12, ptr %11, align 8
+  store <2 x ptr> %10, ptr %9, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %47, %49
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %46, %48
   ret void
 }
 
@@ -3209,112 +3207,110 @@ _ZN16BlockListBuilder16make_loop_headerEP10BlockBegin.exit: ; preds = %29, %25, 
   %63 = getelementptr inbounds i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %62, i64 32
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %62, i64 40
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %62, i64 8
-  %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 104
-  %72 = load i32, ptr %71, align 8
-  %73 = sext i32 %72 to i64
-  call void @_ZN14ResourceBitMapC1Emb(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %73, i1 noundef zeroext true) #19
-  %74 = getelementptr inbounds i8, ptr %1, i64 108
-  %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %0, i64 56
-  %77 = load ptr, ptr %76, align 8
-  %78 = sext i32 %75 to i64
-  %79 = getelementptr inbounds %class.BlockList, ptr %77, i64 %78
-  %80 = load i32, ptr %79, align 4
-  %81 = icmp sgt i32 %80, 0
-  br i1 %81, label %.lr.ph.preheader, label %._crit_edge
+  %66 = load <2 x ptr>, ptr %65, align 8
+  %67 = load ptr, ptr %65, align 8
+  %68 = getelementptr inbounds i8, ptr %62, i64 8
+  %69 = load i64, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %0, i64 104
+  %71 = load i32, ptr %70, align 8
+  %72 = sext i32 %71 to i64
+  call void @_ZN14ResourceBitMapC1Emb(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %72, i1 noundef zeroext true) #19
+  %73 = getelementptr inbounds i8, ptr %1, i64 108
+  %74 = load i32, ptr %73, align 4
+  %75 = getelementptr inbounds i8, ptr %0, i64 56
+  %76 = load ptr, ptr %75, align 8
+  %77 = sext i32 %74 to i64
+  %78 = getelementptr inbounds %class.BlockList, ptr %76, i64 %77
+  %79 = load i32, ptr %78, align 4
+  %80 = icmp sgt i32 %79, 0
+  br i1 %80, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %48
-  %82 = zext nneg i32 %80 to i64
+  %81 = zext nneg i32 %79 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ %82, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %indvars.iv = phi i64 [ %81, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %83 = load i32, ptr %74, align 4
-  %84 = load ptr, ptr %76, align 8
-  %85 = sext i32 %83 to i64
-  %86 = getelementptr inbounds %class.BlockList, ptr %84, i64 %85, i32 0, i32 0, i32 0, i32 1
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv.next
-  %89 = load ptr, ptr %88, align 8
-  %90 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN16BlockListBuilder10mark_loopsEP10BlockBeginb(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef %89, i1 noundef zeroext %spec.select)
-  call void @_ZN6BitMap9set_unionERKS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %90) #19
-  %91 = icmp ugt i64 %indvars.iv, 1
-  br i1 %91, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  %82 = load i32, ptr %73, align 4
+  %83 = load ptr, ptr %75, align 8
+  %84 = sext i32 %82 to i64
+  %85 = getelementptr inbounds %class.BlockList, ptr %83, i64 %84, i32 0, i32 0, i32 0, i32 1
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv.next
+  %88 = load ptr, ptr %87, align 8
+  %89 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN16BlockListBuilder10mark_loopsEP10BlockBeginb(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef %88, i1 noundef zeroext %spec.select)
+  call void @_ZN6BitMap9set_unionERKS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %89) #19
+  %90 = icmp ugt i64 %indvars.iv, 1
+  br i1 %90, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %48
-  %92 = xor i64 %17, -1
-  %93 = load ptr, ptr %54, align 8
-  %94 = getelementptr inbounds i64, ptr %93, i64 %13
-  %95 = load i64, ptr %94, align 8
-  %96 = and i64 %95, %92
-  store i64 %96, ptr %94, align 8
-  %97 = getelementptr inbounds i8, ptr %0, i64 132
-  %98 = load i32, ptr %97, align 4
-  %99 = getelementptr inbounds i8, ptr %1, i64 112
-  store i32 %98, ptr %99, align 8
-  %100 = add nsw i32 %98, -1
-  store i32 %100, ptr %97, align 4
-  %101 = call noundef zeroext i1 @_ZNK6BitMap8is_emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
-  %.not = xor i1 %101, true
+  %91 = xor i64 %17, -1
+  %92 = load ptr, ptr %54, align 8
+  %93 = getelementptr inbounds i64, ptr %92, i64 %13
+  %94 = load i64, ptr %93, align 8
+  %95 = and i64 %94, %91
+  store i64 %95, ptr %93, align 8
+  %96 = getelementptr inbounds i8, ptr %0, i64 132
+  %97 = load i32, ptr %96, align 4
+  %98 = getelementptr inbounds i8, ptr %1, i64 112
+  store i32 %97, ptr %98, align 8
+  %99 = add nsw i32 %97, -1
+  store i32 %99, ptr %96, align 4
+  %100 = call noundef zeroext i1 @_ZNK6BitMap8is_emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
+  %.not = xor i1 %100, true
   %brmerge = or i1 %spec.select, %.not
-  br i1 %brmerge, label %102, label %107
+  br i1 %brmerge, label %101, label %106
 
-102:                                              ; preds = %._crit_edge
-  %103 = getelementptr inbounds i8, ptr %0, i64 8
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 80
-  %106 = getelementptr inbounds i8, ptr %1, i64 144
-  call void @_ZN6BitMap9set_unionERKS_(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull align 8 dereferenceable(16) %106) #19
-  br label %107
+101:                                              ; preds = %._crit_edge
+  %102 = getelementptr inbounds i8, ptr %0, i64 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 80
+  %105 = getelementptr inbounds i8, ptr %1, i64 144
+  call void @_ZN6BitMap9set_unionERKS_(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull align 8 dereferenceable(16) %105) #19
+  br label %106
 
-107:                                              ; preds = %._crit_edge, %102
-  %108 = load i32, ptr %49, align 4
-  %109 = and i32 %108, 128
-  %.not32 = icmp eq i32 %109, 0
-  br i1 %.not32, label %114, label %110
+106:                                              ; preds = %._crit_edge, %101
+  %107 = load i32, ptr %49, align 4
+  %108 = and i32 %107, 128
+  %.not32 = icmp eq i32 %108, 0
+  br i1 %.not32, label %113, label %109
 
-110:                                              ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %0, i64 112
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds %class.ResourceBitMap, ptr %112, i64 %11
-  call void @_ZN6BitMap14set_differenceERKS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %113) #19
-  br label %114
+109:                                              ; preds = %106
+  %110 = getelementptr inbounds i8, ptr %0, i64 112
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds %class.ResourceBitMap, ptr %111, i64 %11
+  call void @_ZN6BitMap14set_differenceERKS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %112) #19
+  br label %113
 
-114:                                              ; preds = %110, %107
-  %115 = getelementptr inbounds i8, ptr %0, i64 112
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds %class.ResourceBitMap, ptr %116, i64 %11
-  call void @_ZN6BitMap8set_fromERKS_(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %4) #19
-  %118 = load ptr, ptr %115, align 8
-  %119 = getelementptr inbounds %class.ResourceBitMap, ptr %118, i64 %11
-  %120 = load ptr, ptr %64, align 8
-  %.not.i.i.i.i = icmp eq ptr %120, null
-  br i1 %.not.i.i.i.i, label %122, label %121
+113:                                              ; preds = %109, %106
+  %114 = getelementptr inbounds i8, ptr %0, i64 112
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds %class.ResourceBitMap, ptr %115, i64 %11
+  call void @_ZN6BitMap8set_fromERKS_(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 8 dereferenceable(16) %4) #19
+  %117 = load ptr, ptr %114, align 8
+  %118 = getelementptr inbounds %class.ResourceBitMap, ptr %117, i64 %11
+  %119 = load ptr, ptr %64, align 8
+  %.not.i.i.i.i = icmp eq ptr %119, null
+  br i1 %.not.i.i.i.i, label %121, label %120
 
-121:                                              ; preds = %114
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %62, i64 noundef %70) #19
+120:                                              ; preds = %113
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %62, i64 noundef %69) #19
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %64) #19
-  br label %122
+  br label %121
 
-122:                                              ; preds = %121, %114
-  %123 = load ptr, ptr %65, align 8
-  %.not8.i.i.i.i = icmp eq ptr %123, %66
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %124
+121:                                              ; preds = %120, %113
+  %122 = load ptr, ptr %65, align 8
+  %.not8.i.i.i.i = icmp eq ptr %122, %67
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %123
 
-124:                                              ; preds = %122
+123:                                              ; preds = %121
   store ptr %64, ptr %63, align 8
-  store ptr %66, ptr %65, align 8
-  store ptr %68, ptr %67, align 8
+  store <2 x ptr> %66, ptr %65, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %124, %122, %_ZN16BlockListBuilder16make_loop_headerEP10BlockBegin.exit
-  %.0 = phi ptr [ %47, %_ZN16BlockListBuilder16make_loop_headerEP10BlockBegin.exit ], [ %119, %122 ], [ %119, %124 ]
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %123, %121, %_ZN16BlockListBuilder16make_loop_headerEP10BlockBegin.exit
+  %.0 = phi ptr [ %47, %_ZN16BlockListBuilder16make_loop_headerEP10BlockBegin.exit ], [ %118, %121 ], [ %118, %123 ]
   ret ptr %.0
 }
 

@@ -182,16 +182,13 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev21ExponentTransformImpl18createEditableCopyEv(ptr noalias sret(%"class.std::shared_ptr.13") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17ExponentTransformEED2Ev.exit:
-  %ref.tmp = alloca %"class.std::shared_ptr", align 8
+  %ref.tmp = alloca %"class.std::shared_ptr", align 16
   call void @_ZN19OpenColorIO_v2_4dev17ExponentTransform6CreateEv(ptr nonnull sret(%"class.std::shared_ptr") align 8 %ref.tmp)
-  %0 = load ptr, ptr %ref.tmp, align 8
-  store ptr %0, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %_M_refcount4.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %1 = load ptr, ptr %_M_refcount4.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
+  %0 = load <2 x ptr>, ptr %ref.tmp, align 16
+  %1 = load ptr, ptr %ref.tmp, align 16
+  store <2 x ptr> %0, ptr %agg.result, align 8
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev21ExponentTransformImplE, i64 0) #18
+  %2 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev21ExponentTransformImplE, i64 0) #18
   %m_data.i2 = getelementptr inbounds i8, ptr %2, i64 8
   %call.i3 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %m_data.i2, ptr noundef nonnull align 8 dereferenceable(168) %m_data.i)
           to label %call.i.noexc unwind label %lpad

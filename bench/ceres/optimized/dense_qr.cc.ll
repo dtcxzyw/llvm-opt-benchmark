@@ -2151,11 +2151,11 @@ define linkonce_odr hidden void @_ZN5Eigen13HouseholderQRINS_3RefINS_6MatrixIdLi
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load <2 x i64>, ptr %3, align 8
+  %9 = load i64, ptr %3, align 8
   store ptr %5, ptr %0, align 8
   store <2 x i64> %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = extractelement <2 x i64> %8, i64 0
-  store i64 %10, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %9, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   %12 = load i64, ptr %3, align 8
   %13 = load i64, ptr %4, align 8

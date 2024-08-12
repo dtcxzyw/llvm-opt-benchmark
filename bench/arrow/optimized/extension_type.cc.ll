@@ -2644,14 +2644,14 @@ _ZSt9call_onceIRFvvEJEEvRSt9once_flagOT_DpOT0_.exit: ; preds = %invoke.cont.i
   store ptr null, ptr %0, align 8
   store ptr null, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__callable.i)
-  %3 = load <2 x ptr>, ptr @_ZN5arrowL10g_registryE, align 16
-  store <2 x ptr> %3, ptr %agg.result, align 8
-  %4 = extractelement <2 x ptr> %3, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5arrowL10g_registryE, i64 8), align 8
+  %4 = load <2 x ptr>, ptr @_ZN5arrowL10g_registryE, align 16
+  store <2 x ptr> %4, ptr %agg.result, align 8
+  %cmp.not.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow21ExtensionTypeRegistryEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZSt9call_onceIRFvvEJEEvRSt9once_flagOT_DpOT0_.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -2842,14 +2842,15 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 _ZN5arrow21ExtensionTypeRegistry17GetGlobalRegistryEv.exit: ; preds = %_ZSt9call_onceIRFvvEJEEvRSt9once_flagOT_DpOT0_.exit.i, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %8 = phi ptr [ %3, %_ZSt9call_onceIRFvvEJEEvRSt9once_flagOT_DpOT0_.exit.i ], [ %3, %if.then.i.i.i.i.i.i ], [ %.pre, %if.else.i.i.i.i.i.i ]
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %9 = load <2 x ptr>, ptr %type, align 8
-  store <2 x ptr> %9, ptr %agg.tmp, align 16
-  %10 = extractelement <2 x ptr> %9, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %10, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %type, i64 8
+  %9 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %10 = load <2 x ptr>, ptr %type, align 8
+  store <2 x ptr> %10, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow13ExtensionTypeEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN5arrow21ExtensionTypeRegistry17GetGlobalRegistryEv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -5004,14 +5005,15 @@ lpad:                                             ; preds = %_ZNSt10lock_guardIS
 
 if.else:                                          ; preds = %invoke.cont
   %second = getelementptr inbounds i8, ptr %call.i1, i64 40
-  %1 = load <2 x ptr>, ptr %second, align 8
-  store <2 x ptr> %1, ptr %agg.result, align 8
-  %2 = extractelement <2 x ptr> %1, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %call.i1, i64 48
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %second, align 8
+  store <2 x ptr> %2, ptr %agg.result, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %cleanup, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

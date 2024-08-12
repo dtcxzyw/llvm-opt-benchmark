@@ -41,7 +41,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hbc3d496a
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load <2 x i64>, ptr %4, align 8
-  %9 = extractelement <2 x i64> %8, i64 0
+  %9 = load i64, ptr %4, align 8, !noundef !8
   %10 = add i64 %9, 1
   store i64 %10, ptr %4, align 8
   store <2 x i64> %8, ptr %7, align 8
@@ -278,7 +278,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.41463
   %.0.i.i2.i = phi ptr [ %4, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.4146331767884935121.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %1 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !106
-  %9 = extractelement <2 x i64> %8, i64 0
+  %9 = load i64, ptr %.0.i.i2.i, align 8, !noalias !106, !noundef !8
   %10 = add i64 %9, 1
   store i64 %10, ptr %.0.i.i2.i, align 8, !noalias !106
   store <2 x i64> %8, ptr %7, align 8
@@ -307,7 +307,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.41463
   %.0.i.i2.i = phi ptr [ %4, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.4146331767884935121.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %1 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !118
-  %9 = extractelement <2 x i64> %8, i64 0
+  %9 = load i64, ptr %.0.i.i2.i, align 8, !noalias !118, !noundef !8
   %10 = add i64 %9, 1
   store i64 %10, ptr %.0.i.i2.i, align 8, !noalias !118
   store <2 x i64> %8, ptr %7, align 8

@@ -230,11 +230,11 @@ define hidden noundef i32 @mlib_ImageAffine_d64_2ch_bl(ptr nocapture noundef rea
   %31 = add i32 %15, 1
   br label %32
 
-32:                                               ; preds = %.lr.ph199, %149
-  %indvars.iv = phi i64 [ %30, %.lr.ph199 ], [ %indvars.iv.next, %149 ]
-  %.0153197 = phi ptr [ %27, %.lr.ph199 ], [ %33, %149 ]
-  %.0157196 = phi i32 [ %23, %.lr.ph199 ], [ %.1, %149 ]
-  %.0159194 = phi i32 [ %21, %.lr.ph199 ], [ %.1160, %149 ]
+32:                                               ; preds = %.lr.ph199, %161
+  %indvars.iv = phi i64 [ %30, %.lr.ph199 ], [ %indvars.iv.next, %161 ]
+  %.0153197 = phi ptr [ %27, %.lr.ph199 ], [ %33, %161 ]
+  %.0157196 = phi i32 [ %23, %.lr.ph199 ], [ %.1, %161 ]
+  %.0159194 = phi i32 [ %21, %.lr.ph199 ], [ %.1160, %161 ]
   %33 = getelementptr inbounds i8, ptr %.0153197, i64 %28
   %34 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
@@ -259,7 +259,7 @@ define hidden noundef i32 @mlib_ImageAffine_d64_2ch_bl(ptr nocapture noundef rea
   %.1160 = phi i32 [ %48, %42 ], [ %.0159194, %32 ]
   %.1 = phi i32 [ %45, %42 ], [ %.0157196, %32 ]
   %50 = icmp sgt i32 %35, %37
-  br i1 %50, label %149, label %51
+  br i1 %50, label %161, label %51
 
 51:                                               ; preds = %49
   %52 = shl nsw i32 %35, 1
@@ -306,11 +306,11 @@ define hidden noundef i32 @mlib_ImageAffine_d64_2ch_bl(ptr nocapture noundef rea
   %.0152169 = phi double [ %115, %.lr.ph ], [ %79, %51 ]
   %.pn165168 = phi i32 [ %.0154, %.lr.ph ], [ %39, %51 ]
   %.pn167 = phi i32 [ %.0155, %.lr.ph ], [ %41, %51 ]
-  %.0156166 = phi ptr [ %131, %.lr.ph ], [ %54, %51 ]
-  %87 = phi <2 x double> [ %121, %.lr.ph ], [ %85, %51 ]
-  %88 = phi <2 x double> [ %120, %.lr.ph ], [ %84, %51 ]
-  %89 = phi <2 x double> [ %119, %.lr.ph ], [ %82, %51 ]
-  %90 = phi <2 x double> [ %118, %.lr.ph ], [ %83, %51 ]
+  %.0156166 = phi ptr [ %139, %.lr.ph ], [ %54, %51 ]
+  %87 = phi <2 x double> [ %141, %.lr.ph ], [ %85, %51 ]
+  %88 = phi <2 x double> [ %142, %.lr.ph ], [ %84, %51 ]
+  %89 = phi <2 x double> [ %143, %.lr.ph ], [ %82, %51 ]
+  %90 = phi <2 x double> [ %144, %.lr.ph ], [ %83, %51 ]
   %.0154 = add nsw i32 %.pn165168, %.1
   %.0155 = add nsw i32 %.pn167, %.1160
   %91 = insertelement <2 x double> poison, double %.0151170, i64 0
@@ -339,57 +339,69 @@ define hidden noundef i32 @mlib_ImageAffine_d64_2ch_bl(ptr nocapture noundef rea
   %114 = fmul double %96, %113
   %115 = fmul double %113, %111
   %116 = getelementptr inbounds i8, ptr %108, i64 16
-  %117 = getelementptr inbounds i8, ptr %109, i64 16
-  %118 = load <2 x double>, ptr %116, align 8
-  %119 = load <2 x double>, ptr %108, align 8
-  %120 = load <2 x double>, ptr %109, align 8
-  %121 = load <2 x double>, ptr %117, align 8
-  %122 = insertelement <2 x double> poison, double %.0152169, i64 0
-  %123 = shufflevector <2 x double> %122, <2 x double> poison, <2 x i32> zeroinitializer
-  %124 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %123, <2 x double> %89, <2 x double> %93)
-  %125 = insertelement <2 x double> poison, double %.0150171, i64 0
-  %126 = shufflevector <2 x double> %125, <2 x double> poison, <2 x i32> zeroinitializer
-  %127 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %126, <2 x double> %88, <2 x double> %124)
-  %128 = insertelement <2 x double> poison, double %.0149172, i64 0
-  %129 = shufflevector <2 x double> %128, <2 x double> poison, <2 x i32> zeroinitializer
-  %130 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %129, <2 x double> %87, <2 x double> %127)
-  store <2 x double> %130, ptr %.0156166, align 8
-  %131 = getelementptr inbounds i8, ptr %.0156166, i64 16
-  %132 = icmp ult ptr %131, %57
-  br i1 %132, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  %117 = getelementptr inbounds i8, ptr %108, i64 24
+  %118 = getelementptr inbounds i8, ptr %108, i64 8
+  %119 = getelementptr inbounds i8, ptr %109, i64 8
+  %120 = getelementptr inbounds i8, ptr %109, i64 16
+  %121 = getelementptr inbounds i8, ptr %109, i64 24
+  %122 = load double, ptr %117, align 8
+  %123 = load <2 x double>, ptr %116, align 8
+  %124 = load double, ptr %118, align 8
+  %125 = load <2 x double>, ptr %108, align 8
+  %126 = load double, ptr %119, align 8
+  %127 = load <2 x double>, ptr %109, align 8
+  %128 = load double, ptr %121, align 8
+  %129 = load <2 x double>, ptr %120, align 8
+  %130 = insertelement <2 x double> poison, double %.0152169, i64 0
+  %131 = shufflevector <2 x double> %130, <2 x double> poison, <2 x i32> zeroinitializer
+  %132 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %131, <2 x double> %89, <2 x double> %93)
+  %133 = insertelement <2 x double> poison, double %.0150171, i64 0
+  %134 = shufflevector <2 x double> %133, <2 x double> poison, <2 x i32> zeroinitializer
+  %135 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %134, <2 x double> %88, <2 x double> %132)
+  %136 = insertelement <2 x double> poison, double %.0149172, i64 0
+  %137 = shufflevector <2 x double> %136, <2 x double> poison, <2 x i32> zeroinitializer
+  %138 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %137, <2 x double> %87, <2 x double> %135)
+  store <2 x double> %138, ptr %.0156166, align 8
+  %139 = getelementptr inbounds i8, ptr %.0156166, i64 16
+  %140 = icmp ult ptr %139, %57
+  %141 = insertelement <2 x double> %129, double %128, i64 1
+  %142 = insertelement <2 x double> %127, double %126, i64 1
+  %143 = insertelement <2 x double> %125, double %124, i64 1
+  %144 = insertelement <2 x double> %123, double %122, i64 1
+  br i1 %140, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %51
-  %.0156.lcssa = phi ptr [ %54, %51 ], [ %131, %.lr.ph ]
+  %.0156.lcssa = phi ptr [ %54, %51 ], [ %139, %.lr.ph ]
   %.0152.lcssa = phi double [ %79, %51 ], [ %115, %.lr.ph ]
   %.0151.lcssa = phi double [ %78, %51 ], [ %114, %.lr.ph ]
   %.0150.lcssa = phi double [ %76, %51 ], [ %112, %.lr.ph ]
   %.0149.lcssa = phi double [ %74, %51 ], [ %110, %.lr.ph ]
-  %133 = phi <2 x double> [ %85, %51 ], [ %121, %.lr.ph ]
-  %134 = phi <2 x double> [ %84, %51 ], [ %120, %.lr.ph ]
-  %135 = phi <2 x double> [ %82, %51 ], [ %119, %.lr.ph ]
-  %136 = phi <2 x double> [ %83, %51 ], [ %118, %.lr.ph ]
-  %137 = insertelement <2 x double> poison, double %.0151.lcssa, i64 0
-  %138 = shufflevector <2 x double> %137, <2 x double> poison, <2 x i32> zeroinitializer
-  %139 = fmul <2 x double> %138, %136
-  %140 = insertelement <2 x double> poison, double %.0152.lcssa, i64 0
-  %141 = shufflevector <2 x double> %140, <2 x double> poison, <2 x i32> zeroinitializer
-  %142 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %141, <2 x double> %135, <2 x double> %139)
-  %143 = insertelement <2 x double> poison, double %.0150.lcssa, i64 0
-  %144 = shufflevector <2 x double> %143, <2 x double> poison, <2 x i32> zeroinitializer
-  %145 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %144, <2 x double> %134, <2 x double> %142)
-  %146 = insertelement <2 x double> poison, double %.0149.lcssa, i64 0
-  %147 = shufflevector <2 x double> %146, <2 x double> poison, <2 x i32> zeroinitializer
-  %148 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %147, <2 x double> %133, <2 x double> %145)
-  store <2 x double> %148, ptr %.0156.lcssa, align 8
-  br label %149
+  %145 = phi <2 x double> [ %85, %51 ], [ %129, %.lr.ph ]
+  %146 = phi <2 x double> [ %84, %51 ], [ %127, %.lr.ph ]
+  %147 = phi <2 x double> [ %82, %51 ], [ %125, %.lr.ph ]
+  %148 = phi <2 x double> [ %83, %51 ], [ %123, %.lr.ph ]
+  %149 = insertelement <2 x double> poison, double %.0151.lcssa, i64 0
+  %150 = shufflevector <2 x double> %149, <2 x double> poison, <2 x i32> zeroinitializer
+  %151 = fmul <2 x double> %150, %148
+  %152 = insertelement <2 x double> poison, double %.0152.lcssa, i64 0
+  %153 = shufflevector <2 x double> %152, <2 x double> poison, <2 x i32> zeroinitializer
+  %154 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %153, <2 x double> %147, <2 x double> %151)
+  %155 = insertelement <2 x double> poison, double %.0150.lcssa, i64 0
+  %156 = shufflevector <2 x double> %155, <2 x double> poison, <2 x i32> zeroinitializer
+  %157 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %156, <2 x double> %146, <2 x double> %154)
+  %158 = insertelement <2 x double> poison, double %.0149.lcssa, i64 0
+  %159 = shufflevector <2 x double> %158, <2 x double> poison, <2 x i32> zeroinitializer
+  %160 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %159, <2 x double> %145, <2 x double> %157)
+  store <2 x double> %160, ptr %.0156.lcssa, align 8
+  br label %161
 
-149:                                              ; preds = %49, %._crit_edge
+161:                                              ; preds = %49, %._crit_edge
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %31, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge200, label %32, !llvm.loop !10
 
-._crit_edge200:                                   ; preds = %149, %1
+._crit_edge200:                                   ; preds = %161, %1
   ret i32 0
 }
 
@@ -432,11 +444,11 @@ define hidden noundef i32 @mlib_ImageAffine_d64_3ch_bl(ptr nocapture noundef rea
   %31 = add i32 %15, 1
   br label %32
 
-32:                                               ; preds = %.lr.ph239, %175
-  %indvars.iv = phi i64 [ %30, %.lr.ph239 ], [ %indvars.iv.next, %175 ]
-  %.0185237 = phi ptr [ %27, %.lr.ph239 ], [ %33, %175 ]
-  %.0189236 = phi i32 [ %23, %.lr.ph239 ], [ %.1, %175 ]
-  %.0191234 = phi i32 [ %21, %.lr.ph239 ], [ %.1192, %175 ]
+32:                                               ; preds = %.lr.ph239, %187
+  %indvars.iv = phi i64 [ %30, %.lr.ph239 ], [ %indvars.iv.next, %187 ]
+  %.0185237 = phi ptr [ %27, %.lr.ph239 ], [ %33, %187 ]
+  %.0189236 = phi i32 [ %23, %.lr.ph239 ], [ %.1, %187 ]
+  %.0191234 = phi i32 [ %21, %.lr.ph239 ], [ %.1192, %187 ]
   %33 = getelementptr inbounds i8, ptr %.0185237, i64 %28
   %34 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
@@ -461,7 +473,7 @@ define hidden noundef i32 @mlib_ImageAffine_d64_3ch_bl(ptr nocapture noundef rea
   %.1192 = phi i32 [ %48, %42 ], [ %.0191234, %32 ]
   %.1 = phi i32 [ %45, %42 ], [ %.0189236, %32 ]
   %50 = icmp sgt i32 %35, %37
-  br i1 %50, label %175, label %51
+  br i1 %50, label %187, label %51
 
 51:                                               ; preds = %49
   %52 = mul nsw i32 %35, 3
@@ -510,21 +522,21 @@ define hidden noundef i32 @mlib_ImageAffine_d64_3ch_bl(ptr nocapture noundef rea
   br i1 %94, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %51, %.lr.ph
-  %.0216 = phi double [ %141, %.lr.ph ], [ %93, %51 ]
-  %.0170215 = phi double [ %134, %.lr.ph ], [ %86, %51 ]
-  %.0171214 = phi double [ %130, %.lr.ph ], [ %84, %51 ]
-  %.0172213 = phi double [ %132, %.lr.ph ], [ %81, %51 ]
+  %.0216 = phi double [ %149, %.lr.ph ], [ %93, %51 ]
+  %.0170215 = phi double [ %137, %.lr.ph ], [ %86, %51 ]
+  %.0171214 = phi double [ %131, %.lr.ph ], [ %84, %51 ]
+  %.0172213 = phi double [ %134, %.lr.ph ], [ %81, %51 ]
   %.0181204 = phi double [ %122, %.lr.ph ], [ %74, %51 ]
   %.0182203 = phi double [ %124, %.lr.ph ], [ %76, %51 ]
   %.0183202 = phi double [ %126, %.lr.ph ], [ %78, %51 ]
   %.0184201 = phi double [ %127, %.lr.ph ], [ %79, %51 ]
   %.pn197200 = phi i32 [ %.0186, %.lr.ph ], [ %39, %51 ]
   %.pn199 = phi i32 [ %.0187, %.lr.ph ], [ %41, %51 ]
-  %.0188198 = phi ptr [ %152, %.lr.ph ], [ %54, %51 ]
-  %95 = phi <2 x double> [ %139, %.lr.ph ], [ %91, %51 ]
-  %96 = phi <2 x double> [ %138, %.lr.ph ], [ %90, %51 ]
-  %97 = phi <2 x double> [ %137, %.lr.ph ], [ %88, %51 ]
-  %98 = phi <2 x double> [ %136, %.lr.ph ], [ %89, %51 ]
+  %.0188198 = phi ptr [ %160, %.lr.ph ], [ %54, %51 ]
+  %95 = phi <2 x double> [ %162, %.lr.ph ], [ %91, %51 ]
+  %96 = phi <2 x double> [ %163, %.lr.ph ], [ %90, %51 ]
+  %97 = phi <2 x double> [ %164, %.lr.ph ], [ %88, %51 ]
+  %98 = phi <2 x double> [ %165, %.lr.ph ], [ %89, %51 ]
   %.0186 = add nsw i32 %.pn197200, %.1
   %.0187 = add nsw i32 %.pn199, %.1192
   %99 = insertelement <2 x double> poison, double %.0183202, i64 0
@@ -557,77 +569,89 @@ define hidden noundef i32 @mlib_ImageAffine_d64_3ch_bl(ptr nocapture noundef rea
   %126 = fmul double %108, %125
   %127 = fmul double %125, %123
   %128 = getelementptr inbounds i8, ptr %120, i64 24
-  %129 = getelementptr inbounds i8, ptr %120, i64 40
-  %130 = load double, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %120, i64 16
-  %132 = load double, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %121, i64 16
+  %129 = getelementptr inbounds i8, ptr %120, i64 32
+  %130 = getelementptr inbounds i8, ptr %120, i64 40
+  %131 = load double, ptr %130, align 8
+  %132 = getelementptr inbounds i8, ptr %120, i64 8
+  %133 = getelementptr inbounds i8, ptr %120, i64 16
   %134 = load double, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %121, i64 24
-  %136 = load <2 x double>, ptr %128, align 8
-  %137 = load <2 x double>, ptr %120, align 8
-  %138 = load <2 x double>, ptr %121, align 8
-  %139 = load <2 x double>, ptr %135, align 8
-  %140 = getelementptr inbounds i8, ptr %121, i64 40
-  %141 = load double, ptr %140, align 8
-  %142 = insertelement <2 x double> poison, double %.0184201, i64 0
-  %143 = shufflevector <2 x double> %142, <2 x double> poison, <2 x i32> zeroinitializer
-  %144 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %143, <2 x double> %97, <2 x double> %101)
-  %145 = insertelement <2 x double> poison, double %.0182203, i64 0
-  %146 = shufflevector <2 x double> %145, <2 x double> poison, <2 x i32> zeroinitializer
-  %147 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %146, <2 x double> %96, <2 x double> %144)
-  %148 = insertelement <2 x double> poison, double %.0181204, i64 0
-  %149 = shufflevector <2 x double> %148, <2 x double> poison, <2 x i32> zeroinitializer
-  %150 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %149, <2 x double> %95, <2 x double> %147)
-  store <2 x double> %150, ptr %.0188198, align 8
-  %151 = getelementptr inbounds i8, ptr %.0188198, i64 16
-  store double %105, ptr %151, align 8
-  %152 = getelementptr inbounds i8, ptr %.0188198, i64 24
-  %153 = icmp ult ptr %152, %57
-  br i1 %153, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  %135 = getelementptr inbounds i8, ptr %121, i64 8
+  %136 = getelementptr inbounds i8, ptr %121, i64 16
+  %137 = load double, ptr %136, align 8
+  %138 = getelementptr inbounds i8, ptr %121, i64 24
+  %139 = getelementptr inbounds i8, ptr %121, i64 32
+  %140 = load double, ptr %129, align 8
+  %141 = load <2 x double>, ptr %128, align 8
+  %142 = load double, ptr %132, align 8
+  %143 = load <2 x double>, ptr %120, align 8
+  %144 = load double, ptr %135, align 8
+  %145 = load <2 x double>, ptr %121, align 8
+  %146 = load double, ptr %139, align 8
+  %147 = load <2 x double>, ptr %138, align 8
+  %148 = getelementptr inbounds i8, ptr %121, i64 40
+  %149 = load double, ptr %148, align 8
+  %150 = insertelement <2 x double> poison, double %.0184201, i64 0
+  %151 = shufflevector <2 x double> %150, <2 x double> poison, <2 x i32> zeroinitializer
+  %152 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %151, <2 x double> %97, <2 x double> %101)
+  %153 = insertelement <2 x double> poison, double %.0182203, i64 0
+  %154 = shufflevector <2 x double> %153, <2 x double> poison, <2 x i32> zeroinitializer
+  %155 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %154, <2 x double> %96, <2 x double> %152)
+  %156 = insertelement <2 x double> poison, double %.0181204, i64 0
+  %157 = shufflevector <2 x double> %156, <2 x double> poison, <2 x i32> zeroinitializer
+  %158 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %157, <2 x double> %95, <2 x double> %155)
+  store <2 x double> %158, ptr %.0188198, align 8
+  %159 = getelementptr inbounds i8, ptr %.0188198, i64 16
+  store double %105, ptr %159, align 8
+  %160 = getelementptr inbounds i8, ptr %.0188198, i64 24
+  %161 = icmp ult ptr %160, %57
+  %162 = insertelement <2 x double> %147, double %146, i64 1
+  %163 = insertelement <2 x double> %145, double %144, i64 1
+  %164 = insertelement <2 x double> %143, double %142, i64 1
+  %165 = insertelement <2 x double> %141, double %140, i64 1
+  br i1 %161, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %51
-  %.0188.lcssa = phi ptr [ %54, %51 ], [ %152, %.lr.ph ]
+  %.0188.lcssa = phi ptr [ %54, %51 ], [ %160, %.lr.ph ]
   %.0184.lcssa = phi double [ %79, %51 ], [ %127, %.lr.ph ]
   %.0183.lcssa = phi double [ %78, %51 ], [ %126, %.lr.ph ]
   %.0182.lcssa = phi double [ %76, %51 ], [ %124, %.lr.ph ]
   %.0181.lcssa = phi double [ %74, %51 ], [ %122, %.lr.ph ]
-  %.0172.lcssa = phi double [ %81, %51 ], [ %132, %.lr.ph ]
-  %.0171.lcssa = phi double [ %84, %51 ], [ %130, %.lr.ph ]
-  %.0170.lcssa = phi double [ %86, %51 ], [ %134, %.lr.ph ]
-  %.0.lcssa = phi double [ %93, %51 ], [ %141, %.lr.ph ]
-  %154 = phi <2 x double> [ %91, %51 ], [ %139, %.lr.ph ]
-  %155 = phi <2 x double> [ %90, %51 ], [ %138, %.lr.ph ]
-  %156 = phi <2 x double> [ %88, %51 ], [ %137, %.lr.ph ]
-  %157 = phi <2 x double> [ %89, %51 ], [ %136, %.lr.ph ]
-  %158 = insertelement <2 x double> poison, double %.0183.lcssa, i64 0
-  %159 = shufflevector <2 x double> %158, <2 x double> poison, <2 x i32> zeroinitializer
-  %160 = fmul <2 x double> %159, %157
-  %161 = fmul double %.0183.lcssa, %.0171.lcssa
-  %162 = tail call double @llvm.fmuladd.f64(double %.0184.lcssa, double %.0172.lcssa, double %161)
-  %163 = tail call double @llvm.fmuladd.f64(double %.0182.lcssa, double %.0170.lcssa, double %162)
-  %164 = tail call double @llvm.fmuladd.f64(double %.0181.lcssa, double %.0.lcssa, double %163)
-  %165 = insertelement <2 x double> poison, double %.0184.lcssa, i64 0
-  %166 = shufflevector <2 x double> %165, <2 x double> poison, <2 x i32> zeroinitializer
-  %167 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %166, <2 x double> %156, <2 x double> %160)
-  %168 = insertelement <2 x double> poison, double %.0182.lcssa, i64 0
-  %169 = shufflevector <2 x double> %168, <2 x double> poison, <2 x i32> zeroinitializer
-  %170 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %169, <2 x double> %155, <2 x double> %167)
-  %171 = insertelement <2 x double> poison, double %.0181.lcssa, i64 0
-  %172 = shufflevector <2 x double> %171, <2 x double> poison, <2 x i32> zeroinitializer
-  %173 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %172, <2 x double> %154, <2 x double> %170)
-  store <2 x double> %173, ptr %.0188.lcssa, align 8
-  %174 = getelementptr inbounds i8, ptr %.0188.lcssa, i64 16
-  store double %164, ptr %174, align 8
-  br label %175
+  %.0172.lcssa = phi double [ %81, %51 ], [ %134, %.lr.ph ]
+  %.0171.lcssa = phi double [ %84, %51 ], [ %131, %.lr.ph ]
+  %.0170.lcssa = phi double [ %86, %51 ], [ %137, %.lr.ph ]
+  %.0.lcssa = phi double [ %93, %51 ], [ %149, %.lr.ph ]
+  %166 = phi <2 x double> [ %91, %51 ], [ %147, %.lr.ph ]
+  %167 = phi <2 x double> [ %90, %51 ], [ %145, %.lr.ph ]
+  %168 = phi <2 x double> [ %88, %51 ], [ %143, %.lr.ph ]
+  %169 = phi <2 x double> [ %89, %51 ], [ %141, %.lr.ph ]
+  %170 = insertelement <2 x double> poison, double %.0183.lcssa, i64 0
+  %171 = shufflevector <2 x double> %170, <2 x double> poison, <2 x i32> zeroinitializer
+  %172 = fmul <2 x double> %171, %169
+  %173 = fmul double %.0183.lcssa, %.0171.lcssa
+  %174 = tail call double @llvm.fmuladd.f64(double %.0184.lcssa, double %.0172.lcssa, double %173)
+  %175 = tail call double @llvm.fmuladd.f64(double %.0182.lcssa, double %.0170.lcssa, double %174)
+  %176 = tail call double @llvm.fmuladd.f64(double %.0181.lcssa, double %.0.lcssa, double %175)
+  %177 = insertelement <2 x double> poison, double %.0184.lcssa, i64 0
+  %178 = shufflevector <2 x double> %177, <2 x double> poison, <2 x i32> zeroinitializer
+  %179 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %178, <2 x double> %168, <2 x double> %172)
+  %180 = insertelement <2 x double> poison, double %.0182.lcssa, i64 0
+  %181 = shufflevector <2 x double> %180, <2 x double> poison, <2 x i32> zeroinitializer
+  %182 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %181, <2 x double> %167, <2 x double> %179)
+  %183 = insertelement <2 x double> poison, double %.0181.lcssa, i64 0
+  %184 = shufflevector <2 x double> %183, <2 x double> poison, <2 x i32> zeroinitializer
+  %185 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %184, <2 x double> %166, <2 x double> %182)
+  store <2 x double> %185, ptr %.0188.lcssa, align 8
+  %186 = getelementptr inbounds i8, ptr %.0188.lcssa, i64 16
+  store double %176, ptr %186, align 8
+  br label %187
 
-175:                                              ; preds = %49, %._crit_edge
+187:                                              ; preds = %49, %._crit_edge
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %31, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge240, label %32, !llvm.loop !12
 
-._crit_edge240:                                   ; preds = %175, %1
+._crit_edge240:                                   ; preds = %187, %1
   ret i32 0
 }
 
@@ -670,11 +694,11 @@ define hidden noundef i32 @mlib_ImageAffine_d64_4ch_bl(ptr nocapture noundef rea
   %31 = add i32 %15, 1
   br label %32
 
-32:                                               ; preds = %.lr.ph279, %183
-  %indvars.iv = phi i64 [ %30, %.lr.ph279 ], [ %indvars.iv.next, %183 ]
-  %.0217277 = phi ptr [ %27, %.lr.ph279 ], [ %33, %183 ]
-  %.0221276 = phi i32 [ %23, %.lr.ph279 ], [ %.1, %183 ]
-  %.0223274 = phi i32 [ %21, %.lr.ph279 ], [ %.1224, %183 ]
+32:                                               ; preds = %.lr.ph279, %207
+  %indvars.iv = phi i64 [ %30, %.lr.ph279 ], [ %indvars.iv.next, %207 ]
+  %.0217277 = phi ptr [ %27, %.lr.ph279 ], [ %33, %207 ]
+  %.0221276 = phi i32 [ %23, %.lr.ph279 ], [ %.1, %207 ]
+  %.0223274 = phi i32 [ %21, %.lr.ph279 ], [ %.1224, %207 ]
   %33 = getelementptr inbounds i8, ptr %.0217277, i64 %28
   %34 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
@@ -699,7 +723,7 @@ define hidden noundef i32 @mlib_ImageAffine_d64_4ch_bl(ptr nocapture noundef rea
   %.1224 = phi i32 [ %48, %42 ], [ %.0223274, %32 ]
   %.1 = phi i32 [ %45, %42 ], [ %.0221276, %32 ]
   %50 = icmp sgt i32 %35, %37
-  br i1 %50, label %183, label %51
+  br i1 %50, label %207, label %51
 
 51:                                               ; preds = %49
   %52 = shl nsw i32 %35, 2
@@ -754,15 +778,15 @@ define hidden noundef i32 @mlib_ImageAffine_d64_4ch_bl(ptr nocapture noundef rea
   %.0216233 = phi double [ %128, %.lr.ph ], [ %79, %51 ]
   %.pn229232 = phi i32 [ %.0218, %.lr.ph ], [ %39, %51 ]
   %.pn231 = phi i32 [ %.0219, %.lr.ph ], [ %41, %51 ]
-  %.0220230 = phi ptr [ %156, %.lr.ph ], [ %54, %51 ]
-  %95 = phi <2 x double> [ %137, %.lr.ph ], [ %88, %51 ]
-  %96 = phi <2 x double> [ %136, %.lr.ph ], [ %87, %51 ]
-  %97 = phi <2 x double> [ %134, %.lr.ph ], [ %85, %51 ]
-  %98 = phi <2 x double> [ %135, %.lr.ph ], [ %86, %51 ]
-  %99 = phi <2 x double> [ %142, %.lr.ph ], [ %93, %51 ]
-  %100 = phi <2 x double> [ %141, %.lr.ph ], [ %92, %51 ]
-  %101 = phi <2 x double> [ %139, %.lr.ph ], [ %90, %51 ]
-  %102 = phi <2 x double> [ %140, %.lr.ph ], [ %91, %51 ]
+  %.0220230 = phi ptr [ %172, %.lr.ph ], [ %54, %51 ]
+  %95 = phi <2 x double> [ %174, %.lr.ph ], [ %88, %51 ]
+  %96 = phi <2 x double> [ %175, %.lr.ph ], [ %87, %51 ]
+  %97 = phi <2 x double> [ %176, %.lr.ph ], [ %85, %51 ]
+  %98 = phi <2 x double> [ %177, %.lr.ph ], [ %86, %51 ]
+  %99 = phi <2 x double> [ %178, %.lr.ph ], [ %93, %51 ]
+  %100 = phi <2 x double> [ %179, %.lr.ph ], [ %92, %51 ]
+  %101 = phi <2 x double> [ %180, %.lr.ph ], [ %90, %51 ]
+  %102 = phi <2 x double> [ %181, %.lr.ph ], [ %91, %51 ]
   %.0218 = add nsw i32 %.pn229232, %.1
   %.0219 = add nsw i32 %.pn231, %.1224
   %103 = insertelement <2 x double> poison, double %.0215234, i64 0
@@ -791,81 +815,105 @@ define hidden noundef i32 @mlib_ImageAffine_d64_4ch_bl(ptr nocapture noundef rea
   %126 = fsub double 1.000000e+00, %112
   %127 = fmul double %109, %126
   %128 = fmul double %126, %124
-  %129 = getelementptr inbounds i8, ptr %121, i64 16
-  %130 = getelementptr inbounds i8, ptr %121, i64 32
-  %131 = getelementptr inbounds i8, ptr %121, i64 48
-  %132 = getelementptr inbounds i8, ptr %122, i64 16
-  %133 = getelementptr inbounds i8, ptr %122, i64 32
-  %134 = load <2 x double>, ptr %121, align 8
-  %135 = load <2 x double>, ptr %130, align 8
-  %136 = load <2 x double>, ptr %122, align 8
-  %137 = load <2 x double>, ptr %133, align 8
-  %138 = getelementptr inbounds i8, ptr %122, i64 48
-  %139 = load <2 x double>, ptr %129, align 8
-  %140 = load <2 x double>, ptr %131, align 8
-  %141 = load <2 x double>, ptr %132, align 8
-  %142 = load <2 x double>, ptr %138, align 8
-  %143 = insertelement <2 x double> poison, double %.0216233, i64 0
-  %144 = shufflevector <2 x double> %143, <2 x double> poison, <2 x i32> zeroinitializer
-  %145 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %144, <2 x double> %97, <2 x double> %105)
-  %146 = insertelement <2 x double> poison, double %.0214235, i64 0
-  %147 = shufflevector <2 x double> %146, <2 x double> poison, <2 x i32> zeroinitializer
-  %148 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %147, <2 x double> %96, <2 x double> %145)
-  %149 = insertelement <2 x double> poison, double %.0213236, i64 0
-  %150 = shufflevector <2 x double> %149, <2 x double> poison, <2 x i32> zeroinitializer
-  %151 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %150, <2 x double> %95, <2 x double> %148)
-  store <2 x double> %151, ptr %.0220230, align 8
-  %152 = getelementptr inbounds i8, ptr %.0220230, i64 16
-  %153 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %144, <2 x double> %101, <2 x double> %106)
-  %154 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %147, <2 x double> %100, <2 x double> %153)
-  %155 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %150, <2 x double> %99, <2 x double> %154)
-  store <2 x double> %155, ptr %152, align 8
-  %156 = getelementptr inbounds i8, ptr %.0220230, i64 32
-  %157 = icmp ult ptr %156, %57
-  br i1 %157, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  %129 = getelementptr inbounds i8, ptr %121, i64 24
+  %130 = getelementptr inbounds i8, ptr %121, i64 56
+  %131 = getelementptr inbounds i8, ptr %122, i64 24
+  %132 = getelementptr inbounds i8, ptr %122, i64 56
+  %133 = getelementptr inbounds i8, ptr %121, i64 8
+  %134 = getelementptr inbounds i8, ptr %121, i64 16
+  %135 = getelementptr inbounds i8, ptr %121, i64 32
+  %136 = getelementptr inbounds i8, ptr %121, i64 40
+  %137 = getelementptr inbounds i8, ptr %121, i64 48
+  %138 = getelementptr inbounds i8, ptr %122, i64 8
+  %139 = getelementptr inbounds i8, ptr %122, i64 16
+  %140 = getelementptr inbounds i8, ptr %122, i64 32
+  %141 = getelementptr inbounds i8, ptr %122, i64 40
+  %142 = load double, ptr %133, align 8
+  %143 = load <2 x double>, ptr %121, align 8
+  %144 = load double, ptr %136, align 8
+  %145 = load <2 x double>, ptr %135, align 8
+  %146 = load double, ptr %138, align 8
+  %147 = load <2 x double>, ptr %122, align 8
+  %148 = load double, ptr %141, align 8
+  %149 = load <2 x double>, ptr %140, align 8
+  %150 = getelementptr inbounds i8, ptr %122, i64 48
+  %151 = load double, ptr %129, align 8
+  %152 = load <2 x double>, ptr %134, align 8
+  %153 = load double, ptr %130, align 8
+  %154 = load <2 x double>, ptr %137, align 8
+  %155 = load double, ptr %131, align 8
+  %156 = load <2 x double>, ptr %139, align 8
+  %157 = load double, ptr %132, align 8
+  %158 = load <2 x double>, ptr %150, align 8
+  %159 = insertelement <2 x double> poison, double %.0216233, i64 0
+  %160 = shufflevector <2 x double> %159, <2 x double> poison, <2 x i32> zeroinitializer
+  %161 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %160, <2 x double> %97, <2 x double> %105)
+  %162 = insertelement <2 x double> poison, double %.0214235, i64 0
+  %163 = shufflevector <2 x double> %162, <2 x double> poison, <2 x i32> zeroinitializer
+  %164 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %163, <2 x double> %96, <2 x double> %161)
+  %165 = insertelement <2 x double> poison, double %.0213236, i64 0
+  %166 = shufflevector <2 x double> %165, <2 x double> poison, <2 x i32> zeroinitializer
+  %167 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %166, <2 x double> %95, <2 x double> %164)
+  store <2 x double> %167, ptr %.0220230, align 8
+  %168 = getelementptr inbounds i8, ptr %.0220230, i64 16
+  %169 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %160, <2 x double> %101, <2 x double> %106)
+  %170 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %163, <2 x double> %100, <2 x double> %169)
+  %171 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %166, <2 x double> %99, <2 x double> %170)
+  store <2 x double> %171, ptr %168, align 8
+  %172 = getelementptr inbounds i8, ptr %.0220230, i64 32
+  %173 = icmp ult ptr %172, %57
+  %174 = insertelement <2 x double> %149, double %148, i64 1
+  %175 = insertelement <2 x double> %147, double %146, i64 1
+  %176 = insertelement <2 x double> %143, double %142, i64 1
+  %177 = insertelement <2 x double> %145, double %144, i64 1
+  %178 = insertelement <2 x double> %158, double %157, i64 1
+  %179 = insertelement <2 x double> %156, double %155, i64 1
+  %180 = insertelement <2 x double> %152, double %151, i64 1
+  %181 = insertelement <2 x double> %154, double %153, i64 1
+  br i1 %173, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %51
-  %.0220.lcssa = phi ptr [ %54, %51 ], [ %156, %.lr.ph ]
+  %.0220.lcssa = phi ptr [ %54, %51 ], [ %172, %.lr.ph ]
   %.0216.lcssa = phi double [ %79, %51 ], [ %128, %.lr.ph ]
   %.0215.lcssa = phi double [ %78, %51 ], [ %127, %.lr.ph ]
   %.0214.lcssa = phi double [ %76, %51 ], [ %125, %.lr.ph ]
   %.0213.lcssa = phi double [ %74, %51 ], [ %123, %.lr.ph ]
-  %158 = phi <2 x double> [ %88, %51 ], [ %137, %.lr.ph ]
-  %159 = phi <2 x double> [ %87, %51 ], [ %136, %.lr.ph ]
-  %160 = phi <2 x double> [ %85, %51 ], [ %134, %.lr.ph ]
-  %161 = phi <2 x double> [ %86, %51 ], [ %135, %.lr.ph ]
-  %162 = phi <2 x double> [ %93, %51 ], [ %142, %.lr.ph ]
-  %163 = phi <2 x double> [ %92, %51 ], [ %141, %.lr.ph ]
-  %164 = phi <2 x double> [ %90, %51 ], [ %139, %.lr.ph ]
-  %165 = phi <2 x double> [ %91, %51 ], [ %140, %.lr.ph ]
-  %166 = insertelement <2 x double> poison, double %.0215.lcssa, i64 0
-  %167 = shufflevector <2 x double> %166, <2 x double> poison, <2 x i32> zeroinitializer
-  %168 = fmul <2 x double> %167, %161
-  %169 = fmul <2 x double> %167, %165
-  %170 = insertelement <2 x double> poison, double %.0216.lcssa, i64 0
-  %171 = shufflevector <2 x double> %170, <2 x double> poison, <2 x i32> zeroinitializer
-  %172 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %171, <2 x double> %160, <2 x double> %168)
-  %173 = insertelement <2 x double> poison, double %.0214.lcssa, i64 0
-  %174 = shufflevector <2 x double> %173, <2 x double> poison, <2 x i32> zeroinitializer
-  %175 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %174, <2 x double> %159, <2 x double> %172)
-  %176 = insertelement <2 x double> poison, double %.0213.lcssa, i64 0
-  %177 = shufflevector <2 x double> %176, <2 x double> poison, <2 x i32> zeroinitializer
-  %178 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %177, <2 x double> %158, <2 x double> %175)
-  store <2 x double> %178, ptr %.0220.lcssa, align 8
-  %179 = getelementptr inbounds i8, ptr %.0220.lcssa, i64 16
-  %180 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %171, <2 x double> %164, <2 x double> %169)
-  %181 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %174, <2 x double> %163, <2 x double> %180)
-  %182 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %177, <2 x double> %162, <2 x double> %181)
-  store <2 x double> %182, ptr %179, align 8
-  br label %183
+  %182 = phi <2 x double> [ %88, %51 ], [ %149, %.lr.ph ]
+  %183 = phi <2 x double> [ %87, %51 ], [ %147, %.lr.ph ]
+  %184 = phi <2 x double> [ %85, %51 ], [ %143, %.lr.ph ]
+  %185 = phi <2 x double> [ %86, %51 ], [ %145, %.lr.ph ]
+  %186 = phi <2 x double> [ %93, %51 ], [ %158, %.lr.ph ]
+  %187 = phi <2 x double> [ %92, %51 ], [ %156, %.lr.ph ]
+  %188 = phi <2 x double> [ %90, %51 ], [ %152, %.lr.ph ]
+  %189 = phi <2 x double> [ %91, %51 ], [ %154, %.lr.ph ]
+  %190 = insertelement <2 x double> poison, double %.0215.lcssa, i64 0
+  %191 = shufflevector <2 x double> %190, <2 x double> poison, <2 x i32> zeroinitializer
+  %192 = fmul <2 x double> %191, %185
+  %193 = fmul <2 x double> %191, %189
+  %194 = insertelement <2 x double> poison, double %.0216.lcssa, i64 0
+  %195 = shufflevector <2 x double> %194, <2 x double> poison, <2 x i32> zeroinitializer
+  %196 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %195, <2 x double> %184, <2 x double> %192)
+  %197 = insertelement <2 x double> poison, double %.0214.lcssa, i64 0
+  %198 = shufflevector <2 x double> %197, <2 x double> poison, <2 x i32> zeroinitializer
+  %199 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %198, <2 x double> %183, <2 x double> %196)
+  %200 = insertelement <2 x double> poison, double %.0213.lcssa, i64 0
+  %201 = shufflevector <2 x double> %200, <2 x double> poison, <2 x i32> zeroinitializer
+  %202 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %201, <2 x double> %182, <2 x double> %199)
+  store <2 x double> %202, ptr %.0220.lcssa, align 8
+  %203 = getelementptr inbounds i8, ptr %.0220.lcssa, i64 16
+  %204 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %195, <2 x double> %188, <2 x double> %193)
+  %205 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %198, <2 x double> %187, <2 x double> %204)
+  %206 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %201, <2 x double> %186, <2 x double> %205)
+  store <2 x double> %206, ptr %203, align 8
+  br label %207
 
-183:                                              ; preds = %49, %._crit_edge
+207:                                              ; preds = %49, %._crit_edge
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %31, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge280, label %32, !llvm.loop !14
 
-._crit_edge280:                                   ; preds = %183, %1
+._crit_edge280:                                   ; preds = %207, %1
   ret i32 0
 }
 

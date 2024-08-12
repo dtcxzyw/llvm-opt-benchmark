@@ -1548,14 +1548,15 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEEvT_S7_.exit: ;
   %205 = call i32 @llvm.abs.i32(i32 %.sroa.0.0.extract.trunc.i, i1 true)
   %206 = call i32 @llvm.abs.i32(i32 %204, i1 true)
   %.sroa.speculated.i = call noundef i32 @llvm.umax.i32(i32 %205, i32 %206)
+  %207 = getelementptr inbounds i8, ptr %.sroa.0297.0388, i64 128
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0297.0388, i64 112
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0297.0388, i64 120
-  %207 = load <2 x i64>, ptr %.sroa.5.0..sroa_idx, align 4
-  %208 = extractelement <2 x i64> %207, i64 1
-  %.sroa.2291.0.extract.shift = lshr i64 %208, 32
+  %.sroa.0.0.copyload.i157 = load i64, ptr %207, align 4
+  %208 = load <2 x i64>, ptr %.sroa.5.0..sroa_idx, align 4
+  %.sroa.2291.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i157, 32
   %.sroa.2291.0.extract.trunc = trunc nuw i64 %.sroa.2291.0.extract.shift to i32
-  %209 = sub i64 %208, %.sroa.0.0.copyload.i156
+  %209 = sub i64 %.sroa.0.0.copyload.i157, %.sroa.0.0.copyload.i156
   %210 = sub nsw i32 %.sroa.2291.0.extract.trunc, %.sroa.2293.0.extract.trunc
   %.sroa.0.0.extract.trunc.i163 = trunc i64 %209 to i32
   %211 = call i32 @llvm.abs.i32(i32 %.sroa.0.0.extract.trunc.i163, i1 true)
@@ -1590,7 +1591,7 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEEvT_S7_.exit: ;
 229:                                              ; preds = %227, %225
   %.sroa.0284.0 = phi i64 [ %.sroa.0.0.copyload.i156, %225 ], [ %.sroa.0.0.copyload.i, %227 ]
   %.sroa.4.0 = phi i64 [ %226, %225 ], [ %.sroa.4.0.copyload, %227 ]
-  %230 = phi <2 x i64> [ %207, %225 ], [ %228, %227 ]
+  %230 = phi <2 x i64> [ %208, %225 ], [ %228, %227 ]
   store i64 %.sroa.0284.0, ptr %202, align 8
   store i64 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 8
   store <2 x i64> %230, ptr %.sroa.5.0..sroa_idx, align 8

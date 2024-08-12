@@ -497,7 +497,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h1bf548a8
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load <2 x i64>, ptr %4, align 8
-  %9 = extractelement <2 x i64> %8, i64 0
+  %9 = load i64, ptr %4, align 8, !noundef !4
   %10 = add i64 %9, 1
   store i64 %10, ptr %4, align 8
   store <2 x i64> %8, ptr %7, align 8
@@ -13255,7 +13255,7 @@ default.unreachable:                              ; preds = %4
   %.0.i.i168 = phi ptr [ %104, %.noexc89 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %100 ]
   %.sroa.446.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 32
   %114 = load <2 x i64>, ptr %.0.i.i168, align 8, !noalias !2759
-  %115 = extractelement <2 x i64> %114, i64 0
+  %115 = load i64, ptr %.0.i.i168, align 8, !noalias !2759, !noundef !4
   %116 = add i64 %115, 1
   store i64 %116, ptr %.0.i.i168, align 8, !noalias !2759
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) @anon.7736b00188ea486646a9328fd927c866.165.llvm.18206624868217611764, i64 32, i1 false)
@@ -17373,7 +17373,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18206
   %.0.i.i11 = phi ptr [ %6, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.18206624868217611764.exit ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %1 ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
   %9 = load <2 x i64>, ptr %.0.i.i11, align 8, !noalias !3418
-  %10 = extractelement <2 x i64> %9, i64 0
+  %10 = load i64, ptr %.0.i.i11, align 8, !noalias !3418, !noundef !4
   %11 = add i64 %10, 1
   store i64 %11, ptr %.0.i.i11, align 8, !noalias !3418
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) @anon.7736b00188ea486646a9328fd927c866.165.llvm.18206624868217611764, i64 32, i1 false)

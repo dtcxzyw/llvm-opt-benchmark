@@ -1423,115 +1423,116 @@ define linkonce_odr void @_ZSt11make_uniqueIN3gmx22RestraintForceProviderEJRSt10
   %4 = alloca %"class.std::shared_ptr", align 16
   %5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22
   %6 = getelementptr inbounds i8, ptr %4, i64 8
-  %7 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %7, ptr %4, align 16
-  %8 = extractelement <2 x ptr> %7, i64 1
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %9, ptr %4, align 16
   %.not.i.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEEC2ERKS2_.exit, label %9
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEEC2ERKS2_.exit, label %10
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
-  %11 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i = icmp eq i8 %11, 0
-  br i1 %.not.i.i.i.i, label %15, label %12
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i = icmp eq i8 %12, 0
+  br i1 %.not.i.i.i.i, label %16, label %13
 
-12:                                               ; preds = %9
-  %13 = load i32, ptr %10, align 4
-  %14 = add nsw i32 %13, 1
-  store i32 %14, ptr %10, align 4
+13:                                               ; preds = %10
+  %14 = load i32, ptr %11, align 4
+  %15 = add nsw i32 %14, 1
+  store i32 %15, ptr %11, align 4
   br label %_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEEC2ERKS2_.exit
 
-15:                                               ; preds = %9
-  %16 = atomicrmw volatile add ptr %10, i32 1 acq_rel, align 4
+16:                                               ; preds = %10
+  %17 = atomicrmw volatile add ptr %11, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEEC2ERKS2_.exit
 
-_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEEC2ERKS2_.exit: ; preds = %3, %12, %15
+_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEEC2ERKS2_.exit: ; preds = %3, %13, %16
   invoke void @_ZN3gmx22RestraintForceProviderC1ESt10shared_ptrINS_19IRestraintPotentialEERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %17 unwind label %53
+          to label %18 unwind label %54
 
-17:                                               ; preds = %_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEEC2ERKS2_.exit
+18:                                               ; preds = %_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEEC2ERKS2_.exit
   store ptr %5, ptr %0, align 8
-  %18 = load ptr, ptr %6, align 8
-  %.not.i.i.i4 = icmp eq ptr %18, null
-  br i1 %.not.i.i.i4, label %_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEED2Ev.exit, label %19
+  %19 = load ptr, ptr %6, align 8
+  %.not.i.i.i4 = icmp eq ptr %19, null
+  br i1 %.not.i.i.i4, label %_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEED2Ev.exit, label %20
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
-  %21 = load atomic i64, ptr %20 acquire, align 8
-  %22 = icmp eq i64 %21, 4294967297
-  %23 = trunc i64 %21 to i32
-  br i1 %22, label %24, label %29
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = load atomic i64, ptr %21 acquire, align 8
+  %23 = icmp eq i64 %22, 4294967297
+  %24 = trunc i64 %22 to i32
+  br i1 %23, label %25, label %30
 
-24:                                               ; preds = %19
-  store i32 0, ptr %20, align 8
-  %25 = getelementptr inbounds i8, ptr %18, i64 12
-  store i32 0, ptr %25, align 4
-  %26 = load ptr, ptr %18, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
-  %28 = load ptr, ptr %27, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(16) %18) #19
+25:                                               ; preds = %20
+  store i32 0, ptr %21, align 8
+  %26 = getelementptr inbounds i8, ptr %19, i64 12
+  store i32 0, ptr %26, align 4
+  %27 = load ptr, ptr %19, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %29 = load ptr, ptr %28, align 8
+  call void %29(ptr noundef nonnull align 8 dereferenceable(16) %19) #19
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
 
-29:                                               ; preds = %19
-  %30 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i5 = icmp eq i8 %30, 0
-  br i1 %.not.i.i.i.i5, label %33, label %31
+30:                                               ; preds = %20
+  %31 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i5 = icmp eq i8 %31, 0
+  br i1 %.not.i.i.i.i5, label %34, label %32
 
-31:                                               ; preds = %29
-  %32 = add nsw i32 %23, -1
-  store i32 %32, ptr %20, align 4
-  br label %35
+32:                                               ; preds = %30
+  %33 = add nsw i32 %24, -1
+  store i32 %33, ptr %21, align 4
+  br label %36
 
-33:                                               ; preds = %29
-  %34 = atomicrmw volatile add ptr %20, i32 -1 acq_rel, align 4
-  br label %35
+34:                                               ; preds = %30
+  %35 = atomicrmw volatile add ptr %21, i32 -1 acq_rel, align 4
+  br label %36
 
-35:                                               ; preds = %33, %31
-  %.0.i.i.i.i = phi i32 [ %23, %31 ], [ %34, %33 ]
-  %36 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %36, label %37, label %_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEED2Ev.exit
+36:                                               ; preds = %34, %32
+  %.0.i.i.i.i = phi i32 [ %24, %32 ], [ %35, %34 ]
+  %37 = icmp eq i32 %.0.i.i.i.i, 1
+  br i1 %37, label %38, label %_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEED2Ev.exit
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %18, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
-  %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(16) %18) #19
-  %41 = getelementptr inbounds i8, ptr %18, i64 12
-  %42 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %42, 0
-  br i1 %.not.i.i.i.i.i.i, label %46, label %43
+38:                                               ; preds = %36
+  %39 = load ptr, ptr %19, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %41 = load ptr, ptr %40, align 8
+  call void %41(ptr noundef nonnull align 8 dereferenceable(16) %19) #19
+  %42 = getelementptr inbounds i8, ptr %19, i64 12
+  %43 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %43, 0
+  br i1 %.not.i.i.i.i.i.i, label %47, label %44
 
-43:                                               ; preds = %37
-  %44 = load i32, ptr %41, align 4
-  %45 = add nsw i32 %44, -1
-  store i32 %45, ptr %41, align 4
-  br label %48
+44:                                               ; preds = %38
+  %45 = load i32, ptr %42, align 4
+  %46 = add nsw i32 %45, -1
+  store i32 %46, ptr %42, align 4
+  br label %49
 
-46:                                               ; preds = %37
-  %47 = atomicrmw volatile add ptr %41, i32 -1 acq_rel, align 4
-  br label %48
+47:                                               ; preds = %38
+  %48 = atomicrmw volatile add ptr %42, i32 -1 acq_rel, align 4
+  br label %49
 
-48:                                               ; preds = %46, %43
-  %.0.i.i.i.i.i.i = phi i32 [ %44, %43 ], [ %47, %46 ]
-  %49 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %49, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEED2Ev.exit
+49:                                               ; preds = %47, %44
+  %.0.i.i.i.i.i.i = phi i32 [ %45, %44 ], [ %48, %47 ]
+  %50 = icmp eq i32 %.0.i.i.i.i.i.i, 1
+  br i1 %50, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEED2Ev.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %48, %24
-  %50 = load ptr, ptr %18, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
-  %52 = load ptr, ptr %51, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(16) %18) #19
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %49, %25
+  %51 = load ptr, ptr %19, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 24
+  %53 = load ptr, ptr %52, align 8
+  call void %53(ptr noundef nonnull align 8 dereferenceable(16) %19) #19
   br label %_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEED2Ev.exit
 
-_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEED2Ev.exit: ; preds = %17, %35, %48, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
+_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEED2Ev.exit: ; preds = %18, %36, %49, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   ret void
 
-53:                                               ; preds = %_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEEC2ERKS2_.exit
-  %54 = landingpad { ptr, i32 }
+54:                                               ; preds = %_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEEC2ERKS2_.exit
+  %55 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN3gmx19IRestraintPotentialEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
   call void @_ZdlPv(ptr noundef nonnull %5) #20
-  resume { ptr, i32 } %54
+  resume { ptr, i32 } %55
 }
 
 ; Function Attrs: mustprogress uwtable

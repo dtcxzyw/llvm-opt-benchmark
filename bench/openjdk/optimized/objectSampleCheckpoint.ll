@@ -885,7 +885,7 @@ define hidden void @_ZN22ObjectSampleCheckpoint11on_rotationEPK13ObjectSampler(p
 
 _ZL22reset_blob_write_statePK13ObjectSamplerP10JavaThread.exit: ; preds = %20, %1
   %22 = tail call noundef zeroext i1 @_ZN13ObjectSampler20has_unresolved_entryEv() #10
-  br i1 %22, label %23, label %63
+  br i1 %22, label %23, label %62
 
 23:                                               ; preds = %_ZL22reset_blob_write_statePK13ObjectSamplerP10JavaThread.exit
   %24 = load i8, ptr @UseSystemMemoryBarrier, align 1
@@ -941,67 +941,65 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %_ZN20Thread
   %43 = getelementptr inbounds i8, ptr %42, i64 24
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %42, i64 32
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %42, i64 40
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %42, i64 8
-  %50 = load i64, ptr %49, align 8
+  %46 = load <2 x ptr>, ptr %45, align 8
+  %47 = load ptr, ptr %45, align 8
+  %48 = getelementptr inbounds i8, ptr %42, i64 8
+  %49 = load i64, ptr %48, align 8
   tail call void @_ZN17JfrKlassUnloading4sortEb(i1 noundef zeroext false) #10
   call void @_ZN23StackTraceBlobInstallerC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %2)
-  %51 = call noundef ptr @_ZN13ObjectSampler7samplerEv() #10
-  %52 = call noundef ptr @_ZNK13ObjectSampler4lastEv(ptr noundef nonnull align 8 dereferenceable(40) %51) #10
-  %53 = call noundef ptr @_ZNK13ObjectSampler13last_resolvedEv(ptr noundef nonnull align 8 dereferenceable(40) %51) #10
-  %.not5.i.i.i = icmp eq ptr %52, %53
+  %50 = call noundef ptr @_ZN13ObjectSampler7samplerEv() #10
+  %51 = call noundef ptr @_ZNK13ObjectSampler4lastEv(ptr noundef nonnull align 8 dereferenceable(40) %50) #10
+  %52 = call noundef ptr @_ZNK13ObjectSampler13last_resolvedEv(ptr noundef nonnull align 8 dereferenceable(40) %50) #10
+  %.not5.i.i.i = icmp eq ptr %51, %52
   br i1 %.not5.i.i.i, label %_ZL15iterate_samplesI23StackTraceBlobInstallerEvRT_b.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i ], [ %52, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ]
+  %.06.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i ], [ %51, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ]
   call void @_ZN23StackTraceBlobInstaller9sample_doEP12ObjectSample(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %.06.i.i.i)
-  %54 = load ptr, ptr %.06.i.i.i, align 8
-  %.not.i.i.i4 = icmp eq ptr %54, %53
+  %53 = load ptr, ptr %.06.i.i.i, align 8
+  %.not.i.i.i4 = icmp eq ptr %53, %52
   br i1 %.not.i.i.i4, label %_ZL15iterate_samplesI23StackTraceBlobInstallerEvRT_b.exit.i, label %.lr.ph.i.i.i, !llvm.loop !25
 
 _ZL15iterate_samplesI23StackTraceBlobInstallerEvRT_b.exit.i: ; preds = %.lr.ph.i.i.i, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   call void @_ZN13HashTableHostI14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEm17JfrHashtableEntry9BlobCacheLm1009EE13clear_entriesEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
-  %55 = load ptr, ptr %2, align 8
-  call void @_Z8FreeHeapPv(ptr noundef %55) #10
-  %56 = load ptr, ptr %44, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %56, null
-  br i1 %.not.i.i.i.i.i, label %58, label %57
+  %54 = load ptr, ptr %2, align 8
+  call void @_Z8FreeHeapPv(ptr noundef %54) #10
+  %55 = load ptr, ptr %44, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %55, null
+  br i1 %.not.i.i.i.i.i, label %57, label %56
 
-57:                                               ; preds = %_ZL15iterate_samplesI23StackTraceBlobInstallerEvRT_b.exit.i
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %42, i64 noundef %50) #10
+56:                                               ; preds = %_ZL15iterate_samplesI23StackTraceBlobInstallerEvRT_b.exit.i
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %42, i64 noundef %49) #10
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %44) #10
-  br label %58
+  br label %57
 
-58:                                               ; preds = %57, %_ZL15iterate_samplesI23StackTraceBlobInstallerEvRT_b.exit.i
-  %59 = load ptr, ptr %45, align 8
-  %.not8.i.i.i.i.i = icmp eq ptr %59, %46
-  br i1 %.not8.i.i.i.i.i, label %_ZL20install_stack_tracesPK13ObjectSampler.exit, label %60
+57:                                               ; preds = %56, %_ZL15iterate_samplesI23StackTraceBlobInstallerEvRT_b.exit.i
+  %58 = load ptr, ptr %45, align 8
+  %.not8.i.i.i.i.i = icmp eq ptr %58, %47
+  br i1 %.not8.i.i.i.i.i, label %_ZL20install_stack_tracesPK13ObjectSampler.exit, label %59
 
-60:                                               ; preds = %58
+59:                                               ; preds = %57
   store ptr %44, ptr %43, align 8
-  store ptr %46, ptr %45, align 8
-  store ptr %48, ptr %47, align 8
+  store <2 x ptr> %46, ptr %45, align 8
   br label %_ZL20install_stack_tracesPK13ObjectSampler.exit
 
-_ZL20install_stack_tracesPK13ObjectSampler.exit:  ; preds = %58, %60
+_ZL20install_stack_tracesPK13ObjectSampler.exit:  ; preds = %57, %59
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %61
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %60
 
-61:                                               ; preds = %_ZL20install_stack_tracesPK13ObjectSampler.exit
+60:                                               ; preds = %_ZL20install_stack_tracesPK13ObjectSampler.exit
   call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %37) #10
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZL20install_stack_tracesPK13ObjectSampler.exit, %61
-  %62 = getelementptr inbounds i8, ptr %4, i64 928
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %62) #10
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZL20install_stack_tracesPK13ObjectSampler.exit, %60
+  %61 = getelementptr inbounds i8, ptr %4, i64 928
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %61) #10
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   store volatile i32 4, ptr %26, align 4
   call void @_ZN23JfrStackTraceRepository19clear_leak_profilerEv() #10
-  br label %63
+  br label %62
 
-63:                                               ; preds = %_ZL22reset_blob_write_statePK13ObjectSamplerP10JavaThread.exit, %_ZN11MutexLockerD2Ev.exit
+62:                                               ; preds = %_ZL22reset_blob_write_statePK13ObjectSamplerP10JavaThread.exit, %_ZN11MutexLockerD2Ev.exit
   ret void
 }
 

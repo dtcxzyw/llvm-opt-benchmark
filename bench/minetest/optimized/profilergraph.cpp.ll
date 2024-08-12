@@ -2509,18 +2509,17 @@ terminate.lpad.i.i.i.i.i.i.i133:                  ; preds = %if.else.i128
 
 if.end17:                                         ; preds = %if.else.i128, %if.then.i125, %_ZNSt5dequeIN13ProfilerGraph5PieceESaIS1_EE9pop_frontEv.exit
   %34 = load ptr, ptr %_M_start.i, align 8, !tbaa !28, !noalias !133
-  %35 = load ptr, ptr %_M_first3.i.i, align 8, !tbaa !29, !noalias !133
-  %36 = load ptr, ptr %_M_last4.i.i, align 8, !tbaa !30, !noalias !133
-  %37 = load ptr, ptr %_M_node5.i.i, align 8, !tbaa !27, !noalias !133
+  %35 = load ptr, ptr %_M_node5.i.i, align 8, !tbaa !27, !noalias !133
   call void @llvm.experimental.noalias.scope.decl(metadata !136)
   %_M_first.i.i141 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %35, ptr %_M_first.i.i141, align 8, !tbaa !29, !alias.scope !136
   %_M_last.i.i143 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %36, ptr %_M_last.i.i143, align 8, !tbaa !30, !alias.scope !136
+  %36 = load <2 x ptr>, ptr %_M_first3.i.i, align 8, !tbaa !20, !noalias !133
+  %37 = load ptr, ptr %_M_first3.i.i, align 8, !tbaa !29, !noalias !133
+  store <2 x ptr> %36, ptr %_M_first.i.i141, align 8, !tbaa !20, !alias.scope !136
   %_M_node.i.i145 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store ptr %37, ptr %_M_node.i.i145, align 8, !tbaa !27, !alias.scope !136
+  store ptr %35, ptr %_M_node.i.i145, align 8, !tbaa !27, !alias.scope !136
   %sub.ptr.lhs.cast.i.i147 = ptrtoint ptr %34 to i64
-  %sub.ptr.rhs.cast.i.i148 = ptrtoint ptr %35 to i64
+  %sub.ptr.rhs.cast.i.i148 = ptrtoint ptr %37 to i64
   %sub.ptr.sub.i.i149 = sub i64 %sub.ptr.lhs.cast.i.i147, %sub.ptr.rhs.cast.i.i148
   %sub.ptr.div.i.i150 = sdiv exact i64 %sub.ptr.sub.i.i149, 48
   %add.i.i151 = add nsw i64 %sub.ptr.div.i.i150, %add12.i
@@ -2547,7 +2546,7 @@ cond.false.i.i:                                   ; preds = %if.end17
 
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
   %cond.i.i = phi i64 [ %div25.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
-  %add.ptr11.i.i = getelementptr inbounds ptr, ptr %37, i64 %cond.i.i
+  %add.ptr11.i.i = getelementptr inbounds ptr, ptr %35, i64 %cond.i.i
   store ptr %add.ptr11.i.i, ptr %_M_node.i.i145, align 8, !tbaa !27, !alias.scope !136
   %38 = load ptr, ptr %add.ptr11.i.i, align 8, !tbaa !20, !noalias !136
   store ptr %38, ptr %_M_first.i.i141, align 8, !tbaa !29, !alias.scope !136

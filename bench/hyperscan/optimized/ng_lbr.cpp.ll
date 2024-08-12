@@ -351,24 +351,26 @@ if.end.i45.i.i.i:                                 ; preds = %invoke.cont5.i.i.i
 
 invoke.cont13.i.i.i:                              ; preds = %if.end.i45.i.i.i, %invoke.cont5.i.i.i
   %patchCount.i.i.i = getelementptr inbounds i8, ptr %rsi.i.i.i, i64 12
-  %24 = load i32, ptr %patchCount.i.i.i, align 4, !noalias !20
   %patchCount15.i.i.i = getelementptr inbounds i8, ptr %17, i64 108
-  store i32 %24, ptr %patchCount15.i.i.i, align 4, !noalias !12
   %patchSize.i.i.i = getelementptr inbounds i8, ptr %rsi.i.i.i, i64 16
-  %patchSize16.i.i.i = getelementptr inbounds i8, ptr %17, i64 112
-  %25 = load <2 x i32>, ptr %patchSize.i.i.i, align 8, !noalias !20
-  store <2 x i32> %25, ptr %patchSize16.i.i.i, align 4, !noalias !12
+  %24 = load i32, ptr %patchSize.i.i.i, align 8, !noalias !20
+  %25 = load <2 x i32>, ptr %patchCount.i.i.i, align 4, !noalias !20
+  store <2 x i32> %25, ptr %patchCount15.i.i.i, align 4, !noalias !12
+  %encodingSize.i.i.i = getelementptr inbounds i8, ptr %rsi.i.i.i, i64 20
+  %26 = load i32, ptr %encodingSize.i.i.i, align 4, !noalias !20
+  %encodingSize17.i.i.i = getelementptr inbounds i8, ptr %17, i64 116
+  store i32 %26, ptr %encodingSize17.i.i.i, align 4, !noalias !12
   %patchesOffset.i.i.i = getelementptr inbounds i8, ptr %rsi.i.i.i, i64 24
-  %26 = load i32, ptr %patchesOffset.i.i.i, align 8, !noalias !20
+  %27 = load i32, ptr %patchesOffset.i.i.i, align 8, !noalias !20
   %patchesOffset18.i.i.i = getelementptr inbounds i8, ptr %17, i64 124
-  store i32 %26, ptr %patchesOffset18.i.i.i, align 4, !noalias !12
-  %27 = load i32, ptr %bounds, align 4, !noalias !20
-  %cmp.i.i46.i.i.i = icmp ult i32 %27, 2147483647
+  store i32 %27, ptr %patchesOffset18.i.i.i, align 4, !noalias !12
+  %28 = load i32, ptr %bounds, align 4, !noalias !20
+  %cmp.i.i46.i.i.i = icmp ult i32 %28, 2147483647
   br i1 %cmp.i.i46.i.i.i, label %invoke.cont23.i.i.i, label %if.then.i56.invoke.i.i.i
 
 invoke.cont23.i.i.i:                              ; preds = %invoke.cont13.i.i.i
   %nPositions.i.i.i = getelementptr inbounds i8, ptr %17, i64 20
-  store i32 %27, ptr %nPositions.i.i.i, align 4, !noalias !12
+  store i32 %28, ptr %nPositions.i.i.i, align 4, !noalias !12
   %add.i.i.i = add i32 %20, %19
   %streamStateSize.i.i.i = getelementptr inbounds i8, ptr %17, i64 28
   store i32 %add.i.i.i, ptr %streamStateSize.i.i.i, align 4, !noalias !12
@@ -381,22 +383,22 @@ invoke.cont23.i.i.i:                              ; preds = %invoke.cont13.i.i.i
 invoke.cont25.i.i.i:                              ; preds = %invoke.cont23.i.i.i
   %minWidth.i.i.i = getelementptr inbounds i8, ptr %17, i64 36
   store i32 %agg.tmp.sroa.0.0.copyload.i.i.i, ptr %minWidth.i.i.i, align 4, !noalias !12
-  %28 = load i32, ptr %max, align 4, !noalias !20
-  %cmp.i.i.i.i = icmp ult i32 %28, 2147483647
-  %spec.select.i.i.i = select i1 %cmp.i.i.i.i, i32 %28, i32 0
+  %29 = load i32, ptr %max, align 4, !noalias !20
+  %cmp.i.i.i.i = icmp ult i32 %29, 2147483647
+  %spec.select.i.i.i = select i1 %cmp.i.i.i.i, i32 %29, i32 0
   %maxWidth.i.i.i = getelementptr inbounds i8, ptr %17, i64 32
   store i32 %spec.select.i.i.i, ptr %maxWidth.i.i.i, align 32, !noalias !12
   br i1 %cmp.i.i.i, label %if.then.i18.i.i, label %if.end.i.i.i
 
 if.then.i18.i.i:                                  ; preds = %invoke.cont25.i.i.i
   %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 128
-  %29 = ptrtoint ptr %add.ptr2.i.i.i.i to i64
-  %add.i.i19.i.i = add i64 %29, 7
+  %30 = ptrtoint ptr %add.ptr2.i.i.i.i to i64
+  %add.i.i19.i.i = add i64 %30, 7
   %and.i.i.i.i = and i64 %add.i.i19.i.i, -8
-  %30 = inttoptr i64 %and.i.i.i.i to ptr
+  %31 = inttoptr i64 %and.i.i.i.i to ptr
   %length.i20.i.i = getelementptr inbounds i8, ptr %17, i64 4
-  %31 = load i32, ptr %max, align 4, !noalias !20
-  %cmp.i.i55.i.i.i = icmp ult i32 %31, 2147483647
+  %32 = load i32, ptr %max, align 4, !noalias !20
+  %cmp.i.i55.i.i.i = icmp ult i32 %32, 2147483647
   br i1 %cmp.i.i55.i.i.i, label %invoke.cont34.i.i.i, label %if.then.i56.invoke.i.i.i
 
 if.then.i56.invoke.i.i.i:                         ; preds = %if.then.i18.i.i, %invoke.cont23.i.i.i, %invoke.cont13.i.i.i, %if.end.i37.i.i.i, %if.end.i.i.i.i
@@ -408,10 +410,9 @@ if.then.i56.cont.i.i.i:                           ; preds = %if.then.i56.invoke.
   unreachable
 
 invoke.cont34.i.i.i:                              ; preds = %if.then.i18.i.i
-  %32 = load i32, ptr %length.i20.i.i, align 4, !noalias !12
-  %conv.i21.i.i = zext i32 %32 to i64
-  %33 = extractelement <2 x i32> %25, i64 0
-  %sub.i.i.i = sub i32 %31, %33
+  %33 = load i32, ptr %length.i20.i.i, align 4, !noalias !12
+  %conv.i21.i.i = zext i32 %33 to i64
+  %sub.i.i.i = sub i32 %32, %24
   %conv37.i.i.i = zext i32 %sub.i.i.i to i64
   %mul.i22.i.i = shl nuw nsw i64 %conv37.i.i.i, 3
   %sub38.i.i.i = sub nsw i64 %conv.i21.i.i, %mul.i22.i.i
@@ -432,7 +433,7 @@ lpad.i.i64.i.i.i:                                 ; preds = %if.then.i.i62.i.i.i
 invoke.cont39.i.i.i:                              ; preds = %invoke.cont34.i.i.i
   %conv.i.i66.i.i.i = trunc nuw i64 %sub38.i.i.i to i32
   store i32 %conv.i.i66.i.i.i, ptr %length.i20.i.i, align 4, !noalias !12
-  %add43.i.i.i = add i32 %33, 1
+  %add43.i.i.i = add i32 %24, 1
   %cmp.not.i.i70.i.i.i = icmp ult i32 %add43.i.i.i, 536870905
   br i1 %cmp.not.i.i70.i.i.i, label %invoke.cont47.i.i.i, label %if.then.i.i71.i.i.i
 
@@ -471,7 +472,7 @@ if.end.i82.i.i.i:                                 ; preds = %invoke.cont47.i.i.i
   %sub.ptr.lhs.cast.i.i.i83.i.i.i = ptrtoint ptr %38 to i64
   %sub.ptr.rhs.cast.i.i.i84.i.i.i = ptrtoint ptr %37 to i64
   %sub.ptr.sub.i.i.i85.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i83.i.i.i, %sub.ptr.rhs.cast.i.i.i84.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr align 8 %37, i64 %sub.ptr.sub.i.i.i85.i.i.i, i1 false), !noalias !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 8 %37, i64 %sub.ptr.sub.i.i.i85.i.i.i, i1 false), !noalias !12
   br label %if.end.i.i.i
 
 lpad.i13.i.i:                                     ; preds = %invoke.cont.i.i74.invoke.i.i.i, %if.then.i56.invoke.i.i.i
@@ -914,24 +915,26 @@ if.end.i45.i.i135.i:                              ; preds = %invoke.cont5.i.i123
 
 invoke.cont13.i.i140.i:                           ; preds = %if.end.i45.i.i135.i, %invoke.cont5.i.i123.i
   %patchCount.i.i141.i = getelementptr inbounds i8, ptr %rsi.i.i85.i, i64 12
-  %81 = load i32, ptr %patchCount.i.i141.i, align 4, !noalias !44
   %patchCount15.i.i142.i = getelementptr inbounds i8, ptr %74, i64 148
-  store i32 %81, ptr %patchCount15.i.i142.i, align 4, !noalias !44
   %patchSize.i.i143.i = getelementptr inbounds i8, ptr %rsi.i.i85.i, i64 16
-  %patchSize16.i.i144.i = getelementptr inbounds i8, ptr %74, i64 152
-  %82 = load <2 x i32>, ptr %patchSize.i.i143.i, align 8, !noalias !44
-  store <2 x i32> %82, ptr %patchSize16.i.i144.i, align 4, !noalias !44
+  %81 = load i32, ptr %patchSize.i.i143.i, align 8, !noalias !44
+  %82 = load <2 x i32>, ptr %patchCount.i.i141.i, align 4, !noalias !44
+  store <2 x i32> %82, ptr %patchCount15.i.i142.i, align 4, !noalias !44
+  %encodingSize.i.i145.i = getelementptr inbounds i8, ptr %rsi.i.i85.i, i64 20
+  %83 = load i32, ptr %encodingSize.i.i145.i, align 4, !noalias !44
+  %encodingSize17.i.i146.i = getelementptr inbounds i8, ptr %74, i64 156
+  store i32 %83, ptr %encodingSize17.i.i146.i, align 4, !noalias !44
   %patchesOffset.i.i147.i = getelementptr inbounds i8, ptr %rsi.i.i85.i, i64 24
-  %83 = load i32, ptr %patchesOffset.i.i147.i, align 8, !noalias !44
+  %84 = load i32, ptr %patchesOffset.i.i147.i, align 8, !noalias !44
   %patchesOffset18.i.i148.i = getelementptr inbounds i8, ptr %74, i64 164
-  store i32 %83, ptr %patchesOffset18.i.i148.i, align 4, !noalias !44
-  %84 = load i32, ptr %bounds, align 4, !noalias !44
-  %cmp.i.i46.i.i149.i = icmp ult i32 %84, 2147483647
+  store i32 %84, ptr %patchesOffset18.i.i148.i, align 4, !noalias !44
+  %85 = load i32, ptr %bounds, align 4, !noalias !44
+  %cmp.i.i46.i.i149.i = icmp ult i32 %85, 2147483647
   br i1 %cmp.i.i46.i.i149.i, label %invoke.cont23.i.i150.i, label %if.then.i56.invoke.i.i113.i
 
 invoke.cont23.i.i150.i:                           ; preds = %invoke.cont13.i.i140.i
   %nPositions.i.i151.i = getelementptr inbounds i8, ptr %74, i64 20
-  store i32 %84, ptr %nPositions.i.i151.i, align 4, !noalias !44
+  store i32 %85, ptr %nPositions.i.i151.i, align 4, !noalias !44
   %add.i.i152.i = add i32 %77, %76
   %streamStateSize.i.i153.i = getelementptr inbounds i8, ptr %74, i64 28
   store i32 %add.i.i152.i, ptr %streamStateSize.i.i153.i, align 4, !noalias !44
@@ -944,22 +947,22 @@ invoke.cont23.i.i150.i:                           ; preds = %invoke.cont13.i.i14
 invoke.cont25.i.i157.i:                           ; preds = %invoke.cont23.i.i150.i
   %minWidth.i.i158.i = getelementptr inbounds i8, ptr %74, i64 36
   store i32 %agg.tmp.sroa.0.0.copyload.i.i155.i, ptr %minWidth.i.i158.i, align 4, !noalias !44
-  %85 = load i32, ptr %max, align 4, !noalias !44
-  %cmp.i.i.i159.i = icmp ult i32 %85, 2147483647
-  %spec.select.i.i160.i = select i1 %cmp.i.i.i159.i, i32 %85, i32 0
+  %86 = load i32, ptr %max, align 4, !noalias !44
+  %cmp.i.i.i159.i = icmp ult i32 %86, 2147483647
+  %spec.select.i.i160.i = select i1 %cmp.i.i.i159.i, i32 %86, i32 0
   %maxWidth.i.i161.i = getelementptr inbounds i8, ptr %74, i64 32
   store i32 %spec.select.i.i160.i, ptr %maxWidth.i.i161.i, align 32, !noalias !44
   br i1 %cmp.i.i87.i, label %if.then.i18.i175.i, label %if.end.i.i162.i
 
 if.then.i18.i175.i:                               ; preds = %invoke.cont25.i.i157.i
   %add.ptr2.i.i.i176.i = getelementptr inbounds i8, ptr %74, i64 168
-  %86 = ptrtoint ptr %add.ptr2.i.i.i176.i to i64
-  %add.i.i19.i177.i = add i64 %86, 7
+  %87 = ptrtoint ptr %add.ptr2.i.i.i176.i to i64
+  %add.i.i19.i177.i = add i64 %87, 7
   %and.i.i.i178.i = and i64 %add.i.i19.i177.i, -8
-  %87 = inttoptr i64 %and.i.i.i178.i to ptr
+  %88 = inttoptr i64 %and.i.i.i178.i to ptr
   %length.i20.i179.i = getelementptr inbounds i8, ptr %74, i64 4
-  %88 = load i32, ptr %max, align 4, !noalias !44
-  %cmp.i.i55.i.i180.i = icmp ult i32 %88, 2147483647
+  %89 = load i32, ptr %max, align 4, !noalias !44
+  %cmp.i.i55.i.i180.i = icmp ult i32 %89, 2147483647
   br i1 %cmp.i.i55.i.i180.i, label %invoke.cont34.i.i181.i, label %if.then.i56.invoke.i.i113.i
 
 if.then.i56.invoke.i.i113.i:                      ; preds = %if.then.i18.i175.i, %invoke.cont23.i.i150.i, %invoke.cont13.i.i140.i, %if.end.i37.i.i121.i, %if.end.i.i.i111.i
@@ -971,10 +974,9 @@ if.then.i56.cont.i.i115.i:                        ; preds = %if.then.i56.invoke.
   unreachable
 
 invoke.cont34.i.i181.i:                           ; preds = %if.then.i18.i175.i
-  %89 = load i32, ptr %length.i20.i179.i, align 4, !noalias !44
-  %conv.i21.i182.i = zext i32 %89 to i64
-  %90 = extractelement <2 x i32> %82, i64 0
-  %sub.i.i183.i = sub i32 %88, %90
+  %90 = load i32, ptr %length.i20.i179.i, align 4, !noalias !44
+  %conv.i21.i182.i = zext i32 %90 to i64
+  %sub.i.i183.i = sub i32 %89, %81
   %conv37.i.i184.i = zext i32 %sub.i.i183.i to i64
   %mul.i22.i185.i = shl nuw nsw i64 %conv37.i.i184.i, 3
   %sub38.i.i186.i = sub nsw i64 %conv.i21.i182.i, %mul.i22.i185.i
@@ -995,7 +997,7 @@ lpad.i.i64.i.i190.i:                              ; preds = %if.then.i.i62.i.i18
 invoke.cont39.i.i191.i:                           ; preds = %invoke.cont34.i.i181.i
   %conv.i.i66.i.i192.i = trunc nuw i64 %sub38.i.i186.i to i32
   store i32 %conv.i.i66.i.i192.i, ptr %length.i20.i179.i, align 4, !noalias !44
-  %add43.i.i193.i = add i32 %90, 1
+  %add43.i.i193.i = add i32 %81, 1
   %cmp.not.i.i70.i.i194.i = icmp ult i32 %add43.i.i193.i, 536870905
   br i1 %cmp.not.i.i70.i.i194.i, label %invoke.cont47.i.i198.i, label %if.then.i.i71.i.i195.i
 
@@ -1034,7 +1036,7 @@ if.end.i82.i.i205.i:                              ; preds = %invoke.cont47.i.i19
   %sub.ptr.lhs.cast.i.i.i83.i.i206.i = ptrtoint ptr %95 to i64
   %sub.ptr.rhs.cast.i.i.i84.i.i207.i = ptrtoint ptr %94 to i64
   %sub.ptr.sub.i.i.i85.i.i208.i = sub i64 %sub.ptr.lhs.cast.i.i.i83.i.i206.i, %sub.ptr.rhs.cast.i.i.i84.i.i207.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %87, ptr align 8 %94, i64 %sub.ptr.sub.i.i.i85.i.i208.i, i1 false), !noalias !44
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %88, ptr align 8 %94, i64 %sub.ptr.sub.i.i.i85.i.i208.i, i1 false), !noalias !44
   br label %if.end.i.i162.i
 
 lpad.i14.i.i:                                     ; preds = %invoke.cont.i.i74.invoke.i.i106.i, %if.then.i56.invoke.i.i113.i
@@ -1314,24 +1316,26 @@ if.end.i45.i.i303.i:                              ; preds = %invoke.cont5.i.i291
 
 invoke.cont13.i.i308.i:                           ; preds = %if.end.i45.i.i303.i, %invoke.cont5.i.i291.i
   %patchCount.i.i309.i = getelementptr inbounds i8, ptr %rsi.i.i239.i, i64 12
-  %120 = load i32, ptr %patchCount.i.i309.i, align 4, !noalias !57
   %patchCount15.i.i310.i = getelementptr inbounds i8, ptr %113, i64 148
-  store i32 %120, ptr %patchCount15.i.i310.i, align 4, !noalias !12
   %patchSize.i.i311.i = getelementptr inbounds i8, ptr %rsi.i.i239.i, i64 16
-  %patchSize16.i.i312.i = getelementptr inbounds i8, ptr %113, i64 152
-  %121 = load <2 x i32>, ptr %patchSize.i.i311.i, align 8, !noalias !57
-  store <2 x i32> %121, ptr %patchSize16.i.i312.i, align 4, !noalias !12
+  %120 = load i32, ptr %patchSize.i.i311.i, align 8, !noalias !57
+  %121 = load <2 x i32>, ptr %patchCount.i.i309.i, align 4, !noalias !57
+  store <2 x i32> %121, ptr %patchCount15.i.i310.i, align 4, !noalias !12
+  %encodingSize.i.i313.i = getelementptr inbounds i8, ptr %rsi.i.i239.i, i64 20
+  %122 = load i32, ptr %encodingSize.i.i313.i, align 4, !noalias !57
+  %encodingSize17.i.i314.i = getelementptr inbounds i8, ptr %113, i64 156
+  store i32 %122, ptr %encodingSize17.i.i314.i, align 4, !noalias !12
   %patchesOffset.i.i315.i = getelementptr inbounds i8, ptr %rsi.i.i239.i, i64 24
-  %122 = load i32, ptr %patchesOffset.i.i315.i, align 8, !noalias !57
+  %123 = load i32, ptr %patchesOffset.i.i315.i, align 8, !noalias !57
   %patchesOffset18.i.i316.i = getelementptr inbounds i8, ptr %113, i64 164
-  store i32 %122, ptr %patchesOffset18.i.i316.i, align 4, !noalias !12
-  %123 = load i32, ptr %bounds, align 4, !noalias !57
-  %cmp.i.i46.i.i317.i = icmp ult i32 %123, 2147483647
+  store i32 %123, ptr %patchesOffset18.i.i316.i, align 4, !noalias !12
+  %124 = load i32, ptr %bounds, align 4, !noalias !57
+  %cmp.i.i46.i.i317.i = icmp ult i32 %124, 2147483647
   br i1 %cmp.i.i46.i.i317.i, label %invoke.cont23.i.i318.i, label %if.then.i56.invoke.i.i281.i
 
 invoke.cont23.i.i318.i:                           ; preds = %invoke.cont13.i.i308.i
   %nPositions.i.i319.i = getelementptr inbounds i8, ptr %113, i64 20
-  store i32 %123, ptr %nPositions.i.i319.i, align 4, !noalias !12
+  store i32 %124, ptr %nPositions.i.i319.i, align 4, !noalias !12
   %add.i.i320.i = add i32 %116, %115
   %streamStateSize.i.i321.i = getelementptr inbounds i8, ptr %113, i64 28
   store i32 %add.i.i320.i, ptr %streamStateSize.i.i321.i, align 4, !noalias !12
@@ -1344,22 +1348,22 @@ invoke.cont23.i.i318.i:                           ; preds = %invoke.cont13.i.i30
 invoke.cont25.i.i325.i:                           ; preds = %invoke.cont23.i.i318.i
   %minWidth.i.i326.i = getelementptr inbounds i8, ptr %113, i64 36
   store i32 %agg.tmp.sroa.0.0.copyload.i.i323.i, ptr %minWidth.i.i326.i, align 4, !noalias !12
-  %124 = load i32, ptr %max, align 4, !noalias !57
-  %cmp.i.i.i327.i = icmp ult i32 %124, 2147483647
-  %spec.select.i.i328.i = select i1 %cmp.i.i.i327.i, i32 %124, i32 0
+  %125 = load i32, ptr %max, align 4, !noalias !57
+  %cmp.i.i.i327.i = icmp ult i32 %125, 2147483647
+  %spec.select.i.i328.i = select i1 %cmp.i.i.i327.i, i32 %125, i32 0
   %maxWidth.i.i329.i = getelementptr inbounds i8, ptr %113, i64 32
   store i32 %spec.select.i.i328.i, ptr %maxWidth.i.i329.i, align 32, !noalias !12
   br i1 %cmp.i.i242.i, label %if.then.i18.i345.i, label %if.end.i.i330.i
 
 if.then.i18.i345.i:                               ; preds = %invoke.cont25.i.i325.i
   %add.ptr2.i.i.i346.i = getelementptr inbounds i8, ptr %113, i64 168
-  %125 = ptrtoint ptr %add.ptr2.i.i.i346.i to i64
-  %add.i.i19.i347.i = add i64 %125, 7
+  %126 = ptrtoint ptr %add.ptr2.i.i.i346.i to i64
+  %add.i.i19.i347.i = add i64 %126, 7
   %and.i.i.i348.i = and i64 %add.i.i19.i347.i, -8
-  %126 = inttoptr i64 %and.i.i.i348.i to ptr
+  %127 = inttoptr i64 %and.i.i.i348.i to ptr
   %length.i20.i349.i = getelementptr inbounds i8, ptr %113, i64 4
-  %127 = load i32, ptr %max, align 4, !noalias !57
-  %cmp.i.i55.i.i350.i = icmp ult i32 %127, 2147483647
+  %128 = load i32, ptr %max, align 4, !noalias !57
+  %cmp.i.i55.i.i350.i = icmp ult i32 %128, 2147483647
   br i1 %cmp.i.i55.i.i350.i, label %invoke.cont34.i.i351.i, label %if.then.i56.invoke.i.i281.i
 
 if.then.i56.invoke.i.i281.i:                      ; preds = %if.then.i18.i345.i, %invoke.cont23.i.i318.i, %invoke.cont13.i.i308.i, %if.end.i37.i.i289.i, %if.end.i.i.i279.i
@@ -1371,10 +1375,9 @@ if.then.i56.cont.i.i283.i:                        ; preds = %if.then.i56.invoke.
   unreachable
 
 invoke.cont34.i.i351.i:                           ; preds = %if.then.i18.i345.i
-  %128 = load i32, ptr %length.i20.i349.i, align 4, !noalias !12
-  %conv.i21.i352.i = zext i32 %128 to i64
-  %129 = extractelement <2 x i32> %121, i64 0
-  %sub.i.i353.i = sub i32 %127, %129
+  %129 = load i32, ptr %length.i20.i349.i, align 4, !noalias !12
+  %conv.i21.i352.i = zext i32 %129 to i64
+  %sub.i.i353.i = sub i32 %128, %120
   %conv37.i.i354.i = zext i32 %sub.i.i353.i to i64
   %mul.i22.i355.i = shl nuw nsw i64 %conv37.i.i354.i, 3
   %sub38.i.i356.i = sub nsw i64 %conv.i21.i352.i, %mul.i22.i355.i
@@ -1395,7 +1398,7 @@ lpad.i.i64.i.i360.i:                              ; preds = %if.then.i.i62.i.i35
 invoke.cont39.i.i361.i:                           ; preds = %invoke.cont34.i.i351.i
   %conv.i.i66.i.i362.i = trunc nuw i64 %sub38.i.i356.i to i32
   store i32 %conv.i.i66.i.i362.i, ptr %length.i20.i349.i, align 4, !noalias !12
-  %add43.i.i363.i = add i32 %129, 1
+  %add43.i.i363.i = add i32 %120, 1
   %cmp.not.i.i70.i.i364.i = icmp ult i32 %add43.i.i363.i, 536870905
   br i1 %cmp.not.i.i70.i.i364.i, label %invoke.cont47.i.i368.i, label %if.then.i.i71.i.i365.i
 
@@ -1434,7 +1437,7 @@ if.end.i82.i.i375.i:                              ; preds = %invoke.cont47.i.i36
   %sub.ptr.lhs.cast.i.i.i83.i.i376.i = ptrtoint ptr %134 to i64
   %sub.ptr.rhs.cast.i.i.i84.i.i377.i = ptrtoint ptr %133 to i64
   %sub.ptr.sub.i.i.i85.i.i378.i = sub i64 %sub.ptr.lhs.cast.i.i.i83.i.i376.i, %sub.ptr.rhs.cast.i.i.i84.i.i377.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %126, ptr align 8 %133, i64 %sub.ptr.sub.i.i.i85.i.i378.i, i1 false), !noalias !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %127, ptr align 8 %133, i64 %sub.ptr.sub.i.i.i85.i.i378.i, i1 false), !noalias !12
   br label %if.end.i.i330.i
 
 lpad.i14.i272.i:                                  ; preds = %invoke.cont.i.i74.invoke.i.i271.i, %if.then.i56.invoke.i.i281.i
@@ -2104,24 +2107,26 @@ if.end.i45:                                       ; preds = %invoke.cont5
 
 invoke.cont13:                                    ; preds = %if.end.i45, %invoke.cont5
   %patchCount = getelementptr inbounds i8, ptr %rsi, i64 12
-  %6 = load i32, ptr %patchCount, align 4
   %patchCount15 = getelementptr inbounds i8, ptr %c, i64 48
-  store i32 %6, ptr %patchCount15, align 4
   %patchSize = getelementptr inbounds i8, ptr %rsi, i64 16
-  %patchSize16 = getelementptr inbounds i8, ptr %c, i64 52
-  %7 = load <2 x i32>, ptr %patchSize, align 8
-  store <2 x i32> %7, ptr %patchSize16, align 4
+  %6 = load i32, ptr %patchSize, align 8
+  %7 = load <2 x i32>, ptr %patchCount, align 4
+  store <2 x i32> %7, ptr %patchCount15, align 4
+  %encodingSize = getelementptr inbounds i8, ptr %rsi, i64 20
+  %8 = load i32, ptr %encodingSize, align 4
+  %encodingSize17 = getelementptr inbounds i8, ptr %c, i64 56
+  store i32 %8, ptr %encodingSize17, align 4
   %patchesOffset = getelementptr inbounds i8, ptr %rsi, i64 24
-  %8 = load i32, ptr %patchesOffset, align 8
+  %9 = load i32, ptr %patchesOffset, align 8
   %patchesOffset18 = getelementptr inbounds i8, ptr %c, i64 64
-  store i32 %8, ptr %patchesOffset18, align 4
-  %9 = load i32, ptr %repeatMin, align 4
-  %cmp.i.i46 = icmp ult i32 %9, 2147483647
+  store i32 %9, ptr %patchesOffset18, align 4
+  %10 = load i32, ptr %repeatMin, align 4
+  %cmp.i.i46 = icmp ult i32 %10, 2147483647
   br i1 %cmp.i.i46, label %invoke.cont23, label %if.then.i56.invoke
 
 invoke.cont23:                                    ; preds = %invoke.cont13
   %nPositions = getelementptr inbounds i8, ptr %nfa, i64 20
-  store i32 %9, ptr %nPositions, align 4
+  store i32 %10, ptr %nPositions, align 4
   %add = add i32 %2, %1
   %streamStateSize = getelementptr inbounds i8, ptr %nfa, i64 28
   store i32 %add, ptr %streamStateSize, align 4
@@ -2134,9 +2139,9 @@ invoke.cont23:                                    ; preds = %invoke.cont13
 invoke.cont25:                                    ; preds = %invoke.cont23
   %minWidth = getelementptr inbounds i8, ptr %nfa, i64 36
   store i32 %agg.tmp.sroa.0.0.copyload, ptr %minWidth, align 4
-  %10 = load i32, ptr %repeatMax, align 4
-  %cmp.i = icmp ult i32 %10, 2147483647
-  %spec.select = select i1 %cmp.i, i32 %10, i32 0
+  %11 = load i32, ptr %repeatMax, align 4
+  %cmp.i = icmp ult i32 %11, 2147483647
+  %spec.select = select i1 %cmp.i, i32 %11, i32 0
   %maxWidth = getelementptr inbounds i8, ptr %nfa, i64 32
   store i32 %spec.select, ptr %maxWidth, align 32
   %cmp = icmp eq i32 %rtype, 5
@@ -2144,13 +2149,13 @@ invoke.cont25:                                    ; preds = %invoke.cont23
 
 if.then:                                          ; preds = %invoke.cont25
   %add.ptr2.i = getelementptr inbounds i8, ptr %nfa, i64 132
-  %11 = ptrtoint ptr %add.ptr2.i to i64
-  %add.i = add i64 %11, 7
+  %12 = ptrtoint ptr %add.ptr2.i to i64
+  %add.i = add i64 %12, 7
   %and.i = and i64 %add.i, -8
-  %12 = inttoptr i64 %and.i to ptr
+  %13 = inttoptr i64 %and.i to ptr
   %length = getelementptr inbounds i8, ptr %nfa, i64 4
-  %13 = load i32, ptr %repeatMax, align 4
-  %cmp.i.i55 = icmp ult i32 %13, 2147483647
+  %14 = load i32, ptr %repeatMax, align 4
+  %cmp.i.i55 = icmp ult i32 %14, 2147483647
   br i1 %cmp.i.i55, label %invoke.cont34, label %if.then.i56.invoke
 
 if.then.i56.invoke:                               ; preds = %if.then, %invoke.cont23, %invoke.cont13, %if.end.i37, %if.end.i
@@ -2162,10 +2167,9 @@ if.then.i56.cont:                                 ; preds = %if.then.i56.invoke
   unreachable
 
 invoke.cont34:                                    ; preds = %if.then
-  %14 = load i32, ptr %length, align 4
-  %conv = zext i32 %14 to i64
-  %15 = extractelement <2 x i32> %7, i64 0
-  %sub = sub i32 %13, %15
+  %15 = load i32, ptr %length, align 4
+  %conv = zext i32 %15 to i64
+  %sub = sub i32 %14, %6
   %conv37 = zext i32 %sub to i64
   %mul = shl nuw nsw i64 %conv37, 3
   %sub38 = sub nsw i64 %conv, %mul
@@ -2186,7 +2190,7 @@ lpad.i.i64:                                       ; preds = %if.then.i.i62
 invoke.cont39:                                    ; preds = %invoke.cont34
   %conv.i.i66 = trunc nuw i64 %sub38 to i32
   store i32 %conv.i.i66, ptr %length, align 4
-  %add43 = add i32 %15, 1
+  %add43 = add i32 %6, 1
   %cmp.not.i.i70 = icmp ult i32 %add43, 536870905
   br i1 %cmp.not.i.i70, label %invoke.cont47, label %if.then.i.i71
 
@@ -2225,7 +2229,7 @@ if.end.i82:                                       ; preds = %invoke.cont47
   %sub.ptr.lhs.cast.i.i.i83 = ptrtoint ptr %20 to i64
   %sub.ptr.rhs.cast.i.i.i84 = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i.i.i85 = sub i64 %sub.ptr.lhs.cast.i.i.i83, %sub.ptr.rhs.cast.i.i.i84
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %19, i64 %sub.ptr.sub.i.i.i85, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %19, i64 %sub.ptr.sub.i.i.i85, i1 false)
   br label %if.end
 
 lpad:                                             ; preds = %if.then.i56.invoke, %invoke.cont.i.i74.invoke

@@ -1977,47 +1977,47 @@ define hidden void @_ZN8rawspeed15RawImageDataU1617scaleValues_plainEii(ptr noca
   %216 = getelementptr inbounds [4 x i32], ptr %5, i64 0, i64 %215
   %217 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %215
   %218 = load <2 x i32>, ptr %216, align 8, !tbaa !96
-  %219 = load <2 x i32>, ptr %217, align 8, !tbaa !96
-  br label %220
+  %219 = load i32, ptr %216, align 8, !tbaa !96
+  %220 = load <2 x i32>, ptr %217, align 8, !tbaa !96
+  %221 = load i32, ptr %217, align 8, !tbaa !96
+  br label %222
 
-220:                                              ; preds = %220, %.split.split
-  %221 = phi i64 [ 0, %.split.split ], [ %237, %220 ]
-  %222 = add nuw nsw i64 %221, %123
-  %223 = icmp ule i64 %222, %124
-  tail call void @llvm.assume(i1 %223)
-  %224 = getelementptr inbounds i16, ptr %213, i64 %222
-  %225 = or disjoint i64 %221, 1
-  %226 = add nuw nsw i64 %225, %123
-  %227 = icmp ule i64 %226, %124
-  tail call void @llvm.assume(i1 %227)
-  %228 = load <2 x i16>, ptr %224, align 2, !tbaa !98
-  %229 = zext <2 x i16> %228 to <2 x i32>
-  %230 = sub nsw <2 x i32> %229, %218
-  %231 = mul nsw <2 x i32> %230, %219
-  %232 = add <2 x i32> %231, <i32 8192, i32 8192>
-  %233 = ashr <2 x i32> %232, <i32 14, i32 14>
-  %234 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %233, <2 x i32> zeroinitializer)
-  %235 = tail call <2 x i32> @llvm.umin.v2i32(<2 x i32> %234, <2 x i32> <i32 65535, i32 65535>)
-  %236 = trunc nuw <2 x i32> %235 to <2 x i16>
-  store <2 x i16> %236, ptr %224, align 2, !tbaa !98
-  %237 = add nuw i64 %221, 2
-  %238 = icmp eq i64 %237, %135
-  br i1 %238, label %.loopexit, label %220, !llvm.loop !152
+222:                                              ; preds = %222, %.split.split
+  %223 = phi i64 [ 0, %.split.split ], [ %239, %222 ]
+  %224 = add nuw nsw i64 %223, %123
+  %225 = icmp ule i64 %224, %124
+  tail call void @llvm.assume(i1 %225)
+  %226 = getelementptr inbounds i16, ptr %213, i64 %224
+  %227 = or disjoint i64 %223, 1
+  %228 = add nuw nsw i64 %227, %123
+  %229 = icmp ule i64 %228, %124
+  tail call void @llvm.assume(i1 %229)
+  %230 = load <2 x i16>, ptr %226, align 2, !tbaa !98
+  %231 = zext <2 x i16> %230 to <2 x i32>
+  %232 = sub nsw <2 x i32> %231, %218
+  %233 = mul nsw <2 x i32> %232, %220
+  %234 = add <2 x i32> %233, <i32 8192, i32 8192>
+  %235 = ashr <2 x i32> %234, <i32 14, i32 14>
+  %236 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %235, <2 x i32> zeroinitializer)
+  %237 = tail call <2 x i32> @llvm.umin.v2i32(<2 x i32> %236, <2 x i32> <i32 65535, i32 65535>)
+  %238 = trunc nuw <2 x i32> %237 to <2 x i16>
+  store <2 x i16> %238, ptr %226, align 2, !tbaa !98
+  %239 = add nuw i64 %223, 2
+  %240 = icmp eq i64 %239, %135
+  br i1 %240, label %.loopexit, label %222, !llvm.loop !152
 
-.loopexit:                                        ; preds = %220
-  %239 = getelementptr inbounds i16, ptr %213, i64 %164
-  %240 = load i16, ptr %239, align 2, !tbaa !98
-  %241 = zext i16 %240 to i32
-  %242 = extractelement <2 x i32> %218, i64 0
-  %243 = sub nsw i32 %241, %242
-  %244 = extractelement <2 x i32> %219, i64 0
-  %245 = mul nsw i32 %243, %244
+.loopexit:                                        ; preds = %222
+  %241 = getelementptr inbounds i16, ptr %213, i64 %164
+  %242 = load i16, ptr %241, align 2, !tbaa !98
+  %243 = zext i16 %242 to i32
+  %244 = sub nsw i32 %243, %219
+  %245 = mul nsw i32 %244, %221
   %246 = add i32 %245, 8192
   %247 = ashr i32 %246, 14
   %248 = tail call i32 @llvm.smax.i32(i32 %247, i32 0)
   %249 = tail call i32 @llvm.umin.i32(i32 %248, i32 65535)
   %250 = trunc nuw i32 %249 to i16
-  store i16 %250, ptr %239, align 2, !tbaa !98
+  store i16 %250, ptr %241, align 2, !tbaa !98
   %251 = add nuw nsw i64 %204, 1
   %252 = trunc nuw nsw i64 %251 to i32
   %253 = icmp slt i32 %252, %2

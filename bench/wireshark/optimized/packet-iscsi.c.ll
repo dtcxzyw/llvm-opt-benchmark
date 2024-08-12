@@ -4616,96 +4616,95 @@ define internal fastcc i32 @handleDataSegmentAsTextKeys(ptr nocapture noundef re
 
 .lr.ph.i:                                         ; preds = %17
   %22 = getelementptr inbounds i8, ptr %1, i64 408
-  %23 = getelementptr inbounds i8, ptr %9, i64 4
-  %24 = getelementptr inbounds i8, ptr %9, i64 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 16
-  %26 = getelementptr inbounds i8, ptr %1, i64 80
-  %27 = getelementptr inbounds i8, ptr %1, i64 20
-  br label %28
+  %23 = getelementptr inbounds i8, ptr %9, i64 8
+  %24 = getelementptr inbounds i8, ptr %9, i64 16
+  %25 = getelementptr inbounds i8, ptr %1, i64 80
+  %26 = getelementptr inbounds i8, ptr %1, i64 20
+  br label %27
 
-28:                                               ; preds = %105, %.lr.ph.i
+27:                                               ; preds = %105, %.lr.ph.i
   %.019.i = phi i32 [ %4, %.lr.ph.i ], [ %107, %105 ]
-  %29 = load i32, ptr @hf_iscsi_KeyValue, align 4
-  %30 = call ptr @proto_tree_add_item_ret_length(ptr noundef %19, i32 noundef %29, ptr noundef %3, i32 noundef %.019.i, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %11) #9
-  %31 = load i32, ptr %11, align 4
-  %32 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %.019.i, i32 noundef %31) #9
-  %33 = load i32, ptr %11, align 4
-  %34 = call i32 @tvb_find_guint8(ptr noundef %32, i32 noundef 0, i32 noundef %33, i8 noundef zeroext 61) #9
-  %35 = icmp eq i32 %34, -1
-  br i1 %35, label %addTextKeys.exit, label %36
+  %28 = load i32, ptr @hf_iscsi_KeyValue, align 4
+  %29 = call ptr @proto_tree_add_item_ret_length(ptr noundef %19, i32 noundef %28, ptr noundef %3, i32 noundef %.019.i, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %11) #9
+  %30 = load i32, ptr %11, align 4
+  %31 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %.019.i, i32 noundef %30) #9
+  %32 = load i32, ptr %11, align 4
+  %33 = call i32 @tvb_find_guint8(ptr noundef %31, i32 noundef 0, i32 noundef %32, i8 noundef zeroext 61) #9
+  %34 = icmp eq i32 %33, -1
+  br i1 %34, label %addTextKeys.exit, label %35
 
-36:                                               ; preds = %28
-  %37 = call i32 @tvb_strneql(ptr noundef %32, i32 noundef 0, ptr noundef nonnull @.str.457, i64 noundef 14) #9
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %105
+35:                                               ; preds = %27
+  %36 = call i32 @tvb_strneql(ptr noundef %31, i32 noundef 0, ptr noundef nonnull @.str.457, i64 noundef 14) #9
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %105
 
-39:                                               ; preds = %36
-  %40 = add nuw i32 %34, 1
+38:                                               ; preds = %35
+  %39 = add nuw i32 %33, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  %41 = call i32 @tvb_find_guint8(ptr noundef %32, i32 noundef %40, i32 noundef -1, i8 noundef zeroext 58) #9
-  %42 = icmp eq i32 %41, -1
-  br i1 %42, label %iscsi_dissect_TargetAddress.exit.i, label %43
+  %40 = call i32 @tvb_find_guint8(ptr noundef %31, i32 noundef %39, i32 noundef -1, i8 noundef zeroext 58) #9
+  %41 = icmp eq i32 %40, -1
+  br i1 %41, label %iscsi_dissect_TargetAddress.exit.i, label %42
 
-43:                                               ; preds = %39
-  %44 = call zeroext i8 @tvb_get_guint8(ptr noundef %32, i32 noundef %40) #9
-  %45 = icmp eq i8 %44, 91
-  br i1 %45, label %46, label %60
+42:                                               ; preds = %38
+  %43 = call zeroext i8 @tvb_get_guint8(ptr noundef %31, i32 noundef %39) #9
+  %44 = icmp eq i8 %43, 91
+  br i1 %44, label %45, label %59
 
-46:                                               ; preds = %43
-  %47 = add i32 %34, 2
-  %48 = call i32 @tvb_find_guint8(ptr noundef %32, i32 noundef %47, i32 noundef -1, i8 noundef zeroext 93) #9
-  %49 = icmp eq i32 %48, -1
-  br i1 %49, label %iscsi_dissect_TargetAddress.exit.i, label %50
+45:                                               ; preds = %42
+  %46 = add i32 %33, 2
+  %47 = call i32 @tvb_find_guint8(ptr noundef %31, i32 noundef %46, i32 noundef -1, i8 noundef zeroext 93) #9
+  %48 = icmp eq i32 %47, -1
+  br i1 %48, label %iscsi_dissect_TargetAddress.exit.i, label %49
 
-50:                                               ; preds = %46
-  %51 = call i32 @tvb_find_guint8(ptr noundef %32, i32 noundef %48, i32 noundef -1, i8 noundef zeroext 58) #9
-  %52 = icmp eq i32 %51, -1
-  br i1 %52, label %iscsi_dissect_TargetAddress.exit.i, label %53
+49:                                               ; preds = %45
+  %50 = call i32 @tvb_find_guint8(ptr noundef %31, i32 noundef %47, i32 noundef -1, i8 noundef zeroext 58) #9
+  %51 = icmp eq i32 %50, -1
+  br i1 %51, label %iscsi_dissect_TargetAddress.exit.i, label %52
 
-53:                                               ; preds = %50
-  %54 = load ptr, ptr %22, align 8
-  %55 = call noalias ptr @wmem_alloc(ptr noundef %54, i64 noundef 16) #9
-  %56 = load ptr, ptr %22, align 8
-  %57 = sub i32 %48, %47
-  %58 = call ptr @tvb_get_string_enc(ptr noundef %56, ptr noundef %32, i32 noundef %47, i32 noundef %57, i32 noundef 0) #9
-  %59 = call zeroext i1 @ws_inet_pton6(ptr noundef %58, ptr noundef %55) #9
-  br i1 %59, label %.sink.split.i.i, label %67
+52:                                               ; preds = %49
+  %53 = load ptr, ptr %22, align 8
+  %54 = call noalias ptr @wmem_alloc(ptr noundef %53, i64 noundef 16) #9
+  %55 = load ptr, ptr %22, align 8
+  %56 = sub i32 %47, %46
+  %57 = call ptr @tvb_get_string_enc(ptr noundef %55, ptr noundef %31, i32 noundef %46, i32 noundef %56, i32 noundef 0) #9
+  %58 = call zeroext i1 @ws_inet_pton6(ptr noundef %57, ptr noundef %54) #9
+  br i1 %58, label %.sink.split.i.i, label %67
 
-60:                                               ; preds = %43
-  %61 = load ptr, ptr %22, align 8
-  %62 = sub i32 %41, %40
-  %63 = call ptr @tvb_get_string_enc(ptr noundef %61, ptr noundef %32, i32 noundef %40, i32 noundef %62, i32 noundef 0) #9
-  %64 = load ptr, ptr %22, align 8
-  %65 = call noalias ptr @wmem_alloc(ptr noundef %64, i64 noundef 4) #9
-  %66 = call zeroext i1 @ws_inet_pton4(ptr noundef %63, ptr noundef %65) #9
-  br i1 %66, label %.sink.split.i.i, label %67
+59:                                               ; preds = %42
+  %60 = load ptr, ptr %22, align 8
+  %61 = sub i32 %40, %39
+  %62 = call ptr @tvb_get_string_enc(ptr noundef %60, ptr noundef %31, i32 noundef %39, i32 noundef %61, i32 noundef 0) #9
+  %63 = load ptr, ptr %22, align 8
+  %64 = call noalias ptr @wmem_alloc(ptr noundef %63, i64 noundef 4) #9
+  %65 = call zeroext i1 @ws_inet_pton4(ptr noundef %62, ptr noundef %64) #9
+  br i1 %65, label %.sink.split.i.i, label %67
 
-.sink.split.i.i:                                  ; preds = %60, %53
-  %.sink62.i.i = phi i32 [ 16, %53 ], [ 4, %60 ]
-  %.sink.i.i = phi ptr [ %55, %53 ], [ %65, %60 ]
-  %.ph60.i.i = phi i32 [ 3, %53 ], [ 2, %60 ]
-  %.051.ph.i.i = phi i32 [ %51, %53 ], [ %41, %60 ]
-  store i32 %.ph60.i.i, ptr %9, align 8
-  store i32 %.sink62.i.i, ptr %23, align 4
-  store ptr %.sink.i.i, ptr %24, align 8
-  store ptr null, ptr %25, align 8
+.sink.split.i.i:                                  ; preds = %59, %52
+  %.sink62.i.i = phi i32 [ 16, %52 ], [ 4, %59 ]
+  %.sink.i.i = phi ptr [ %54, %52 ], [ %64, %59 ]
+  %.ph60.i.i = phi i32 [ 3, %52 ], [ 2, %59 ]
+  %.051.ph.i.i = phi i32 [ %50, %52 ], [ %40, %59 ]
+  %66 = phi <2 x i32> [ <i32 3, i32 16>, %52 ], [ <i32 2, i32 4>, %59 ]
+  store <2 x i32> %66, ptr %9, align 8
+  store ptr %.sink.i.i, ptr %23, align 8
+  store ptr null, ptr %24, align 8
   br label %67
 
-67:                                               ; preds = %.sink.split.i.i, %60, %53
-  %68 = phi ptr [ null, %53 ], [ null, %60 ], [ %.sink.i.i, %.sink.split.i.i ]
-  %69 = phi i1 [ true, %53 ], [ true, %60 ], [ false, %.sink.split.i.i ]
-  %70 = phi i32 [ 0, %53 ], [ 0, %60 ], [ %.sink62.i.i, %.sink.split.i.i ]
-  %71 = phi i32 [ 0, %53 ], [ 0, %60 ], [ %.ph60.i.i, %.sink.split.i.i ]
-  %.051.i.i = phi i32 [ %51, %53 ], [ %41, %60 ], [ %.051.ph.i.i, %.sink.split.i.i ]
-  %72 = call i32 @tvb_find_guint8(ptr noundef %32, i32 noundef %.051.i.i, i32 noundef -1, i8 noundef zeroext 44) #9
+67:                                               ; preds = %.sink.split.i.i, %59, %52
+  %68 = phi ptr [ null, %52 ], [ null, %59 ], [ %.sink.i.i, %.sink.split.i.i ]
+  %69 = phi i1 [ true, %52 ], [ true, %59 ], [ false, %.sink.split.i.i ]
+  %70 = phi i32 [ 0, %52 ], [ 0, %59 ], [ %.sink62.i.i, %.sink.split.i.i ]
+  %71 = phi i32 [ 0, %52 ], [ 0, %59 ], [ %.ph60.i.i, %.sink.split.i.i ]
+  %.051.i.i = phi i32 [ %50, %52 ], [ %40, %59 ], [ %.051.ph.i.i, %.sink.split.i.i ]
+  %72 = call i32 @tvb_find_guint8(ptr noundef %31, i32 noundef %.051.i.i, i32 noundef -1, i8 noundef zeroext 44) #9
   %73 = icmp eq i32 %72, -1
   br i1 %73, label %74, label %77
 
 74:                                               ; preds = %67
   %75 = add nuw i32 %.051.i.i, 1
-  %76 = call i32 @tvb_reported_length_remaining(ptr noundef %32, i32 noundef %75) #9
+  %76 = call i32 @tvb_reported_length_remaining(ptr noundef %31, i32 noundef %75) #9
   br label %79
 
 77:                                               ; preds = %67
@@ -4718,12 +4717,12 @@ define internal fastcc i32 @handleDataSegmentAsTextKeys(ptr nocapture noundef re
   %.pre-phi.i.i = phi i32 [ %.pre.i.i, %77 ], [ %75, %74 ]
   %.0.i.i = phi i32 [ %78, %77 ], [ %76, %74 ]
   %80 = load ptr, ptr %22, align 8
-  %81 = call ptr @tvb_get_string_enc(ptr noundef %80, ptr noundef %32, i32 noundef %.pre-phi.i.i, i32 noundef %.0.i.i, i32 noundef 0) #9
+  %81 = call ptr @tvb_get_string_enc(ptr noundef %80, ptr noundef %31, i32 noundef %.pre-phi.i.i, i32 noundef %.0.i.i, i32 noundef 0) #9
   %82 = call zeroext i1 @ws_strtou16(ptr noundef %81, ptr noundef null, ptr noundef nonnull %10) #9
   br i1 %82, label %85, label %83
 
 83:                                               ; preds = %79
-  %84 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %19, ptr noundef nonnull %1, ptr noundef nonnull @ei_iscsi_keyvalue_invalid, ptr noundef %32, i32 noundef %.pre-phi.i.i, i32 noundef %.0.i.i, ptr noundef nonnull @.str.458, ptr noundef %81) #9
+  %84 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %19, ptr noundef nonnull %1, ptr noundef nonnull @ei_iscsi_keyvalue_invalid, ptr noundef %31, i32 noundef %.pre-phi.i.i, i32 noundef %.0.i.i, ptr noundef nonnull @.str.458, ptr noundef %81) #9
   br label %iscsi_dissect_TargetAddress.exit.i
 
 85:                                               ; preds = %79
@@ -4745,7 +4744,7 @@ define internal fastcc i32 @handleDataSegmentAsTextKeys(ptr nocapture noundef re
   br i1 %94, label %iscsi_dissect_TargetAddress.exit.i, label %addresses_equal.exit.i.i
 
 addresses_equal.exit.i.i:                         ; preds = %91, %85
-  %95 = load ptr, ptr %26, align 8
+  %95 = load ptr, ptr %25, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 50
   %97 = load i16, ptr %96, align 2
   %98 = and i16 %97, 8
@@ -4753,7 +4752,7 @@ addresses_equal.exit.i.i:                         ; preds = %91, %85
   br i1 %.not56.i.i, label %99, label %iscsi_dissect_TargetAddress.exit.i
 
 99:                                               ; preds = %addresses_equal.exit.i.i
-  %100 = load i32, ptr %27, align 4
+  %100 = load i32, ptr %26, align 4
   %101 = load i16, ptr %10, align 2
   %102 = zext i16 %101 to i32
   %103 = call nonnull ptr @conversation_new(i32 noundef %100, ptr noundef nonnull %9, ptr noundef nonnull @null_address, i32 noundef 2, i32 noundef %102, i32 noundef 0, i32 noundef 3) #9
@@ -4761,19 +4760,19 @@ addresses_equal.exit.i.i:                         ; preds = %91, %85
   call void @conversation_set_dissector(ptr noundef nonnull %103, ptr noundef %104) #9
   br label %iscsi_dissect_TargetAddress.exit.i
 
-iscsi_dissect_TargetAddress.exit.i:               ; preds = %99, %addresses_equal.exit.i.i, %91, %90, %83, %50, %46, %39
+iscsi_dissect_TargetAddress.exit.i:               ; preds = %99, %addresses_equal.exit.i.i, %91, %90, %83, %49, %45, %38
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10)
   br label %105
 
-105:                                              ; preds = %iscsi_dissect_TargetAddress.exit.i, %36
+105:                                              ; preds = %iscsi_dissect_TargetAddress.exit.i, %35
   %106 = load i32, ptr %11, align 4
   %107 = add i32 %106, %.019.i
   %108 = icmp slt i32 %107, %20
-  br i1 %108, label %28, label %addTextKeys.exit, !llvm.loop !7
+  br i1 %108, label %27, label %addTextKeys.exit, !llvm.loop !7
 
-addTextKeys.exit:                                 ; preds = %28, %105, %17
-  %.0.lcssa.i = phi i32 [ %4, %17 ], [ %107, %105 ], [ %.019.i, %28 ]
+addTextKeys.exit:                                 ; preds = %27, %105, %17
+  %.0.lcssa.i = phi i32 [ %4, %17 ], [ %107, %105 ], [ %.019.i, %27 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %109
 

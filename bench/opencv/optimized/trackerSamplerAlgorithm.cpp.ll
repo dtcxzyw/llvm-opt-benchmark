@@ -1612,32 +1612,30 @@ define hidden noundef double @_ZN2cv8PFSolver8getAlphaEv(ptr nocapture noundef n
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
 define hidden void @_ZNK2cv8PFSolver11getFunctionEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 296
-  %4 = load ptr, ptr %3, align 8
-  store ptr %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 304
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %.not.i.i.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_16MinProblemSolver8FunctionEEC2ERKS3_.exit, label %8
+  %4 = getelementptr inbounds i8, ptr %1, i64 304
+  %5 = load ptr, ptr %4, align 8
+  %6 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %6, ptr %0, align 8
+  %.not.i.i.i.i = icmp eq ptr %5, null
+  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_16MinProblemSolver8FunctionEEC2ERKS3_.exit, label %7
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
-  %10 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i = icmp eq i8 %10, 0
-  br i1 %.not.i.i.i.i.i, label %14, label %11
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i = icmp eq i8 %9, 0
+  br i1 %.not.i.i.i.i.i, label %13, label %10
 
-11:                                               ; preds = %8
-  %12 = load i32, ptr %9, align 4
-  %13 = add nsw i32 %12, 1
-  store i32 %13, ptr %9, align 4
+10:                                               ; preds = %7
+  %11 = load i32, ptr %8, align 4
+  %12 = add nsw i32 %11, 1
+  store i32 %12, ptr %8, align 4
   br label %_ZN2cv3PtrINS_16MinProblemSolver8FunctionEEC2ERKS3_.exit
 
-14:                                               ; preds = %8
-  %15 = atomicrmw volatile add ptr %9, i32 1 acq_rel, align 4
+13:                                               ; preds = %7
+  %14 = atomicrmw volatile add ptr %8, i32 1 acq_rel, align 4
   br label %_ZN2cv3PtrINS_16MinProblemSolver8FunctionEEC2ERKS3_.exit
 
-_ZN2cv3PtrINS_16MinProblemSolver8FunctionEEC2ERKS3_.exit: ; preds = %2, %11, %14
+_ZN2cv3PtrINS_16MinProblemSolver8FunctionEEC2ERKS3_.exit: ; preds = %2, %10, %13
   ret void
 }
 
@@ -4866,12 +4864,11 @@ _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %1
   store ptr %23, ptr %28, align 8, !alias.scope !62
   %29 = getelementptr inbounds i8, ptr %4, i64 24
   %30 = getelementptr inbounds i8, ptr %2, i64 24
-  %31 = load ptr, ptr %30, align 8, !noalias !62
-  store ptr %31, ptr %29, align 8, !alias.scope !62
-  %32 = getelementptr inbounds i8, ptr %4, i64 32
-  %33 = getelementptr inbounds i8, ptr %2, i64 32
-  %34 = load ptr, ptr %33, align 8, !noalias !62
-  store ptr %34, ptr %32, align 8, !alias.scope !62
+  %31 = getelementptr inbounds i8, ptr %4, i64 32
+  %32 = getelementptr inbounds i8, ptr %2, i64 32
+  %33 = load ptr, ptr %32, align 8, !noalias !62
+  %34 = load <2 x ptr>, ptr %30, align 8, !noalias !62
+  store <2 x ptr> %34, ptr %29, align 8, !alias.scope !62
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   store double 1.500000e+01, ptr %23, align 8
   %.not.i.i.i = icmp eq ptr %24, null
@@ -4880,7 +4877,7 @@ _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %1
 35:                                               ; preds = %22
   %36 = getelementptr inbounds i8, ptr %23, i64 %27
   store ptr %36, ptr %28, align 8
-  %.not1.i.i.i = icmp ult ptr %36, %34
+  %.not1.i.i.i = icmp ult ptr %36, %33
   br i1 %.not1.i.i.i, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit, label %37
 
 37:                                               ; preds = %35
@@ -4904,7 +4901,7 @@ _ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit: ; preds = %._ZN2cv20MatCommaIn
   %41 = load i64, ptr %25, align 8
   %42 = getelementptr inbounds i8, ptr %.pre18, i64 %41
   store ptr %42, ptr %28, align 8
-  %43 = load ptr, ptr %32, align 8
+  %43 = load ptr, ptr %31, align 8
   %.not1.i.i.i9 = icmp ult ptr %42, %43
   br i1 %.not1.i.i.i9, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit11, label %44
 
@@ -4929,7 +4926,7 @@ _ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit11: ; preds = %._ZN2cv20MatComma
   %49 = load ptr, ptr %28, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 %48
   store ptr %50, ptr %28, align 8
-  %51 = load ptr, ptr %32, align 8
+  %51 = load ptr, ptr %31, align 8
   %.not1.i.i.i13 = icmp ult ptr %50, %51
   br i1 %.not1.i.i.i13, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit15, label %52
 

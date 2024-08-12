@@ -1452,16 +1452,15 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
 if.then.i:                                        ; preds = %for.end.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp14.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %agg.tmp1, i64 16, i1 false)
   %data.i.i7 = getelementptr inbounds i8, ptr %agg.tmp14.i, i64 16
-  %12 = load ptr, ptr %data.i.i, align 8
-  store ptr %12, ptr %data.i.i7, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp14.i, i64 24
-  %13 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
-  store ptr %13, ptr %_M_refcount.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %13, null
+  %12 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
+  %13 = load <2 x ptr>, ptr %data.i.i, align 8
+  store <2 x ptr> %13, ptr %data.i.i7, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %14, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -2444,17 +2443,16 @@ if.then:                                          ; preds = %for.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(16) %color, i64 16, i1 false)
   %data.i = getelementptr inbounds i8, ptr %agg.tmp14, i64 16
   %data3.i = getelementptr inbounds i8, ptr %color, i64 16
-  %8 = load ptr, ptr %data3.i, align 8
-  store ptr %8, ptr %data.i, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp14, i64 24
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %color, i64 24
-  %9 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %9, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %9 = load <2 x ptr>, ptr %data3.i, align 8
+  store <2 x ptr> %9, ptr %data.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -4268,17 +4266,16 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_base.i.i, ptr noundef nonnull align 8 dereferenceable(16) %params, i64 16, i1 false)
   %data.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %data3.i.i.i.i = getelementptr inbounds i8, ptr %params, i64 16
-  %0 = load ptr, ptr %data3.i.i.i.i, align 8, !noalias !186
-  store ptr %0, ptr %data.i.i.i.i, align 8, !alias.scope !186
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %_M_refcount3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %params, i64 24
-  %1 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !noalias !186
-  store ptr %1, ptr %_M_refcount.i.i.i.i.i.i, align 8, !alias.scope !186
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !noalias !186
+  %1 = load <2 x ptr>, ptr %data3.i.i.i.i, align 8, !noalias !186
+  store <2 x ptr> %1, ptr %data.i.i.i.i, align 8, !alias.scope !186
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNK5boost16bgl_named_paramsIN3ue215small_color_mapINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEE8prop_mapIRKmS5_EEEENS_14vertex_color_tENS_11no_propertyEE7visitorINS_17topo_sort_visitorISt20back_insert_iteratorISt6vectorINS1_12graph_detail17vertex_descriptorIS7_EESaISM_EEEEEEENS0_IT_NS_15graph_visitor_tESF_EERKSR_.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !186
   %tobool.i.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -4992,16 +4989,15 @@ invoke.cont45.i:                                  ; preds = %invoke.cont7.loopex
   %agg.tmp42.sroa.2.0.copyload.i = load i64, ptr %agg.tmp42.sroa.2.0.start.sroa_idx.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp46.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %colors, i64 16, i1 false)
   %data.i.i46 = getelementptr inbounds i8, ptr %agg.tmp46.i, i64 16
-  %34 = load ptr, ptr %data.i.i, align 8
-  store ptr %34, ptr %data.i.i46, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp46.i, i64 24
-  %35 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
-  store ptr %35, ptr %_M_refcount.i.i.i.i, align 8
-  %cmp.not.i.i.i.i25.i = icmp eq ptr %35, null
+  %34 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
+  %35 = load <2 x ptr>, ptr %data.i.i, align 8
+  store <2 x ptr> %35, ptr %data.i.i46, align 8
+  %cmp.not.i.i.i.i25.i = icmp eq ptr %34, null
   br i1 %cmp.not.i.i.i.i25.i, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont45.i
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 8
   %36 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %36, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i26.i
@@ -9571,17 +9567,16 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %color, i64 16, i1 false)
   %data.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 16
   %data3.i = getelementptr inbounds i8, ptr %color, i64 16
-  %0 = load ptr, ptr %data3.i, align 8
-  store ptr %0, ptr %data.i, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %color, i64 24
-  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %data3.i, align 8
+  store <2 x ptr> %1, ptr %data.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -12246,17 +12241,16 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %data.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp5, i64 16
   %data3.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %2 = load ptr, ptr %data3.i.i.i.i, align 8, !noalias !571
-  store ptr %2, ptr %data.i.i.i.i, align 8, !alias.scope !571
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp5, i64 24
   %_M_refcount3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
-  %3 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !noalias !571
-  store ptr %3, ptr %_M_refcount.i.i.i.i.i.i, align 8, !alias.scope !571
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !noalias !571
+  %3 = load <2 x ptr>, ptr %data3.i.i.i.i, align 8, !noalias !571
+  store <2 x ptr> %3, ptr %data.i.i.i.i, align 8, !alias.scope !571
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont12, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1, !noalias !571
   %tobool.i.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -12418,17 +12412,16 @@ if.then:                                          ; preds = %for.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(16) %color, i64 16, i1 false)
   %data.i = getelementptr inbounds i8, ptr %agg.tmp14, i64 16
   %data3.i = getelementptr inbounds i8, ptr %color, i64 16
-  %8 = load ptr, ptr %data3.i, align 8
-  store ptr %8, ptr %data.i, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp14, i64 24
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %color, i64 24
-  %9 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %9, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %9 = load <2 x ptr>, ptr %data3.i, align 8
+  store <2 x ptr> %9, ptr %data.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -13445,17 +13438,16 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %data.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp5, i64 16
   %data3.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %2 = load ptr, ptr %data3.i.i.i.i, align 8, !noalias !607
-  store ptr %2, ptr %data.i.i.i.i, align 8, !alias.scope !607
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp5, i64 24
   %_M_refcount3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
-  %3 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !noalias !607
-  store ptr %3, ptr %_M_refcount.i.i.i.i.i.i, align 8, !alias.scope !607
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !noalias !607
+  %3 = load <2 x ptr>, ptr %data3.i.i.i.i, align 8, !noalias !607
+  store <2 x ptr> %3, ptr %data.i.i.i.i, align 8, !alias.scope !607
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont9, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1, !noalias !607
   %tobool.i.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -13634,17 +13626,16 @@ if.then:                                          ; preds = %for.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(16) %color, i64 16, i1 false)
   %data.i = getelementptr inbounds i8, ptr %agg.tmp14, i64 16
   %data3.i = getelementptr inbounds i8, ptr %color, i64 16
-  %10 = load ptr, ptr %data3.i, align 8
-  store ptr %10, ptr %data.i, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp14, i64 24
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %color, i64 24
-  %11 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %11, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %11 = load <2 x ptr>, ptr %data3.i, align 8
+  store <2 x ptr> %11, ptr %data.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

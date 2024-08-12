@@ -134,163 +134,163 @@ define hidden { <2 x float>, <2 x float> } @_ZN3vas20KalmanFilterNoOpencv7Predic
   %35 = insertelement <2 x float> poison, float %12, i64 0
   %36 = insertelement <2 x float> %35, float %13, i64 1
   %37 = fptosi <2 x float> %36 to <2 x i32>
+  %38 = extractelement <2 x i32> %37, i64 0
   store <2 x i32> %37, ptr %5, align 4
   store <2 x i32> %37, ptr %0, align 4
-  %38 = insertelement <4 x float> poison, float %26, i64 0
-  %39 = insertelement <4 x float> %38, float %27, i64 1
-  %40 = insertelement <4 x float> %39, float %31, i64 2
-  %41 = insertelement <4 x float> %40, float %32, i64 3
-  %42 = fptosi <4 x float> %41 to <4 x i32>
-  %43 = load <4 x i32>, ptr %34, align 4
-  %44 = add nsw <4 x i32> %43, %42
-  store <4 x i32> %44, ptr %33, align 4
-  store <4 x i32> %44, ptr %14, align 4
-  %45 = getelementptr inbounds i8, ptr %0, i64 68
-  %46 = getelementptr inbounds i8, ptr %0, i64 128
-  %47 = load i32, ptr %45, align 4
-  %48 = sitofp i32 %47 to float
-  %49 = getelementptr inbounds i8, ptr %0, i64 72
-  %50 = load i32, ptr %49, align 4
-  %51 = sitofp i32 %50 to float
-  %52 = fmul float %4, %51
-  %53 = fadd float %52, %48
-  %54 = tail call float @llvm.fmuladd.f32(float %48, float 0.000000e+00, float %51)
-  %55 = getelementptr inbounds i8, ptr %0, i64 76
-  %56 = getelementptr inbounds i8, ptr %0, i64 84
-  %57 = load <2 x i32>, ptr %56, align 4
-  %58 = sitofp <2 x i32> %57 to <2 x float>
-  %59 = fptosi <2 x float> %58 to <2 x i32>
-  %60 = load <2 x i32>, ptr %55, align 4
-  %61 = sitofp <2 x i32> %60 to <2 x float>
-  %62 = fadd <2 x float> %61, %58
-  %63 = fptosi <2 x float> %62 to <2 x i32>
-  %64 = sitofp <2 x i32> %63 to <2 x float>
-  %65 = extractelement <2 x float> %64, i64 0
-  %66 = extractelement <2 x float> %64, i64 1
-  %67 = fadd float %65, %66
-  %68 = tail call float @llvm.fmuladd.f32(float %65, float 0.000000e+00, float %66)
-  %69 = sitofp <2 x i32> %59 to <2 x float>
-  %70 = extractelement <2 x float> %69, i64 0
-  %71 = extractelement <2 x float> %69, i64 1
-  %72 = fadd float %70, %71
-  %73 = tail call float @llvm.fmuladd.f32(float %70, float 0.000000e+00, float %71)
-  %74 = getelementptr inbounds i8, ptr %0, i64 112
-  %75 = getelementptr inbounds i8, ptr %0, i64 92
-  %76 = insertelement <2 x float> poison, float %53, i64 0
-  %77 = insertelement <2 x float> %76, float %54, i64 1
-  %78 = fptosi <2 x float> %77 to <2 x i32>
-  store <2 x i32> %78, ptr %46, align 4
-  store <2 x i32> %78, ptr %45, align 4
-  %79 = insertelement <4 x float> poison, float %67, i64 0
-  %80 = insertelement <4 x float> %79, float %68, i64 1
-  %81 = insertelement <4 x float> %80, float %72, i64 2
-  %82 = insertelement <4 x float> %81, float %73, i64 3
-  %83 = fptosi <4 x float> %82 to <4 x i32>
-  %84 = load <4 x i32>, ptr %75, align 4
-  %85 = add nsw <4 x i32> %84, %83
-  store <4 x i32> %85, ptr %74, align 4
-  store <4 x i32> %85, ptr %55, align 4
-  %86 = getelementptr inbounds i8, ptr %0, i64 136
-  %87 = getelementptr inbounds i8, ptr %0, i64 196
-  %88 = load i32, ptr %86, align 4
-  %89 = sitofp i32 %88 to float
-  %90 = getelementptr inbounds i8, ptr %0, i64 140
-  %91 = load i32, ptr %90, align 4
-  %92 = sitofp i32 %91 to float
-  %93 = tail call float @llvm.copysign.f32(float 0.000000e+00, float %92)
-  %94 = fadd float %93, %89
-  %95 = tail call float @llvm.fmuladd.f32(float %89, float 0.000000e+00, float %92)
-  %96 = getelementptr inbounds i8, ptr %0, i64 144
-  %97 = getelementptr inbounds i8, ptr %0, i64 152
-  %98 = load <2 x i32>, ptr %97, align 4
-  %99 = sitofp <2 x i32> %98 to <2 x float>
-  %100 = fptosi <2 x float> %99 to <2 x i32>
-  %101 = load <2 x i32>, ptr %96, align 4
-  %102 = sitofp <2 x i32> %101 to <2 x float>
-  %103 = fadd <2 x float> %102, %99
-  %104 = fptosi <2 x float> %103 to <2 x i32>
-  %105 = sitofp <2 x i32> %104 to <2 x float>
-  %106 = extractelement <2 x float> %105, i64 0
-  %107 = extractelement <2 x float> %105, i64 1
-  %108 = fadd float %106, %107
-  %109 = tail call float @llvm.fmuladd.f32(float %106, float 0.000000e+00, float %107)
-  %110 = sitofp <2 x i32> %100 to <2 x float>
-  %111 = extractelement <2 x float> %110, i64 0
-  %112 = extractelement <2 x float> %110, i64 1
-  %113 = fadd float %111, %112
-  %114 = tail call float @llvm.fmuladd.f32(float %111, float 0.000000e+00, float %112)
-  %115 = getelementptr inbounds i8, ptr %0, i64 180
-  %116 = getelementptr inbounds i8, ptr %0, i64 160
-  %117 = insertelement <2 x float> poison, float %94, i64 0
-  %118 = insertelement <2 x float> %117, float %95, i64 1
-  %119 = fptosi <2 x float> %118 to <2 x i32>
-  store <2 x i32> %119, ptr %87, align 4
-  store <2 x i32> %119, ptr %86, align 4
-  %120 = insertelement <4 x float> poison, float %108, i64 0
-  %121 = insertelement <4 x float> %120, float %109, i64 1
-  %122 = insertelement <4 x float> %121, float %113, i64 2
-  %123 = insertelement <4 x float> %122, float %114, i64 3
-  %124 = fptosi <4 x float> %123 to <4 x i32>
-  %125 = load <4 x i32>, ptr %116, align 4
-  %126 = add nsw <4 x i32> %125, %124
-  store <4 x i32> %126, ptr %115, align 4
-  store <4 x i32> %126, ptr %96, align 4
-  %127 = getelementptr inbounds i8, ptr %0, i64 204
-  %128 = getelementptr inbounds i8, ptr %0, i64 264
-  %129 = load i32, ptr %127, align 4
-  %130 = sitofp i32 %129 to float
-  %131 = getelementptr inbounds i8, ptr %0, i64 208
-  %132 = load i32, ptr %131, align 4
-  %133 = sitofp i32 %132 to float
-  %134 = tail call float @llvm.copysign.f32(float 0.000000e+00, float %133)
-  %135 = fadd float %134, %130
-  %136 = tail call float @llvm.fmuladd.f32(float %130, float 0.000000e+00, float %133)
-  %137 = getelementptr inbounds i8, ptr %0, i64 212
-  %138 = getelementptr inbounds i8, ptr %0, i64 220
-  %139 = load <2 x i32>, ptr %138, align 4
-  %140 = sitofp <2 x i32> %139 to <2 x float>
-  %141 = fptosi <2 x float> %140 to <2 x i32>
-  %142 = load <2 x i32>, ptr %137, align 4
-  %143 = sitofp <2 x i32> %142 to <2 x float>
-  %144 = fadd <2 x float> %143, %140
-  %145 = fptosi <2 x float> %144 to <2 x i32>
-  %146 = sitofp <2 x i32> %145 to <2 x float>
-  %147 = extractelement <2 x float> %146, i64 0
-  %148 = extractelement <2 x float> %146, i64 1
-  %149 = fadd float %147, %148
-  %150 = tail call float @llvm.fmuladd.f32(float %147, float 0.000000e+00, float %148)
-  %151 = sitofp <2 x i32> %141 to <2 x float>
-  %152 = extractelement <2 x float> %151, i64 0
-  %153 = extractelement <2 x float> %151, i64 1
-  %154 = fadd float %152, %153
-  %155 = tail call float @llvm.fmuladd.f32(float %152, float 0.000000e+00, float %153)
-  %156 = getelementptr inbounds i8, ptr %0, i64 248
-  %157 = getelementptr inbounds i8, ptr %0, i64 228
-  %158 = insertelement <2 x float> poison, float %135, i64 0
-  %159 = insertelement <2 x float> %158, float %136, i64 1
-  %160 = fptosi <2 x float> %159 to <2 x i32>
-  store <2 x i32> %160, ptr %128, align 4
-  store <2 x i32> %160, ptr %127, align 4
-  %161 = insertelement <4 x float> poison, float %149, i64 0
-  %162 = insertelement <4 x float> %161, float %150, i64 1
-  %163 = insertelement <4 x float> %162, float %154, i64 2
-  %164 = insertelement <4 x float> %163, float %155, i64 3
-  %165 = fptosi <4 x float> %164 to <4 x i32>
-  %166 = load <4 x i32>, ptr %157, align 4
-  %167 = add nsw <4 x i32> %166, %165
-  store <4 x i32> %167, ptr %156, align 4
-  store <4 x i32> %167, ptr %137, align 4
-  %168 = extractelement <2 x i32> %37, i64 0
-  %169 = ashr i32 %168, 4
-  %170 = load i32, ptr %46, align 4
-  %171 = ashr i32 %170, 4
-  %172 = load i32, ptr %87, align 4
-  %173 = ashr i32 %172, 4
-  %174 = extractelement <2 x i32> %160, i64 0
-  %175 = ashr i32 %174, 4
-  %176 = sub nsw i32 %169, %173
-  %177 = sub nsw i32 %171, %175
-  %178 = shl nsw i32 %173, 1
+  %39 = insertelement <4 x float> poison, float %26, i64 0
+  %40 = insertelement <4 x float> %39, float %27, i64 1
+  %41 = insertelement <4 x float> %40, float %31, i64 2
+  %42 = insertelement <4 x float> %41, float %32, i64 3
+  %43 = fptosi <4 x float> %42 to <4 x i32>
+  %44 = load <4 x i32>, ptr %34, align 4
+  %45 = add nsw <4 x i32> %44, %43
+  store <4 x i32> %45, ptr %33, align 4
+  store <4 x i32> %45, ptr %14, align 4
+  %46 = getelementptr inbounds i8, ptr %0, i64 68
+  %47 = getelementptr inbounds i8, ptr %0, i64 128
+  %48 = load i32, ptr %46, align 4
+  %49 = sitofp i32 %48 to float
+  %50 = getelementptr inbounds i8, ptr %0, i64 72
+  %51 = load i32, ptr %50, align 4
+  %52 = sitofp i32 %51 to float
+  %53 = fmul float %4, %52
+  %54 = fadd float %53, %49
+  %55 = tail call float @llvm.fmuladd.f32(float %49, float 0.000000e+00, float %52)
+  %56 = getelementptr inbounds i8, ptr %0, i64 76
+  %57 = getelementptr inbounds i8, ptr %0, i64 84
+  %58 = load <2 x i32>, ptr %57, align 4
+  %59 = sitofp <2 x i32> %58 to <2 x float>
+  %60 = fptosi <2 x float> %59 to <2 x i32>
+  %61 = load <2 x i32>, ptr %56, align 4
+  %62 = sitofp <2 x i32> %61 to <2 x float>
+  %63 = fadd <2 x float> %62, %59
+  %64 = fptosi <2 x float> %63 to <2 x i32>
+  %65 = sitofp <2 x i32> %64 to <2 x float>
+  %66 = extractelement <2 x float> %65, i64 0
+  %67 = extractelement <2 x float> %65, i64 1
+  %68 = fadd float %66, %67
+  %69 = tail call float @llvm.fmuladd.f32(float %66, float 0.000000e+00, float %67)
+  %70 = sitofp <2 x i32> %60 to <2 x float>
+  %71 = extractelement <2 x float> %70, i64 0
+  %72 = extractelement <2 x float> %70, i64 1
+  %73 = fadd float %71, %72
+  %74 = tail call float @llvm.fmuladd.f32(float %71, float 0.000000e+00, float %72)
+  %75 = getelementptr inbounds i8, ptr %0, i64 112
+  %76 = getelementptr inbounds i8, ptr %0, i64 92
+  %77 = insertelement <2 x float> poison, float %54, i64 0
+  %78 = insertelement <2 x float> %77, float %55, i64 1
+  %79 = fptosi <2 x float> %78 to <2 x i32>
+  store <2 x i32> %79, ptr %47, align 4
+  store <2 x i32> %79, ptr %46, align 4
+  %80 = insertelement <4 x float> poison, float %68, i64 0
+  %81 = insertelement <4 x float> %80, float %69, i64 1
+  %82 = insertelement <4 x float> %81, float %73, i64 2
+  %83 = insertelement <4 x float> %82, float %74, i64 3
+  %84 = fptosi <4 x float> %83 to <4 x i32>
+  %85 = load <4 x i32>, ptr %76, align 4
+  %86 = add nsw <4 x i32> %85, %84
+  store <4 x i32> %86, ptr %75, align 4
+  store <4 x i32> %86, ptr %56, align 4
+  %87 = getelementptr inbounds i8, ptr %0, i64 136
+  %88 = getelementptr inbounds i8, ptr %0, i64 196
+  %89 = load i32, ptr %87, align 4
+  %90 = sitofp i32 %89 to float
+  %91 = getelementptr inbounds i8, ptr %0, i64 140
+  %92 = load i32, ptr %91, align 4
+  %93 = sitofp i32 %92 to float
+  %94 = tail call float @llvm.copysign.f32(float 0.000000e+00, float %93)
+  %95 = fadd float %94, %90
+  %96 = tail call float @llvm.fmuladd.f32(float %90, float 0.000000e+00, float %93)
+  %97 = getelementptr inbounds i8, ptr %0, i64 144
+  %98 = getelementptr inbounds i8, ptr %0, i64 152
+  %99 = load <2 x i32>, ptr %98, align 4
+  %100 = sitofp <2 x i32> %99 to <2 x float>
+  %101 = fptosi <2 x float> %100 to <2 x i32>
+  %102 = load <2 x i32>, ptr %97, align 4
+  %103 = sitofp <2 x i32> %102 to <2 x float>
+  %104 = fadd <2 x float> %103, %100
+  %105 = fptosi <2 x float> %104 to <2 x i32>
+  %106 = sitofp <2 x i32> %105 to <2 x float>
+  %107 = extractelement <2 x float> %106, i64 0
+  %108 = extractelement <2 x float> %106, i64 1
+  %109 = fadd float %107, %108
+  %110 = tail call float @llvm.fmuladd.f32(float %107, float 0.000000e+00, float %108)
+  %111 = sitofp <2 x i32> %101 to <2 x float>
+  %112 = extractelement <2 x float> %111, i64 0
+  %113 = extractelement <2 x float> %111, i64 1
+  %114 = fadd float %112, %113
+  %115 = tail call float @llvm.fmuladd.f32(float %112, float 0.000000e+00, float %113)
+  %116 = getelementptr inbounds i8, ptr %0, i64 180
+  %117 = getelementptr inbounds i8, ptr %0, i64 160
+  %118 = insertelement <2 x float> poison, float %95, i64 0
+  %119 = insertelement <2 x float> %118, float %96, i64 1
+  %120 = fptosi <2 x float> %119 to <2 x i32>
+  store <2 x i32> %120, ptr %88, align 4
+  store <2 x i32> %120, ptr %87, align 4
+  %121 = insertelement <4 x float> poison, float %109, i64 0
+  %122 = insertelement <4 x float> %121, float %110, i64 1
+  %123 = insertelement <4 x float> %122, float %114, i64 2
+  %124 = insertelement <4 x float> %123, float %115, i64 3
+  %125 = fptosi <4 x float> %124 to <4 x i32>
+  %126 = load <4 x i32>, ptr %117, align 4
+  %127 = add nsw <4 x i32> %126, %125
+  store <4 x i32> %127, ptr %116, align 4
+  store <4 x i32> %127, ptr %97, align 4
+  %128 = getelementptr inbounds i8, ptr %0, i64 204
+  %129 = getelementptr inbounds i8, ptr %0, i64 264
+  %130 = load i32, ptr %128, align 4
+  %131 = sitofp i32 %130 to float
+  %132 = getelementptr inbounds i8, ptr %0, i64 208
+  %133 = load i32, ptr %132, align 4
+  %134 = sitofp i32 %133 to float
+  %135 = tail call float @llvm.copysign.f32(float 0.000000e+00, float %134)
+  %136 = fadd float %135, %131
+  %137 = tail call float @llvm.fmuladd.f32(float %131, float 0.000000e+00, float %134)
+  %138 = getelementptr inbounds i8, ptr %0, i64 212
+  %139 = getelementptr inbounds i8, ptr %0, i64 220
+  %140 = load <2 x i32>, ptr %139, align 4
+  %141 = sitofp <2 x i32> %140 to <2 x float>
+  %142 = fptosi <2 x float> %141 to <2 x i32>
+  %143 = load <2 x i32>, ptr %138, align 4
+  %144 = sitofp <2 x i32> %143 to <2 x float>
+  %145 = fadd <2 x float> %144, %141
+  %146 = fptosi <2 x float> %145 to <2 x i32>
+  %147 = sitofp <2 x i32> %146 to <2 x float>
+  %148 = extractelement <2 x float> %147, i64 0
+  %149 = extractelement <2 x float> %147, i64 1
+  %150 = fadd float %148, %149
+  %151 = tail call float @llvm.fmuladd.f32(float %148, float 0.000000e+00, float %149)
+  %152 = sitofp <2 x i32> %142 to <2 x float>
+  %153 = extractelement <2 x float> %152, i64 0
+  %154 = extractelement <2 x float> %152, i64 1
+  %155 = fadd float %153, %154
+  %156 = tail call float @llvm.fmuladd.f32(float %153, float 0.000000e+00, float %154)
+  %157 = getelementptr inbounds i8, ptr %0, i64 248
+  %158 = getelementptr inbounds i8, ptr %0, i64 228
+  %159 = insertelement <2 x float> poison, float %136, i64 0
+  %160 = insertelement <2 x float> %159, float %137, i64 1
+  %161 = fptosi <2 x float> %160 to <2 x i32>
+  %162 = extractelement <2 x i32> %161, i64 0
+  store <2 x i32> %161, ptr %129, align 4
+  store <2 x i32> %161, ptr %128, align 4
+  %163 = insertelement <4 x float> poison, float %150, i64 0
+  %164 = insertelement <4 x float> %163, float %151, i64 1
+  %165 = insertelement <4 x float> %164, float %155, i64 2
+  %166 = insertelement <4 x float> %165, float %156, i64 3
+  %167 = fptosi <4 x float> %166 to <4 x i32>
+  %168 = load <4 x i32>, ptr %158, align 4
+  %169 = add nsw <4 x i32> %168, %167
+  store <4 x i32> %169, ptr %157, align 4
+  store <4 x i32> %169, ptr %138, align 4
+  %170 = ashr i32 %38, 4
+  %171 = load i32, ptr %47, align 4
+  %172 = ashr i32 %171, 4
+  %173 = load i32, ptr %88, align 4
+  %174 = ashr i32 %173, 4
+  %175 = ashr i32 %162, 4
+  %176 = sub nsw i32 %170, %174
+  %177 = sub nsw i32 %172, %175
+  %178 = shl nsw i32 %174, 1
   %179 = shl nsw i32 %175, 1
   %180 = sitofp i32 %176 to float
   %181 = sitofp i32 %177 to float
@@ -637,7 +637,7 @@ define hidden { <2 x float>, <2 x float> } @_ZN3vas20KalmanFilterNoOpencv7Correc
   %239 = getelementptr inbounds i8, ptr %0, i64 48
   %240 = load i32, ptr %239, align 4
   %241 = load <2 x i32>, ptr %230, align 4
-  %242 = extractelement <2 x i32> %241, i64 0
+  %242 = load i32, ptr %230, align 4
   %243 = mul nsw i32 %242, %229
   %244 = sdiv i32 %243, %226
   %245 = add nsw i32 %244, %235
@@ -696,7 +696,7 @@ _ZN3vas20KalmanFilterNoOpencv30kalmanfilter1d32i_update_phaseEPNS0_17kalmanfilte
   %285 = getelementptr inbounds i8, ptr %0, i64 116
   %286 = load i32, ptr %285, align 4
   %287 = load <2 x i32>, ptr %276, align 4
-  %288 = extractelement <2 x i32> %287, i64 0
+  %288 = load i32, ptr %276, align 4
   %289 = mul nsw i32 %288, %275
   %290 = sdiv i32 %289, %272
   %291 = add nsw i32 %290, %281
@@ -756,7 +756,7 @@ _ZN3vas20KalmanFilterNoOpencv30kalmanfilter1d32i_update_phaseEPNS0_17kalmanfilte
   %332 = getelementptr inbounds i8, ptr %0, i64 184
   %333 = load i32, ptr %332, align 4
   %334 = load <2 x i32>, ptr %323, align 4
-  %335 = extractelement <2 x i32> %334, i64 0
+  %335 = load i32, ptr %323, align 4
   %336 = mul nsw i32 %335, %322
   %337 = sdiv i32 %336, %319
   %338 = add nsw i32 %337, %328
@@ -816,7 +816,7 @@ _ZN3vas20KalmanFilterNoOpencv30kalmanfilter1d32i_update_phaseEPNS0_17kalmanfilte
   %379 = getelementptr inbounds i8, ptr %0, i64 252
   %380 = load i32, ptr %379, align 4
   %381 = load <2 x i32>, ptr %370, align 4
-  %382 = extractelement <2 x i32> %381, i64 0
+  %382 = load i32, ptr %370, align 4
   %383 = mul nsw i32 %382, %369
   %384 = sdiv i32 %383, %366
   %385 = add nsw i32 %384, %375
@@ -897,7 +897,7 @@ define hidden void @_ZN3vas20KalmanFilterNoOpencv30kalmanfilter1d32i_update_phas
   %26 = getelementptr inbounds i8, ptr %1, i64 48
   %27 = load i32, ptr %26, align 4
   %28 = load <2 x i32>, ptr %17, align 4
-  %29 = extractelement <2 x i32> %28, i64 0
+  %29 = load i32, ptr %17, align 4
   %30 = mul nsw i32 %29, %16
   %31 = sdiv i32 %30, %13
   %32 = add nsw i32 %31, %22

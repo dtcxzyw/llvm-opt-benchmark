@@ -2112,17 +2112,15 @@ land.lhs.true.for.inc_crit_edge:                  ; preds = %land.lhs.true
   br label %for.inc
 
 if.then:                                          ; preds = %land.lhs.true
-  %5 = load ptr, ptr %it.sroa.0.09, align 8
-  store ptr %5, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %it.sroa.0.09, i64 8
-  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %6, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %6 = load <2 x ptr>, ptr %it.sroa.0.09, align 8
+  store <2 x ptr> %6, ptr %agg.result, align 8
+  %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

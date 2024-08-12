@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_cmp_calc_protection(ptr noundef readonly %ctx, ptr noundef readonly %msg) local_unnamed_addr #0 {
 entry:
-  %prot_part = alloca %struct.ossl_cmp_protectedpart_st, align 8
+  %prot_part = alloca %struct.ossl_cmp_protectedpart_st, align 16
   %algorOID = alloca ptr, align 8
   %ppval = alloca ptr, align 8
   %pptype = alloca i32, align 4
@@ -39,13 +39,10 @@ entry:
   br i1 %0, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %msg, align 8
-  store ptr %1, ptr %prot_part, align 8
-  %body = getelementptr inbounds i8, ptr %msg, i64 8
-  %2 = load ptr, ptr %body, align 8
-  %body5 = getelementptr inbounds i8, ptr %prot_part, i64 8
-  store ptr %2, ptr %body5, align 8
-  %protectionAlg = getelementptr inbounds i8, ptr %1, i64 32
+  %1 = load <2 x ptr>, ptr %msg, align 8
+  %2 = load ptr, ptr %msg, align 8
+  store <2 x ptr> %1, ptr %prot_part, align 16
+  %protectionAlg = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %protectionAlg, align 8
   %cmp7 = icmp eq ptr %3, null
   br i1 %cmp7, label %if.then9, label %if.end10

@@ -2343,9 +2343,9 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev21GradingRGBCurveOpData8setSlopeENS_12RGBCurveTypeEmf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, i32 noundef %c, i64 noundef %index, float noundef %slope) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %rgbcurve = alloca %"class.std::shared_ptr.27", align 8
+  %rgbcurve = alloca %"class.std::shared_ptr.27", align 16
   %curve = alloca %"class.std::shared_ptr.0", align 8
-  %ref.tmp = alloca %"class.std::shared_ptr.24", align 8
+  %ref.tmp = alloca %"class.std::shared_ptr.24", align 16
   %m_value = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %m_value, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -2356,7 +2356,7 @@ entry:
   %vtable4 = load ptr, ptr %2, align 8
   %3 = load ptr, ptr %vtable4, align 8
   call void %3(ptr nonnull sret(%"class.std::shared_ptr.27") align 8 %rgbcurve, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %4 = load ptr, ptr %rgbcurve, align 8
+  %4 = load ptr, ptr %rgbcurve, align 16
   %vtable7 = load ptr, ptr %4, align 8
   %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 32
   %5 = load ptr, ptr %vfn8, align 8
@@ -2373,17 +2373,16 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont13:                                    ; preds = %invoke.cont
   %8 = load ptr, ptr %m_value, align 8
-  %9 = load ptr, ptr %rgbcurve, align 8
-  store ptr %9, ptr %ref.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %rgbcurve, i64 8
-  %10 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %10, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %10 = load <2 x ptr>, ptr %rgbcurve, align 16
+  store <2 x ptr> %10, ptr %ref.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev15GradingRGBCurveEEC2IS1_vEERKS_IT_E.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont13
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -2773,17 +2772,15 @@ entry:
 define hidden void @_ZNK19OpenColorIO_v2_4dev21GradingRGBCurveOpData18getDynamicPropertyEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.41") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_value = getelementptr inbounds i8, ptr %this, i64 176
-  %0 = load ptr, ptr %m_value, align 8
-  store ptr %0, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 184
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %m_value, align 8
+  store <2 x ptr> %1, ptr %agg.result, align 8
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEEC2INS0_34DynamicPropertyGradingRGBCurveImplEvEERKS_IT_E.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

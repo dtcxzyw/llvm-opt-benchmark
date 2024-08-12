@@ -2003,10 +2003,10 @@ call.i.i2.i.i.noexc:                              ; preds = %invoke.cont179
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %call180, i64 88
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %call180, i64 96
   %128 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %129 = load ptr, ptr %_M_manager3.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN7rocksdb6StatusEmEZNS0_12ReplayerImpl6ReplayERKNS0_13ReplayOptionsERKSt8functionIFvS1_OSt10unique_ptrINS0_17TraceRecordResultESt14default_deleteIS9_EEEEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %_M_manager3.i.i, align 8
   store <2 x ptr> %128, ptr %_M_manager.i.i.i363, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN7rocksdb6StatusEmEZNS0_12ReplayerImpl6ReplayERKNS0_13ReplayOptionsERKSt8functionIFvS1_OSt10unique_ptrINS0_17TraceRecordResultESt14default_deleteIS9_EEEEE3$_0E9_M_invokeERKSt9_Any_dataOS1_Om", ptr %_M_invoker4.i.i, align 8
-  %129 = extractelement <2 x ptr> %128, i64 0
   %tobool.not.i.i.i364 = icmp eq ptr %129, null
   br i1 %tobool.not.i.i.i364, label %invoke.cont190, label %if.then.i.i.i
 
@@ -2065,9 +2065,9 @@ _ZNSt8functionIFvN7rocksdb6StatusEOSt10unique_ptrINS0_17TraceRecordResultESt14de
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i366)
   %_M_manager3.i.i375 = getelementptr inbounds i8, ptr %call180, i64 120
   %139 = load <2 x ptr>, ptr %_M_manager3.i.i375, align 8
+  %140 = load ptr, ptr %_M_manager3.i.i375, align 8
   store <2 x ptr> %139, ptr %_M_manager.i.i.i368, align 8
   store <2 x ptr> %138, ptr %_M_manager3.i.i375, align 8
-  %140 = extractelement <2 x ptr> %139, i64 0
   %tobool.not.i.i4.i = icmp eq ptr %140, null
   br i1 %tobool.not.i.i4.i, label %invoke.cont193, label %if.then.i.i5.i
 

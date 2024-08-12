@@ -26186,10 +26186,10 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %14,
   store i32 2, ptr %40, align 4, !alias.scope !6031, !noalias !6024
   %.sroa.486.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 68
   %41 = load <2 x i32>, ptr %1, align 4
-  %42 = extractelement <2 x i32> %41, i64 0
-  %43 = icmp eq i32 %42, 3
-  %.sroa.689.0 = select i1 %43, i32 2, i32 %spec.select
-  %.sroa.8.0 = select i1 %43, i64 undef, i64 %.sroa.719.0.copyload
+  %.sroa.015.0.copyload = load i32, ptr %1, align 4
+  %42 = icmp eq i32 %.sroa.015.0.copyload, 3
+  %.sroa.689.0 = select i1 %42, i32 2, i32 %spec.select
+  %.sroa.8.0 = select i1 %42, i64 undef, i64 %.sroa.719.0.copyload
   store <2 x i32> %41, ptr %.sroa.486.0..sroa_idx, align 4, !alias.scope !6031, !noalias !6024
   %.sroa.689.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 84
   store i32 %.sroa.689.0, ptr %.sroa.689.0..sroa_idx, align 4, !alias.scope !6031, !noalias !6024

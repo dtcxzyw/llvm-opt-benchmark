@@ -239,7 +239,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
 "_ZN83_$LT$std..collections..hash..map..RandomState$u20$as$u20$core..default..Default$GT$7default17he78768643dcb53d6E.exit.i.i.i.i.i": ; preds = %.noexc8, %50
   %.0.i.i2.i.i.i.i.i.i.i = phi ptr [ %53, %.noexc8 ], [ getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h218b265774f30ad5E, i64 8), %50 ]
   %56 = load <2 x i64>, ptr %.0.i.i2.i.i.i.i.i.i.i, align 8, !noalias !70
-  %57 = extractelement <2 x i64> %56, i64 0
+  %57 = load i64, ptr %.0.i.i2.i.i.i.i.i.i.i, align 8, !noalias !70, !noundef !9
   %58 = add i64 %57, 1
   store i64 %58, ptr %.0.i.i2.i.i.i.i.i.i.i, align 8, !noalias !70
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25), !noalias !60

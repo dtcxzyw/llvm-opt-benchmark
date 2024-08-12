@@ -2264,16 +2264,16 @@ if.then4:                                         ; preds = %if.then
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !44
   %15 = load <2 x ptr>, ptr %agg.tmp.i.i, align 16, !noalias !50
   %_M_last4.i.i34.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
-  %16 = load ptr, ptr %_M_last4.i.i34.i.i, align 16, !noalias !50
   %_M_node5.i.i36.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 24
-  %17 = load ptr, ptr %_M_node5.i.i36.i.i, align 8, !noalias !50
+  %16 = load ptr, ptr %_M_node5.i.i36.i.i, align 8, !noalias !50
+  %17 = load <2 x ptr>, ptr %_M_last4.i.i34.i.i, align 16, !noalias !50
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !41
   %18 = load ptr, ptr %_M_node.i.i, align 8
-  %cmp3.i.i = icmp ult ptr %17, %18
+  %cmp3.i.i = icmp ult ptr %16, %18
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE15_M_erase_at_endESt15_Deque_iteratorIS3_RS3_PS3_E.exit
 
 for.body.i.i:                                     ; preds = %if.then4, %for.body.i.i
-  %__n.04.i.pn.i = phi ptr [ %__n.04.i.i, %for.body.i.i ], [ %17, %if.then4 ]
+  %__n.04.i.pn.i = phi ptr [ %__n.04.i.i, %for.body.i.i ], [ %16, %if.then4 ]
   %__n.04.i.i = getelementptr inbounds i8, ptr %__n.04.i.pn.i, i64 8
   %19 = load ptr, ptr %__n.04.i.i, align 8
   call void @_ZdlPv(ptr noundef %19) #20
@@ -2283,8 +2283,7 @@ for.body.i.i:                                     ; preds = %if.then4, %for.body
 _ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE15_M_erase_at_endESt15_Deque_iteratorIS3_RS3_PS3_E.exit: ; preds = %for.body.i.i, %if.then4
   store <2 x ptr> %15, ptr %_M_finish.i, align 8
   %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr %16, ptr %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx, align 8
-  store ptr %17, ptr %_M_node.i.i, align 8
+  store <2 x ptr> %17, ptr %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx, align 8
   br label %if.end19
 
 if.else:                                          ; preds = %if.then

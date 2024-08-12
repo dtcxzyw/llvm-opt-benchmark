@@ -4960,12 +4960,12 @@ nomatch:                                          ; preds = %while.body, %if.els
 
 if.end53:                                         ; preds = %nomatch
   %17 = load <2 x i32>, ptr %key36, align 4
+  %18 = load i32, ptr %key36, align 4
   store <2 x i32> %17, ptr %tab, align 8
-  %18 = extractelement <2 x i32> %17, i64 0
   store i32 %18, ptr %val, align 8
   %19 = load <2 x i64>, ptr %keyv, align 8
+  %20 = load i64, ptr %keyv, align 8
   store <2 x i64> %19, ptr %ix, align 8
-  %20 = extractelement <2 x i64> %19, i64 0
   store i64 %20, ptr %valv, align 8
   %xor = xor i32 %op.addr.0, 3
   br label %while.body

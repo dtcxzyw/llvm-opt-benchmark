@@ -5795,7 +5795,6 @@ if.then96:                                        ; preds = %if.then80
   %flags.i.i = getelementptr inbounds i8, ptr %dp, i64 48
   %room_size_min.i = getelementptr inbounds i8, ptr %dp, i64 58
   %holesize.i = getelementptr inbounds i8, ptr %dp, i64 84
-  %Y.i8.i = getelementptr inbounds i8, ptr %dp, i64 86
   %Z.i9.i = getelementptr inbounds i8, ptr %dp, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(24) %room_size_min.i, i8 0, i64 24, i1 false)
   %26 = load i32, ptr %seed89, align 8, !tbaa !55
@@ -5867,12 +5866,12 @@ if.end141:                                        ; preds = %if.else, %if.then12
   %.sink463 = phi i64 [ 418, %if.else ], [ 420, %if.then120 ]
   %.sink461 = phi i8 [ 0, %if.else ], [ 1, %if.then120 ]
   %.sink460 = phi i16 [ 1, %if.else ], [ 2, %if.then120 ]
-  %.sink459 = phi i16 [ 2, %if.else ], [ 3, %if.then120 ]
   %.sink450 = phi i16 [ 8, %if.else ], [ 13, %if.then120 ]
   %.sink448 = phi i16 [ 16, %if.else ], [ 18, %if.then120 ]
-  %.sink447 = phi i16 [ 16, %if.else ], [ 21, %if.then120 ]
   %.sink = phi i32 [ 0, %if.else ], [ 1, %if.then120 ]
   %35 = phi <4 x i16> [ <i16 4, i16 4, i16 8, i16 6>, %if.else ], [ <i16 9, i16 6, i16 10, i16 11>, %if.then120 ]
+  %36 = phi <2 x i16> [ <i16 16, i16 16>, %if.else ], [ <i16 18, i16 21>, %if.then120 ]
+  %37 = phi <2 x i16> [ <i16 1, i16 2>, %if.else ], [ <i16 2, i16 3>, %if.then120 ]
   %c_alt_wall127 = getelementptr inbounds i8, ptr %dp, i64 6
   store i16 %.sink464, ptr %c_alt_wall127, align 2, !tbaa !185
   %c_stair_cobble = getelementptr inbounds i8, ptr %this, i64 %.sink463
@@ -5881,35 +5880,32 @@ if.end141:                                        ; preds = %if.else, %if.then12
   store i16 %.sink462, ptr %c_stair128, align 4, !tbaa !186
   %diagonal_dirs129 = getelementptr inbounds i8, ptr %dp, i64 94
   store i8 %.sink461, ptr %diagonal_dirs129, align 2, !tbaa !187
-  store i16 %.sink460, ptr %holesize.i, align 4, !tbaa !49
-  store i16 %.sink459, ptr %Y.i8.i, align 2, !tbaa !49
+  store <2 x i16> %37, ptr %holesize.i, align 4, !tbaa !49
   store i16 %.sink460, ptr %Z.i9.i, align 4, !tbaa !49
-  %36 = extractelement <4 x i16> %35, i64 1
-  store i16 %36, ptr %room_size_min.i, align 2, !tbaa !49
+  %38 = extractelement <4 x i16> %35, i64 1
+  store i16 %38, ptr %room_size_min.i, align 2, !tbaa !49
   %ref.tmp132.sroa.4.0.room_size_min133.sroa_idx = getelementptr inbounds i8, ptr %dp, i64 60
   store <4 x i16> %35, ptr %ref.tmp132.sroa.4.0.room_size_min133.sroa_idx, align 4, !tbaa !49
   %ref.tmp134.sroa.5.0.room_size_max135.sroa_idx = getelementptr inbounds i8, ptr %dp, i64 68
-  %37 = shufflevector <4 x i16> %35, <4 x i16> poison, <2 x i32> <i32 2, i32 poison>
-  %38 = insertelement <2 x i16> %37, i16 %.sink450, i64 1
-  %39 = shufflevector <2 x i16> %38, <2 x i16> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 0>
-  store <4 x i16> %39, ptr %ref.tmp134.sroa.5.0.room_size_max135.sroa_idx, align 4, !tbaa !49
+  %39 = shufflevector <4 x i16> %35, <4 x i16> poison, <2 x i32> <i32 2, i32 poison>
+  %40 = insertelement <2 x i16> %39, i16 %.sink450, i64 1
+  %41 = shufflevector <2 x i16> %40, <2 x i16> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 0>
+  store <4 x i16> %41, ptr %ref.tmp134.sroa.5.0.room_size_max135.sroa_idx, align 4, !tbaa !49
   %room_size_large_max139 = getelementptr inbounds i8, ptr %dp, i64 76
-  store i16 %.sink448, ptr %room_size_large_max139, align 4, !tbaa !49
-  %ref.tmp138.sroa.4.0.room_size_large_max139.sroa_idx = getelementptr inbounds i8, ptr %dp, i64 78
-  store i16 %.sink447, ptr %ref.tmp138.sroa.4.0.room_size_large_max139.sroa_idx, align 2, !tbaa !49
+  store <2 x i16> %36, ptr %room_size_large_max139, align 4, !tbaa !49
   %ref.tmp138.sroa.5.0.room_size_large_max139.sroa_idx = getelementptr inbounds i8, ptr %dp, i64 80
   store i16 %.sink448, ptr %ref.tmp138.sroa.5.0.room_size_large_max139.sroa_idx, align 4, !tbaa !49
   %notifytype140 = getelementptr inbounds i8, ptr %dp, i64 96
   store i32 %.sink, ptr %notifytype140, align 4, !tbaa !188
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %dgen) #26
-  %40 = load ptr, ptr %ndef, align 8, !tbaa !164
+  %42 = load ptr, ptr %ndef, align 8, !tbaa !164
   %gennotify = getelementptr inbounds i8, ptr %this, i64 96
-  call void @_ZN10DungeonGenC1EPK14NodeDefManagerP16GenerateNotifierP13DungeonParams(ptr noundef nonnull align 8 dereferenceable(152) %dgen, ptr noundef %40, ptr noundef nonnull %gennotify, ptr noundef nonnull %dp)
-  %41 = load ptr, ptr %vm, align 8, !tbaa !119
-  %42 = load i32, ptr %blockseed, align 8, !tbaa !167
+  call void @_ZN10DungeonGenC1EPK14NodeDefManagerP16GenerateNotifierP13DungeonParams(ptr noundef nonnull align 8 dereferenceable(152) %dgen, ptr noundef %42, ptr noundef nonnull %gennotify, ptr noundef nonnull %dp)
+  %43 = load ptr, ptr %vm, align 8, !tbaa !119
+  %44 = load i32, ptr %blockseed, align 8, !tbaa !167
   %agg.tmp145.sroa.0.0.copyload = load i48, ptr %full_node_min, align 4, !tbaa.struct !165
   %agg.tmp147.sroa.0.0.copyload = load i48, ptr %full_node_max, align 2, !tbaa.struct !165
-  call void @_ZN10DungeonGen8generateEP8MMVManipjN3irr4core8vector3dIsEES5_(ptr noundef nonnull align 8 dereferenceable(152) %dgen, ptr noundef %41, i32 noundef %42, i48 %agg.tmp145.sroa.0.0.copyload, i48 %agg.tmp147.sroa.0.0.copyload)
+  call void @_ZN10DungeonGen8generateEP8MMVManipjN3irr4core8vector3dIsEES5_(ptr noundef nonnull align 8 dereferenceable(152) %dgen, ptr noundef %43, i32 noundef %44, i48 %agg.tmp145.sroa.0.0.copyload, i48 %agg.tmp147.sroa.0.0.copyload)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %dgen) #26
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %dp) #26
   br label %if.end150
@@ -5920,8 +5916,8 @@ if.end150:                                        ; preds = %if.end141, %if.then
   %agg.tmp153.sroa.0.0.copyload = load i48, ptr %full_node_max, align 2, !tbaa.struct !165
   call void @_ZN6Mapgen12updateLiquidEP11UniqueQueueIN3irr4core8vector3dIsEEES4_S4_(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull %transforming_liquid, i48 %agg.tmp151.sroa.0.0.copyload, i48 %agg.tmp153.sroa.0.0.copyload)
   call void @_ZN8MapgenV69growGrassEv(ptr noundef nonnull align 8 dereferenceable(422) %this)
-  %43 = load i32, ptr %spflags, align 4, !tbaa !48
-  %and156 = and i32 %43, 32
+  %45 = load i32, ptr %spflags, align 4, !tbaa !48
+  %and156 = and i32 %45, 32
   %tobool157.not = icmp eq i32 %and156, 0
   br i1 %tobool157.not, label %if.end159, label %if.then158
 
@@ -5930,54 +5926,54 @@ if.then158:                                       ; preds = %if.end150
   br label %if.end159
 
 if.end159:                                        ; preds = %if.then158, %if.end150
-  %44 = load i32, ptr %flags, align 4, !tbaa !170
-  %and161 = and i32 %44, 32
+  %46 = load i32, ptr %flags, align 4, !tbaa !170
+  %and161 = and i32 %46, 32
   %tobool162.not = icmp eq i32 %and161, 0
   br i1 %tobool162.not, label %if.end170, label %if.then163
 
 if.then163:                                       ; preds = %if.end159
   %m_emerge = getelementptr inbounds i8, ptr %this, i64 40
-  %45 = load ptr, ptr %m_emerge, align 8, !tbaa !189
-  %decomgr = getelementptr inbounds i8, ptr %45, i64 56
-  %46 = load ptr, ptr %decomgr, align 8, !tbaa !190
-  %47 = load i32, ptr %blockseed, align 8, !tbaa !167
+  %47 = load ptr, ptr %m_emerge, align 8, !tbaa !189
+  %decomgr = getelementptr inbounds i8, ptr %47, i64 56
+  %48 = load ptr, ptr %decomgr, align 8, !tbaa !190
+  %49 = load i32, ptr %blockseed, align 8, !tbaa !167
   %agg.tmp165.sroa.0.0.copyload = load i48, ptr %node_min, align 8, !tbaa.struct !165
   %agg.tmp167.sroa.0.0.copyload = load i48, ptr %node_max, align 2, !tbaa.struct !165
-  %call169 = call noundef i64 @_ZN17DecorationManager13placeAllDecosEP6MapgenjN3irr4core8vector3dIsEES5_(ptr noundef nonnull align 8 dereferenceable(44) %46, ptr noundef nonnull %this, i32 noundef %47, i48 %agg.tmp165.sroa.0.0.copyload, i48 %agg.tmp167.sroa.0.0.copyload)
+  %call169 = call noundef i64 @_ZN17DecorationManager13placeAllDecosEP6MapgenjN3irr4core8vector3dIsEES5_(ptr noundef nonnull align 8 dereferenceable(44) %48, ptr noundef nonnull %this, i32 noundef %49, i48 %agg.tmp165.sroa.0.0.copyload, i48 %agg.tmp167.sroa.0.0.copyload)
   %.pre = load i32, ptr %flags, align 4, !tbaa !170
   br label %if.end170
 
 if.end170:                                        ; preds = %if.then163, %if.end159
-  %48 = phi i32 [ %.pre, %if.then163 ], [ %44, %if.end159 ]
-  %and172 = and i32 %48, 128
+  %50 = phi i32 [ %.pre, %if.then163 ], [ %46, %if.end159 ]
+  %and172 = and i32 %50, 128
   %tobool173.not = icmp eq i32 %and172, 0
   br i1 %tobool173.not, label %if.end182, label %if.then174
 
 if.then174:                                       ; preds = %if.end170
   %m_emerge175 = getelementptr inbounds i8, ptr %this, i64 40
-  %49 = load ptr, ptr %m_emerge175, align 8, !tbaa !189
-  %oremgr = getelementptr inbounds i8, ptr %49, i64 48
-  %50 = load ptr, ptr %oremgr, align 8, !tbaa !191
-  %51 = load i32, ptr %blockseed, align 8, !tbaa !167
+  %51 = load ptr, ptr %m_emerge175, align 8, !tbaa !189
+  %oremgr = getelementptr inbounds i8, ptr %51, i64 48
+  %52 = load ptr, ptr %oremgr, align 8, !tbaa !191
+  %53 = load i32, ptr %blockseed, align 8, !tbaa !167
   %agg.tmp177.sroa.0.0.copyload = load i48, ptr %node_min, align 8, !tbaa.struct !165
   %agg.tmp179.sroa.0.0.copyload = load i48, ptr %node_max, align 2, !tbaa.struct !165
-  %call181 = call noundef i64 @_ZN10OreManager12placeAllOresEP6MapgenjN3irr4core8vector3dIsEES5_(ptr noundef nonnull align 8 dereferenceable(44) %50, ptr noundef nonnull %this, i32 noundef %51, i48 %agg.tmp177.sroa.0.0.copyload, i48 %agg.tmp179.sroa.0.0.copyload)
+  %call181 = call noundef i64 @_ZN10OreManager12placeAllOresEP6MapgenjN3irr4core8vector3dIsEES5_(ptr noundef nonnull align 8 dereferenceable(44) %52, ptr noundef nonnull %this, i32 noundef %53, i48 %agg.tmp177.sroa.0.0.copyload, i48 %agg.tmp179.sroa.0.0.copyload)
   %.pre445 = load i32, ptr %flags, align 4, !tbaa !170
   br label %if.end182
 
 if.end182:                                        ; preds = %if.then174, %if.end170
-  %52 = phi i32 [ %.pre445, %if.then174 ], [ %48, %if.end170 ]
-  %and184 = and i32 %52, 16
+  %54 = phi i32 [ %.pre445, %if.then174 ], [ %50, %if.end170 ]
+  %and184 = and i32 %54, 16
   %tobool185.not = icmp eq i32 %and184, 0
   br i1 %tobool185.not, label %if.end207, label %if.then186
 
 if.then186:                                       ; preds = %if.end182
-  %53 = load i16, ptr %node_min, align 8, !tbaa !124
-  %sub.i392 = add i16 %53, -16
-  %54 = load i16, ptr %Y6.i316, align 2, !tbaa !192
-  %sub8.i395 = add i16 %54, -16
-  %55 = load i16, ptr %Z11.i319, align 4, !tbaa !193
-  %sub13.i398 = add i16 %55, -16
+  %55 = load i16, ptr %node_min, align 8, !tbaa !124
+  %sub.i392 = add i16 %55, -16
+  %56 = load i16, ptr %Y6.i316, align 2, !tbaa !192
+  %sub8.i395 = add i16 %56, -16
+  %57 = load i16, ptr %Z11.i319, align 4, !tbaa !193
+  %sub13.i398 = add i16 %57, -16
   %retval.sroa.3.0.insert.ext.i399 = zext i16 %sub13.i398 to i48
   %retval.sroa.3.0.insert.shift.i400 = shl nuw i48 %retval.sroa.3.0.insert.ext.i399, 32
   %retval.sroa.2.0.insert.ext.i401 = zext i16 %sub8.i395 to i48
@@ -5985,14 +5981,14 @@ if.then186:                                       ; preds = %if.end182
   %retval.sroa.2.0.insert.insert.i403 = or disjoint i48 %retval.sroa.3.0.insert.shift.i400, %retval.sroa.2.0.insert.shift.i402
   %retval.sroa.0.0.insert.ext.i404 = zext i16 %sub.i392 to i48
   %retval.sroa.0.0.insert.insert.i405 = or disjoint i48 %retval.sroa.2.0.insert.insert.i403, %retval.sroa.0.0.insert.ext.i404
-  %56 = load i16, ptr %node_max, align 2, !tbaa !124
-  %add.i420 = add i16 %56, 16
-  %57 = load i16, ptr %Y.i315, align 8, !tbaa !192
-  %58 = load i16, ptr %Z.i318, align 2, !tbaa !193
-  %add13.i426 = add i16 %58, 16
+  %58 = load i16, ptr %node_max, align 2, !tbaa !124
+  %add.i420 = add i16 %58, 16
+  %59 = load i16, ptr %Y.i315, align 8, !tbaa !192
+  %60 = load i16, ptr %Z.i318, align 2, !tbaa !193
+  %add13.i426 = add i16 %60, 16
   %retval.sroa.3.0.insert.ext.i427 = zext i16 %add13.i426 to i48
   %retval.sroa.3.0.insert.shift.i428 = shl nuw i48 %retval.sroa.3.0.insert.ext.i427, 32
-  %retval.sroa.2.0.insert.ext.i429 = zext i16 %57 to i48
+  %retval.sroa.2.0.insert.ext.i429 = zext i16 %59 to i48
   %retval.sroa.2.0.insert.shift.i430 = shl nuw nsw i48 %retval.sroa.2.0.insert.ext.i429, 16
   %retval.sroa.2.0.insert.insert.i431 = or disjoint i48 %retval.sroa.3.0.insert.shift.i428, %retval.sroa.2.0.insert.shift.i430
   %retval.sroa.0.0.insert.ext.i432 = zext i16 %add.i420 to i48

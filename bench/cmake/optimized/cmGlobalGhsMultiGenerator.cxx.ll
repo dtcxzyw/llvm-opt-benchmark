@@ -10116,7 +10116,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeI14cmTargetDependS0_St9_Identit
   %5 = tail call { ptr, ptr } @_ZNSt8_Rb_treeI14cmTargetDependS0_St9_IdentityIS0_EN25cmGlobalGhsMultiGenerator13TargetCompareESaIS0_EE28_M_get_insert_hint_equal_posESt23_Rb_tree_const_iteratorIS0_ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %6 = extractvalue { ptr, ptr } %5, 1
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %37, label %7
+  br i1 %.not, label %36, label %7
 
 7:                                                ; preds = %4
   %8 = extractvalue { ptr, ptr } %5, 0
@@ -10140,45 +10140,43 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeI14cmTargetDependS0_St9_Identit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %19, ptr noundef nonnull align 8 dereferenceable(11) %2, i64 11, i1 false)
   %20 = getelementptr inbounds i8, ptr %18, i64 48
   %21 = getelementptr inbounds i8, ptr %2, i64 16
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %18, i64 56
-  %24 = getelementptr inbounds i8, ptr %2, i64 24
-  %25 = load ptr, ptr %24, align 8
-  store ptr %25, ptr %23, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeI14cmTargetDependS0_St9_IdentityIS0_EN25cmGlobalGhsMultiGenerator13TargetCompareESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit, label %26
+  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  %23 = load ptr, ptr %22, align 8
+  %24 = load <2 x ptr>, ptr %21, align 8
+  store <2 x ptr> %24, ptr %20, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %23, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeI14cmTargetDependS0_St9_IdentityIS0_EN25cmGlobalGhsMultiGenerator13TargetCompareESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit, label %25
 
-26:                                               ; preds = %16
-  %27 = getelementptr inbounds i8, ptr %25, i64 8
-  %28 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %28, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %32, label %29
+25:                                               ; preds = %16
+  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %27 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %27, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %31, label %28
 
-29:                                               ; preds = %26
-  %30 = load i32, ptr %27, align 4
-  %31 = add nsw i32 %30, 1
-  store i32 %31, ptr %27, align 4
+28:                                               ; preds = %25
+  %29 = load i32, ptr %26, align 4
+  %30 = add nsw i32 %29, 1
+  store i32 %30, ptr %26, align 4
   br label %_ZNSt8_Rb_treeI14cmTargetDependS0_St9_IdentityIS0_EN25cmGlobalGhsMultiGenerator13TargetCompareESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit
 
-32:                                               ; preds = %26
-  %33 = atomicrmw volatile add ptr %27, i32 1 acq_rel, align 4
+31:                                               ; preds = %25
+  %32 = atomicrmw volatile add ptr %26, i32 1 acq_rel, align 4
   br label %_ZNSt8_Rb_treeI14cmTargetDependS0_St9_IdentityIS0_EN25cmGlobalGhsMultiGenerator13TargetCompareESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit
 
-_ZNSt8_Rb_treeI14cmTargetDependS0_St9_IdentityIS0_EN25cmGlobalGhsMultiGenerator13TargetCompareESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit: ; preds = %16, %29, %32
+_ZNSt8_Rb_treeI14cmTargetDependS0_St9_IdentityIS0_EN25cmGlobalGhsMultiGenerator13TargetCompareESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit: ; preds = %16, %28, %31
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %17, ptr noundef nonnull %18, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(32) %9) #20
-  %34 = getelementptr inbounds i8, ptr %0, i64 64
-  %35 = load i64, ptr %34, align 8
-  %36 = add i64 %35, 1
-  store i64 %36, ptr %34, align 8
-  br label %39
+  %33 = getelementptr inbounds i8, ptr %0, i64 64
+  %34 = load i64, ptr %33, align 8
+  %35 = add i64 %34, 1
+  store i64 %35, ptr %33, align 8
+  br label %38
 
-37:                                               ; preds = %4
-  %38 = tail call ptr @_ZNSt8_Rb_treeI14cmTargetDependS0_St9_IdentityIS0_EN25cmGlobalGhsMultiGenerator13TargetCompareESaIS0_EE21_M_insert_equal_lowerIRKS0_EESt17_Rb_tree_iteratorIS0_EOT_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  br label %39
+36:                                               ; preds = %4
+  %37 = tail call ptr @_ZNSt8_Rb_treeI14cmTargetDependS0_St9_IdentityIS0_EN25cmGlobalGhsMultiGenerator13TargetCompareESaIS0_EE21_M_insert_equal_lowerIRKS0_EESt17_Rb_tree_iteratorIS0_EOT_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  br label %38
 
-39:                                               ; preds = %37, %_ZNSt8_Rb_treeI14cmTargetDependS0_St9_IdentityIS0_EN25cmGlobalGhsMultiGenerator13TargetCompareESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit
-  %.sroa.08.0 = phi ptr [ %18, %_ZNSt8_Rb_treeI14cmTargetDependS0_St9_IdentityIS0_EN25cmGlobalGhsMultiGenerator13TargetCompareESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit ], [ %38, %37 ]
+38:                                               ; preds = %36, %_ZNSt8_Rb_treeI14cmTargetDependS0_St9_IdentityIS0_EN25cmGlobalGhsMultiGenerator13TargetCompareESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit
+  %.sroa.08.0 = phi ptr [ %18, %_ZNSt8_Rb_treeI14cmTargetDependS0_St9_IdentityIS0_EN25cmGlobalGhsMultiGenerator13TargetCompareESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit ], [ %37, %36 ]
   ret ptr %.sroa.08.0
 }
 
@@ -10342,37 +10340,35 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeI14cmTargetDependS0_St9_Identit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %18, ptr noundef nonnull align 8 dereferenceable(11) %1, i64 11, i1 false)
   %19 = getelementptr inbounds i8, ptr %17, i64 48
   %20 = getelementptr inbounds i8, ptr %1, i64 16
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 56
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
-  %24 = load ptr, ptr %23, align 8
-  store ptr %24, ptr %22, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeI14cmTargetDependS0_St9_IdentityIS0_EN25cmGlobalGhsMultiGenerator13TargetCompareESaIS0_EE15_M_insert_lowerIRKS0_EESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseOT_.exit, label %25
+  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = load ptr, ptr %21, align 8
+  %23 = load <2 x ptr>, ptr %20, align 8
+  store <2 x ptr> %23, ptr %19, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeI14cmTargetDependS0_St9_IdentityIS0_EN25cmGlobalGhsMultiGenerator13TargetCompareESaIS0_EE15_M_insert_lowerIRKS0_EESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseOT_.exit, label %24
 
-25:                                               ; preds = %._crit_edge.thread
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
-  %27 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %27, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %31, label %28
+24:                                               ; preds = %._crit_edge.thread
+  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %26 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %26, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %30, label %27
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr %26, align 4
-  %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %26, align 4
+27:                                               ; preds = %24
+  %28 = load i32, ptr %25, align 4
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %25, align 4
   br label %_ZNSt8_Rb_treeI14cmTargetDependS0_St9_IdentityIS0_EN25cmGlobalGhsMultiGenerator13TargetCompareESaIS0_EE15_M_insert_lowerIRKS0_EESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseOT_.exit
 
-31:                                               ; preds = %25
-  %32 = atomicrmw volatile add ptr %26, i32 1 acq_rel, align 4
+30:                                               ; preds = %24
+  %31 = atomicrmw volatile add ptr %25, i32 1 acq_rel, align 4
   br label %_ZNSt8_Rb_treeI14cmTargetDependS0_St9_IdentityIS0_EN25cmGlobalGhsMultiGenerator13TargetCompareESaIS0_EE15_M_insert_lowerIRKS0_EESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseOT_.exit
 
-_ZNSt8_Rb_treeI14cmTargetDependS0_St9_IdentityIS0_EN25cmGlobalGhsMultiGenerator13TargetCompareESaIS0_EE15_M_insert_lowerIRKS0_EESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseOT_.exit: ; preds = %._crit_edge.thread, %28, %31
+_ZNSt8_Rb_treeI14cmTargetDependS0_St9_IdentityIS0_EN25cmGlobalGhsMultiGenerator13TargetCompareESaIS0_EE15_M_insert_lowerIRKS0_EESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseOT_.exit: ; preds = %._crit_edge.thread, %27, %30
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %16, ptr noundef nonnull %17, ptr noundef nonnull %.0.lcssa14, ptr noundef nonnull align 8 dereferenceable(32) %4) #20
-  %33 = getelementptr inbounds i8, ptr %0, i64 64
-  %34 = load i64, ptr %33, align 8
-  %35 = add i64 %34, 1
-  store i64 %35, ptr %33, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 64
+  %33 = load i64, ptr %32, align 8
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %32, align 8
   ret ptr %17
 }
 

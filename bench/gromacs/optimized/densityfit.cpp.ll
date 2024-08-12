@@ -141,10 +141,10 @@ define void @_ZN3gmx24DensitySimilarityMeasureC2ENS_30DensitySimilarityMeasureMe
   %5 = alloca %"class.gmx::ExceptionInitializer", align 8
   %6 = alloca %"class.gmx::ExceptionInfo", align 8
   store ptr null, ptr %0, align 8
-  switch i32 %1, label %64 [
+  switch i32 %1, label %62 [
     i32 0, label %7
     i32 1, label %14
-    i32 2, label %39
+    i32 2, label %38
   ]
 
 7:                                                ; preds = %3
@@ -167,7 +167,7 @@ _ZSt11make_uniqueIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductEJRNS0_12bas
   %.not.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i, label %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductESt14default_deleteIS2_EED2Ev.exit, label %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductESt14default_deleteIS2_EED2Ev.exit.sink.split
 
-12:                                               ; preds = %39, %14, %7
+12:                                               ; preds = %38, %14, %7
   %13 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -177,6 +177,7 @@ _ZSt11make_uniqueIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductEJRNS0_12bas
           to label %.noexc14 unwind label %12
 
 .noexc14:                                         ; preds = %14
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.515.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 32
   %.sroa.515.0.copyload.i = load i64, ptr %.sroa.515.0..sroa_idx.i, align 8, !noalias !8
   %.sroa.616.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 40
@@ -184,6 +185,7 @@ _ZSt11make_uniqueIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductEJRNS0_12bas
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_132DensitySimilarityRelativeEntropyE, i64 16), ptr %15, align 8, !noalias !8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load <4 x i64>, ptr %2, align 8, !noalias !8
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !8
   store <4 x i64> %17, ptr %16, align 8, !noalias !8
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 40
   store i64 %.sroa.515.0.copyload.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !8
@@ -242,8 +244,7 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_s
 35:                                               ; preds = %.noexc.i.i.i, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i.i.i
   %36 = phi ptr [ %.pre74, %.noexc.i.i.i ], [ null, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i.i.i ]
   %37 = phi ptr [ %.pre.i.i.i.i, %.noexc.i.i.i ], [ null, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i.i.i ]
-  %38 = extractelement <4 x i64> %17, i64 1
-  store i64 %38, ptr %19, align 8, !noalias !8
+  store i64 %.sroa.2.0.copyload.i, ptr %19, align 8, !noalias !8
   %.sroa.01.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %15, i64 96
   store i64 %20, ptr %.sroa.01.i.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !8
   %.sroa.01.i.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %15, i64 104
@@ -256,169 +257,170 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_s
   %.not.i.i.i17 = icmp eq ptr %36, null
   br i1 %.not.i.i.i17, label %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductESt14default_deleteIS2_EED2Ev.exit, label %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductESt14default_deleteIS2_EED2Ev.exit.sink.split
 
-39:                                               ; preds = %3
-  %40 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #24
+38:                                               ; preds = %3
+  %39 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #24
           to label %.noexc51 unwind label %12
 
-.noexc51:                                         ; preds = %39
+.noexc51:                                         ; preds = %38
+  %.sroa.2.0..sroa_idx.i22 = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.515.0..sroa_idx.i28 = getelementptr inbounds i8, ptr %2, i64 32
   %.sroa.515.0.copyload.i29 = load i64, ptr %.sroa.515.0..sroa_idx.i28, align 8, !noalias !13
   %.sroa.616.0..sroa_idx.i30 = getelementptr inbounds i8, ptr %2, i64 40
   %.sroa.616.0.copyload.i31 = load ptr, ptr %.sroa.616.0..sroa_idx.i30, align 8, !noalias !13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_133DensitySimilarityCrossCorrelationE, i64 16), ptr %40, align 8, !noalias !13
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
-  %42 = load <4 x i64>, ptr %2, align 8, !noalias !13
-  store <4 x i64> %42, ptr %41, align 8, !noalias !13
-  %.sroa.7.0..sroa_idx.i35 = getelementptr inbounds i8, ptr %40, i64 40
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_133DensitySimilarityCrossCorrelationE, i64 16), ptr %39, align 8, !noalias !13
+  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = load <4 x i64>, ptr %2, align 8, !noalias !13
+  %.sroa.2.0.copyload.i23 = load i64, ptr %.sroa.2.0..sroa_idx.i22, align 8, !noalias !13
+  store <4 x i64> %41, ptr %40, align 8, !noalias !13
+  %.sroa.7.0..sroa_idx.i35 = getelementptr inbounds i8, ptr %39, i64 40
   store i64 %.sroa.515.0.copyload.i29, ptr %.sroa.7.0..sroa_idx.i35, align 8, !noalias !13
-  %.sroa.8.0..sroa_idx.i36 = getelementptr inbounds i8, ptr %40, i64 48
+  %.sroa.8.0..sroa_idx.i36 = getelementptr inbounds i8, ptr %39, i64 48
   store ptr %.sroa.616.0.copyload.i31, ptr %.sroa.8.0..sroa_idx.i36, align 8, !noalias !13
-  %43 = getelementptr inbounds i8, ptr %40, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false), !noalias !13
-  %44 = getelementptr inbounds i8, ptr %40, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %44, i8 0, i64 40, i1 false), !noalias !13
-  %45 = extractelement <4 x i64> %42, i64 2
-  %46 = extractelement <4 x i64> %42, i64 3
+  %42 = getelementptr inbounds i8, ptr %39, i64 56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false), !noalias !13
+  %43 = getelementptr inbounds i8, ptr %39, i64 88
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %43, i8 0, i64 40, i1 false), !noalias !13
+  %44 = extractelement <4 x i64> %41, i64 2
+  %45 = extractelement <4 x i64> %41, i64 3
   br label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i.i.i37
 
 _ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i.i.i37: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i.i.i37, %.noexc51
-  %.07.i.i.i.i.i38 = phi i64 [ 0, %.noexc51 ], [ %54, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i.i.i37 ]
-  %.056.i.i.i.i.i39 = phi i64 [ 1, %.noexc51 ], [ %53, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i.i.i37 ]
-  %47 = icmp eq i64 %.07.i.i.i.i.i38, 0
-  %48 = icmp eq i64 %.07.i.i.i.i.i38, 1
-  %49 = icmp eq i64 %.07.i.i.i.i.i38, 2
-  %50 = select i1 %49, i64 %45, i64 1
-  %51 = select i1 %48, i64 %46, i64 %50
-  %52 = select i1 %47, i64 %.sroa.515.0.copyload.i29, i64 %51
-  %53 = mul nsw i64 %52, %.056.i.i.i.i.i39
-  %54 = add nuw nsw i64 %.07.i.i.i.i.i38, 1
-  %exitcond.not.i.i.i.i.i40 = icmp eq i64 %54, 3
+  %.07.i.i.i.i.i38 = phi i64 [ 0, %.noexc51 ], [ %53, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i.i.i37 ]
+  %.056.i.i.i.i.i39 = phi i64 [ 1, %.noexc51 ], [ %52, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i.i.i37 ]
+  %46 = icmp eq i64 %.07.i.i.i.i.i38, 0
+  %47 = icmp eq i64 %.07.i.i.i.i.i38, 1
+  %48 = icmp eq i64 %.07.i.i.i.i.i38, 2
+  %49 = select i1 %48, i64 %44, i64 1
+  %50 = select i1 %47, i64 %45, i64 %49
+  %51 = select i1 %46, i64 %.sroa.515.0.copyload.i29, i64 %50
+  %52 = mul nsw i64 %51, %.056.i.i.i.i.i39
+  %53 = add nuw nsw i64 %.07.i.i.i.i.i38, 1
+  %exitcond.not.i.i.i.i.i40 = icmp eq i64 %53, 3
   br i1 %exitcond.not.i.i.i.i.i40, label %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i.i.i41, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i.i.i37, !llvm.loop !11
 
 _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i.i.i41: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i.i.i37
-  %.not.i.i.i42 = icmp eq i64 %53, 0
-  br i1 %.not.i.i.i42, label %60, label %55
+  %.not.i.i.i42 = icmp eq i64 %52, 0
+  br i1 %.not.i.i.i42, label %59, label %54
 
-55:                                               ; preds = %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i.i.i41
-  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %43, i64 noundef %53)
-          to label %.noexc.i.i.i45 unwind label %56, !noalias !13
+54:                                               ; preds = %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i.i.i41
+  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %42, i64 noundef %52)
+          to label %.noexc.i.i.i45 unwind label %55, !noalias !13
 
-.noexc.i.i.i45:                                   ; preds = %55
-  %.pre.i.i.i.i46 = load ptr, ptr %43, align 8, !noalias !13
+.noexc.i.i.i45:                                   ; preds = %54
+  %.pre.i.i.i.i46 = load ptr, ptr %42, align 8, !noalias !13
   %.pre = load ptr, ptr %0, align 8
-  br label %60
+  br label %59
 
-56:                                               ; preds = %55
-  %57 = landingpad { ptr, i32 }
+55:                                               ; preds = %54
+  %56 = landingpad { ptr, i32 }
           cleanup
-  %58 = load ptr, ptr %43, align 8, !noalias !13
-  %.not.i.i.i2.i.i.i43 = icmp eq ptr %58, null
-  br i1 %.not.i.i.i2.i.i.i43, label %.body.i44, label %59
+  %57 = load ptr, ptr %42, align 8, !noalias !13
+  %.not.i.i.i2.i.i.i43 = icmp eq ptr %57, null
+  br i1 %.not.i.i.i2.i.i.i43, label %.body.i44, label %58
 
-59:                                               ; preds = %56
-  tail call void @_ZdlPv(ptr noundef nonnull %58) #25, !noalias !13
+58:                                               ; preds = %55
+  tail call void @_ZdlPv(ptr noundef nonnull %57) #25, !noalias !13
   br label %.body.i44
 
-.body.i44:                                        ; preds = %59, %56
-  tail call void @_ZdlPv(ptr noundef nonnull %40) #25, !noalias !13
+.body.i44:                                        ; preds = %58, %55
+  tail call void @_ZdlPv(ptr noundef nonnull %39) #25, !noalias !13
   br label %.body
 
-60:                                               ; preds = %.noexc.i.i.i45, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i.i.i41
-  %61 = phi ptr [ %.pre, %.noexc.i.i.i45 ], [ null, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i.i.i41 ]
-  %62 = phi ptr [ %.pre.i.i.i.i46, %.noexc.i.i.i45 ], [ null, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i.i.i41 ]
-  %63 = extractelement <4 x i64> %42, i64 1
-  store i64 %63, ptr %44, align 8, !noalias !13
-  %.sroa.01.i.sroa.4.0..sroa_idx.i.i.i47 = getelementptr inbounds i8, ptr %40, i64 96
-  store i64 %45, ptr %.sroa.01.i.sroa.4.0..sroa_idx.i.i.i47, align 8, !noalias !13
-  %.sroa.01.i.sroa.5.0..sroa_idx.i.i.i48 = getelementptr inbounds i8, ptr %40, i64 104
-  store i64 %46, ptr %.sroa.01.i.sroa.5.0..sroa_idx.i.i.i48, align 8, !noalias !13
-  %.sroa.01.i.sroa.6.0..sroa_idx.i.i.i49 = getelementptr inbounds i8, ptr %40, i64 112
+59:                                               ; preds = %.noexc.i.i.i45, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i.i.i41
+  %60 = phi ptr [ %.pre, %.noexc.i.i.i45 ], [ null, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i.i.i41 ]
+  %61 = phi ptr [ %.pre.i.i.i.i46, %.noexc.i.i.i45 ], [ null, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i.i.i41 ]
+  store i64 %.sroa.2.0.copyload.i23, ptr %43, align 8, !noalias !13
+  %.sroa.01.i.sroa.4.0..sroa_idx.i.i.i47 = getelementptr inbounds i8, ptr %39, i64 96
+  store i64 %44, ptr %.sroa.01.i.sroa.4.0..sroa_idx.i.i.i47, align 8, !noalias !13
+  %.sroa.01.i.sroa.5.0..sroa_idx.i.i.i48 = getelementptr inbounds i8, ptr %39, i64 104
+  store i64 %45, ptr %.sroa.01.i.sroa.5.0..sroa_idx.i.i.i48, align 8, !noalias !13
+  %.sroa.01.i.sroa.6.0..sroa_idx.i.i.i49 = getelementptr inbounds i8, ptr %39, i64 112
   store i64 %.sroa.515.0.copyload.i29, ptr %.sroa.01.i.sroa.6.0..sroa_idx.i.i.i49, align 8, !noalias !13
-  %.sroa.2.0..sroa_idx.i.i.i.i50 = getelementptr inbounds i8, ptr %40, i64 120
-  store ptr %62, ptr %.sroa.2.0..sroa_idx.i.i.i.i50, align 8, !noalias !13
-  store ptr %40, ptr %0, align 8
-  %.not.i.i.i54 = icmp eq ptr %61, null
+  %.sroa.2.0..sroa_idx.i.i.i.i50 = getelementptr inbounds i8, ptr %39, i64 120
+  store ptr %61, ptr %.sroa.2.0..sroa_idx.i.i.i.i50, align 8, !noalias !13
+  store ptr %39, ptr %0, align 8
+  %.not.i.i.i54 = icmp eq ptr %60, null
   br i1 %.not.i.i.i54, label %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductESt14default_deleteIS2_EED2Ev.exit, label %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductESt14default_deleteIS2_EED2Ev.exit.sink.split
 
-64:                                               ; preds = %3
-  %65 = tail call ptr @__cxa_allocate_exception(i64 24) #26
+62:                                               ; preds = %3
+  %63 = tail call ptr @__cxa_allocate_exception(i64 24) #26
   invoke void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str)
-          to label %66 unwind label %.thread
+          to label %64 unwind label %.thread
 
-66:                                               ; preds = %64
+64:                                               ; preds = %62
   invoke void @_ZN3gmx16GromacsExceptionC2ERKNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(56) %5)
-          to label %67 unwind label %.thread69
+          to label %65 unwind label %.thread69
 
-67:                                               ; preds = %66
+65:                                               ; preds = %64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx19NotImplementedErrorE, i64 16), ptr %4, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
-  %68 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr @__PRETTY_FUNCTION__._ZN3gmx24DensitySimilarityMeasureC2ENS_30DensitySimilarityMeasureMethodENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS3_EEEE, ptr %68, align 8
+  %66 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr @__PRETTY_FUNCTION__._ZN3gmx24DensitySimilarityMeasureC2ENS_30DensitySimilarityMeasureMethodENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS3_EEEE, ptr %66, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
   store ptr @.str.1, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
   store i32 403, ptr %.sroa.3.0..sroa_idx, align 8
-  invoke void @_ZN3gmxlsINS_19NotImplementedErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::NotImplementedError") align 8 %65, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %69 unwind label %72
+  invoke void @_ZN3gmxlsINS_19NotImplementedErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::NotImplementedError") align 8 %63, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %67 unwind label %70
 
-69:                                               ; preds = %67
-  invoke void @__cxa_throw(ptr %65, ptr nonnull @_ZTIN3gmx19NotImplementedErrorE, ptr nonnull @_ZN3gmx19NotImplementedErrorD2Ev) #27
-          to label %82 unwind label %72
+67:                                               ; preds = %65
+  invoke void @__cxa_throw(ptr %63, ptr nonnull @_ZTIN3gmx19NotImplementedErrorE, ptr nonnull @_ZN3gmx19NotImplementedErrorD2Ev) #27
+          to label %80 unwind label %70
 
-.thread:                                          ; preds = %64
-  %70 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %62
+  %68 = landingpad { ptr, i32 }
           cleanup
-  br label %74
+  br label %72
 
-.thread69:                                        ; preds = %66
-  %71 = landingpad { ptr, i32 }
+.thread69:                                        ; preds = %64
+  %69 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #26
-  br label %74
+  br label %72
 
-72:                                               ; preds = %67, %69
-  %.0 = phi i1 [ false, %69 ], [ true, %67 ]
-  %73 = landingpad { ptr, i32 }
+70:                                               ; preds = %65, %67
+  %.0 = phi i1 [ false, %67 ], [ true, %65 ]
+  %71 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #26
   call void @_ZN3gmx19NotImplementedErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #26
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #26
-  br i1 %.0, label %74, label %.body
+  br i1 %.0, label %72, label %.body
 
-74:                                               ; preds = %.thread69, %.thread, %72
-  %.pn.pn68 = phi { ptr, i32 } [ %70, %.thread ], [ %73, %72 ], [ %71, %.thread69 ]
-  call void @__cxa_free_exception(ptr %65) #26
+72:                                               ; preds = %.thread69, %.thread, %70
+  %.pn.pn68 = phi { ptr, i32 } [ %68, %.thread ], [ %71, %70 ], [ %69, %.thread69 ]
+  call void @__cxa_free_exception(ptr %63) #26
   br label %.body
 
-_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductESt14default_deleteIS2_EED2Ev.exit.sink.split: ; preds = %60, %35, %_ZSt11make_uniqueIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductEJRNS0_12basic_mdspanIKfNS0_7extentsIJLln1ELln1ELln1EEEENS0_12layout_rightENS0_14accessor_basicIS4_EEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %.sink79 = phi ptr [ %11, %_ZSt11make_uniqueIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductEJRNS0_12basic_mdspanIKfNS0_7extentsIJLln1ELln1ELln1EEEENS0_12layout_rightENS0_14accessor_basicIS4_EEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %36, %35 ], [ %61, %60 ]
-  %75 = load ptr, ptr %.sink79, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
-  %77 = load ptr, ptr %76, align 8
-  tail call void %77(ptr noundef nonnull align 8 dereferenceable(8) %.sink79) #26
+_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductESt14default_deleteIS2_EED2Ev.exit.sink.split: ; preds = %59, %35, %_ZSt11make_uniqueIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductEJRNS0_12basic_mdspanIKfNS0_7extentsIJLln1ELln1ELln1EEEENS0_12layout_rightENS0_14accessor_basicIS4_EEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+  %.sink79 = phi ptr [ %11, %_ZSt11make_uniqueIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductEJRNS0_12basic_mdspanIKfNS0_7extentsIJLln1ELln1ELln1EEEENS0_12layout_rightENS0_14accessor_basicIS4_EEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %36, %35 ], [ %60, %59 ]
+  %73 = load ptr, ptr %.sink79, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 8
+  %75 = load ptr, ptr %74, align 8
+  tail call void %75(ptr noundef nonnull align 8 dereferenceable(8) %.sink79) #26
   br label %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductESt14default_deleteIS2_EED2Ev.exit.sink.split, %60, %35, %_ZSt11make_uniqueIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductEJRNS0_12basic_mdspanIKfNS0_7extentsIJLln1ELln1ELln1EEEENS0_12layout_rightENS0_14accessor_basicIS4_EEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductESt14default_deleteIS2_EED2Ev.exit.sink.split, %59, %35, %_ZSt11make_uniqueIN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductEJRNS0_12basic_mdspanIKfNS0_7extentsIJLln1ELln1ELln1EEEENS0_12layout_rightENS0_14accessor_basicIS4_EEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   ret void
 
-.body:                                            ; preds = %9, %12, %.body.i44, %.body.i, %72, %74
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn68, %74 ], [ %73, %72 ], [ %10, %9 ], [ %32, %.body.i ], [ %13, %12 ], [ %57, %.body.i44 ]
-  %78 = load ptr, ptr %0, align 8
-  %.not.i59 = icmp eq ptr %78, null
+.body:                                            ; preds = %9, %12, %.body.i44, %.body.i, %70, %72
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn68, %72 ], [ %71, %70 ], [ %10, %9 ], [ %32, %.body.i ], [ %13, %12 ], [ %56, %.body.i44 ]
+  %76 = load ptr, ptr %0, align 8
+  %.not.i59 = icmp eq ptr %76, null
   br i1 %.not.i59, label %_ZNSt10unique_ptrIN3gmx28DensitySimilarityMeasureImplESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3gmx28DensitySimilarityMeasureImplEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN3gmx28DensitySimilarityMeasureImplEEclEPS1_.exit.i: ; preds = %.body
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
-  %81 = load ptr, ptr %80, align 8
-  call void %81(ptr noundef nonnull align 8 dereferenceable(8) %78) #26
+  call void %79(ptr noundef nonnull align 8 dereferenceable(8) %76) #26
   br label %_ZNSt10unique_ptrIN3gmx28DensitySimilarityMeasureImplESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx28DensitySimilarityMeasureImplESt14default_deleteIS1_EED2Ev.exit: ; preds = %.body, %_ZNKSt14default_deleteIN3gmx28DensitySimilarityMeasureImplEEclEPS1_.exit.i
   store ptr null, ptr %0, align 8
   resume { ptr, i32 } %.pn.pn.pn
 
-82:                                               ; preds = %69
+80:                                               ; preds = %67
   unreachable
 }
 
@@ -696,76 +698,77 @@ define internal fastcc void @_ZN3gmx12_GLOBAL__N_129DensitySimilarityInnerProduc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.0.sroa.213.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load <4 x i64>, ptr %5, align 8
+  %.sroa.0.sroa.213.0.copyload = load i64, ptr %.sroa.0.sroa.213.0..sroa_idx, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 40, i1 false)
-  %8 = extractelement <4 x i64> %6, i64 1
-  %9 = extractelement <4 x i64> %6, i64 2
-  %10 = extractelement <4 x i64> %6, i64 3
+  %8 = extractelement <4 x i64> %6, i64 2
+  %9 = extractelement <4 x i64> %6, i64 3
   br label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i
 
 _ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i, %2
-  %.07.i.i.i = phi i64 [ 0, %2 ], [ %18, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i ]
-  %.056.i.i.i = phi i64 [ 1, %2 ], [ %17, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i ]
-  %11 = icmp eq i64 %.07.i.i.i, 0
-  %12 = icmp eq i64 %.07.i.i.i, 1
-  %13 = icmp eq i64 %.07.i.i.i, 2
-  %14 = select i1 %13, i64 %8, i64 1
-  %15 = select i1 %12, i64 %9, i64 %14
-  %16 = select i1 %11, i64 %10, i64 %15
-  %17 = mul nsw i64 %16, %.056.i.i.i
-  %18 = add nuw nsw i64 %.07.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %18, 3
+  %.07.i.i.i = phi i64 [ 0, %2 ], [ %17, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i ]
+  %.056.i.i.i = phi i64 [ 1, %2 ], [ %16, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i ]
+  %10 = icmp eq i64 %.07.i.i.i, 0
+  %11 = icmp eq i64 %.07.i.i.i, 1
+  %12 = icmp eq i64 %.07.i.i.i, 2
+  %13 = select i1 %12, i64 %.sroa.0.sroa.213.0.copyload, i64 1
+  %14 = select i1 %11, i64 %8, i64 %13
+  %15 = select i1 %10, i64 %9, i64 %14
+  %16 = mul nsw i64 %15, %.056.i.i.i
+  %17 = add nuw nsw i64 %.07.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %17, 3
   br i1 %exitcond.not.i.i.i, label %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i, !llvm.loop !11
 
 _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i
-  %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %24, label %19
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %23, label %18
 
-19:                                               ; preds = %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i
-  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %17)
-          to label %.noexc.i unwind label %20
+18:                                               ; preds = %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i
+  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %16)
+          to label %.noexc.i unwind label %19
 
-.noexc.i:                                         ; preds = %19
+.noexc.i:                                         ; preds = %18
   %.pre.i.i = load ptr, ptr %4, align 8
-  br label %24
+  br label %23
 
-20:                                               ; preds = %19
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %18
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %22 = load ptr, ptr %4, align 8
-  %.not.i.i.i2.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.i2.i, label %.body, label %23
+  %21 = load ptr, ptr %4, align 8
+  %.not.i.i.i2.i = icmp eq ptr %21, null
+  br i1 %.not.i.i.i2.i, label %.body, label %22
 
-23:                                               ; preds = %20
-  tail call void @_ZdlPv(ptr noundef nonnull %22) #25
+22:                                               ; preds = %19
+  tail call void @_ZdlPv(ptr noundef nonnull %21) #25
   br label %.body
 
-24:                                               ; preds = %.noexc.i, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i
-  %25 = phi ptr [ %.pre.i.i, %.noexc.i ], [ null, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i ]
+23:                                               ; preds = %.noexc.i, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i
+  %24 = phi ptr [ %.pre.i.i, %.noexc.i ], [ null, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i ]
   store <4 x i64> %6, ptr %7, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr %25, ptr %.sroa.2.0..sroa_idx.i.i, align 8
+  store ptr %24, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   br label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i
 
-_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i, %24
-  %.07.i = phi i64 [ 0, %24 ], [ %33, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i ]
-  %.056.i = phi i64 [ 1, %24 ], [ %32, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i ]
-  %26 = icmp eq i64 %.07.i, 0
-  %27 = icmp eq i64 %.07.i, 1
-  %28 = icmp eq i64 %.07.i, 2
-  %29 = select i1 %28, i64 %8, i64 1
-  %30 = select i1 %27, i64 %9, i64 %29
-  %31 = select i1 %26, i64 %10, i64 %30
-  %32 = mul nsw i64 %31, %.056.i
-  %33 = add nuw nsw i64 %.07.i, 1
-  %exitcond.not.i = icmp eq i64 %33, 3
+_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i, %23
+  %.07.i = phi i64 [ 0, %23 ], [ %32, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i ]
+  %.056.i = phi i64 [ 1, %23 ], [ %31, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i ]
+  %25 = icmp eq i64 %.07.i, 0
+  %26 = icmp eq i64 %.07.i, 1
+  %27 = icmp eq i64 %.07.i, 2
+  %28 = select i1 %27, i64 %.sroa.0.sroa.213.0.copyload, i64 1
+  %29 = select i1 %26, i64 %8, i64 %28
+  %30 = select i1 %25, i64 %9, i64 %29
+  %31 = mul nsw i64 %30, %.056.i
+  %32 = add nuw nsw i64 %.07.i, 1
+  %exitcond.not.i = icmp eq i64 %32, 3
   br i1 %exitcond.not.i, label %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i, !llvm.loop !11
 
 _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i
-  %34 = getelementptr inbounds i8, ptr %0, i64 48
-  %35 = load ptr, ptr %34, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %34 = load ptr, ptr %33, align 8
   %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.1.0.copyload.i = load i64, ptr %.sroa.1.0..sroa_idx.i, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -775,44 +778,44 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_s
   br label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i
 
 _ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i: ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit
-  %.07.i.i = phi i64 [ 0, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit ], [ %43, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ]
-  %.056.i.i = phi i64 [ 1, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit ], [ %42, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ]
-  %36 = icmp eq i64 %.07.i.i, 0
-  %37 = icmp eq i64 %.07.i.i, 1
-  %38 = icmp eq i64 %.07.i.i, 2
-  %39 = select i1 %38, i64 %.sroa.1.0.copyload.i, i64 1
-  %40 = select i1 %37, i64 %.sroa.2.0.copyload.i, i64 %39
-  %41 = select i1 %36, i64 %.sroa.3.0.copyload.i, i64 %40
-  %42 = mul nsw i64 %41, %.056.i.i
-  %43 = add nuw nsw i64 %.07.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %43, 3
-  br i1 %exitcond.not.i.i, label %44, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i, !llvm.loop !11
+  %.07.i.i = phi i64 [ 0, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit ], [ %42, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ]
+  %.056.i.i = phi i64 [ 1, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit ], [ %41, %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i ]
+  %35 = icmp eq i64 %.07.i.i, 0
+  %36 = icmp eq i64 %.07.i.i, 1
+  %37 = icmp eq i64 %.07.i.i, 2
+  %38 = select i1 %37, i64 %.sroa.1.0.copyload.i, i64 1
+  %39 = select i1 %36, i64 %.sroa.2.0.copyload.i, i64 %38
+  %40 = select i1 %35, i64 %.sroa.3.0.copyload.i, i64 %39
+  %41 = mul nsw i64 %40, %.056.i.i
+  %42 = add nuw nsw i64 %.07.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %42, 3
+  br i1 %exitcond.not.i.i, label %43, label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i, !llvm.loop !11
 
-44:                                               ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i
-  %45 = getelementptr inbounds float, ptr %35, i64 %42
-  %.not6.i = icmp eq i64 %42, 0
+43:                                               ; preds = %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i
+  %44 = getelementptr inbounds float, ptr %34, i64 %41
+  %.not6.i = icmp eq i64 %41, 0
   br i1 %.not6.i, label %"_ZSt9transformIPKfN3gmx12ArrayRefIterIfEEZNS2_12_GLOBAL__N_129DensitySimilarityInnerProductC1ENS2_12basic_mdspanIS0_NS2_7extentsIJLln1ELln1ELln1EEEENS2_12layout_rightENS2_14accessor_basicIS0_EEEEE3$_0ET0_T_SG_SF_T1_.exit", label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %44
-  %46 = sitofp i64 %32 to float
-  br label %47
+.lr.ph.i:                                         ; preds = %43
+  %45 = sitofp i64 %31 to float
+  br label %46
 
-47:                                               ; preds = %47, %.lr.ph.i
-  %.08.i = phi ptr [ %35, %.lr.ph.i ], [ %50, %47 ]
-  %.sroa.04.07.i = phi ptr [ %25, %.lr.ph.i ], [ %51, %47 ]
-  %48 = load float, ptr %.08.i, align 4
-  %49 = fdiv float %48, %46
-  store float %49, ptr %.sroa.04.07.i, align 4
-  %50 = getelementptr inbounds i8, ptr %.08.i, i64 4
-  %51 = getelementptr inbounds i8, ptr %.sroa.04.07.i, i64 4
-  %.not.i7 = icmp eq ptr %50, %45
-  br i1 %.not.i7, label %"_ZSt9transformIPKfN3gmx12ArrayRefIterIfEEZNS2_12_GLOBAL__N_129DensitySimilarityInnerProductC1ENS2_12basic_mdspanIS0_NS2_7extentsIJLln1ELln1ELln1EEEENS2_12layout_rightENS2_14accessor_basicIS0_EEEEE3$_0ET0_T_SG_SF_T1_.exit", label %47, !llvm.loop !17
+46:                                               ; preds = %46, %.lr.ph.i
+  %.08.i = phi ptr [ %34, %.lr.ph.i ], [ %49, %46 ]
+  %.sroa.04.07.i = phi ptr [ %24, %.lr.ph.i ], [ %50, %46 ]
+  %47 = load float, ptr %.08.i, align 4
+  %48 = fdiv float %47, %45
+  store float %48, ptr %.sroa.04.07.i, align 4
+  %49 = getelementptr inbounds i8, ptr %.08.i, i64 4
+  %50 = getelementptr inbounds i8, ptr %.sroa.04.07.i, i64 4
+  %.not.i7 = icmp eq ptr %49, %44
+  br i1 %.not.i7, label %"_ZSt9transformIPKfN3gmx12ArrayRefIterIfEEZNS2_12_GLOBAL__N_129DensitySimilarityInnerProductC1ENS2_12basic_mdspanIS0_NS2_7extentsIJLln1ELln1ELln1EEEENS2_12layout_rightENS2_14accessor_basicIS0_EEEEE3$_0ET0_T_SG_SF_T1_.exit", label %46, !llvm.loop !17
 
-"_ZSt9transformIPKfN3gmx12ArrayRefIterIfEEZNS2_12_GLOBAL__N_129DensitySimilarityInnerProductC1ENS2_12basic_mdspanIS0_NS2_7extentsIJLln1ELln1ELln1EEEENS2_12layout_rightENS2_14accessor_basicIS0_EEEEE3$_0ET0_T_SG_SF_T1_.exit": ; preds = %47, %44
+"_ZSt9transformIPKfN3gmx12ArrayRefIterIfEEZNS2_12_GLOBAL__N_129DensitySimilarityInnerProductC1ENS2_12basic_mdspanIS0_NS2_7extentsIJLln1ELln1ELln1EEEENS2_12layout_rightENS2_14accessor_basicIS0_EEEEE3$_0ET0_T_SG_SF_T1_.exit": ; preds = %46, %43
   ret void
 
-.body:                                            ; preds = %23, %20
-  resume { ptr, i32 } %21
+.body:                                            ; preds = %22, %19
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: nobuiltin nounwind
@@ -1796,6 +1799,7 @@ _ZSt13inner_productIPKfS1_dSt4plusIvEPFfffEET1_T_S7_T0_S6_T2_T3_.exit: ; preds =
 define internal void @_ZN3gmx12_GLOBAL__N_132DensitySimilarityRelativeEntropy5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #24, !noalias !31
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.515.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 40
   %.sroa.515.0.copyload.i = load i64, ptr %.sroa.515.0..sroa_idx.i, align 8, !noalias !31
   %.sroa.616.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 48
@@ -1803,6 +1807,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_132DensitySimilarityRelativeEntropy5cl
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_132DensitySimilarityRelativeEntropyE, i64 16), ptr %4, align 8, !noalias !31
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load <4 x i64>, ptr %3, align 8, !noalias !31
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !31
   store <4 x i64> %6, ptr %5, align 8, !noalias !31
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 40
   store i64 %.sroa.515.0.copyload.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !31
@@ -1859,8 +1864,7 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_s
 
 _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_132DensitySimilarityRelativeEntropyESt14default_deleteIS2_EED2Ev.exit: ; preds = %.noexc.i.i.i, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i.i.i
   %24 = phi ptr [ %.pre.i.i.i.i, %.noexc.i.i.i ], [ null, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i.i.i ]
-  %25 = extractelement <4 x i64> %6, i64 1
-  store i64 %25, ptr %8, align 8, !noalias !31
+  store i64 %.sroa.2.0.copyload.i, ptr %8, align 8, !noalias !31
   %.sroa.01.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 96
   store i64 %9, ptr %.sroa.01.i.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !31
   %.sroa.01.i.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 104
@@ -2358,6 +2362,7 @@ _ZN3gmx12_GLOBAL__N_120evaluateHelperValuesENS_12basic_mdspanIKfNS_7extentsIJLln
 define internal void @_ZN3gmx12_GLOBAL__N_133DensitySimilarityCrossCorrelation5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #24, !noalias !44
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.515.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 40
   %.sroa.515.0.copyload.i = load i64, ptr %.sroa.515.0..sroa_idx.i, align 8, !noalias !44
   %.sroa.616.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 48
@@ -2365,6 +2370,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_133DensitySimilarityCrossCorrelation5c
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_133DensitySimilarityCrossCorrelationE, i64 16), ptr %4, align 8, !noalias !44
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load <4 x i64>, ptr %3, align 8, !noalias !44
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !44
   store <4 x i64> %6, ptr %5, align 8, !noalias !44
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 40
   store i64 %.sroa.515.0.copyload.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !44
@@ -2421,8 +2427,7 @@ _ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_s
 
 _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_133DensitySimilarityCrossCorrelationESt14default_deleteIS2_EED2Ev.exit: ; preds = %.noexc.i.i.i, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i.i.i
   %24 = phi ptr [ %.pre.i.i.i.i, %.noexc.i.i.i ], [ null, %_ZNK3gmx12layout_right7mappingINS_7extentsIJLln1ELln1ELln1EEEEE18required_span_sizeEv.exit.i.i.i.i ]
-  %25 = extractelement <4 x i64> %6, i64 1
-  store i64 %25, ptr %8, align 8, !noalias !44
+  store i64 %.sroa.2.0.copyload.i, ptr %8, align 8, !noalias !44
   %.sroa.01.i.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 96
   store i64 %9, ptr %.sroa.01.i.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !44
   %.sroa.01.i.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %4, i64 104

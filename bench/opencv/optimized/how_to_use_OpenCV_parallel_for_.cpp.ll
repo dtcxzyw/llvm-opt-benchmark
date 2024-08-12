@@ -757,7 +757,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZ4mainE3$_0E9_M_
   br label %11
 
 11:                                               ; preds = %_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i, %.lr.ph.i.i.i
-  %.017.i.i.i = phi i32 [ %3, %.lr.ph.i.i.i ], [ %76, %_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i ]
+  %.017.i.i.i = phi i32 [ %3, %.lr.ph.i.i.i ], [ %74, %_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i ]
   %12 = load ptr, ptr %.val, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 12
   %14 = load i32, ptr %13, align 4
@@ -783,74 +783,74 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZ4mainE3$_0E9_M_
   br label %34
 
 34:                                               ; preds = %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i, %11
-  %.0725.i.i.i.i.i = phi i32 [ 0, %11 ], [ %56, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i ]
-  %.sroa.013.024.i.i.i.i.i = phi <2 x float> [ %33, %11 ], [ %55, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i ]
-  %35 = extractelement <2 x float> %.sroa.013.024.i.i.i.i.i, i64 1
-  %36 = fmul float %35, %35
-  %37 = extractelement <2 x float> %.sroa.013.024.i.i.i.i.i, i64 0
-  %38 = tail call float @llvm.fmuladd.f32(float %37, float %37, float %36)
-  %39 = fcmp ogt float %38, 4.000000e+00
-  br i1 %39, label %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i, label %40
+  %.0725.i.i.i.i.i = phi i32 [ 0, %11 ], [ %54, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i ]
+  %.sroa.013.024.i.i.i.i.i = phi <2 x float> [ %33, %11 ], [ %53, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i ]
+  %.sroa.013.0.vec.extract.i.i.i.i.i = extractelement <2 x float> %.sroa.013.024.i.i.i.i.i, i64 0
+  %.sroa.013.4.vec.extract.i.i.i.i.i = extractelement <2 x float> %.sroa.013.024.i.i.i.i.i, i64 1
+  %35 = fmul float %.sroa.013.4.vec.extract.i.i.i.i.i, %.sroa.013.4.vec.extract.i.i.i.i.i
+  %36 = tail call float @llvm.fmuladd.f32(float %.sroa.013.0.vec.extract.i.i.i.i.i, float %.sroa.013.0.vec.extract.i.i.i.i.i, float %35)
+  %37 = fcmp ogt float %36, 4.000000e+00
+  br i1 %37, label %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i, label %38
 
-40:                                               ; preds = %34
-  %41 = shufflevector <2 x float> %.sroa.013.024.i.i.i.i.i, <2 x float> poison, <2 x i32> zeroinitializer
-  %42 = fmul <2 x float> %41, %.sroa.013.024.i.i.i.i.i
-  %43 = insertelement <2 x float> %42, float %36, i64 0
-  %44 = fsub <2 x float> %42, %43
-  %45 = fadd <2 x float> %42, %43
-  %46 = shufflevector <2 x float> %44, <2 x float> %45, <2 x i32> <i32 0, i32 3>
-  %47 = extractelement <2 x float> %44, i64 0
-  %48 = fcmp uno float %47, 0.000000e+00
-  br i1 %48, label %49, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i, !prof !5
+38:                                               ; preds = %34
+  %39 = shufflevector <2 x float> %.sroa.013.024.i.i.i.i.i, <2 x float> poison, <2 x i32> zeroinitializer
+  %40 = fmul <2 x float> %39, %.sroa.013.024.i.i.i.i.i
+  %41 = insertelement <2 x float> %40, float %35, i64 0
+  %42 = fsub <2 x float> %40, %41
+  %43 = fadd <2 x float> %40, %41
+  %44 = shufflevector <2 x float> %42, <2 x float> %43, <2 x i32> <i32 0, i32 3>
+  %45 = extractelement <2 x float> %42, i64 0
+  %46 = fcmp uno float %45, 0.000000e+00
+  br i1 %46, label %47, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i, !prof !5
 
-49:                                               ; preds = %40
-  %50 = extractelement <2 x float> %45, i64 1
-  %51 = fcmp uno float %50, 0.000000e+00
-  br i1 %51, label %52, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i, !prof !5
+47:                                               ; preds = %38
+  %48 = extractelement <2 x float> %43, i64 1
+  %49 = fcmp uno float %48, 0.000000e+00
+  br i1 %49, label %50, label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i, !prof !5
 
-52:                                               ; preds = %49
-  %53 = tail call noundef <2 x float> @__mulsc3(float noundef %37, float noundef %35, float noundef %37, float noundef %35) #19
+50:                                               ; preds = %47
+  %51 = tail call noundef <2 x float> @__mulsc3(float noundef %.sroa.013.0.vec.extract.i.i.i.i.i, float noundef %.sroa.013.4.vec.extract.i.i.i.i.i, float noundef %.sroa.013.0.vec.extract.i.i.i.i.i, float noundef %.sroa.013.4.vec.extract.i.i.i.i.i) #19
   br label %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i
 
-_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i:   ; preds = %52, %49, %40
-  %54 = phi <2 x float> [ %46, %40 ], [ %46, %49 ], [ %53, %52 ]
-  %55 = fadd <2 x float> %33, %54
-  %56 = add nuw nsw i32 %.0725.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i32 %56, 500
+_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i:   ; preds = %50, %47, %38
+  %52 = phi <2 x float> [ %44, %38 ], [ %44, %47 ], [ %51, %50 ]
+  %53 = fadd <2 x float> %33, %52
+  %54 = add nuw nsw i32 %.0725.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i = icmp eq i32 %54, 500
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i, label %34, !llvm.loop !6
 
 _ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i: ; preds = %34
-  %57 = icmp eq i32 %.0725.i.i.i.i.i, 500
-  br i1 %57, label %_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i, label %58
+  %55 = icmp eq i32 %.0725.i.i.i.i.i, 500
+  br i1 %55, label %_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i, label %56
 
-58:                                               ; preds = %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i
-  %59 = uitofp nneg i32 %.0725.i.i.i.i.i to float
-  %60 = fdiv float %59, 5.000000e+02
-  %sqrt.i.i.i.i = tail call float @llvm.sqrt.f32(float %60)
-  %61 = fmul float %sqrt.i.i.i.i, 2.550000e+02
-  %62 = insertelement <4 x float> poison, float %61, i64 0
-  %63 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %62)
+56:                                               ; preds = %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i
+  %57 = uitofp nneg i32 %.0725.i.i.i.i.i to float
+  %58 = fdiv float %57, 5.000000e+02
+  %sqrt.i.i.i.i = tail call float @llvm.sqrt.f32(float %58)
+  %59 = fmul float %sqrt.i.i.i.i, 2.550000e+02
+  %60 = insertelement <4 x float> poison, float %59, i64 0
+  %61 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %60)
   br label %_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i
 
-_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i: ; preds = %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i, %58, %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i
-  %.0.i.i.i.i = phi i32 [ %63, %58 ], [ 0, %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i ], [ 0, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i ]
-  %64 = trunc i32 %.0.i.i.i.i to i8
-  %65 = load ptr, ptr %.val, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i: ; preds = %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i, %56, %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i
+  %.0.i.i.i.i = phi i32 [ %61, %56 ], [ 0, %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i ], [ 0, %_ZStmlIfESt7complexIT_ERKS2_S4_.exit.i.i.i.i.i ]
+  %62 = trunc i32 %.0.i.i.i.i to i8
+  %63 = load ptr, ptr %.val, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %63, i64 72
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %65, i64 72
-  %69 = load ptr, ptr %68, align 8
-  %70 = load i64, ptr %69, align 8
-  %71 = sext i32 %15 to i64
-  %72 = mul i64 %70, %71
-  %73 = getelementptr inbounds i8, ptr %67, i64 %72
-  %74 = sext i32 %16 to i64
-  %75 = getelementptr inbounds i8, ptr %73, i64 %74
-  store i8 %64, ptr %75, align 1
-  %76 = add nsw i32 %.017.i.i.i, 1
-  %77 = load i32, ptr %4, align 4
-  %78 = icmp slt i32 %76, %77
-  br i1 %78, label %11, label %"_ZSt10__invoke_rIvRZ4mainE3$_0JRKN2cv5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSB_DpOSC_.exit", !llvm.loop !11
+  %68 = load i64, ptr %67, align 8
+  %69 = sext i32 %15 to i64
+  %70 = mul i64 %68, %69
+  %71 = getelementptr inbounds i8, ptr %65, i64 %70
+  %72 = sext i32 %16 to i64
+  %73 = getelementptr inbounds i8, ptr %71, i64 %72
+  store i8 %62, ptr %73, align 1
+  %74 = add nsw i32 %.017.i.i.i, 1
+  %75 = load i32, ptr %4, align 4
+  %76 = icmp slt i32 %74, %75
+  br i1 %76, label %11, label %"_ZSt10__invoke_rIvRZ4mainE3$_0JRKN2cv5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSB_DpOSC_.exit", !llvm.loop !11
 
 "_ZSt10__invoke_rIvRZ4mainE3$_0JRKN2cv5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueES8_E4typeEOSB_DpOSC_.exit": ; preds = %_ZN12_GLOBAL__N_117mandelbrotFormulaERKSt7complexIfEi.exit.i.i.i, %2
   ret void

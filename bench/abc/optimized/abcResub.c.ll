@@ -4204,60 +4204,48 @@ Dec_GraphAddNodeAnd.exit123:                      ; preds = %Dec_GraphAddNodeAnd
   br label %141
 
 141:                                              ; preds = %Dec_GraphAddNodeOr.exit116, %Dec_GraphAddNodeAnd.exit123, %Dec_GraphAddNodeOr.exit96, %Dec_GraphAddNodeAnd.exit
-  %.sroa.032.0 = phi i32 [ 11, %Dec_GraphAddNodeOr.exit96 ], [ 10, %Dec_GraphAddNodeAnd.exit ], [ 11, %Dec_GraphAddNodeOr.exit116 ], [ 10, %Dec_GraphAddNodeAnd.exit123 ]
-  %.sroa.034.0 = phi i32 [ 9, %Dec_GraphAddNodeOr.exit96 ], [ 9, %Dec_GraphAddNodeAnd.exit ], [ 8, %Dec_GraphAddNodeOr.exit116 ], [ 8, %Dec_GraphAddNodeAnd.exit123 ]
+  %.sroa.032.0 = phi i32 [ 65536, %Dec_GraphAddNodeOr.exit96 ], [ 0, %Dec_GraphAddNodeAnd.exit ], [ 65536, %Dec_GraphAddNodeOr.exit116 ], [ 0, %Dec_GraphAddNodeAnd.exit123 ]
+  %.sroa.034.0 = phi i32 [ 32768, %Dec_GraphAddNodeOr.exit96 ], [ 32768, %Dec_GraphAddNodeAnd.exit ], [ 0, %Dec_GraphAddNodeOr.exit116 ], [ 0, %Dec_GraphAddNodeAnd.exit123 ]
+  %142 = phi <2 x i32> [ <i32 9, i32 11>, %Dec_GraphAddNodeOr.exit96 ], [ <i32 9, i32 10>, %Dec_GraphAddNodeAnd.exit ], [ <i32 8, i32 11>, %Dec_GraphAddNodeOr.exit116 ], [ <i32 8, i32 10>, %Dec_GraphAddNodeAnd.exit123 ]
   %.not85 = icmp eq i32 %5, 0
   store i32 7, ptr %8, align 8
-  %142 = getelementptr inbounds i8, ptr %10, i64 144
-  %143 = getelementptr inbounds i8, ptr %10, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %143, i8 0, i64 16, i1 false)
+  %143 = getelementptr inbounds i8, ptr %10, i64 144
+  %144 = getelementptr inbounds i8, ptr %10, i64 152
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %144, i8 0, i64 16, i1 false)
   br i1 %.not85, label %Dec_GraphAddNodeAnd.exit137, label %Dec_GraphAddNodeOr.exit130
 
 Dec_GraphAddNodeOr.exit130:                       ; preds = %141
-  %144 = getelementptr inbounds i8, ptr %10, i64 148
   %145 = getelementptr inbounds i8, ptr %10, i64 160
-  %146 = shl nuw nsw i32 %.sroa.034.0, 15
-  %147 = and i32 %146, 32768
-  %148 = shl nuw nsw i32 %.sroa.032.0, 16
-  %149 = and i32 %148, 65536
-  %150 = or disjoint i32 %149, %147
-  %151 = or disjoint i32 %150, 16384
-  store i32 %151, ptr %145, align 8
-  %152 = xor i32 %.sroa.034.0, 1
-  store i32 %152, ptr %142, align 8
-  %153 = xor i32 %.sroa.032.0, 1
-  store i32 %153, ptr %144, align 4
-  br label %161
+  %146 = or disjoint i32 %.sroa.032.0, %.sroa.034.0
+  %147 = or disjoint i32 %146, 16384
+  store i32 %147, ptr %145, align 8
+  %148 = xor <2 x i32> %142, <i32 1, i32 1>
+  store <2 x i32> %148, ptr %143, align 8
+  br label %151
 
 Dec_GraphAddNodeAnd.exit137:                      ; preds = %141
-  store i32 %.sroa.034.0, ptr %142, align 8
-  %154 = getelementptr inbounds i8, ptr %10, i64 148
-  store i32 %.sroa.032.0, ptr %154, align 4
-  %155 = getelementptr inbounds i8, ptr %10, i64 160
-  %156 = shl nuw nsw i32 %.sroa.034.0, 15
-  %157 = and i32 %156, 32768
-  %158 = shl nuw nsw i32 %.sroa.032.0, 16
-  %159 = and i32 %158, 65536
-  %160 = or disjoint i32 %157, %159
-  store i32 %160, ptr %155, align 8
-  br label %161
+  store <2 x i32> %142, ptr %143, align 8
+  %149 = getelementptr inbounds i8, ptr %10, i64 160
+  %150 = or disjoint i32 %.sroa.034.0, %.sroa.032.0
+  store i32 %150, ptr %149, align 8
+  br label %151
 
-161:                                              ; preds = %Dec_GraphAddNodeAnd.exit137, %Dec_GraphAddNodeOr.exit130
+151:                                              ; preds = %Dec_GraphAddNodeAnd.exit137, %Dec_GraphAddNodeOr.exit130
   %.sroa.036.0 = phi i32 [ 13, %Dec_GraphAddNodeOr.exit130 ], [ 12, %Dec_GraphAddNodeAnd.exit137 ]
-  %162 = getelementptr inbounds i8, ptr %calloc.i, i64 24
-  store i32 %.sroa.036.0, ptr %162, align 8
-  %163 = getelementptr inbounds i8, ptr %0, i64 20
-  %164 = load i32, ptr %163, align 4
-  %165 = and i32 %164, 128
-  %.not86 = icmp eq i32 %165, 0
-  br i1 %.not86, label %168, label %166
+  %152 = getelementptr inbounds i8, ptr %calloc.i, i64 24
+  store i32 %.sroa.036.0, ptr %152, align 8
+  %153 = getelementptr inbounds i8, ptr %0, i64 20
+  %154 = load i32, ptr %153, align 4
+  %155 = and i32 %154, 128
+  %.not86 = icmp eq i32 %155, 0
+  br i1 %.not86, label %158, label %156
 
-166:                                              ; preds = %161
-  %167 = xor i32 %.sroa.036.0, 1
-  store i32 %167, ptr %162, align 8
-  br label %168
+156:                                              ; preds = %151
+  %157 = xor i32 %.sroa.036.0, 1
+  store i32 %157, ptr %152, align 8
+  br label %158
 
-168:                                              ; preds = %166, %161
+158:                                              ; preds = %156, %151
   ret ptr %calloc.i
 }
 

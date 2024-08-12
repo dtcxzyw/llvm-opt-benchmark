@@ -223,7 +223,7 @@ define dso_local noundef zeroext i1 @_ZN19cmIfFunctionBlocker6ReplayESt6vectorI1
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
-  %12 = alloca %class.cmListFileBacktrace, align 8
+  %12 = alloca %class.cmListFileBacktrace, align 16
   %13 = alloca %class.cmListFileBacktrace, align 8
   %14 = alloca %class.cmListFileContext, align 8
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -234,7 +234,7 @@ define dso_local noundef zeroext i1 @_ZN19cmIfFunctionBlocker6ReplayESt6vectorI1
   %20 = alloca %"class.std::vector.299", align 8
   %21 = alloca i32, align 4
   %22 = alloca %class.cmConditionEvaluator, align 8
-  %23 = alloca %class.cmListFileBacktrace, align 8
+  %23 = alloca %class.cmListFileBacktrace, align 16
   %24 = alloca %"class.std::__cxx11::basic_string", align 8
   %25 = alloca %"class.std::__cxx11::basic_string", align 8
   %26 = alloca %class.cmExecutionStatus, align 8
@@ -851,15 +851,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit121: ;
           to label %295 unwind label %399
 
 295:                                              ; preds = %291
-  %296 = load ptr, ptr %12, align 8
-  store ptr %296, ptr %23, align 8
-  %297 = load ptr, ptr %61, align 8
-  store ptr %297, ptr %60, align 8
-  %.not.i.i.i.i.i122 = icmp eq ptr %297, null
+  %296 = load ptr, ptr %61, align 8
+  %297 = load <2 x ptr>, ptr %12, align 16
+  store <2 x ptr> %297, ptr %23, align 16
+  %.not.i.i.i.i.i122 = icmp eq ptr %296, null
   br i1 %.not.i.i.i.i.i122, label %_ZN19cmListFileBacktraceC2ERKS_.exit, label %298
 
 298:                                              ; preds = %295
-  %299 = getelementptr inbounds i8, ptr %297, i64 8
+  %299 = getelementptr inbounds i8, ptr %296, i64 8
   %300 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i123 = icmp eq i8 %300, 0
   br i1 %.not.i.i.i.i.i.i123, label %304, label %301

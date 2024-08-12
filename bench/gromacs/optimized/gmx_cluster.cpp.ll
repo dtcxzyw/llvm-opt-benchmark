@@ -1679,30 +1679,30 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit._crit_edge: ; preds = %_ZL13gmx_snew_imp
 _ZNSt6vectorI8t_matrixSaIS0_EED2Ev.exit:          ; preds = %648
   %649 = getelementptr inbounds i8, ptr %92, i64 16
   %650 = load <2 x ptr>, ptr %93, align 16
+  %651 = load ptr, ptr %93, align 16
   store <2 x ptr> %650, ptr %92, align 16
-  %651 = getelementptr inbounds i8, ptr %93, i64 16
-  %652 = load ptr, ptr %651, align 16
-  store ptr %652, ptr %649, align 16
+  %652 = getelementptr inbounds i8, ptr %93, i64 16
+  %653 = load ptr, ptr %652, align 16
+  store ptr %653, ptr %649, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %93, i8 0, i64 24, i1 false)
   %.phi.trans.insert906 = getelementptr inbounds i8, ptr %94, i64 32
   %.pre907 = load ptr, ptr %.phi.trans.insert906, align 8
-  %653 = getelementptr inbounds i8, ptr %94, i64 32
+  %654 = getelementptr inbounds i8, ptr %94, i64 32
   %.not.i.i.i355 = icmp eq ptr %.pre907, null
-  br i1 %.not.i.i.i355, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit356, label %654
+  br i1 %.not.i.i.i355, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit356, label %655
 
-654:                                              ; preds = %_ZNSt6vectorI8t_matrixSaIS0_EED2Ev.exit
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %653, ptr noundef nonnull %.pre907) #17
+655:                                              ; preds = %_ZNSt6vectorI8t_matrixSaIS0_EED2Ev.exit
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1) %654, ptr noundef nonnull %.pre907) #17
   br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit356
 
-_ZNSt10filesystem7__cxx114pathD2Ev.exit356:       ; preds = %_ZNSt6vectorI8t_matrixSaIS0_EED2Ev.exit, %654
-  store ptr null, ptr %653, align 8
+_ZNSt10filesystem7__cxx114pathD2Ev.exit356:       ; preds = %_ZNSt6vectorI8t_matrixSaIS0_EED2Ev.exit, %655
+  store ptr null, ptr %654, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %94) #17
-  %655 = load ptr, ptr @stderr, align 8
-  %fputc = call i32 @fputc(i32 10, ptr %655)
-  %656 = extractelement <2 x ptr> %650, i64 0
-  %657 = getelementptr inbounds i8, ptr %656, i64 4
+  %656 = load ptr, ptr @stderr, align 8
+  %fputc = call i32 @fputc(i32 10, ptr %656)
+  %657 = getelementptr inbounds i8, ptr %651, i64 4
   %658 = load i32, ptr %657, align 4
-  %659 = getelementptr inbounds i8, ptr %656, i64 8
+  %659 = getelementptr inbounds i8, ptr %651, i64 8
   %660 = load i32, ptr %659, align 8
   %.not316 = icmp eq i32 %658, %660
   br i1 %.not316, label %670, label %661

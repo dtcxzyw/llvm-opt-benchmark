@@ -5172,17 +5172,15 @@ if.then13.critedge:                               ; preds = %land.rhs.i
 if.then13:                                        ; preds = %if.then13.critedge, %if.end.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
   call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  %8 = load ptr, ptr %second, align 8, !noalias !48
-  store ptr %8, ptr %agg.result, align 8, !alias.scope !48
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 72
-  %9 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !48
-  store ptr %9, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !48
-  %cmp.not.i.i.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !48
+  %9 = load <2 x ptr>, ptr %second, align 8, !noalias !48
+  store <2 x ptr> %9, ptr %agg.result, align 8, !alias.scope !48
+  %cmp.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i.i, label %return, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then13
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !48
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i

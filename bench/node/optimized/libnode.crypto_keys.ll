@@ -7350,7 +7350,7 @@ if.end94:                                         ; preds = %cleanup, %if.then78
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node6crypto15KeyObjectHandle9ExportJWKERKN2v820FunctionCallbackInfoINS2_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
 entry:
-  %agg.tmp42 = alloca %"class.std::shared_ptr.7", align 8
+  %agg.tmp42 = alloca %"class.std::shared_ptr.7", align 16
   %0 = load ptr, ptr %args, align 8
   %arrayidx.i.i27 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i.i27, align 8
@@ -7478,17 +7478,16 @@ do.body38:                                        ; preds = %_ZNK2v820FunctionCa
 
 do.end41:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit125
   %data_.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
-  %34 = load ptr, ptr %data_.i, align 8
-  store ptr %34, ptr %agg.tmp42, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp42, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 40
-  %35 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %35, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %35, null
+  %34 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %35 = load <2 x ptr>, ptr %data_.i, align 8
+  store <2 x ptr> %35, ptr %agg.tmp42, align 16
+  %cmp.not.i.i.i = icmp eq ptr %34, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.end41
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 8
   %36 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %36, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -12952,7 +12951,7 @@ declare ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull ali
 define dso_local void @_ZN4node6crypto15NativeKeyObject21KeyObjectTransferData11DeserializeEPNS_11EnvironmentEN2v85LocalINS5_7ContextEEESt10unique_ptrINS_6worker12TransferDataESt14default_deleteISB_EE(ptr noalias nocapture writeonly sret(%"class.node::BaseObjectPtrImpl") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %env, ptr %context.coerce, ptr nocapture readnone %self) unnamed_addr #3 align 2 {
 entry:
   %handle = alloca %"class.v8::Local", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.7", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.7", align 16
   %arg = alloca %"class.v8::Local", align 8
   %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728
   %0 = load ptr, ptr %principal_realm_.i.i, align 8
@@ -12987,17 +12986,16 @@ if.then:                                          ; preds = %if.then.i, %if.end.
 if.end:                                           ; preds = %if.then.i, %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
   store ptr null, ptr %handle, align 8
   %data_ = getelementptr inbounds i8, ptr %this, i64 8
-  %5 = load ptr, ptr %data_, align 8
-  store ptr %5, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %6, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %6 = load <2 x ptr>, ptr %data_, align 8
+  store <2 x ptr> %6, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -13014,7 +13012,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEEC2ERKS3_.exit: ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i, %if.end
-  %10 = phi ptr [ null, %if.end ], [ %.pr.pre, %if.else.i.i.i.i.i ], [ %6, %if.then.i.i.i.i.i ]
+  %10 = phi ptr [ null, %if.end ], [ %.pr.pre, %if.else.i.i.i.i.i ], [ %5, %if.then.i.i.i.i.i ]
   %call9 = call ptr @_ZN4node6crypto15KeyObjectHandle6CreateEPNS_11EnvironmentESt10shared_ptrINS0_13KeyObjectDataEE(ptr noundef nonnull %env, ptr noundef nonnull %agg.tmp)
   store ptr %call9, ptr %handle, align 8
   %cmp.i.i154 = icmp eq ptr %call9, null
@@ -13219,17 +13217,15 @@ entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22, !noalias !141
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto15NativeKeyObject21KeyObjectTransferDataE, i64 16), ptr %call.i, align 8, !noalias !141
   %data_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %0 = load ptr, ptr %handle_data_, align 8, !noalias !141
-  store ptr %0, ptr %data_.i.i, align 8, !noalias !141
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !141
-  store ptr %1, ptr %_M_refcount.i.i.i.i, align 8, !noalias !141
-  %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !141
+  %1 = load <2 x ptr>, ptr %handle_data_, align 8, !noalias !141
+  store <2 x ptr> %1, ptr %data_.i.i, align 8, !noalias !141
+  %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN4node6crypto15NativeKeyObject21KeyObjectTransferDataESt14default_deleteIS3_EED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !141
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i

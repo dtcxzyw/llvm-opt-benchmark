@@ -453,14 +453,14 @@ entry:
   store float 0x3FB6872B00000000, ptr %m_logExposureStep, align 4
   %0 = load ptr, ptr %ec, align 8
   %m_exposure.i = getelementptr inbounds i8, ptr %0, i64 176
-  %1 = load ptr, ptr %m_exposure.i, align 8, !noalias !22
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %0, i64 184
-  %2 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !22
-  %cmp.not.i.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !22
+  %2 = load <2 x ptr>, ptr %m_exposure.i, align 8, !noalias !22
+  %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData19getExposurePropertyEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1, !noalias !22
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -476,10 +476,9 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   br label %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData19getExposurePropertyEv.exit
 
 _ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData19getExposurePropertyEv.exit: ; preds = %entry, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
-  store ptr %1, ptr %m_exposure, align 8
   %_M_refcount3.i.i.i3 = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %_M_refcount3.i.i.i3, align 8
-  store ptr %2, ptr %_M_refcount3.i.i.i3, align 8
+  store <2 x ptr> %2, ptr %m_exposure, align 8
   %cmp.not.i.i.i.i4 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i4, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit, label %if.then.i.i.i.i5
 
@@ -554,14 +553,14 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit: ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData19getExposurePropertyEv.exit
   %17 = load ptr, ptr %ec, align 8
   %m_contrast.i = getelementptr inbounds i8, ptr %17, i64 192
-  %18 = load ptr, ptr %m_contrast.i, align 8, !noalias !25
   %_M_refcount3.i.i.i13 = getelementptr inbounds i8, ptr %17, i64 200
-  %19 = load ptr, ptr %_M_refcount3.i.i.i13, align 8, !noalias !25
-  %cmp.not.i.i.i.i14 = icmp eq ptr %19, null
+  %18 = load ptr, ptr %_M_refcount3.i.i.i13, align 8, !noalias !25
+  %19 = load <2 x ptr>, ptr %m_contrast.i, align 8, !noalias !25
+  %cmp.not.i.i.i.i14 = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i.i14, label %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData19getContrastPropertyEv.exit, label %if.then.i.i.i.i15
 
 if.then.i.i.i.i15:                                ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit
-  %_M_use_count.i.i.i.i.i16 = getelementptr inbounds i8, ptr %19, i64 8
+  %_M_use_count.i.i.i.i.i16 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load i8, ptr @__libc_single_threaded, align 1, !noalias !25
   %tobool.i.i.not.i.i.i.i.i17 = icmp eq i8 %20, 0
   br i1 %tobool.i.i.not.i.i.i.i.i17, label %if.else.i.i.i.i.i.i20, label %if.then.i.i.i.i.i.i18
@@ -577,10 +576,9 @@ if.else.i.i.i.i.i.i20:                            ; preds = %if.then.i.i.i.i15
   br label %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData19getContrastPropertyEv.exit
 
 _ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData19getContrastPropertyEv.exit: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit, %if.then.i.i.i.i.i.i18, %if.else.i.i.i.i.i.i20
-  store ptr %18, ptr %m_contrast, align 8
   %_M_refcount3.i.i.i22 = getelementptr inbounds i8, ptr %this, i64 32
   %23 = load ptr, ptr %_M_refcount3.i.i.i22, align 8
-  store ptr %19, ptr %_M_refcount3.i.i.i22, align 8
+  store <2 x ptr> %19, ptr %m_contrast, align 8
   %cmp.not.i.i.i.i23 = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i.i23, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit85, label %if.then.i.i.i.i24
 
@@ -655,14 +653,14 @@ if.end8.sink.split.i.i.i.i.i44:                   ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit85: ; preds = %if.end8.sink.split.i.i.i.i.i44, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i41, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i31, %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData19getContrastPropertyEv.exit
   %34 = load ptr, ptr %ec, align 8
   %m_gamma.i = getelementptr inbounds i8, ptr %34, i64 208
-  %35 = load ptr, ptr %m_gamma.i, align 8, !noalias !28
   %_M_refcount3.i.i.i87 = getelementptr inbounds i8, ptr %34, i64 216
-  %36 = load ptr, ptr %_M_refcount3.i.i.i87, align 8, !noalias !28
-  %cmp.not.i.i.i.i88 = icmp eq ptr %36, null
+  %35 = load ptr, ptr %_M_refcount3.i.i.i87, align 8, !noalias !28
+  %36 = load <2 x ptr>, ptr %m_gamma.i, align 8, !noalias !28
+  %cmp.not.i.i.i.i88 = icmp eq ptr %35, null
   br i1 %cmp.not.i.i.i.i88, label %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData16getGammaPropertyEv.exit, label %if.then.i.i.i.i89
 
 if.then.i.i.i.i89:                                ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit85
-  %_M_use_count.i.i.i.i.i90 = getelementptr inbounds i8, ptr %36, i64 8
+  %_M_use_count.i.i.i.i.i90 = getelementptr inbounds i8, ptr %35, i64 8
   %37 = load i8, ptr @__libc_single_threaded, align 1, !noalias !28
   %tobool.i.i.not.i.i.i.i.i91 = icmp eq i8 %37, 0
   br i1 %tobool.i.i.not.i.i.i.i.i91, label %if.else.i.i.i.i.i.i94, label %if.then.i.i.i.i.i.i92
@@ -678,10 +676,9 @@ if.else.i.i.i.i.i.i94:                            ; preds = %if.then.i.i.i.i89
   br label %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData16getGammaPropertyEv.exit
 
 _ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData16getGammaPropertyEv.exit: ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit85, %if.then.i.i.i.i.i.i92, %if.else.i.i.i.i.i.i94
-  store ptr %35, ptr %m_gamma, align 8
   %_M_refcount3.i.i.i96 = getelementptr inbounds i8, ptr %this, i64 48
   %40 = load ptr, ptr %_M_refcount3.i.i.i96, align 8
-  store ptr %36, ptr %_M_refcount3.i.i.i96, align 8
+  store <2 x ptr> %36, ptr %m_gamma, align 8
   %cmp.not.i.i.i.i97 = icmp eq ptr %40, null
   br i1 %cmp.not.i.i.i.i97, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit159, label %if.then.i.i.i.i98
 
@@ -1363,37 +1360,39 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
   %in.139 = phi ptr [ %inImg, %for.body33.lr.ph ], [ %add.ptr44, %for.body33 ]
   %out.138 = phi ptr [ %outImg, %for.body33.lr.ph ], [ %add.ptr45, %for.body33 ]
   %idx30.037 = phi i64 [ 0, %for.body33.lr.ph ], [ %inc47, %for.body33 ]
-  %29 = load <4 x float>, ptr %in.139, align 4
-  %mul.i70 = fmul <4 x float> %vecinit3.i54, %29
-  %30 = bitcast <4 x float> %mul.i70 to <4 x i32>
-  %and.i.i.i = and <4 x i32> %30, %not.i.i.i
+  %arrayidx34 = getelementptr inbounds i8, ptr %in.139, i64 12
+  %29 = load float, ptr %arrayidx34, align 4
+  %30 = load <4 x float>, ptr %in.139, align 4
+  %mul.i70 = fmul <4 x float> %vecinit3.i54, %30
+  %31 = bitcast <4 x float> %mul.i70 to <4 x i32>
+  %and.i.i.i = and <4 x i32> %31, %not.i.i.i
   %or.i.i.i = or <4 x i32> %and.i.i.i, %13
-  %31 = bitcast <4 x i32> %or.i.i.i to <4 x float>
-  %mul.i31.i.i = fmul <4 x float> %14, %31
+  %32 = bitcast <4 x i32> %or.i.i.i to <4 x float>
+  %mul.i31.i.i = fmul <4 x float> %14, %32
   %add.i52.i.i = fadd <4 x float> %15, %mul.i31.i.i
-  %mul.i28.i.i = fmul <4 x float> %add.i52.i.i, %31
+  %mul.i28.i.i = fmul <4 x float> %add.i52.i.i, %32
   %add.i49.i.i = fadd <4 x float> %16, %mul.i28.i.i
-  %mul.i25.i.i = fmul <4 x float> %add.i49.i.i, %31
+  %mul.i25.i.i = fmul <4 x float> %add.i49.i.i, %32
   %add.i46.i.i = fadd <4 x float> %17, %mul.i25.i.i
-  %mul.i22.i.i = fmul <4 x float> %add.i46.i.i, %31
+  %mul.i22.i.i = fmul <4 x float> %add.i46.i.i, %32
   %add.i43.i.i = fadd <4 x float> %18, %mul.i22.i.i
-  %mul.i.i.i = fmul <4 x float> %add.i43.i.i, %31
+  %mul.i.i.i = fmul <4 x float> %add.i43.i.i, %32
   %add.i40.i.i = fadd <4 x float> %19, %mul.i.i.i
-  %32 = bitcast <4 x float> %mul.i70 to <2 x i64>
-  %and.i58.i.i = and <2 x i64> %11, %32
-  %33 = bitcast <2 x i64> %and.i58.i.i to <4 x i32>
-  %34 = lshr <4 x i32> %33, <i32 23, i32 23, i32 23, i32 23>
-  %sub.i.i.i = sub <4 x i32> %34, %20
+  %33 = bitcast <4 x float> %mul.i70 to <2 x i64>
+  %and.i58.i.i = and <2 x i64> %11, %33
+  %34 = bitcast <2 x i64> %and.i58.i.i to <4 x i32>
+  %35 = lshr <4 x i32> %34, <i32 23, i32 23, i32 23, i32 23>
+  %sub.i.i.i = sub <4 x i32> %35, %20
   %conv.i.i.i = sitofp <4 x i32> %sub.i.i.i to <4 x float>
   %add.i.i.i = fadd <4 x float> %add.i40.i.i, %conv.i.i.i
   %mul.i.i = fmul <4 x float> %vecinit3.i60, %add.i.i.i
-  %35 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %mul.i.i)
-  %36 = fcmp ult <4 x float> %mul.i.i, zeroinitializer
-  %37 = sext <4 x i1> %36 to <4 x i32>
-  %add.i55.i.i = add <4 x i32> %35, %37
+  %36 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %mul.i.i)
+  %37 = fcmp ult <4 x float> %mul.i.i, zeroinitializer
+  %38 = sext <4 x i1> %37 to <4 x i32>
+  %add.i55.i.i = add <4 x i32> %36, %38
   %add.i52.i5.i = add <4 x i32> %add.i55.i.i, %20
-  %38 = shl <4 x i32> %add.i52.i5.i, <i32 23, i32 23, i32 23, i32 23>
-  %39 = bitcast <4 x i32> %38 to <4 x float>
+  %39 = shl <4 x i32> %add.i52.i5.i, <i32 23, i32 23, i32 23, i32 23>
+  %40 = bitcast <4 x i32> %39 to <4 x float>
   %conv.i.i6.i = sitofp <4 x i32> %add.i55.i.i to <4 x float>
   %sub.i.i7.i = fsub <4 x float> %mul.i.i, %conv.i.i6.i
   %mul.i34.i.i = fmul <4 x float> %21, %sub.i.i7.i
@@ -1404,18 +1403,17 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
   %add.i41.i.i = fadd <4 x float> %24, %mul.i28.i9.i
   %mul.i25.i10.i = fmul <4 x float> %sub.i.i7.i, %add.i41.i.i
   %add.i.i11.i = fadd <4 x float> %25, %mul.i25.i10.i
-  %mul.i.i12.i = fmul <4 x float> %add.i.i11.i, %39
-  %40 = fcmp ule <4 x float> %26, %mul.i.i
-  %41 = select <4 x i1> %40, <4 x float> %mul.i.i12.i, <4 x float> zeroinitializer
-  %42 = fcmp ole <4 x float> %27, %mul.i.i
-  %43 = select <4 x i1> %42, <4 x float> %28, <4 x float> %41
-  %44 = fcmp ogt <4 x float> %mul.i70, zeroinitializer
-  %45 = select <4 x i1> %44, <4 x float> %43, <4 x float> zeroinitializer
-  %mul.i = fmul <4 x float> %vecinit3.i, %45
+  %mul.i.i12.i = fmul <4 x float> %add.i.i11.i, %40
+  %41 = fcmp ule <4 x float> %26, %mul.i.i
+  %42 = select <4 x i1> %41, <4 x float> %mul.i.i12.i, <4 x float> zeroinitializer
+  %43 = fcmp ole <4 x float> %27, %mul.i.i
+  %44 = select <4 x i1> %43, <4 x float> %28, <4 x float> %42
+  %45 = fcmp ogt <4 x float> %mul.i70, zeroinitializer
+  %46 = select <4 x i1> %45, <4 x float> %44, <4 x float> zeroinitializer
+  %mul.i = fmul <4 x float> %vecinit3.i, %46
   store <4 x float> %mul.i, ptr %out.138, align 1
   %arrayidx43 = getelementptr inbounds i8, ptr %out.138, i64 12
-  %46 = extractelement <4 x float> %29, i64 3
-  store float %46, ptr %arrayidx43, align 4
+  store float %29, ptr %arrayidx43, align 4
   %add.ptr44 = getelementptr inbounds i8, ptr %in.139, i64 16
   %add.ptr45 = getelementptr inbounds i8, ptr %out.138, i64 16
   %inc47 = add nuw nsw i64 %idx30.037, 1
@@ -2152,37 +2150,39 @@ for.body36:                                       ; preds = %for.body36.lr.ph, %
   %in.139 = phi ptr [ %inImg, %for.body36.lr.ph ], [ %add.ptr47, %for.body36 ]
   %out.138 = phi ptr [ %outImg, %for.body36.lr.ph ], [ %add.ptr48, %for.body36 ]
   %idx33.037 = phi i64 [ 0, %for.body36.lr.ph ], [ %inc50, %for.body36 ]
-  %29 = load <4 x float>, ptr %in.139, align 4
-  %mul.i73 = fmul <4 x float> %vecinit3.i, %29
-  %30 = bitcast <4 x float> %mul.i73 to <4 x i32>
-  %and.i.i.i = and <4 x i32> %30, %not.i.i.i
+  %arrayidx37 = getelementptr inbounds i8, ptr %in.139, i64 12
+  %29 = load float, ptr %arrayidx37, align 4
+  %30 = load <4 x float>, ptr %in.139, align 4
+  %mul.i73 = fmul <4 x float> %vecinit3.i, %30
+  %31 = bitcast <4 x float> %mul.i73 to <4 x i32>
+  %and.i.i.i = and <4 x i32> %31, %not.i.i.i
   %or.i.i.i = or <4 x i32> %and.i.i.i, %13
-  %31 = bitcast <4 x i32> %or.i.i.i to <4 x float>
-  %mul.i31.i.i = fmul <4 x float> %14, %31
+  %32 = bitcast <4 x i32> %or.i.i.i to <4 x float>
+  %mul.i31.i.i = fmul <4 x float> %14, %32
   %add.i52.i.i = fadd <4 x float> %15, %mul.i31.i.i
-  %mul.i28.i.i = fmul <4 x float> %add.i52.i.i, %31
+  %mul.i28.i.i = fmul <4 x float> %add.i52.i.i, %32
   %add.i49.i.i = fadd <4 x float> %16, %mul.i28.i.i
-  %mul.i25.i.i = fmul <4 x float> %add.i49.i.i, %31
+  %mul.i25.i.i = fmul <4 x float> %add.i49.i.i, %32
   %add.i46.i.i = fadd <4 x float> %17, %mul.i25.i.i
-  %mul.i22.i.i = fmul <4 x float> %add.i46.i.i, %31
+  %mul.i22.i.i = fmul <4 x float> %add.i46.i.i, %32
   %add.i43.i.i = fadd <4 x float> %18, %mul.i22.i.i
-  %mul.i.i.i = fmul <4 x float> %add.i43.i.i, %31
+  %mul.i.i.i = fmul <4 x float> %add.i43.i.i, %32
   %add.i40.i.i = fadd <4 x float> %19, %mul.i.i.i
-  %32 = bitcast <4 x float> %mul.i73 to <2 x i64>
-  %and.i58.i.i = and <2 x i64> %11, %32
-  %33 = bitcast <2 x i64> %and.i58.i.i to <4 x i32>
-  %34 = lshr <4 x i32> %33, <i32 23, i32 23, i32 23, i32 23>
-  %sub.i.i.i = sub <4 x i32> %34, %20
+  %33 = bitcast <4 x float> %mul.i73 to <2 x i64>
+  %and.i58.i.i = and <2 x i64> %11, %33
+  %34 = bitcast <2 x i64> %and.i58.i.i to <4 x i32>
+  %35 = lshr <4 x i32> %34, <i32 23, i32 23, i32 23, i32 23>
+  %sub.i.i.i = sub <4 x i32> %35, %20
   %conv.i.i.i = sitofp <4 x i32> %sub.i.i.i to <4 x float>
   %add.i.i.i = fadd <4 x float> %add.i40.i.i, %conv.i.i.i
   %mul.i.i = fmul <4 x float> %vecinit3.i63, %add.i.i.i
-  %35 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %mul.i.i)
-  %36 = fcmp ult <4 x float> %mul.i.i, zeroinitializer
-  %37 = sext <4 x i1> %36 to <4 x i32>
-  %add.i55.i.i = add <4 x i32> %35, %37
+  %36 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %mul.i.i)
+  %37 = fcmp ult <4 x float> %mul.i.i, zeroinitializer
+  %38 = sext <4 x i1> %37 to <4 x i32>
+  %add.i55.i.i = add <4 x i32> %36, %38
   %add.i52.i5.i = add <4 x i32> %add.i55.i.i, %20
-  %38 = shl <4 x i32> %add.i52.i5.i, <i32 23, i32 23, i32 23, i32 23>
-  %39 = bitcast <4 x i32> %38 to <4 x float>
+  %39 = shl <4 x i32> %add.i52.i5.i, <i32 23, i32 23, i32 23, i32 23>
+  %40 = bitcast <4 x i32> %39 to <4 x float>
   %conv.i.i6.i = sitofp <4 x i32> %add.i55.i.i to <4 x float>
   %sub.i.i7.i = fsub <4 x float> %mul.i.i, %conv.i.i6.i
   %mul.i34.i.i = fmul <4 x float> %21, %sub.i.i7.i
@@ -2193,18 +2193,17 @@ for.body36:                                       ; preds = %for.body36.lr.ph, %
   %add.i41.i.i = fadd <4 x float> %24, %mul.i28.i9.i
   %mul.i25.i10.i = fmul <4 x float> %sub.i.i7.i, %add.i41.i.i
   %add.i.i11.i = fadd <4 x float> %25, %mul.i25.i10.i
-  %mul.i.i12.i = fmul <4 x float> %add.i.i11.i, %39
-  %40 = fcmp ule <4 x float> %26, %mul.i.i
-  %41 = select <4 x i1> %40, <4 x float> %mul.i.i12.i, <4 x float> zeroinitializer
-  %42 = fcmp ole <4 x float> %27, %mul.i.i
-  %43 = select <4 x i1> %42, <4 x float> %28, <4 x float> %41
-  %44 = fcmp ogt <4 x float> %mul.i73, zeroinitializer
-  %45 = select <4 x i1> %44, <4 x float> %43, <4 x float> zeroinitializer
-  %mul.i = fmul <4 x float> %vecinit3.i57, %45
+  %mul.i.i12.i = fmul <4 x float> %add.i.i11.i, %40
+  %41 = fcmp ule <4 x float> %26, %mul.i.i
+  %42 = select <4 x i1> %41, <4 x float> %mul.i.i12.i, <4 x float> zeroinitializer
+  %43 = fcmp ole <4 x float> %27, %mul.i.i
+  %44 = select <4 x i1> %43, <4 x float> %28, <4 x float> %42
+  %45 = fcmp ogt <4 x float> %mul.i73, zeroinitializer
+  %46 = select <4 x i1> %45, <4 x float> %44, <4 x float> zeroinitializer
+  %mul.i = fmul <4 x float> %vecinit3.i57, %46
   store <4 x float> %mul.i, ptr %out.138, align 1
   %arrayidx46 = getelementptr inbounds i8, ptr %out.138, i64 12
-  %46 = extractelement <4 x float> %29, i64 3
-  store float %46, ptr %arrayidx46, align 4
+  store float %29, ptr %arrayidx46, align 4
   %add.ptr47 = getelementptr inbounds i8, ptr %in.139, i64 16
   %add.ptr48 = getelementptr inbounds i8, ptr %out.138, i64 16
   %inc50 = add nuw nsw i64 %idx33.037, 1
@@ -2407,37 +2406,39 @@ for.body34:                                       ; preds = %for.body34.lr.ph, %
   %in.139 = phi ptr [ %inImg, %for.body34.lr.ph ], [ %add.ptr45, %for.body34 ]
   %out.138 = phi ptr [ %outImg, %for.body34.lr.ph ], [ %add.ptr46, %for.body34 ]
   %idx31.037 = phi i64 [ 0, %for.body34.lr.ph ], [ %inc48, %for.body34 ]
-  %29 = load <4 x float>, ptr %in.139, align 4
-  %mul.i71 = fmul <4 x float> %vecinit3.i55, %29
-  %30 = bitcast <4 x float> %mul.i71 to <4 x i32>
-  %and.i.i.i = and <4 x i32> %30, %not.i.i.i
+  %arrayidx35 = getelementptr inbounds i8, ptr %in.139, i64 12
+  %29 = load float, ptr %arrayidx35, align 4
+  %30 = load <4 x float>, ptr %in.139, align 4
+  %mul.i71 = fmul <4 x float> %vecinit3.i55, %30
+  %31 = bitcast <4 x float> %mul.i71 to <4 x i32>
+  %and.i.i.i = and <4 x i32> %31, %not.i.i.i
   %or.i.i.i = or <4 x i32> %and.i.i.i, %13
-  %31 = bitcast <4 x i32> %or.i.i.i to <4 x float>
-  %mul.i31.i.i = fmul <4 x float> %14, %31
+  %32 = bitcast <4 x i32> %or.i.i.i to <4 x float>
+  %mul.i31.i.i = fmul <4 x float> %14, %32
   %add.i52.i.i = fadd <4 x float> %15, %mul.i31.i.i
-  %mul.i28.i.i = fmul <4 x float> %add.i52.i.i, %31
+  %mul.i28.i.i = fmul <4 x float> %add.i52.i.i, %32
   %add.i49.i.i = fadd <4 x float> %16, %mul.i28.i.i
-  %mul.i25.i.i = fmul <4 x float> %add.i49.i.i, %31
+  %mul.i25.i.i = fmul <4 x float> %add.i49.i.i, %32
   %add.i46.i.i = fadd <4 x float> %17, %mul.i25.i.i
-  %mul.i22.i.i = fmul <4 x float> %add.i46.i.i, %31
+  %mul.i22.i.i = fmul <4 x float> %add.i46.i.i, %32
   %add.i43.i.i = fadd <4 x float> %18, %mul.i22.i.i
-  %mul.i.i.i = fmul <4 x float> %add.i43.i.i, %31
+  %mul.i.i.i = fmul <4 x float> %add.i43.i.i, %32
   %add.i40.i.i = fadd <4 x float> %19, %mul.i.i.i
-  %32 = bitcast <4 x float> %mul.i71 to <2 x i64>
-  %and.i58.i.i = and <2 x i64> %11, %32
-  %33 = bitcast <2 x i64> %and.i58.i.i to <4 x i32>
-  %34 = lshr <4 x i32> %33, <i32 23, i32 23, i32 23, i32 23>
-  %sub.i.i.i = sub <4 x i32> %34, %20
+  %33 = bitcast <4 x float> %mul.i71 to <2 x i64>
+  %and.i58.i.i = and <2 x i64> %11, %33
+  %34 = bitcast <2 x i64> %and.i58.i.i to <4 x i32>
+  %35 = lshr <4 x i32> %34, <i32 23, i32 23, i32 23, i32 23>
+  %sub.i.i.i = sub <4 x i32> %35, %20
   %conv.i.i.i = sitofp <4 x i32> %sub.i.i.i to <4 x float>
   %add.i.i.i = fadd <4 x float> %add.i40.i.i, %conv.i.i.i
   %mul.i.i = fmul <4 x float> %vecinit3.i61, %add.i.i.i
-  %35 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %mul.i.i)
-  %36 = fcmp ult <4 x float> %mul.i.i, zeroinitializer
-  %37 = sext <4 x i1> %36 to <4 x i32>
-  %add.i55.i.i = add <4 x i32> %35, %37
+  %36 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %mul.i.i)
+  %37 = fcmp ult <4 x float> %mul.i.i, zeroinitializer
+  %38 = sext <4 x i1> %37 to <4 x i32>
+  %add.i55.i.i = add <4 x i32> %36, %38
   %add.i52.i5.i = add <4 x i32> %add.i55.i.i, %20
-  %38 = shl <4 x i32> %add.i52.i5.i, <i32 23, i32 23, i32 23, i32 23>
-  %39 = bitcast <4 x i32> %38 to <4 x float>
+  %39 = shl <4 x i32> %add.i52.i5.i, <i32 23, i32 23, i32 23, i32 23>
+  %40 = bitcast <4 x i32> %39 to <4 x float>
   %conv.i.i6.i = sitofp <4 x i32> %add.i55.i.i to <4 x float>
   %sub.i.i7.i = fsub <4 x float> %mul.i.i, %conv.i.i6.i
   %mul.i34.i.i = fmul <4 x float> %21, %sub.i.i7.i
@@ -2448,18 +2449,17 @@ for.body34:                                       ; preds = %for.body34.lr.ph, %
   %add.i41.i.i = fadd <4 x float> %24, %mul.i28.i9.i
   %mul.i25.i10.i = fmul <4 x float> %sub.i.i7.i, %add.i41.i.i
   %add.i.i11.i = fadd <4 x float> %25, %mul.i25.i10.i
-  %mul.i.i12.i = fmul <4 x float> %add.i.i11.i, %39
-  %40 = fcmp ule <4 x float> %26, %mul.i.i
-  %41 = select <4 x i1> %40, <4 x float> %mul.i.i12.i, <4 x float> zeroinitializer
-  %42 = fcmp ole <4 x float> %27, %mul.i.i
-  %43 = select <4 x i1> %42, <4 x float> %28, <4 x float> %41
-  %44 = fcmp ogt <4 x float> %mul.i71, zeroinitializer
-  %45 = select <4 x i1> %44, <4 x float> %43, <4 x float> zeroinitializer
-  %mul.i = fmul <4 x float> %vecinit3.i, %45
+  %mul.i.i12.i = fmul <4 x float> %add.i.i11.i, %40
+  %41 = fcmp ule <4 x float> %26, %mul.i.i
+  %42 = select <4 x i1> %41, <4 x float> %mul.i.i12.i, <4 x float> zeroinitializer
+  %43 = fcmp ole <4 x float> %27, %mul.i.i
+  %44 = select <4 x i1> %43, <4 x float> %28, <4 x float> %42
+  %45 = fcmp ogt <4 x float> %mul.i71, zeroinitializer
+  %46 = select <4 x i1> %45, <4 x float> %44, <4 x float> zeroinitializer
+  %mul.i = fmul <4 x float> %vecinit3.i, %46
   store <4 x float> %mul.i, ptr %out.138, align 1
   %arrayidx44 = getelementptr inbounds i8, ptr %out.138, i64 12
-  %46 = extractelement <4 x float> %29, i64 3
-  store float %46, ptr %arrayidx44, align 4
+  store float %29, ptr %arrayidx44, align 4
   %add.ptr45 = getelementptr inbounds i8, ptr %in.139, i64 16
   %add.ptr46 = getelementptr inbounds i8, ptr %out.138, i64 16
   %inc48 = add nuw nsw i64 %idx31.037, 1
@@ -2666,37 +2666,39 @@ for.body37:                                       ; preds = %for.body37.lr.ph, %
   %in.139 = phi ptr [ %inImg, %for.body37.lr.ph ], [ %add.ptr48, %for.body37 ]
   %out.138 = phi ptr [ %outImg, %for.body37.lr.ph ], [ %add.ptr49, %for.body37 ]
   %idx34.037 = phi i64 [ 0, %for.body37.lr.ph ], [ %inc51, %for.body37 ]
-  %29 = load <4 x float>, ptr %in.139, align 4
-  %mul.i74 = fmul <4 x float> %vecinit3.i, %29
-  %30 = bitcast <4 x float> %mul.i74 to <4 x i32>
-  %and.i.i.i = and <4 x i32> %30, %not.i.i.i
+  %arrayidx38 = getelementptr inbounds i8, ptr %in.139, i64 12
+  %29 = load float, ptr %arrayidx38, align 4
+  %30 = load <4 x float>, ptr %in.139, align 4
+  %mul.i74 = fmul <4 x float> %vecinit3.i, %30
+  %31 = bitcast <4 x float> %mul.i74 to <4 x i32>
+  %and.i.i.i = and <4 x i32> %31, %not.i.i.i
   %or.i.i.i = or <4 x i32> %and.i.i.i, %13
-  %31 = bitcast <4 x i32> %or.i.i.i to <4 x float>
-  %mul.i31.i.i = fmul <4 x float> %14, %31
+  %32 = bitcast <4 x i32> %or.i.i.i to <4 x float>
+  %mul.i31.i.i = fmul <4 x float> %14, %32
   %add.i52.i.i = fadd <4 x float> %15, %mul.i31.i.i
-  %mul.i28.i.i = fmul <4 x float> %add.i52.i.i, %31
+  %mul.i28.i.i = fmul <4 x float> %add.i52.i.i, %32
   %add.i49.i.i = fadd <4 x float> %16, %mul.i28.i.i
-  %mul.i25.i.i = fmul <4 x float> %add.i49.i.i, %31
+  %mul.i25.i.i = fmul <4 x float> %add.i49.i.i, %32
   %add.i46.i.i = fadd <4 x float> %17, %mul.i25.i.i
-  %mul.i22.i.i = fmul <4 x float> %add.i46.i.i, %31
+  %mul.i22.i.i = fmul <4 x float> %add.i46.i.i, %32
   %add.i43.i.i = fadd <4 x float> %18, %mul.i22.i.i
-  %mul.i.i.i = fmul <4 x float> %add.i43.i.i, %31
+  %mul.i.i.i = fmul <4 x float> %add.i43.i.i, %32
   %add.i40.i.i = fadd <4 x float> %19, %mul.i.i.i
-  %32 = bitcast <4 x float> %mul.i74 to <2 x i64>
-  %and.i58.i.i = and <2 x i64> %11, %32
-  %33 = bitcast <2 x i64> %and.i58.i.i to <4 x i32>
-  %34 = lshr <4 x i32> %33, <i32 23, i32 23, i32 23, i32 23>
-  %sub.i.i.i = sub <4 x i32> %34, %20
+  %33 = bitcast <4 x float> %mul.i74 to <2 x i64>
+  %and.i58.i.i = and <2 x i64> %11, %33
+  %34 = bitcast <2 x i64> %and.i58.i.i to <4 x i32>
+  %35 = lshr <4 x i32> %34, <i32 23, i32 23, i32 23, i32 23>
+  %sub.i.i.i = sub <4 x i32> %35, %20
   %conv.i.i.i = sitofp <4 x i32> %sub.i.i.i to <4 x float>
   %add.i.i.i = fadd <4 x float> %add.i40.i.i, %conv.i.i.i
   %mul.i.i = fmul <4 x float> %vecinit3.i64, %add.i.i.i
-  %35 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %mul.i.i)
-  %36 = fcmp ult <4 x float> %mul.i.i, zeroinitializer
-  %37 = sext <4 x i1> %36 to <4 x i32>
-  %add.i55.i.i = add <4 x i32> %35, %37
+  %36 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %mul.i.i)
+  %37 = fcmp ult <4 x float> %mul.i.i, zeroinitializer
+  %38 = sext <4 x i1> %37 to <4 x i32>
+  %add.i55.i.i = add <4 x i32> %36, %38
   %add.i52.i5.i = add <4 x i32> %add.i55.i.i, %20
-  %38 = shl <4 x i32> %add.i52.i5.i, <i32 23, i32 23, i32 23, i32 23>
-  %39 = bitcast <4 x i32> %38 to <4 x float>
+  %39 = shl <4 x i32> %add.i52.i5.i, <i32 23, i32 23, i32 23, i32 23>
+  %40 = bitcast <4 x i32> %39 to <4 x float>
   %conv.i.i6.i = sitofp <4 x i32> %add.i55.i.i to <4 x float>
   %sub.i.i7.i = fsub <4 x float> %mul.i.i, %conv.i.i6.i
   %mul.i34.i.i = fmul <4 x float> %21, %sub.i.i7.i
@@ -2707,18 +2709,17 @@ for.body37:                                       ; preds = %for.body37.lr.ph, %
   %add.i41.i.i = fadd <4 x float> %24, %mul.i28.i9.i
   %mul.i25.i10.i = fmul <4 x float> %sub.i.i7.i, %add.i41.i.i
   %add.i.i11.i = fadd <4 x float> %25, %mul.i25.i10.i
-  %mul.i.i12.i = fmul <4 x float> %add.i.i11.i, %39
-  %40 = fcmp ule <4 x float> %26, %mul.i.i
-  %41 = select <4 x i1> %40, <4 x float> %mul.i.i12.i, <4 x float> zeroinitializer
-  %42 = fcmp ole <4 x float> %27, %mul.i.i
-  %43 = select <4 x i1> %42, <4 x float> %28, <4 x float> %41
-  %44 = fcmp ogt <4 x float> %mul.i74, zeroinitializer
-  %45 = select <4 x i1> %44, <4 x float> %43, <4 x float> zeroinitializer
-  %mul.i = fmul <4 x float> %vecinit3.i58, %45
+  %mul.i.i12.i = fmul <4 x float> %add.i.i11.i, %40
+  %41 = fcmp ule <4 x float> %26, %mul.i.i
+  %42 = select <4 x i1> %41, <4 x float> %mul.i.i12.i, <4 x float> zeroinitializer
+  %43 = fcmp ole <4 x float> %27, %mul.i.i
+  %44 = select <4 x i1> %43, <4 x float> %28, <4 x float> %42
+  %45 = fcmp ogt <4 x float> %mul.i74, zeroinitializer
+  %46 = select <4 x i1> %45, <4 x float> %44, <4 x float> zeroinitializer
+  %mul.i = fmul <4 x float> %vecinit3.i58, %46
   store <4 x float> %mul.i, ptr %out.138, align 1
   %arrayidx47 = getelementptr inbounds i8, ptr %out.138, i64 12
-  %46 = extractelement <4 x float> %29, i64 3
-  store float %46, ptr %arrayidx47, align 4
+  store float %29, ptr %arrayidx47, align 4
   %add.ptr48 = getelementptr inbounds i8, ptr %in.139, i64 16
   %add.ptr49 = getelementptr inbounds i8, ptr %out.138, i64 16
   %inc51 = add nuw nsw i64 %idx34.037, 1
@@ -2865,13 +2866,14 @@ for.body:                                         ; preds = %entry, %for.body
   %in.019 = phi ptr [ %add.ptr, %for.body ], [ %inImg, %entry ]
   %out.018 = phi ptr [ %add.ptr26, %for.body ], [ %outImg, %entry ]
   %idx.017 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
-  %9 = load <4 x float>, ptr %in.019, align 4
-  %mul.i = fmul <4 x float> %vecinit3.i32, %9
+  %arrayidx = getelementptr inbounds i8, ptr %in.019, i64 12
+  %9 = load float, ptr %arrayidx, align 4
+  %10 = load <4 x float>, ptr %in.019, align 4
+  %mul.i = fmul <4 x float> %vecinit3.i32, %10
   %add.i = fadd <4 x float> %vecinit3.i, %mul.i
   store <4 x float> %add.i, ptr %out.018, align 1
   %arrayidx25 = getelementptr inbounds i8, ptr %out.018, i64 12
-  %10 = extractelement <4 x float> %9, i64 3
-  store float %10, ptr %arrayidx25, align 4
+  store float %9, ptr %arrayidx25, align 4
   %add.ptr = getelementptr inbounds i8, ptr %in.019, i64 16
   %add.ptr26 = getelementptr inbounds i8, ptr %out.018, i64 16
   %inc = add nuw nsw i64 %idx.017, 1

@@ -2051,7 +2051,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.10393
   %.sroa.0.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 24
   %.sroa.0.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 56
   %27 = load <2 x i64>, ptr %.0.i.i5.i, align 8, !noalias !696
-  %28 = extractelement <2 x i64> %27, i64 0
+  %28 = load i64, ptr %.0.i.i5.i, align 8, !noalias !696, !noundef !9
   %29 = add i64 %28, 1
   store i64 %29, ptr %.0.i.i5.i, align 8, !noalias !696
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.ffc34ad9ea0ca27223c3df7e39c916b2.374.llvm.10393017446704266758, i64 32, i1 false)
@@ -2994,7 +2994,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.10393
 23:                                               ; preds = %.noexc, %2
   %.0.i.i2.i = phi ptr [ %20, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 8), %2 ]
   %24 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !974
-  %25 = extractelement <2 x i64> %24, i64 0
+  %25 = load i64, ptr %.0.i.i2.i, align 8, !noalias !974, !noundef !9
   %26 = add i64 %25, 1
   store i64 %26, ptr %.0.i.i2.i, align 8, !noalias !974
   tail call void @llvm.experimental.noalias.scope.decl(metadata !975)
@@ -3936,7 +3936,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5b7c0e16
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load <2 x i64>, ptr %4, align 8
-  %9 = extractelement <2 x i64> %8, i64 0
+  %9 = load i64, ptr %4, align 8, !noundef !9
   %10 = add i64 %9, 1
   store i64 %10, ptr %4, align 8
   store <2 x i64> %8, ptr %7, align 8
@@ -5411,18 +5411,16 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h212fc7897a521f6eE"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, { i64, i64 } } }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %.sroa.0.0.copyload = load i64, ptr %2, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1347)
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
+  %5 = load <2 x i64>, ptr %2, align 8
   %spec.select.i.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %.sroa.3.0.copyload, i64 %.sroa.2.0.copyload)
   store i64 %spec.select.i.i.i.i, ptr %0, align 8, !alias.scope !1350, !noalias !1347
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.0.0.copyload, ptr %4, align 8, !alias.scope !1352
-  %.sroa.2.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx2, align 8, !alias.scope !1352
+  store <2 x i64> %5, ptr %4, align 8, !alias.scope !1352
   %.sroa.3.0..sroa_idx4 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.3.0.copyload, ptr %.sroa.3.0..sroa_idx4, align 8, !alias.scope !1352
   ret void
@@ -26667,7 +26665,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.10393
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load <2 x i64>, ptr %.0.i.i5, align 8, !noalias !5254
-  %8 = extractelement <2 x i64> %7, i64 0
+  %8 = load i64, ptr %.0.i.i5, align 8, !noalias !5254, !noundef !9
   %9 = add i64 %8, 1
   store i64 %9, ptr %.0.i.i5, align 8, !noalias !5254
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) @anon.ffc34ad9ea0ca27223c3df7e39c916b2.374.llvm.10393017446704266758, i64 32, i1 false)

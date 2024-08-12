@@ -4344,9 +4344,9 @@ _ZNSt8functionIFvRKN7rocksdb13FSReadRequestEPvEEC2ERKS6_.exit.i: ; preds = %invo
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %call, i64 24
   %7 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %8 = load ptr, ptr %_M_manager3.i.i, align 8
   store <2 x ptr> %7, ptr %_M_manager.i.i.i, align 8
   store <2 x ptr> %6, ptr %_M_manager3.i.i, align 8
-  %8 = extractelement <2 x ptr> %7, i64 0
   %tobool.not.i.i4.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i4.i, label %_ZNSt8functionIFvRKN7rocksdb13FSReadRequestEPvEEaSERKS6_.exit, label %if.then.i.i5.i
 

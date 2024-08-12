@@ -1808,14 +1808,15 @@ invoke.cont110:                                   ; preds = %_ZNK8facebook5velox
 
 invoke.cont116:                                   ; preds = %invoke.cont110
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %arrayElementType, i64 8
-  %24 = load <2 x ptr>, ptr %call117, align 8
-  store <2 x ptr> %24, ptr %arrayElementType, align 16
-  %25 = extractelement <2 x ptr> %24, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %25, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %call117, i64 8
+  %24 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %25 = load <2 x ptr>, ptr %call117, align 8
+  store <2 x ptr> %25, ptr %arrayElementType, align 16
+  %cmp.not.i.i.i = icmp eq ptr %24, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont116
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %26, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

@@ -33411,17 +33411,15 @@ _ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEC2ERKS5_.exit.i: ; preds = %for.body
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %wall_top.i, ptr noundef nonnull align 8 dereferenceable(72) %wall_top4.i, i64 72, i1 false)
   %connected.i = getelementptr inbounds i8, ptr %this, i64 3280
   %connected5.i = getelementptr inbounds i8, ptr %0, i64 3280
-  %212 = load ptr, ptr %connected5.i, align 8, !tbaa !42
-  store ptr %212, ptr %connected.i, align 8, !tbaa !42
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 3288
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %0, i64 3288
-  %213 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !32
-  store ptr %213, ptr %_M_refcount.i.i.i, align 8, !tbaa !32
-  %cmp.not.i.i.i.i283 = icmp eq ptr %213, null
+  %212 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !32
+  %213 = load <2 x ptr>, ptr %connected5.i, align 8, !tbaa !31
+  store <2 x ptr> %213, ptr %connected.i, align 8, !tbaa !31
+  %cmp.not.i.i.i.i283 = icmp eq ptr %212, null
   br i1 %cmp.not.i.i.i.i283, label %invoke.cont72, label %if.then.i.i.i.i284
 
 if.then.i.i.i.i284:                               ; preds = %_ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEC2ERKS5_.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %213, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %212, i64 8
   %214 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !13
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %214, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -33499,17 +33497,15 @@ _ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEC2ERKS5_.exit.i310: ; preds = %for.b
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %wall_top.i312, ptr noundef nonnull align 8 dereferenceable(72) %wall_top4.i313, i64 72, i1 false)
   %connected.i314 = getelementptr inbounds i8, ptr %this, i64 3400
   %connected5.i315 = getelementptr inbounds i8, ptr %0, i64 3400
-  %222 = load ptr, ptr %connected5.i315, align 8, !tbaa !42
-  store ptr %222, ptr %connected.i314, align 8, !tbaa !42
-  %_M_refcount.i.i.i316 = getelementptr inbounds i8, ptr %this, i64 3408
   %_M_refcount3.i.i.i317 = getelementptr inbounds i8, ptr %0, i64 3408
-  %223 = load ptr, ptr %_M_refcount3.i.i.i317, align 8, !tbaa !32
-  store ptr %223, ptr %_M_refcount.i.i.i316, align 8, !tbaa !32
-  %cmp.not.i.i.i.i318 = icmp eq ptr %223, null
+  %222 = load ptr, ptr %_M_refcount3.i.i.i317, align 8, !tbaa !32
+  %223 = load <2 x ptr>, ptr %connected5.i315, align 8, !tbaa !31
+  store <2 x ptr> %223, ptr %connected.i314, align 8, !tbaa !31
+  %cmp.not.i.i.i.i318 = icmp eq ptr %222, null
   br i1 %cmp.not.i.i.i.i318, label %invoke.cont75, label %if.then.i.i.i.i319
 
 if.then.i.i.i.i319:                               ; preds = %_ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEC2ERKS5_.exit.i310
-  %_M_use_count.i.i.i.i.i320 = getelementptr inbounds i8, ptr %223, i64 8
+  %_M_use_count.i.i.i.i.i320 = getelementptr inbounds i8, ptr %222, i64 8
   %224 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !13
   %tobool.i.i.not.i.i.i.i.i321 = icmp eq i8 %224, 0
   br i1 %tobool.i.i.not.i.i.i.i.i321, label %if.else.i.i.i.i.i.i324, label %if.then.i.i.i.i.i.i322
@@ -33587,17 +33583,15 @@ _ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEC2ERKS5_.exit.i353: ; preds = %for.b
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %wall_top.i355, ptr noundef nonnull align 8 dereferenceable(72) %wall_top4.i356, i64 72, i1 false)
   %connected.i357 = getelementptr inbounds i8, ptr %this, i64 3520
   %connected5.i358 = getelementptr inbounds i8, ptr %0, i64 3520
-  %232 = load ptr, ptr %connected5.i358, align 8, !tbaa !42
-  store ptr %232, ptr %connected.i357, align 8, !tbaa !42
-  %_M_refcount.i.i.i359 = getelementptr inbounds i8, ptr %this, i64 3528
   %_M_refcount3.i.i.i360 = getelementptr inbounds i8, ptr %0, i64 3528
-  %233 = load ptr, ptr %_M_refcount3.i.i.i360, align 8, !tbaa !32
-  store ptr %233, ptr %_M_refcount.i.i.i359, align 8, !tbaa !32
-  %cmp.not.i.i.i.i361 = icmp eq ptr %233, null
+  %232 = load ptr, ptr %_M_refcount3.i.i.i360, align 8, !tbaa !32
+  %233 = load <2 x ptr>, ptr %connected5.i358, align 8, !tbaa !31
+  store <2 x ptr> %233, ptr %connected.i357, align 8, !tbaa !31
+  %cmp.not.i.i.i.i361 = icmp eq ptr %232, null
   br i1 %cmp.not.i.i.i.i361, label %invoke.cont78, label %if.then.i.i.i.i362
 
 if.then.i.i.i.i362:                               ; preds = %_ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEC2ERKS5_.exit.i353
-  %_M_use_count.i.i.i.i.i363 = getelementptr inbounds i8, ptr %233, i64 8
+  %_M_use_count.i.i.i.i.i363 = getelementptr inbounds i8, ptr %232, i64 8
   %234 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !13
   %tobool.i.i.not.i.i.i.i.i364 = icmp eq i8 %234, 0
   br i1 %tobool.i.i.not.i.i.i.i.i364, label %if.else.i.i.i.i.i.i367, label %if.then.i.i.i.i.i.i365

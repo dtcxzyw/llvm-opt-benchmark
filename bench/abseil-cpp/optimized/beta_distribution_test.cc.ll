@@ -6493,7 +6493,7 @@ ehcleanup26:                                      ; preds = %_ZNKSt14default_del
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7testing8internal22CartesianProductHolderIJNS0_10ValueArrayIJdddddddEEES3_EEcvNS0_14ParamGeneratorISt5tupleIJDpT_EEEEIJddEEEv(ptr noalias sret(%"class.testing::internal::ParamGenerator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %this) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.std::tuple.91", align 8
+  %ref.tmp = alloca %"class.std::tuple.91", align 16
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #35
   invoke void @_ZNSt11_Tuple_implILm0EJN7testing8internal14ParamGeneratorIdEES3_EEC2IJNS1_10ValueArrayIJdddddddEEES7_EEERKS_ILm0EJDpT_EE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(112) %this)
           to label %invoke.cont unwind label %cleanup.action
@@ -6501,17 +6501,15 @@ entry:
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal25CartesianProductGeneratorIJddEEE, i64 16), ptr %call, align 8
   %generators_.i = getelementptr inbounds i8, ptr %call, i64 8
-  %0 = load ptr, ptr %ref.tmp, align 8
-  store ptr %0, ptr %generators_.i, align 8
-  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %ref.tmp, align 16
+  store <2 x ptr> %1, ptr %generators_.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt11_Tuple_implILm1EJN7testing8internal14ParamGeneratorIdEEEEC2ERKS4_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -6529,17 +6527,15 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i
 _ZNSt11_Tuple_implILm1EJN7testing8internal14ParamGeneratorIdEEEEC2ERKS4_.exit.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont
   %5 = getelementptr inbounds i8, ptr %call, i64 24
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %6 = load ptr, ptr %add.ptr.i.i.i, align 8
-  store ptr %6, ptr %5, align 8
-  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
   %_M_refcount3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %7 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8
+  %7 = load <2 x ptr>, ptr %add.ptr.i.i.i, align 16
+  store <2 x ptr> %7, ptr %5, align 8
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont3, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt11_Tuple_implILm1EJN7testing8internal14ParamGeneratorIdEEEEC2ERKS4_.exit.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i

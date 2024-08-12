@@ -11719,9 +11719,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv3dnn12RNNLayerImpl15getMem
 35:                                               ; preds = %30
   %36 = load ptr, ptr %1, align 8
   %37 = load ptr, ptr %36, align 8
-  %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %37, i64 4
-  %40 = load i32, ptr %39, align 4
+  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %39 = load i32, ptr %38, align 4
+  %40 = load <2 x i32>, ptr %37, align 4
   %41 = getelementptr inbounds i8, ptr %8, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %9, i64 8
@@ -11764,11 +11764,9 @@ _ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_De
   br label %.body
 
 _ZN2cv3dnn14dnn4_v20240521L5shapeEPKii.exit:      ; preds = %51
-  store i32 %38, ptr %54, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 4
-  store i32 %40, ptr %.sroa.3.0..sroa_idx, align 4
-  %.sroa.4.0..sroa_idx145 = getelementptr inbounds i8, ptr %54, i64 8
-  store i32 %42, ptr %.sroa.4.0..sroa_idx145, align 4
+  store <2 x i32> %40, ptr %54, align 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 8
+  store i32 %42, ptr %.sroa.3.0..sroa_idx, align 4
   %57 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %54, ptr %10, align 8
   %58 = getelementptr inbounds i8, ptr %54, i64 12
@@ -11825,11 +11823,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_IiSa
   br label %.body
 
 _ZN2cv3dnn14dnn4_v20240521L5shapeEPKii.exit32:    ; preds = %73
-  store i32 %38, ptr %75, align 4
-  %.sroa.3.0..sroa_idx143 = getelementptr inbounds i8, ptr %75, i64 4
-  store i32 %40, ptr %.sroa.3.0..sroa_idx143, align 4
-  %.sroa.4.0..sroa_idx146 = getelementptr inbounds i8, ptr %75, i64 8
-  store i32 %44, ptr %.sroa.4.0..sroa_idx146, align 4
+  store <2 x i32> %40, ptr %75, align 4
+  %.sroa.3.0..sroa_idx143 = getelementptr inbounds i8, ptr %75, i64 8
+  store i32 %44, ptr %.sroa.3.0..sroa_idx143, align 4
   %78 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %75, ptr %11, align 8
   %79 = getelementptr inbounds i8, ptr %75, i64 12
@@ -11907,7 +11903,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit37:                  ; preds = %_ZNSt6vectorIS_IiSa
 
 .noexc44:                                         ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit37
   %104 = getelementptr inbounds i8, ptr %12, i64 16
-  store i32 %40, ptr %103, align 4, !noalias !176
+  store i32 %39, ptr %103, align 4, !noalias !176
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %103, i64 4
   store i32 %44, ptr %.sroa.4.0..sroa_idx, align 4, !noalias !176
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %103, i64 8
@@ -11919,7 +11915,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit37:                  ; preds = %_ZNSt6vectorIS_IiSa
   %106 = getelementptr inbounds i8, ptr %103, i64 16
   store ptr %106, ptr %105, align 8, !alias.scope !176
   store ptr %106, ptr %104, align 8, !alias.scope !176
-  %107 = icmp slt i32 %40, 0
+  %107 = icmp slt i32 %39, 0
   %108 = icmp slt i32 %44, 0
   %spec.select = select i1 %108, i64 4, i64 8
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.idx.i = select i1 %107, i64 0, i64 %spec.select
@@ -11975,7 +11971,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit47:                  ; preds = %_ZNSt6vectorIS_IiSa
 
 .noexc79:                                         ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit47
   %117 = getelementptr inbounds i8, ptr %13, i64 16
-  store i32 %40, ptr %116, align 4, !noalias !179
+  store i32 %39, ptr %116, align 4, !noalias !179
   %.sroa.4113.0..sroa_idx = getelementptr inbounds i8, ptr %116, i64 4
   store i32 1, ptr %.sroa.4113.0..sroa_idx, align 4, !noalias !179
   %.sroa.5114.0..sroa_idx = getelementptr inbounds i8, ptr %116, i64 8

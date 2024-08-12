@@ -2139,7 +2139,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h5dbdb6075c78
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3), !noalias !331
   call void @_ZN14wasmtime_cache6config22deserialize_disk_space17h1a49c67e4566e290E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %4), !noalias !338
   %15 = load <2 x i64>, ptr %3, align 16, !noalias !331
-  %16 = extractelement <2 x i64> %15, i64 0
+  %16 = load i64, ptr %3, align 16, !range !89, !noalias !331, !noundef !10
   %17 = icmp eq i64 %16, 2
   %18 = getelementptr inbounds i8, ptr %3, i64 16
   %19 = load i64, ptr %18, align 16, !noalias !331
@@ -2274,7 +2274,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h99ea838a29c5
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3), !noalias !379
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17hb915b300c746ab72E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %4), !noalias !386
   %15 = load <2 x i64>, ptr %3, align 16, !noalias !379
-  %16 = extractelement <2 x i64> %15, i64 0
+  %16 = load i64, ptr %3, align 16, !range !89, !noalias !379, !noundef !10
   %17 = icmp eq i64 %16, 2
   %18 = getelementptr inbounds i8, ptr %3, i64 16
   %19 = load i64, ptr %18, align 16, !noalias !379
@@ -2407,7 +2407,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17ha681827cf516
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3), !noalias !427
   call void @_ZN14wasmtime_cache6config20deserialize_duration17haac61c09f68e9fadE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %4), !noalias !434
   %15 = load <2 x i64>, ptr %3, align 16, !noalias !427
-  %16 = extractelement <2 x i64> %15, i64 0
+  %16 = load i64, ptr %3, align 16, !range !89, !noalias !427, !noundef !10
   %17 = icmp eq i64 %16, 2
   %18 = getelementptr inbounds i8, ptr %3, i64 16
   %19 = load i32, ptr %18, align 16, !noalias !427
@@ -2478,7 +2478,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17hd8fd0b483566
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3), !noalias !453
   call void @_ZN14wasmtime_cache6config20deserialize_duration17haac61c09f68e9fadE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %4), !noalias !460
   %15 = load <2 x i64>, ptr %3, align 16, !noalias !453
-  %16 = extractelement <2 x i64> %15, i64 0
+  %16 = load i64, ptr %3, align 16, !range !89, !noalias !453, !noundef !10
   %17 = icmp eq i64 %16, 2
   %18 = getelementptr inbounds i8, ptr %3, i64 16
   %19 = load i32, ptr %18, align 16, !noalias !453
@@ -2549,7 +2549,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17hdf0bc104bd5b
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3), !noalias !479
   call void @_ZN14wasmtime_cache6config20deserialize_duration17haac61c09f68e9fadE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %4), !noalias !486
   %15 = load <2 x i64>, ptr %3, align 16, !noalias !479
-  %16 = extractelement <2 x i64> %15, i64 0
+  %16 = load i64, ptr %3, align 16, !range !89, !noalias !479, !noundef !10
   %17 = icmp eq i64 %16, 2
   %18 = getelementptr inbounds i8, ptr %3, i64 16
   %19 = load i32, ptr %18, align 16, !noalias !479
@@ -2620,7 +2620,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17heb4aa927d709
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3), !noalias !505
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17hb915b300c746ab72E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %4), !noalias !512
   %15 = load <2 x i64>, ptr %3, align 16, !noalias !505
-  %16 = extractelement <2 x i64> %15, i64 0
+  %16 = load i64, ptr %3, align 16, !range !89, !noalias !505, !noundef !10
   %17 = icmp eq i64 %16, 2
   %18 = getelementptr inbounds i8, ptr %3, i64 16
   %19 = load i64, ptr %18, align 16, !noalias !505
@@ -3628,7 +3628,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5), !noalias !789
   call void @_ZN14wasmtime_cache6config20deserialize_duration17h7e94a8d7f8ad91c0E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %5, i64 noundef %10), !noalias !789
   %12 = load <2 x i64>, ptr %5, align 16, !noalias !789
-  %13 = extractelement <2 x i64> %12, i64 0
+  %13 = load i64, ptr %5, align 16, !range !89, !noalias !789, !noundef !10
   %14 = icmp eq i64 %13, 2
   %15 = getelementptr inbounds i8, ptr %5, i64 16
   %16 = load i32, ptr %15, align 16, !noalias !789
@@ -3672,7 +3672,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4), !noalias !796
   call void @_ZN14wasmtime_cache6config20deserialize_duration17h7e94a8d7f8ad91c0E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %4, i64 noundef %24), !noalias !796
   %27 = load <2 x i64>, ptr %4, align 16, !noalias !796
-  %28 = extractelement <2 x i64> %27, i64 0
+  %28 = load i64, ptr %4, align 16, !range !89, !noalias !796, !noundef !10
   %29 = icmp eq i64 %28, 2
   %30 = getelementptr inbounds i8, ptr %4, i64 16
   %31 = load i32, ptr %30, align 16, !noalias !796
@@ -3732,7 +3732,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3), !noalias !803
   call void @_ZN14wasmtime_cache6config20deserialize_duration17haac61c09f68e9fadE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %7)
   %42 = load <2 x i64>, ptr %3, align 16, !noalias !803
-  %43 = extractelement <2 x i64> %42, i64 0
+  %43 = load i64, ptr %3, align 16, !range !89, !noalias !803, !noundef !10
   %44 = icmp eq i64 %43, 2
   %45 = getelementptr inbounds i8, ptr %3, i64 16
   %46 = load i32, ptr %45, align 16, !noalias !803
@@ -3948,7 +3948,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5), !noalias !852
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17heaaa377b7a6eb0fbE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %5, i64 noundef %10), !noalias !852
   %12 = load <2 x i64>, ptr %5, align 16, !noalias !852
-  %13 = extractelement <2 x i64> %12, i64 0
+  %13 = load i64, ptr %5, align 16, !range !89, !noalias !852, !noundef !10
   %14 = icmp eq i64 %13, 2
   %15 = getelementptr inbounds i8, ptr %5, i64 16
   %16 = load i64, ptr %15, align 16, !noalias !852
@@ -3992,7 +3992,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4), !noalias !859
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17heaaa377b7a6eb0fbE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %4, i64 noundef %24), !noalias !859
   %27 = load <2 x i64>, ptr %4, align 16, !noalias !859
-  %28 = extractelement <2 x i64> %27, i64 0
+  %28 = load i64, ptr %4, align 16, !range !89, !noalias !859, !noundef !10
   %29 = icmp eq i64 %28, 2
   %30 = getelementptr inbounds i8, ptr %4, i64 16
   %31 = load i64, ptr %30, align 16, !noalias !859
@@ -4052,7 +4052,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3), !noalias !866
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17hb915b300c746ab72E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %7)
   %42 = load <2 x i64>, ptr %3, align 16, !noalias !866
-  %43 = extractelement <2 x i64> %42, i64 0
+  %43 = load i64, ptr %3, align 16, !range !89, !noalias !866, !noundef !10
   %44 = icmp eq i64 %43, 2
   %45 = getelementptr inbounds i8, ptr %3, i64 16
   %46 = load i64, ptr %45, align 16, !noalias !866
@@ -4400,7 +4400,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5), !noalias !951
   call void @_ZN14wasmtime_cache6config20deserialize_duration17h7e94a8d7f8ad91c0E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %5, i64 noundef %10), !noalias !951
   %12 = load <2 x i64>, ptr %5, align 16, !noalias !951
-  %13 = extractelement <2 x i64> %12, i64 0
+  %13 = load i64, ptr %5, align 16, !range !89, !noalias !951, !noundef !10
   %14 = icmp eq i64 %13, 2
   %15 = getelementptr inbounds i8, ptr %5, i64 16
   %16 = load i32, ptr %15, align 16, !noalias !951
@@ -4444,7 +4444,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4), !noalias !958
   call void @_ZN14wasmtime_cache6config20deserialize_duration17h7e94a8d7f8ad91c0E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %4, i64 noundef %24), !noalias !958
   %27 = load <2 x i64>, ptr %4, align 16, !noalias !958
-  %28 = extractelement <2 x i64> %27, i64 0
+  %28 = load i64, ptr %4, align 16, !range !89, !noalias !958, !noundef !10
   %29 = icmp eq i64 %28, 2
   %30 = getelementptr inbounds i8, ptr %4, i64 16
   %31 = load i32, ptr %30, align 16, !noalias !958
@@ -4504,7 +4504,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3), !noalias !965
   call void @_ZN14wasmtime_cache6config20deserialize_duration17haac61c09f68e9fadE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %7)
   %42 = load <2 x i64>, ptr %3, align 16, !noalias !965
-  %43 = extractelement <2 x i64> %42, i64 0
+  %43 = load i64, ptr %3, align 16, !range !89, !noalias !965, !noundef !10
   %44 = icmp eq i64 %43, 2
   %45 = getelementptr inbounds i8, ptr %3, i64 16
   %46 = load i32, ptr %45, align 16, !noalias !965
@@ -4557,7 +4557,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5), !noalias !976
   call void @_ZN14wasmtime_cache6config20deserialize_duration17h7e94a8d7f8ad91c0E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %5, i64 noundef %10), !noalias !976
   %12 = load <2 x i64>, ptr %5, align 16, !noalias !976
-  %13 = extractelement <2 x i64> %12, i64 0
+  %13 = load i64, ptr %5, align 16, !range !89, !noalias !976, !noundef !10
   %14 = icmp eq i64 %13, 2
   %15 = getelementptr inbounds i8, ptr %5, i64 16
   %16 = load i32, ptr %15, align 16, !noalias !976
@@ -4601,7 +4601,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4), !noalias !983
   call void @_ZN14wasmtime_cache6config20deserialize_duration17h7e94a8d7f8ad91c0E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %4, i64 noundef %24), !noalias !983
   %27 = load <2 x i64>, ptr %4, align 16, !noalias !983
-  %28 = extractelement <2 x i64> %27, i64 0
+  %28 = load i64, ptr %4, align 16, !range !89, !noalias !983, !noundef !10
   %29 = icmp eq i64 %28, 2
   %30 = getelementptr inbounds i8, ptr %4, i64 16
   %31 = load i32, ptr %30, align 16, !noalias !983
@@ -4661,7 +4661,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3), !noalias !990
   call void @_ZN14wasmtime_cache6config20deserialize_duration17haac61c09f68e9fadE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %7)
   %42 = load <2 x i64>, ptr %3, align 16, !noalias !990
-  %43 = extractelement <2 x i64> %42, i64 0
+  %43 = load i64, ptr %3, align 16, !range !89, !noalias !990, !noundef !10
   %44 = icmp eq i64 %43, 2
   %45 = getelementptr inbounds i8, ptr %3, i64 16
   %46 = load i32, ptr %45, align 16, !noalias !990
@@ -5046,7 +5046,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5), !noalias !1051
   call void @_ZN14wasmtime_cache6config22deserialize_disk_space17h86a911fb053088d9E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %5, i64 noundef %10), !noalias !1051
   %12 = load <2 x i64>, ptr %5, align 16, !noalias !1051
-  %13 = extractelement <2 x i64> %12, i64 0
+  %13 = load i64, ptr %5, align 16, !range !89, !noalias !1051, !noundef !10
   %14 = icmp eq i64 %13, 2
   %15 = getelementptr inbounds i8, ptr %5, i64 16
   %16 = load i64, ptr %15, align 16, !noalias !1051
@@ -5090,7 +5090,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4), !noalias !1058
   call void @_ZN14wasmtime_cache6config22deserialize_disk_space17h86a911fb053088d9E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %4, i64 noundef %24), !noalias !1058
   %27 = load <2 x i64>, ptr %4, align 16, !noalias !1058
-  %28 = extractelement <2 x i64> %27, i64 0
+  %28 = load i64, ptr %4, align 16, !range !89, !noalias !1058, !noundef !10
   %29 = icmp eq i64 %28, 2
   %30 = getelementptr inbounds i8, ptr %4, i64 16
   %31 = load i64, ptr %30, align 16, !noalias !1058
@@ -5150,7 +5150,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3), !noalias !1065
   call void @_ZN14wasmtime_cache6config22deserialize_disk_space17h1a49c67e4566e290E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %7)
   %42 = load <2 x i64>, ptr %3, align 16, !noalias !1065
-  %43 = extractelement <2 x i64> %42, i64 0
+  %43 = load i64, ptr %3, align 16, !range !89, !noalias !1065, !noundef !10
   %44 = icmp eq i64 %43, 2
   %45 = getelementptr inbounds i8, ptr %3, i64 16
   %46 = load i64, ptr %45, align 16, !noalias !1065
@@ -5203,7 +5203,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5), !noalias !1076
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17heaaa377b7a6eb0fbE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %5, i64 noundef %10), !noalias !1076
   %12 = load <2 x i64>, ptr %5, align 16, !noalias !1076
-  %13 = extractelement <2 x i64> %12, i64 0
+  %13 = load i64, ptr %5, align 16, !range !89, !noalias !1076, !noundef !10
   %14 = icmp eq i64 %13, 2
   %15 = getelementptr inbounds i8, ptr %5, i64 16
   %16 = load i64, ptr %15, align 16, !noalias !1076
@@ -5247,7 +5247,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4), !noalias !1083
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17heaaa377b7a6eb0fbE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %4, i64 noundef %24), !noalias !1083
   %27 = load <2 x i64>, ptr %4, align 16, !noalias !1083
-  %28 = extractelement <2 x i64> %27, i64 0
+  %28 = load i64, ptr %4, align 16, !range !89, !noalias !1083, !noundef !10
   %29 = icmp eq i64 %28, 2
   %30 = getelementptr inbounds i8, ptr %4, i64 16
   %31 = load i64, ptr %30, align 16, !noalias !1083
@@ -5307,7 +5307,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3), !noalias !1090
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17hb915b300c746ab72E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %7)
   %42 = load <2 x i64>, ptr %3, align 16, !noalias !1090
-  %43 = extractelement <2 x i64> %42, i64 0
+  %43 = load i64, ptr %3, align 16, !range !89, !noalias !1090, !noundef !10
   %44 = icmp eq i64 %43, 2
   %45 = getelementptr inbounds i8, ptr %3, i64 16
   %46 = load i64, ptr %45, align 16, !noalias !1090
@@ -5360,7 +5360,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5), !noalias !1101
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17heaaa377b7a6eb0fbE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %5, i64 noundef %10), !noalias !1101
   %12 = load <2 x i64>, ptr %5, align 16, !noalias !1101
-  %13 = extractelement <2 x i64> %12, i64 0
+  %13 = load i64, ptr %5, align 16, !range !89, !noalias !1101, !noundef !10
   %14 = icmp eq i64 %13, 2
   %15 = getelementptr inbounds i8, ptr %5, i64 16
   %16 = load i64, ptr %15, align 16, !noalias !1101
@@ -5404,7 +5404,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4), !noalias !1108
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17heaaa377b7a6eb0fbE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %4, i64 noundef %24), !noalias !1108
   %27 = load <2 x i64>, ptr %4, align 16, !noalias !1108
-  %28 = extractelement <2 x i64> %27, i64 0
+  %28 = load i64, ptr %4, align 16, !range !89, !noalias !1108, !noundef !10
   %29 = icmp eq i64 %28, 2
   %30 = getelementptr inbounds i8, ptr %4, i64 16
   %31 = load i64, ptr %30, align 16, !noalias !1108
@@ -5464,7 +5464,7 @@ define hidden void @"_ZN93_$LT$toml_edit..de..spanned..SpannedDeserializer$LT$T$
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3), !noalias !1115
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17hb915b300c746ab72E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %7)
   %42 = load <2 x i64>, ptr %3, align 16, !noalias !1115
-  %43 = extractelement <2 x i64> %42, i64 0
+  %43 = load i64, ptr %3, align 16, !range !89, !noalias !1115, !noundef !10
   %44 = icmp eq i64 %43, 2
   %45 = getelementptr inbounds i8, ptr %3, i64 16
   %46 = load i64, ptr %45, align 16, !noalias !1115

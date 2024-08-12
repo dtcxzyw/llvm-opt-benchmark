@@ -707,16 +707,16 @@ entry:
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load <2 x ptr>, ptr %_M_start.i.i, align 8, !noalias !7
   %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %2 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !7
   %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %3 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !7
+  %2 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !7
+  %3 = load <2 x ptr>, ptr %_M_last4.i.i.i, align 8, !noalias !7
   %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %4 = load ptr, ptr %_M_node5.i.i.i.i, align 8
-  %cmp3.i.i.i = icmp ult ptr %3, %4
+  %cmp3.i.i.i = icmp ult ptr %2, %4
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %_ZNSt5dequeISt4pairIjjESaIS1_EE5clearEv.exit
 
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
-  %__n.04.i.pn.i.i = phi ptr [ %__n.04.i.i.i, %for.body.i.i.i ], [ %3, %entry ]
+  %__n.04.i.pn.i.i = phi ptr [ %__n.04.i.i.i, %for.body.i.i.i ], [ %2, %entry ]
   %__n.04.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.pn.i.i, i64 8
   %5 = load ptr, ptr %__n.04.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %5) #24
@@ -727,8 +727,7 @@ _ZNSt5dequeISt4pairIjjESaIS1_EE5clearEv.exit:     ; preds = %for.body.i.i.i, %en
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store <2 x ptr> %1, ptr %_M_finish.i.i.i, align 8
   %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr %2, ptr %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx.i, align 8
-  store ptr %3, ptr %_M_node5.i.i.i.i, align 8
+  store <2 x ptr> %3, ptr %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx.i, align 8
   %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %6 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.i = icmp ugt i64 %6, 2305843009213693951
@@ -1842,19 +1841,18 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   %9 = phi ptr [ %.pre, %if.else.i ], [ %incdec.ptr.i, %if.then.i ]
   %_M_first.i6 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_first3.i7 = getelementptr inbounds i8, ptr %this, i64 56
-  %10 = load ptr, ptr %_M_first3.i7, align 8
-  store ptr %10, ptr %_M_first.i6, align 8
-  %_M_last.i8 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %11 = load ptr, ptr %_M_last.i5, align 8
-  store ptr %11, ptr %_M_last.i8, align 8
+  %10 = load <2 x ptr>, ptr %_M_first3.i7, align 8
+  %11 = load ptr, ptr %_M_first3.i7, align 8
+  store <2 x ptr> %10, ptr %_M_first.i6, align 8
   %_M_node.i10 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %_M_node5.i11 = getelementptr inbounds i8, ptr %this, i64 72
   %12 = load ptr, ptr %_M_node5.i11, align 8
   store ptr %12, ptr %_M_node.i10, align 8
-  %cmp.i = icmp eq ptr %9, %10
+  %cmp.i = icmp eq ptr %9, %11
   br i1 %cmp.i, label %if.then.i15, label %_ZNSt15_Deque_iteratorISt4pairIjjERS1_PS1_EmmEv.exit
 
 if.then.i15:                                      ; preds = %if.end.i
+  %_M_last.i8 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %add.ptr.i17 = getelementptr inbounds i8, ptr %12, i64 -8
   store ptr %add.ptr.i17, ptr %_M_node.i10, align 8
   %13 = load ptr, ptr %add.ptr.i17, align 8

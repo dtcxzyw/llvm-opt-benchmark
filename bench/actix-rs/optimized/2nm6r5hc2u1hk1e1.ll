@@ -2337,7 +2337,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %49 = getelementptr inbounds i8, ptr %.sroa.013.036, i64 24
   %50 = load ptr, ptr %49, align 8, !alias.scope !523, !noalias !526, !nonnull !34, !noundef !34
   %51 = load <2 x i64>, ptr %48, align 8, !alias.scope !518, !noalias !521
-  %52 = extractelement <2 x i64> %51, i64 0
+  %52 = load i64, ptr %48, align 8, !alias.scope !523, !noalias !526, !noundef !34
   %53 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hcdad20e2da3f792dE"(i64 noundef %52, i1 noundef zeroext false)
           to label %.noexc.i.i unwind label %59, !noalias !516
 

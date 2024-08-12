@@ -880,7 +880,7 @@ define hidden void @"_ZN44_$LT$T$u20$as$u20$alloc..borrow..ToOwned$GT$8to_owned1
   %35 = getelementptr inbounds i8, ptr %1, i64 24
   %36 = load ptr, ptr %35, align 8, !alias.scope !381, !noalias !384, !nonnull !9, !noundef !9
   %37 = load <2 x i64>, ptr %34, align 8, !alias.scope !376, !noalias !379
-  %38 = extractelement <2 x i64> %37, i64 0
+  %38 = load i64, ptr %34, align 8, !alias.scope !381, !noalias !384, !noundef !9
   %39 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h9c647e7217d9edd4E"(i64 noundef %38, i1 noundef zeroext false)
           to label %.noexc.i unwind label %45, !noalias !359
 
@@ -996,7 +996,7 @@ define hidden void @"_ZN49_$LT$mime..Mime$u20$as$u20$core..clone..Clone$GT$5clon
   %35 = getelementptr inbounds i8, ptr %1, i64 24
   %36 = load ptr, ptr %35, align 8, !alias.scope !396, !noalias !399, !nonnull !9, !noundef !9
   %37 = load <2 x i64>, ptr %34, align 8, !alias.scope !391, !noalias !394
-  %38 = extractelement <2 x i64> %37, i64 0
+  %38 = load i64, ptr %34, align 8, !alias.scope !396, !noalias !399, !noundef !9
   %39 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h9c647e7217d9edd4E"(i64 noundef %38, i1 noundef zeroext false)
           to label %.noexc unwind label %45
 
@@ -1431,7 +1431,7 @@ define hidden void @"_ZN56_$LT$mime..ParamSource$u20$as$u20$core..clone..Clone$G
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   %16 = load <2 x i64>, ptr %13, align 8
-  %17 = extractelement <2 x i64> %16, i64 0
+  %17 = load i64, ptr %13, align 8, !alias.scope !499, !noalias !502, !noundef !9
   %18 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h9c647e7217d9edd4E"(i64 noundef %17, i1 noundef zeroext false), !noalias !504
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1

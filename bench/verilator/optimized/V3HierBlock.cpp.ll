@@ -7883,7 +7883,7 @@ define linkonce_odr dso_local void @_ZN28HierBlockUsageCollectVisitor5visitEP9As
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::unordered_set.125", align 8
-  %11 = alloca %"class.std::vector.0", align 8
+  %11 = alloca %"class.std::vector.0", align 16
   %12 = getelementptr inbounds i8, ptr %1, i64 112
   %13 = load i32, ptr %12, align 8
   %14 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
@@ -8024,7 +8024,7 @@ _ZNSt8literals15string_literalsli1sB5cxx11EPKcm.exit: ; preds = %46
 .body:                                            ; preds = %54, %31, %.body25
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body25 ], [ %55, %54 ], [ %32, %31 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
-  br label %139
+  br label %140
 
 60:                                               ; preds = %19, %53
   %61 = getelementptr inbounds i8, ptr %0, i64 24
@@ -8112,128 +8112,129 @@ _ZNSt10_HashtableIPK9AstModuleS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ES
 
 _ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4swapERS8_.exit: ; preds = %80, %95, %_ZNSt10_HashtableIPK9AstModuleS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_update_bbeginEv.exit.i.i, %60
   %103 = getelementptr inbounds i8, ptr %0, i64 96
-  %104 = getelementptr inbounds i8, ptr %11, i64 8
-  %105 = load ptr, ptr %103, align 8
-  store ptr %105, ptr %11, align 8
-  %106 = getelementptr inbounds i8, ptr %0, i64 104
-  %107 = load <2 x ptr>, ptr %106, align 8
-  store <2 x ptr> %107, ptr %104, align 8
+  %104 = getelementptr inbounds i8, ptr %11, i64 16
+  %105 = load <2 x ptr>, ptr %103, align 8
+  %106 = load ptr, ptr %103, align 8
+  store <2 x ptr> %105, ptr %11, align 16
+  %107 = getelementptr inbounds i8, ptr %0, i64 112
+  %108 = load ptr, ptr %107, align 8
+  store ptr %108, ptr %104, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %103, i8 0, i64 24, i1 false)
   invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit unwind label %.loopexit.split-lp
 
 _ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit: ; preds = %_ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4swapERS8_.exit
-  %108 = load i16, ptr %70, align 1
-  %109 = and i16 %108, 64
-  %.not42 = icmp eq i16 %109, 0
-  br i1 %.not42, label %_ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EEaSERKS8_.exit, label %110
+  %109 = load i16, ptr %70, align 1
+  %110 = and i16 %109, 64
+  %.not42 = icmp eq i16 %110, 0
+  br i1 %.not42, label %_ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EEaSERKS8_.exit, label %111
 
-110:                                              ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit
-  %111 = getelementptr inbounds i8, ptr %0, i64 16
-  %112 = load ptr, ptr %111, align 8
-  invoke void @_ZN15V3HierBlockPlan3addEPK13AstNodeModuleRKSt6vectorIP6AstVarSaIS5_EE(ptr noundef nonnull align 8 dereferenceable(56) %112, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %103)
-          to label %113 unwind label %.loopexit.split-lp
+111:                                              ; preds = %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit
+  %112 = getelementptr inbounds i8, ptr %0, i64 16
+  %113 = load ptr, ptr %112, align 8
+  invoke void @_ZN15V3HierBlockPlan3addEPK13AstNodeModuleRKSt6vectorIP6AstVarSaIS5_EE(ptr noundef nonnull align 8 dereferenceable(56) %113, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %103)
+          to label %114 unwind label %.loopexit.split-lp
 
-113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %0, i64 40
-  %115 = getelementptr inbounds i8, ptr %0, i64 56
-  br label %116
+114:                                              ; preds = %111
+  %115 = getelementptr inbounds i8, ptr %0, i64 40
+  %116 = getelementptr inbounds i8, ptr %0, i64 56
+  br label %117
 
-116:                                              ; preds = %117, %113
-  %.sroa.035.0.in = phi ptr [ %115, %113 ], [ %.sroa.035.0, %117 ]
+117:                                              ; preds = %118, %114
+  %.sroa.035.0.in = phi ptr [ %116, %114 ], [ %.sroa.035.0, %118 ]
   %.sroa.035.0 = load ptr, ptr %.sroa.035.0.in, align 8
   %.not43 = icmp eq ptr %.sroa.035.0, null
-  br i1 %.not43, label %124, label %117
+  br i1 %.not43, label %125, label %118
 
-117:                                              ; preds = %116
-  %118 = getelementptr inbounds i8, ptr %.sroa.035.0, i64 8
-  %119 = load ptr, ptr %118, align 8
-  %120 = load ptr, ptr %111, align 8
-  invoke void @_ZN15V3HierBlockPlan13registerUsageEPK13AstNodeModuleS2_(ptr noundef nonnull align 8 dereferenceable(56) %120, ptr noundef nonnull %1, ptr noundef %119)
-          to label %116 unwind label %.loopexit
+118:                                              ; preds = %117
+  %119 = getelementptr inbounds i8, ptr %.sroa.035.0, i64 8
+  %120 = load ptr, ptr %119, align 8
+  %121 = load ptr, ptr %112, align 8
+  invoke void @_ZN15V3HierBlockPlan13registerUsageEPK13AstNodeModuleS2_(ptr noundef nonnull align 8 dereferenceable(56) %121, ptr noundef nonnull %1, ptr noundef %120)
+          to label %117 unwind label %.loopexit
 
-.loopexit:                                        ; preds = %117
+.loopexit:                                        ; preds = %118
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %121
+  br label %122
 
-.loopexit.split-lp:                               ; preds = %110, %_ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EEaSERKS8_.exit, %_ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4swapERS8_.exit, %126
+.loopexit.split-lp:                               ; preds = %111, %_ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EEaSERKS8_.exit, %_ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EE4swapERS8_.exit, %127
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  %.pre44 = load ptr, ptr %11, align 8
-  br label %121
+  %.pre44 = load ptr, ptr %11, align 16
+  br label %122
 
-121:                                              ; preds = %.loopexit.split-lp, %.loopexit
-  %122 = phi ptr [ %105, %.loopexit ], [ %.pre44, %.loopexit.split-lp ]
+122:                                              ; preds = %.loopexit.split-lp, %.loopexit
+  %123 = phi ptr [ %106, %.loopexit ], [ %.pre44, %.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i31 = icmp eq ptr %122, null
-  br i1 %.not.i.i.i31, label %_ZNSt6vectorIP6AstVarSaIS1_EED2Ev.exit, label %123
+  %.not.i.i.i31 = icmp eq ptr %123, null
+  br i1 %.not.i.i.i31, label %_ZNSt6vectorIP6AstVarSaIS1_EED2Ev.exit, label %124
 
-123:                                              ; preds = %121
-  call void @_ZdlPv(ptr noundef nonnull %122) #22
+124:                                              ; preds = %122
+  call void @_ZdlPv(ptr noundef nonnull %123) #22
   br label %_ZNSt6vectorIP6AstVarSaIS1_EED2Ev.exit
 
-_ZNSt6vectorIP6AstVarSaIS1_EED2Ev.exit:           ; preds = %121, %123
+_ZNSt6vectorIP6AstVarSaIS1_EED2Ev.exit:           ; preds = %122, %124
   call void @_ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #19
   store ptr %62, ptr %61, align 8
-  br label %139
+  br label %140
 
-124:                                              ; preds = %116
+125:                                              ; preds = %117
   store ptr %64, ptr %63, align 8
-  %125 = icmp eq ptr %10, %114
-  br i1 %125, label %_ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EEaSERKS8_.exit, label %126
+  %126 = icmp eq ptr %10, %115
+  br i1 %126, label %_ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EEaSERKS8_.exit, label %127
 
-126:                                              ; preds = %124
-  invoke void @_ZNSt10_HashtableIPK9AstModuleS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE18_M_assign_elementsIRKSF_EEvOT_(ptr noundef nonnull align 8 dereferenceable(56) %114, ptr noundef nonnull align 8 dereferenceable(56) %10)
+127:                                              ; preds = %125
+  invoke void @_ZNSt10_HashtableIPK9AstModuleS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE18_M_assign_elementsIRKSF_EEvOT_(ptr noundef nonnull align 8 dereferenceable(56) %115, ptr noundef nonnull align 8 dereferenceable(56) %10)
           to label %_ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EEaSERKS8_.exit unwind label %.loopexit.split-lp
 
-_ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EEaSERKS8_.exit: ; preds = %124, %126, %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit
-  %127 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIP6AstVarSaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %128 unwind label %.loopexit.split-lp
+_ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EEaSERKS8_.exit: ; preds = %125, %127, %_ZN14VNVisitorConst20iterateChildrenConstEP7AstNode.exit
+  %128 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIP6AstVarSaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull align 8 dereferenceable(24) %11)
+          to label %129 unwind label %.loopexit.split-lp
 
-128:                                              ; preds = %_ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EEaSERKS8_.exit
-  %129 = load ptr, ptr %11, align 8
-  %.not.i.i.i33 = icmp eq ptr %129, null
-  br i1 %.not.i.i.i33, label %_ZNSt6vectorIP6AstVarSaIS1_EED2Ev.exit34, label %130
+129:                                              ; preds = %_ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EEaSERKS8_.exit
+  %130 = load ptr, ptr %11, align 16
+  %.not.i.i.i33 = icmp eq ptr %130, null
+  br i1 %.not.i.i.i33, label %_ZNSt6vectorIP6AstVarSaIS1_EED2Ev.exit34, label %131
 
-130:                                              ; preds = %128
-  call void @_ZdlPv(ptr noundef nonnull %129) #22
+131:                                              ; preds = %129
+  call void @_ZdlPv(ptr noundef nonnull %130) #22
   br label %_ZNSt6vectorIP6AstVarSaIS1_EED2Ev.exit34
 
-_ZNSt6vectorIP6AstVarSaIS1_EED2Ev.exit34:         ; preds = %128, %130
-  %131 = load ptr, ptr %67, align 8
-  %.not5.i.i.i.i = icmp eq ptr %131, null
+_ZNSt6vectorIP6AstVarSaIS1_EED2Ev.exit34:         ; preds = %129, %131
+  %132 = load ptr, ptr %67, align 8
+  %.not5.i.i.i.i = icmp eq ptr %132, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableIPK9AstModuleS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt6vectorIP6AstVarSaIS1_EED2Ev.exit34, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %132, %.lr.ph.i.i.i.i ], [ %131, %_ZNSt6vectorIP6AstVarSaIS1_EED2Ev.exit34 ]
-  %132 = load ptr, ptr %.06.i.i.i.i, align 8
+  %.06.i.i.i.i = phi ptr [ %133, %.lr.ph.i.i.i.i ], [ %132, %_ZNSt6vectorIP6AstVarSaIS1_EED2Ev.exit34 ]
+  %133 = load ptr, ptr %.06.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef nonnull %.06.i.i.i.i) #22
-  %.not.i.i.i.i = icmp eq ptr %132, null
+  %.not.i.i.i.i = icmp eq ptr %133, null
   br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableIPK9AstModuleS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !55
 
 _ZNSt10_HashtableIPK9AstModuleS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt6vectorIP6AstVarSaIS1_EED2Ev.exit34
-  %133 = load ptr, ptr %10, align 8
-  %134 = load i64, ptr %66, align 8
-  %135 = shl i64 %134, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %133, i8 0, i64 %135, i1 false)
+  %134 = load ptr, ptr %10, align 8
+  %135 = load i64, ptr %66, align 8
+  %136 = shl i64 %135, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %134, i8 0, i64 %136, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
-  %136 = load ptr, ptr %10, align 8
-  %137 = icmp eq ptr %65, %136
-  br i1 %137, label %_ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit, label %138
+  %137 = load ptr, ptr %10, align 8
+  %138 = icmp eq ptr %65, %137
+  br i1 %138, label %_ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit, label %139
 
-138:                                              ; preds = %_ZNSt10_HashtableIPK9AstModuleS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i
-  call void @_ZdlPv(ptr noundef %136) #22
+139:                                              ; preds = %_ZNSt10_HashtableIPK9AstModuleS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i
+  call void @_ZdlPv(ptr noundef %137) #22
   br label %_ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit
 
-_ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit: ; preds = %_ZNSt10_HashtableIPK9AstModuleS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, %138
+_ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit: ; preds = %_ZNSt10_HashtableIPK9AstModuleS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, %139
   store ptr %62, ptr %61, align 8
   br label %_ZN7AstNode12user1SetOnceEv.exit
 
 _ZN7AstNode12user1SetOnceEv.exit:                 ; preds = %2, %_ZNSt13unordered_setIPK9AstModuleSt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit
   ret void
 
-139:                                              ; preds = %_ZNSt6vectorIP6AstVarSaIS1_EED2Ev.exit, %.body
+140:                                              ; preds = %_ZNSt6vectorIP6AstVarSaIS1_EED2Ev.exit, %.body
   %.pn22 = phi { ptr, i32 } [ %lpad.phi, %_ZNSt6vectorIP6AstVarSaIS1_EED2Ev.exit ], [ %.pn.pn, %.body ]
   resume { ptr, i32 } %.pn22
 }

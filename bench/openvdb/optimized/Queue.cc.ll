@@ -586,7 +586,6 @@ invoke.cont:                                      ; preds = %lor.rhs.i, %if.then
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %notify, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
   %7 = load ptr, ptr %_M_manager.i.i.i.i, align 8
@@ -627,17 +626,15 @@ _ZNSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEC2ERKS6_.exit.i: ; preds = %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 56
-  %14 = load ptr, ptr %_M_manager3.i.i, align 8
-  store ptr %14, ptr %_M_manager.i.i.i, align 8
-  %_M_invoker4.i2.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 64
-  %15 = load ptr, ptr %_M_invoker4.i2.i, align 8
-  store ptr %15, ptr %_M_invoker.i.i, align 8
+  %14 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %15 = load ptr, ptr %_M_manager3.i.i, align 8
+  store <2 x ptr> %14, ptr %_M_manager.i.i.i, align 8
   store <2 x ptr> %13, ptr %_M_manager3.i.i, align 8
-  %tobool.not.i.i4.i = icmp eq ptr %14, null
+  %tobool.not.i.i4.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i4.i, label %invoke.cont7, label %if.then.i.i5.i
 
 if.then.i.i5.i:                                   ; preds = %_ZNSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEC2ERKS6_.exit.i
-  %call.i.i6.i = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i6.i = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %invoke.cont7 unwind label %terminate.lpad.i.i7.i
 
 terminate.lpad.i.i7.i:                            ; preds = %if.then.i.i5.i
@@ -1231,25 +1228,23 @@ _ZNSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEC2ERKS6_.exit.i.i.i: ; preds
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %call.i.i.i.i3132.i, ptr noundef nonnull align 8 dereferenceable(24) %call.i.i2.i.i9, i64 24, i1 false)
   store ptr %call.i.i.i.i3132.i, ptr %ref.tmp.i.i.i, align 8
-  %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %mNotify.i.i, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mNotify.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i)
   %_M_manager3.i.i.i.i = getelementptr inbounds i8, ptr %task, i64 32
-  %26 = load ptr, ptr %_M_manager3.i.i.i.i, align 8
-  store ptr %26, ptr %_M_manager.i.i.i.i.i, align 8
-  store ptr @_ZNSt17_Function_handlerIFvjN7openvdb5v11_02io5Queue6StatusEESt5_BindIFMNS3_4ImplEFvjS4_EPS7_St12_PlaceholderILi1EESB_ILi2EEEEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager3.i.i.i.i, align 8
   %_M_invoker4.i2.i.i.i = getelementptr inbounds i8, ptr %task, i64 40
-  %27 = load ptr, ptr %_M_invoker4.i2.i.i.i, align 8
-  store ptr %27, ptr %_M_invoker.i.i.i.i, align 8
+  %26 = load <2 x ptr>, ptr %_M_manager3.i.i.i.i, align 8
+  %27 = load ptr, ptr %_M_manager3.i.i.i.i, align 8
+  store ptr @_ZNSt17_Function_handlerIFvjN7openvdb5v11_02io5Queue6StatusEESt5_BindIFMNS3_4ImplEFvjS4_EPS7_St12_PlaceholderILi1EESB_ILi2EEEEE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation, ptr %_M_manager3.i.i.i.i, align 8
+  store <2 x ptr> %26, ptr %_M_manager.i.i.i.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvjN7openvdb5v11_02io5Queue6StatusEESt5_BindIFMNS3_4ImplEFvjS4_EPS7_St12_PlaceholderILi1EESB_ILi2EEEEE9_M_invokeERKSt9_Any_dataOjOS4_, ptr %_M_invoker4.i2.i.i.i, align 8
-  %tobool.not.i.i4.i.i.i = icmp eq ptr %26, null
+  %tobool.not.i.i4.i.i.i = icmp eq ptr %27, null
   br i1 %tobool.not.i.i4.i.i.i, label %invoke.cont33.i, label %if.then.i.i5.i.i.i
 
 if.then.i.i5.i.i.i:                               ; preds = %_ZNSt8functionIFvjN7openvdb5v11_02io5Queue6StatusEEEC2ERKS6_.exit.i.i.i
-  %call.i.i6.i.i.i = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i, i32 noundef 3)
+  %call.i.i6.i.i.i = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i, i32 noundef 3)
           to label %invoke.cont33.i unwind label %terminate.lpad.i.i7.i.i.i
 
 terminate.lpad.i.i7.i.i.i:                        ; preds = %if.then.i.i5.i.i.i

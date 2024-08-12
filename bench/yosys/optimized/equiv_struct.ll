@@ -27236,7 +27236,7 @@ _ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5Yosys5RTLI
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5Yosys5RTLIL8IdStringEiESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_RT0_(ptr %0, ptr %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::pair.213", align 4
-  %5 = alloca %"struct.std::pair.213", align 4
+  %5 = alloca %"struct.std::pair.213", align 8
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %0 to i64
   %8 = sub i64 %6, %7
@@ -27248,63 +27248,61 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4p
   %12 = add nsw i64 %9, -2
   %13 = lshr i64 %12, 1
   %14 = getelementptr inbounds i8, ptr %4, i64 4
-  %15 = getelementptr inbounds i8, ptr %5, i64 4
-  br label %16
+  br label %15
 
-16:                                               ; preds = %11, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit13
-  %.010 = phi i64 [ %13, %11 ], [ %37, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit13 ]
-  %17 = getelementptr inbounds %"struct.std::pair.213", ptr %0, i64 %.010
-  %18 = load i32, ptr %17, align 4
-  store i32 0, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %17, i64 4
-  %20 = load i32, ptr %19, align 4
-  store i32 %20, ptr %14, align 4
-  store i32 %18, ptr %5, align 4
+15:                                               ; preds = %11, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit13
+  %.010 = phi i64 [ %13, %11 ], [ %36, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit13 ]
+  %16 = getelementptr inbounds %"struct.std::pair.213", ptr %0, i64 %.010
+  %17 = getelementptr inbounds i8, ptr %16, i64 4
   store i32 0, ptr %4, align 4
-  store i32 %20, ptr %15, align 4
+  %18 = load i32, ptr %17, align 4
+  %19 = load <2 x i32>, ptr %16, align 4
+  store i32 0, ptr %16, align 4
+  store i32 %18, ptr %14, align 4
+  store <2 x i32> %19, ptr %5, align 8
   invoke void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5Yosys5RTLIL8IdStringEiESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_less_iterEEvT_T0_SF_T1_T2_(ptr nonnull %0, i64 noundef %.010, i64 noundef %9, ptr noundef nonnull %5)
-          to label %21 unwind label %38
+          to label %20 unwind label %37
 
-21:                                               ; preds = %16
-  %22 = load i32, ptr %5, align 4
-  %23 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
-  %24 = trunc i8 %23 to i1
-  %25 = icmp ne i32 %22, 0
-  %or.cond.i.i.i = and i1 %25, %24
-  br i1 %or.cond.i.i.i, label %26, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit13
+20:                                               ; preds = %15
+  %21 = load i32, ptr %5, align 8
+  %22 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
+  %23 = trunc i8 %22 to i1
+  %24 = icmp ne i32 %21, 0
+  %or.cond.i.i.i = and i1 %24, %23
+  br i1 %or.cond.i.i.i, label %25, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit13
 
-26:                                               ; preds = %21
-  %27 = sext i32 %22 to i64
-  %28 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
-  %29 = getelementptr inbounds i32, ptr %28, i64 %27
-  %30 = load i32, ptr %29, align 4
-  %31 = add nsw i32 %30, -1
-  store i32 %31, ptr %29, align 4
-  %32 = icmp sgt i32 %30, 1
-  br i1 %32, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit13, label %33
+25:                                               ; preds = %20
+  %26 = sext i32 %21 to i64
+  %27 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
+  %28 = getelementptr inbounds i32, ptr %27, i64 %26
+  %29 = load i32, ptr %28, align 4
+  %30 = add nsw i32 %29, -1
+  store i32 %30, ptr %28, align 4
+  %31 = icmp sgt i32 %29, 1
+  br i1 %31, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit13, label %32
 
-33:                                               ; preds = %26
-  invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %22)
-          to label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit13 unwind label %34
+32:                                               ; preds = %25
+  invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %21)
+          to label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit13 unwind label %33
 
-34:                                               ; preds = %33
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %32
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #26
+  %35 = extractvalue { ptr, i32 } %34, 0
+  call void @__clang_call_terminate(ptr %35) #26
   unreachable
 
-_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit13:  ; preds = %33, %26, %21
-  %37 = add nsw i64 %.010, -1
+_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit13:  ; preds = %32, %25, %20
+  %36 = add nsw i64 %.010, -1
   %.not = icmp eq i64 %.010, 0
-  br i1 %.not, label %.loopexit, label %16
+  br i1 %.not, label %.loopexit, label %15
 
-38:                                               ; preds = %16
-  %39 = landingpad { ptr, i32 }
+37:                                               ; preds = %15
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev(ptr noundef nonnull align 4 dereferenceable(8) %5) #24
   call void @_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev(ptr noundef nonnull align 4 dereferenceable(8) %4) #24
-  resume { ptr, i32 } %39
+  resume { ptr, i32 } %38
 
 .loopexit:                                        ; preds = %_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit13, %3
   ret void
@@ -27314,13 +27312,13 @@ _ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit13:  ; preds = %33, %26, %21
 define linkonce_odr void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5Yosys5RTLIL8IdStringEiESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_(ptr %0, ptr %1, ptr %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
 _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i.i:
   %4 = alloca %"struct.std::pair.213", align 4
-  %5 = alloca %"struct.std::pair.213", align 4
-  %6 = load i32, ptr %2, align 4
+  %5 = alloca %"struct.std::pair.213", align 8
+  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %7 = getelementptr inbounds i8, ptr %2, i64 4
+  %8 = load i32, ptr %7, align 4
+  %9 = load <2 x i32>, ptr %2, align 4
   store i32 0, ptr %2, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 4
-  %9 = load i32, ptr %8, align 4
-  store i32 %9, ptr %7, align 4
+  store i32 %8, ptr %6, align 4
   %10 = load i32, ptr %0, align 4
   %.not.i.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i.i, label %17, label %11
@@ -27338,56 +27336,54 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i.i:
   store i32 %10, ptr %2, align 4
   %18 = getelementptr inbounds i8, ptr %0, i64 4
   %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %8, align 4
+  store i32 %19, ptr %7, align 4
   %20 = ptrtoint ptr %1 to i64
   %21 = ptrtoint ptr %0 to i64
   %22 = sub i64 %20, %21
   %23 = ashr exact i64 %22, 3
-  store i32 %6, ptr %5, align 4
   store i32 0, ptr %4, align 4
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %9, ptr %24, align 4
+  store <2 x i32> %9, ptr %5, align 8
   invoke void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5Yosys5RTLIL8IdStringEiESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_less_iterEEvT_T0_SF_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %23, ptr noundef nonnull %5)
-          to label %25 unwind label %41
+          to label %24 unwind label %40
 
-25:                                               ; preds = %17
-  %26 = load i32, ptr %5, align 4
-  %27 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
-  %28 = trunc i8 %27 to i1
-  %29 = icmp ne i32 %26, 0
-  %or.cond.i.i.i3 = and i1 %29, %28
-  br i1 %or.cond.i.i.i3, label %30, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit5
+24:                                               ; preds = %17
+  %25 = load i32, ptr %5, align 8
+  %26 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
+  %27 = trunc i8 %26 to i1
+  %28 = icmp ne i32 %25, 0
+  %or.cond.i.i.i3 = and i1 %28, %27
+  br i1 %or.cond.i.i.i3, label %29, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit5
 
-30:                                               ; preds = %25
-  %31 = sext i32 %26 to i64
-  %32 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
-  %33 = getelementptr inbounds i32, ptr %32, i64 %31
-  %34 = load i32, ptr %33, align 4
-  %35 = add nsw i32 %34, -1
-  store i32 %35, ptr %33, align 4
-  %36 = icmp sgt i32 %34, 1
-  br i1 %36, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit5, label %37
+29:                                               ; preds = %24
+  %30 = sext i32 %25 to i64
+  %31 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
+  %32 = getelementptr inbounds i32, ptr %31, i64 %30
+  %33 = load i32, ptr %32, align 4
+  %34 = add nsw i32 %33, -1
+  store i32 %34, ptr %32, align 4
+  %35 = icmp sgt i32 %33, 1
+  br i1 %35, label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit5, label %36
 
-37:                                               ; preds = %30
-  invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %26)
-          to label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit5 unwind label %38
+36:                                               ; preds = %29
+  invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %25)
+          to label %_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit5 unwind label %37
 
-38:                                               ; preds = %37
-  %39 = landingpad { ptr, i32 }
+37:                                               ; preds = %36
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #26
+  %39 = extractvalue { ptr, i32 } %38, 0
+  call void @__clang_call_terminate(ptr %39) #26
   unreachable
 
-_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit5:   ; preds = %37, %30, %25
+_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev.exit5:   ; preds = %36, %29, %24
   ret void
 
-41:                                               ; preds = %17
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %17
+  %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev(ptr noundef nonnull align 4 dereferenceable(8) %5) #24
   call void @_ZNSt4pairIN5Yosys5RTLIL8IdStringEiED2Ev(ptr noundef nonnull align 4 dereferenceable(8) %4) #24
-  resume { ptr, i32 } %42
+  resume { ptr, i32 } %41
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -30513,7 +30509,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5t
   %21 = getelementptr inbounds i8, ptr %19, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
   %22 = load <2 x i32>, ptr %20, align 8
-  %23 = extractelement <2 x i32> %22, i64 0
+  %23 = load i32, ptr %20, align 8
   store i32 %23, ptr %14, align 8
   store i32 0, ptr %21, align 4
   store <2 x i32> %22, ptr %16, align 8
@@ -30577,7 +30573,7 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i.i.i:
   %8 = getelementptr inbounds i8, ptr %4, i64 20
   %9 = getelementptr inbounds i8, ptr %2, i64 20
   %10 = load <2 x i32>, ptr %7, align 8
-  %11 = extractelement <2 x i32> %10, i64 0
+  %11 = load i32, ptr %7, align 8
   store i32 %11, ptr %6, align 8
   store i32 0, ptr %9, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 20

@@ -110,17 +110,16 @@ _ZNSt7__cxx114listISt10shared_ptrIN6opencc10ConversionEESaIS4_EEC2ERKS6_.exit: ;
 define void @_ZNK6opencc15ConversionChain7ConvertERKSt10shared_ptrINS_8SegmentsEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr.3", align 8
   %5 = alloca %"class.std::shared_ptr", align 16
-  %6 = load ptr, ptr %2, align 8
-  store ptr %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %7, align 8
-  %.not.i.i.i = icmp eq ptr %9, null
+  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = load <2 x ptr>, ptr %2, align 8
+  store <2 x ptr> %9, ptr %0, align 8
+  %.not.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN6opencc8SegmentsEEC2ERKS2_.exit, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds i8, ptr %8, i64 8
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i.i.i, label %16, label %13
@@ -181,7 +180,7 @@ _ZNSt10shared_ptrIN6opencc10ConversionEEC2ERKS2_.exit: ; preds = %20, %28, %31
 34:                                               ; preds = %_ZNSt10shared_ptrIN6opencc10ConversionEEC2ERKS2_.exit
   %35 = load <2 x ptr>, ptr %5, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %36 = load ptr, ptr %7, align 8
+  %36 = load ptr, ptr %6, align 8
   store <2 x ptr> %35, ptr %0, align 8
   %.not.i.i.i.i8 = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i8, label %_ZNSt10shared_ptrIN6opencc8SegmentsEEaSEOS2_.exit, label %37

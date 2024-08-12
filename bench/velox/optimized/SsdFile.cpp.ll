@@ -13470,14 +13470,15 @@ _ZN5folly7futures6detail10FutureBaseINS_4UnitEE7getCoreEv.exit: ; preds = %_ZNK5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   %call.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14RequestContext16getStaticContextEv(), !noalias !157
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %3 = load <2 x ptr>, ptr %call.i, align 8, !noalias !157
-  store <2 x ptr> %3, ptr %ref.tmp, align 16, !alias.scope !157
-  %4 = extractelement <2 x ptr> %3, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %4, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %3 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !157
+  %4 = load <2 x ptr>, ptr %call.i, align 8, !noalias !157
+  store <2 x ptr> %4, ptr %ref.tmp, align 16, !alias.scope !157
+  %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly14RequestContext11saveContextEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN5folly7futures6detail10FutureBaseINS_4UnitEE7getCoreEv.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !157
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

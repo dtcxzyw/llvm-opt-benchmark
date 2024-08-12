@@ -2740,7 +2740,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i: ; 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) @anon.f98fc319854cf2a2e0785f448b67de67.45, i64 32, i1 false)
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !333
-  %9 = extractelement <2 x i64> %8, i64 0
+  %9 = load i64, ptr %.0.i.i2.i, align 8, !noalias !333, !noundef !8
   %10 = add i64 %9, 1
   store i64 %10, ptr %.0.i.i2.i, align 8, !noalias !333
   store <2 x i64> %8, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8

@@ -9545,12 +9545,11 @@ land.lhs.true.i322:                               ; preds = %invoke.cont179
 if.then.i323:                                     ; preds = %land.lhs.true.i322
   store ptr %69, ptr %fv7, align 8
   store ptr %68, ptr %fv8, align 8
-  %70 = load ptr, ptr %mpEnd.i289, align 8
-  %71 = load ptr, ptr %mCapacityAllocator.i.i291, align 8
-  %72 = load <2 x ptr>, ptr %mpEnd.i293, align 8
-  store ptr %70, ptr %mpEnd.i293, align 8
-  store <2 x ptr> %72, ptr %mpEnd.i289, align 8
-  store ptr %71, ptr %mCapacityAllocator.i.i295, align 8
+  %70 = load <2 x ptr>, ptr %mpEnd.i293, align 8
+  %71 = load <2 x ptr>, ptr %mpEnd.i289, align 8
+  %72 = load ptr, ptr %mpEnd.i289, align 8
+  store <2 x ptr> %70, ptr %mpEnd.i289, align 8
+  store <2 x ptr> %71, ptr %mpEnd.i293, align 8
   br label %invoke.cont181
 
 if.else.i326:                                     ; preds = %land.lhs.true.i322, %invoke.cont179
@@ -9694,7 +9693,7 @@ _ZN5eastl22uninitialized_copy_ptrINS_13move_iteratorIPiEES3_S2_EET1_T_T0_S4_.exi
 
 invoke.cont181:                                   ; preds = %.noexc327, %if.then.i323
   %86 = phi ptr [ %.pre2873, %.noexc327 ], [ %68, %if.then.i323 ]
-  %87 = phi ptr [ %85, %.noexc327 ], [ %70, %if.then.i323 ]
+  %87 = phi ptr [ %85, %.noexc327 ], [ %72, %if.then.i323 ]
   %sub.ptr.lhs.cast.i329 = ptrtoint ptr %87 to i64
   %sub.ptr.rhs.cast.i330 = ptrtoint ptr %86 to i64
   %sub.ptr.sub.i331 = sub i64 %sub.ptr.lhs.cast.i329, %sub.ptr.rhs.cast.i330
@@ -9899,11 +9898,10 @@ land.lhs.true.i413:                               ; preds = %invoke.cont224
 if.then.i416:                                     ; preds = %land.lhs.true.i413
   store ptr %112, ptr %fvo5, align 8
   store ptr %111, ptr %fvo6, align 8
-  %113 = load ptr, ptr %mpEnd.i349, align 8
-  %114 = load ptr, ptr %mCapacityAllocator.i.i351, align 8
+  %113 = load <2 x ptr>, ptr %mpEnd.i349, align 8
+  %114 = load ptr, ptr %mpEnd.i349, align 8
   %115 = load <2 x ptr>, ptr %mpEnd.i344, align 8
-  store ptr %113, ptr %mpEnd.i344, align 8
-  store ptr %114, ptr %mCapacityAllocator.i.i346, align 8
+  store <2 x ptr> %113, ptr %mpEnd.i344, align 8
   store <2 x ptr> %115, ptr %mpEnd.i349, align 8
   br label %invoke.cont226
 
@@ -9918,7 +9916,7 @@ if.else.i420.invoke.cont226_crit_edge:            ; preds = %if.else.i420
 
 invoke.cont226:                                   ; preds = %if.else.i420.invoke.cont226_crit_edge, %if.then.i416
   %116 = phi ptr [ %.pre2876, %if.else.i420.invoke.cont226_crit_edge ], [ %112, %if.then.i416 ]
-  %117 = phi ptr [ %.pre2875, %if.else.i420.invoke.cont226_crit_edge ], [ %113, %if.then.i416 ]
+  %117 = phi ptr [ %.pre2875, %if.else.i420.invoke.cont226_crit_edge ], [ %114, %if.then.i416 ]
   %sub.ptr.lhs.cast.i423 = ptrtoint ptr %117 to i64
   %sub.ptr.rhs.cast.i424 = ptrtoint ptr %116 to i64
   %sub.ptr.sub.i425 = sub i64 %sub.ptr.lhs.cast.i423, %sub.ptr.rhs.cast.i424

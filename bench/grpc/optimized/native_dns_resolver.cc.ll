@@ -164,22 +164,21 @@ entry:
   %manager_.i.i.i = getelementptr inbounds i8, ptr %on_resolved, i64 16
   %3 = load ptr, ptr %manager_.i.i.i, align 16
   call void %3(i1 noundef zeroext false, ptr noundef nonnull %on_resolved, ptr noundef nonnull %2) #16
-  %4 = load ptr, ptr %manager_.i.i.i, align 16
   %manager_5.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
-  store ptr %4, ptr %manager_5.i.i.i, align 16
   %invoker_.i.i.i = getelementptr inbounds i8, ptr %on_resolved, i64 24
-  %5 = load ptr, ptr %invoker_.i.i.i, align 8
-  %invoker_6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
-  store ptr %5, ptr %invoker_6.i.i.i, align 8
+  %4 = load <2 x ptr>, ptr %manager_.i.i.i, align 16
+  %5 = load ptr, ptr %manager_.i.i.i, align 16
+  store <2 x ptr> %4, ptr %manager_5.i.i.i, align 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i, align 8
   %call.i.i.i.i.i.i2 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #17
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
+  %invoker_6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i.i.i.i.i.i2, ptr noundef nonnull align 16 dereferenceable(32) %ref.tmp, i64 32, i1 false)
   %6 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2, i64 32
-  call void %4(i1 noundef zeroext false, ptr noundef nonnull %2, ptr noundef nonnull %6) #16
+  call void %5(i1 noundef zeroext false, ptr noundef nonnull %2, ptr noundef nonnull %6) #16
   %manager_5.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2, i64 48
   %7 = load <2 x ptr>, ptr %manager_5.i.i.i, align 16
   store <2 x ptr> %7, ptr %manager_5.i.i.i.i.i.i.i.i.i.i, align 16
@@ -217,7 +216,7 @@ lpad2:                                            ; preds = %invoke.cont
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  %14 = phi ptr [ %.pre, %lpad2 ], [ %4, %lpad ]
+  %14 = phi ptr [ %.pre, %lpad2 ], [ %5, %lpad ]
   %.pn = phi { ptr, i32 } [ %12, %lpad2 ], [ %11, %lpad ]
   call void %14(i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef nonnull %2) #16
   resume { ptr, i32 } %.pn
@@ -238,20 +237,19 @@ entry:
   %manager_.i.i.i = getelementptr inbounds i8, ptr %on_resolved, i64 16
   %1 = load ptr, ptr %manager_.i.i.i, align 16
   call void %1(i1 noundef zeroext false, ptr noundef nonnull %on_resolved, ptr noundef nonnull %ref.tmp) #16
-  %2 = load ptr, ptr %manager_.i.i.i, align 16
   %manager_5.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store ptr %2, ptr %manager_5.i.i.i, align 16
   %invoker_.i.i.i = getelementptr inbounds i8, ptr %on_resolved, i64 24
-  %3 = load ptr, ptr %invoker_.i.i.i, align 8
-  %invoker_6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  store ptr %3, ptr %invoker_6.i.i.i, align 8
+  %2 = load <2 x ptr>, ptr %manager_.i.i.i, align 16
+  %3 = load ptr, ptr %manager_.i.i.i, align 16
+  store <2 x ptr> %2, ptr %manager_5.i.i.i, align 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i, align 8
   %call.i.i.i.i.i.i2 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void %2(i1 noundef zeroext false, ptr noundef nonnull %ref.tmp, ptr noundef nonnull %call.i.i.i.i.i.i2) #16
+  %invoker_6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  call void %3(i1 noundef zeroext false, ptr noundef nonnull %ref.tmp, ptr noundef nonnull %call.i.i.i.i.i.i2) #16
   %manager_5.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2, i64 16
   %4 = load <2 x ptr>, ptr %manager_5.i.i.i, align 16
   store <2 x ptr> %4, ptr %manager_5.i.i.i.i.i.i.i.i.i.i, align 16
@@ -289,7 +287,7 @@ lpad2:                                            ; preds = %invoke.cont
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  %11 = phi ptr [ %.pre, %lpad2 ], [ %2, %lpad ]
+  %11 = phi ptr [ %.pre, %lpad2 ], [ %3, %lpad ]
   %.pn = phi { ptr, i32 } [ %9, %lpad2 ], [ %8, %lpad ]
   call void %11(i1 noundef zeroext true, ptr noundef nonnull %ref.tmp, ptr noundef nonnull %ref.tmp) #16
   resume { ptr, i32 } %.pn
@@ -305,20 +303,19 @@ entry:
   %manager_.i.i.i = getelementptr inbounds i8, ptr %on_resolved, i64 16
   %1 = load ptr, ptr %manager_.i.i.i, align 16
   call void %1(i1 noundef zeroext false, ptr noundef nonnull %on_resolved, ptr noundef nonnull %ref.tmp) #16
-  %2 = load ptr, ptr %manager_.i.i.i, align 16
   %manager_5.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store ptr %2, ptr %manager_5.i.i.i, align 16
   %invoker_.i.i.i = getelementptr inbounds i8, ptr %on_resolved, i64 24
-  %3 = load ptr, ptr %invoker_.i.i.i, align 8
-  %invoker_6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  store ptr %3, ptr %invoker_6.i.i.i, align 8
+  %2 = load <2 x ptr>, ptr %manager_.i.i.i, align 16
+  %3 = load ptr, ptr %manager_.i.i.i, align 16
+  store <2 x ptr> %2, ptr %manager_5.i.i.i, align 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i, align 8
   %call.i.i.i.i.i.i2 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void %2(i1 noundef zeroext false, ptr noundef nonnull %ref.tmp, ptr noundef nonnull %call.i.i.i.i.i.i2) #16
+  %invoker_6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  call void %3(i1 noundef zeroext false, ptr noundef nonnull %ref.tmp, ptr noundef nonnull %call.i.i.i.i.i.i2) #16
   %manager_5.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2, i64 16
   %4 = load <2 x ptr>, ptr %manager_5.i.i.i, align 16
   store <2 x ptr> %4, ptr %manager_5.i.i.i.i.i.i.i.i.i.i, align 16
@@ -356,7 +353,7 @@ lpad2:                                            ; preds = %invoke.cont
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  %11 = phi ptr [ %.pre, %lpad2 ], [ %2, %lpad ]
+  %11 = phi ptr [ %.pre, %lpad2 ], [ %3, %lpad ]
   %.pn = phi { ptr, i32 } [ %9, %lpad2 ], [ %8, %lpad ]
   call void %11(i1 noundef zeroext true, ptr noundef nonnull %ref.tmp, ptr noundef nonnull %ref.tmp) #16
   resume { ptr, i32 } %.pn

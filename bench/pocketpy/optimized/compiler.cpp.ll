@@ -10811,7 +10811,7 @@ define void @_ZN4pkpy8Compiler10exprLambdaEv(ptr noundef nonnull align 8 derefer
   %2 = alloca %"class.std::shared_ptr.54", align 8
   %3 = alloca %"struct.pkpy::Str", align 8
   %4 = alloca %"class.pkpy::unique_ptr_128.103", align 8
-  %5 = alloca %"class.std::shared_ptr.54", align 8
+  %5 = alloca %"class.std::shared_ptr.54", align 16
   %6 = alloca %"class.pkpy::unique_ptr_128", align 8
   call void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.62)
   invoke void @_ZN4pkpy8Compiler14push_f_contextENS_3StrE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.54") align 8 %2, ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %3)
@@ -10898,17 +10898,16 @@ _ZN4pkpy8Compiler5matchEh.exit.thread:            ; preds = %_ZNK4pkpy8Compiler4
 _ZN4pkpy8Compiler5matchEh.exit:                   ; preds = %_ZNK4pkpy8Compiler4currEv.exit.i
   %38 = load ptr, ptr %4, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 16
-  %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr %5, align 8
-  %41 = getelementptr inbounds i8, ptr %5, i64 8
-  %42 = getelementptr inbounds i8, ptr %38, i64 24
-  %43 = load ptr, ptr %42, align 8
-  store ptr %43, ptr %41, align 8
-  %.not.i.i.i = icmp eq ptr %43, null
+  %40 = getelementptr inbounds i8, ptr %5, i64 8
+  %41 = getelementptr inbounds i8, ptr %38, i64 24
+  %42 = load ptr, ptr %41, align 8
+  %43 = load <2 x ptr>, ptr %39, align 8
+  store <2 x ptr> %43, ptr %5, align 16
+  %.not.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit, label %44
 
 44:                                               ; preds = %_ZN4pkpy8Compiler5matchEh.exit
-  %45 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = getelementptr inbounds i8, ptr %42, i64 8
   %46 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i9 = icmp eq i8 %46, 0
   br i1 %.not.i.i.i.i9, label %50, label %47
@@ -10928,7 +10927,7 @@ _ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit: ; preds = %_ZN4pkpy8Compiler5m
           to label %52 unwind label %109
 
 52:                                               ; preds = %_ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit
-  %53 = load ptr, ptr %41, align 8
+  %53 = load ptr, ptr %40, align 8
   %.not.i.i.i10 = icmp eq ptr %53, null
   br i1 %.not.i.i.i10, label %_ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit.preheader, label %54
 
@@ -23977,9 +23976,9 @@ _ZN4pkpy14unique_ptr_128INS_4ExprEED2Ev.exit55:   ; preds = %195, %194, %110
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4pkpy8Compiler16compile_functionERKNS_12small_vectorINS_14unique_ptr_128INS_4ExprEEELm4EEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pkpy::Str", align 8
-  %4 = alloca %"class.std::shared_ptr.54", align 8
+  %4 = alloca %"class.std::shared_ptr.54", align 16
   %5 = alloca %"struct.pkpy::Str", align 8
-  %6 = alloca %"class.std::shared_ptr.54", align 8
+  %6 = alloca %"class.std::shared_ptr.54", align 16
   %7 = alloca %"class.std::shared_ptr.54", align 8
   br label %8
 
@@ -24170,17 +24169,16 @@ _ZN4pkpy8Compiler5matchEh.exit.thread:            ; preds = %_ZNK4pkpy8Compiler4
   br label %.preheader133
 
 _ZN4pkpy8Compiler5matchEh.exit:                   ; preds = %_ZNK4pkpy8Compiler4currEv.exit.i
-  %86 = load ptr, ptr %4, align 8
-  store ptr %86, ptr %6, align 8
-  %87 = getelementptr inbounds i8, ptr %6, i64 8
-  %88 = getelementptr inbounds i8, ptr %4, i64 8
-  %89 = load ptr, ptr %88, align 8
-  store ptr %89, ptr %87, align 8
-  %.not.i.i.i38 = icmp eq ptr %89, null
+  %86 = getelementptr inbounds i8, ptr %6, i64 8
+  %87 = getelementptr inbounds i8, ptr %4, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = load <2 x ptr>, ptr %4, align 16
+  store <2 x ptr> %89, ptr %6, align 16
+  %.not.i.i.i38 = icmp eq ptr %88, null
   br i1 %.not.i.i.i38, label %_ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit, label %90
 
 90:                                               ; preds = %_ZN4pkpy8Compiler5matchEh.exit
-  %91 = getelementptr inbounds i8, ptr %89, i64 8
+  %91 = getelementptr inbounds i8, ptr %88, i64 8
   %92 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i39 = icmp eq i8 %92, 0
   br i1 %.not.i.i.i.i39, label %96, label %93
@@ -24200,7 +24198,7 @@ _ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit: ; preds = %_ZN4pkpy8Compiler5m
           to label %98 unwind label %155
 
 98:                                               ; preds = %_ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit
-  %99 = load ptr, ptr %87, align 8
+  %99 = load ptr, ptr %86, align 8
   %.not.i.i.i40 = icmp eq ptr %99, null
   br i1 %.not.i.i.i40, label %_ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit.preheader, label %100
 
@@ -24437,7 +24435,7 @@ _ZN4pkpy8Compiler5matchEh.exit72:                 ; preds = %191, %.noexc74, %_Z
           to label %196 unwind label %153
 
 196:                                              ; preds = %195
-  %197 = load ptr, ptr %4, align 8
+  %197 = load ptr, ptr %4, align 16
   %198 = getelementptr inbounds i8, ptr %197, i64 200
   store ptr null, ptr %198, align 8
   %199 = load ptr, ptr %197, align 8
@@ -24483,7 +24481,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit:    ; preds = %215
 
 229:                                              ; preds = %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit
   store i8 0, ptr %203, align 2
-  %230 = load ptr, ptr %4, align 8
+  %230 = load ptr, ptr %4, align 16
   %231 = load ptr, ptr %230, align 8
   %232 = getelementptr inbounds i8, ptr %231, i64 48
   %233 = load ptr, ptr %232, align 8
@@ -24491,7 +24489,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit:    ; preds = %215
   store i8 0, ptr %234, align 2
   %235 = getelementptr inbounds i8, ptr %222, i64 32
   %236 = load ptr, ptr %235, align 8
-  %237 = load ptr, ptr %4, align 8
+  %237 = load ptr, ptr %4, align 16
   %238 = getelementptr inbounds i8, ptr %237, i64 200
   store ptr %236, ptr %238, align 8
   br label %_ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread
@@ -31998,18 +31996,17 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt10_ConstructIN4pkpy10CodeObjectEJRSt10shared_ptrINS0_10SourceDataEERNS0_3StrEEEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.std::shared_ptr", align 8
-  %5 = load ptr, ptr %1, align 8
-  store ptr %5, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
-  %.not.i.i.i = icmp eq ptr %8, null
+  %4 = alloca %"class.std::shared_ptr", align 16
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %8, ptr %4, align 16
+  %.not.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN4pkpy10SourceDataEEC2ERKS2_.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %11, 0
   br i1 %.not.i.i.i.i, label %15, label %12
@@ -32029,7 +32026,7 @@ _ZNSt10shared_ptrIN4pkpy10SourceDataEEC2ERKS2_.exit: ; preds = %3, %12, %15
           to label %17 unwind label %53
 
 17:                                               ; preds = %_ZNSt10shared_ptrIN4pkpy10SourceDataEEC2ERKS2_.exit
-  %18 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr %5, align 8
   %.not.i.i.i4 = icmp eq ptr %18, null
   br i1 %.not.i.i.i4, label %_ZNSt10shared_ptrIN4pkpy10SourceDataEED2Ev.exit, label %19
 
@@ -33273,19 +33270,18 @@ _ZN4pkpy10LambdaExprD2Ev.exit:                    ; preds = %1, %20, %33, %_ZNSt
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4pkpy10LambdaExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::shared_ptr.54", align 8
+  %3 = alloca %"class.std::shared_ptr.54", align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8
-  store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
-  %.not.i.i.i = icmp eq ptr %8, null
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = load ptr, ptr %6, align 8
+  %8 = load <2 x ptr>, ptr %4, align 8
+  store <2 x ptr> %8, ptr %3, align 16
+  %.not.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %11, 0
   br i1 %.not.i.i.i.i, label %15, label %12
@@ -33305,7 +33301,7 @@ _ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit: ; preds = %2, %12, %15
           to label %18 unwind label %58
 
 18:                                               ; preds = %_ZNSt10shared_ptrIN4pkpy8FuncDeclEEC2ERKS2_.exit
-  %19 = load ptr, ptr %6, align 8
+  %19 = load ptr, ptr %5, align 8
   %.not.i.i.i5 = icmp eq ptr %19, null
   br i1 %.not.i.i.i5, label %_ZNSt10shared_ptrIN4pkpy8FuncDeclEED2Ev.exit, label %20
 
@@ -36236,18 +36232,17 @@ _ZNSt12_Vector_baseIN4pkpy13ExceptionLineESaIS1_EE13_M_deallocateEPS1_m.exit40: 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt15__new_allocatorIN4pkpy13ExceptionLineEE9constructIS1_JRSt10shared_ptrINS0_10SourceDataEERiRPKcRA1_S9_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %7 = alloca %"class.std::shared_ptr", align 8
-  %8 = load ptr, ptr %2, align 8
-  store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %9, align 8
-  %.not.i.i.i = icmp eq ptr %11, null
+  %7 = alloca %"class.std::shared_ptr", align 16
+  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = load <2 x ptr>, ptr %2, align 8
+  store <2 x ptr> %11, ptr %7, align 16
+  %.not.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN4pkpy10SourceDataEEC2ERKS2_.exit, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds i8, ptr %10, i64 8
   %14 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %14, 0
   br i1 %.not.i.i.i.i, label %18, label %15
@@ -36270,7 +36265,7 @@ _ZNSt10shared_ptrIN4pkpy10SourceDataEEC2ERKS2_.exit: ; preds = %6, %15, %18
           to label %23 unwind label %59
 
 23:                                               ; preds = %_ZNSt10shared_ptrIN4pkpy10SourceDataEEC2ERKS2_.exit
-  %24 = load ptr, ptr %9, align 8
+  %24 = load ptr, ptr %8, align 8
   %.not.i.i.i6 = icmp eq ptr %24, null
   br i1 %.not.i.i.i6, label %_ZNSt10shared_ptrIN4pkpy10SourceDataEED2Ev.exit, label %25
 

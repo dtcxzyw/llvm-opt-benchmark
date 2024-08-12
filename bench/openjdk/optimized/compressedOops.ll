@@ -103,69 +103,67 @@ define hidden void @_ZN14CompressedOops10initializeERK17ReservedHeapSpace(ptr no
   %26 = getelementptr inbounds i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %25, i64 32
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %25, i64 40
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %25, i64 8
-  %33 = load i64, ptr %32, align 8
+  %29 = load <2 x ptr>, ptr %28, align 8
+  %30 = load ptr, ptr %28, align 8
+  %31 = getelementptr inbounds i8, ptr %25, i64 8
+  %32 = load i64, ptr %31, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext false) #9
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %2, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %34) #9
-  %35 = getelementptr inbounds i8, ptr %2, i64 144
-  store i32 2, ptr %35, align 8
+  %33 = getelementptr inbounds i8, ptr %2, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %33) #9
+  %34 = getelementptr inbounds i8, ptr %2, i64 144
+  store i32 2, ptr %34, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %2, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_27ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %2, align 8
   call void @_ZN14CompressedOops10print_modeEP12outputStream(ptr noundef nonnull %2)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %2) #9
-  %36 = load ptr, ptr %27, align 8
-  %.not.i.i.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i.i.i, label %38, label %37
+  %35 = load ptr, ptr %27, align 8
+  %.not.i.i.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i.i.i, label %37, label %36
 
-37:                                               ; preds = %21
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %25, i64 noundef %33) #9
+36:                                               ; preds = %21
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %25, i64 noundef %32) #9
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %27) #9
-  br label %38
+  br label %37
 
-38:                                               ; preds = %37, %21
-  %39 = load ptr, ptr %28, align 8
-  %.not8.i.i.i.i = icmp eq ptr %39, %29
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %40
+37:                                               ; preds = %36, %21
+  %38 = load ptr, ptr %28, align 8
+  %.not8.i.i.i.i = icmp eq ptr %38, %30
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %39
 
-40:                                               ; preds = %38
+39:                                               ; preds = %37
   store ptr %27, ptr %26, align 8
-  store ptr %29, ptr %28, align 8
-  store ptr %31, ptr %30, align 8
+  store <2 x ptr> %29, ptr %28, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %40, %38, %10
-  %41 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #9
-  %42 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %.not.i.i = icmp eq ptr %42, null
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %39, %37, %10
+  %40 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 19, i32 noundef 0) #9
+  %41 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
+  %.not.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i, label %_ZN14CompressedOops4modeEv.exit, label %_ZN14CompressedOops13base_disjointEv.exit.i
 
 _ZN14CompressedOops13base_disjointEv.exit.i:      ; preds = %_ZN12ResourceMarkD2Ev.exit
-  %43 = ptrtoint ptr %42 to i64
-  %44 = load i32, ptr @LogMinObjAlignmentInBytes, align 4
-  %45 = sub nsw i32 32, %44
-  %46 = zext nneg i32 %45 to i64
-  %47 = lshr i64 -1, %46
-  %48 = and i64 %47, %43
-  %49 = icmp eq i64 %48, 0
-  %.str.7..str.8 = select i1 %49, ptr @.str.7, ptr @.str.8
+  %42 = ptrtoint ptr %41 to i64
+  %43 = load i32, ptr @LogMinObjAlignmentInBytes, align 4
+  %44 = sub nsw i32 32, %43
+  %45 = zext nneg i32 %44 to i64
+  %46 = lshr i64 -1, %45
+  %47 = and i64 %46, %42
+  %48 = icmp eq i64 %47, 0
+  %.str.7..str.8 = select i1 %48, ptr @.str.7, ptr @.str.8
   br label %_ZN14CompressedOops14mode_to_stringENS_4ModeE.exit
 
 _ZN14CompressedOops4modeEv.exit:                  ; preds = %_ZN12ResourceMarkD2Ev.exit
-  %50 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
-  %.not1.i.not = icmp eq i32 %50, 0
+  %49 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %.not1.i.not = icmp eq i32 %49, 0
   %spec.select = select i1 %.not1.i.not, ptr @.str.5, ptr @.str.6
   br label %_ZN14CompressedOops14mode_to_stringENS_4ModeE.exit
 
 _ZN14CompressedOops14mode_to_stringENS_4ModeE.exit: ; preds = %_ZN14CompressedOops4modeEv.exit, %_ZN14CompressedOops13base_disjointEv.exit.i
   %.0.i6 = phi ptr [ %.str.7..str.8, %_ZN14CompressedOops13base_disjointEv.exit.i ], [ %spec.select, %_ZN14CompressedOops4modeEv.exit ]
-  call void @_ZN14SystemPropertyC1EPKcS1_bb(ptr noundef nonnull align 8 dereferenceable(26) %41, ptr noundef nonnull @.str, ptr noundef nonnull %.0.i6, i1 noundef zeroext false, i1 noundef zeroext false) #9
-  call void @_ZN9Arguments16PropertyList_addEP14SystemProperty(ptr noundef nonnull %41) #9
+  call void @_ZN14SystemPropertyC1EPKcS1_bb(ptr noundef nonnull align 8 dereferenceable(26) %40, ptr noundef nonnull @.str, ptr noundef nonnull %.0.i6, i1 noundef zeroext false, i1 noundef zeroext false) #9
+  call void @_ZN9Arguments16PropertyList_addEP14SystemProperty(ptr noundef nonnull %40) #9
   ret void
 }
 

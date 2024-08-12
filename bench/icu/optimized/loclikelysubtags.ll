@@ -2920,12 +2920,10 @@ if.end31:                                         ; preds = %if.end19
   store ptr null, ptr %iter, align 8
   %bytes_.i = getelementptr inbounds i8, ptr %iter, i64 8
   %bytes_2.i = getelementptr inbounds i8, ptr %this, i64 40
-  %14 = load ptr, ptr %bytes_2.i, align 8
-  store ptr %14, ptr %bytes_.i, align 8
   %pos_.i = getelementptr inbounds i8, ptr %iter, i64 16
-  %pos_3.i = getelementptr inbounds i8, ptr %this, i64 48
-  %15 = load ptr, ptr %pos_3.i, align 8
-  store ptr %15, ptr %pos_.i, align 8
+  %14 = load <2 x ptr>, ptr %bytes_2.i, align 8
+  %15 = load ptr, ptr %bytes_2.i, align 8
+  store <2 x ptr> %14, ptr %bytes_.i, align 8
   %remainingMatchLength_.i = getelementptr inbounds i8, ptr %iter, i64 24
   %remainingMatchLength_4.i = getelementptr inbounds i8, ptr %this, i64 56
   %16 = load i32, ptr %remainingMatchLength_4.i, align 8
@@ -2953,7 +2951,7 @@ for.cond.preheader.i:                             ; preds = %land.lhs.true42
   %sub.i46 = add nsw i32 %conv.i45, -2
   store i32 %sub.i46, ptr %remainingMatchLength_.i, align 8
   %and.i = and i64 %19, 576460752303423487
-  %add.ptr.i = getelementptr inbounds i8, ptr %14, i64 %and.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %15, i64 %and.i
   store ptr %add.ptr.i, ptr %pos_.i, align 8
   %zext = zext nneg i32 %agg.tmp51.sroa.2.0.copyload.pr.pre.pre to i64
   br label %for.cond.i
@@ -3849,12 +3847,10 @@ entry:
   store ptr null, ptr %iter, align 8
   %bytes_.i = getelementptr inbounds i8, ptr %iter, i64 8
   %bytes_2.i = getelementptr inbounds i8, ptr %this, i64 40
-  %0 = load ptr, ptr %bytes_2.i, align 8
-  store ptr %0, ptr %bytes_.i, align 8
   %pos_.i = getelementptr inbounds i8, ptr %iter, i64 16
-  %pos_3.i = getelementptr inbounds i8, ptr %this, i64 48
-  %1 = load ptr, ptr %pos_3.i, align 8
-  store ptr %1, ptr %pos_.i, align 8
+  %0 = load <2 x ptr>, ptr %bytes_2.i, align 8
+  %1 = load ptr, ptr %bytes_2.i, align 8
+  store <2 x ptr> %0, ptr %bytes_.i, align 8
   %remainingMatchLength_.i = getelementptr inbounds i8, ptr %iter, i64 24
   %remainingMatchLength_4.i = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load i32, ptr %remainingMatchLength_4.i, align 8
@@ -3885,7 +3881,7 @@ if.then16:                                        ; preds = %land.lhs.true13
   %sub.i16 = add nsw i32 %conv.i, -2
   store i32 %sub.i16, ptr %remainingMatchLength_.i, align 8
   %and.i = and i64 %5, 576460752303423487
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %and.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %and.i
   store ptr %add.ptr.i, ptr %pos_.i, align 8
   br label %for.cond.i
 

@@ -2206,11 +2206,10 @@ if.end3:                                          ; preds = %if.end
   %22 = load i32, ptr %r, align 4, !tbaa !44
   store i32 %22, ptr %rect, align 16, !tbaa !44
   %23 = load i32, ptr %Y14, align 4, !tbaa !43
+  %24 = load <2 x i32>, ptr %LowerRightCorner13, align 4, !tbaa !22
   %sub83 = add nsw i32 %23, -1
   store i32 %sub83, ptr %Y, align 4, !tbaa !40
-  store i32 %23, ptr %Y6, align 4, !tbaa !43
-  %24 = load i32, ptr %LowerRightCorner13, align 4, !tbaa !45
-  store i32 %24, ptr %LowerRightCorner, align 8, !tbaa !45
+  store <2 x i32> %24, ptr %LowerRightCorner, align 8, !tbaa !22
   %25 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable96 = load ptr, ptr %this, align 8, !tbaa !3
   %26 = load ptr, ptr %vtable96, align 8
@@ -2287,15 +2286,14 @@ if.end:                                           ; preds = %entry
   store i32 %1, ptr %rect, align 4, !tbaa !44
   %LowerRightCorner = getelementptr inbounds i8, ptr %r, i64 8
   %Y = getelementptr inbounds i8, ptr %r, i64 12
-  %2 = load i32, ptr %Y, align 4, !tbaa !43
-  %sub = add nsw i32 %2, -1
   %Y5 = getelementptr inbounds i8, ptr %rect, i64 4
-  store i32 %sub, ptr %Y5, align 4, !tbaa !40
   %LowerRightCorner8 = getelementptr inbounds i8, ptr %rect, i64 8
   %Y9 = getelementptr inbounds i8, ptr %rect, i64 12
-  store i32 %2, ptr %Y9, align 4, !tbaa !43
-  %3 = load i32, ptr %LowerRightCorner, align 4, !tbaa !45
-  store i32 %3, ptr %LowerRightCorner8, align 4, !tbaa !45
+  %2 = load i32, ptr %Y, align 4, !tbaa !43
+  %3 = load <2 x i32>, ptr %LowerRightCorner, align 4, !tbaa !22
+  %sub = add nsw i32 %2, -1
+  store i32 %sub, ptr %Y5, align 4, !tbaa !40
+  store <2 x i32> %3, ptr %LowerRightCorner8, align 4, !tbaa !22
   %vtable = load ptr, ptr %this, align 8, !tbaa !3
   %4 = load ptr, ptr %vtable, align 8
   %call = tail call i32 %4(ptr noundef nonnull align 8 dereferenceable(616) %this, i32 noundef 1) #16

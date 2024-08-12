@@ -691,7 +691,7 @@ declare noundef zeroext i1 @_ZN7testing8internal9DeathTest6CreateEPKcNS_7Matcher
 define linkonce_odr dso_local void @_ZN7testing8internal20MakeDeathTestMatcherB5cxx11EPKc(ptr noalias sret(%"class.testing::Matcher") align 8 %agg.result, ptr noundef %regex) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %regex.addr = alloca ptr, align 8
-  %ref.tmp = alloca %"class.testing::PolymorphicMatcher", align 8
+  %ref.tmp = alloca %"class.testing::PolymorphicMatcher", align 16
   store ptr %regex, ptr %regex.addr, align 8
   call void @_ZN7testing13ContainsRegexIPKcEENS_18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEEERKT_(ptr nonnull sret(%"class.testing::PolymorphicMatcher") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %regex.addr)
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
@@ -701,17 +701,15 @@ entry:
 call.i.noexc:                                     ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %call.i1, align 8, !noalias !5
   %impl_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 8
-  %0 = load ptr, ptr %ref.tmp, align 8, !noalias !5
-  store ptr %0, ptr %impl_.i.i, align 8, !noalias !5
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 16
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !noalias !5
-  store ptr %1, ptr %_M_refcount.i.i.i.i.i, align 8, !noalias !5
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !noalias !5
+  %1 = load <2 x ptr>, ptr %ref.tmp, align 16, !noalias !5
+  store <2 x ptr> %1, ptr %impl_.i.i, align 8, !noalias !5
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS2_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.noexc
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !5
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -729,7 +727,7 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
 _ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS2_.exit.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %call.i.noexc
   %full_match_.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 24
   %full_match_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %5 = load i8, ptr %full_match_3.i.i.i, align 8, !noalias !5
+  %5 = load i8, ptr %full_match_3.i.i.i, align 16, !noalias !5
   %frombool.i.i.i = and i8 %5, 1
   store i8 %frombool.i.i.i, ptr %full_match_.i.i.i, align 8, !noalias !5
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %agg.result, align 8, !alias.scope !5

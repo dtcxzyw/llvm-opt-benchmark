@@ -905,15 +905,15 @@ _ZN6base646encode19encode_with_padding17h3d8f8c830fb25562E.llvm.1611653738048237
 41:                                               ; preds = %37
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = load <2 x i64>, ptr %42, align 8, !noalias !82
+  %44 = load i64, ptr %42, align 8, !noalias !82
   %.sroa.017.0.copyload = load i64, ptr %7, align 8, !noalias !77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !noalias !7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !82
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
-  %44 = icmp eq i64 %.sroa.017.0.copyload, -9223372036854775808
-  %45 = extractelement <2 x i64> %43, i64 0
-  br i1 %44, label %52, label %46
+  %45 = icmp eq i64 %.sroa.017.0.copyload, -9223372036854775808
+  br i1 %45, label %52, label %46
 
 46:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !89
@@ -941,7 +941,7 @@ _ZN6base646encode19encode_with_padding17h3d8f8c830fb25562E.llvm.1611653738048237
   unreachable
 
 52:                                               ; preds = %41, %.thread
-  %.sroa.6.sroa.6.0 = phi i64 [ %45, %41 ], [ %34, %.thread ]
+  %.sroa.6.sroa.6.0 = phi i64 [ %44, %41 ], [ %34, %.thread ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, i64 16, i1 false), !alias.scope !93, !noalias !94
   %.sroa.6.sroa.6.0..sroa_idx25 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.6.sroa.6.0, ptr %.sroa.6.sroa.6.0..sroa_idx25, align 8, !alias.scope !93, !noalias !94

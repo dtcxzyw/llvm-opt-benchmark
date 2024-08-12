@@ -5146,13 +5146,13 @@ define internal noundef ptr @"_ZZN4pkpy13add_module_osEPNS_2VMEEN3$_28__invokeES
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %7 = alloca %"class.std::basic_string_view", align 8
-  %8 = alloca %"class.std::filesystem::__cxx11::directory_iterator", align 8
+  %8 = alloca %"class.std::filesystem::__cxx11::directory_iterator", align 16
   %9 = alloca %"class.std::filesystem::__cxx11::directory_iterator", align 8
   %10 = alloca %"struct.pkpy::Str", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"struct.pkpy::pod_vector.127", align 8
   %13 = alloca %"class.std::filesystem::__cxx11::directory_iterator", align 8
-  %14 = alloca %"class.std::filesystem::__cxx11::directory_iterator", align 8
+  %14 = alloca %"class.std::filesystem::__cxx11::directory_iterator", align 16
   %15 = alloca %"class.std::filesystem::__cxx11::directory_iterator", align 8
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -5312,17 +5312,16 @@ _ZNSt10filesystem7__cxx1118directory_iteratorD2Ev.exit.i: ; preds = %81, %_ZNSt1
   %83 = call noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef 64) #24
   %84 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %83, ptr %84, align 8
-  %85 = load ptr, ptr %8, align 8
-  store ptr %85, ptr %14, align 8
-  %86 = getelementptr inbounds i8, ptr %14, i64 8
-  %87 = getelementptr inbounds i8, ptr %8, i64 8
-  %88 = load ptr, ptr %87, align 8
-  store ptr %88, ptr %86, align 8
-  %.not.i.i.i24.i = icmp eq ptr %88, null
+  %85 = getelementptr inbounds i8, ptr %14, i64 8
+  %86 = getelementptr inbounds i8, ptr %8, i64 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = load <2 x ptr>, ptr %8, align 16
+  store <2 x ptr> %88, ptr %14, align 16
+  %.not.i.i.i24.i = icmp eq ptr %87, null
   br i1 %.not.i.i.i24.i, label %_ZNSt10filesystem7__cxx1118directory_iteratorC2ERKS1_.exit.i, label %89
 
 89:                                               ; preds = %_ZNSt10filesystem7__cxx1118directory_iteratorD2Ev.exit.i
-  %90 = getelementptr inbounds i8, ptr %88, i64 8
+  %90 = getelementptr inbounds i8, ptr %87, i64 8
   %91 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i25.i = icmp eq i8 %91, 0
   br i1 %.not.i.i.i.i25.i, label %95, label %92
@@ -5339,7 +5338,7 @@ _ZNSt10filesystem7__cxx1118directory_iteratorD2Ev.exit.i: ; preds = %81, %_ZNSt1
 
 _ZNSt10filesystem7__cxx1118directory_iteratorC2ERKS1_.exit.i: ; preds = %95, %92, %_ZNSt10filesystem7__cxx1118directory_iteratorD2Ev.exit.i
   call void @_ZNSt12__shared_ptrINSt10filesystem7__cxx114_DirELN9__gnu_cxx12_Lock_policyE2EEC1EOS5_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14) #24
-  %97 = load ptr, ptr %86, align 8
+  %97 = load ptr, ptr %85, align 8
   %.not.i.i.i26.i = icmp eq ptr %97, null
   br i1 %.not.i.i.i26.i, label %_ZNSt10filesystem7__cxx1118directory_iteratorD2Ev.exit32.i, label %98
 
@@ -5412,7 +5411,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10filesystem7__cxx1118directory_iteratorD2Ev.exit32.i
 
 _ZNSt10filesystem7__cxx1118directory_iteratorD2Ev.exit32.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i31.i, %127, %114, %_ZNSt10filesystem7__cxx1118directory_iteratorC2ERKS1_.exit.i
-  %132 = load ptr, ptr %87, align 8
+  %132 = load ptr, ptr %86, align 8
   %.not.i.i.i33.i = icmp eq ptr %132, null
   br i1 %.not.i.i.i33.i, label %_ZNSt10filesystem7__cxx1118directory_iteratorC2ERKS1_.exit35.i, label %133
 
@@ -5831,7 +5830,7 @@ _ZN4pkpy6py_varIRNS_10pod_vectorIPNS_8PyObjectELi4EEEEES3_PNS_2VMEOT_.exit.i: ; 
   br label %_ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit.i
 
 _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit.i: ; preds = %300, %_ZN4pkpy6py_varIRNS_10pod_vectorIPNS_8PyObjectELi4EEEEES3_PNS_2VMEOT_.exit.i
-  %301 = load ptr, ptr %87, align 8
+  %301 = load ptr, ptr %86, align 8
   %.not.i.i.i60.i = icmp eq ptr %301, null
   br i1 %.not.i.i.i60.i, label %_ZNSt10filesystem7__cxx1118directory_iteratorD2Ev.exit66.i, label %302
 

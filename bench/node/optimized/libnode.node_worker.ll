@@ -3748,7 +3748,7 @@ entry:
   %value108 = alloca %"class.node::Utf8Value", align 8
   %ref.tmp157 = alloca %"class.std::shared_ptr.0", align 16
   %ref.tmp169 = alloca %"class.std::shared_ptr.0", align 16
-  %agg.tmp217 = alloca %"class.std::shared_ptr.169", align 8
+  %agg.tmp217 = alloca %"class.std::shared_ptr.169", align 16
   %agg.tmp219 = alloca %"class.std::function.370", align 8
   %node_options = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp239 = alloca %"class.v8::String::Utf8Value", align 8
@@ -3767,7 +3767,7 @@ entry:
   %invalid_args402 = alloca %"class.std::vector", align 8
   %errors403 = alloca %"class.std::vector", align 8
   %agg.tmp491 = alloca %"class.std::shared_ptr", align 8
-  %agg.tmp492 = alloca %"class.std::shared_ptr.0", align 8
+  %agg.tmp492 = alloca %"class.std::shared_ptr.0", align 16
   %0 = load ptr, ptr %args, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx.i.i, align 8
@@ -4602,14 +4602,14 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit847: ; preds = %if.end.i837, %
 
 if.else196:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit872
   %env_vars_.i253 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 1384
-  %168 = load ptr, ptr %env_vars_.i253, align 8, !noalias !32
   %_M_refcount3.i.i.i255 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 1392
-  %169 = load ptr, ptr %_M_refcount3.i.i.i255, align 8, !noalias !32
-  %cmp.not.i.i.i.i256 = icmp eq ptr %169, null
+  %168 = load ptr, ptr %_M_refcount3.i.i.i255, align 8, !noalias !32
+  %169 = load <2 x ptr>, ptr %env_vars_.i253, align 8, !noalias !32
+  %cmp.not.i.i.i.i256 = icmp eq ptr %168, null
   br i1 %cmp.not.i.i.i.i256, label %_ZN4node11Environment8env_varsEv.exit263, label %if.then.i.i.i.i257
 
 if.then.i.i.i.i257:                               ; preds = %if.else196
-  %_M_use_count.i.i.i.i.i258 = getelementptr inbounds i8, ptr %169, i64 8
+  %_M_use_count.i.i.i.i.i258 = getelementptr inbounds i8, ptr %168, i64 8
   %170 = load i8, ptr @__libc_single_threaded, align 1, !noalias !32
   %tobool.i.not.i.i.i.i.i259 = icmp eq i8 %170, 0
   br i1 %tobool.i.not.i.i.i.i.i259, label %if.else.i.i.i.i.i.i262, label %if.then.i.i.i.i.i.i260
@@ -4625,10 +4625,9 @@ if.else.i.i.i.i.i.i262:                           ; preds = %if.then.i.i.i.i257
   br label %_ZN4node11Environment8env_varsEv.exit263
 
 _ZN4node11Environment8env_varsEv.exit263:         ; preds = %if.else196, %if.then.i.i.i.i.i.i260, %if.else.i.i.i.i.i.i262
-  store ptr %168, ptr %env_vars, align 16
   %_M_refcount3.i.i.i265 = getelementptr inbounds i8, ptr %env_vars, i64 8
   %173 = load ptr, ptr %_M_refcount3.i.i.i265, align 8
-  store ptr %169, ptr %_M_refcount3.i.i.i265, align 8
+  store <2 x ptr> %169, ptr %env_vars, align 16
   %cmp.not.i.i.i.i266 = icmp eq ptr %173, null
   br i1 %cmp.not.i.i.i.i266, label %lor.lhs.false.i809, label %if.then.i.i.i.i267
 
@@ -4794,16 +4793,15 @@ _ZNSt12__shared_ptrIN4node17PerIsolateOptionsELN9__gnu_cxx12_Lock_policyE2EE5res
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN4node17PerIsolateOptionsELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   store ptr %call216, ptr %_M_ptr.i.i.i.i.i, align 8
-  %196 = load ptr, ptr %per_env.i, align 8
-  store ptr %196, ptr %agg.tmp217, align 8
   %_M_refcount.i.i362 = getelementptr inbounds i8, ptr %agg.tmp217, i64 8
-  %197 = load ptr, ptr %_M_refcount.i.i.i329, align 8
-  store ptr %197, ptr %_M_refcount.i.i362, align 8
-  %cmp.not.i.i.i364 = icmp eq ptr %197, null
+  %196 = load ptr, ptr %_M_refcount.i.i.i329, align 8
+  %197 = load <2 x ptr>, ptr %per_env.i, align 8
+  store <2 x ptr> %197, ptr %agg.tmp217, align 16
+  %cmp.not.i.i.i364 = icmp eq ptr %196, null
   br i1 %cmp.not.i.i.i364, label %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEEC2ERKS2_.exit, label %if.then.i.i.i365
 
 if.then.i.i.i365:                                 ; preds = %_ZNSt12__shared_ptrIN4node17PerIsolateOptionsELN9__gnu_cxx12_Lock_policyE2EE5resetIS1_EENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPS7_.exit
-  %_M_use_count.i.i.i.i366 = getelementptr inbounds i8, ptr %197, i64 8
+  %_M_use_count.i.i.i.i366 = getelementptr inbounds i8, ptr %196, i64 8
   %198 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %198, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i369, label %if.then.i.i.i.i.i367
@@ -5455,13 +5453,12 @@ if.else.i.i.i.i.i547:                             ; preds = %if.then.i.i.i542
   br label %_ZNSt10shared_ptrIN4node17PerIsolateOptionsEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN4node17PerIsolateOptionsEEC2ERKS2_.exit: ; preds = %if.end482, %if.then.i.i.i.i.i545, %if.else.i.i.i.i.i547
-  %298 = load ptr, ptr %env_vars, align 16
-  store ptr %298, ptr %agg.tmp492, align 8
   %_M_refcount.i.i548 = getelementptr inbounds i8, ptr %agg.tmp492, i64 8
   %_M_refcount3.i.i549 = getelementptr inbounds i8, ptr %env_vars, i64 8
-  %299 = load ptr, ptr %_M_refcount3.i.i549, align 8
-  store ptr %299, ptr %_M_refcount.i.i548, align 8
-  %cmp.not.i.i.i550 = icmp eq ptr %299, null
+  %298 = load ptr, ptr %_M_refcount3.i.i549, align 8
+  %299 = load <2 x ptr>, ptr %env_vars, align 16
+  store <2 x ptr> %299, ptr %agg.tmp492, align 16
+  %cmp.not.i.i.i550 = icmp eq ptr %298, null
   br i1 %cmp.not.i.i.i550, label %_ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit.thread, label %if.then.i.i.i551
 
 _ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit.thread: ; preds = %_ZNSt10shared_ptrIN4node17PerIsolateOptionsEEC2ERKS2_.exit
@@ -5469,7 +5466,7 @@ _ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit.thread: ; preds = %_ZNSt10shared
   br label %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit588
 
 if.then.i.i.i551:                                 ; preds = %_ZNSt10shared_ptrIN4node17PerIsolateOptionsEEC2ERKS2_.exit
-  %_M_use_count.i.i.i.i552 = getelementptr inbounds i8, ptr %299, i64 8
+  %_M_use_count.i.i.i.i552 = getelementptr inbounds i8, ptr %298, i64 8
   %300 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i553 = icmp eq i8 %300, 0
   br i1 %tobool.i.not.i.i.i.i553, label %_ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit, label %_ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit.thread765
@@ -5489,7 +5486,7 @@ _ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit:  ; preds = %if.then.i.i.i551
   br i1 %cmp.not.i.i.i558, label %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit588, label %if.then.i.i.i559
 
 if.then.i.i.i559:                                 ; preds = %_ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit.thread765, %_ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit
-  %.pr768 = phi ptr [ %299, %_ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit.thread765 ], [ %.pr.pre, %_ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit ]
+  %.pr768 = phi ptr [ %298, %_ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit.thread765 ], [ %.pr.pre, %_ZNSt10shared_ptrIN4node7KVStoreEEC2ERKS2_.exit ]
   %_M_use_count.i.i.i.i560 = getelementptr inbounds i8, ptr %.pr768, i64 8
   %303 = load atomic i64, ptr %_M_use_count.i.i.i.i560 acquire, align 8
   %cmp.i.i.i.i561 = icmp eq i64 %303, 4294967297

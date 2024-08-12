@@ -12222,10 +12222,10 @@ _ZL16isInterchangableP16HydrogenBondDataiiii.exit.i: ; preds = %_ZL20donor_index
   %740 = getelementptr inbounds i8, ptr %734, i64 8
   %741 = load float, ptr %740, align 4, !llvm.access.group !123
   %742 = fsub float %739, %741
-  store <2 x float> %737, ptr %40, align 8
-  store float %742, ptr %98, align 8, !llvm.access.group !123
   %743 = extractelement <2 x float> %737, i64 0
   %744 = extractelement <2 x float> %737, i64 1
+  store <2 x float> %737, ptr %40, align 8
+  store float %742, ptr %98, align 8, !llvm.access.group !123
   br i1 %700, label %745, label %_ZL15pbc_correct_gemPfPA3_fPKf.exit.i
 
 745:                                              ; preds = %_ZL16isInterchangableP16HydrogenBondDataiiii.exit.i
@@ -12404,10 +12404,10 @@ _ZL15pbc_correct_gemPfPA3_fPKf.exit.i:            ; preds = %_ZL15pbc_correct_ge
   %833 = load float, ptr %832, align 4, !llvm.access.group !123
   %834 = load float, ptr %740, align 4, !llvm.access.group !123
   %835 = fsub float %833, %834
-  store <2 x float> %831, ptr %41, align 8
-  store float %835, ptr %99, align 8, !llvm.access.group !123
   %836 = extractelement <2 x float> %831, i64 0
   %837 = extractelement <2 x float> %831, i64 1
+  store <2 x float> %831, ptr %41, align 8
+  store float %835, ptr %99, align 8, !llvm.access.group !123
   br i1 %700, label %.preheader143.i.outer, label %.loopexit.i270
 
 .preheader143.i.outer:                            ; preds = %825, %867

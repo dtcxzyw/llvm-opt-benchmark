@@ -1395,16 +1395,16 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit:          ; preds = %.noexc
   %27 = getelementptr inbounds i8, ptr %0, i64 24
   %28 = load <2 x ptr>, ptr %26, align 8, !noalias !4
   %29 = getelementptr inbounds i8, ptr %0, i64 32
-  %30 = load ptr, ptr %29, align 8, !noalias !4
-  %31 = getelementptr inbounds i8, ptr %0, i64 40
-  %32 = load ptr, ptr %31, align 8, !noalias !4
+  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %31 = load ptr, ptr %30, align 8, !noalias !4
+  %32 = load <2 x ptr>, ptr %29, align 8, !noalias !4
   %33 = getelementptr inbounds i8, ptr %0, i64 72
   %34 = load ptr, ptr %33, align 8
-  %35 = icmp ult ptr %32, %34
+  %35 = icmp ult ptr %31, %34
   br i1 %35, label %.lr.ph.i.i.i, label %.loopexit32
 
 .lr.ph.i.i.i:                                     ; preds = %25, %.lr.ph.i.i.i
-  %.06.i.pn.i.i = phi ptr [ %.06.i.i.i, %.lr.ph.i.i.i ], [ %32, %25 ]
+  %.06.i.pn.i.i = phi ptr [ %.06.i.i.i, %.lr.ph.i.i.i ], [ %31, %25 ]
   %.06.i.i.i = getelementptr inbounds i8, ptr %.06.i.pn.i.i, i64 8
   %36 = load ptr, ptr %.06.i.i.i, align 8
   call void @_ZdlPvm(ptr noundef %36, i64 noundef 512) #24
@@ -1416,8 +1416,7 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit:          ; preds = %.noexc
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 56
   store <2 x ptr> %28, ptr %38, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr %30, ptr %.sroa.3.0..sroa_idx.i, align 8
-  store ptr %32, ptr %33, align 8
+  store <2 x ptr> %32, ptr %.sroa.3.0..sroa_idx.i, align 8
   %39 = getelementptr inbounds i8, ptr %1, i64 96
   %40 = load i32, ptr %39, align 8, !noalias !9
   %41 = add nsw i32 %40, 1
@@ -1453,7 +1452,7 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit:          ; preds = %.noexc
 
 54:                                               ; preds = %51
   %55 = load ptr, ptr %33, align 8
-  %56 = load ptr, ptr %31, align 8
+  %56 = load ptr, ptr %30, align 8
   %57 = ptrtoint ptr %55 to i64
   %58 = ptrtoint ptr %56 to i64
   %59 = sub i64 %57, %58
@@ -1492,9 +1491,9 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit:          ; preds = %.noexc
 84:                                               ; preds = %80
   %85 = load ptr, ptr %27, align 8
   call void @_ZdlPvm(ptr noundef %85, i64 noundef 512) #24
-  %86 = load ptr, ptr %31, align 8
+  %86 = load ptr, ptr %30, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 8
-  store ptr %87, ptr %31, align 8
+  store ptr %87, ptr %30, align 8
   %88 = load ptr, ptr %87, align 8
   store ptr %88, ptr %27, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 512
@@ -3004,29 +3003,28 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %23, %27
   %28 = phi ptr [ %26, %23 ], [ %.pre, %27 ]
   %29 = getelementptr inbounds i8, ptr %0, i64 8
   %30 = getelementptr inbounds i8, ptr %1, i64 56
-  %31 = load ptr, ptr %30, align 8
-  store ptr %31, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
-  %33 = load ptr, ptr %20, align 8
-  store ptr %33, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
-  %35 = getelementptr inbounds i8, ptr %1, i64 72
-  %36 = load ptr, ptr %35, align 8
-  store ptr %36, ptr %34, align 8
-  %37 = icmp eq ptr %28, %31
-  br i1 %37, label %38, label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmmEv.exit
+  %31 = load <2 x ptr>, ptr %30, align 8
+  %32 = load ptr, ptr %30, align 8
+  store <2 x ptr> %31, ptr %29, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds i8, ptr %1, i64 72
+  %35 = load ptr, ptr %34, align 8
+  store ptr %35, ptr %33, align 8
+  %36 = icmp eq ptr %28, %32
+  br i1 %36, label %37, label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmmEv.exit
 
-38:                                               ; preds = %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
-  %39 = getelementptr inbounds i8, ptr %36, i64 -8
-  store ptr %39, ptr %34, align 8
+37:                                               ; preds = %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
+  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds i8, ptr %35, i64 -8
+  store ptr %39, ptr %33, align 8
   %40 = load ptr, ptr %39, align 8
   store ptr %40, ptr %29, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 512
-  store ptr %41, ptr %32, align 8
+  store ptr %41, ptr %38, align 8
   br label %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmmEv.exit
 
-_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmmEv.exit: ; preds = %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit, %38
-  %42 = phi ptr [ %41, %38 ], [ %28, %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit ]
+_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EmmEv.exit: ; preds = %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit, %37
+  %42 = phi ptr [ %41, %37 ], [ %28, %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit ]
   %43 = getelementptr inbounds i8, ptr %42, i64 -8
   store ptr %43, ptr %0, align 8
   br label %52
@@ -5889,16 +5887,16 @@ define internal noundef ptr @"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectE
   %6 = getelementptr inbounds i8, ptr %4, i64 40
   %7 = load <2 x ptr>, ptr %6, align 8, !noalias !116
   %8 = getelementptr inbounds i8, ptr %4, i64 56
-  %9 = load ptr, ptr %8, align 8, !noalias !116
-  %10 = getelementptr inbounds i8, ptr %4, i64 64
-  %11 = load ptr, ptr %10, align 8, !noalias !116
+  %9 = getelementptr inbounds i8, ptr %4, i64 64
+  %10 = load ptr, ptr %9, align 8, !noalias !116
+  %11 = load <2 x ptr>, ptr %8, align 8, !noalias !116
   %12 = getelementptr inbounds i8, ptr %4, i64 96
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp ult ptr %11, %13
+  %14 = icmp ult ptr %10, %13
   br i1 %14, label %.lr.ph.i.i.i.i, label %"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK3$_8clES2_NS_8ArgsViewE.exit"
 
 .lr.ph.i.i.i.i:                                   ; preds = %3, %.lr.ph.i.i.i.i
-  %.06.i.pn.i.i.i = phi ptr [ %.06.i.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %3 ]
+  %.06.i.pn.i.i.i = phi ptr [ %.06.i.i.i.i, %.lr.ph.i.i.i.i ], [ %10, %3 ]
   %.06.i.i.i.i = getelementptr inbounds i8, ptr %.06.i.pn.i.i.i, i64 8
   %15 = load ptr, ptr %.06.i.i.i.i, align 8
   tail call void @_ZdlPvm(ptr noundef %15, i64 noundef 512) #24
@@ -5909,8 +5907,7 @@ define internal noundef ptr @"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectE
   %17 = getelementptr inbounds i8, ptr %4, i64 72
   store <2 x ptr> %7, ptr %17, align 8
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 88
-  store ptr %9, ptr %.sroa.3.0..sroa_idx.i.i, align 8
-  store ptr %11, ptr %12, align 8
+  store <2 x ptr> %11, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 264520
   %19 = load ptr, ptr %18, align 8
   ret ptr %19

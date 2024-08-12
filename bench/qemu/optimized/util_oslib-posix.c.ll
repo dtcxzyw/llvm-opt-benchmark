@@ -970,30 +970,30 @@ entry:
   %0 = getelementptr inbounds i8, ptr %si, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 120, i1 false)
   %1 = load <2 x i32>, ptr %info, align 8
+  %2 = load i32, ptr %info, align 8
   store <2 x i32> %1, ptr %si, align 8
   %ssi_code = getelementptr inbounds i8, ptr %info, i64 8
-  %2 = load i32, ptr %ssi_code, align 8
+  %3 = load i32, ptr %ssi_code, align 8
   %si_code = getelementptr inbounds i8, ptr %si, i64 8
-  store i32 %2, ptr %si_code, align 8
-  switch i32 %2, label %lor.lhs.false4 [
+  store i32 %3, ptr %si_code, align 8
+  switch i32 %3, label %lor.lhs.false4 [
     i32 0, label %if.then
     i32 -1, label %if.then
   ]
 
 lor.lhs.false4:                                   ; preds = %entry
-  %cmp6 = icmp slt i32 %2, 1
+  %cmp6 = icmp slt i32 %3, 1
   br i1 %cmp6, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry, %entry, %lor.lhs.false4
   %ssi_pid = getelementptr inbounds i8, ptr %info, i64 12
   %_sifields = getelementptr inbounds i8, ptr %si, i64 16
-  %3 = load <2 x i32>, ptr %ssi_pid, align 4
-  store <2 x i32> %3, ptr %_sifields, align 8
+  %4 = load <2 x i32>, ptr %ssi_pid, align 4
+  store <2 x i32> %4, ptr %_sifields, align 8
   br label %if.end33
 
 if.else:                                          ; preds = %lor.lhs.false4
-  %4 = extractelement <2 x i32> %1, i64 0
-  switch i32 %4, label %if.end33 [
+  switch i32 %2, label %if.end33 [
     i32 4, label %if.then19
     i32 8, label %if.then19
     i32 11, label %if.then19
@@ -1022,8 +1022,7 @@ if.then24:                                        ; preds = %if.else
 
 if.end33:                                         ; preds = %if.else, %if.then19, %if.then24, %if.then
   %9 = load ptr, ptr %action, align 8
-  %10 = extractelement <2 x i32> %1, i64 0
-  call void %9(i32 noundef %10, ptr noundef nonnull %si, ptr noundef null) #15
+  call void %9(i32 noundef %2, ptr noundef nonnull %si, ptr noundef null) #15
   ret void
 }
 

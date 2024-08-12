@@ -781,9 +781,9 @@ define hidden void @_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h0db8e
 25:                                               ; preds = %9
   store i64 0, ptr %5, align 8
   %26 = load <2 x i64>, ptr %13, align 8
+  %27 = load i64, ptr %13, align 8, !noundef !4
   store <2 x i64> %26, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %27 = extractelement <2 x i64> %26, i64 0
   br label %19
 
 28:                                               ; preds = %9
@@ -2262,9 +2262,9 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
 24:                                               ; preds = %15
   store i64 0, ptr %6, align 8, !alias.scope !314, !noalias !319
   %25 = load <2 x i64>, ptr %18, align 8, !noalias !321
+  %26 = load i64, ptr %18, align 8, !noalias !321, !noundef !4
   store <2 x i64> %25, ptr %8, align 8, !alias.scope !314, !noalias !319
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !321
-  %26 = extractelement <2 x i64> %25, i64 0
   br label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hea587ccf1bd85c49E.exit
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hea587ccf1bd85c49E.exit.thread: ; preds = %15
@@ -2805,9 +2805,9 @@ define hidden void @"_ZN85_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
 25:                                               ; preds = %8
   store i64 0, ptr %4, align 8, !alias.scope !381, !noalias !383
   %26 = load <2 x i64>, ptr %13, align 8, !noalias !385
+  %27 = load i64, ptr %13, align 8, !noalias !385, !noundef !4
   store <2 x i64> %26, ptr %6, align 8, !alias.scope !381, !noalias !383
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !385
-  %27 = extractelement <2 x i64> %26, i64 0
   br label %19
 
 28:                                               ; preds = %8

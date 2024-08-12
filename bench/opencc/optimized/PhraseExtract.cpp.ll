@@ -913,74 +913,70 @@ _ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE5clearEv.exit3: ; preds = 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %27 = getelementptr inbounds i8, ptr %3, i64 16
-  %28 = getelementptr inbounds i8, ptr %3, i64 24
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 0, ptr %29, align 8
+  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 0, ptr %28, align 8
   store ptr @_ZN6opencc13PhraseExtract27DefaultPreCalculationFilterERKS0_RKNS_19UTF8StringSliceBaseIhEE, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  %30 = getelementptr inbounds i8, ptr %0, i64 56
-  %31 = load ptr, ptr %30, align 8
-  store ptr %31, ptr %27, align 8
-  store ptr @_ZNSt17_Function_handlerIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEPS8_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 64
-  %33 = load ptr, ptr %32, align 8
-  store ptr %33, ptr %28, align 8
-  store ptr @_ZNSt17_Function_handlerIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEPS8_E9_M_invokeERKSt9_Any_dataS3_S7_, ptr %32, align 8
-  %.not.i.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i.i, label %_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEEaSIRS8_EENSt9enable_ifIXsrNS9_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES9_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS3_S7_EEEE5valueERS9_E4typeEOSE_.exit, label %34
+  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %30 = getelementptr inbounds i8, ptr %0, i64 64
+  %31 = load <2 x ptr>, ptr %29, align 8
+  %32 = load ptr, ptr %29, align 8
+  store ptr @_ZNSt17_Function_handlerIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEPS8_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %29, align 8
+  store <2 x ptr> %31, ptr %27, align 8
+  store ptr @_ZNSt17_Function_handlerIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEPS8_E9_M_invokeERKSt9_Any_dataS3_S7_, ptr %30, align 8
+  %.not.i.i.i = icmp eq ptr %32, null
+  br i1 %.not.i.i.i, label %_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEEaSIRS8_EENSt9enable_ifIXsrNS9_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES9_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS3_S7_EEEE5valueERS9_E4typeEOSE_.exit, label %33
 
-34:                                               ; preds = %_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE5clearEv.exit3
-  %35 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEEaSIRS8_EENSt9enable_ifIXsrNS9_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES9_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS3_S7_EEEE5valueERS9_E4typeEOSE_.exit unwind label %36
+33:                                               ; preds = %_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE5clearEv.exit3
+  %34 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEEaSIRS8_EENSt9enable_ifIXsrNS9_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES9_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS3_S7_EEEE5valueERS9_E4typeEOSE_.exit unwind label %35
 
-36:                                               ; preds = %34
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %33
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #27
+  %37 = extractvalue { ptr, i32 } %36, 0
+  call void @__clang_call_terminate(ptr %37) #27
   unreachable
 
-_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEEaSIRS8_EENSt9enable_ifIXsrNS9_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES9_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS3_S7_EEEE5valueERS9_E4typeEOSE_.exit: ; preds = %_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE5clearEv.exit3, %34
+_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEEaSIRS8_EENSt9enable_ifIXsrNS9_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES9_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS3_S7_EEEE5valueERS9_E4typeEOSE_.exit: ; preds = %_ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE5clearEv.exit3, %33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %39 = getelementptr inbounds i8, ptr %0, i64 72
+  %38 = getelementptr inbounds i8, ptr %0, i64 72
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  %40 = getelementptr inbounds i8, ptr %2, i64 16
-  %41 = getelementptr inbounds i8, ptr %2, i64 24
-  %42 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 0, ptr %42, align 8
+  %39 = getelementptr inbounds i8, ptr %2, i64 16
+  %40 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 0, ptr %40, align 8
   store ptr @_ZN6opencc13PhraseExtract28DefaultPostCalculationFilterERKS0_RKNS_19UTF8StringSliceBaseIhEE, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i4, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i4, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i4, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i4)
-  %43 = getelementptr inbounds i8, ptr %0, i64 88
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %40, align 8
-  store ptr @_ZNSt17_Function_handlerIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEPS8_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 96
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %41, align 8
-  store ptr @_ZNSt17_Function_handlerIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEPS8_E9_M_invokeERKSt9_Any_dataS3_S7_, ptr %45, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 88
+  %42 = getelementptr inbounds i8, ptr %0, i64 96
+  %43 = load <2 x ptr>, ptr %41, align 8
+  %44 = load ptr, ptr %41, align 8
+  store ptr @_ZNSt17_Function_handlerIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEPS8_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %41, align 8
+  store <2 x ptr> %43, ptr %39, align 8
+  store ptr @_ZNSt17_Function_handlerIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEPS8_E9_M_invokeERKSt9_Any_dataS3_S7_, ptr %42, align 8
   %.not.i.i.i5 = icmp eq ptr %44, null
-  br i1 %.not.i.i.i5, label %_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEEaSIRS8_EENSt9enable_ifIXsrNS9_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES9_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS3_S7_EEEE5valueERS9_E4typeEOSE_.exit6, label %47
+  br i1 %.not.i.i.i5, label %_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEEaSIRS8_EENSt9enable_ifIXsrNS9_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES9_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS3_S7_EEEE5valueERS9_E4typeEOSE_.exit6, label %45
 
-47:                                               ; preds = %_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEEaSIRS8_EENSt9enable_ifIXsrNS9_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES9_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS3_S7_EEEE5valueERS9_E4typeEOSE_.exit
-  %48 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
-          to label %_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEEaSIRS8_EENSt9enable_ifIXsrNS9_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES9_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS3_S7_EEEE5valueERS9_E4typeEOSE_.exit6 unwind label %49
+45:                                               ; preds = %_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEEaSIRS8_EENSt9enable_ifIXsrNS9_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES9_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS3_S7_EEEE5valueERS9_E4typeEOSE_.exit
+  %46 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+          to label %_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEEaSIRS8_EENSt9enable_ifIXsrNS9_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES9_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS3_S7_EEEE5valueERS9_E4typeEOSE_.exit6 unwind label %47
 
-49:                                               ; preds = %47
-  %50 = landingpad { ptr, i32 }
+47:                                               ; preds = %45
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #27
+  %49 = extractvalue { ptr, i32 } %48, 0
+  call void @__clang_call_terminate(ptr %49) #27
   unreachable
 
-_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEEaSIRS8_EENSt9enable_ifIXsrNS9_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES9_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS3_S7_EEEE5valueERS9_E4typeEOSE_.exit6: ; preds = %_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEEaSIRS8_EENSt9enable_ifIXsrNS9_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES9_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS3_S7_EEEE5valueERS9_E4typeEOSE_.exit, %47
+_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEEaSIRS8_EENSt9enable_ifIXsrNS9_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES9_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS3_S7_EEEE5valueERS9_E4typeEOSE_.exit6: ; preds = %_ZNSt8functionIFbRKN6opencc13PhraseExtractERKNS0_19UTF8StringSliceBaseIhEEEEaSIRS8_EENSt9enable_ifIXsrNS9_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES9_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS3_S7_EEEE5valueERS9_E4typeEOSE_.exit, %45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   ret void
 }

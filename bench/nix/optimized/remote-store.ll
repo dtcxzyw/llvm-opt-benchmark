@@ -4886,7 +4886,7 @@ declare noundef i32 @_ZSt19uncaught_exceptionsv() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix4PoolINS_11RemoteStore10ConnectionEE6HandleD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = alloca %"class.nix::ref.40", align 8
+  %2 = alloca %"class.nix::ref.40", align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -4913,17 +4913,16 @@ _ZN3nix4SyncINS_4PoolINS_11RemoteStore10ConnectionEE5StateESt5mutexE4lockEv.exit
   br i1 %12, label %_ZN3nix4SyncINS_4PoolINS_11RemoteStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit, label %13
 
 13:                                               ; preds = %_ZN3nix4SyncINS_4PoolINS_11RemoteStore10ConnectionEE5StateESt5mutexE4lockEv.exit
-  %14 = load ptr, ptr %3, align 8
-  store ptr %14, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %15, align 8
-  %.not.i.i.i.i = icmp eq ptr %17, null
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %17, ptr %2, align 16
+  %.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN3nix11RemoteStore10ConnectionEEC2ERKS3_.exit.i, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds i8, ptr %16, i64 8
   %20 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i1 = icmp eq i8 %20, 0
   br i1 %.not.i.i.i.i.i1, label %24, label %21
@@ -4980,10 +4979,10 @@ _ZN3nix3refINS_11RemoteStore10ConnectionEEC2ERKSt10shared_ptrIS2_E.exit: ; preds
   br i1 %.not.i.i, label %54, label %40
 
 40:                                               ; preds = %_ZN3nix3refINS_11RemoteStore10ConnectionEEC2ERKSt10shared_ptrIS2_E.exit
-  %41 = load ptr, ptr %2, align 8
+  %41 = load ptr, ptr %2, align 16
   store ptr %41, ptr %37, align 8
   %42 = getelementptr inbounds i8, ptr %37, i64 8
-  %43 = load ptr, ptr %15, align 8
+  %43 = load ptr, ptr %14, align 8
   store ptr %43, ptr %42, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit.i.i, label %44
@@ -5016,7 +5015,7 @@ _ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9construc
           to label %_ZNSt6vectorIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE9push_backEOS4_.exit unwind label %134
 
 _ZNSt6vectorIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE9push_backEOS4_.exit: ; preds = %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit.i.i, %54
-  %56 = load ptr, ptr %15, align 8
+  %56 = load ptr, ptr %14, align 8
   %.not.i.i.i.i3 = icmp eq ptr %56, null
   br i1 %.not.i.i.i.i3, label %_ZN3nix4SyncINS_4PoolINS_11RemoteStore10ConnectionEE5StateESt5mutexE4LockD2Ev.exit, label %57
 
@@ -15998,21 +15997,20 @@ define void @_ZN3nix11RemoteStore10buildPathsERKSt6vectorINS_11DerivedPathESaIS2
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
   %7 = alloca [8 x i8], align 1
-  %8 = alloca %"class.std::shared_ptr.283", align 8
+  %8 = alloca %"class.std::shared_ptr.283", align 16
   %9 = alloca %"struct.nix::RemoteStore::ConnectionHandle", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
-  %12 = load ptr, ptr %3, align 8
-  store ptr %12, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %13, align 8
-  %.not.i.i.i = icmp eq ptr %15, null
+  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %15, ptr %8, align 16
+  %.not.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3nix5StoreEEC2ERKS2_.exit, label %16
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds i8, ptr %14, i64 8
   %18 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %18, 0
   br i1 %.not.i.i.i.i, label %22, label %19
@@ -16032,7 +16030,7 @@ _ZNSt10shared_ptrIN3nix5StoreEEC2ERKS2_.exit:     ; preds = %4, %19, %22
           to label %24 unwind label %145
 
 24:                                               ; preds = %_ZNSt10shared_ptrIN3nix5StoreEEC2ERKS2_.exit
-  %25 = load ptr, ptr %13, align 8
+  %25 = load ptr, ptr %12, align 8
   %.not.i.i.i16 = icmp eq ptr %25, null
   br i1 %.not.i.i.i16, label %60, label %26
 
@@ -16434,21 +16432,20 @@ define void @_ZN3nix11RemoteStore21buildPathsWithResultsERKSt6vectorINS_11Derive
   %29 = alloca [8 x i8], align 1
   %30 = alloca [8 x i8], align 1
   %31 = alloca [8 x i8], align 1
-  %32 = alloca %"class.std::shared_ptr.283", align 8
+  %32 = alloca %"class.std::shared_ptr.283", align 16
   %33 = alloca %"class.std::optional.228", align 16
   %34 = alloca %"struct.nix::RemoteStore::ConnectionHandle", align 16
-  %35 = alloca %"class.std::shared_ptr.283", align 8
-  %36 = load ptr, ptr %4, align 8
-  store ptr %36, ptr %32, align 8
-  %37 = getelementptr inbounds i8, ptr %32, i64 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 8
-  %39 = load ptr, ptr %38, align 8
-  store ptr %39, ptr %37, align 8
-  %.not.i.i.i = icmp eq ptr %39, null
+  %35 = alloca %"class.std::shared_ptr.283", align 16
+  %36 = getelementptr inbounds i8, ptr %32, i64 8
+  %37 = getelementptr inbounds i8, ptr %4, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = load <2 x ptr>, ptr %4, align 8
+  store <2 x ptr> %39, ptr %32, align 16
+  %.not.i.i.i = icmp eq ptr %38, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3nix5StoreEEC2ERKS2_.exit, label %40
 
 40:                                               ; preds = %5
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %41 = getelementptr inbounds i8, ptr %38, i64 8
   %42 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %42, 0
   br i1 %.not.i.i.i.i, label %46, label %43
@@ -16468,7 +16465,7 @@ _ZNSt10shared_ptrIN3nix5StoreEEC2ERKS2_.exit:     ; preds = %5, %43, %46
           to label %48 unwind label %232
 
 48:                                               ; preds = %_ZNSt10shared_ptrIN3nix5StoreEEC2ERKS2_.exit
-  %49 = load ptr, ptr %37, align 8
+  %49 = load ptr, ptr %36, align 8
   %.not.i.i.i27 = icmp eq ptr %49, null
   br i1 %.not.i.i.i27, label %_ZNSt10shared_ptrIN3nix5StoreEED2Ev.exit, label %50
 
@@ -16829,16 +16826,15 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt8optionalIN3nix11RemoteStore16ConnectionHandleEE5resetEv.exit
 
 _ZNSt8optionalIN3nix11RemoteStore16ConnectionHandleEE5resetEv.exit: ; preds = %234, %237
-  %238 = load ptr, ptr %4, align 8
-  store ptr %238, ptr %35, align 8
-  %239 = getelementptr inbounds i8, ptr %35, i64 8
-  %240 = load ptr, ptr %38, align 8
-  store ptr %240, ptr %239, align 8
-  %.not.i.i.i34 = icmp eq ptr %240, null
+  %238 = getelementptr inbounds i8, ptr %35, i64 8
+  %239 = load ptr, ptr %37, align 8
+  %240 = load <2 x ptr>, ptr %4, align 8
+  store <2 x ptr> %240, ptr %35, align 16
+  %.not.i.i.i34 = icmp eq ptr %239, null
   br i1 %.not.i.i.i34, label %_ZNSt10shared_ptrIN3nix5StoreEEC2ERKS2_.exit36, label %241
 
 241:                                              ; preds = %_ZNSt8optionalIN3nix11RemoteStore16ConnectionHandleEE5resetEv.exit
-  %242 = getelementptr inbounds i8, ptr %240, i64 8
+  %242 = getelementptr inbounds i8, ptr %239, i64 8
   %243 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i35 = icmp eq i8 %243, 0
   br i1 %.not.i.i.i.i35, label %247, label %244
@@ -16861,7 +16857,7 @@ _ZNSt10shared_ptrIN3nix5StoreEEC2ERKS2_.exit36:   ; preds = %_ZNSt8optionalIN3ni
           to label %252 unwind label %702
 
 252:                                              ; preds = %_ZNSt10shared_ptrIN3nix5StoreEEC2ERKS2_.exit36
-  %253 = load ptr, ptr %239, align 8
+  %253 = load ptr, ptr %238, align 8
   %.not.i.i.i37 = icmp eq ptr %253, null
   br i1 %.not.i.i.i37, label %_ZNSt10shared_ptrIN3nix5StoreEED2Ev.exit43, label %254
 
@@ -39777,208 +39773,206 @@ _ZNKSt6vectorIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE12_M_check_lenEm
 _ZNSt12_Vector_baseIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"class.nix::ref.40", ptr %23, i64 %19
-  %25 = load ptr, ptr %2, align 8
-  store ptr %25, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %26, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit, label %29
+  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = load <2 x ptr>, ptr %2, align 8
+  store <2 x ptr> %27, ptr %24, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit, label %28
 
-29:                                               ; preds = %_ZNSt12_Vector_baseIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE11_M_allocateEm.exit
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
-  %31 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %35, label %32
+28:                                               ; preds = %_ZNSt12_Vector_baseIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE11_M_allocateEm.exit
+  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %30, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %34, label %31
 
-32:                                               ; preds = %29
-  %33 = load i32, ptr %30, align 4
-  %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %30, align 4
+31:                                               ; preds = %28
+  %32 = load i32, ptr %29, align 4
+  %33 = add nsw i32 %32, 1
+  store i32 %33, ptr %29, align 4
   br label %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit
 
-35:                                               ; preds = %29
-  %36 = atomicrmw volatile add ptr %30, i32 1 acq_rel, align 4
+34:                                               ; preds = %28
+  %35 = atomicrmw volatile add ptr %29, i32 1 acq_rel, align 4
   br label %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit
 
-_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit: ; preds = %35, %32, %_ZNSt12_Vector_baseIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE11_M_allocateEm.exit
+_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit: ; preds = %34, %31, %_ZNSt12_Vector_baseIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE11_M_allocateEm.exit
   %.not13.i.i.i.i.i = icmp eq ptr %6, %1
   br i1 %.not13.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i
-  %.015.i.i.i.i.i = phi ptr [ %50, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit ]
-  %.01214.i.i.i.i.i = phi ptr [ %49, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit ]
-  %37 = load ptr, ptr %.01214.i.i.i.i.i, align 8
-  store ptr %37, ptr %.015.i.i.i.i.i, align 8
-  %38 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i, i64 8
-  %39 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i, i64 8
-  %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr %38, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i, label %41
+  %.015.i.i.i.i.i = phi ptr [ %49, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit ]
+  %.01214.i.i.i.i.i = phi ptr [ %48, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit ]
+  %36 = load ptr, ptr %.01214.i.i.i.i.i, align 8
+  store ptr %36, ptr %.015.i.i.i.i.i, align 8
+  %37 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i, i64 8
+  %38 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i, i64 8
+  %39 = load ptr, ptr %38, align 8
+  store ptr %39, ptr %37, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i, label %40
 
-41:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
-  %43 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %43, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %47, label %44
+40:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %42 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %42, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %46, label %43
 
-44:                                               ; preds = %41
-  %45 = load i32, ptr %42, align 4
-  %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %42, align 4
+43:                                               ; preds = %40
+  %44 = load i32, ptr %41, align 4
+  %45 = add nsw i32 %44, 1
+  store i32 %45, ptr %41, align 4
   br label %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i
 
-47:                                               ; preds = %41
-  %48 = atomicrmw volatile add ptr %42, i32 1 acq_rel, align 4
+46:                                               ; preds = %40
+  %47 = atomicrmw volatile add ptr %41, i32 1 acq_rel, align 4
   br label %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i
 
-_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %47, %44, %.lr.ph.i.i.i.i.i
-  %49 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i, i64 16
-  %50 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %49, %1
+_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %46, %43, %.lr.ph.i.i.i.i.i
+  %48 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i, i64 16
+  %49 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %48, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !227
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit: ; preds = %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit ], [ %50, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ]
-  %51 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JS4_EEEvRS5_PT_DpOT0_.exit ], [ %49, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ]
+  %50 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not13.i.i.i.i.i28 = icmp eq ptr %5, %1
   br i1 %.not13.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit37, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34
-  %.015.i.i.i.i.i30 = phi ptr [ %65, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34 ], [ %51, %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit ]
-  %.01214.i.i.i.i.i31 = phi ptr [ %64, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit ]
-  %52 = load ptr, ptr %.01214.i.i.i.i.i31, align 8
-  store ptr %52, ptr %.015.i.i.i.i.i30, align 8
-  %53 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i30, i64 8
-  %54 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i31, i64 8
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %53, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i32 = icmp eq ptr %55, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i32, label %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34, label %56
+  %.015.i.i.i.i.i30 = phi ptr [ %64, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34 ], [ %50, %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit ]
+  %.01214.i.i.i.i.i31 = phi ptr [ %63, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit ]
+  %51 = load ptr, ptr %.01214.i.i.i.i.i31, align 8
+  store ptr %51, ptr %.015.i.i.i.i.i30, align 8
+  %52 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i30, i64 8
+  %53 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i31, i64 8
+  %54 = load ptr, ptr %53, align 8
+  store ptr %54, ptr %52, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i32 = icmp eq ptr %54, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i32, label %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34, label %55
 
-56:                                               ; preds = %.lr.ph.i.i.i.i.i29
-  %57 = getelementptr inbounds i8, ptr %55, i64 8
-  %58 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i.i.i33 = icmp eq i8 %58, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i33, label %62, label %59
+55:                                               ; preds = %.lr.ph.i.i.i.i.i29
+  %56 = getelementptr inbounds i8, ptr %54, i64 8
+  %57 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i.i33 = icmp eq i8 %57, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i33, label %61, label %58
 
-59:                                               ; preds = %56
-  %60 = load i32, ptr %57, align 4
-  %61 = add nsw i32 %60, 1
-  store i32 %61, ptr %57, align 4
+58:                                               ; preds = %55
+  %59 = load i32, ptr %56, align 4
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %56, align 4
   br label %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34
 
-62:                                               ; preds = %56
-  %63 = atomicrmw volatile add ptr %57, i32 1 acq_rel, align 4
+61:                                               ; preds = %55
+  %62 = atomicrmw volatile add ptr %56, i32 1 acq_rel, align 4
   br label %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34
 
-_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34: ; preds = %62, %59, %.lr.ph.i.i.i.i.i29
-  %64 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i31, i64 16
-  %65 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i30, i64 16
-  %.not.i.i.i.i.i35 = icmp eq ptr %64, %5
+_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34: ; preds = %61, %58, %.lr.ph.i.i.i.i.i29
+  %63 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i31, i64 16
+  %64 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i30, i64 16
+  %.not.i.i.i.i.i35 = icmp eq ptr %63, %5
   br i1 %.not.i.i.i.i.i35, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit37, label %.lr.ph.i.i.i.i.i29, !llvm.loop !227
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit37: ; preds = %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34, %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit
-  %.0.lcssa.i.i.i.i.i36 = phi ptr [ %51, %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit ], [ %65, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34 ]
+  %.0.lcssa.i.i.i.i.i36 = phi ptr [ %50, %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit ], [ %64, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34 ]
   %.not4.i.i.i = icmp eq ptr %6, %5
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN3nix3refINS0_11RemoteStore10ConnectionEEES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit37, %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %102, %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i ], [ %6, %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit37 ]
-  %66 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 8
-  %67 = load ptr, ptr %66, align 8
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %67, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i, label %68
+  %.05.i.i.i = phi ptr [ %101, %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i ], [ %6, %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit37 ]
+  %65 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %66, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i, label %67
 
-68:                                               ; preds = %.lr.ph.i.i.i
-  %69 = getelementptr inbounds i8, ptr %67, i64 8
-  %70 = load atomic i64, ptr %69 acquire, align 8
-  %71 = icmp eq i64 %70, 4294967297
-  %72 = trunc i64 %70 to i32
-  br i1 %71, label %73, label %78
+67:                                               ; preds = %.lr.ph.i.i.i
+  %68 = getelementptr inbounds i8, ptr %66, i64 8
+  %69 = load atomic i64, ptr %68 acquire, align 8
+  %70 = icmp eq i64 %69, 4294967297
+  %71 = trunc i64 %69 to i32
+  br i1 %70, label %72, label %77
 
-73:                                               ; preds = %68
-  store i32 0, ptr %69, align 8
-  %74 = getelementptr inbounds i8, ptr %67, i64 12
-  store i32 0, ptr %74, align 4
-  %75 = load ptr, ptr %67, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 16
-  %77 = load ptr, ptr %76, align 8
-  tail call void %77(ptr noundef nonnull align 8 dereferenceable(16) %67) #29
+72:                                               ; preds = %67
+  store i32 0, ptr %68, align 8
+  %73 = getelementptr inbounds i8, ptr %66, i64 12
+  store i32 0, ptr %73, align 4
+  %74 = load ptr, ptr %66, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  %76 = load ptr, ptr %75, align 8
+  tail call void %76(ptr noundef nonnull align 8 dereferenceable(16) %66) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i
 
-78:                                               ; preds = %68
-  %79 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i.i38 = icmp eq i8 %79, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i38, label %82, label %80
+77:                                               ; preds = %67
+  %78 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i38 = icmp eq i8 %78, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i38, label %81, label %79
 
-80:                                               ; preds = %78
-  %81 = add nsw i32 %72, -1
-  store i32 %81, ptr %69, align 4
-  br label %84
+79:                                               ; preds = %77
+  %80 = add nsw i32 %71, -1
+  store i32 %80, ptr %68, align 4
+  br label %83
 
-82:                                               ; preds = %78
-  %83 = atomicrmw volatile add ptr %69, i32 -1 acq_rel, align 4
-  br label %84
+81:                                               ; preds = %77
+  %82 = atomicrmw volatile add ptr %68, i32 -1 acq_rel, align 4
+  br label %83
 
-84:                                               ; preds = %82, %80
-  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %72, %80 ], [ %83, %82 ]
-  %85 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %85, label %86, label %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i
+83:                                               ; preds = %81, %79
+  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %71, %79 ], [ %82, %81 ]
+  %84 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %84, label %85, label %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i
 
-86:                                               ; preds = %84
-  %87 = load ptr, ptr %67, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 16
-  %89 = load ptr, ptr %88, align 8
-  tail call void %89(ptr noundef nonnull align 8 dereferenceable(16) %67) #29
-  %90 = getelementptr inbounds i8, ptr %67, i64 12
-  %91 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %91, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %95, label %92
+85:                                               ; preds = %83
+  %86 = load ptr, ptr %66, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 16
+  %88 = load ptr, ptr %87, align 8
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %66) #29
+  %89 = getelementptr inbounds i8, ptr %66, i64 12
+  %90 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %90, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %94, label %91
 
-92:                                               ; preds = %86
-  %93 = load i32, ptr %90, align 4
-  %94 = add nsw i32 %93, -1
-  store i32 %94, ptr %90, align 4
-  br label %97
+91:                                               ; preds = %85
+  %92 = load i32, ptr %89, align 4
+  %93 = add nsw i32 %92, -1
+  store i32 %93, ptr %89, align 4
+  br label %96
 
-95:                                               ; preds = %86
-  %96 = atomicrmw volatile add ptr %90, i32 -1 acq_rel, align 4
-  br label %97
+94:                                               ; preds = %85
+  %95 = atomicrmw volatile add ptr %89, i32 -1 acq_rel, align 4
+  br label %96
 
-97:                                               ; preds = %95, %92
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %93, %92 ], [ %96, %95 ]
-  %98 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %98, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i
+96:                                               ; preds = %94, %91
+  %.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %92, %91 ], [ %95, %94 ]
+  %97 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %97, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i: ; preds = %97, %73
-  %99 = load ptr, ptr %67, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 24
-  %101 = load ptr, ptr %100, align 8
-  tail call void %101(ptr noundef nonnull align 8 dereferenceable(16) %67) #29
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i: ; preds = %96, %72
+  %98 = load ptr, ptr %66, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 24
+  %100 = load ptr, ptr %99, align 8
+  tail call void %100(ptr noundef nonnull align 8 dereferenceable(16) %66) #29
   br label %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i
 
-_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, %97, %84, %.lr.ph.i.i.i
-  %102 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
-  %.not.i.i.i = icmp eq ptr %102, %5
+_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, %96, %83, %.lr.ph.i.i.i
+  %101 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
+  %.not.i.i.i = icmp eq ptr %101, %5
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN3nix3refINS0_11RemoteStore10ConnectionEEES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !137
 
 _ZSt8_DestroyIPN3nix3refINS0_11RemoteStore10ConnectionEEES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit37
   %.not.i39 = icmp eq ptr %6, null
-  br i1 %.not.i39, label %_ZNSt12_Vector_baseIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE13_M_deallocateEPS4_m.exit, label %103
+  br i1 %.not.i39, label %_ZNSt12_Vector_baseIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE13_M_deallocateEPS4_m.exit, label %102
 
-103:                                              ; preds = %_ZSt8_DestroyIPN3nix3refINS0_11RemoteStore10ConnectionEEES4_EvT_S6_RSaIT0_E.exit
+102:                                              ; preds = %_ZSt8_DestroyIPN3nix3refINS0_11RemoteStore10ConnectionEEES4_EvT_S6_RSaIT0_E.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #32
   br label %_ZNSt12_Vector_baseIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE13_M_deallocateEPS4_m.exit
 
-_ZNSt12_Vector_baseIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt8_DestroyIPN3nix3refINS0_11RemoteStore10ConnectionEEES4_EvT_S6_RSaIT0_E.exit, %103
-  %104 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt8_DestroyIPN3nix3refINS0_11RemoteStore10ConnectionEEES4_EvT_S6_RSaIT0_E.exit, %102
+  %103 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8
-  %105 = getelementptr inbounds %"class.nix::ref.40", ptr %23, i64 %16
-  store ptr %105, ptr %104, align 8
+  %104 = getelementptr inbounds %"class.nix::ref.40", ptr %23, i64 %16
+  store ptr %104, ptr %103, align 8
   ret void
 }
 
@@ -48073,208 +48067,206 @@ _ZNKSt6vectorIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE12_M_check_lenEm
 _ZNSt12_Vector_baseIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"class.nix::ref.40", ptr %23, i64 %19
-  %25 = load ptr, ptr %2, align 8
-  store ptr %25, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %26, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, label %29
+  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = load <2 x ptr>, ptr %2, align 8
+  store <2 x ptr> %27, ptr %24, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, label %28
 
-29:                                               ; preds = %_ZNSt12_Vector_baseIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE11_M_allocateEm.exit
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
-  %31 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %35, label %32
+28:                                               ; preds = %_ZNSt12_Vector_baseIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE11_M_allocateEm.exit
+  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %30, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %34, label %31
 
-32:                                               ; preds = %29
-  %33 = load i32, ptr %30, align 4
-  %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %30, align 4
+31:                                               ; preds = %28
+  %32 = load i32, ptr %29, align 4
+  %33 = add nsw i32 %32, 1
+  store i32 %33, ptr %29, align 4
   br label %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit
 
-35:                                               ; preds = %29
-  %36 = atomicrmw volatile add ptr %30, i32 1 acq_rel, align 4
+34:                                               ; preds = %28
+  %35 = atomicrmw volatile add ptr %29, i32 1 acq_rel, align 4
   br label %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit
 
-_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit: ; preds = %35, %32, %_ZNSt12_Vector_baseIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE11_M_allocateEm.exit
+_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit: ; preds = %34, %31, %_ZNSt12_Vector_baseIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE11_M_allocateEm.exit
   %.not13.i.i.i.i.i = icmp eq ptr %6, %1
   br i1 %.not13.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i
-  %.015.i.i.i.i.i = phi ptr [ %50, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
-  %.01214.i.i.i.i.i = phi ptr [ %49, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
-  %37 = load ptr, ptr %.01214.i.i.i.i.i, align 8
-  store ptr %37, ptr %.015.i.i.i.i.i, align 8
-  %38 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i, i64 8
-  %39 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i, i64 8
-  %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr %38, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i, label %41
+  %.015.i.i.i.i.i = phi ptr [ %49, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
+  %.01214.i.i.i.i.i = phi ptr [ %48, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ]
+  %36 = load ptr, ptr %.01214.i.i.i.i.i, align 8
+  store ptr %36, ptr %.015.i.i.i.i.i, align 8
+  %37 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i, i64 8
+  %38 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i, i64 8
+  %39 = load ptr, ptr %38, align 8
+  store ptr %39, ptr %37, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i, label %40
 
-41:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
-  %43 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %43, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %47, label %44
+40:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %42 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %42, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %46, label %43
 
-44:                                               ; preds = %41
-  %45 = load i32, ptr %42, align 4
-  %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %42, align 4
+43:                                               ; preds = %40
+  %44 = load i32, ptr %41, align 4
+  %45 = add nsw i32 %44, 1
+  store i32 %45, ptr %41, align 4
   br label %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i
 
-47:                                               ; preds = %41
-  %48 = atomicrmw volatile add ptr %42, i32 1 acq_rel, align 4
+46:                                               ; preds = %40
+  %47 = atomicrmw volatile add ptr %41, i32 1 acq_rel, align 4
   br label %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i
 
-_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %47, %44, %.lr.ph.i.i.i.i.i
-  %49 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i, i64 16
-  %50 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %49, %1
+_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %46, %43, %.lr.ph.i.i.i.i.i
+  %48 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i, i64 16
+  %49 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %48, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !227
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit: ; preds = %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ], [ %50, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ]
-  %51 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN3nix3refINS0_11RemoteStore10ConnectionEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit ], [ %49, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ]
+  %50 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 16
   %.not13.i.i.i.i.i28 = icmp eq ptr %5, %1
   br i1 %.not13.i.i.i.i.i28, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit37, label %.lr.ph.i.i.i.i.i29
 
 .lr.ph.i.i.i.i.i29:                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34
-  %.015.i.i.i.i.i30 = phi ptr [ %65, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34 ], [ %51, %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit ]
-  %.01214.i.i.i.i.i31 = phi ptr [ %64, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit ]
-  %52 = load ptr, ptr %.01214.i.i.i.i.i31, align 8
-  store ptr %52, ptr %.015.i.i.i.i.i30, align 8
-  %53 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i30, i64 8
-  %54 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i31, i64 8
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %53, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i32 = icmp eq ptr %55, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i32, label %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34, label %56
+  %.015.i.i.i.i.i30 = phi ptr [ %64, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34 ], [ %50, %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit ]
+  %.01214.i.i.i.i.i31 = phi ptr [ %63, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit ]
+  %51 = load ptr, ptr %.01214.i.i.i.i.i31, align 8
+  store ptr %51, ptr %.015.i.i.i.i.i30, align 8
+  %52 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i30, i64 8
+  %53 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i31, i64 8
+  %54 = load ptr, ptr %53, align 8
+  store ptr %54, ptr %52, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i32 = icmp eq ptr %54, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i32, label %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34, label %55
 
-56:                                               ; preds = %.lr.ph.i.i.i.i.i29
-  %57 = getelementptr inbounds i8, ptr %55, i64 8
-  %58 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i.i.i33 = icmp eq i8 %58, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i33, label %62, label %59
+55:                                               ; preds = %.lr.ph.i.i.i.i.i29
+  %56 = getelementptr inbounds i8, ptr %54, i64 8
+  %57 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i.i33 = icmp eq i8 %57, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i33, label %61, label %58
 
-59:                                               ; preds = %56
-  %60 = load i32, ptr %57, align 4
-  %61 = add nsw i32 %60, 1
-  store i32 %61, ptr %57, align 4
+58:                                               ; preds = %55
+  %59 = load i32, ptr %56, align 4
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %56, align 4
   br label %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34
 
-62:                                               ; preds = %56
-  %63 = atomicrmw volatile add ptr %57, i32 1 acq_rel, align 4
+61:                                               ; preds = %55
+  %62 = atomicrmw volatile add ptr %56, i32 1 acq_rel, align 4
   br label %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34
 
-_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34: ; preds = %62, %59, %.lr.ph.i.i.i.i.i29
-  %64 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i31, i64 16
-  %65 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i30, i64 16
-  %.not.i.i.i.i.i35 = icmp eq ptr %64, %5
+_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34: ; preds = %61, %58, %.lr.ph.i.i.i.i.i29
+  %63 = getelementptr inbounds i8, ptr %.01214.i.i.i.i.i31, i64 16
+  %64 = getelementptr inbounds i8, ptr %.015.i.i.i.i.i30, i64 16
+  %.not.i.i.i.i.i35 = icmp eq ptr %63, %5
   br i1 %.not.i.i.i.i.i35, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit37, label %.lr.ph.i.i.i.i.i29, !llvm.loop !227
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit37: ; preds = %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34, %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit
-  %.0.lcssa.i.i.i.i.i36 = phi ptr [ %51, %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit ], [ %65, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34 ]
+  %.0.lcssa.i.i.i.i.i36 = phi ptr [ %50, %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit ], [ %64, %_ZSt10_ConstructIN3nix3refINS0_11RemoteStore10ConnectionEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i34 ]
   %.not4.i.i.i = icmp eq ptr %6, %5
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN3nix3refINS0_11RemoteStore10ConnectionEEES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit37, %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %102, %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i ], [ %6, %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit37 ]
-  %66 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 8
-  %67 = load ptr, ptr %66, align 8
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %67, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i, label %68
+  %.05.i.i.i = phi ptr [ %101, %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i ], [ %6, %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit37 ]
+  %65 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %66, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i, label %67
 
-68:                                               ; preds = %.lr.ph.i.i.i
-  %69 = getelementptr inbounds i8, ptr %67, i64 8
-  %70 = load atomic i64, ptr %69 acquire, align 8
-  %71 = icmp eq i64 %70, 4294967297
-  %72 = trunc i64 %70 to i32
-  br i1 %71, label %73, label %78
+67:                                               ; preds = %.lr.ph.i.i.i
+  %68 = getelementptr inbounds i8, ptr %66, i64 8
+  %69 = load atomic i64, ptr %68 acquire, align 8
+  %70 = icmp eq i64 %69, 4294967297
+  %71 = trunc i64 %69 to i32
+  br i1 %70, label %72, label %77
 
-73:                                               ; preds = %68
-  store i32 0, ptr %69, align 8
-  %74 = getelementptr inbounds i8, ptr %67, i64 12
-  store i32 0, ptr %74, align 4
-  %75 = load ptr, ptr %67, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 16
-  %77 = load ptr, ptr %76, align 8
-  tail call void %77(ptr noundef nonnull align 8 dereferenceable(16) %67) #29
+72:                                               ; preds = %67
+  store i32 0, ptr %68, align 8
+  %73 = getelementptr inbounds i8, ptr %66, i64 12
+  store i32 0, ptr %73, align 4
+  %74 = load ptr, ptr %66, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  %76 = load ptr, ptr %75, align 8
+  tail call void %76(ptr noundef nonnull align 8 dereferenceable(16) %66) #29
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i
 
-78:                                               ; preds = %68
-  %79 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i.i38 = icmp eq i8 %79, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i38, label %82, label %80
+77:                                               ; preds = %67
+  %78 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i38 = icmp eq i8 %78, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i38, label %81, label %79
 
-80:                                               ; preds = %78
-  %81 = add nsw i32 %72, -1
-  store i32 %81, ptr %69, align 4
-  br label %84
+79:                                               ; preds = %77
+  %80 = add nsw i32 %71, -1
+  store i32 %80, ptr %68, align 4
+  br label %83
 
-82:                                               ; preds = %78
-  %83 = atomicrmw volatile add ptr %69, i32 -1 acq_rel, align 4
-  br label %84
+81:                                               ; preds = %77
+  %82 = atomicrmw volatile add ptr %68, i32 -1 acq_rel, align 4
+  br label %83
 
-84:                                               ; preds = %82, %80
-  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %72, %80 ], [ %83, %82 ]
-  %85 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %85, label %86, label %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i
+83:                                               ; preds = %81, %79
+  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %71, %79 ], [ %82, %81 ]
+  %84 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %84, label %85, label %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i
 
-86:                                               ; preds = %84
-  %87 = load ptr, ptr %67, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 16
-  %89 = load ptr, ptr %88, align 8
-  tail call void %89(ptr noundef nonnull align 8 dereferenceable(16) %67) #29
-  %90 = getelementptr inbounds i8, ptr %67, i64 12
-  %91 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %91, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %95, label %92
+85:                                               ; preds = %83
+  %86 = load ptr, ptr %66, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 16
+  %88 = load ptr, ptr %87, align 8
+  tail call void %88(ptr noundef nonnull align 8 dereferenceable(16) %66) #29
+  %89 = getelementptr inbounds i8, ptr %66, i64 12
+  %90 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %90, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %94, label %91
 
-92:                                               ; preds = %86
-  %93 = load i32, ptr %90, align 4
-  %94 = add nsw i32 %93, -1
-  store i32 %94, ptr %90, align 4
-  br label %97
+91:                                               ; preds = %85
+  %92 = load i32, ptr %89, align 4
+  %93 = add nsw i32 %92, -1
+  store i32 %93, ptr %89, align 4
+  br label %96
 
-95:                                               ; preds = %86
-  %96 = atomicrmw volatile add ptr %90, i32 -1 acq_rel, align 4
-  br label %97
+94:                                               ; preds = %85
+  %95 = atomicrmw volatile add ptr %89, i32 -1 acq_rel, align 4
+  br label %96
 
-97:                                               ; preds = %95, %92
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %93, %92 ], [ %96, %95 ]
-  %98 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %98, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i
+96:                                               ; preds = %94, %91
+  %.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %92, %91 ], [ %95, %94 ]
+  %97 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %97, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i: ; preds = %97, %73
-  %99 = load ptr, ptr %67, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 24
-  %101 = load ptr, ptr %100, align 8
-  tail call void %101(ptr noundef nonnull align 8 dereferenceable(16) %67) #29
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i: ; preds = %96, %72
+  %98 = load ptr, ptr %66, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 24
+  %100 = load ptr, ptr %99, align 8
+  tail call void %100(ptr noundef nonnull align 8 dereferenceable(16) %66) #29
   br label %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i
 
-_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, %97, %84, %.lr.ph.i.i.i
-  %102 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
-  %.not.i.i.i = icmp eq ptr %102, %5
+_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, %96, %83, %.lr.ph.i.i.i
+  %101 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 16
+  %.not.i.i.i = icmp eq ptr %101, %5
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN3nix3refINS0_11RemoteStore10ConnectionEEES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i, !llvm.loop !137
 
 _ZSt8_DestroyIPN3nix3refINS0_11RemoteStore10ConnectionEEES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN3nix3refINS0_11RemoteStore10ConnectionEEEEvPT_.exit.i.i.i, %_ZSt34__uninitialized_move_if_noexcept_aIPN3nix3refINS0_11RemoteStore10ConnectionEEES5_SaIS4_EET0_T_S8_S7_RT1_.exit37
   %.not.i39 = icmp eq ptr %6, null
-  br i1 %.not.i39, label %_ZNSt12_Vector_baseIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE13_M_deallocateEPS4_m.exit, label %103
+  br i1 %.not.i39, label %_ZNSt12_Vector_baseIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE13_M_deallocateEPS4_m.exit, label %102
 
-103:                                              ; preds = %_ZSt8_DestroyIPN3nix3refINS0_11RemoteStore10ConnectionEEES4_EvT_S6_RSaIT0_E.exit
+102:                                              ; preds = %_ZSt8_DestroyIPN3nix3refINS0_11RemoteStore10ConnectionEEES4_EvT_S6_RSaIT0_E.exit
   tail call void @_ZdlPv(ptr noundef nonnull %6) #32
   br label %_ZNSt12_Vector_baseIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE13_M_deallocateEPS4_m.exit
 
-_ZNSt12_Vector_baseIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt8_DestroyIPN3nix3refINS0_11RemoteStore10ConnectionEEES4_EvT_S6_RSaIT0_E.exit, %103
-  %104 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseIN3nix3refINS0_11RemoteStore10ConnectionEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt8_DestroyIPN3nix3refINS0_11RemoteStore10ConnectionEEES4_EvT_S6_RSaIT0_E.exit, %102
+  %103 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8
-  %105 = getelementptr inbounds %"class.nix::ref.40", ptr %23, i64 %16
-  store ptr %105, ptr %104, align 8
+  %104 = getelementptr inbounds %"class.nix::ref.40", ptr %23, i64 %16
+  store ptr %104, ptr %103, align 8
   ret void
 }
 
@@ -48341,20 +48333,19 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt10_ConstructIN3nix16RemoteFSAccessorEJNS0_3refINS0_5StoreEEEEEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.nix::ref.389", align 8
+  %3 = alloca %"class.nix::ref.389", align 16
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
-  %6 = load ptr, ptr %1, align 8
-  store ptr %6, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = load ptr, ptr %8, align 8
-  store ptr %9, ptr %7, align 8
-  %.not.i.i.i.i = icmp eq ptr %9, null
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %9, ptr %3, align 16
+  %.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i, label %_ZN3nix3refINS_5StoreEEC2ERKS2_.exit, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds i8, ptr %8, i64 8
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i.i.i.i, label %16, label %13
@@ -48398,7 +48389,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #29
-  %26 = load ptr, ptr %7, align 8
+  %26 = load ptr, ptr %6, align 8
   %.not.i.i.i.i5 = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i5, label %_ZN3nix3refINS_5StoreEED2Ev.exit, label %27
 

@@ -2466,7 +2466,7 @@ _ZN9grpc_core13RefCountedPtrINS_10Subchannel33ConnectivityStateWatcherInterfaceE
 define void @_ZN9grpc_core10SubchannelC2ENS_13SubchannelKeyESt10unique_ptrINS_19SubchannelConnectorENS_16OrphanableDeleteEERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(928) %this, ptr noundef %key, ptr nocapture noundef %connector, ptr noundef nonnull align 8 dereferenceable(8) %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr", align 16
   %ref.tmp = alloca %"class.grpc_core::BackOff::Options", align 8
   %ref.tmp39 = alloca %"class.std::optional", align 4
   %ref.tmp77 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2540,21 +2540,19 @@ call.i.i.noexc:                                   ; preds = %invoke.cont8
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %call.i.i.noexc
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !35
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false), !alias.scope !35
   br label %invoke.cont17
 
 if.end.i.i:                                       ; preds = %call.i.i.noexc
-  %2 = load ptr, ptr %call.i.i10, align 8, !noalias !35
-  store ptr %2, ptr %agg.tmp, align 8, !alias.scope !35
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i10, i64 8
-  %3 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !35
-  store ptr %3, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !35
-  %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !35
+  %3 = load <2 x ptr>, ptr %call.i.i10, align 8, !noalias !35
+  store <2 x ptr> %3, ptr %agg.tmp, align 16, !alias.scope !35
+  %cmp.not.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont17, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1, !noalias !35
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -2740,17 +2738,15 @@ if.then.i.i30:                                    ; preds = %call.i.i.noexc31
   br label %invoke.cont29
 
 if.end.i.i20:                                     ; preds = %call.i.i.noexc31
-  %33 = load ptr, ptr %call.i.i32, align 8, !noalias !45
-  store ptr %33, ptr %event_engine_, align 8, !alias.scope !45
-  %_M_refcount.i.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 920
   %_M_refcount3.i.i.i.i22 = getelementptr inbounds i8, ptr %call.i.i32, i64 8
-  %34 = load ptr, ptr %_M_refcount3.i.i.i.i22, align 8, !noalias !45
-  store ptr %34, ptr %_M_refcount.i.i.i.i21, align 8, !alias.scope !45
-  %cmp.not.i.i.i.i.i23 = icmp eq ptr %34, null
+  %33 = load ptr, ptr %_M_refcount3.i.i.i.i22, align 8, !noalias !45
+  %34 = load <2 x ptr>, ptr %call.i.i32, align 8, !noalias !45
+  store <2 x ptr> %34, ptr %event_engine_, align 8, !alias.scope !45
+  %cmp.not.i.i.i.i.i23 = icmp eq ptr %33, null
   br i1 %cmp.not.i.i.i.i.i23, label %invoke.cont29, label %if.then.i.i.i.i.i24
 
 if.then.i.i.i.i.i24:                              ; preds = %if.end.i.i20
-  %_M_use_count.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %34, i64 8
+  %_M_use_count.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load i8, ptr @__libc_single_threaded, align 1, !noalias !45
   %tobool.i.i.not.i.i.i.i.i.i26 = icmp eq i8 %35, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i26, label %if.else.i.i.i.i.i.i.i29, label %if.then.i.i.i.i.i.i.i27

@@ -1928,7 +1928,7 @@ define hidden void @_ZNK10ZStatPhase9log_startE15LogTargetHandleb(ptr nocapture 
   br i1 %.not, label %_ZN12ResourceMarkD2Ev.exit, label %11
 
 11:                                               ; preds = %4
-  br i1 %3, label %12, label %36
+  br i1 %3, label %12, label %35
 
 12:                                               ; preds = %11
   %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -1938,45 +1938,43 @@ define hidden void @_ZNK10ZStatPhase9log_startE15LogTargetHandleb(ptr nocapture 
   %17 = getelementptr inbounds i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %16, i64 32
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 40
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 8
-  %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %14, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 168
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(888) %14) #20
-  call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.11, ptr noundef %26, ptr noundef %30)
-  %31 = load ptr, ptr %18, align 8
-  %.not.i.i.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i.i.i, label %33, label %32
+  %20 = load <2 x ptr>, ptr %19, align 8
+  %21 = load ptr, ptr %19, align 8
+  %22 = getelementptr inbounds i8, ptr %16, i64 8
+  %23 = load i64, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %26 = load ptr, ptr %14, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 168
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(888) %14) #20
+  call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.11, ptr noundef %25, ptr noundef %29)
+  %30 = load ptr, ptr %18, align 8
+  %.not.i.i.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i.i.i, label %32, label %31
 
-32:                                               ; preds = %12
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %16, i64 noundef %24) #20
+31:                                               ; preds = %12
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %16, i64 noundef %23) #20
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %18) #20
-  br label %33
+  br label %32
 
-33:                                               ; preds = %32, %12
-  %34 = load ptr, ptr %19, align 8
-  %.not8.i.i.i.i = icmp eq ptr %34, %20
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %35
+32:                                               ; preds = %31, %12
+  %33 = load ptr, ptr %19, align 8
+  %.not8.i.i.i.i = icmp eq ptr %33, %21
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %34
 
-35:                                               ; preds = %33
+34:                                               ; preds = %32
   store ptr %18, ptr %17, align 8
-  store ptr %20, ptr %19, align 8
-  store ptr %22, ptr %21, align 8
+  store <2 x ptr> %20, ptr %19, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-36:                                               ; preds = %11
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
-  %38 = load ptr, ptr %37, align 8
-  call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.12, ptr noundef %38)
+35:                                               ; preds = %11
+  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = load ptr, ptr %36, align 8
+  call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.12, ptr noundef %37)
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %35, %33, %4, %36
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %34, %32, %4, %35
   ret void
 }
 
@@ -2001,7 +1999,7 @@ define hidden void @_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI3
   br i1 %.not, label %_ZN12ResourceMarkD2Ev.exit, label %12
 
 12:                                               ; preds = %5
-  br i1 %4, label %13, label %39
+  br i1 %4, label %13, label %38
 
 13:                                               ; preds = %12
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -2011,49 +2009,47 @@ define hidden void @_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI3
   %18 = getelementptr inbounds i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 32
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 40
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %17, i64 8
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %15, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 168
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(888) %15) #20
-  %32 = load i64, ptr %3, align 8
-  %33 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %32) #20
-  call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.13, ptr noundef %27, ptr noundef %31, double noundef %33)
-  %34 = load ptr, ptr %19, align 8
-  %.not.i.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i.i, label %36, label %35
+  %21 = load <2 x ptr>, ptr %20, align 8
+  %22 = load ptr, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %17, i64 8
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = load ptr, ptr %15, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 168
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(888) %15) #20
+  %31 = load i64, ptr %3, align 8
+  %32 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %31) #20
+  call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.13, ptr noundef %26, ptr noundef %30, double noundef %32)
+  %33 = load ptr, ptr %19, align 8
+  %.not.i.i.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i.i.i, label %35, label %34
 
-35:                                               ; preds = %13
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %17, i64 noundef %25) #20
+34:                                               ; preds = %13
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %17, i64 noundef %24) #20
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %19) #20
-  br label %36
+  br label %35
 
-36:                                               ; preds = %35, %13
-  %37 = load ptr, ptr %20, align 8
-  %.not8.i.i.i.i = icmp eq ptr %37, %21
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %38
+35:                                               ; preds = %34, %13
+  %36 = load ptr, ptr %20, align 8
+  %.not8.i.i.i.i = icmp eq ptr %36, %22
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %37
 
-38:                                               ; preds = %36
+37:                                               ; preds = %35
   store ptr %19, ptr %18, align 8
-  store ptr %21, ptr %20, align 8
-  store ptr %23, ptr %22, align 8
+  store <2 x ptr> %21, ptr %20, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-39:                                               ; preds = %12
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = load i64, ptr %3, align 8
-  %43 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %42) #20
-  call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.14, ptr noundef %41, double noundef %43)
+38:                                               ; preds = %12
+  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = load i64, ptr %3, align 8
+  %42 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %41) #20
+  call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.14, ptr noundef %40, double noundef %42)
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %38, %36, %5, %39
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %37, %35, %5, %38
   ret void
 }
 
@@ -4844,7 +4840,7 @@ define hidden void @_ZNK13ZStatSubPhase14register_startEP17ConcurrentGCTimerRK11
   %16 = getelementptr inbounds i8, ptr %15, i64 120
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(888) %14) #20
-  br i1 %18, label %19, label %45
+  br i1 %18, label %19, label %44
 
 19:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -4862,62 +4858,60 @@ define hidden void @_ZNK13ZStatSubPhase14register_startEP17ConcurrentGCTimerRK11
   %26 = getelementptr inbounds i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %25, i64 32
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %25, i64 40
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %25, i64 8
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = load ptr, ptr %23, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 168
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(888) %23) #20
-  call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.11, ptr noundef %35, ptr noundef %39)
-  %40 = load ptr, ptr %27, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i.i.i, label %42, label %41
+  %29 = load <2 x ptr>, ptr %28, align 8
+  %30 = load ptr, ptr %28, align 8
+  %31 = getelementptr inbounds i8, ptr %25, i64 8
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = load ptr, ptr %23, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 168
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(888) %23) #20
+  call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.11, ptr noundef %34, ptr noundef %38)
+  %39 = load ptr, ptr %27, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i.i.i.i, label %41, label %40
 
-41:                                               ; preds = %22
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %25, i64 noundef %33) #20
+40:                                               ; preds = %22
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %25, i64 noundef %32) #20
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %27) #20
-  br label %42
+  br label %41
 
-42:                                               ; preds = %41, %22
-  %43 = load ptr, ptr %28, align 8
-  %.not8.i.i.i.i.i = icmp eq ptr %43, %29
-  br i1 %.not8.i.i.i.i.i, label %_ZNK10ZStatPhase9log_startE15LogTargetHandleb.exit, label %44
+41:                                               ; preds = %40, %22
+  %42 = load ptr, ptr %28, align 8
+  %.not8.i.i.i.i.i = icmp eq ptr %42, %30
+  br i1 %.not8.i.i.i.i.i, label %_ZNK10ZStatPhase9log_startE15LogTargetHandleb.exit, label %43
 
-44:                                               ; preds = %42
+43:                                               ; preds = %41
   store ptr %27, ptr %26, align 8
-  store ptr %29, ptr %28, align 8
-  store ptr %31, ptr %30, align 8
+  store <2 x ptr> %29, ptr %28, align 8
   br label %_ZNK10ZStatPhase9log_startE15LogTargetHandleb.exit
 
-_ZNK10ZStatPhase9log_startE15LogTargetHandleb.exit: ; preds = %19, %42, %44
+_ZNK10ZStatPhase9log_startE15LogTargetHandleb.exit: ; preds = %19, %41, %43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %51
+  br label %50
 
-45:                                               ; preds = %12
+44:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store i32 2, ptr %4, align 8
-  %46 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %46, align 8
-  %47 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i4 = icmp eq ptr %47, null
-  br i1 %.not.i4, label %_ZNK10ZStatPhase9log_startE15LogTargetHandleb.exit5, label %48
+  %45 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %45, align 8
+  %46 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_142ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i4 = icmp eq ptr %46, null
+  br i1 %.not.i4, label %_ZNK10ZStatPhase9log_startE15LogTargetHandleb.exit5, label %47
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %0, i64 16
-  %50 = load ptr, ptr %49, align 8
-  call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.12, ptr noundef %50)
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %49 = load ptr, ptr %48, align 8
+  call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.12, ptr noundef %49)
   br label %_ZNK10ZStatPhase9log_startE15LogTargetHandleb.exit5
 
-_ZNK10ZStatPhase9log_startE15LogTargetHandleb.exit5: ; preds = %45, %48
+_ZNK10ZStatPhase9log_startE15LogTargetHandleb.exit5: ; preds = %44, %47
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %51
+  br label %50
 
-51:                                               ; preds = %_ZNK10ZStatPhase9log_startE15LogTargetHandleb.exit5, %_ZNK10ZStatPhase9log_startE15LogTargetHandleb.exit
+50:                                               ; preds = %_ZNK10ZStatPhase9log_startE15LogTargetHandleb.exit5, %_ZNK10ZStatPhase9log_startE15LogTargetHandleb.exit
   ret void
 }
 
@@ -4929,7 +4923,7 @@ define hidden void @_ZNK13ZStatSubPhase12register_endEP17ConcurrentGCTimerRK11Ti
   %6 = alloca %class.LogTargetHandle, align 8
   %7 = load volatile i8, ptr @_ZN6ZAbort13_should_abortE, align 1
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %90, label %9
+  br i1 %8, label %89, label %9
 
 9:                                                ; preds = %4
   %.not = icmp eq ptr %1, null
@@ -5015,7 +5009,7 @@ _Z11ZStatSampleRK12ZStatSamplerm.exit:            ; preds = %49, %51
   %55 = getelementptr inbounds i8, ptr %54, i64 120
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(888) %53) #20
-  br i1 %57, label %58, label %84
+  br i1 %57, label %58, label %83
 
 58:                                               ; preds = %_Z11ZStatSampleRK12ZStatSamplerm.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -5033,62 +5027,60 @@ _Z11ZStatSampleRK12ZStatSamplerm.exit:            ; preds = %49, %51
   %65 = getelementptr inbounds i8, ptr %64, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %64, i64 32
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %64, i64 40
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %64, i64 8
-  %72 = load i64, ptr %71, align 8
-  %73 = load ptr, ptr %12, align 8
-  %74 = load ptr, ptr %62, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 168
-  %76 = load ptr, ptr %75, align 8
-  %77 = tail call noundef ptr %76(ptr noundef nonnull align 8 dereferenceable(888) %62) #20
-  %78 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %17) #20
-  call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.13, ptr noundef %73, ptr noundef %77, double noundef %78)
-  %79 = load ptr, ptr %66, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %79, null
-  br i1 %.not.i.i.i.i.i, label %81, label %80
+  %68 = load <2 x ptr>, ptr %67, align 8
+  %69 = load ptr, ptr %67, align 8
+  %70 = getelementptr inbounds i8, ptr %64, i64 8
+  %71 = load i64, ptr %70, align 8
+  %72 = load ptr, ptr %12, align 8
+  %73 = load ptr, ptr %62, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 168
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call noundef ptr %75(ptr noundef nonnull align 8 dereferenceable(888) %62) #20
+  %77 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %17) #20
+  call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.13, ptr noundef %72, ptr noundef %76, double noundef %77)
+  %78 = load ptr, ptr %66, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %78, null
+  br i1 %.not.i.i.i.i.i, label %80, label %79
 
-80:                                               ; preds = %61
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %64, i64 noundef %72) #20
+79:                                               ; preds = %61
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %64, i64 noundef %71) #20
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %66) #20
-  br label %81
+  br label %80
 
-81:                                               ; preds = %80, %61
-  %82 = load ptr, ptr %67, align 8
-  %.not8.i.i.i.i.i = icmp eq ptr %82, %68
-  br i1 %.not8.i.i.i.i.i, label %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit, label %83
+80:                                               ; preds = %79, %61
+  %81 = load ptr, ptr %67, align 8
+  %.not8.i.i.i.i.i = icmp eq ptr %81, %69
+  br i1 %.not8.i.i.i.i.i, label %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit, label %82
 
-83:                                               ; preds = %81
+82:                                               ; preds = %80
   store ptr %66, ptr %65, align 8
-  store ptr %68, ptr %67, align 8
-  store ptr %70, ptr %69, align 8
+  store <2 x ptr> %68, ptr %67, align 8
   br label %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit
 
-_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit: ; preds = %58, %81, %83
+_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit: ; preds = %58, %80, %82
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %90
+  br label %89
 
-84:                                               ; preds = %_Z11ZStatSampleRK12ZStatSamplerm.exit
+83:                                               ; preds = %_Z11ZStatSampleRK12ZStatSamplerm.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i32 2, ptr %5, align 8
-  %85 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %85, align 8
-  %86 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i10 = icmp eq ptr %86, null
-  br i1 %.not.i10, label %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit11, label %87
+  %84 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %84, align 8
+  %85 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_114ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i10 = icmp eq ptr %85, null
+  br i1 %.not.i10, label %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit11, label %86
 
-87:                                               ; preds = %84
-  %88 = load ptr, ptr %12, align 8
-  %89 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %17) #20
-  call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.14, ptr noundef %88, double noundef %89)
+86:                                               ; preds = %83
+  %87 = load ptr, ptr %12, align 8
+  %88 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %17) #20
+  call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.14, ptr noundef %87, double noundef %88)
   br label %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit11
 
-_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit11: ; preds = %84, %87
+_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit11: ; preds = %83, %86
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %90
+  br label %89
 
-90:                                               ; preds = %4, %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit11, %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit
+89:                                               ; preds = %4, %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit11, %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit
   ret void
 }
 
@@ -5271,7 +5263,7 @@ _Z8ZStatIncRK12ZStatCounterm.exit:                ; preds = %_ZNK12ZStatCounter3
   %71 = getelementptr inbounds i8, ptr %0, i64 120
   %72 = load i8, ptr %71, align 8
   %73 = trunc i8 %72 to i1
-  br i1 %73, label %74, label %101
+  br i1 %73, label %74, label %100
 
 74:                                               ; preds = %_Z8ZStatIncRK12ZStatCounterm.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -5290,96 +5282,92 @@ _Z8ZStatIncRK12ZStatCounterm.exit:                ; preds = %_ZNK12ZStatCounter3
   %82 = getelementptr inbounds i8, ptr %81, i64 24
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %81, i64 32
-  %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %81, i64 40
-  %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %81, i64 8
-  %89 = load i64, ptr %88, align 8
-  %90 = load ptr, ptr %7, align 8
-  %91 = load ptr, ptr %79, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 168
-  %93 = load ptr, ptr %92, align 8
-  %94 = tail call noundef ptr %93(ptr noundef nonnull align 8 dereferenceable(888) %79) #20
-  %95 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %12) #20
-  call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.13, ptr noundef %90, ptr noundef %94, double noundef %95)
-  %96 = load ptr, ptr %83, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %96, null
-  br i1 %.not.i.i.i.i.i, label %98, label %97
+  %85 = load <2 x ptr>, ptr %84, align 8
+  %86 = load ptr, ptr %84, align 8
+  %87 = getelementptr inbounds i8, ptr %81, i64 8
+  %88 = load i64, ptr %87, align 8
+  %89 = load ptr, ptr %7, align 8
+  %90 = load ptr, ptr %79, align 8
+  %91 = getelementptr inbounds i8, ptr %90, i64 168
+  %92 = load ptr, ptr %91, align 8
+  %93 = tail call noundef ptr %92(ptr noundef nonnull align 8 dereferenceable(888) %79) #20
+  %94 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %12) #20
+  call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.13, ptr noundef %89, ptr noundef %93, double noundef %94)
+  %95 = load ptr, ptr %83, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %95, null
+  br i1 %.not.i.i.i.i.i, label %97, label %96
 
-97:                                               ; preds = %77
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %81, i64 noundef %89) #20
+96:                                               ; preds = %77
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %81, i64 noundef %88) #20
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %83) #20
-  br label %98
+  br label %97
 
-98:                                               ; preds = %97, %77
-  %99 = load ptr, ptr %84, align 8
-  %.not8.i.i.i.i.i = icmp eq ptr %99, %85
-  br i1 %.not8.i.i.i.i.i, label %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit, label %100
+97:                                               ; preds = %96, %77
+  %98 = load ptr, ptr %84, align 8
+  %.not8.i.i.i.i.i = icmp eq ptr %98, %86
+  br i1 %.not8.i.i.i.i.i, label %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit, label %99
 
-100:                                              ; preds = %98
+99:                                               ; preds = %97
   store ptr %83, ptr %82, align 8
-  store ptr %85, ptr %84, align 8
-  store ptr %87, ptr %86, align 8
+  store <2 x ptr> %85, ptr %84, align 8
   br label %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit
 
-_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit: ; preds = %74, %98, %100
+_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit: ; preds = %74, %97, %99
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %128
+  br label %126
 
-101:                                              ; preds = %_Z8ZStatIncRK12ZStatCounterm.exit
+100:                                              ; preds = %_Z8ZStatIncRK12ZStatCounterm.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i32 2, ptr %5, align 8
-  %102 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %102, align 8
-  %103 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i9 = icmp eq ptr %103, null
-  br i1 %.not.i9, label %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit12, label %104
+  %101 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %101, align 8
+  %102 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i9 = icmp eq ptr %102, null
+  br i1 %.not.i9, label %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit12, label %103
 
-104:                                              ; preds = %101
-  %105 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 800
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 24
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %108, i64 32
-  %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %108, i64 40
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %108, i64 8
-  %116 = load i64, ptr %115, align 8
-  %117 = load ptr, ptr %7, align 8
-  %118 = load ptr, ptr %106, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 168
-  %120 = load ptr, ptr %119, align 8
-  %121 = tail call noundef ptr %120(ptr noundef nonnull align 8 dereferenceable(888) %106) #20
-  %122 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %12) #20
-  call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.13, ptr noundef %117, ptr noundef %121, double noundef %122)
-  %123 = load ptr, ptr %110, align 8
-  %.not.i.i.i.i.i10 = icmp eq ptr %123, null
-  br i1 %.not.i.i.i.i.i10, label %125, label %124
+103:                                              ; preds = %100
+  %104 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds i8, ptr %105, i64 800
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds i8, ptr %107, i64 24
+  %109 = load ptr, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %107, i64 32
+  %111 = load <2 x ptr>, ptr %110, align 8
+  %112 = load ptr, ptr %110, align 8
+  %113 = getelementptr inbounds i8, ptr %107, i64 8
+  %114 = load i64, ptr %113, align 8
+  %115 = load ptr, ptr %7, align 8
+  %116 = load ptr, ptr %105, align 8
+  %117 = getelementptr inbounds i8, ptr %116, i64 168
+  %118 = load ptr, ptr %117, align 8
+  %119 = tail call noundef ptr %118(ptr noundef nonnull align 8 dereferenceable(888) %105) #20
+  %120 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %12) #20
+  call void (ptr, ptr, ...) @_ZN15LogTargetHandle5printEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.13, ptr noundef %115, ptr noundef %119, double noundef %120)
+  %121 = load ptr, ptr %109, align 8
+  %.not.i.i.i.i.i10 = icmp eq ptr %121, null
+  br i1 %.not.i.i.i.i.i10, label %123, label %122
 
-124:                                              ; preds = %104
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %108, i64 noundef %116) #20
-  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %110) #20
-  br label %125
+122:                                              ; preds = %103
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %107, i64 noundef %114) #20
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %109) #20
+  br label %123
 
-125:                                              ; preds = %124, %104
-  %126 = load ptr, ptr %111, align 8
-  %.not8.i.i.i.i.i11 = icmp eq ptr %126, %112
-  br i1 %.not8.i.i.i.i.i11, label %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit12, label %127
+123:                                              ; preds = %122, %103
+  %124 = load ptr, ptr %110, align 8
+  %.not8.i.i.i.i.i11 = icmp eq ptr %124, %112
+  br i1 %.not8.i.i.i.i.i11, label %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit12, label %125
 
-127:                                              ; preds = %125
-  store ptr %110, ptr %109, align 8
-  store ptr %112, ptr %111, align 8
-  store ptr %114, ptr %113, align 8
+125:                                              ; preds = %123
+  store ptr %109, ptr %108, align 8
+  store <2 x ptr> %111, ptr %110, align 8
   br label %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit12
 
-_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit12: ; preds = %101, %125, %127
+_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit12: ; preds = %100, %123, %125
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %128
+  br label %126
 
-128:                                              ; preds = %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit12, %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit
+126:                                              ; preds = %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit12, %_ZNK10ZStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEb.exit
   ret void
 }
 

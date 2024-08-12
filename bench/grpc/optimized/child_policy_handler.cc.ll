@@ -715,14 +715,14 @@ _ZNSt10unique_ptrIN9grpc_core19LoadBalancingPolicy20ChannelControlHelperESt14def
 
 _ZN9grpc_core19LoadBalancingPolicy4ArgsC2Ev.exit: ; preds = %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicyEED2Ev.exit
   %work_serializer_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load ptr, ptr %work_serializer_.i, align 8, !noalias !7
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !7
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !7
+  %5 = load <2 x ptr>, ptr %work_serializer_.i, align 8, !noalias !7
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core19LoadBalancingPolicy4ArgsC2Ev.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !7
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -738,10 +738,9 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   br label %_ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit
 
 _ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit: ; preds = %_ZN9grpc_core19LoadBalancingPolicy4ArgsC2Ev.exit, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
-  store ptr %4, ptr %lb_policy_args, align 16
   %_M_refcount3.i.i.i20 = getelementptr inbounds i8, ptr %lb_policy_args, i64 8
   %9 = load ptr, ptr %_M_refcount3.i.i.i20, align 8
-  store ptr %5, ptr %_M_refcount3.i.i.i20, align 8
+  store <2 x ptr> %5, ptr %lb_policy_args, align 16
   %cmp.not.i.i.i.i21 = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i.i21, label %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev.exit, label %if.then.i.i.i.i22
 

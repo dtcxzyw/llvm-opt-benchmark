@@ -15493,21 +15493,19 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEESaISF_EEC2ISt15_Deque_iteratorISF_RKSF_PSK_EvEET_SO_RKSG_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
+  %agg.tmp.i.i.i.i = alloca %"struct.std::_Deque_iterator", align 16
   %agg.tmp1.i.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %__first, align 8
-  %_M_first3.i = getelementptr inbounds i8, ptr %__first, i64 8
-  %1 = load ptr, ptr %_M_first3.i, align 8
+  %0 = load <2 x ptr>, ptr %__first, align 8
+  %1 = load ptr, ptr %__first, align 8
   %_M_last4.i = getelementptr inbounds i8, ptr %__first, i64 16
   %2 = load ptr, ptr %_M_last4.i, align 8
   %_M_node5.i = getelementptr inbounds i8, ptr %__first, i64 24
   %3 = load ptr, ptr %_M_node5.i, align 8
   %4 = load ptr, ptr %__last, align 8
   %_M_first3.i2 = getelementptr inbounds i8, ptr %__last, i64 8
-  %5 = load ptr, ptr %_M_first3.i2, align 8
-  %_M_last4.i4 = getelementptr inbounds i8, ptr %__last, i64 16
-  %6 = load ptr, ptr %_M_last4.i4, align 8
+  %5 = load <2 x ptr>, ptr %_M_first3.i2, align 8
+  %6 = load ptr, ptr %_M_first3.i2, align 8
   %_M_node5.i6 = getelementptr inbounds i8, ptr %__last, i64 24
   %7 = load ptr, ptr %_M_node5.i6, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
@@ -15519,11 +15517,11 @@ entry:
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
   %mul.i.i.i.i = mul nsw i64 %sub.i.i.i.i, 12
   %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub5.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i
   %sub.ptr.div6.i.i.i.i = sdiv exact i64 %sub.ptr.sub5.i.i.i.i, 40
   %sub.ptr.lhs.cast8.i.i.i.i = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast9.i.i.i.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast9.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub10.i.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i.i, %sub.ptr.rhs.cast9.i.i.i.i
   %sub.ptr.div11.i.i.i.i = sdiv exact i64 %sub.ptr.sub10.i.i.i.i, 40
   %add.i.i.i.i = add nsw i64 %sub.ptr.div6.i.i.i.i, %sub.ptr.div11.i.i.i.i
@@ -15555,18 +15553,14 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootN
   store ptr %add.ptr.i, ptr %_M_end_of_storage.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i)
-  store ptr %0, ptr %agg.tmp.i.i.i.i, align 8
-  %_M_first.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %_M_first.i.i.i.i.i, align 8
+  store <2 x ptr> %0, ptr %agg.tmp.i.i.i.i, align 16
   %_M_last.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 16
-  store ptr %2, ptr %_M_last.i.i.i.i.i, align 8
+  store ptr %2, ptr %_M_last.i.i.i.i.i, align 16
   %_M_node.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 24
   store ptr %3, ptr %_M_node.i.i.i.i.i, align 8
   store ptr %4, ptr %agg.tmp1.i.i.i.i, align 8
   %_M_first.i1.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 8
-  store ptr %5, ptr %_M_first.i1.i.i.i.i, align 8
-  %_M_last.i3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 16
-  store ptr %6, ptr %_M_last.i3.i.i.i.i, align 8
+  store <2 x ptr> %5, ptr %_M_first.i1.i.i.i.i, align 8
   %_M_node.i5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 24
   store ptr %7, ptr %_M_node.i5.i.i.i.i, align 8
   %call.i.i.i.i8 = invoke noundef ptr @_ZSt16__do_uninit_copyISt15_Deque_iteratorIN7openvdb5v11_05tools11TreeToMergeINS2_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeINS2_9ValueMaskELj3EEELj4EEELj5EEEEEEEEERKSG_PSH_EPSG_ET0_T_SN_SM_(ptr noundef nonnull %agg.tmp.i.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i.i, ptr noundef %cond.i.i)
@@ -18787,21 +18781,19 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEESaISE_EEC2ISt15_Deque_iteratorISE_RKSE_PSJ_EvEET_SN_RKSF_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i.i.i.i = alloca %"struct.std::_Deque_iterator.419", align 8
+  %agg.tmp.i.i.i.i = alloca %"struct.std::_Deque_iterator.419", align 16
   %agg.tmp1.i.i.i.i = alloca %"struct.std::_Deque_iterator.419", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %__first, align 8
-  %_M_first3.i = getelementptr inbounds i8, ptr %__first, i64 8
-  %1 = load ptr, ptr %_M_first3.i, align 8
+  %0 = load <2 x ptr>, ptr %__first, align 8
+  %1 = load ptr, ptr %__first, align 8
   %_M_last4.i = getelementptr inbounds i8, ptr %__first, i64 16
   %2 = load ptr, ptr %_M_last4.i, align 8
   %_M_node5.i = getelementptr inbounds i8, ptr %__first, i64 24
   %3 = load ptr, ptr %_M_node5.i, align 8
   %4 = load ptr, ptr %__last, align 8
   %_M_first3.i2 = getelementptr inbounds i8, ptr %__last, i64 8
-  %5 = load ptr, ptr %_M_first3.i2, align 8
-  %_M_last4.i4 = getelementptr inbounds i8, ptr %__last, i64 16
-  %6 = load ptr, ptr %_M_last4.i4, align 8
+  %5 = load <2 x ptr>, ptr %_M_first3.i2, align 8
+  %6 = load ptr, ptr %_M_first3.i2, align 8
   %_M_node5.i6 = getelementptr inbounds i8, ptr %__last, i64 24
   %7 = load ptr, ptr %_M_node5.i6, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
@@ -18813,11 +18805,11 @@ entry:
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
   %mul.i.i.i.i = mul nsw i64 %sub.i.i.i.i, 12
   %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub5.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i
   %sub.ptr.div6.i.i.i.i = sdiv exact i64 %sub.ptr.sub5.i.i.i.i, 40
   %sub.ptr.lhs.cast8.i.i.i.i = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast9.i.i.i.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast9.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub10.i.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i.i, %sub.ptr.rhs.cast9.i.i.i.i
   %sub.ptr.div11.i.i.i.i = sdiv exact i64 %sub.ptr.sub10.i.i.i.i, 40
   %add.i.i.i.i = add nsw i64 %sub.ptr.div6.i.i.i.i, %sub.ptr.div11.i.i.i.i
@@ -18849,18 +18841,14 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootN
   store ptr %add.ptr.i, ptr %_M_end_of_storage.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i)
-  store ptr %0, ptr %agg.tmp.i.i.i.i, align 8
-  %_M_first.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %_M_first.i.i.i.i.i, align 8
+  store <2 x ptr> %0, ptr %agg.tmp.i.i.i.i, align 16
   %_M_last.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 16
-  store ptr %2, ptr %_M_last.i.i.i.i.i, align 8
+  store ptr %2, ptr %_M_last.i.i.i.i.i, align 16
   %_M_node.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 24
   store ptr %3, ptr %_M_node.i.i.i.i.i, align 8
   store ptr %4, ptr %agg.tmp1.i.i.i.i, align 8
   %_M_first.i1.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 8
-  store ptr %5, ptr %_M_first.i1.i.i.i.i, align 8
-  %_M_last.i3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 16
-  store ptr %6, ptr %_M_last.i3.i.i.i.i, align 8
+  store <2 x ptr> %5, ptr %_M_first.i1.i.i.i.i, align 8
   %_M_node.i5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 24
   store ptr %7, ptr %_M_node.i5.i.i.i.i, align 8
   %call.i.i.i.i8 = invoke noundef ptr @_ZSt16__do_uninit_copyISt15_Deque_iteratorIN7openvdb5v11_05tools11TreeToMergeINS2_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEEERKSF_PSG_EPSF_ET0_T_SM_SL_(ptr noundef nonnull %agg.tmp.i.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i.i, ptr noundef %cond.i.i)
@@ -22301,21 +22289,19 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEESaISE_EEC2ISt15_Deque_iteratorISE_RKSE_PSJ_EvEET_SN_RKSF_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i.i.i.i = alloca %"struct.std::_Deque_iterator.443", align 8
+  %agg.tmp.i.i.i.i = alloca %"struct.std::_Deque_iterator.443", align 16
   %agg.tmp1.i.i.i.i = alloca %"struct.std::_Deque_iterator.443", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %__first, align 8
-  %_M_first3.i = getelementptr inbounds i8, ptr %__first, i64 8
-  %1 = load ptr, ptr %_M_first3.i, align 8
+  %0 = load <2 x ptr>, ptr %__first, align 8
+  %1 = load ptr, ptr %__first, align 8
   %_M_last4.i = getelementptr inbounds i8, ptr %__first, i64 16
   %2 = load ptr, ptr %_M_last4.i, align 8
   %_M_node5.i = getelementptr inbounds i8, ptr %__first, i64 24
   %3 = load ptr, ptr %_M_node5.i, align 8
   %4 = load ptr, ptr %__last, align 8
   %_M_first3.i2 = getelementptr inbounds i8, ptr %__last, i64 8
-  %5 = load ptr, ptr %_M_first3.i2, align 8
-  %_M_last4.i4 = getelementptr inbounds i8, ptr %__last, i64 16
-  %6 = load ptr, ptr %_M_last4.i4, align 8
+  %5 = load <2 x ptr>, ptr %_M_first3.i2, align 8
+  %6 = load ptr, ptr %_M_first3.i2, align 8
   %_M_node5.i6 = getelementptr inbounds i8, ptr %__last, i64 24
   %7 = load ptr, ptr %_M_node5.i6, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
@@ -22327,11 +22313,11 @@ entry:
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
   %mul.i.i.i.i = mul nsw i64 %sub.i.i.i.i, 12
   %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub5.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i
   %sub.ptr.div6.i.i.i.i = sdiv exact i64 %sub.ptr.sub5.i.i.i.i, 40
   %sub.ptr.lhs.cast8.i.i.i.i = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast9.i.i.i.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast9.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub10.i.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i.i, %sub.ptr.rhs.cast9.i.i.i.i
   %sub.ptr.div11.i.i.i.i = sdiv exact i64 %sub.ptr.sub10.i.i.i.i, 40
   %add.i.i.i.i = add nsw i64 %sub.ptr.div6.i.i.i.i, %sub.ptr.div11.i.i.i.i
@@ -22363,18 +22349,14 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootN
   store ptr %add.ptr.i, ptr %_M_end_of_storage.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i)
-  store ptr %0, ptr %agg.tmp.i.i.i.i, align 8
-  %_M_first.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %_M_first.i.i.i.i.i, align 8
+  store <2 x ptr> %0, ptr %agg.tmp.i.i.i.i, align 16
   %_M_last.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 16
-  store ptr %2, ptr %_M_last.i.i.i.i.i, align 8
+  store ptr %2, ptr %_M_last.i.i.i.i.i, align 16
   %_M_node.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 24
   store ptr %3, ptr %_M_node.i.i.i.i.i, align 8
   store ptr %4, ptr %agg.tmp1.i.i.i.i, align 8
   %_M_first.i1.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 8
-  store ptr %5, ptr %_M_first.i1.i.i.i.i, align 8
-  %_M_last.i3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 16
-  store ptr %6, ptr %_M_last.i3.i.i.i.i, align 8
+  store <2 x ptr> %5, ptr %_M_first.i1.i.i.i.i, align 8
   %_M_node.i5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 24
   store ptr %7, ptr %_M_node.i5.i.i.i.i, align 8
   %call.i.i.i.i8 = invoke noundef ptr @_ZSt16__do_uninit_copyISt15_Deque_iteratorIN7openvdb5v11_05tools11TreeToMergeINS2_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEERKSF_PSG_EPSF_ET0_T_SM_SL_(ptr noundef nonnull %agg.tmp.i.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i.i, ptr noundef %cond.i.i)
@@ -25837,21 +25819,19 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEESaISE_EEC2ISt15_Deque_iteratorISE_RKSE_PSJ_EvEET_SN_RKSF_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i.i.i.i = alloca %"struct.std::_Deque_iterator.473", align 8
+  %agg.tmp.i.i.i.i = alloca %"struct.std::_Deque_iterator.473", align 16
   %agg.tmp1.i.i.i.i = alloca %"struct.std::_Deque_iterator.473", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %__first, align 8
-  %_M_first3.i = getelementptr inbounds i8, ptr %__first, i64 8
-  %1 = load ptr, ptr %_M_first3.i, align 8
+  %0 = load <2 x ptr>, ptr %__first, align 8
+  %1 = load ptr, ptr %__first, align 8
   %_M_last4.i = getelementptr inbounds i8, ptr %__first, i64 16
   %2 = load ptr, ptr %_M_last4.i, align 8
   %_M_node5.i = getelementptr inbounds i8, ptr %__first, i64 24
   %3 = load ptr, ptr %_M_node5.i, align 8
   %4 = load ptr, ptr %__last, align 8
   %_M_first3.i2 = getelementptr inbounds i8, ptr %__last, i64 8
-  %5 = load ptr, ptr %_M_first3.i2, align 8
-  %_M_last4.i4 = getelementptr inbounds i8, ptr %__last, i64 16
-  %6 = load ptr, ptr %_M_last4.i4, align 8
+  %5 = load <2 x ptr>, ptr %_M_first3.i2, align 8
+  %6 = load ptr, ptr %_M_first3.i2, align 8
   %_M_node5.i6 = getelementptr inbounds i8, ptr %__last, i64 24
   %7 = load ptr, ptr %_M_node5.i6, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
@@ -25863,11 +25843,11 @@ entry:
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
   %mul.i.i.i.i = mul nsw i64 %sub.i.i.i.i, 12
   %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub5.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i
   %sub.ptr.div6.i.i.i.i = sdiv exact i64 %sub.ptr.sub5.i.i.i.i, 40
   %sub.ptr.lhs.cast8.i.i.i.i = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast9.i.i.i.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast9.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub10.i.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i.i, %sub.ptr.rhs.cast9.i.i.i.i
   %sub.ptr.div11.i.i.i.i = sdiv exact i64 %sub.ptr.sub10.i.i.i.i, 40
   %add.i.i.i.i = add nsw i64 %sub.ptr.div6.i.i.i.i, %sub.ptr.div11.i.i.i.i
@@ -25899,18 +25879,14 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootN
   store ptr %add.ptr.i, ptr %_M_end_of_storage.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i)
-  store ptr %0, ptr %agg.tmp.i.i.i.i, align 8
-  %_M_first.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %_M_first.i.i.i.i.i, align 8
+  store <2 x ptr> %0, ptr %agg.tmp.i.i.i.i, align 16
   %_M_last.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 16
-  store ptr %2, ptr %_M_last.i.i.i.i.i, align 8
+  store ptr %2, ptr %_M_last.i.i.i.i.i, align 16
   %_M_node.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 24
   store ptr %3, ptr %_M_node.i.i.i.i.i, align 8
   store ptr %4, ptr %agg.tmp1.i.i.i.i, align 8
   %_M_first.i1.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 8
-  store ptr %5, ptr %_M_first.i1.i.i.i.i, align 8
-  %_M_last.i3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 16
-  store ptr %6, ptr %_M_last.i3.i.i.i.i, align 8
+  store <2 x ptr> %5, ptr %_M_first.i1.i.i.i.i, align 8
   %_M_node.i5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 24
   store ptr %7, ptr %_M_node.i5.i.i.i.i, align 8
   %call.i.i.i.i8 = invoke noundef ptr @_ZSt16__do_uninit_copyISt15_Deque_iteratorIN7openvdb5v11_05tools11TreeToMergeINS2_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEERKSF_PSG_EPSF_ET0_T_SM_SL_(ptr noundef nonnull %agg.tmp.i.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i.i, ptr noundef %cond.i.i)
@@ -29373,21 +29349,19 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEESaISE_EEC2ISt15_Deque_iteratorISE_RKSE_PSJ_EvEET_SN_RKSF_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i.i.i.i = alloca %"struct.std::_Deque_iterator.501", align 8
+  %agg.tmp.i.i.i.i = alloca %"struct.std::_Deque_iterator.501", align 16
   %agg.tmp1.i.i.i.i = alloca %"struct.std::_Deque_iterator.501", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %__first, align 8
-  %_M_first3.i = getelementptr inbounds i8, ptr %__first, i64 8
-  %1 = load ptr, ptr %_M_first3.i, align 8
+  %0 = load <2 x ptr>, ptr %__first, align 8
+  %1 = load ptr, ptr %__first, align 8
   %_M_last4.i = getelementptr inbounds i8, ptr %__first, i64 16
   %2 = load ptr, ptr %_M_last4.i, align 8
   %_M_node5.i = getelementptr inbounds i8, ptr %__first, i64 24
   %3 = load ptr, ptr %_M_node5.i, align 8
   %4 = load ptr, ptr %__last, align 8
   %_M_first3.i2 = getelementptr inbounds i8, ptr %__last, i64 8
-  %5 = load ptr, ptr %_M_first3.i2, align 8
-  %_M_last4.i4 = getelementptr inbounds i8, ptr %__last, i64 16
-  %6 = load ptr, ptr %_M_last4.i4, align 8
+  %5 = load <2 x ptr>, ptr %_M_first3.i2, align 8
+  %6 = load ptr, ptr %_M_first3.i2, align 8
   %_M_node5.i6 = getelementptr inbounds i8, ptr %__last, i64 24
   %7 = load ptr, ptr %_M_node5.i6, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
@@ -29399,11 +29373,11 @@ entry:
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
   %mul.i.i.i.i = mul nsw i64 %sub.i.i.i.i, 12
   %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub5.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i
   %sub.ptr.div6.i.i.i.i = sdiv exact i64 %sub.ptr.sub5.i.i.i.i, 40
   %sub.ptr.lhs.cast8.i.i.i.i = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast9.i.i.i.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast9.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub10.i.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i.i, %sub.ptr.rhs.cast9.i.i.i.i
   %sub.ptr.div11.i.i.i.i = sdiv exact i64 %sub.ptr.sub10.i.i.i.i, 40
   %add.i.i.i.i = add nsw i64 %sub.ptr.div6.i.i.i.i, %sub.ptr.div11.i.i.i.i
@@ -29435,18 +29409,14 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootN
   store ptr %add.ptr.i, ptr %_M_end_of_storage.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i)
-  store ptr %0, ptr %agg.tmp.i.i.i.i, align 8
-  %_M_first.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %_M_first.i.i.i.i.i, align 8
+  store <2 x ptr> %0, ptr %agg.tmp.i.i.i.i, align 16
   %_M_last.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 16
-  store ptr %2, ptr %_M_last.i.i.i.i.i, align 8
+  store ptr %2, ptr %_M_last.i.i.i.i.i, align 16
   %_M_node.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 24
   store ptr %3, ptr %_M_node.i.i.i.i.i, align 8
   store ptr %4, ptr %agg.tmp1.i.i.i.i, align 8
   %_M_first.i1.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 8
-  store ptr %5, ptr %_M_first.i1.i.i.i.i, align 8
-  %_M_last.i3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 16
-  store ptr %6, ptr %_M_last.i3.i.i.i.i, align 8
+  store <2 x ptr> %5, ptr %_M_first.i1.i.i.i.i, align 8
   %_M_node.i5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 24
   store ptr %7, ptr %_M_node.i5.i.i.i.i, align 8
   %call.i.i.i.i8 = invoke noundef ptr @_ZSt16__do_uninit_copyISt15_Deque_iteratorIN7openvdb5v11_05tools11TreeToMergeINS2_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEEERKSF_PSG_EPSF_ET0_T_SM_SL_(ptr noundef nonnull %agg.tmp.i.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i.i, ptr noundef %cond.i.i)
@@ -32890,21 +32860,19 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEESaISE_EEC2ISt15_Deque_iteratorISE_RKSE_PSJ_EvEET_SN_RKSF_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i.i.i.i = alloca %"struct.std::_Deque_iterator.529", align 8
+  %agg.tmp.i.i.i.i = alloca %"struct.std::_Deque_iterator.529", align 16
   %agg.tmp1.i.i.i.i = alloca %"struct.std::_Deque_iterator.529", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %__first, align 8
-  %_M_first3.i = getelementptr inbounds i8, ptr %__first, i64 8
-  %1 = load ptr, ptr %_M_first3.i, align 8
+  %0 = load <2 x ptr>, ptr %__first, align 8
+  %1 = load ptr, ptr %__first, align 8
   %_M_last4.i = getelementptr inbounds i8, ptr %__first, i64 16
   %2 = load ptr, ptr %_M_last4.i, align 8
   %_M_node5.i = getelementptr inbounds i8, ptr %__first, i64 24
   %3 = load ptr, ptr %_M_node5.i, align 8
   %4 = load ptr, ptr %__last, align 8
   %_M_first3.i2 = getelementptr inbounds i8, ptr %__last, i64 8
-  %5 = load ptr, ptr %_M_first3.i2, align 8
-  %_M_last4.i4 = getelementptr inbounds i8, ptr %__last, i64 16
-  %6 = load ptr, ptr %_M_last4.i4, align 8
+  %5 = load <2 x ptr>, ptr %_M_first3.i2, align 8
+  %6 = load ptr, ptr %_M_first3.i2, align 8
   %_M_node5.i6 = getelementptr inbounds i8, ptr %__last, i64 24
   %7 = load ptr, ptr %_M_node5.i6, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
@@ -32916,11 +32884,11 @@ entry:
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
   %mul.i.i.i.i = mul nsw i64 %sub.i.i.i.i, 12
   %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub5.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i
   %sub.ptr.div6.i.i.i.i = sdiv exact i64 %sub.ptr.sub5.i.i.i.i, 40
   %sub.ptr.lhs.cast8.i.i.i.i = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast9.i.i.i.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast9.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub10.i.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i.i, %sub.ptr.rhs.cast9.i.i.i.i
   %sub.ptr.div11.i.i.i.i = sdiv exact i64 %sub.ptr.sub10.i.i.i.i, 40
   %add.i.i.i.i = add nsw i64 %sub.ptr.div6.i.i.i.i, %sub.ptr.div11.i.i.i.i
@@ -32952,18 +32920,14 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootN
   store ptr %add.ptr.i, ptr %_M_end_of_storage.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i)
-  store ptr %0, ptr %agg.tmp.i.i.i.i, align 8
-  %_M_first.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %_M_first.i.i.i.i.i, align 8
+  store <2 x ptr> %0, ptr %agg.tmp.i.i.i.i, align 16
   %_M_last.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 16
-  store ptr %2, ptr %_M_last.i.i.i.i.i, align 8
+  store ptr %2, ptr %_M_last.i.i.i.i.i, align 16
   %_M_node.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 24
   store ptr %3, ptr %_M_node.i.i.i.i.i, align 8
   store ptr %4, ptr %agg.tmp1.i.i.i.i, align 8
   %_M_first.i1.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 8
-  store ptr %5, ptr %_M_first.i1.i.i.i.i, align 8
-  %_M_last.i3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 16
-  store ptr %6, ptr %_M_last.i3.i.i.i.i, align 8
+  store <2 x ptr> %5, ptr %_M_first.i1.i.i.i.i, align 8
   %_M_node.i5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 24
   store ptr %7, ptr %_M_node.i5.i.i.i.i, align 8
   %call.i.i.i.i8 = invoke noundef ptr @_ZSt16__do_uninit_copyISt15_Deque_iteratorIN7openvdb5v11_05tools11TreeToMergeINS2_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEEERKSF_PSG_EPSF_ET0_T_SM_SL_(ptr noundef nonnull %agg.tmp.i.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i.i, ptr noundef %cond.i.i)
@@ -36425,21 +36389,19 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEESaISH_EEC2ISt15_Deque_iteratorISH_RKSH_PSM_EvEET_SQ_RKSI_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i.i.i.i = alloca %"struct.std::_Deque_iterator.557", align 8
+  %agg.tmp.i.i.i.i = alloca %"struct.std::_Deque_iterator.557", align 16
   %agg.tmp1.i.i.i.i = alloca %"struct.std::_Deque_iterator.557", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %__first, align 8
-  %_M_first3.i = getelementptr inbounds i8, ptr %__first, i64 8
-  %1 = load ptr, ptr %_M_first3.i, align 8
+  %0 = load <2 x ptr>, ptr %__first, align 8
+  %1 = load ptr, ptr %__first, align 8
   %_M_last4.i = getelementptr inbounds i8, ptr %__first, i64 16
   %2 = load ptr, ptr %_M_last4.i, align 8
   %_M_node5.i = getelementptr inbounds i8, ptr %__first, i64 24
   %3 = load ptr, ptr %_M_node5.i, align 8
   %4 = load ptr, ptr %__last, align 8
   %_M_first3.i2 = getelementptr inbounds i8, ptr %__last, i64 8
-  %5 = load ptr, ptr %_M_first3.i2, align 8
-  %_M_last4.i4 = getelementptr inbounds i8, ptr %__last, i64 16
-  %6 = load ptr, ptr %_M_last4.i4, align 8
+  %5 = load <2 x ptr>, ptr %_M_first3.i2, align 8
+  %6 = load ptr, ptr %_M_first3.i2, align 8
   %_M_node5.i6 = getelementptr inbounds i8, ptr %__last, i64 24
   %7 = load ptr, ptr %_M_node5.i6, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
@@ -36451,11 +36413,11 @@ entry:
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
   %mul.i.i.i.i = mul nsw i64 %sub.i.i.i.i, 12
   %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub5.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i
   %sub.ptr.div6.i.i.i.i = sdiv exact i64 %sub.ptr.sub5.i.i.i.i, 40
   %sub.ptr.lhs.cast8.i.i.i.i = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast9.i.i.i.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast9.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub10.i.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i.i, %sub.ptr.rhs.cast9.i.i.i.i
   %sub.ptr.div11.i.i.i.i = sdiv exact i64 %sub.ptr.sub10.i.i.i.i, 40
   %add.i.i.i.i = add nsw i64 %sub.ptr.div6.i.i.i.i, %sub.ptr.div11.i.i.i.i
@@ -36487,18 +36449,14 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootN
   store ptr %add.ptr.i, ptr %_M_end_of_storage.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i)
-  store ptr %0, ptr %agg.tmp.i.i.i.i, align 8
-  %_M_first.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %_M_first.i.i.i.i.i, align 8
+  store <2 x ptr> %0, ptr %agg.tmp.i.i.i.i, align 16
   %_M_last.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 16
-  store ptr %2, ptr %_M_last.i.i.i.i.i, align 8
+  store ptr %2, ptr %_M_last.i.i.i.i.i, align 16
   %_M_node.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 24
   store ptr %3, ptr %_M_node.i.i.i.i.i, align 8
   store ptr %4, ptr %agg.tmp1.i.i.i.i, align 8
   %_M_first.i1.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 8
-  store ptr %5, ptr %_M_first.i1.i.i.i.i, align 8
-  %_M_last.i3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 16
-  store ptr %6, ptr %_M_last.i3.i.i.i.i, align 8
+  store <2 x ptr> %5, ptr %_M_first.i1.i.i.i.i, align 8
   %_M_node.i5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 24
   store ptr %7, ptr %_M_node.i5.i.i.i.i, align 8
   %call.i.i.i.i8 = invoke noundef ptr @_ZSt16__do_uninit_copyISt15_Deque_iteratorIN7openvdb5v11_05tools11TreeToMergeINS2_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeINS2_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEEERKSI_PSJ_EPSI_ET0_T_SP_SO_(ptr noundef nonnull %agg.tmp.i.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i.i, ptr noundef %cond.i.i)
@@ -39988,21 +39946,19 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEESaISH_EEC2ISt15_Deque_iteratorISH_RKSH_PSM_EvEET_SQ_RKSI_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i.i.i.i = alloca %"struct.std::_Deque_iterator.585", align 8
+  %agg.tmp.i.i.i.i = alloca %"struct.std::_Deque_iterator.585", align 16
   %agg.tmp1.i.i.i.i = alloca %"struct.std::_Deque_iterator.585", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %__first, align 8
-  %_M_first3.i = getelementptr inbounds i8, ptr %__first, i64 8
-  %1 = load ptr, ptr %_M_first3.i, align 8
+  %0 = load <2 x ptr>, ptr %__first, align 8
+  %1 = load ptr, ptr %__first, align 8
   %_M_last4.i = getelementptr inbounds i8, ptr %__first, i64 16
   %2 = load ptr, ptr %_M_last4.i, align 8
   %_M_node5.i = getelementptr inbounds i8, ptr %__first, i64 24
   %3 = load ptr, ptr %_M_node5.i, align 8
   %4 = load ptr, ptr %__last, align 8
   %_M_first3.i2 = getelementptr inbounds i8, ptr %__last, i64 8
-  %5 = load ptr, ptr %_M_first3.i2, align 8
-  %_M_last4.i4 = getelementptr inbounds i8, ptr %__last, i64 16
-  %6 = load ptr, ptr %_M_last4.i4, align 8
+  %5 = load <2 x ptr>, ptr %_M_first3.i2, align 8
+  %6 = load ptr, ptr %_M_first3.i2, align 8
   %_M_node5.i6 = getelementptr inbounds i8, ptr %__last, i64 24
   %7 = load ptr, ptr %_M_node5.i6, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
@@ -40014,11 +39970,11 @@ entry:
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
   %mul.i.i.i.i = mul nsw i64 %sub.i.i.i.i, 12
   %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub5.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i
   %sub.ptr.div6.i.i.i.i = sdiv exact i64 %sub.ptr.sub5.i.i.i.i, 40
   %sub.ptr.lhs.cast8.i.i.i.i = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast9.i.i.i.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast9.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub10.i.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i.i, %sub.ptr.rhs.cast9.i.i.i.i
   %sub.ptr.div11.i.i.i.i = sdiv exact i64 %sub.ptr.sub10.i.i.i.i, 40
   %add.i.i.i.i = add nsw i64 %sub.ptr.div6.i.i.i.i, %sub.ptr.div11.i.i.i.i
@@ -40050,18 +40006,14 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootN
   store ptr %add.ptr.i, ptr %_M_end_of_storage.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i)
-  store ptr %0, ptr %agg.tmp.i.i.i.i, align 8
-  %_M_first.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %_M_first.i.i.i.i.i, align 8
+  store <2 x ptr> %0, ptr %agg.tmp.i.i.i.i, align 16
   %_M_last.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 16
-  store ptr %2, ptr %_M_last.i.i.i.i.i, align 8
+  store ptr %2, ptr %_M_last.i.i.i.i.i, align 16
   %_M_node.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 24
   store ptr %3, ptr %_M_node.i.i.i.i.i, align 8
   store ptr %4, ptr %agg.tmp1.i.i.i.i, align 8
   %_M_first.i1.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 8
-  store ptr %5, ptr %_M_first.i1.i.i.i.i, align 8
-  %_M_last.i3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 16
-  store ptr %6, ptr %_M_last.i3.i.i.i.i, align 8
+  store <2 x ptr> %5, ptr %_M_first.i1.i.i.i.i, align 8
   %_M_node.i5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 24
   store ptr %7, ptr %_M_node.i5.i.i.i.i, align 8
   %call.i.i.i.i8 = invoke noundef ptr @_ZSt16__do_uninit_copyISt15_Deque_iteratorIN7openvdb5v11_05tools11TreeToMergeINS2_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeINS2_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEEERKSI_PSJ_EPSI_ET0_T_SP_SO_(ptr noundef nonnull %agg.tmp.i.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i.i, ptr noundef %cond.i.i)
@@ -43547,21 +43499,19 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEESaISH_EEC2ISt15_Deque_iteratorISH_RKSH_PSM_EvEET_SQ_RKSI_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp.i.i.i.i = alloca %"struct.std::_Deque_iterator.613", align 8
+  %agg.tmp.i.i.i.i = alloca %"struct.std::_Deque_iterator.613", align 16
   %agg.tmp1.i.i.i.i = alloca %"struct.std::_Deque_iterator.613", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %0 = load ptr, ptr %__first, align 8
-  %_M_first3.i = getelementptr inbounds i8, ptr %__first, i64 8
-  %1 = load ptr, ptr %_M_first3.i, align 8
+  %0 = load <2 x ptr>, ptr %__first, align 8
+  %1 = load ptr, ptr %__first, align 8
   %_M_last4.i = getelementptr inbounds i8, ptr %__first, i64 16
   %2 = load ptr, ptr %_M_last4.i, align 8
   %_M_node5.i = getelementptr inbounds i8, ptr %__first, i64 24
   %3 = load ptr, ptr %_M_node5.i, align 8
   %4 = load ptr, ptr %__last, align 8
   %_M_first3.i2 = getelementptr inbounds i8, ptr %__last, i64 8
-  %5 = load ptr, ptr %_M_first3.i2, align 8
-  %_M_last4.i4 = getelementptr inbounds i8, ptr %__last, i64 16
-  %6 = load ptr, ptr %_M_last4.i4, align 8
+  %5 = load <2 x ptr>, ptr %_M_first3.i2, align 8
+  %6 = load ptr, ptr %_M_first3.i2, align 8
   %_M_node5.i6 = getelementptr inbounds i8, ptr %__last, i64 24
   %7 = load ptr, ptr %_M_node5.i6, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
@@ -43573,11 +43523,11 @@ entry:
   %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, %conv.neg.i.i.i.i
   %mul.i.i.i.i = mul nsw i64 %sub.i.i.i.i, 12
   %sub.ptr.lhs.cast3.i.i.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast4.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub5.i.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i.i, %sub.ptr.rhs.cast4.i.i.i.i
   %sub.ptr.div6.i.i.i.i = sdiv exact i64 %sub.ptr.sub5.i.i.i.i, 40
   %sub.ptr.lhs.cast8.i.i.i.i = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast9.i.i.i.i = ptrtoint ptr %0 to i64
+  %sub.ptr.rhs.cast9.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub10.i.i.i.i = sub i64 %sub.ptr.lhs.cast8.i.i.i.i, %sub.ptr.rhs.cast9.i.i.i.i
   %sub.ptr.div11.i.i.i.i = sdiv exact i64 %sub.ptr.sub10.i.i.i.i, 40
   %add.i.i.i.i = add nsw i64 %sub.ptr.div6.i.i.i.i, %sub.ptr.div11.i.i.i.i
@@ -43609,18 +43559,14 @@ _ZNSt12_Vector_baseIN7openvdb5v11_05tools11TreeToMergeINS1_4tree4TreeINS4_8RootN
   store ptr %add.ptr.i, ptr %_M_end_of_storage.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i)
-  store ptr %0, ptr %agg.tmp.i.i.i.i, align 8
-  %_M_first.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 8
-  store ptr %1, ptr %_M_first.i.i.i.i.i, align 8
+  store <2 x ptr> %0, ptr %agg.tmp.i.i.i.i, align 16
   %_M_last.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 16
-  store ptr %2, ptr %_M_last.i.i.i.i.i, align 8
+  store ptr %2, ptr %_M_last.i.i.i.i.i, align 16
   %_M_node.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 24
   store ptr %3, ptr %_M_node.i.i.i.i.i, align 8
   store ptr %4, ptr %agg.tmp1.i.i.i.i, align 8
   %_M_first.i1.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 8
-  store ptr %5, ptr %_M_first.i1.i.i.i.i, align 8
-  %_M_last.i3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 16
-  store ptr %6, ptr %_M_last.i3.i.i.i.i, align 8
+  store <2 x ptr> %5, ptr %_M_first.i1.i.i.i.i, align 8
   %_M_node.i5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i, i64 24
   store ptr %7, ptr %_M_node.i5.i.i.i.i, align 8
   %call.i.i.i.i8 = invoke noundef ptr @_ZSt16__do_uninit_copyISt15_Deque_iteratorIN7openvdb5v11_05tools11TreeToMergeINS2_4tree4TreeINS5_8RootNodeINS5_12InternalNodeINS8_INS5_8LeafNodeINS2_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEEERKSI_PSJ_EPSI_ET0_T_SP_SO_(ptr noundef nonnull %agg.tmp.i.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i.i, ptr noundef %cond.i.i)
@@ -63459,7 +63405,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04tree8TreeBaseEEC2INS2_4TreeINS2_8RootNodeINS2_
 define linkonce_odr void @_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEE18getBackgroundValueEv(ptr noalias sret(%"class.std::shared_ptr.690") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1232) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp4 = alloca %"class.std::shared_ptr.690", align 8
+  %ref.tmp4 = alloca %"class.std::shared_ptr.690", align 16
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp17 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -63490,18 +63436,15 @@ invoke.cont8:                                     ; preds = %if.then
           to label %_ZNSt10shared_ptrIN7openvdb5v11_08MetadataEED2Ev.exit unwind label %lpad9
 
 _ZNSt10shared_ptrIN7openvdb5v11_08MetadataEED2Ev.exit: ; preds = %invoke.cont8
-  %2 = load ptr, ptr %ref.tmp4, align 8
-  %_M_refcount4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
-  %3 = load ptr, ptr %_M_refcount4.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, i8 0, i64 16, i1 false)
-  store ptr %2, ptr %agg.result, align 8
-  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %3, ptr %_M_refcount3.i.i.i, align 8
+  %2 = load <2 x ptr>, ptr %ref.tmp4, align 16
+  %3 = load ptr, ptr %ref.tmp4, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp4, i8 0, i64 16, i1 false)
+  store <2 x ptr> %2, ptr %agg.result, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #15
-  %vtable14 = load ptr, ptr %2, align 8
+  %vtable14 = load ptr, ptr %3, align 8
   %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 16
   %4 = load ptr, ptr %vfn15, align 8
-  invoke void %4(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void %4(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_08MetadataEED2Ev.exit
@@ -63536,7 +63479,7 @@ if.then21.critedge:                               ; preds = %land.rhs.i
 if.then21:                                        ; preds = %if.then21.critedge, %if.end.i.i
   %mBackground.i = getelementptr inbounds i8, ptr %this, i64 56
   %6 = load i8, ptr %mBackground.i, align 8
-  %mValue.i = getelementptr inbounds i8, ptr %2, i64 8
+  %mValue.i = getelementptr inbounds i8, ptr %3, i64 8
   %frombool = and i8 %6, 1
   store i8 %frombool, ptr %mValue.i, align 1
   br label %nrvo.skipdtor
@@ -77455,7 +77398,6 @@ sw.bb2:                                           ; preds = %entry
   %mTask = getelementptr inbounds i8, ptr %this, i64 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %call.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
@@ -77469,18 +77411,17 @@ sw.bb2:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mTask, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %2 = load ptr, ptr %_M_manager3.i.i, align 8
-  store ptr %2, ptr %_M_manager.i.i.i, align 8
-  store ptr @_ZNSt17_Function_handlerIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS2_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEESt5_BindIFMSF_FvSN_ESt12_PlaceholderILi1EESS_ILi2EEEEE10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation, ptr %_M_manager3.i.i, align 8
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %3 = load ptr, ptr %_M_invoker4.i.i, align 8
-  store ptr %3, ptr %_M_invoker.i.i, align 8
+  %2 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %3 = load ptr, ptr %_M_manager3.i.i, align 8
+  store ptr @_ZNSt17_Function_handlerIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS2_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEESt5_BindIFMSF_FvSN_ESt12_PlaceholderILi1EESS_ILi2EEEEE10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation, ptr %_M_manager3.i.i, align 8
+  store <2 x ptr> %2, ptr %_M_manager.i.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS2_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEESt5_BindIFMSF_FvSN_ESt12_PlaceholderILi1EESS_ILi2EEEEE9_M_invokeERKSt9_Any_dataOSG_SN_, ptr %_M_invoker4.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS2_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEEEaSISt5_BindIFMSF_FvSN_ESt12_PlaceholderILi1EESU_ILi2EEEEEENSt9enable_ifIXsrNSP_9_CallableIT_NSZ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS11_E4typeEE4typeESP_EE5valueESt5decayIS11_EE4type4typeESt15__invoke_resultIRS1C_JSG_SN_EEEE5valueERSP_E4typeEOS11_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.bb2
-  %call.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS2_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEEEaSISt5_BindIFMSF_FvSN_ESt12_PlaceholderILi1EESU_ILi2EEEEEENSt9enable_ifIXsrNSP_9_CallableIT_NSZ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS11_E4typeEE4typeESP_EE5valueESt5decayIS11_EE4type4typeESt15__invoke_resultIRS1C_JSG_SN_EEEE5valueERSP_E4typeEOS11_.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -77498,7 +77439,6 @@ sw.bb4:                                           ; preds = %entry
   %mTask7 = getelementptr inbounds i8, ptr %this, i64 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i10)
   %_M_manager.i.i.i11 = getelementptr inbounds i8, ptr %ref.tmp.i10, i64 16
-  %_M_invoker.i.i12 = getelementptr inbounds i8, ptr %ref.tmp.i10, i64 24
   %6 = getelementptr inbounds i8, ptr %ref.tmp.i10, i64 8
   store i64 0, ptr %6, align 8
   %call.i.i2.i.i13 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
@@ -77512,18 +77452,17 @@ sw.bb4:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mTask7, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i9)
   %_M_manager3.i.i18 = getelementptr inbounds i8, ptr %this, i64 80
-  %7 = load ptr, ptr %_M_manager3.i.i18, align 8
-  store ptr %7, ptr %_M_manager.i.i.i11, align 8
-  store ptr @_ZNSt17_Function_handlerIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS2_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEESt5_BindIFMSF_FvSN_ESt12_PlaceholderILi1EESS_ILi2EEEEE10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation, ptr %_M_manager3.i.i18, align 8
   %_M_invoker4.i.i19 = getelementptr inbounds i8, ptr %this, i64 88
-  %8 = load ptr, ptr %_M_invoker4.i.i19, align 8
-  store ptr %8, ptr %_M_invoker.i.i12, align 8
+  %7 = load <2 x ptr>, ptr %_M_manager3.i.i18, align 8
+  %8 = load ptr, ptr %_M_manager3.i.i18, align 8
+  store ptr @_ZNSt17_Function_handlerIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS2_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEESt5_BindIFMSF_FvSN_ESt12_PlaceholderILi1EESS_ILi2EEEEE10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation, ptr %_M_manager3.i.i18, align 8
+  store <2 x ptr> %7, ptr %_M_manager.i.i.i11, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS2_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEESt5_BindIFMSF_FvSN_ESt12_PlaceholderILi1EESS_ILi2EEEEE9_M_invokeERKSt9_Any_dataOSG_SN_, ptr %_M_invoker4.i.i19, align 8
-  %tobool.not.i.i.i20 = icmp eq ptr %7, null
+  %tobool.not.i.i.i20 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i20, label %_ZNSt8functionIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS2_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEEEaSISt5_BindIFMSF_FvSN_ESt12_PlaceholderILi1EESU_ILi2EEEEEENSt9enable_ifIXsrNSP_9_CallableIT_NSZ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS11_E4typeEE4typeESP_EE5valueESt5decayIS11_EE4type4typeESt15__invoke_resultIRS1C_JSG_SN_EEEE5valueERSP_E4typeEOS11_.exit24, label %if.then.i.i.i21
 
 if.then.i.i.i21:                                  ; preds = %sw.bb4
-  %call.i.i.i22 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10, i32 noundef 3)
+  %call.i.i.i22 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10, i32 noundef 3)
           to label %_ZNSt8functionIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS2_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEEEaSISt5_BindIFMSF_FvSN_ESt12_PlaceholderILi1EESU_ILi2EEEEEENSt9enable_ifIXsrNSP_9_CallableIT_NSZ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS11_E4typeEE4typeESP_EE5valueESt5decayIS11_EE4type4typeESt15__invoke_resultIRS1C_JSG_SN_EEEE5valueERSP_E4typeEOS11_.exit24 unwind label %terminate.lpad.i.i.i23
 
 terminate.lpad.i.i.i23:                           ; preds = %if.then.i.i.i21
@@ -77541,7 +77480,6 @@ sw.default:                                       ; preds = %entry
   %mTask11 = getelementptr inbounds i8, ptr %this, i64 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i30)
   %_M_manager.i.i.i31 = getelementptr inbounds i8, ptr %ref.tmp.i30, i64 16
-  %_M_invoker.i.i32 = getelementptr inbounds i8, ptr %ref.tmp.i30, i64 24
   %11 = getelementptr inbounds i8, ptr %ref.tmp.i30, i64 8
   store i64 0, ptr %11, align 8
   %call.i.i2.i.i33 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
@@ -77555,18 +77493,17 @@ sw.default:                                       ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mTask11, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i29, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i29)
   %_M_manager3.i.i38 = getelementptr inbounds i8, ptr %this, i64 80
-  %12 = load ptr, ptr %_M_manager3.i.i38, align 8
-  store ptr %12, ptr %_M_manager.i.i.i31, align 8
-  store ptr @_ZNSt17_Function_handlerIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS2_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEESt5_BindIFMSF_FvSN_ESt12_PlaceholderILi1EESS_ILi2EEEEE10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation, ptr %_M_manager3.i.i38, align 8
   %_M_invoker4.i.i39 = getelementptr inbounds i8, ptr %this, i64 88
-  %13 = load ptr, ptr %_M_invoker4.i.i39, align 8
-  store ptr %13, ptr %_M_invoker.i.i32, align 8
+  %12 = load <2 x ptr>, ptr %_M_manager3.i.i38, align 8
+  %13 = load ptr, ptr %_M_manager3.i.i38, align 8
+  store ptr @_ZNSt17_Function_handlerIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS2_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEESt5_BindIFMSF_FvSN_ESt12_PlaceholderILi1EESS_ILi2EEEEE10_M_managerERSt9_Any_dataRKSY_St18_Manager_operation, ptr %_M_manager3.i.i38, align 8
+  store <2 x ptr> %12, ptr %_M_manager.i.i.i31, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS2_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEESt5_BindIFMSF_FvSN_ESt12_PlaceholderILi1EESS_ILi2EEEEE9_M_invokeERKSt9_Any_dataOSG_SN_, ptr %_M_invoker4.i.i39, align 8
-  %tobool.not.i.i.i40 = icmp eq ptr %12, null
+  %tobool.not.i.i.i40 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i40, label %_ZNSt8functionIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS2_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEEEaSISt5_BindIFMSF_FvSN_ESt12_PlaceholderILi1EESU_ILi2EEEEEENSt9enable_ifIXsrNSP_9_CallableIT_NSZ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS11_E4typeEE4typeESP_EE5valueESt5decayIS11_EE4type4typeESt15__invoke_resultIRS1C_JSG_SN_EEEE5valueERSP_E4typeEOS11_.exit44, label %if.then.i.i.i41
 
 if.then.i.i.i41:                                  ; preds = %sw.default
-  %call.i.i.i42 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i30, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i30, i32 noundef 3)
+  %call.i.i.i42 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i30, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i30, i32 noundef 3)
           to label %_ZNSt8functionIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS2_8LeafNodeINS1_9ValueMaskELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEEEaSISt5_BindIFMSF_FvSN_ESt12_PlaceholderILi1EESU_ILi2EEEEEENSt9enable_ifIXsrNSP_9_CallableIT_NSZ_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS11_E4typeEE4typeESP_EE5valueESt5decayIS11_EE4type4typeESt15__invoke_resultIRS1C_JSG_SN_EEEE5valueERSP_E4typeEOS11_.exit44 unwind label %terminate.lpad.i.i.i43
 
 terminate.lpad.i.i.i43:                           ; preds = %if.then.i.i.i41
@@ -110006,17 +109943,15 @@ if.then13.critedge:                               ; preds = %land.rhs.i
 if.then13:                                        ; preds = %if.then13.critedge, %if.end.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1059)
   call void @llvm.experimental.noalias.scope.decl(metadata !1062)
-  %8 = load ptr, ptr %second, align 8, !noalias !1065
-  store ptr %8, ptr %agg.result, align 8, !alias.scope !1065
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 72
-  %9 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !1065
-  store ptr %9, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !1065
-  %cmp.not.i.i.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !1065
+  %9 = load <2 x ptr>, ptr %second, align 8, !noalias !1065
+  store <2 x ptr> %9, ptr %agg.result, align 8, !alias.scope !1065
+  %cmp.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i.i, label %return, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then13
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1065
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -126816,12 +126751,14 @@ invoke.cont:                                      ; preds = %for.body
   %mOrigin.i5 = getelementptr inbounds i8, ptr %20, i64 33792
   %mOrigin.i6 = getelementptr inbounds i8, ptr %call4, i64 33792
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33792) %call4, i8 0, i64 33792, i1 false)
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 33796
   %arrayidx.i.i.i5.i = getelementptr inbounds i8, ptr %20, i64 33800
   %21 = load i32, ptr %arrayidx.i.i.i5.i, align 4
   %and5.i = and i32 %21, -128
-  %22 = load <2 x i32>, ptr %mOrigin.i5, align 4
-  %23 = and <2 x i32> %22, <i32 -128, i32 -128>
-  store <2 x i32> %23, ptr %mOrigin.i6, align 4
+  %22 = load i32, ptr %arrayidx.i.i.i.i, align 4
+  %23 = load <2 x i32>, ptr %mOrigin.i5, align 4
+  %24 = and <2 x i32> %23, <i32 -128, i32 -128>
+  store <2 x i32> %24, ptr %mOrigin.i6, align 4
   %arrayinit.element2.i.i = getelementptr inbounds i8, ptr %call4, i64 33800
   store i32 %and5.i, ptr %arrayinit.element2.i.i, align 4
   %mTransientData.i = getelementptr inbounds i8, ptr %call4, i64 33804
@@ -126839,10 +126776,9 @@ for.body.i:                                       ; preds = %for.body.i, %invoke
   br i1 %exitcond.not.i, label %invoke.cont7, label %for.body.i, !llvm.loop !400
 
 invoke.cont7:                                     ; preds = %for.body.i
-  %24 = load i32, ptr %mOrigin.i6, align 4
-  %and.i.i = and i32 %24, -4096
-  %25 = extractelement <2 x i32> %22, i64 1
-  %and4.i.i = and i32 %25, -4096
+  %25 = load i32, ptr %mOrigin.i6, align 4
+  %and.i.i = and i32 %25, -4096
+  %and4.i.i = and i32 %22, -4096
   %26 = load i32, ptr %arrayinit.element2.i.i, align 4
   %and7.i.i = and i32 %26, -4096
   %27 = load i32, ptr %mOrigin.i, align 8
@@ -126856,9 +126792,9 @@ invoke.cont7:                                     ; preds = %for.body.i
   br i1 %or.cond7.not.i, label %if.end.i, label %_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EE8addChildEPS6_.exit
 
 if.end.i:                                         ; preds = %invoke.cont7
-  %30 = shl i32 %24, 3
+  %30 = shl i32 %25, 3
   %shl.i.i = and i32 %30, 31744
-  %31 = lshr i32 %25, 2
+  %31 = lshr i32 %22, 2
   %shl4.i.i = and i32 %31, 992
   %add.i.i = or disjoint i32 %shl4.i.i, %shl.i.i
   %and6.i.i = lshr i32 %26, 7

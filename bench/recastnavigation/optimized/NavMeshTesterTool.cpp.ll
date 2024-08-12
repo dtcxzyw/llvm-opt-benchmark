@@ -247,7 +247,7 @@ define dso_local void @_ZN17NavMeshTesterTool6recalcEv(ptr noundef nonnull align
     i32 4, label %502
     i32 5, label %533
     i32 6, label %576
-    i32 7, label %670
+    i32 7, label %672
   ]
 
 54:                                               ; preds = %50
@@ -1078,138 +1078,139 @@ _Z7inRangePKfS0_ff.exit83.thread:                 ; preds = %222, %_Z7inRangePKf
   %598 = getelementptr inbounds i8, ptr %0, i64 8
   %599 = load ptr, ptr %598, align 8
   %.not65 = icmp eq ptr %599, null
-  br i1 %.not65, label %607, label %600
+  %600 = insertelement <2 x float> %591, float %590, i64 1
+  br i1 %.not65, label %609, label %601
 
-600:                                              ; preds = %585
-  %601 = load ptr, ptr %599, align 8
-  %602 = getelementptr inbounds i8, ptr %601, i64 152
-  %603 = load ptr, ptr %602, align 8
-  %604 = tail call noundef float %603(ptr noundef nonnull align 8 dereferenceable(200) %599)
-  %605 = fmul float %604, 5.000000e-01
+601:                                              ; preds = %585
+  %602 = load ptr, ptr %599, align 8
+  %603 = getelementptr inbounds i8, ptr %602, i64 152
+  %604 = load ptr, ptr %603, align 8
+  %605 = tail call noundef float %604(ptr noundef nonnull align 8 dereferenceable(200) %599)
+  %606 = fmul float %605, 5.000000e-01
   %.pre = load float, ptr %588, align 8
-  %606 = load <2 x float>, ptr %589, align 8
+  %607 = load <2 x float>, ptr %589, align 8
   %.pre138 = load float, ptr %586, align 4
-  br label %607
+  %608 = insertelement <2 x float> %607, float %.pre, i64 1
+  br label %609
 
-607:                                              ; preds = %585, %600
-  %608 = phi float [ %.pre138, %600 ], [ %587, %585 ]
-  %609 = phi float [ %.pre, %600 ], [ %590, %585 ]
-  %610 = phi float [ %605, %600 ], [ 0.000000e+00, %585 ]
-  %611 = phi <2 x float> [ %606, %600 ], [ %591, %585 ]
-  %612 = extractelement <2 x float> %597, i64 1
-  %613 = tail call float @llvm.fmuladd.f32(float %612, float 0x3FF3333340000000, float %609)
-  %614 = getelementptr inbounds i8, ptr %0, i64 31312
-  store float %613, ptr %614, align 8
-  %615 = getelementptr inbounds i8, ptr %0, i64 32140
-  %616 = load float, ptr %615, align 4
-  %617 = fadd float %610, %616
-  %618 = getelementptr inbounds i8, ptr %0, i64 31316
-  store float %617, ptr %618, align 4
-  %619 = extractelement <2 x float> %597, i64 0
-  %620 = extractelement <2 x float> %611, i64 0
-  %621 = tail call float @llvm.fmuladd.f32(float %619, float 0x3FF3333340000000, float %620)
+609:                                              ; preds = %585, %601
+  %610 = phi float [ %.pre138, %601 ], [ %587, %585 ]
+  %611 = phi float [ %.pre, %601 ], [ %590, %585 ]
+  %612 = phi float [ %606, %601 ], [ 0.000000e+00, %585 ]
+  %613 = phi <2 x float> [ %608, %601 ], [ %600, %585 ]
+  %614 = phi <2 x float> [ %607, %601 ], [ %591, %585 ]
+  %615 = extractelement <2 x float> %597, i64 1
+  %616 = tail call float @llvm.fmuladd.f32(float %615, float 0x3FF3333340000000, float %611)
+  %617 = getelementptr inbounds i8, ptr %0, i64 31312
+  store float %616, ptr %617, align 8
+  %618 = getelementptr inbounds i8, ptr %0, i64 32140
+  %619 = load float, ptr %618, align 4
+  %620 = fadd float %612, %619
+  %621 = getelementptr inbounds i8, ptr %0, i64 31316
+  store float %620, ptr %621, align 4
   %622 = getelementptr inbounds i8, ptr %0, i64 31320
-  store float %621, ptr %622, align 8
   %623 = fneg <2 x float> %597
-  %624 = extractelement <2 x float> %623, i64 1
-  %625 = tail call float @llvm.fmuladd.f32(float %624, float 0x3FF4CCCCC0000000, float %609)
-  %626 = getelementptr inbounds i8, ptr %0, i64 31324
-  store float %625, ptr %626, align 4
-  %627 = getelementptr inbounds i8, ptr %0, i64 31328
-  store float %617, ptr %627, align 8
-  %628 = getelementptr inbounds i8, ptr %0, i64 31332
-  %629 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %623, <2 x float> <float 0x3FF4CCCCC0000000, float 0x3FE99999A0000000>, <2 x float> %611)
-  store <2 x float> %629, ptr %628, align 4
-  %630 = getelementptr inbounds i8, ptr %0, i64 32152
-  %631 = load float, ptr %630, align 8
-  %632 = fadd float %610, %631
-  %633 = getelementptr inbounds i8, ptr %0, i64 31340
-  store float %632, ptr %633, align 4
-  %634 = extractelement <2 x float> %623, i64 0
-  %635 = tail call float @llvm.fmuladd.f32(float %634, float 0x3FE99999A0000000, float %608)
-  %636 = getelementptr inbounds i8, ptr %0, i64 31344
-  store float %635, ptr %636, align 8
-  %637 = fadd <2 x float> %597, %611
-  %638 = extractelement <2 x float> %637, i64 1
-  %639 = getelementptr inbounds i8, ptr %0, i64 31348
-  store float %638, ptr %639, align 4
-  %640 = getelementptr inbounds i8, ptr %0, i64 31352
-  store float %632, ptr %640, align 8
-  %641 = fadd float %619, %608
+  %624 = shufflevector <2 x float> %597, <2 x float> %623, <2 x i32> <i32 0, i32 3>
+  %625 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %624, <2 x float> <float 0x3FF3333340000000, float 0x3FF4CCCCC0000000>, <2 x float> %613)
+  store <2 x float> %625, ptr %622, align 8
+  %626 = getelementptr inbounds i8, ptr %0, i64 31328
+  store float %620, ptr %626, align 8
+  %627 = getelementptr inbounds i8, ptr %0, i64 31332
+  %628 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %623, <2 x float> <float 0x3FF4CCCCC0000000, float 0x3FE99999A0000000>, <2 x float> %614)
+  store <2 x float> %628, ptr %627, align 4
+  %629 = getelementptr inbounds i8, ptr %0, i64 32152
+  %630 = load float, ptr %629, align 8
+  %631 = fadd float %612, %630
+  %632 = getelementptr inbounds i8, ptr %0, i64 31340
+  store float %631, ptr %632, align 4
+  %633 = extractelement <2 x float> %623, i64 0
+  %634 = tail call float @llvm.fmuladd.f32(float %633, float 0x3FE99999A0000000, float %610)
+  %635 = getelementptr inbounds i8, ptr %0, i64 31344
+  store float %634, ptr %635, align 8
+  %636 = fadd <2 x float> %597, %614
+  %637 = extractelement <2 x float> %636, i64 1
+  %638 = getelementptr inbounds i8, ptr %0, i64 31348
+  store float %637, ptr %638, align 4
+  %639 = getelementptr inbounds i8, ptr %0, i64 31352
+  store float %631, ptr %639, align 8
+  %640 = extractelement <2 x float> %597, i64 0
+  %641 = fadd float %640, %610
   %642 = getelementptr inbounds i8, ptr %0, i64 31356
   store float %641, ptr %642, align 4
-  %643 = fpext float %613 to double
-  %644 = fpext float %617 to double
-  %645 = fpext float %621 to double
-  %646 = fpext float %625 to double
-  %647 = extractelement <2 x float> %629, i64 0
+  %643 = fpext float %616 to double
+  %644 = fpext float %620 to double
+  %645 = extractelement <2 x float> %625, i64 0
+  %646 = fpext float %645 to double
+  %647 = extractelement <2 x float> %625, i64 1
   %648 = fpext float %647 to double
-  %649 = extractelement <2 x float> %629, i64 1
+  %649 = extractelement <2 x float> %628, i64 0
   %650 = fpext float %649 to double
-  %651 = fpext float %632 to double
-  %652 = fpext float %635 to double
-  %653 = fpext float %638 to double
-  %654 = fpext float %641 to double
-  %655 = getelementptr inbounds i8, ptr %0, i64 32
-  %656 = getelementptr inbounds i8, ptr %0, i64 288
-  %657 = load i16, ptr %656, align 8
-  %658 = zext i16 %657 to i32
-  %659 = getelementptr inbounds i8, ptr %0, i64 290
-  %660 = load i16, ptr %659, align 2
-  %661 = zext i16 %660 to i32
-  %662 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, double noundef %643, double noundef %644, double noundef %645, double noundef %646, double noundef %644, double noundef %648, double noundef %650, double noundef %651, double noundef %652, double noundef %653, double noundef %651, double noundef %654, i32 noundef %658, i32 noundef %661)
-  %663 = getelementptr inbounds i8, ptr %0, i64 24
-  %664 = load ptr, ptr %663, align 8
-  %665 = load i32, ptr %580, align 8
-  %666 = getelementptr inbounds i8, ptr %0, i64 312
-  %667 = getelementptr inbounds i8, ptr %0, i64 1336
-  %668 = getelementptr inbounds i8, ptr %0, i64 2360
-  %669 = tail call noundef i32 @_ZNK14dtNavMeshQuery20findPolysAroundShapeEjPKfiPK13dtQueryFilterPjS5_PfPii(ptr noundef nonnull align 8 dereferenceable(104) %664, i32 noundef %665, ptr noundef nonnull %614, i32 noundef 4, ptr noundef nonnull %655, ptr noundef nonnull %666, ptr noundef nonnull %667, ptr noundef null, ptr noundef nonnull %668, i32 noundef 256)
+  %651 = extractelement <2 x float> %628, i64 1
+  %652 = fpext float %651 to double
+  %653 = fpext float %631 to double
+  %654 = fpext float %634 to double
+  %655 = fpext float %637 to double
+  %656 = fpext float %641 to double
+  %657 = getelementptr inbounds i8, ptr %0, i64 32
+  %658 = getelementptr inbounds i8, ptr %0, i64 288
+  %659 = load i16, ptr %658, align 8
+  %660 = zext i16 %659 to i32
+  %661 = getelementptr inbounds i8, ptr %0, i64 290
+  %662 = load i16, ptr %661, align 2
+  %663 = zext i16 %662 to i32
+  %664 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, double noundef %643, double noundef %644, double noundef %646, double noundef %648, double noundef %644, double noundef %650, double noundef %652, double noundef %653, double noundef %654, double noundef %655, double noundef %653, double noundef %656, i32 noundef %660, i32 noundef %663)
+  %665 = getelementptr inbounds i8, ptr %0, i64 24
+  %666 = load ptr, ptr %665, align 8
+  %667 = load i32, ptr %580, align 8
+  %668 = getelementptr inbounds i8, ptr %0, i64 312
+  %669 = getelementptr inbounds i8, ptr %0, i64 1336
+  %670 = getelementptr inbounds i8, ptr %0, i64 2360
+  %671 = tail call noundef i32 @_ZNK14dtNavMeshQuery20findPolysAroundShapeEjPKfiPK13dtQueryFilterPjS5_PfPii(ptr noundef nonnull align 8 dereferenceable(104) %666, i32 noundef %667, ptr noundef nonnull %617, i32 noundef 4, ptr noundef nonnull %657, ptr noundef nonnull %668, ptr noundef nonnull %669, ptr noundef null, ptr noundef nonnull %670, i32 noundef 256)
   br label %.critedge
 
-670:                                              ; preds = %50
-  %671 = load i8, ptr %23, align 8
-  %672 = trunc i8 %671 to i1
-  br i1 %672, label %673, label %.critedge
+672:                                              ; preds = %50
+  %673 = load i8, ptr %23, align 8
+  %674 = trunc i8 %673 to i1
+  br i1 %674, label %675, label %.critedge
 
-673:                                              ; preds = %670
-  %674 = getelementptr inbounds i8, ptr %0, i64 304
-  %675 = load i32, ptr %674, align 8
-  %.not63 = icmp eq i32 %675, 0
-  br i1 %.not63, label %.critedge, label %676
+675:                                              ; preds = %672
+  %676 = getelementptr inbounds i8, ptr %0, i64 304
+  %677 = load i32, ptr %676, align 8
+  %.not63 = icmp eq i32 %677, 0
+  br i1 %.not63, label %.critedge, label %678
 
-676:                                              ; preds = %673
-  %677 = getelementptr inbounds i8, ptr %0, i64 32136
-  %678 = load float, ptr %677, align 8
-  %679 = fpext float %678 to double
-  %680 = getelementptr inbounds i8, ptr %0, i64 32140
-  %681 = load float, ptr %680, align 4
-  %682 = fpext float %681 to double
-  %683 = getelementptr inbounds i8, ptr %0, i64 32144
-  %684 = load float, ptr %683, align 8
-  %685 = fpext float %684 to double
-  %686 = getelementptr inbounds i8, ptr %0, i64 32192
-  %687 = load float, ptr %686, align 8
-  %688 = fpext float %687 to double
-  %689 = getelementptr inbounds i8, ptr %0, i64 32
-  %690 = getelementptr inbounds i8, ptr %0, i64 288
-  %691 = load i16, ptr %690, align 8
-  %692 = zext i16 %691 to i32
-  %693 = getelementptr inbounds i8, ptr %0, i64 290
-  %694 = load i16, ptr %693, align 2
-  %695 = zext i16 %694 to i32
-  %696 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, double noundef %679, double noundef %682, double noundef %685, double noundef %688, i32 noundef %692, i32 noundef %695)
-  %697 = getelementptr inbounds i8, ptr %0, i64 24
-  %698 = load ptr, ptr %697, align 8
-  %699 = load i32, ptr %674, align 8
-  %700 = load float, ptr %686, align 8
-  %701 = getelementptr inbounds i8, ptr %0, i64 312
-  %702 = getelementptr inbounds i8, ptr %0, i64 1336
-  %703 = getelementptr inbounds i8, ptr %0, i64 2360
-  %704 = tail call noundef i32 @_ZNK14dtNavMeshQuery22findLocalNeighbourhoodEjPKffPK13dtQueryFilterPjS5_Pii(ptr noundef nonnull align 8 dereferenceable(104) %698, i32 noundef %699, ptr noundef nonnull %677, float noundef %700, ptr noundef nonnull %689, ptr noundef nonnull %701, ptr noundef nonnull %702, ptr noundef nonnull %703, i32 noundef 256)
+678:                                              ; preds = %675
+  %679 = getelementptr inbounds i8, ptr %0, i64 32136
+  %680 = load float, ptr %679, align 8
+  %681 = fpext float %680 to double
+  %682 = getelementptr inbounds i8, ptr %0, i64 32140
+  %683 = load float, ptr %682, align 4
+  %684 = fpext float %683 to double
+  %685 = getelementptr inbounds i8, ptr %0, i64 32144
+  %686 = load float, ptr %685, align 8
+  %687 = fpext float %686 to double
+  %688 = getelementptr inbounds i8, ptr %0, i64 32192
+  %689 = load float, ptr %688, align 8
+  %690 = fpext float %689 to double
+  %691 = getelementptr inbounds i8, ptr %0, i64 32
+  %692 = getelementptr inbounds i8, ptr %0, i64 288
+  %693 = load i16, ptr %692, align 8
+  %694 = zext i16 %693 to i32
+  %695 = getelementptr inbounds i8, ptr %0, i64 290
+  %696 = load i16, ptr %695, align 2
+  %697 = zext i16 %696 to i32
+  %698 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, double noundef %681, double noundef %684, double noundef %687, double noundef %690, i32 noundef %694, i32 noundef %697)
+  %699 = getelementptr inbounds i8, ptr %0, i64 24
+  %700 = load ptr, ptr %699, align 8
+  %701 = load i32, ptr %676, align 8
+  %702 = load float, ptr %688, align 8
+  %703 = getelementptr inbounds i8, ptr %0, i64 312
+  %704 = getelementptr inbounds i8, ptr %0, i64 1336
+  %705 = getelementptr inbounds i8, ptr %0, i64 2360
+  %706 = tail call noundef i32 @_ZNK14dtNavMeshQuery22findLocalNeighbourhoodEjPKffPK13dtQueryFilterPjS5_Pii(ptr noundef nonnull align 8 dereferenceable(104) %700, i32 noundef %701, ptr noundef nonnull %679, float noundef %702, ptr noundef nonnull %691, ptr noundef nonnull %703, ptr noundef nonnull %704, ptr noundef nonnull %705, i32 noundef 256)
   br label %.critedge
 
-.critedge:                                        ; preds = %_Z7inRangePKfS0_ff.exit83.thread, %280, %_ZL14getSteerTargetP14dtNavMeshQueryPKfS2_fPKjiPfRhRjS5_Pi.exit.thread, %50, %305, %353, %362, %497, %421, %418, %414, %542, %539, %536, %533, %676, %673, %670, %576, %579, %582, %607, %502, %506, %509, %377, %411, %290, %212, %209, %67, %1
+.critedge:                                        ; preds = %_Z7inRangePKfS0_ff.exit83.thread, %280, %_ZL14getSteerTargetP14dtNavMeshQueryPKfS2_fPKjiPfRhRjS5_Pi.exit.thread, %50, %305, %353, %362, %497, %421, %418, %414, %542, %539, %536, %533, %678, %675, %672, %576, %579, %582, %609, %502, %506, %509, %377, %411, %290, %212, %209, %67, %1
   ret void
 }
 

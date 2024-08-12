@@ -799,7 +799,7 @@ define internal noundef i32 @H5D__earray_idx_resize(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5D__earray_idx_iterate(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.H5EA_stat_t, align 8
-  %5 = alloca %struct.H5D_earray_it_ud_t, align 8
+  %5 = alloca %struct.H5D_earray_it_ud_t, align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 32
@@ -816,7 +816,7 @@ define internal i32 @H5D__earray_idx_iterate(ptr nocapture noundef readonly %0, 
   %14 = load i64, ptr @H5E_DATASET_g, align 8
   %15 = load i64, ptr @H5E_CANTOPENOBJ_g, align 8
   %16 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5D__earray_idx_iterate, i32 noundef 1334, i64 noundef %14, i64 noundef %15, ptr noundef nonnull @.str.23) #10
-  br label %60
+  br label %59
 
 17:                                               ; preds = %3
   %18 = load ptr, ptr %0, align 8
@@ -835,59 +835,57 @@ define internal i32 @H5D__earray_idx_iterate(ptr nocapture noundef readonly %0, 
   %27 = load i64, ptr @H5E_DATASET_g, align 8
   %28 = load i64, ptr @H5E_CANTGET_g, align 8
   %29 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5D__earray_idx_iterate, i32 noundef 1344, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.32) #10
-  br label %60
+  br label %59
 
 30:                                               ; preds = %20
   %31 = getelementptr inbounds i8, ptr %4, i64 56
   %32 = load i64, ptr %31, align 8
   %.not17 = icmp eq i64 %32, 0
-  br i1 %.not17, label %60, label %33
+  br i1 %.not17, label %59, label %33
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %34, i8 0, i64 296, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(328) %34, i8 0, i64 296, i1 false)
   %35 = getelementptr inbounds i8, ptr %0, i64 16
-  %36 = load ptr, ptr %35, align 8
-  store ptr %36, ptr %5, align 8
-  %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %39, i8 0, i64 280, i1 false)
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 56
-  %43 = load i64, ptr %42, align 8
-  %44 = icmp ne i64 %43, 0
-  %45 = getelementptr inbounds i8, ptr %5, i64 304
-  %46 = zext i1 %44 to i8
-  store i8 %46, ptr %45, align 8
-  br i1 %44, label %51, label %47
+  %36 = load <2 x ptr>, ptr %35, align 8
+  %37 = load ptr, ptr %35, align 8
+  store <2 x ptr> %36, ptr %5, align 16
+  %38 = getelementptr inbounds i8, ptr %5, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %38, i8 0, i64 280, i1 false)
+  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 56
+  %42 = load i64, ptr %41, align 8
+  %43 = icmp ne i64 %42, 0
+  %44 = getelementptr inbounds i8, ptr %5, i64 304
+  %45 = zext i1 %43 to i8
+  store i8 %45, ptr %44, align 16
+  br i1 %43, label %50, label %46
 
-47:                                               ; preds = %33
-  %48 = getelementptr inbounds i8, ptr %36, i64 148
-  %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %5, i64 288
-  store i32 %49, ptr %50, align 8
-  br label %51
+46:                                               ; preds = %33
+  %47 = getelementptr inbounds i8, ptr %37, i64 148
+  %48 = load i32, ptr %47, align 4
+  %49 = getelementptr inbounds i8, ptr %5, i64 288
+  store i32 %48, ptr %49, align 16
+  br label %50
 
-51:                                               ; preds = %47, %33
-  %52 = getelementptr inbounds i8, ptr %5, i64 312
-  store ptr %1, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %5, i64 320
-  store ptr %2, ptr %53, align 8
-  %54 = call i32 @H5EA_iterate(ptr noundef %23, ptr noundef nonnull @H5D__earray_idx_iterate_cb, ptr noundef nonnull %5) #10
-  %55 = icmp slt i32 %54, 0
-  br i1 %55, label %56, label %60
+50:                                               ; preds = %46, %33
+  %51 = getelementptr inbounds i8, ptr %5, i64 312
+  store ptr %1, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %5, i64 320
+  store ptr %2, ptr %52, align 16
+  %53 = call i32 @H5EA_iterate(ptr noundef %23, ptr noundef nonnull @H5D__earray_idx_iterate_cb, ptr noundef nonnull %5) #10
+  %54 = icmp slt i32 %53, 0
+  br i1 %54, label %55, label %59
 
-56:                                               ; preds = %51
-  %57 = load i64, ptr @H5E_DATASET_g, align 8
-  %58 = load i64, ptr @H5E_BADITER_g, align 8
-  %59 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5D__earray_idx_iterate, i32 noundef 1364, i64 noundef %57, i64 noundef %58, ptr noundef nonnull @.str.33) #10
-  br label %60
+55:                                               ; preds = %50
+  %56 = load i64, ptr @H5E_DATASET_g, align 8
+  %57 = load i64, ptr @H5E_BADITER_g, align 8
+  %58 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5D__earray_idx_iterate, i32 noundef 1364, i64 noundef %56, i64 noundef %57, ptr noundef nonnull @.str.33) #10
+  br label %59
 
-60:                                               ; preds = %30, %56, %51, %26, %13
-  %.0 = phi i32 [ -1, %26 ], [ %54, %56 ], [ %54, %51 ], [ 0, %30 ], [ -1, %13 ]
+59:                                               ; preds = %30, %55, %50, %26, %13
+  %.0 = phi i32 [ -1, %26 ], [ %53, %55 ], [ %53, %50 ], [ 0, %30 ], [ -1, %13 ]
   ret i32 %.0
 }
 

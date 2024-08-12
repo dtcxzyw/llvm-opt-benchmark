@@ -3309,22 +3309,21 @@ cond.end:                                         ; preds = %sw.bb12.i.i, %if.th
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZN11horn_tactic3imp16get_formula_kindER7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(4432) %this, ptr noundef nonnull align 8 dereferenceable(16) %f) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tmp = alloca %class.obj_ref, align 8
+  %tmp = alloca %class.obj_ref, align 16
   %mark = alloca %class.ast_mark, align 8
   %args = alloca %class.ref_vector, align 8
   %body = alloca %class.ref_vector, align 8
   %head = alloca %class.obj_ref, align 8
-  %0 = load ptr, ptr %f, align 8
-  store ptr %0, ptr %tmp, align 8
   %m_manager.i = getelementptr inbounds i8, ptr %tmp, i64 8
   %m_manager3.i = getelementptr inbounds i8, ptr %f, i64 8
-  %1 = load ptr, ptr %m_manager3.i, align 8
-  store ptr %1, ptr %m_manager.i, align 8
-  %tobool.not.i.i = icmp eq ptr %0, null
+  %0 = load <2 x ptr>, ptr %f, align 8
+  %1 = load ptr, ptr %f, align 8
+  store <2 x ptr> %0, ptr %tmp, align 16
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZN7obj_refI4expr11ast_managerEC2ERKS2_.exit, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %entry
-  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %m_ref_count.i.i.i.i, align 4
   %inc.i.i.i.i = add i32 %2, 1
   store i32 %inc.i.i.i.i, ptr %m_ref_count.i.i.i.i, align 4
@@ -3351,7 +3350,7 @@ invoke.cont7:                                     ; preds = %_ZN7obj_refI4expr11
   store ptr null, ptr %head, align 8
   %m_manager.i16 = getelementptr inbounds i8, ptr %head, i64 8
   store ptr %3, ptr %m_manager.i16, align 8
-  %5 = load ptr, ptr %tmp, align 8
+  %5 = load ptr, ptr %tmp, align 16
   invoke void @_Z10flatten_orP4exprR10ref_vectorIS_11ast_managerE(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %args)
           to label %for.cond unwind label %lpad11.loopexit.split-lp
 
@@ -3981,7 +3980,7 @@ terminate.lpad.i.i4.i:                            ; preds = %if.end.i.i.i3.i
   unreachable
 
 _ZN8ast_markD2Ev.exit:                            ; preds = %_ZN8obj_markI4decl10bit_vectorN8ast_mark9decl2uintEED2Ev.exit.i, %if.end.i.i.i3.i
-  %107 = load ptr, ptr %tmp, align 8
+  %107 = load ptr, ptr %tmp, align 16
   %tobool.not.i.i157 = icmp eq ptr %107, null
   br i1 %tobool.not.i.i157, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit165, label %if.then.i.i.i158
 

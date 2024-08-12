@@ -909,8 +909,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev22ExposureContrastOpDataELN9__gnu_cxx1
 define hidden void @_ZN19OpenColorIO_v2_4dev31CreateExposureContrastTransformERSt10shared_ptrINS_14GroupTransformEERS0_IKNS_2OpEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %group, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %op) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ecData = alloca %"class.std::shared_ptr.29", align 8
-  %ecTransform = alloca %"class.std::shared_ptr.38", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.44", align 8
+  %ecTransform = alloca %"class.std::shared_ptr.38", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.44", align 16
   %op.val = load ptr, ptr %op, align 8
   %0 = getelementptr inbounds i8, ptr %op, i64 8
   %op.val4 = load ptr, ptr %0, align 8
@@ -1097,7 +1097,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEED2Ev.exit: ; preds = %if.then.
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEED2Ev.exit
-  %29 = load ptr, ptr %ecTransform, align 8, !nonnull !21, !noundef !21
+  %29 = load ptr, ptr %ecTransform, align 16, !nonnull !21, !noundef !21
   %30 = call ptr @__dynamic_cast(ptr nonnull %29, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev25ExposureContrastTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev29ExposureContrastTransformImplE, i64 0) #13
   %m_data.i32 = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load ptr, ptr %ecData, align 8
@@ -1111,17 +1111,16 @@ lpad6:                                            ; preds = %_ZNSt10shared_ptrIK
 
 invoke.cont12:                                    ; preds = %invoke.cont7
   %33 = load ptr, ptr %group, align 8
-  %34 = load ptr, ptr %ecTransform, align 8
-  store ptr %34, ptr %agg.tmp, align 8
   %_M_refcount.i.i33 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %ecTransform, i64 8
-  %35 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %35, ptr %_M_refcount.i.i33, align 8
-  %cmp.not.i.i.i34 = icmp eq ptr %35, null
+  %34 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %35 = load <2 x ptr>, ptr %ecTransform, align 16
+  store <2 x ptr> %35, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i34 = icmp eq ptr %34, null
   br i1 %cmp.not.i.i.i34, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev9TransformEEC2INS0_25ExposureContrastTransformEvEERKS_IT_E.exit, label %if.then.i.i.i35
 
 if.then.i.i.i35:                                  ; preds = %invoke.cont12
-  %_M_use_count.i.i.i.i36 = getelementptr inbounds i8, ptr %35, i64 8
+  %_M_use_count.i.i.i.i36 = getelementptr inbounds i8, ptr %34, i64 8
   %36 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %36, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i39, label %if.then.i.i.i.i.i37

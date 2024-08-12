@@ -3531,12 +3531,12 @@ aeron_frame_process_rx.exit.i:                    ; preds = %aeron_frame_nak_rx_
 
 434:                                              ; preds = %428
   %435 = load <2 x i32>, ptr %429, align 4
-  %436 = getelementptr inbounds i8, ptr %2, i64 20
-  %437 = load i32, ptr %436, align 4
+  %436 = load i32, ptr %429, align 4
+  %437 = getelementptr inbounds i8, ptr %2, i64 20
+  %438 = load i32, ptr %437, align 4
   %.val.i157.i = load ptr, ptr %431, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %438 = extractelement <2 x i32> %435, i64 0
-  store i32 %438, ptr %5, align 4
+  store i32 %436, ptr %5, align 4
   %439 = call ptr @wmem_map_lookup(ptr noundef %.val.i157.i, ptr noundef nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %440 = icmp eq ptr %439, null
@@ -3555,7 +3555,7 @@ aeron_frame_process_rx.exit.i:                    ; preds = %aeron_frame_nak_rx_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %447, i8 0, i64 24, i1 false)
   store <2 x i32> %435, ptr %448, align 8
   %449 = getelementptr inbounds i8, ptr %443, i64 48
-  store i32 %437, ptr %449, align 8
+  store i32 %438, ptr %449, align 8
   %450 = getelementptr inbounds i8, ptr %443, i64 52
   store i32 0, ptr %450, align 4
   %451 = load ptr, ptr %431, align 8

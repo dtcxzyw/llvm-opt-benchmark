@@ -1082,6 +1082,7 @@ entry:
   tail call void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(158) %this, ptr noundef nonnull %add.ptr)
   %mHeight = getelementptr inbounds i8, ptr %call, i64 4
   %1 = load <2 x i32>, ptr %szData, align 4
+  %2 = load i32, ptr %szData, align 4
   store <2 x i32> %1, ptr %call, align 8
   br i1 %cmp, label %if.end, label %if.end.thread
 
@@ -1095,7 +1096,6 @@ if.end.thread:                                    ; preds = %entry
   br i1 %cmp439, label %if.end24.thread, label %if.end24
 
 if.end24.thread:                                  ; preds = %if.end.thread
-  %2 = extractelement <2 x i32> %1, i64 0
   store i32 %2, ptr %piSkip, align 4
   %idx.ext40 = zext i32 %2 to i64
   %add.ptr741 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext40
@@ -1195,13 +1195,12 @@ delete.notnull:                                   ; preds = %for.end
   br label %if.end71
 
 if.else66.critedge:                               ; preds = %if.end
-  %25 = extractelement <2 x i32> %1, i64 0
-  store i32 %25, ptr %piSkip, align 4
-  %idx.ext = zext i32 %25 to i64
+  store i32 %2, ptr %piSkip, align 4
+  %idx.ext = zext i32 %2 to i64
   %add.ptr7 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext
   tail call void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(158) %this, ptr noundef nonnull %add.ptr7)
-  %26 = load i32, ptr %piSkip, align 4
-  %add.c = add i32 %26, 8
+  %25 = load i32, ptr %piSkip, align 4
+  %add.c = add i32 %25, 8
   store i32 %add.c, ptr %piSkip, align 4
   br label %_ZN9aiTextureD2Ev.exit
 

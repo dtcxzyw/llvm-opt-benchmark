@@ -448,7 +448,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h8579a106
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load <2 x i64>, ptr %4, align 8
-  %9 = extractelement <2 x i64> %8, i64 0
+  %9 = load i64, ptr %4, align 8, !noundef !4
   %10 = add i64 %9, 1
   store i64 %10, ptr %4, align 8
   store <2 x i64> %8, ptr %7, align 8
@@ -10208,7 +10208,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.18170
   %.0.i.i8 = phi ptr [ %6, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.18170614798475879452.exit ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 8), %2 ]
   %.sroa.45.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
   %9 = load <2 x i64>, ptr %.0.i.i8, align 8, !noalias !1959
-  %10 = extractelement <2 x i64> %9, i64 0
+  %10 = load i64, ptr %.0.i.i8, align 8, !noalias !1959, !noundef !4
   %11 = add i64 %10, 1
   store i64 %11, ptr %.0.i.i8, align 8, !noalias !1959
   call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in17h8c587f8ff2e19dfdE.llvm.18170614798475879452"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64, i64, i64 }, {}, {} }) align 8 dereferenceable(32) %4, i64 noundef %1)
@@ -10268,7 +10268,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.18170
   %.0.i.i8 = phi ptr [ %6, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.18170614798475879452.exit ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 8), %2 ]
   %.sroa.45.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
   %9 = load <2 x i64>, ptr %.0.i.i8, align 8, !noalias !1971
-  %10 = extractelement <2 x i64> %9, i64 0
+  %10 = load i64, ptr %.0.i.i8, align 8, !noalias !1971, !noundef !4
   %11 = add i64 %10, 1
   store i64 %11, ptr %.0.i.i8, align 8, !noalias !1971
   call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in17hc0ef3b482c735e73E.llvm.18170614798475879452"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64, i64, i64 }, {}, {} }) align 8 dereferenceable(32) %4, i64 noundef %1)
@@ -14650,7 +14650,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.llvm.18170
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.90070053fc1ed1ee0a64202f1869bf13.51, i64 32, i1 false)
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load <2 x i64>, ptr %.0.i.i3, align 8, !noalias !3003
-  %8 = extractelement <2 x i64> %7, i64 0
+  %8 = load i64, ptr %.0.i.i3, align 8, !noalias !3003, !noundef !4
   %9 = add i64 %8, 1
   store i64 %9, ptr %.0.i.i3, align 8, !noalias !3003
   store <2 x i64> %7, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8

@@ -68,9 +68,9 @@ define hidden void @"_ZN102_$LT$std..io..buffered..bufreader..BufReader$LT$I$GT$
 30:                                               ; preds = %26
   store i64 0, ptr %7, align 8, !alias.scope !15, !noalias !16
   %31 = load <2 x i64>, ptr %12, align 8, !noalias !19
+  %32 = load i64, ptr %12, align 8, !noalias !19, !noundef !11
   store <2 x i64> %31, ptr %8, align 8, !alias.scope !15, !noalias !16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !19
-  %32 = extractelement <2 x i64> %31, i64 0
   br label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h2ace9e016b91ae3fE.llvm.6983745458144533099.exit.i
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h2ace9e016b91ae3fE.llvm.6983745458144533099.exit.thread.i: ; preds = %26
@@ -271,9 +271,9 @@ define hidden void @"_ZN102_$LT$std..io..buffered..bufreader..BufReader$LT$I$GT$
 30:                                               ; preds = %26
   store i64 0, ptr %7, align 8, !alias.scope !50, !noalias !51
   %31 = load <2 x i64>, ptr %12, align 8, !noalias !54
+  %32 = load i64, ptr %12, align 8, !noalias !54, !noundef !11
   store <2 x i64> %31, ptr %8, align 8, !alias.scope !50, !noalias !51
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !54
-  %32 = extractelement <2 x i64> %31, i64 0
   br label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h5d2e8b6a1b5be5e2E.llvm.6983745458144533099.exit.i
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h5d2e8b6a1b5be5e2E.llvm.6983745458144533099.exit.thread.i: ; preds = %26
@@ -733,9 +733,9 @@ define hidden void @_ZN3std2io7BufRead13has_data_left17h2ff877ac96ed42caE(ptr no
 19:                                               ; preds = %8
   store i64 0, ptr %4, align 8, !alias.scope !103, !noalias !104
   %20 = load <2 x i64>, ptr %13, align 8, !noalias !108
+  %21 = load i64, ptr %13, align 8, !noalias !108, !noundef !11
   store <2 x i64> %20, ptr %6, align 8, !alias.scope !103, !noalias !104
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !108
-  %21 = extractelement <2 x i64> %20, i64 0
   br label %"_ZN85_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17h0a11d8c3d2ac731aE.exit"
 
 "_ZN85_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17h0a11d8c3d2ac731aE.exit.thread": ; preds = %8
@@ -804,9 +804,9 @@ define hidden void @_ZN3std2io7BufRead13has_data_left17h5211cff166be3912E(ptr no
 19:                                               ; preds = %8
   store i64 0, ptr %4, align 8, !alias.scope !121, !noalias !122
   %20 = load <2 x i64>, ptr %13, align 8, !noalias !126
+  %21 = load i64, ptr %13, align 8, !noalias !126, !noundef !11
   store <2 x i64> %20, ptr %6, align 8, !alias.scope !121, !noalias !122
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !126
-  %21 = extractelement <2 x i64> %20, i64 0
   br label %"_ZN85_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17h7a8911297808b39bE.exit"
 
 "_ZN85_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17h7a8911297808b39bE.exit.thread": ; preds = %8
@@ -960,9 +960,9 @@ define hidden void @_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h2ace9
 25:                                               ; preds = %9
   store i64 0, ptr %5, align 8
   %26 = load <2 x i64>, ptr %13, align 8
+  %27 = load i64, ptr %13, align 8, !noundef !11
   store <2 x i64> %26, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %27 = extractelement <2 x i64> %26, i64 0
   br label %19
 
 28:                                               ; preds = %9
@@ -1017,9 +1017,9 @@ define hidden void @_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h5d2e8
 25:                                               ; preds = %9
   store i64 0, ptr %5, align 8
   %26 = load <2 x i64>, ptr %13, align 8
+  %27 = load i64, ptr %13, align 8, !noundef !11
   store <2 x i64> %26, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %27 = extractelement <2 x i64> %26, i64 0
   br label %19
 
 28:                                               ; preds = %9
@@ -1075,9 +1075,9 @@ define hidden void @_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hfb937
 25:                                               ; preds = %9
   store i64 0, ptr %5, align 8
   %26 = load <2 x i64>, ptr %13, align 8
+  %27 = load i64, ptr %13, align 8, !noundef !11
   store <2 x i64> %26, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %27 = extractelement <2 x i64> %26, i64 0
   br label %19
 
 28:                                               ; preds = %9
@@ -1840,9 +1840,9 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
 30:                                               ; preds = %21
   store i64 0, ptr %12, align 8, !alias.scope !287, !noalias !290
   %31 = load <2 x i64>, ptr %24, align 8, !noalias !293
+  %32 = load i64, ptr %24, align 8, !noalias !293, !noundef !11
   store <2 x i64> %31, ptr %14, align 8, !alias.scope !287, !noalias !290
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !293
-  %32 = extractelement <2 x i64> %31, i64 0
   br label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h5d2e8b6a1b5be5e2E.llvm.6983745458144533099.exit
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h5d2e8b6a1b5be5e2E.llvm.6983745458144533099.exit.thread: ; preds = %21
@@ -1979,9 +1979,9 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
 30:                                               ; preds = %21
   store i64 0, ptr %12, align 8, !alias.scope !314, !noalias !317
   %31 = load <2 x i64>, ptr %24, align 8, !noalias !320
+  %32 = load i64, ptr %24, align 8, !noalias !320, !noundef !11
   store <2 x i64> %31, ptr %14, align 8, !alias.scope !314, !noalias !317
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !320
-  %32 = extractelement <2 x i64> %31, i64 0
   br label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h2ace9e016b91ae3fE.llvm.6983745458144533099.exit
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h2ace9e016b91ae3fE.llvm.6983745458144533099.exit.thread: ; preds = %21
@@ -2455,9 +2455,9 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
 24:                                               ; preds = %15
   store i64 0, ptr %6, align 8, !alias.scope !411, !noalias !414
   %25 = load <2 x i64>, ptr %18, align 8, !noalias !417
+  %26 = load i64, ptr %18, align 8, !noalias !417, !noundef !11
   store <2 x i64> %25, ptr %8, align 8, !alias.scope !411, !noalias !414
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !417
-  %26 = extractelement <2 x i64> %25, i64 0
   br label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h2ace9e016b91ae3fE.llvm.6983745458144533099.exit
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h2ace9e016b91ae3fE.llvm.6983745458144533099.exit.thread: ; preds = %15
@@ -2553,9 +2553,9 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
 24:                                               ; preds = %15
   store i64 0, ptr %6, align 8, !alias.scope !432, !noalias !435
   %25 = load <2 x i64>, ptr %18, align 8, !noalias !438
+  %26 = load i64, ptr %18, align 8, !noalias !438, !noundef !11
   store <2 x i64> %25, ptr %8, align 8, !alias.scope !432, !noalias !435
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !438
-  %26 = extractelement <2 x i64> %25, i64 0
   br label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h5d2e8b6a1b5be5e2E.llvm.6983745458144533099.exit
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h5d2e8b6a1b5be5e2E.llvm.6983745458144533099.exit.thread: ; preds = %15
@@ -2667,9 +2667,9 @@ define hidden noundef ptr @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT
 32:                                               ; preds = %21
   store i64 0, ptr %5, align 8, !alias.scope !453, !noalias !456
   %33 = load <2 x i64>, ptr %26, align 8, !noalias !459
+  %34 = load i64, ptr %26, align 8, !noalias !459, !noundef !11
   store <2 x i64> %33, ptr %7, align 8, !alias.scope !453, !noalias !456
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !459
-  %34 = extractelement <2 x i64> %33, i64 0
   br label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h5d2e8b6a1b5be5e2E.llvm.6983745458144533099.exit
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h5d2e8b6a1b5be5e2E.llvm.6983745458144533099.exit.thread: ; preds = %21
@@ -2781,9 +2781,9 @@ define hidden noundef ptr @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT
 32:                                               ; preds = %21
   store i64 0, ptr %5, align 8, !alias.scope !476, !noalias !479
   %33 = load <2 x i64>, ptr %26, align 8, !noalias !482
+  %34 = load i64, ptr %26, align 8, !noalias !482, !noundef !11
   store <2 x i64> %33, ptr %7, align 8, !alias.scope !476, !noalias !479
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !482
-  %34 = extractelement <2 x i64> %33, i64 0
   br label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h2ace9e016b91ae3fE.llvm.6983745458144533099.exit
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h2ace9e016b91ae3fE.llvm.6983745458144533099.exit.thread: ; preds = %21
@@ -2920,9 +2920,9 @@ define hidden void @"_ZN85_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
 25:                                               ; preds = %8
   store i64 0, ptr %4, align 8, !alias.scope !502, !noalias !504
   %26 = load <2 x i64>, ptr %13, align 8, !noalias !506
+  %27 = load i64, ptr %13, align 8, !noalias !506, !noundef !11
   store <2 x i64> %26, ptr %6, align 8, !alias.scope !502, !noalias !504
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !506
-  %27 = extractelement <2 x i64> %26, i64 0
   br label %19
 
 28:                                               ; preds = %8
@@ -2980,9 +2980,9 @@ define hidden void @"_ZN85_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
 25:                                               ; preds = %8
   store i64 0, ptr %4, align 8, !alias.scope !512, !noalias !514
   %26 = load <2 x i64>, ptr %13, align 8, !noalias !516
+  %27 = load i64, ptr %13, align 8, !noalias !516, !noundef !11
   store <2 x i64> %26, ptr %6, align 8, !alias.scope !512, !noalias !514
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !516
-  %27 = extractelement <2 x i64> %26, i64 0
   br label %19
 
 28:                                               ; preds = %8
@@ -3042,9 +3042,9 @@ define hidden void @"_ZN85_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
 25:                                               ; preds = %8
   store i64 0, ptr %4, align 8, !alias.scope !522, !noalias !526
   %26 = load <2 x i64>, ptr %13, align 8, !noalias !527
+  %27 = load i64, ptr %13, align 8, !noalias !527, !noundef !11
   store <2 x i64> %26, ptr %6, align 8, !alias.scope !522, !noalias !526
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !527
-  %27 = extractelement <2 x i64> %26, i64 0
   br label %19
 
 28:                                               ; preds = %8

@@ -412,16 +412,16 @@ if.end:                                           ; preds = %entry, %if.then
   %4 = load i32, ptr %arrayidx.i, align 4
   %arrayidx.i18 = getelementptr inbounds i8, ptr %this, i64 100
   %5 = load <2 x i32>, ptr %arrayidx.i18, align 4
+  %6 = load i32, ptr %arrayidx.i18, align 4
   store i32 0, ptr %status, align 4
   call void @_ZN6icu_758Calendar22computeGregorianFieldsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %add12, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %6 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %6, 1
+  %7 = load i32, ptr %status, align 4
+  %cmp.i = icmp slt i32 %7, 1
   br i1 %cmp.i, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.end
   %tobool.not = icmp eq i8 %useMonth, 0
-  %7 = extractelement <2 x i32> %5, i64 0
-  %cond = select i1 %tobool.not, i32 0, i32 %7
+  %cond = select i1 %tobool.not, i32 0, i32 %6
   %fGregorianYear.i = getelementptr inbounds i8, ptr %this, i64 288
   %8 = load i32, ptr %fGregorianYear.i, align 8
   %fGregorianMonth.i = getelementptr inbounds i8, ptr %this, i64 292

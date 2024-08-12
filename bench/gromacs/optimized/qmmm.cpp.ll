@@ -5718,11 +5718,11 @@ _ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx18KeyValueTreeObjectEEEEE9constr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 24, i1 false)
   store i64 %16, ptr %18, align 8
   %23 = load <2 x ptr>, ptr %13, align 8
+  %24 = load ptr, ptr %13, align 8
   store <2 x ptr> %23, ptr %21, align 8
-  %24 = load ptr, ptr %17, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
-  store ptr %25, ptr %17, align 8
-  %26 = extractelement <2 x ptr> %23, i64 0
+  %25 = load ptr, ptr %17, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 32
+  store ptr %26, ptr %17, align 8
   br label %_ZN3gmx17MDModulesNotifierIRKNS_18KeyValueTreeObjectENS0_IPNS_19LocalAtomSetManagerENS0_IRKNS_8MDLoggerENS0_IRK10gmx_mtop_tNS0_IKNS_33MDModulesAtomsRedistributedSignalENS0_IPNS_51MDModulesEnergyOutputToDensityFittingRequestCheckerENS0_IPNS_41MDModulesEnergyOutputToQMMMRequestCheckerENS0_IPNS_25SeparatePmeRanksPermittedENS0_IRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit
 
 27:                                               ; preds = %12
@@ -5735,7 +5735,7 @@ _ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx18KeyValueTreeObjectEEEEE9constr
   br label %_ZN3gmx17MDModulesNotifierIRKNS_18KeyValueTreeObjectENS0_IPNS_19LocalAtomSetManagerENS0_IRKNS_8MDLoggerENS0_IRK10gmx_mtop_tNS0_IKNS_33MDModulesAtomsRedistributedSignalENS0_IPNS_51MDModulesEnergyOutputToDensityFittingRequestCheckerENS0_IPNS_41MDModulesEnergyOutputToQMMMRequestCheckerENS0_IPNS_25SeparatePmeRanksPermittedENS0_IRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit
 
 _ZN3gmx17MDModulesNotifierIRKNS_18KeyValueTreeObjectENS0_IPNS_19LocalAtomSetManagerENS0_IRKNS_8MDLoggerENS0_IRK10gmx_mtop_tNS0_IKNS_33MDModulesAtomsRedistributedSignalENS0_IPNS_51MDModulesEnergyOutputToDensityFittingRequestCheckerENS0_IPNS_41MDModulesEnergyOutputToQMMMRequestCheckerENS0_IPNS_25SeparatePmeRanksPermittedENS0_IRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit: ; preds = %._ZN3gmx17MDModulesNotifierIRKNS_18KeyValueTreeObjectENS0_IPNS_19LocalAtomSetManagerENS0_IRKNS_8MDLoggerENS0_IRK10gmx_mtop_tNS0_IKNS_33MDModulesAtomsRedistributedSignalENS0_IPNS_51MDModulesEnergyOutputToDensityFittingRequestCheckerENS0_IPNS_41MDModulesEnergyOutputToQMMMRequestCheckerENS0_IPNS_25SeparatePmeRanksPermittedENS0_IRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit_crit_edge, %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx18KeyValueTreeObjectEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i
-  %29 = phi ptr [ %.pre, %._ZN3gmx17MDModulesNotifierIRKNS_18KeyValueTreeObjectENS0_IPNS_19LocalAtomSetManagerENS0_IRKNS_8MDLoggerENS0_IRK10gmx_mtop_tNS0_IKNS_33MDModulesAtomsRedistributedSignalENS0_IPNS_51MDModulesEnergyOutputToDensityFittingRequestCheckerENS0_IPNS_41MDModulesEnergyOutputToQMMMRequestCheckerENS0_IPNS_25SeparatePmeRanksPermittedENS0_IRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit_crit_edge ], [ %26, %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx18KeyValueTreeObjectEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i ]
+  %29 = phi ptr [ %.pre, %._ZN3gmx17MDModulesNotifierIRKNS_18KeyValueTreeObjectENS0_IPNS_19LocalAtomSetManagerENS0_IRKNS_8MDLoggerENS0_IRK10gmx_mtop_tNS0_IKNS_33MDModulesAtomsRedistributedSignalENS0_IPNS_51MDModulesEnergyOutputToDensityFittingRequestCheckerENS0_IPNS_41MDModulesEnergyOutputToQMMMRequestCheckerENS0_IPNS_25SeparatePmeRanksPermittedENS0_IRK7PbcTypeNS0_IRKNS_18SimulationTimeStepENS0_IRK9t_commrecNS0_IRKNS_18MdRunInputFilenameENS0_IRKNS_17EdrOutputFilenameENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEEEEEEEEEEEEEEEEEEEEEE9subscribeESt8functionIFvS3_EE.exit_crit_edge ], [ %24, %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx18KeyValueTreeObjectEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i ]
   %.not.i.i11 = icmp eq ptr %29, null
   br i1 %.not.i.i11, label %_ZNSt8functionIFvRKN3gmx18KeyValueTreeObjectEEED2Ev.exit, label %30
 
@@ -5778,8 +5778,8 @@ _ZNSt8functionIFvRKN3gmx18KeyValueTreeObjectEEED2Ev.exit: ; preds = %_ZN3gmx17MD
 
 47:                                               ; preds = %45
   %48 = load <2 x ptr>, ptr %35, align 8
+  %49 = load ptr, ptr %35, align 8
   store <2 x ptr> %48, ptr %43, align 8
-  %49 = extractelement <2 x ptr> %48, i64 0
   br label %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx18MdRunInputFilenameEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i
 
 50:                                               ; preds = %45
@@ -5860,8 +5860,8 @@ _ZNSt8functionIFvRKN3gmx18MdRunInputFilenameEEED2Ev.exit: ; preds = %_ZN3gmx17MD
 
 81:                                               ; preds = %79
   %82 = load <2 x ptr>, ptr %69, align 8
+  %83 = load ptr, ptr %69, align 8
   store <2 x ptr> %82, ptr %77, align 8
-  %83 = extractelement <2 x ptr> %82, i64 0
   br label %_ZNSt16allocator_traitsISaISt8functionIFvPN3gmx19LocalAtomSetManagerEEEEE9constructIS5_JRS5_EEEvRS6_PT_DpOT0_.exit.i.i
 
 84:                                               ; preds = %79
@@ -5942,8 +5942,8 @@ _ZNSt8functionIFvPN3gmx19LocalAtomSetManagerEEED2Ev.exit: ; preds = %_ZN3gmx17MD
 
 115:                                              ; preds = %113
   %116 = load <2 x ptr>, ptr %103, align 8
+  %117 = load ptr, ptr %103, align 8
   store <2 x ptr> %116, ptr %111, align 8
-  %117 = extractelement <2 x ptr> %116, i64 0
   br label %_ZNSt16allocator_traitsISaISt8functionIFvRK7PbcTypeEEEE9constructIS5_JRS5_EEEvRS6_PT_DpOT0_.exit.i.i
 
 118:                                              ; preds = %113
@@ -6024,8 +6024,8 @@ _ZNSt8functionIFvRK7PbcTypeEED2Ev.exit:           ; preds = %_ZN3gmx17MDModulesN
 
 149:                                              ; preds = %147
   %150 = load <2 x ptr>, ptr %137, align 8
+  %151 = load ptr, ptr %137, align 8
   store <2 x ptr> %150, ptr %145, align 8
-  %151 = extractelement <2 x ptr> %150, i64 0
   br label %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx8MDLoggerEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i
 
 152:                                              ; preds = %147
@@ -6355,11 +6355,11 @@ _ZNSt16allocator_traitsISaISt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEEEE9c
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 24, i1 false)
   store i64 %16, ptr %18, align 8
   %23 = load <2 x ptr>, ptr %13, align 8
+  %24 = load ptr, ptr %13, align 8
   store <2 x ptr> %23, ptr %21, align 8
-  %24 = load ptr, ptr %17, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
-  store ptr %25, ptr %17, align 8
-  %26 = extractelement <2 x ptr> %23, i64 0
+  %25 = load ptr, ptr %17, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 32
+  store ptr %26, ptr %17, align 8
   br label %_ZN3gmx17MDModulesNotifierINS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEE9subscribeESt8functionIFvS1_EE.exit
 
 27:                                               ; preds = %12
@@ -6372,7 +6372,7 @@ _ZNSt16allocator_traitsISaISt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEEEE9c
   br label %_ZN3gmx17MDModulesNotifierINS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEE9subscribeESt8functionIFvS1_EE.exit
 
 _ZN3gmx17MDModulesNotifierINS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEE9subscribeESt8functionIFvS1_EE.exit: ; preds = %._ZN3gmx17MDModulesNotifierINS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEE9subscribeESt8functionIFvS1_EE.exit_crit_edge, %_ZNSt16allocator_traitsISaISt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEEEE9constructIS4_JRS4_EEEvRS5_PT_DpOT0_.exit.i.i
-  %29 = phi ptr [ %.pre, %._ZN3gmx17MDModulesNotifierINS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEE9subscribeESt8functionIFvS1_EE.exit_crit_edge ], [ %26, %_ZNSt16allocator_traitsISaISt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEEEE9constructIS4_JRS4_EEEvRS5_PT_DpOT0_.exit.i.i ]
+  %29 = phi ptr [ %.pre, %._ZN3gmx17MDModulesNotifierINS_25KeyValueTreeObjectBuilderENS0_IRKNS_15QMInputFileNameENS0_IRKNS_19EnsembleTemperatureENS_22BuildMDModulesNotifierIJEE15NoCallParameterEEEEEE9subscribeESt8functionIFvS1_EE.exit_crit_edge ], [ %24, %_ZNSt16allocator_traitsISaISt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEEEE9constructIS4_JRS4_EEEvRS5_PT_DpOT0_.exit.i.i ]
   %.not.i.i11 = icmp eq ptr %29, null
   br i1 %.not.i.i11, label %_ZNSt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEED2Ev.exit, label %30
 
@@ -6415,8 +6415,8 @@ _ZNSt8functionIFvN3gmx25KeyValueTreeObjectBuilderEEED2Ev.exit: ; preds = %_ZN3gm
 
 47:                                               ; preds = %45
   %48 = load <2 x ptr>, ptr %35, align 8
+  %49 = load ptr, ptr %35, align 8
   store <2 x ptr> %48, ptr %43, align 8
-  %49 = extractelement <2 x ptr> %48, i64 0
   br label %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx19IndexGroupsAndNamesEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i
 
 50:                                               ; preds = %45
@@ -6497,8 +6497,8 @@ _ZNSt8functionIFvRKN3gmx19IndexGroupsAndNamesEEED2Ev.exit: ; preds = %_ZN3gmx17M
 
 81:                                               ; preds = %79
   %82 = load <2 x ptr>, ptr %69, align 8
+  %83 = load ptr, ptr %69, align 8
   store <2 x ptr> %82, ptr %77, align 8
-  %83 = extractelement <2 x ptr> %82, i64 0
   br label %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx8MDLoggerEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i
 
 84:                                               ; preds = %79
@@ -6579,8 +6579,8 @@ _ZNSt8functionIFvRKN3gmx8MDLoggerEEED2Ev.exit:    ; preds = %_ZN3gmx17MDModulesN
 
 115:                                              ; preds = %113
   %116 = load <2 x ptr>, ptr %103, align 8
+  %117 = load ptr, ptr %103, align 8
   store <2 x ptr> %116, ptr %111, align 8
-  %117 = extractelement <2 x ptr> %116, i64 0
   br label %_ZNSt16allocator_traitsISaISt8functionIFvP14WarningHandlerEEEE9constructIS4_JRS4_EEEvRS5_PT_DpOT0_.exit.i.i
 
 118:                                              ; preds = %113
@@ -6661,8 +6661,8 @@ _ZNSt8functionIFvP14WarningHandlerEED2Ev.exit:    ; preds = %_ZN3gmx17MDModulesN
 
 149:                                              ; preds = %147
   %150 = load <2 x ptr>, ptr %137, align 8
+  %151 = load ptr, ptr %137, align 8
   store <2 x ptr> %150, ptr %145, align 8
-  %151 = extractelement <2 x ptr> %150, i64 0
   br label %_ZNSt16allocator_traitsISaISt8functionIFvRKN3gmx29CoordinatesAndBoxPreprocessedEEEEE9constructIS6_JRS6_EEEvRS7_PT_DpOT0_.exit.i.i
 
 152:                                              ; preds = %147

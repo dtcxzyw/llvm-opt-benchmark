@@ -515,9 +515,7 @@ invoke.cont4:                                     ; preds = %if.end
 
 for.body.lr.ph:                                   ; preds = %invoke.cont4
   %_M_finish.i.i8 = getelementptr inbounds i8, ptr %vec, i64 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %vec, i64 16
   %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %dir.i = getelementptr inbounds i8, ptr %t, i64 32
   %_M_finish.i22 = getelementptr inbounds i8, ptr %tokens, i64 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %tokens, i64 16
@@ -557,10 +555,9 @@ invoke.cont9:                                     ; preds = %_ZNSt6vectorINSt7__
   %13 = load ptr, ptr %_M_finish.i.i8, align 8
   %14 = load ptr, ptr %ref.tmp, align 8
   store ptr %14, ptr %vec, align 8
-  %15 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
-  store ptr %15, ptr %_M_finish.i.i8, align 8
-  %16 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
-  store ptr %16, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %15 = load <2 x ptr>, ptr %_M_finish.i2.i.i.i, align 8
+  %16 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store <2 x ptr> %15, ptr %_M_finish.i.i8, align 8
   %cmp.not3.i.i.i.i.i.i = icmp eq ptr %12, %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i
@@ -607,7 +604,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  %cmp1473.not = icmp eq ptr %15, %14
+  %cmp1473.not = icmp eq ptr %16, %14
   br i1 %cmp1473.not, label %for.end, label %for.body15
 
 for.body15:                                       ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %invoke.cont21

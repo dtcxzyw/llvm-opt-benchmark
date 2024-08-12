@@ -417,41 +417,39 @@ define hidden void @_ZN12DCmdArgumentIbE11parse_valueEPKcmP10JavaThread(ptr noca
   %22 = getelementptr inbounds i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %21, i64 32
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %21, i64 40
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %21, i64 8
-  %29 = load i64, ptr %28, align 8
-  %30 = add i64 %2, 1
-  %31 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %30, i32 noundef 0) #15
-  %32 = tail call ptr @strncpy(ptr noundef %31, ptr noundef %1, i64 noundef %2) #15
-  %33 = getelementptr inbounds i8, ptr %31, i64 %2
-  store i8 0, ptr %33, align 1
-  %34 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
-  %36 = load ptr, ptr %35, align 8
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @_ZN10Exceptions6fthrowEP10JavaThreadPKciP6SymbolS3_z(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 162, ptr noundef %34, ptr noundef nonnull @.str.16, ptr noundef %36, ptr noundef %31) #15
-  %37 = load ptr, ptr %23, align 8
-  %.not.i.i.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i.i.i, label %39, label %38
+  %25 = load <2 x ptr>, ptr %24, align 8
+  %26 = load ptr, ptr %24, align 8
+  %27 = getelementptr inbounds i8, ptr %21, i64 8
+  %28 = load i64, ptr %27, align 8
+  %29 = add i64 %2, 1
+  %30 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %29, i32 noundef 0) #15
+  %31 = tail call ptr @strncpy(ptr noundef %30, ptr noundef %1, i64 noundef %2) #15
+  %32 = getelementptr inbounds i8, ptr %30, i64 %2
+  store i8 0, ptr %32, align 1
+  %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1104), align 8
+  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = load ptr, ptr %34, align 8
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @_ZN10Exceptions6fthrowEP10JavaThreadPKciP6SymbolS3_z(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 162, ptr noundef %33, ptr noundef nonnull @.str.16, ptr noundef %35, ptr noundef %30) #15
+  %36 = load ptr, ptr %23, align 8
+  %.not.i.i.i.i = icmp eq ptr %36, null
+  br i1 %.not.i.i.i.i, label %38, label %37
 
-38:                                               ; preds = %17
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %21, i64 noundef %29) #15
+37:                                               ; preds = %17
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %21, i64 noundef %28) #15
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %23) #15
-  br label %39
+  br label %38
 
-39:                                               ; preds = %38, %17
-  %40 = load ptr, ptr %24, align 8
-  %.not8.i.i.i.i = icmp eq ptr %40, %25
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %41
+38:                                               ; preds = %37, %17
+  %39 = load ptr, ptr %24, align 8
+  %.not8.i.i.i.i = icmp eq ptr %39, %26
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %40
 
-41:                                               ; preds = %39
+40:                                               ; preds = %38
   store ptr %23, ptr %22, align 8
-  store ptr %25, ptr %24, align 8
-  store ptr %27, ptr %26, align 8
+  store <2 x ptr> %25, ptr %24, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %41, %39, %10, %15, %5
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %40, %38, %10, %15, %5
   ret void
 }
 

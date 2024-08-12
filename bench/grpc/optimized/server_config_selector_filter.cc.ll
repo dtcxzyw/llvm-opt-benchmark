@@ -971,17 +971,15 @@ invoke.cont4.i:                                   ; preds = %if.then.i.i5.i.i.i.
   %45 = getelementptr inbounds i8, ptr %status, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %45, align 8, !alias.scope !7
   %event_engine_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %status, i64 16
-  %46 = load ptr, ptr %event_engine_.i.i.i, align 8, !noalias !7
-  store ptr %46, ptr %event_engine_.i.i.i.i.i.i, align 8, !alias.scope !7
-  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %status, i64 24
   %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 16
-  %47 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !noalias !7
-  store ptr %47, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !alias.scope !7
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %47, null
+  %46 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !noalias !7
+  %47 = load <2 x ptr>, ptr %event_engine_.i.i.i, align 8, !noalias !7
+  store <2 x ptr> %47, ptr %event_engine_.i.i.i.i.i.i, align 8, !alias.scope !7
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %46, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont6.i, label %if.then.i.i.i.i.i.i.i.i8.i
 
 if.then.i.i.i.i.i.i.i.i8.i:                       ; preds = %invoke.cont4.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %47, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %46, i64 8
   %48 = load i8, ptr @__libc_single_threaded, align 1, !noalias !7
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %48, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i

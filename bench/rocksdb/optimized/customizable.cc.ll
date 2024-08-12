@@ -708,14 +708,15 @@ if.then15:                                        ; preds = %invoke.cont13
   %registry.i = getelementptr inbounds i8, ptr %embedded, i64 64
   %registry5.i = getelementptr inbounds i8, ptr %config_options, i64 64
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %embedded, i64 72
-  %18 = load <2 x ptr>, ptr %registry5.i, align 8
-  store <2 x ptr> %18, ptr %registry.i, align 8
-  %19 = extractelement <2 x ptr> %18, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %19, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %config_options, i64 72
+  %18 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %19 = load <2 x ptr>, ptr %registry5.i, align 8
+  store <2 x ptr> %19, ptr %registry.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont16, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %20, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

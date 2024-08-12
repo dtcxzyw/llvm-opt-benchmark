@@ -1291,8 +1291,8 @@ declare void @_ZN2v813WasmStreaming5AbortENS_10MaybeLocalINS_5ValueEEE(ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node12wasm_web_api25StartStreamingCompilationERKN2v820FunctionCallbackInfoINS1_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %info) #3 {
 entry:
-  %streaming = alloca %"class.std::shared_ptr.289", align 8
-  %agg.tmp8 = alloca %"class.std::shared_ptr.289", align 8
+  %streaming = alloca %"class.std::shared_ptr.289", align 16
+  %agg.tmp8 = alloca %"class.std::shared_ptr.289", align 16
   %args = alloca [2 x %"class.v8::Local.295"], align 16
   %0 = load ptr, ptr %info, align 8
   %arrayidx.i120 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1333,13 +1333,12 @@ if.end.i.i:                                       ; preds = %_ZN4node18ContextEm
 
 _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit: ; preds = %entry, %if.end.i.i.i, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ %13, %if.end.i.i ], [ null, %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i ], [ null, %entry ], [ null, %if.end.i.i.i ]
-  %14 = load ptr, ptr %streaming, align 8
-  store ptr %14, ptr %agg.tmp8, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp8, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %streaming, i64 8
-  %15 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %15, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %15 = load <2 x ptr>, ptr %streaming, align 16
+  store <2 x ptr> %15, ptr %agg.tmp8, align 16
+  %cmp.not.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN2v813WasmStreamingEEC2ERKS2_.exit.thread, label %if.then.i.i.i
 
 _ZNSt10shared_ptrIN2v813WasmStreamingEEC2ERKS2_.exit.thread: ; preds = %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
@@ -1348,7 +1347,7 @@ _ZNSt10shared_ptrIN2v813WasmStreamingEEC2ERKS2_.exit.thread: ; preds = %_ZN4node
   br i1 %cmp.i.i22659, label %cleanup, label %do.body
 
 if.then.i.i.i:                                    ; preds = %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %16, 0
   br i1 %tobool.i.not.i.i.i.i, label %_ZNSt10shared_ptrIN2v813WasmStreamingEEC2ERKS2_.exit, label %_ZNSt10shared_ptrIN2v813WasmStreamingEEC2ERKS2_.exit.thread65
@@ -1372,7 +1371,7 @@ _ZNSt10shared_ptrIN2v813WasmStreamingEEC2ERKS2_.exit: ; preds = %if.then.i.i.i
 if.then.i.i.i17:                                  ; preds = %_ZNSt10shared_ptrIN2v813WasmStreamingEEC2ERKS2_.exit.thread65, %_ZNSt10shared_ptrIN2v813WasmStreamingEEC2ERKS2_.exit
   %cmp.i.i22673 = phi i1 [ %cmp.i.i22668, %_ZNSt10shared_ptrIN2v813WasmStreamingEEC2ERKS2_.exit.thread65 ], [ %cmp.i.i226, %_ZNSt10shared_ptrIN2v813WasmStreamingEEC2ERKS2_.exit ]
   %call971 = phi ptr [ %call967, %_ZNSt10shared_ptrIN2v813WasmStreamingEEC2ERKS2_.exit.thread65 ], [ %call9, %_ZNSt10shared_ptrIN2v813WasmStreamingEEC2ERKS2_.exit ]
-  %.pr70 = phi ptr [ %15, %_ZNSt10shared_ptrIN2v813WasmStreamingEEC2ERKS2_.exit.thread65 ], [ %.pr.pre, %_ZNSt10shared_ptrIN2v813WasmStreamingEEC2ERKS2_.exit ]
+  %.pr70 = phi ptr [ %14, %_ZNSt10shared_ptrIN2v813WasmStreamingEEC2ERKS2_.exit.thread65 ], [ %.pr.pre, %_ZNSt10shared_ptrIN2v813WasmStreamingEEC2ERKS2_.exit ]
   %_M_use_count.i.i.i.i18 = getelementptr inbounds i8, ptr %.pr70, i64 8
   %19 = load atomic i64, ptr %_M_use_count.i.i.i.i18 acquire, align 8
   %cmp.i.i.i.i19 = icmp eq i64 %19, 4294967297

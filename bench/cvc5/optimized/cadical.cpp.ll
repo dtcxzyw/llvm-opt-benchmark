@@ -7454,16 +7454,16 @@ invoke.cont41:                                    ; preds = %while.end
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %19 = load <2 x ptr>, ptr %_M_start.i.i, align 8, !noalias !331
   %_M_last4.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
-  %20 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !331
   %_M_node5.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
-  %21 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !331
+  %20 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !331
+  %21 = load <2 x ptr>, ptr %_M_last4.i.i.i, align 8, !noalias !331
   %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 304
   %22 = load ptr, ptr %_M_node5.i.i.i.i, align 8
-  %cmp3.i.i.i = icmp ult ptr %21, %22
+  %cmp3.i.i.i = icmp ult ptr %20, %22
   br i1 %cmp3.i.i.i, label %for.body.i.i.i, label %_ZNSt5dequeIN4cvc58internal4prop10SatLiteralESaIS3_EE5clearEv.exit
 
 for.body.i.i.i:                                   ; preds = %invoke.cont41, %for.body.i.i.i
-  %__n.04.i.pn.i.i = phi ptr [ %__n.04.i.i.i, %for.body.i.i.i ], [ %21, %invoke.cont41 ]
+  %__n.04.i.pn.i.i = phi ptr [ %__n.04.i.i.i, %for.body.i.i.i ], [ %20, %invoke.cont41 ]
   %__n.04.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.pn.i.i, i64 8
   %23 = load ptr, ptr %__n.04.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %23) #27
@@ -7474,8 +7474,7 @@ _ZNSt5dequeIN4cvc58internal4prop10SatLiteralESaIS3_EE5clearEv.exit: ; preds = %f
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 280
   store <2 x ptr> %19, ptr %_M_finish.i.i.i, align 8
   %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 296
-  store ptr %20, ptr %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx.i, align 8
-  store ptr %21, ptr %_M_node5.i.i.i.i, align 8
+  store <2 x ptr> %21, ptr %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx.i, align 8
   %cmp.i.i.i151.not371 = icmp eq ptr %fixed.sroa.6.0.lcssa, %fixed.sroa.0.0.lcssa
   br i1 %cmp.i.i.i151.not371, label %cond.true75, label %cond.true51.lr.ph
 

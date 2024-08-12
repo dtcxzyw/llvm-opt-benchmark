@@ -5764,37 +5764,36 @@ _ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEEC2IS3_vEEv.exit: ; preds = %.
   %52 = getelementptr inbounds i8, ptr %49, i64 24
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %49, i64 32
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %49, i64 40
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %49, i64 48
-  %59 = getelementptr inbounds i8, ptr %49, i64 64
+  %55 = getelementptr inbounds i8, ptr %49, i64 40
+  %56 = getelementptr inbounds i8, ptr %49, i64 56
+  %57 = getelementptr inbounds i8, ptr %49, i64 72
+  %58 = load ptr, ptr %57, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %.sroa.5.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
-  %.sroa.6.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
-  %60 = load <2 x ptr>, ptr %58, align 8
-  %.sroa.8.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 64
-  %61 = load <2 x ptr>, ptr %59, align 8
+  %59 = load <2 x ptr>, ptr %55, align 8
+  %.sroa.7.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
+  %60 = load <2 x ptr>, ptr %56, align 8
+  %.sroa.9.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 72
+  %61 = getelementptr inbounds i8, ptr %2, i64 8
+  %62 = getelementptr inbounds i8, ptr %2, i64 16
+  %63 = load <2 x ptr>, ptr %54, align 8
+  %64 = load ptr, ptr %54, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %49, i8 0, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %49, ptr noundef nonnull align 8 dereferenceable(80) %3, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i.i.i, i64 16, i1 false)
   store ptr %51, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8
   store ptr %53, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i, align 8
-  store ptr %55, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8
-  store ptr %57, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i, align 8
-  store <2 x ptr> %60, ptr %.sroa.6.0..sroa_idx.i.i.i.i.i, align 8
-  store <2 x ptr> %61, ptr %.sroa.8.0..sroa_idx.i.i.i.i.i, align 8
+  store ptr %64, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8
+  store <2 x ptr> %59, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i, align 8
+  store <2 x ptr> %60, ptr %.sroa.7.0..sroa_idx.i.i.i.i.i, align 8
+  store ptr %58, ptr %.sroa.9.0..sroa_idx.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   store ptr %51, ptr %2, align 8, !alias.scope !63
-  %62 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %53, ptr %62, align 8, !alias.scope !63
-  %63 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr %55, ptr %63, align 8, !alias.scope !63
-  %64 = getelementptr inbounds i8, ptr %2, i64 24
-  store ptr %57, ptr %64, align 8, !alias.scope !63
+  store ptr %53, ptr %61, align 8, !alias.scope !63
+  store <2 x ptr> %63, ptr %62, align 8, !alias.scope !63
   invoke void @_ZNSt5dequeI16VAnyPackagedTaskSaIS0_EE15_M_erase_at_endESt15_Deque_iteratorIS0_RS0_PS0_E(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull %2)
           to label %_ZNSt5queueI16VAnyPackagedTaskSt5dequeIS0_SaIS0_EEEaSEOS4_.exit unwind label %65
 
@@ -48700,19 +48699,18 @@ _ZN23EmitCGatherDependenciesD2Ev.exit:            ; preds = %1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN23EmitCGatherDependencies5visitEP8AstCCall(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %class.VSelfPointerText, align 8
+  %3 = alloca %class.VSelfPointerText, align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 200
-  %5 = load ptr, ptr %4, align 8
-  store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 208
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
-  %.not.i.i.i.i = icmp eq ptr %8, null
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds i8, ptr %1, i64 208
+  %7 = load ptr, ptr %6, align 8
+  %8 = load <2 x ptr>, ptr %4, align 8
+  store <2 x ptr> %8, ptr %3, align 16
+  %.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i, label %_ZN16VSelfPointerTextC2ERKS_.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %.not.i.i.i.i.i, label %15, label %12
@@ -48734,7 +48732,7 @@ _ZN16VSelfPointerTextC2ERKS_.exit:                ; preds = %2, %12, %15
           to label %19 unwind label %55
 
 19:                                               ; preds = %_ZN16VSelfPointerTextC2ERKS_.exit
-  %20 = load ptr, ptr %6, align 8
+  %20 = load ptr, ptr %5, align 8
   %.not.i.i.i.i5 = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i5, label %_ZN16VSelfPointerTextD2Ev.exit, label %21
 
@@ -48988,19 +48986,18 @@ _ZN23EmitCGatherDependencies17addSymsDependencyEv.exit: ; preds = %6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN23EmitCGatherDependencies5visitEP13AstNodeVarRef(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %class.VSelfPointerText, align 8
+  %3 = alloca %class.VSelfPointerText, align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 184
-  %5 = load ptr, ptr %4, align 8
-  store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 192
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %6, align 8
-  %.not.i.i.i.i = icmp eq ptr %8, null
+  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds i8, ptr %1, i64 192
+  %7 = load ptr, ptr %6, align 8
+  %8 = load <2 x ptr>, ptr %4, align 8
+  store <2 x ptr> %8, ptr %3, align 16
+  %.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i, label %_ZN16VSelfPointerTextC2ERKS_.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %.not.i.i.i.i.i, label %15, label %12
@@ -49022,7 +49019,7 @@ _ZN16VSelfPointerTextC2ERKS_.exit:                ; preds = %2, %12, %15
           to label %19 unwind label %55
 
 19:                                               ; preds = %_ZN16VSelfPointerTextC2ERKS_.exit
-  %20 = load ptr, ptr %6, align 8
+  %20 = load ptr, ptr %5, align 8
   %.not.i.i.i.i5 = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i5, label %_ZN16VSelfPointerTextD2Ev.exit, label %21
 

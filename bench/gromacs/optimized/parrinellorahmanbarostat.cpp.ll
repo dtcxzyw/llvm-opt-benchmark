@@ -1641,7 +1641,7 @@ _ZNKSt8functionIFS_IFvlEEvEEclEv.exit:            ; preds = %_ZNKSt8functionIFPN
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %32 = getelementptr inbounds i8, ptr %5, i64 16
   %33 = load <2 x ptr>, ptr %32, align 8
-  %34 = extractelement <2 x ptr> %33, i64 0
+  %34 = load ptr, ptr %32, align 8
   %.not.i.i.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFvlEEC2EOS1_.exit.i, label %35
 
@@ -1659,9 +1659,9 @@ _ZNSt8functionIFvlEEC2EOS1_.exit.i:               ; preds = %35, %_ZNKSt8functio
   %36 = getelementptr inbounds i8, ptr %4, i64 16
   %37 = getelementptr inbounds i8, ptr %0, i64 72
   %38 = load <2 x ptr>, ptr %37, align 8
+  %39 = load ptr, ptr %37, align 8
   store <2 x ptr> %38, ptr %36, align 8
   store <2 x ptr> %33, ptr %37, align 8
-  %39 = extractelement <2 x ptr> %38, i64 0
   %.not.i.i.i7 = icmp eq ptr %39, null
   br i1 %.not.i.i.i7, label %_ZNSt8functionIFvlEEaSEOS1_.exit.thread, label %40
 

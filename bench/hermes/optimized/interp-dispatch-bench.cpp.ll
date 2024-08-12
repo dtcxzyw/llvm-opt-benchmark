@@ -2031,11 +2031,9 @@ entry:
   store i32 %1, ptr %TripwireConfig_, align 8
   %Callback_.i = getelementptr inbounds i8, ptr %this, i64 96
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
-  %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
-  %_M_invoker2.i.i.i = getelementptr inbounds i8, ptr %0, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i, i8 0, i64 24, i1 false)
-  %2 = load ptr, ptr %_M_invoker2.i.i.i, align 8
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = load <2 x ptr>, ptr %_M_manager.i.i.i.i.i, align 8
   %3 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.not.i.i.i, label %_ZNSt8functionIFvRN6hermes2vm17GCTripwireContextEEEC2EOS5_.exit.i.i, label %if.then.i.i.i
@@ -2054,18 +2052,15 @@ _ZNSt8functionIFvRN6hermes2vm17GCTripwireContextEEEC2EOS5_.exit.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
-  %4 = load ptr, ptr %_M_manager3.i.i.i, align 8
-  store ptr %4, ptr %_M_manager.i.i.i, align 8
-  store ptr %3, ptr %_M_manager3.i.i.i, align 8
-  %_M_invoker4.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
-  %5 = load ptr, ptr %_M_invoker4.i.i.i, align 8
-  store ptr %5, ptr %_M_invoker.i.i.i, align 8
-  store ptr %2, ptr %_M_invoker4.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %4, null
+  %4 = load <2 x ptr>, ptr %_M_manager3.i.i.i, align 8
+  %5 = load ptr, ptr %_M_manager3.i.i.i, align 8
+  store <2 x ptr> %4, ptr %_M_manager.i.i.i, align 8
+  store <2 x ptr> %2, ptr %_M_manager3.i.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i, label %_ZN6hermes2vm16GCTripwireConfigaSEOS1_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt8functionIFvRN6hermes2vm17GCTripwireContextEEEC2EOS5_.exit.i.i
-  %call.i.i.i.i = call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3) #18
+  %call.i.i.i.i = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3) #18
   br label %_ZN6hermes2vm16GCTripwireConfigaSEOS1_.exit
 
 _ZN6hermes2vm16GCTripwireConfigaSEOS1_.exit:      ; preds = %_ZNSt8functionIFvRN6hermes2vm17GCTripwireContextEEEC2EOS5_.exit.i.i, %if.then.i.i.i.i
@@ -2076,11 +2071,9 @@ _ZN6hermes2vm16GCTripwireConfigaSEOS1_.exit:      ; preds = %_ZNSt8functionIFvRN
   store i32 %6, ptr %AllocInYoung_, align 8
   %AnalyticsCallback_ = getelementptr inbounds i8, ptr %this, i64 136
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %0, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i8 0, i64 24, i1 false)
-  %7 = load ptr, ptr %_M_invoker2.i.i, align 8
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 152
+  %7 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8
   %8 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEEC2EOS6_.exit.i, label %if.then.i.i
@@ -2099,29 +2092,24 @@ _ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEEC2EOS6_.exit.i: ; preds = %if
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  %9 = load ptr, ptr %_M_manager3.i.i, align 8
-  store ptr %9, ptr %_M_manager.i.i, align 8
-  store ptr %8, ptr %_M_manager3.i.i, align 8
-  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %this, i64 160
-  %10 = load ptr, ptr %_M_invoker4.i.i, align 8
-  store ptr %10, ptr %_M_invoker.i.i, align 8
-  store ptr %7, ptr %_M_invoker4.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %9, null
+  %9 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %10 = load ptr, ptr %_M_manager3.i.i, align 8
+  store <2 x ptr> %9, ptr %_M_manager.i.i, align 8
+  store <2 x ptr> %7, ptr %_M_manager3.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEEaSEOS6_.exit, label %if.then.i.i.i6
 
 if.then.i.i.i6:                                   ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEEC2EOS6_.exit.i
-  %call.i.i.i = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3) #18
+  %call.i.i.i = call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3) #18
   br label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEEaSEOS6_.exit
 
 _ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEEaSEOS6_.exit: ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEEC2EOS6_.exit.i, %if.then.i.i.i6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %Callback_ = getelementptr inbounds i8, ptr %this, i64 168
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i8)
-  %_M_invoker.i.i9 = getelementptr inbounds i8, ptr %ref.tmp.i8, i64 24
-  %_M_invoker2.i.i10 = getelementptr inbounds i8, ptr %0, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i8, i8 0, i64 24, i1 false)
-  %11 = load ptr, ptr %_M_invoker2.i.i10, align 8
   %_M_manager.i.i.i.i11 = getelementptr inbounds i8, ptr %0, i64 184
+  %11 = load <2 x ptr>, ptr %_M_manager.i.i.i.i11, align 8
   %12 = load ptr, ptr %_M_manager.i.i.i.i11, align 8
   %tobool.not.i.i.not.i.i12 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.not.i.i12, label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEEC2EOS6_.exit.i, label %if.then.i.i13
@@ -2140,18 +2128,15 @@ _ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEEC2EOS6_.exit.i: ; preds = %if.the
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i7)
   %_M_manager.i.i14 = getelementptr inbounds i8, ptr %ref.tmp.i8, i64 16
   %_M_manager3.i.i15 = getelementptr inbounds i8, ptr %this, i64 184
-  %13 = load ptr, ptr %_M_manager3.i.i15, align 8
-  store ptr %13, ptr %_M_manager.i.i14, align 8
-  store ptr %12, ptr %_M_manager3.i.i15, align 8
-  %_M_invoker4.i.i16 = getelementptr inbounds i8, ptr %this, i64 192
-  %14 = load ptr, ptr %_M_invoker4.i.i16, align 8
-  store ptr %14, ptr %_M_invoker.i.i9, align 8
-  store ptr %11, ptr %_M_invoker4.i.i16, align 8
-  %tobool.not.i.i.i17 = icmp eq ptr %13, null
+  %13 = load <2 x ptr>, ptr %_M_manager3.i.i15, align 8
+  %14 = load ptr, ptr %_M_manager3.i.i15, align 8
+  store <2 x ptr> %13, ptr %_M_manager.i.i14, align 8
+  store <2 x ptr> %11, ptr %_M_manager3.i.i15, align 8
+  %tobool.not.i.i.i17 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i17, label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEEaSEOS6_.exit, label %if.then.i.i.i18
 
 if.then.i.i.i18:                                  ; preds = %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEEC2EOS6_.exit.i
-  %call.i.i.i19 = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i8, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i8, i32 noundef 3) #18
+  %call.i.i.i19 = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i8, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i8, i32 noundef 3) #18
   br label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEEaSEOS6_.exit
 
 _ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEEaSEOS6_.exit: ; preds = %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEEC2EOS6_.exit.i, %if.then.i.i.i18

@@ -5432,7 +5432,7 @@ define void @_ZTv0_n48_N3nix49ValuePrintingTests_ansiColorsDerivationError_Test8
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3nix40ValuePrintingTests_ansiColorsAssert_Test8TestBodyEv(ptr noundef nonnull align 8 dereferenceable(1272) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.nix::ExprVar", align 8
-  %3 = alloca %"class.std::shared_ptr.154", align 8
+  %3 = alloca %"class.std::shared_ptr.154", align 16
   %4 = alloca %"struct.nix::ExprInt", align 8
   %5 = alloca %"struct.nix::ExprAssert", align 8
   %6 = alloca %"struct.nix::Value", align 8
@@ -5449,17 +5449,16 @@ define void @_ZN3nix40ValuePrintingTests_ansiColorsAssert_Test8TestBodyEv(ptr no
   %14 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 %10, ptr %14, align 4
   %15 = getelementptr inbounds i8, ptr %0, i64 960
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 968
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %17, align 8
-  %.not.i.i.i = icmp eq ptr %19, null
+  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 968
+  %18 = load ptr, ptr %17, align 8
+  %19 = load <2 x ptr>, ptr %15, align 8
+  store <2 x ptr> %19, ptr %3, align 16
+  %.not.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIKN3nix9StaticEnvEEC2IS1_vEERKS_IT_E.exit, label %20
 
 20:                                               ; preds = %1
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds i8, ptr %18, i64 8
   %22 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %22, 0
   br i1 %.not.i.i.i.i, label %26, label %23
@@ -5479,7 +5478,7 @@ _ZNSt10shared_ptrIKN3nix9StaticEnvEEC2IS1_vEERKS_IT_E.exit: ; preds = %1, %23, %
           to label %28 unwind label %76
 
 28:                                               ; preds = %_ZNSt10shared_ptrIKN3nix9StaticEnvEEC2IS1_vEERKS_IT_E.exit
-  %29 = load ptr, ptr %17, align 8
+  %29 = load ptr, ptr %16, align 8
   %.not.i.i.i4 = icmp eq ptr %29, null
   br i1 %.not.i.i.i4, label %64, label %30
 
@@ -18685,7 +18684,7 @@ declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.nix::SearchPath", align 8
-  %4 = alloca %"class.nix::ref", align 8
+  %4 = alloca %"class.nix::ref", align 16
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @_ZN3nix12LibStoreTestC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %6)
@@ -18704,17 +18703,16 @@ define linkonce_odr void @_ZN3nix11LibExprTestC2Ev(ptr noundef nonnull align 8 d
   %15 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 0, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %18, align 8
-  %.not.i.i.i.i = icmp eq ptr %20, null
+  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %20 = load <2 x ptr>, ptr %16, align 8
+  store <2 x ptr> %20, ptr %4, align 16
+  %.not.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i, label %_ZN3nix3refINS_5StoreEEC2ERKS2_.exit, label %21
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds i8, ptr %19, i64 8
   %23 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %23, 0
   br i1 %.not.i.i.i.i.i, label %27, label %24
@@ -18809,7 +18807,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN3nix5StoreEED2Ev.exit
 
 _ZNSt10shared_ptrIN3nix5StoreEED2Ev.exit:         ; preds = %29, %48, %61, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
-  %66 = load ptr, ptr %18, align 8
+  %66 = load ptr, ptr %17, align 8
   %.not.i.i.i.i4 = icmp eq ptr %66, null
   br i1 %.not.i.i.i.i4, label %_ZN3nix3refINS_5StoreEED2Ev.exit, label %67
 

@@ -1293,33 +1293,31 @@ define linkonce_odr hidden void @_ZN37ShenandoahSATBAndRemarkThreadsClosure9do_t
   %18 = getelementptr inbounds i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 32
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 40
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %17, i64 8
-  %25 = load i64, ptr %24, align 8
+  %21 = load <2 x ptr>, ptr %20, align 8
+  %22 = load ptr, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %17, i64 8
+  %24 = load i64, ptr %23, align 8
   tail call void @_ZN6Thread7oops_doEP10OopClosureP14NMethodClosure(ptr noundef nonnull align 8 dereferenceable(888) %1, ptr noundef nonnull %12, ptr noundef null) #7
-  %26 = load ptr, ptr %19, align 8
-  %.not.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i, label %28, label %27
+  %25 = load ptr, ptr %19, align 8
+  %.not.i.i.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i.i.i, label %27, label %26
 
-27:                                               ; preds = %13
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %17, i64 noundef %25) #7
+26:                                               ; preds = %13
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %17, i64 noundef %24) #7
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %19) #7
-  br label %28
+  br label %27
 
-28:                                               ; preds = %27, %13
-  %29 = load ptr, ptr %20, align 8
-  %.not8.i.i.i.i = icmp eq ptr %29, %21
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %30
+27:                                               ; preds = %26, %13
+  %28 = load ptr, ptr %20, align 8
+  %.not8.i.i.i.i = icmp eq ptr %28, %22
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %29
 
-30:                                               ; preds = %28
+29:                                               ; preds = %27
   store ptr %19, ptr %18, align 8
-  store ptr %21, ptr %20, align 8
-  store ptr %23, ptr %22, align 8
+  store <2 x ptr> %21, ptr %20, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %30, %28, %10, %2
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %29, %27, %10, %2
   ret void
 }
 

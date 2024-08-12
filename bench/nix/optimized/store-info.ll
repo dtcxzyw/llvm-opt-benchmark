@@ -21196,7 +21196,7 @@ _ZN12CmdInfoStoreD1Ev.exit:                       ; preds = %1, %21, %34, %_ZNSt
 define linkonce_odr void @_ZN12CmdInfoStore3runEN3nix3refINS0_5StoreEEE(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
-  %5 = alloca %"class.nix::ref.33", align 8
+  %5 = alloca %"class.nix::ref.33", align 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.78, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %6 unwind label %62
@@ -21225,17 +21225,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #24
-  %14 = load ptr, ptr %1, align 8
-  store ptr %14, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %15, align 8
-  %.not.i.i.i.i = icmp eq ptr %17, null
+  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %17, ptr %5, align 16
+  %.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i, label %_ZN3nix3refINS_5StoreEEC2ERKS2_.exit, label %18
 
 18:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds i8, ptr %16, i64 8
   %20 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %20, 0
   br i1 %.not.i.i.i.i.i, label %24, label %21
@@ -21255,7 +21254,7 @@ _ZN3nix3refINS_5StoreEEC2ERKS2_.exit:             ; preds = %_ZNSt7__cxx1112basi
           to label %26 unwind label %67
 
 26:                                               ; preds = %_ZN3nix3refINS_5StoreEEC2ERKS2_.exit
-  %27 = load ptr, ptr %15, align 8
+  %27 = load ptr, ptr %14, align 8
   %.not.i.i.i.i7 = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i7, label %_ZN3nix3refINS_5StoreEED2Ev.exit, label %28
 

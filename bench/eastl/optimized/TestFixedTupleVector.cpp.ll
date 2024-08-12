@@ -18667,12 +18667,12 @@ if.then.i.i11148:                                 ; preds = %invoke.cont4713
   %3336 = load i64, ptr %mNumElements.i.i11092, align 16
   %3337 = load i64, ptr %mDataSizeAndAllocator.i.i11074, align 16
   %3338 = load <2 x i64>, ptr %mNumCapacity.i.i11093, align 8
-  %3339 = load <2 x i64>, ptr %mNumElements.i.i11072, align 16
+  %3339 = load i64, ptr %mNumCapacity.i.i11093, align 8
+  %3340 = load <2 x i64>, ptr %mNumElements.i.i11072, align 16
   store i64 %3336, ptr %mNumElements.i.i11072, align 16
-  store <2 x i64> %3339, ptr %mNumElements.i.i11092, align 16
+  store <2 x i64> %3340, ptr %mNumElements.i.i11092, align 16
   store <2 x i64> %3338, ptr %mNumCapacity.i.i11073, align 8
   store i64 %3337, ptr %mDataSizeAndAllocator.i.i11094, align 16
-  %3340 = extractelement <2 x i64> %3338, i64 0
   br label %invoke.cont4714
 
 if.else.i.i:                                      ; preds = %invoke.cont4713
@@ -18685,7 +18685,7 @@ if.else.i.i.invoke.cont4714_crit_edge:            ; preds = %if.else.i.i
   br label %invoke.cont4714
 
 invoke.cont4714:                                  ; preds = %if.else.i.i.invoke.cont4714_crit_edge, %if.then.i.i11148
-  %3341 = phi i64 [ %.pre16120, %if.else.i.i.invoke.cont4714_crit_edge ], [ %3340, %if.then.i.i11148 ]
+  %3341 = phi i64 [ %.pre16120, %if.else.i.i.invoke.cont4714_crit_edge ], [ %3339, %if.then.i.i11148 ]
   %3342 = phi i64 [ %.pre16119, %if.else.i.i.invoke.cont4714_crit_edge ], [ %3336, %if.then.i.i11148 ]
   %cmp.i11157 = icmp ugt i64 %3342, %3341
   br i1 %cmp.i11157, label %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm18ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit11171, label %if.end.i11158
@@ -20951,12 +20951,12 @@ if.then.i12508:                                   ; preds = %invoke.cont5390
   %3772 = load i64, ptr %mNumElements.i.i12131, align 16
   %3773 = load i64, ptr %mDataSizeAndAllocator.i.i12125, align 16
   %3774 = load <2 x i64>, ptr %mNumCapacity.i.i12132, align 8
-  %3775 = load <2 x i64>, ptr %mNumElements.i.i12123, align 16
+  %3775 = load i64, ptr %mNumCapacity.i.i12132, align 8
+  %3776 = load <2 x i64>, ptr %mNumElements.i.i12123, align 16
   store i64 %3772, ptr %mNumElements.i.i12123, align 16
-  store <2 x i64> %3775, ptr %mNumElements.i.i12131, align 16
+  store <2 x i64> %3776, ptr %mNumElements.i.i12131, align 16
   store <2 x i64> %3774, ptr %mNumCapacity.i.i12124, align 8
   store i64 %3773, ptr %mDataSizeAndAllocator.i.i12133, align 16
-  %3776 = extractelement <2 x i64> %3774, i64 0
   br label %invoke.cont5392
 
 if.else.i12520:                                   ; preds = %invoke.cont5390
@@ -20969,7 +20969,7 @@ if.else.i12520.invoke.cont5392_crit_edge:         ; preds = %if.else.i12520
   br label %invoke.cont5392
 
 invoke.cont5392:                                  ; preds = %if.else.i12520.invoke.cont5392_crit_edge, %if.then.i12508
-  %3777 = phi i64 [ %.pre16131, %if.else.i12520.invoke.cont5392_crit_edge ], [ %3776, %if.then.i12508 ]
+  %3777 = phi i64 [ %.pre16131, %if.else.i12520.invoke.cont5392_crit_edge ], [ %3775, %if.then.i12508 ]
   %3778 = phi i64 [ %.pre16130, %if.else.i12520.invoke.cont5392_crit_edge ], [ %3772, %if.then.i12508 ]
   %cmp.i12524 = icmp ugt i64 %3778, %3777
   br i1 %cmp.i12524, label %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE8validateEv.exit12538, label %if.end.i12525
@@ -40454,12 +40454,12 @@ if.then.i.i11148:                                 ; preds = %invoke.cont4632
   %3213 = load i64, ptr %mNumElements.i.i11092, align 16
   %3214 = load i64, ptr %mDataSizeAndAllocator.i.i11074, align 16
   %3215 = load <2 x i64>, ptr %mNumCapacity.i.i11093, align 8
-  %3216 = load <2 x i64>, ptr %mNumElements.i.i11072, align 16
+  %3216 = load i64, ptr %mNumCapacity.i.i11093, align 8
+  %3217 = load <2 x i64>, ptr %mNumElements.i.i11072, align 16
   store i64 %3213, ptr %mNumElements.i.i11072, align 16
-  store <2 x i64> %3216, ptr %mNumElements.i.i11092, align 16
+  store <2 x i64> %3217, ptr %mNumElements.i.i11092, align 16
   store <2 x i64> %3215, ptr %mNumCapacity.i.i11073, align 8
   store i64 %3214, ptr %mDataSizeAndAllocator.i.i11094, align 16
-  %3217 = extractelement <2 x i64> %3215, i64 0
   br label %invoke.cont4633
 
 if.else.i.i:                                      ; preds = %invoke.cont4632
@@ -40472,7 +40472,7 @@ if.else.i.i.invoke.cont4633_crit_edge:            ; preds = %if.else.i.i
   br label %invoke.cont4633
 
 invoke.cont4633:                                  ; preds = %if.else.i.i.invoke.cont4633_crit_edge, %if.then.i.i11148
-  %3218 = phi i64 [ %.pre16107, %if.else.i.i.invoke.cont4633_crit_edge ], [ %3217, %if.then.i.i11148 ]
+  %3218 = phi i64 [ %.pre16107, %if.else.i.i.invoke.cont4633_crit_edge ], [ %3216, %if.then.i.i11148 ]
   %3219 = phi i64 [ %.pre16106, %if.else.i.i.invoke.cont4633_crit_edge ], [ %3213, %if.then.i.i11148 ]
   %cmp.i11157 = icmp ugt i64 %3219, %3218
   br i1 %cmp.i11157, label %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm144ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit11171, label %if.end.i11158
@@ -42690,12 +42690,12 @@ if.then.i12508:                                   ; preds = %invoke.cont5281
   %3637 = load i64, ptr %mNumElements.i.i12131, align 16
   %3638 = load i64, ptr %mDataSizeAndAllocator.i.i12125, align 16
   %3639 = load <2 x i64>, ptr %mNumCapacity.i.i12132, align 8
-  %3640 = load <2 x i64>, ptr %mNumElements.i.i12123, align 16
+  %3640 = load i64, ptr %mNumCapacity.i.i12132, align 8
+  %3641 = load <2 x i64>, ptr %mNumElements.i.i12123, align 16
   store i64 %3637, ptr %mNumElements.i.i12123, align 16
-  store <2 x i64> %3640, ptr %mNumElements.i.i12131, align 16
+  store <2 x i64> %3641, ptr %mNumElements.i.i12131, align 16
   store <2 x i64> %3639, ptr %mNumCapacity.i.i12124, align 8
   store i64 %3638, ptr %mDataSizeAndAllocator.i.i12133, align 16
-  %3641 = extractelement <2 x i64> %3639, i64 0
   br label %invoke.cont5283
 
 if.else.i12520:                                   ; preds = %invoke.cont5281
@@ -42708,7 +42708,7 @@ if.else.i12520.invoke.cont5283_crit_edge:         ; preds = %if.else.i12520
   br label %invoke.cont5283
 
 invoke.cont5283:                                  ; preds = %if.else.i12520.invoke.cont5283_crit_edge, %if.then.i12508
-  %3642 = phi i64 [ %.pre16113, %if.else.i12520.invoke.cont5283_crit_edge ], [ %3641, %if.then.i12508 ]
+  %3642 = phi i64 [ %.pre16113, %if.else.i12520.invoke.cont5283_crit_edge ], [ %3640, %if.then.i12508 ]
   %3643 = phi i64 [ %.pre16112, %if.else.i12520.invoke.cont5283_crit_edge ], [ %3637, %if.then.i12508 ]
   %cmp.i12524 = icmp ugt i64 %3643, %3642
   br i1 %cmp.i12524, label %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE8validateEv.exit12538, label %if.end.i12525
@@ -60814,12 +60814,12 @@ if.then.i.i11201:                                 ; preds = %invoke.cont4632
   %2947 = load i64, ptr %mNumElements.i.i11135, align 16
   %2948 = load i64, ptr %mDataSizeAndAllocator.i.i11070, align 16
   %2949 = load <2 x i64>, ptr %mNumCapacity.i.i11136, align 8
-  %2950 = load <2 x i64>, ptr %mNumElements.i.i11068, align 16
+  %2950 = load i64, ptr %mNumCapacity.i.i11136, align 8
+  %2951 = load <2 x i64>, ptr %mNumElements.i.i11068, align 16
   store i64 %2947, ptr %mNumElements.i.i11068, align 16
-  store <2 x i64> %2950, ptr %mNumElements.i.i11135, align 16
+  store <2 x i64> %2951, ptr %mNumElements.i.i11135, align 16
   store <2 x i64> %2949, ptr %mNumCapacity.i.i11069, align 8
   store i64 %2948, ptr %mDataSizeAndAllocator.i.i11137, align 16
-  %2951 = extractelement <2 x i64> %2949, i64 0
   br label %invoke.cont4633
 
 if.else.i.i:                                      ; preds = %invoke.cont4632
@@ -60829,7 +60829,7 @@ if.else.i.i:                                      ; preds = %invoke.cont4632
   br label %invoke.cont4633
 
 invoke.cont4633:                                  ; preds = %if.else.i.i, %if.then.i.i11201
-  %2952 = phi i64 [ %.pre14691, %if.else.i.i ], [ %2951, %if.then.i.i11201 ]
+  %2952 = phi i64 [ %.pre14691, %if.else.i.i ], [ %2950, %if.then.i.i11201 ]
   %2953 = phi i64 [ %.pre14690, %if.else.i.i ], [ %2947, %if.then.i.i11201 ]
   %cmp.i11210 = icmp ugt i64 %2953, %2952
   br i1 %cmp.i11210, label %_ZNK5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm576ELm1ELm4ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJifbEE8validateEv.exit11224, label %if.end.i11211
@@ -65976,39 +65976,36 @@ invoke.cont:                                      ; preds = %entry
   %1 = load ptr, ptr %mpPoolBegin3.i.i.i.i, align 8
   store ptr %1, ptr %mpPoolBegin.i.i.i.i, align 16
   call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE14DoInitFillArgsEmRKbRKS7_RKf(ptr noundef nonnull align 8 dereferenceable(72) %temp, i64 noundef %n, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 8 dereferenceable(20) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3)
-  %2 = load ptr, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %add.ptr4.i = getelementptr inbounds i8, ptr %temp, i64 8
-  %3 = load ptr, ptr %add.ptr.i, align 8
+  %2 = load ptr, ptr %add.ptr.i, align 8
+  %3 = load <2 x ptr>, ptr %this, align 8
   %4 = load <2 x ptr>, ptr %temp, align 16
-  store ptr %2, ptr %temp, align 16
   store <2 x ptr> %4, ptr %this, align 8
-  store ptr %3, ptr %add.ptr4.i, align 8
+  store <2 x ptr> %3, ptr %temp, align 16
   %add.ptr7.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr9.i = getelementptr inbounds i8, ptr %temp, i64 16
-  %5 = load ptr, ptr %add.ptr7.i, align 8
   %mpData12.i = getelementptr inbounds i8, ptr %this, i64 24
   %mpData13.i = getelementptr inbounds i8, ptr %temp, i64 24
-  %6 = load ptr, ptr %mpData12.i, align 8
+  %5 = load ptr, ptr %mpData12.i, align 8
+  %6 = load <2 x ptr>, ptr %add.ptr7.i, align 8
   %7 = load <2 x ptr>, ptr %add.ptr9.i, align 16
-  store ptr %5, ptr %add.ptr9.i, align 16
   store <2 x ptr> %7, ptr %add.ptr7.i, align 8
-  store ptr %6, ptr %mpData13.i, align 8
+  store <2 x ptr> %6, ptr %add.ptr9.i, align 16
   %mNumElements.i = getelementptr inbounds i8, ptr %this, i64 32
   %mNumElements14.i = getelementptr inbounds i8, ptr %temp, i64 32
   %8 = load <2 x i64>, ptr %mNumElements.i, align 8
-  %9 = load <2 x i64>, ptr %mNumElements14.i, align 16
-  store <2 x i64> %9, ptr %mNumElements.i, align 8
+  %9 = load i64, ptr %mNumElements.i, align 8
+  %10 = load <2 x i64>, ptr %mNumElements14.i, align 16
+  store <2 x i64> %10, ptr %mNumElements.i, align 8
   store <2 x i64> %8, ptr %mNumElements14.i, align 16
   %mDataSizeAndAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %mDataSizeAndAllocator.i9.i = getelementptr inbounds i8, ptr %temp, i64 48
-  %10 = load i64, ptr %mDataSizeAndAllocator.i.i, align 8
-  %11 = load i64, ptr %mDataSizeAndAllocator.i9.i, align 16
-  store i64 %11, ptr %mDataSizeAndAllocator.i.i, align 8
-  store i64 %10, ptr %mDataSizeAndAllocator.i9.i, align 16
-  %12 = extractelement <2 x i64> %8, i64 0
-  %add.ptr8.i = getelementptr inbounds %struct.TestObject, ptr %3, i64 %12
-  %cmp.not7.i.i.i = icmp eq i64 %12, 0
+  %11 = load i64, ptr %mDataSizeAndAllocator.i.i, align 8
+  %12 = load i64, ptr %mDataSizeAndAllocator.i9.i, align 16
+  store i64 %12, ptr %mDataSizeAndAllocator.i.i, align 8
+  store i64 %11, ptr %mDataSizeAndAllocator.i9.i, align 16
+  %add.ptr8.i = getelementptr inbounds %struct.TestObject, ptr %2, i64 %9
+  %cmp.not7.i.i.i = icmp eq i64 %9, 0
   br i1 %cmp.not7.i.i.i, label %invoke.cont17.i, label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %invoke.cont
@@ -66018,7 +66015,7 @@ for.body.preheader.i.i.i:                         ; preds = %invoke.cont
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZN10TestObjectD2Ev.exit.i.i.i, %for.body.preheader.i.i.i
-  %first.addr.011.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %3, %for.body.preheader.i.i.i ]
+  %first.addr.011.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %2, %for.body.preheader.i.i.i ]
   %inc.i410.i.i.i = phi i32 [ %inc.i3.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i, %for.body.preheader.i.i.i ]
   %dec.i59.i.i.i = phi i64 [ %dec.i.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %_ZN10TestObject8sTOCountE.promoted.i.i.i, %for.body.preheader.i.i.i ]
   %inc3.i68.i.i.i = phi i64 [ %inc3.i.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %_ZN10TestObject12sTODtorCountE.promoted.i.i.i, %for.body.preheader.i.i.i ]
@@ -66048,7 +66045,7 @@ for.cond.for.end_crit_edge.i.i.i:                 ; preds = %_ZN10TestObjectD2Ev
   br label %invoke.cont17.i
 
 invoke.cont17.i:                                  ; preds = %for.cond.for.end_crit_edge.i.i.i, %invoke.cont
-  %14 = phi ptr [ %.pre, %for.cond.for.end_crit_edge.i.i.i ], [ %6, %invoke.cont ]
+  %14 = phi ptr [ %.pre, %for.cond.for.end_crit_edge.i.i.i ], [ %5, %invoke.cont ]
   %tobool.not.i = icmp eq ptr %14, null
   %15 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 16
   %cmp.not.i.i = icmp eq ptr %15, %14
@@ -69434,39 +69431,36 @@ invoke.cont:                                      ; preds = %entry
   %1 = load ptr, ptr %mpPoolBegin3.i.i.i.i, align 8
   store ptr %1, ptr %mpPoolBegin.i.i.i.i, align 16
   call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE20DoInitFromTupleArrayEPKNS_5tupleIJbS7_fEEESC_(ptr noundef nonnull align 8 dereferenceable(72) %temp, ptr noundef %first, ptr noundef %last)
-  %2 = load ptr, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %add.ptr4.i = getelementptr inbounds i8, ptr %temp, i64 8
-  %3 = load ptr, ptr %add.ptr.i, align 8
+  %2 = load ptr, ptr %add.ptr.i, align 8
+  %3 = load <2 x ptr>, ptr %this, align 8
   %4 = load <2 x ptr>, ptr %temp, align 16
-  store ptr %2, ptr %temp, align 16
   store <2 x ptr> %4, ptr %this, align 8
-  store ptr %3, ptr %add.ptr4.i, align 8
+  store <2 x ptr> %3, ptr %temp, align 16
   %add.ptr7.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr9.i = getelementptr inbounds i8, ptr %temp, i64 16
-  %5 = load ptr, ptr %add.ptr7.i, align 8
   %mpData12.i = getelementptr inbounds i8, ptr %this, i64 24
   %mpData13.i = getelementptr inbounds i8, ptr %temp, i64 24
-  %6 = load ptr, ptr %mpData12.i, align 8
+  %5 = load ptr, ptr %mpData12.i, align 8
+  %6 = load <2 x ptr>, ptr %add.ptr7.i, align 8
   %7 = load <2 x ptr>, ptr %add.ptr9.i, align 16
-  store ptr %5, ptr %add.ptr9.i, align 16
   store <2 x ptr> %7, ptr %add.ptr7.i, align 8
-  store ptr %6, ptr %mpData13.i, align 8
+  store <2 x ptr> %6, ptr %add.ptr9.i, align 16
   %mNumElements.i = getelementptr inbounds i8, ptr %this, i64 32
   %mNumElements14.i = getelementptr inbounds i8, ptr %temp, i64 32
   %8 = load <2 x i64>, ptr %mNumElements.i, align 8
-  %9 = load <2 x i64>, ptr %mNumElements14.i, align 16
-  store <2 x i64> %9, ptr %mNumElements.i, align 8
+  %9 = load i64, ptr %mNumElements.i, align 8
+  %10 = load <2 x i64>, ptr %mNumElements14.i, align 16
+  store <2 x i64> %10, ptr %mNumElements.i, align 8
   store <2 x i64> %8, ptr %mNumElements14.i, align 16
   %mDataSizeAndAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %mDataSizeAndAllocator.i9.i = getelementptr inbounds i8, ptr %temp, i64 48
-  %10 = load i64, ptr %mDataSizeAndAllocator.i.i, align 8
-  %11 = load i64, ptr %mDataSizeAndAllocator.i9.i, align 16
-  store i64 %11, ptr %mDataSizeAndAllocator.i.i, align 8
-  store i64 %10, ptr %mDataSizeAndAllocator.i9.i, align 16
-  %12 = extractelement <2 x i64> %8, i64 0
-  %add.ptr8.i = getelementptr inbounds %struct.TestObject, ptr %3, i64 %12
-  %cmp.not7.i.i.i = icmp eq i64 %12, 0
+  %11 = load i64, ptr %mDataSizeAndAllocator.i.i, align 8
+  %12 = load i64, ptr %mDataSizeAndAllocator.i9.i, align 16
+  store i64 %12, ptr %mDataSizeAndAllocator.i.i, align 8
+  store i64 %11, ptr %mDataSizeAndAllocator.i9.i, align 16
+  %add.ptr8.i = getelementptr inbounds %struct.TestObject, ptr %2, i64 %9
+  %cmp.not7.i.i.i = icmp eq i64 %9, 0
   br i1 %cmp.not7.i.i.i, label %invoke.cont17.i, label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %invoke.cont
@@ -69476,7 +69470,7 @@ for.body.preheader.i.i.i:                         ; preds = %invoke.cont
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZN10TestObjectD2Ev.exit.i.i.i, %for.body.preheader.i.i.i
-  %first.addr.011.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %3, %for.body.preheader.i.i.i ]
+  %first.addr.011.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %2, %for.body.preheader.i.i.i ]
   %inc.i410.i.i.i = phi i32 [ %inc.i3.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i, %for.body.preheader.i.i.i ]
   %dec.i59.i.i.i = phi i64 [ %dec.i.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %_ZN10TestObject8sTOCountE.promoted.i.i.i, %for.body.preheader.i.i.i ]
   %inc3.i68.i.i.i = phi i64 [ %inc3.i.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %_ZN10TestObject12sTODtorCountE.promoted.i.i.i, %for.body.preheader.i.i.i ]
@@ -69506,7 +69500,7 @@ for.cond.for.end_crit_edge.i.i.i:                 ; preds = %_ZN10TestObjectD2Ev
   br label %invoke.cont17.i
 
 invoke.cont17.i:                                  ; preds = %for.cond.for.end_crit_edge.i.i.i, %invoke.cont
-  %14 = phi ptr [ %.pre142, %for.cond.for.end_crit_edge.i.i.i ], [ %6, %invoke.cont ]
+  %14 = phi ptr [ %.pre142, %for.cond.for.end_crit_edge.i.i.i ], [ %5, %invoke.cont ]
   %tobool.not.i = icmp eq ptr %14, null
   %15 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 16
   %cmp.not.i.i = icmp eq ptr %15, %14
@@ -72613,39 +72607,36 @@ invoke.cont:                                      ; preds = %entry
   %1 = load ptr, ptr %mpPoolBegin3.i.i.i.i, align 8
   store ptr %1, ptr %mpPoolBegin.i.i.i.i, align 16
   call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE14DoInitFillArgsEmRKbRKS7_RKf(ptr noundef nonnull align 8 dereferenceable(72) %temp, i64 noundef %n, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 8 dereferenceable(20) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3)
-  %2 = load ptr, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %add.ptr4.i = getelementptr inbounds i8, ptr %temp, i64 8
-  %3 = load ptr, ptr %add.ptr.i, align 8
+  %2 = load ptr, ptr %add.ptr.i, align 8
+  %3 = load <2 x ptr>, ptr %this, align 8
   %4 = load <2 x ptr>, ptr %temp, align 16
-  store ptr %2, ptr %temp, align 16
   store <2 x ptr> %4, ptr %this, align 8
-  store ptr %3, ptr %add.ptr4.i, align 8
+  store <2 x ptr> %3, ptr %temp, align 16
   %add.ptr7.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr9.i = getelementptr inbounds i8, ptr %temp, i64 16
-  %5 = load ptr, ptr %add.ptr7.i, align 8
   %mpData12.i = getelementptr inbounds i8, ptr %this, i64 24
   %mpData13.i = getelementptr inbounds i8, ptr %temp, i64 24
-  %6 = load ptr, ptr %mpData12.i, align 8
+  %5 = load ptr, ptr %mpData12.i, align 8
+  %6 = load <2 x ptr>, ptr %add.ptr7.i, align 8
   %7 = load <2 x ptr>, ptr %add.ptr9.i, align 16
-  store ptr %5, ptr %add.ptr9.i, align 16
   store <2 x ptr> %7, ptr %add.ptr7.i, align 8
-  store ptr %6, ptr %mpData13.i, align 8
+  store <2 x ptr> %6, ptr %add.ptr9.i, align 16
   %mNumElements.i = getelementptr inbounds i8, ptr %this, i64 32
   %mNumElements14.i = getelementptr inbounds i8, ptr %temp, i64 32
   %8 = load <2 x i64>, ptr %mNumElements.i, align 8
-  %9 = load <2 x i64>, ptr %mNumElements14.i, align 16
-  store <2 x i64> %9, ptr %mNumElements.i, align 8
+  %9 = load i64, ptr %mNumElements.i, align 8
+  %10 = load <2 x i64>, ptr %mNumElements14.i, align 16
+  store <2 x i64> %10, ptr %mNumElements.i, align 8
   store <2 x i64> %8, ptr %mNumElements14.i, align 16
   %mDataSizeAndAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %mDataSizeAndAllocator.i9.i = getelementptr inbounds i8, ptr %temp, i64 48
-  %10 = load i64, ptr %mDataSizeAndAllocator.i.i, align 8
-  %11 = load i64, ptr %mDataSizeAndAllocator.i9.i, align 16
-  store i64 %11, ptr %mDataSizeAndAllocator.i.i, align 8
-  store i64 %10, ptr %mDataSizeAndAllocator.i9.i, align 16
-  %12 = extractelement <2 x i64> %8, i64 0
-  %add.ptr8.i = getelementptr inbounds %struct.TestObject, ptr %3, i64 %12
-  %cmp.not7.i.i.i = icmp eq i64 %12, 0
+  %11 = load i64, ptr %mDataSizeAndAllocator.i.i, align 8
+  %12 = load i64, ptr %mDataSizeAndAllocator.i9.i, align 16
+  store i64 %12, ptr %mDataSizeAndAllocator.i.i, align 8
+  store i64 %11, ptr %mDataSizeAndAllocator.i9.i, align 16
+  %add.ptr8.i = getelementptr inbounds %struct.TestObject, ptr %2, i64 %9
+  %cmp.not7.i.i.i = icmp eq i64 %9, 0
   br i1 %cmp.not7.i.i.i, label %invoke.cont17.i, label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %invoke.cont
@@ -72655,7 +72646,7 @@ for.body.preheader.i.i.i:                         ; preds = %invoke.cont
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZN10TestObjectD2Ev.exit.i.i.i, %for.body.preheader.i.i.i
-  %first.addr.011.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %3, %for.body.preheader.i.i.i ]
+  %first.addr.011.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %2, %for.body.preheader.i.i.i ]
   %inc.i410.i.i.i = phi i32 [ %inc.i3.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i, %for.body.preheader.i.i.i ]
   %dec.i59.i.i.i = phi i64 [ %dec.i.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %_ZN10TestObject8sTOCountE.promoted.i.i.i, %for.body.preheader.i.i.i ]
   %inc3.i68.i.i.i = phi i64 [ %inc3.i.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %_ZN10TestObject12sTODtorCountE.promoted.i.i.i, %for.body.preheader.i.i.i ]
@@ -72685,7 +72676,7 @@ for.cond.for.end_crit_edge.i.i.i:                 ; preds = %_ZN10TestObjectD2Ev
   br label %invoke.cont17.i
 
 invoke.cont17.i:                                  ; preds = %for.cond.for.end_crit_edge.i.i.i, %invoke.cont
-  %14 = phi ptr [ %.pre, %for.cond.for.end_crit_edge.i.i.i ], [ %6, %invoke.cont ]
+  %14 = phi ptr [ %.pre, %for.cond.for.end_crit_edge.i.i.i ], [ %5, %invoke.cont ]
   %tobool.not.i = icmp eq ptr %14, null
   %15 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 16
   %cmp.not.i.i = icmp eq ptr %15, %14
@@ -75553,39 +75544,36 @@ invoke.cont:                                      ; preds = %entry
   %1 = load ptr, ptr %mpPoolBegin3.i.i.i.i, align 8
   store ptr %1, ptr %mpPoolBegin.i.i.i.i, align 16
   call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm464ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE20DoInitFromTupleArrayEPKNS_5tupleIJbS7_fEEESC_(ptr noundef nonnull align 8 dereferenceable(72) %temp, ptr noundef %first, ptr noundef %last)
-  %2 = load ptr, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %add.ptr4.i = getelementptr inbounds i8, ptr %temp, i64 8
-  %3 = load ptr, ptr %add.ptr.i, align 8
+  %2 = load ptr, ptr %add.ptr.i, align 8
+  %3 = load <2 x ptr>, ptr %this, align 8
   %4 = load <2 x ptr>, ptr %temp, align 16
-  store ptr %2, ptr %temp, align 16
   store <2 x ptr> %4, ptr %this, align 8
-  store ptr %3, ptr %add.ptr4.i, align 8
+  store <2 x ptr> %3, ptr %temp, align 16
   %add.ptr7.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr9.i = getelementptr inbounds i8, ptr %temp, i64 16
-  %5 = load ptr, ptr %add.ptr7.i, align 8
   %mpData12.i = getelementptr inbounds i8, ptr %this, i64 24
   %mpData13.i = getelementptr inbounds i8, ptr %temp, i64 24
-  %6 = load ptr, ptr %mpData12.i, align 8
+  %5 = load ptr, ptr %mpData12.i, align 8
+  %6 = load <2 x ptr>, ptr %add.ptr7.i, align 8
   %7 = load <2 x ptr>, ptr %add.ptr9.i, align 16
-  store ptr %5, ptr %add.ptr9.i, align 16
   store <2 x ptr> %7, ptr %add.ptr7.i, align 8
-  store ptr %6, ptr %mpData13.i, align 8
+  store <2 x ptr> %6, ptr %add.ptr9.i, align 16
   %mNumElements.i = getelementptr inbounds i8, ptr %this, i64 32
   %mNumElements14.i = getelementptr inbounds i8, ptr %temp, i64 32
   %8 = load <2 x i64>, ptr %mNumElements.i, align 8
-  %9 = load <2 x i64>, ptr %mNumElements14.i, align 16
-  store <2 x i64> %9, ptr %mNumElements.i, align 8
+  %9 = load i64, ptr %mNumElements.i, align 8
+  %10 = load <2 x i64>, ptr %mNumElements14.i, align 16
+  store <2 x i64> %10, ptr %mNumElements.i, align 8
   store <2 x i64> %8, ptr %mNumElements14.i, align 16
   %mDataSizeAndAllocator.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %mDataSizeAndAllocator.i9.i = getelementptr inbounds i8, ptr %temp, i64 48
-  %10 = load i64, ptr %mDataSizeAndAllocator.i.i, align 8
-  %11 = load i64, ptr %mDataSizeAndAllocator.i9.i, align 16
-  store i64 %11, ptr %mDataSizeAndAllocator.i.i, align 8
-  store i64 %10, ptr %mDataSizeAndAllocator.i9.i, align 16
-  %12 = extractelement <2 x i64> %8, i64 0
-  %add.ptr8.i = getelementptr inbounds %struct.TestObject, ptr %3, i64 %12
-  %cmp.not7.i.i.i = icmp eq i64 %12, 0
+  %11 = load i64, ptr %mDataSizeAndAllocator.i.i, align 8
+  %12 = load i64, ptr %mDataSizeAndAllocator.i9.i, align 16
+  store i64 %12, ptr %mDataSizeAndAllocator.i.i, align 8
+  store i64 %11, ptr %mDataSizeAndAllocator.i9.i, align 16
+  %add.ptr8.i = getelementptr inbounds %struct.TestObject, ptr %2, i64 %9
+  %cmp.not7.i.i.i = icmp eq i64 %9, 0
   br i1 %cmp.not7.i.i.i, label %invoke.cont17.i, label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %invoke.cont
@@ -75595,7 +75583,7 @@ for.body.preheader.i.i.i:                         ; preds = %invoke.cont
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZN10TestObjectD2Ev.exit.i.i.i, %for.body.preheader.i.i.i
-  %first.addr.011.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %3, %for.body.preheader.i.i.i ]
+  %first.addr.011.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %2, %for.body.preheader.i.i.i ]
   %inc.i410.i.i.i = phi i32 [ %inc.i3.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %_ZN10TestObject16sMagicErrorCountE.promoted.i.i.i, %for.body.preheader.i.i.i ]
   %dec.i59.i.i.i = phi i64 [ %dec.i.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %_ZN10TestObject8sTOCountE.promoted.i.i.i, %for.body.preheader.i.i.i ]
   %inc3.i68.i.i.i = phi i64 [ %inc3.i.i.i.i, %_ZN10TestObjectD2Ev.exit.i.i.i ], [ %_ZN10TestObject12sTODtorCountE.promoted.i.i.i, %for.body.preheader.i.i.i ]
@@ -75625,7 +75613,7 @@ for.cond.for.end_crit_edge.i.i.i:                 ; preds = %_ZN10TestObjectD2Ev
   br label %invoke.cont17.i
 
 invoke.cont17.i:                                  ; preds = %for.cond.for.end_crit_edge.i.i.i, %invoke.cont
-  %14 = phi ptr [ %.pre142, %for.cond.for.end_crit_edge.i.i.i ], [ %6, %invoke.cont ]
+  %14 = phi ptr [ %.pre142, %for.cond.for.end_crit_edge.i.i.i ], [ %5, %invoke.cont ]
   %tobool.not.i = icmp eq ptr %14, null
   %15 = load ptr, ptr %mpPoolBegin.i.i.i.i, align 16
   %cmp.not.i.i = icmp eq ptr %15, %14

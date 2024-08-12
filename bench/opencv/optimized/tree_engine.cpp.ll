@@ -99,17 +99,17 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca %"class.std::allocator", align 1
   %18 = alloca %"struct.cv::Ptr", align 8
-  %19 = alloca %"struct.cv::Ptr.0", align 8
+  %19 = alloca %"struct.cv::Ptr.0", align 16
   %20 = alloca %"class.cv::Mat", align 8
-  %21 = alloca %"struct.cv::Ptr.4", align 8
+  %21 = alloca %"struct.cv::Ptr.4", align 16
   %22 = alloca %"class.cv::Mat", align 8
-  %23 = alloca %"struct.cv::Ptr.8", align 8
+  %23 = alloca %"struct.cv::Ptr.8", align 16
   %24 = alloca %"class.cv::Mat", align 8
-  %25 = alloca %"struct.cv::Ptr.4", align 8
-  %26 = alloca %"struct.cv::Ptr.12", align 8
+  %25 = alloca %"struct.cv::Ptr.4", align 16
+  %26 = alloca %"struct.cv::Ptr.12", align 16
   %27 = alloca %"class.cv::Mat", align 8
   %28 = alloca %"class.cv::TermCriteria", align 8
-  %29 = alloca %"struct.cv::Ptr.4", align 8
+  %29 = alloca %"struct.cv::Ptr.4", align 16
   %30 = alloca %"class.cv::Mat", align 8
   %31 = alloca %"class.cv::Mat", align 8
   %32 = alloca %"class.cv::Mat", align 8
@@ -362,7 +362,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %120 unwind label %93
 
 120:                                              ; preds = %119
-  %121 = load ptr, ptr %19, align 8
+  %121 = load ptr, ptr %19, align 16
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 144
   %124 = load ptr, ptr %123, align 8
@@ -370,7 +370,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %125 unwind label %338
 
 125:                                              ; preds = %120
-  %126 = load ptr, ptr %19, align 8
+  %126 = load ptr, ptr %19, align 16
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 160
   %129 = load ptr, ptr %128, align 8
@@ -378,7 +378,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %130 unwind label %338
 
 130:                                              ; preds = %125
-  %131 = load ptr, ptr %19, align 8
+  %131 = load ptr, ptr %19, align 16
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 240
   %134 = load ptr, ptr %133, align 8
@@ -386,7 +386,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %135 unwind label %338
 
 135:                                              ; preds = %130
-  %136 = load ptr, ptr %19, align 8
+  %136 = load ptr, ptr %19, align 16
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 192
   %139 = load ptr, ptr %138, align 8
@@ -394,7 +394,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %140 unwind label %338
 
 140:                                              ; preds = %135
-  %141 = load ptr, ptr %19, align 8
+  %141 = load ptr, ptr %19, align 16
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 128
   %144 = load ptr, ptr %143, align 8
@@ -402,7 +402,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %145 unwind label %338
 
 145:                                              ; preds = %140
-  %146 = load ptr, ptr %19, align 8
+  %146 = load ptr, ptr %19, align 16
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 176
   %149 = load ptr, ptr %148, align 8
@@ -410,7 +410,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %150 unwind label %338
 
 150:                                              ; preds = %145
-  %151 = load ptr, ptr %19, align 8
+  %151 = load ptr, ptr %19, align 16
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds i8, ptr %152, i64 208
   %154 = load ptr, ptr %153, align 8
@@ -418,7 +418,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %155 unwind label %338
 
 155:                                              ; preds = %150
-  %156 = load ptr, ptr %19, align 8
+  %156 = load ptr, ptr %19, align 16
   %157 = load ptr, ptr %156, align 8
   %158 = getelementptr inbounds i8, ptr %157, i64 224
   %159 = load ptr, ptr %158, align 8
@@ -426,7 +426,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %160 unwind label %338
 
 160:                                              ; preds = %155
-  %161 = load ptr, ptr %19, align 8
+  %161 = load ptr, ptr %19, align 16
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #8
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 256
@@ -436,17 +436,16 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 165:                                              ; preds = %160
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #8
-  %166 = load ptr, ptr %19, align 8
-  store ptr %166, ptr %21, align 8
-  %167 = getelementptr inbounds i8, ptr %21, i64 8
-  %168 = getelementptr inbounds i8, ptr %19, i64 8
-  %169 = load ptr, ptr %168, align 8
-  store ptr %169, ptr %167, align 8
-  %.not.i.i.i.i = icmp eq ptr %169, null
+  %166 = getelementptr inbounds i8, ptr %21, i64 8
+  %167 = getelementptr inbounds i8, ptr %19, i64 8
+  %168 = load ptr, ptr %167, align 8
+  %169 = load <2 x ptr>, ptr %19, align 16
+  store <2 x ptr> %169, ptr %21, align 16
+  %.not.i.i.i.i = icmp eq ptr %168, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_2ml9StatModelEEC2INS1_6DTreesEEERKNS0_IT_EE.exit, label %170
 
 170:                                              ; preds = %165
-  %171 = getelementptr inbounds i8, ptr %169, i64 8
+  %171 = getelementptr inbounds i8, ptr %168, i64 8
   %172 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %172, 0
   br i1 %.not.i.i.i.i.i, label %176, label %173
@@ -466,7 +465,7 @@ _ZN2cv3PtrINS_2ml9StatModelEEC2INS1_6DTreesEEERKNS0_IT_EE.exit: ; preds = %165, 
           to label %178 unwind label %342
 
 178:                                              ; preds = %_ZN2cv3PtrINS_2ml9StatModelEEC2INS1_6DTreesEEERKNS0_IT_EE.exit
-  %179 = load ptr, ptr %167, align 8
+  %179 = load ptr, ptr %166, align 8
   %.not.i.i.i.i63 = icmp eq ptr %179, null
   br i1 %.not.i.i.i.i63, label %_ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit, label %180
 
@@ -562,7 +561,7 @@ _ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit:           ; preds = %178, %196, %209, %_
           to label %224 unwind label %338
 
 224:                                              ; preds = %223
-  %225 = load ptr, ptr %23, align 8
+  %225 = load ptr, ptr %23, align 16
   %226 = load ptr, ptr %225, align 8
   %227 = getelementptr inbounds i8, ptr %226, i64 304
   %228 = load ptr, ptr %227, align 8
@@ -570,7 +569,7 @@ _ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit:           ; preds = %178, %196, %209, %_
           to label %229 unwind label %346
 
 229:                                              ; preds = %224
-  %230 = load ptr, ptr %23, align 8
+  %230 = load ptr, ptr %23, align 16
   %231 = load ptr, ptr %230, align 8
   %232 = getelementptr inbounds i8, ptr %231, i64 320
   %233 = load ptr, ptr %232, align 8
@@ -578,7 +577,7 @@ _ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit:           ; preds = %178, %196, %209, %_
           to label %234 unwind label %346
 
 234:                                              ; preds = %229
-  %235 = load ptr, ptr %23, align 8
+  %235 = load ptr, ptr %23, align 16
   %236 = load ptr, ptr %235, align 8
   %237 = getelementptr inbounds i8, ptr %236, i64 336
   %238 = load ptr, ptr %237, align 8
@@ -586,7 +585,7 @@ _ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit:           ; preds = %178, %196, %209, %_
           to label %239 unwind label %346
 
 239:                                              ; preds = %234
-  %240 = load ptr, ptr %23, align 8
+  %240 = load ptr, ptr %23, align 16
   %241 = load ptr, ptr %240, align 8
   %242 = getelementptr inbounds i8, ptr %241, i64 144
   %243 = load ptr, ptr %242, align 8
@@ -594,7 +593,7 @@ _ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit:           ; preds = %178, %196, %209, %_
           to label %244 unwind label %346
 
 244:                                              ; preds = %239
-  %245 = load ptr, ptr %23, align 8
+  %245 = load ptr, ptr %23, align 16
   %246 = load ptr, ptr %245, align 8
   %247 = getelementptr inbounds i8, ptr %246, i64 192
   %248 = load ptr, ptr %247, align 8
@@ -602,7 +601,7 @@ _ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit:           ; preds = %178, %196, %209, %_
           to label %249 unwind label %346
 
 249:                                              ; preds = %244
-  %250 = load ptr, ptr %23, align 8
+  %250 = load ptr, ptr %23, align 16
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #8
   %251 = load ptr, ptr %250, align 8
   %252 = getelementptr inbounds i8, ptr %251, i64 256
@@ -612,17 +611,16 @@ _ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit:           ; preds = %178, %196, %209, %_
 
 254:                                              ; preds = %249
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #8
-  %255 = load ptr, ptr %23, align 8
-  store ptr %255, ptr %25, align 8
-  %256 = getelementptr inbounds i8, ptr %25, i64 8
-  %257 = getelementptr inbounds i8, ptr %23, i64 8
-  %258 = load ptr, ptr %257, align 8
-  store ptr %258, ptr %256, align 8
-  %.not.i.i.i.i65 = icmp eq ptr %258, null
+  %255 = getelementptr inbounds i8, ptr %25, i64 8
+  %256 = getelementptr inbounds i8, ptr %23, i64 8
+  %257 = load ptr, ptr %256, align 8
+  %258 = load <2 x ptr>, ptr %23, align 16
+  store <2 x ptr> %258, ptr %25, align 16
+  %.not.i.i.i.i65 = icmp eq ptr %257, null
   br i1 %.not.i.i.i.i65, label %_ZN2cv3PtrINS_2ml9StatModelEEC2INS1_5BoostEEERKNS0_IT_EE.exit, label %259
 
 259:                                              ; preds = %254
-  %260 = getelementptr inbounds i8, ptr %258, i64 8
+  %260 = getelementptr inbounds i8, ptr %257, i64 8
   %261 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i66 = icmp eq i8 %261, 0
   br i1 %.not.i.i.i.i.i66, label %265, label %262
@@ -642,7 +640,7 @@ _ZN2cv3PtrINS_2ml9StatModelEEC2INS1_5BoostEEERKNS0_IT_EE.exit: ; preds = %254, %
           to label %267 unwind label %350
 
 267:                                              ; preds = %_ZN2cv3PtrINS_2ml9StatModelEEC2INS1_5BoostEEERKNS0_IT_EE.exit
-  %268 = load ptr, ptr %256, align 8
+  %268 = load ptr, ptr %255, align 8
   %.not.i.i.i.i67 = icmp eq ptr %268, null
   br i1 %.not.i.i.i.i67, label %_ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit73, label %269
 
@@ -715,7 +713,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit73
 
 _ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit73:         ; preds = %267, %285, %298, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i72
-  %303 = load ptr, ptr %257, align 8
+  %303 = load ptr, ptr %256, align 8
   %.not.i.i.i.i74 = icmp eq ptr %303, null
   br i1 %.not.i.i.i.i74, label %_ZN2cv3PtrINS_2ml5BoostEED2Ev.exit, label %304
 
@@ -838,7 +836,7 @@ _ZN2cv3PtrINS_2ml5BoostEED2Ev.exit:               ; preds = %_ZNSt16_Sp_counted_
           to label %353 unwind label %338
 
 353:                                              ; preds = %_ZN2cv3PtrINS_2ml5BoostEED2Ev.exit
-  %354 = load ptr, ptr %26, align 8
+  %354 = load ptr, ptr %26, align 16
   %355 = load ptr, ptr %354, align 8
   %356 = getelementptr inbounds i8, ptr %355, i64 144
   %357 = load ptr, ptr %356, align 8
@@ -846,7 +844,7 @@ _ZN2cv3PtrINS_2ml5BoostEED2Ev.exit:               ; preds = %_ZNSt16_Sp_counted_
           to label %358 unwind label %509
 
 358:                                              ; preds = %353
-  %359 = load ptr, ptr %26, align 8
+  %359 = load ptr, ptr %26, align 16
   %360 = load ptr, ptr %359, align 8
   %361 = getelementptr inbounds i8, ptr %360, i64 160
   %362 = load ptr, ptr %361, align 8
@@ -854,7 +852,7 @@ _ZN2cv3PtrINS_2ml5BoostEED2Ev.exit:               ; preds = %_ZNSt16_Sp_counted_
           to label %363 unwind label %509
 
 363:                                              ; preds = %358
-  %364 = load ptr, ptr %26, align 8
+  %364 = load ptr, ptr %26, align 16
   %365 = load ptr, ptr %364, align 8
   %366 = getelementptr inbounds i8, ptr %365, i64 240
   %367 = load ptr, ptr %366, align 8
@@ -862,7 +860,7 @@ _ZN2cv3PtrINS_2ml5BoostEED2Ev.exit:               ; preds = %_ZNSt16_Sp_counted_
           to label %368 unwind label %509
 
 368:                                              ; preds = %363
-  %369 = load ptr, ptr %26, align 8
+  %369 = load ptr, ptr %26, align 16
   %370 = load ptr, ptr %369, align 8
   %371 = getelementptr inbounds i8, ptr %370, i64 192
   %372 = load ptr, ptr %371, align 8
@@ -870,7 +868,7 @@ _ZN2cv3PtrINS_2ml5BoostEED2Ev.exit:               ; preds = %_ZNSt16_Sp_counted_
           to label %373 unwind label %509
 
 373:                                              ; preds = %368
-  %374 = load ptr, ptr %26, align 8
+  %374 = load ptr, ptr %26, align 16
   %375 = load ptr, ptr %374, align 8
   %376 = getelementptr inbounds i8, ptr %375, i64 128
   %377 = load ptr, ptr %376, align 8
@@ -878,7 +876,7 @@ _ZN2cv3PtrINS_2ml5BoostEED2Ev.exit:               ; preds = %_ZNSt16_Sp_counted_
           to label %378 unwind label %509
 
 378:                                              ; preds = %373
-  %379 = load ptr, ptr %26, align 8
+  %379 = load ptr, ptr %26, align 16
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #8
   %380 = load ptr, ptr %379, align 8
   %381 = getelementptr inbounds i8, ptr %380, i64 256
@@ -888,7 +886,7 @@ _ZN2cv3PtrINS_2ml5BoostEED2Ev.exit:               ; preds = %_ZNSt16_Sp_counted_
 
 383:                                              ; preds = %378
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #8
-  %384 = load ptr, ptr %26, align 8
+  %384 = load ptr, ptr %26, align 16
   %385 = load ptr, ptr %384, align 8
   %386 = getelementptr inbounds i8, ptr %385, i64 304
   %387 = load ptr, ptr %386, align 8
@@ -896,7 +894,7 @@ _ZN2cv3PtrINS_2ml5BoostEED2Ev.exit:               ; preds = %_ZNSt16_Sp_counted_
           to label %388 unwind label %509
 
 388:                                              ; preds = %383
-  %389 = load ptr, ptr %26, align 8
+  %389 = load ptr, ptr %26, align 16
   %390 = load ptr, ptr %389, align 8
   %391 = getelementptr inbounds i8, ptr %390, i64 320
   %392 = load ptr, ptr %391, align 8
@@ -904,7 +902,7 @@ _ZN2cv3PtrINS_2ml5BoostEED2Ev.exit:               ; preds = %_ZNSt16_Sp_counted_
           to label %393 unwind label %509
 
 393:                                              ; preds = %388
-  %394 = load ptr, ptr %26, align 8
+  %394 = load ptr, ptr %26, align 16
   store i32 1, ptr %28, align 8
   %395 = getelementptr inbounds i8, ptr %28, i64 4
   store i32 100, ptr %395, align 4
@@ -917,17 +915,16 @@ _ZN2cv3PtrINS_2ml5BoostEED2Ev.exit:               ; preds = %_ZNSt16_Sp_counted_
           to label %400 unwind label %509
 
 400:                                              ; preds = %393
-  %401 = load ptr, ptr %26, align 8
-  store ptr %401, ptr %29, align 8
-  %402 = getelementptr inbounds i8, ptr %29, i64 8
-  %403 = getelementptr inbounds i8, ptr %26, i64 8
-  %404 = load ptr, ptr %403, align 8
-  store ptr %404, ptr %402, align 8
-  %.not.i.i.i.i80 = icmp eq ptr %404, null
+  %401 = getelementptr inbounds i8, ptr %29, i64 8
+  %402 = getelementptr inbounds i8, ptr %26, i64 8
+  %403 = load ptr, ptr %402, align 8
+  %404 = load <2 x ptr>, ptr %26, align 16
+  store <2 x ptr> %404, ptr %29, align 16
+  %.not.i.i.i.i80 = icmp eq ptr %403, null
   br i1 %.not.i.i.i.i80, label %_ZN2cv3PtrINS_2ml9StatModelEEC2INS1_6RTreesEEERKNS0_IT_EE.exit, label %405
 
 405:                                              ; preds = %400
-  %406 = getelementptr inbounds i8, ptr %404, i64 8
+  %406 = getelementptr inbounds i8, ptr %403, i64 8
   %407 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i81 = icmp eq i8 %407, 0
   br i1 %.not.i.i.i.i.i81, label %411, label %408
@@ -947,7 +944,7 @@ _ZN2cv3PtrINS_2ml9StatModelEEC2INS1_6RTreesEEERKNS0_IT_EE.exit: ; preds = %400, 
           to label %413 unwind label %513
 
 413:                                              ; preds = %_ZN2cv3PtrINS_2ml9StatModelEEC2INS1_6RTreesEEERKNS0_IT_EE.exit
-  %414 = load ptr, ptr %402, align 8
+  %414 = load ptr, ptr %401, align 8
   %.not.i.i.i.i82 = icmp eq ptr %414, null
   br i1 %.not.i.i.i.i82, label %_ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit88, label %415
 
@@ -1037,7 +1034,7 @@ _ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit88:         ; preds = %413, %431, %444, %_
 
 458:                                              ; preds = %453
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %32) #8
-  %459 = load ptr, ptr %26, align 8
+  %459 = load ptr, ptr %26, align 16
   %460 = load ptr, ptr %18, align 8
   %461 = load ptr, ptr %460, align 8
   %462 = getelementptr inbounds i8, ptr %461, i64 72
@@ -1066,7 +1063,7 @@ _ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit88:         ; preds = %413, %431, %444, %_
 
 474:                                              ; preds = %464
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %34) #8
-  %475 = load ptr, ptr %26, align 8
+  %475 = load ptr, ptr %26, align 16
   %476 = load ptr, ptr %475, align 8
   %477 = getelementptr inbounds i8, ptr %476, i64 344
   %478 = load ptr, ptr %477, align 8
@@ -1180,7 +1177,7 @@ _ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit88:         ; preds = %413, %431, %444, %_
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %32) #8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #8
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #8
-  %522 = load ptr, ptr %403, align 8
+  %522 = load ptr, ptr %402, align 8
   %.not.i.i.i.i89 = icmp eq ptr %522, null
   br i1 %.not.i.i.i.i89, label %_ZN2cv3PtrINS_2ml6RTreesEED2Ev.exit, label %523
 
@@ -1253,7 +1250,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_2ml6RTreesEED2Ev.exit
 
 _ZN2cv3PtrINS_2ml6RTreesEED2Ev.exit:              ; preds = %._crit_edge, %539, %552, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i94
-  %557 = load ptr, ptr %168, align 8
+  %557 = load ptr, ptr %167, align 8
   %.not.i.i.i.i95 = icmp eq ptr %557, null
   br i1 %.not.i.i.i.i95, label %_ZN2cv3PtrINS_2ml6DTreesEED2Ev.exit, label %558
 

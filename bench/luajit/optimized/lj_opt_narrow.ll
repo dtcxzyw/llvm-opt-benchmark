@@ -62,7 +62,7 @@ if.then19:                                        ; preds = %if.end
   br i1 %cmp50.i, label %while.body.lr.ph.i, label %narrow_conv_emit.exit
 
 while.body.lr.ph.i:                               ; preds = %if.then19
-  %9 = extractelement <2 x i16> %7, i64 1
+  %9 = load i16, ptr %t, align 4
   %10 = and i16 %9, 128
   %tobool.not.i = icmp eq i16 %10, 0
   %conv1.i = select i1 %tobool.not.i, i16 0, i16 3200

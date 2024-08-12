@@ -4609,7 +4609,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i: ; 
   %.sroa.520.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 25
   %.sroa.520.sroa.4.0..sroa.520.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %19, i64 64
   %92 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !691
-  %93 = extractelement <2 x i64> %92, i64 0
+  %93 = load i64, ptr %.0.i.i2.i, align 8, !noalias !691, !noundef !7
   %94 = add i64 %93, 1
   store i64 %94, ptr %.0.i.i2.i, align 8, !noalias !691
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %19)

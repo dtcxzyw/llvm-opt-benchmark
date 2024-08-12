@@ -610,10 +610,10 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i:            ; preds = %103
   %108 = getelementptr inbounds i8, ptr %104, i64 240
   %109 = getelementptr inbounds i8, ptr %104, i64 248
   %110 = load <2 x ptr>, ptr %108, align 8
+  %111 = load ptr, ptr %108, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui8ComboBox9set_itemsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_E3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %108, align 8
   store <2 x ptr> %110, ptr %102, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui8ComboBox9set_itemsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_E3$_0E9_M_invokeERKSt9_Any_data", ptr %109, align 8
-  %111 = extractelement <2 x ptr> %110, i64 0
   %.not.i.i2.i.i = icmp eq ptr %111, null
   br i1 %.not.i.i2.i.i, label %.thread, label %112
 

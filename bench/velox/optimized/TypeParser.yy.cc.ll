@@ -2633,14 +2633,14 @@ _ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit471: ; preds = %sw.bb712,
   %sub.ptr.sub.i.i.i480 = sub i64 %sub.ptr.lhs.cast.i.i.i478, %sub.ptr.rhs.cast.i.i.i479
   %268 = getelementptr i8, ptr %267, i64 %sub.ptr.sub.i.i.i480
   %value729 = getelementptr i8, ptr %268, i64 -112
-  %269 = load <2 x ptr>, ptr %returnType, align 16
-  store <2 x ptr> %269, ptr %agg.tmp731, align 16
-  %270 = extractelement <2 x ptr> %269, i64 1
-  %cmp.not.i.i.i484 = icmp eq ptr %270, null
+  %269 = load ptr, ptr %_M_refcount.i.i462, align 8
+  %270 = load <2 x ptr>, ptr %returnType, align 16
+  store <2 x ptr> %270, ptr %agg.tmp731, align 16
+  %cmp.not.i.i.i484 = icmp eq ptr %269, null
   br i1 %cmp.not.i.i.i484, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit491, label %if.then.i.i.i485
 
 if.then.i.i.i485:                                 ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEEC2ERKS4_.exit471
-  %_M_use_count.i.i.i.i486 = getelementptr inbounds i8, ptr %270, i64 8
+  %_M_use_count.i.i.i.i486 = getelementptr inbounds i8, ptr %269, i64 8
   %271 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i487 = icmp eq i8 %271, 0
   br i1 %tobool.i.not.i.i.i.i487, label %if.else.i.i.i.i.i490, label %if.then.i.i.i.i.i488
@@ -3292,14 +3292,15 @@ define linkonce_odr void @_ZSt9make_pairIRNSt7__cxx1112basic_stringIcSt11char_tr
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %__x)
   %second.i = getelementptr inbounds i8, ptr %agg.result, i64 32
-  %0 = load <2 x ptr>, ptr %__y, align 8
-  store <2 x ptr> %0, ptr %second.i, align 8
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %__y, i64 8
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %__y, align 8
+  store <2 x ptr> %1, ptr %second.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIKN8facebook5velox4TypeEEEC2IRS5_RSB_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -5527,14 +5528,15 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10s
 _ZNSt12_Vector_baseISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::shared_ptr", ptr %cond.i10, i64 %sub.ptr.div.i
-  %3 = load <2 x ptr>, ptr %__args, align 8
-  store <2 x ptr> %3, ptr %add.ptr, align 8
-  %4 = extractelement <2 x ptr> %3, i64 1
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
+  %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
+  %3 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  %4 = load <2 x ptr>, ptr %__args, align 8
+  store <2 x ptr> %4, ptr %add.ptr, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIKN8facebook5velox4TypeEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIKN8facebook5velox4TypeEESaIS5_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i

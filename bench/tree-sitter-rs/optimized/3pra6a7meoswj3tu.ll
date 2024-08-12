@@ -12902,7 +12902,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %165, i64 24
   %.sroa.7648.0..sroa_idx = getelementptr inbounds i8, ptr %165, i64 56
   %172 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !1698
-  %173 = extractelement <2 x i64> %172, i64 0
+  %173 = load i64, ptr %.0.i.i2.i, align 8, !noalias !1698, !noundef !4
   %174 = add i64 %173, 1
   store i64 %174, ptr %.0.i.i2.i, align 8, !noalias !1698
   store i64 0, ptr %165, align 8
@@ -12975,7 +12975,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i108:
   %.sroa.6659.0..sroa_idx = getelementptr inbounds i8, ptr %161, i64 24
   %.sroa.7660.0..sroa_idx = getelementptr inbounds i8, ptr %161, i64 56
   %189 = load <2 x i64>, ptr %.0.i.i2.i110, align 8, !noalias !1709
-  %190 = extractelement <2 x i64> %189, i64 0
+  %190 = load i64, ptr %.0.i.i2.i110, align 8, !noalias !1709, !noundef !4
   %191 = add i64 %190, 1
   store i64 %191, ptr %.0.i.i2.i110, align 8, !noalias !1709
   store i64 0, ptr %161, align 8
@@ -13157,7 +13157,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i139:
   %.sroa.6677.0..sroa_idx = getelementptr inbounds i8, ptr %151, i64 24
   %.sroa.7678.0..sroa_idx = getelementptr inbounds i8, ptr %151, i64 56
   %233 = load <2 x i64>, ptr %.0.i.i2.i141, align 8, !noalias !1731
-  %234 = extractelement <2 x i64> %233, i64 0
+  %234 = load i64, ptr %.0.i.i2.i141, align 8, !noalias !1731, !noundef !4
   %235 = add i64 %234, 1
   store i64 %235, ptr %.0.i.i2.i141, align 8, !noalias !1731
   store i64 0, ptr %151, align 8
@@ -13339,7 +13339,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i178:
   %.sroa.6695.0..sroa_idx = getelementptr inbounds i8, ptr %141, i64 24
   %.sroa.7696.0..sroa_idx = getelementptr inbounds i8, ptr %141, i64 56
   %277 = load <2 x i64>, ptr %.0.i.i2.i180, align 8, !noalias !1752
-  %278 = extractelement <2 x i64> %277, i64 0
+  %278 = load i64, ptr %.0.i.i2.i180, align 8, !noalias !1752, !noundef !4
   %279 = add i64 %278, 1
   store i64 %279, ptr %.0.i.i2.i180, align 8, !noalias !1752
   store i64 0, ptr %141, align 8
@@ -13653,7 +13653,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i247:
   %.sroa.6722.0..sroa_idx = getelementptr inbounds i8, ptr %122, i64 24
   %.sroa.7723.0..sroa_idx = getelementptr inbounds i8, ptr %122, i64 56
   %353 = load <2 x i64>, ptr %.0.i.i2.i249, align 8, !noalias !1790
-  %354 = extractelement <2 x i64> %353, i64 0
+  %354 = load i64, ptr %.0.i.i2.i249, align 8, !noalias !1790, !noundef !4
   %355 = add i64 %354, 1
   store i64 %355, ptr %.0.i.i2.i249, align 8, !noalias !1790
   store i64 0, ptr %122, align 8
@@ -13929,7 +13929,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i310:
   %.sroa.6746.0..sroa_idx = getelementptr inbounds i8, ptr %106, i64 24
   %.sroa.7747.0..sroa_idx = getelementptr inbounds i8, ptr %106, i64 56
   %419 = load <2 x i64>, ptr %.0.i.i2.i312, align 8, !noalias !1825
-  %420 = extractelement <2 x i64> %419, i64 0
+  %420 = load i64, ptr %.0.i.i2.i312, align 8, !noalias !1825, !noundef !4
   %421 = add i64 %420, 1
   store i64 %421, ptr %.0.i.i2.i312, align 8, !noalias !1825
   store i64 0, ptr %106, align 8
@@ -14205,7 +14205,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i373:
   %.sroa.6770.0..sroa_idx = getelementptr inbounds i8, ptr %90, i64 24
   %.sroa.7771.0..sroa_idx = getelementptr inbounds i8, ptr %90, i64 56
   %485 = load <2 x i64>, ptr %.0.i.i2.i375, align 8, !noalias !1860
-  %486 = extractelement <2 x i64> %485, i64 0
+  %486 = load i64, ptr %.0.i.i2.i375, align 8, !noalias !1860, !noundef !4
   %487 = add i64 %486, 1
   store i64 %487, ptr %.0.i.i2.i375, align 8, !noalias !1860
   store i64 0, ptr %90, align 8
@@ -14669,7 +14669,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i484:
   %.sroa.6806.0..sroa_idx = getelementptr inbounds i8, ptr %62, i64 24
   %.sroa.7807.0..sroa_idx = getelementptr inbounds i8, ptr %62, i64 56
   %595 = load <2 x i64>, ptr %.0.i.i2.i486, align 8, !noalias !1923
-  %596 = extractelement <2 x i64> %595, i64 0
+  %596 = load i64, ptr %.0.i.i2.i486, align 8, !noalias !1923, !noundef !4
   %597 = add i64 %596, 1
   store i64 %597, ptr %.0.i.i2.i486, align 8, !noalias !1923
   store i64 0, ptr %62, align 8
@@ -14851,7 +14851,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i523:
   %.sroa.6824.0..sroa_idx = getelementptr inbounds i8, ptr %52, i64 24
   %.sroa.7825.0..sroa_idx = getelementptr inbounds i8, ptr %52, i64 56
   %639 = load <2 x i64>, ptr %.0.i.i2.i525, align 8, !noalias !1944
-  %640 = extractelement <2 x i64> %639, i64 0
+  %640 = load i64, ptr %.0.i.i2.i525, align 8, !noalias !1944, !noundef !4
   %641 = add i64 %640, 1
   store i64 %641, ptr %.0.i.i2.i525, align 8, !noalias !1944
   store i64 0, ptr %52, align 8
@@ -14982,7 +14982,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i550:
   %.sroa.6839.0..sroa_idx = getelementptr inbounds i8, ptr %45, i64 24
   %.sroa.7840.0..sroa_idx = getelementptr inbounds i8, ptr %45, i64 56
   %671 = load <2 x i64>, ptr %.0.i.i2.i552, align 8, !noalias !1958
-  %672 = extractelement <2 x i64> %671, i64 0
+  %672 = load i64, ptr %.0.i.i2.i552, align 8, !noalias !1958, !noundef !4
   %673 = add i64 %672, 1
   store i64 %673, ptr %.0.i.i2.i552, align 8, !noalias !1958
   store i64 0, ptr %45, align 8

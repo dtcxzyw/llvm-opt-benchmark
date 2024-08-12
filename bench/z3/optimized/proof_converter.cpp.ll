@@ -1037,17 +1037,14 @@ lpad:                                             ; preds = %invoke.cont, %entry
 define linkonce_odr hidden void @_ZN8proof2pcclER11ast_managerjPKP3app(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %num_source, ptr noundef %source) unnamed_addr #3 comdat align 2 {
 entry:
   %m_pr = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load ptr, ptr %m_pr, align 8
-  store ptr %0, ptr %agg.result, align 8
-  %m_manager.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %m_manager3.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load ptr, ptr %m_manager3.i, align 8
-  store ptr %1, ptr %m_manager.i, align 8
-  %tobool.not.i.i = icmp eq ptr %0, null
+  %0 = load <2 x ptr>, ptr %m_pr, align 8
+  %1 = load ptr, ptr %m_pr, align 8
+  store <2 x ptr> %0, ptr %agg.result, align 8
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZN7obj_refI3app11ast_managerEC2ERKS2_.exit, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %entry
-  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %m_ref_count.i.i.i.i, align 4
   %inc.i.i.i.i = add i32 %2, 1
   store i32 %inc.i.i.i.i, ptr %m_ref_count.i.i.i.i, align 4

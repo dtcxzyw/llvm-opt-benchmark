@@ -3221,7 +3221,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %indvars.iv = phi i64 [ 1, %for.body.i.preheader ], [ %indvars.iv.next, %while.end.i ]
   %arrayidx.i = getelementptr inbounds %struct.nodeElt_s, ptr %add.ptr.i, i64 %indvars.iv
   %2 = load <2 x i32>, ptr %arrayidx.i, align 4
-  %3 = extractelement <2 x i32> %2, i64 0
+  %key.i.sroa.0.0.copyload = load i32, ptr %arrayidx.i, align 4
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %for.body.i, %while.body.i
@@ -3229,22 +3229,22 @@ land.rhs.i:                                       ; preds = %for.body.i, %while.
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, -1
   %idxprom3.i = and i64 %indvars.iv.next49, 4294967295
   %arrayidx4.i = getelementptr inbounds %struct.nodeElt_s, ptr %add.ptr.i, i64 %idxprom3.i
-  %4 = load i32, ptr %arrayidx4.i, align 4
-  %cmp6.i = icmp ult i32 %4, %3
+  %3 = load i32, ptr %arrayidx4.i, align 4
+  %cmp6.i = icmp ult i32 %3, %key.i.sroa.0.0.copyload
   br i1 %cmp6.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %land.rhs.i
   %arrayidx9.i = getelementptr inbounds %struct.nodeElt_s, ptr %add.ptr.i, i64 %indvars.iv48
-  %5 = load i64, ptr %arrayidx4.i, align 4
-  store i64 %5, ptr %arrayidx9.i, align 4
-  %6 = icmp sgt i64 %indvars.iv48, 1
-  br i1 %6, label %land.rhs.i, label %while.end.i, !llvm.loop !43
+  %4 = load i64, ptr %arrayidx4.i, align 4
+  store i64 %4, ptr %arrayidx9.i, align 4
+  %5 = icmp sgt i64 %indvars.iv48, 1
+  br i1 %5, label %land.rhs.i, label %while.end.i, !llvm.loop !43
 
 while.end.i:                                      ; preds = %while.body.i, %land.rhs.i
   %j.i.0.in.lcssa = phi i64 [ 0, %while.body.i ], [ %indvars.iv48, %land.rhs.i ]
   %sext = shl i64 %j.i.0.in.lcssa, 32
-  %7 = ashr exact i64 %sext, 29
-  %arrayidx14.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %7
+  %6 = ashr exact i64 %sext, 29
+  %arrayidx14.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %6
   store <2 x i32> %2, ptr %arrayidx14.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3255,27 +3255,27 @@ for.body.preheader.i:                             ; preds = %while.cond.preheade
   %low.addr.040 = phi i32 [ %low.addr.1, %if.end9 ], [ %low, %while.cond.preheader ]
   %idxprom.i34 = sext i32 %high.addr.041 to i64
   %arrayidx.i35 = getelementptr inbounds %struct.nodeElt_s, ptr %arr, i64 %idxprom.i34
-  %8 = load i32, ptr %arrayidx.i35, align 4
+  %7 = load i32, ptr %arrayidx.i35, align 4
   %sub.i = add nsw i32 %low.addr.040, -1
-  %9 = sext i32 %low.addr.040 to i64
+  %8 = sext i32 %low.addr.040 to i64
   br label %for.body.i36
 
 for.body.i36:                                     ; preds = %for.inc.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ %9, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
+  %indvars.iv.i = phi i64 [ %8, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %i.016.i = phi i32 [ %sub.i, %for.body.preheader.i ], [ %i.1.i, %for.inc.i ]
   %arrayidx2.i = getelementptr inbounds %struct.nodeElt_s, ptr %arr, i64 %indvars.iv.i
-  %10 = load i32, ptr %arrayidx2.i, align 4
-  %cmp4.i = icmp ugt i32 %10, %8
+  %9 = load i32, ptr %arrayidx2.i, align 4
+  %cmp4.i = icmp ugt i32 %9, %7
   br i1 %cmp4.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i36
   %inc.i37 = add nsw i32 %i.016.i, 1
   %idxprom5.i = sext i32 %inc.i37 to i64
   %arrayidx6.i = getelementptr inbounds %struct.nodeElt_s, ptr %arr, i64 %idxprom5.i
-  %11 = load i64, ptr %arrayidx6.i, align 4
-  %12 = load i64, ptr %arrayidx2.i, align 4
-  store i64 %12, ptr %arrayidx6.i, align 4
-  store i64 %11, ptr %arrayidx2.i, align 4
+  %10 = load i64, ptr %arrayidx6.i, align 4
+  %11 = load i64, ptr %arrayidx2.i, align 4
+  store i64 %11, ptr %arrayidx6.i, align 4
+  store i64 %10, ptr %arrayidx2.i, align 4
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i36
@@ -3285,15 +3285,15 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   br i1 %exitcond.not.i, label %HUF_quickSortPartition.exit, label %for.body.i36, !llvm.loop !45
 
 HUF_quickSortPartition.exit:                      ; preds = %for.inc.i
-  %13 = add nsw i32 %i.1.i, 1
-  %idxprom10.i = sext i32 %13 to i64
+  %12 = add nsw i32 %i.1.i, 1
+  %idxprom10.i = sext i32 %12 to i64
   %arrayidx11.i = getelementptr inbounds %struct.nodeElt_s, ptr %arr, i64 %idxprom10.i
-  %14 = load i64, ptr %arrayidx11.i, align 4
-  %15 = load i64, ptr %arrayidx.i35, align 4
-  store i64 %15, ptr %arrayidx11.i, align 4
-  store i64 %14, ptr %arrayidx.i35, align 4
-  %sub2 = sub nsw i32 %13, %low.addr.040
-  %sub3 = sub nsw i32 %high.addr.041, %13
+  %13 = load i64, ptr %arrayidx11.i, align 4
+  %14 = load i64, ptr %arrayidx.i35, align 4
+  store i64 %14, ptr %arrayidx11.i, align 4
+  store i64 %13, ptr %arrayidx.i35, align 4
+  %sub2 = sub nsw i32 %12, %low.addr.040
+  %sub3 = sub nsw i32 %high.addr.041, %12
   %cmp4 = icmp slt i32 %sub2, %sub3
   br i1 %cmp4, label %if.then5, label %if.else
 

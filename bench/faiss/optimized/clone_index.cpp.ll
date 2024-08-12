@@ -7309,12 +7309,12 @@ define noalias noundef nonnull ptr @_ZN5faiss14clone_IndexNSGEPKNS_8IndexNSGE(pt
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.10", align 1
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %102, label %5
+  br i1 %4, label %99, label %5
 
 5:                                                ; preds = %1
   %6 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss8IndexNSGE, ptr nonnull @_ZTIN5faiss12IndexNSGFlatE, i64 0) #20
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %31, label %7
+  br i1 %.not, label %30, label %7
 
 7:                                                ; preds = %5
   %8 = tail call noalias noundef nonnull dereferenceable(5136) ptr @_Znwm(i64 noundef 5136) #21
@@ -7327,225 +7327,218 @@ define noalias noundef nonnull ptr @_ZN5faiss14clone_IndexNSGEPKNS_8IndexNSGE(pt
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %8, i64 64
   %14 = getelementptr inbounds i8, ptr %6, i64 64
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 72
-  %17 = getelementptr inbounds i8, ptr %6, i64 72
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %16, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %18, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN5faiss12IndexNSGFlatC2ERKS0_.exit, label %19
+  %15 = getelementptr inbounds i8, ptr %6, i64 72
+  %16 = load ptr, ptr %15, align 8
+  %17 = load <2 x ptr>, ptr %14, align 8
+  store <2 x ptr> %17, ptr %13, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %16, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZN5faiss12IndexNSGFlatC2ERKS0_.exit, label %18
 
-19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
-  %21 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %21, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %25, label %22
+18:                                               ; preds = %7
+  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %20, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %24, label %21
 
-22:                                               ; preds = %19
-  %23 = load i32, ptr %20, align 4
-  %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %20, align 4
+21:                                               ; preds = %18
+  %22 = load i32, ptr %19, align 4
+  %23 = add nsw i32 %22, 1
+  store i32 %23, ptr %19, align 4
   br label %_ZN5faiss12IndexNSGFlatC2ERKS0_.exit
 
-25:                                               ; preds = %19
-  %26 = atomicrmw volatile add ptr %20, i32 1 acq_rel, align 4
+24:                                               ; preds = %18
+  %25 = atomicrmw volatile add ptr %19, i32 1 acq_rel, align 4
   br label %_ZN5faiss12IndexNSGFlatC2ERKS0_.exit
 
-_ZN5faiss12IndexNSGFlatC2ERKS0_.exit:             ; preds = %7, %22, %25
-  %27 = getelementptr inbounds i8, ptr %8, i64 80
-  %28 = getelementptr inbounds i8, ptr %6, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5008) %27, ptr noundef nonnull align 8 dereferenceable(5008) %28, i64 5008, i1 false)
-  %29 = getelementptr inbounds i8, ptr %8, i64 5088
-  %30 = getelementptr inbounds i8, ptr %6, i64 5088
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %29, ptr noundef nonnull align 8 dereferenceable(44) %30, i64 44, i1 false)
+_ZN5faiss12IndexNSGFlatC2ERKS0_.exit:             ; preds = %7, %21, %24
+  %26 = getelementptr inbounds i8, ptr %8, i64 80
+  %27 = getelementptr inbounds i8, ptr %6, i64 80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5008) %26, ptr noundef nonnull align 8 dereferenceable(5008) %27, i64 5008, i1 false)
+  %28 = getelementptr inbounds i8, ptr %8, i64 5088
+  %29 = getelementptr inbounds i8, ptr %6, i64 5088
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %28, ptr noundef nonnull align 8 dereferenceable(44) %29, i64 44, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12IndexNSGFlatE, i64 16), ptr %8, align 8
-  br label %110
+  br label %107
 
-31:                                               ; preds = %5
-  %32 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss8IndexNSGE, ptr nonnull @_ZTIN5faiss10IndexNSGPQE, i64 0) #20
-  %.not23 = icmp eq ptr %32, null
-  br i1 %.not23, label %57, label %33
+30:                                               ; preds = %5
+  %31 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss8IndexNSGE, ptr nonnull @_ZTIN5faiss10IndexNSGPQE, i64 0) #20
+  %.not23 = icmp eq ptr %31, null
+  br i1 %.not23, label %55, label %32
 
-33:                                               ; preds = %31
-  %34 = tail call noalias noundef nonnull dereferenceable(5136) ptr @_Znwm(i64 noundef 5136) #21
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  %36 = getelementptr inbounds i8, ptr %32, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %35, ptr noundef nonnull align 8 dereferenceable(28) %36, i64 28, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss8IndexNSGE, i64 16), ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 40
-  %38 = getelementptr inbounds i8, ptr %32, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
-  %39 = getelementptr inbounds i8, ptr %34, i64 64
-  %40 = getelementptr inbounds i8, ptr %32, i64 64
+32:                                               ; preds = %30
+  %33 = tail call noalias noundef nonnull dereferenceable(5136) ptr @_Znwm(i64 noundef 5136) #21
+  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = getelementptr inbounds i8, ptr %31, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %34, ptr noundef nonnull align 8 dereferenceable(28) %35, i64 28, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss8IndexNSGE, i64 16), ptr %33, align 8
+  %36 = getelementptr inbounds i8, ptr %33, i64 40
+  %37 = getelementptr inbounds i8, ptr %31, i64 40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false)
+  %38 = getelementptr inbounds i8, ptr %33, i64 64
+  %39 = getelementptr inbounds i8, ptr %31, i64 64
+  %40 = getelementptr inbounds i8, ptr %31, i64 72
   %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %34, i64 72
-  %43 = getelementptr inbounds i8, ptr %32, i64 72
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %42, align 8
-  %.not.i.i.i.i.i.i27 = icmp eq ptr %44, null
-  br i1 %.not.i.i.i.i.i.i27, label %_ZN5faiss10IndexNSGPQC2ERKS0_.exit, label %45
+  %42 = load <2 x ptr>, ptr %39, align 8
+  store <2 x ptr> %42, ptr %38, align 8
+  %.not.i.i.i.i.i.i27 = icmp eq ptr %41, null
+  br i1 %.not.i.i.i.i.i.i27, label %_ZN5faiss10IndexNSGPQC2ERKS0_.exit, label %43
 
-45:                                               ; preds = %33
-  %46 = getelementptr inbounds i8, ptr %44, i64 8
-  %47 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i28 = icmp eq i8 %47, 0
-  br i1 %.not.i.i.i.i.i.i.i28, label %51, label %48
+43:                                               ; preds = %32
+  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %45 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i28 = icmp eq i8 %45, 0
+  br i1 %.not.i.i.i.i.i.i.i28, label %49, label %46
 
-48:                                               ; preds = %45
-  %49 = load i32, ptr %46, align 4
-  %50 = add nsw i32 %49, 1
-  store i32 %50, ptr %46, align 4
+46:                                               ; preds = %43
+  %47 = load i32, ptr %44, align 4
+  %48 = add nsw i32 %47, 1
+  store i32 %48, ptr %44, align 4
   br label %_ZN5faiss10IndexNSGPQC2ERKS0_.exit
 
-51:                                               ; preds = %45
-  %52 = atomicrmw volatile add ptr %46, i32 1 acq_rel, align 4
+49:                                               ; preds = %43
+  %50 = atomicrmw volatile add ptr %44, i32 1 acq_rel, align 4
   br label %_ZN5faiss10IndexNSGPQC2ERKS0_.exit
 
-_ZN5faiss10IndexNSGPQC2ERKS0_.exit:               ; preds = %33, %48, %51
-  %53 = getelementptr inbounds i8, ptr %34, i64 80
-  %54 = getelementptr inbounds i8, ptr %32, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5008) %53, ptr noundef nonnull align 8 dereferenceable(5008) %54, i64 5008, i1 false)
-  %55 = getelementptr inbounds i8, ptr %34, i64 5088
-  %56 = getelementptr inbounds i8, ptr %32, i64 5088
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %55, ptr noundef nonnull align 8 dereferenceable(44) %56, i64 44, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss10IndexNSGPQE, i64 16), ptr %34, align 8
-  br label %110
+_ZN5faiss10IndexNSGPQC2ERKS0_.exit:               ; preds = %32, %46, %49
+  %51 = getelementptr inbounds i8, ptr %33, i64 80
+  %52 = getelementptr inbounds i8, ptr %31, i64 80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5008) %51, ptr noundef nonnull align 8 dereferenceable(5008) %52, i64 5008, i1 false)
+  %53 = getelementptr inbounds i8, ptr %33, i64 5088
+  %54 = getelementptr inbounds i8, ptr %31, i64 5088
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %53, ptr noundef nonnull align 8 dereferenceable(44) %54, i64 44, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss10IndexNSGPQE, i64 16), ptr %33, align 8
+  br label %107
 
-57:                                               ; preds = %31
-  %58 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss8IndexNSGE, ptr nonnull @_ZTIN5faiss10IndexNSGSQE, i64 0) #20
-  %.not24 = icmp eq ptr %58, null
-  %59 = tail call noalias noundef nonnull dereferenceable(5136) ptr @_Znwm(i64 noundef 5136) #21
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
-  %61 = getelementptr inbounds i8, ptr %59, i64 40
-  %62 = getelementptr inbounds i8, ptr %59, i64 64
-  %63 = getelementptr inbounds i8, ptr %59, i64 72
-  br i1 %.not24, label %83, label %64
+55:                                               ; preds = %30
+  %56 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss8IndexNSGE, ptr nonnull @_ZTIN5faiss10IndexNSGSQE, i64 0) #20
+  %.not24 = icmp eq ptr %56, null
+  %57 = tail call noalias noundef nonnull dereferenceable(5136) ptr @_Znwm(i64 noundef 5136) #21
+  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %59 = getelementptr inbounds i8, ptr %57, i64 40
+  %60 = getelementptr inbounds i8, ptr %57, i64 64
+  br i1 %.not24, label %80, label %61
 
-64:                                               ; preds = %57
-  %65 = getelementptr inbounds i8, ptr %58, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %60, ptr noundef nonnull align 8 dereferenceable(28) %65, i64 28, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss8IndexNSGE, i64 16), ptr %59, align 8
-  %66 = getelementptr inbounds i8, ptr %58, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %66, i64 24, i1 false)
-  %67 = getelementptr inbounds i8, ptr %58, i64 64
-  %68 = load ptr, ptr %67, align 8
-  store ptr %68, ptr %62, align 8
-  %69 = getelementptr inbounds i8, ptr %58, i64 72
-  %70 = load ptr, ptr %69, align 8
-  store ptr %70, ptr %63, align 8
-  %.not.i.i.i.i.i.i29 = icmp eq ptr %70, null
-  br i1 %.not.i.i.i.i.i.i29, label %_ZN5faiss10IndexNSGSQC2ERKS0_.exit, label %71
+61:                                               ; preds = %55
+  %62 = getelementptr inbounds i8, ptr %56, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %58, ptr noundef nonnull align 8 dereferenceable(28) %62, i64 28, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss8IndexNSGE, i64 16), ptr %57, align 8
+  %63 = getelementptr inbounds i8, ptr %56, i64 40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
+  %64 = getelementptr inbounds i8, ptr %56, i64 64
+  %65 = getelementptr inbounds i8, ptr %56, i64 72
+  %66 = load ptr, ptr %65, align 8
+  %67 = load <2 x ptr>, ptr %64, align 8
+  store <2 x ptr> %67, ptr %60, align 8
+  %.not.i.i.i.i.i.i29 = icmp eq ptr %66, null
+  br i1 %.not.i.i.i.i.i.i29, label %_ZN5faiss10IndexNSGSQC2ERKS0_.exit, label %68
 
-71:                                               ; preds = %64
-  %72 = getelementptr inbounds i8, ptr %70, i64 8
-  %73 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i30 = icmp eq i8 %73, 0
-  br i1 %.not.i.i.i.i.i.i.i30, label %77, label %74
+68:                                               ; preds = %61
+  %69 = getelementptr inbounds i8, ptr %66, i64 8
+  %70 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i30 = icmp eq i8 %70, 0
+  br i1 %.not.i.i.i.i.i.i.i30, label %74, label %71
 
-74:                                               ; preds = %71
-  %75 = load i32, ptr %72, align 4
-  %76 = add nsw i32 %75, 1
-  store i32 %76, ptr %72, align 4
+71:                                               ; preds = %68
+  %72 = load i32, ptr %69, align 4
+  %73 = add nsw i32 %72, 1
+  store i32 %73, ptr %69, align 4
   br label %_ZN5faiss10IndexNSGSQC2ERKS0_.exit
 
-77:                                               ; preds = %71
-  %78 = atomicrmw volatile add ptr %72, i32 1 acq_rel, align 4
+74:                                               ; preds = %68
+  %75 = atomicrmw volatile add ptr %69, i32 1 acq_rel, align 4
   br label %_ZN5faiss10IndexNSGSQC2ERKS0_.exit
 
-_ZN5faiss10IndexNSGSQC2ERKS0_.exit:               ; preds = %64, %74, %77
-  %79 = getelementptr inbounds i8, ptr %59, i64 80
-  %80 = getelementptr inbounds i8, ptr %58, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5008) %79, ptr noundef nonnull align 8 dereferenceable(5008) %80, i64 5008, i1 false)
-  %81 = getelementptr inbounds i8, ptr %59, i64 5088
-  %82 = getelementptr inbounds i8, ptr %58, i64 5088
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %81, ptr noundef nonnull align 8 dereferenceable(44) %82, i64 44, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss10IndexNSGSQE, i64 16), ptr %59, align 8
-  br label %110
+_ZN5faiss10IndexNSGSQC2ERKS0_.exit:               ; preds = %61, %71, %74
+  %76 = getelementptr inbounds i8, ptr %57, i64 80
+  %77 = getelementptr inbounds i8, ptr %56, i64 80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5008) %76, ptr noundef nonnull align 8 dereferenceable(5008) %77, i64 5008, i1 false)
+  %78 = getelementptr inbounds i8, ptr %57, i64 5088
+  %79 = getelementptr inbounds i8, ptr %56, i64 5088
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %78, ptr noundef nonnull align 8 dereferenceable(44) %79, i64 44, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss10IndexNSGSQE, i64 16), ptr %57, align 8
+  br label %107
 
-83:                                               ; preds = %57
-  %84 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %60, ptr noundef nonnull align 8 dereferenceable(28) %84, i64 28, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss8IndexNSGE, i64 16), ptr %59, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
-  %86 = getelementptr inbounds i8, ptr %0, i64 64
-  %87 = load ptr, ptr %86, align 8
-  store ptr %87, ptr %62, align 8
-  %88 = getelementptr inbounds i8, ptr %0, i64 72
-  %89 = load ptr, ptr %88, align 8
-  store ptr %89, ptr %63, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %89, null
-  br i1 %.not.i.i.i.i.i, label %_ZN5faiss8IndexNSGC2ERKS0_.exit, label %90
+80:                                               ; preds = %55
+  %81 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %58, ptr noundef nonnull align 8 dereferenceable(28) %81, i64 28, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss8IndexNSGE, i64 16), ptr %57, align 8
+  %82 = getelementptr inbounds i8, ptr %0, i64 40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %82, i64 24, i1 false)
+  %83 = getelementptr inbounds i8, ptr %0, i64 64
+  %84 = getelementptr inbounds i8, ptr %0, i64 72
+  %85 = load ptr, ptr %84, align 8
+  %86 = load <2 x ptr>, ptr %83, align 8
+  store <2 x ptr> %86, ptr %60, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %85, null
+  br i1 %.not.i.i.i.i.i, label %_ZN5faiss8IndexNSGC2ERKS0_.exit, label %87
 
-90:                                               ; preds = %83
-  %91 = getelementptr inbounds i8, ptr %89, i64 8
-  %92 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i31 = icmp eq i8 %92, 0
-  br i1 %.not.i.i.i.i.i.i31, label %96, label %93
+87:                                               ; preds = %80
+  %88 = getelementptr inbounds i8, ptr %85, i64 8
+  %89 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i31 = icmp eq i8 %89, 0
+  br i1 %.not.i.i.i.i.i.i31, label %93, label %90
 
-93:                                               ; preds = %90
-  %94 = load i32, ptr %91, align 4
-  %95 = add nsw i32 %94, 1
-  store i32 %95, ptr %91, align 4
+90:                                               ; preds = %87
+  %91 = load i32, ptr %88, align 4
+  %92 = add nsw i32 %91, 1
+  store i32 %92, ptr %88, align 4
   br label %_ZN5faiss8IndexNSGC2ERKS0_.exit
 
-96:                                               ; preds = %90
-  %97 = atomicrmw volatile add ptr %91, i32 1 acq_rel, align 4
+93:                                               ; preds = %87
+  %94 = atomicrmw volatile add ptr %88, i32 1 acq_rel, align 4
   br label %_ZN5faiss8IndexNSGC2ERKS0_.exit
 
-_ZN5faiss8IndexNSGC2ERKS0_.exit:                  ; preds = %83, %93, %96
-  %98 = getelementptr inbounds i8, ptr %59, i64 80
-  %99 = getelementptr inbounds i8, ptr %0, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5008) %98, ptr noundef nonnull align 8 dereferenceable(5008) %99, i64 5008, i1 false)
-  %100 = getelementptr inbounds i8, ptr %59, i64 5088
-  %101 = getelementptr inbounds i8, ptr %0, i64 5088
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %100, ptr noundef nonnull align 8 dereferenceable(44) %101, i64 44, i1 false)
-  br label %110
+_ZN5faiss8IndexNSGC2ERKS0_.exit:                  ; preds = %80, %90, %93
+  %95 = getelementptr inbounds i8, ptr %57, i64 80
+  %96 = getelementptr inbounds i8, ptr %0, i64 80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5008) %95, ptr noundef nonnull align 8 dereferenceable(5008) %96, i64 5008, i1 false)
+  %97 = getelementptr inbounds i8, ptr %57, i64 5088
+  %98 = getelementptr inbounds i8, ptr %0, i64 5088
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %97, ptr noundef nonnull align 8 dereferenceable(44) %98, i64 44, i1 false)
+  br label %107
 
-102:                                              ; preds = %1
-  %103 = tail call ptr @__cxa_allocate_exception(i64 40) #20
+99:                                               ; preds = %1
+  %100 = tail call ptr @__cxa_allocate_exception(i64 40) #20
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %104 unwind label %.thread40
+          to label %101 unwind label %.thread40
 
-104:                                              ; preds = %102
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %103, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss14clone_IndexNSGEPKNS_8IndexNSGE, ptr noundef nonnull @.str.1, i32 noundef 146)
-          to label %105 unwind label %107
+101:                                              ; preds = %99
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %100, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss14clone_IndexNSGEPKNS_8IndexNSGE, ptr noundef nonnull @.str.1, i32 noundef 146)
+          to label %102 unwind label %104
 
-105:                                              ; preds = %104
-  invoke void @__cxa_throw(ptr nonnull %103, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #22
-          to label %112 unwind label %107
+102:                                              ; preds = %101
+  invoke void @__cxa_throw(ptr nonnull %100, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #22
+          to label %109 unwind label %104
 
-.thread40:                                        ; preds = %102
-  %106 = landingpad { ptr, i32 }
+.thread40:                                        ; preds = %99
+  %103 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
-  br label %109
+  br label %106
 
-107:                                              ; preds = %104, %105
-  %.0 = phi i1 [ false, %105 ], [ true, %104 ]
-  %108 = landingpad { ptr, i32 }
+104:                                              ; preds = %101, %102
+  %.0 = phi i1 [ false, %102 ], [ true, %101 ]
+  %105 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
-  br i1 %.0, label %109, label %111
+  br i1 %.0, label %106, label %108
 
-109:                                              ; preds = %.thread40, %107
-  %.pn44 = phi { ptr, i32 } [ %106, %.thread40 ], [ %108, %107 ]
-  call void @__cxa_free_exception(ptr %103) #20
-  br label %111
+106:                                              ; preds = %.thread40, %104
+  %.pn44 = phi { ptr, i32 } [ %103, %.thread40 ], [ %105, %104 ]
+  call void @__cxa_free_exception(ptr %100) #20
+  br label %108
 
-110:                                              ; preds = %_ZN5faiss8IndexNSGC2ERKS0_.exit, %_ZN5faiss10IndexNSGSQC2ERKS0_.exit, %_ZN5faiss10IndexNSGPQC2ERKS0_.exit, %_ZN5faiss12IndexNSGFlatC2ERKS0_.exit
-  %.017 = phi ptr [ %8, %_ZN5faiss12IndexNSGFlatC2ERKS0_.exit ], [ %34, %_ZN5faiss10IndexNSGPQC2ERKS0_.exit ], [ %59, %_ZN5faiss10IndexNSGSQC2ERKS0_.exit ], [ %59, %_ZN5faiss8IndexNSGC2ERKS0_.exit ]
+107:                                              ; preds = %_ZN5faiss8IndexNSGC2ERKS0_.exit, %_ZN5faiss10IndexNSGSQC2ERKS0_.exit, %_ZN5faiss10IndexNSGPQC2ERKS0_.exit, %_ZN5faiss12IndexNSGFlatC2ERKS0_.exit
+  %.017 = phi ptr [ %8, %_ZN5faiss12IndexNSGFlatC2ERKS0_.exit ], [ %33, %_ZN5faiss10IndexNSGPQC2ERKS0_.exit ], [ %57, %_ZN5faiss10IndexNSGSQC2ERKS0_.exit ], [ %57, %_ZN5faiss8IndexNSGC2ERKS0_.exit ]
   ret ptr %.017
 
-111:                                              ; preds = %107, %109
-  %.pn43 = phi { ptr, i32 } [ %108, %107 ], [ %.pn44, %109 ]
+108:                                              ; preds = %104, %106
+  %.pn43 = phi { ptr, i32 } [ %105, %104 ], [ %.pn44, %106 ]
   resume { ptr, i32 } %.pn43
 
-112:                                              ; preds = %105
+109:                                              ; preds = %102
   unreachable
 }
 

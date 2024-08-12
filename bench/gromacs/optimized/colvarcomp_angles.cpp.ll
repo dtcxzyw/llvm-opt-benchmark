@@ -1707,11 +1707,11 @@ define void @_ZN6colvar8dihedral10calc_valueEv(ptr noundef nonnull align 8 deref
   %91 = fmul double %76, %90
   %92 = call double @llvm.fmuladd.f64(double %78, double %87, double %91)
   %93 = load double, ptr %72, align 8
-  %94 = insertelement <2 x double> poison, double %84, i64 0
-  %95 = insertelement <2 x double> %94, double %85, i64 1
-  %96 = fneg <2 x double> %95
-  %97 = extractelement <2 x double> %96, i64 1
-  %98 = fmul double %74, %97
+  %94 = fneg double %85
+  %95 = insertelement <2 x double> poison, double %84, i64 0
+  %96 = insertelement <2 x double> %95, double %85, i64 1
+  %97 = fneg <2 x double> %96
+  %98 = fmul double %74, %94
   %99 = call double @llvm.fmuladd.f64(double %84, double %78, double %98)
   %100 = insertelement <2 x double> poison, double %80, i64 0
   %101 = insertelement <2 x double> %100, double %76, i64 1
@@ -1720,7 +1720,7 @@ define void @_ZN6colvar8dihedral10calc_valueEv(ptr noundef nonnull align 8 deref
   %104 = fmul <2 x double> %101, %103
   %105 = insertelement <2 x double> poison, double %76, i64 0
   %106 = insertelement <2 x double> %105, double %87, i64 1
-  %107 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %96, <2 x double> %106, <2 x double> %104)
+  %107 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %97, <2 x double> %106, <2 x double> %104)
   %108 = fneg double %93
   %109 = fmul double %78, %108
   %110 = call double @llvm.fmuladd.f64(double %85, double %89, double %109)

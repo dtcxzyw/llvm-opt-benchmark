@@ -5172,14 +5172,15 @@ if.end17:                                         ; preds = %nrvo.skipdtor.threa
   store i64 %13, ptr %commit_ts_.i, align 8
   %snapshot_notifier_.i = getelementptr inbounds i8, ptr %snapshot_creation_cb, i64 24
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %snapshot_creation_cb, i64 32
-  %15 = load <2 x ptr>, ptr %snapshot_notifier_, align 8
-  store <2 x ptr> %15, ptr %snapshot_notifier_.i, align 8
-  %16 = extractelement <2 x ptr> %15, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %16, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 312
+  %15 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %16 = load <2 x ptr>, ptr %snapshot_notifier_, align 8
+  store <2 x ptr> %16, ptr %snapshot_notifier_.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7rocksdb24SnapshotCreationCallbackC2EPNS_6DBImplEmRKSt10shared_ptrINS_19TransactionNotifierEERS3_IKNS_8SnapshotEE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end17
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %17, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -5881,14 +5882,15 @@ _ZN7rocksdb6StatusD2Ev.exit95:                    ; preds = %_ZN7rocksdb6Statusa
   store i64 %52, ptr %commit_ts_.i, align 8
   %snapshot_notifier_.i = getelementptr inbounds i8, ptr %snapshot_creation_cb, i64 24
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %snapshot_creation_cb, i64 32
-  %53 = load <2 x ptr>, ptr %snapshot_notifier_, align 8
-  store <2 x ptr> %53, ptr %snapshot_notifier_.i, align 8
-  %54 = extractelement <2 x ptr> %53, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %54, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 312
+  %53 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %54 = load <2 x ptr>, ptr %snapshot_notifier_, align 8
+  store <2 x ptr> %54, ptr %snapshot_notifier_.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %53, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont45, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN7rocksdb6StatusD2Ev.exit95
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %54, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %53, i64 8
   %55 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %55, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -8054,14 +8056,15 @@ entry:
 define linkonce_odr void @_ZNK7rocksdb19TransactionBaseImpl22GetTimestampedSnapshotEv(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(320) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %snapshot_ = getelementptr inbounds i8, ptr %this, i64 128
-  %0 = load <2 x ptr>, ptr %snapshot_, align 8
-  store <2 x ptr> %0, ptr %agg.result, align 8
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %snapshot_, align 8
+  store <2 x ptr> %1, ptr %agg.result, align 8
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN7rocksdb8SnapshotEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

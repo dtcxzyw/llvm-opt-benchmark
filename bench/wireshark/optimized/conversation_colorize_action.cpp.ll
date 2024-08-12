@@ -171,53 +171,50 @@ define void @_ZN18ConversationAction13setPacketInfoEP12_packet_info(ptr noundef 
   %20 = tail call noundef ptr %17(ptr noundef nonnull %1, ptr noundef %19)
   call void @_Z24gchar_free_to_qbytearrayPc(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %3, ptr noundef %20)
   %21 = getelementptr inbounds i8, ptr %0, i64 24
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
-  %25 = load ptr, ptr %23, align 8
-  %26 = load <2 x ptr>, ptr %3, align 16
-  store ptr %22, ptr %3, align 16
-  store <2 x ptr> %26, ptr %21, align 8
-  store ptr %25, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
-  %28 = getelementptr inbounds i8, ptr %3, i64 16
-  %29 = load i64, ptr %27, align 8
-  %30 = load i64, ptr %28, align 16
-  store i64 %30, ptr %27, align 8
-  store i64 %29, ptr %28, align 16
-  %.not.i.i.i = icmp eq ptr %22, null
+  %22 = load <2 x ptr>, ptr %3, align 16
+  %23 = load <2 x ptr>, ptr %21, align 8
+  %24 = load ptr, ptr %21, align 8
+  store <2 x ptr> %22, ptr %21, align 8
+  store <2 x ptr> %23, ptr %3, align 16
+  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = getelementptr inbounds i8, ptr %3, i64 16
+  %27 = load i64, ptr %25, align 8
+  %28 = load i64, ptr %26, align 16
+  store i64 %28, ptr %25, align 8
+  store i64 %27, ptr %26, align 16
+  %.not.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i, label %_ZN10QByteArrayD2Ev.exit, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i
 
 _ZN17QArrayDataPointerIcE5derefEv.exit.i.i:       ; preds = %14
-  %31 = atomicrmw sub ptr %22, i32 1 seq_cst, align 4
-  %.not.i.i = icmp eq i32 %31, 1
-  br i1 %.not.i.i, label %32, label %_ZN10QByteArrayD2Ev.exit
+  %29 = atomicrmw sub ptr %24, i32 1 seq_cst, align 4
+  %.not.i.i = icmp eq i32 %29, 1
+  br i1 %.not.i.i, label %30, label %_ZN10QByteArrayD2Ev.exit
 
-32:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i
-  %33 = load ptr, ptr %3, align 16
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %33, i64 noundef 1, i64 noundef 8) #7
+30:                                               ; preds = %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i
+  %31 = load ptr, ptr %3, align 16
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %31, i64 noundef 1, i64 noundef 8) #7
   br label %_ZN10QByteArrayD2Ev.exit
 
-_ZN10QByteArrayD2Ev.exit:                         ; preds = %32, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i, %14, %8, %2
-  %.0.shrunk = phi i1 [ false, %8 ], [ false, %2 ], [ true, %14 ], [ true, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i ], [ true, %32 ]
+_ZN10QByteArrayD2Ev.exit:                         ; preds = %30, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i, %14, %8, %2
+  %.0.shrunk = phi i1 [ false, %8 ], [ false, %2 ], [ true, %14 ], [ true, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i ], [ true, %30 ]
   call void @_ZN7QAction10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(16) %0, i1 noundef zeroext %.0.shrunk)
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
-  %37 = load ptr, ptr %36, align 8
-  %38 = call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN5QMenu16staticMetaObjectE, ptr noundef %37)
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
-  %40 = load i32, ptr %39, align 8
-  %41 = icmp sgt i32 %40, -1
-  %42 = icmp ne ptr %38, null
-  %or.cond3 = and i1 %42, %41
-  br i1 %or.cond3, label %43, label %44
+  %36 = call noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN5QMenu16staticMetaObjectE, ptr noundef %35)
+  %37 = getelementptr inbounds i8, ptr %0, i64 48
+  %38 = load i32, ptr %37, align 8
+  %39 = icmp sgt i32 %38, -1
+  %40 = icmp ne ptr %36, null
+  %or.cond3 = and i1 %40, %39
+  br i1 %or.cond3, label %41, label %42
 
-43:                                               ; preds = %_ZN10QByteArrayD2Ev.exit
-  call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %38, i1 noundef zeroext %.0.shrunk)
-  br label %44
+41:                                               ; preds = %_ZN10QByteArrayD2Ev.exit
+  call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %36, i1 noundef zeroext %.0.shrunk)
+  br label %42
 
-44:                                               ; preds = %_ZN10QByteArrayD2Ev.exit, %43
+42:                                               ; preds = %_ZN10QByteArrayD2Ev.exit, %41
   ret void
 }
 

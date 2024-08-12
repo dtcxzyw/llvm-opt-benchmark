@@ -45,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @btbuild(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = alloca %struct.BTWriteState, align 8
+  %4 = alloca %struct.BTWriteState, align 16
   %5 = alloca [3 x i32], align 4
   %6 = alloca [3 x i64], align 16
   %7 = alloca %struct.BTBuildState, align 8
@@ -574,12 +574,11 @@ _bt_spools_heapscan.exit:                         ; preds = %299, %304, %307
 
 314:                                              ; preds = %312, %_bt_spools_heapscan.exit
   %315 = getelementptr inbounds i8, ptr %310, i64 8
-  %316 = load ptr, ptr %315, align 8
-  store ptr %316, ptr %4, align 8
-  %317 = getelementptr inbounds i8, ptr %310, i64 16
-  %318 = load ptr, ptr %317, align 8
-  %319 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %318, ptr %319, align 8
+  %316 = getelementptr inbounds i8, ptr %310, i64 16
+  %317 = getelementptr inbounds i8, ptr %4, i64 8
+  %318 = load ptr, ptr %316, align 8
+  %319 = load <2 x ptr>, ptr %315, align 8
+  store <2 x ptr> %319, ptr %4, align 16
   %320 = call ptr @_bt_mkscankey(ptr noundef %318, ptr noundef null) #10
   %321 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %320, ptr %321, align 8
@@ -588,7 +587,7 @@ _bt_spools_heapscan.exit:                         ; preds = %299, %304, %307
   %324 = zext i1 %322 to i8
   store i8 %324, ptr %323, align 1
   %325 = getelementptr inbounds i8, ptr %4, i64 32
-  store i32 1, ptr %325, align 8
+  store i32 1, ptr %325, align 16
   call void @pgstat_progress_update_param(i32 noundef 10, i64 noundef 5) #10
   %326 = getelementptr inbounds i8, ptr %318, i64 64
   %327 = load ptr, ptr %326, align 8
@@ -599,7 +598,7 @@ _bt_spools_heapscan.exit:                         ; preds = %299, %304, %307
   %332 = sext i16 %331 to i32
   %333 = call ptr @smgr_bulk_start_rel(ptr noundef %318, i32 noundef 0) #10
   %334 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %333, ptr %334, align 8
+  store ptr %333, ptr %334, align 16
   %335 = load i8, ptr %323, align 1
   %336 = trunc i8 %335 to i1
   br i1 %336, label %337, label %349
@@ -946,7 +945,7 @@ ApplySortComparator.exit.thread169.thread174.i.i: ; preds = %ApplySortComparator
 
 514:                                              ; preds = %.thread.i.i
   %515 = call ptr @palloc0(i64 noundef 64) #10
-  %.val.i.i.i = load ptr, ptr %334, align 8
+  %.val.i.i.i = load ptr, ptr %334, align 16
   %516 = call ptr @smgr_bulk_get_buf(ptr noundef %.val.i.i.i) #10
   call void @_bt_pageinit(ptr noundef %516, i64 noundef 8192) #10
   %517 = getelementptr inbounds i8, ptr %516, i64 16
@@ -967,9 +966,9 @@ ApplySortComparator.exit.thread169.thread174.i.i: ; preds = %ApplySortComparator
   %527 = add i16 %526, 4
   store i16 %527, ptr %525, align 4
   store ptr %516, ptr %515, align 8
-  %528 = load i32, ptr %325, align 8
+  %528 = load i32, ptr %325, align 16
   %529 = add i32 %528, 1
-  store i32 %529, ptr %325, align 8
+  store i32 %529, ptr %325, align 16
   %530 = getelementptr inbounds i8, ptr %515, i64 8
   store i32 %528, ptr %530, align 8
   %531 = getelementptr inbounds i8, ptr %515, i64 16
@@ -980,7 +979,7 @@ ApplySortComparator.exit.thread169.thread174.i.i: ; preds = %ApplySortComparator
   store i64 0, ptr %533, align 8
   %534 = getelementptr inbounds i8, ptr %515, i64 40
   store i32 0, ptr %534, align 8
-  %535 = load ptr, ptr %319, align 8
+  %535 = load ptr, ptr %317, align 8
   %536 = getelementptr inbounds i8, ptr %535, i64 296
   %537 = load ptr, ptr %536, align 8
   %.not16.i.i.i = icmp eq ptr %537, null
@@ -1065,7 +1064,7 @@ _bt_pagestate.exit.i.i:                           ; preds = %538, %514
 
 572:                                              ; preds = %.lr.ph198.i.i
   %573 = call ptr @palloc0(i64 noundef 64) #10
-  %.val.i148.i.i = load ptr, ptr %334, align 8
+  %.val.i148.i.i = load ptr, ptr %334, align 16
   %574 = call ptr @smgr_bulk_get_buf(ptr noundef %.val.i148.i.i) #10
   call void @_bt_pageinit(ptr noundef %574, i64 noundef 8192) #10
   %575 = getelementptr inbounds i8, ptr %574, i64 16
@@ -1086,9 +1085,9 @@ _bt_pagestate.exit.i.i:                           ; preds = %538, %514
   %585 = add i16 %584, 4
   store i16 %585, ptr %583, align 4
   store ptr %574, ptr %573, align 8
-  %586 = load i32, ptr %325, align 8
+  %586 = load i32, ptr %325, align 16
   %587 = add i32 %586, 1
-  store i32 %587, ptr %325, align 8
+  store i32 %587, ptr %325, align 16
   %588 = getelementptr inbounds i8, ptr %573, i64 8
   store i32 %586, ptr %588, align 8
   %589 = getelementptr inbounds i8, ptr %573, i64 16
@@ -1099,7 +1098,7 @@ _bt_pagestate.exit.i.i:                           ; preds = %538, %514
   store i64 0, ptr %591, align 8
   %592 = getelementptr inbounds i8, ptr %573, i64 40
   store i32 0, ptr %592, align 8
-  %593 = load ptr, ptr %319, align 8
+  %593 = load ptr, ptr %317, align 8
   %594 = getelementptr inbounds i8, ptr %593, i64 296
   %595 = load ptr, ptr %594, align 8
   %.not16.i149.i.i = icmp eq ptr %595, null
@@ -1126,7 +1125,7 @@ _bt_pagestate.exit151.i.i:                        ; preds = %596, %572
   br label %.sink.split.i.i
 
 606:                                              ; preds = %.lr.ph198.i.i
-  %607 = load ptr, ptr %319, align 8
+  %607 = load ptr, ptr %317, align 8
   %608 = load ptr, ptr %563, align 8
   %609 = call i32 @_bt_keep_natts_fast(ptr noundef %607, ptr noundef %608, ptr noundef nonnull %570) #10
   %610 = icmp sgt i32 %609, %332
@@ -1241,7 +1240,7 @@ _bt_sort_dedup_finish_pending.exit155.i.i:        ; preds = %642, %641
 
 660:                                              ; preds = %.lr.ph193.i.i
   %661 = call ptr @palloc0(i64 noundef 64) #10
-  %.val.i156.i.i = load ptr, ptr %334, align 8
+  %.val.i156.i.i = load ptr, ptr %334, align 16
   %662 = call ptr @smgr_bulk_get_buf(ptr noundef %.val.i156.i.i) #10
   call void @_bt_pageinit(ptr noundef %662, i64 noundef 8192) #10
   %663 = getelementptr inbounds i8, ptr %662, i64 16
@@ -1262,9 +1261,9 @@ _bt_sort_dedup_finish_pending.exit155.i.i:        ; preds = %642, %641
   %673 = add i16 %672, 4
   store i16 %673, ptr %671, align 4
   store ptr %662, ptr %661, align 8
-  %674 = load i32, ptr %325, align 8
+  %674 = load i32, ptr %325, align 16
   %675 = add i32 %674, 1
-  store i32 %675, ptr %325, align 8
+  store i32 %675, ptr %325, align 16
   %676 = getelementptr inbounds i8, ptr %661, i64 8
   store i32 %674, ptr %676, align 8
   %677 = getelementptr inbounds i8, ptr %661, i64 16
@@ -1275,7 +1274,7 @@ _bt_sort_dedup_finish_pending.exit155.i.i:        ; preds = %642, %641
   store i64 0, ptr %679, align 8
   %680 = getelementptr inbounds i8, ptr %661, i64 40
   store i32 0, ptr %680, align 8
-  %681 = load ptr, ptr %319, align 8
+  %681 = load ptr, ptr %317, align 8
   %682 = getelementptr inbounds i8, ptr %681, i64 296
   %683 = load ptr, ptr %682, align 8
   %.not16.i157.i.i = icmp eq ptr %683, null
@@ -1390,7 +1389,7 @@ _bt_slideleft.exit.i.i.i:                         ; preds = %.lr.ph.preheader.i.
   store i16 %736, ptr %725, align 4
   %737 = load ptr, ptr %.034.i.i.i, align 8
   %738 = load i32, ptr %697, align 8
-  %.val.i160.i.i = load ptr, ptr %334, align 8
+  %.val.i160.i.i = load ptr, ptr %334, align 16
   call void @smgr_bulk_write(ptr noundef %.val.i160.i.i, i32 noundef %738, ptr noundef %737, i1 noundef zeroext true) #10
   store ptr null, ptr %.034.i.i.i, align 8
   %739 = load ptr, ptr %699, align 8
@@ -1400,7 +1399,7 @@ _bt_slideleft.exit.i.i.i:                         ; preds = %.lr.ph.preheader.i.
 _bt_leafbuild.exit:                               ; preds = %_bt_slideleft.exit.i.i.i, %.preheader.i.i, %.loopexit.i.i
   %.028.lcssa.i.i.i = phi i32 [ 0, %.loopexit.i.i ], [ 0, %.preheader.i.i ], [ %.129.i.i.i, %_bt_slideleft.exit.i.i.i ]
   %.027.lcssa.i.i.i = phi i32 [ 0, %.loopexit.i.i ], [ 0, %.preheader.i.i ], [ %.1.i.i.i, %_bt_slideleft.exit.i.i.i ]
-  %740 = load ptr, ptr %334, align 8
+  %740 = load ptr, ptr %334, align 16
   %741 = call ptr @smgr_bulk_get_buf(ptr noundef %740) #10
   %742 = load ptr, ptr %321, align 8
   %743 = getelementptr inbounds i8, ptr %742, i64 1

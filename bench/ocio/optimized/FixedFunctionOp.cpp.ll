@@ -252,17 +252,16 @@ entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 16
   %ref.tmp2 = alloca %"class.std::shared_ptr.18", align 16
   %ref.tmp3 = alloca %"class.std::shared_ptr.21", align 16
-  %0 = load ptr, ptr %funcData, align 8
-  store ptr %0, ptr %func, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %func, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %funcData, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %funcData, align 8
+  store <2 x ptr> %1, ptr %func, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19FixedFunctionOpDataEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -1056,8 +1055,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115FixedFunctionOpELN9__g
 define hidden void @_ZN19OpenColorIO_v2_4dev28CreateFixedFunctionTransformERSt10shared_ptrINS_14GroupTransformEERS0_IKNS_2OpEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %group, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %op) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ffData = alloca %"class.std::shared_ptr.31", align 8
-  %ffTransform = alloca %"class.std::shared_ptr.40", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.46", align 8
+  %ffTransform = alloca %"class.std::shared_ptr.40", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.46", align 16
   %op.val = load ptr, ptr %op, align 8
   %0 = getelementptr inbounds i8, ptr %op, i64 8
   %op.val4 = load ptr, ptr %0, align 8
@@ -1244,7 +1243,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEED2Ev.exit: ; preds = %if.then.
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEED2Ev.exit
-  %29 = load ptr, ptr %ffTransform, align 8, !nonnull !24, !noundef !24
+  %29 = load ptr, ptr %ffTransform, align 16, !nonnull !24, !noundef !24
   %30 = call ptr @__dynamic_cast(ptr nonnull %29, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev22FixedFunctionTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev26FixedFunctionTransformImplE, i64 0) #17
   %m_data.i32 = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load ptr, ptr %ffData, align 8
@@ -1268,17 +1267,16 @@ lpad6:                                            ; preds = %_ZNSt10shared_ptrIK
 
 invoke.cont12:                                    ; preds = %call.i.noexc
   %34 = load ptr, ptr %group, align 8
-  %35 = load ptr, ptr %ffTransform, align 8
-  store ptr %35, ptr %agg.tmp, align 8
   %_M_refcount.i.i35 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %ffTransform, i64 8
-  %36 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %36, ptr %_M_refcount.i.i35, align 8
-  %cmp.not.i.i.i36 = icmp eq ptr %36, null
+  %35 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %36 = load <2 x ptr>, ptr %ffTransform, align 16
+  store <2 x ptr> %36, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i36 = icmp eq ptr %35, null
   br i1 %cmp.not.i.i.i36, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev9TransformEEC2INS0_22FixedFunctionTransformEvEERKS_IT_E.exit, label %if.then.i.i.i37
 
 if.then.i.i.i37:                                  ; preds = %invoke.cont12
-  %_M_use_count.i.i.i.i38 = getelementptr inbounds i8, ptr %36, i64 8
+  %_M_use_count.i.i.i.i38 = getelementptr inbounds i8, ptr %35, i64 8
   %37 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %37, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i41, label %if.then.i.i.i.i.i39

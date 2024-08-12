@@ -2257,14 +2257,15 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZSt10_ConstructISt
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %call5.i.i.i.i2.i, %call5.i.i.i.i.noexc.i ]
   %__first.addr.06.i.i.i.i.i.i.idx = phi i64 [ %__first.addr.06.i.i.i.i.i.i.add, %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ 0, %call5.i.i.i.i.noexc.i ]
   %__first.addr.06.i.i.i.i.i.i.ptr = getelementptr inbounds i8, ptr %ref.tmp100, i64 %__first.addr.06.i.i.i.i.i.i.idx
-  %87 = load <2 x ptr>, ptr %__first.addr.06.i.i.i.i.i.i.ptr, align 8
-  store <2 x ptr> %87, ptr %__cur.07.i.i.i.i.i.i, align 8
-  %88 = extractelement <2 x ptr> %87, i64 1
-  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %88, null
+  %_M_refcount3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i.ptr, i64 8
+  %87 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i, align 8
+  %88 = load <2 x ptr>, ptr %__first.addr.06.i.i.i.i.i.i.ptr, align 8
+  store <2 x ptr> %88, ptr %__cur.07.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %87, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i485
 
 if.then.i.i.i.i.i.i.i.i.i.i485:                   ; preds = %for.body.i.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %88, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %87, i64 8
   %89 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %89, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
@@ -2317,14 +2318,15 @@ invoke.cont122:                                   ; preds = %.noexc491
 
 invoke.cont125:                                   ; preds = %invoke.cont122
   %_M_refcount.i.i493 = getelementptr inbounds i8, ptr %agg.tmp123, i64 8
-  %94 = load <2 x ptr>, ptr %call126, align 8
-  store <2 x ptr> %94, ptr %agg.tmp123, align 16
-  %95 = extractelement <2 x ptr> %94, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %95, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %call126, i64 8
+  %94 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %95 = load <2 x ptr>, ptr %call126, align 8
+  store <2 x ptr> %95, ptr %agg.tmp123, align 16
+  %cmp.not.i.i.i = icmp eq ptr %94, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont125
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %95, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %94, i64 8
   %96 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %96, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -2370,14 +2372,15 @@ invoke.cont134:                                   ; preds = %.noexc499
 
 invoke.cont137:                                   ; preds = %invoke.cont134
   %_M_refcount.i.i502 = getelementptr inbounds i8, ptr %agg.tmp135, i64 8
-  %100 = load <2 x ptr>, ptr %call138, align 8
-  store <2 x ptr> %100, ptr %agg.tmp135, align 16
-  %101 = extractelement <2 x ptr> %100, i64 1
-  %cmp.not.i.i.i504 = icmp eq ptr %101, null
+  %_M_refcount3.i.i503 = getelementptr inbounds i8, ptr %call138, i64 8
+  %100 = load ptr, ptr %_M_refcount3.i.i503, align 8
+  %101 = load <2 x ptr>, ptr %call138, align 8
+  store <2 x ptr> %101, ptr %agg.tmp135, align 16
+  %cmp.not.i.i.i504 = icmp eq ptr %100, null
   br i1 %cmp.not.i.i.i504, label %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit511, label %if.then.i.i.i505
 
 if.then.i.i.i505:                                 ; preds = %invoke.cont137
-  %_M_use_count.i.i.i.i506 = getelementptr inbounds i8, ptr %101, i64 8
+  %_M_use_count.i.i.i.i506 = getelementptr inbounds i8, ptr %100, i64 8
   %102 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i507 = icmp eq i8 %102, 0
   br i1 %tobool.i.i.not.i.i.i.i507, label %if.else.i.i.i.i.i510, label %if.then.i.i.i.i.i508
@@ -2414,14 +2417,15 @@ for.body.i.i.i.i.i.i520:                          ; preds = %_ZSt10_ConstructISt
   %__cur.07.i.i.i.i.i.i521 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i532, %_ZSt10_ConstructISt10shared_ptrIN5arrow5FieldEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %call5.i.i.i.i2.i513, %call5.i.i.i.i.noexc.i517 ]
   %__first.addr.06.i.i.i.i.i.i522.idx = phi i64 [ %__first.addr.06.i.i.i.i.i.i522.add, %_ZSt10_ConstructISt10shared_ptrIN5arrow5FieldEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ 0, %call5.i.i.i.i.noexc.i517 ]
   %__first.addr.06.i.i.i.i.i.i522.ptr = getelementptr inbounds i8, ptr %ref.tmp116, i64 %__first.addr.06.i.i.i.i.i.i522.idx
-  %105 = load <2 x ptr>, ptr %__first.addr.06.i.i.i.i.i.i522.ptr, align 8
-  store <2 x ptr> %105, ptr %__cur.07.i.i.i.i.i.i521, align 8
-  %106 = extractelement <2 x ptr> %105, i64 1
-  %cmp.not.i.i.i.i.i.i.i.i.i.i525 = icmp eq ptr %106, null
+  %_M_refcount3.i.i.i.i.i.i.i.i.i524 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i522.ptr, i64 8
+  %105 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i524, align 8
+  %106 = load <2 x ptr>, ptr %__first.addr.06.i.i.i.i.i.i522.ptr, align 8
+  store <2 x ptr> %106, ptr %__cur.07.i.i.i.i.i.i521, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i525 = icmp eq ptr %105, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i525, label %_ZSt10_ConstructISt10shared_ptrIN5arrow5FieldEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i526
 
 if.then.i.i.i.i.i.i.i.i.i.i526:                   ; preds = %for.body.i.i.i.i.i.i520
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i527 = getelementptr inbounds i8, ptr %106, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i527 = getelementptr inbounds i8, ptr %105, i64 8
   %107 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i528 = icmp eq i8 %107, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i528, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i535, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i529
@@ -4006,14 +4010,15 @@ call5.i.i.i.i.noexc:                              ; preds = %for.body.i.i.i.i.pr
 for.body.i.i.i.i.i:                               ; preds = %_ZSt10_ConstructISt10shared_ptrIN5arrow5FieldEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, %call5.i.i.i.i.noexc
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIN5arrow5FieldEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %call5.i.i.i.i2, %call5.i.i.i.i.noexc ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIN5arrow5FieldEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %__l.coerce0, %call5.i.i.i.i.noexc ]
-  %0 = load <2 x ptr>, ptr %__first.addr.06.i.i.i.i.i, align 8
-  store <2 x ptr> %0, ptr %__cur.07.i.i.i.i.i, align 8
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 8
+  %0 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %__first.addr.06.i.i.i.i.i, align 8
+  store <2 x ptr> %1, ptr %__cur.07.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN5arrow5FieldEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -5117,14 +5122,15 @@ if.then7:                                         ; preds = %if.end
 if.then12:                                        ; preds = %if.end
   %storage_.i = getelementptr inbounds i8, ptr %base, i64 32
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %base_storage, i64 8
-  %18 = load <2 x ptr>, ptr %storage_.i, align 8
-  store <2 x ptr> %18, ptr %base_storage, align 16
-  %19 = extractelement <2 x ptr> %18, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %19, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %base, i64 40
+  %18 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %19 = load <2 x ptr>, ptr %storage_.i, align 8
+  store <2 x ptr> %19, ptr %base_storage, align 16
+  %cmp.not.i.i.i = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then12
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %20, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -5891,14 +5897,15 @@ invoke.cont:                                      ; preds = %init
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont
-  %2 = load <2 x ptr>, ptr %call, align 8
-  store <2 x ptr> %2, ptr %agg.tmp4, align 16
-  %3 = extractelement <2 x ptr> %2, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %3, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %3 = load <2 x ptr>, ptr %call, align 8
+  store <2 x ptr> %3, ptr %agg.tmp4, align 16
+  %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont6
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -5929,14 +5936,15 @@ invoke.cont13:                                    ; preds = %invoke.cont9
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont13
-  %7 = load <2 x ptr>, ptr %call17, align 8
-  store <2 x ptr> %7, ptr %agg.tmp14, align 16
-  %8 = extractelement <2 x ptr> %7, i64 1
-  %cmp.not.i.i.i31 = icmp eq ptr %8, null
+  %_M_refcount3.i.i30 = getelementptr inbounds i8, ptr %call17, i64 8
+  %7 = load ptr, ptr %_M_refcount3.i.i30, align 8
+  %8 = load <2 x ptr>, ptr %call17, align 8
+  store <2 x ptr> %8, ptr %agg.tmp14, align 16
+  %cmp.not.i.i.i31 = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i31, label %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit38, label %if.then.i.i.i32
 
 if.then.i.i.i32:                                  ; preds = %invoke.cont16
-  %_M_use_count.i.i.i.i33 = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i33 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i34 = icmp eq i8 %9, 0
   br i1 %tobool.i.i.not.i.i.i.i34, label %if.else.i.i.i.i.i37, label %if.then.i.i.i.i.i35
@@ -7256,16 +7264,17 @@ invoke.cont10:                                    ; preds = %invoke.cont
           to label %.noexc unwind label %lpad12
 
 .noexc:                                           ; preds = %invoke.cont10
-  %13 = load <2 x ptr>, ptr %this, align 8
-  %14 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16
-  store <2 x ptr> %14, ptr %this, align 8
-  store <2 x ptr> %13, ptr %ref.tmp.i.i, align 16
-  %15 = extractelement <2 x ptr> %13, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %15, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %13 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %14 = load <2 x ptr>, ptr %this, align 8
+  %15 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16
+  store <2 x ptr> %15, ptr %this, align 8
+  store <2 x ptr> %14, ptr %ref.tmp.i.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont13, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %16 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %16, 4294967297
   %17 = trunc i64 %16 to i32
@@ -7273,12 +7282,12 @@ if.then.i.i.i.i:                                  ; preds = %.noexc
 
 if.then.i.i.i.i.i8:                               ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 12
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
-  %vtable.i.i.i.i.i = load ptr, ptr %15, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %13, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %18 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(16) %15) #19
+  call void %18(ptr noundef nonnull align 8 dereferenceable(16) %13) #19
   br label %if.end8.sink.split.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -7301,11 +7310,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
   br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %invoke.cont13
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %15, align 8
+  %vtable.i.i.i.i.i.i.i = load ptr, ptr %13, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %21 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(16) %15) #19
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 12
+  call void %21(ptr noundef nonnull align 8 dereferenceable(16) %13) #19
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 12
   %22 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %22, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -7326,10 +7335,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
   br i1 %cmp.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i, label %invoke.cont13
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i8
-  %vtable2.i.i.i.i.i.i.i = load ptr, ptr %15, align 8
+  %vtable2.i.i.i.i.i.i.i = load ptr, ptr %13, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %25 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(16) %15) #19
+  call void %25(ptr noundef nonnull align 8 dereferenceable(16) %13) #19
   br label %invoke.cont13
 
 invoke.cont13:                                    ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %.noexc
@@ -8048,16 +8057,16 @@ invoke.cont29:                                    ; preds = %if.then14
           to label %.noexc unwind label %lpad30
 
 .noexc:                                           ; preds = %invoke.cont29
-  %39 = load <2 x ptr>, ptr %out, align 8
-  %40 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16
-  store <2 x ptr> %40, ptr %out, align 8
-  store <2 x ptr> %39, ptr %ref.tmp.i.i, align 16
-  %41 = extractelement <2 x ptr> %39, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %41, null
+  %39 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %40 = load <2 x ptr>, ptr %out, align 8
+  %41 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16
+  store <2 x ptr> %41, ptr %out, align 8
+  store <2 x ptr> %40, ptr %ref.tmp.i.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %39, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont31, label %if.then.i.i.i.i52
 
 if.then.i.i.i.i52:                                ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 8
   %42 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %42, 4294967297
   %43 = trunc i64 %42 to i32
@@ -8065,12 +8074,12 @@ if.then.i.i.i.i52:                                ; preds = %.noexc
 
 if.then.i.i.i.i.i64:                              ; preds = %if.then.i.i.i.i52
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 12
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
-  %vtable.i.i.i.i.i = load ptr, ptr %41, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %39, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %44 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(16) %41) #19
+  call void %44(ptr noundef nonnull align 8 dereferenceable(16) %39) #19
   br label %if.end8.sink.split.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i52
@@ -8093,11 +8102,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
   br i1 %cmp6.i.i.i.i.i, label %if.then7.i.i.i.i.i, label %invoke.cont31
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i54 = load ptr, ptr %41, align 8
+  %vtable.i.i.i.i.i.i.i54 = load ptr, ptr %39, align 8
   %vfn.i.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i54, i64 16
   %47 = load ptr, ptr %vfn.i.i.i.i.i.i.i55, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(16) %41) #19
-  %_M_weak_count.i.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %41, i64 12
+  call void %47(ptr noundef nonnull align 8 dereferenceable(16) %39) #19
+  %_M_weak_count.i.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %39, i64 12
   %48 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i57 = icmp eq i8 %48, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i57, label %if.else.i.i.i.i.i.i.i.i63, label %if.then.i.i.i.i.i.i.i.i58
@@ -8118,10 +8127,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i60: ; preds = %
   br i1 %cmp.i.i.i.i.i.i.i62, label %if.end8.sink.split.i.i.i.i.i, label %invoke.cont31
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i60, %if.then.i.i.i.i.i64
-  %vtable2.i.i.i.i.i.i.i = load ptr, ptr %41, align 8
+  %vtable2.i.i.i.i.i.i.i = load ptr, ptr %39, align 8
   %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %51 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(16) %41) #19
+  call void %51(ptr noundef nonnull align 8 dereferenceable(16) %39) #19
   br label %invoke.cont31
 
 invoke.cont31:                                    ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i60, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %.noexc
@@ -9314,14 +9323,15 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZSt10_ConstructISt
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %call5.i.i.i.i2.i, %call5.i.i.i.i.noexc.i ]
   %__first.addr.06.i.i.i.i.i.i.idx = phi i64 [ %__first.addr.06.i.i.i.i.i.i.add, %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ 0, %call5.i.i.i.i.noexc.i ]
   %__first.addr.06.i.i.i.i.i.i.ptr = getelementptr inbounds i8, ptr %ref.tmp76, i64 %__first.addr.06.i.i.i.i.i.i.idx
-  %44 = load <2 x ptr>, ptr %__first.addr.06.i.i.i.i.i.i.ptr, align 8
-  store <2 x ptr> %44, ptr %__cur.07.i.i.i.i.i.i, align 8
-  %45 = extractelement <2 x ptr> %44, i64 1
-  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %45, null
+  %_M_refcount3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i.ptr, i64 8
+  %44 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i, align 8
+  %45 = load <2 x ptr>, ptr %__first.addr.06.i.i.i.i.i.i.ptr, align 8
+  store <2 x ptr> %45, ptr %__cur.07.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %44, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN5arrow5ArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %45, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %44, i64 8
   %46 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %46, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
@@ -9374,14 +9384,15 @@ invoke.cont94:                                    ; preds = %.noexc
 
 invoke.cont97:                                    ; preds = %invoke.cont94
   %_M_refcount.i.i89 = getelementptr inbounds i8, ptr %agg.tmp95, i64 8
-  %51 = load <2 x ptr>, ptr %call98, align 8
-  store <2 x ptr> %51, ptr %agg.tmp95, align 16
-  %52 = extractelement <2 x ptr> %51, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %52, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %call98, i64 8
+  %51 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %52 = load <2 x ptr>, ptr %call98, align 8
+  store <2 x ptr> %52, ptr %agg.tmp95, align 16
+  %cmp.not.i.i.i = icmp eq ptr %51, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont97
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %52, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %53, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -9427,14 +9438,15 @@ invoke.cont106:                                   ; preds = %.noexc95
 
 invoke.cont109:                                   ; preds = %invoke.cont106
   %_M_refcount.i.i98 = getelementptr inbounds i8, ptr %agg.tmp107, i64 8
-  %57 = load <2 x ptr>, ptr %call110, align 8
-  store <2 x ptr> %57, ptr %agg.tmp107, align 16
-  %58 = extractelement <2 x ptr> %57, i64 1
-  %cmp.not.i.i.i100 = icmp eq ptr %58, null
+  %_M_refcount3.i.i99 = getelementptr inbounds i8, ptr %call110, i64 8
+  %57 = load ptr, ptr %_M_refcount3.i.i99, align 8
+  %58 = load <2 x ptr>, ptr %call110, align 8
+  store <2 x ptr> %58, ptr %agg.tmp107, align 16
+  %cmp.not.i.i.i100 = icmp eq ptr %57, null
   br i1 %cmp.not.i.i.i100, label %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit107, label %if.then.i.i.i101
 
 if.then.i.i.i101:                                 ; preds = %invoke.cont109
-  %_M_use_count.i.i.i.i102 = getelementptr inbounds i8, ptr %58, i64 8
+  %_M_use_count.i.i.i.i102 = getelementptr inbounds i8, ptr %57, i64 8
   %59 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i103 = icmp eq i8 %59, 0
   br i1 %tobool.i.i.not.i.i.i.i103, label %if.else.i.i.i.i.i106, label %if.then.i.i.i.i.i104
@@ -9471,14 +9483,15 @@ for.body.i.i.i.i.i.i116:                          ; preds = %_ZSt10_ConstructISt
   %__cur.07.i.i.i.i.i.i117 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i128, %_ZSt10_ConstructISt10shared_ptrIN5arrow5FieldEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ %call5.i.i.i.i2.i109, %call5.i.i.i.i.noexc.i113 ]
   %__first.addr.06.i.i.i.i.i.i118.idx = phi i64 [ %__first.addr.06.i.i.i.i.i.i118.add, %_ZSt10_ConstructISt10shared_ptrIN5arrow5FieldEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i ], [ 0, %call5.i.i.i.i.noexc.i113 ]
   %__first.addr.06.i.i.i.i.i.i118.ptr = getelementptr inbounds i8, ptr %ref.tmp88, i64 %__first.addr.06.i.i.i.i.i.i118.idx
-  %62 = load <2 x ptr>, ptr %__first.addr.06.i.i.i.i.i.i118.ptr, align 8
-  store <2 x ptr> %62, ptr %__cur.07.i.i.i.i.i.i117, align 8
-  %63 = extractelement <2 x ptr> %62, i64 1
-  %cmp.not.i.i.i.i.i.i.i.i.i.i121 = icmp eq ptr %63, null
+  %_M_refcount3.i.i.i.i.i.i.i.i.i120 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i118.ptr, i64 8
+  %62 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i120, align 8
+  %63 = load <2 x ptr>, ptr %__first.addr.06.i.i.i.i.i.i118.ptr, align 8
+  store <2 x ptr> %63, ptr %__cur.07.i.i.i.i.i.i117, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i121 = icmp eq ptr %62, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i121, label %_ZSt10_ConstructISt10shared_ptrIN5arrow5FieldEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i122
 
 if.then.i.i.i.i.i.i.i.i.i.i122:                   ; preds = %for.body.i.i.i.i.i.i116
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i123 = getelementptr inbounds i8, ptr %63, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i123 = getelementptr inbounds i8, ptr %62, i64 8
   %64 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i124 = icmp eq i8 %64, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i124, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i131, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i125
@@ -21708,14 +21721,15 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !558)
   %call.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5int64Ev(), !noalias !558
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %0 = load <2 x ptr>, ptr %call.i, align 8, !noalias !558
-  store <2 x ptr> %0, ptr %ref.tmp, align 16, !alias.scope !558
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !558
+  %1 = load <2 x ptr>, ptr %call.i, align 8, !noalias !558
+  store <2 x ptr> %1, ptr %ref.tmp, align 16, !alias.scope !558
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN5arrow10TypeTraitsINS_9Int64TypeEE14type_singletonEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !558
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -22357,10 +22371,10 @@ sw.bb2:                                           ; preds = %entry
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i = getelementptr inbounds i8, ptr %visitor, i64 24
   %1 = load <2 x ptr>, ptr %_M_manager3.i.i.i, align 8, !noalias !564
+  %2 = load ptr, ptr %_M_manager3.i.i.i, align 8, !noalias !564
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitERKNS0_11BooleanTypeEEUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager3.i.i.i, align 8, !noalias !564
   store <2 x ptr> %1, ptr %_M_manager.i.i.i.i, align 8, !noalias !564
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitERKNS0_11BooleanTypeEEUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i, align 8, !noalias !564
-  %2 = extractelement <2 x ptr> %1, i64 0
   %tobool.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5arrow17MakeFormatterImpl5VisitERKNS_11BooleanTypeE.exit, label %if.then.i.i.i.i
 
@@ -22389,10 +22403,10 @@ sw.bb4:                                           ; preds = %entry
   %_M_manager3.i.i.i89 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i90 = getelementptr inbounds i8, ptr %visitor, i64 24
   %5 = load <2 x ptr>, ptr %_M_manager3.i.i.i89, align 8, !noalias !570
+  %6 = load ptr, ptr %_M_manager3.i.i.i89, align 8, !noalias !570
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_8Int8TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i89, align 8, !noalias !570
   store <2 x ptr> %5, ptr %_M_manager.i.i.i.i87, align 8, !noalias !570
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_8Int8TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i90, align 8, !noalias !570
-  %6 = extractelement <2 x ptr> %5, i64 0
   %tobool.not.i.i.i.i91 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i91, label %_ZN5arrow17MakeFormatterImpl5VisitINS_8Int8TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i92
 
@@ -22421,10 +22435,10 @@ sw.bb6:                                           ; preds = %entry
   %_M_manager3.i.i.i98 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i99 = getelementptr inbounds i8, ptr %visitor, i64 24
   %9 = load <2 x ptr>, ptr %_M_manager3.i.i.i98, align 8, !noalias !576
+  %10 = load ptr, ptr %_M_manager3.i.i.i98, align 8, !noalias !576
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_9UInt8TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i98, align 8, !noalias !576
   store <2 x ptr> %9, ptr %_M_manager.i.i.i.i96, align 8, !noalias !576
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_9UInt8TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i99, align 8, !noalias !576
-  %10 = extractelement <2 x ptr> %9, i64 0
   %tobool.not.i.i.i.i100 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i100, label %_ZN5arrow17MakeFormatterImpl5VisitINS_9UInt8TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i101
 
@@ -22453,10 +22467,10 @@ sw.bb8:                                           ; preds = %entry
   %_M_manager3.i.i.i107 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i108 = getelementptr inbounds i8, ptr %visitor, i64 24
   %13 = load <2 x ptr>, ptr %_M_manager3.i.i.i107, align 8, !noalias !582
+  %14 = load ptr, ptr %_M_manager3.i.i.i107, align 8, !noalias !582
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_9Int16TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i107, align 8, !noalias !582
   store <2 x ptr> %13, ptr %_M_manager.i.i.i.i105, align 8, !noalias !582
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_9Int16TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i108, align 8, !noalias !582
-  %14 = extractelement <2 x ptr> %13, i64 0
   %tobool.not.i.i.i.i109 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i109, label %_ZN5arrow17MakeFormatterImpl5VisitINS_9Int16TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i110
 
@@ -22485,10 +22499,10 @@ sw.bb10:                                          ; preds = %entry
   %_M_manager3.i.i.i116 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i117 = getelementptr inbounds i8, ptr %visitor, i64 24
   %17 = load <2 x ptr>, ptr %_M_manager3.i.i.i116, align 8, !noalias !588
+  %18 = load ptr, ptr %_M_manager3.i.i.i116, align 8, !noalias !588
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_10UInt16TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i116, align 8, !noalias !588
   store <2 x ptr> %17, ptr %_M_manager.i.i.i.i114, align 8, !noalias !588
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_10UInt16TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i117, align 8, !noalias !588
-  %18 = extractelement <2 x ptr> %17, i64 0
   %tobool.not.i.i.i.i118 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i.i118, label %_ZN5arrow17MakeFormatterImpl5VisitINS_10UInt16TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i119
 
@@ -22517,10 +22531,10 @@ sw.bb12:                                          ; preds = %entry
   %_M_manager3.i.i.i125 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i126 = getelementptr inbounds i8, ptr %visitor, i64 24
   %21 = load <2 x ptr>, ptr %_M_manager3.i.i.i125, align 8, !noalias !594
+  %22 = load ptr, ptr %_M_manager3.i.i.i125, align 8, !noalias !594
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_9Int32TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i125, align 8, !noalias !594
   store <2 x ptr> %21, ptr %_M_manager.i.i.i.i123, align 8, !noalias !594
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_9Int32TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i126, align 8, !noalias !594
-  %22 = extractelement <2 x ptr> %21, i64 0
   %tobool.not.i.i.i.i127 = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.i.i127, label %_ZN5arrow17MakeFormatterImpl5VisitINS_9Int32TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i128
 
@@ -22549,10 +22563,10 @@ sw.bb14:                                          ; preds = %entry
   %_M_manager3.i.i.i134 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i135 = getelementptr inbounds i8, ptr %visitor, i64 24
   %25 = load <2 x ptr>, ptr %_M_manager3.i.i.i134, align 8, !noalias !600
+  %26 = load ptr, ptr %_M_manager3.i.i.i134, align 8, !noalias !600
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_10UInt32TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i134, align 8, !noalias !600
   store <2 x ptr> %25, ptr %_M_manager.i.i.i.i132, align 8, !noalias !600
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_10UInt32TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i135, align 8, !noalias !600
-  %26 = extractelement <2 x ptr> %25, i64 0
   %tobool.not.i.i.i.i136 = icmp eq ptr %26, null
   br i1 %tobool.not.i.i.i.i136, label %_ZN5arrow17MakeFormatterImpl5VisitINS_10UInt32TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i137
 
@@ -22581,10 +22595,10 @@ sw.bb16:                                          ; preds = %entry
   %_M_manager3.i.i.i143 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i144 = getelementptr inbounds i8, ptr %visitor, i64 24
   %29 = load <2 x ptr>, ptr %_M_manager3.i.i.i143, align 8, !noalias !606
+  %30 = load ptr, ptr %_M_manager3.i.i.i143, align 8, !noalias !606
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_9Int64TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i143, align 8, !noalias !606
   store <2 x ptr> %29, ptr %_M_manager.i.i.i.i141, align 8, !noalias !606
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_9Int64TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i144, align 8, !noalias !606
-  %30 = extractelement <2 x ptr> %29, i64 0
   %tobool.not.i.i.i.i145 = icmp eq ptr %30, null
   br i1 %tobool.not.i.i.i.i145, label %_ZN5arrow17MakeFormatterImpl5VisitINS_9Int64TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i146
 
@@ -22613,10 +22627,10 @@ sw.bb18:                                          ; preds = %entry
   %_M_manager3.i.i.i152 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i153 = getelementptr inbounds i8, ptr %visitor, i64 24
   %33 = load <2 x ptr>, ptr %_M_manager3.i.i.i152, align 8, !noalias !612
+  %34 = load ptr, ptr %_M_manager3.i.i.i152, align 8, !noalias !612
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_10UInt64TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i152, align 8, !noalias !612
   store <2 x ptr> %33, ptr %_M_manager.i.i.i.i150, align 8, !noalias !612
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_10UInt64TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i153, align 8, !noalias !612
-  %34 = extractelement <2 x ptr> %33, i64 0
   %tobool.not.i.i.i.i154 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.i.i154, label %_ZN5arrow17MakeFormatterImpl5VisitINS_10UInt64TypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i155
 
@@ -22645,10 +22659,10 @@ sw.bb20:                                          ; preds = %entry
   %_M_manager3.i.i.i161 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i162 = getelementptr inbounds i8, ptr %visitor, i64 24
   %37 = load <2 x ptr>, ptr %_M_manager3.i.i.i161, align 8, !noalias !618
+  %38 = load ptr, ptr %_M_manager3.i.i.i161, align 8, !noalias !618
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_13HalfFloatTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i161, align 8, !noalias !618
   store <2 x ptr> %37, ptr %_M_manager.i.i.i.i159, align 8, !noalias !618
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_13HalfFloatTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i162, align 8, !noalias !618
-  %38 = extractelement <2 x ptr> %37, i64 0
   %tobool.not.i.i.i.i163 = icmp eq ptr %38, null
   br i1 %tobool.not.i.i.i.i163, label %_ZN5arrow17MakeFormatterImpl5VisitINS_13HalfFloatTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i164
 
@@ -22677,10 +22691,10 @@ sw.bb22:                                          ; preds = %entry
   %_M_manager3.i.i.i170 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i171 = getelementptr inbounds i8, ptr %visitor, i64 24
   %41 = load <2 x ptr>, ptr %_M_manager3.i.i.i170, align 8, !noalias !624
+  %42 = load ptr, ptr %_M_manager3.i.i.i170, align 8, !noalias !624
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_9FloatTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i170, align 8, !noalias !624
   store <2 x ptr> %41, ptr %_M_manager.i.i.i.i168, align 8, !noalias !624
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_9FloatTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i171, align 8, !noalias !624
-  %42 = extractelement <2 x ptr> %41, i64 0
   %tobool.not.i.i.i.i172 = icmp eq ptr %42, null
   br i1 %tobool.not.i.i.i.i172, label %_ZN5arrow17MakeFormatterImpl5VisitINS_9FloatTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i173
 
@@ -22709,10 +22723,10 @@ sw.bb24:                                          ; preds = %entry
   %_M_manager3.i.i.i179 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i180 = getelementptr inbounds i8, ptr %visitor, i64 24
   %45 = load <2 x ptr>, ptr %_M_manager3.i.i.i179, align 8, !noalias !630
+  %46 = load ptr, ptr %_M_manager3.i.i.i179, align 8, !noalias !630
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_10DoubleTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i179, align 8, !noalias !630
   store <2 x ptr> %45, ptr %_M_manager.i.i.i.i177, align 8, !noalias !630
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_10DoubleTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i180, align 8, !noalias !630
-  %46 = extractelement <2 x ptr> %45, i64 0
   %tobool.not.i.i.i.i181 = icmp eq ptr %46, null
   br i1 %tobool.not.i.i.i.i181, label %_ZN5arrow17MakeFormatterImpl5VisitINS_10DoubleTypeEEENSt9enable_ifIXsr14is_number_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i182
 
@@ -22741,10 +22755,10 @@ sw.bb26:                                          ; preds = %entry
   %_M_manager3.i.i.i188 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i189 = getelementptr inbounds i8, ptr %visitor, i64 24
   %49 = load <2 x ptr>, ptr %_M_manager3.i.i.i188, align 8, !noalias !636
+  %50 = load ptr, ptr %_M_manager3.i.i.i188, align 8, !noalias !636
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_10StringTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i188, align 8, !noalias !636
   store <2 x ptr> %49, ptr %_M_manager.i.i.i.i186, align 8, !noalias !636
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_10StringTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i189, align 8, !noalias !636
-  %50 = extractelement <2 x ptr> %49, i64 0
   %tobool.not.i.i.i.i190 = icmp eq ptr %50, null
   br i1 %tobool.not.i.i.i.i190, label %_ZN5arrow17MakeFormatterImpl5VisitINS_10StringTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i191
 
@@ -22773,10 +22787,10 @@ sw.bb28:                                          ; preds = %entry
   %_M_manager3.i.i.i197 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i198 = getelementptr inbounds i8, ptr %visitor, i64 24
   %53 = load <2 x ptr>, ptr %_M_manager3.i.i.i197, align 8, !noalias !642
+  %54 = load ptr, ptr %_M_manager3.i.i.i197, align 8, !noalias !642
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_14StringViewTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i197, align 8, !noalias !642
   store <2 x ptr> %53, ptr %_M_manager.i.i.i.i195, align 8, !noalias !642
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_14StringViewTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i198, align 8, !noalias !642
-  %54 = extractelement <2 x ptr> %53, i64 0
   %tobool.not.i.i.i.i199 = icmp eq ptr %54, null
   br i1 %tobool.not.i.i.i.i199, label %_ZN5arrow17MakeFormatterImpl5VisitINS_14StringViewTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i200
 
@@ -22805,10 +22819,10 @@ sw.bb30:                                          ; preds = %entry
   %_M_manager3.i.i.i206 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i207 = getelementptr inbounds i8, ptr %visitor, i64 24
   %57 = load <2 x ptr>, ptr %_M_manager3.i.i.i206, align 8, !noalias !648
+  %58 = load ptr, ptr %_M_manager3.i.i.i206, align 8, !noalias !648
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_10BinaryTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i206, align 8, !noalias !648
   store <2 x ptr> %57, ptr %_M_manager.i.i.i.i204, align 8, !noalias !648
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_10BinaryTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i207, align 8, !noalias !648
-  %58 = extractelement <2 x ptr> %57, i64 0
   %tobool.not.i.i.i.i208 = icmp eq ptr %58, null
   br i1 %tobool.not.i.i.i.i208, label %_ZN5arrow17MakeFormatterImpl5VisitINS_10BinaryTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i209
 
@@ -22837,10 +22851,10 @@ sw.bb32:                                          ; preds = %entry
   %_M_manager3.i.i.i215 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i216 = getelementptr inbounds i8, ptr %visitor, i64 24
   %61 = load <2 x ptr>, ptr %_M_manager3.i.i.i215, align 8, !noalias !654
+  %62 = load ptr, ptr %_M_manager3.i.i.i215, align 8, !noalias !654
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_14BinaryViewTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i215, align 8, !noalias !654
   store <2 x ptr> %61, ptr %_M_manager.i.i.i.i213, align 8, !noalias !654
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_14BinaryViewTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i216, align 8, !noalias !654
-  %62 = extractelement <2 x ptr> %61, i64 0
   %tobool.not.i.i.i.i217 = icmp eq ptr %62, null
   br i1 %tobool.not.i.i.i.i217, label %_ZN5arrow17MakeFormatterImpl5VisitINS_14BinaryViewTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i218
 
@@ -22869,10 +22883,10 @@ sw.bb34:                                          ; preds = %entry
   %_M_manager3.i.i.i224 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i225 = getelementptr inbounds i8, ptr %visitor, i64 24
   %65 = load <2 x ptr>, ptr %_M_manager3.i.i.i224, align 8, !noalias !660
+  %66 = load ptr, ptr %_M_manager3.i.i.i224, align 8, !noalias !660
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_15LargeStringTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i224, align 8, !noalias !660
   store <2 x ptr> %65, ptr %_M_manager.i.i.i.i222, align 8, !noalias !660
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_15LargeStringTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i225, align 8, !noalias !660
-  %66 = extractelement <2 x ptr> %65, i64 0
   %tobool.not.i.i.i.i226 = icmp eq ptr %66, null
   br i1 %tobool.not.i.i.i.i226, label %_ZN5arrow17MakeFormatterImpl5VisitINS_15LargeStringTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i227
 
@@ -22901,10 +22915,10 @@ sw.bb36:                                          ; preds = %entry
   %_M_manager3.i.i.i233 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i234 = getelementptr inbounds i8, ptr %visitor, i64 24
   %69 = load <2 x ptr>, ptr %_M_manager3.i.i.i233, align 8, !noalias !666
+  %70 = load ptr, ptr %_M_manager3.i.i.i233, align 8, !noalias !666
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_15LargeBinaryTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i233, align 8, !noalias !666
   store <2 x ptr> %69, ptr %_M_manager.i.i.i.i231, align 8, !noalias !666
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_15LargeBinaryTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i234, align 8, !noalias !666
-  %70 = extractelement <2 x ptr> %69, i64 0
   %tobool.not.i.i.i.i235 = icmp eq ptr %70, null
   br i1 %tobool.not.i.i.i.i235, label %_ZN5arrow17MakeFormatterImpl5VisitINS_15LargeBinaryTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i236
 
@@ -22933,10 +22947,10 @@ sw.bb38:                                          ; preds = %entry
   %_M_manager3.i.i.i242 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i243 = getelementptr inbounds i8, ptr %visitor, i64 24
   %73 = load <2 x ptr>, ptr %_M_manager3.i.i.i242, align 8, !noalias !672
+  %74 = load ptr, ptr %_M_manager3.i.i.i242, align 8, !noalias !672
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_19FixedSizeBinaryTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i242, align 8, !noalias !672
   store <2 x ptr> %73, ptr %_M_manager.i.i.i.i240, align 8, !noalias !672
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_19FixedSizeBinaryTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i243, align 8, !noalias !672
-  %74 = extractelement <2 x ptr> %73, i64 0
   %tobool.not.i.i.i.i244 = icmp eq ptr %74, null
   br i1 %tobool.not.i.i.i.i244, label %_ZN5arrow17MakeFormatterImpl5VisitINS_19FixedSizeBinaryTypeEEENSt9enable_ifIXsr15has_string_viewIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i245
 
@@ -22969,10 +22983,10 @@ sw.bb42:                                          ; preds = %entry
   %_M_manager3.i.i.i251 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i252 = getelementptr inbounds i8, ptr %visitor, i64 24
   %77 = load <2 x ptr>, ptr %_M_manager3.i.i.i251, align 8, !noalias !678
+  %78 = load ptr, ptr %_M_manager3.i.i.i251, align 8, !noalias !678
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_10Date32TypeEEENSt9enable_ifIXsr12is_date_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i251, align 8, !noalias !678
   store <2 x ptr> %77, ptr %_M_manager.i.i.i.i249, align 8, !noalias !678
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_10Date32TypeEEENSt9enable_ifIXsr12is_date_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i252, align 8, !noalias !678
-  %78 = extractelement <2 x ptr> %77, i64 0
   %tobool.not.i.i.i.i253 = icmp eq ptr %78, null
   br i1 %tobool.not.i.i.i.i253, label %_ZN5arrow17MakeFormatterImpl5VisitINS_10Date32TypeEEENSt9enable_ifIXsr12is_date_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i254
 
@@ -23001,10 +23015,10 @@ sw.bb44:                                          ; preds = %entry
   %_M_manager3.i.i.i260 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i261 = getelementptr inbounds i8, ptr %visitor, i64 24
   %81 = load <2 x ptr>, ptr %_M_manager3.i.i.i260, align 8, !noalias !684
+  %82 = load ptr, ptr %_M_manager3.i.i.i260, align 8, !noalias !684
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_10Date64TypeEEENSt9enable_ifIXsr12is_date_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i260, align 8, !noalias !684
   store <2 x ptr> %81, ptr %_M_manager.i.i.i.i258, align 8, !noalias !684
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_10Date64TypeEEENSt9enable_ifIXsr12is_date_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i261, align 8, !noalias !684
-  %82 = extractelement <2 x ptr> %81, i64 0
   %tobool.not.i.i.i.i262 = icmp eq ptr %82, null
   br i1 %tobool.not.i.i.i.i262, label %_ZN5arrow17MakeFormatterImpl5VisitINS_10Date64TypeEEENSt9enable_ifIXsr12is_date_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i263
 
@@ -23045,10 +23059,10 @@ sw.bb52:                                          ; preds = %entry
   %_M_manager3.i.i.i269 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i270 = getelementptr inbounds i8, ptr %visitor, i64 24
   %85 = load <2 x ptr>, ptr %_M_manager3.i.i.i269, align 8, !noalias !690
+  %86 = load ptr, ptr %_M_manager3.i.i.i269, align 8, !noalias !690
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitERKNS0_24MonthDayNanoIntervalTypeEEUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager3.i.i.i269, align 8, !noalias !690
   store <2 x ptr> %85, ptr %_M_manager.i.i.i.i267, align 8, !noalias !690
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitERKNS0_24MonthDayNanoIntervalTypeEEUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i270, align 8, !noalias !690
-  %86 = extractelement <2 x ptr> %85, i64 0
   %tobool.not.i.i.i.i271 = icmp eq ptr %86, null
   br i1 %tobool.not.i.i.i.i271, label %_ZN5arrow17MakeFormatterImpl5VisitERKNS_24MonthDayNanoIntervalTypeE.exit, label %if.then.i.i.i.i272
 
@@ -23081,10 +23095,10 @@ sw.bb56:                                          ; preds = %entry
   %_M_manager3.i.i.i278 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i279 = getelementptr inbounds i8, ptr %visitor, i64 24
   %89 = load <2 x ptr>, ptr %_M_manager3.i.i.i278, align 8, !noalias !696
+  %90 = load ptr, ptr %_M_manager3.i.i.i278, align 8, !noalias !696
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitERKNS0_19DayTimeIntervalTypeEEUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager3.i.i.i278, align 8, !noalias !696
   store <2 x ptr> %89, ptr %_M_manager.i.i.i.i276, align 8, !noalias !696
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitERKNS0_19DayTimeIntervalTypeEEUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i279, align 8, !noalias !696
-  %90 = extractelement <2 x ptr> %89, i64 0
   %tobool.not.i.i.i.i280 = icmp eq ptr %90, null
   br i1 %tobool.not.i.i.i.i280, label %_ZN5arrow17MakeFormatterImpl5VisitERKNS_19DayTimeIntervalTypeE.exit, label %if.then.i.i.i.i281
 
@@ -23113,10 +23127,10 @@ sw.bb58:                                          ; preds = %entry
   %_M_manager3.i.i.i287 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i288 = getelementptr inbounds i8, ptr %visitor, i64 24
   %93 = load <2 x ptr>, ptr %_M_manager3.i.i.i287, align 8, !noalias !702
+  %94 = load ptr, ptr %_M_manager3.i.i.i287, align 8, !noalias !702
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_14Decimal128TypeEEENSt9enable_ifIXsr15is_decimal_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i287, align 8, !noalias !702
   store <2 x ptr> %93, ptr %_M_manager.i.i.i.i285, align 8, !noalias !702
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_14Decimal128TypeEEENSt9enable_ifIXsr15is_decimal_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i288, align 8, !noalias !702
-  %94 = extractelement <2 x ptr> %93, i64 0
   %tobool.not.i.i.i.i289 = icmp eq ptr %94, null
   br i1 %tobool.not.i.i.i.i289, label %_ZN5arrow17MakeFormatterImpl5VisitINS_14Decimal128TypeEEENSt9enable_ifIXsr15is_decimal_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i290
 
@@ -23145,10 +23159,10 @@ sw.bb60:                                          ; preds = %entry
   %_M_manager3.i.i.i296 = getelementptr inbounds i8, ptr %visitor, i64 16
   %_M_invoker4.i.i.i297 = getelementptr inbounds i8, ptr %visitor, i64 24
   %97 = load <2 x ptr>, ptr %_M_manager3.i.i.i296, align 8, !noalias !708
+  %98 = load ptr, ptr %_M_manager3.i.i.i296, align 8, !noalias !708
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_14Decimal256TypeEEENSt9enable_ifIXsr15is_decimal_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i.i296, align 8, !noalias !708
   store <2 x ptr> %97, ptr %_M_manager.i.i.i.i294, align 8, !noalias !708
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_14Decimal256TypeEEENSt9enable_ifIXsr15is_decimal_typeIT_EE5valueENS0_6StatusEE4typeERKSA_EUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i.i297, align 8, !noalias !708
-  %98 = extractelement <2 x ptr> %97, i64 0
   %tobool.not.i.i.i.i298 = icmp eq ptr %98, null
   br i1 %tobool.not.i.i.i.i298, label %_ZN5arrow17MakeFormatterImpl5VisitINS_14Decimal256TypeEEENSt9enable_ifIXsr15is_decimal_typeIT_EE5valueENS_6StatusEE4typeERKS4_.exit, label %if.then.i.i.i.i299
 
@@ -23426,10 +23440,10 @@ _ZNSt8functionIFvRKN5arrow5ArrayElPSoEEC2EOS6_.exit.i: ; preds = %call.i.i2.i.no
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %5 = load ptr, ptr %_M_manager3.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl17MakeTimeFormatterINS0_13TimestampTypeELb1EEESt8functionIS5_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %_M_manager3.i.i, align 8
   store <2 x ptr> %4, ptr %_M_manager.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl17MakeTimeFormatterINS0_13TimestampTypeELb1EEESt8functionIS5_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i, align 8
-  %5 = extractelement <2 x ptr> %4, i64 0
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFvRKN5arrow5ArrayElPSoEED2Ev.exit, label %if.then.i.i.i
 
@@ -23538,10 +23552,10 @@ _ZNSt8functionIFvRKN5arrow5ArrayElPSoEEC2EOS6_.exit.i: ; preds = %call.i.i2.i.no
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %5 = load ptr, ptr %_M_manager3.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl17MakeTimeFormatterINS0_10Time32TypeELb0EEESt8functionIS5_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %_M_manager3.i.i, align 8
   store <2 x ptr> %4, ptr %_M_manager.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl17MakeTimeFormatterINS0_10Time32TypeELb0EEESt8functionIS5_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i, align 8
-  %5 = extractelement <2 x ptr> %4, i64 0
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFvRKN5arrow5ArrayElPSoEED2Ev.exit, label %if.then.i.i.i
 
@@ -23650,10 +23664,10 @@ _ZNSt8functionIFvRKN5arrow5ArrayElPSoEEC2EOS6_.exit.i: ; preds = %call.i.i2.i.no
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %5 = load ptr, ptr %_M_manager3.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl17MakeTimeFormatterINS0_10Time64TypeELb0EEESt8functionIS5_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlS3_lS4_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation, ptr %_M_manager3.i.i, align 8
   store <2 x ptr> %4, ptr %_M_manager.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl17MakeTimeFormatterINS0_10Time64TypeELb0EEESt8functionIS5_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlS3_lS4_E_E9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i, align 8
-  %5 = extractelement <2 x ptr> %4, i64 0
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFvRKN5arrow5ArrayElPSoEED2Ev.exit, label %if.then.i.i.i
 
@@ -23890,10 +23904,10 @@ _ZNSt8functionIFvRKN5arrow5ArrayElPSoEEC2IZNS0_17MakeFormatterImpl5VisitINS0_8Li
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %22 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %23 = load ptr, ptr %_M_manager3.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_8ListTypeEEENSt9enable_ifIXsr17is_list_like_typeIT_EE5valueENS0_6StatusEE4typeERKSA_E8ListImplE10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i, align 8
   store <2 x ptr> %22, ptr %_M_manager.i.i.i10, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_8ListTypeEEENSt9enable_ifIXsr17is_list_like_typeIT_EE5valueENS0_6StatusEE4typeERKSA_E8ListImplE9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i, align 8
-  %23 = extractelement <2 x ptr> %22, i64 0
   %tobool.not.i.i.i = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i, label %invoke.cont14.thread, label %if.then.i.i.i11
 
@@ -24215,10 +24229,10 @@ _ZNSt8functionIFvRKN5arrow5ArrayElPSoEEC2IZNS0_17MakeFormatterImpl5VisitINS0_13L
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %22 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %23 = load ptr, ptr %_M_manager3.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_13LargeListTypeEEENSt9enable_ifIXsr17is_list_like_typeIT_EE5valueENS0_6StatusEE4typeERKSA_E8ListImplE10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i, align 8
   store <2 x ptr> %22, ptr %_M_manager.i.i.i10, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_13LargeListTypeEEENSt9enable_ifIXsr17is_list_like_typeIT_EE5valueENS0_6StatusEE4typeERKSA_E8ListImplE9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i, align 8
-  %23 = extractelement <2 x ptr> %22, i64 0
   %tobool.not.i.i.i = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i, label %invoke.cont14.thread, label %if.then.i.i.i11
 
@@ -24540,10 +24554,10 @@ _ZNSt8functionIFvRKN5arrow5ArrayElPSoEEC2IZNS0_17MakeFormatterImpl5VisitINS0_7Ma
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %22 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %23 = load ptr, ptr %_M_manager3.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_7MapTypeEEENSt9enable_ifIXsr17is_list_like_typeIT_EE5valueENS0_6StatusEE4typeERKSA_E8ListImplE10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i, align 8
   store <2 x ptr> %22, ptr %_M_manager.i.i.i10, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_7MapTypeEEENSt9enable_ifIXsr17is_list_like_typeIT_EE5valueENS0_6StatusEE4typeERKSA_E8ListImplE9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i, align 8
-  %23 = extractelement <2 x ptr> %22, i64 0
   %tobool.not.i.i.i = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i, label %invoke.cont14.thread, label %if.then.i.i.i11
 
@@ -24865,10 +24879,10 @@ _ZNSt8functionIFvRKN5arrow5ArrayElPSoEEC2IZNS0_17MakeFormatterImpl5VisitINS0_17F
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %22 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %23 = load ptr, ptr %_M_manager3.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_17FixedSizeListTypeEEENSt9enable_ifIXsr17is_list_like_typeIT_EE5valueENS0_6StatusEE4typeERKSA_E8ListImplE10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %_M_manager3.i.i, align 8
   store <2 x ptr> %22, ptr %_M_manager.i.i.i10, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitINS0_17FixedSizeListTypeEEENSt9enable_ifIXsr17is_list_like_typeIT_EE5valueENS0_6StatusEE4typeERKSA_E8ListImplE9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i, align 8
-  %23 = extractelement <2 x ptr> %22, i64 0
   %tobool.not.i.i.i = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i, label %invoke.cont14.thread, label %if.then.i.i.i11
 
@@ -25209,10 +25223,10 @@ _ZNSt8functionIFvRKN5arrow5ArrayElPSoEEC2EOS6_.exit.i: ; preds = %invoke.cont22.
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %add.ptr.i87, i64 16
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %add.ptr.i87, i64 24
   %27 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %28 = load ptr, ptr %_M_manager3.i.i, align 8
   store ptr %26, ptr %_M_manager3.i.i, align 8
   store <2 x ptr> %27, ptr %_M_manager.i.i, align 8
   store ptr %25, ptr %_M_invoker4.i.i, align 8
-  %28 = extractelement <2 x ptr> %27, i64 0
   %tobool.not.i.i.i = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFvRKN5arrow5ArrayElPSoEEaSEOS6_.exit.thread, label %if.then.i.i.i27
 
@@ -25292,10 +25306,10 @@ call.i.i2.i.i.noexc:                              ; preds = %for.end
   %_M_manager3.i.i33 = getelementptr inbounds i8, ptr %this, i64 16
   %_M_invoker4.i.i34 = getelementptr inbounds i8, ptr %this, i64 24
   %37 = load <2 x ptr>, ptr %_M_manager3.i.i33, align 8
+  %38 = load ptr, ptr %_M_manager3.i.i33, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitERKNS0_10StructTypeEE10StructImplE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager3.i.i33, align 8
   store <2 x ptr> %37, ptr %_M_manager.i.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitERKNS0_10StructTypeEE10StructImplE9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i34, align 8
-  %38 = extractelement <2 x ptr> %37, i64 0
   %tobool.not.i.i.i35 = icmp eq ptr %38, null
   br i1 %tobool.not.i.i.i35, label %invoke.cont.i63.thread, label %if.then.i.i.i36
 
@@ -25575,10 +25589,10 @@ _ZNSt8functionIFvRKN5arrow5ArrayElPSoEEC2EOS6_.exit.i: ; preds = %invoke.cont25.
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %add.ptr.i21141, i64 16
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %add.ptr.i21141, i64 24
   %27 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %28 = load ptr, ptr %_M_manager3.i.i, align 8
   store ptr %26, ptr %_M_manager3.i.i, align 8
   store <2 x ptr> %27, ptr %_M_manager.i.i, align 8
   store ptr %25, ptr %_M_invoker4.i.i, align 8
-  %28 = extractelement <2 x ptr> %27, i64 0
   %tobool.not.i.i.i = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFvRKN5arrow5ArrayElPSoEEaSEOS6_.exit.thread, label %if.then.i.i.i25
 
@@ -25666,10 +25680,10 @@ call.i.i2.i.i.noexc:                              ; preds = %invoke.cont35
   %_M_manager3.i.i31 = getelementptr inbounds i8, ptr %this, i64 16
   %_M_invoker4.i.i32 = getelementptr inbounds i8, ptr %this, i64 24
   %37 = load <2 x ptr>, ptr %_M_manager3.i.i31, align 8
+  %38 = load ptr, ptr %_M_manager3.i.i31, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitERKNS0_9UnionTypeEE10SparseImplE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager3.i.i31, align 8
   store <2 x ptr> %37, ptr %_M_manager.i.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitERKNS0_9UnionTypeEE10SparseImplE9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i32, align 8
-  %38 = extractelement <2 x ptr> %37, i64 0
   %tobool.not.i.i.i33 = icmp eq ptr %38, null
   br i1 %tobool.not.i.i.i33, label %invoke.cont.i40, label %if.then.i.i.i34
 
@@ -25725,10 +25739,10 @@ call.i.i2.i.i.noexc65:                            ; preds = %if.else
   %_M_manager3.i.i59 = getelementptr inbounds i8, ptr %this, i64 16
   %_M_invoker4.i.i60 = getelementptr inbounds i8, ptr %this, i64 24
   %43 = load <2 x ptr>, ptr %_M_manager3.i.i59, align 8
+  %44 = load ptr, ptr %_M_manager3.i.i59, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitERKNS0_9UnionTypeEE9DenseImplE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %_M_manager3.i.i59, align 8
   store <2 x ptr> %43, ptr %_M_manager.i.i.i53, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_17MakeFormatterImpl5VisitERKNS0_9UnionTypeEE9DenseImplE9_M_invokeERKSt9_Any_dataS3_OlOS4_, ptr %_M_invoker4.i.i60, align 8
-  %44 = extractelement <2 x ptr> %43, i64 0
   %tobool.not.i.i.i61 = icmp eq ptr %44, null
   br i1 %tobool.not.i.i.i61, label %invoke.cont.i98, label %if.then.i.i.i62
 

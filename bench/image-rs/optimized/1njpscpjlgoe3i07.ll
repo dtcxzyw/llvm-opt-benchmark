@@ -27836,12 +27836,12 @@ _ZN4core5slice5ascii8is_ascii17hd613dae18f560376E.exit.thread.i: ; preds = %.lr.
 136:                                              ; preds = %127
   %137 = getelementptr inbounds i8, ptr %9, i64 8
   %138 = load <2 x i64>, ptr %137, align 8, !noalias !5478
+  %139 = load i64, ptr %137, align 8, !noalias !5478
   %.sroa.056.0.copyload.i = load i64, ptr %17, align 8, !noalias !5488
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !5478
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17), !noalias !5376
-  %139 = icmp eq i64 %.sroa.056.0.copyload.i, -9223372036854775808
-  %140 = extractelement <2 x i64> %138, i64 0
-  br i1 %139, label %157, label %141
+  %140 = icmp eq i64 %.sroa.056.0.copyload.i, -9223372036854775808
+  br i1 %140, label %157, label %141
 
 141:                                              ; preds = %136
   %.sroa.454.0..sroa_idx.i = getelementptr inbounds i8, ptr %16, i64 8
@@ -27907,7 +27907,7 @@ common.resume:                                    ; preds = %178, %.body.i.i.i.i
 157:                                              ; preds = %136, %.thread88.i
   %.sroa.648.sroa.0.i.sroa.0.0 = phi ptr [ %121, %136 ], [ %.sroa.648.sroa.0.i.sroa.0.0.copyload, %.thread88.i ]
   %.sroa.648.sroa.0.i.sroa.6.0 = phi i64 [ %123, %136 ], [ %124, %.thread88.i ]
-  %.sroa.648.sroa.6.0.i = phi i64 [ %140, %136 ], [ %123, %.thread88.i ]
+  %.sroa.648.sroa.6.0.i = phi i64 [ %139, %136 ], [ %123, %.thread88.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !5376
   store ptr %.sroa.648.sroa.0.i.sroa.0.0, ptr %23, align 8
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8

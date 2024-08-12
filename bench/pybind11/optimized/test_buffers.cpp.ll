@@ -43733,9 +43733,9 @@ _ZN8pybind116detail16type_caster_baseIZ22test_submodule_buffersRNS_7module_EE6Ma
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %25 = getelementptr inbounds i8, ptr %.val.i, i64 16
   %.val.i.i = load ptr, ptr %25, align 8, !noalias !942
-  %26 = load i64, ptr %.val.i, align 8, !noalias !942
-  %27 = getelementptr inbounds i8, ptr %.val.i, i64 8
-  %28 = load i64, ptr %27, align 8, !noalias !942
+  %26 = getelementptr inbounds i8, ptr %.val.i, i64 8
+  %27 = load i64, ptr %26, align 8, !noalias !942
+  %28 = load <2 x i64>, ptr %.val.i, align 8, !noalias !942
   %29 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
           to label %.noexc5.i unwind label %52
 
@@ -43744,9 +43744,7 @@ _ZN8pybind116detail16type_caster_baseIZ22test_submodule_buffersRNS_7module_EE6Ma
   %30 = getelementptr inbounds i8, ptr %29, i64 16
   %31 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %30, ptr %31, align 8, !noalias !942
-  store i64 %26, ptr %29, align 8, !noalias !942
-  %.sroa.25.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %29, i64 8
-  store i64 %28, ptr %.sroa.25.0..sroa_idx.i.i, align 8, !noalias !942
+  store <2 x i64> %28, ptr %29, align 8, !noalias !942
   %32 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %30, ptr %32, align 8, !noalias !942
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !noalias !942
@@ -43759,7 +43757,7 @@ _ZN8pybind116detail16type_caster_baseIZ22test_submodule_buffersRNS_7module_EE6Ma
   br label %.body.i.i
 
 36:                                               ; preds = %.noexc5.i
-  %37 = shl i64 %28, 2
+  %37 = shl i64 %27, 2
   store ptr %33, ptr %5, align 8, !noalias !942
   %38 = getelementptr inbounds i8, ptr %33, i64 16
   %39 = getelementptr inbounds i8, ptr %5, i64 16

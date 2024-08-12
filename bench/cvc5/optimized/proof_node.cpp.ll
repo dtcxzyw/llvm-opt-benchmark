@@ -2681,17 +2681,15 @@ invoke.cont92:                                    ; preds = %for.cond.i.i.i.i286
   %retval.0.i.pn.i.i284 = phi ptr [ %146, %if.end.i.i.i.i268 ], [ %call7.i.i282, %call5.i.i.i.i.i.i.noexc288 ], [ %148, %for.cond.i.i.i.i286 ]
   %retval.0.i.i285 = getelementptr inbounds i8, ptr %retval.0.i.pn.i.i284, i64 16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__node5.i.i263)
-  %152 = load ptr, ptr %retval.0.i.i285, align 8
-  store ptr %152, ptr %agg.result, align 8
-  %_M_refcount.i.i291 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i292 = getelementptr inbounds i8, ptr %retval.0.i.pn.i.i284, i64 24
-  %153 = load ptr, ptr %_M_refcount3.i.i292, align 8
-  store ptr %153, ptr %_M_refcount.i.i291, align 8
-  %cmp.not.i.i.i293 = icmp eq ptr %153, null
+  %152 = load ptr, ptr %_M_refcount3.i.i292, align 8
+  %153 = load <2 x ptr>, ptr %retval.0.i.i285, align 8
+  store <2 x ptr> %153, ptr %agg.result, align 8
+  %cmp.not.i.i.i293 = icmp eq ptr %152, null
   br i1 %cmp.not.i.i.i293, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit, label %if.then.i.i.i294
 
 if.then.i.i.i294:                                 ; preds = %invoke.cont92
-  %_M_use_count.i.i.i.i295 = getelementptr inbounds i8, ptr %153, i64 8
+  %_M_use_count.i.i.i.i295 = getelementptr inbounds i8, ptr %152, i64 8
   %154 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i296 = icmp eq i8 %154, 0
   br i1 %tobool.i.i.not.i.i.i.i296, label %if.else.i.i.i.i.i299, label %if.then.i.i.i.i.i297

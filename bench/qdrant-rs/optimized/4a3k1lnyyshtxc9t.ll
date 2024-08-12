@@ -912,9 +912,9 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
 24:                                               ; preds = %15
   store i64 0, ptr %6, align 8, !alias.scope !169, !noalias !172
   %25 = load <2 x i64>, ptr %18, align 8, !noalias !175
+  %26 = load i64, ptr %18, align 8, !noalias !175, !noundef !12
   store <2 x i64> %25, ptr %8, align 8, !alias.scope !169, !noalias !172
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !175
-  %26 = extractelement <2 x i64> %25, i64 0
   br label %_ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hcc219477a3c08504E.exit
 
 _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17hcc219477a3c08504E.exit.thread: ; preds = %15

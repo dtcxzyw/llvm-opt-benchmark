@@ -123140,18 +123140,17 @@ _ZNSt10shared_ptrIKN7openvdb5v11_04GridINS1_4tree4TreeINS3_8RootNodeINS3_12Inter
 define linkonce_odr void @_ZNK7openvdb5v11_04GridINS0_4tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEE26copyGridReplacingTransformESt10shared_ptrINS0_4math9TransformEE(ptr noalias sret(%"class.std::shared_ptr.610") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %xform) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.1222", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.575", align 8
-  %0 = load ptr, ptr %xform, align 8
-  store ptr %0, ptr %agg.tmp, align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.575", align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %xform, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %xform, align 8
+  store <2 x ptr> %1, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -123262,18 +123261,17 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 define linkonce_odr void @_ZNK7openvdb5v11_04GridINS0_4tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEE37copyGridReplacingMetadataAndTransformERKNS0_7MetaMapESt10shared_ptrINS0_4math9TransformEE(ptr noalias sret(%"class.std::shared_ptr.610") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(56) %meta, ptr noundef %xform) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.1222", align 16
-  %agg.tmp = alloca %"class.std::shared_ptr.575", align 8
-  %0 = load ptr, ptr %xform, align 8
-  store ptr %0, ptr %agg.tmp, align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.575", align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %xform, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %xform, align 8
+  store <2 x ptr> %1, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -123441,17 +123439,15 @@ entry:
 define linkonce_odr void @_ZNK7openvdb5v11_04GridINS0_4tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEE16constBaseTreePtrEv(ptr noalias sret(%"class.std::shared_ptr.613") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mTree = getelementptr inbounds i8, ptr %this, i64 72
-  %0 = load ptr, ptr %mTree, align 8
-  store ptr %0, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %mTree, align 8
+  store <2 x ptr> %1, ptr %agg.result, align 8
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN7openvdb5v11_04tree8TreeBaseEEC2INS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS9_INS1_6points17PointDataLeafNodeINS1_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEvEERKS_IT_E.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -123733,14 +123729,14 @@ lpad48:                                           ; preds = %try.cont50, %catch4
   br label %common.resume
 
 if.end53:                                         ; preds = %land.rhs.i.i, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
-  %21 = load ptr, ptr %tree, align 8, !noalias !669
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %tree, i64 8
-  %22 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !669
-  %cmp.not.i.i.i.i.i = icmp eq ptr %22, null
+  %21 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !669
+  %22 = load <2 x ptr>, ptr %tree, align 8, !noalias !669
+  %cmp.not.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN7openvdb5v11_013StaticPtrCastINS0_4tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEENS2_8TreeBaseEEESt10shared_ptrIT_ERKSG_IT0_E.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end53
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load i8, ptr @__libc_single_threaded, align 1, !noalias !669
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %23, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -123757,10 +123753,9 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
 
 _ZN7openvdb5v11_013StaticPtrCastINS0_4tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEENS2_8TreeBaseEEESt10shared_ptrIT_ERKSG_IT0_E.exit: ; preds = %if.end53, %if.then.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i
   %mTree = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr %21, ptr %mTree, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %26 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %22, ptr %_M_refcount3.i.i.i, align 8
+  store <2 x ptr> %22, ptr %mTree, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %26, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS1_6points17PointDataLeafNodeINS1_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEED2Ev.exit, label %if.then.i.i.i.i
 
@@ -125471,7 +125466,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04tree8TreeBaseEEC2INS2_4TreeINS2_8RootNodeINS2_
 define linkonce_odr void @_ZNK7openvdb5v11_04tree4TreeINS1_8RootNodeINS1_12InternalNodeINS4_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEE18getBackgroundValueEv(ptr noalias sret(%"class.std::shared_ptr.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1232) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %ref.tmp4 = alloca %"class.std::shared_ptr.0", align 8
+  %ref.tmp4 = alloca %"class.std::shared_ptr.0", align 16
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp17 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -125502,18 +125497,15 @@ invoke.cont8:                                     ; preds = %if.then
           to label %_ZNSt10shared_ptrIN7openvdb5v11_08MetadataEED2Ev.exit unwind label %lpad9
 
 _ZNSt10shared_ptrIN7openvdb5v11_08MetadataEED2Ev.exit: ; preds = %invoke.cont8
-  %2 = load ptr, ptr %ref.tmp4, align 8
-  %_M_refcount4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
-  %3 = load ptr, ptr %_M_refcount4.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, i8 0, i64 16, i1 false)
-  store ptr %2, ptr %agg.result, align 8
-  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %3, ptr %_M_refcount3.i.i.i, align 8
+  %2 = load <2 x ptr>, ptr %ref.tmp4, align 16
+  %3 = load ptr, ptr %ref.tmp4, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp4, i8 0, i64 16, i1 false)
+  store <2 x ptr> %2, ptr %agg.result, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #14
-  %vtable14 = load ptr, ptr %2, align 8
+  %vtable14 = load ptr, ptr %3, align 8
   %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 16
   %4 = load ptr, ptr %vfn15, align 8
-  invoke void %4(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void %4(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_08MetadataEED2Ev.exit
@@ -125547,7 +125539,7 @@ if.then21.critedge:                               ; preds = %land.rhs.i
 
 if.then21:                                        ; preds = %if.then21.critedge, %if.end.i.i
   %mBackground.i = getelementptr inbounds i8, ptr %this, i64 56
-  %mValue.i = getelementptr inbounds i8, ptr %2, i64 8
+  %mValue.i = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i32, ptr %mBackground.i, align 8
   store i32 %6, ptr %mValue.i, align 4
   br label %nrvo.skipdtor
@@ -142336,7 +142328,6 @@ sw.bb2:                                           ; preds = %entry
   %mTask = getelementptr inbounds i8, ptr %this, i64 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   %call.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
@@ -142350,18 +142341,17 @@ sw.bb2:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mTask, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %2 = load ptr, ptr %_M_manager3.i.i, align 8
-  store ptr %2, ptr %_M_manager.i.i.i, align 8
-  store ptr @_ZNSt17_Function_handlerIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS1_6points17PointDataLeafNodeINS1_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEESt5_BindIFMSH_FvSP_ESt12_PlaceholderILi1EESU_ILi2EEEEE10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation, ptr %_M_manager3.i.i, align 8
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %3 = load ptr, ptr %_M_invoker4.i.i, align 8
-  store ptr %3, ptr %_M_invoker.i.i, align 8
+  %2 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %3 = load ptr, ptr %_M_manager3.i.i, align 8
+  store ptr @_ZNSt17_Function_handlerIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS1_6points17PointDataLeafNodeINS1_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEESt5_BindIFMSH_FvSP_ESt12_PlaceholderILi1EESU_ILi2EEEEE10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation, ptr %_M_manager3.i.i, align 8
+  store <2 x ptr> %2, ptr %_M_manager.i.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS1_6points17PointDataLeafNodeINS1_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEESt5_BindIFMSH_FvSP_ESt12_PlaceholderILi1EESU_ILi2EEEEE9_M_invokeERKSt9_Any_dataOSI_SP_, ptr %_M_invoker4.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS1_6points17PointDataLeafNodeINS1_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEEEaSISt5_BindIFMSH_FvSP_ESt12_PlaceholderILi1EESW_ILi2EEEEEENSt9enable_ifIXsrNSR_9_CallableIT_NS11_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS13_E4typeEE4typeESR_EE5valueESt5decayIS13_EE4type4typeESt15__invoke_resultIRS1E_JSI_SP_EEEE5valueERSR_E4typeEOS13_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %sw.bb2
-  %call.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS1_6points17PointDataLeafNodeINS1_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEEEaSISt5_BindIFMSH_FvSP_ESt12_PlaceholderILi1EESW_ILi2EEEEEENSt9enable_ifIXsrNSR_9_CallableIT_NS11_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS13_E4typeEE4typeESR_EE5valueESt5decayIS13_EE4type4typeESt15__invoke_resultIRS1E_JSI_SP_EEEE5valueERSR_E4typeEOS13_.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -142379,7 +142369,6 @@ sw.bb4:                                           ; preds = %entry
   %mTask7 = getelementptr inbounds i8, ptr %this, i64 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i10)
   %_M_manager.i.i.i11 = getelementptr inbounds i8, ptr %ref.tmp.i10, i64 16
-  %_M_invoker.i.i12 = getelementptr inbounds i8, ptr %ref.tmp.i10, i64 24
   %6 = getelementptr inbounds i8, ptr %ref.tmp.i10, i64 8
   store i64 0, ptr %6, align 8
   %call.i.i2.i.i13 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
@@ -142393,18 +142382,17 @@ sw.bb4:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mTask7, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i9, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i9)
   %_M_manager3.i.i18 = getelementptr inbounds i8, ptr %this, i64 80
-  %7 = load ptr, ptr %_M_manager3.i.i18, align 8
-  store ptr %7, ptr %_M_manager.i.i.i11, align 8
-  store ptr @_ZNSt17_Function_handlerIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS1_6points17PointDataLeafNodeINS1_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEESt5_BindIFMSH_FvSP_ESt12_PlaceholderILi1EESU_ILi2EEEEE10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation, ptr %_M_manager3.i.i18, align 8
   %_M_invoker4.i.i19 = getelementptr inbounds i8, ptr %this, i64 88
-  %8 = load ptr, ptr %_M_invoker4.i.i19, align 8
-  store ptr %8, ptr %_M_invoker.i.i12, align 8
+  %7 = load <2 x ptr>, ptr %_M_manager3.i.i18, align 8
+  %8 = load ptr, ptr %_M_manager3.i.i18, align 8
+  store ptr @_ZNSt17_Function_handlerIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS1_6points17PointDataLeafNodeINS1_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEESt5_BindIFMSH_FvSP_ESt12_PlaceholderILi1EESU_ILi2EEEEE10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation, ptr %_M_manager3.i.i18, align 8
+  store <2 x ptr> %7, ptr %_M_manager.i.i.i11, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS1_6points17PointDataLeafNodeINS1_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEESt5_BindIFMSH_FvSP_ESt12_PlaceholderILi1EESU_ILi2EEEEE9_M_invokeERKSt9_Any_dataOSI_SP_, ptr %_M_invoker4.i.i19, align 8
-  %tobool.not.i.i.i20 = icmp eq ptr %7, null
+  %tobool.not.i.i.i20 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i20, label %_ZNSt8functionIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS1_6points17PointDataLeafNodeINS1_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEEEaSISt5_BindIFMSH_FvSP_ESt12_PlaceholderILi1EESW_ILi2EEEEEENSt9enable_ifIXsrNSR_9_CallableIT_NS11_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS13_E4typeEE4typeESR_EE5valueESt5decayIS13_EE4type4typeESt15__invoke_resultIRS1E_JSI_SP_EEEE5valueERSR_E4typeEOS13_.exit24, label %if.then.i.i.i21
 
 if.then.i.i.i21:                                  ; preds = %sw.bb4
-  %call.i.i.i22 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10, i32 noundef 3)
+  %call.i.i.i22 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i10, i32 noundef 3)
           to label %_ZNSt8functionIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS1_6points17PointDataLeafNodeINS1_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEEEaSISt5_BindIFMSH_FvSP_ESt12_PlaceholderILi1EESW_ILi2EEEEEENSt9enable_ifIXsrNSR_9_CallableIT_NS11_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS13_E4typeEE4typeESR_EE5valueESt5decayIS13_EE4type4typeESt15__invoke_resultIRS1E_JSI_SP_EEEE5valueERSR_E4typeEOS13_.exit24 unwind label %terminate.lpad.i.i.i23
 
 terminate.lpad.i.i.i23:                           ; preds = %if.then.i.i.i21
@@ -142422,7 +142410,6 @@ sw.default:                                       ; preds = %entry
   %mTask11 = getelementptr inbounds i8, ptr %this, i64 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i30)
   %_M_manager.i.i.i31 = getelementptr inbounds i8, ptr %ref.tmp.i30, i64 16
-  %_M_invoker.i.i32 = getelementptr inbounds i8, ptr %ref.tmp.i30, i64 24
   %11 = getelementptr inbounds i8, ptr %ref.tmp.i30, i64 8
   store i64 0, ptr %11, align 8
   %call.i.i2.i.i33 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
@@ -142436,18 +142423,17 @@ sw.default:                                       ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mTask11, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i29, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i29)
   %_M_manager3.i.i38 = getelementptr inbounds i8, ptr %this, i64 80
-  %12 = load ptr, ptr %_M_manager3.i.i38, align 8
-  store ptr %12, ptr %_M_manager.i.i.i31, align 8
-  store ptr @_ZNSt17_Function_handlerIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS1_6points17PointDataLeafNodeINS1_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEESt5_BindIFMSH_FvSP_ESt12_PlaceholderILi1EESU_ILi2EEEEE10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation, ptr %_M_manager3.i.i38, align 8
   %_M_invoker4.i.i39 = getelementptr inbounds i8, ptr %this, i64 88
-  %13 = load ptr, ptr %_M_invoker4.i.i39, align 8
-  store ptr %13, ptr %_M_invoker.i.i32, align 8
+  %12 = load <2 x ptr>, ptr %_M_manager3.i.i38, align 8
+  %13 = load ptr, ptr %_M_manager3.i.i38, align 8
+  store ptr @_ZNSt17_Function_handlerIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS1_6points17PointDataLeafNodeINS1_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEESt5_BindIFMSH_FvSP_ESt12_PlaceholderILi1EESU_ILi2EEEEE10_M_managerERSt9_Any_dataRKS10_St18_Manager_operation, ptr %_M_manager3.i.i38, align 8
+  store <2 x ptr> %12, ptr %_M_manager.i.i.i31, align 8
   store ptr @_ZNSt17_Function_handlerIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS1_6points17PointDataLeafNodeINS1_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEESt5_BindIFMSH_FvSP_ESt12_PlaceholderILi1EESU_ILi2EEEEE9_M_invokeERKSt9_Any_dataOSI_SP_, ptr %_M_invoker4.i.i39, align 8
-  %tobool.not.i.i.i40 = icmp eq ptr %12, null
+  %tobool.not.i.i.i40 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i40, label %_ZNSt8functionIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS1_6points17PointDataLeafNodeINS1_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEEEaSISt5_BindIFMSH_FvSP_ESt12_PlaceholderILi1EESW_ILi2EEEEEENSt9enable_ifIXsrNSR_9_CallableIT_NS11_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS13_E4typeEE4typeESR_EE5valueESt5decayIS13_EE4type4typeESt15__invoke_resultIRS1E_JSI_SP_EEEE5valueERSR_E4typeEOS13_.exit44, label %if.then.i.i.i41
 
 if.then.i.i.i41:                                  ; preds = %sw.default
-  %call.i.i.i42 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i30, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i30, i32 noundef 3)
+  %call.i.i.i42 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i30, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i30, i32 noundef 3)
           to label %_ZNSt8functionIFvPN7openvdb5v11_04tree11LeafManagerIKNS2_4TreeINS2_8RootNodeINS2_12InternalNodeINS6_INS1_6points17PointDataLeafNodeINS1_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEERKN3tbb6detail2d113blocked_rangeImEEEEaSISt5_BindIFMSH_FvSP_ESt12_PlaceholderILi1EESW_ILi2EEEEEENSt9enable_ifIXsrNSR_9_CallableIT_NS11_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceIS13_E4typeEE4typeESR_EE5valueESt5decayIS13_EE4type4typeESt15__invoke_resultIRS1E_JSI_SP_EEEE5valueERSR_E4typeEOS13_.exit44 unwind label %terminate.lpad.i.i.i43
 
 terminate.lpad.i.i.i43:                           ; preds = %if.then.i.i.i41
@@ -175564,17 +175550,15 @@ if.then13.critedge:                               ; preds = %land.rhs.i
 if.then13:                                        ; preds = %if.then13.critedge, %if.end.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1350)
   call void @llvm.experimental.noalias.scope.decl(metadata !1353)
-  %8 = load ptr, ptr %second, align 8, !noalias !1356
-  store ptr %8, ptr %agg.result, align 8, !alias.scope !1356
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 72
-  %9 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !1356
-  store ptr %9, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !1356
-  %cmp.not.i.i.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !1356
+  %9 = load <2 x ptr>, ptr %second, align 8, !noalias !1356
+  store <2 x ptr> %9, ptr %agg.result, align 8, !alias.scope !1356
+  %cmp.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i.i, label %return, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then13
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1356
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -177546,8 +177530,8 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %descriptor = alloca %"class.std::shared_ptr.655", align 8
   %header = alloca i8, align 1
-  %descriptor49 = alloca %"class.std::shared_ptr.655", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.655", align 8
+  %descriptor49 = alloca %"class.std::shared_ptr.655", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.655", align 16
   %bytesToSkip = alloca i64, align 8
   %metadata = alloca %"class.std::shared_ptr.663", align 8
   %_openvdb_throw_msg98 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -177777,17 +177761,16 @@ invoke.cont46:                                    ; preds = %invoke.cont42
 if.then48:                                        ; preds = %invoke.cont46
   %27 = load ptr, ptr %mAttributeSet44, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1387)
-  %28 = load ptr, ptr %27, align 8, !noalias !1387
-  store ptr %28, ptr %descriptor49, align 8, !alias.scope !1387
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %descriptor49, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
-  %29 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !1387
-  store ptr %29, ptr %_M_refcount.i.i.i, align 8, !alias.scope !1387
-  %cmp.not.i.i.i.i = icmp eq ptr %29, null
+  %28 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !1387
+  %29 = load <2 x ptr>, ptr %27, align 8, !noalias !1387
+  store <2 x ptr> %29, ptr %descriptor49, align 16, !alias.scope !1387
+  %cmp.not.i.i.i.i = icmp eq ptr %28, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK7openvdb5v11_06points12AttributeSet13descriptorPtrEv.exit, label %if.then.i.i.i.i46
 
 if.then.i.i.i.i46:                                ; preds = %if.then48
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %29, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1387
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %30, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -177808,16 +177791,15 @@ _ZNK7openvdb5v11_06points12AttributeSet13descriptorPtrEv.exit: ; preds = %if.the
           to label %invoke.cont55 unwind label %lpad54
 
 invoke.cont55:                                    ; preds = %_ZNK7openvdb5v11_06points12AttributeSet13descriptorPtrEv.exit
-  %34 = load ptr, ptr %descriptor49, align 8
-  store ptr %34, ptr %agg.tmp, align 8
   %_M_refcount.i.i47 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %35 = load ptr, ptr %_M_refcount.i.i.i, align 8
-  store ptr %35, ptr %_M_refcount.i.i47, align 8
-  %cmp.not.i.i.i48 = icmp eq ptr %35, null
+  %34 = load ptr, ptr %_M_refcount.i.i.i, align 8
+  %35 = load <2 x ptr>, ptr %descriptor49, align 16
+  store <2 x ptr> %35, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i48 = icmp eq ptr %34, null
   br i1 %cmp.not.i.i.i48, label %_ZNSt10shared_ptrIN7openvdb5v11_06points12AttributeSet10DescriptorEEC2ERKS5_.exit, label %if.then.i.i.i49
 
 if.then.i.i.i49:                                  ; preds = %invoke.cont55
-  %_M_use_count.i.i.i.i50 = getelementptr inbounds i8, ptr %35, i64 8
+  %_M_use_count.i.i.i.i50 = getelementptr inbounds i8, ptr %34, i64 8
   %36 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %36, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i53, label %if.then.i.i.i.i.i51
@@ -178986,17 +178968,15 @@ _ZSt8any_castISt10shared_ptrIN7openvdb5v11_06points12AttributeSet10DescriptorEEE
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZSt8any_castISt10shared_ptrIN7openvdb5v11_06points12AttributeSet10DescriptorEEEPKT_PKSt3any.exit.i
-  %13 = load ptr, ptr %12, align 8, !noalias !1394
-  store ptr %13, ptr %agg.result, align 8, !alias.scope !1394
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
-  %14 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !1394
-  store ptr %14, ptr %_M_refcount.i.i.i, align 8, !alias.scope !1394
-  %cmp.not.i.i.i.i = icmp eq ptr %14, null
+  %13 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !1394
+  %14 = load <2 x ptr>, ptr %12, align 8, !noalias !1394
+  store <2 x ptr> %14, ptr %agg.result, align 8, !alias.scope !1394
+  %cmp.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i.i, label %nrvo.skipdtor, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1394
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -179968,17 +179948,15 @@ entry:
   %_M_storage.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr null, ptr %_M_storage.i, align 8
   %call.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
-  %0 = load ptr, ptr %__rhs, align 8
-  store ptr %0, ptr %call.i.i, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__rhs, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %__rhs, align 8
+  store <2 x ptr> %1, ptr %call.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt3anyC2IRKSt10shared_ptrIN7openvdb5v11_06points12AttributeSet10DescriptorEES7_NS_17_Manager_externalIS7_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISD_EEbE4typeELb1EEEOT_.exit.thread, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %_ZNSt3anyC2IRKSt10shared_ptrIN7openvdb5v11_06points12AttributeSet10DescriptorEES7_NS_17_Manager_externalIS7_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISD_EEbE4typeELb1EEEOT_.exit, label %if.then.i.i.i.i.i.i.i
@@ -180845,17 +180823,15 @@ entry:
   %_M_storage.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr null, ptr %_M_storage.i, align 8
   %call.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
-  %0 = load ptr, ptr %__rhs, align 8
-  store ptr %0, ptr %call.i.i, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__rhs, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %__rhs, align 8
+  store <2 x ptr> %1, ptr %call.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt3anyC2IRSt10shared_ptrIN7openvdb5v11_011compression16PagedInputStreamEES6_NS_17_Manager_externalIS6_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISB_EEbE4typeELb1EEEOT_.exit.thread, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %_ZNSt3anyC2IRSt10shared_ptrIN7openvdb5v11_011compression16PagedInputStreamEES6_NS_17_Manager_externalIS6_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISB_EEbE4typeELb1EEEOT_.exit, label %if.then.i.i.i.i.i.i.i
@@ -188123,7 +188099,7 @@ entry:
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.655", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.655", align 16
   %descriptor = alloca %"class.std::shared_ptr.655", align 8
   %header = alloca i8, align 1
   %header64 = alloca i8, align 1
@@ -188352,17 +188328,16 @@ invoke.cont36:                                    ; preds = %invoke.cont34
   %mAttributeSet = getelementptr inbounds i8, ptr %this, i64 96
   %22 = load ptr, ptr %mAttributeSet, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1502)
-  %23 = load ptr, ptr %22, align 8, !noalias !1502
-  store ptr %23, ptr %agg.tmp, align 8, !alias.scope !1502
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
-  %24 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !1502
-  store ptr %24, ptr %_M_refcount.i.i.i, align 8, !alias.scope !1502
-  %cmp.not.i.i.i.i = icmp eq ptr %24, null
+  %23 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !1502
+  %24 = load <2 x ptr>, ptr %22, align 8, !noalias !1502
+  store <2 x ptr> %24, ptr %agg.tmp, align 16, !alias.scope !1502
+  %cmp.not.i.i.i.i = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK7openvdb5v11_06points12AttributeSet13descriptorPtrEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont36
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1502
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %25, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -189773,17 +189748,15 @@ _ZSt8any_castISt10shared_ptrIN7openvdb5v11_06points12AttributeSet10DescriptorEEE
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZSt8any_castISt10shared_ptrIN7openvdb5v11_06points12AttributeSet10DescriptorEEEPKT_PKSt3any.exit.i
-  %15 = load ptr, ptr %14, align 8, !noalias !1508
-  store ptr %15, ptr %agg.result, align 8, !alias.scope !1508
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
-  %16 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !1508
-  store ptr %16, ptr %_M_refcount.i.i.i, align 8, !alias.scope !1508
-  %cmp.not.i.i.i.i = icmp eq ptr %16, null
+  %15 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !1508
+  %16 = load <2 x ptr>, ptr %14, align 8, !noalias !1508
+  store <2 x ptr> %16, ptr %agg.result, align 8, !alias.scope !1508
+  %cmp.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont8, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1508
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %17, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -190948,17 +190921,15 @@ entry:
   %_M_storage.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr null, ptr %_M_storage.i, align 8
   %call.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
-  %0 = load ptr, ptr %__rhs, align 8
-  store ptr %0, ptr %call.i.i, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__rhs, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %__rhs, align 8
+  store <2 x ptr> %1, ptr %call.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt3anyC2IRSt10shared_ptrIN7openvdb5v11_011compression17PagedOutputStreamEES6_NS_17_Manager_externalIS6_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISB_EEbE4typeELb1EEEOT_.exit.thread, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %_ZNSt3anyC2IRSt10shared_ptrIN7openvdb5v11_011compression17PagedOutputStreamEES6_NS_17_Manager_externalIS6_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISB_EEbE4typeELb1EEEOT_.exit, label %if.then.i.i.i.i.i.i.i
@@ -200101,17 +200072,15 @@ _ZN7openvdb5v11_08GridBaseC2ERKS1_.exit.i:        ; preds = %.noexc
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04GridINS0_4tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEE, i64 16), ptr %call, align 8
   %mTree.i = getelementptr inbounds i8, ptr %call, i64 72
   %mTree2.i = getelementptr inbounds i8, ptr %this, i64 72
-  %2 = load ptr, ptr %mTree2.i, align 8
-  store ptr %2, ptr %mTree.i, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %call, i64 80
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %3 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %3, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %3 = load <2 x ptr>, ptr %mTree2.i, align 8
+  store <2 x ptr> %3, ptr %mTree.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN7openvdb5v11_08GridBaseC2ERKS1_.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -200673,17 +200642,15 @@ _ZN7openvdb5v11_08GridBaseC2ERKS1_.exit.i:        ; preds = %.noexc
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04GridINS0_4tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEE, i64 16), ptr %call, align 8
   %mTree.i = getelementptr inbounds i8, ptr %call, i64 72
   %mTree2.i = getelementptr inbounds i8, ptr %this, i64 72
-  %2 = load ptr, ptr %mTree2.i, align 8
-  store ptr %2, ptr %mTree.i, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %call, i64 80
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %3 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %3, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %3 = load <2 x ptr>, ptr %mTree2.i, align 8
+  store <2 x ptr> %3, ptr %mTree.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN7openvdb5v11_08GridBaseC2ERKS1_.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -200829,17 +200796,15 @@ _ZN7openvdb5v11_08GridBaseC2ERKS1_.exit.i:        ; preds = %.noexc
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04GridINS0_4tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEE, i64 16), ptr %call, align 8
   %mTree.i = getelementptr inbounds i8, ptr %call, i64 72
   %mTree2.i = getelementptr inbounds i8, ptr %this, i64 72
-  %2 = load ptr, ptr %mTree2.i, align 8
-  store ptr %2, ptr %mTree.i, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %call, i64 80
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %3 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %3, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %3 = load <2 x ptr>, ptr %mTree2.i, align 8
+  store <2 x ptr> %3, ptr %mTree.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN7openvdb5v11_08GridBaseC2ERKS1_.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -201601,21 +201566,20 @@ ehcleanup:                                        ; preds = %lpad10.body, %clean
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7openvdb5v11_04GridINS0_4tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEC2ESt10shared_ptrISE_ERKNS0_7MetaMapESG_INS0_4math9TransformEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %tree, ptr noundef nonnull align 8 dereferenceable(56) %meta, ptr noundef %xform) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.575", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.575", align 16
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load ptr, ptr %xform, align 8
-  store ptr %0, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %xform, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %xform, align 8
+  store <2 x ptr> %1, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -201910,18 +201874,17 @@ unreachable:                                      ; preds = %try.cont
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04GridINS0_4tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEE22copyReplacingTransformESt10shared_ptrINS0_4math9TransformEE(ptr noalias sret(%"class.std::shared_ptr.1222") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %xform) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.575", align 8
-  %0 = load ptr, ptr %xform, align 8
-  store ptr %0, ptr %agg.tmp, align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.575", align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %xform, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %xform, align 8
+  store <2 x ptr> %1, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -202028,7 +201991,7 @@ define linkonce_odr void @_ZNK7openvdb5v11_04GridINS0_4tree4TreeINS2_8RootNodeIN
 entry:
   %treePtr = alloca %"class.std::shared_ptr.578", align 8
   %agg.tmp = alloca %"class.std::shared_ptr.578", align 8
-  %agg.tmp2 = alloca %"class.std::shared_ptr.575", align 8
+  %agg.tmp2 = alloca %"class.std::shared_ptr.575", align 16
   %mTree.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %mTree.i, align 8, !noalias !1654
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -202178,17 +202141,16 @@ if.else.i.i.i.i.i13:                              ; preds = %if.then.i.i.i9
   br label %_ZNSt10shared_ptrIN7openvdb5v11_04tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS1_6points17PointDataLeafNodeINS1_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEC2ERKSF_.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_04tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS1_6points17PointDataLeafNodeINS1_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEC2ERKSF_.exit: ; preds = %invoke.cont, %if.then.i.i.i.i.i11, %if.else.i.i.i.i.i13
-  %22 = load ptr, ptr %xform, align 8
-  store ptr %22, ptr %agg.tmp2, align 8
   %_M_refcount.i.i14 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   %_M_refcount3.i.i15 = getelementptr inbounds i8, ptr %xform, i64 8
-  %23 = load ptr, ptr %_M_refcount3.i.i15, align 8
-  store ptr %23, ptr %_M_refcount.i.i14, align 8
-  %cmp.not.i.i.i16 = icmp eq ptr %23, null
+  %22 = load ptr, ptr %_M_refcount3.i.i15, align 8
+  %23 = load <2 x ptr>, ptr %xform, align 8
+  store <2 x ptr> %23, ptr %agg.tmp2, align 16
+  %cmp.not.i.i.i16 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i16, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEEC2ERKS4_.exit, label %if.then.i.i.i17
 
 if.then.i.i.i17:                                  ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_04tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS1_6points17PointDataLeafNodeINS1_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEC2ERKSF_.exit
-  %_M_use_count.i.i.i.i18 = getelementptr inbounds i8, ptr %23, i64 8
+  %_M_use_count.i.i.i.i18 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i19 = icmp eq i8 %24, 0
   br i1 %tobool.i.not.i.i.i.i19, label %if.else.i.i.i.i.i22, label %if.then.i.i.i.i.i20
@@ -202566,7 +202528,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7openvdb5v11_04GridINS0_4tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS0_6points17PointDataLeafNodeINS0_10PointIndexIjLj1EEELj3EEELj4EEELj5EEEEEEEEC2ERKSF_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %other) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.std::shared_ptr.616", align 8
+  %ref.tmp = alloca %"class.std::shared_ptr.616", align 16
   tail call void @_ZN7openvdb5v11_07MetaMapC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %other)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_08GridBaseE, i64 16), ptr %this, align 8
   %mTransform.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -202599,17 +202561,15 @@ invoke.cont:                                      ; preds = %_ZN7openvdb5v11_08G
   %mTree = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.experimental.noalias.scope.decl(metadata !1667)
   call void @llvm.experimental.noalias.scope.decl(metadata !1670)
-  %4 = load ptr, ptr %ref.tmp, align 8, !noalias !1673
-  store ptr %4, ptr %mTree, align 8, !alias.scope !1673
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %5 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8
-  store ptr %5, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !1673
-  %cmp.not.i.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8
+  %5 = load <2 x ptr>, ptr %ref.tmp, align 16
+  store <2 x ptr> %5, ptr %mTree, align 8, !alias.scope !1673
+  %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04tree8TreeBaseEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1673
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i

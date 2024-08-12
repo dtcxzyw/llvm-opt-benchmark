@@ -7577,15 +7577,16 @@ if.then:                                          ; preds = %entry
   %path_.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   %retval.sroa.0.0.copyload.i = load ptr, ptr %path_.i, align 8
   %retval.sroa.2.0.path_.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 104
-  %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.path_.sroa_idx.i, align 8
   %path_ = getelementptr inbounds i8, ptr %call, i64 120
   store ptr %retval.sroa.0.0.copyload.i, ptr %path_, align 8
   %ref.tmp.sroa.2.0.path_.sroa_idx = getelementptr inbounds i8, ptr %call, i64 128
-  store ptr %retval.sroa.2.0.copyload.i, ptr %ref.tmp.sroa.2.0.path_.sroa_idx, align 8
-  %query_.i = getelementptr inbounds i8, ptr %agg.result, i64 112
-  %query_ = getelementptr inbounds i8, ptr %call, i64 136
-  %1 = load <2 x ptr>, ptr %query_.i, align 8
-  store <2 x ptr> %1, ptr %query_, align 8
+  %retval.sroa.2.0.query_.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 120
+  %retval.sroa.2.0.copyload.i10 = load ptr, ptr %retval.sroa.2.0.query_.sroa_idx.i, align 8
+  %1 = load <2 x ptr>, ptr %retval.sroa.2.0.path_.sroa_idx.i, align 8
+  %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.path_.sroa_idx.i, align 8
+  store <2 x ptr> %1, ptr %ref.tmp.sroa.2.0.path_.sroa_idx, align 8
+  %ref.tmp6.sroa.2.0.query_.sroa_idx = getelementptr inbounds i8, ptr %call, i64 144
+  store ptr %retval.sroa.2.0.copyload.i10, ptr %ref.tmp6.sroa.2.0.query_.sroa_idx, align 8
   %cmp.i = icmp eq ptr %retval.sroa.0.0.copyload.i, %retval.sroa.2.0.copyload.i
   br i1 %cmp.i, label %if.then12, label %if.end19
 

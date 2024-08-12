@@ -316,8 +316,8 @@ _ZN6vectorI15expr_delta_pairLb0EjE4backEv.exit:   ; preds = %_ZNK6vectorI15expr_
   %e.sroa.0.0.copyload = load ptr, ptr %arrayidx.i1.i, align 8
   %e.sroa.3.0.arrayidx.i1.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i1.i, i64 8
   %20 = load <2 x i32>, ptr %e.sroa.3.0.arrayidx.i1.i.sroa_idx, align 8
-  %21 = extractelement <2 x i32> %20, i64 0
-  %call7 = call noundef zeroext i1 @_ZN13contains_vars3imp14visit_childrenEP4exprj(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %e.sroa.0.0.copyload, i32 noundef %21)
+  %e.sroa.3.0.copyload = load i32, ptr %e.sroa.3.0.arrayidx.i1.i.sroa_idx, align 8
+  %call7 = call noundef zeroext i1 @_ZN13contains_vars3imp14visit_childrenEP4exprj(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %e.sroa.0.0.copyload, i32 noundef %e.sroa.3.0.copyload)
   br i1 %call7, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN6vectorI15expr_delta_pairLb0EjE4backEv.exit
@@ -326,16 +326,16 @@ if.then:                                          ; preds = %_ZN6vectorI15expr_d
   store <2 x i32> %20, ptr %e.sroa.3.0.tmp.i.sroa_idx, align 8
   call void @_ZN14core_hashtableI18default_hash_entryI15expr_delta_pairE8obj_hashIS1_E10default_eqIS1_EE6insertEOS1_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(12) %tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp.i)
-  %22 = load ptr, ptr %m_todo, align 8
-  %arrayidx.i13 = getelementptr inbounds i8, ptr %22, i64 -4
-  %23 = load i32, ptr %arrayidx.i13, align 4
-  %dec.i = add i32 %23, -1
+  %21 = load ptr, ptr %m_todo, align 8
+  %arrayidx.i13 = getelementptr inbounds i8, ptr %21, i64 -4
+  %22 = load i32, ptr %arrayidx.i13, align 4
+  %dec.i = add i32 %22, -1
   store i32 %dec.i, ptr %arrayidx.i13, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN6vectorI15expr_delta_pairLb0EjE4backEv.exit
-  %24 = load i8, ptr %m_contains, align 8
-  %tobool = trunc i8 %24 to i1
+  %23 = load i8, ptr %m_contains, align 8
+  %tobool = trunc i8 %23 to i1
   br i1 %tobool, label %return, label %while.cond, !llvm.loop !6
 
 return:                                           ; preds = %while.cond, %_ZNK6vectorI15expr_delta_pairLb0EjE5emptyEv.exit, %if.end

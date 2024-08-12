@@ -8017,7 +8017,7 @@ entry:
   %qiov.i109 = alloca %struct.QEMUIOVector, align 8
   %qiov.i104 = alloca %struct.QEMUIOVector, align 8
   %qiov.i = alloca %struct.QEMUIOVector, align 8
-  %ext = alloca %struct.QCowExtension, align 4
+  %ext = alloca %struct.QCowExtension, align 8
   %bitmaps_ext = alloca %struct.Qcow2BitmapHeaderExt, align 4
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -8107,9 +8107,9 @@ if.then3:                                         ; preds = %while.body
   br label %return
 
 if.end4:                                          ; preds = %while.body
-  %10 = load i32, ptr %ext, align 4
+  %10 = load i32, ptr %ext, align 8
   %11 = call noundef i32 @llvm.bswap.i32(i32 %10)
-  store i32 %11, ptr %ext, align 4
+  store i32 %11, ptr %ext, align 8
   %12 = load i32, ptr %len, align 4
   %13 = call noundef i32 @llvm.bswap.i32(i32 %12)
   store i32 %13, ptr %len, align 4
@@ -8399,11 +8399,9 @@ if.then185:                                       ; preds = %sw.bb173
 sw.default:                                       ; preds = %if.end15
   %add190 = add nuw nsw i64 %conv, 24
   %call191 = call noalias ptr @g_malloc0(i64 noundef %add190) #27
-  %38 = load i32, ptr %ext, align 4
-  store i32 %38, ptr %call191, align 8
-  %39 = load i32, ptr %len, align 4
-  %len195 = getelementptr inbounds i8, ptr %call191, i64 4
-  store i32 %39, ptr %len195, align 4
+  %38 = load i32, ptr %len, align 4
+  %39 = load <2 x i32>, ptr %ext, align 8
+  store <2 x i32> %39, ptr %call191, align 8
   %40 = load ptr, ptr %unknown_header_ext, align 8
   %next = getelementptr inbounds i8, ptr %call191, i64 8
   store ptr %40, ptr %next, align 8
@@ -8411,13 +8409,14 @@ sw.default:                                       ; preds = %if.end15
   br i1 %cmp196.not, label %if.end204, label %if.then198
 
 if.then198:                                       ; preds = %sw.default
+  %len195 = getelementptr inbounds i8, ptr %call191, i64 4
   %le_prev = getelementptr inbounds i8, ptr %40, i64 16
   store ptr %next, ptr %le_prev, align 8
   %.pre = load i32, ptr %len195, align 4
   br label %if.end204
 
 if.end204:                                        ; preds = %if.then198, %sw.default
-  %41 = phi i32 [ %.pre, %if.then198 ], [ %39, %sw.default ]
+  %41 = phi i32 [ %.pre, %if.then198 ], [ %38, %sw.default ]
   store ptr %call191, ptr %unknown_header_ext, align 8
   %le_prev210 = getelementptr inbounds i8, ptr %call191, i64 16
   store ptr %unknown_header_ext, ptr %le_prev210, align 8

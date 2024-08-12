@@ -6439,65 +6439,68 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanob
   %98 = getelementptr inbounds i8, ptr %3, i64 16
   %99 = getelementptr inbounds i8, ptr %3, i64 24
   %100 = load ptr, ptr %10, align 8
-  %101 = load ptr, ptr %12, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 24
-  %103 = load <2 x ptr>, ptr %97, align 8
+  %101 = getelementptr inbounds i8, ptr %0, i64 24
+  %102 = load <2 x ptr>, ptr %12, align 8
+  %103 = load ptr, ptr %12, align 8
+  %104 = load <2 x ptr>, ptr %97, align 8
   store ptr %100, ptr %97, align 8
-  store ptr %101, ptr %98, align 8
-  store <2 x ptr> %103, ptr %10, align 8
-  %104 = load <2 x ptr>, ptr %102, align 8
-  %105 = load <2 x ptr>, ptr %99, align 8
-  store <2 x ptr> %104, ptr %99, align 8
-  store <2 x ptr> %105, ptr %102, align 8
-  %106 = getelementptr inbounds i8, ptr %0, i64 40
-  %107 = load i64, ptr %9, align 8
-  %108 = load <2 x i64>, ptr %106, align 8
-  store i64 %107, ptr %106, align 8
-  store <2 x i64> %108, ptr %9, align 8
-  %109 = getelementptr inbounds i8, ptr %3, i64 56
-  %110 = getelementptr inbounds i8, ptr %0, i64 56
-  %111 = load i64, ptr %109, align 8
-  %112 = load i64, ptr %110, align 8
-  store i64 %112, ptr %109, align 8
-  store i64 %111, ptr %110, align 8
-  %113 = getelementptr inbounds i8, ptr %3, i64 64
-  %114 = load <2 x float>, ptr %5, align 8
-  %115 = load <2 x float>, ptr %113, align 8
-  store <2 x float> %114, ptr %113, align 8
-  store <2 x float> %115, ptr %5, align 8
-  %116 = getelementptr inbounds i8, ptr %3, i64 72
-  %117 = getelementptr inbounds i8, ptr %0, i64 72
-  %118 = load i8, ptr %116, align 8
-  %119 = and i8 %118, 1
-  %120 = load i8, ptr %117, align 8
-  %121 = and i8 %120, 1
-  store i8 %121, ptr %116, align 8
-  store i8 %119, ptr %117, align 8
-  %122 = getelementptr inbounds i8, ptr %3, i64 73
-  %123 = getelementptr inbounds i8, ptr %0, i64 73
-  %124 = load i8, ptr %122, align 1
-  %125 = and i8 %124, 1
-  %126 = load i8, ptr %123, align 1
-  %127 = and i8 %126, 1
-  store i8 %127, ptr %122, align 1
-  store i8 %125, ptr %123, align 1
-  %.not4.i.i.i.i.i = icmp eq ptr %100, %101
+  store <2 x ptr> %104, ptr %10, align 8
+  %105 = getelementptr inbounds i8, ptr %3, i64 32
+  %106 = getelementptr inbounds i8, ptr %0, i64 32
+  %107 = load ptr, ptr %106, align 8
+  %108 = load <2 x ptr>, ptr %99, align 8
+  store <2 x ptr> %102, ptr %98, align 8
+  store ptr %107, ptr %105, align 8
+  store <2 x ptr> %108, ptr %101, align 8
+  %109 = getelementptr inbounds i8, ptr %0, i64 40
+  %110 = load i64, ptr %9, align 8
+  %111 = load <2 x i64>, ptr %109, align 8
+  store i64 %110, ptr %109, align 8
+  store <2 x i64> %111, ptr %9, align 8
+  %112 = getelementptr inbounds i8, ptr %3, i64 56
+  %113 = getelementptr inbounds i8, ptr %0, i64 56
+  %114 = load i64, ptr %112, align 8
+  %115 = load i64, ptr %113, align 8
+  store i64 %115, ptr %112, align 8
+  store i64 %114, ptr %113, align 8
+  %116 = getelementptr inbounds i8, ptr %3, i64 64
+  %117 = load <2 x float>, ptr %5, align 8
+  %118 = load <2 x float>, ptr %116, align 8
+  store <2 x float> %117, ptr %116, align 8
+  store <2 x float> %118, ptr %5, align 8
+  %119 = getelementptr inbounds i8, ptr %3, i64 72
+  %120 = getelementptr inbounds i8, ptr %0, i64 72
+  %121 = load i8, ptr %119, align 8
+  %122 = and i8 %121, 1
+  %123 = load i8, ptr %120, align 8
+  %124 = and i8 %123, 1
+  store i8 %124, ptr %119, align 8
+  store i8 %122, ptr %120, align 8
+  %125 = getelementptr inbounds i8, ptr %3, i64 73
+  %126 = getelementptr inbounds i8, ptr %0, i64 73
+  %127 = load i8, ptr %125, align 1
+  %128 = and i8 %127, 1
+  %129 = load i8, ptr %126, align 1
+  %130 = and i8 %129, 1
+  store i8 %130, ptr %125, align 1
+  store i8 %128, ptr %126, align 1
+  %.not4.i.i.i.i.i = icmp eq ptr %100, %103
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %132, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i ], [ %100, %._crit_edge ]
-  %128 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 4
-  %129 = load i16, ptr %128, align 4
-  %130 = icmp eq i16 %129, -1
-  br i1 %130, label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i, label %131
+  %.05.i.i.i.i.i = phi ptr [ %135, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i ], [ %100, %._crit_edge ]
+  %131 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 4
+  %132 = load i16, ptr %131, align 4
+  %133 = icmp eq i16 %132, -1
+  br i1 %133, label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i, label %134
 
-131:                                              ; preds = %.lr.ph.i.i.i.i.i
-  store i16 -1, ptr %128, align 4
+134:                                              ; preds = %.lr.ph.i.i.i.i.i
+  store i16 -1, ptr %131, align 4
   br label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i: ; preds = %131, %.lr.ph.i.i.i.i.i
-  %132 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i = icmp eq ptr %132, %101
+_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i: ; preds = %134, %.lr.ph.i.i.i.i.i
+  %135 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i = icmp eq ptr %135, %103
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !80
 
 _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEEEvPT_.exit.i.i.i.i.i
@@ -6505,15 +6508,15 @@ _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT
   br label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i, %._crit_edge
-  %133 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i ], [ %100, %._crit_edge ]
-  %.not.i.i.i.i = icmp eq ptr %133, null
-  br i1 %.not.i.i.i.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_ED2Ev.exit, label %134
+  %136 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i ], [ %100, %._crit_edge ]
+  %.not.i.i.i.i = icmp eq ptr %136, null
+  br i1 %.not.i.i.i.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_ED2Ev.exit, label %137
 
-134:                                              ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %133) #29
+137:                                              ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %136) #29
   br label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_ED2Ev.exit
 
-_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_ED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i, %134
+_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanobind6detail8ptr_hashESt8equal_toIS3_ESaIS4_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSF_11ValueSelectES8_SA_SB_Lb0ESE_ED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES6_EvT_S8_RSaIT0_E.exit.i.i, %137
   ret void
 }
 
@@ -7493,65 +7496,68 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9
   %98 = getelementptr inbounds i8, ptr %3, i64 16
   %99 = getelementptr inbounds i8, ptr %3, i64 24
   %100 = load ptr, ptr %10, align 8
-  %101 = load ptr, ptr %12, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 24
-  %103 = load <2 x ptr>, ptr %97, align 8
+  %101 = getelementptr inbounds i8, ptr %0, i64 24
+  %102 = load <2 x ptr>, ptr %12, align 8
+  %103 = load ptr, ptr %12, align 8
+  %104 = load <2 x ptr>, ptr %97, align 8
   store ptr %100, ptr %97, align 8
-  store ptr %101, ptr %98, align 8
-  store <2 x ptr> %103, ptr %10, align 8
-  %104 = load <2 x ptr>, ptr %102, align 8
-  %105 = load <2 x ptr>, ptr %99, align 8
-  store <2 x ptr> %104, ptr %99, align 8
-  store <2 x ptr> %105, ptr %102, align 8
-  %106 = getelementptr inbounds i8, ptr %0, i64 40
-  %107 = load i64, ptr %9, align 8
-  %108 = load <2 x i64>, ptr %106, align 8
-  store i64 %107, ptr %106, align 8
-  store <2 x i64> %108, ptr %9, align 8
-  %109 = getelementptr inbounds i8, ptr %3, i64 56
-  %110 = getelementptr inbounds i8, ptr %0, i64 56
-  %111 = load i64, ptr %109, align 8
-  %112 = load i64, ptr %110, align 8
-  store i64 %112, ptr %109, align 8
-  store i64 %111, ptr %110, align 8
-  %113 = getelementptr inbounds i8, ptr %3, i64 64
-  %114 = load <2 x float>, ptr %5, align 8
-  %115 = load <2 x float>, ptr %113, align 8
-  store <2 x float> %114, ptr %113, align 8
-  store <2 x float> %115, ptr %5, align 8
-  %116 = getelementptr inbounds i8, ptr %3, i64 72
-  %117 = getelementptr inbounds i8, ptr %0, i64 72
-  %118 = load i8, ptr %116, align 8
-  %119 = and i8 %118, 1
-  %120 = load i8, ptr %117, align 8
-  %121 = and i8 %120, 1
-  store i8 %121, ptr %116, align 8
-  store i8 %119, ptr %117, align 8
-  %122 = getelementptr inbounds i8, ptr %3, i64 73
-  %123 = getelementptr inbounds i8, ptr %0, i64 73
-  %124 = load i8, ptr %122, align 1
-  %125 = and i8 %124, 1
-  %126 = load i8, ptr %123, align 1
-  %127 = and i8 %126, 1
-  store i8 %127, ptr %122, align 1
-  store i8 %125, ptr %123, align 1
-  %.not4.i.i.i.i.i = icmp eq ptr %100, %101
+  store <2 x ptr> %104, ptr %10, align 8
+  %105 = getelementptr inbounds i8, ptr %3, i64 32
+  %106 = getelementptr inbounds i8, ptr %0, i64 32
+  %107 = load ptr, ptr %106, align 8
+  %108 = load <2 x ptr>, ptr %99, align 8
+  store <2 x ptr> %102, ptr %98, align 8
+  store ptr %107, ptr %105, align 8
+  store <2 x ptr> %108, ptr %101, align 8
+  %109 = getelementptr inbounds i8, ptr %0, i64 40
+  %110 = load i64, ptr %9, align 8
+  %111 = load <2 x i64>, ptr %109, align 8
+  store i64 %110, ptr %109, align 8
+  store <2 x i64> %111, ptr %9, align 8
+  %112 = getelementptr inbounds i8, ptr %3, i64 56
+  %113 = getelementptr inbounds i8, ptr %0, i64 56
+  %114 = load i64, ptr %112, align 8
+  %115 = load i64, ptr %113, align 8
+  store i64 %115, ptr %112, align 8
+  store i64 %114, ptr %113, align 8
+  %116 = getelementptr inbounds i8, ptr %3, i64 64
+  %117 = load <2 x float>, ptr %5, align 8
+  %118 = load <2 x float>, ptr %116, align 8
+  store <2 x float> %117, ptr %116, align 8
+  store <2 x float> %118, ptr %5, align 8
+  %119 = getelementptr inbounds i8, ptr %3, i64 72
+  %120 = getelementptr inbounds i8, ptr %0, i64 72
+  %121 = load i8, ptr %119, align 8
+  %122 = and i8 %121, 1
+  %123 = load i8, ptr %120, align 8
+  %124 = and i8 %123, 1
+  store i8 %124, ptr %119, align 8
+  store i8 %122, ptr %120, align 8
+  %125 = getelementptr inbounds i8, ptr %3, i64 73
+  %126 = getelementptr inbounds i8, ptr %0, i64 73
+  %127 = load i8, ptr %125, align 1
+  %128 = and i8 %127, 1
+  %129 = load i8, ptr %126, align 1
+  %130 = and i8 %129, 1
+  store i8 %130, ptr %125, align 1
+  store i8 %128, ptr %126, align 1
+  %.not4.i.i.i.i.i = icmp eq ptr %100, %103
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %132, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i ], [ %100, %._crit_edge ]
-  %128 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 4
-  %129 = load i16, ptr %128, align 4
-  %130 = icmp eq i16 %129, -1
-  br i1 %130, label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i, label %131
+  %.05.i.i.i.i.i = phi ptr [ %135, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i ], [ %100, %._crit_edge ]
+  %131 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 4
+  %132 = load i16, ptr %131, align 4
+  %133 = icmp eq i16 %132, -1
+  br i1 %133, label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i, label %134
 
-131:                                              ; preds = %.lr.ph.i.i.i.i.i
-  store i16 -1, ptr %128, align 4
+134:                                              ; preds = %.lr.ph.i.i.i.i.i
+  store i16 -1, ptr %131, align 4
   br label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i: ; preds = %131, %.lr.ph.i.i.i.i.i
-  %132 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i = icmp eq ptr %132, %101
+_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i: ; preds = %134, %.lr.ph.i.i.i.i.i
+  %135 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i = icmp eq ptr %135, %103
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !93
 
 _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i
@@ -7559,15 +7565,15 @@ _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8n
   br label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i, %._crit_edge
-  %133 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i ], [ %100, %._crit_edge ]
-  %.not.i.i.i.i = icmp eq ptr %133, null
-  br i1 %.not.i.i.i.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_ED2Ev.exit, label %134
+  %136 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i ], [ %100, %._crit_edge ]
+  %.not.i.i.i.i = icmp eq ptr %136, null
+  br i1 %.not.i.i.i.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_ED2Ev.exit, label %137
 
-134:                                              ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %133) #29
+137:                                              ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %136) #29
   br label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_ED2Ev.exit
 
-_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_ED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i, %134
+_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_8ptr_hashESt8equal_toIS5_ESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSJ_11ValueSelectESC_SE_SF_Lb0ESI_ED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i, %137
   ret void
 }
 
@@ -8264,65 +8270,68 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9
   %98 = getelementptr inbounds i8, ptr %3, i64 16
   %99 = getelementptr inbounds i8, ptr %3, i64 24
   %100 = load ptr, ptr %10, align 8
-  %101 = load ptr, ptr %12, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 24
-  %103 = load <2 x ptr>, ptr %97, align 8
+  %101 = getelementptr inbounds i8, ptr %0, i64 24
+  %102 = load <2 x ptr>, ptr %12, align 8
+  %103 = load ptr, ptr %12, align 8
+  %104 = load <2 x ptr>, ptr %97, align 8
   store ptr %100, ptr %97, align 8
-  store ptr %101, ptr %98, align 8
-  store <2 x ptr> %103, ptr %10, align 8
-  %104 = load <2 x ptr>, ptr %102, align 8
-  %105 = load <2 x ptr>, ptr %99, align 8
-  store <2 x ptr> %104, ptr %99, align 8
-  store <2 x ptr> %105, ptr %102, align 8
-  %106 = getelementptr inbounds i8, ptr %0, i64 40
-  %107 = load i64, ptr %9, align 8
-  %108 = load <2 x i64>, ptr %106, align 8
-  store i64 %107, ptr %106, align 8
-  store <2 x i64> %108, ptr %9, align 8
-  %109 = getelementptr inbounds i8, ptr %3, i64 56
-  %110 = getelementptr inbounds i8, ptr %0, i64 56
-  %111 = load i64, ptr %109, align 8
-  %112 = load i64, ptr %110, align 8
-  store i64 %112, ptr %109, align 8
-  store i64 %111, ptr %110, align 8
-  %113 = getelementptr inbounds i8, ptr %3, i64 64
-  %114 = load <2 x float>, ptr %5, align 8
-  %115 = load <2 x float>, ptr %113, align 8
-  store <2 x float> %114, ptr %113, align 8
-  store <2 x float> %115, ptr %5, align 8
-  %116 = getelementptr inbounds i8, ptr %3, i64 72
-  %117 = getelementptr inbounds i8, ptr %0, i64 72
-  %118 = load i8, ptr %116, align 8
-  %119 = and i8 %118, 1
-  %120 = load i8, ptr %117, align 8
-  %121 = and i8 %120, 1
-  store i8 %121, ptr %116, align 8
-  store i8 %119, ptr %117, align 8
-  %122 = getelementptr inbounds i8, ptr %3, i64 73
-  %123 = getelementptr inbounds i8, ptr %0, i64 73
-  %124 = load i8, ptr %122, align 1
-  %125 = and i8 %124, 1
-  %126 = load i8, ptr %123, align 1
-  %127 = and i8 %126, 1
-  store i8 %127, ptr %122, align 1
-  store i8 %125, ptr %123, align 1
-  %.not4.i.i.i.i.i = icmp eq ptr %100, %101
+  store <2 x ptr> %104, ptr %10, align 8
+  %105 = getelementptr inbounds i8, ptr %3, i64 32
+  %106 = getelementptr inbounds i8, ptr %0, i64 32
+  %107 = load ptr, ptr %106, align 8
+  %108 = load <2 x ptr>, ptr %99, align 8
+  store <2 x ptr> %102, ptr %98, align 8
+  store ptr %107, ptr %105, align 8
+  store <2 x ptr> %108, ptr %101, align 8
+  %109 = getelementptr inbounds i8, ptr %0, i64 40
+  %110 = load i64, ptr %9, align 8
+  %111 = load <2 x i64>, ptr %109, align 8
+  store i64 %110, ptr %109, align 8
+  store <2 x i64> %111, ptr %9, align 8
+  %112 = getelementptr inbounds i8, ptr %3, i64 56
+  %113 = getelementptr inbounds i8, ptr %0, i64 56
+  %114 = load i64, ptr %112, align 8
+  %115 = load i64, ptr %113, align 8
+  store i64 %115, ptr %112, align 8
+  store i64 %114, ptr %113, align 8
+  %116 = getelementptr inbounds i8, ptr %3, i64 64
+  %117 = load <2 x float>, ptr %5, align 8
+  %118 = load <2 x float>, ptr %116, align 8
+  store <2 x float> %117, ptr %116, align 8
+  store <2 x float> %118, ptr %5, align 8
+  %119 = getelementptr inbounds i8, ptr %3, i64 72
+  %120 = getelementptr inbounds i8, ptr %0, i64 72
+  %121 = load i8, ptr %119, align 8
+  %122 = and i8 %121, 1
+  %123 = load i8, ptr %120, align 8
+  %124 = and i8 %123, 1
+  store i8 %124, ptr %119, align 8
+  store i8 %122, ptr %120, align 8
+  %125 = getelementptr inbounds i8, ptr %3, i64 73
+  %126 = getelementptr inbounds i8, ptr %0, i64 73
+  %127 = load i8, ptr %125, align 1
+  %128 = and i8 %127, 1
+  %129 = load i8, ptr %126, align 1
+  %130 = and i8 %129, 1
+  store i8 %130, ptr %125, align 1
+  store i8 %128, ptr %126, align 1
+  %.not4.i.i.i.i.i = icmp eq ptr %100, %103
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %132, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i ], [ %100, %._crit_edge ]
-  %128 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 4
-  %129 = load i16, ptr %128, align 4
-  %130 = icmp eq i16 %129, -1
-  br i1 %130, label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i, label %131
+  %.05.i.i.i.i.i = phi ptr [ %135, %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i ], [ %100, %._crit_edge ]
+  %131 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 4
+  %132 = load i16, ptr %131, align 4
+  %133 = icmp eq i16 %132, -1
+  br i1 %133, label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i, label %134
 
-131:                                              ; preds = %.lr.ph.i.i.i.i.i
-  store i16 -1, ptr %128, align 4
+134:                                              ; preds = %.lr.ph.i.i.i.i.i
+  store i16 -1, ptr %131, align 4
   br label %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i: ; preds = %131, %.lr.ph.i.i.i.i.i
-  %132 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i = icmp eq ptr %132, %101
+_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i: ; preds = %134, %.lr.ph.i.i.i.i.i
+  %135 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i = icmp eq ptr %135, %103
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !93
 
 _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEEEvPT_.exit.i.i.i.i.i
@@ -8330,15 +8339,15 @@ _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8n
   br label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i, %._crit_edge
-  %133 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i ], [ %100, %._crit_edge ]
-  %.not.i.i.i.i = icmp eq ptr %133, null
-  br i1 %.not.i.i.i.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_ED2Ev.exit, label %134
+  %136 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exitthread-pre-split.i.i ], [ %100, %._crit_edge ]
+  %.not.i.i.i.i = icmp eq ptr %136, null
+  br i1 %.not.i.i.i.i, label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_ED2Ev.exit, label %137
 
-134:                                              ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %133) #29
+137:                                              ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %136) #29
   br label %_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_ED2Ev.exit
 
-_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_ED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i, %134
+_ZN3tsl17detail_robin_hash10robin_hashISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEENS_9robin_mapIS5_S9_NS7_17std_typeinfo_hashENS7_15std_typeinfo_eqESaISA_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSI_11ValueSelectESC_SD_SE_Lb0ESH_ED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairIPKSt9type_infoPN8nanobind6detail9type_dataEELb1EEESC_EvT_SE_RSaIT0_E.exit.i.i, %137
   ret void
 }
 

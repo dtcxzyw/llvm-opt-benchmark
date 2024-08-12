@@ -10054,18 +10054,17 @@ _ZN6hermes3hbc15BytecodeVisitorD2Ev.exit:         ; preds = %_ZNSt6vectorIPKN6he
 define hidden void @_ZN6hermes3hbc20BytecodeDisassembler24generateRegexStringIDMapEv(ptr noalias nocapture writeonly sret(%"class.std::vector.54") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) local_unnamed_addr #1 align 2 {
 entry:
   %regexVisitor = alloca %"class.hermes::hbc::RegexStringTableVisitor", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr", align 8
-  %0 = load ptr, ptr %this, align 8
-  store ptr %0, ptr %agg.tmp, align 8
+  %agg.tmp = alloca %"class.std::shared_ptr", align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %this, align 8
+  store <2 x ptr> %1, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

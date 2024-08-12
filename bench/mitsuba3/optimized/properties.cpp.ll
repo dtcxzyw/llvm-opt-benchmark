@@ -3424,25 +3424,26 @@ _ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsub
   %16 = load ptr, ptr %1, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = icmp eq ptr %.sroa.0.0.i.i, %17
-  br i1 %18, label %19, label %25
+  br i1 %18, label %19, label %26
 
 19:                                               ; preds = %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
-  %20 = load <2 x ptr>, ptr %3, align 8
-  store <2 x ptr> %20, ptr %0, align 8
-  %21 = extractelement <2 x ptr> %20, i64 1
+  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %22, ptr %0, align 8
   %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %_ZNSt3__110shared_ptrIvEC2B8ne190000ERKS1_.exit, label %22
+  br i1 %.not.i, label %_ZNSt3__110shared_ptrIvEC2B8ne190000ERKS1_.exit, label %23
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %21, i64 8
-  %24 = atomicrmw add ptr %23, i64 1 monotonic, align 8
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %25 = atomicrmw add ptr %24, i64 1 monotonic, align 8
   br label %_ZNSt3__110shared_ptrIvEC2B8ne190000ERKS1_.exit
 
-25:                                               ; preds = %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
+26:                                               ; preds = %_ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba5EntryENS7_7SortKeyENS4_INS_4pairIKS6_S8_EEEEE4findB8ne190000ERSB_.exit
   call void @_ZN7mitsuba8get_implINSt3__110shared_ptrIvEES3_EET_RKNS1_14__map_iteratorINS1_15__tree_iteratorINS1_12__value_typeINS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_5EntryEEEPNS1_11__tree_nodeISF_PvEElEEEE(ptr dead_on_unwind writable sret(%"class.std::__1::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %_ZNSt3__110shared_ptrIvEC2B8ne190000ERKS1_.exit
 
-_ZNSt3__110shared_ptrIvEC2B8ne190000ERKS1_.exit:  ; preds = %22, %19, %25
+_ZNSt3__110shared_ptrIvEC2B8ne190000ERKS1_.exit:  ; preds = %23, %19, %26
   ret void
 }
 
@@ -4556,8 +4557,8 @@ common.resume:                                    ; preds = %58, %33
 
 35:                                               ; preds = %_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE.exit, %32, %27, %23
   %36 = load <2 x ptr>, ptr %2, align 8
-  store <2 x ptr> %36, ptr %10, align 16
   %37 = extractelement <2 x ptr> %36, i64 1
+  store <2 x ptr> %36, ptr %10, align 16
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %_ZNSt3__110shared_ptrIvEC2B8ne190000ERKS1_.exit, label %38
 
@@ -15130,28 +15131,29 @@ define linkonce_odr hidden void @_ZN7mitsuba8get_implINSt3__110shared_ptrIvEES3_
   %22 = getelementptr inbounds i8, ptr %21, i64 320
   %23 = load ptr, ptr %22, align 32
   %24 = icmp eq ptr %23, @_ZTINSt3__110shared_ptrIvEE
-  br i1 %24, label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSI_EEv.exit, label %31
+  br i1 %24, label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSI_EEv.exit, label %32
 
 _ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSI_EEv.exit: ; preds = %19
   %25 = getelementptr inbounds i8, ptr %21, i64 64
-  %26 = load <2 x ptr>, ptr %25, align 8
-  store <2 x ptr> %26, ptr %0, align 8
-  %27 = extractelement <2 x ptr> %26, i64 1
+  %26 = getelementptr inbounds i8, ptr %21, i64 72
+  %27 = load ptr, ptr %26, align 8
+  %28 = load <2 x ptr>, ptr %25, align 8
+  store <2 x ptr> %28, ptr %0, align 8
   %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %_ZNSt3__110shared_ptrIvEC2B8ne190000ERKS1_.exit, label %28
+  br i1 %.not.i, label %_ZNSt3__110shared_ptrIvEC2B8ne190000ERKS1_.exit, label %29
 
-28:                                               ; preds = %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSI_EEv.exit
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
-  %30 = atomicrmw add ptr %29, i64 1 monotonic, align 8
+29:                                               ; preds = %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSI_EEv.exit
+  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %31 = atomicrmw add ptr %30, i64 1 monotonic, align 8
   br label %_ZNSt3__110shared_ptrIvEC2B8ne190000ERKS1_.exit
 
-31:                                               ; preds = %19
-  %32 = tail call ptr @__cxa_allocate_exception(i64 8) #26
-  tail call void @_ZNSt8bad_castC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #26
-  tail call void @__cxa_throw(ptr nonnull %32, ptr nonnull @_ZTISt8bad_cast, ptr nonnull @_ZNSt8bad_castD1Ev) #25
+32:                                               ; preds = %19
+  %33 = tail call ptr @__cxa_allocate_exception(i64 8) #26
+  tail call void @_ZNSt8bad_castC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #26
+  tail call void @__cxa_throw(ptr nonnull %33, ptr nonnull @_ZTISt8bad_cast, ptr nonnull @_ZNSt8bad_castD1Ev) #25
   unreachable
 
-_ZNSt3__110shared_ptrIvEC2B8ne190000ERKS1_.exit:  ; preds = %28, %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSI_EEv.exit
+_ZNSt3__110shared_ptrIvEC2B8ne190000ERKS1_.exit:  ; preds = %29, %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSI_EEv.exit
   ret void
 }
 

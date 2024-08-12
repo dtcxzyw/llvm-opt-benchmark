@@ -3173,32 +3173,32 @@ _ZN2cv3Mat2atIfEERT_PKi.exit338:                  ; preds = %863, %_ZN2cv3Mat2at
   %901 = select <2 x i1> %900, <2 x float> %897, <2 x float> %899
   %902 = fcmp ogt <2 x float> %901, <float 1.000000e+01, float 1.000000e+01>
   %903 = select <2 x i1> %902, <2 x float> %901, <2 x float> <float 1.000000e+01, float 1.000000e+01>
-  %904 = fmul <2 x float> %875, <float 5.000000e-01, float 5.000000e-01>
-  %905 = insertelement <2 x float> poison, float %877, i64 0
-  %906 = shufflevector <2 x float> %905, <2 x float> poison, <2 x i32> zeroinitializer
-  %907 = fsub <2 x float> %904, %906
-  %908 = fdiv <2 x float> %907, %889
-  %909 = load <2 x float>, ptr %884, align 4
-  %910 = fadd <2 x float> %908, %909
-  %911 = fcmp olt <2 x float> %910, %899
-  %912 = select <2 x i1> %911, <2 x float> %910, <2 x float> %899
-  %913 = fcmp ogt <2 x float> %912, zeroinitializer
-  %914 = select <2 x i1> %913, <2 x float> %912, <2 x float> zeroinitializer
-  %915 = extractelement <2 x float> %914, i64 0
-  store float %915, ptr %884, align 4
-  %916 = load ptr, ptr %609, align 8
-  %917 = getelementptr inbounds i8, ptr %916, i64 4
-  %918 = extractelement <2 x float> %914, i64 1
-  store float %918, ptr %917, align 4
-  %919 = load ptr, ptr %161, align 8
-  %920 = extractelement <2 x float> %903, i64 0
+  %904 = extractelement <2 x float> %903, i64 0
+  %905 = extractelement <2 x float> %903, i64 1
+  %906 = fmul <2 x float> %875, <float 5.000000e-01, float 5.000000e-01>
+  %907 = insertelement <2 x float> poison, float %877, i64 0
+  %908 = shufflevector <2 x float> %907, <2 x float> poison, <2 x i32> zeroinitializer
+  %909 = fsub <2 x float> %906, %908
+  %910 = fdiv <2 x float> %909, %889
+  %911 = load <2 x float>, ptr %884, align 4
+  %912 = fadd <2 x float> %910, %911
+  %913 = fcmp olt <2 x float> %912, %899
+  %914 = select <2 x i1> %913, <2 x float> %912, <2 x float> %899
+  %915 = fcmp ogt <2 x float> %914, zeroinitializer
+  %916 = select <2 x i1> %915, <2 x float> %914, <2 x float> zeroinitializer
+  %917 = extractelement <2 x float> %916, i64 0
+  store float %917, ptr %884, align 4
+  %918 = load ptr, ptr %609, align 8
+  %919 = getelementptr inbounds i8, ptr %918, i64 4
+  %920 = extractelement <2 x float> %916, i64 1
   store float %920, ptr %919, align 4
   %921 = load ptr, ptr %161, align 8
-  %922 = getelementptr inbounds i8, ptr %921, i64 4
-  %923 = extractelement <2 x float> %903, i64 1
-  store float %923, ptr %922, align 4
+  store float %904, ptr %921, align 4
+  %922 = load ptr, ptr %161, align 8
+  %923 = getelementptr inbounds i8, ptr %922, i64 4
+  store float %905, ptr %923, align 4
   %924 = fmul <2 x float> %903, <float 5.000000e-01, float 5.000000e-01>
-  %925 = fsub <2 x float> %914, %924
+  %925 = fsub <2 x float> %916, %924
   %926 = shufflevector <2 x float> %925, <2 x float> %903, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %927 = fptosi <4 x float> %926 to <4 x i32>
   store <4 x i32> %927, ptr %2, align 4

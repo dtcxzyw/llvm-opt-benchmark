@@ -4610,17 +4610,15 @@ if.then56:                                        ; preds = %_ZNK2v85MaybeIN4nod
   %ticket_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp60, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %ticket_.i.i.i.i.i.i.i, align 8
   %store_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp60, i64 16
-  %72 = load ptr, ptr %store_.i.i, align 8
-  store ptr %72, ptr %store_.i.i.i.i.i.i.i.i, align 8
-  %_M_refcount.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp60, i64 24
   %_M_refcount3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ticket, i64 24
-  %73 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i.i, align 8
-  store ptr %73, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %73, null
+  %72 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i.i, align 8
+  %73 = load <2 x ptr>, ptr %store_.i.i, align 8
+  store <2 x ptr> %73, ptr %store_.i.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %72, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4node4quic5StoreC2ERKS1_.exit.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then56
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %73, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %72, i64 8
   %74 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %74, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -4642,17 +4640,15 @@ _ZN4node4quic5StoreC2ERKS1_.exit.i.i.i.i.i.i.i:   ; preds = %if.else.i.i.i.i.i.i
   %transport_params_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp60, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %transport_params_.i.i.i.i.i.i.i, align 8
   %store_.i3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp60, i64 56
-  %77 = load ptr, ptr %store_.i1.i, align 8
-  store ptr %77, ptr %store_.i3.i.i.i.i.i.i.i, align 8
-  %_M_refcount.i.i.i5.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp60, i64 64
   %_M_refcount3.i.i.i6.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ticket, i64 64
-  %78 = load ptr, ptr %_M_refcount3.i.i.i6.i.i.i.i.i.i.i, align 8
-  store ptr %78, ptr %_M_refcount.i.i.i5.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i7.i.i.i.i.i.i.i = icmp eq ptr %78, null
+  %77 = load ptr, ptr %_M_refcount3.i.i.i6.i.i.i.i.i.i.i, align 8
+  %78 = load <2 x ptr>, ptr %store_.i1.i, align 8
+  store <2 x ptr> %78, ptr %store_.i3.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i7.i.i.i.i.i.i.i = icmp eq ptr %77, null
   br i1 %cmp.not.i.i.i.i7.i.i.i.i.i.i.i, label %_ZNSt8optionalIN4node4quic13SessionTicketEEC2IRS2_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_IS8_ISt10in_place_tSF_EESt16is_constructibleIS2_JSB_EESt14is_convertibleISB_S2_EEEbE4typeELb1EEEOSB_.exit, label %if.then.i.i.i.i8.i.i.i.i.i.i.i
 
 if.then.i.i.i.i8.i.i.i.i.i.i.i:                   ; preds = %_ZN4node4quic5StoreC2ERKS1_.exit.i.i.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i9.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %78, i64 8
+  %_M_use_count.i.i.i.i.i9.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %77, i64 8
   %79 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i10.i.i.i.i.i.i.i = icmp eq i8 %79, 0
   br i1 %tobool.i.not.i.i.i.i.i10.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i15.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i11.i.i.i.i.i.i.i
@@ -6449,7 +6445,7 @@ entry:
   %ref.tmp.i.i = alloca %"class.std::__shared_ptr.309", align 16
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.std::unique_ptr.522", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.308", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.308", align 16
   %ref.tmp10 = alloca %"class.v8::Global.311", align 8
   store ptr %isolate, ptr %this, align 8
   %store_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -6460,14 +6456,12 @@ entry:
   call void @_ZN2v811ArrayBuffer15NewBackingStoreEPNS_7IsolateEm(ptr nonnull sret(%"class.std::unique_ptr.522") align 8 %ref.tmp, ptr noundef %isolate, i64 noundef 104) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   call void @_ZNSt12__shared_ptrIN2v812BackingStoreELN9__gnu_cxx12_Lock_policyE2EEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %0 = load ptr, ptr %store_, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16
   %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  %2 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16
-  store ptr %0, ptr %ref.tmp.i.i, align 16
-  store <2 x ptr> %2, ptr %store_, align 8
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8
+  %2 = load <2 x ptr>, ptr %store_, align 8
+  store <2 x ptr> %0, ptr %store_, align 8
+  store <2 x ptr> %2, ptr %ref.tmp.i.i, align 16
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN2v812BackingStoreEEaSIS1_St14default_deleteIS1_EEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EESt10unique_ptrIT_T0_EEE5valueERS2_E4typeEOSF_.exit, label %if.then.i.i.i.i
 
@@ -6557,16 +6551,15 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit: ; preds 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %call5, i8 0, i64 104, i1 false)
   %ptr_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %call5, ptr %ptr_, align 8
-  %15 = load ptr, ptr %store_, align 8
-  store ptr %15, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %16 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %16, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %16, null
+  %15 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %16 = load <2 x ptr>, ptr %store_, align 8
+  store <2 x ptr> %16, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %17, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i12
@@ -6712,7 +6705,7 @@ entry:
   %ref.tmp.i.i = alloca %"class.std::__shared_ptr.309", align 16
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.std::unique_ptr.522", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.308", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.308", align 16
   %ref.tmp10 = alloca %"class.v8::Global.311", align 8
   store ptr %isolate, ptr %this, align 8
   %store_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -6723,14 +6716,12 @@ entry:
   call void @_ZN2v811ArrayBuffer15NewBackingStoreEPNS_7IsolateEm(ptr nonnull sret(%"class.std::unique_ptr.522") align 8 %ref.tmp, ptr noundef %isolate, i64 noundef 16) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   call void @_ZNSt12__shared_ptrIN2v812BackingStoreELN9__gnu_cxx12_Lock_policyE2EEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %0 = load ptr, ptr %store_, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16
   %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  %2 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16
-  store ptr %0, ptr %ref.tmp.i.i, align 16
-  store <2 x ptr> %2, ptr %store_, align 8
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8
+  %2 = load <2 x ptr>, ptr %store_, align 8
+  store <2 x ptr> %0, ptr %store_, align 8
+  store <2 x ptr> %2, ptr %ref.tmp.i.i, align 16
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN2v812BackingStoreEEaSIS1_St14default_deleteIS1_EEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EESt10unique_ptrIT_T0_EEE5valueERS2_E4typeEOSF_.exit, label %if.then.i.i.i.i
 
@@ -6820,16 +6811,15 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit: ; preds 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5, i8 0, i64 16, i1 false)
   %ptr_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %call5, ptr %ptr_, align 8
-  %15 = load ptr, ptr %store_, align 8
-  store ptr %15, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %16 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %16, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %16, null
+  %15 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %16 = load <2 x ptr>, ptr %store_, align 8
+  store <2 x ptr> %16, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %17, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i12

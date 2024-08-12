@@ -858,12 +858,12 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   store ptr %12, ptr %data_.i.i.i.i.i.i.i, align 8, !alias.scope !7, !noalias !10
   %size_6.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i, i64 16
   %13 = load <2 x i64>, ptr %size_6.i.i.i.i.i.i.i, align 8, !alias.scope !10, !noalias !7
+  %14 = load i64, ptr %size_6.i.i.i.i.i.i.i, align 8, !alias.scope !10, !noalias !7
   store <2 x i64> %13, ptr %size_.i.i.i.i.i.i.i, align 8, !alias.scope !7, !noalias !10
   invoke void @_ZN8facebook5velox6memory20ContiguousAllocation5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.09.i.i.i)
           to label %invoke.cont.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i, !noalias !7
 
 invoke.cont.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i
-  %14 = extractelement <2 x i64> %13, i64 0
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %14, 0
   %15 = icmp eq ptr %12, null
   %lnot.i.i.i.i.i.i.i.i = xor i1 %15, %cmp.i.i.i.i.i.i.i.i
@@ -916,12 +916,12 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN8face
   store ptr %19, ptr %data_.i.i.i.i.i.i.i15, align 8, !alias.scope !13, !noalias !16
   %size_6.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i14, i64 16
   %20 = load <2 x i64>, ptr %size_6.i.i.i.i.i.i.i19, align 8, !alias.scope !16, !noalias !13
+  %21 = load i64, ptr %size_6.i.i.i.i.i.i.i19, align 8, !alias.scope !16, !noalias !13
   store <2 x i64> %20, ptr %size_.i.i.i.i.i.i.i16, align 8, !alias.scope !13, !noalias !16
   invoke void @_ZN8facebook5velox6memory20ContiguousAllocation5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.09.i.i.i14)
           to label %invoke.cont.i.i.i.i.i.i.i22 unwind label %terminate.lpad.i.i.i.i.i.i.i21, !noalias !13
 
 invoke.cont.i.i.i.i.i.i.i22:                      ; preds = %for.body.i.i.i12
-  %21 = extractelement <2 x i64> %20, i64 0
   %cmp.i.i.i.i.i.i.i.i23 = icmp eq i64 %21, 0
   %22 = icmp eq ptr %19, null
   %lnot.i.i.i.i.i.i.i.i24 = xor i1 %22, %cmp.i.i.i.i.i.i.i.i23
@@ -1020,18 +1020,19 @@ _ZN8facebook5velox6memory10Allocation5clearEv.exit.i.i.i: ; preds = %cond.true.i
   %numPages_.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %runs_4.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %3 = load <4 x ptr>, ptr %__args, align 8
+  %4 = load ptr, ptr %__args, align 8
   store <4 x ptr> %3, ptr %add.ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %runs_4.i.i.i, i8 0, i64 24, i1 false)
   %numPages_6.i.i.i = getelementptr inbounds i8, ptr %__args, i64 32
-  %4 = load i32, ptr %numPages_6.i.i.i, align 8
-  store i32 %4, ptr %numPages_.i.i.i, align 8
+  %5 = load i32, ptr %numPages_6.i.i.i, align 8
+  store i32 %5, ptr %numPages_.i.i.i, align 8
   store i32 0, ptr %numPages_6.i.i.i, align 8
   store ptr null, ptr %__args, align 8
   %shift = shufflevector <4 x ptr> %3, <4 x ptr> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %5 = icmp eq <4 x ptr> %3, %shift
-  %cmp.i.i.i.i.i = extractelement <4 x i1> %5, i64 1
-  %6 = icmp eq i32 %4, 0
-  %lnot.i.i.i.i = xor i1 %6, %cmp.i.i.i.i.i
+  %6 = icmp eq <4 x ptr> %3, %shift
+  %cmp.i.i.i.i.i = extractelement <4 x i1> %6, i64 1
+  %7 = icmp eq i32 %5, 0
+  %lnot.i.i.i.i = xor i1 %7, %cmp.i.i.i.i.i
   br i1 %lnot.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN8facebook5velox6memory10Allocation5clearEv.exit.i.i.i
@@ -1039,9 +1040,8 @@ if.then.i.i.i.i:                                  ; preds = %_ZN8facebook5velox6
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %_ZN8facebook5velox6memory10Allocation5clearEv.exit.i.i.i
-  %7 = extractelement <4 x ptr> %3, i64 0
-  %cmp7.i.i.i.i = icmp ne ptr %7, null
-  %lnot8.i.i.i.i = select i1 %6, i1 %cmp7.i.i.i.i, i1 false
+  %cmp7.i.i.i.i = icmp ne ptr %4, null
+  %lnot8.i.i.i.i = select i1 %7, i1 %cmp7.i.i.i.i, i1 false
   br i1 %lnot8.i.i.i.i, label %if.then10.i.i.i.i, label %_ZNSt16allocator_traitsISaIN8facebook5velox6memory10AllocationEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit
 
 if.then10.i.i.i.i:                                ; preds = %if.end.i.i.i.i
@@ -1060,18 +1060,19 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   %numPages_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i, i64 32
   %runs_4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 8
   %8 = load <4 x ptr>, ptr %__first.addr.08.i.i.i, align 8, !alias.scope !21, !noalias !18
+  %9 = load ptr, ptr %__first.addr.08.i.i.i, align 8, !alias.scope !21, !noalias !18
   store <4 x ptr> %8, ptr %__cur.09.i.i.i, align 8, !alias.scope !18, !noalias !21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %runs_4.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !21, !noalias !18
   %numPages_6.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i, i64 32
-  %9 = load i32, ptr %numPages_6.i.i.i.i.i.i.i, align 8, !alias.scope !21, !noalias !18
-  store i32 %9, ptr %numPages_.i.i.i.i.i.i.i, align 8, !alias.scope !18, !noalias !21
+  %10 = load i32, ptr %numPages_6.i.i.i.i.i.i.i, align 8, !alias.scope !21, !noalias !18
+  store i32 %10, ptr %numPages_.i.i.i.i.i.i.i, align 8, !alias.scope !18, !noalias !21
   store i32 0, ptr %numPages_6.i.i.i.i.i.i.i, align 8, !alias.scope !21, !noalias !18
   store ptr null, ptr %__first.addr.08.i.i.i, align 8, !alias.scope !21, !noalias !18
   %shift39 = shufflevector <4 x ptr> %8, <4 x ptr> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %10 = icmp eq <4 x ptr> %8, %shift39
-  %cmp.i.i.i.i.i.i.i.i.i = extractelement <4 x i1> %10, i64 1
-  %11 = icmp eq i32 %9, 0
-  %lnot.i.i.i.i.i.i.i.i = xor i1 %cmp.i.i.i.i.i.i.i.i.i, %11
+  %11 = icmp eq <4 x ptr> %8, %shift39
+  %cmp.i.i.i.i.i.i.i.i.i = extractelement <4 x i1> %11, i64 1
+  %12 = icmp eq i32 %10, 0
+  %lnot.i.i.i.i.i.i.i.i = xor i1 %cmp.i.i.i.i.i.i.i.i.i, %12
   br i1 %lnot.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
@@ -1079,9 +1080,8 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   unreachable
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i
-  %12 = extractelement <4 x ptr> %8, i64 0
-  %cmp7.i.i.i.i.i.i.i.i = icmp ne ptr %12, null
-  %lnot8.i.i.i.i.i.i.i.i = select i1 %11, i1 %cmp7.i.i.i.i.i.i.i.i, i1 false
+  %cmp7.i.i.i.i.i.i.i.i = icmp ne ptr %9, null
+  %lnot8.i.i.i.i.i.i.i.i = select i1 %12, i1 %cmp7.i.i.i.i.i.i.i.i, i1 false
   br i1 %lnot8.i.i.i.i.i.i.i.i, label %if.then10.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i
 
 if.then10.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.i.i
@@ -1109,18 +1109,19 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN8face
   %numPages_.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__cur.09.i.i.i13, i64 32
   %runs_4.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i14, i64 8
   %13 = load <4 x ptr>, ptr %__first.addr.08.i.i.i14, align 8, !alias.scope !27, !noalias !24
+  %14 = load ptr, ptr %__first.addr.08.i.i.i14, align 8, !alias.scope !27, !noalias !24
   store <4 x ptr> %13, ptr %__cur.09.i.i.i13, align 8, !alias.scope !24, !noalias !27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %runs_4.i.i.i.i.i.i.i17, i8 0, i64 24, i1 false), !alias.scope !27, !noalias !24
   %numPages_6.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i14, i64 32
-  %14 = load i32, ptr %numPages_6.i.i.i.i.i.i.i22, align 8, !alias.scope !27, !noalias !24
-  store i32 %14, ptr %numPages_.i.i.i.i.i.i.i16, align 8, !alias.scope !24, !noalias !27
+  %15 = load i32, ptr %numPages_6.i.i.i.i.i.i.i22, align 8, !alias.scope !27, !noalias !24
+  store i32 %15, ptr %numPages_.i.i.i.i.i.i.i16, align 8, !alias.scope !24, !noalias !27
   store i32 0, ptr %numPages_6.i.i.i.i.i.i.i22, align 8, !alias.scope !27, !noalias !24
   store ptr null, ptr %__first.addr.08.i.i.i14, align 8, !alias.scope !27, !noalias !24
   %shift40 = shufflevector <4 x ptr> %13, <4 x ptr> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %15 = icmp eq <4 x ptr> %13, %shift40
-  %cmp.i.i.i.i.i.i.i.i.i23 = extractelement <4 x i1> %15, i64 1
-  %16 = icmp eq i32 %14, 0
-  %lnot.i.i.i.i.i.i.i.i24 = xor i1 %cmp.i.i.i.i.i.i.i.i.i23, %16
+  %16 = icmp eq <4 x ptr> %13, %shift40
+  %cmp.i.i.i.i.i.i.i.i.i23 = extractelement <4 x i1> %16, i64 1
+  %17 = icmp eq i32 %15, 0
+  %lnot.i.i.i.i.i.i.i.i24 = xor i1 %cmp.i.i.i.i.i.i.i.i.i23, %17
   br i1 %lnot.i.i.i.i.i.i.i.i24, label %if.then.i.i.i.i.i.i.i.i34, label %if.end.i.i.i.i.i.i.i.i25
 
 if.then.i.i.i.i.i.i.i.i34:                        ; preds = %for.body.i.i.i12
@@ -1128,9 +1129,8 @@ if.then.i.i.i.i.i.i.i.i34:                        ; preds = %for.body.i.i.i12
   unreachable
 
 if.end.i.i.i.i.i.i.i.i25:                         ; preds = %for.body.i.i.i12
-  %17 = extractelement <4 x ptr> %13, i64 0
-  %cmp7.i.i.i.i.i.i.i.i26 = icmp ne ptr %17, null
-  %lnot8.i.i.i.i.i.i.i.i27 = select i1 %16, i1 %cmp7.i.i.i.i.i.i.i.i26, i1 false
+  %cmp7.i.i.i.i.i.i.i.i26 = icmp ne ptr %14, null
+  %lnot8.i.i.i.i.i.i.i.i27 = select i1 %17, i1 %cmp7.i.i.i.i.i.i.i.i26, i1 false
   br i1 %lnot8.i.i.i.i.i.i.i.i27, label %if.then10.i.i.i.i.i.i.i.i33, label %_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i28
 
 if.then10.i.i.i.i.i.i.i.i33:                      ; preds = %if.end.i.i.i.i.i.i.i.i25

@@ -291,24 +291,22 @@ do.end23:                                         ; preds = %do.body9
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node4quic5StoreC2EN2v85LocalINS2_11ArrayBufferEEENS1_6OptionE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nonnull %buffer.coerce, i32 noundef %option) unnamed_addr #3 align 2 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr", align 16
   call void @_ZN2v811ArrayBuffer15GetBackingStoreEv(ptr nonnull sret(%"class.std::shared_ptr") align 8 %agg.tmp, ptr noundef nonnull align 1 dereferenceable(1) %buffer.coerce) #16
   %call5 = call noundef i64 @_ZNK2v811ArrayBuffer10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %buffer.coerce) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %this, align 8
   %store_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load ptr, ptr %agg.tmp, align 8
-  store ptr %0, ptr %store_.i, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_refcount4.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %1 = load ptr, ptr %_M_refcount4.i.i.i, align 8
+  %0 = load <2 x ptr>, ptr %agg.tmp, align 16
+  %1 = load ptr, ptr %agg.tmp, align 16
   store ptr null, ptr %_M_refcount4.i.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8
-  store ptr null, ptr %agg.tmp, align 8
+  store <2 x ptr> %0, ptr %store_.i, align 8
+  store ptr null, ptr %agg.tmp, align 16
   %length_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %call5, ptr %length_.i, align 8
   %offset_.i = getelementptr inbounds i8, ptr %this, i64 32
   store i64 0, ptr %offset_.i, align 8
-  %call4.i = call noundef i64 @_ZNK2v812BackingStore10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #16
+  %call4.i = call noundef i64 @_ZNK2v812BackingStore10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #16
   %2 = load i64, ptr %length_.i, align 8
   %3 = load ptr, ptr %store_.i, align 8
   %call13.i = call noundef i64 @_ZNK2v812BackingStore10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
@@ -419,26 +417,24 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node4quic5StoreC2EN2v85LocalINS2_15ArrayBufferViewEEENS1_6OptionE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nonnull %view.coerce, i32 noundef %option) unnamed_addr #3 align 2 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr", align 16
   %call4 = tail call ptr @_ZN2v815ArrayBufferView6BufferEv(ptr noundef nonnull align 1 dereferenceable(1) %view.coerce) #16
   call void @_ZN2v811ArrayBuffer15GetBackingStoreEv(ptr nonnull sret(%"class.std::shared_ptr") align 8 %agg.tmp, ptr noundef nonnull align 1 dereferenceable(1) %call4) #16
   %call10 = call noundef i64 @_ZN2v815ArrayBufferView10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %view.coerce) #16
   %call12 = call noundef i64 @_ZN2v815ArrayBufferView10ByteOffsetEv(ptr noundef nonnull align 1 dereferenceable(1) %view.coerce) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic5StoreE, i64 16), ptr %this, align 8
   %store_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load ptr, ptr %agg.tmp, align 8
-  store ptr %0, ptr %store_.i, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_refcount4.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %1 = load ptr, ptr %_M_refcount4.i.i.i, align 8
+  %0 = load <2 x ptr>, ptr %agg.tmp, align 16
+  %1 = load ptr, ptr %agg.tmp, align 16
   store ptr null, ptr %_M_refcount4.i.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8
-  store ptr null, ptr %agg.tmp, align 8
+  store <2 x ptr> %0, ptr %store_.i, align 8
+  store ptr null, ptr %agg.tmp, align 16
   %length_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %call10, ptr %length_.i, align 8
   %offset_.i = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %call12, ptr %offset_.i, align 8
-  %call4.i = call noundef i64 @_ZNK2v812BackingStore10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #16
+  %call4.i = call noundef i64 @_ZNK2v812BackingStore10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #16
   %cmp.not.i = icmp ult i64 %call4.i, %call12
   br i1 %cmp.not.i, label %do.body7.i, label %do.body9.i
 

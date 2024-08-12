@@ -9104,9 +9104,9 @@ _ZNK5folly11IPAddressV610createIPv4Ev.exit.i:     ; preds = %land.rhs.i
   br i1 %call5.i, label %return, label %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge.i
 
 _ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge.i: ; preds = %_ZNK5folly11IPAddressV610createIPv4Ev.exit.i
+  %socka.sroa.4.8.copyload.pre.i = load i32, ptr %this, align 4
   %25 = load <2 x i32>, ptr %this, align 4
-  %26 = bitcast <2 x i32> %25 to <8 x i8>
-  %27 = extractelement <8 x i8> %26, i64 0
+  %26 = trunc i32 %socka.sroa.4.8.copyload.pre.i to i8
   br label %if.end.i
 
 if.end.critedge.i:                                ; preds = %_ZNK5folly11IPAddressV612isIPv4MappedEv.exit.i, %_ZNK5folly11IPAddressV612isIPv4MappedEv.exit.thread.i
@@ -9114,13 +9114,13 @@ if.end.critedge.i:                                ; preds = %_ZNK5folly11IPAddre
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.critedge.i, %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge.i
-  %28 = phi i8 [ %27, %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge.i ], [ %14, %if.end.critedge.i ]
-  %29 = phi <2 x i32> [ %25, %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge.i ], [ %bc3.i, %if.end.critedge.i ]
+  %27 = phi i8 [ %26, %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge.i ], [ %14, %if.end.critedge.i ]
+  %28 = phi <2 x i32> [ %25, %_ZNK5folly11IPAddressV610createIPv4Ev.exit.if.end_crit_edge.i ], [ %bc3.i, %if.end.critedge.i ]
   %socka.sroa.7.8.copyload.i = load i32, ptr %arrayidx.8.i, align 4
-  %30 = icmp eq <2 x i32> %29, zeroinitializer
-  %31 = extractelement <2 x i1> %30, i64 0
-  %32 = extractelement <2 x i1> %30, i64 1
-  %or.cond.i = select i1 %31, i1 %32, i1 false
+  %29 = icmp eq <2 x i32> %28, zeroinitializer
+  %30 = extractelement <2 x i1> %29, i64 0
+  %31 = extractelement <2 x i1> %29, i64 1
+  %or.cond.i = select i1 %30, i1 %31, i1 false
   %cmp12.i = icmp eq i32 %socka.sroa.7.8.copyload.i, 0
   %or.cond22.i = select i1 %or.cond.i, i1 %cmp12.i, i1 false
   %socka.sroa.8.8.this.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 12
@@ -9132,11 +9132,11 @@ if.end.i:                                         ; preds = %if.end.critedge.i, 
 lor.rhs:                                          ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %masked.i) #32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ba.i) #32, !noalias !278
-  %and11.i.i = and i8 %28, -2
+  %and11.i.i = and i8 %27, -2
   %retval.sroa.0.sroa.0.0.insert.ext.i.i = zext i8 %and11.i.i to i64
   store i64 %retval.sroa.0.sroa.0.0.insert.ext.i.i, ptr %ba.i, align 8, !noalias !278
-  %33 = getelementptr inbounds i8, ptr %ba.i, i64 8
-  store i64 0, ptr %33, align 8, !noalias !278
+  %32 = getelementptr inbounds i8, ptr %ba.i, i64 8
+  store i64 0, ptr %32, align 8, !noalias !278
   call void @_ZN5folly11IPAddressV6C1ERKSt5arrayIhLm16EE(ptr noundef nonnull align 4 dereferenceable(18) %masked.i, ptr noundef nonnull align 1 dereferenceable(16) %ba.i) #32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ba.i) #32, !noalias !278
   %rhsv = load i16, ptr %masked.i, align 4

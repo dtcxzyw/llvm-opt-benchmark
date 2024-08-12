@@ -5382,7 +5382,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp4STEP7EXPRESS4LIST5ParseERPKcmPKNS1_16ConversionSchemaE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.46") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(8) %inout, i64 noundef %line, ptr noundef %schema) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %list = alloca %"class.std::shared_ptr.64", align 8
+  %list = alloca %"class.std::shared_ptr.64", align 16
   %cur = alloca ptr, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
@@ -5404,7 +5404,7 @@ entry:
   %members.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %members.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !65
   store ptr %call5.i.i.i2.i.i.i.i, ptr %_M_refcount.i.i.i, align 8, !alias.scope !65
-  store ptr %_M_impl.i.i.i.i.i.i, ptr %list, align 8, !alias.scope !65
+  store ptr %_M_impl.i.i.i.i.i.i, ptr %list, align 16, !alias.scope !65
   %0 = load ptr, ptr %inout, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 1
   store ptr %incdec.ptr, ptr %cur, align 8
@@ -5742,16 +5742,14 @@ for.end69:                                        ; preds = %while.end.i25, %whi
   %33 = phi ptr [ %in.addr.0.i22, %while.end.i25 ], [ %in.addr.0.i, %while.end.i ]
   %add.ptr = getelementptr inbounds i8, ptr %33, i64 1
   store ptr %add.ptr, ptr %inout, align 8
-  %34 = load ptr, ptr %list, align 8
-  store ptr %34, ptr %agg.result, align 8
-  %_M_refcount.i.i29 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %35 = load ptr, ptr %_M_refcount.i.i.i, align 8
-  store ptr %35, ptr %_M_refcount.i.i29, align 8
-  %cmp.not.i.i.i30 = icmp eq ptr %35, null
+  %34 = load ptr, ptr %_M_refcount.i.i.i, align 8
+  %35 = load <2 x ptr>, ptr %list, align 16
+  store <2 x ptr> %35, ptr %agg.result, align 8
+  %cmp.not.i.i.i30 = icmp eq ptr %34, null
   br i1 %cmp.not.i.i.i30, label %_ZNSt10shared_ptrIN6Assimp4STEP7EXPRESS4LISTEED2Ev.exit, label %if.then.i.i.i31
 
 if.then.i.i.i31:                                  ; preds = %for.end69
-  %_M_use_count.i.i.i.i32 = getelementptr inbounds i8, ptr %35, i64 8
+  %_M_use_count.i.i.i.i32 = getelementptr inbounds i8, ptr %34, i64 8
   %36 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %36, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS4LISTEEC2IS3_vEERKS_IT_E.exit, label %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS4LISTEEC2IS3_vEERKS_IT_E.exit.thread
@@ -5769,7 +5767,7 @@ _ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS4LISTEEC2IS3_vEERKS_IT_E.exit: ; preds =
   br i1 %cmp.not.i.i.i37, label %_ZNSt10shared_ptrIN6Assimp4STEP7EXPRESS4LISTEED2Ev.exit, label %if.then.i.i.i38
 
 if.then.i.i.i38:                                  ; preds = %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS4LISTEEC2IS3_vEERKS_IT_E.exit.thread, %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS4LISTEEC2IS3_vEERKS_IT_E.exit
-  %.pr7682 = phi ptr [ %35, %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS4LISTEEC2IS3_vEERKS_IT_E.exit.thread ], [ %.pr76.pre, %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS4LISTEEC2IS3_vEERKS_IT_E.exit ]
+  %.pr7682 = phi ptr [ %34, %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS4LISTEEC2IS3_vEERKS_IT_E.exit.thread ], [ %.pr76.pre, %_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS4LISTEEC2IS3_vEERKS_IT_E.exit ]
   %_M_use_count.i.i.i.i39 = getelementptr inbounds i8, ptr %.pr7682, i64 8
   %39 = load atomic i64, ptr %_M_use_count.i.i.i.i39 acquire, align 8
   %cmp.i.i.i.i40 = icmp eq i64 %39, 4294967297

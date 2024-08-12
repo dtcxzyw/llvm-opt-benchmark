@@ -1403,126 +1403,124 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3anyaS
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
-  %7 = load ptr, ptr %1, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %8, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread, label %11
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %9, ptr %6, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %8, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread, label %10
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
-  %13 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %13, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit, label %14
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %12, 0
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit, label %13
 
-14:                                               ; preds = %11
-  %15 = load i32, ptr %12, align 4
-  %16 = add nsw i32 %15, 1
-  store i32 %16, ptr %12, align 4
+13:                                               ; preds = %10
+  %14 = load i32, ptr %11, align 4
+  %15 = add nsw i32 %14, 1
+  store i32 %15, ptr %11, align 4
   br label %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread
 
-_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread: ; preds = %2, %14
+_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread: ; preds = %2, %13
   store ptr %6, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  br label %25
+  br label %24
 
-_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit: ; preds = %11
-  %17 = atomicrmw volatile add ptr %12, i32 1 acq_rel, align 4
+_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit: ; preds = %10
+  %16 = atomicrmw volatile add ptr %11, i32 1 acq_rel, align 4
   %.pre = load ptr, ptr %4, align 8
   store ptr %6, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %.not8.i = icmp eq ptr %.pre, null
-  br i1 %.not8.i, label %18, label %25
+  br i1 %.not8.i, label %17, label %24
 
-18:                                               ; preds = %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit
-  %19 = load ptr, ptr %0, align 8
-  %.not.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i, label %_ZNSt3anyaSEOS_.exit.thread, label %20
+17:                                               ; preds = %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit
+  %18 = load ptr, ptr %0, align 8
+  %.not.i.i = icmp eq ptr %18, null
+  br i1 %.not.i.i, label %_ZNSt3anyaSEOS_.exit.thread, label %19
 
-_ZNSt3anyaSEOS_.exit.thread:                      ; preds = %18
+_ZNSt3anyaSEOS_.exit.thread:                      ; preds = %17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %_ZNSt3anyD2Ev.exit
 
-20:                                               ; preds = %18
-  invoke void %19(i32 noundef 3, ptr noundef nonnull %0, ptr noundef null)
-          to label %21 unwind label %22
+19:                                               ; preds = %17
+  invoke void %18(i32 noundef 3, ptr noundef nonnull %0, ptr noundef null)
+          to label %20 unwind label %21
 
-21:                                               ; preds = %20
+20:                                               ; preds = %19
   store ptr null, ptr %0, align 8
   br label %_ZNSt3anyaSEOS_.exit
 
-22:                                               ; preds = %20
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %19
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #28
+  %23 = extractvalue { ptr, i32 } %22, 0
+  tail call void @__clang_call_terminate(ptr %23) #28
   unreachable
 
-25:                                               ; preds = %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit
-  %26 = phi ptr [ @_ZNSt3any17_Manager_externalISt10shared_ptrIN7xgboost4data15ColumnarAdapterEEE9_S_manageENS_3_OpEPKS_PNS_4_ArgE, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread ], [ %.pre, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit ]
+24:                                               ; preds = %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit
+  %25 = phi ptr [ @_ZNSt3any17_Manager_externalISt10shared_ptrIN7xgboost4data15ColumnarAdapterEEE9_S_manageENS_3_OpEPKS_PNS_4_ArgE, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread ], [ %.pre, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15ColumnarAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit ]
   %.not.i = icmp eq ptr %4, %0
-  br i1 %.not.i, label %_ZNSt3anyaSEOS_.exit.thread4, label %27
+  br i1 %.not.i, label %_ZNSt3anyaSEOS_.exit.thread4, label %26
 
-_ZNSt3anyaSEOS_.exit.thread4:                     ; preds = %25
+_ZNSt3anyaSEOS_.exit.thread4:                     ; preds = %24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %38
+  br label %37
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %0, align 8
-  %.not.i6.i = icmp eq ptr %28, null
-  br i1 %.not.i6.i, label %_ZNSt3any5resetEv.exit7.i, label %29
+26:                                               ; preds = %24
+  %27 = load ptr, ptr %0, align 8
+  %.not.i6.i = icmp eq ptr %27, null
+  br i1 %.not.i6.i, label %_ZNSt3any5resetEv.exit7.i, label %28
 
-29:                                               ; preds = %27
-  invoke void %28(i32 noundef 3, ptr noundef nonnull %0, ptr noundef null)
-          to label %30 unwind label %31
+28:                                               ; preds = %26
+  invoke void %27(i32 noundef 3, ptr noundef nonnull %0, ptr noundef null)
+          to label %29 unwind label %30
 
-30:                                               ; preds = %29
+29:                                               ; preds = %28
   store ptr null, ptr %0, align 8
   %.pre.i = load ptr, ptr %4, align 8
   br label %_ZNSt3any5resetEv.exit7.i
 
-31:                                               ; preds = %29
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %28
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #28
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #28
   unreachable
 
-_ZNSt3any5resetEv.exit7.i:                        ; preds = %30, %27
-  %34 = phi ptr [ %26, %27 ], [ %.pre.i, %30 ]
+_ZNSt3any5resetEv.exit7.i:                        ; preds = %29, %26
+  %33 = phi ptr [ %25, %26 ], [ %.pre.i, %29 ]
   store ptr %0, ptr %3, align 8
-  invoke void %34(i32 noundef 4, ptr noundef nonnull %4, ptr noundef nonnull %3)
-          to label %_ZNSt3anyaSEOS_.exit unwind label %35
+  invoke void %33(i32 noundef 4, ptr noundef nonnull %4, ptr noundef nonnull %3)
+          to label %_ZNSt3anyaSEOS_.exit unwind label %34
 
-35:                                               ; preds = %_ZNSt3any5resetEv.exit7.i
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %_ZNSt3any5resetEv.exit7.i
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #28
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #28
   unreachable
 
-_ZNSt3anyaSEOS_.exit:                             ; preds = %21, %_ZNSt3any5resetEv.exit7.i
+_ZNSt3anyaSEOS_.exit:                             ; preds = %20, %_ZNSt3any5resetEv.exit7.i
   %.pr = load ptr, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.not.i.i2 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i2, label %_ZNSt3anyD2Ev.exit, label %38
+  br i1 %.not.i.i2, label %_ZNSt3anyD2Ev.exit, label %37
 
-38:                                               ; preds = %_ZNSt3anyaSEOS_.exit.thread4, %_ZNSt3anyaSEOS_.exit
-  %39 = phi ptr [ %26, %_ZNSt3anyaSEOS_.exit.thread4 ], [ %.pr, %_ZNSt3anyaSEOS_.exit ]
-  invoke void %39(i32 noundef 3, ptr noundef nonnull %4, ptr noundef null)
-          to label %_ZNSt3anyD2Ev.exit unwind label %40
+37:                                               ; preds = %_ZNSt3anyaSEOS_.exit.thread4, %_ZNSt3anyaSEOS_.exit
+  %38 = phi ptr [ %25, %_ZNSt3anyaSEOS_.exit.thread4 ], [ %.pr, %_ZNSt3anyaSEOS_.exit ]
+  invoke void %38(i32 noundef 3, ptr noundef nonnull %4, ptr noundef null)
+          to label %_ZNSt3anyD2Ev.exit unwind label %39
 
-40:                                               ; preds = %38
-  %41 = landingpad { ptr, i32 }
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #28
+  %41 = extractvalue { ptr, i32 } %40, 0
+  call void @__clang_call_terminate(ptr %41) #28
   unreachable
 
-_ZNSt3anyD2Ev.exit:                               ; preds = %38, %_ZNSt3anyaSEOS_.exit.thread, %_ZNSt3anyaSEOS_.exit
+_ZNSt3anyD2Ev.exit:                               ; preds = %37, %_ZNSt3anyaSEOS_.exit.thread, %_ZNSt3anyaSEOS_.exit
   ret ptr %0
 }
 
@@ -2075,126 +2073,124 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3anyaS
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
-  %7 = load ptr, ptr %1, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %8, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread, label %11
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %9, ptr %6, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %8, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread, label %10
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
-  %13 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %13, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit, label %14
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %12, 0
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit, label %13
 
-14:                                               ; preds = %11
-  %15 = load i32, ptr %12, align 4
-  %16 = add nsw i32 %15, 1
-  store i32 %16, ptr %12, align 4
+13:                                               ; preds = %10
+  %14 = load i32, ptr %11, align 4
+  %15 = add nsw i32 %14, 1
+  store i32 %15, ptr %11, align 4
   br label %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread
 
-_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread: ; preds = %2, %14
+_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread: ; preds = %2, %13
   store ptr %6, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  br label %25
+  br label %24
 
-_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit: ; preds = %11
-  %17 = atomicrmw volatile add ptr %12, i32 1 acq_rel, align 4
+_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit: ; preds = %10
+  %16 = atomicrmw volatile add ptr %11, i32 1 acq_rel, align 4
   %.pre = load ptr, ptr %4, align 8
   store ptr %6, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %.not8.i = icmp eq ptr %.pre, null
-  br i1 %.not8.i, label %18, label %25
+  br i1 %.not8.i, label %17, label %24
 
-18:                                               ; preds = %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit
-  %19 = load ptr, ptr %0, align 8
-  %.not.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i, label %_ZNSt3anyaSEOS_.exit.thread, label %20
+17:                                               ; preds = %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit
+  %18 = load ptr, ptr %0, align 8
+  %.not.i.i = icmp eq ptr %18, null
+  br i1 %.not.i.i, label %_ZNSt3anyaSEOS_.exit.thread, label %19
 
-_ZNSt3anyaSEOS_.exit.thread:                      ; preds = %18
+_ZNSt3anyaSEOS_.exit.thread:                      ; preds = %17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %_ZNSt3anyD2Ev.exit
 
-20:                                               ; preds = %18
-  invoke void %19(i32 noundef 3, ptr noundef nonnull %0, ptr noundef null)
-          to label %21 unwind label %22
+19:                                               ; preds = %17
+  invoke void %18(i32 noundef 3, ptr noundef nonnull %0, ptr noundef null)
+          to label %20 unwind label %21
 
-21:                                               ; preds = %20
+20:                                               ; preds = %19
   store ptr null, ptr %0, align 8
   br label %_ZNSt3anyaSEOS_.exit
 
-22:                                               ; preds = %20
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %19
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #28
+  %23 = extractvalue { ptr, i32 } %22, 0
+  tail call void @__clang_call_terminate(ptr %23) #28
   unreachable
 
-25:                                               ; preds = %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit
-  %26 = phi ptr [ @_ZNSt3any17_Manager_externalISt10shared_ptrIN7xgboost4data12ArrayAdapterEEE9_S_manageENS_3_OpEPKS_PNS_4_ArgE, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread ], [ %.pre, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit ]
+24:                                               ; preds = %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit
+  %25 = phi ptr [ @_ZNSt3any17_Manager_externalISt10shared_ptrIN7xgboost4data12ArrayAdapterEEE9_S_manageENS_3_OpEPKS_PNS_4_ArgE, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread ], [ %.pre, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data12ArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit ]
   %.not.i = icmp eq ptr %4, %0
-  br i1 %.not.i, label %_ZNSt3anyaSEOS_.exit.thread4, label %27
+  br i1 %.not.i, label %_ZNSt3anyaSEOS_.exit.thread4, label %26
 
-_ZNSt3anyaSEOS_.exit.thread4:                     ; preds = %25
+_ZNSt3anyaSEOS_.exit.thread4:                     ; preds = %24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %38
+  br label %37
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %0, align 8
-  %.not.i6.i = icmp eq ptr %28, null
-  br i1 %.not.i6.i, label %_ZNSt3any5resetEv.exit7.i, label %29
+26:                                               ; preds = %24
+  %27 = load ptr, ptr %0, align 8
+  %.not.i6.i = icmp eq ptr %27, null
+  br i1 %.not.i6.i, label %_ZNSt3any5resetEv.exit7.i, label %28
 
-29:                                               ; preds = %27
-  invoke void %28(i32 noundef 3, ptr noundef nonnull %0, ptr noundef null)
-          to label %30 unwind label %31
+28:                                               ; preds = %26
+  invoke void %27(i32 noundef 3, ptr noundef nonnull %0, ptr noundef null)
+          to label %29 unwind label %30
 
-30:                                               ; preds = %29
+29:                                               ; preds = %28
   store ptr null, ptr %0, align 8
   %.pre.i = load ptr, ptr %4, align 8
   br label %_ZNSt3any5resetEv.exit7.i
 
-31:                                               ; preds = %29
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %28
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #28
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #28
   unreachable
 
-_ZNSt3any5resetEv.exit7.i:                        ; preds = %30, %27
-  %34 = phi ptr [ %26, %27 ], [ %.pre.i, %30 ]
+_ZNSt3any5resetEv.exit7.i:                        ; preds = %29, %26
+  %33 = phi ptr [ %25, %26 ], [ %.pre.i, %29 ]
   store ptr %0, ptr %3, align 8
-  invoke void %34(i32 noundef 4, ptr noundef nonnull %4, ptr noundef nonnull %3)
-          to label %_ZNSt3anyaSEOS_.exit unwind label %35
+  invoke void %33(i32 noundef 4, ptr noundef nonnull %4, ptr noundef nonnull %3)
+          to label %_ZNSt3anyaSEOS_.exit unwind label %34
 
-35:                                               ; preds = %_ZNSt3any5resetEv.exit7.i
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %_ZNSt3any5resetEv.exit7.i
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #28
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #28
   unreachable
 
-_ZNSt3anyaSEOS_.exit:                             ; preds = %21, %_ZNSt3any5resetEv.exit7.i
+_ZNSt3anyaSEOS_.exit:                             ; preds = %20, %_ZNSt3any5resetEv.exit7.i
   %.pr = load ptr, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.not.i.i2 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i2, label %_ZNSt3anyD2Ev.exit, label %38
+  br i1 %.not.i.i2, label %_ZNSt3anyD2Ev.exit, label %37
 
-38:                                               ; preds = %_ZNSt3anyaSEOS_.exit.thread4, %_ZNSt3anyaSEOS_.exit
-  %39 = phi ptr [ %26, %_ZNSt3anyaSEOS_.exit.thread4 ], [ %.pr, %_ZNSt3anyaSEOS_.exit ]
-  invoke void %39(i32 noundef 3, ptr noundef nonnull %4, ptr noundef null)
-          to label %_ZNSt3anyD2Ev.exit unwind label %40
+37:                                               ; preds = %_ZNSt3anyaSEOS_.exit.thread4, %_ZNSt3anyaSEOS_.exit
+  %38 = phi ptr [ %25, %_ZNSt3anyaSEOS_.exit.thread4 ], [ %.pr, %_ZNSt3anyaSEOS_.exit ]
+  invoke void %38(i32 noundef 3, ptr noundef nonnull %4, ptr noundef null)
+          to label %_ZNSt3anyD2Ev.exit unwind label %39
 
-40:                                               ; preds = %38
-  %41 = landingpad { ptr, i32 }
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #28
+  %41 = extractvalue { ptr, i32 } %40, 0
+  call void @__clang_call_terminate(ptr %41) #28
   unreachable
 
-_ZNSt3anyD2Ev.exit:                               ; preds = %38, %_ZNSt3anyaSEOS_.exit.thread, %_ZNSt3anyaSEOS_.exit
+_ZNSt3anyD2Ev.exit:                               ; preds = %37, %_ZNSt3anyaSEOS_.exit.thread, %_ZNSt3anyaSEOS_.exit
   ret ptr %0
 }
 
@@ -2915,126 +2911,124 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3anyaS
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
-  %7 = load ptr, ptr %1, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %8, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread, label %11
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %9, ptr %6, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %8, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread, label %10
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
-  %13 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %13, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit, label %14
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %12, 0
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit, label %13
 
-14:                                               ; preds = %11
-  %15 = load i32, ptr %12, align 4
-  %16 = add nsw i32 %15, 1
-  store i32 %16, ptr %12, align 4
+13:                                               ; preds = %10
+  %14 = load i32, ptr %11, align 4
+  %15 = add nsw i32 %14, 1
+  store i32 %15, ptr %11, align 4
   br label %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread
 
-_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread: ; preds = %2, %14
+_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread: ; preds = %2, %13
   store ptr %6, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  br label %25
+  br label %24
 
-_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit: ; preds = %11
-  %17 = atomicrmw volatile add ptr %12, i32 1 acq_rel, align 4
+_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit: ; preds = %10
+  %16 = atomicrmw volatile add ptr %11, i32 1 acq_rel, align 4
   %.pre = load ptr, ptr %4, align 8
   store ptr %6, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %.not8.i = icmp eq ptr %.pre, null
-  br i1 %.not8.i, label %18, label %25
+  br i1 %.not8.i, label %17, label %24
 
-18:                                               ; preds = %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit
-  %19 = load ptr, ptr %0, align 8
-  %.not.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i, label %_ZNSt3anyaSEOS_.exit.thread, label %20
+17:                                               ; preds = %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit
+  %18 = load ptr, ptr %0, align 8
+  %.not.i.i = icmp eq ptr %18, null
+  br i1 %.not.i.i, label %_ZNSt3anyaSEOS_.exit.thread, label %19
 
-_ZNSt3anyaSEOS_.exit.thread:                      ; preds = %18
+_ZNSt3anyaSEOS_.exit.thread:                      ; preds = %17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %_ZNSt3anyD2Ev.exit
 
-20:                                               ; preds = %18
-  invoke void %19(i32 noundef 3, ptr noundef nonnull %0, ptr noundef null)
-          to label %21 unwind label %22
+19:                                               ; preds = %17
+  invoke void %18(i32 noundef 3, ptr noundef nonnull %0, ptr noundef null)
+          to label %20 unwind label %21
 
-21:                                               ; preds = %20
+20:                                               ; preds = %19
   store ptr null, ptr %0, align 8
   br label %_ZNSt3anyaSEOS_.exit
 
-22:                                               ; preds = %20
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %19
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #28
+  %23 = extractvalue { ptr, i32 } %22, 0
+  tail call void @__clang_call_terminate(ptr %23) #28
   unreachable
 
-25:                                               ; preds = %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit
-  %26 = phi ptr [ @_ZNSt3any17_Manager_externalISt10shared_ptrIN7xgboost4data15CSRArrayAdapterEEE9_S_manageENS_3_OpEPKS_PNS_4_ArgE, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread ], [ %.pre, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit ]
+24:                                               ; preds = %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit
+  %25 = phi ptr [ @_ZNSt3any17_Manager_externalISt10shared_ptrIN7xgboost4data15CSRArrayAdapterEEE9_S_manageENS_3_OpEPKS_PNS_4_ArgE, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit.thread ], [ %.pre, %_ZNSt3anyC2IRSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEES5_NS_17_Manager_externalIS5_EETnNSt9enable_ifIXaa23is_copy_constructible_vIT0_Ent20__is_in_place_type_vISA_EEbE4typeELb1EEEOT_.exit ]
   %.not.i = icmp eq ptr %4, %0
-  br i1 %.not.i, label %_ZNSt3anyaSEOS_.exit.thread4, label %27
+  br i1 %.not.i, label %_ZNSt3anyaSEOS_.exit.thread4, label %26
 
-_ZNSt3anyaSEOS_.exit.thread4:                     ; preds = %25
+_ZNSt3anyaSEOS_.exit.thread4:                     ; preds = %24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %38
+  br label %37
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %0, align 8
-  %.not.i6.i = icmp eq ptr %28, null
-  br i1 %.not.i6.i, label %_ZNSt3any5resetEv.exit7.i, label %29
+26:                                               ; preds = %24
+  %27 = load ptr, ptr %0, align 8
+  %.not.i6.i = icmp eq ptr %27, null
+  br i1 %.not.i6.i, label %_ZNSt3any5resetEv.exit7.i, label %28
 
-29:                                               ; preds = %27
-  invoke void %28(i32 noundef 3, ptr noundef nonnull %0, ptr noundef null)
-          to label %30 unwind label %31
+28:                                               ; preds = %26
+  invoke void %27(i32 noundef 3, ptr noundef nonnull %0, ptr noundef null)
+          to label %29 unwind label %30
 
-30:                                               ; preds = %29
+29:                                               ; preds = %28
   store ptr null, ptr %0, align 8
   %.pre.i = load ptr, ptr %4, align 8
   br label %_ZNSt3any5resetEv.exit7.i
 
-31:                                               ; preds = %29
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %28
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #28
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #28
   unreachable
 
-_ZNSt3any5resetEv.exit7.i:                        ; preds = %30, %27
-  %34 = phi ptr [ %26, %27 ], [ %.pre.i, %30 ]
+_ZNSt3any5resetEv.exit7.i:                        ; preds = %29, %26
+  %33 = phi ptr [ %25, %26 ], [ %.pre.i, %29 ]
   store ptr %0, ptr %3, align 8
-  invoke void %34(i32 noundef 4, ptr noundef nonnull %4, ptr noundef nonnull %3)
-          to label %_ZNSt3anyaSEOS_.exit unwind label %35
+  invoke void %33(i32 noundef 4, ptr noundef nonnull %4, ptr noundef nonnull %3)
+          to label %_ZNSt3anyaSEOS_.exit unwind label %34
 
-35:                                               ; preds = %_ZNSt3any5resetEv.exit7.i
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %_ZNSt3any5resetEv.exit7.i
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #28
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #28
   unreachable
 
-_ZNSt3anyaSEOS_.exit:                             ; preds = %21, %_ZNSt3any5resetEv.exit7.i
+_ZNSt3anyaSEOS_.exit:                             ; preds = %20, %_ZNSt3any5resetEv.exit7.i
   %.pr = load ptr, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.not.i.i2 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i2, label %_ZNSt3anyD2Ev.exit, label %38
+  br i1 %.not.i.i2, label %_ZNSt3anyD2Ev.exit, label %37
 
-38:                                               ; preds = %_ZNSt3anyaSEOS_.exit.thread4, %_ZNSt3anyaSEOS_.exit
-  %39 = phi ptr [ %26, %_ZNSt3anyaSEOS_.exit.thread4 ], [ %.pr, %_ZNSt3anyaSEOS_.exit ]
-  invoke void %39(i32 noundef 3, ptr noundef nonnull %4, ptr noundef null)
-          to label %_ZNSt3anyD2Ev.exit unwind label %40
+37:                                               ; preds = %_ZNSt3anyaSEOS_.exit.thread4, %_ZNSt3anyaSEOS_.exit
+  %38 = phi ptr [ %25, %_ZNSt3anyaSEOS_.exit.thread4 ], [ %.pr, %_ZNSt3anyaSEOS_.exit ]
+  invoke void %38(i32 noundef 3, ptr noundef nonnull %4, ptr noundef null)
+          to label %_ZNSt3anyD2Ev.exit unwind label %39
 
-40:                                               ; preds = %38
-  %41 = landingpad { ptr, i32 }
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #28
+  %41 = extractvalue { ptr, i32 } %40, 0
+  call void @__clang_call_terminate(ptr %41) #28
   unreachable
 
-_ZNSt3anyD2Ev.exit:                               ; preds = %38, %_ZNSt3anyaSEOS_.exit.thread, %_ZNSt3anyaSEOS_.exit
+_ZNSt3anyD2Ev.exit:                               ; preds = %37, %_ZNSt3anyaSEOS_.exit.thread, %_ZNSt3anyaSEOS_.exit
   ret ptr %0
 }
 

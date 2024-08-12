@@ -1582,13 +1582,13 @@ cleanup.done13:
   %ref.tmp375 = alloca [2 x %"class.cvc5::internal::NodeTemplate"], align 8
   %ref.tmp384 = alloca %"class.std::vector.499", align 8
   %lem = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %pfn = alloca %"class.std::shared_ptr.699", align 8
+  %pfn = alloca %"class.std::shared_ptr.699", align 16
   %agg.tmp459 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %assumps = alloca %"class.std::vector.499", align 8
-  %pfns = alloca %"class.std::shared_ptr.699", align 8
-  %agg.tmp469 = alloca %"class.std::shared_ptr.699", align 8
+  %pfns = alloca %"class.std::shared_ptr.699", align 16
+  %agg.tmp469 = alloca %"class.std::shared_ptr.699", align 16
   %agg.tmp470 = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %agg.tmp478 = alloca %"class.std::shared_ptr.699", align 8
+  %agg.tmp478 = alloca %"class.std::shared_ptr.699", align 16
   %prevLem = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp485 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp486 = alloca %"class.cvc5::internal::NodeTemplate.512", align 8
@@ -3810,17 +3810,16 @@ invoke.cont465:                                   ; preds = %if.else.i
           to label %invoke.cont467 unwind label %lpad464
 
 invoke.cont467:                                   ; preds = %invoke.cont465
-  %239 = load ptr, ptr %pfn, align 8
-  store ptr %239, ptr %agg.tmp469, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp469, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %pfn, i64 8
-  %240 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %240, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %240, null
+  %239 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %240 = load <2 x ptr>, ptr %pfn, align 16
+  store <2 x ptr> %240, ptr %agg.tmp469, align 16
+  %cmp.not.i.i.i = icmp eq ptr %239, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit, label %if.then.i.i.i1644
 
 if.then.i.i.i1644:                                ; preds = %invoke.cont467
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %240, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %239, i64 8
   %241 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %241, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i1646, label %if.then.i.i.i.i.i1645
@@ -3971,17 +3970,16 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt10shared_ptrIN4cvc58internal9ProofNodeEED2Ev.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1672, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %d_pfInst = getelementptr inbounds i8, ptr %this, i64 464
   %261 = load ptr, ptr %d_pfInst, align 8
-  %262 = load ptr, ptr %pfns, align 8
-  store ptr %262, ptr %agg.tmp478, align 8
   %_M_refcount.i.i1682 = getelementptr inbounds i8, ptr %agg.tmp478, i64 8
   %_M_refcount3.i.i1683 = getelementptr inbounds i8, ptr %pfns, i64 8
-  %263 = load ptr, ptr %_M_refcount3.i.i1683, align 8
-  store ptr %263, ptr %_M_refcount.i.i1682, align 8
-  %cmp.not.i.i.i1684 = icmp eq ptr %263, null
+  %262 = load ptr, ptr %_M_refcount3.i.i1683, align 8
+  %263 = load <2 x ptr>, ptr %pfns, align 16
+  store <2 x ptr> %263, ptr %agg.tmp478, align 16
+  %cmp.not.i.i.i1684 = icmp eq ptr %262, null
   br i1 %cmp.not.i.i.i1684, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit1691, label %if.then.i.i.i1685
 
 if.then.i.i.i1685:                                ; preds = %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEED2Ev.exit
-  %_M_use_count.i.i.i.i1686 = getelementptr inbounds i8, ptr %263, i64 8
+  %_M_use_count.i.i.i.i1686 = getelementptr inbounds i8, ptr %262, i64 8
   %264 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i1687 = icmp eq i8 %264, 0
   br i1 %tobool.i.not.i.i.i.i1687, label %if.else.i.i.i.i.i1690, label %if.then.i.i.i.i.i1688

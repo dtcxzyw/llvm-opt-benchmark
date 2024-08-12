@@ -23173,17 +23173,15 @@ _ZNSt12_Vector_baseISt4pairIjSt10shared_ptrI21SingleMediaDownloaderEESaIS4_EE11_
   %3 = load i32, ptr %__args, align 4, !tbaa !50
   store i32 %3, ptr %add.ptr, align 8, !tbaa !497
   %second.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %4 = load ptr, ptr %__args1, align 8, !tbaa !281
-  store ptr %4, ptr %second.i.i.i, align 8, !tbaa !281
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !tbaa !495
-  store ptr %5, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !495
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !tbaa !495
+  %5 = load <2 x ptr>, ptr %__args1, align 8, !tbaa !36
+  store <2 x ptr> %5, ptr %second.i.i.i, align 8, !tbaa !36
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseISt4pairIjSt10shared_ptrI21SingleMediaDownloaderEESaIS4_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !13
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i

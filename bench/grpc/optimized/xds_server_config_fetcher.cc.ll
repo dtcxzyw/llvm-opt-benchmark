@@ -2968,19 +2968,18 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core19XdsResourceTypeImplINS_23XdsListenerResourceTypeENS_19XdsListenerResourceEE16WatcherInterface24OnGenericResourceChangedESt10shared_ptrIKNS_15XdsResourceType12ResourceDataEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %resource) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.199", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.199", align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %0 = load ptr, ptr %resource, align 8, !noalias !16
-  store ptr %0, ptr %agg.tmp, align 8, !alias.scope !16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount2.i.i.i = getelementptr inbounds i8, ptr %resource, i64 8
-  %1 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !noalias !16
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8, !alias.scope !16
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !noalias !16
+  %1 = load <2 x ptr>, ptr %resource, align 8, !noalias !16
+  store <2 x ptr> %1, ptr %agg.tmp, align 16, !alias.scope !16
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZSt19static_pointer_castIKN9grpc_core19XdsListenerResourceEKNS0_15XdsResourceType12ResourceDataEESt10shared_ptrIT_ERKS6_IT0_E.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !16
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -6024,17 +6023,15 @@ entry:
   store i16 %0, ptr %_M_storage.i.i.i.i.i, align 8
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 40
   %second3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 40
-  %1 = load ptr, ptr %second3.i.i.i.i.i.i.i, align 8
-  store ptr %1, ptr %second.i.i.i.i.i.i.i, align 8
-  %_M_refcount.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 48
   %_M_refcount3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 48
-  %2 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i.i, align 8
+  %2 = load <2 x ptr>, ptr %second3.i.i.i.i.i.i.i, align 8
+  store <2 x ptr> %2, ptr %second.i.i.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeItSt4pairIKtN9grpc_core19XdsListenerResource14FilterChainMap24FilterChainDataSharedPtrEESt10_Select1stIS6_ESt4lessItESaIS6_EE13_M_clone_nodeILb0ENSC_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS6_ESH_RT0_.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -9922,17 +9919,15 @@ call.i.noexc.i.i.i.i10.i.i.i:                     ; preds = %sw.bb2.i.i.i
   store ptr %195, ptr %agg.tmp.i.i.i.i.i4.i.i.i, align 8, !noalias !80
   store ptr null, ptr %ref.tmp2.i.i.i.i.i.i.i, align 8, !noalias !80
   %197 = getelementptr inbounds i8, ptr %agg.tmp5.i.i.i.i.i.i.i.i, i64 8
-  %198 = load ptr, ptr %http_connection_manager55, align 8, !noalias !80
-  store ptr %198, ptr %197, align 8, !noalias !80
-  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp5.i.i.i.i.i.i.i.i, i64 16
   %_M_refcount3.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %filter_chain.0.ph, i64 168
-  %199 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !80
-  store ptr %199, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !80
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %199, null
+  %198 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !80
+  %199 = load <2 x ptr>, ptr %http_connection_manager55, align 8, !noalias !80
+  store <2 x ptr> %199, ptr %197, align 8, !noalias !80
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %198, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i14.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i11.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i11.i.i.i:            ; preds = %call.i.noexc.i.i.i.i10.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %199, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %198, i64 8
   %200 = load i8, ptr @__libc_single_threaded, align 1, !noalias !80
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %200, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i51.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i12.i.i.i
@@ -15402,19 +15397,18 @@ _ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChai
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core19XdsResourceTypeImplINS_26XdsRouteConfigResourceTypeENS_22XdsRouteConfigResourceEE16WatcherInterface24OnGenericResourceChangedESt10shared_ptrIKNS_15XdsResourceType12ResourceDataEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %resource) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.320", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.320", align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
-  %0 = load ptr, ptr %resource, align 8, !noalias !120
-  store ptr %0, ptr %agg.tmp, align 8, !alias.scope !120
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount2.i.i.i = getelementptr inbounds i8, ptr %resource, i64 8
-  %1 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !noalias !120
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8, !alias.scope !120
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !noalias !120
+  %1 = load <2 x ptr>, ptr %resource, align 8, !noalias !120
+  store <2 x ptr> %1, ptr %agg.tmp, align 16, !alias.scope !120
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZSt19static_pointer_castIKN9grpc_core22XdsRouteConfigResourceEKNS0_15XdsResourceType12ResourceDataEESt10shared_ptrIT_ERKS6_IT0_E.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !120
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

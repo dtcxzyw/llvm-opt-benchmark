@@ -115,7 +115,7 @@ define void @crypt_des_ecb(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %7 = getelementptr i8, ptr %2, i64 4
   %8 = load i8, ptr %7, align 1
   %9 = load <4 x i8>, ptr %2, align 1
-  %10 = extractelement <4 x i8> %9, i64 0
+  %10 = load i8, ptr %2, align 1
   store i8 %10, ptr %4, align 1
   %11 = shufflevector <4 x i8> %9, <4 x i8> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
   %12 = insertelement <4 x i8> %11, i8 %8, i64 3

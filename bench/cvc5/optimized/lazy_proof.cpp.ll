@@ -492,10 +492,10 @@ cond.end:
   %agg.tmp89 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %cfactGen = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp125 = alloca %"class.cvc5::internal::NodeTemplate.62", align 8
-  %pgc = alloca %"class.std::shared_ptr", align 8
+  %pgc = alloca %"class.std::shared_ptr", align 16
   %agg.tmp139 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp186 = alloca %"class.std::vector.52", align 8
-  %ref.tmp188 = alloca [1 x %"class.std::shared_ptr"], align 8
+  %ref.tmp188 = alloca [1 x %"class.std::shared_ptr"], align 16
   %ref.tmp192 = alloca %"class.std::vector.57", align 8
   %0 = load ptr, ptr %fact, align 8
   store ptr %0, ptr %agg.tmp, align 8
@@ -1096,7 +1096,7 @@ terminate.lpad.i407:                              ; preds = %if.then13.i.i406
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit408: ; preds = %invoke.cont145, %if.then.i.i400, %if.then13.i.i406
-  %74 = load ptr, ptr %pgc, align 8
+  %74 = load ptr, ptr %pgc, align 16
   %cmp.i.i409.not = icmp eq ptr %74, null
   br i1 %cmp.i.i409.not, label %if.end229, label %cond.true152
 
@@ -1117,7 +1117,7 @@ if.then173:                                       ; preds = %invoke.cont170
 
 invoke.cont174:                                   ; preds = %if.then173
   %75 = load ptr, ptr %cur, align 8
-  %76 = load ptr, ptr %pgc, align 8
+  %76 = load ptr, ptr %pgc, align 16
   %call178 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal9ProofNode11getChildrenEv(ptr noundef nonnull align 8 dereferenceable(65) %76)
           to label %invoke.cont177 unwind label %lpad149
 
@@ -1163,15 +1163,14 @@ if.else183:                                       ; preds = %invoke.cont170
 
 invoke.cont184:                                   ; preds = %if.else183
   %84 = load ptr, ptr %cur, align 8
-  %85 = load ptr, ptr %pgc, align 8
-  store ptr %85, ptr %ref.tmp188, align 8
-  %86 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %86, ptr %_M_refcount.i.i490, align 8
-  %cmp.not.i.i.i491 = icmp eq ptr %86, null
+  %85 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %86 = load <2 x ptr>, ptr %pgc, align 16
+  store <2 x ptr> %86, ptr %ref.tmp188, align 16
+  %cmp.not.i.i.i491 = icmp eq ptr %85, null
   br i1 %cmp.not.i.i.i491, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit, label %if.then.i.i.i492
 
 if.then.i.i.i492:                                 ; preds = %invoke.cont184
-  %_M_use_count.i.i.i.i493 = getelementptr inbounds i8, ptr %86, i64 8
+  %_M_use_count.i.i.i.i493 = getelementptr inbounds i8, ptr %85, i64 8
   %87 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %87, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i496, label %if.then.i.i.i.i.i494
@@ -1195,16 +1194,14 @@ call5.i.i.i.i.noexc.i:                            ; preds = %_ZNSt10shared_ptrIN
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp186, align 8
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i498, align 8
-  %90 = load ptr, ptr %ref.tmp188, align 8
-  store ptr %90, ptr %call5.i.i.i.i2.i, align 8
-  %_M_refcount.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
-  %91 = load ptr, ptr %_M_refcount.i.i490, align 8
-  store ptr %91, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %91, null
+  %90 = load ptr, ptr %_M_refcount.i.i490, align 8
+  %91 = load <2 x ptr>, ptr %ref.tmp188, align 16
+  store <2 x ptr> %91, ptr %call5.i.i.i.i2.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %90, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN4cvc58internal9ProofNodeEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %call5.i.i.i.i.noexc.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %91, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %90, i64 8
   %92 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %92, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i

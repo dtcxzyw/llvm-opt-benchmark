@@ -3737,12 +3737,12 @@ rb_io_check_closed.exit45:                        ; preds = %rb_io_check_initial
 68:                                               ; preds = %.critedge
   %69 = getelementptr inbounds i8, ptr %14, i64 76
   %70 = load <2 x i32>, ptr %69, align 4
-  %71 = add <2 x i32> %70, <i32 1, i32 -1>
-  store <2 x i32> %71, ptr %69, align 4
-  %72 = load ptr, ptr %26, align 4
-  %73 = extractelement <2 x i32> %70, i64 0
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr i8, ptr %72, i64 %74
+  %71 = load i32, ptr %69, align 4
+  %72 = add <2 x i32> %70, <i32 1, i32 -1>
+  store <2 x i32> %72, ptr %69, align 4
+  %73 = load ptr, ptr %26, align 4
+  %74 = sext i32 %71 to i64
+  %75 = getelementptr i8, ptr %73, i64 %74
   %76 = load i8, ptr %75, align 1
   %77 = zext i8 %76 to i64
   %78 = shl nuw nsw i64 %77, 1

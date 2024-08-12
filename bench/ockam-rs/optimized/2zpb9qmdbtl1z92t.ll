@@ -10184,7 +10184,7 @@ define hidden void @_ZN8minicbor6decode7decoder7Decoder13map_iter_with17h0444e38
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @_ZN8minicbor6decode7decoder7Decoder3map17h89fbc91df57f536dE(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   %5 = load <2 x i64>, ptr %4, align 16
-  %6 = extractelement <2 x i64> %5, i64 0
+  %6 = load i64, ptr %4, align 16, !range !35, !noundef !4
   %7 = icmp eq i64 %6, 2
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load i64, ptr %8, align 16
@@ -10220,7 +10220,7 @@ define hidden void @_ZN8minicbor6decode7decoder7Decoder13map_iter_with17h0ce47b5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @_ZN8minicbor6decode7decoder7Decoder3map17h89fbc91df57f536dE(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   %5 = load <2 x i64>, ptr %4, align 16
-  %6 = extractelement <2 x i64> %5, i64 0
+  %6 = load i64, ptr %4, align 16, !range !35, !noundef !4
   %7 = icmp eq i64 %6, 2
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load i64, ptr %8, align 16
@@ -10256,7 +10256,7 @@ define hidden void @_ZN8minicbor6decode7decoder7Decoder15array_iter_with17h34869
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @_ZN8minicbor6decode7decoder7Decoder5array17h2fabb1a641e47bd3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   %5 = load <2 x i64>, ptr %4, align 16
-  %6 = extractelement <2 x i64> %5, i64 0
+  %6 = load i64, ptr %4, align 16, !range !35, !noundef !4
   %7 = icmp eq i64 %6, 2
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load i64, ptr %8, align 16
@@ -10292,7 +10292,7 @@ define hidden void @_ZN8minicbor6decode7decoder7Decoder15array_iter_with17h9cd3d
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @_ZN8minicbor6decode7decoder7Decoder5array17h2fabb1a641e47bd3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   %5 = load <2 x i64>, ptr %4, align 16
-  %6 = extractelement <2 x i64> %5, i64 0
+  %6 = load i64, ptr %4, align 16, !range !35, !noundef !4
   %7 = icmp eq i64 %6, 2
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load i64, ptr %8, align 16
@@ -10328,7 +10328,7 @@ define hidden void @_ZN8minicbor6decode7decoder7Decoder15array_iter_with17hdea76
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @_ZN8minicbor6decode7decoder7Decoder5array17h2fabb1a641e47bd3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   %5 = load <2 x i64>, ptr %4, align 16
-  %6 = extractelement <2 x i64> %5, i64 0
+  %6 = load i64, ptr %4, align 16, !range !35, !noundef !4
   %7 = icmp eq i64 %6, 2
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load i64, ptr %8, align 16
@@ -10364,7 +10364,7 @@ define hidden void @_ZN8minicbor6decode7decoder7Decoder15array_iter_with17hf234a
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @_ZN8minicbor6decode7decoder7Decoder5array17h2fabb1a641e47bd3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   %5 = load <2 x i64>, ptr %4, align 16
-  %6 = extractelement <2 x i64> %5, i64 0
+  %6 = load i64, ptr %4, align 16, !range !35, !noundef !4
   %7 = icmp eq i64 %6, 2
   %8 = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load i64, ptr %8, align 16
@@ -28225,11 +28225,11 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8ce2eff61af33469E.llvm.7889425039173770230.exit.i.i.i.i": ; preds = %1555
   %1562 = getelementptr inbounds i8, ptr %1552, i64 72
-  %1563 = load ptr, ptr %1562, align 8, !alias.scope !3916, !noalias !3838, !nonnull !4, !align !16, !noundef !4
-  %1564 = getelementptr inbounds i8, ptr %1552, i64 80
+  %1563 = getelementptr inbounds i8, ptr %1552, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !3918)
-  %1565 = load ptr, ptr %1564, align 8, !alias.scope !3921, !noalias !3838, !nonnull !4, !noundef !4
-  %1566 = atomicrmw add ptr %1565, i64 1 monotonic, align 8, !noalias !3922
+  %1564 = load ptr, ptr %1563, align 8, !alias.scope !3921, !noalias !3838, !nonnull !4, !noundef !4
+  %1565 = load <2 x ptr>, ptr %1562, align 8, !alias.scope !3910, !noalias !3838
+  %1566 = atomicrmw add ptr %1564, i64 1 monotonic, align 8, !noalias !3922
   %1567 = icmp slt i64 %1566, 0
   br i1 %1567, label %1568, label %1569
 
@@ -28244,9 +28244,7 @@ _ZN14ockam_identity10identities10identities10Identities25change_history_reposito
   %1572 = getelementptr inbounds i8, ptr %93, i64 16
   store ptr %1558, ptr %1572, align 8, !noalias !3926
   %.sroa.4.0..sroa_idx.i208.i.i.i = getelementptr inbounds i8, ptr %93, i64 24
-  store ptr %1563, ptr %.sroa.4.0..sroa_idx.i208.i.i.i, align 8, !noalias !3926
-  %.sroa.5.0..sroa_idx.i209.i.i.i = getelementptr inbounds i8, ptr %93, i64 32
-  store ptr %1565, ptr %.sroa.5.0..sroa_idx.i209.i.i.i, align 8, !noalias !3926
+  store <2 x ptr> %1565, ptr %.sroa.4.0..sroa_idx.i208.i.i.i, align 8, !noalias !3926
   %.sroa.6.0..sroa_idx.i210.i.i.i = getelementptr inbounds i8, ptr %93, i64 40
   store ptr %1571, ptr %.sroa.6.0..sroa_idx.i210.i.i.i, align 8, !noalias !3926
   store i64 1, ptr %93, align 8, !noalias !3923

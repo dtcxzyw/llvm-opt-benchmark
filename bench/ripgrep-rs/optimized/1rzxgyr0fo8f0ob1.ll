@@ -127,22 +127,22 @@ define hidden void @_ZN13grep_searcher11line_buffer17LineBufferBuilder5build17he
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.2.0..sroa_idx1 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load <2 x i64>, ptr %.sroa.2.0..sroa_idx, align 8
-  %4 = extractelement <2 x i64> %3, i64 0
-  %5 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17ha43889fc6207b940E"(i64 noundef %4, i1 noundef zeroext true), !noalias !19
-  %6 = extractvalue { i64, ptr } %5, 1
-  %.sink1.i = extractvalue { i64, ptr } %5, 0
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
+  %4 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17ha43889fc6207b940E"(i64 noundef %.sroa.2.0.copyload, i1 noundef zeroext true), !noalias !19
+  %5 = extractvalue { i64, ptr } %4, 1
+  %.sink1.i = extractvalue { i64, ptr } %4, 0
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   store <2 x i64> %3, ptr %.sroa.2.0..sroa_idx1, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %.sink1.i, ptr %7, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 %.sink1.i, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %6, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %5, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
-  store i64 %4, ptr %.sroa.5.0..sroa_idx, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 0, ptr %9, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
+  store i64 %.sroa.2.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 0, ptr %8, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   ret void
 }
 

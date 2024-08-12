@@ -116,9 +116,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3dap12ReaderWriter6createERKSt10shared_ptrINS_6ReaderEERKS1_INS_6WriterEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %.val2 = load ptr, ptr %4, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #22, !noalias !5
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 1, ptr %6, align 8, !noalias !5
@@ -130,9 +128,9 @@ define dso_local void @_ZN3dap12ReaderWriter6createERKSt10shared_ptrINS_6ReaderE
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_12RWE, i64 48), ptr %8, align 8, !noalias !5
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_12RWE, i64 144), ptr %9, align 8, !noalias !5
   %10 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr %.val, ptr %10, align 8, !noalias !5
-  %11 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr %.val2, ptr %11, align 8, !noalias !5
+  %.val2 = load ptr, ptr %4, align 8
+  %11 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %11, ptr %10, align 8, !noalias !5
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val2, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i, label %12
 
@@ -154,35 +152,33 @@ define dso_local void @_ZN3dap12ReaderWriter6createERKSt10shared_ptrINS_6ReaderE
 
 _ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i: ; preds = %18, %15, %3
   %20 = getelementptr inbounds i8, ptr %5, i64 48
-  %21 = load ptr, ptr %2, align 8, !noalias !5
-  store ptr %21, ptr %20, align 8, !noalias !5
-  %22 = getelementptr inbounds i8, ptr %5, i64 56
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
-  %24 = load ptr, ptr %23, align 8, !noalias !5
-  store ptr %24, ptr %22, align 8, !noalias !5
-  %.not.i.i.i3.i.i.i.i.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i3.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_12RWEED2Ev.exit, label %25
+  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = load ptr, ptr %21, align 8, !noalias !5
+  %23 = load <2 x ptr>, ptr %2, align 8, !noalias !5
+  store <2 x ptr> %23, ptr %20, align 8, !noalias !5
+  %.not.i.i.i3.i.i.i.i.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i3.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_12RWEED2Ev.exit, label %24
 
-25:                                               ; preds = %_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
-  %27 = load i8, ptr @__libc_single_threaded, align 1, !noalias !5
-  %.not.i.i.i.i4.i.i.i.i.i.i.i.i = icmp eq i8 %27, 0
-  br i1 %.not.i.i.i.i4.i.i.i.i.i.i.i.i, label %31, label %28
+24:                                               ; preds = %_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
+  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %26 = load i8, ptr @__libc_single_threaded, align 1, !noalias !5
+  %.not.i.i.i.i4.i.i.i.i.i.i.i.i = icmp eq i8 %26, 0
+  br i1 %.not.i.i.i.i4.i.i.i.i.i.i.i.i, label %30, label %27
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr %26, align 4, !noalias !5
-  %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %26, align 4, !noalias !5
+27:                                               ; preds = %24
+  %28 = load i32, ptr %25, align 4, !noalias !5
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %25, align 4, !noalias !5
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_12RWEED2Ev.exit
 
-31:                                               ; preds = %25
-  %32 = atomicrmw volatile add ptr %26, i32 1 acq_rel, align 4, !noalias !5
+30:                                               ; preds = %24
+  %31 = atomicrmw volatile add ptr %25, i32 1 acq_rel, align 4, !noalias !5
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_12RWEED2Ev.exit
 
-_ZNSt10shared_ptrIN12_GLOBAL__N_12RWEED2Ev.exit:  ; preds = %31, %28, %_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
+_ZNSt10shared_ptrIN12_GLOBAL__N_12RWEED2Ev.exit:  ; preds = %30, %27, %_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
   store ptr %8, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %5, ptr %33, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %5, ptr %32, align 8
   ret void
 }
 
@@ -304,11 +300,11 @@ define dso_local void @_ZN3dap3spyERKSt10shared_ptrINS_6ReaderEERKS0_INS_6Writer
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6), !noalias !17
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #23, !noalias !17
   %11 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %.noexc.i.i.i.i.i.i.i unwind label %48, !noalias !17
+          to label %.noexc.i.i.i.i.i.i.i unwind label %46, !noalias !17
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %4
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %.noexc7.i.i.i.i.i.i.i unwind label %48, !noalias !17
+          to label %.noexc7.i.i.i.i.i.i.i unwind label %46, !noalias !17
 
 .noexc7.i.i.i.i.i.i.i:                            ; preds = %.noexc.i.i.i.i.i.i.i
   %12 = icmp eq ptr %3, null
@@ -336,78 +332,74 @@ define dso_local void @_ZN3dap3spyERKSt10shared_ptrINS_6ReaderEERKS0_INS_6Writer
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i.i.i.i: ; preds = %17
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ReaderSpyE, i64 48), ptr %10, align 8, !noalias !17
   %20 = getelementptr inbounds i8, ptr %7, i64 24
-  %21 = load ptr, ptr %1, align 8, !noalias !17
-  store ptr %21, ptr %20, align 8, !noalias !17
-  %22 = getelementptr inbounds i8, ptr %7, i64 32
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
-  %24 = load ptr, ptr %23, align 8, !noalias !17
-  store ptr %24, ptr %22, align 8, !noalias !17
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i, label %25
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = load ptr, ptr %21, align 8, !noalias !17
+  %23 = load <2 x ptr>, ptr %1, align 8, !noalias !17
+  store <2 x ptr> %23, ptr %20, align 8, !noalias !17
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i, label %24
 
-25:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i.i.i.i
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
-  %27 = load i8, ptr @__libc_single_threaded, align 1, !noalias !17
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %27, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %31, label %28
+24:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i.i.i.i
+  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %26 = load i8, ptr @__libc_single_threaded, align 1, !noalias !17
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %26, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %30, label %27
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr %26, align 4, !noalias !17
-  %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %26, align 4, !noalias !17
+27:                                               ; preds = %24
+  %28 = load i32, ptr %25, align 4, !noalias !17
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %25, align 4, !noalias !17
   br label %_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
 
-31:                                               ; preds = %25
-  %32 = atomicrmw volatile add ptr %26, i32 1 acq_rel, align 4, !noalias !17
+30:                                               ; preds = %24
+  %31 = atomicrmw volatile add ptr %25, i32 1 acq_rel, align 4, !noalias !17
   br label %_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
 
-_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i: ; preds = %31, %28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i.i.i.i
-  %33 = getelementptr inbounds i8, ptr %7, i64 40
-  %34 = load ptr, ptr %2, align 8, !noalias !17
-  store ptr %34, ptr %33, align 8, !noalias !17
-  %35 = getelementptr inbounds i8, ptr %7, i64 48
-  %36 = getelementptr inbounds i8, ptr %2, i64 8
-  %37 = load ptr, ptr %36, align 8, !noalias !17
-  store ptr %37, ptr %35, align 8, !noalias !17
-  %.not.i.i.i5.i.i.i.i.i.i.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i.i5.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i, label %38
+_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i: ; preds = %30, %27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i.i.i.i
+  %32 = getelementptr inbounds i8, ptr %7, i64 40
+  %33 = getelementptr inbounds i8, ptr %2, i64 8
+  %34 = load ptr, ptr %33, align 8, !noalias !17
+  %35 = load <2 x ptr>, ptr %2, align 8, !noalias !17
+  store <2 x ptr> %35, ptr %32, align 8, !noalias !17
+  %.not.i.i.i5.i.i.i.i.i.i.i.i = icmp eq ptr %34, null
+  br i1 %.not.i.i.i5.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i, label %36
 
-38:                                               ; preds = %_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
-  %39 = getelementptr inbounds i8, ptr %37, i64 8
-  %40 = load i8, ptr @__libc_single_threaded, align 1, !noalias !17
-  %.not.i.i.i.i6.i.i.i.i.i.i.i.i = icmp eq i8 %40, 0
-  br i1 %.not.i.i.i.i6.i.i.i.i.i.i.i.i, label %44, label %41
+36:                                               ; preds = %_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
+  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %38 = load i8, ptr @__libc_single_threaded, align 1, !noalias !17
+  %.not.i.i.i.i6.i.i.i.i.i.i.i.i = icmp eq i8 %38, 0
+  br i1 %.not.i.i.i.i6.i.i.i.i.i.i.i.i, label %42, label %39
 
-41:                                               ; preds = %38
-  %42 = load i32, ptr %39, align 4, !noalias !17
-  %43 = add nsw i32 %42, 1
-  store i32 %43, ptr %39, align 4, !noalias !17
+39:                                               ; preds = %36
+  %40 = load i32, ptr %37, align 4, !noalias !17
+  %41 = add nsw i32 %40, 1
+  store i32 %41, ptr %37, align 4, !noalias !17
   br label %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
 
-44:                                               ; preds = %38
-  %45 = atomicrmw volatile add ptr %39, i32 1 acq_rel, align 4, !noalias !17
+42:                                               ; preds = %36
+  %43 = atomicrmw volatile add ptr %37, i32 1 acq_rel, align 4, !noalias !17
   br label %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
 
-_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i: ; preds = %44, %41, %_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
-  %46 = getelementptr inbounds i8, ptr %7, i64 56
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %5)
+_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i: ; preds = %42, %39, %_ZNSt10shared_ptrIN3dap6ReaderEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
+  %44 = getelementptr inbounds i8, ptr %7, i64 56
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZNSt10shared_ptrIN12_GLOBAL__N_19ReaderSpyEED2Ev.exit unwind label %.body8.i.i.i.i.i.i.i, !noalias !17
 
 .body8.i.i.i.i.i.i.i:                             ; preds = %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
-  %47 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10shared_ptrIN3dap6WriterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #23, !noalias !17
+  call void @_ZNSt10shared_ptrIN3dap6WriterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #23, !noalias !17
   call void @_ZNSt10shared_ptrIN3dap6ReaderEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #23, !noalias !17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23, !noalias !17
   br label %.body.i.i.i.i.i.i.i
 
-48:                                               ; preds = %.noexc.i.i.i.i.i.i.i, %4
-  %49 = landingpad { ptr, i32 }
+46:                                               ; preds = %.noexc.i.i.i.i.i.i.i, %4
+  %47 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i.i.i.i.i
 
-.body.i.i.i.i.i.i.i:                              ; preds = %48, %.body8.i.i.i.i.i.i.i, %15
-  %.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %47, %.body8.i.i.i.i.i.i.i ], [ %49, %48 ], [ %16, %15 ]
+.body.i.i.i.i.i.i.i:                              ; preds = %46, %.body8.i.i.i.i.i.i.i, %15
+  %.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %45, %.body8.i.i.i.i.i.i.i ], [ %47, %46 ], [ %16, %15 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #23, !noalias !17
   call void @_ZdlPv(ptr noundef nonnull %7) #24, !noalias !17
   resume { ptr, i32 } %.pn.i.i.i.i.i.i.i
@@ -418,8 +410,8 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_19ReaderSpyEED2Ev.exit: ; preds = %_ZNSt10shared
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !17
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !17
   store ptr %10, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %7, ptr %50, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %7, ptr %48, align 8
   ret void
 }
 
@@ -438,11 +430,11 @@ define dso_local void @_ZN3dap3spyERKSt10shared_ptrINS_6WriterEES4_PKc(ptr dead_
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6), !noalias !20
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #23, !noalias !20
   %11 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %.noexc.i.i.i.i.i.i.i unwind label %48, !noalias !20
+          to label %.noexc.i.i.i.i.i.i.i unwind label %46, !noalias !20
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %4
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %.noexc7.i.i.i.i.i.i.i unwind label %48, !noalias !20
+          to label %.noexc7.i.i.i.i.i.i.i unwind label %46, !noalias !20
 
 .noexc7.i.i.i.i.i.i.i:                            ; preds = %.noexc.i.i.i.i.i.i.i
   %12 = icmp eq ptr %3, null
@@ -470,78 +462,74 @@ define dso_local void @_ZN3dap3spyERKSt10shared_ptrINS_6WriterEES4_PKc(ptr dead_
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i.i.i.i: ; preds = %17
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19WriterSpyE, i64 48), ptr %10, align 8, !noalias !20
   %20 = getelementptr inbounds i8, ptr %7, i64 24
-  %21 = load ptr, ptr %1, align 8, !noalias !20
-  store ptr %21, ptr %20, align 8, !noalias !20
-  %22 = getelementptr inbounds i8, ptr %7, i64 32
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
-  %24 = load ptr, ptr %23, align 8, !noalias !20
-  store ptr %24, ptr %22, align 8, !noalias !20
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i, label %25
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = load ptr, ptr %21, align 8, !noalias !20
+  %23 = load <2 x ptr>, ptr %1, align 8, !noalias !20
+  store <2 x ptr> %23, ptr %20, align 8, !noalias !20
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i, label %24
 
-25:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i.i.i.i
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
-  %27 = load i8, ptr @__libc_single_threaded, align 1, !noalias !20
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %27, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %31, label %28
+24:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i.i.i.i
+  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %26 = load i8, ptr @__libc_single_threaded, align 1, !noalias !20
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %26, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %30, label %27
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr %26, align 4, !noalias !20
-  %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %26, align 4, !noalias !20
+27:                                               ; preds = %24
+  %28 = load i32, ptr %25, align 4, !noalias !20
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %25, align 4, !noalias !20
   br label %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
 
-31:                                               ; preds = %25
-  %32 = atomicrmw volatile add ptr %26, i32 1 acq_rel, align 4, !noalias !20
+30:                                               ; preds = %24
+  %31 = atomicrmw volatile add ptr %25, i32 1 acq_rel, align 4, !noalias !20
   br label %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
 
-_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i: ; preds = %31, %28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i.i.i.i
-  %33 = getelementptr inbounds i8, ptr %7, i64 40
-  %34 = load ptr, ptr %2, align 8, !noalias !20
-  store ptr %34, ptr %33, align 8, !noalias !20
-  %35 = getelementptr inbounds i8, ptr %7, i64 48
-  %36 = getelementptr inbounds i8, ptr %2, i64 8
-  %37 = load ptr, ptr %36, align 8, !noalias !20
-  store ptr %37, ptr %35, align 8, !noalias !20
-  %.not.i.i.i5.i.i.i.i.i.i.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i.i5.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit7.i.i.i.i.i.i.i.i, label %38
+_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i: ; preds = %30, %27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.i.i.i.i.i.i
+  %32 = getelementptr inbounds i8, ptr %7, i64 40
+  %33 = getelementptr inbounds i8, ptr %2, i64 8
+  %34 = load ptr, ptr %33, align 8, !noalias !20
+  %35 = load <2 x ptr>, ptr %2, align 8, !noalias !20
+  store <2 x ptr> %35, ptr %32, align 8, !noalias !20
+  %.not.i.i.i5.i.i.i.i.i.i.i.i = icmp eq ptr %34, null
+  br i1 %.not.i.i.i5.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit7.i.i.i.i.i.i.i.i, label %36
 
-38:                                               ; preds = %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
-  %39 = getelementptr inbounds i8, ptr %37, i64 8
-  %40 = load i8, ptr @__libc_single_threaded, align 1, !noalias !20
-  %.not.i.i.i.i6.i.i.i.i.i.i.i.i = icmp eq i8 %40, 0
-  br i1 %.not.i.i.i.i6.i.i.i.i.i.i.i.i, label %44, label %41
+36:                                               ; preds = %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
+  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %38 = load i8, ptr @__libc_single_threaded, align 1, !noalias !20
+  %.not.i.i.i.i6.i.i.i.i.i.i.i.i = icmp eq i8 %38, 0
+  br i1 %.not.i.i.i.i6.i.i.i.i.i.i.i.i, label %42, label %39
 
-41:                                               ; preds = %38
-  %42 = load i32, ptr %39, align 4, !noalias !20
-  %43 = add nsw i32 %42, 1
-  store i32 %43, ptr %39, align 4, !noalias !20
+39:                                               ; preds = %36
+  %40 = load i32, ptr %37, align 4, !noalias !20
+  %41 = add nsw i32 %40, 1
+  store i32 %41, ptr %37, align 4, !noalias !20
   br label %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit7.i.i.i.i.i.i.i.i
 
-44:                                               ; preds = %38
-  %45 = atomicrmw volatile add ptr %39, i32 1 acq_rel, align 4, !noalias !20
+42:                                               ; preds = %36
+  %43 = atomicrmw volatile add ptr %37, i32 1 acq_rel, align 4, !noalias !20
   br label %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit7.i.i.i.i.i.i.i.i
 
-_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit7.i.i.i.i.i.i.i.i: ; preds = %44, %41, %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
-  %46 = getelementptr inbounds i8, ptr %7, i64 56
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %5)
+_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit7.i.i.i.i.i.i.i.i: ; preds = %42, %39, %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit.i.i.i.i.i.i.i.i
+  %44 = getelementptr inbounds i8, ptr %7, i64 56
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZNSt10shared_ptrIN12_GLOBAL__N_19WriterSpyEED2Ev.exit unwind label %.body8.i.i.i.i.i.i.i, !noalias !20
 
 .body8.i.i.i.i.i.i.i:                             ; preds = %_ZNSt10shared_ptrIN3dap6WriterEEC2ERKS2_.exit7.i.i.i.i.i.i.i.i
-  %47 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10shared_ptrIN3dap6WriterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %33) #23, !noalias !20
+  call void @_ZNSt10shared_ptrIN3dap6WriterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #23, !noalias !20
   call void @_ZNSt10shared_ptrIN3dap6WriterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #23, !noalias !20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23, !noalias !20
   br label %.body.i.i.i.i.i.i.i
 
-48:                                               ; preds = %.noexc.i.i.i.i.i.i.i, %4
-  %49 = landingpad { ptr, i32 }
+46:                                               ; preds = %.noexc.i.i.i.i.i.i.i, %4
+  %47 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i.i.i.i.i
 
-.body.i.i.i.i.i.i.i:                              ; preds = %48, %.body8.i.i.i.i.i.i.i, %15
-  %.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %47, %.body8.i.i.i.i.i.i.i ], [ %49, %48 ], [ %16, %15 ]
+.body.i.i.i.i.i.i.i:                              ; preds = %46, %.body8.i.i.i.i.i.i.i, %15
+  %.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %45, %.body8.i.i.i.i.i.i.i ], [ %47, %46 ], [ %16, %15 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #23, !noalias !20
   call void @_ZdlPv(ptr noundef nonnull %7) #24, !noalias !20
   resume { ptr, i32 } %.pn.i.i.i.i.i.i.i
@@ -552,8 +540,8 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_19WriterSpyEED2Ev.exit: ; preds = %_ZNSt10shared
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !20
   store ptr %10, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %7, ptr %50, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %7, ptr %48, align 8
   ret void
 }
 

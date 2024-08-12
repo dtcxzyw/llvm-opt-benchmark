@@ -13250,17 +13250,15 @@ _ZNSt12_Vector_baseIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE11_M_allocateEm.exit: ;
   store float %3, ptr %add.ptr, align 8
   %buffer.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %buffer3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %4 = load ptr, ptr %buffer3.i.i.i, align 8
-  store ptr %4, ptr %buffer.i.i.i, align 8
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
-  %5 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
-  store ptr %5, ptr %_M_refcount.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
+  %5 = load <2 x ptr>, ptr %buffer3.i.i.i, align 8
+  store <2 x ptr> %5, ptr %buffer.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN6Assimp4Ogre13MorphKeyFrameEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIN6Assimp4Ogre13MorphKeyFrameESaIS2_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i

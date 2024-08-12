@@ -18393,22 +18393,19 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_E
   %3 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load <2 x i32>, ptr %1, align 4
+  %6 = load i32, ptr %1, align 4
   store <2 x i32> %5, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %.02022.i = load ptr, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %.02022.i = load ptr, ptr %7, align 8
   %.not23.i = icmp eq ptr %.02022.i, null
-  br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i.preheader
+  br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
-.lr.ph.i.preheader:                               ; preds = %2
-  %8 = extractelement <2 x i32> %5, i64 0
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.02024.i = phi ptr [ %.020.i, %.lr.ph.i ], [ %.02022.i, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %2, %.lr.ph.i
+  %.02024.i = phi ptr [ %.020.i, %.lr.ph.i ], [ %.02022.i, %2 ]
   %9 = getelementptr inbounds i8, ptr %.02024.i, i64 32
   %10 = load i32, ptr %9, align 4
-  %11 = icmp slt i32 %8, %10
+  %11 = icmp slt i32 %6, %10
   %.in.v.i = select i1 %11, i64 16, i64 24
   %.in.i = getelementptr inbounds i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
@@ -18419,7 +18416,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_E
   br i1 %11, label %._crit_edge.thread.i, label %17
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %2
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %7, %2 ]
+  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %8, %2 ]
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %.019.lcssa28.i, %13
@@ -18435,38 +18432,36 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_E
   %18 = phi i32 [ %.pre, %15 ], [ %10, %._crit_edge.i ]
   %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %15 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %16, %15 ], [ %.02024.i, %._crit_edge.i ]
-  %19 = extractelement <2 x i32> %5, i64 0
-  %20 = icmp slt i32 %18, %19
-  br i1 %20, label %select.unfold, label %31
+  %19 = icmp slt i32 %18, %6
+  br i1 %19, label %select.unfold, label %29
 
 select.unfold:                                    ; preds = %17, %._crit_edge.thread.i
   %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %17 ]
-  %21 = icmp eq ptr %7, %.sroa.4.0.i.ph
-  br i1 %21, label %.thread21, label %22
+  %20 = icmp eq ptr %8, %.sroa.4.0.i.ph
+  br i1 %20, label %.thread21, label %21
 
-22:                                               ; preds = %select.unfold
-  %23 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph, i64 32
-  %24 = load i32, ptr %23, align 4
-  %25 = extractelement <2 x i32> %5, i64 0
-  %26 = icmp slt i32 %25, %24
+21:                                               ; preds = %select.unfold
+  %22 = getelementptr inbounds i8, ptr %.sroa.4.0.i.ph, i64 32
+  %23 = load i32, ptr %22, align 4
+  %24 = icmp slt i32 %6, %23
   br label %.thread21
 
-.thread21:                                        ; preds = %select.unfold, %22
-  %27 = phi i1 [ true, %select.unfold ], [ %26, %22 ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %27, ptr noundef nonnull %3, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %7) #27
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
-  %29 = load i64, ptr %28, align 8
-  %30 = add i64 %29, 1
-  store i64 %30, ptr %28, align 8
+.thread21:                                        ; preds = %select.unfold, %21
+  %25 = phi i1 [ true, %select.unfold ], [ %24, %21 ]
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %25, ptr noundef nonnull %3, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %8) #27
+  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = load i64, ptr %26, align 8
+  %28 = add i64 %27, 1
+  store i64 %28, ptr %26, align 8
   br label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_Auto_nodeD2Ev.exit6
 
-31:                                               ; preds = %17
+29:                                               ; preds = %17
   tail call void @_ZdlPv(ptr noundef nonnull %3) #26
   br label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_Auto_nodeD2Ev.exit6
 
-_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_Auto_nodeD2Ev.exit6: ; preds = %.thread21, %31
-  %.sroa.3.027 = phi i8 [ 1, %.thread21 ], [ 0, %31 ]
-  %.sroa.013.026 = phi ptr [ %3, %.thread21 ], [ %.sroa.05.0.i, %31 ]
+_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_Auto_nodeD2Ev.exit6: ; preds = %.thread21, %29
+  %.sroa.3.027 = phi i8 [ 1, %.thread21 ], [ 0, %29 ]
+  %.sroa.013.026 = phi ptr [ %3, %.thread21 ], [ %.sroa.05.0.i, %29 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.013.026, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.027, 1
   ret { ptr, i8 } %.fca.1.insert

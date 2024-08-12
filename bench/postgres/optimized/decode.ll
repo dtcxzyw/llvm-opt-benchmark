@@ -28,28 +28,28 @@ define dso_local void @LogicalDecodingProcessRecord(ptr noundef %0, ptr noundef 
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 40
   %7 = load <2 x i64>, ptr %6, align 8
+  %8 = load i64, ptr %6, align 8
   store <2 x i64> %7, ptr %3, align 16
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %1, ptr %8, align 16
-  %9 = getelementptr inbounds i8, ptr %1, i64 104
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 68
-  %12 = load i32, ptr %11, align 4
-  %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %19, label %13
+  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %1, ptr %9, align 16
+  %10 = getelementptr inbounds i8, ptr %1, i64 104
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 68
+  %13 = load i32, ptr %12, align 4
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %19, label %14
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 44
-  %17 = load i32, ptr %16, align 4
-  %18 = extractelement <2 x i64> %7, i64 0
-  tail call void @ReorderBufferAssignChild(ptr noundef %15, i32 noundef %12, i32 noundef %17, i64 noundef %18) #7
-  %.pre = load ptr, ptr %9, align 8
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %11, i64 44
+  %18 = load i32, ptr %17, align 4
+  tail call void @ReorderBufferAssignChild(ptr noundef %16, i32 noundef %13, i32 noundef %18, i64 noundef %8) #7
+  %.pre = load ptr, ptr %10, align 8
   br label %19
 
-19:                                               ; preds = %13, %2
-  %20 = phi ptr [ %.pre, %13 ], [ %10, %2 ]
+19:                                               ; preds = %14, %2
+  %20 = phi ptr [ %.pre, %14 ], [ %11, %2 ]
   %21 = getelementptr inbounds i8, ptr %20, i64 57
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i64
@@ -70,19 +70,18 @@ GetRmgr.exit:                                     ; preds = %19, %26
 
 27:                                               ; preds = %GetRmgr.exit
   call void %.sroa.1.0.copyload14(ptr noundef nonnull %0, ptr noundef nonnull %3) #7
-  br label %35
+  br label %34
 
 28:                                               ; preds = %GetRmgr.exit
   %29 = getelementptr inbounds i8, ptr %0, i64 24
   %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %9, align 8
+  %31 = load ptr, ptr %10, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 44
   %33 = load i32, ptr %32, align 4
-  %34 = extractelement <2 x i64> %7, i64 0
-  tail call void @ReorderBufferProcessXid(ptr noundef %30, i32 noundef %33, i64 noundef %34) #7
-  br label %35
+  tail call void @ReorderBufferProcessXid(ptr noundef %30, i32 noundef %33, i64 noundef %8) #7
+  br label %34
 
-35:                                               ; preds = %28, %27
+34:                                               ; preds = %28, %27
   ret void
 }
 

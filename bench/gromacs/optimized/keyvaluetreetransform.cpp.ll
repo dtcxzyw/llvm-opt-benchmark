@@ -6912,9 +6912,9 @@ _ZNSt8functionIFvPN3gmx24KeyValueTreeValueBuilderERKNS0_17KeyValueTreeValueEEEC2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %107 = getelementptr inbounds i8, ptr %.0.lcssa, i64 80
   %108 = load <2 x ptr>, ptr %107, align 8
+  %109 = load ptr, ptr %107, align 8
   store <2 x ptr> %108, ptr %92, align 8
   store <2 x ptr> %106, ptr %107, align 8
-  %109 = extractelement <2 x ptr> %108, i64 0
   %.not.i.i2.i = icmp eq ptr %109, null
   br i1 %.not.i.i2.i, label %_ZNSt8functionIFvPN3gmx24KeyValueTreeValueBuilderERKNS0_17KeyValueTreeValueEEEaSERKS7_.exit, label %110
 
@@ -7975,8 +7975,8 @@ define void @_ZN3gmx32KeyValueTreeTransformRuleBuilder17addTransformToAnyERKSt8f
 
 10:                                               ; preds = %8
   %11 = load <2 x ptr>, ptr %6, align 8
+  %12 = load ptr, ptr %6, align 8
   store <2 x ptr> %11, ptr %5, align 8
-  %12 = extractelement <2 x ptr> %11, i64 0
   br label %_ZNSt8functionIFN3gmx3AnyERKS1_EEC2ERKS5_.exit
 
 13:                                               ; preds = %8
@@ -8024,8 +8024,8 @@ _ZNSt8functionIFN3gmx3AnyERKS1_EEC2ERKS5_.exit:   ; preds = %2, %10
 
 30:                                               ; preds = %28
   %31 = load <2 x ptr>, ptr %5, align 8
+  %32 = load ptr, ptr %5, align 8
   store <2 x ptr> %31, ptr %27, align 8
-  %32 = extractelement <2 x ptr> %31, i64 0
   br label %"_ZNSt8functionIFvPN3gmx24KeyValueTreeValueBuilderERKNS0_17KeyValueTreeValueEEEC2IZNS0_32KeyValueTreeTransformRuleBuilder17addTransformToAnyERKS_IFNS0_3AnyERKSA_EEE3$_0vEEOT_.exit.i"
 
 33:                                               ; preds = %28
@@ -8074,10 +8074,10 @@ _ZNSt8functionIFN3gmx3AnyERKS1_EEC2ERKS5_.exit:   ; preds = %2, %10
   %47 = getelementptr inbounds i8, ptr %23, i64 96
   %48 = getelementptr inbounds i8, ptr %23, i64 104
   %49 = load <2 x ptr>, ptr %47, align 8
+  %50 = load ptr, ptr %47, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN3gmx24KeyValueTreeValueBuilderERKNS0_17KeyValueTreeValueEEZNS0_32KeyValueTreeTransformRuleBuilder17addTransformToAnyERKSt8functionIFNS0_3AnyERKS9_EEE3$_0E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation", ptr %47, align 8
   store <2 x ptr> %49, ptr %25, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN3gmx24KeyValueTreeValueBuilderERKNS0_17KeyValueTreeValueEEZNS0_32KeyValueTreeTransformRuleBuilder17addTransformToAnyERKSt8functionIFNS0_3AnyERKS9_EEE3$_0E9_M_invokeERKSt9_Any_dataOS2_S5_", ptr %48, align 8
-  %50 = extractelement <2 x ptr> %49, i64 0
   %.not.i.i2.i = icmp eq ptr %50, null
   br i1 %.not.i.i2.i, label %56, label %51
 
@@ -8305,8 +8305,8 @@ define void @_ZN3gmx32KeyValueTreeTransformRuleBuilder20addTransformToObjectERKS
 
 10:                                               ; preds = %8
   %11 = load <2 x ptr>, ptr %6, align 8
+  %12 = load ptr, ptr %6, align 8
   store <2 x ptr> %11, ptr %5, align 8
-  %12 = extractelement <2 x ptr> %11, i64 0
   br label %_ZNSt8functionIFvPN3gmx25KeyValueTreeObjectBuilderERKNS0_3AnyEEEC2ERKS7_.exit
 
 13:                                               ; preds = %8
@@ -8354,8 +8354,8 @@ _ZNSt8functionIFvPN3gmx25KeyValueTreeObjectBuilderERKNS0_3AnyEEEC2ERKS7_.exit: ;
 
 30:                                               ; preds = %28
   %31 = load <2 x ptr>, ptr %5, align 8
+  %32 = load ptr, ptr %5, align 8
   store <2 x ptr> %31, ptr %27, align 8
-  %32 = extractelement <2 x ptr> %31, i64 0
   br label %"_ZNSt8functionIFvPN3gmx24KeyValueTreeValueBuilderERKNS0_17KeyValueTreeValueEEEC2IZNS0_32KeyValueTreeTransformRuleBuilder20addTransformToObjectERKS_IFvPNS0_25KeyValueTreeObjectBuilderERKNS0_3AnyEEEE3$_0vEEOT_.exit.i"
 
 33:                                               ; preds = %28
@@ -8404,10 +8404,10 @@ _ZNSt8functionIFvPN3gmx25KeyValueTreeObjectBuilderERKNS0_3AnyEEEC2ERKS7_.exit: ;
   %47 = getelementptr inbounds i8, ptr %23, i64 96
   %48 = getelementptr inbounds i8, ptr %23, i64 104
   %49 = load <2 x ptr>, ptr %47, align 8
+  %50 = load ptr, ptr %47, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN3gmx24KeyValueTreeValueBuilderERKNS0_17KeyValueTreeValueEEZNS0_32KeyValueTreeTransformRuleBuilder20addTransformToObjectERKSt8functionIFvPNS0_25KeyValueTreeObjectBuilderERKNS0_3AnyEEEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %47, align 8
   store <2 x ptr> %49, ptr %25, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN3gmx24KeyValueTreeValueBuilderERKNS0_17KeyValueTreeValueEEZNS0_32KeyValueTreeTransformRuleBuilder20addTransformToObjectERKSt8functionIFvPNS0_25KeyValueTreeObjectBuilderERKNS0_3AnyEEEE3$_0E9_M_invokeERKSt9_Any_dataOS2_S5_", ptr %48, align 8
-  %50 = extractelement <2 x ptr> %49, i64 0
   %.not.i.i2.i = icmp eq ptr %50, null
   br i1 %.not.i.i2.i, label %56, label %51
 

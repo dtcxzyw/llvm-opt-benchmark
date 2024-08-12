@@ -267,7 +267,6 @@ if.then.i:                                        ; preds = %invoke.cont
           to label %call.i.i2.i.i.i.noexc unwind label %lpad1
 
 call.i.i2.i.i.i.noexc:                            ; preds = %if.then.i
-  %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   %7 = load ptr, ptr %ref.tmp, align 8
   store ptr %7, ptr %call.i.i2.i.i.i3, align 8
@@ -282,18 +281,17 @@ call.i.i2.i.i.i.noexc:                            ; preds = %if.then.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %test_only_generate_response, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %test_only_generate_response, i64 16
-  %10 = load ptr, ptr %_M_manager3.i.i.i, align 8
-  store ptr %10, ptr %_M_manager.i.i.i.i, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN9grpc_core11HttpRequest3GetENS1_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS1_9TimestampEP12grpc_closureP18grpc_http_responseNS1_13RefCountedPtrI24grpc_channel_credentialsEEE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %_M_manager3.i.i.i, align 8
   %_M_invoker4.i.i.i = getelementptr inbounds i8, ptr %test_only_generate_response, i64 24
-  %11 = load ptr, ptr %_M_invoker4.i.i.i, align 8
-  store ptr %11, ptr %_M_invoker.i.i.i, align 8
+  %10 = load <2 x ptr>, ptr %_M_manager3.i.i.i, align 8
+  %11 = load ptr, ptr %_M_manager3.i.i.i, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN9grpc_core11HttpRequest3GetENS1_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS1_9TimestampEP12grpc_closureP18grpc_http_responseNS1_13RefCountedPtrI24grpc_channel_credentialsEEE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %_M_manager3.i.i.i, align 8
+  store <2 x ptr> %10, ptr %_M_manager.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN9grpc_core11HttpRequest3GetENS1_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS1_9TimestampEP12grpc_closureP18grpc_http_responseNS1_13RefCountedPtrI24grpc_channel_credentialsEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %10, null
+  %tobool.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i, label %"_ZNSt8functionIFvvEEaSIZN9grpc_core11HttpRequest3GetENS3_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS3_9TimestampEP12grpc_closureP18grpc_http_responseNS3_13RefCountedPtrI24grpc_channel_credentialsEEE3$_0EENSt9enable_ifIXsrNS1_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES1_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JEEEE5valueERS1_E4typeEOSP_.exit.i", label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %call.i.i2.i.i.i.noexc
-  %call.i.i.i.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
           to label %"_ZNSt8functionIFvvEEaSIZN9grpc_core11HttpRequest3GetENS3_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS3_9TimestampEP12grpc_closureP18grpc_http_responseNS3_13RefCountedPtrI24grpc_channel_credentialsEEE3$_0EENSt9enable_ifIXsrNS1_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES1_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JEEEE5valueERS1_E4typeEOSP_.exit.i" unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
@@ -628,7 +626,6 @@ if.then.i:                                        ; preds = %invoke.cont
           to label %call.i.i2.i.i.i.noexc unwind label %lpad1
 
 call.i.i2.i.i.i.noexc:                            ; preds = %if.then.i
-  %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   %7 = load ptr, ptr %ref.tmp, align 8
   store ptr %7, ptr %call.i.i2.i.i.i3, align 8
@@ -643,18 +640,17 @@ call.i.i2.i.i.i.noexc:                            ; preds = %if.then.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %test_only_generate_response, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %test_only_generate_response, i64 16
-  %10 = load ptr, ptr %_M_manager3.i.i.i, align 8
-  store ptr %10, ptr %_M_manager.i.i.i.i, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN9grpc_core11HttpRequest4PostENS1_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS1_9TimestampEP12grpc_closureP18grpc_http_responseNS1_13RefCountedPtrI24grpc_channel_credentialsEEE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %_M_manager3.i.i.i, align 8
   %_M_invoker4.i.i.i = getelementptr inbounds i8, ptr %test_only_generate_response, i64 24
-  %11 = load ptr, ptr %_M_invoker4.i.i.i, align 8
-  store ptr %11, ptr %_M_invoker.i.i.i, align 8
+  %10 = load <2 x ptr>, ptr %_M_manager3.i.i.i, align 8
+  %11 = load ptr, ptr %_M_manager3.i.i.i, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN9grpc_core11HttpRequest4PostENS1_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS1_9TimestampEP12grpc_closureP18grpc_http_responseNS1_13RefCountedPtrI24grpc_channel_credentialsEEE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %_M_manager3.i.i.i, align 8
+  store <2 x ptr> %10, ptr %_M_manager.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN9grpc_core11HttpRequest4PostENS1_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS1_9TimestampEP12grpc_closureP18grpc_http_responseNS1_13RefCountedPtrI24grpc_channel_credentialsEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %10, null
+  %tobool.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i, label %"_ZNSt8functionIFvvEEaSIZN9grpc_core11HttpRequest4PostENS3_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS3_9TimestampEP12grpc_closureP18grpc_http_responseNS3_13RefCountedPtrI24grpc_channel_credentialsEEE3$_0EENSt9enable_ifIXsrNS1_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES1_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JEEEE5valueERS1_E4typeEOSP_.exit.i", label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %call.i.i2.i.i.i.noexc
-  %call.i.i.i.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
           to label %"_ZNSt8functionIFvvEEaSIZN9grpc_core11HttpRequest4PostENS3_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS3_9TimestampEP12grpc_closureP18grpc_http_responseNS3_13RefCountedPtrI24grpc_channel_credentialsEEE3$_0EENSt9enable_ifIXsrNS1_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES1_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JEEEE5valueERS1_E4typeEOSP_.exit.i" unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
@@ -823,7 +819,6 @@ if.then.i:                                        ; preds = %invoke.cont
           to label %call.i.i2.i.i.i.noexc unwind label %lpad1
 
 call.i.i2.i.i.i.noexc:                            ; preds = %if.then.i
-  %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   %7 = load ptr, ptr %ref.tmp, align 8
   store ptr %7, ptr %call.i.i2.i.i.i3, align 8
@@ -838,18 +833,17 @@ call.i.i2.i.i.i.noexc:                            ; preds = %if.then.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %test_only_generate_response, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %test_only_generate_response, i64 16
-  %10 = load ptr, ptr %_M_manager3.i.i.i, align 8
-  store ptr %10, ptr %_M_manager.i.i.i.i, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN9grpc_core11HttpRequest3PutENS1_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS1_9TimestampEP12grpc_closureP18grpc_http_responseNS1_13RefCountedPtrI24grpc_channel_credentialsEEE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %_M_manager3.i.i.i, align 8
   %_M_invoker4.i.i.i = getelementptr inbounds i8, ptr %test_only_generate_response, i64 24
-  %11 = load ptr, ptr %_M_invoker4.i.i.i, align 8
-  store ptr %11, ptr %_M_invoker.i.i.i, align 8
+  %10 = load <2 x ptr>, ptr %_M_manager3.i.i.i, align 8
+  %11 = load ptr, ptr %_M_manager3.i.i.i, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN9grpc_core11HttpRequest3PutENS1_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS1_9TimestampEP12grpc_closureP18grpc_http_responseNS1_13RefCountedPtrI24grpc_channel_credentialsEEE3$_0E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation", ptr %_M_manager3.i.i.i, align 8
+  store <2 x ptr> %10, ptr %_M_manager.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN9grpc_core11HttpRequest3PutENS1_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS1_9TimestampEP12grpc_closureP18grpc_http_responseNS1_13RefCountedPtrI24grpc_channel_credentialsEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker4.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %10, null
+  %tobool.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i, label %"_ZNSt8functionIFvvEEaSIZN9grpc_core11HttpRequest3PutENS3_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS3_9TimestampEP12grpc_closureP18grpc_http_responseNS3_13RefCountedPtrI24grpc_channel_credentialsEEE3$_0EENSt9enable_ifIXsrNS1_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES1_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JEEEE5valueERS1_E4typeEOSP_.exit.i", label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %call.i.i2.i.i.i.noexc
-  %call.i.i.i.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
+  %call.i.i.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
           to label %"_ZNSt8functionIFvvEEaSIZN9grpc_core11HttpRequest3PutENS3_3URIEPK17grpc_channel_argsP19grpc_polling_entityPK17grpc_http_requestNS3_9TimestampEP12grpc_closureP18grpc_http_responseNS3_13RefCountedPtrI24grpc_channel_credentialsEEE3$_0EENSt9enable_ifIXsrNS1_9_CallableIT_NSN_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISP_E4typeEE4typeES1_EE5valueESt5decayISP_EE4type4typeESt15__invoke_resultIRS10_JEEEE5valueERS1_E4typeEOSP_.exit.i" unwind label %terminate.lpad.i.i.i.i
 
 terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i

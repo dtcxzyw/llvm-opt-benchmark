@@ -642,7 +642,7 @@ define noundef float @_ZNK2cv7optflow24RLOFOpticalFlowParameter30getGlobalMotion
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv7optflow20DenseRLOFOpticalFlow6createENS_3PtrINS0_24RLOFOpticalFlowParameterEEEfNS_5Size_IiEENS0_17InterpolationTypeEiffiibffb(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr.0") align 8 %0, ptr nocapture noundef readonly %1, float noundef %2, i64 %3, i32 noundef %4, i32 noundef %5, float noundef %6, float noundef %7, i32 noundef %8, i32 noundef %9, i1 noundef zeroext %10, float noundef %11, float noundef %12, i1 noundef zeroext %13) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %15 = alloca %"struct.cv::Ptr", align 8
+  %15 = alloca %"struct.cv::Ptr", align 16
   %16 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #22, !noalias !4
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   store i32 1, ptr %17, align 8, !noalias !4
@@ -667,17 +667,16 @@ _ZN2cv3PtrINS_7optflow24DenseOpticalFlowRLOFImplEED2Ev.exit: ; preds = %14
   store ptr %19, ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %16, ptr %21, align 8
-  %22 = load ptr, ptr %1, align 8
-  store ptr %22, ptr %15, align 8
-  %23 = getelementptr inbounds i8, ptr %15, i64 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
-  %25 = load ptr, ptr %24, align 8
-  store ptr %25, ptr %23, align 8
-  %.not.i.i.i.i16 = icmp eq ptr %25, null
+  %22 = getelementptr inbounds i8, ptr %15, i64 8
+  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %25, ptr %15, align 16
+  %.not.i.i.i.i16 = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i16, label %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit, label %26
 
 26:                                               ; preds = %_ZN2cv3PtrINS_7optflow24DenseOpticalFlowRLOFImplEED2Ev.exit
-  %27 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = getelementptr inbounds i8, ptr %24, i64 8
   %28 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i17 = icmp eq i8 %28, 0
   br i1 %.not.i.i.i.i.i17, label %32, label %29
@@ -700,7 +699,7 @@ _ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit: ; preds = %_ZN2
           to label %37 unwind label %121
 
 37:                                               ; preds = %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit
-  %38 = load ptr, ptr %23, align 8
+  %38 = load ptr, ptr %22, align 8
   %.not.i.i.i.i18 = icmp eq ptr %38, null
   br i1 %.not.i.i.i.i18, label %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEED2Ev.exit, label %39
 
@@ -1040,7 +1039,7 @@ _ZNSt10shared_ptrIN2cv7optflow20DenseRLOFOpticalFlowEED2Ev.exit: ; preds = %1, %
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv7optflow21SparseRLOFOpticalFlow6createENS_3PtrINS0_24RLOFOpticalFlowParameterEEEf(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr.8") align 8 %0, ptr nocapture noundef readonly %1, float noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"struct.cv::Ptr", align 8
+  %4 = alloca %"struct.cv::Ptr", align 16
   %5 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #22, !noalias !9
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 1, ptr %6, align 8, !noalias !9
@@ -1065,17 +1064,16 @@ _ZN2cv3PtrINS_7optflow25SparseRLOFOpticalFlowImplEED2Ev.exit: ; preds = %3
   store ptr %8, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %5, ptr %10, align 8
-  %11 = load ptr, ptr %1, align 8
-  store ptr %11, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %12, align 8
-  %.not.i.i.i.i5 = icmp eq ptr %14, null
+  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %14 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %14, ptr %4, align 16
+  %.not.i.i.i.i5 = icmp eq ptr %13, null
   br i1 %.not.i.i.i.i5, label %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit, label %15
 
 15:                                               ; preds = %_ZN2cv3PtrINS_7optflow25SparseRLOFOpticalFlowImplEED2Ev.exit
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds i8, ptr %13, i64 8
   %17 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i6 = icmp eq i8 %17, 0
   br i1 %.not.i.i.i.i.i6, label %21, label %18
@@ -1098,7 +1096,7 @@ _ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit: ; preds = %_ZN2
           to label %26 unwind label %66
 
 26:                                               ; preds = %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit
-  %27 = load ptr, ptr %12, align 8
+  %27 = load ptr, ptr %11, align 8
   %.not.i.i.i.i7 = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i7, label %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEED2Ev.exit, label %28
 
@@ -1280,18 +1278,17 @@ _ZNSt10shared_ptrIN2cv7optflow21SparseRLOFOpticalFlowEED2Ev.exit: ; preds = %1, 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv7optflow24calcOpticalFlowDenseRLOFERKNS_11_InputArrayES3_RKNS_17_InputOutputArrayENS_3PtrINS0_24RLOFOpticalFlowParameterEEEfNS_5Size_IiEENS0_17InterpolationTypeEiffiibffb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef readonly %3, float noundef %4, i64 %5, i32 noundef %6, i32 noundef %7, float noundef %8, float noundef %9, i32 noundef %10, i32 noundef %11, i1 noundef zeroext %12, float noundef %13, float noundef %14, i1 noundef zeroext %15) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %17 = alloca %"struct.cv::Ptr.0", align 8
-  %18 = alloca %"struct.cv::Ptr", align 8
-  %19 = load ptr, ptr %3, align 8
-  store ptr %19, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %20, align 8
-  %.not.i.i.i.i = icmp eq ptr %22, null
+  %18 = alloca %"struct.cv::Ptr", align 16
+  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %22, ptr %18, align 16
+  %.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit, label %23
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = getelementptr inbounds i8, ptr %21, i64 8
   %25 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %25, 0
   br i1 %.not.i.i.i.i.i, label %29, label %26
@@ -1311,7 +1308,7 @@ _ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit: ; preds = %16, 
           to label %31 unwind label %113
 
 31:                                               ; preds = %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit
-  %32 = load ptr, ptr %20, align 8
+  %32 = load ptr, ptr %19, align 8
   %.not.i.i.i.i18 = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i18, label %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEED2Ev.exit, label %33
 
@@ -1496,18 +1493,17 @@ _ZN2cv3PtrINS_7optflow20DenseRLOFOpticalFlowEED2Ev.exit: ; preds = %76, %95, %10
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv7optflow25calcOpticalFlowSparseRLOFERKNS_11_InputArrayES3_S3_RKNS_17_InputOutputArrayERKNS_12_OutputArrayES9_NS_3PtrINS0_24RLOFOpticalFlowParameterEEEf(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr nocapture noundef readonly %6, float noundef %7) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.cv::Ptr.8", align 8
-  %10 = alloca %"struct.cv::Ptr", align 8
-  %11 = load ptr, ptr %6, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %12, align 8
-  %.not.i.i.i.i = icmp eq ptr %14, null
+  %10 = alloca %"struct.cv::Ptr", align 16
+  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %14 = load <2 x ptr>, ptr %6, align 8
+  store <2 x ptr> %14, ptr %10, align 16
+  %.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds i8, ptr %13, i64 8
   %17 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %17, 0
   br i1 %.not.i.i.i.i.i, label %21, label %18
@@ -1527,7 +1523,7 @@ _ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit: ; preds = %8, %
           to label %23 unwind label %100
 
 23:                                               ; preds = %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit
-  %24 = load ptr, ptr %12, align 8
+  %24 = load ptr, ptr %11, align 8
   %.not.i.i.i.i10 = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i10, label %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEED2Ev.exit, label %25
 
@@ -6016,32 +6012,30 @@ _ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEaSERKS3_.exit: ; preds = %2, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK2cv7optflow24DenseOpticalFlowRLOFImpl27getRLOFOpticalFlowParameterEv(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(140) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  store ptr %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %.not.i.i.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit, label %8
+  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  %6 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %6, ptr %0, align 8
+  %.not.i.i.i.i = icmp eq ptr %5, null
+  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit, label %7
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
-  %10 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i = icmp eq i8 %10, 0
-  br i1 %.not.i.i.i.i.i, label %14, label %11
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i = icmp eq i8 %9, 0
+  br i1 %.not.i.i.i.i.i, label %13, label %10
 
-11:                                               ; preds = %8
-  %12 = load i32, ptr %9, align 4
-  %13 = add nsw i32 %12, 1
-  store i32 %13, ptr %9, align 4
+10:                                               ; preds = %7
+  %11 = load i32, ptr %8, align 4
+  %12 = add nsw i32 %11, 1
+  store i32 %12, ptr %8, align 4
   br label %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit
 
-14:                                               ; preds = %8
-  %15 = atomicrmw volatile add ptr %9, i32 1 acq_rel, align 4
+13:                                               ; preds = %7
+  %14 = atomicrmw volatile add ptr %8, i32 1 acq_rel, align 4
   br label %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit
 
-_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit: ; preds = %2, %11, %14
+_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit: ; preds = %2, %10, %13
   ret void
 }
 
@@ -9309,32 +9303,30 @@ _ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEaSERKS3_.exit: ; preds = %2, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK2cv7optflow25SparseRLOFOpticalFlowImpl27getRLOFOpticalFlowParameterEv(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  store ptr %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %.not.i.i.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit, label %8
+  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  %6 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %6, ptr %0, align 8
+  %.not.i.i.i.i = icmp eq ptr %5, null
+  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit, label %7
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
-  %10 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i = icmp eq i8 %10, 0
-  br i1 %.not.i.i.i.i.i, label %14, label %11
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i = icmp eq i8 %9, 0
+  br i1 %.not.i.i.i.i.i, label %13, label %10
 
-11:                                               ; preds = %8
-  %12 = load i32, ptr %9, align 4
-  %13 = add nsw i32 %12, 1
-  store i32 %13, ptr %9, align 4
+10:                                               ; preds = %7
+  %11 = load i32, ptr %8, align 4
+  %12 = add nsw i32 %11, 1
+  store i32 %12, ptr %8, align 4
   br label %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit
 
-14:                                               ; preds = %8
-  %15 = atomicrmw volatile add ptr %9, i32 1 acq_rel, align 4
+13:                                               ; preds = %7
+  %14 = atomicrmw volatile add ptr %8, i32 1 acq_rel, align 4
   br label %_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit
 
-_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit: ; preds = %2, %11, %14
+_ZN2cv3PtrINS_7optflow24RLOFOpticalFlowParameterEEC2ERKS3_.exit: ; preds = %2, %10, %13
   ret void
 }
 

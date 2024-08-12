@@ -3924,17 +3924,15 @@ if.end.i.i.i:                                     ; preds = %if.then7
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.end.i.i.i
   %retval.0.i.i.i = phi ptr [ %call11.i.i.i, %if.then.i.i.i ], [ %25, %if.end.i.i.i ]
   %_block = getelementptr inbounds i8, ptr %tryStatement, i64 48
-  %26 = load ptr, ptr %_block, align 8
-  %27 = load ptr, ptr %_handler3, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
-  store i32 28, ptr %kind_.i.i.i, align 8
   %parens_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i, i8 0, i64 28, i1 false)
   %_block.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 48
-  store ptr %26, ptr %_block.i, align 8
-  %_handler.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 56
-  store ptr %27, ptr %_handler.i, align 8
+  %26 = load ptr, ptr %_handler3, align 8
+  %27 = load <2 x ptr>, ptr %_block, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i, i8 0, i64 16, i1 false)
+  store i32 28, ptr %kind_.i.i.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i, i8 0, i64 28, i1 false)
+  store <2 x ptr> %27, ptr %_block.i, align 8
   %_finalizer.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 64
   store ptr null, ptr %_finalizer.i, align 8
   %sourceRange_.i.i20 = getelementptr inbounds i8, ptr %tryStatement, i64 24
@@ -3946,7 +3944,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %retval.sroa.0.0.copyload.i3.i = load ptr, ptr %debugLoc_.i.i, align 8
   %debugLoc_.i4.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i3.i, ptr %debugLoc_.i4.i, align 8
-  %End.i = getelementptr inbounds i8, ptr %27, i64 32
+  %End.i = getelementptr inbounds i8, ptr %26, i64 32
   %retval.sroa.0.0.copyload.i = load ptr, ptr %End.i, align 8
   store ptr %retval.sroa.0.0.copyload.i, ptr %rng.sroa.2.0.sourceRange_.sroa_idx.i.i, align 8
   %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %stmtList, i64 8

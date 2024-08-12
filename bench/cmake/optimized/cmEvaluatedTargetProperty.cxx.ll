@@ -754,7 +754,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117addInterfaceEntryEPK17cmGenerato
   %8 = alloca %struct.EvaluatedTargetPropertyEntry, align 8
   %9 = alloca %struct.cmGeneratorExpressionContext, align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
-  %11 = alloca %class.cmListFileBacktrace, align 8
+  %11 = alloca %class.cmListFileBacktrace, align 16
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %.not67 = icmp eq ptr %.0.val, %.8.val
@@ -782,14 +782,14 @@ define internal fastcc void @_ZN12_GLOBAL__N_117addInterfaceEntryEPK17cmGenerato
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds i8, ptr %.sroa.03.08, i64 88
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %.sroa.03.08, i64 96
-  %31 = load ptr, ptr %30, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %31, null
+  %29 = getelementptr inbounds i8, ptr %.sroa.03.08, i64 96
+  %30 = load ptr, ptr %29, align 8
+  %31 = load <2 x ptr>, ptr %28, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i.i, label %_ZN19cmListFileBacktraceD2Ev.exit, label %32
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %31, i64 8
+  %33 = getelementptr inbounds i8, ptr %30, i64 8
   %34 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %34, 0
   br i1 %.not.i.i.i.i.i.i, label %38, label %35
@@ -806,8 +806,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117addInterfaceEntryEPK17cmGenerato
 
 _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %38, %35, %27
   store ptr %.sroa.03.08, ptr %8, align 8
-  store ptr %29, ptr %14, align 8
-  store ptr %31, ptr %15, align 8
+  store <2 x ptr> %31, ptr %14, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %16, i8 0, i64 25, i1 false)
   %40 = invoke noundef ptr @_ZNK17cmGeneratorTarget17GetLocalGeneratorEv(ptr noundef nonnull align 8 dereferenceable(2728) %0)
           to label %41 unwind label %159
@@ -817,15 +816,14 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %38, %35, %27
           to label %42 unwind label %159
 
 42:                                               ; preds = %41
-  %43 = load ptr, ptr %28, align 8
-  store ptr %43, ptr %11, align 8
-  %44 = load ptr, ptr %30, align 8
-  store ptr %44, ptr %17, align 8
-  %.not.i.i.i.i.i28 = icmp eq ptr %44, null
+  %43 = load ptr, ptr %29, align 8
+  %44 = load <2 x ptr>, ptr %28, align 8
+  store <2 x ptr> %44, ptr %11, align 16
+  %.not.i.i.i.i.i28 = icmp eq ptr %43, null
   br i1 %.not.i.i.i.i.i28, label %_ZN19cmListFileBacktraceC2ERKS_.exit30, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = getelementptr inbounds i8, ptr %43, i64 8
   %47 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i29 = icmp eq i8 %47, 0
   br i1 %.not.i.i.i.i.i.i29, label %51, label %48

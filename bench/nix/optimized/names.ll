@@ -31540,20 +31540,18 @@ _ZNSt6vectorINSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic
   %26 = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.06.0.copyload = load ptr, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 40
-  %.sroa.0.0.copyload = load ptr, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 48
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 112
-  %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 32
+  %29 = getelementptr inbounds i8, ptr %0, i64 112
+  %30 = load i32, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  store ptr %.sroa.06.0.copyload, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 40
-  store ptr %.sroa.0.0.copyload, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 48
-  store ptr %29, ptr %34, align 8
+  store ptr %.sroa.06.0.copyload, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %4, i64 40
+  %33 = load ptr, ptr %28, align 8
+  %34 = load <2 x ptr>, ptr %27, align 8
+  store <2 x ptr> %34, ptr %32, align 8
   %35 = getelementptr inbounds i8, ptr %4, i64 56
-  %36 = getelementptr inbounds i8, ptr %29, i64 16
+  %36 = getelementptr inbounds i8, ptr %33, i64 16
   %37 = load ptr, ptr %36, align 8
   store ptr %37, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %4, i64 64
@@ -31613,10 +31611,10 @@ _ZNSt12_Vector_baseISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic
   %59 = getelementptr inbounds i8, ptr %4, i64 96
   %60 = getelementptr inbounds i8, ptr %4, i64 104
   %61 = getelementptr inbounds i8, ptr %4, i64 112
-  %62 = and i32 %31, 128
+  %62 = and i32 %30, 128
   %.not.i = icmp eq i32 %62, 0
-  %63 = and i32 %31, -6
-  %spec.select = select i1 %.not.i, i32 %31, i32 %63
+  %63 = and i32 %30, -6
+  %spec.select = select i1 %.not.i, i32 %30, i32 %63
   store i32 %spec.select, ptr %61, align 8
   store i64 %1, ptr %59, align 8
   %64 = getelementptr inbounds i8, ptr %4, i64 24

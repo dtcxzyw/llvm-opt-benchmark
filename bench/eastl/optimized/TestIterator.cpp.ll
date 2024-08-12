@@ -3580,12 +3580,9 @@ if.else:                                          ; preds = %entry
 
 if.then13:                                        ; preds = %if.else
   call void @_ZN5eastl9DequeBaseIiNS_9allocatorELj64EE17DoReallocSubarrayEmNS2_4SideE(ptr nonnull sret(%"struct.eastl::DequeIterator") align 8 %itNewEnd, ptr noundef nonnull align 8 dereferenceable(81) %this, i64 noundef %sub.ptr.div.i.i.i, i32 noundef 1)
-  %14 = load ptr, ptr %mItEnd, align 8
-  store ptr %14, ptr %agg.result, align 8
-  %mpBegin.i38 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %mpBegin3.i39 = getelementptr inbounds i8, ptr %this, i64 56
-  %15 = load ptr, ptr %mpBegin3.i39, align 8
-  store ptr %15, ptr %mpBegin.i38, align 8
+  %14 = load <2 x ptr>, ptr %mItEnd, align 8
+  %15 = load ptr, ptr %mItEnd, align 8
+  store <2 x ptr> %14, ptr %agg.result, align 8
   %mpEnd.i40 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %mpEnd4.i41 = getelementptr inbounds i8, ptr %this, i64 64
   %16 = load ptr, ptr %mpEnd4.i41, align 8
@@ -3603,7 +3600,7 @@ for.body.i.i54:                                   ; preds = %if.then13, %_ZN5eas
   %agg.tmp.sroa.0.0.i55 = phi ptr [ %incdec.ptr.i.i.i60, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i63 ], [ %18, %if.then13 ]
   %agg.tmp2.sroa.12.0.i56 = phi ptr [ %agg.tmp2.sroa.12.1.i64, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i63 ], [ %17, %if.then13 ]
   %agg.tmp2.sroa.8.0.i57 = phi ptr [ %agg.tmp2.sroa.8.1.i65, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i63 ], [ %16, %if.then13 ]
-  %agg.tmp2.sroa.0.0.i59 = phi ptr [ %agg.tmp2.sroa.0.1.i67, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i63 ], [ %14, %if.then13 ]
+  %agg.tmp2.sroa.0.0.i59 = phi ptr [ %agg.tmp2.sroa.0.1.i67, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i63 ], [ %15, %if.then13 ]
   %incdec.ptr.i.i.i60 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i55, i64 -4
   %20 = load i32, ptr %incdec.ptr.i.i.i60, align 4, !noalias !135
   store i32 %20, ptr %agg.tmp2.sroa.0.0.i59, align 4, !noalias !135

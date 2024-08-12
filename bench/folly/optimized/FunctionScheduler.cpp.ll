@@ -4794,19 +4794,18 @@ entry:
   store ptr null, ptr %agg.tmp.i, align 16, !tbaa !38, !noalias !190
   %call_.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 48
   %call_2.i.i = getelementptr inbounds i8, ptr %intervalFn, i64 48
-  %0 = load ptr, ptr %call_2.i.i, align 16, !tbaa !56, !noalias !190
-  store ptr %0, ptr %call_.i.i, align 16, !tbaa !56, !noalias !190
   %exec_.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 56
   %exec_3.i.i = getelementptr inbounds i8, ptr %intervalFn, i64 56
-  %1 = load ptr, ptr %exec_3.i.i, align 8, !tbaa !58, !noalias !190
-  store ptr %1, ptr %exec_.i.i, align 8, !tbaa !58, !noalias !190
+  %0 = load ptr, ptr %exec_3.i.i, align 8, !tbaa !58, !noalias !190
+  %1 = load <2 x ptr>, ptr %call_2.i.i, align 16, !tbaa !43, !noalias !190
+  store <2 x ptr> %1, ptr %call_.i.i, align 16, !tbaa !43, !noalias !190
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEvEE10uninitCallERNS1_4DataE, ptr %call_2.i.i, align 16, !tbaa !56, !noalias !190
   store ptr null, ptr %exec_3.i.i, align 8, !tbaa !58, !noalias !190
-  %tobool.not.i.i.i = icmp eq ptr %1, null
+  %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN5folly8FunctionIFNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEvEEC2EOS7_.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %call.i.i.i = call noundef i64 %1(i32 noundef 0, ptr noundef nonnull %intervalFn, ptr noundef nonnull %agg.tmp.i) #28, !noalias !190
+  %call.i.i.i = call noundef i64 %0(i32 noundef 0, ptr noundef nonnull %intervalFn, ptr noundef nonnull %agg.tmp.i) #28, !noalias !190
   br label %_ZN5folly8FunctionIFNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEvEEC2EOS7_.exit.i
 
 _ZN5folly8FunctionIFNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEvEEC2EOS7_.exit.i: ; preds = %if.end.i.i.i, %entry
@@ -4818,14 +4817,12 @@ _ZN5folly8FunctionIFNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEvEEC2EOS7_.ex
 call2.i.noexc.i:                                  ; preds = %_ZN5folly8FunctionIFNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEvEEC2EOS7_.exit.i
   store ptr null, ptr %call2.i4.i, align 16, !tbaa !38, !noalias !190
   %call_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i4.i, i64 48
-  %2 = load ptr, ptr %call_.i.i, align 16, !tbaa !56, !noalias !190
-  store ptr %2, ptr %call_.i.i.i.i, align 16, !tbaa !56, !noalias !190
-  %exec_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i4.i, i64 56
-  %3 = load ptr, ptr %exec_.i.i, align 8, !tbaa !58, !noalias !190
-  store ptr %3, ptr %exec_.i.i.i.i, align 8, !tbaa !58, !noalias !190
+  %2 = load ptr, ptr %exec_.i.i, align 8, !tbaa !58, !noalias !190
+  %3 = load <2 x ptr>, ptr %call_.i.i, align 16, !tbaa !43, !noalias !190
+  store <2 x ptr> %3, ptr %call_.i.i.i.i, align 16, !tbaa !43, !noalias !190
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEvEE10uninitCallERNS1_4DataE, ptr %call_.i.i, align 16, !tbaa !56, !noalias !190
   store ptr null, ptr %exec_.i.i, align 8, !tbaa !58, !noalias !190
-  %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
+  %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont.thread.i, label %invoke.cont.i
 
 invoke.cont.thread.i:                             ; preds = %call2.i.noexc.i
@@ -4835,7 +4832,7 @@ invoke.cont.thread.i:                             ; preds = %call2.i.noexc.i
   br label %_ZN5folly17FunctionScheduler10RepeatFunc18getNextRunTimeFuncEONS_8FunctionIFNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEvEEE.exit
 
 invoke.cont.i:                                    ; preds = %call2.i.noexc.i
-  %call.i.i.i.i.i = call noundef i64 %3(i32 noundef 0, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %call2.i4.i) #28, !noalias !190
+  %call.i.i.i.i.i = call noundef i64 %2(i32 noundef 0, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %call2.i4.i) #28, !noalias !190
   %.pr.i = load ptr, ptr %exec_.i.i, align 8, !tbaa !58, !noalias !190
   store ptr %call2.i4.i, ptr %ref.tmp, align 16, !tbaa !38, !alias.scope !190
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFNSt6chrono10time_pointINS3_3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEESB_SB_EE7callBigIZNS_17FunctionScheduler10RepeatFunc18getNextRunTimeFuncEONS_8FunctionIFNS7_IlS8_ILl1ELl1000000EEEEvEEEEUlSB_SB_E_EESB_SB_SB_RNS1_4DataE, ptr %call_.i2.i, align 16, !tbaa !143, !alias.scope !190

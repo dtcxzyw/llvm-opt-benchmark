@@ -450,14 +450,14 @@ invoke.cont:
   %ref.tmp.i.i.i.i = alloca %"class.absl::lts_20230802::Status", align 8
   %listener.i = alloca %"class.absl::lts_20230802::StatusOr", align 8
   %accept_cb.i = alloca %"class.absl::lts_20230802::AnyInvocable", align 16
-  %keeper.i = alloca %"class.std::shared_ptr.20", align 8
-  %ref.tmp6.i = alloca %"class.std::shared_ptr.20", align 8
+  %keeper.i = alloca %"class.std::shared_ptr.20", align 16
+  %ref.tmp6.i = alloca %"class.std::shared_ptr.20", align 16
   %ref.tmp13.i = alloca %"class.absl::lts_20230802::StatusOr.23", align 8
   %agg.tmp14.i = alloca %"class.absl::lts_20230802::AnyInvocable", align 16
   %agg.tmp15.i = alloca %"class.absl::lts_20230802::AnyInvocable.39", align 16
   %agg.tmp19.i = alloca %"class.std::unique_ptr.43", align 8
   %accept_cb35.i = alloca %"class.absl::lts_20230802::AnyInvocable.59", align 16
-  %ee.i = alloca %"class.std::shared_ptr.20", align 8
+  %ee.i = alloca %"class.std::shared_ptr.20", align 16
   %ref.tmp42.i = alloca %"class.absl::lts_20230802::StatusOr", align 8
   %agg.tmp44.i = alloca %"class.absl::lts_20230802::AnyInvocable.59", align 16
   %agg.tmp45.i = alloca %"class.absl::lts_20230802::AnyInvocable.39", align 16
@@ -669,14 +669,14 @@ if.then41:                                        ; preds = %do.body38
 
 do.end43:                                         ; preds = %do.body38
   %memory_quota_.i = getelementptr inbounds i8, ptr %27, i64 16
-  %29 = load ptr, ptr %memory_quota_.i, align 8, !noalias !10
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %27, i64 24
-  %30 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !10
-  %cmp.not.i.i.i.i = icmp eq ptr %30, null
+  %29 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !10
+  %30 = load <2 x ptr>, ptr %memory_quota_.i, align 8, !noalias !10
+  %cmp.not.i.i.i.i = icmp eq ptr %29, null
   br i1 %cmp.not.i.i.i.i, label %_ZN9grpc_core13ResourceQuota12memory_quotaEv.exit, label %if.then.i.i.i.i56
 
 if.then.i.i.i.i56:                                ; preds = %do.end43
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load i8, ptr @__libc_single_threaded, align 1, !noalias !10
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %31, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -693,10 +693,9 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i56
 
 _ZN9grpc_core13ResourceQuota12memory_quotaEv.exit: ; preds = %do.end43, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %memory_quota = getelementptr inbounds i8, ptr %call, i64 192
-  store ptr %29, ptr %memory_quota, align 8
   %_M_refcount3.i.i.i57 = getelementptr inbounds i8, ptr %call, i64 200
   %34 = load ptr, ptr %_M_refcount3.i.i.i57, align 8
-  store ptr %30, ptr %_M_refcount3.i.i.i57, align 8
+  store <2 x ptr> %30, ptr %memory_quota, align 8
   %cmp.not.i.i.i.i58 = icmp eq ptr %34, null
   br i1 %cmp.not.i.i.i.i58, label %_ZNSt10shared_ptrIN9grpc_core11MemoryQuotaEED2Ev.exit, label %if.then.i.i.i.i59
 
@@ -818,7 +817,7 @@ invoke.cont1.i:                                   ; preds = %invoke.cont.i
           to label %invoke.cont3.i unwind label %lpad2.i, !noalias !13
 
 invoke.cont3.i:                                   ; preds = %invoke.cont1.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %keeper.i, i8 0, i64 16, i1 false), !noalias !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %keeper.i, i8 0, i64 16, i1 false), !noalias !13
   %cmp.i78 = icmp eq ptr %call4.i, null
   br i1 %cmp.i78, label %if.then5.i, label %invoke.cont18.i
 
@@ -827,13 +826,10 @@ if.then5.i:                                       ; preds = %invoke.cont3.i
           to label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEED2Ev.exit.i unwind label %lpad8.i, !noalias !13
 
 _ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEED2Ev.exit.i: ; preds = %if.then5.i
-  %47 = load ptr, ptr %ref.tmp6.i, align 8, !noalias !13
-  %_M_refcount4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6.i, i64 8
-  %48 = load ptr, ptr %_M_refcount4.i.i.i.i, align 8, !noalias !13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6.i, i8 0, i64 16, i1 false), !noalias !13
-  store ptr %47, ptr %keeper.i, align 8, !noalias !13
-  %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %keeper.i, i64 8
-  store ptr %48, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !13
+  %47 = load <2 x ptr>, ptr %ref.tmp6.i, align 16, !noalias !13
+  %48 = load ptr, ptr %ref.tmp6.i, align 16, !noalias !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp6.i, i8 0, i64 16, i1 false), !noalias !13
+  store <2 x ptr> %47, ptr %keeper.i, align 16, !noalias !13
   br label %invoke.cont18.i
 
 lpad.i:                                           ; preds = %if.then50
@@ -852,7 +848,7 @@ lpad8.i:                                          ; preds = %if.then5.i
   br label %ehcleanup33.i
 
 invoke.cont18.i:                                  ; preds = %_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEED2Ev.exit.i, %invoke.cont3.i
-  %engine_ptr.0.i = phi ptr [ %47, %_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEED2Ev.exit.i ], [ %call4.i, %invoke.cont3.i ]
+  %engine_ptr.0.i = phi ptr [ %48, %_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEED2Ev.exit.i ], [ %call4.i, %invoke.cont3.i ]
   %52 = load ptr, ptr %manager_.i.i.i.i.i.i.i, align 16, !noalias !13
   call void %52(i1 noundef zeroext false, ptr noundef nonnull %accept_cb.i, ptr noundef nonnull %agg.tmp14.i) #25, !noalias !13
   %manager_5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp14.i, i64 16
@@ -871,13 +867,13 @@ invoke.cont18.i:                                  ; preds = %_ZNSt10shared_ptrIN
           to label %call.i.noexc.i unwind label %lpad21.i, !noalias !13
 
 call.i.noexc.i:                                   ; preds = %invoke.cont18.i
-  %54 = load ptr, ptr %memory_quota, align 8, !noalias !16
-  %55 = load ptr, ptr %_M_refcount3.i.i.i57, align 8, !noalias !16
-  %cmp.not.i.i.i.i30.i = icmp eq ptr %55, null
+  %54 = load ptr, ptr %_M_refcount3.i.i.i57, align 8, !noalias !16
+  %55 = load <2 x ptr>, ptr %memory_quota, align 8, !noalias !16
+  %cmp.not.i.i.i.i30.i = icmp eq ptr %54, null
   br i1 %cmp.not.i.i.i.i30.i, label %invoke.cont22.i, label %if.then.i.i.i.i31.i
 
 if.then.i.i.i.i31.i:                              ; preds = %call.i.noexc.i
-  %_M_use_count.i.i.i.i.i32.i = getelementptr inbounds i8, ptr %55, i64 8
+  %_M_use_count.i.i.i.i.i32.i = getelementptr inbounds i8, ptr %54, i64 8
   %56 = load i8, ptr @__libc_single_threaded, align 1, !noalias !16
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %56, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i35.i, label %if.then.i.i.i.i.i.i33.i
@@ -895,9 +891,7 @@ if.else.i.i.i.i.i.i35.i:                          ; preds = %if.then.i.i.i.i31.i
 invoke.cont22.i:                                  ; preds = %if.else.i.i.i.i.i.i35.i, %if.then.i.i.i.i.i.i33.i, %call.i.noexc.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental38MemoryQuotaBasedMemoryAllocatorFactoryE, i64 16), ptr %call.i36.i, align 8, !noalias !16
   %memory_quota_.i.i.i = getelementptr inbounds i8, ptr %call.i36.i, i64 8
-  store ptr %54, ptr %memory_quota_.i.i.i, align 8, !noalias !16
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i36.i, i64 16
-  store ptr %55, ptr %_M_refcount.i.i.i.i.i, align 8, !noalias !16
+  store <2 x ptr> %55, ptr %memory_quota_.i.i.i, align 8, !noalias !16
   store ptr %call.i36.i, ptr %agg.tmp19.i, align 8, !noalias !13
   %vtable23.i = load ptr, ptr %engine_ptr.0.i, align 8, !noalias !13
   %vfn24.i = getelementptr inbounds i8, ptr %vtable23.i, i64 104
@@ -1106,7 +1100,7 @@ invoke.cont37.i:                                  ; preds = %invoke.cont.i
           to label %invoke.cont41.i unwind label %lpad39.i, !noalias !13
 
 invoke.cont41.i:                                  ; preds = %invoke.cont37.i
-  %90 = load ptr, ptr %ee.i, align 8, !noalias !13
+  %90 = load ptr, ptr %ee.i, align 16, !noalias !13
   %91 = load ptr, ptr %manager_.i.i.i.i.i.i93.i, align 16, !noalias !13
   call void %91(i1 noundef zeroext false, ptr noundef nonnull %accept_cb35.i, ptr noundef nonnull %agg.tmp44.i) #25, !noalias !13
   %manager_5.i.i.i96.i = getelementptr inbounds i8, ptr %agg.tmp44.i, i64 16
@@ -1114,14 +1108,14 @@ invoke.cont41.i:                                  ; preds = %invoke.cont37.i
   store <2 x ptr> %92, ptr %manager_5.i.i.i96.i, align 16, !noalias !13
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i93.i, align 16, !noalias !13
   store ptr null, ptr %invoker_.i.i.i.i.i92.i, align 8, !noalias !13
-  %93 = load ptr, ptr %ee.i, align 8, !noalias !13
   %_M_refcount3.i.i.i74 = getelementptr inbounds i8, ptr %ee.i, i64 8
-  %94 = load ptr, ptr %_M_refcount3.i.i.i74, align 8, !noalias !13
-  %cmp.not.i.i.i100.i = icmp eq ptr %94, null
+  %93 = load ptr, ptr %_M_refcount3.i.i.i74, align 8, !noalias !13
+  %94 = load <2 x ptr>, ptr %ee.i, align 16, !noalias !13
+  %cmp.not.i.i.i100.i = icmp eq ptr %93, null
   br i1 %cmp.not.i.i.i100.i, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEC2ERKS3_.exit.i, label %if.then.i.i.i101.i
 
 if.then.i.i.i101.i:                               ; preds = %invoke.cont41.i
-  %_M_use_count.i.i.i.i102.i = getelementptr inbounds i8, ptr %94, i64 8
+  %_M_use_count.i.i.i.i102.i = getelementptr inbounds i8, ptr %93, i64 8
   %95 = load i8, ptr @__libc_single_threaded, align 1, !noalias !13
   %tobool.i.not.i.i.i.i.i75 = icmp eq i8 %95, 0
   br i1 %tobool.i.not.i.i.i.i.i75, label %if.else.i.i.i.i.i105.i, label %if.then.i.i.i.i.i103.i
@@ -1143,9 +1137,7 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEC2ERKS3_.exit
 invoke.cont48.i:                                  ; preds = %_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEC2ERKS3_.exit.i
   store ptr %call, ptr %call.i.i.i.i.i.i108.i, align 8, !noalias !13
   %98 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i108.i, i64 8
-  store ptr %93, ptr %98, align 8, !noalias !13
-  %_M_refcount.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i108.i, i64 16
-  store ptr %94, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !13
+  store <2 x ptr> %94, ptr %98, align 8, !noalias !13
   %99 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i108.i, i64 24
   store ptr %shutdown_complete, ptr %99, align 8, !noalias !13
   store ptr %call.i.i.i.i.i.i108.i, ptr %agg.tmp45.i, align 16, !noalias !13
@@ -1157,13 +1149,13 @@ invoke.cont48.i:                                  ; preds = %_ZNSt10shared_ptrIN
           to label %call.i.noexc119.i unwind label %lpad52.i, !noalias !13
 
 call.i.noexc119.i:                                ; preds = %invoke.cont48.i
-  %100 = load ptr, ptr %memory_quota, align 8, !noalias !19
-  %101 = load ptr, ptr %_M_refcount3.i.i.i57, align 8, !noalias !19
-  %cmp.not.i.i.i.i110.i = icmp eq ptr %101, null
+  %100 = load ptr, ptr %_M_refcount3.i.i.i57, align 8, !noalias !19
+  %101 = load <2 x ptr>, ptr %memory_quota, align 8, !noalias !19
+  %cmp.not.i.i.i.i110.i = icmp eq ptr %100, null
   br i1 %cmp.not.i.i.i.i110.i, label %invoke.cont53.i, label %if.then.i.i.i.i111.i
 
 if.then.i.i.i.i111.i:                             ; preds = %call.i.noexc119.i
-  %_M_use_count.i.i.i.i.i112.i = getelementptr inbounds i8, ptr %101, i64 8
+  %_M_use_count.i.i.i.i.i112.i = getelementptr inbounds i8, ptr %100, i64 8
   %102 = load i8, ptr @__libc_single_threaded, align 1, !noalias !19
   %tobool.i.not.i.i.i.i.i113.i = icmp eq i8 %102, 0
   br i1 %tobool.i.not.i.i.i.i.i113.i, label %if.else.i.i.i.i.i.i118.i, label %if.then.i.i.i.i.i.i114.i
@@ -1181,9 +1173,7 @@ if.else.i.i.i.i.i.i118.i:                         ; preds = %if.then.i.i.i.i111.
 invoke.cont53.i:                                  ; preds = %if.else.i.i.i.i.i.i118.i, %if.then.i.i.i.i.i.i114.i, %call.i.noexc119.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental38MemoryQuotaBasedMemoryAllocatorFactoryE, i64 16), ptr %call.i120.i, align 8, !noalias !19
   %memory_quota_.i.i116.i = getelementptr inbounds i8, ptr %call.i120.i, i64 8
-  store ptr %100, ptr %memory_quota_.i.i116.i, align 8, !noalias !19
-  %_M_refcount.i.i.i.i117.i = getelementptr inbounds i8, ptr %call.i120.i, i64 16
-  store ptr %101, ptr %_M_refcount.i.i.i.i117.i, align 8, !noalias !19
+  store <2 x ptr> %101, ptr %memory_quota_.i.i116.i, align 8, !noalias !19
   store ptr %call.i120.i, ptr %agg.tmp49.i, align 8, !noalias !13
   %vtable54.i = load ptr, ptr %90, align 8, !noalias !13
   %105 = load ptr, ptr %vtable54.i, align 8, !noalias !13
@@ -1434,7 +1424,7 @@ ehcleanup64.i:                                    ; preds = %_ZNSt10unique_ptrIN
   br label %ehcleanup65.i
 
 ehcleanup65.i:                                    ; preds = %ehcleanup64.i, %lpad47.i
-  %ref.tmp46.sroa.5.0.i = phi ptr [ null, %ehcleanup64.i ], [ %94, %lpad47.i ]
+  %ref.tmp46.sroa.5.0.i = phi ptr [ null, %ehcleanup64.i ], [ %93, %lpad47.i ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup64.i ], [ %138, %lpad47.i ]
   call fastcc void @"_ZZL25CreateEventEngineListenerP15grpc_tcp_serverP12grpc_closureRKN17grpc_event_engine12experimental14EndpointConfigEPS0_EN3$_3D2Ev"(ptr %ref.tmp46.sroa.5.0.i) #25, !noalias !13
   %145 = load ptr, ptr %manager_5.i.i.i96.i, align 16, !noalias !13

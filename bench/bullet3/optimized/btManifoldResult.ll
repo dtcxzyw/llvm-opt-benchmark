@@ -552,14 +552,15 @@ if.then113:                                       ; preds = %_Z13btPlaneSpace1I9
   br i1 %tobool.not.i, label %if.then19.i, label %if.then.i117
 
 if.then.i117:                                     ; preds = %if.then113
+  %m_appliedImpulseLateral1.i = getelementptr inbounds i8, ptr %arrayidx.i116, i64 140
+  %156 = load float, ptr %m_appliedImpulseLateral1.i, align 4
   %m_combinedFriction.i118 = getelementptr inbounds i8, ptr %arrayidx.i116, i64 84
-  %156 = load float, ptr %m_combinedFriction.i118, align 4
-  %157 = fmul <4 x float> %154, %154
-  %mul17.i = extractelement <4 x float> %157, i64 3
-  %158 = extractelement <4 x float> %154, i64 2
-  %159 = call float @llvm.fmuladd.f32(float %158, float %158, float %mul17.i)
+  %157 = load float, ptr %m_combinedFriction.i118, align 4
+  %158 = fmul <4 x float> %154, %154
+  %mul17.i = extractelement <4 x float> %158, i64 3
+  %159 = call float @llvm.fmuladd.f32(float %156, float %156, float %mul17.i)
   %160 = extractelement <4 x float> %154, i64 0
-  %161 = call float @llvm.fmuladd.f32(float %156, float %160, float 0.000000e+00)
+  %161 = call float @llvm.fmuladd.f32(float %157, float %160, float 0.000000e+00)
   %mul.i119 = fmul float %161, %161
   %cmp.i120 = fcmp ogt float %159, %mul.i119
   br i1 %cmp.i120, label %if.then19.i, label %_ZN20btPersistentManifold19replaceContactPointERK15btManifoldPointi.exit

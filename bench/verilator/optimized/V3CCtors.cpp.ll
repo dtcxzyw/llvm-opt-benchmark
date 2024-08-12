@@ -526,16 +526,15 @@ _ZNK7AstNode5widthEv.exit:                        ; preds = %_ZN7AstNode11privat
   %68 = getelementptr inbounds i8, ptr %65, i64 152
   %69 = getelementptr inbounds i8, ptr %65, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %68, i8 0, i64 25, i1 false)
-  %70 = load ptr, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, align 8
-  store ptr %70, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %65, i64 192
-  %72 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, i64 8), align 8
-  store ptr %72, ptr %71, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %72, null
+  %70 = getelementptr inbounds i8, ptr %65, i64 192
+  %71 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, i64 8), align 8
+  %72 = load <2 x ptr>, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, align 8
+  store <2 x ptr> %72, ptr %69, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %71, null
   br i1 %.not.i.i.i.i.i.i, label %81, label %73
 
 73:                                               ; preds = %.noexc106
-  %74 = getelementptr inbounds i8, ptr %72, i64 8
+  %74 = getelementptr inbounds i8, ptr %71, i64 8
   %75 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %75, 0
   br i1 %.not.i.i.i.i.i.i.i, label %79, label %76
@@ -590,13 +589,13 @@ _ZNK7AstNode5widthEv.exit:                        ; preds = %_ZN7AstNode11privat
 
 _ZN16VSelfPointerTextC2ENS_4ThisE.exit:           ; preds = %94, %97
   store ptr %89, ptr %69, align 8
-  %99 = load ptr, ptr %71, align 8
+  %99 = load ptr, ptr %70, align 8
   %.not.i.i.i.i.i109 = icmp eq ptr %90, %99
   br i1 %.not.i.i.i.i.i109, label %_ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit.thread, label %101
 
 _ZN16VSelfPointerTextC2ENS_4ThisE.exit.thread:    ; preds = %88
   store ptr %89, ptr %69, align 8
-  %100 = load ptr, ptr %71, align 8
+  %100 = load ptr, ptr %70, align 8
   %.not.i.i.i.i.i109155 = icmp eq ptr %100, null
   br i1 %.not.i.i.i.i.i109155, label %_ZN16VSelfPointerTextD2Ev.exit, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.thread
 
@@ -616,12 +615,12 @@ _ZN16VSelfPointerTextC2ENS_4ThisE.exit.thread:    ; preds = %88
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i: ; preds = %103, %106
-  %.pr.i.i.i.i.i = load ptr, ptr %71, align 8
+  %.pr.i.i.i.i.i = load ptr, ptr %70, align 8
   %.not8.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i.i, null
   br i1 %.not8.i.i.i.i.i, label %_ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit.thread289, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.thread
 
 _ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit.thread289: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i
-  store ptr %90, ptr %71, align 8
+  store ptr %90, ptr %70, align 8
   br label %_ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit.thread
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.thread: ; preds = %_ZN16VSelfPointerTextC2ENS_4ThisE.exit.thread, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i
@@ -694,7 +693,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit
 
 _ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit: ; preds = %124, %137, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  store ptr %90, ptr %71, align 8
+  store ptr %90, ptr %70, align 8
   br i1 %.not.i.i.i.i107, label %_ZN16VSelfPointerTextD2Ev.exit, label %_ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit.thread
 
 _ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit.thread: ; preds = %_ZN16VSelfPointerTextC2ENS_4ThisE.exit, %_ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit.thread289, %_ZN13AstNodeVarRef11selfPointerERK16VSelfPointerText.exit
@@ -1361,51 +1360,49 @@ define linkonce_odr dso_local void @_ZN9AstVarRefC2EP8FileLineP6AstVarRK7VAccess
   %7 = load i8, ptr %3, align 1
   store i8 %7, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 184
-  %9 = load ptr, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 192
-  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, i64 8), align 8
-  store ptr %11, ptr %10, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i.i.i.i, label %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i, label %12
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, i64 8), align 8
+  %10 = load <2 x ptr>, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, align 8
+  store <2 x ptr> %10, ptr %8, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %9, null
+  br i1 %.not.i.i.i.i.i, label %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i, label %11
 
-12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
-  %14 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %14, 0
-  br i1 %.not.i.i.i.i.i.i, label %18, label %15
+11:                                               ; preds = %4
+  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %13, 0
+  br i1 %.not.i.i.i.i.i.i, label %17, label %14
 
-15:                                               ; preds = %12
-  %16 = load i32, ptr %13, align 4
-  %17 = add nsw i32 %16, 1
-  store i32 %17, ptr %13, align 4
+14:                                               ; preds = %11
+  %15 = load i32, ptr %12, align 4
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %12, align 4
   br label %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i
 
-18:                                               ; preds = %12
-  %19 = atomicrmw volatile add ptr %13, i32 1 acq_rel, align 4
+17:                                               ; preds = %11
+  %18 = atomicrmw volatile add ptr %12, i32 1 acq_rel, align 4
   br label %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i
 
-_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i:        ; preds = %18, %15, %4
+_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i:        ; preds = %17, %14, %4
   store ptr %2, ptr %5, align 8
   %.not.i.i.i = icmp eq ptr %2, null
-  br i1 %.not.i.i.i, label %_ZN13AstNodeVarRefC2E6VNTypeP8FileLineP6AstVarRK7VAccess.exit, label %20
+  br i1 %.not.i.i.i, label %_ZN13AstNodeVarRefC2E6VNTypeP8FileLineP6AstVarRK7VAccess.exit, label %19
 
-20:                                               ; preds = %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i
-  %21 = getelementptr inbounds i8, ptr %2, i64 72
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 72
-  %24 = load ptr, ptr %23, align 8
-  %.not.i.i.i.i = icmp eq ptr %24, %22
-  br i1 %.not.i.i.i.i, label %_ZN13AstNodeVarRefC2E6VNTypeP8FileLineP6AstVarRK7VAccess.exit, label %25
+19:                                               ; preds = %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i
+  %20 = getelementptr inbounds i8, ptr %2, i64 72
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 72
+  %23 = load ptr, ptr %22, align 8
+  %.not.i.i.i.i = icmp eq ptr %23, %21
+  br i1 %.not.i.i.i.i, label %_ZN13AstNodeVarRefC2E6VNTypeP8FileLineP6AstVarRK7VAccess.exit, label %24
 
-25:                                               ; preds = %20
-  store ptr %22, ptr %23, align 8
-  %26 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8
-  %27 = add i64 %26, 1
-  store i64 %27, ptr @_ZN7AstNode12s_editCntGblE, align 8
+24:                                               ; preds = %19
+  store ptr %21, ptr %22, align 8
+  %25 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8
+  %26 = add i64 %25, 1
+  store i64 %26, ptr @_ZN7AstNode12s_editCntGblE, align 8
   br label %_ZN13AstNodeVarRefC2E6VNTypeP8FileLineP6AstVarRK7VAccess.exit
 
-_ZN13AstNodeVarRefC2E6VNTypeP8FileLineP6AstVarRK7VAccess.exit: ; preds = %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i, %20, %25
+_ZN13AstNodeVarRefC2E6VNTypeP8FileLineP6AstVarRK7VAccess.exit: ; preds = %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i, %19, %24
   store ptr getelementptr inbounds (i8, ptr @_ZTV9AstVarRef, i64 16), ptr %0, align 8
   ret void
 }
@@ -4362,16 +4359,15 @@ _ZN8AstCFunc4nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit11:
   store ptr %26, ptr %34, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV8AstCCall, i64 16), ptr %27, align 8
   %35 = getelementptr inbounds i8, ptr %27, i64 200
-  %36 = load ptr, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, align 8
-  store ptr %36, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %27, i64 208
-  %38 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, i64 8), align 8
-  store ptr %38, ptr %37, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %38, null
+  %36 = getelementptr inbounds i8, ptr %27, i64 208
+  %37 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, i64 8), align 8
+  %38 = load <2 x ptr>, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, align 8
+  store <2 x ptr> %38, ptr %35, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i.i.i.i, label %_ZN8AstCCallC2EP8FileLineP8AstCFuncP11AstNodeExpr.exit, label %39
 
 39:                                               ; preds = %.noexc
-  %40 = getelementptr inbounds i8, ptr %38, i64 8
+  %40 = getelementptr inbounds i8, ptr %37, i64 8
   %41 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %41, 0
   br i1 %.not.i.i.i.i.i.i, label %45, label %42
@@ -4490,13 +4486,13 @@ _ZN12AstNodeCCall8argTypesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 _ZN16VSelfPointerTextC2ENS_4ThisE.exit:           ; preds = %70, %73
   store ptr %65, ptr %35, align 8
-  %75 = load ptr, ptr %37, align 8
+  %75 = load ptr, ptr %36, align 8
   %.not.i.i.i.i.i24 = icmp eq ptr %66, %75
   br i1 %.not.i.i.i.i.i24, label %_ZN8AstCCall11selfPointerERK16VSelfPointerText.exit.thread, label %77
 
 _ZN16VSelfPointerTextC2ENS_4ThisE.exit.thread:    ; preds = %64
   store ptr %65, ptr %35, align 8
-  %76 = load ptr, ptr %37, align 8
+  %76 = load ptr, ptr %36, align 8
   %.not.i.i.i.i.i2438 = icmp eq ptr %76, null
   br i1 %.not.i.i.i.i.i2438, label %_ZN16VSelfPointerTextD2Ev.exit, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.thread
 
@@ -4516,12 +4512,12 @@ _ZN16VSelfPointerTextC2ENS_4ThisE.exit.thread:    ; preds = %64
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i: ; preds = %79, %82
-  %.pr.i.i.i.i.i = load ptr, ptr %37, align 8
+  %.pr.i.i.i.i.i = load ptr, ptr %36, align 8
   %.not8.i.i.i.i.i = icmp eq ptr %.pr.i.i.i.i.i, null
   br i1 %.not8.i.i.i.i.i, label %_ZN8AstCCall11selfPointerERK16VSelfPointerText.exit.thread40, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.thread
 
 _ZN8AstCCall11selfPointerERK16VSelfPointerText.exit.thread40: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i
-  store ptr %66, ptr %37, align 8
+  store ptr %66, ptr %36, align 8
   br label %_ZN8AstCCall11selfPointerERK16VSelfPointerText.exit.thread
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i.thread: ; preds = %_ZN16VSelfPointerTextC2ENS_4ThisE.exit.thread, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_add_ref_copyEv.exit.i.i.i.i.i
@@ -4594,7 +4590,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN8AstCCall11selfPointerERK16VSelfPointerText.exit
 
 _ZN8AstCCall11selfPointerERK16VSelfPointerText.exit: ; preds = %100, %113, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  store ptr %66, ptr %37, align 8
+  store ptr %66, ptr %36, align 8
   br i1 %.not.i.i.i.i, label %_ZN16VSelfPointerTextD2Ev.exit, label %_ZN8AstCCall11selfPointerERK16VSelfPointerText.exit.thread
 
 _ZN8AstCCall11selfPointerERK16VSelfPointerText.exit.thread: ; preds = %_ZN16VSelfPointerTextC2ENS_4ThisE.exit, %_ZN8AstCCall11selfPointerERK16VSelfPointerText.exit.thread40, %_ZN8AstCCall11selfPointerERK16VSelfPointerText.exit

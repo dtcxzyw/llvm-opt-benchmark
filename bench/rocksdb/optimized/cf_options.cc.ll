@@ -1134,9 +1134,9 @@ invoke.cont5:                                     ; preds = %call.i.i.i.i122.noe
   store i64 %9, ptr %ref.tmp.i.i.sroa.5.0.parse_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %10 = load <2 x ptr>, ptr %_M_manager.i.i, align 8
+  %11 = load ptr, ptr %_M_manager.i.i, align 8
   store <2 x ptr> %10, ptr %_M_manager3.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.5)
-  %11 = extractelement <2 x ptr> %10, i64 0
   %tobool.not.i.i14 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i14, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEED2Ev.exit, label %if.then.i.i15
 
@@ -1220,9 +1220,9 @@ invoke.cont12:                                    ; preds = %call.i.i.i.i124.noe
   store i64 %23, ptr %ref.tmp.i.i32.sroa.5.0.serialize_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i47 = getelementptr inbounds i8, ptr %agg.result, i64 56
   %24 = load <2 x ptr>, ptr %_M_manager.i.i19, align 8
+  %25 = load ptr, ptr %_M_manager.i.i19, align 8
   store <2 x ptr> %24, ptr %_M_manager3.i.i.i47, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i32.sroa.5)
-  %25 = extractelement <2 x ptr> %24, i64 0
   %tobool.not.i.i55 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i55, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EED2Ev.exit, label %if.then.i.i56
 
@@ -1298,9 +1298,9 @@ invoke.cont22:                                    ; preds = %call.i.i.i.i128.noe
   store i64 %32, ptr %ref.tmp.i.i73.sroa.5.0.equals_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i88 = getelementptr inbounds i8, ptr %agg.result, i64 88
   %33 = load <2 x ptr>, ptr %_M_manager.i.i60, align 8
+  %34 = load ptr, ptr %_M_manager.i.i60, align 8
   store <2 x ptr> %33, ptr %_M_manager3.i.i.i88, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i73.sroa.5)
-  %34 = extractelement <2 x ptr> %33, i64 0
   %tobool.not.i.i96 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i96, label %_ZNSt8functionIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EED2Ev.exit, label %if.then.i.i97
 
@@ -1510,9 +1510,9 @@ invoke.cont5:                                     ; preds = %call.i.i.i.i123.noe
   store i64 %9, ptr %ref.tmp.i.i.sroa.5.0.parse_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %10 = load <2 x ptr>, ptr %_M_manager.i.i, align 8
+  %11 = load ptr, ptr %_M_manager.i.i, align 8
   store <2 x ptr> %10, ptr %_M_manager3.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.5)
-  %11 = extractelement <2 x ptr> %10, i64 0
   %tobool.not.i.i15 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i15, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEED2Ev.exit, label %if.then.i.i16
 
@@ -1596,9 +1596,9 @@ invoke.cont12:                                    ; preds = %call.i.i.i.i125.noe
   store i64 %23, ptr %ref.tmp.i.i33.sroa.5.0.serialize_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i48 = getelementptr inbounds i8, ptr %agg.result, i64 56
   %24 = load <2 x ptr>, ptr %_M_manager.i.i20, align 8
+  %25 = load ptr, ptr %_M_manager.i.i20, align 8
   store <2 x ptr> %24, ptr %_M_manager3.i.i.i48, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i33.sroa.5)
-  %25 = extractelement <2 x ptr> %24, i64 0
   %tobool.not.i.i56 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i56, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EED2Ev.exit, label %if.then.i.i57
 
@@ -1682,9 +1682,9 @@ invoke.cont22:                                    ; preds = %call.i.i.i.i129.noe
   store i64 %37, ptr %ref.tmp.i.i74.sroa.5.0.equals_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i89 = getelementptr inbounds i8, ptr %agg.result, i64 88
   %38 = load <2 x ptr>, ptr %_M_manager.i.i61, align 8
+  %39 = load ptr, ptr %_M_manager.i.i61, align 8
   store <2 x ptr> %38, ptr %_M_manager3.i.i.i89, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i74.sroa.5)
-  %39 = extractelement <2 x ptr> %38, i64 0
   %tobool.not.i.i97 = icmp eq ptr %39, null
   br i1 %tobool.not.i.i97, label %_ZNSt8functionIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EED2Ev.exit, label %if.then.i.i98
 
@@ -3930,10 +3930,10 @@ if.then.i.i.i:                                    ; preds = %invoke.cont388
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp384, i64 24
   %_M_invoker4.i2.i.i = getelementptr inbounds i8, ptr %ref.tmp384, i64 32
   %84 = load <2 x ptr>, ptr %_M_manager3.i.i.i, align 8
+  %85 = load ptr, ptr %_M_manager3.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_0EE10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %_M_manager3.i.i.i, align 8
   store <2 x ptr> %84, ptr %_M_manager.i.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvENS0_3$_0EE9_M_invokeERKSt9_Any_dataS4_SC_SC_OSD_", ptr %_M_invoker4.i2.i.i, align 8
-  %85 = extractelement <2 x ptr> %84, i64 0
   %tobool.not.i.i4.i.i = icmp eq ptr %85, null
   br i1 %tobool.not.i.i4.i.i, label %invoke.cont394, label %if.then.i.i5.i.i
 
@@ -7233,9 +7233,9 @@ invoke.cont5:                                     ; preds = %call.i.i.i.i122.noe
   store i64 %9, ptr %ref.tmp.i.i.sroa.5.0.parse_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %10 = load <2 x ptr>, ptr %_M_manager.i.i, align 8
+  %11 = load ptr, ptr %_M_manager.i.i, align 8
   store <2 x ptr> %10, ptr %_M_manager3.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.5)
-  %11 = extractelement <2 x ptr> %10, i64 0
   %tobool.not.i.i14 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i14, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEED2Ev.exit, label %if.then.i.i15
 
@@ -7319,9 +7319,9 @@ invoke.cont12:                                    ; preds = %call.i.i.i.i124.noe
   store i64 %23, ptr %ref.tmp.i.i32.sroa.5.0.serialize_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i47 = getelementptr inbounds i8, ptr %agg.result, i64 56
   %24 = load <2 x ptr>, ptr %_M_manager.i.i19, align 8
+  %25 = load ptr, ptr %_M_manager.i.i19, align 8
   store <2 x ptr> %24, ptr %_M_manager3.i.i.i47, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i32.sroa.5)
-  %25 = extractelement <2 x ptr> %24, i64 0
   %tobool.not.i.i55 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i55, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EED2Ev.exit, label %if.then.i.i56
 
@@ -7397,9 +7397,9 @@ invoke.cont22:                                    ; preds = %call.i.i.i.i128.noe
   store i64 %32, ptr %ref.tmp.i.i73.sroa.5.0.equals_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i88 = getelementptr inbounds i8, ptr %agg.result, i64 88
   %33 = load <2 x ptr>, ptr %_M_manager.i.i60, align 8
+  %34 = load ptr, ptr %_M_manager.i.i60, align 8
   store <2 x ptr> %33, ptr %_M_manager3.i.i.i88, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i73.sroa.5)
-  %34 = extractelement <2 x ptr> %33, i64 0
   %tobool.not.i.i96 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i96, label %_ZNSt8functionIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EED2Ev.exit, label %if.then.i.i97
 
@@ -8263,9 +8263,9 @@ invoke.cont5:                                     ; preds = %call.i.i.i.i122.noe
   store i64 %9, ptr %ref.tmp.i.i.sroa.5.0.parse_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %10 = load <2 x ptr>, ptr %_M_manager.i.i, align 8
+  %11 = load ptr, ptr %_M_manager.i.i, align 8
   store <2 x ptr> %10, ptr %_M_manager3.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.5)
-  %11 = extractelement <2 x ptr> %10, i64 0
   %tobool.not.i.i14 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i14, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEED2Ev.exit, label %if.then.i.i15
 
@@ -8349,9 +8349,9 @@ invoke.cont12:                                    ; preds = %call.i.i.i.i124.noe
   store i64 %23, ptr %ref.tmp.i.i32.sroa.5.0.serialize_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i47 = getelementptr inbounds i8, ptr %agg.result, i64 56
   %24 = load <2 x ptr>, ptr %_M_manager.i.i19, align 8
+  %25 = load ptr, ptr %_M_manager.i.i19, align 8
   store <2 x ptr> %24, ptr %_M_manager3.i.i.i47, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i32.sroa.5)
-  %25 = extractelement <2 x ptr> %24, i64 0
   %tobool.not.i.i55 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i55, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EED2Ev.exit, label %if.then.i.i56
 
@@ -8427,9 +8427,9 @@ invoke.cont22:                                    ; preds = %call.i.i.i.i128.noe
   store i64 %32, ptr %ref.tmp.i.i73.sroa.5.0.equals_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i88 = getelementptr inbounds i8, ptr %agg.result, i64 88
   %33 = load <2 x ptr>, ptr %_M_manager.i.i60, align 8
+  %34 = load ptr, ptr %_M_manager.i.i60, align 8
   store <2 x ptr> %33, ptr %_M_manager3.i.i.i88, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i73.sroa.5)
-  %34 = extractelement <2 x ptr> %33, i64 0
   %tobool.not.i.i96 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i96, label %_ZNSt8functionIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EED2Ev.exit, label %if.then.i.i97
 
@@ -8753,9 +8753,9 @@ _ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stri
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %info, i64 24
   %7 = load <2 x ptr>, ptr %_M_manager3.i.i.i, align 8
+  %8 = load ptr, ptr %_M_manager3.i.i.i, align 8
   store <2 x ptr> %7, ptr %_M_manager.i.i.i.i, align 8
   store <2 x ptr> %6, ptr %_M_manager3.i.i.i, align 8
-  %8 = extractelement <2 x ptr> %7, i64 0
   %tobool.not.i.i4.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i4.i.i, label %invoke.cont, label %if.then.i.i5.i.i
 
@@ -9702,10 +9702,10 @@ if.then.i.i.i366:                                 ; preds = %invoke.cont168
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp170, i64 56
   %_M_invoker4.i2.i.i = getelementptr inbounds i8, ptr %ref.tmp170, i64 64
   %39 = load <2 x ptr>, ptr %_M_manager3.i.i.i, align 8
+  %40 = load ptr, ptr %_M_manager3.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_ENS0_3$_3EE10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation", ptr %_M_manager3.i.i.i, align 8
   store <2 x ptr> %39, ptr %_M_manager.i.i.i.i365, align 8
   store ptr @"_ZNSt17_Function_handlerIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_ENS0_3$_3EE9_M_invokeERKSt9_Any_dataS4_SC_OSE_OSF_", ptr %_M_invoker4.i2.i.i, align 8
-  %40 = extractelement <2 x ptr> %39, i64 0
   %tobool.not.i.i4.i.i = icmp eq ptr %40, null
   br i1 %tobool.not.i.i4.i.i, label %invoke.cont175, label %if.then.i.i5.i.i
 
@@ -11972,9 +11972,9 @@ invoke.cont5:                                     ; preds = %call.i.i.i.i122.noe
   store i64 %9, ptr %ref.tmp.i.i.sroa.5.0.parse_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %10 = load <2 x ptr>, ptr %_M_manager.i.i, align 8
+  %11 = load ptr, ptr %_M_manager.i.i, align 8
   store <2 x ptr> %10, ptr %_M_manager3.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.5)
-  %11 = extractelement <2 x ptr> %10, i64 0
   %tobool.not.i.i14 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i14, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_PvEED2Ev.exit, label %if.then.i.i15
 
@@ -12058,9 +12058,9 @@ invoke.cont12:                                    ; preds = %call.i.i.i.i124.noe
   store i64 %23, ptr %ref.tmp.i.i32.sroa.5.0.serialize_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i47 = getelementptr inbounds i8, ptr %agg.result, i64 56
   %24 = load <2 x ptr>, ptr %_M_manager.i.i19, align 8
+  %25 = load ptr, ptr %_M_manager.i.i19, align 8
   store <2 x ptr> %24, ptr %_M_manager3.i.i.i47, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i32.sroa.5)
-  %25 = extractelement <2 x ptr> %24, i64 0
   %tobool.not.i.i55 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i55, label %_ZNSt8functionIFN7rocksdb6StatusERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvPSA_EED2Ev.exit, label %if.then.i.i56
 
@@ -12136,9 +12136,9 @@ invoke.cont22:                                    ; preds = %call.i.i.i.i128.noe
   store i64 %32, ptr %ref.tmp.i.i73.sroa.5.0.equals_func_.i.sroa_idx, align 8
   %_M_manager3.i.i.i88 = getelementptr inbounds i8, ptr %agg.result, i64 88
   %33 = load <2 x ptr>, ptr %_M_manager.i.i60, align 8
+  %34 = load ptr, ptr %_M_manager.i.i60, align 8
   store <2 x ptr> %33, ptr %_M_manager3.i.i.i88, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i73.sroa.5)
-  %34 = extractelement <2 x ptr> %33, i64 0
   %tobool.not.i.i96 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i96, label %_ZNSt8functionIFbRKN7rocksdb13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_EED2Ev.exit, label %if.then.i.i97
 
@@ -24163,14 +24163,15 @@ _ZNSt6vectorIN7rocksdb18FileTemperatureAgeESaIS1_EE5clearEv.exit: ; preds = %ent
   %registry.i = getelementptr inbounds i8, ptr %copy, i64 64
   %registry5.i = getelementptr inbounds i8, ptr %config_options, i64 64
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %copy, i64 72
-  %2 = load <2 x ptr>, ptr %registry5.i, align 8
-  store <2 x ptr> %2, ptr %registry.i, align 8
-  %3 = extractelement <2 x ptr> %2, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %3, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %config_options, i64 72
+  %2 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %3 = load <2 x ptr>, ptr %registry5.i, align 8
+  store <2 x ptr> %3, ptr %registry.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -24647,14 +24648,15 @@ entry:
   %registry.i = getelementptr inbounds i8, ptr %embedded, i64 64
   %registry5.i = getelementptr inbounds i8, ptr %config_options, i64 64
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %embedded, i64 72
-  %0 = load <2 x ptr>, ptr %registry5.i, align 8
-  store <2 x ptr> %0, ptr %registry.i, align 8
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %config_options, i64 72
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %registry5.i, align 8
+  store <2 x ptr> %1, ptr %registry.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -25253,14 +25255,15 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %entry, %invoke.cont
   %registry.i = getelementptr inbounds i8, ptr %copy, i64 64
   %registry5.i = getelementptr inbounds i8, ptr %config_options, i64 64
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %copy, i64 72
-  %2 = load <2 x ptr>, ptr %registry5.i, align 8
-  store <2 x ptr> %2, ptr %registry.i, align 8
-  %3 = extractelement <2 x ptr> %2, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %3, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %config_options, i64 72
+  %2 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %3 = load <2 x ptr>, ptr %registry5.i, align 8
+  store <2 x ptr> %3, ptr %registry.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -25724,14 +25727,15 @@ entry:
   %registry.i = getelementptr inbounds i8, ptr %embedded, i64 64
   %registry5.i = getelementptr inbounds i8, ptr %config_options, i64 64
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %embedded, i64 72
-  %0 = load <2 x ptr>, ptr %registry5.i, align 8
-  store <2 x ptr> %0, ptr %registry.i, align 8
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %config_options, i64 72
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %registry5.i, align 8
+  store <2 x ptr> %1, ptr %registry.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -26841,14 +26845,15 @@ _ZNSt6vectorIN7rocksdb15CompressionTypeESaIS1_EE5clearEv.exit: ; preds = %entry,
   %registry.i = getelementptr inbounds i8, ptr %copy, i64 64
   %registry5.i = getelementptr inbounds i8, ptr %config_options, i64 64
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %copy, i64 72
-  %2 = load <2 x ptr>, ptr %registry5.i, align 8
-  store <2 x ptr> %2, ptr %registry.i, align 8
-  %3 = extractelement <2 x ptr> %2, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %3, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %config_options, i64 72
+  %2 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %3 = load <2 x ptr>, ptr %registry5.i, align 8
+  store <2 x ptr> %3, ptr %registry.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -27309,14 +27314,15 @@ entry:
   %registry.i = getelementptr inbounds i8, ptr %embedded, i64 64
   %registry5.i = getelementptr inbounds i8, ptr %config_options, i64 64
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %embedded, i64 72
-  %0 = load <2 x ptr>, ptr %registry5.i, align 8
-  store <2 x ptr> %0, ptr %registry.i, align 8
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %config_options, i64 72
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %registry5.i, align 8
+  store <2 x ptr> %1, ptr %registry.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -29181,14 +29187,15 @@ _ZNSt6vectorISt10shared_ptrIN7rocksdb31TablePropertiesCollectorFactoryEESaIS3_EE
   %registry.i = getelementptr inbounds i8, ptr %copy, i64 64
   %registry5.i = getelementptr inbounds i8, ptr %config_options, i64 64
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %copy, i64 72
-  %13 = load <2 x ptr>, ptr %registry5.i, align 8
-  store <2 x ptr> %13, ptr %registry.i, align 8
-  %14 = extractelement <2 x ptr> %13, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %14, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %config_options, i64 72
+  %13 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %14 = load <2 x ptr>, ptr %registry5.i, align 8
+  store <2 x ptr> %14, ptr %registry.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -29642,14 +29649,15 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10s
 _ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb31TablePropertiesCollectorFactoryEESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIN7rocksdb31TablePropertiesCollectorFactoryEESaIS3_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10shared_ptrIN7rocksdb31TablePropertiesCollectorFactoryEESaIS3_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::shared_ptr.184", ptr %cond.i10, i64 %sub.ptr.div.i
-  %3 = load <2 x ptr>, ptr %__args, align 8
-  store <2 x ptr> %3, ptr %add.ptr, align 8
-  %4 = extractelement <2 x ptr> %3, i64 1
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
+  %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
+  %3 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  %4 = load <2 x ptr>, ptr %__args, align 8
+  store <2 x ptr> %4, ptr %add.ptr, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7rocksdb31TablePropertiesCollectorFactoryEEEE9constructIS3_JRS3_EEEvRS4_PT_DpOT0_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb31TablePropertiesCollectorFactoryEESaIS3_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -29813,14 +29821,15 @@ entry:
   %registry.i = getelementptr inbounds i8, ptr %embedded, i64 64
   %registry5.i = getelementptr inbounds i8, ptr %config_options, i64 64
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %embedded, i64 72
-  %0 = load <2 x ptr>, ptr %registry5.i, align 8
-  store <2 x ptr> %0, ptr %registry.i, align 8
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %config_options, i64 72
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %registry5.i, align 8
+  store <2 x ptr> %1, ptr %registry.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

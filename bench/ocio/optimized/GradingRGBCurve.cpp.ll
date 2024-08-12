@@ -2114,7 +2114,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev19GradingRGBCurveImpl10isIdentityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.std::shared_ptr.5", align 8
+  %ref.tmp = alloca %"class.std::shared_ptr.5", align 16
   %m_curves = getelementptr inbounds i8, ptr %this, i64 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   br label %for.body
@@ -2129,16 +2129,15 @@ for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
   %cmp12 = phi i1 [ false, %entry ], [ %cmp, %for.cond ]
   %arrayidx = getelementptr inbounds [4 x %"class.std::shared_ptr"], ptr %m_curves, i64 0, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx, align 8
-  store ptr %0, ptr %ref.tmp, align 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %arrayidx, align 8
+  store <2 x ptr> %1, ptr %ref.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -2351,17 +2350,15 @@ if.end:                                           ; preds = %entry
   %m_curves = getelementptr inbounds i8, ptr %this, i64 8
   %idxprom = zext nneg i32 %c to i64
   %arrayidx = getelementptr inbounds [4 x %"class.std::shared_ptr"], ptr %m_curves, i64 0, i64 %idxprom
-  %1 = load ptr, ptr %arrayidx, align 8
-  store ptr %1, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %arrayidx, align 8
+  store <2 x ptr> %2, ptr %agg.result, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -2405,17 +2402,15 @@ if.end:                                           ; preds = %entry
   %m_curves = getelementptr inbounds i8, ptr %this, i64 8
   %idxprom = zext nneg i32 %c to i64
   %arrayidx = getelementptr inbounds [4 x %"class.std::shared_ptr"], ptr %m_curves, i64 0, i64 %idxprom
-  %1 = load ptr, ptr %arrayidx, align 8
-  store ptr %1, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %arrayidx, align 8
+  store <2 x ptr> %2, ptr %agg.result, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19GradingBSplineCurveEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -3788,21 +3783,20 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt10_ConstructIN19OpenColorIO_v2_4dev19GradingRGBCurveImplEJRKSt10shared_ptrINS0_19GradingBSplineCurveEES6_S6_S6_EEvPT_DpOT0_(ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(16) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr noundef nonnull align 8 dereferenceable(16) %__args3, ptr noundef nonnull align 8 dereferenceable(16) %__args5) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.std::shared_ptr.5", align 8
-  %ref.tmp7 = alloca %"class.std::shared_ptr.5", align 8
-  %ref.tmp8 = alloca %"class.std::shared_ptr.5", align 8
-  %ref.tmp9 = alloca %"class.std::shared_ptr.5", align 8
-  %0 = load ptr, ptr %__args, align 8
-  store ptr %0, ptr %ref.tmp, align 8
+  %ref.tmp = alloca %"class.std::shared_ptr.5", align 16
+  %ref.tmp7 = alloca %"class.std::shared_ptr.5", align 16
+  %ref.tmp8 = alloca %"class.std::shared_ptr.5", align 16
+  %ref.tmp9 = alloca %"class.std::shared_ptr.5", align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %__args, align 8
+  store <2 x ptr> %1, ptr %ref.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -3818,17 +3812,16 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %5 = load ptr, ptr %__args1, align 8
-  store ptr %5, ptr %ref.tmp7, align 8
   %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   %_M_refcount3.i.i2 = getelementptr inbounds i8, ptr %__args1, i64 8
-  %6 = load ptr, ptr %_M_refcount3.i.i2, align 8
-  store ptr %6, ptr %_M_refcount.i.i1, align 8
-  %cmp.not.i.i.i3 = icmp eq ptr %6, null
+  %5 = load ptr, ptr %_M_refcount3.i.i2, align 8
+  %6 = load <2 x ptr>, ptr %__args1, align 8
+  store <2 x ptr> %6, ptr %ref.tmp7, align 16
+  %cmp.not.i.i.i3 = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit10, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i6 = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i6, label %if.else.i.i.i.i.i9, label %if.then.i.i.i.i.i7
@@ -3844,17 +3837,16 @@ if.else.i.i.i.i.i9:                               ; preds = %if.then.i.i.i4
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit10
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit10: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit, %if.then.i.i.i.i.i7, %if.else.i.i.i.i.i9
-  %10 = load ptr, ptr %__args3, align 8
-  store ptr %10, ptr %ref.tmp8, align 8
   %_M_refcount.i.i11 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
   %_M_refcount3.i.i12 = getelementptr inbounds i8, ptr %__args3, i64 8
-  %11 = load ptr, ptr %_M_refcount3.i.i12, align 8
-  store ptr %11, ptr %_M_refcount.i.i11, align 8
-  %cmp.not.i.i.i13 = icmp eq ptr %11, null
+  %10 = load ptr, ptr %_M_refcount3.i.i12, align 8
+  %11 = load <2 x ptr>, ptr %__args3, align 8
+  store <2 x ptr> %11, ptr %ref.tmp8, align 16
+  %cmp.not.i.i.i13 = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i13, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit20, label %if.then.i.i.i14
 
 if.then.i.i.i14:                                  ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit10
-  %_M_use_count.i.i.i.i15 = getelementptr inbounds i8, ptr %11, i64 8
+  %_M_use_count.i.i.i.i15 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i16 = icmp eq i8 %12, 0
   br i1 %tobool.i.i.not.i.i.i.i16, label %if.else.i.i.i.i.i19, label %if.then.i.i.i.i.i17
@@ -3870,17 +3862,16 @@ if.else.i.i.i.i.i19:                              ; preds = %if.then.i.i.i14
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit20
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit20: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit10, %if.then.i.i.i.i.i17, %if.else.i.i.i.i.i19
-  %15 = load ptr, ptr %__args5, align 8
-  store ptr %15, ptr %ref.tmp9, align 8
   %_M_refcount.i.i21 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   %_M_refcount3.i.i22 = getelementptr inbounds i8, ptr %__args5, i64 8
-  %16 = load ptr, ptr %_M_refcount3.i.i22, align 8
-  store ptr %16, ptr %_M_refcount.i.i21, align 8
-  %cmp.not.i.i.i23 = icmp eq ptr %16, null
+  %15 = load ptr, ptr %_M_refcount3.i.i22, align 8
+  %16 = load <2 x ptr>, ptr %__args5, align 8
+  store <2 x ptr> %16, ptr %ref.tmp9, align 16
+  %cmp.not.i.i.i23 = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i23, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit30, label %if.then.i.i.i24
 
 if.then.i.i.i24:                                  ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveEEC2IS1_vEERKS_IT_E.exit20
-  %_M_use_count.i.i.i.i25 = getelementptr inbounds i8, ptr %16, i64 8
+  %_M_use_count.i.i.i.i25 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i26 = icmp eq i8 %17, 0
   br i1 %tobool.i.i.not.i.i.i.i26, label %if.else.i.i.i.i.i29, label %if.then.i.i.i.i.i27

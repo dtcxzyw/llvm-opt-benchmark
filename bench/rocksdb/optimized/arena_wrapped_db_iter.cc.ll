@@ -422,9 +422,9 @@ _ZNSt8functionIFbRKN7rocksdb15TablePropertiesEEEC2ERKS5_.exit.i.i: ; preds = %in
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %this, i64 2496
   %9 = load <2 x ptr>, ptr %_M_manager3.i.i.i, align 16
+  %10 = load ptr, ptr %_M_manager3.i.i.i, align 16
   store <2 x ptr> %9, ptr %_M_manager.i.i.i.i, align 8
   store <2 x ptr> %8, ptr %_M_manager3.i.i.i, align 16
-  %10 = extractelement <2 x ptr> %9, i64 0
   %tobool.not.i.i4.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i4.i.i, label %_ZN7rocksdb11ReadOptionsaSERKS0_.exit, label %if.then.i.i5.i.i
 

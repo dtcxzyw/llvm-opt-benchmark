@@ -2642,7 +2642,7 @@ define hidden void @"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$
 define hidden void @"_ZN127_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LP$K$C$V$RP$$GT$$GT$9from_iter17h845062afa75b783dE.llvm.13455287501529294234"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64, i64, i64 }, {}, {} }, { {} } }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { ptr, ptr }, align 8
-  %5 = alloca { ptr, ptr }, align 8
+  %5 = alloca { ptr, ptr }, align 16
   %6 = alloca { { i64, i64 }, [1 x { [3 x i64] }] }, align 8
   %7 = alloca { ptr, [3 x i64] }, align 8
   %8 = alloca { { { ptr, i64, i64, i64 }, {}, {} }, { {} } }, align 8
@@ -2690,7 +2690,6 @@ define hidden void @"_ZN127_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
 
 .lr.ph.i.i.i.i:                                   ; preds = %15
   %22 = getelementptr inbounds i8, ptr %4, i64 8
-  %.fca.1.gep.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %23 = getelementptr inbounds i8, ptr %8, i64 32
   %24 = getelementptr inbounds i8, ptr %8, i64 16
   %25 = getelementptr inbounds i8, ptr %8, i64 8
@@ -2882,15 +2881,14 @@ define hidden void @"_ZN127_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
 116:                                              ; preds = %63
   %117 = getelementptr inbounds { i8, [7 x i8], { ptr, ptr } }, ptr %.val4.i.i.i.i.i.i.i.i.i.i, i64 %70
   %118 = getelementptr inbounds i8, ptr %117, i64 -16
-  %119 = load ptr, ptr %118, align 8, !noalias !815, !nonnull !4, !noundef !4
-  %120 = getelementptr inbounds i8, ptr %117, i64 -8
-  %121 = load ptr, ptr %120, align 8, !noalias !815, !nonnull !4, !align !5, !noundef !4
+  %119 = getelementptr inbounds i8, ptr %117, i64 -8
+  %120 = load <2 x ptr>, ptr %118, align 8, !noalias !815
+  %121 = load ptr, ptr %118, align 8, !noalias !815, !nonnull !4, !noundef !4
   store ptr %.sroa.54.0.copyload.i.i.i.i.i.i, ptr %118, align 8, !noalias !815
-  store ptr %.sroa.6.0.copyload.i.i.i.i.i.i, ptr %120, align 8, !noalias !815
+  store ptr %.sroa.6.0.copyload.i.i.i.i.i.i, ptr %119, align 8, !noalias !815
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !789
-  store ptr %119, ptr %5, align 8, !noalias !789
-  store ptr %121, ptr %.fca.1.gep.i.i.i.i.i.i.i.i, align 8, !noalias !789
-  %122 = atomicrmw sub ptr %119, i64 1 release, align 8, !noalias !842
+  store <2 x ptr> %120, ptr %5, align 16, !noalias !789
+  %122 = atomicrmw sub ptr %121, i64 1 release, align 8, !noalias !842
   %123 = icmp eq i64 %122, 1
   br i1 %123, label %124, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h4eb00f4f14983ff4E.exit.i.i.i.i"
 

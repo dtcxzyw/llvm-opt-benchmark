@@ -1565,8 +1565,8 @@ if.then.i:                                        ; preds = %entry
 
 invoke.cont.i:                                    ; preds = %if.then.i
   %3 = load <2 x ptr>, ptr %_M_manager.i.i.i, align 8
+  %4 = load ptr, ptr %_M_manager.i.i.i, align 8
   store <2 x ptr> %3, ptr %_M_manager.i.i, align 8
-  %4 = extractelement <2 x ptr> %3, i64 0
   br label %invoke.cont6
 
 lpad.i:                                           ; preds = %if.then.i
@@ -4770,14 +4770,15 @@ if.end17:                                         ; preds = %if.end12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %capacity.i.i, ptr noundef nonnull align 8 dereferenceable(13) %capacity2.i.i, i64 13, i1 false)
   %memory_allocator.i.i = getelementptr inbounds i8, ptr %opts, i64 24
   %memory_allocator3.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %3 = load <2 x ptr>, ptr %memory_allocator3.i.i, align 8
-  store <2 x ptr> %3, ptr %memory_allocator.i.i, align 8
-  %4 = extractelement <2 x ptr> %3, i64 1
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
+  %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %3 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  %4 = load <2 x ptr>, ptr %memory_allocator3.i.i, align 8
+  store <2 x ptr> %4, ptr %memory_allocator.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEEC2ERKS2_.exit.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end17
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -4799,14 +4800,15 @@ _ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEEC2ERKS2_.exit.i.i: ; preds = %if.e
   store i32 %8, ptr %metadata_charge_policy.i.i, align 8
   %secondary_cache.i.i = getelementptr inbounds i8, ptr %opts, i64 48
   %secondary_cache5.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %9 = load <2 x ptr>, ptr %secondary_cache5.i.i, align 8
-  store <2 x ptr> %9, ptr %secondary_cache.i.i, align 8
-  %10 = extractelement <2 x ptr> %9, i64 1
-  %cmp.not.i.i.i7.i.i = icmp eq ptr %10, null
+  %_M_refcount3.i.i6.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %9 = load ptr, ptr %_M_refcount3.i.i6.i.i, align 8
+  %10 = load <2 x ptr>, ptr %secondary_cache5.i.i, align 8
+  store <2 x ptr> %10, ptr %secondary_cache.i.i, align 8
+  %cmp.not.i.i.i7.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i7.i.i, label %_ZN7rocksdb15LRUCacheOptionsC2ERKS0_.exit, label %if.then.i.i.i8.i.i
 
 if.then.i.i.i8.i.i:                               ; preds = %_ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEEC2ERKS2_.exit.i.i
-  %_M_use_count.i.i.i.i9.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %_M_use_count.i.i.i.i9.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i10.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.not.i.i.i.i10.i.i, label %if.else.i.i.i.i.i13.i.i, label %if.then.i.i.i.i.i11.i.i
@@ -6588,14 +6590,15 @@ entry:
   %agg.tmp = alloca %"class.std::shared_ptr.28", align 16
   %agg.tmp3 = alloca %"class.std::shared_ptr.17", align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %0 = load <2 x ptr>, ptr %__args, align 8
-  store <2 x ptr> %0, ptr %agg.tmp, align 16
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %__args, i64 8
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %__args, align 8
+  store <2 x ptr> %1, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb5CacheEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -6612,14 +6615,15 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 
 _ZNSt10shared_ptrIN7rocksdb5CacheEEC2ERKS2_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
-  %5 = load <2 x ptr>, ptr %__args1, align 8
-  store <2 x ptr> %5, ptr %agg.tmp3, align 16
-  %6 = extractelement <2 x ptr> %5, i64 1
-  %cmp.not.i.i.i3 = icmp eq ptr %6, null
+  %_M_refcount3.i.i2 = getelementptr inbounds i8, ptr %__args1, i64 8
+  %5 = load ptr, ptr %_M_refcount3.i.i2, align 8
+  %6 = load <2 x ptr>, ptr %__args1, align 8
+  store <2 x ptr> %6, ptr %agg.tmp3, align 16
+  %cmp.not.i.i.i3 = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIN7rocksdb14SecondaryCacheEEC2ERKS2_.exit, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt10shared_ptrIN7rocksdb5CacheEEC2ERKS2_.exit
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i6 = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i6, label %if.else.i.i.i.i.i9, label %if.then.i.i.i.i.i7

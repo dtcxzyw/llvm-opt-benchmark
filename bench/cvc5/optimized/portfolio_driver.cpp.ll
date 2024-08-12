@@ -1053,7 +1053,7 @@ invoke.cont:
   %ref.tmp15.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp16.i.i = alloca %"class.std::allocator", align 1
   %ref.tmp25.i.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %res.i.i = alloca %"class.cvc5::Result", align 8
+  %res.i.i = alloca %"class.cvc5::Result", align 16
   %duration.i.i = alloca %"class.std::chrono::duration", align 8
   %ref.tmp.i22 = alloca %"struct.cvc5::main::(anonymous namespace)::PortfolioProcessPool::Job", align 8
   %wstatus.i = alloca i32, align 4
@@ -2077,17 +2077,15 @@ if.then55.i.i:                                    ; preds = %call54.i.i.noexc
   %94 = load ptr, ptr %92, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %d_result.i.i.i = getelementptr inbounds i8, ptr %94, i64 24
-  %95 = load ptr, ptr %d_result.i.i.i, align 8, !noalias !17
-  store ptr %95, ptr %res.i.i, align 8, !alias.scope !17
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %res.i.i, i64 8
   %_M_refcount3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %94, i64 32
-  %96 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !noalias !17
-  store ptr %96, ptr %_M_refcount.i.i.i.i.i.i, align 8, !alias.scope !17
-  %cmp.not.i.i.i.i.i.i16.i = icmp eq ptr %96, null
+  %95 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !noalias !17
+  %96 = load <2 x ptr>, ptr %d_result.i.i.i, align 8, !noalias !17
+  store <2 x ptr> %96, ptr %res.i.i, align 16, !alias.scope !17
+  %cmp.not.i.i.i.i.i.i16.i = icmp eq ptr %95, null
   br i1 %cmp.not.i.i.i.i.i.i16.i, label %_ZNK4cvc54main15CommandExecutor9getResultEv.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then55.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %96, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %95, i64 8
   %97 = load i8, ptr @__libc_single_threaded, align 1, !noalias !17
   %tobool.i.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %97, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -19879,17 +19877,15 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIN4cvc
 _ZNSt12_Vector_baseIN4cvc56parser7CommandESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4cvc56parser7CommandESaIS2_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4cvc56parser7CommandESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.cvc5::parser::Command", ptr %cond.i10, i64 %sub.ptr.div.i
-  %3 = load ptr, ptr %__args, align 8
-  store ptr %3, ptr %add.ptr, align 8
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %4 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
-  store ptr %4, ptr %_M_refcount.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
+  %4 = load <2 x ptr>, ptr %__args, align 8
+  store <2 x ptr> %4, ptr %add.ptr, align 8
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN4cvc56parser7CommandEEE9constructIS2_JRS2_EEEvRS3_PT_DpOT0_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIN4cvc56parser7CommandESaIS2_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i

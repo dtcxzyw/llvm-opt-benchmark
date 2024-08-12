@@ -3697,18 +3697,18 @@ _ZNSt10shared_ptrISt6vectorIhSaIhEEEaSERKS3_.exit: ; preds = %9, %_ZNSt16_Sp_cou
   tail call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull %64, ptr noundef %65) #26
   br label %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairINS2_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEEEESaISC_EE6spliceESt20_List_const_iteratorISC_ERSE_SG_.exit
 
-.loopexit:                                        ; preds = %109
+.loopexit:                                        ; preds = %108
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %70, %92
+.loopexit.split-lp:                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %70, %91
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj5lru1112KeyValuePairINS2_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEEEEEEED2Ev.exit10.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %91, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj5lru1112KeyValuePairINS2_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEEEEEEED2Ev.exit10.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %90, %_ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj5lru1112KeyValuePairINS2_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEEEEEEED2Ev.exit10.i.i.i ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %69 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #26
   resume { ptr, i32 } %eh.lpad-body
 
@@ -3729,85 +3729,83 @@ _ZNSt10shared_ptrISt6vectorIhSaIhEEEaSERKS3_.exit: ; preds = %9, %_ZNSt16_Sp_cou
   %77 = load i64, ptr %76, align 8
   store i64 %77, ptr %75, align 8
   %78 = getelementptr inbounds i8, ptr %73, i64 56
-  %79 = load ptr, ptr %2, align 8
-  store ptr %79, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %73, i64 64
-  %81 = getelementptr inbounds i8, ptr %2, i64 8
-  %82 = load ptr, ptr %81, align 8
-  store ptr %82, ptr %80, align 8
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %82, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %92, label %83
+  %79 = getelementptr inbounds i8, ptr %2, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = load <2 x ptr>, ptr %2, align 8
+  store <2 x ptr> %81, ptr %78, align 8
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %80, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %91, label %82
 
-83:                                               ; preds = %.noexc.i.i.i
-  %84 = getelementptr inbounds i8, ptr %82, i64 8
-  %85 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %85, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %89, label %86
+82:                                               ; preds = %.noexc.i.i.i
+  %83 = getelementptr inbounds i8, ptr %80, i64 8
+  %84 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %84, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %88, label %85
 
-86:                                               ; preds = %83
-  %87 = load i32, ptr %84, align 4
-  %88 = add nsw i32 %87, 1
-  store i32 %88, ptr %84, align 4
-  br label %92
+85:                                               ; preds = %82
+  %86 = load i32, ptr %83, align 4
+  %87 = add nsw i32 %86, 1
+  store i32 %87, ptr %83, align 4
+  br label %91
 
-89:                                               ; preds = %83
-  %90 = atomicrmw volatile add ptr %84, i32 1 acq_rel, align 4
-  br label %92
+88:                                               ; preds = %82
+  %89 = atomicrmw volatile add ptr %83, i32 1 acq_rel, align 4
+  br label %91
 
 _ZNSt15__allocated_ptrISaISt10_List_nodeIN5osgeo4proj5lru1112KeyValuePairINS2_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEEEEEEED2Ev.exit10.i.i.i: ; preds = %.noexc
-  %91 = landingpad { ptr, i32 }
+  %90 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %73) #27
   br label %.body
 
-92:                                               ; preds = %89, %86, %.noexc.i.i.i
+91:                                               ; preds = %88, %85, %.noexc.i.i.i
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef %72) #26
-  %93 = getelementptr inbounds i8, ptr %0, i64 120
-  %94 = load i64, ptr %93, align 8
-  %95 = add i64 %94, 1
-  store i64 %95, ptr %93, align 8
-  %96 = load ptr, ptr %71, align 8
-  %97 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN5osgeo4proj17NetworkChunkCache3KeyESt4pairIKS4_St14_List_iteratorINS2_5lru1112KeyValuePairIS4_St10shared_ptrISt6vectorIhSaIhEEEEEEESaISH_ENS_10_Select1stESt8equal_toIS4_ENS3_9KeyHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  %92 = getelementptr inbounds i8, ptr %0, i64 120
+  %93 = load i64, ptr %92, align 8
+  %94 = add i64 %93, 1
+  store i64 %94, ptr %92, align 8
+  %95 = load ptr, ptr %71, align 8
+  %96 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN5osgeo4proj17NetworkChunkCache3KeyESt4pairIKS4_St14_List_iteratorINS2_5lru1112KeyValuePairIS4_St10shared_ptrISt6vectorIhSaIhEEEEEEESaISH_ENS_10_Select1stESt8equal_toIS4_ENS3_9KeyHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %_ZNSt13unordered_mapIN5osgeo4proj17NetworkChunkCache3KeyESt14_List_iteratorINS1_5lru1112KeyValuePairIS3_St10shared_ptrISt6vectorIhSaIhEEEEEENS2_9KeyHasherESt8equal_toIS3_ESaISt4pairIKS3_SD_EEEixERSI_.exit unwind label %.loopexit.split-lp
 
-_ZNSt13unordered_mapIN5osgeo4proj17NetworkChunkCache3KeyESt14_List_iteratorINS1_5lru1112KeyValuePairIS3_St10shared_ptrISt6vectorIhSaIhEEEEEENS2_9KeyHasherESt8equal_toIS3_ESaISt4pairIKS3_SD_EEEixERSI_.exit: ; preds = %92
-  store ptr %96, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 128
-  %99 = load i64, ptr %98, align 8
-  %100 = icmp eq i64 %99, 0
-  br i1 %100, label %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairINS2_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEEEESaISC_EE6spliceESt20_List_const_iteratorISC_ERSE_SG_.exit, label %101
+_ZNSt13unordered_mapIN5osgeo4proj17NetworkChunkCache3KeyESt14_List_iteratorINS1_5lru1112KeyValuePairIS3_St10shared_ptrISt6vectorIhSaIhEEEEEENS2_9KeyHasherESt8equal_toIS3_ESaISt4pairIKS3_SD_EEEixERSI_.exit: ; preds = %91
+  store ptr %95, ptr %96, align 8
+  %97 = getelementptr inbounds i8, ptr %0, i64 128
+  %98 = load i64, ptr %97, align 8
+  %99 = icmp eq i64 %98, 0
+  br i1 %99, label %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairINS2_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEEEESaISC_EE6spliceESt20_List_const_iteratorISC_ERSE_SG_.exit, label %100
 
-101:                                              ; preds = %_ZNSt13unordered_mapIN5osgeo4proj17NetworkChunkCache3KeyESt14_List_iteratorINS1_5lru1112KeyValuePairIS3_St10shared_ptrISt6vectorIhSaIhEEEEEENS2_9KeyHasherESt8equal_toIS3_ESaISt4pairIKS3_SD_EEEixERSI_.exit
-  %102 = getelementptr inbounds i8, ptr %0, i64 136
-  %103 = load i64, ptr %102, align 8
-  %104 = add i64 %103, %99
-  %105 = getelementptr inbounds i8, ptr %0, i64 72
-  %106 = load i64, ptr %105, align 8
-  %.not.i = icmp ugt i64 %106, %104
-  %107 = icmp ugt i64 %106, %99
-  %or.cond.i = and i1 %.not.i, %107
+100:                                              ; preds = %_ZNSt13unordered_mapIN5osgeo4proj17NetworkChunkCache3KeyESt14_List_iteratorINS1_5lru1112KeyValuePairIS3_St10shared_ptrISt6vectorIhSaIhEEEEEENS2_9KeyHasherESt8equal_toIS3_ESaISt4pairIKS3_SD_EEEixERSI_.exit
+  %101 = getelementptr inbounds i8, ptr %0, i64 136
+  %102 = load i64, ptr %101, align 8
+  %103 = add i64 %102, %98
+  %104 = getelementptr inbounds i8, ptr %0, i64 72
+  %105 = load i64, ptr %104, align 8
+  %.not.i = icmp ugt i64 %105, %103
+  %106 = icmp ugt i64 %105, %98
+  %or.cond.i = and i1 %.not.i, %106
   br i1 %or.cond.i, label %.lr.ph.i, label %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairINS2_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEEEESaISC_EE6spliceESt20_List_const_iteratorISC_ERSE_SG_.exit
 
-.lr.ph.i:                                         ; preds = %101
-  %108 = getelementptr inbounds i8, ptr %0, i64 112
-  br label %109
+.lr.ph.i:                                         ; preds = %100
+  %107 = getelementptr inbounds i8, ptr %0, i64 112
+  br label %108
 
-109:                                              ; preds = %.noexc8, %.lr.ph.i
-  %110 = load ptr, ptr %108, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 16
-  %112 = invoke noundef i64 @_ZNSt10_HashtableIN5osgeo4proj17NetworkChunkCache3KeyESt4pairIKS3_St14_List_iteratorINS1_5lru1112KeyValuePairIS3_St10shared_ptrISt6vectorIhSaIhEEEEEEESaISG_ENSt8__detail10_Select1stESt8equal_toIS3_ENS2_9KeyHasherENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS5_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(40) %111)
+108:                                              ; preds = %.noexc8, %.lr.ph.i
+  %109 = load ptr, ptr %107, align 8
+  %110 = getelementptr inbounds i8, ptr %109, i64 16
+  %111 = invoke noundef i64 @_ZNSt10_HashtableIN5osgeo4proj17NetworkChunkCache3KeyESt4pairIKS3_St14_List_iteratorINS1_5lru1112KeyValuePairIS3_St10shared_ptrISt6vectorIhSaIhEEEEEEESaISG_ENSt8__detail10_Select1stESt8equal_toIS3_ENS2_9KeyHasherENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS5_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(40) %110)
           to label %.noexc8 unwind label %.loopexit
 
-.noexc8:                                          ; preds = %109
-  %113 = load ptr, ptr %108, align 8
-  tail call void @_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairINS2_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEEEESaISC_EE8_M_eraseESt14_List_iteratorISC_E(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr %113) #26
-  %114 = load i64, ptr %105, align 8
-  %115 = load i64, ptr %98, align 8
-  %116 = icmp ugt i64 %114, %115
-  br i1 %116, label %109, label %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairINS2_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEEEESaISC_EE6spliceESt20_List_const_iteratorISC_ERSE_SG_.exit, !llvm.loop !14
+.noexc8:                                          ; preds = %108
+  %112 = load ptr, ptr %107, align 8
+  tail call void @_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairINS2_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEEEESaISC_EE8_M_eraseESt14_List_iteratorISC_E(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr %112) #26
+  %113 = load i64, ptr %104, align 8
+  %114 = load i64, ptr %97, align 8
+  %115 = icmp ugt i64 %113, %114
+  br i1 %115, label %108, label %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairINS2_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEEEESaISC_EE6spliceESt20_List_const_iteratorISC_ERSE_SG_.exit, !llvm.loop !14
 
-_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairINS2_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEEEESaISC_EE6spliceESt20_List_const_iteratorISC_ERSE_SG_.exit: ; preds = %.noexc8, %101, %_ZNSt13unordered_mapIN5osgeo4proj17NetworkChunkCache3KeyESt14_List_iteratorINS1_5lru1112KeyValuePairIS3_St10shared_ptrISt6vectorIhSaIhEEEEEENS2_9KeyHasherESt8equal_toIS3_ESaISt4pairIKS3_SD_EEEixERSI_.exit, %68, %_ZNSt10shared_ptrISt6vectorIhSaIhEEEaSERKS3_.exit
-  %117 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #26
+_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairINS2_17NetworkChunkCache3KeyESt10shared_ptrISt6vectorIhSaIhEEEEESaISC_EE6spliceESt20_List_const_iteratorISC_ERSE_SG_.exit: ; preds = %.noexc8, %100, %_ZNSt13unordered_mapIN5osgeo4proj17NetworkChunkCache3KeyESt14_List_iteratorINS1_5lru1112KeyValuePairIS3_St10shared_ptrISt6vectorIhSaIhEEEEEENS2_9KeyHasherESt8equal_toIS3_ESaISt4pairIKS3_SD_EEEixERSI_.exit, %68, %_ZNSt10shared_ptrISt6vectorIhSaIhEEEaSERKS3_.exit
+  %116 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #26
   ret void
 }
 
@@ -4509,18 +4507,17 @@ define linkonce_odr void @_ZNSt12__shared_ptrISt6vectorIhSaIhEELN9__gnu_cxx12_Lo
   store ptr %1, ptr %3, align 16
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPSt6vectorIhSaIhEEEET_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %1)
-  %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = load <2 x ptr>, ptr %0, align 8
   %8 = load <2 x ptr>, ptr %3, align 16
-  store ptr %5, ptr %3, align 16
   store <2 x ptr> %8, ptr %0, align 8
-  store ptr %7, ptr %4, align 8
-  %.not.i.i = icmp eq ptr %7, null
+  store <2 x ptr> %7, ptr %3, align 16
+  %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrISt6vectorIhSaIhEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds i8, ptr %6, i64 8
   %11 = load atomic i64, ptr %10 acquire, align 8
   %12 = icmp eq i64 %11, 4294967297
   %13 = trunc i64 %11 to i32
@@ -4528,12 +4525,12 @@ define linkonce_odr void @_ZNSt12__shared_ptrISt6vectorIhSaIhEELN9__gnu_cxx12_Lo
 
 14:                                               ; preds = %9
   store i32 0, ptr %10, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 12
+  %15 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 0, ptr %15, align 4
-  %16 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(16) %7) #26
+  call void %18(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i
 
 19:                                               ; preds = %9
@@ -4556,11 +4553,11 @@ define linkonce_odr void @_ZNSt12__shared_ptrISt6vectorIhSaIhEELN9__gnu_cxx12_Lo
   br i1 %26, label %27, label %_ZNSt12__shared_ptrISt6vectorIhSaIhEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 27:                                               ; preds = %25
-  %28 = load ptr, ptr %7, align 8
+  %28 = load ptr, ptr %6, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(16) %7) #26
-  %31 = getelementptr inbounds i8, ptr %7, i64 12
+  call void %30(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
+  %31 = getelementptr inbounds i8, ptr %6, i64 12
   %32 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %32, 0
   br i1 %.not.i.i.i.i.i, label %36, label %33
@@ -4581,10 +4578,10 @@ define linkonce_odr void @_ZNSt12__shared_ptrISt6vectorIhSaIhEELN9__gnu_cxx12_Lo
   br i1 %39, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i, label %_ZNSt12__shared_ptrISt6vectorIhSaIhEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i: ; preds = %38, %14
-  %40 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %6, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
-  call void %42(ptr noundef nonnull align 8 dereferenceable(16) %7) #26
+  call void %42(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
   br label %_ZNSt12__shared_ptrISt6vectorIhSaIhEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrISt6vectorIhSaIhEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %2, %25, %38, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i

@@ -2035,10 +2035,12 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %conv = sext i16 %0 to i32
-  %mul = shl nsw i32 %conv, 1
-  %conv2 = sext i16 %2 to i32
-  %mul3 = shl nsw i32 %conv2, 2
+  %p0.sroa.3.0.extract.trunc = trunc nuw i48 %p0.sroa.3.0.extract.shift to i32
+  %p0.sroa.0.0.extract.trunc = trunc i48 %p0.coerce to i32
+  %sext83 = shl i32 %p0.sroa.0.0.extract.trunc, 16
+  %mul = ashr exact i32 %sext83, 15
+  %sext84 = shl i32 %p0.sroa.3.0.extract.trunc, 16
+  %mul3 = ashr exact i32 %sext84, 14
   %conv5 = sext i16 %p0.sroa.5.0.extract.trunc to i32
   %add4 = add nsw i32 %mul, %conv5
   %add6 = add nsw i32 %add4, %mul3

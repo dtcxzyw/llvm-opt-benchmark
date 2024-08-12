@@ -1158,21 +1158,21 @@ if.then.i:                                        ; preds = %entry
   %div.i.i = udiv i32 -2147483648, %conv4.i.i
   %compare_.i.i = getelementptr inbounds i8, ptr %call3.i, i64 8
   %allocator_.i.i = getelementptr inbounds i8, ptr %call3.i, i64 16
-  %15 = load <2 x ptr>, ptr %compare_.i, align 8
+  %15 = load ptr, ptr %allocator_.i, align 8
+  %16 = load <2 x ptr>, ptr %compare_.i, align 8
   store i16 %conv.i5.i, ptr %call3.i, align 8
   store i16 %conv2.i.i, ptr %kBranching_.i.i, align 2
   store i32 %div.i.i, ptr %kScaledInverseBranching_.i.i, align 4
-  store <2 x ptr> %15, ptr %compare_.i.i, align 8
+  store <2 x ptr> %16, ptr %compare_.i.i, align 8
   %head_.i.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   %sub.i.i.i = add nsw i32 %13, -1
   %conv.i.i.i = sext i32 %sub.i.i.i to i64
   %mul.i.i.i = shl nsw i64 %conv.i.i.i, 3
   %add.i.i.i = add nsw i64 %mul.i.i.i, 16
-  %16 = extractelement <2 x ptr> %15, i64 1
-  %vtable.i.i.i = load ptr, ptr %16, align 8
+  %vtable.i.i.i = load ptr, ptr %15, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %17 = load ptr, ptr %vfn.i.i.i, align 8
-  %call.i.i.i = call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef %add.i.i.i, i64 noundef 0, ptr noundef null)
+  %call.i.i.i = call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %add.i.i.i, i64 noundef 0, ptr noundef null)
   store ptr null, ptr %call.i.i.i, align 8
   store ptr %call.i.i.i, ptr %head_.i.i, align 8
   %max_height_.i.i = getelementptr inbounds i8, ptr %call3.i, i64 32

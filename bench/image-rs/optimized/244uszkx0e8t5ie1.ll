@@ -3671,7 +3671,7 @@ define hidden void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collec
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load <2 x i64>, ptr %3, align 8
-  %8 = extractelement <2 x i64> %7, i64 0
+  %8 = load i64, ptr %3, align 8, !noundef !7
   %.not = icmp ne i64 %8, 0
   %spec.select = zext i1 %.not to i64
   store <2 x i64> %7, ptr %6, align 8
@@ -3687,7 +3687,7 @@ define hidden void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collec
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load <2 x i64>, ptr %3, align 8
-  %8 = extractelement <2 x i64> %7, i64 0
+  %8 = load i64, ptr %3, align 8, !noundef !7
   %.not = icmp ne i64 %8, 0
   %spec.select = zext i1 %.not to i64
   store <2 x i64> %7, ptr %6, align 8
@@ -3703,7 +3703,7 @@ define hidden void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collec
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load <2 x i64>, ptr %3, align 8
-  %8 = extractelement <2 x i64> %7, i64 0
+  %8 = load i64, ptr %3, align 8, !noundef !7
   %.not = icmp ne i64 %8, 0
   %spec.select = zext i1 %.not to i64
   store <2 x i64> %7, ptr %6, align 8
@@ -11720,9 +11720,9 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17he12294bda8d9b14bE.exit.thread62.
 107:                                              ; preds = %100
   %108 = getelementptr inbounds [0 x { i16, i16 }], ptr %83, i64 0, i64 %.sroa.760.094.i
   %109 = load <2 x i16>, ptr %101, align 2, !noalias !1449
+  %110 = load i16, ptr %101, align 2, !range !1277, !noalias !1449, !noundef !7
   store <2 x i16> %109, ptr %108, align 2
-  %110 = bitcast <2 x i16> %109 to <32 x i1>
-  %trunc.i = extractelement <32 x i1> %110, i64 0
+  %trunc.i = trunc nuw i16 %110 to i1
   br i1 %trunc.i, label %111, label %98
 
 111:                                              ; preds = %107
@@ -23029,7 +23029,7 @@ _ZN5image6codecs4webp3vp810top_pixels17h125e24b29fae87b2E.exit.i25: ; preds = %2
   %276 = add nuw nsw <4 x i16> %275, <i16 2, i16 poison, i16 poison, i16 2>
   %277 = and <4 x i16> %275, <i16 poison, i16 255, i16 255, i16 poison>
   %278 = shufflevector <4 x i16> %276, <4 x i16> %277, <4 x i32> <i32 0, i32 5, i32 6, i32 3>
-  %279 = extractelement <4 x i16> %276, i64 0
+  %279 = add nuw nsw i16 %264, 2
   %280 = add nuw nsw i16 %279, %254
   %281 = add nuw nsw i16 %280, %263
   %282 = lshr i16 %281, 2

@@ -1431,7 +1431,7 @@ if.then:                                          ; preds = %invoke.cont
 invoke.cont5:                                     ; preds = %invoke.cont
   %storage_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %1 = load <2 x ptr>, ptr %storage_.i.i, align 8, !noalias !36
-  %2 = extractelement <2 x ptr> %1, i64 0
+  %2 = load ptr, ptr %storage_.i.i, align 8, !noalias !36
   %is_cpu_.i = getelementptr inbounds i8, ptr %2, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i, i8 0, i64 16, i1 false)
   %3 = load i8, ptr %is_cpu_.i, align 1
@@ -2396,7 +2396,7 @@ invoke.cont4.i:                                   ; preds = %entry
   %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !50
-  %2 = extractelement <2 x ptr> %1, i64 0
+  %2 = load ptr, ptr %storage_.i.i.i, align 8, !noalias !50
   %is_cpu_.i.i = getelementptr inbounds i8, ptr %2, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !47
   %3 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !47
@@ -2951,7 +2951,7 @@ invoke.cont4.i:                                   ; preds = %entry
   %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !61
-  %2 = extractelement <2 x ptr> %1, i64 0
+  %2 = load ptr, ptr %storage_.i.i.i, align 8, !noalias !61
   %is_cpu_.i.i = getelementptr inbounds i8, ptr %2, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !58
   %3 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !58
@@ -3506,7 +3506,7 @@ invoke.cont4.i:                                   ; preds = %entry
   %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !72
-  %2 = extractelement <2 x ptr> %1, i64 0
+  %2 = load ptr, ptr %storage_.i.i.i, align 8, !noalias !72
   %is_cpu_.i.i = getelementptr inbounds i8, ptr %2, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !69
   %3 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !69
@@ -4061,7 +4061,7 @@ invoke.cont4.i:                                   ; preds = %entry
   %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !83
-  %2 = extractelement <2 x ptr> %1, i64 0
+  %2 = load ptr, ptr %storage_.i.i.i, align 8, !noalias !83
   %is_cpu_.i.i = getelementptr inbounds i8, ptr %2, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !80
   %3 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !80
@@ -4620,7 +4620,7 @@ invoke.cont4.i:                                   ; preds = %entry
   %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !94
-  %2 = extractelement <2 x ptr> %1, i64 0
+  %2 = load ptr, ptr %storage_.i.i.i, align 8, !noalias !94
   %is_cpu_.i.i = getelementptr inbounds i8, ptr %2, i64 9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !91
   %3 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !91

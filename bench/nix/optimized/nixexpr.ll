@@ -2503,17 +2503,16 @@ define void @_ZN3nix7ExprInt8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9Stati
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   store ptr %0, ptr %4, align 8, !alias.scope !21
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = load ptr, ptr %2, align 8, !noalias !21
-  store ptr %10, ptr %9, align 8, !alias.scope !21
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  %13 = load ptr, ptr %12, align 8, !noalias !21
-  store ptr %13, ptr %11, align 8, !alias.scope !21
-  %.not.i.i.i.i.i = icmp eq ptr %13, null
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !21
+  %13 = load <2 x ptr>, ptr %2, align 8, !noalias !21
+  store <2 x ptr> %13, ptr %9, align 8, !alias.scope !21
+  %.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i.i, label %_ZSt9make_pairIPN3nix7ExprIntERKSt10shared_ptrIKNS0_9StaticEnvEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !21
   %.not.i.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %.not.i.i.i.i.i.i, label %20, label %17
@@ -2566,7 +2565,7 @@ _ZNSt3mapIPKN3nix4ExprEKSt10shared_ptrIKNS0_9StaticEnvEESt4lessIS3_ESaISt4pairIK
           to label %35 unwind label %71
 
 35:                                               ; preds = %30, %.critedge.i
-  %36 = load ptr, ptr %11, align 8
+  %36 = load ptr, ptr %10, align 8
   %.not.i.i.i.i5 = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i5, label %_ZNSt4pairIPN3nix7ExprIntESt10shared_ptrIKNS0_9StaticEnvEEED2Ev.exit, label %37
 
@@ -2740,17 +2739,16 @@ define void @_ZN3nix9ExprFloat8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9Sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   store ptr %0, ptr %4, align 8, !alias.scope !25
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = load ptr, ptr %2, align 8, !noalias !25
-  store ptr %10, ptr %9, align 8, !alias.scope !25
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  %13 = load ptr, ptr %12, align 8, !noalias !25
-  store ptr %13, ptr %11, align 8, !alias.scope !25
-  %.not.i.i.i.i.i = icmp eq ptr %13, null
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !25
+  %13 = load <2 x ptr>, ptr %2, align 8, !noalias !25
+  store <2 x ptr> %13, ptr %9, align 8, !alias.scope !25
+  %.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i.i, label %_ZSt9make_pairIPN3nix9ExprFloatERKSt10shared_ptrIKNS0_9StaticEnvEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !25
   %.not.i.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %.not.i.i.i.i.i.i, label %20, label %17
@@ -2803,7 +2801,7 @@ _ZNSt3mapIPKN3nix4ExprEKSt10shared_ptrIKNS0_9StaticEnvEESt4lessIS3_ESaISt4pairIK
           to label %35 unwind label %71
 
 35:                                               ; preds = %30, %.critedge.i
-  %36 = load ptr, ptr %11, align 8
+  %36 = load ptr, ptr %10, align 8
   %.not.i.i.i.i5 = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i5, label %_ZNSt4pairIPN3nix9ExprFloatESt10shared_ptrIKNS0_9StaticEnvEEED2Ev.exit, label %37
 
@@ -2977,17 +2975,16 @@ define void @_ZN3nix10ExprString8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9S
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   store ptr %0, ptr %4, align 8, !alias.scope !28
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = load ptr, ptr %2, align 8, !noalias !28
-  store ptr %10, ptr %9, align 8, !alias.scope !28
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  %13 = load ptr, ptr %12, align 8, !noalias !28
-  store ptr %13, ptr %11, align 8, !alias.scope !28
-  %.not.i.i.i.i.i = icmp eq ptr %13, null
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !28
+  %13 = load <2 x ptr>, ptr %2, align 8, !noalias !28
+  store <2 x ptr> %13, ptr %9, align 8, !alias.scope !28
+  %.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i.i, label %_ZSt9make_pairIPN3nix10ExprStringERKSt10shared_ptrIKNS0_9StaticEnvEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !28
   %.not.i.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %.not.i.i.i.i.i.i, label %20, label %17
@@ -3040,7 +3037,7 @@ _ZNSt3mapIPKN3nix4ExprEKSt10shared_ptrIKNS0_9StaticEnvEESt4lessIS3_ESaISt4pairIK
           to label %35 unwind label %71
 
 35:                                               ; preds = %30, %.critedge.i
-  %36 = load ptr, ptr %11, align 8
+  %36 = load ptr, ptr %10, align 8
   %.not.i.i.i.i5 = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i5, label %_ZNSt4pairIPN3nix10ExprStringESt10shared_ptrIKNS0_9StaticEnvEEED2Ev.exit, label %37
 
@@ -3214,17 +3211,16 @@ define void @_ZN3nix8ExprPath8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9Stat
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   store ptr %0, ptr %4, align 8, !alias.scope !31
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = load ptr, ptr %2, align 8, !noalias !31
-  store ptr %10, ptr %9, align 8, !alias.scope !31
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  %13 = load ptr, ptr %12, align 8, !noalias !31
-  store ptr %13, ptr %11, align 8, !alias.scope !31
-  %.not.i.i.i.i.i = icmp eq ptr %13, null
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !31
+  %13 = load <2 x ptr>, ptr %2, align 8, !noalias !31
+  store <2 x ptr> %13, ptr %9, align 8, !alias.scope !31
+  %.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i.i, label %_ZSt9make_pairIPN3nix8ExprPathERKSt10shared_ptrIKNS0_9StaticEnvEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !31
   %.not.i.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %.not.i.i.i.i.i.i, label %20, label %17
@@ -3277,7 +3273,7 @@ _ZNSt3mapIPKN3nix4ExprEKSt10shared_ptrIKNS0_9StaticEnvEESt4lessIS3_ESaISt4pairIK
           to label %35 unwind label %71
 
 35:                                               ; preds = %30, %.critedge.i
-  %36 = load ptr, ptr %11, align 8
+  %36 = load ptr, ptr %10, align 8
   %.not.i.i.i.i5 = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i5, label %_ZNSt4pairIPN3nix8ExprPathESt10shared_ptrIKNS0_9StaticEnvEEED2Ev.exit, label %37
 
@@ -3452,17 +3448,16 @@ define void @_ZN3nix7ExprVar8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9Stati
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
   store ptr %0, ptr %4, align 8, !alias.scope !34
   %10 = getelementptr inbounds i8, ptr %4, i64 8
-  %11 = load ptr, ptr %2, align 8, !noalias !34
-  store ptr %11, ptr %10, align 8, !alias.scope !34
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
-  %14 = load ptr, ptr %13, align 8, !noalias !34
-  store ptr %14, ptr %12, align 8, !alias.scope !34
-  %.not.i.i.i.i.i = icmp eq ptr %14, null
+  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = load ptr, ptr %12, align 8, !noalias !34
+  %14 = load <2 x ptr>, ptr %2, align 8, !noalias !34
+  store <2 x ptr> %14, ptr %10, align 8, !alias.scope !34
+  %.not.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i.i.i, label %_ZSt9make_pairIPN3nix7ExprVarERKSt10shared_ptrIKNS0_9StaticEnvEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit, label %15
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds i8, ptr %13, i64 8
   %17 = load i8, ptr @__libc_single_threaded, align 1, !noalias !34
   %.not.i.i.i.i.i.i = icmp eq i8 %17, 0
   br i1 %.not.i.i.i.i.i.i, label %21, label %18
@@ -3515,7 +3510,7 @@ _ZNSt3mapIPKN3nix4ExprEKSt10shared_ptrIKNS0_9StaticEnvEESt4lessIS3_ESaISt4pairIK
           to label %36 unwind label %72
 
 36:                                               ; preds = %31, %.critedge.i
-  %37 = load ptr, ptr %12, align 8
+  %37 = load ptr, ptr %11, align 8
   %.not.i.i.i.i33 = icmp eq ptr %37, null
   br i1 %.not.i.i.i.i33, label %_ZNSt4pairIPN3nix7ExprVarESt10shared_ptrIKNS0_9StaticEnvEEED2Ev.exit, label %38
 
@@ -3822,17 +3817,16 @@ define void @_ZN3nix15ExprInheritFrom8bindVarsERNS_9EvalStateERKSt10shared_ptrIK
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   store ptr %0, ptr %4, align 8, !alias.scope !40
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = load ptr, ptr %2, align 8, !noalias !40
-  store ptr %10, ptr %9, align 8, !alias.scope !40
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  %13 = load ptr, ptr %12, align 8, !noalias !40
-  store ptr %13, ptr %11, align 8, !alias.scope !40
-  %.not.i.i.i.i.i = icmp eq ptr %13, null
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !40
+  %13 = load <2 x ptr>, ptr %2, align 8, !noalias !40
+  store <2 x ptr> %13, ptr %9, align 8, !alias.scope !40
+  %.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i.i, label %_ZSt9make_pairIPN3nix15ExprInheritFromERKSt10shared_ptrIKNS0_9StaticEnvEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !40
   %.not.i.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %.not.i.i.i.i.i.i, label %20, label %17
@@ -3885,7 +3879,7 @@ _ZNSt3mapIPKN3nix4ExprEKSt10shared_ptrIKNS0_9StaticEnvEESt4lessIS3_ESaISt4pairIK
           to label %35 unwind label %71
 
 35:                                               ; preds = %30, %.critedge.i
-  %36 = load ptr, ptr %11, align 8
+  %36 = load ptr, ptr %10, align 8
   %.not.i.i.i.i5 = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i5, label %_ZNSt4pairIPN3nix15ExprInheritFromESt10shared_ptrIKNS0_9StaticEnvEEED2Ev.exit, label %37
 
@@ -4059,17 +4053,16 @@ define void @_ZN3nix10ExprSelect8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9S
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
   store ptr %0, ptr %4, align 8, !alias.scope !43
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = load ptr, ptr %2, align 8, !noalias !43
-  store ptr %10, ptr %9, align 8, !alias.scope !43
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  %13 = load ptr, ptr %12, align 8, !noalias !43
-  store ptr %13, ptr %11, align 8, !alias.scope !43
-  %.not.i.i.i.i.i = icmp eq ptr %13, null
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !43
+  %13 = load <2 x ptr>, ptr %2, align 8, !noalias !43
+  store <2 x ptr> %13, ptr %9, align 8, !alias.scope !43
+  %.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i.i, label %_ZSt9make_pairIPN3nix10ExprSelectERKSt10shared_ptrIKNS0_9StaticEnvEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !43
   %.not.i.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %.not.i.i.i.i.i.i, label %20, label %17
@@ -4122,7 +4115,7 @@ _ZNSt3mapIPKN3nix4ExprEKSt10shared_ptrIKNS0_9StaticEnvEESt4lessIS3_ESaISt4pairIK
           to label %35 unwind label %71
 
 35:                                               ; preds = %30, %.critedge.i
-  %36 = load ptr, ptr %11, align 8
+  %36 = load ptr, ptr %10, align 8
   %.not.i.i.i.i16 = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i16, label %_ZNSt4pairIPN3nix10ExprSelectESt10shared_ptrIKNS0_9StaticEnvEEED2Ev.exit, label %37
 
@@ -4343,17 +4336,16 @@ define void @_ZN3nix13ExprOpHasAttr8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   store ptr %0, ptr %4, align 8, !alias.scope !46
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = load ptr, ptr %2, align 8, !noalias !46
-  store ptr %10, ptr %9, align 8, !alias.scope !46
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  %13 = load ptr, ptr %12, align 8, !noalias !46
-  store ptr %13, ptr %11, align 8, !alias.scope !46
-  %.not.i.i.i.i.i = icmp eq ptr %13, null
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !46
+  %13 = load <2 x ptr>, ptr %2, align 8, !noalias !46
+  store <2 x ptr> %13, ptr %9, align 8, !alias.scope !46
+  %.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i.i, label %_ZSt9make_pairIPN3nix13ExprOpHasAttrERKSt10shared_ptrIKNS0_9StaticEnvEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !46
   %.not.i.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %.not.i.i.i.i.i.i, label %20, label %17
@@ -4406,7 +4398,7 @@ _ZNSt3mapIPKN3nix4ExprEKSt10shared_ptrIKNS0_9StaticEnvEESt4lessIS3_ESaISt4pairIK
           to label %35 unwind label %71
 
 35:                                               ; preds = %30, %.critedge.i
-  %36 = load ptr, ptr %11, align 8
+  %36 = load ptr, ptr %10, align 8
   %.not.i.i.i.i13 = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i13, label %_ZNSt4pairIPN3nix13ExprOpHasAttrESt10shared_ptrIKNS0_9StaticEnvEEED2Ev.exit, label %37
 
@@ -4765,17 +4757,16 @@ define void @_ZN3nix9ExprAttrs8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9Sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   store ptr %0, ptr %7, align 8, !alias.scope !55
   %15 = getelementptr inbounds i8, ptr %7, i64 8
-  %16 = load ptr, ptr %2, align 8, !noalias !55
-  store ptr %16, ptr %15, align 8, !alias.scope !55
-  %17 = getelementptr inbounds i8, ptr %7, i64 16
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
-  %19 = load ptr, ptr %18, align 8, !noalias !55
-  store ptr %19, ptr %17, align 8, !alias.scope !55
-  %.not.i.i.i.i.i = icmp eq ptr %19, null
+  %16 = getelementptr inbounds i8, ptr %7, i64 16
+  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = load ptr, ptr %17, align 8, !noalias !55
+  %19 = load <2 x ptr>, ptr %2, align 8, !noalias !55
+  store <2 x ptr> %19, ptr %15, align 8, !alias.scope !55
+  %.not.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i.i, label %_ZSt9make_pairIPN3nix9ExprAttrsERKSt10shared_ptrIKNS0_9StaticEnvEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit, label %20
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds i8, ptr %18, i64 8
   %22 = load i8, ptr @__libc_single_threaded, align 1, !noalias !55
   %.not.i.i.i.i.i.i = icmp eq i8 %22, 0
   br i1 %.not.i.i.i.i.i.i, label %26, label %23
@@ -4828,7 +4819,7 @@ _ZNSt3mapIPKN3nix4ExprEKSt10shared_ptrIKNS0_9StaticEnvEESt4lessIS3_ESaISt4pairIK
           to label %41 unwind label %77
 
 41:                                               ; preds = %36, %.critedge.i
-  %42 = load ptr, ptr %17, align 8
+  %42 = load ptr, ptr %16, align 8
   %.not.i.i.i.i41 = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i41, label %_ZNSt4pairIPN3nix9ExprAttrsESt10shared_ptrIKNS0_9StaticEnvEEED2Ev.exit, label %43
 
@@ -5695,17 +5686,16 @@ define void @_ZN3nix8ExprList8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9Stat
   tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
   store ptr %0, ptr %4, align 8, !alias.scope !85
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = load ptr, ptr %2, align 8, !noalias !85
-  store ptr %10, ptr %9, align 8, !alias.scope !85
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  %13 = load ptr, ptr %12, align 8, !noalias !85
-  store ptr %13, ptr %11, align 8, !alias.scope !85
-  %.not.i.i.i.i.i = icmp eq ptr %13, null
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !85
+  %13 = load <2 x ptr>, ptr %2, align 8, !noalias !85
+  store <2 x ptr> %13, ptr %9, align 8, !alias.scope !85
+  %.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i.i, label %_ZSt9make_pairIPN3nix8ExprListERKSt10shared_ptrIKNS0_9StaticEnvEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !85
   %.not.i.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %.not.i.i.i.i.i.i, label %20, label %17
@@ -5758,7 +5748,7 @@ _ZNSt3mapIPKN3nix4ExprEKSt10shared_ptrIKNS0_9StaticEnvEESt4lessIS3_ESaISt4pairIK
           to label %35 unwind label %71
 
 35:                                               ; preds = %30, %.critedge.i
-  %36 = load ptr, ptr %11, align 8
+  %36 = load ptr, ptr %10, align 8
   %.not.i.i.i.i10 = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i10, label %_ZNSt4pairIPN3nix8ExprListESt10shared_ptrIKNS0_9StaticEnvEEED2Ev.exit, label %37
 
@@ -5954,17 +5944,16 @@ define void @_ZN3nix10ExprLambda8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9S
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
   store ptr %0, ptr %4, align 8, !alias.scope !88
   %12 = getelementptr inbounds i8, ptr %4, i64 8
-  %13 = load ptr, ptr %2, align 8, !noalias !88
-  store ptr %13, ptr %12, align 8, !alias.scope !88
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
-  %16 = load ptr, ptr %15, align 8, !noalias !88
-  store ptr %16, ptr %14, align 8, !alias.scope !88
-  %.not.i.i.i.i.i = icmp eq ptr %16, null
+  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = load ptr, ptr %14, align 8, !noalias !88
+  %16 = load <2 x ptr>, ptr %2, align 8, !noalias !88
+  store <2 x ptr> %16, ptr %12, align 8, !alias.scope !88
+  %.not.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i.i, label %_ZSt9make_pairIPN3nix10ExprLambdaERKSt10shared_ptrIKNS0_9StaticEnvEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit, label %17
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds i8, ptr %15, i64 8
   %19 = load i8, ptr @__libc_single_threaded, align 1, !noalias !88
   %.not.i.i.i.i.i.i = icmp eq i8 %19, 0
   br i1 %.not.i.i.i.i.i.i, label %23, label %20
@@ -6017,7 +6006,7 @@ _ZNSt3mapIPKN3nix4ExprEKSt10shared_ptrIKNS0_9StaticEnvEESt4lessIS3_ESaISt4pairIK
           to label %38 unwind label %74
 
 38:                                               ; preds = %33, %.critedge.i
-  %39 = load ptr, ptr %14, align 8
+  %39 = load ptr, ptr %13, align 8
   %.not.i.i.i.i25 = icmp eq ptr %39, null
   br i1 %.not.i.i.i.i25, label %_ZNSt4pairIPN3nix10ExprLambdaESt10shared_ptrIKNS0_9StaticEnvEEED2Ev.exit, label %40
 
@@ -6769,17 +6758,16 @@ define void @_ZN3nix8ExprCall8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9Stat
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
   store ptr %0, ptr %4, align 8, !alias.scope !103
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = load ptr, ptr %2, align 8, !noalias !103
-  store ptr %10, ptr %9, align 8, !alias.scope !103
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  %13 = load ptr, ptr %12, align 8, !noalias !103
-  store ptr %13, ptr %11, align 8, !alias.scope !103
-  %.not.i.i.i.i.i = icmp eq ptr %13, null
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !103
+  %13 = load <2 x ptr>, ptr %2, align 8, !noalias !103
+  store <2 x ptr> %13, ptr %9, align 8, !alias.scope !103
+  %.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i.i, label %_ZSt9make_pairIPN3nix8ExprCallERKSt10shared_ptrIKNS0_9StaticEnvEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !103
   %.not.i.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %.not.i.i.i.i.i.i, label %20, label %17
@@ -6832,7 +6820,7 @@ _ZNSt3mapIPKN3nix4ExprEKSt10shared_ptrIKNS0_9StaticEnvEESt4lessIS3_ESaISt4pairIK
           to label %35 unwind label %71
 
 35:                                               ; preds = %30, %.critedge.i
-  %36 = load ptr, ptr %11, align 8
+  %36 = load ptr, ptr %10, align 8
   %.not.i.i.i.i12 = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i12, label %_ZNSt4pairIPN3nix8ExprCallESt10shared_ptrIKNS0_9StaticEnvEEED2Ev.exit, label %37
 
@@ -7022,7 +7010,7 @@ _ZNSt10shared_ptrIKN3nix9StaticEnvEED2Ev.exit:    ; preds = %1, %20, %33, %_ZNSt
 define void @_ZN3nix7ExprLet8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9StaticEnvEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(1248) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr.135", align 8
   %5 = alloca %"class.std::shared_ptr.135", align 8
-  %6 = alloca %"class.std::shared_ptr.169", align 8
+  %6 = alloca %"class.std::shared_ptr.169", align 16
   %7 = alloca %"class.std::shared_ptr.169", align 8
   %8 = alloca %"struct.std::pair.234", align 8
   %.val.val = load ptr, ptr %2, align 8
@@ -7135,7 +7123,7 @@ _ZNSt10shared_ptrIN3nix9StaticEnvEED2Ev.exit.loopexit.i: ; preds = %40
   %46 = phi ptr [ %.pre, %_ZNSt10shared_ptrIN3nix9StaticEnvEED2Ev.exit.loopexit.i ], [ %.val17.val, %_ZSt11make_sharedIN3nix9StaticEnvEJDnPKS1_mEESt10shared_ptrIT_EDpOT0_.exit.i ]
   %47 = phi ptr [ %.pre6.i, %_ZNSt10shared_ptrIN3nix9StaticEnvEED2Ev.exit.loopexit.i ], [ %12, %_ZSt11make_sharedIN3nix9StaticEnvEJDnPKS1_mEESt10shared_ptrIT_EDpOT0_.exit.i ]
   %48 = phi ptr [ %.pre.i, %_ZNSt10shared_ptrIN3nix9StaticEnvEED2Ev.exit.loopexit.i ], [ %15, %_ZSt11make_sharedIN3nix9StaticEnvEJDnPKS1_mEESt10shared_ptrIT_EDpOT0_.exit.i ]
-  store ptr %48, ptr %6, align 8, !alias.scope !106
+  store ptr %48, ptr %6, align 16, !alias.scope !106
   %49 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %47, ptr %49, align 8, !alias.scope !106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -7272,16 +7260,15 @@ _ZNK3nix9ExprAttrs7AttrDef12chooseByKindISt10shared_ptrIKNS_9StaticEnvEEEERKT_S9
   call void @llvm.experimental.noalias.scope.decl(metadata !123)
   store ptr %0, ptr %8, align 8, !alias.scope !123
   %98 = getelementptr inbounds i8, ptr %8, i64 8
-  %99 = load ptr, ptr %6, align 8, !noalias !123
-  store ptr %99, ptr %98, align 8, !alias.scope !123
-  %100 = getelementptr inbounds i8, ptr %8, i64 16
-  %101 = load ptr, ptr %49, align 8, !noalias !123
-  store ptr %101, ptr %100, align 8, !alias.scope !123
-  %.not.i.i.i.i.i = icmp eq ptr %101, null
+  %99 = getelementptr inbounds i8, ptr %8, i64 16
+  %100 = load ptr, ptr %49, align 8, !noalias !123
+  %101 = load <2 x ptr>, ptr %6, align 16, !noalias !123
+  store <2 x ptr> %101, ptr %98, align 8, !alias.scope !123
+  %.not.i.i.i.i.i = icmp eq ptr %100, null
   br i1 %.not.i.i.i.i.i, label %_ZSt9make_pairIPN3nix7ExprLetERSt10shared_ptrIKNS0_9StaticEnvEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS9_INSA_IT0_E4typeEE6__typeEEOSB_OSG_.exit, label %102
 
 102:                                              ; preds = %96
-  %103 = getelementptr inbounds i8, ptr %101, i64 8
+  %103 = getelementptr inbounds i8, ptr %100, i64 8
   %104 = load i8, ptr @__libc_single_threaded, align 1, !noalias !123
   %.not.i.i.i.i.i.i = icmp eq i8 %104, 0
   br i1 %.not.i.i.i.i.i.i, label %108, label %105
@@ -7334,7 +7321,7 @@ _ZNSt3mapIPKN3nix4ExprEKSt10shared_ptrIKNS0_9StaticEnvEESt4lessIS3_ESaISt4pairIK
           to label %123 unwind label %159
 
 123:                                              ; preds = %118, %.critedge.i
-  %124 = load ptr, ptr %100, align 8
+  %124 = load ptr, ptr %99, align 8
   %.not.i.i.i.i20 = icmp eq ptr %124, null
   br i1 %.not.i.i.i.i20, label %_ZNSt4pairIPN3nix7ExprLetESt10shared_ptrIKNS0_9StaticEnvEEED2Ev.exit, label %125
 
@@ -7676,17 +7663,16 @@ define void @_ZN3nix8ExprWith8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9Stat
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
   store ptr %0, ptr %4, align 8, !alias.scope !126
   %11 = getelementptr inbounds i8, ptr %4, i64 8
-  %12 = load ptr, ptr %2, align 8, !noalias !126
-  store ptr %12, ptr %11, align 8, !alias.scope !126
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
-  %15 = load ptr, ptr %14, align 8, !noalias !126
-  store ptr %15, ptr %13, align 8, !alias.scope !126
-  %.not.i.i.i.i.i = icmp eq ptr %15, null
+  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = load ptr, ptr %13, align 8, !noalias !126
+  %15 = load <2 x ptr>, ptr %2, align 8, !noalias !126
+  store <2 x ptr> %15, ptr %11, align 8, !alias.scope !126
+  %.not.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i.i, label %_ZSt9make_pairIPN3nix8ExprWithERKSt10shared_ptrIKNS0_9StaticEnvEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit, label %16
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds i8, ptr %14, i64 8
   %18 = load i8, ptr @__libc_single_threaded, align 1, !noalias !126
   %.not.i.i.i.i.i.i = icmp eq i8 %18, 0
   br i1 %.not.i.i.i.i.i.i, label %22, label %19
@@ -7739,7 +7725,7 @@ _ZNSt3mapIPKN3nix4ExprEKSt10shared_ptrIKNS0_9StaticEnvEESt4lessIS3_ESaISt4pairIK
           to label %37 unwind label %73
 
 37:                                               ; preds = %32, %.critedge.i
-  %38 = load ptr, ptr %13, align 8
+  %38 = load ptr, ptr %12, align 8
   %.not.i.i.i.i28 = icmp eq ptr %38, null
   br i1 %.not.i.i.i.i28, label %_ZNSt4pairIPN3nix8ExprWithESt10shared_ptrIKNS0_9StaticEnvEEED2Ev.exit, label %39
 
@@ -8162,17 +8148,16 @@ define void @_ZN3nix6ExprIf8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9Static
   tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
   store ptr %0, ptr %4, align 8, !alias.scope !137
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = load ptr, ptr %2, align 8, !noalias !137
-  store ptr %10, ptr %9, align 8, !alias.scope !137
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  %13 = load ptr, ptr %12, align 8, !noalias !137
-  store ptr %13, ptr %11, align 8, !alias.scope !137
-  %.not.i.i.i.i.i = icmp eq ptr %13, null
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !137
+  %13 = load <2 x ptr>, ptr %2, align 8, !noalias !137
+  store <2 x ptr> %13, ptr %9, align 8, !alias.scope !137
+  %.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i.i, label %_ZSt9make_pairIPN3nix6ExprIfERKSt10shared_ptrIKNS0_9StaticEnvEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !137
   %.not.i.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %.not.i.i.i.i.i.i, label %20, label %17
@@ -8225,7 +8210,7 @@ _ZNSt3mapIPKN3nix4ExprEKSt10shared_ptrIKNS0_9StaticEnvEESt4lessIS3_ESaISt4pairIK
           to label %35 unwind label %71
 
 35:                                               ; preds = %30, %.critedge.i
-  %36 = load ptr, ptr %11, align 8
+  %36 = load ptr, ptr %10, align 8
   %.not.i.i.i.i11 = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i11, label %_ZNSt4pairIPN3nix6ExprIfESt10shared_ptrIKNS0_9StaticEnvEEED2Ev.exit, label %37
 
@@ -8417,17 +8402,16 @@ define void @_ZN3nix10ExprAssert8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9S
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
   store ptr %0, ptr %4, align 8, !alias.scope !140
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = load ptr, ptr %2, align 8, !noalias !140
-  store ptr %10, ptr %9, align 8, !alias.scope !140
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  %13 = load ptr, ptr %12, align 8, !noalias !140
-  store ptr %13, ptr %11, align 8, !alias.scope !140
-  %.not.i.i.i.i.i = icmp eq ptr %13, null
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !140
+  %13 = load <2 x ptr>, ptr %2, align 8, !noalias !140
+  store <2 x ptr> %13, ptr %9, align 8, !alias.scope !140
+  %.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i.i, label %_ZSt9make_pairIPN3nix10ExprAssertERKSt10shared_ptrIKNS0_9StaticEnvEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !140
   %.not.i.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %.not.i.i.i.i.i.i, label %20, label %17
@@ -8480,7 +8464,7 @@ _ZNSt3mapIPKN3nix4ExprEKSt10shared_ptrIKNS0_9StaticEnvEESt4lessIS3_ESaISt4pairIK
           to label %35 unwind label %71
 
 35:                                               ; preds = %30, %.critedge.i
-  %36 = load ptr, ptr %11, align 8
+  %36 = load ptr, ptr %10, align 8
   %.not.i.i.i.i9 = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i9, label %_ZNSt4pairIPN3nix10ExprAssertESt10shared_ptrIKNS0_9StaticEnvEEED2Ev.exit, label %37
 
@@ -8666,17 +8650,16 @@ define void @_ZN3nix9ExprOpNot8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9Sta
   tail call void @llvm.experimental.noalias.scope.decl(metadata !143)
   store ptr %0, ptr %4, align 8, !alias.scope !143
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = load ptr, ptr %2, align 8, !noalias !143
-  store ptr %10, ptr %9, align 8, !alias.scope !143
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  %13 = load ptr, ptr %12, align 8, !noalias !143
-  store ptr %13, ptr %11, align 8, !alias.scope !143
-  %.not.i.i.i.i.i = icmp eq ptr %13, null
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !143
+  %13 = load <2 x ptr>, ptr %2, align 8, !noalias !143
+  store <2 x ptr> %13, ptr %9, align 8, !alias.scope !143
+  %.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i.i, label %_ZSt9make_pairIPN3nix9ExprOpNotERKSt10shared_ptrIKNS0_9StaticEnvEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !143
   %.not.i.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %.not.i.i.i.i.i.i, label %20, label %17
@@ -8729,7 +8712,7 @@ _ZNSt3mapIPKN3nix4ExprEKSt10shared_ptrIKNS0_9StaticEnvEESt4lessIS3_ESaISt4pairIK
           to label %35 unwind label %71
 
 35:                                               ; preds = %30, %.critedge.i
-  %36 = load ptr, ptr %11, align 8
+  %36 = load ptr, ptr %10, align 8
   %.not.i.i.i.i7 = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i7, label %_ZNSt4pairIPN3nix9ExprOpNotESt10shared_ptrIKNS0_9StaticEnvEEED2Ev.exit, label %37
 
@@ -8909,17 +8892,16 @@ define void @_ZN3nix17ExprConcatStrings8bindVarsERNS_9EvalStateERKSt10shared_ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
   store ptr %0, ptr %4, align 8, !alias.scope !146
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = load ptr, ptr %2, align 8, !noalias !146
-  store ptr %10, ptr %9, align 8, !alias.scope !146
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  %13 = load ptr, ptr %12, align 8, !noalias !146
-  store ptr %13, ptr %11, align 8, !alias.scope !146
-  %.not.i.i.i.i.i = icmp eq ptr %13, null
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !146
+  %13 = load <2 x ptr>, ptr %2, align 8, !noalias !146
+  store <2 x ptr> %13, ptr %9, align 8, !alias.scope !146
+  %.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i.i, label %_ZSt9make_pairIPN3nix17ExprConcatStringsERKSt10shared_ptrIKNS0_9StaticEnvEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !146
   %.not.i.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %.not.i.i.i.i.i.i, label %20, label %17
@@ -8972,7 +8954,7 @@ _ZNSt3mapIPKN3nix4ExprEKSt10shared_ptrIKNS0_9StaticEnvEESt4lessIS3_ESaISt4pairIK
           to label %35 unwind label %71
 
 35:                                               ; preds = %30, %.critedge.i
-  %36 = load ptr, ptr %11, align 8
+  %36 = load ptr, ptr %10, align 8
   %.not.i.i.i.i10 = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i10, label %_ZNSt4pairIPN3nix17ExprConcatStringsESt10shared_ptrIKNS0_9StaticEnvEEED2Ev.exit, label %37
 
@@ -9167,17 +9149,16 @@ define void @_ZN3nix7ExprPos8bindVarsERNS_9EvalStateERKSt10shared_ptrIKNS_9Stati
   tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
   store ptr %0, ptr %4, align 8, !alias.scope !149
   %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = load ptr, ptr %2, align 8, !noalias !149
-  store ptr %10, ptr %9, align 8, !alias.scope !149
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  %13 = load ptr, ptr %12, align 8, !noalias !149
-  store ptr %13, ptr %11, align 8, !alias.scope !149
-  %.not.i.i.i.i.i = icmp eq ptr %13, null
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !149
+  %13 = load <2 x ptr>, ptr %2, align 8, !noalias !149
+  store <2 x ptr> %13, ptr %9, align 8, !alias.scope !149
+  %.not.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i.i.i, label %_ZSt9make_pairIPN3nix7ExprPosERKSt10shared_ptrIKNS0_9StaticEnvEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSA_INSB_IT0_E4typeEE6__typeEEOSC_OSH_.exit, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !149
   %.not.i.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %.not.i.i.i.i.i.i, label %20, label %17
@@ -9230,7 +9211,7 @@ _ZNSt3mapIPKN3nix4ExprEKSt10shared_ptrIKNS0_9StaticEnvEESt4lessIS3_ESaISt4pairIK
           to label %35 unwind label %71
 
 35:                                               ; preds = %30, %.critedge.i
-  %36 = load ptr, ptr %11, align 8
+  %36 = load ptr, ptr %10, align 8
   %.not.i.i.i.i5 = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i5, label %_ZNSt4pairIPN3nix7ExprPosESt10shared_ptrIKNS0_9StaticEnvEEED2Ev.exit, label %37
 

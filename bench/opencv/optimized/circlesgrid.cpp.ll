@@ -3042,7 +3042,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit115: ; preds = %_ZNSt6v
 ._crit_edge191:                                   ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit115, %._crit_edge
   %174 = load i8, ptr %8, align 4
   %175 = trunc i8 %174 to i1
-  br i1 %175, label %270, label %176
+  br i1 %175, label %272, label %176
 
 176:                                              ; preds = %._crit_edge191
   %177 = load ptr, ptr %5, align 8
@@ -3069,115 +3069,118 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit115: ; preds = %_ZNSt6v
 
 .lr.ph196:                                        ; preds = %176
   %.val79 = load float, ptr %177, align 4
-  %194 = insertelement <2 x float> %182, float %.val79, i64 0
-  %195 = getelementptr inbounds i8, ptr %177, i64 16
-  %.val77 = load float, ptr %195, align 4
-  %196 = insertelement <2 x float> %181, float %.val77, i64 1
-  %197 = fsub <2 x float> %194, %196
-  %198 = fpext <2 x float> %197 to <2 x double>
-  %199 = fpext <2 x float> %185 to <2 x double>
-  %200 = fmul <2 x double> %199, %199
-  %201 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %198, <2 x double> %198, <2 x double> %200)
-  %202 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %201)
-  %203 = extractelement <2 x double> %202, i64 1
-  %204 = extractelement <2 x double> %202, i64 0
-  %205 = fcmp olt double %203, %204
-  %.sroa.speculated = select i1 %205, double %203, double %204
-  %206 = call i32 @llvm.smin.i32(i32 %188, i32 %189)
-  %207 = sitofp i32 %206 to double
-  %208 = fdiv double %.sroa.speculated, %207
-  %209 = fmul double %208, 5.000000e-01
-  %210 = ptrtoint ptr %192 to i64
-  %211 = ptrtoint ptr %193 to i64
-  %212 = sub i64 %210, %211
-  %213 = ashr exact i64 %212, 3
-  %214 = insertelement <2 x float> poison, float %.val79, i64 0
-  %215 = insertelement <2 x float> %182, float %.val79, i64 0
-  %216 = fsub <2 x float> %196, %215
-  %217 = fneg <2 x float> %183
-  %218 = fmul <2 x float> %196, %217
-  %219 = fmul <2 x float> %216, %216
-  %220 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %185, <2 x float> %185, <2 x float> %219)
-  %221 = fpext <2 x float> %220 to <2 x double>
-  %222 = insertelement <2 x float> %214, float %.val78, i64 1
-  %223 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %182, <2 x float> %222, <2 x float> %218)
-  %224 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %221)
-  %umax = call i64 @llvm.umax.i64(i64 %213, i64 1)
-  %225 = insertelement <2 x double> poison, double %209, i64 0
-  %226 = shufflevector <2 x double> %225, <2 x double> poison, <2 x i32> zeroinitializer
-  br label %227
+  %194 = insertelement <2 x float> poison, float %.val79, i64 0
+  %.val81 = load float, ptr %178, align 4
+  %195 = insertelement <2 x float> %194, float %.val81, i64 1
+  %196 = insertelement <2 x float> poison, float %.val81, i64 0
+  %197 = getelementptr inbounds i8, ptr %177, i64 16
+  %.val77 = load float, ptr %197, align 4
+  %198 = insertelement <2 x float> %196, float %.val77, i64 1
+  %199 = fsub <2 x float> %195, %198
+  %200 = fpext <2 x float> %199 to <2 x double>
+  %201 = fpext <2 x float> %185 to <2 x double>
+  %202 = fmul <2 x double> %201, %201
+  %203 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %200, <2 x double> %200, <2 x double> %202)
+  %204 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %203)
+  %205 = extractelement <2 x double> %204, i64 1
+  %206 = extractelement <2 x double> %204, i64 0
+  %207 = fcmp olt double %205, %206
+  %.sroa.speculated = select i1 %207, double %205, double %206
+  %208 = call i32 @llvm.smin.i32(i32 %188, i32 %189)
+  %209 = sitofp i32 %208 to double
+  %210 = fdiv double %.sroa.speculated, %209
+  %211 = fmul double %210, 5.000000e-01
+  %212 = ptrtoint ptr %192 to i64
+  %213 = ptrtoint ptr %193 to i64
+  %214 = sub i64 %212, %213
+  %215 = ashr exact i64 %214, 3
+  %216 = insertelement <2 x float> %181, float %.val77, i64 1
+  %217 = insertelement <2 x float> %182, float %.val79, i64 0
+  %218 = fsub <2 x float> %216, %217
+  %219 = fneg <2 x float> %183
+  %220 = fmul <2 x float> %216, %219
+  %221 = fmul <2 x float> %218, %218
+  %222 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %185, <2 x float> %185, <2 x float> %221)
+  %223 = fpext <2 x float> %222 to <2 x double>
+  %224 = insertelement <2 x float> %194, float %.val78, i64 1
+  %225 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %182, <2 x float> %224, <2 x float> %220)
+  %226 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %223)
+  %umax = call i64 @llvm.umax.i64(i64 %215, i64 1)
+  %227 = insertelement <2 x double> poison, double %211, i64 0
+  %228 = shufflevector <2 x double> %227, <2 x double> poison, <2 x i32> zeroinitializer
+  br label %229
 
-227:                                              ; preds = %.lr.ph196, %227
-  %.071194 = phi i64 [ 0, %.lr.ph196 ], [ %244, %227 ]
-  %228 = phi <2 x i64> [ zeroinitializer, %.lr.ph196 ], [ %243, %227 ]
-  %229 = getelementptr inbounds %"class.cv::Point_", ptr %193, i64 %.071194
-  %.val91 = load float, ptr %229, align 4
-  %230 = getelementptr i8, ptr %229, i64 4
-  %.val92 = load float, ptr %230, align 4
-  %231 = insertelement <2 x float> poison, float %.val92, i64 0
-  %232 = shufflevector <2 x float> %231, <2 x float> poison, <2 x i32> zeroinitializer
-  %233 = fmul <2 x float> %216, %232
-  %234 = insertelement <2 x float> poison, float %.val91, i64 0
-  %235 = shufflevector <2 x float> %234, <2 x float> poison, <2 x i32> zeroinitializer
-  %236 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %235, <2 x float> %185, <2 x float> %233)
-  %237 = fadd <2 x float> %223, %236
-  %238 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %237)
-  %239 = fpext <2 x float> %238 to <2 x double>
-  %240 = fdiv <2 x double> %239, %224
-  %241 = fcmp olt <2 x double> %240, %226
-  %242 = zext <2 x i1> %241 to <2 x i64>
-  %243 = add <2 x i64> %228, %242
-  %244 = add nuw i64 %.071194, 1
-  %exitcond.not = icmp eq i64 %244, %umax
-  br i1 %exitcond.not, label %._crit_edge197, label %227, !llvm.loop !96
+229:                                              ; preds = %.lr.ph196, %229
+  %.071194 = phi i64 [ 0, %.lr.ph196 ], [ %246, %229 ]
+  %230 = phi <2 x i64> [ zeroinitializer, %.lr.ph196 ], [ %245, %229 ]
+  %231 = getelementptr inbounds %"class.cv::Point_", ptr %193, i64 %.071194
+  %.val91 = load float, ptr %231, align 4
+  %232 = getelementptr i8, ptr %231, i64 4
+  %.val92 = load float, ptr %232, align 4
+  %233 = insertelement <2 x float> poison, float %.val92, i64 0
+  %234 = shufflevector <2 x float> %233, <2 x float> poison, <2 x i32> zeroinitializer
+  %235 = fmul <2 x float> %218, %234
+  %236 = insertelement <2 x float> poison, float %.val91, i64 0
+  %237 = shufflevector <2 x float> %236, <2 x float> poison, <2 x i32> zeroinitializer
+  %238 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %237, <2 x float> %185, <2 x float> %235)
+  %239 = fadd <2 x float> %225, %238
+  %240 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %239)
+  %241 = fpext <2 x float> %240 to <2 x double>
+  %242 = fdiv <2 x double> %241, %226
+  %243 = fcmp olt <2 x double> %242, %228
+  %244 = zext <2 x i1> %243 to <2 x i64>
+  %245 = add <2 x i64> %230, %244
+  %246 = add nuw i64 %.071194, 1
+  %exitcond.not = icmp eq i64 %246, %umax
+  br i1 %exitcond.not, label %._crit_edge197, label %229, !llvm.loop !96
 
-._crit_edge197:                                   ; preds = %227, %176
-  %245 = phi <2 x i64> [ zeroinitializer, %176 ], [ %243, %227 ]
-  %246 = extractelement <2 x i64> %245, i64 0
-  %247 = extractelement <2 x i64> %245, i64 1
-  %248 = icmp ule i64 %246, %247
-  %249 = icmp sle i32 %188, %189
-  %or.cond.not208 = or i1 %249, %248
-  %250 = icmp uge i64 %246, %247
-  %brmerge = or i1 %190, %250
+._crit_edge197:                                   ; preds = %229, %176
+  %247 = phi <2 x i64> [ zeroinitializer, %176 ], [ %245, %229 ]
+  %248 = extractelement <2 x i64> %247, i64 0
+  %249 = extractelement <2 x i64> %247, i64 1
+  %250 = icmp ule i64 %248, %249
+  %251 = icmp sle i32 %188, %189
+  %or.cond.not208 = or i1 %251, %250
+  %252 = icmp uge i64 %248, %249
+  %brmerge = or i1 %190, %252
   %or.cond168 = and i1 %or.cond.not208, %brmerge
-  br i1 %or.cond168, label %270, label %.preheader
+  br i1 %or.cond168, label %272, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge197
-  %251 = load ptr, ptr %90, align 8
-  %252 = ptrtoint ptr %251 to i64
-  %253 = ptrtoint ptr %177 to i64
-  %254 = sub i64 %252, %253
-  %.not209 = icmp eq i64 %254, 8
+  %253 = load ptr, ptr %90, align 8
+  %254 = ptrtoint ptr %253 to i64
+  %255 = ptrtoint ptr %177 to i64
+  %256 = sub i64 %254, %255
+  %.not209 = icmp eq i64 %256, 8
   br i1 %.not209, label %._crit_edge202, label %.lr.ph201
 
 .lr.ph201:                                        ; preds = %.preheader, %.lr.ph201
-  %255 = phi ptr [ %261, %.lr.ph201 ], [ %177, %.preheader ]
-  %.0200 = phi i64 [ %256, %.lr.ph201 ], [ 0, %.preheader ]
-  %256 = add nuw i64 %.0200, 1
-  %257 = getelementptr inbounds %"class.cv::Point_", ptr %255, i64 %256
-  %258 = getelementptr inbounds %"class.cv::Point_", ptr %255, i64 %.0200
-  %259 = load i64, ptr %257, align 4
-  store i64 %259, ptr %258, align 4
-  %260 = load ptr, ptr %90, align 8
-  %261 = load ptr, ptr %5, align 8
-  %262 = ptrtoint ptr %260 to i64
-  %263 = ptrtoint ptr %261 to i64
-  %264 = sub i64 %262, %263
-  %265 = ashr exact i64 %264, 3
-  %266 = add nsw i64 %265, -1
-  %267 = icmp ult i64 %256, %266
-  br i1 %267, label %.lr.ph201, label %._crit_edge202, !llvm.loop !97
+  %257 = phi ptr [ %263, %.lr.ph201 ], [ %177, %.preheader ]
+  %.0200 = phi i64 [ %258, %.lr.ph201 ], [ 0, %.preheader ]
+  %258 = add nuw i64 %.0200, 1
+  %259 = getelementptr inbounds %"class.cv::Point_", ptr %257, i64 %258
+  %260 = getelementptr inbounds %"class.cv::Point_", ptr %257, i64 %.0200
+  %261 = load i64, ptr %259, align 4
+  store i64 %261, ptr %260, align 4
+  %262 = load ptr, ptr %90, align 8
+  %263 = load ptr, ptr %5, align 8
+  %264 = ptrtoint ptr %262 to i64
+  %265 = ptrtoint ptr %263 to i64
+  %266 = sub i64 %264, %265
+  %267 = ashr exact i64 %266, 3
+  %268 = add nsw i64 %267, -1
+  %269 = icmp ult i64 %258, %268
+  br i1 %269, label %.lr.ph201, label %._crit_edge202, !llvm.loop !97
 
 ._crit_edge202:                                   ; preds = %.lr.ph201, %.preheader
-  %.lcssa169 = phi ptr [ %177, %.preheader ], [ %261, %.lr.ph201 ]
-  %.lcssa = phi i64 [ 0, %.preheader ], [ %266, %.lr.ph201 ]
-  %268 = getelementptr inbounds %"class.cv::Point_", ptr %.lcssa169, i64 %.lcssa
-  %269 = load i64, ptr %7, align 8
-  store i64 %269, ptr %268, align 4
-  br label %270
+  %.lcssa169 = phi ptr [ %177, %.preheader ], [ %263, %.lr.ph201 ]
+  %.lcssa = phi i64 [ 0, %.preheader ], [ %268, %.lr.ph201 ]
+  %270 = getelementptr inbounds %"class.cv::Point_", ptr %.lcssa169, i64 %.lcssa
+  %271 = load i64, ptr %7, align 8
+  store i64 %271, ptr %270, align 4
+  br label %272
 
-270:                                              ; preds = %._crit_edge197, %._crit_edge202, %._crit_edge191
+272:                                              ; preds = %._crit_edge197, %._crit_edge202, %._crit_edge191
   ret void
 }
 

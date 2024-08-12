@@ -190,21 +190,21 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr nocapture noundef %0, pt
   %116 = fcmp olt <2 x double> %108, %115
   %117 = select <2 x i1> %116, <2 x double> %115, <2 x double> %108
   %118 = getelementptr inbounds i8, ptr %2, i64 42
-  %119 = load <2 x i8>, ptr %118, align 1
-  %120 = zext <2 x i8> %119 to <2 x i32>
-  %121 = sub nsw <2 x i32> %27, %120
-  %122 = sitofp <2 x i32> %121 to <2 x double>
-  %123 = fcmp ogt <2 x double> %111, %122
-  %124 = extractelement <2 x i1> %123, i64 0
-  %125 = extractelement <2 x double> %111, i64 0
-  %126 = extractelement <2 x double> %122, i64 0
-  %.1808 = select i1 %124, double %126, double %125
+  %119 = extractelement <2 x double> %111, i64 0
+  %120 = load <2 x i8>, ptr %118, align 1
+  %121 = zext <2 x i8> %120 to <2 x i32>
+  %122 = sub nsw <2 x i32> %27, %121
+  %123 = sitofp <2 x i32> %122 to <2 x double>
+  %124 = fcmp ogt <2 x double> %111, %123
+  %125 = extractelement <2 x i1> %124, i64 0
+  %126 = extractelement <2 x double> %123, i64 0
+  %.1808 = select i1 %125, double %126, double %119
   %127 = insertelement <2 x double> %111, double %.1808, i64 0
-  %128 = extractelement <2 x i1> %123, i64 1
+  %128 = extractelement <2 x i1> %124, i64 1
   br i1 %128, label %129, label %131
 
 129:                                              ; preds = %113
-  %130 = insertelement <2 x double> %122, double %.1808, i64 0
+  %130 = insertelement <2 x double> %123, double %.1808, i64 0
   br label %131
 
 131:                                              ; preds = %97, %129, %113, %95

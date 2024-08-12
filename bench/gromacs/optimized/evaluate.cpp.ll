@@ -3725,14 +3725,14 @@ define void @_ZN3gmx18SelectionEvaluator8evaluateEPNS_19SelectionCollectionEP10t
   %18 = getelementptr inbounds i8, ptr %8, i64 8
   %19 = getelementptr inbounds i8, ptr %6, i64 8
   %20 = getelementptr inbounds i8, ptr %8, i64 16
-  %21 = load <2 x ptr>, ptr %18, align 8
-  store <2 x ptr> %21, ptr %6, align 16
-  %22 = extractelement <2 x ptr> %21, i64 1
-  %.not.i.i.i = icmp eq ptr %22, null
+  %21 = load ptr, ptr %20, align 8
+  %22 = load <2 x ptr>, ptr %18, align 8
+  store <2 x ptr> %22, ptr %6, align 16
+  %.not.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit, label %23
 
 23:                                               ; preds = %4
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = getelementptr inbounds i8, ptr %21, i64 8
   %25 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %25, 0
   br i1 %.not.i.i.i.i, label %29, label %26

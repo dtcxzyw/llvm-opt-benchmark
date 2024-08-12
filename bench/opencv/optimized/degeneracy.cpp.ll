@@ -4022,7 +4022,7 @@ define linkonce_odr hidden void @_ZN2cv4usac25FundamentalDegeneracyImplC2EiRKNS_
   %25 = alloca %"struct.cv::Ptr.102", align 8
   %26 = alloca %"struct.cv::Ptr.98", align 8
   %27 = alloca %"struct.cv::Ptr.115", align 8
-  %28 = alloca %"struct.cv::Ptr.90", align 8
+  %28 = alloca %"struct.cv::Ptr.90", align 16
   %29 = alloca %"class.cv::Matx", align 8
   %30 = alloca %"class.cv::Mat", align 8
   %31 = alloca %"class.cv::MatExpr", align 8
@@ -5830,17 +5830,16 @@ _ZN2cv3PtrINS_4usac24EpipolarNonMinimalSolverEED2Ev.exit: ; preds = %_ZN2cv3PtrI
   store double %7, ptr %708, align 8
   %709 = getelementptr inbounds i8, ptr %3, i64 8
   %710 = load i32, ptr %709, align 8
-  %711 = load ptr, ptr %62, align 8
-  store ptr %711, ptr %28, align 8
-  %712 = getelementptr inbounds i8, ptr %28, i64 8
-  %713 = getelementptr inbounds i8, ptr %0, i64 264
-  %714 = load ptr, ptr %713, align 8
-  store ptr %714, ptr %712, align 8
-  %.not.i.i.i.i452 = icmp eq ptr %714, null
+  %711 = getelementptr inbounds i8, ptr %28, i64 8
+  %712 = getelementptr inbounds i8, ptr %0, i64 264
+  %713 = load ptr, ptr %712, align 8
+  %714 = load <2 x ptr>, ptr %62, align 8
+  store <2 x ptr> %714, ptr %28, align 16
+  %.not.i.i.i.i452 = icmp eq ptr %713, null
   br i1 %.not.i.i.i.i452, label %_ZN2cv3PtrINS_4usac5ErrorEEC2INS1_24ReprojectionErrorForwardEEERKNS0_IT_EE.exit, label %715
 
 715:                                              ; preds = %_ZN2cv3PtrINS_4usac24EpipolarNonMinimalSolverEED2Ev.exit
-  %716 = getelementptr inbounds i8, ptr %714, i64 8
+  %716 = getelementptr inbounds i8, ptr %713, i64 8
   %717 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i453 = icmp eq i8 %717, 0
   br i1 %.not.i.i.i.i.i453, label %721, label %718
@@ -6045,7 +6044,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_4usac11MsacQualityEED2Ev.exit
 
 _ZN2cv3PtrINS_4usac11MsacQualityEED2Ev.exit:      ; preds = %_ZN2cv3PtrINS_4usac7QualityEEaSINS1_11MsacQualityEEERS3_RKNS0_IT_EE.exit, %790, %803, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i472
-  %808 = load ptr, ptr %712, align 8
+  %808 = load ptr, ptr %711, align 8
   %.not.i.i.i.i473 = icmp eq ptr %808, null
   br i1 %.not.i.i.i.i473, label %_ZN2cv3PtrINS_4usac5ErrorEED2Ev.exit, label %809
 

@@ -2679,7 +2679,7 @@ entry:
   %tmp10.i.i.i = alloca %"struct.std::pair.404", align 8
   %iv.i.i = alloca %"class.ue2::graph_detail::vertex_descriptor.272", align 8
   %created.i.i = alloca %"class.std::map.643", align 8
-  %prefix_graph.i.i = alloca %"class.std::shared_ptr", align 8
+  %prefix_graph.i.i = alloca %"class.std::shared_ptr", align 16
   %key.i.i = alloca %"struct.ue2::(anonymous namespace)::created_key", align 8
   %e.i.i = alloca %"class.ue2::graph_detail::edge_descriptor", align 8
   %ref.tmp108.i.i = alloca %"struct.std::pair", align 8
@@ -6336,16 +6336,15 @@ for.body.i.i:                                     ; preds = %_ZNSt10shared_ptrIN
   %agg.tmp.sroa.0.0.copyload.i148.i = load ptr, ptr %second.i.i289, align 8
   %props.i.i149.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i148.i, i64 56
   %graph.i150.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i148.i, i64 64
-  %304 = load ptr, ptr %graph.i150.i, align 8
-  store ptr %304, ptr %prefix_graph.i.i, align 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i148.i, i64 72
-  %305 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
-  store ptr %305, ptr %_M_refcount.i.i.i.i, align 8
-  %cmp.not.i.i.i.i151.i = icmp eq ptr %305, null
+  %304 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  %305 = load <2 x ptr>, ptr %graph.i150.i, align 8
+  store <2 x ptr> %305, ptr %prefix_graph.i.i, align 16
+  %cmp.not.i.i.i.i151.i = icmp eq ptr %304, null
   br i1 %cmp.not.i.i.i.i151.i, label %_ZNSt10shared_ptrIN3ue28NGHolderEEC2ERKS2_.exit.i.i, label %if.then.i.i.i.i152.i
 
 if.then.i.i.i.i152.i:                             ; preds = %for.body.i.i
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %305, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %304, i64 8
   %306 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i153.i = icmp eq i8 %306, 0
   br i1 %tobool.i.i.not.i.i.i.i.i153.i, label %if.else.i.i.i.i.i.i234.i, label %if.then.i.i.i.i.i.i154.i
@@ -6498,7 +6497,7 @@ invoke.cont14.i.i:                                ; preds = %invoke.cont12.i.i
   store ptr %.fca.0.load.i.i.i, ptr %call15.i.i, align 8
   %w.sroa.21.0.call15.sroa_idx.i.i = getelementptr inbounds i8, ptr %call15.i.i, i64 8
   store i64 %.fca.1.load.i.i.i, ptr %w.sroa.21.0.call15.sroa_idx.i.i, align 8
-  %322 = load ptr, ptr %prefix_graph.i.i, align 8
+  %322 = load ptr, ptr %prefix_graph.i.i, align 16
   %cmp.i76.not.i.i = icmp eq ptr %322, null
   br i1 %cmp.i76.not.i.i, label %if.end81.i.i, label %if.then17.i.i
 
@@ -6875,7 +6874,7 @@ if.end9.i.i.i162.i.i:                             ; preds = %if.end8.sink.split.
 invoke.cont43.i.i:                                ; preds = %if.end9.i.i.i162.i.i, %if.end.i198.i
   %lag.i.i = getelementptr inbounds i8, ptr %.fca.0.load.i.i.i, i64 200
   store i32 %309, ptr %lag.i.i, align 8
-  %373 = load ptr, ptr %prefix_graph.i.i, align 8
+  %373 = load ptr, ptr %prefix_graph.i.i, align 16
   %374 = getelementptr i8, ptr %373, i64 104
   %call42.val.i.i = load ptr, ptr %374, align 8
   %m_header.i.i.i.i.i.i.i199.i = getelementptr inbounds i8, ptr %call42.val.i.i, i64 112

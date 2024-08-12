@@ -1287,10 +1287,10 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store ptr %7, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load <2 x ptr>, ptr %8, align 8
+  %10 = load ptr, ptr %8, align 8
   store <2 x ptr> %9, ptr %6, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %10 = extractelement <2 x ptr> %9, i64 0
   %.not6.i = icmp eq ptr %7, %10
   br i1 %.not6.i, label %.loopexit7, label %.lr.ph.i
 

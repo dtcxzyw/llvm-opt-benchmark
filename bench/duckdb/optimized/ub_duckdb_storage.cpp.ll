@@ -12140,17 +12140,15 @@ entry:
   %ref.tmp = alloca %"class.duckdb::ColumnDefinition", align 8
   %ref.tmp18 = alloca %"class.duckdb::ColumnDefinition", align 8
   %ref.tmp28 = alloca %"class.std::shared_ptr.671", align 16
-  %0 = load ptr, ptr %parent, align 8, !tbaa !396
-  store ptr %0, ptr %this, align 8, !tbaa !396
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %parent, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !398
-  store ptr %1, ptr %_M_refcount.i.i, align 8, !tbaa !398
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !398
+  %1 = load <2 x ptr>, ptr %parent, align 8, !tbaa !19
+  store <2 x ptr> %1, ptr %this, align 8, !tbaa !19
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6duckdb13DataTableInfoEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -12945,17 +12943,15 @@ entry:
   %ref.tmp16.i.i = alloca %"class.std::allocator.61", align 1
   %ref.tmp = alloca %"class.duckdb::ColumnDefinition", align 8
   %ref.tmp60 = alloca %"class.std::shared_ptr.671", align 16
-  %0 = load ptr, ptr %parent, align 8, !tbaa !396
-  store ptr %0, ptr %this, align 8, !tbaa !396
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %parent, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !398
-  store ptr %1, ptr %_M_refcount.i.i, align 8, !tbaa !398
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !398
+  %1 = load <2 x ptr>, ptr %parent, align 8, !tbaa !19
+  store <2 x ptr> %1, ptr %this, align 8, !tbaa !19
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6duckdb13DataTableInfoEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -13932,17 +13928,15 @@ ehcleanup:                                        ; preds = %lpad4, %lpad, %_ZNS
 define void @_ZN6duckdb9DataTableC2ERNS_13ClientContextERS0_NS_10unique_ptrINS_15BoundConstraintESt14default_deleteIS5_ELb1EEE(ptr noundef nonnull align 8 dereferenceable(105) %this, ptr noundef nonnull align 8 dereferenceable(592) %context, ptr noundef nonnull align 8 dereferenceable(105) %parent, ptr nocapture noundef readonly %constraint) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::ColumnDefinition", align 8
-  %0 = load ptr, ptr %parent, align 8, !tbaa !396
-  store ptr %0, ptr %this, align 8, !tbaa !396
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %parent, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !398
-  store ptr %1, ptr %_M_refcount.i.i, align 8, !tbaa !398
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !398
+  %1 = load <2 x ptr>, ptr %parent, align 8, !tbaa !19
+  store <2 x ptr> %1, ptr %this, align 8, !tbaa !19
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6duckdb13DataTableInfoEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -13968,17 +13962,15 @@ _ZNSt10shared_ptrIN6duckdb13DataTableInfoEEC2ERKS2_.exit: ; preds = %if.else.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %append_lock, i8 0, i64 40, i1 false)
   %row_groups = getelementptr inbounds i8, ptr %this, i64 88
   %row_groups4 = getelementptr inbounds i8, ptr %parent, i64 88
-  %6 = load ptr, ptr %row_groups4, align 8, !tbaa !647
-  store ptr %6, ptr %row_groups, align 8, !tbaa !647
-  %_M_refcount.i.i50 = getelementptr inbounds i8, ptr %this, i64 96
   %_M_refcount3.i.i51 = getelementptr inbounds i8, ptr %parent, i64 96
-  %7 = load ptr, ptr %_M_refcount3.i.i51, align 8, !tbaa !398
-  store ptr %7, ptr %_M_refcount.i.i50, align 8, !tbaa !398
-  %cmp.not.i.i.i52 = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i51, align 8, !tbaa !398
+  %7 = load <2 x ptr>, ptr %row_groups4, align 8, !tbaa !19
+  store <2 x ptr> %7, ptr %row_groups, align 8, !tbaa !19
+  %cmp.not.i.i.i52 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i52, label %_ZNSt10shared_ptrIN6duckdb18RowGroupCollectionEEC2ERKS2_.exit, label %if.then.i.i.i53
 
 if.then.i.i.i53:                                  ; preds = %_ZNSt10shared_ptrIN6duckdb13DataTableInfoEEC2ERKS2_.exit
-  %_M_use_count.i.i.i.i54 = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i54 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
   %tobool.i.not.i.i.i.i55 = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i55, label %if.else.i.i.i.i.i58, label %if.then.i.i.i.i.i56
@@ -14429,17 +14421,15 @@ entry:
   %ref.tmp = alloca %"class.duckdb::ColumnDefinition", align 8
   %ref.tmp31 = alloca %"class.std::shared_ptr.671", align 16
   %agg.tmp = alloca %"class.duckdb::vector.422", align 8
-  %0 = load ptr, ptr %parent, align 8, !tbaa !396
-  store ptr %0, ptr %this, align 8, !tbaa !396
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %parent, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !398
-  store ptr %1, ptr %_M_refcount.i.i, align 8, !tbaa !398
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !398
+  %1 = load <2 x ptr>, ptr %parent, align 8, !tbaa !19
+  store <2 x ptr> %1, ptr %this, align 8, !tbaa !19
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6duckdb13DataTableInfoEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -51451,17 +51441,15 @@ entry:
   %block_manager3 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %block_manager, ptr %block_manager3, align 8, !tbaa !19
   %block_handle4 = getelementptr inbounds i8, ptr %this, i64 64
-  %0 = load ptr, ptr %block_handle, align 8, !tbaa !1264
-  store ptr %0, ptr %block_handle4, align 8, !tbaa !1264
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %block_handle, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !398
-  store ptr %1, ptr %_M_refcount.i.i, align 8, !tbaa !398
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !398
+  %1 = load <2 x ptr>, ptr %block_handle, align 8, !tbaa !19
+  store <2 x ptr> %1, ptr %block_handle4, align 8, !tbaa !19
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6duckdb11BlockHandleEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -81128,19 +81116,18 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZSt10_ConstructIN6duckdb18RowGroupCollectionEJRSt10shared_ptrINS0_13DataTableInfoEERNS0_12BlockManagerERNS0_6vectorINS0_11LogicalTypeELb1EEEiEEvPT_DpOT0_(ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(16) %__args, ptr noundef nonnull align 8 dereferenceable(120) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3, ptr noundef nonnull align 4 dereferenceable(4) %__args5) local_unnamed_addr #22 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.668", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.668", align 16
   %agg.tmp7 = alloca %"class.duckdb::vector.596", align 8
-  %0 = load ptr, ptr %__args, align 8, !tbaa !396
-  store ptr %0, ptr %agg.tmp, align 8, !tbaa !396
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !398
-  store ptr %1, ptr %_M_refcount.i.i, align 8, !tbaa !398
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !398
+  %1 = load <2 x ptr>, ptr %__args, align 8, !tbaa !19
+  store <2 x ptr> %1, ptr %agg.tmp, align 16, !tbaa !19
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6duckdb13DataTableInfoEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -83869,19 +83856,18 @@ sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZSt10_ConstructIN6duckdb18RowGroupCollectionEJRSt10shared_ptrINS0_13DataTableInfoEERNS0_12BlockManagerERNS0_6vectorINS0_11LogicalTypeELb1EEERKliEEvPT_DpOT0_(ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(16) %__args, ptr noundef nonnull align 8 dereferenceable(120) %__args1, ptr noundef nonnull align 8 dereferenceable(24) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5, ptr noundef nonnull align 4 dereferenceable(4) %__args7) local_unnamed_addr #22 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.668", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.668", align 16
   %agg.tmp9 = alloca %"class.duckdb::vector.596", align 8
-  %0 = load ptr, ptr %__args, align 8, !tbaa !396
-  store ptr %0, ptr %agg.tmp, align 8, !tbaa !396
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !398
-  store ptr %1, ptr %_M_refcount.i.i, align 8, !tbaa !398
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !398
+  %1 = load <2 x ptr>, ptr %__args, align 8, !tbaa !19
+  store <2 x ptr> %1, ptr %agg.tmp, align 16, !tbaa !19
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6duckdb13DataTableInfoEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !68
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -84708,12 +84694,10 @@ entry:
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #38
   store ptr null, ptr %call5.i.i.i.i, align 8, !tbaa !775
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 8
-  %0 = load ptr, ptr %__args, align 8, !tbaa !2136
-  store ptr %0, ptr %add.ptr.i.i, align 8, !tbaa !987
-  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 16
   %second3.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %1 = load ptr, ptr %second3.i.i.i.i.i, align 8, !tbaa !650
-  store ptr %1, ptr %second.i.i.i.i.i, align 8, !tbaa !650
+  %0 = load <2 x ptr>, ptr %__args, align 8, !tbaa !19
+  %1 = load ptr, ptr %__args, align 8, !tbaa !2136
+  store <2 x ptr> %0, ptr %add.ptr.i.i, align 8, !tbaa !19
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 24
   %_M_refcount4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %2 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i, align 8, !tbaa !398
@@ -84727,7 +84711,7 @@ entry:
   br i1 %cmp.not.not, label %if.then, label %invoke.cont24.thread
 
 invoke.cont24.thread:                             ; preds = %entry
-  %4 = ptrtoint ptr %0 to i64
+  %4 = ptrtoint ptr %1 to i64
   %_M_bucket_count.i87 = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load i64, ptr %_M_bucket_count.i87, align 8
   %rem.i.i.i88 = urem i64 %4, %5
@@ -84750,11 +84734,11 @@ for.cond:                                         ; preds = %invoke.cont, %if.th
 invoke.cont:                                      ; preds = %for.cond
   %add.ptr12 = getelementptr inbounds i8, ptr %__it.sroa.0.0, i64 8
   %8 = load ptr, ptr %add.ptr12, align 8, !tbaa !987
-  %cmp.i.i = icmp eq ptr %0, %8
+  %cmp.i.i = icmp eq ptr %1, %8
   br i1 %cmp.i.i, label %if.then.i, label %for.cond, !llvm.loop !2140
 
 invoke.cont24:                                    ; preds = %for.cond
-  %9 = ptrtoint ptr %0 to i64
+  %9 = ptrtoint ptr %1 to i64
   %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %10 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %9, %10
@@ -84767,7 +84751,7 @@ if.end.i.i:                                       ; preds = %invoke.cont24.threa
   %12 = load i64, ptr %add.ptr.i21.i.i, align 8, !tbaa !920
   %cmp.i.i22.i.i = icmp eq i64 %12, %4
   %13 = load ptr, ptr %add.ptr20.i.i, align 8
-  %cmp.i.i.i23.i.i = icmp eq ptr %0, %13
+  %cmp.i.i.i23.i.i = icmp eq ptr %1, %13
   %14 = select i1 %cmp.i.i22.i.i, i1 %cmp.i.i.i23.i.i, i1 false
   br i1 %14, label %if.then.i, label %if.end3.i.i
 
@@ -84775,7 +84759,7 @@ for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i
   %add.ptr.i.i81 = getelementptr inbounds i8, ptr %17, i64 8
   %cmp.i.i.i.i = icmp eq i64 %18, %4
   %15 = load ptr, ptr %add.ptr.i.i81, align 8
-  %cmp.i.i.i.i.i = icmp eq ptr %0, %15
+  %cmp.i.i.i.i.i = icmp eq ptr %1, %15
   %16 = select i1 %cmp.i.i.i.i, i1 %cmp.i.i.i.i.i, i1 false
   br i1 %16, label %if.then.i, label %if.end3.i.i, !llvm.loop !1052
 

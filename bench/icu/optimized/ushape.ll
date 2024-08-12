@@ -383,13 +383,10 @@ if.then231:                                       ; preds = %if.end225
   br label %if.end233
 
 if.end233:                                        ; preds = %if.then224, %if.then231, %if.end225
-  %shapeVars.sroa.9.0 = phi i32 [ 393216, %if.then231 ], [ 262144, %if.end225 ], [ 262144, %if.then224 ]
-  %shapeVars.sroa.8.0 = phi i32 [ 3, %if.then231 ], [ 2, %if.end225 ], [ 2, %if.then224 ]
-  %shapeVars.sroa.770.0 = phi i32 [ 2, %if.then231 ], [ 3, %if.end225 ], [ 3, %if.then224 ]
-  %shapeVars.sroa.10.0 = phi i32 [ 262144, %if.then231 ], [ 393216, %if.end225 ], [ 393216, %if.then224 ]
   %shapeVars.sroa.11.0 = phi i32 [ 1, %if.then231 ], [ 0, %if.end225 ], [ 0, %if.then224 ]
-  %21 = lshr exact i32 %and12, 3
-  switch i32 %21, label %default.unreachable [
+  %21 = phi <4 x i32> [ <i32 2, i32 3, i32 393216, i32 262144>, %if.then231 ], [ <i32 3, i32 2, i32 262144, i32 393216>, %if.end225 ], [ <i32 3, i32 2, i32 262144, i32 393216>, %if.then224 ]
+  %22 = lshr exact i32 %and12, 3
+  switch i32 %22, label %default.unreachable [
     i32 1, label %sw.bb
     i32 3, label %sw.bb251
     i32 2, label %sw.bb254
@@ -407,13 +404,7 @@ if.then240:                                       ; preds = %sw.bb
   %shapeVars.sroa.7.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 2
   store i16 0, ptr %shapeVars.sroa.7.0.agg.tmp.sroa_idx, align 2
   %shapeVars.sroa.770.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 4
-  store i32 %shapeVars.sroa.770.0, ptr %shapeVars.sroa.770.0.agg.tmp.sroa_idx, align 4
-  %shapeVars.sroa.8.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store i32 %shapeVars.sroa.8.0, ptr %shapeVars.sroa.8.0.agg.tmp.sroa_idx, align 8
-  %shapeVars.sroa.9.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 12
-  store i32 %shapeVars.sroa.9.0, ptr %shapeVars.sroa.9.0.agg.tmp.sroa_idx, align 4
-  %shapeVars.sroa.10.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  store i32 %shapeVars.sroa.10.0, ptr %shapeVars.sroa.10.0.agg.tmp.sroa_idx, align 8
+  store <4 x i32> %21, ptr %shapeVars.sroa.770.0.agg.tmp.sroa_idx, align 4
   %shapeVars.sroa.11.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 20
   store i32 %shapeVars.sroa.11.0, ptr %shapeVars.sroa.11.0.agg.tmp.sroa_idx, align 4
   %call241 = call fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables(ptr noundef nonnull %tempbuffer.0, i32 noundef %sourceLength.addr.1, i32 noundef %options, ptr noundef nonnull %pErrorCode, i32 noundef 2, ptr noundef nonnull byval(%struct.uShapeVariables) align 8 %agg.tmp)
@@ -424,13 +415,7 @@ if.else242:                                       ; preds = %sw.bb, %sw.bb
   %shapeVars.sroa.7.0.agg.tmp243.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp243, i64 2
   store i16 0, ptr %shapeVars.sroa.7.0.agg.tmp243.sroa_idx, align 2
   %shapeVars.sroa.770.0.agg.tmp243.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp243, i64 4
-  store i32 %shapeVars.sroa.770.0, ptr %shapeVars.sroa.770.0.agg.tmp243.sroa_idx, align 4
-  %shapeVars.sroa.8.0.agg.tmp243.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp243, i64 8
-  store i32 %shapeVars.sroa.8.0, ptr %shapeVars.sroa.8.0.agg.tmp243.sroa_idx, align 8
-  %shapeVars.sroa.9.0.agg.tmp243.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp243, i64 12
-  store i32 %shapeVars.sroa.9.0, ptr %shapeVars.sroa.9.0.agg.tmp243.sroa_idx, align 4
-  %shapeVars.sroa.10.0.agg.tmp243.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp243, i64 16
-  store i32 %shapeVars.sroa.10.0, ptr %shapeVars.sroa.10.0.agg.tmp243.sroa_idx, align 8
+  store <4 x i32> %21, ptr %shapeVars.sroa.770.0.agg.tmp243.sroa_idx, align 4
   %shapeVars.sroa.11.0.agg.tmp243.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp243, i64 20
   store i32 %shapeVars.sroa.11.0, ptr %shapeVars.sroa.11.0.agg.tmp243.sroa_idx, align 4
   %call244 = call fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables(ptr noundef nonnull %tempbuffer.0, i32 noundef %sourceLength.addr.1, i32 noundef %options, ptr noundef nonnull %pErrorCode, i32 noundef 1, ptr noundef nonnull byval(%struct.uShapeVariables) align 8 %agg.tmp243)
@@ -438,7 +423,7 @@ if.else242:                                       ; preds = %sw.bb, %sw.bb
   br i1 %cmp246, label %if.then247, label %sw.epilog
 
 if.then247:                                       ; preds = %if.else242
-  %22 = call fastcc noundef i32 @_ZL25handleTashkeelWithTatweelPDsiijP10UErrorCode(ptr noundef nonnull %tempbuffer.0, i32 noundef %call244)
+  %23 = call fastcc noundef i32 @_ZL25handleTashkeelWithTatweelPDsiijP10UErrorCode(ptr noundef nonnull %tempbuffer.0, i32 noundef %call244)
   br label %sw.epilog
 
 sw.bb251:                                         ; preds = %if.end233
@@ -446,13 +431,7 @@ sw.bb251:                                         ; preds = %if.end233
   %shapeVars.sroa.7.0.agg.tmp252.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp252, i64 2
   store i16 0, ptr %shapeVars.sroa.7.0.agg.tmp252.sroa_idx, align 2
   %shapeVars.sroa.770.0.agg.tmp252.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp252, i64 4
-  store i32 %shapeVars.sroa.770.0, ptr %shapeVars.sroa.770.0.agg.tmp252.sroa_idx, align 4
-  %shapeVars.sroa.8.0.agg.tmp252.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp252, i64 8
-  store i32 %shapeVars.sroa.8.0, ptr %shapeVars.sroa.8.0.agg.tmp252.sroa_idx, align 8
-  %shapeVars.sroa.9.0.agg.tmp252.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp252, i64 12
-  store i32 %shapeVars.sroa.9.0, ptr %shapeVars.sroa.9.0.agg.tmp252.sroa_idx, align 4
-  %shapeVars.sroa.10.0.agg.tmp252.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp252, i64 16
-  store i32 %shapeVars.sroa.10.0, ptr %shapeVars.sroa.10.0.agg.tmp252.sroa_idx, align 8
+  store <4 x i32> %21, ptr %shapeVars.sroa.770.0.agg.tmp252.sroa_idx, align 4
   %shapeVars.sroa.11.0.agg.tmp252.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp252, i64 20
   store i32 %shapeVars.sroa.11.0, ptr %shapeVars.sroa.11.0.agg.tmp252.sroa_idx, align 4
   %call253 = call fastcc noundef i32 @_ZL12shapeUnicodePDsiijP10UErrorCodei15uShapeVariables(ptr noundef nonnull %tempbuffer.0, i32 noundef %sourceLength.addr.1, i32 noundef %options, ptr noundef nonnull %pErrorCode, i32 noundef 0, ptr noundef nonnull byval(%struct.uShapeVariables) align 8 %agg.tmp252)
@@ -463,13 +442,7 @@ sw.bb254:                                         ; preds = %if.end233
   %shapeVars.sroa.7.0.agg.tmp255.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp255, i64 2
   store i16 0, ptr %shapeVars.sroa.7.0.agg.tmp255.sroa_idx, align 2
   %shapeVars.sroa.770.0.agg.tmp255.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp255, i64 4
-  store i32 %shapeVars.sroa.770.0, ptr %shapeVars.sroa.770.0.agg.tmp255.sroa_idx, align 4
-  %shapeVars.sroa.8.0.agg.tmp255.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp255, i64 8
-  store i32 %shapeVars.sroa.8.0, ptr %shapeVars.sroa.8.0.agg.tmp255.sroa_idx, align 8
-  %shapeVars.sroa.9.0.agg.tmp255.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp255, i64 12
-  store i32 %shapeVars.sroa.9.0, ptr %shapeVars.sroa.9.0.agg.tmp255.sroa_idx, align 4
-  %shapeVars.sroa.10.0.agg.tmp255.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp255, i64 16
-  store i32 %shapeVars.sroa.10.0, ptr %shapeVars.sroa.10.0.agg.tmp255.sroa_idx, align 8
+  store <4 x i32> %21, ptr %shapeVars.sroa.770.0.agg.tmp255.sroa_idx, align 4
   %shapeVars.sroa.11.0.agg.tmp255.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp255, i64 20
   store i32 %shapeVars.sroa.11.0, ptr %shapeVars.sroa.11.0.agg.tmp255.sroa_idx, align 4
   %call256 = call fastcc noundef i32 @_ZL14deShapeUnicodePDsiijP10UErrorCode15uShapeVariables(ptr noundef nonnull %tempbuffer.0, i32 noundef %sourceLength.addr.1, i32 noundef %options, ptr noundef nonnull %pErrorCode, ptr noundef nonnull byval(%struct.uShapeVariables) align 8 %agg.tmp255)
@@ -479,32 +452,32 @@ default.unreachable:                              ; preds = %if.end233
   unreachable
 
 sw.epilog:                                        ; preds = %if.end233, %if.then240, %if.then247, %if.else242, %sw.bb254, %sw.bb251
-  %destLength.0 = phi i32 [ %call256, %sw.bb254 ], [ %call253, %sw.bb251 ], [ %call241, %if.then240 ], [ %call244, %if.then247 ], [ %call244, %if.else242 ], [ %21, %if.end233 ]
+  %destLength.0 = phi i32 [ %call256, %sw.bb254 ], [ %call253, %sw.bb251 ], [ %call241, %if.then240 ], [ %call244, %if.then247 ], [ %call244, %if.else242 ], [ %22, %if.end233 ]
   br i1 %cmp223, label %if.then259, label %if.end260
 
 if.then259:                                       ; preds = %sw.epilog
   call fastcc void @_ZL11countSpacesPDsijPiS0_(ptr noundef nonnull %tempbuffer.0, i32 noundef %destLength.0, ptr noundef nonnull %spacesCountl, ptr noundef nonnull %spacesCountr)
-  %23 = load i32, ptr %spacesCountl, align 4
-  %24 = load i32, ptr %spacesCountr, align 4
-  %25 = xor i32 %24, -1
-  %sub1.i254 = add i32 %destLength.0, %25
-  %cmp10.i255 = icmp sgt i32 %sub1.i254, %23
+  %24 = load i32, ptr %spacesCountl, align 4
+  %25 = load i32, ptr %spacesCountr, align 4
+  %26 = xor i32 %25, -1
+  %sub1.i254 = add i32 %destLength.0, %26
+  %cmp10.i255 = icmp sgt i32 %sub1.i254, %24
   br i1 %cmp10.i255, label %for.body.preheader.i256, label %if.end260
 
 for.body.preheader.i256:                          ; preds = %if.then259
-  %26 = sext i32 %sub1.i254 to i64
-  %27 = sext i32 %23 to i64
+  %27 = sext i32 %sub1.i254 to i64
+  %28 = sext i32 %24 to i64
   br label %for.body.i257
 
 for.body.i257:                                    ; preds = %for.body.i257, %for.body.preheader.i256
-  %indvars.iv13.i258 = phi i64 [ %27, %for.body.preheader.i256 ], [ %indvars.iv.next14.i262, %for.body.i257 ]
-  %indvars.iv.i259 = phi i64 [ %26, %for.body.preheader.i256 ], [ %indvars.iv.next.i263, %for.body.i257 ]
+  %indvars.iv13.i258 = phi i64 [ %28, %for.body.preheader.i256 ], [ %indvars.iv.next14.i262, %for.body.i257 ]
+  %indvars.iv.i259 = phi i64 [ %27, %for.body.preheader.i256 ], [ %indvars.iv.next.i263, %for.body.i257 ]
   %arrayidx.i260 = getelementptr inbounds i16, ptr %tempbuffer.0, i64 %indvars.iv13.i258
-  %28 = load i16, ptr %arrayidx.i260, align 2
+  %29 = load i16, ptr %arrayidx.i260, align 2
   %arrayidx3.i261 = getelementptr inbounds i16, ptr %tempbuffer.0, i64 %indvars.iv.i259
-  %29 = load i16, ptr %arrayidx3.i261, align 2
-  store i16 %29, ptr %arrayidx.i260, align 2
-  store i16 %28, ptr %arrayidx3.i261, align 2
+  %30 = load i16, ptr %arrayidx3.i261, align 2
+  store i16 %30, ptr %arrayidx.i260, align 2
+  store i16 %29, ptr %arrayidx3.i261, align 2
   %indvars.iv.next14.i262 = add nsw i64 %indvars.iv13.i258, 1
   %indvars.iv.next.i263 = add nsw i64 %indvars.iv.i259, -1
   %cmp.i264 = icmp slt i64 %indvars.iv.next14.i262, %indvars.iv.next.i263
@@ -549,9 +522,9 @@ if.then278:                                       ; preds = %if.end275
   %and280 = and i32 %options, 256
   %switch = icmp eq i32 %and280, 0
   %.252 = select i1 %switch, i16 1632, i16 1776
-  %30 = add nsw i32 %and24, -32
-  %31 = lshr exact i32 %30, 5
-  switch i32 %31, label %if.end337 [
+  %31 = add nsw i32 %and24, -32
+  %32 = lshr exact i32 %31, 5
+  switch i32 %32, label %if.end337 [
     i32 0, label %sw.bb286
     i32 1, label %for.cond306.preheader
     i32 2, label %if.end337.sink.split
@@ -580,14 +553,14 @@ for.body.preheader:                               ; preds = %sw.bb286
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv299 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next300, %for.inc ]
   %arrayidx292 = getelementptr inbounds i16, ptr %dest, i64 %indvars.iv299
-  %32 = load i16, ptr %arrayidx292, align 2
-  %conv293 = zext i16 %32 to i32
+  %33 = load i16, ptr %arrayidx292, align 2
+  %conv293 = zext i16 %33 to i32
   %sub294 = add nsw i32 %conv293, -48
   %cmp295 = icmp ult i32 %sub294, 10
   br i1 %cmp295, label %if.then296, label %for.inc
 
 if.then296:                                       ; preds = %for.body
-  %add301 = add i16 %sub288, %32
+  %add301 = add i16 %sub288, %33
   store i16 %add301, ptr %arrayidx292, align 2
   br label %for.inc
 
@@ -599,14 +572,14 @@ for.inc:                                          ; preds = %for.body, %if.then2
 for.body308:                                      ; preds = %for.body308.lr.ph, %for.inc324
   %indvars.iv296 = phi i64 [ 0, %for.body308.lr.ph ], [ %indvars.iv.next297, %for.inc324 ]
   %arrayidx310 = getelementptr inbounds i16, ptr %dest, i64 %indvars.iv296
-  %33 = load i16, ptr %arrayidx310, align 2
-  %conv311 = zext i16 %33 to i32
+  %34 = load i16, ptr %arrayidx310, align 2
+  %conv311 = zext i16 %34 to i32
   %sub313 = sub nsw i32 %conv311, %conv312
   %cmp314 = icmp ult i32 %sub313, 10
   br i1 %cmp314, label %if.then315, label %for.inc324
 
 if.then315:                                       ; preds = %for.body308
-  %sub321 = add i16 %sub317.neg, %33
+  %sub321 = add i16 %sub317.neg, %34
   store i16 %sub321, ptr %arrayidx310, align 2
   br label %for.inc324
 

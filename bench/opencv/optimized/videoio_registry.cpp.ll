@@ -5602,7 +5602,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE13_
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = icmp ugt i64 %6, %12
-  br i1 %13, label %14, label %78
+  br i1 %13, label %14, label %77
 
 14:                                               ; preds = %3
   %15 = sdiv exact i64 %6, 40
@@ -5619,40 +5619,38 @@ _ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE11_M_allocateEm.exit.i: ; pre
   br i1 %.not9.i.i.i.i.i, label %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE11_M_allocateEm.exit.i, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i
-  %.011.i.i.i.i.i = phi ptr [ %34, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %18, %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE11_M_allocateEm.exit.i ]
-  %.0810.i.i.i.i.i = phi ptr [ %33, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE11_M_allocateEm.exit.i ]
+  %.011.i.i.i.i.i = phi ptr [ %33, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %18, %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE11_M_allocateEm.exit.i ]
+  %.0810.i.i.i.i.i = phi ptr [ %32, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE11_M_allocateEm.exit.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.011.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0810.i.i.i.i.i, i64 24, i1 false)
   %19 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 24
   %20 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i, i64 24
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 32
-  %23 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i, i64 32
-  %24 = load ptr, ptr %23, align 8
-  store ptr %24, ptr %22, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, label %25
+  %21 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i, i64 32
+  %22 = load ptr, ptr %21, align 8
+  %23 = load <2 x ptr>, ptr %20, align 8
+  store <2 x ptr> %23, ptr %19, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, label %24
 
-25:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
-  %27 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %27, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %31, label %28
+24:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %26 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %26, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %30, label %27
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr %26, align 4
-  %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %26, align 4
+27:                                               ; preds = %24
+  %28 = load i32, ptr %25, align 4
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %25, align 4
   br label %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i
 
-31:                                               ; preds = %25
-  %32 = atomicrmw volatile add ptr %26, i32 1 acq_rel, align 4
+30:                                               ; preds = %24
+  %31 = atomicrmw volatile add ptr %25, i32 1 acq_rel, align 4
   br label %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i
 
-_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %31, %28, %.lr.ph.i.i.i.i.i
-  %33 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i, i64 40
-  %34 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 40
-  %.not.i.i.i.i.i = icmp eq ptr %33, %2
+_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %30, %27, %.lr.ph.i.i.i.i.i
+  %32 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i, i64 40
+  %33 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 40
+  %.not.i.i.i.i.i = icmp eq ptr %32, %2
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !70
 
 _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit.loopexit: ; preds = %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i
@@ -5660,90 +5658,90 @@ _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT
   br label %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit
 
 _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit: ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit.loopexit, %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE11_M_allocateEm.exit.i
-  %35 = phi ptr [ %.pre, %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit.loopexit ], [ %9, %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE11_M_allocateEm.exit.i ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %.not4.i.i.i = icmp eq ptr %35, %37
+  %34 = phi ptr [ %.pre, %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit.loopexit ], [ %9, %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE11_M_allocateEm.exit.i ]
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %.not4.i.i.i = icmp eq ptr %34, %36
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit, %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %74, %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i ], [ %35, %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit ]
-  %38 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i, label %40
+  %.05.i.i.i = phi ptr [ %73, %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i ], [ %34, %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit ]
+  %37 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 32
+  %38 = load ptr, ptr %37, align 8
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %38, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i, label %39
 
-40:                                               ; preds = %.lr.ph.i.i.i
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
-  %42 = load atomic i64, ptr %41 acquire, align 8
-  %43 = icmp eq i64 %42, 4294967297
-  %44 = trunc i64 %42 to i32
-  br i1 %43, label %45, label %50
+39:                                               ; preds = %.lr.ph.i.i.i
+  %40 = getelementptr inbounds i8, ptr %38, i64 8
+  %41 = load atomic i64, ptr %40 acquire, align 8
+  %42 = icmp eq i64 %41, 4294967297
+  %43 = trunc i64 %41 to i32
+  br i1 %42, label %44, label %49
 
-45:                                               ; preds = %40
-  store i32 0, ptr %41, align 8
-  %46 = getelementptr inbounds i8, ptr %39, i64 12
-  store i32 0, ptr %46, align 4
-  %47 = load ptr, ptr %39, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8
-  tail call void %49(ptr noundef nonnull align 8 dereferenceable(16) %39) #18
+44:                                               ; preds = %39
+  store i32 0, ptr %40, align 8
+  %45 = getelementptr inbounds i8, ptr %38, i64 12
+  store i32 0, ptr %45, align 4
+  %46 = load ptr, ptr %38, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %48 = load ptr, ptr %47, align 8
+  tail call void %48(ptr noundef nonnull align 8 dereferenceable(16) %38) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i
 
-50:                                               ; preds = %40
-  %51 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %51, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %54, label %52
+49:                                               ; preds = %39
+  %50 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %50, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %53, label %51
 
-52:                                               ; preds = %50
-  %53 = add nsw i32 %44, -1
-  store i32 %53, ptr %41, align 4
-  br label %56
+51:                                               ; preds = %49
+  %52 = add nsw i32 %43, -1
+  store i32 %52, ptr %40, align 4
+  br label %55
 
-54:                                               ; preds = %50
-  %55 = atomicrmw volatile add ptr %41, i32 -1 acq_rel, align 4
-  br label %56
+53:                                               ; preds = %49
+  %54 = atomicrmw volatile add ptr %40, i32 -1 acq_rel, align 4
+  br label %55
 
-56:                                               ; preds = %54, %52
-  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %44, %52 ], [ %55, %54 ]
-  %57 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %57, label %58, label %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i
+55:                                               ; preds = %53, %51
+  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %43, %51 ], [ %54, %53 ]
+  %56 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %56, label %57, label %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i
 
-58:                                               ; preds = %56
-  %59 = load ptr, ptr %39, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
-  %61 = load ptr, ptr %60, align 8
-  tail call void %61(ptr noundef nonnull align 8 dereferenceable(16) %39) #18
-  %62 = getelementptr inbounds i8, ptr %39, i64 12
-  %63 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i16 = icmp eq i8 %63, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i16, label %67, label %64
+57:                                               ; preds = %55
+  %58 = load ptr, ptr %38, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 16
+  %60 = load ptr, ptr %59, align 8
+  tail call void %60(ptr noundef nonnull align 8 dereferenceable(16) %38) #18
+  %61 = getelementptr inbounds i8, ptr %38, i64 12
+  %62 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i16 = icmp eq i8 %62, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i16, label %66, label %63
 
-64:                                               ; preds = %58
-  %65 = load i32, ptr %62, align 4
-  %66 = add nsw i32 %65, -1
-  store i32 %66, ptr %62, align 4
-  br label %69
+63:                                               ; preds = %57
+  %64 = load i32, ptr %61, align 4
+  %65 = add nsw i32 %64, -1
+  store i32 %65, ptr %61, align 4
+  br label %68
 
-67:                                               ; preds = %58
-  %68 = atomicrmw volatile add ptr %62, i32 -1 acq_rel, align 4
-  br label %69
+66:                                               ; preds = %57
+  %67 = atomicrmw volatile add ptr %61, i32 -1 acq_rel, align 4
+  br label %68
 
-69:                                               ; preds = %67, %64
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %65, %64 ], [ %68, %67 ]
-  %70 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %70, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i
+68:                                               ; preds = %66, %63
+  %.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %64, %63 ], [ %67, %66 ]
+  %69 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %69, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i: ; preds = %69, %45
-  %71 = load ptr, ptr %39, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 24
-  %73 = load ptr, ptr %72, align 8
-  tail call void %73(ptr noundef nonnull align 8 dereferenceable(16) %39) #18
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i: ; preds = %68, %44
+  %70 = load ptr, ptr %38, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 24
+  %72 = load ptr, ptr %71, align 8
+  tail call void %72(ptr noundef nonnull align 8 dereferenceable(16) %38) #18
   br label %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i
 
-_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, %69, %56, %.lr.ph.i.i.i
-  %74 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 40
-  %.not.i.i.i = icmp eq ptr %74, %37
+_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, %68, %55, %.lr.ph.i.i.i
+  %73 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 40
+  %.not.i.i.i = icmp eq ptr %73, %36
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !10
 
 _ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i
@@ -5751,169 +5749,169 @@ _ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ;
   br label %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split, %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit
-  %75 = phi ptr [ %.pr, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split ], [ %35, %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit ]
-  %.not.i = icmp eq ptr %75, null
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE13_M_deallocateEPS1_m.exit, label %76
+  %74 = phi ptr [ %.pr, %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exitthread-pre-split ], [ %34, %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit ]
+  %.not.i = icmp eq ptr %74, null
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE13_M_deallocateEPS1_m.exit, label %75
 
-76:                                               ; preds = %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %75) #19
+75:                                               ; preds = %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %74) #19
   br label %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE13_M_deallocateEPS1_m.exit
 
-_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit, %76
+_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit, %75
   store ptr %18, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %18, i64 %6
-  store ptr %77, ptr %36, align 8
-  store ptr %77, ptr %7, align 8
+  %76 = getelementptr inbounds i8, ptr %18, i64 %6
+  store ptr %76, ptr %35, align 8
+  store ptr %76, ptr %7, align 8
   br label %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE15_M_erase_at_endEPS1_.exit
 
-78:                                               ; preds = %3
-  %79 = getelementptr inbounds i8, ptr %0, i64 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = ptrtoint ptr %80 to i64
-  %82 = sub i64 %81, %11
-  %.not = icmp ult i64 %82, %6
-  br i1 %.not, label %_ZSt7advanceIPKN2cv16VideoBackendInfoEmEvRT_T0_.exit, label %83
+77:                                               ; preds = %3
+  %78 = getelementptr inbounds i8, ptr %0, i64 8
+  %79 = load ptr, ptr %78, align 8
+  %80 = ptrtoint ptr %79 to i64
+  %81 = sub i64 %80, %11
+  %.not = icmp ult i64 %81, %6
+  br i1 %.not, label %_ZSt7advanceIPKN2cv16VideoBackendInfoEmEvRT_T0_.exit, label %82
 
-83:                                               ; preds = %78
-  %84 = tail call noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN2cv16VideoBackendInfoEPS4_EET0_T_S9_S8_(ptr noundef %1, ptr noundef %2, ptr noundef %9)
-  %85 = load ptr, ptr %79, align 8
-  %.not.i17 = icmp eq ptr %85, %84
+82:                                               ; preds = %77
+  %83 = tail call noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN2cv16VideoBackendInfoEPS4_EET0_T_S9_S8_(ptr noundef %1, ptr noundef %2, ptr noundef %9)
+  %84 = load ptr, ptr %78, align 8
+  %.not.i17 = icmp eq ptr %84, %83
   br i1 %.not.i17, label %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE15_M_erase_at_endEPS1_.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %83, %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %122, %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i.i ], [ %84, %83 ]
-  %86 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
-  %87 = load ptr, ptr %86, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i18 = icmp eq ptr %87, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i18, label %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i.i, label %88
+.lr.ph.i.i.i.i:                                   ; preds = %82, %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %121, %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i.i ], [ %83, %82 ]
+  %85 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
+  %86 = load ptr, ptr %85, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i18 = icmp eq ptr %86, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i18, label %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i.i, label %87
 
-88:                                               ; preds = %.lr.ph.i.i.i.i
-  %89 = getelementptr inbounds i8, ptr %87, i64 8
-  %90 = load atomic i64, ptr %89 acquire, align 8
-  %91 = icmp eq i64 %90, 4294967297
-  %92 = trunc i64 %90 to i32
-  br i1 %91, label %93, label %98
+87:                                               ; preds = %.lr.ph.i.i.i.i
+  %88 = getelementptr inbounds i8, ptr %86, i64 8
+  %89 = load atomic i64, ptr %88 acquire, align 8
+  %90 = icmp eq i64 %89, 4294967297
+  %91 = trunc i64 %89 to i32
+  br i1 %90, label %92, label %97
 
-93:                                               ; preds = %88
-  store i32 0, ptr %89, align 8
-  %94 = getelementptr inbounds i8, ptr %87, i64 12
-  store i32 0, ptr %94, align 4
-  %95 = load ptr, ptr %87, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 16
-  %97 = load ptr, ptr %96, align 8
-  tail call void %97(ptr noundef nonnull align 8 dereferenceable(16) %87) #18
+92:                                               ; preds = %87
+  store i32 0, ptr %88, align 8
+  %93 = getelementptr inbounds i8, ptr %86, i64 12
+  store i32 0, ptr %93, align 4
+  %94 = load ptr, ptr %86, align 8
+  %95 = getelementptr inbounds i8, ptr %94, i64 16
+  %96 = load ptr, ptr %95, align 8
+  tail call void %96(ptr noundef nonnull align 8 dereferenceable(16) %86) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i
 
-98:                                               ; preds = %88
-  %99 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i.i.i19 = icmp eq i8 %99, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i19, label %102, label %100
+97:                                               ; preds = %87
+  %98 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i.i19 = icmp eq i8 %98, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i19, label %101, label %99
 
-100:                                              ; preds = %98
-  %101 = add nsw i32 %92, -1
-  store i32 %101, ptr %89, align 4
-  br label %104
+99:                                               ; preds = %97
+  %100 = add nsw i32 %91, -1
+  store i32 %100, ptr %88, align 4
+  br label %103
 
-102:                                              ; preds = %98
-  %103 = atomicrmw volatile add ptr %89, i32 -1 acq_rel, align 4
-  br label %104
+101:                                              ; preds = %97
+  %102 = atomicrmw volatile add ptr %88, i32 -1 acq_rel, align 4
+  br label %103
 
-104:                                              ; preds = %102, %100
-  %.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %92, %100 ], [ %103, %102 ]
-  %105 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %105, label %106, label %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i.i
+103:                                              ; preds = %101, %99
+  %.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %91, %99 ], [ %102, %101 ]
+  %104 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %104, label %105, label %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i.i
 
-106:                                              ; preds = %104
-  %107 = load ptr, ptr %87, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 16
-  %109 = load ptr, ptr %108, align 8
-  tail call void %109(ptr noundef nonnull align 8 dereferenceable(16) %87) #18
-  %110 = getelementptr inbounds i8, ptr %87, i64 12
-  %111 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %111, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %115, label %112
+105:                                              ; preds = %103
+  %106 = load ptr, ptr %86, align 8
+  %107 = getelementptr inbounds i8, ptr %106, i64 16
+  %108 = load ptr, ptr %107, align 8
+  tail call void %108(ptr noundef nonnull align 8 dereferenceable(16) %86) #18
+  %109 = getelementptr inbounds i8, ptr %86, i64 12
+  %110 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %110, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %114, label %111
 
-112:                                              ; preds = %106
-  %113 = load i32, ptr %110, align 4
-  %114 = add nsw i32 %113, -1
-  store i32 %114, ptr %110, align 4
-  br label %117
+111:                                              ; preds = %105
+  %112 = load i32, ptr %109, align 4
+  %113 = add nsw i32 %112, -1
+  store i32 %113, ptr %109, align 4
+  br label %116
 
-115:                                              ; preds = %106
-  %116 = atomicrmw volatile add ptr %110, i32 -1 acq_rel, align 4
-  br label %117
+114:                                              ; preds = %105
+  %115 = atomicrmw volatile add ptr %109, i32 -1 acq_rel, align 4
+  br label %116
 
-117:                                              ; preds = %115, %112
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %113, %112 ], [ %116, %115 ]
-  %118 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %118, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i.i
+116:                                              ; preds = %114, %111
+  %.0.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %112, %111 ], [ %115, %114 ]
+  %117 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %117, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i: ; preds = %117, %93
-  %119 = load ptr, ptr %87, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 24
-  %121 = load ptr, ptr %120, align 8
-  tail call void %121(ptr noundef nonnull align 8 dereferenceable(16) %87) #18
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i: ; preds = %116, %92
+  %118 = load ptr, ptr %86, align 8
+  %119 = getelementptr inbounds i8, ptr %118, i64 24
+  %120 = load ptr, ptr %119, align 8
+  tail call void %120(ptr noundef nonnull align 8 dereferenceable(16) %86) #18
   br label %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i.i
 
-_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i, %117, %104, %.lr.ph.i.i.i.i
-  %122 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 40
-  %.not.i.i.i.i = icmp eq ptr %122, %85
+_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i, %116, %103, %.lr.ph.i.i.i.i
+  %121 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 40
+  %.not.i.i.i.i = icmp eq ptr %121, %84
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !10
 
 _ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN2cv16VideoBackendInfoEEvPT_.exit.i.i.i.i
-  store ptr %84, ptr %79, align 8
+  store ptr %83, ptr %78, align 8
   br label %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE15_M_erase_at_endEPS1_.exit
 
-_ZSt7advanceIPKN2cv16VideoBackendInfoEmEvRT_T0_.exit: ; preds = %78
-  %.sink.i.i = getelementptr inbounds i8, ptr %1, i64 %82
-  %123 = tail call noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN2cv16VideoBackendInfoEPS4_EET0_T_S9_S8_(ptr noundef %1, ptr noundef %.sink.i.i, ptr noundef %9)
-  %124 = load ptr, ptr %79, align 8
+_ZSt7advanceIPKN2cv16VideoBackendInfoEmEvRT_T0_.exit: ; preds = %77
+  %.sink.i.i = getelementptr inbounds i8, ptr %1, i64 %81
+  %122 = tail call noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPKN2cv16VideoBackendInfoEPS4_EET0_T_S9_S8_(ptr noundef %1, ptr noundef %.sink.i.i, ptr noundef %9)
+  %123 = load ptr, ptr %78, align 8
   %.not9.i.i.i.i = icmp eq ptr %.sink.i.i, %2
   br i1 %.not9.i.i.i.i, label %_ZSt22__uninitialized_copy_aIPKN2cv16VideoBackendInfoEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit, label %.lr.ph.i.i.i.i20
 
 .lr.ph.i.i.i.i20:                                 ; preds = %_ZSt7advanceIPKN2cv16VideoBackendInfoEmEvRT_T0_.exit, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %140, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %124, %_ZSt7advanceIPKN2cv16VideoBackendInfoEmEvRT_T0_.exit ]
-  %.0810.i.i.i.i = phi ptr [ %139, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.sink.i.i, %_ZSt7advanceIPKN2cv16VideoBackendInfoEmEvRT_T0_.exit ]
+  %.011.i.i.i.i = phi ptr [ %139, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %123, %_ZSt7advanceIPKN2cv16VideoBackendInfoEmEvRT_T0_.exit ]
+  %.0810.i.i.i.i = phi ptr [ %138, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ], [ %.sink.i.i, %_ZSt7advanceIPKN2cv16VideoBackendInfoEmEvRT_T0_.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.011.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0810.i.i.i.i, i64 24, i1 false)
-  %125 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 24
-  %126 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 24
-  %127 = load ptr, ptr %126, align 8
-  store ptr %127, ptr %125, align 8
-  %128 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 32
-  %129 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 32
-  %130 = load ptr, ptr %129, align 8
-  store ptr %130, ptr %128, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i21 = icmp eq ptr %130, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i21, label %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i, label %131
+  %124 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 24
+  %125 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 24
+  %126 = load ptr, ptr %125, align 8
+  store ptr %126, ptr %124, align 8
+  %127 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 32
+  %128 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 32
+  %129 = load ptr, ptr %128, align 8
+  store ptr %129, ptr %127, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i21 = icmp eq ptr %129, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i21, label %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i, label %130
 
-131:                                              ; preds = %.lr.ph.i.i.i.i20
-  %132 = getelementptr inbounds i8, ptr %130, i64 8
-  %133 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i.i.i22 = icmp eq i8 %133, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i22, label %137, label %134
+130:                                              ; preds = %.lr.ph.i.i.i.i20
+  %131 = getelementptr inbounds i8, ptr %129, i64 8
+  %132 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i.i22 = icmp eq i8 %132, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i22, label %136, label %133
 
-134:                                              ; preds = %131
-  %135 = load i32, ptr %132, align 4
-  %136 = add nsw i32 %135, 1
-  store i32 %136, ptr %132, align 4
+133:                                              ; preds = %130
+  %134 = load i32, ptr %131, align 4
+  %135 = add nsw i32 %134, 1
+  store i32 %135, ptr %131, align 4
   br label %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i
 
-137:                                              ; preds = %131
-  %138 = atomicrmw volatile add ptr %132, i32 1 acq_rel, align 4
+136:                                              ; preds = %130
+  %137 = atomicrmw volatile add ptr %131, i32 1 acq_rel, align 4
   br label %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i
 
-_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %137, %134, %.lr.ph.i.i.i.i20
-  %139 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 40
-  %140 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 40
-  %.not.i.i.i.i23 = icmp eq ptr %139, %2
+_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %136, %133, %.lr.ph.i.i.i.i20
+  %138 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 40
+  %139 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 40
+  %.not.i.i.i.i23 = icmp eq ptr %138, %2
   br i1 %.not.i.i.i.i23, label %_ZSt22__uninitialized_copy_aIPKN2cv16VideoBackendInfoEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit, label %.lr.ph.i.i.i.i20, !llvm.loop !70
 
 _ZSt22__uninitialized_copy_aIPKN2cv16VideoBackendInfoEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit: ; preds = %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i, %_ZSt7advanceIPKN2cv16VideoBackendInfoEmEvRT_T0_.exit
-  %.0.lcssa.i.i.i.i = phi ptr [ %124, %_ZSt7advanceIPKN2cv16VideoBackendInfoEmEvRT_T0_.exit ], [ %140, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ]
-  store ptr %.0.lcssa.i.i.i.i, ptr %79, align 8
+  %.0.lcssa.i.i.i.i = phi ptr [ %123, %_ZSt7advanceIPKN2cv16VideoBackendInfoEmEvRT_T0_.exit ], [ %139, %_ZSt10_ConstructIN2cv16VideoBackendInfoEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i ]
+  store ptr %.0.lcssa.i.i.i.i, ptr %78, align 8
   br label %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE15_M_erase_at_endEPS1_.exit
 
-_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE15_M_erase_at_endEPS1_.exit: ; preds = %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i, %83, %_ZSt22__uninitialized_copy_aIPKN2cv16VideoBackendInfoEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE13_M_deallocateEPS1_m.exit
+_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE15_M_erase_at_endEPS1_.exit: ; preds = %_ZSt8_DestroyIPN2cv16VideoBackendInfoES1_EvT_S3_RSaIT0_E.exit.i, %82, %_ZSt22__uninitialized_copy_aIPKN2cv16VideoBackendInfoEPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE13_M_deallocateEPS1_m.exit
   ret void
 }
 
@@ -8562,92 +8560,90 @@ _ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE11_M_allocateEm.exit: ; preds
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %25 = getelementptr inbounds i8, ptr %24, i64 24
   %26 = getelementptr inbounds i8, ptr %2, i64 24
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %24, i64 32
-  %29 = getelementptr inbounds i8, ptr %2, i64 32
-  %30 = load ptr, ptr %29, align 8
-  store ptr %30, ptr %28, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN2cv16VideoBackendInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit, label %31
+  %27 = getelementptr inbounds i8, ptr %2, i64 32
+  %28 = load ptr, ptr %27, align 8
+  %29 = load <2 x ptr>, ptr %26, align 8
+  store <2 x ptr> %29, ptr %25, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %28, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN2cv16VideoBackendInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit, label %30
 
-31:                                               ; preds = %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE11_M_allocateEm.exit
-  %32 = getelementptr inbounds i8, ptr %30, i64 8
-  %33 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %33, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %37, label %34
+30:                                               ; preds = %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE11_M_allocateEm.exit
+  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %32 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %32, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %36, label %33
 
-34:                                               ; preds = %31
-  %35 = load i32, ptr %32, align 4
-  %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %32, align 4
+33:                                               ; preds = %30
+  %34 = load i32, ptr %31, align 4
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %31, align 4
   br label %_ZNSt16allocator_traitsISaIN2cv16VideoBackendInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
 
-37:                                               ; preds = %31
-  %38 = atomicrmw volatile add ptr %32, i32 1 acq_rel, align 4
+36:                                               ; preds = %30
+  %37 = atomicrmw volatile add ptr %31, i32 1 acq_rel, align 4
   br label %_ZNSt16allocator_traitsISaIN2cv16VideoBackendInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
 
-_ZNSt16allocator_traitsISaIN2cv16VideoBackendInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE11_M_allocateEm.exit, %34, %37
+_ZNSt16allocator_traitsISaIN2cv16VideoBackendInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE11_M_allocateEm.exit, %33, %36
   %.not10.i.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt16allocator_traitsISaIN2cv16VideoBackendInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN2cv16VideoBackendInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
-  %.0911.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN2cv16VideoBackendInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
+  %.012.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN2cv16VideoBackendInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
+  %.0911.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN2cv16VideoBackendInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i, i64 24, i1 false), !alias.scope !95
-  %39 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
-  %40 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
-  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 32
-  %42 = load <2 x ptr>, ptr %40, align 8, !alias.scope !93, !noalias !90
-  store ptr null, ptr %41, align 8, !alias.scope !93, !noalias !90
-  store <2 x ptr> %42, ptr %39, align 8, !alias.scope !90, !noalias !93
+  %38 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 24
+  %39 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 24
+  %40 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 32
+  %41 = load <2 x ptr>, ptr %39, align 8, !alias.scope !93, !noalias !90
   store ptr null, ptr %40, align 8, !alias.scope !93, !noalias !90
-  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 40
-  %44 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 40
-  %.not.i.i.i.i = icmp eq ptr %43, %1
+  store <2 x ptr> %41, ptr %38, align 8, !alias.scope !90, !noalias !93
+  store ptr null, ptr %39, align 8, !alias.scope !93, !noalias !90
+  %42 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 40
+  %43 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 40
+  %.not.i.i.i.i = icmp eq ptr %42, %1
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !79
 
 _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv16VideoBackendInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv16VideoBackendInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %44, %.lr.ph.i.i.i.i ]
-  %45 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 40
+  %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaIN2cv16VideoBackendInfoEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %43, %.lr.ph.i.i.i.i ]
+  %44 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 40
   %.not10.i.i.i.i16 = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i.i17
-  %.012.i.i.i.i18 = phi ptr [ %51, %.lr.ph.i.i.i.i17 ], [ %45, %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  %.0911.i.i.i.i19 = phi ptr [ %50, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
+  %.012.i.i.i.i18 = phi ptr [ %50, %.lr.ph.i.i.i.i17 ], [ %44, %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
+  %.0911.i.i.i.i19 = phi ptr [ %49, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !96)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !99)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i18, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i19, i64 24, i1 false), !alias.scope !101
-  %46 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 24
-  %47 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 24
-  %48 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 32
-  %49 = load <2 x ptr>, ptr %47, align 8, !alias.scope !99, !noalias !96
-  store ptr null, ptr %48, align 8, !alias.scope !99, !noalias !96
-  store <2 x ptr> %49, ptr %46, align 8, !alias.scope !96, !noalias !99
+  %45 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 24
+  %46 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 24
+  %47 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 32
+  %48 = load <2 x ptr>, ptr %46, align 8, !alias.scope !99, !noalias !96
   store ptr null, ptr %47, align 8, !alias.scope !99, !noalias !96
-  %50 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 40
-  %51 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 40
-  %.not.i.i.i.i20 = icmp eq ptr %50, %5
+  store <2 x ptr> %48, ptr %45, align 8, !alias.scope !96, !noalias !99
+  store ptr null, ptr %46, align 8, !alias.scope !99, !noalias !96
+  %49 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 40
+  %50 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 40
+  %.not.i.i.i.i20 = icmp eq ptr %49, %5
   br i1 %.not.i.i.i.i20, label %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !79
 
 _ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds = %.lr.ph.i.i.i.i17, %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
-  %.0.lcssa.i.i.i.i21 = phi ptr [ %45, %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %51, %.lr.ph.i.i.i.i17 ]
+  %.0.lcssa.i.i.i.i21 = phi ptr [ %44, %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %50, %.lr.ph.i.i.i.i17 ]
   %.not.i23 = icmp eq ptr %6, null
-  br i1 %.not.i23, label %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE13_M_deallocateEPS1_m.exit, label %52
+  br i1 %.not.i23, label %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE13_M_deallocateEPS1_m.exit, label %51
 
-52:                                               ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22
+51:                                               ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22
   tail call void @_ZdlPv(ptr noundef nonnull %6) #19
   br label %_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE13_M_deallocateEPS1_m.exit
 
-_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %52
-  %53 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseIN2cv16VideoBackendInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN2cv16VideoBackendInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %51
+  %52 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8
-  %54 = getelementptr inbounds %"struct.cv::VideoBackendInfo", ptr %23, i64 %16
-  store ptr %54, ptr %53, align 8
+  %53 = getelementptr inbounds %"struct.cv::VideoBackendInfo", ptr %23, i64 %16
+  store ptr %53, ptr %52, align 8
   ret void
 }
 

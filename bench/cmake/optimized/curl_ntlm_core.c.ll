@@ -27,7 +27,7 @@ define dso_local void @Curl_ntlm_core_lm_resp(ptr nocapture noundef readonly %0,
   %9 = getelementptr inbounds i8, ptr %0, i64 4
   %10 = load i8, ptr %9, align 1
   %11 = load <4 x i8>, ptr %0, align 1
-  %12 = extractelement <4 x i8> %11, i64 0
+  %12 = load i8, ptr %0, align 1
   store i8 %12, ptr %6, align 1
   %13 = shufflevector <4 x i8> %11, <4 x i8> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
   %14 = insertelement <4 x i8> %13, i8 %10, i64 3
@@ -56,7 +56,7 @@ define dso_local void @Curl_ntlm_core_lm_resp(ptr nocapture noundef readonly %0,
   %28 = getelementptr inbounds i8, ptr %0, i64 11
   %29 = load i8, ptr %28, align 1
   %30 = load <4 x i8>, ptr %26, align 1
-  %31 = extractelement <4 x i8> %30, i64 0
+  %31 = load i8, ptr %26, align 1
   store i8 %31, ptr %5, align 1
   %32 = shufflevector <4 x i8> %30, <4 x i8> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
   %33 = insertelement <4 x i8> %32, i8 %29, i64 3
@@ -86,7 +86,7 @@ define dso_local void @Curl_ntlm_core_lm_resp(ptr nocapture noundef readonly %0,
   %48 = getelementptr inbounds i8, ptr %0, i64 18
   %49 = load i8, ptr %48, align 1
   %50 = load <4 x i8>, ptr %46, align 1
-  %51 = extractelement <4 x i8> %50, i64 0
+  %51 = load i8, ptr %46, align 1
   store i8 %51, ptr %4, align 1
   %52 = shufflevector <4 x i8> %50, <4 x i8> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
   %53 = insertelement <4 x i8> %52, i8 %49, i64 3
@@ -132,7 +132,7 @@ define dso_local noundef i32 @Curl_ntlm_core_mk_lm_hash(ptr noundef %0, ptr noun
   %11 = getelementptr inbounds i8, ptr %5, i64 4
   %12 = load i8, ptr %11, align 4
   %13 = load <4 x i8>, ptr %5, align 4
-  %14 = extractelement <4 x i8> %13, i64 0
+  %14 = load i8, ptr %5, align 4
   store i8 %14, ptr %4, align 1
   %15 = shufflevector <4 x i8> %13, <4 x i8> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
   %16 = insertelement <4 x i8> %15, i8 %12, i64 3
@@ -161,7 +161,7 @@ define dso_local noundef i32 @Curl_ntlm_core_mk_lm_hash(ptr noundef %0, ptr noun
   %30 = getelementptr inbounds i8, ptr %5, i64 11
   %31 = load i8, ptr %30, align 1
   %32 = load <4 x i8>, ptr %28, align 1
-  %33 = extractelement <4 x i8> %32, i64 0
+  %33 = load i8, ptr %28, align 1
   store i8 %33, ptr %3, align 1
   %34 = shufflevector <4 x i8> %32, <4 x i8> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
   %35 = insertelement <4 x i8> %34, i8 %31, i64 3

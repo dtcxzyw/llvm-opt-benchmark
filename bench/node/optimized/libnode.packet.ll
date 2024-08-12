@@ -773,7 +773,7 @@ define dso_local void @_ZNK4node4quic6Packet5CloneEv(ptr noalias sret(%"class.no
 entry:
   %obj = alloca %"class.v8::Local.292", align 8
   %ref.tmp33 = alloca ptr, align 8
-  %agg.tmp37 = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp37 = alloca %"class.std::shared_ptr", align 16
   %realm_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %realm_.i, align 8
   %env_.i.i = getelementptr inbounds i8, ptr %0, i64 176
@@ -823,17 +823,16 @@ if.end:                                           ; preds = %if.then
 
 if.end35:                                         ; preds = %entry
   %data_38 = getelementptr inbounds i8, ptr %this, i64 552
-  %12 = load ptr, ptr %data_38, align 8
-  store ptr %12, ptr %agg.tmp37, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp37, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 560
-  %13 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %13, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %13, null
+  %12 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %13 = load <2 x ptr>, ptr %data_38, align 8
+  store <2 x ptr> %13, ptr %agg.tmp37, align 16
+  %cmp.not.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node4quic6Packet4DataEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end35
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %14, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -936,14 +935,14 @@ entry:
   %0 = load ptr, ptr %args, align 8
   %1 = load ptr, ptr %args1, align 8
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %args3, align 8
-  %2 = load ptr, ptr %args7, align 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %args7, i64 8
-  %3 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %3 = load <2 x ptr>, ptr %args7, align 8
+  %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node4quic6Packet4DataEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -1006,9 +1005,7 @@ _ZN4node4quic6PacketC2EPNS_11EnvironmentEPNS1_8ListenerEN2v85LocalINS6_6ObjectEE
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 16, i64 28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address_2.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %address_3.i.i, i64 %cond.i.i.i.i.i, i1 false)
   %data_.i = getelementptr inbounds i8, ptr %call, i64 552
-  store ptr %2, ptr %data_.i, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %call, i64 560
-  store ptr %3, ptr %_M_refcount.i.i.i, align 8
+  store <2 x ptr> %3, ptr %data_.i, align 8
   %handle_.i = getelementptr inbounds i8, ptr %call, i64 568
   store ptr null, ptr %handle_.i, align 8
   store ptr %call, ptr %agg.result, align 8

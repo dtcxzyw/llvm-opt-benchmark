@@ -386,17 +386,15 @@ if.then69:                                        ; preds = %invoke.cont65
 
 invoke.cont71:                                    ; preds = %invoke.cont65, %invoke.cont46
   %file73 = getelementptr inbounds i8, ptr %pos.sroa.0.0, i64 64
-  %16 = load ptr, ptr %file73, align 8, !tbaa !47
-  store ptr %16, ptr %agg.result, align 8, !tbaa !47
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %pos.sroa.0.0, i64 72
-  %17 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !50
-  store ptr %17, ptr %_M_refcount.i.i, align 8, !tbaa !50
-  %cmp.not.i.i.i = icmp eq ptr %17, null
+  %16 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !50
+  %17 = load <2 x ptr>, ptr %file73, align 8, !tbaa !25
+  store <2 x ptr> %17, ptr %agg.result, align 8, !tbaa !25
+  %cmp.not.i.i.i = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i, label %"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer18SignalSafeElfCache7getFileENS_5RangeIPKcEEE3$_0Lb1EED2Ev.exit", label %if.then.i.i.i132
 
 if.then.i.i.i132:                                 ; preds = %invoke.cont71
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !51
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %18, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

@@ -7977,7 +7977,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc21cf28c
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load <2 x i64>, ptr %4, align 8
-  %9 = extractelement <2 x i64> %8, i64 0
+  %9 = load i64, ptr %4, align 8, !noundef !9
   %10 = add i64 %9, 1
   store i64 %10, ptr %4, align 8
   store <2 x i64> %8, ptr %7, align 8
@@ -39000,7 +39000,7 @@ define hidden void @_ZN9itertools11unique_impl6unique17h5cdbb79b5610663cE(ptr no
   %.sroa.0.56..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 56
   %.sroa.52.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 88
   %12 = load <2 x i64>, ptr %.0.i.i12, align 8, !noalias !11620
-  %13 = extractelement <2 x i64> %12, i64 0
+  %13 = load i64, ptr %.0.i.i12, align 8, !noalias !11620, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %.0.i.i12, align 8, !noalias !11620
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
@@ -39060,7 +39060,7 @@ define hidden void @_ZN9itertools11unique_impl6unique17he543da29e82f16b2E(ptr no
   %.sroa.0.32..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 32
   %.sroa.52.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   %12 = load <2 x i64>, ptr %.0.i.i12, align 8, !noalias !11629
-  %13 = extractelement <2 x i64> %12, i64 0
+  %13 = load i64, ptr %.0.i.i12, align 8, !noalias !11629, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %.0.i.i12, align 8, !noalias !11629
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -39120,7 +39120,7 @@ define hidden void @_ZN9itertools11unique_impl6unique17he7e86122dc9b7167E(ptr no
   %.sroa.0.32..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 32
   %.sroa.52.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   %12 = load <2 x i64>, ptr %.0.i.i12, align 8, !noalias !11638
-  %13 = extractelement <2 x i64> %12, i64 0
+  %13 = load i64, ptr %.0.i.i12, align 8, !noalias !11638, !noundef !9
   %14 = add i64 %13, 1
   store i64 %14, ptr %.0.i.i12, align 8, !noalias !11638
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)

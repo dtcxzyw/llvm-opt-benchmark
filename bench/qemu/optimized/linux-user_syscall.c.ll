@@ -7669,8 +7669,8 @@ sw.bb2056:                                        ; preds = %entry, %entry
 
 if.end2060:                                       ; preds = %sw.bb2056
   %297 = load <2 x i32>, ptr %call2057, align 4
+  %298 = load i32, ptr %call2057, align 4
   store <2 x i32> %297, ptr %header, align 8
-  %298 = extractelement <2 x i32> %297, i64 0
   %cmp2066.not = icmp ne i32 %298, 429392688
   %spec.select1788 = select i1 %cmp2066.not, i32 2, i32 1
   %tobool2073.not = icmp eq i64 %arg2, 0

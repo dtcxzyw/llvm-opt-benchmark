@@ -90,7 +90,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
-  %8 = alloca %"class.cv::GMat", align 8
+  %8 = alloca %"class.cv::GMat", align 16
   %9 = alloca %"class.cv::GMat", align 8
   %10 = alloca %"class.cv::Size_", align 4
   %11 = alloca %"class.cv::GMat", align 8
@@ -104,11 +104,11 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   %19 = alloca %"class.cv::GMat", align 8
   %20 = alloca %"class.std::tuple", align 8
   %21 = alloca %"class.std::tuple.11", align 8
-  %22 = alloca %"class.cv::GMat", align 8
+  %22 = alloca %"class.cv::GMat", align 16
   %23 = alloca %"class.cv::GMat", align 8
   %24 = alloca %"class.cv::GComputation", align 8
-  %25 = alloca %"class.cv::GMat", align 8
-  %26 = alloca %"class.cv::GMat", align 8
+  %25 = alloca %"class.cv::GMat", align 16
+  %26 = alloca %"class.cv::GMat", align 16
   %27 = alloca %"class.cv::Mat", align 8
   %28 = alloca %"class.cv::Mat", align 8
   %29 = alloca %"class.cv::_OutputArray", align 8
@@ -410,17 +410,16 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv4GMatD2Ev.exit
 
 _ZN2cv4GMatD2Ev.exit:                             ; preds = %118, %137, %150, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %155 = load ptr, ptr %8, align 8
-  store ptr %155, ptr %25, align 8
-  %156 = getelementptr inbounds i8, ptr %25, i64 8
-  %157 = getelementptr inbounds i8, ptr %8, i64 8
-  %158 = load ptr, ptr %157, align 8
-  store ptr %158, ptr %156, align 8
-  %.not.i.i.i.i42 = icmp eq ptr %158, null
+  %155 = getelementptr inbounds i8, ptr %25, i64 8
+  %156 = getelementptr inbounds i8, ptr %8, i64 8
+  %157 = load ptr, ptr %156, align 8
+  %158 = load <2 x ptr>, ptr %8, align 16
+  store <2 x ptr> %158, ptr %25, align 16
+  %.not.i.i.i.i42 = icmp eq ptr %157, null
   br i1 %.not.i.i.i.i42, label %_ZN2cv4GMatC2ERKS0_.exit, label %159
 
 159:                                              ; preds = %_ZN2cv4GMatD2Ev.exit
-  %160 = getelementptr inbounds i8, ptr %158, i64 8
+  %160 = getelementptr inbounds i8, ptr %157, i64 8
   %161 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i43 = icmp eq i8 %161, 0
   br i1 %.not.i.i.i.i.i43, label %165, label %162
@@ -436,17 +435,16 @@ _ZN2cv4GMatD2Ev.exit:                             ; preds = %118, %137, %150, %_
   br label %_ZN2cv4GMatC2ERKS0_.exit
 
 _ZN2cv4GMatC2ERKS0_.exit:                         ; preds = %_ZN2cv4GMatD2Ev.exit, %162, %165
-  %167 = load ptr, ptr %22, align 8
-  store ptr %167, ptr %26, align 8
-  %168 = getelementptr inbounds i8, ptr %26, i64 8
-  %169 = getelementptr inbounds i8, ptr %22, i64 8
-  %170 = load ptr, ptr %169, align 8
-  store ptr %170, ptr %168, align 8
-  %.not.i.i.i.i44 = icmp eq ptr %170, null
+  %167 = getelementptr inbounds i8, ptr %26, i64 8
+  %168 = getelementptr inbounds i8, ptr %22, i64 8
+  %169 = load ptr, ptr %168, align 8
+  %170 = load <2 x ptr>, ptr %22, align 16
+  store <2 x ptr> %170, ptr %26, align 16
+  %.not.i.i.i.i44 = icmp eq ptr %169, null
   br i1 %.not.i.i.i.i44, label %_ZN2cv4GMatC2ERKS0_.exit46, label %171
 
 171:                                              ; preds = %_ZN2cv4GMatC2ERKS0_.exit
-  %172 = getelementptr inbounds i8, ptr %170, i64 8
+  %172 = getelementptr inbounds i8, ptr %169, i64 8
   %173 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i45 = icmp eq i8 %173, 0
   br i1 %.not.i.i.i.i.i45, label %177, label %174
@@ -466,7 +464,7 @@ _ZN2cv4GMatC2ERKS0_.exit46:                       ; preds = %_ZN2cv4GMatC2ERKS0_
           to label %179 unwind label %279
 
 179:                                              ; preds = %_ZN2cv4GMatC2ERKS0_.exit46
-  %180 = load ptr, ptr %168, align 8
+  %180 = load ptr, ptr %167, align 8
   %.not.i.i.i.i47 = icmp eq ptr %180, null
   br i1 %.not.i.i.i.i47, label %_ZN2cv4GMatD2Ev.exit53, label %181
 
@@ -539,7 +537,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv4GMatD2Ev.exit53
 
 _ZN2cv4GMatD2Ev.exit53:                           ; preds = %179, %197, %210, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i52
-  %215 = load ptr, ptr %156, align 8
+  %215 = load ptr, ptr %155, align 8
   %.not.i.i.i.i54 = icmp eq ptr %215, null
   br i1 %.not.i.i.i.i54, label %250, label %216
 
@@ -903,7 +901,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv12GComputationD2Ev.exit
 
 _ZN2cv12GComputationD2Ev.exit:                    ; preds = %.critedge, %340, %353, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i68
-  %358 = load ptr, ptr %169, align 8
+  %358 = load ptr, ptr %168, align 8
   %.not.i.i.i.i69 = icmp eq ptr %358, null
   br i1 %.not.i.i.i.i69, label %_ZN2cv4GMatD2Ev.exit75, label %359
 
@@ -1494,7 +1492,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv4GMatD2Ev.exit124
 
 _ZN2cv4GMatD2Ev.exit124:                          ; preds = %_ZN2cv4GMatD2Ev.exit117, %627, %640, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i123
-  %645 = load ptr, ptr %157, align 8
+  %645 = load ptr, ptr %156, align 8
   %.not.i.i.i.i125 = icmp eq ptr %645, null
   br i1 %.not.i.i.i.i125, label %_ZN2cv4GMatD2Ev.exit131, label %646
 

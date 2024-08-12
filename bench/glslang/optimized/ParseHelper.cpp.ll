@@ -64417,21 +64417,18 @@ _ZNSt8functionIFviibiPKcEEC2ERKS3_.exit.i:        ; preds = %7, %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = getelementptr inbounds i8, ptr %0, i64 992
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 1000
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %14, align 8
+  %13 = load <2 x ptr>, ptr %12, align 8
+  %14 = load ptr, ptr %12, align 8
+  store <2 x ptr> %13, ptr %11, align 8
   store <2 x ptr> %10, ptr %12, align 8
-  %.not.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i, label %_ZNSt8functionIFviibiPKcEEaSERKS3_.exit, label %17
+  %.not.i.i.i = icmp eq ptr %14, null
+  br i1 %.not.i.i.i, label %_ZNSt8functionIFviibiPKcEEaSERKS3_.exit, label %15
 
-17:                                               ; preds = %_ZNSt8functionIFviibiPKcEEC2ERKS3_.exit.i
-  %18 = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3) #22
+15:                                               ; preds = %_ZNSt8functionIFviibiPKcEEC2ERKS3_.exit.i
+  %16 = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3) #22
   br label %_ZNSt8functionIFviibiPKcEEaSERKS3_.exit
 
-_ZNSt8functionIFviibiPKcEEaSERKS3_.exit:          ; preds = %_ZNSt8functionIFviibiPKcEEC2ERKS3_.exit.i, %17
+_ZNSt8functionIFviibiPKcEEaSERKS3_.exit:          ; preds = %_ZNSt8functionIFviibiPKcEEC2ERKS3_.exit.i, %15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 }
@@ -64462,21 +64459,18 @@ _ZNSt8functionIFviPKcS1_EEC2ERKS3_.exit.i:        ; preds = %7, %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = getelementptr inbounds i8, ptr %0, i64 1088
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 1096
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %14, align 8
+  %13 = load <2 x ptr>, ptr %12, align 8
+  %14 = load ptr, ptr %12, align 8
+  store <2 x ptr> %13, ptr %11, align 8
   store <2 x ptr> %10, ptr %12, align 8
-  %.not.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i, label %_ZNSt8functionIFviPKcS1_EEaSERKS3_.exit, label %17
+  %.not.i.i.i = icmp eq ptr %14, null
+  br i1 %.not.i.i.i, label %_ZNSt8functionIFviPKcS1_EEaSERKS3_.exit, label %15
 
-17:                                               ; preds = %_ZNSt8functionIFviPKcS1_EEC2ERKS3_.exit.i
-  %18 = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3) #22
+15:                                               ; preds = %_ZNSt8functionIFviPKcS1_EEC2ERKS3_.exit.i
+  %16 = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3) #22
   br label %_ZNSt8functionIFviPKcS1_EEaSERKS3_.exit
 
-_ZNSt8functionIFviPKcS1_EEaSERKS3_.exit:          ; preds = %_ZNSt8functionIFviPKcS1_EEC2ERKS3_.exit.i, %17
+_ZNSt8functionIFviPKcS1_EEaSERKS3_.exit:          ; preds = %_ZNSt8functionIFviPKcS1_EEC2ERKS3_.exit.i, %15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 }
@@ -64507,21 +64501,18 @@ _ZNSt8functionIFviiPKcEEC2ERKS3_.exit.i:          ; preds = %7, %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = getelementptr inbounds i8, ptr %0, i64 1056
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 1064
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %14, align 8
+  %13 = load <2 x ptr>, ptr %12, align 8
+  %14 = load ptr, ptr %12, align 8
+  store <2 x ptr> %13, ptr %11, align 8
   store <2 x ptr> %10, ptr %12, align 8
-  %.not.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i, label %_ZNSt8functionIFviiPKcEEaSERKS3_.exit, label %17
+  %.not.i.i.i = icmp eq ptr %14, null
+  br i1 %.not.i.i.i, label %_ZNSt8functionIFviiPKcEEaSERKS3_.exit, label %15
 
-17:                                               ; preds = %_ZNSt8functionIFviiPKcEEC2ERKS3_.exit.i
-  %18 = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3) #22
+15:                                               ; preds = %_ZNSt8functionIFviiPKcEEC2ERKS3_.exit.i
+  %16 = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3) #22
   br label %_ZNSt8functionIFviiPKcEEaSERKS3_.exit
 
-_ZNSt8functionIFviiPKcEEaSERKS3_.exit:            ; preds = %_ZNSt8functionIFviiPKcEEC2ERKS3_.exit.i, %17
+_ZNSt8functionIFviiPKcEEaSERKS3_.exit:            ; preds = %_ZNSt8functionIFviiPKcEEC2ERKS3_.exit.i, %15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 }
@@ -64552,21 +64543,18 @@ _ZNSt8functionIFviRKN7glslang7TVectorINSt7__cxx1112basic_stringIcSt11char_traits
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = getelementptr inbounds i8, ptr %0, i64 1024
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 1032
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %14, align 8
+  %13 = load <2 x ptr>, ptr %12, align 8
+  %14 = load ptr, ptr %12, align 8
+  store <2 x ptr> %13, ptr %11, align 8
   store <2 x ptr> %10, ptr %12, align 8
-  %.not.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i, label %_ZNSt8functionIFviRKN7glslang7TVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcENS0_14pool_allocatorIcEEEEEEEEaSERKSD_.exit, label %17
+  %.not.i.i.i = icmp eq ptr %14, null
+  br i1 %.not.i.i.i, label %_ZNSt8functionIFviRKN7glslang7TVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcENS0_14pool_allocatorIcEEEEEEEEaSERKSD_.exit, label %15
 
-17:                                               ; preds = %_ZNSt8functionIFviRKN7glslang7TVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcENS0_14pool_allocatorIcEEEEEEEEC2ERKSD_.exit.i
-  %18 = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3) #22
+15:                                               ; preds = %_ZNSt8functionIFviRKN7glslang7TVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcENS0_14pool_allocatorIcEEEEEEEEC2ERKSD_.exit.i
+  %16 = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3) #22
   br label %_ZNSt8functionIFviRKN7glslang7TVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcENS0_14pool_allocatorIcEEEEEEEEaSERKSD_.exit
 
-_ZNSt8functionIFviRKN7glslang7TVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcENS0_14pool_allocatorIcEEEEEEEEaSERKSD_.exit: ; preds = %_ZNSt8functionIFviRKN7glslang7TVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcENS0_14pool_allocatorIcEEEEEEEEC2ERKSD_.exit.i, %17
+_ZNSt8functionIFviRKN7glslang7TVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcENS0_14pool_allocatorIcEEEEEEEEaSERKSD_.exit: ; preds = %_ZNSt8functionIFviRKN7glslang7TVectorINSt7__cxx1112basic_stringIcSt11char_traitsIcENS0_14pool_allocatorIcEEEEEEEEC2ERKSD_.exit.i, %15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 }
@@ -64597,21 +64585,18 @@ _ZNSt8functionIFviPKcEEC2ERKS3_.exit.i:           ; preds = %7, %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = getelementptr inbounds i8, ptr %0, i64 1120
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
-  %15 = getelementptr inbounds i8, ptr %0, i64 1128
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %14, align 8
+  %13 = load <2 x ptr>, ptr %12, align 8
+  %14 = load ptr, ptr %12, align 8
+  store <2 x ptr> %13, ptr %11, align 8
   store <2 x ptr> %10, ptr %12, align 8
-  %.not.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i, label %_ZNSt8functionIFviPKcEEaSERKS3_.exit, label %17
+  %.not.i.i.i = icmp eq ptr %14, null
+  br i1 %.not.i.i.i, label %_ZNSt8functionIFviPKcEEaSERKS3_.exit, label %15
 
-17:                                               ; preds = %_ZNSt8functionIFviPKcEEC2ERKS3_.exit.i
-  %18 = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3) #22
+15:                                               ; preds = %_ZNSt8functionIFviPKcEEC2ERKS3_.exit.i
+  %16 = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3) #22
   br label %_ZNSt8functionIFviPKcEEaSERKS3_.exit
 
-_ZNSt8functionIFviPKcEEaSERKS3_.exit:             ; preds = %_ZNSt8functionIFviPKcEEC2ERKS3_.exit.i, %17
+_ZNSt8functionIFviPKcEEaSERKS3_.exit:             ; preds = %_ZNSt8functionIFviPKcEEC2ERKS3_.exit.i, %15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 }

@@ -165,87 +165,85 @@ define hidden void @_ZN20AttachListenerThread12thread_entryEP10JavaThreadS1_(ptr
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZN12ResourceMarkD2Ev.exit
-  %11 = phi ptr [ %7, %.lr.ph ], [ %45, %_ZN12ResourceMarkD2Ev.exit ]
+  %11 = phi ptr [ %7, %.lr.ph ], [ %44, %_ZN12ResourceMarkD2Ev.exit ]
   %12 = load ptr, ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 800
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 32
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 40
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 8
-  %22 = load i64, ptr %21, align 8
+  %18 = load <2 x ptr>, ptr %17, align 8
+  %19 = load ptr, ptr %17, align 8
+  %20 = getelementptr inbounds i8, ptr %14, i64 8
+  %21 = load i64, ptr %20, align 8
   call void @_ZN14bufferedStreamC1Emm(ptr noundef nonnull align 8 dereferenceable(89) %3, i64 noundef 1048576, i64 noundef 3221225472) #8
-  %23 = getelementptr inbounds i8, ptr %11, i64 8
-  %24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(10) @.str.10) #9
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %28, label %.preheader.preheader
+  %22 = getelementptr inbounds i8, ptr %11, i64 8
+  %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(10) @.str.10) #9
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %27, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %10
-  %26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(16) @.str.11) #9
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.preheader._crit_edge, label %.lr.ph32
+  %25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(16) @.str.11) #9
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %.preheader._crit_edge, label %.lr.ph32
 
-28:                                               ; preds = %10
+27:                                               ; preds = %10
   call void @_ZN14AttachListener12pd_detachallEv() #8
-  br label %37
+  br label %36
 
 .lr.ph32:                                         ; preds = %.preheader.preheader, %.preheader
   %indvars.iv31 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv31, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond, label %36, label %.preheader, !llvm.loop !6
+  br i1 %exitcond, label %35, label %.preheader, !llvm.loop !6
 
 .preheader:                                       ; preds = %.lr.ph32
-  %29 = getelementptr inbounds [11 x %struct.AttachOperationFunctionInfo], ptr @_ZL5funcs, i64 0, i64 %indvars.iv.next
-  %30 = load ptr, ptr %29, align 16
-  %31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %30) #9
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %.preheader._crit_edge, label %.lr.ph32, !llvm.loop !6
+  %28 = getelementptr inbounds [11 x %struct.AttachOperationFunctionInfo], ptr @_ZL5funcs, i64 0, i64 %indvars.iv.next
+  %29 = load ptr, ptr %28, align 16
+  %30 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %29) #9
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %.preheader._crit_edge, label %.lr.ph32, !llvm.loop !6
 
 .preheader._crit_edge:                            ; preds = %.preheader, %.preheader.preheader
-  %.lcssa = phi ptr [ @_ZL5funcs, %.preheader.preheader ], [ %29, %.preheader ]
-  %33 = getelementptr inbounds i8, ptr %.lcssa, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = call noundef i32 %34(ptr noundef nonnull %11, ptr noundef nonnull %3) #8
-  br label %37
+  %.lcssa = phi ptr [ @_ZL5funcs, %.preheader.preheader ], [ %28, %.preheader ]
+  %32 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = call noundef i32 %33(ptr noundef nonnull %11, ptr noundef nonnull %3) #8
+  br label %36
 
-36:                                               ; preds = %.lr.ph32
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str, ptr noundef nonnull %23) #8
-  br label %37
+35:                                               ; preds = %.lr.ph32
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str, ptr noundef nonnull %22) #8
+  br label %36
 
-37:                                               ; preds = %.preheader._crit_edge, %36, %28
-  %.0 = phi i32 [ 0, %28 ], [ %35, %.preheader._crit_edge ], [ -1, %36 ]
-  %38 = load ptr, ptr %11, align 8
-  %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(3100) %11, i32 noundef %.0, ptr noundef nonnull %3) #8
+36:                                               ; preds = %.preheader._crit_edge, %35, %27
+  %.0 = phi i32 [ 0, %27 ], [ %34, %.preheader._crit_edge ], [ -1, %35 ]
+  %37 = load ptr, ptr %11, align 8
+  %38 = load ptr, ptr %37, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(3100) %11, i32 noundef %.0, ptr noundef nonnull %3) #8
   call void @_ZN14bufferedStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(89) %3) #8
-  %40 = load ptr, ptr %16, align 8
-  %.not.i.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i.i, label %42, label %41
+  %39 = load ptr, ptr %16, align 8
+  %.not.i.i.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i.i.i, label %41, label %40
 
-41:                                               ; preds = %37
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %14, i64 noundef %22) #8
+40:                                               ; preds = %36
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %14, i64 noundef %21) #8
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %16) #8
-  br label %42
+  br label %41
 
-42:                                               ; preds = %41, %37
-  %43 = load ptr, ptr %17, align 8
-  %.not8.i.i.i.i = icmp eq ptr %43, %18
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %44
+41:                                               ; preds = %40, %36
+  %42 = load ptr, ptr %17, align 8
+  %.not8.i.i.i.i = icmp eq ptr %42, %19
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %43
 
-44:                                               ; preds = %42
+43:                                               ; preds = %41
   store ptr %16, ptr %15, align 8
-  store ptr %18, ptr %17, align 8
-  store ptr %20, ptr %19, align 8
+  store <2 x ptr> %18, ptr %17, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %42, %44
-  %45 = call noundef ptr @_ZN14AttachListener7dequeueEv() #8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %._crit_edge, label %10, !llvm.loop !8
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %41, %43
+  %44 = call noundef ptr @_ZN14AttachListener7dequeueEv() #8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %._crit_edge, label %10, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZN12ResourceMarkD2Ev.exit, %6, %2
   store volatile i32 0, ptr @_ZN14AttachListener6_stateE, align 4
@@ -570,7 +568,7 @@ define internal noundef range(i32 -1, 1) i32 @_ZL10load_agentP15AttachOperationP
   %7 = getelementptr inbounds i8, ptr %0, i64 2075
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(11) @.str.27) #9
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %36
+  br i1 %9, label %10, label %35
 
 10:                                               ; preds = %2
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -580,61 +578,59 @@ define internal noundef range(i32 -1, 1) i32 @_ZL10load_agentP15AttachOperationP
   %15 = getelementptr inbounds i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 32
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 40
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 8
-  %22 = load i64, ptr %21, align 8
+  %18 = load <2 x ptr>, ptr %17, align 8
+  %19 = load ptr, ptr %17, align 8
+  %20 = getelementptr inbounds i8, ptr %14, i64 8
+  %21 = load i64, ptr %20, align 8
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %12) #8
   store i8 12, ptr %4, align 8
-  %23 = call ptr @_ZN16java_lang_String15create_from_strEPKcP10JavaThread(ptr noundef nonnull @.str.28, ptr noundef %12) #8
-  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 640), align 8
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9016), align 8
-  %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9024), align 8
-  call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_6HandleP10JavaThread(ptr noundef nonnull %4, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr %23, ptr noundef %12) #8
-  %27 = getelementptr inbounds i8, ptr %12, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %.not = icmp eq ptr %28, null
-  br i1 %.not, label %30, label %29
+  %22 = call ptr @_ZN16java_lang_String15create_from_strEPKcP10JavaThread(ptr noundef nonnull @.str.28, ptr noundef %12) #8
+  %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9vmClasses8_klassesE, i64 640), align 8
+  %24 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9016), align 8
+  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 9024), align 8
+  call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_6HandleP10JavaThread(ptr noundef nonnull %4, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr %22, ptr noundef %12) #8
+  %26 = getelementptr inbounds i8, ptr %12, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %.not = icmp eq ptr %27, null
+  br i1 %.not, label %29, label %28
 
-29:                                               ; preds = %10
-  call void @_ZN19java_lang_Throwable5printEP7oopDescP12outputStream(ptr noundef nonnull %28, ptr noundef %1) #8
+28:                                               ; preds = %10
+  call void @_ZN19java_lang_Throwable5printEP7oopDescP12outputStream(ptr noundef nonnull %27, ptr noundef %1) #8
   call void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28) %12) #8
-  br label %30
+  br label %29
 
-30:                                               ; preds = %10, %29
+29:                                               ; preds = %10, %28
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #8
-  %31 = load ptr, ptr %16, align 8
-  %.not.i.i.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i.i.i, label %33, label %32
+  %30 = load ptr, ptr %16, align 8
+  %.not.i.i.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i.i.i, label %32, label %31
 
-32:                                               ; preds = %30
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %14, i64 noundef %22) #8
+31:                                               ; preds = %29
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %14, i64 noundef %21) #8
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %16) #8
-  br label %33
+  br label %32
 
-33:                                               ; preds = %32, %30
-  %34 = load ptr, ptr %17, align 8
-  %.not8.i.i.i.i = icmp eq ptr %34, %18
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %35
+32:                                               ; preds = %31, %29
+  %33 = load ptr, ptr %17, align 8
+  %.not8.i.i.i.i = icmp eq ptr %33, %19
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %34
 
-35:                                               ; preds = %33
+34:                                               ; preds = %32
   store ptr %16, ptr %15, align 8
-  store ptr %18, ptr %17, align 8
-  store ptr %20, ptr %19, align 8
+  store <2 x ptr> %18, ptr %17, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %33, %35
-  br i1 %.not, label %36, label %39
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %32, %34
+  br i1 %.not, label %35, label %38
 
-36:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %2
-  %37 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(5) @.str.29) #9
-  %38 = icmp eq i32 %37, 0
-  call void @_ZN14JvmtiAgentList10load_agentEPKcbS1_P12outputStream(ptr noundef nonnull %5, i1 noundef zeroext %38, ptr noundef nonnull %7, ptr noundef %1) #8
-  br label %39
+35:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %2
+  %36 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(5) @.str.29) #9
+  %37 = icmp eq i32 %36, 0
+  call void @_ZN14JvmtiAgentList10load_agentEPKcbS1_P12outputStream(ptr noundef nonnull %5, i1 noundef zeroext %37, ptr noundef nonnull %7, ptr noundef %1) #8
+  br label %38
 
-39:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %36
-  %.1 = phi i32 [ -1, %_ZN12ResourceMarkD2Ev.exit ], [ 0, %36 ]
+38:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %35
+  %.1 = phi i32 [ -1, %_ZN12ResourceMarkD2Ev.exit ], [ 0, %35 ]
   ret i32 %.1
 }
 

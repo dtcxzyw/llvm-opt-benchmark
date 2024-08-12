@@ -1484,37 +1484,33 @@ _ZNSt10unique_ptrIN3net22CryptoHandshakeMessageESt14default_deleteIS1_EE5resetEP
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %server_designated_connection_ids_, i64 16, i1 false)
   %_M_start3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %_M_last4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 256
-  %2 = load ptr, ptr %_M_last4.i.i.i.i.i.i.i.i.i, align 8
   %_M_node5.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
-  %3 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i.i, align 8
   %_M_finish4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %_M_last4.i6.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 288
-  %4 = load ptr, ptr %_M_last4.i6.i.i.i.i.i.i.i.i, align 8
   %_M_node5.i8.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 296
-  %5 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i, align 8
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %empty_queue, i64 16
-  %6 = load <2 x ptr>, ptr %_M_start3.i.i.i.i.i.i.i.i, align 8
+  %2 = load <2 x ptr>, ptr %_M_start3.i.i.i.i.i.i.i.i, align 8
   %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %empty_queue, i64 32
-  %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %empty_queue, i64 40
+  %3 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i.i, align 8
+  %4 = load <2 x ptr>, ptr %_M_last4.i.i.i.i.i.i.i.i.i, align 8
   %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %empty_queue, i64 48
-  %7 = load <2 x ptr>, ptr %_M_finish4.i.i.i.i.i.i.i.i, align 8
+  %5 = load <2 x ptr>, ptr %_M_finish4.i.i.i.i.i.i.i.i, align 8
+  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %empty_queue, i64 64
+  %6 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i, align 8
+  %7 = load <2 x ptr>, ptr %_M_last4.i6.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %server_designated_connection_ids_, ptr noundef nonnull align 8 dereferenceable(80) %empty_queue, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %empty_queue, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, i64 16, i1 false)
-  store <2 x ptr> %6, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i, align 8
-  store ptr %2, ptr %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i.i, align 8
-  store ptr %3, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i, align 8
-  store <2 x ptr> %7, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i, align 8
-  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %empty_queue, i64 64
-  store ptr %4, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i, align 8
-  %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %empty_queue, i64 72
-  store ptr %5, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i, align 8
+  store <2 x ptr> %2, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i, align 8
+  store <2 x ptr> %4, ptr %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i.i, align 8
+  store <2 x ptr> %5, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i, align 8
+  store <2 x ptr> %7, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i)
   %8 = load ptr, ptr %empty_queue, align 8
   %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %_ZNSt5queueImSt5dequeImSaImEEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt10unique_ptrIN3net22CryptoHandshakeMessageESt14default_deleteIS1_EE5resetEPS1_.exit
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %cmp3.i.i.i.i = icmp ult ptr %3, %add.ptr.i.i.i
   br i1 %cmp3.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseImSaImEE16_M_destroy_nodesEPPmS3_.exit.i.i.i
 
@@ -1523,7 +1519,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for
   %9 = load ptr, ptr %__n.04.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %9) #22
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i, i64 8
-  %cmp.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i, %5
+  %cmp.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseImSaImEE16_M_destroy_nodesEPPmS3_.exit.loopexit.i.i.i, !llvm.loop !8
 
 _ZNSt11_Deque_baseImSaImEE16_M_destroy_nodesEPPmS3_.exit.loopexit.i.i.i: ; preds = %for.body.i.i.i.i
@@ -1922,37 +1918,33 @@ _ZNSt10unique_ptrIN3net22CryptoHandshakeMessageESt14default_deleteIS1_EE5resetEP
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %server_designated_connection_ids_, i64 16, i1 false)
   %_M_start3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %_M_last4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 256
-  %6 = load ptr, ptr %_M_last4.i.i.i.i.i.i.i.i.i, align 8
   %_M_node5.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
-  %7 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i.i, align 8
   %_M_finish4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %_M_last4.i6.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 288
-  %8 = load ptr, ptr %_M_last4.i6.i.i.i.i.i.i.i.i, align 8
   %_M_node5.i8.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 296
-  %9 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i, align 8
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %empty_queue, i64 16
-  %10 = load <2 x ptr>, ptr %_M_start3.i.i.i.i.i.i.i.i, align 8
+  %6 = load <2 x ptr>, ptr %_M_start3.i.i.i.i.i.i.i.i, align 8
   %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %empty_queue, i64 32
-  %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %empty_queue, i64 40
+  %7 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %_M_last4.i.i.i.i.i.i.i.i.i, align 8
   %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %empty_queue, i64 48
-  %11 = load <2 x ptr>, ptr %_M_finish4.i.i.i.i.i.i.i.i, align 8
+  %9 = load <2 x ptr>, ptr %_M_finish4.i.i.i.i.i.i.i.i, align 8
+  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %empty_queue, i64 64
+  %10 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i.i, align 8
+  %11 = load <2 x ptr>, ptr %_M_last4.i6.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %server_designated_connection_ids_, ptr noundef nonnull align 8 dereferenceable(80) %empty_queue, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %empty_queue, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i.i, i64 16, i1 false)
-  store <2 x ptr> %10, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i, align 8
-  store ptr %6, ptr %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i.i, align 8
-  store ptr %7, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i.i, align 8
-  store <2 x ptr> %11, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i, align 8
-  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %empty_queue, i64 64
-  store ptr %8, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i, align 8
-  %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %empty_queue, i64 72
-  store ptr %9, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i.i, align 8
+  store <2 x ptr> %6, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i.i, align 8
+  store <2 x ptr> %8, ptr %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i.i, align 8
+  store <2 x ptr> %9, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i.i, align 8
+  store <2 x ptr> %11, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i.i)
   %12 = load ptr, ptr %empty_queue, align 8
   %tobool.not.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i, label %_ZNSt5queueImSt5dequeImSaImEEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt10unique_ptrIN3net22CryptoHandshakeMessageESt14default_deleteIS1_EE5resetEPS1_.exit
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %cmp3.i.i.i.i = icmp ult ptr %7, %add.ptr.i.i.i
   br i1 %cmp3.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseImSaImEE16_M_destroy_nodesEPPmS3_.exit.i.i.i
 
@@ -1961,7 +1953,7 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for
   %13 = load ptr, ptr %__n.04.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %13) #22
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.i.i.i, i64 8
-  %cmp.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i, %9
+  %cmp.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i, %10
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseImSaImEE16_M_destroy_nodesEPPmS3_.exit.loopexit.i.i.i, !llvm.loop !8
 
 _ZNSt11_Deque_baseImSaImEE16_M_destroy_nodesEPPmS3_.exit.loopexit.i.i.i: ; preds = %for.body.i.i.i.i
@@ -5926,16 +5918,16 @@ if.then4:                                         ; preds = %if.then
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp2.i.i.i), !noalias !42
   %15 = load <2 x ptr>, ptr %agg.tmp.i.i, align 16, !noalias !48
   %_M_last4.i.i34.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
-  %16 = load ptr, ptr %_M_last4.i.i34.i.i, align 16, !noalias !48
   %_M_node5.i.i36.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 24
-  %17 = load ptr, ptr %_M_node5.i.i36.i.i, align 8, !noalias !48
+  %16 = load ptr, ptr %_M_node5.i.i36.i.i, align 8, !noalias !48
+  %17 = load <2 x ptr>, ptr %_M_last4.i.i34.i.i, align 16, !noalias !48
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !39
   %18 = load ptr, ptr %_M_node.i.i, align 8
-  %cmp3.i.i = icmp ult ptr %17, %18
+  %cmp3.i.i = icmp ult ptr %16, %18
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt5dequeImSaImEE15_M_erase_at_endESt15_Deque_iteratorImRmPmE.exit
 
 for.body.i.i:                                     ; preds = %if.then4, %for.body.i.i
-  %__n.04.i.pn.i = phi ptr [ %__n.04.i.i, %for.body.i.i ], [ %17, %if.then4 ]
+  %__n.04.i.pn.i = phi ptr [ %__n.04.i.i, %for.body.i.i ], [ %16, %if.then4 ]
   %__n.04.i.i = getelementptr inbounds i8, ptr %__n.04.i.pn.i, i64 8
   %19 = load ptr, ptr %__n.04.i.i, align 8
   call void @_ZdlPv(ptr noundef %19) #22
@@ -5945,8 +5937,7 @@ for.body.i.i:                                     ; preds = %if.then4, %for.body
 _ZNSt5dequeImSaImEE15_M_erase_at_endESt15_Deque_iteratorImRmPmE.exit: ; preds = %for.body.i.i, %if.then4
   store <2 x ptr> %15, ptr %_M_finish.i, align 8
   %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr %16, ptr %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx, align 8
-  store ptr %17, ptr %_M_node.i.i, align 8
+  store <2 x ptr> %17, ptr %agg.tmp.sroa.3.0._M_finish.i.i.sroa_idx, align 8
   br label %if.end19
 
 if.else:                                          ; preds = %if.then

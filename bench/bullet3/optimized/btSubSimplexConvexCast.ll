@@ -484,25 +484,25 @@ while.end:                                        ; preds = %land.rhs, %if.end10
   %lambda.0.lcssa = phi float [ 0.000000e+00, %entry ], [ %lambda.1, %if.end101 ], [ %lambda.0348, %land.rhs ]
   %m_fraction = getelementptr inbounds i8, ptr %result, i64 168
   store float %lambda.0.lcssa, ptr %m_fraction, align 8
+  %n.sroa.0.0.vec.extract = extractelement <2 x float> %n.sroa.0.0.lcssa, i64 0
   %248 = fmul <2 x float> %n.sroa.0.0.lcssa, %n.sroa.0.0.lcssa
   %mul8.i.i276 = extractelement <2 x float> %248, i64 1
-  %249 = extractelement <2 x float> %n.sroa.0.0.lcssa, i64 0
-  %250 = call float @llvm.fmuladd.f32(float %249, float %249, float %mul8.i.i276)
+  %249 = call float @llvm.fmuladd.f32(float %n.sroa.0.0.vec.extract, float %n.sroa.0.0.vec.extract, float %mul8.i.i276)
   %n.sroa.6.8.vec.extract = extractelement <2 x float> %n.sroa.6.0.lcssa, i64 0
-  %251 = call noundef float @llvm.fmuladd.f32(float %n.sroa.6.8.vec.extract, float %n.sroa.6.8.vec.extract, float %250)
-  %cmp103 = fcmp ult float %251, 0x3D10000000000000
+  %250 = call noundef float @llvm.fmuladd.f32(float %n.sroa.6.8.vec.extract, float %n.sroa.6.8.vec.extract, float %249)
+  %cmp103 = fcmp ult float %250, 0x3D10000000000000
   br i1 %cmp103, label %if.else108, label %if.then104
 
 if.then104:                                       ; preds = %while.end
-  %sqrt.i.i.i = call noundef float @llvm.sqrt.f32(float %251)
+  %sqrt.i.i.i = call noundef float @llvm.sqrt.f32(float %250)
   %div.i.i.i = fdiv float 1.000000e+00, %sqrt.i.i.i
-  %252 = insertelement <2 x float> poison, float %div.i.i.i, i64 0
-  %253 = shufflevector <2 x float> %252, <2 x float> poison, <2 x i32> zeroinitializer
-  %254 = fmul <2 x float> %n.sroa.0.0.lcssa, %253
+  %251 = insertelement <2 x float> poison, float %div.i.i.i, i64 0
+  %252 = shufflevector <2 x float> %251, <2 x float> poison, <2 x i32> zeroinitializer
+  %253 = fmul <2 x float> %n.sroa.0.0.lcssa, %252
   %mul7.i.i.i.i = fmul float %n.sroa.6.8.vec.extract, %div.i.i.i
   %nrm.sroa.6.8.vec.insert.i = insertelement <2 x float> %n.sroa.6.0.lcssa, float %mul7.i.i.i.i, i64 0
   %m_normal = getelementptr inbounds i8, ptr %result, i64 136
-  store <2 x float> %254, ptr %m_normal, align 8
+  store <2 x float> %253, ptr %m_normal, align 8
   %ref.tmp105.sroa.2.0.m_normal.sroa_idx = getelementptr inbounds i8, ptr %result, i64 144
   store <2 x float> %nrm.sroa.6.8.vec.insert.i, ptr %ref.tmp105.sroa.2.0.m_normal.sroa_idx, align 8
   br label %if.end114
@@ -513,22 +513,22 @@ if.else108:                                       ; preds = %while.end
   br label %if.end114
 
 if.end114:                                        ; preds = %if.else108, %if.then104
-  %255 = phi float [ 0.000000e+00, %if.else108 ], [ %mul7.i.i.i.i, %if.then104 ]
-  %256 = phi <2 x float> [ zeroinitializer, %if.else108 ], [ %254, %if.then104 ]
-  %257 = extractelement <2 x float> %256, i64 1
-  %mul8.i285 = fmul float %sub8.i49, %257
-  %258 = extractelement <2 x float> %256, i64 0
-  %259 = call float @llvm.fmuladd.f32(float %258, float %sub.i46, float %mul8.i285)
-  %260 = call noundef float @llvm.fmuladd.f32(float %255, float %sub14.i52, float %259)
+  %254 = phi float [ 0.000000e+00, %if.else108 ], [ %mul7.i.i.i.i, %if.then104 ]
+  %255 = phi <2 x float> [ zeroinitializer, %if.else108 ], [ %253, %if.then104 ]
+  %256 = extractelement <2 x float> %255, i64 1
+  %mul8.i285 = fmul float %sub8.i49, %256
+  %257 = extractelement <2 x float> %255, i64 0
+  %258 = call float @llvm.fmuladd.f32(float %257, float %sub.i46, float %mul8.i285)
+  %259 = call noundef float @llvm.fmuladd.f32(float %254, float %sub14.i52, float %258)
   %m_allowedPenetration = getelementptr inbounds i8, ptr %result, i64 184
-  %261 = load float, ptr %m_allowedPenetration, align 8
-  %fneg = fneg float %261
-  %cmp117 = fcmp ult float %260, %fneg
+  %260 = load float, ptr %m_allowedPenetration, align 8
+  %fneg = fneg float %260
+  %cmp117 = fcmp ult float %259, %fneg
   br i1 %cmp117, label %if.end119, label %return
 
 if.end119:                                        ; preds = %if.end114
-  %262 = load ptr, ptr %m_simplexSolver, align 8
-  call void @_ZN22btVoronoiSimplexSolver14compute_pointsER9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(357) %262, ptr noundef nonnull align 4 dereferenceable(16) %hitA, ptr noundef nonnull align 4 dereferenceable(16) %hitB)
+  %261 = load ptr, ptr %m_simplexSolver, align 8
+  call void @_ZN22btVoronoiSimplexSolver14compute_pointsER9btVector3S1_(ptr noundef nonnull align 4 dereferenceable(357) %261, ptr noundef nonnull align 4 dereferenceable(16) %hitA, ptr noundef nonnull align 4 dereferenceable(16) %hitB)
   %m_hitPoint = getelementptr inbounds i8, ptr %result, i64 152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_hitPoint, ptr noundef nonnull align 4 dereferenceable(16) %hitB, i64 16, i1 false)
   br label %return

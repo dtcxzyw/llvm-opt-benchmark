@@ -483,7 +483,7 @@ declare void @_ZN2cvmlEdRKNS_7MatExprE(ptr dead_on_unwind writable sret(%"class.
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv6detail8tracking14kalman_filters36AugmentedUnscentedKalmanFilterParamsC2EiiiddNS_3PtrINS2_14UkfSystemModelEEEi(ptr noundef nonnull align 8 dereferenceable(440) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5, ptr nocapture noundef readonly %6, i32 noundef %7) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %9 = alloca %"struct.cv::Ptr", align 8
+  %9 = alloca %"struct.cv::Ptr", align 16
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #14
   %11 = getelementptr inbounds i8, ptr %0, i64 112
@@ -494,17 +494,16 @@ define void @_ZN2cv6detail8tracking14kalman_filters36AugmentedUnscentedKalmanFil
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #14
   %14 = getelementptr inbounds i8, ptr %0, i64 424
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %15 = load ptr, ptr %6, align 8
-  store ptr %15, ptr %9, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %16, align 8
-  %.not.i.i.i.i = icmp eq ptr %18, null
+  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = load <2 x ptr>, ptr %6, align 8
+  store <2 x ptr> %18, ptr %9, align 16
+  %.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_6detail8tracking14kalman_filters14UkfSystemModelEEC2ERKS5_.exit, label %19
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds i8, ptr %17, i64 8
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %21, 0
   br i1 %.not.i.i.i.i.i, label %25, label %22
@@ -524,7 +523,7 @@ _ZN2cv3PtrINS_6detail8tracking14kalman_filters14UkfSystemModelEEC2ERKS5_.exit: ;
           to label %27 unwind label %63
 
 27:                                               ; preds = %_ZN2cv3PtrINS_6detail8tracking14kalman_filters14UkfSystemModelEEC2ERKS5_.exit
-  %28 = load ptr, ptr %16, align 8
+  %28 = load ptr, ptr %15, align 8
   %.not.i.i.i.i8 = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i8, label %_ZN2cv3PtrINS_6detail8tracking14kalman_filters14UkfSystemModelEED2Ev.exit, label %29
 

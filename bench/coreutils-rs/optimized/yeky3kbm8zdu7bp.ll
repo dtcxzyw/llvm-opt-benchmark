@@ -3516,40 +3516,40 @@ define void @"_ZN111_$LT$uucore..features..format..num_format..Float$u20$as$u20$
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !range !224, !noundef !4
   %11 = load <4 x i8>, ptr %6, align 1
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
-  %13 = load i64, ptr %12, align 8, !range !224, !noundef !4
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
-  %15 = load i64, ptr %14, align 8
+  %12 = load i8, ptr %6, align 1, !range !182, !noundef !4
+  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = load i64, ptr %13, align 8, !range !224, !noundef !4
+  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = load i64, ptr %15, align 8
   switch i64 %10, label %default.unreachable19 [
-    i64 2, label %16
-    i64 0, label %17
+    i64 2, label %17
+    i64 0, label %18
     i64 1, label %25
   ]
 
-default.unreachable19:                            ; preds = %16, %5
+default.unreachable19:                            ; preds = %17, %5
   unreachable
 
-16:                                               ; preds = %5, %17
-  %.016 = phi i64 [ %19, %17 ], [ 0, %5 ]
-  switch i64 %13, label %default.unreachable19 [
-    i64 2, label %20
+17:                                               ; preds = %5, %18
+  %.016 = phi i64 [ %20, %18 ], [ 0, %5 ]
+  switch i64 %14, label %default.unreachable19 [
+    i64 2, label %21
     i64 0, label %23
     i64 1, label %25
   ]
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
-  %19 = load i64, ptr %18, align 8
-  br label %16
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = load i64, ptr %19, align 8
+  br label %17
 
-20:                                               ; preds = %16
-  %21 = extractelement <4 x i8> %11, i64 0
-  %22 = icmp eq i8 %21, 2
+21:                                               ; preds = %17
+  %22 = icmp eq i8 %12, 2
   %. = select i1 %22, i64 6, i64 0
   br label %23
 
-23:                                               ; preds = %16, %20
-  %.0 = phi i64 [ %., %20 ], [ %15, %16 ]
+23:                                               ; preds = %17, %21
+  %.0 = phi i64 [ %., %21 ], [ %16, %17 ]
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.016, ptr %24, align 8
   %.sroa.412.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -3560,8 +3560,8 @@ default.unreachable19:                            ; preds = %16, %5
   store i8 %8, ptr %.sroa.9.0..sroa_idx, align 4
   br label %25
 
-25:                                               ; preds = %16, %5, %2, %23
-  %.sink = phi i32 [ 13, %23 ], [ 12, %2 ], [ 12, %5 ], [ 12, %16 ]
+25:                                               ; preds = %17, %5, %2, %23
+  %.sink = phi i32 [ 13, %23 ], [ 12, %2 ], [ 12, %5 ], [ 12, %17 ]
   store i32 %.sink, ptr %0, align 8
   ret void
 }

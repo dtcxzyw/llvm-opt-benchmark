@@ -7971,17 +7971,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit12: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %to, ptr noundef nonnull %add.ptr.i10)
   %target_field = getelementptr inbounds i8, ptr %ref.tmp28, i64 40
   %field = getelementptr inbounds i8, ptr %call.i2, i64 48
-  %1 = load ptr, ptr %field, align 8
-  store ptr %1, ptr %target_field, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp28, i64 48
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %call.i2, i64 56
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %field, align 8
+  store <2 x ptr> %2, ptr %target_field, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE15BaseOptionFieldEEC2ERKS6_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit12
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -9004,17 +9003,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit12: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %to, ptr noundef nonnull %add.ptr.i10)
   %target_field = getelementptr inbounds i8, ptr %ref.tmp28, i64 40
   %field = getelementptr inbounds i8, ptr %call.i2, i64 48
-  %1 = load ptr, ptr %field, align 8
-  store ptr %1, ptr %target_field, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp28, i64 48
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %call.i2, i64 56
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %field, align 8
+  store <2 x ptr> %2, ptr %target_field, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE15BaseOptionFieldEEC2ERKS6_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit12
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -10028,17 +10026,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit12: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %to, ptr noundef nonnull %add.ptr.i10)
   %target_field = getelementptr inbounds i8, ptr %ref.tmp28, i64 40
   %field = getelementptr inbounds i8, ptr %call.i2, i64 48
-  %1 = load ptr, ptr %field, align 8
-  store ptr %1, ptr %target_field, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp28, i64 48
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %call.i2, i64 56
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %field, align 8
+  store <2 x ptr> %2, ptr %target_field, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE15BaseOptionFieldEEC2ERKS6_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit12
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -10310,17 +10307,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit11: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %to, ptr noundef nonnull %add.ptr.i9)
   %target_field = getelementptr inbounds i8, ptr %ref.tmp24, i64 40
   %field = getelementptr inbounds i8, ptr %call.i2, i64 48
-  %1 = load ptr, ptr %field, align 8
-  store ptr %1, ptr %target_field, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 48
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %call.i2, i64 56
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %field, align 8
+  store <2 x ptr> %2, ptr %target_field, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE15BaseOptionFieldEEC2ERKS6_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit11
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -10473,16 +10469,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = load i32, ptr %second, align 8
   store i32 %2, ptr %agg.tmp23, align 8
   %field3.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.0141, i64 48
-  %3 = load ptr, ptr %field3.i, align 8
-  store ptr %3, ptr %field.i, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.0141, i64 56
-  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %4, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %4 = load <2 x ptr>, ptr %field3.i, align 8
+  store <2 x ptr> %4, ptr %field.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE10OptionInfoC2ERKS4_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -10688,16 +10683,15 @@ for.body38:                                       ; preds = %for.body38.lr.ph, %
   %name3.i = getelementptr inbounds i8, ptr %__begin028.sroa.0.0144, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i, ptr noundef nonnull align 8 dereferenceable(32) %name3.i) #22
   %target_field4.i = getelementptr inbounds i8, ptr %__begin028.sroa.0.0144, i64 80
-  %33 = load ptr, ptr %target_field4.i, align 8
-  store ptr %33, ptr %target_field.i, align 8
   %_M_refcount3.i.i.i62 = getelementptr inbounds i8, ptr %__begin028.sroa.0.0144, i64 88
-  %34 = load ptr, ptr %_M_refcount3.i.i.i62, align 8
-  store ptr %34, ptr %_M_refcount.i.i.i61, align 8
-  %cmp.not.i.i.i.i63 = icmp eq ptr %34, null
+  %33 = load ptr, ptr %_M_refcount3.i.i.i62, align 8
+  %34 = load <2 x ptr>, ptr %target_field4.i, align 8
+  store <2 x ptr> %34, ptr %target_field.i, align 8
+  %cmp.not.i.i.i.i63 = icmp eq ptr %33, null
   br i1 %cmp.not.i.i.i.i63, label %_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE11ImplicationC2ERKS4_.exit, label %if.then.i.i.i.i64
 
 if.then.i.i.i.i64:                                ; preds = %for.body38
-  %_M_use_count.i.i.i.i.i65 = getelementptr inbounds i8, ptr %34, i64 8
+  %_M_use_count.i.i.i.i.i65 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i66 = icmp eq i8 %35, 0
   br i1 %tobool.i.i.not.i.i.i.i.i66, label %if.else.i.i.i.i.i.i70, label %if.then.i.i.i.i.i.i67
@@ -11685,17 +11679,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit12: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %to, ptr noundef nonnull %add.ptr.i10)
   %target_field = getelementptr inbounds i8, ptr %ref.tmp28, i64 40
   %field = getelementptr inbounds i8, ptr %call.i2, i64 48
-  %1 = load ptr, ptr %field, align 8
-  store ptr %1, ptr %target_field, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp28, i64 48
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %call.i2, i64 56
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %field, align 8
+  store <2 x ptr> %2, ptr %target_field, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEEC2ERKS6_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit12
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -11857,17 +11850,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit11: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %to, ptr noundef nonnull %add.ptr.i9)
   %target_field = getelementptr inbounds i8, ptr %ref.tmp24, i64 40
   %field = getelementptr inbounds i8, ptr %call.i2, i64 48
-  %1 = load ptr, ptr %field, align 8
-  store ptr %1, ptr %target_field, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 48
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %call.i2, i64 56
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %field, align 8
+  store <2 x ptr> %2, ptr %target_field, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEEC2ERKS6_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit11
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -12020,16 +12012,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = load i32, ptr %second, align 8
   store i32 %2, ptr %agg.tmp23, align 8
   %field3.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.0141, i64 48
-  %3 = load ptr, ptr %field3.i, align 8
-  store ptr %3, ptr %field.i, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.0141, i64 56
-  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %4, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %4 = load <2 x ptr>, ptr %field3.i, align 8
+  store <2 x ptr> %4, ptr %field.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE10OptionInfoC2ERKS4_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -12235,16 +12226,15 @@ for.body38:                                       ; preds = %for.body38.lr.ph, %
   %name3.i = getelementptr inbounds i8, ptr %__begin028.sroa.0.0144, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i, ptr noundef nonnull align 8 dereferenceable(32) %name3.i) #22
   %target_field4.i = getelementptr inbounds i8, ptr %__begin028.sroa.0.0144, i64 80
-  %33 = load ptr, ptr %target_field4.i, align 8
-  store ptr %33, ptr %target_field.i, align 8
   %_M_refcount3.i.i.i62 = getelementptr inbounds i8, ptr %__begin028.sroa.0.0144, i64 88
-  %34 = load ptr, ptr %_M_refcount3.i.i.i62, align 8
-  store ptr %34, ptr %_M_refcount.i.i.i61, align 8
-  %cmp.not.i.i.i.i63 = icmp eq ptr %34, null
+  %33 = load ptr, ptr %_M_refcount3.i.i.i62, align 8
+  %34 = load <2 x ptr>, ptr %target_field4.i, align 8
+  store <2 x ptr> %34, ptr %target_field.i, align 8
+  %cmp.not.i.i.i.i63 = icmp eq ptr %33, null
   br i1 %cmp.not.i.i.i.i63, label %_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE11ImplicationC2ERKS4_.exit, label %if.then.i.i.i.i64
 
 if.then.i.i.i.i64:                                ; preds = %for.body38
-  %_M_use_count.i.i.i.i.i65 = getelementptr inbounds i8, ptr %34, i64 8
+  %_M_use_count.i.i.i.i.i65 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i66 = icmp eq i8 %35, 0
   br i1 %tobool.i.i.not.i.i.i.i.i66, label %if.else.i.i.i.i.i.i70, label %if.then.i.i.i.i.i.i67
@@ -13019,14 +13009,14 @@ _ZNSt10shared_ptrIN4node17PerIsolateOptionsEEC2ERKS2_.exit: ; preds = %if.end, %
   %isolate_data_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 96
   %24 = load ptr, ptr %isolate_data_.i, align 8
   %options_.i = getelementptr inbounds i8, ptr %24, i64 4160
-  %25 = load ptr, ptr %options_.i, align 8, !noalias !111
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %24, i64 4168
-  %26 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !111
-  %cmp.not.i.i.i.i = icmp eq ptr %26, null
+  %25 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !111
+  %26 = load <2 x ptr>, ptr %options_.i, align 8, !noalias !111
+  %cmp.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i.i, label %_ZN4node11IsolateData7optionsEv.exit, label %if.then.i.i.i.i64
 
 if.then.i.i.i.i64:                                ; preds = %_ZNSt10shared_ptrIN4node17PerIsolateOptionsEEC2ERKS2_.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load i8, ptr @__libc_single_threaded, align 1, !noalias !111
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -13044,10 +13034,9 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i64
 _ZN4node11IsolateData7optionsEv.exit:             ; preds = %_ZNSt10shared_ptrIN4node17PerIsolateOptionsEEC2ERKS2_.exit, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %30 = load ptr, ptr @_ZN4node11per_process11cli_optionsE, align 8
   %per_isolate9 = getelementptr inbounds i8, ptr %30, i64 8
-  store ptr %25, ptr %per_isolate9, align 8
   %_M_refcount3.i.i.i65 = getelementptr inbounds i8, ptr %30, i64 16
   %31 = load ptr, ptr %_M_refcount3.i.i.i65, align 8
-  store ptr %26, ptr %_M_refcount3.i.i.i65, align 8
+  store <2 x ptr> %26, ptr %per_isolate9, align 8
   %cmp.not.i.i.i.i66 = icmp eq ptr %31, null
   br i1 %cmp.not.i.i.i.i66, label %_ZNSt10shared_ptrIN4node17PerIsolateOptionsEED2Ev.exit, label %if.then.i.i.i.i67
 
@@ -13148,14 +13137,14 @@ if.else.i.i.i.i.i91:                              ; preds = %if.then.i.i.i86
 
 _ZNSt10shared_ptrIN4node18EnvironmentOptionsEEC2ERKS2_.exit: ; preds = %_ZNSt10shared_ptrIN4node17PerIsolateOptionsEED2Ev.exit, %if.then.i.i.i.i.i89, %if.else.i.i.i.i.i91
   %options_.i92 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 1696
-  %49 = load ptr, ptr %options_.i92, align 8, !noalias !114
   %_M_refcount3.i.i.i94 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 1704
-  %50 = load ptr, ptr %_M_refcount3.i.i.i94, align 8, !noalias !114
-  %cmp.not.i.i.i.i95 = icmp eq ptr %50, null
+  %49 = load ptr, ptr %_M_refcount3.i.i.i94, align 8, !noalias !114
+  %50 = load <2 x ptr>, ptr %options_.i92, align 8, !noalias !114
+  %cmp.not.i.i.i.i95 = icmp eq ptr %49, null
   br i1 %cmp.not.i.i.i.i95, label %_ZN4node11Environment7optionsEv.exit, label %if.then.i.i.i.i96
 
 if.then.i.i.i.i96:                                ; preds = %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEEC2ERKS2_.exit
-  %_M_use_count.i.i.i.i.i97 = getelementptr inbounds i8, ptr %50, i64 8
+  %_M_use_count.i.i.i.i.i97 = getelementptr inbounds i8, ptr %49, i64 8
   %51 = load i8, ptr @__libc_single_threaded, align 1, !noalias !114
   %tobool.i.i.not.i.i.i.i.i98 = icmp eq i8 %51, 0
   br i1 %tobool.i.i.not.i.i.i.i.i98, label %if.else.i.i.i.i.i.i101, label %if.then.i.i.i.i.i.i99
@@ -13175,10 +13164,9 @@ _ZN4node11Environment7optionsEv.exit:             ; preds = %_ZNSt10shared_ptrIN
   %per_isolate16 = getelementptr inbounds i8, ptr %54, i64 8
   %55 = load ptr, ptr %per_isolate16, align 8
   %per_env18 = getelementptr inbounds i8, ptr %55, i64 8
-  store ptr %49, ptr %per_env18, align 8
   %_M_refcount3.i.i.i103 = getelementptr inbounds i8, ptr %55, i64 16
   %56 = load ptr, ptr %_M_refcount3.i.i.i103, align 8
-  store ptr %50, ptr %_M_refcount3.i.i.i103, align 8
+  store <2 x ptr> %50, ptr %per_env18, align 8
   %cmp.not.i.i.i.i104 = icmp eq ptr %56, null
   br i1 %cmp.not.i.i.i.i104, label %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit, label %if.then.i.i.i.i105
 
@@ -15552,19 +15540,18 @@ _ZN4node25ExternalReferenceRegistry8RegisterEPFvRKN2v820FunctionCallbackInfoINS1
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node16HandleEnvOptionsESt10shared_ptrINS_18EnvironmentOptionsEE(ptr nocapture noundef readonly %env_options) local_unnamed_addr #3 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.11", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.11", align 16
   %agg.tmp1 = alloca %"class.std::function.476", align 8
-  %0 = load ptr, ptr %env_options, align 8
-  store ptr %0, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %env_options, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %env_options, align 8
+  store <2 x ptr> %1, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -17336,16 +17323,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %2 = load i32, ptr %second, align 8
   store i32 %2, ptr %agg.tmp23, align 8
   %field3.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.0141, i64 48
-  %3 = load ptr, ptr %field3.i, align 8
-  store ptr %3, ptr %field.i, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.0141, i64 56
-  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %4, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %4 = load <2 x ptr>, ptr %field3.i, align 8
+  store <2 x ptr> %4, ptr %field.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN4node14options_parser13OptionsParserINS_12DebugOptionsEE10OptionInfoC2ERKS4_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -17551,16 +17537,15 @@ for.body38:                                       ; preds = %for.body38.lr.ph, %
   %name3.i = getelementptr inbounds i8, ptr %__begin028.sroa.0.0144, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i, ptr noundef nonnull align 8 dereferenceable(32) %name3.i) #22
   %target_field4.i = getelementptr inbounds i8, ptr %__begin028.sroa.0.0144, i64 80
-  %33 = load ptr, ptr %target_field4.i, align 8
-  store ptr %33, ptr %target_field.i, align 8
   %_M_refcount3.i.i.i62 = getelementptr inbounds i8, ptr %__begin028.sroa.0.0144, i64 88
-  %34 = load ptr, ptr %_M_refcount3.i.i.i62, align 8
-  store ptr %34, ptr %_M_refcount.i.i.i61, align 8
-  %cmp.not.i.i.i.i63 = icmp eq ptr %34, null
+  %33 = load ptr, ptr %_M_refcount3.i.i.i62, align 8
+  %34 = load <2 x ptr>, ptr %target_field4.i, align 8
+  store <2 x ptr> %34, ptr %target_field.i, align 8
+  %cmp.not.i.i.i.i63 = icmp eq ptr %33, null
   br i1 %cmp.not.i.i.i.i63, label %_ZN4node14options_parser13OptionsParserINS_12DebugOptionsEE11ImplicationC2ERKS4_.exit, label %if.then.i.i.i.i64
 
 if.then.i.i.i.i64:                                ; preds = %for.body38
-  %_M_use_count.i.i.i.i.i65 = getelementptr inbounds i8, ptr %34, i64 8
+  %_M_use_count.i.i.i.i.i65 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i66 = icmp eq i8 %35, 0
   br i1 %tobool.i.i.not.i.i.i.i.i66, label %if.else.i.i.i.i.i.i70, label %if.then.i.i.i.i.i.i67
@@ -17769,22 +17754,21 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE7ConvertINS_12DebugOptionsEEEDaNS1_IT_E10OptionInfoEMS2_FPS6_vE(ptr noalias sret(%"struct.node::options_parser::OptionsParser<node::EnvironmentOptions>::OptionInfo") align 8 %agg.result, ptr noundef %original, i64 %get_child.coerce0, i64 %get_child.coerce1) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.483", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.483", align 16
   %0 = load i32, ptr %original, align 8
   store i32 %0, ptr %agg.result, align 8
   %field = getelementptr inbounds i8, ptr %agg.result, i64 8
   %field3 = getelementptr inbounds i8, ptr %original, i64 8
-  %1 = load ptr, ptr %field3, align 8
-  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %original, i64 16
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %field3, align 8
+  store <2 x ptr> %2, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE15BaseOptionFieldEEC2ERKS6_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -17892,7 +17876,7 @@ _ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE15Ba
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE7ConvertINS_12DebugOptionsEEEDaNS1_IT_E11ImplicationEMS2_FPS6_vE(ptr noalias sret(%"struct.node::options_parser::OptionsParser<node::EnvironmentOptions>::Implication") align 8 %agg.result, ptr noundef %original, i64 %get_child.coerce0, i64 %get_child.coerce1) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.483", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.483", align 16
   %0 = load i32, ptr %original, align 8
   store i32 %0, ptr %agg.result, align 8
   %name = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -17900,17 +17884,16 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %name3) #22
   %target_field = getelementptr inbounds i8, ptr %agg.result, i64 40
   %target_field4 = getelementptr inbounds i8, ptr %original, i64 40
-  %1 = load ptr, ptr %target_field4, align 8
-  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %original, i64 48
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %target_field4, align 8
+  store <2 x ptr> %2, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE15BaseOptionFieldEEC2ERKS6_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -25112,22 +25095,21 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE7ConvertINS_18EnvironmentOptionsEEEDaNS1_IT_E10OptionInfoEMS2_FPS6_vE(ptr noalias sret(%"struct.node::options_parser::OptionsParser<node::PerIsolateOptions>::OptionInfo") align 8 %agg.result, ptr noundef %original, i64 %get_child.coerce0, i64 %get_child.coerce1) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.508", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.508", align 16
   %0 = load i32, ptr %original, align 8
   store i32 %0, ptr %agg.result, align 8
   %field = getelementptr inbounds i8, ptr %agg.result, i64 8
   %field3 = getelementptr inbounds i8, ptr %original, i64 8
-  %1 = load ptr, ptr %field3, align 8
-  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %original, i64 16
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %field3, align 8
+  store <2 x ptr> %2, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE15BaseOptionFieldEEC2ERKS6_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -25235,7 +25217,7 @@ _ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_18EnvironmentOptions
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE7ConvertINS_18EnvironmentOptionsEEEDaNS1_IT_E11ImplicationEMS2_FPS6_vE(ptr noalias sret(%"struct.node::options_parser::OptionsParser<node::PerIsolateOptions>::Implication") align 8 %agg.result, ptr noundef %original, i64 %get_child.coerce0, i64 %get_child.coerce1) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.508", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.508", align 16
   %0 = load i32, ptr %original, align 8
   store i32 %0, ptr %agg.result, align 8
   %name = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -25243,17 +25225,16 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %name3) #22
   %target_field = getelementptr inbounds i8, ptr %agg.result, i64 40
   %target_field4 = getelementptr inbounds i8, ptr %original, i64 40
-  %1 = load ptr, ptr %target_field4, align 8
-  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %original, i64 48
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %target_field4, align 8
+  store <2 x ptr> %2, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE15BaseOptionFieldEEC2ERKS6_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -27007,22 +26988,21 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE7ConvertINS_17PerIsolateOptionsEEEDaNS1_IT_E10OptionInfoEMS2_FPS6_vE(ptr noalias sret(%"struct.node::options_parser::OptionsParser<node::PerProcessOptions>::OptionInfo") align 8 %agg.result, ptr noundef %original, i64 %get_child.coerce0, i64 %get_child.coerce1) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.545", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.545", align 16
   %0 = load i32, ptr %original, align 8
   store i32 %0, ptr %agg.result, align 8
   %field = getelementptr inbounds i8, ptr %agg.result, i64 8
   %field3 = getelementptr inbounds i8, ptr %original, i64 8
-  %1 = load ptr, ptr %field3, align 8
-  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %original, i64 16
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %field3, align 8
+  store <2 x ptr> %2, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE15BaseOptionFieldEEC2ERKS6_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -27130,7 +27110,7 @@ _ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE7ConvertINS_17PerIsolateOptionsEEEDaNS1_IT_E11ImplicationEMS2_FPS6_vE(ptr noalias sret(%"struct.node::options_parser::OptionsParser<node::PerProcessOptions>::Implication") align 8 %agg.result, ptr noundef %original, i64 %get_child.coerce0, i64 %get_child.coerce1) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.545", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.545", align 16
   %0 = load i32, ptr %original, align 8
   store i32 %0, ptr %agg.result, align 8
   %name = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -27138,17 +27118,16 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %name3) #22
   %target_field = getelementptr inbounds i8, ptr %agg.result, i64 40
   %target_field4 = getelementptr inbounds i8, ptr %original, i64 40
-  %1 = load ptr, ptr %target_field4, align 8
-  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %original, i64 48
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %target_field4, align 8
+  store <2 x ptr> %2, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE15BaseOptionFieldEEC2ERKS6_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

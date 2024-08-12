@@ -13680,26 +13680,27 @@ s1ap_get_private_data.exit:                       ; preds = %4, %10
   %16 = load i32, ptr %15, align 8
   store i32 %16, ptr %5, align 4
   %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %.0.i, i64 12
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
-  %22 = load <2 x i32>, ptr %20, align 4
-  store <2 x i32> %22, ptr %21, align 4
-  %23 = load ptr, ptr @s1ap_ies_dissector_table, align 8
-  %24 = extractelement <2 x i32> %22, i64 0
-  %25 = call i32 @dissector_try_uint_new(ptr noundef %23, i32 noundef %24, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #7
-  %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %28, label %26
+  %18 = getelementptr inbounds i8, ptr %5, i64 4
+  %19 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %20 = load i32, ptr %19, align 4
+  %21 = load <2 x i32>, ptr %17, align 8
+  store <2 x i32> %21, ptr %18, align 4
+  %22 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %23 = load i32, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 %23, ptr %24, align 4
+  %25 = load ptr, ptr @s1ap_ies_dissector_table, align 8
+  %26 = call i32 @dissector_try_uint_new(ptr noundef %25, i32 noundef %20, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #7
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %29, label %27
 
-26:                                               ; preds = %s1ap_get_private_data.exit
-  %27 = call i32 @tvb_captured_length(ptr noundef %0) #7
-  br label %28
+27:                                               ; preds = %s1ap_get_private_data.exit
+  %28 = call i32 @tvb_captured_length(ptr noundef %0) #7
+  br label %29
 
-28:                                               ; preds = %s1ap_get_private_data.exit, %26
-  %29 = phi i32 [ %27, %26 ], [ 0, %s1ap_get_private_data.exit ]
-  ret i32 %29
+29:                                               ; preds = %s1ap_get_private_data.exit, %27
+  %30 = phi i32 [ %28, %27 ], [ 0, %s1ap_get_private_data.exit ]
+  ret i32 %30
 }
 
 ; Function Attrs: nounwind uwtable

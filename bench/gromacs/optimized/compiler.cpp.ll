@@ -634,14 +634,14 @@ define void @_ZN3gmx16compileSelectionEPNS_19SelectionCollectionE(ptr noundef %0
   %55 = getelementptr inbounds i8, ptr %20, i64 8
   %56 = getelementptr inbounds i8, ptr %13, i64 8
   %57 = getelementptr inbounds i8, ptr %20, i64 16
-  %58 = load <2 x ptr>, ptr %55, align 8
-  store <2 x ptr> %58, ptr %13, align 16
-  %59 = extractelement <2 x ptr> %58, i64 1
-  %.not.i.i.i = icmp eq ptr %59, null
+  %58 = load ptr, ptr %57, align 8
+  %59 = load <2 x ptr>, ptr %55, align 8
+  store <2 x ptr> %59, ptr %13, align 16
+  %.not.i.i.i = icmp eq ptr %58, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit, label %60
 
 60:                                               ; preds = %._crit_edge
-  %61 = getelementptr inbounds i8, ptr %59, i64 8
+  %61 = getelementptr inbounds i8, ptr %58, i64 8
   %62 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %62, 0
   br i1 %.not.i.i.i.i, label %66, label %63
@@ -3959,14 +3959,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit288: ; preds = %1448
 
 ._crit_edge573:                                   ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit288, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit274
   %1500 = getelementptr inbounds i8, ptr %17, i64 8
-  %1501 = load <2 x ptr>, ptr %55, align 8
-  store <2 x ptr> %1501, ptr %17, align 16
-  %1502 = extractelement <2 x ptr> %1501, i64 1
-  %.not.i.i.i289 = icmp eq ptr %1502, null
+  %1501 = load ptr, ptr %57, align 8
+  %1502 = load <2 x ptr>, ptr %55, align 8
+  store <2 x ptr> %1502, ptr %17, align 16
+  %.not.i.i.i289 = icmp eq ptr %1501, null
   br i1 %.not.i.i.i289, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit291, label %1503
 
 1503:                                             ; preds = %._crit_edge573
-  %1504 = getelementptr inbounds i8, ptr %1502, i64 8
+  %1504 = getelementptr inbounds i8, ptr %1501, i64 8
   %1505 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i290 = icmp eq i8 %1505, 0
   br i1 %.not.i.i.i.i290, label %1509, label %1506
@@ -4768,14 +4768,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit368: ; preds = %1817
 
 ._crit_edge579:                                   ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit368, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit354
   %1869 = getelementptr inbounds i8, ptr %19, i64 8
-  %1870 = load <2 x ptr>, ptr %55, align 8
-  store <2 x ptr> %1870, ptr %19, align 16
-  %1871 = extractelement <2 x ptr> %1870, i64 1
-  %.not.i.i.i369 = icmp eq ptr %1871, null
+  %1870 = load ptr, ptr %57, align 8
+  %1871 = load <2 x ptr>, ptr %55, align 8
+  store <2 x ptr> %1871, ptr %19, align 16
+  %.not.i.i.i369 = icmp eq ptr %1870, null
   br i1 %.not.i.i.i369, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit371, label %1872
 
 1872:                                             ; preds = %._crit_edge579
-  %1873 = getelementptr inbounds i8, ptr %1871, i64 8
+  %1873 = getelementptr inbounds i8, ptr %1870, i64 8
   %1874 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i370 = icmp eq i8 %1874, 0
   br i1 %.not.i.i.i.i370, label %1878, label %1875

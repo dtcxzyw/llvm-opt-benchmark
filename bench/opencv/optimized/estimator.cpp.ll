@@ -811,68 +811,64 @@ define hidden void @_ZN2cv4usac15AffineEstimator6createERKNS_3PtrINS0_13MinimalS
 .noexc.i.i.i.i.i:                                 ; preds = %3
   store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN2cv4usac19AffineEstimatorImplE, i64 16), ptr %7, align 8, !noalias !22
   %8 = getelementptr inbounds i8, ptr %4, i64 24
-  %9 = load ptr, ptr %1, align 8, !noalias !22
-  store ptr %9, ptr %8, align 8, !noalias !22
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !noalias !22
-  store ptr %12, ptr %10, align 8, !noalias !22
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i.i.i.i.i.i, label %13
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = load ptr, ptr %9, align 8, !noalias !22
+  %11 = load <2 x ptr>, ptr %1, align 8, !noalias !22
+  store <2 x ptr> %11, ptr %8, align 8, !noalias !22
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i.i.i.i.i.i, label %12
 
-13:                                               ; preds = %.noexc.i.i.i.i.i
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
-  %15 = load i8, ptr @__libc_single_threaded, align 1, !noalias !22
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %19, label %16
+12:                                               ; preds = %.noexc.i.i.i.i.i
+  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = load i8, ptr @__libc_single_threaded, align 1, !noalias !22
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %14, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %18, label %15
 
-16:                                               ; preds = %13
-  %17 = load i32, ptr %14, align 4, !noalias !22
-  %18 = add nsw i32 %17, 1
-  store i32 %18, ptr %14, align 4, !noalias !22
+15:                                               ; preds = %12
+  %16 = load i32, ptr %13, align 4, !noalias !22
+  %17 = add nsw i32 %16, 1
+  store i32 %17, ptr %13, align 4, !noalias !22
   br label %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i.i.i.i.i.i
 
-19:                                               ; preds = %13
-  %20 = atomicrmw volatile add ptr %14, i32 1 acq_rel, align 4, !noalias !22
+18:                                               ; preds = %12
+  %19 = atomicrmw volatile add ptr %13, i32 1 acq_rel, align 4, !noalias !22
   br label %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i.i.i.i.i.i
 
-_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i.i.i.i.i.i: ; preds = %19, %16, %.noexc.i.i.i.i.i
-  %21 = getelementptr inbounds i8, ptr %4, i64 40
-  %22 = load ptr, ptr %2, align 8, !noalias !22
-  store ptr %22, ptr %21, align 8, !noalias !22
-  %23 = getelementptr inbounds i8, ptr %4, i64 48
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
-  %25 = load ptr, ptr %24, align 8, !noalias !22
-  store ptr %25, ptr %23, align 8, !noalias !22
-  %.not.i.i.i.i3.i.i.i.i.i.i.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.i.i3.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac19AffineEstimatorImplEED2Ev.exit, label %26
+_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i.i.i.i.i.i: ; preds = %18, %15, %.noexc.i.i.i.i.i
+  %20 = getelementptr inbounds i8, ptr %4, i64 40
+  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = load ptr, ptr %21, align 8, !noalias !22
+  %23 = load <2 x ptr>, ptr %2, align 8, !noalias !22
+  store <2 x ptr> %23, ptr %20, align 8, !noalias !22
+  %.not.i.i.i.i3.i.i.i.i.i.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i3.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac19AffineEstimatorImplEED2Ev.exit, label %24
 
-26:                                               ; preds = %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i.i.i.i.i.i
-  %27 = getelementptr inbounds i8, ptr %25, i64 8
-  %28 = load i8, ptr @__libc_single_threaded, align 1, !noalias !22
-  %.not.i.i.i.i.i4.i.i.i.i.i.i.i.i.i = icmp eq i8 %28, 0
-  br i1 %.not.i.i.i.i.i4.i.i.i.i.i.i.i.i.i, label %32, label %29
+24:                                               ; preds = %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i.i.i.i.i.i
+  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %26 = load i8, ptr @__libc_single_threaded, align 1, !noalias !22
+  %.not.i.i.i.i.i4.i.i.i.i.i.i.i.i.i = icmp eq i8 %26, 0
+  br i1 %.not.i.i.i.i.i4.i.i.i.i.i.i.i.i.i, label %30, label %27
 
-29:                                               ; preds = %26
-  %30 = load i32, ptr %27, align 4, !noalias !22
-  %31 = add nsw i32 %30, 1
-  store i32 %31, ptr %27, align 4, !noalias !22
+27:                                               ; preds = %24
+  %28 = load i32, ptr %25, align 4, !noalias !22
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %25, align 4, !noalias !22
   br label %_ZN2cv3PtrINS_4usac19AffineEstimatorImplEED2Ev.exit
 
-32:                                               ; preds = %26
-  %33 = atomicrmw volatile add ptr %27, i32 1 acq_rel, align 4, !noalias !22
+30:                                               ; preds = %24
+  %31 = atomicrmw volatile add ptr %25, i32 1 acq_rel, align 4, !noalias !22
   br label %_ZN2cv3PtrINS_4usac19AffineEstimatorImplEED2Ev.exit
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac19AffineEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i: ; preds = %3
-  %34 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %4) #15, !noalias !22
-  resume { ptr, i32 } %34
+  resume { ptr, i32 } %32
 
-_ZN2cv3PtrINS_4usac19AffineEstimatorImplEED2Ev.exit: ; preds = %32, %29, %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i.i.i.i.i.i
+_ZN2cv3PtrINS_4usac19AffineEstimatorImplEED2Ev.exit: ; preds = %30, %27, %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i.i.i.i.i.i
   store ptr %7, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %4, ptr %35, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %4, ptr %33, align 8
   ret void
 }
 
@@ -891,68 +887,64 @@ define hidden void @_ZN2cv4usac12PnPEstimator6createERKNS_3PtrINS0_13MinimalSolv
 .noexc.i.i.i.i.i:                                 ; preds = %3
   store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN2cv4usac16PnPEstimatorImplE, i64 16), ptr %7, align 8, !noalias !27
   %8 = getelementptr inbounds i8, ptr %4, i64 24
-  %9 = load ptr, ptr %1, align 8, !noalias !27
-  store ptr %9, ptr %8, align 8, !noalias !27
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !noalias !27
-  store ptr %12, ptr %10, align 8, !noalias !27
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i.i.i.i.i.i, label %13
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = load ptr, ptr %9, align 8, !noalias !27
+  %11 = load <2 x ptr>, ptr %1, align 8, !noalias !27
+  store <2 x ptr> %11, ptr %8, align 8, !noalias !27
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i.i.i.i.i.i, label %12
 
-13:                                               ; preds = %.noexc.i.i.i.i.i
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
-  %15 = load i8, ptr @__libc_single_threaded, align 1, !noalias !27
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %15, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %19, label %16
+12:                                               ; preds = %.noexc.i.i.i.i.i
+  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = load i8, ptr @__libc_single_threaded, align 1, !noalias !27
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %14, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %18, label %15
 
-16:                                               ; preds = %13
-  %17 = load i32, ptr %14, align 4, !noalias !27
-  %18 = add nsw i32 %17, 1
-  store i32 %18, ptr %14, align 4, !noalias !27
+15:                                               ; preds = %12
+  %16 = load i32, ptr %13, align 4, !noalias !27
+  %17 = add nsw i32 %16, 1
+  store i32 %17, ptr %13, align 4, !noalias !27
   br label %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i.i.i.i.i.i
 
-19:                                               ; preds = %13
-  %20 = atomicrmw volatile add ptr %14, i32 1 acq_rel, align 4, !noalias !27
+18:                                               ; preds = %12
+  %19 = atomicrmw volatile add ptr %13, i32 1 acq_rel, align 4, !noalias !27
   br label %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i.i.i.i.i.i
 
-_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i.i.i.i.i.i: ; preds = %19, %16, %.noexc.i.i.i.i.i
-  %21 = getelementptr inbounds i8, ptr %4, i64 40
-  %22 = load ptr, ptr %2, align 8, !noalias !27
-  store ptr %22, ptr %21, align 8, !noalias !27
-  %23 = getelementptr inbounds i8, ptr %4, i64 48
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
-  %25 = load ptr, ptr %24, align 8, !noalias !27
-  store ptr %25, ptr %23, align 8, !noalias !27
-  %.not.i.i.i.i3.i.i.i.i.i.i.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.i.i3.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac16PnPEstimatorImplEED2Ev.exit, label %26
+_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i.i.i.i.i.i: ; preds = %18, %15, %.noexc.i.i.i.i.i
+  %20 = getelementptr inbounds i8, ptr %4, i64 40
+  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = load ptr, ptr %21, align 8, !noalias !27
+  %23 = load <2 x ptr>, ptr %2, align 8, !noalias !27
+  store <2 x ptr> %23, ptr %20, align 8, !noalias !27
+  %.not.i.i.i.i3.i.i.i.i.i.i.i.i.i = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i3.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac16PnPEstimatorImplEED2Ev.exit, label %24
 
-26:                                               ; preds = %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i.i.i.i.i.i
-  %27 = getelementptr inbounds i8, ptr %25, i64 8
-  %28 = load i8, ptr @__libc_single_threaded, align 1, !noalias !27
-  %.not.i.i.i.i.i4.i.i.i.i.i.i.i.i.i = icmp eq i8 %28, 0
-  br i1 %.not.i.i.i.i.i4.i.i.i.i.i.i.i.i.i, label %32, label %29
+24:                                               ; preds = %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i.i.i.i.i.i
+  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %26 = load i8, ptr @__libc_single_threaded, align 1, !noalias !27
+  %.not.i.i.i.i.i4.i.i.i.i.i.i.i.i.i = icmp eq i8 %26, 0
+  br i1 %.not.i.i.i.i.i4.i.i.i.i.i.i.i.i.i, label %30, label %27
 
-29:                                               ; preds = %26
-  %30 = load i32, ptr %27, align 4, !noalias !27
-  %31 = add nsw i32 %30, 1
-  store i32 %31, ptr %27, align 4, !noalias !27
+27:                                               ; preds = %24
+  %28 = load i32, ptr %25, align 4, !noalias !27
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %25, align 4, !noalias !27
   br label %_ZN2cv3PtrINS_4usac16PnPEstimatorImplEED2Ev.exit
 
-32:                                               ; preds = %26
-  %33 = atomicrmw volatile add ptr %27, i32 1 acq_rel, align 4, !noalias !27
+30:                                               ; preds = %24
+  %31 = atomicrmw volatile add ptr %25, i32 1 acq_rel, align 4, !noalias !27
   br label %_ZN2cv3PtrINS_4usac16PnPEstimatorImplEED2Ev.exit
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac16PnPEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i: ; preds = %3
-  %34 = landingpad { ptr, i32 }
+  %32 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %4) #15, !noalias !27
-  resume { ptr, i32 } %34
+  resume { ptr, i32 } %32
 
-_ZN2cv3PtrINS_4usac16PnPEstimatorImplEED2Ev.exit: ; preds = %32, %29, %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i.i.i.i.i.i
+_ZN2cv3PtrINS_4usac16PnPEstimatorImplEED2Ev.exit: ; preds = %30, %27, %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i.i.i.i.i.i
   store ptr %7, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %4, ptr %35, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %4, ptr %33, align 8
   ret void
 }
 
@@ -1165,95 +1157,89 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv4usac23HomographyEst
 .noexc:                                           ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv4usac23HomographyEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
   store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN2cv4usac23HomographyEstimatorImplE, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 24
-  %11 = load ptr, ptr %3, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %12, align 8
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i, label %15
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %13, ptr %10, align 8
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i, label %14
 
-15:                                               ; preds = %.noexc
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
-  %17 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %17, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %21, label %18
+14:                                               ; preds = %.noexc
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %16, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %20, label %17
 
-18:                                               ; preds = %15
-  %19 = load i32, ptr %16, align 4
-  %20 = add nsw i32 %19, 1
-  store i32 %20, ptr %16, align 4
+17:                                               ; preds = %14
+  %18 = load i32, ptr %15, align 4
+  %19 = add nsw i32 %18, 1
+  store i32 %19, ptr %15, align 4
   br label %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i
 
-21:                                               ; preds = %15
-  %22 = atomicrmw volatile add ptr %16, i32 1 acq_rel, align 4
+20:                                               ; preds = %14
+  %21 = atomicrmw volatile add ptr %15, i32 1 acq_rel, align 4
   br label %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i
 
-_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i: ; preds = %21, %18, %.noexc
-  %23 = getelementptr inbounds i8, ptr %6, i64 40
-  %24 = load ptr, ptr %4, align 8
-  store ptr %24, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 48
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %25, align 8
-  %.not.i.i.i.i4.i.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i.i4.i.i.i.i, label %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i, label %28
+_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i: ; preds = %20, %17, %.noexc
+  %22 = getelementptr inbounds i8, ptr %6, i64 40
+  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = load <2 x ptr>, ptr %4, align 8
+  store <2 x ptr> %25, ptr %22, align 8
+  %.not.i.i.i.i4.i.i.i.i = icmp eq ptr %24, null
+  br i1 %.not.i.i.i.i4.i.i.i.i, label %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i, label %26
 
-28:                                               ; preds = %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
-  %30 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i5.i.i.i.i = icmp eq i8 %30, 0
-  br i1 %.not.i.i.i.i.i5.i.i.i.i, label %34, label %31
+26:                                               ; preds = %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i
+  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i5.i.i.i.i = icmp eq i8 %28, 0
+  br i1 %.not.i.i.i.i.i5.i.i.i.i, label %32, label %29
 
-31:                                               ; preds = %28
-  %32 = load i32, ptr %29, align 4
-  %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %29, align 4
+29:                                               ; preds = %26
+  %30 = load i32, ptr %27, align 4
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %27, align 4
   br label %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i
 
-34:                                               ; preds = %28
-  %35 = atomicrmw volatile add ptr %29, i32 1 acq_rel, align 4
+32:                                               ; preds = %26
+  %33 = atomicrmw volatile add ptr %27, i32 1 acq_rel, align 4
   br label %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i
 
-_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i: ; preds = %34, %31, %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i
-  %36 = getelementptr inbounds i8, ptr %6, i64 56
-  %37 = load ptr, ptr %5, align 8
-  store ptr %37, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 64
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
-  %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr %38, align 8
-  %.not.i.i.i.i6.i.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i.i6.i.i.i.i, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac23HomographyEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %41
+_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i: ; preds = %32, %29, %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i
+  %34 = getelementptr inbounds i8, ptr %6, i64 56
+  %35 = getelementptr inbounds i8, ptr %5, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = load <2 x ptr>, ptr %5, align 8
+  store <2 x ptr> %37, ptr %34, align 8
+  %.not.i.i.i.i6.i.i.i.i = icmp eq ptr %36, null
+  br i1 %.not.i.i.i.i6.i.i.i.i, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac23HomographyEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %38
 
-41:                                               ; preds = %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
-  %43 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i7.i.i.i.i = icmp eq i8 %43, 0
-  br i1 %.not.i.i.i.i.i7.i.i.i.i, label %47, label %44
+38:                                               ; preds = %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i
+  %39 = getelementptr inbounds i8, ptr %36, i64 8
+  %40 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i7.i.i.i.i = icmp eq i8 %40, 0
+  br i1 %.not.i.i.i.i.i7.i.i.i.i, label %44, label %41
 
-44:                                               ; preds = %41
-  %45 = load i32, ptr %42, align 4
-  %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %42, align 4
+41:                                               ; preds = %38
+  %42 = load i32, ptr %39, align 4
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %39, align 4
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac23HomographyEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
-47:                                               ; preds = %41
-  %48 = atomicrmw volatile add ptr %42, i32 1 acq_rel, align 4
+44:                                               ; preds = %38
+  %45 = atomicrmw volatile add ptr %39, i32 1 acq_rel, align 4
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac23HomographyEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac23HomographyEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i, %44, %47
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac23HomographyEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i, %41, %44
   store ptr %6, ptr %0, align 8
   store ptr %9, ptr %1, align 8
   ret void
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac23HomographyEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12: ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv4usac23HomographyEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
-  %49 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %6) #15
-  resume { ptr, i32 } %49
+  resume { ptr, i32 } %46
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -1697,95 +1683,89 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv4usac24FundamentalEs
 .noexc:                                           ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv4usac24FundamentalEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
   store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN2cv4usac24FundamentalEstimatorImplE, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 24
-  %11 = load ptr, ptr %3, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %12, align 8
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i, label %15
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %13, ptr %10, align 8
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i, label %14
 
-15:                                               ; preds = %.noexc
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
-  %17 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %17, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %21, label %18
+14:                                               ; preds = %.noexc
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %16, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %20, label %17
 
-18:                                               ; preds = %15
-  %19 = load i32, ptr %16, align 4
-  %20 = add nsw i32 %19, 1
-  store i32 %20, ptr %16, align 4
+17:                                               ; preds = %14
+  %18 = load i32, ptr %15, align 4
+  %19 = add nsw i32 %18, 1
+  store i32 %19, ptr %15, align 4
   br label %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i
 
-21:                                               ; preds = %15
-  %22 = atomicrmw volatile add ptr %16, i32 1 acq_rel, align 4
+20:                                               ; preds = %14
+  %21 = atomicrmw volatile add ptr %15, i32 1 acq_rel, align 4
   br label %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i
 
-_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i: ; preds = %21, %18, %.noexc
-  %23 = getelementptr inbounds i8, ptr %6, i64 40
-  %24 = load ptr, ptr %4, align 8
-  store ptr %24, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 48
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %25, align 8
-  %.not.i.i.i.i4.i.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i.i4.i.i.i.i, label %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i, label %28
+_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i: ; preds = %20, %17, %.noexc
+  %22 = getelementptr inbounds i8, ptr %6, i64 40
+  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = load <2 x ptr>, ptr %4, align 8
+  store <2 x ptr> %25, ptr %22, align 8
+  %.not.i.i.i.i4.i.i.i.i = icmp eq ptr %24, null
+  br i1 %.not.i.i.i.i4.i.i.i.i, label %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i, label %26
 
-28:                                               ; preds = %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
-  %30 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i5.i.i.i.i = icmp eq i8 %30, 0
-  br i1 %.not.i.i.i.i.i5.i.i.i.i, label %34, label %31
+26:                                               ; preds = %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i
+  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i5.i.i.i.i = icmp eq i8 %28, 0
+  br i1 %.not.i.i.i.i.i5.i.i.i.i, label %32, label %29
 
-31:                                               ; preds = %28
-  %32 = load i32, ptr %29, align 4
-  %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %29, align 4
+29:                                               ; preds = %26
+  %30 = load i32, ptr %27, align 4
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %27, align 4
   br label %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i
 
-34:                                               ; preds = %28
-  %35 = atomicrmw volatile add ptr %29, i32 1 acq_rel, align 4
+32:                                               ; preds = %26
+  %33 = atomicrmw volatile add ptr %27, i32 1 acq_rel, align 4
   br label %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i
 
-_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i: ; preds = %34, %31, %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i
-  %36 = getelementptr inbounds i8, ptr %6, i64 56
-  %37 = load ptr, ptr %5, align 8
-  store ptr %37, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 64
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
-  %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr %38, align 8
-  %.not.i.i.i.i6.i.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i.i6.i.i.i.i, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac24FundamentalEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %41
+_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i: ; preds = %32, %29, %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i
+  %34 = getelementptr inbounds i8, ptr %6, i64 56
+  %35 = getelementptr inbounds i8, ptr %5, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = load <2 x ptr>, ptr %5, align 8
+  store <2 x ptr> %37, ptr %34, align 8
+  %.not.i.i.i.i6.i.i.i.i = icmp eq ptr %36, null
+  br i1 %.not.i.i.i.i6.i.i.i.i, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac24FundamentalEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %38
 
-41:                                               ; preds = %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
-  %43 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i7.i.i.i.i = icmp eq i8 %43, 0
-  br i1 %.not.i.i.i.i.i7.i.i.i.i, label %47, label %44
+38:                                               ; preds = %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i
+  %39 = getelementptr inbounds i8, ptr %36, i64 8
+  %40 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i7.i.i.i.i = icmp eq i8 %40, 0
+  br i1 %.not.i.i.i.i.i7.i.i.i.i, label %44, label %41
 
-44:                                               ; preds = %41
-  %45 = load i32, ptr %42, align 4
-  %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %42, align 4
+41:                                               ; preds = %38
+  %42 = load i32, ptr %39, align 4
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %39, align 4
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac24FundamentalEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
-47:                                               ; preds = %41
-  %48 = atomicrmw volatile add ptr %42, i32 1 acq_rel, align 4
+44:                                               ; preds = %38
+  %45 = atomicrmw volatile add ptr %39, i32 1 acq_rel, align 4
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac24FundamentalEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac24FundamentalEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i, %44, %47
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac24FundamentalEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i, %41, %44
   store ptr %6, ptr %0, align 8
   store ptr %9, ptr %1, align 8
   ret void
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac24FundamentalEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12: ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv4usac24FundamentalEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
-  %49 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %6) #15
-  resume { ptr, i32 } %49
+  resume { ptr, i32 } %46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2300,95 +2280,89 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv4usac22EssentialEsti
 .noexc:                                           ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv4usac22EssentialEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
   store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN2cv4usac22EssentialEstimatorImplE, i64 16), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 24
-  %11 = load ptr, ptr %3, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %12, align 8
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i, label %15
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = load ptr, ptr %11, align 8
+  %13 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %13, ptr %10, align 8
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i, label %14
 
-15:                                               ; preds = %.noexc
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
-  %17 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %17, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %21, label %18
+14:                                               ; preds = %.noexc
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %16, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %20, label %17
 
-18:                                               ; preds = %15
-  %19 = load i32, ptr %16, align 4
-  %20 = add nsw i32 %19, 1
-  store i32 %20, ptr %16, align 4
+17:                                               ; preds = %14
+  %18 = load i32, ptr %15, align 4
+  %19 = add nsw i32 %18, 1
+  store i32 %19, ptr %15, align 4
   br label %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i
 
-21:                                               ; preds = %15
-  %22 = atomicrmw volatile add ptr %16, i32 1 acq_rel, align 4
+20:                                               ; preds = %14
+  %21 = atomicrmw volatile add ptr %15, i32 1 acq_rel, align 4
   br label %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i
 
-_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i: ; preds = %21, %18, %.noexc
-  %23 = getelementptr inbounds i8, ptr %6, i64 40
-  %24 = load ptr, ptr %4, align 8
-  store ptr %24, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 48
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %25, align 8
-  %.not.i.i.i.i4.i.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i.i4.i.i.i.i, label %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i, label %28
+_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i: ; preds = %20, %17, %.noexc
+  %22 = getelementptr inbounds i8, ptr %6, i64 40
+  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = load <2 x ptr>, ptr %4, align 8
+  store <2 x ptr> %25, ptr %22, align 8
+  %.not.i.i.i.i4.i.i.i.i = icmp eq ptr %24, null
+  br i1 %.not.i.i.i.i4.i.i.i.i, label %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i, label %26
 
-28:                                               ; preds = %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
-  %30 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i5.i.i.i.i = icmp eq i8 %30, 0
-  br i1 %.not.i.i.i.i.i5.i.i.i.i, label %34, label %31
+26:                                               ; preds = %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i
+  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %28 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i5.i.i.i.i = icmp eq i8 %28, 0
+  br i1 %.not.i.i.i.i.i5.i.i.i.i, label %32, label %29
 
-31:                                               ; preds = %28
-  %32 = load i32, ptr %29, align 4
-  %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %29, align 4
+29:                                               ; preds = %26
+  %30 = load i32, ptr %27, align 4
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %27, align 4
   br label %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i
 
-34:                                               ; preds = %28
-  %35 = atomicrmw volatile add ptr %29, i32 1 acq_rel, align 4
+32:                                               ; preds = %26
+  %33 = atomicrmw volatile add ptr %27, i32 1 acq_rel, align 4
   br label %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i
 
-_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i: ; preds = %34, %31, %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i
-  %36 = getelementptr inbounds i8, ptr %6, i64 56
-  %37 = load ptr, ptr %5, align 8
-  store ptr %37, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 64
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
-  %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr %38, align 8
-  %.not.i.i.i.i6.i.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i.i6.i.i.i.i, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac22EssentialEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %41
+_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i: ; preds = %32, %29, %_ZN2cv3PtrINS_4usac13MinimalSolverEEC2ERKS3_.exit.i.i.i.i
+  %34 = getelementptr inbounds i8, ptr %6, i64 56
+  %35 = getelementptr inbounds i8, ptr %5, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = load <2 x ptr>, ptr %5, align 8
+  store <2 x ptr> %37, ptr %34, align 8
+  %.not.i.i.i.i6.i.i.i.i = icmp eq ptr %36, null
+  br i1 %.not.i.i.i.i6.i.i.i.i, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac22EssentialEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %38
 
-41:                                               ; preds = %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
-  %43 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i7.i.i.i.i = icmp eq i8 %43, 0
-  br i1 %.not.i.i.i.i.i7.i.i.i.i, label %47, label %44
+38:                                               ; preds = %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i
+  %39 = getelementptr inbounds i8, ptr %36, i64 8
+  %40 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i7.i.i.i.i = icmp eq i8 %40, 0
+  br i1 %.not.i.i.i.i.i7.i.i.i.i, label %44, label %41
 
-44:                                               ; preds = %41
-  %45 = load i32, ptr %42, align 4
-  %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %42, align 4
+41:                                               ; preds = %38
+  %42 = load i32, ptr %39, align 4
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %39, align 4
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac22EssentialEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
-47:                                               ; preds = %41
-  %48 = atomicrmw volatile add ptr %42, i32 1 acq_rel, align 4
+44:                                               ; preds = %38
+  %45 = atomicrmw volatile add ptr %39, i32 1 acq_rel, align 4
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac22EssentialEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac22EssentialEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i, %44, %47
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac22EssentialEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_4usac16NonMinimalSolverEEC2ERKS3_.exit.i.i.i.i, %41, %44
   store ptr %6, ptr %0, align 8
   store ptr %9, ptr %1, align 8
   ret void
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac22EssentialEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12: ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv4usac22EssentialEstimatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERSA_.exit
-  %49 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %6) #15
-  resume { ptr, i32 } %49
+  resume { ptr, i32 } %46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

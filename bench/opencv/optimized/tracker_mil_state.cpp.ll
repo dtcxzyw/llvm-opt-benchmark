@@ -922,18 +922,18 @@ define void @_ZN2cv6detail8tracking32TrackerStateEstimatorMILBoosting12estimateI
 
 12:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %61
+  br label %60
 
 13:                                               ; preds = %3
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #12
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #12
   invoke void @_ZN2cv6detail8tracking32TrackerStateEstimatorMILBoosting11prepareDataERKSt6vectorISt4pairINS_3PtrINS1_18TrackerTargetStateEEEfESaIS8_EERNS_3MatESE_(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %5)
-          to label %14 unwind label %55
+          to label %14 unwind label %54
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds i8, ptr %1, i64 40
   invoke void @_ZN2cv6detail8tracking11ClfMilBoost8classifyERKNS_3MatEb(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.13") align 8 %6, ptr noundef nonnull align 8 dereferenceable(68) %15, ptr noundef nonnull align 8 dereferenceable(96) %4, i1 noundef zeroext true)
-          to label %16 unwind label %55
+          to label %16 unwind label %54
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr %6, align 8
@@ -979,76 +979,74 @@ define void @_ZN2cv6detail8tracking32TrackerStateEstimatorMILBoosting12estimateI
 
 38:                                               ; preds = %.loopexit
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.1, i64 noundef %31, i64 noundef %37) #14
-          to label %.noexc unwind label %57
+          to label %.noexc unwind label %56
 
 .noexc:                                           ; preds = %38
   unreachable
 
 39:                                               ; preds = %.loopexit
   %40 = getelementptr inbounds %"struct.std::pair", ptr %33, i64 %31
-  %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 8
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %42, align 8
-  %.not.i.i.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit, label %45
+  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = load <2 x ptr>, ptr %40, align 8
+  store <2 x ptr> %43, ptr %0, align 8
+  %.not.i.i.i.i = icmp eq ptr %42, null
+  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit, label %44
 
-45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %44, i64 8
-  %47 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i = icmp eq i8 %47, 0
-  br i1 %.not.i.i.i.i.i, label %51, label %48
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds i8, ptr %42, i64 8
+  %46 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i = icmp eq i8 %46, 0
+  br i1 %.not.i.i.i.i.i, label %50, label %47
 
-48:                                               ; preds = %45
-  %49 = load i32, ptr %46, align 4
-  %50 = add nsw i32 %49, 1
-  store i32 %50, ptr %46, align 4
+47:                                               ; preds = %44
+  %48 = load i32, ptr %45, align 4
+  %49 = add nsw i32 %48, 1
+  store i32 %49, ptr %45, align 4
   br label %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit
 
-51:                                               ; preds = %45
-  %52 = atomicrmw volatile add ptr %46, i32 1 acq_rel, align 4
+50:                                               ; preds = %44
+  %51 = atomicrmw volatile add ptr %45, i32 1 acq_rel, align 4
   %.pre = load ptr, ptr %6, align 8
   br label %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit
 
-_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit: ; preds = %39, %48, %51
-  %53 = phi ptr [ %17, %39 ], [ %17, %48 ], [ %.pre, %51 ]
-  %.not.i.i.i5 = icmp eq ptr %53, null
-  br i1 %.not.i.i.i5, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %54
+_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit: ; preds = %39, %47, %50
+  %52 = phi ptr [ %17, %39 ], [ %17, %47 ], [ %.pre, %50 ]
+  %.not.i.i.i5 = icmp eq ptr %52, null
+  br i1 %.not.i.i.i5, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %53
 
-54:                                               ; preds = %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit
-  call void @_ZdlPv(ptr noundef nonnull %53) #13
+53:                                               ; preds = %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit
+  call void @_ZdlPv(ptr noundef nonnull %52) #13
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
-_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit, %54
+_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEEC2ERKS4_.exit, %53
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #12
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #12
-  br label %61
+  br label %60
 
-55:                                               ; preds = %14, %13
-  %56 = landingpad { ptr, i32 }
+54:                                               ; preds = %14, %13
+  %55 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit7
 
-57:                                               ; preds = %38
-  %58 = landingpad { ptr, i32 }
+56:                                               ; preds = %38
+  %57 = landingpad { ptr, i32 }
           cleanup
-  %59 = load ptr, ptr %6, align 8
-  %.not.i.i.i6 = icmp eq ptr %59, null
-  br i1 %.not.i.i.i6, label %_ZNSt6vectorIfSaIfEED2Ev.exit7, label %60
+  %58 = load ptr, ptr %6, align 8
+  %.not.i.i.i6 = icmp eq ptr %58, null
+  br i1 %.not.i.i.i6, label %_ZNSt6vectorIfSaIfEED2Ev.exit7, label %59
 
-60:                                               ; preds = %57
-  call void @_ZdlPv(ptr noundef nonnull %59) #13
+59:                                               ; preds = %56
+  call void @_ZdlPv(ptr noundef nonnull %58) #13
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit7
 
-_ZNSt6vectorIfSaIfEED2Ev.exit7:                   ; preds = %60, %57, %55
-  %.pn = phi { ptr, i32 } [ %56, %55 ], [ %58, %57 ], [ %58, %60 ]
+_ZNSt6vectorIfSaIfEED2Ev.exit7:                   ; preds = %59, %56, %54
+  %.pn = phi { ptr, i32 } [ %55, %54 ], [ %57, %56 ], [ %57, %59 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #12
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #12
   resume { ptr, i32 } %.pn
 
-61:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %12
+60:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %12
   ret void
 }
 

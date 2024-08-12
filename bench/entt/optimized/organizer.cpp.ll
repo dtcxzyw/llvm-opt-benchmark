@@ -43235,19 +43235,18 @@ _ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9bas
   store ptr null, ptr %agg.tmp, align 8, !tbaa !147
   %info.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %info2.i = getelementptr inbounds i8, ptr %value, i64 16
-  %11 = load ptr, ptr %info2.i, align 8, !tbaa !331
-  store ptr %11, ptr %info.i, align 8, !tbaa !331
   %vtable.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %vtable3.i = getelementptr inbounds i8, ptr %value, i64 24
-  %12 = load ptr, ptr %vtable3.i, align 8, !tbaa !333
-  store ptr %12, ptr %vtable.i, align 8, !tbaa !333
+  %11 = load ptr, ptr %vtable3.i, align 8, !tbaa !333
+  %12 = load <2 x ptr>, ptr %info2.i, align 8, !tbaa !38
+  store <2 x ptr> %12, ptr %info.i, align 8, !tbaa !38
   %mode.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   store i8 %9, ptr %mode.i, align 8, !tbaa !334
-  %tobool.not.i = icmp eq ptr %12, null
+  %tobool.not.i = icmp eq ptr %11, null
   br i1 %tobool.not.i, label %_ZN4entt9basic_anyILm16ELm8EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit
-  %call.i = invoke noundef ptr %12(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
+  %call.i = invoke noundef ptr %11(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
           to label %_ZN4entt9basic_anyILm16ELm8EEC2EOS1_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -44862,19 +44861,18 @@ _ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9bas
   store ptr null, ptr %agg.tmp, align 8, !tbaa !147
   %info.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %info2.i = getelementptr inbounds i8, ptr %value, i64 16
-  %11 = load ptr, ptr %info2.i, align 8, !tbaa !331
-  store ptr %11, ptr %info.i, align 8, !tbaa !331
   %vtable.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %vtable3.i = getelementptr inbounds i8, ptr %value, i64 24
-  %12 = load ptr, ptr %vtable3.i, align 8, !tbaa !333
-  store ptr %12, ptr %vtable.i, align 8, !tbaa !333
+  %11 = load ptr, ptr %vtable3.i, align 8, !tbaa !333
+  %12 = load <2 x ptr>, ptr %info2.i, align 8, !tbaa !38
+  store <2 x ptr> %12, ptr %info.i, align 8, !tbaa !38
   %mode.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   store i8 %9, ptr %mode.i, align 8, !tbaa !334
-  %tobool.not.i = icmp eq ptr %12, null
+  %tobool.not.i = icmp eq ptr %11, null
   br i1 %tobool.not.i, label %_ZN4entt9basic_anyILm16ELm8EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit
-  %call.i = invoke noundef ptr %12(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
+  %call.i = invoke noundef ptr %11(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
           to label %_ZN4entt9basic_anyILm16ELm8EEC2EOS1_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -46018,19 +46016,18 @@ _ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9bas
   store ptr null, ptr %agg.tmp, align 8, !tbaa !147
   %info.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %info2.i = getelementptr inbounds i8, ptr %value, i64 16
-  %11 = load ptr, ptr %info2.i, align 8, !tbaa !331
-  store ptr %11, ptr %info.i, align 8, !tbaa !331
   %vtable.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %vtable3.i = getelementptr inbounds i8, ptr %value, i64 24
-  %12 = load ptr, ptr %vtable3.i, align 8, !tbaa !333
-  store ptr %12, ptr %vtable.i, align 8, !tbaa !333
+  %11 = load ptr, ptr %vtable3.i, align 8, !tbaa !333
+  %12 = load <2 x ptr>, ptr %info2.i, align 8, !tbaa !38
+  store <2 x ptr> %12, ptr %info.i, align 8, !tbaa !38
   %mode.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   store i8 %9, ptr %mode.i, align 8, !tbaa !334
-  %tobool.not.i = icmp eq ptr %12, null
+  %tobool.not.i = icmp eq ptr %11, null
   br i1 %tobool.not.i, label %_ZN4entt9basic_anyILm16ELm8EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit
-  %call.i = invoke noundef ptr %12(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
+  %call.i = invoke noundef ptr %11(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
           to label %_ZN4entt9basic_anyILm16ELm8EEC2EOS1_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -48033,19 +48030,18 @@ _ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9bas
   store ptr null, ptr %agg.tmp, align 8, !tbaa !147
   %info.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %info2.i = getelementptr inbounds i8, ptr %value, i64 16
-  %11 = load ptr, ptr %info2.i, align 8, !tbaa !331
-  store ptr %11, ptr %info.i, align 8, !tbaa !331
   %vtable.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %vtable3.i = getelementptr inbounds i8, ptr %value, i64 24
-  %12 = load ptr, ptr %vtable3.i, align 8, !tbaa !333
-  store ptr %12, ptr %vtable.i, align 8, !tbaa !333
+  %11 = load ptr, ptr %vtable3.i, align 8, !tbaa !333
+  %12 = load <2 x ptr>, ptr %info2.i, align 8, !tbaa !38
+  store <2 x ptr> %12, ptr %info.i, align 8, !tbaa !38
   %mode.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   store i8 %9, ptr %mode.i, align 8, !tbaa !334
-  %tobool.not.i = icmp eq ptr %12, null
+  %tobool.not.i = icmp eq ptr %11, null
   br i1 %tobool.not.i, label %_ZN4entt9basic_anyILm16ELm8EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4entt8any_castINS_14basic_registryINS_6entityESaIS2_EEELm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit
-  %call.i = invoke noundef ptr %12(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
+  %call.i = invoke noundef ptr %11(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
           to label %_ZN4entt9basic_anyILm16ELm8EEC2EOS1_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -50553,22 +50549,20 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %_ZSt1
   store ptr null, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !147, !alias.scope !536, !noalias !539
   %info.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i, i64 24
   %info2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i, i64 24
-  %11 = load ptr, ptr %info2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !246, !alias.scope !539, !noalias !536
-  store ptr %11, ptr %info.i.i.i.i.i.i.i.i.i, align 8, !tbaa !246, !alias.scope !536, !noalias !539
-  %vtable.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i, i64 32
   %vtable3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i, i64 32
-  %12 = load ptr, ptr %vtable3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !157, !alias.scope !539, !noalias !536
-  store ptr %12, ptr %vtable.i.i.i.i.i.i.i.i.i, align 8, !tbaa !157, !alias.scope !536, !noalias !539
+  %11 = load ptr, ptr %vtable3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !157, !alias.scope !539, !noalias !536
+  %12 = load <2 x ptr>, ptr %info2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !38, !alias.scope !539, !noalias !536
+  store <2 x ptr> %12, ptr %info.i.i.i.i.i.i.i.i.i, align 8, !tbaa !38, !alias.scope !536, !noalias !539
   %mode.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i, i64 40
   %mode4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i, i64 40
   %13 = load i8, ptr %mode4.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !539, !noalias !536
   store i8 %13, ptr %mode.i.i.i.i.i.i.i.i.i, align 8, !tbaa !272, !alias.scope !536, !noalias !539
-  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
+  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN4entt8internal14dense_map_nodeIjNS0_9basic_anyILm0ELm8EEEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i
   %second3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i, i64 16
-  %call.i.i.i.i.i.i.i.i.i = invoke noundef ptr %12(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(25) %second3.i.i.i.i.i.i.i.i, ptr noundef nonnull %second.i.i.i.i.i.i.i.i)
+  %call.i.i.i.i.i.i.i.i.i = invoke noundef ptr %11(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(25) %second3.i.i.i.i.i.i.i.i, ptr noundef nonnull %second.i.i.i.i.i.i.i.i)
           to label %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjNS0_9basic_anyILm0ELm8EEEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i.i.i
@@ -50624,22 +50618,20 @@ for.body.i.i.i56:                                 ; preds = %_ZNSt6vectorIN4entt
   store ptr null, ptr %second.i.i.i.i.i.i.i.i61, align 8, !tbaa !147, !alias.scope !542, !noalias !545
   %info.i.i.i.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %__cur.010.i.i.i57, i64 24
   %info2.i.i.i.i.i.i.i.i.i63 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i58, i64 24
-  %20 = load ptr, ptr %info2.i.i.i.i.i.i.i.i.i63, align 8, !tbaa !246, !alias.scope !545, !noalias !542
-  store ptr %20, ptr %info.i.i.i.i.i.i.i.i.i62, align 8, !tbaa !246, !alias.scope !542, !noalias !545
-  %vtable.i.i.i.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %__cur.010.i.i.i57, i64 32
   %vtable3.i.i.i.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i58, i64 32
-  %21 = load ptr, ptr %vtable3.i.i.i.i.i.i.i.i.i65, align 8, !tbaa !157, !alias.scope !545, !noalias !542
-  store ptr %21, ptr %vtable.i.i.i.i.i.i.i.i.i64, align 8, !tbaa !157, !alias.scope !542, !noalias !545
+  %20 = load ptr, ptr %vtable3.i.i.i.i.i.i.i.i.i65, align 8, !tbaa !157, !alias.scope !545, !noalias !542
+  %21 = load <2 x ptr>, ptr %info2.i.i.i.i.i.i.i.i.i63, align 8, !tbaa !38, !alias.scope !545, !noalias !542
+  store <2 x ptr> %21, ptr %info.i.i.i.i.i.i.i.i.i62, align 8, !tbaa !38, !alias.scope !542, !noalias !545
   %mode.i.i.i.i.i.i.i.i.i66 = getelementptr inbounds i8, ptr %__cur.010.i.i.i57, i64 40
   %mode4.i.i.i.i.i.i.i.i.i67 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i58, i64 40
   %22 = load i8, ptr %mode4.i.i.i.i.i.i.i.i.i67, align 8, !alias.scope !545, !noalias !542
   store i8 %22, ptr %mode.i.i.i.i.i.i.i.i.i66, align 8, !tbaa !272, !alias.scope !542, !noalias !545
-  %tobool.not.i.i.i.i.i.i.i.i.i68 = icmp eq ptr %21, null
+  %tobool.not.i.i.i.i.i.i.i.i.i68 = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i68, label %_ZSt19__relocate_object_aIN4entt8internal14dense_map_nodeIjNS0_9basic_anyILm0ELm8EEEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i79, label %if.then.i.i.i.i.i.i.i.i.i69
 
 if.then.i.i.i.i.i.i.i.i.i69:                      ; preds = %for.body.i.i.i56
   %second3.i.i.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i58, i64 16
-  %call.i.i.i.i.i.i.i.i.i71 = invoke noundef ptr %21(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(25) %second3.i.i.i.i.i.i.i.i70, ptr noundef nonnull %second.i.i.i.i.i.i.i.i61)
+  %call.i.i.i.i.i.i.i.i.i71 = invoke noundef ptr %20(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(25) %second3.i.i.i.i.i.i.i.i70, ptr noundef nonnull %second.i.i.i.i.i.i.i.i61)
           to label %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjNS0_9basic_anyILm0ELm8EEEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i73 unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i72
 
 terminate.lpad.i.i.i.i.i.i.i.i.i72:               ; preds = %if.then.i.i.i.i.i.i.i.i.i69
@@ -58518,22 +58510,20 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %_ZSt1
   store ptr null, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !147, !alias.scope !909, !noalias !912
   %info.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i, i64 24
   %info2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i, i64 24
-  %11 = load ptr, ptr %info2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !246, !alias.scope !912, !noalias !909
-  store ptr %11, ptr %info.i.i.i.i.i.i.i.i.i, align 8, !tbaa !246, !alias.scope !909, !noalias !912
-  %vtable.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i, i64 32
   %vtable3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i, i64 32
-  %12 = load ptr, ptr %vtable3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !157, !alias.scope !912, !noalias !909
-  store ptr %12, ptr %vtable.i.i.i.i.i.i.i.i.i, align 8, !tbaa !157, !alias.scope !909, !noalias !912
+  %11 = load ptr, ptr %vtable3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !157, !alias.scope !912, !noalias !909
+  %12 = load <2 x ptr>, ptr %info2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !38, !alias.scope !912, !noalias !909
+  store <2 x ptr> %12, ptr %info.i.i.i.i.i.i.i.i.i, align 8, !tbaa !38, !alias.scope !909, !noalias !912
   %mode.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i, i64 40
   %mode4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i, i64 40
   %13 = load i8, ptr %mode4.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !912, !noalias !909
   store i8 %13, ptr %mode.i.i.i.i.i.i.i.i.i, align 8, !tbaa !272, !alias.scope !909, !noalias !912
-  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
+  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN4entt8internal14dense_map_nodeIjNS0_9basic_anyILm0ELm8EEEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i
   %second3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i, i64 16
-  %call.i.i.i.i.i.i.i.i.i = invoke noundef ptr %12(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(25) %second3.i.i.i.i.i.i.i.i, ptr noundef nonnull %second.i.i.i.i.i.i.i.i)
+  %call.i.i.i.i.i.i.i.i.i = invoke noundef ptr %11(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(25) %second3.i.i.i.i.i.i.i.i, ptr noundef nonnull %second.i.i.i.i.i.i.i.i)
           to label %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjNS0_9basic_anyILm0ELm8EEEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i.i.i
@@ -58589,22 +58579,20 @@ for.body.i.i.i56:                                 ; preds = %_ZNSt6vectorIN4entt
   store ptr null, ptr %second.i.i.i.i.i.i.i.i61, align 8, !tbaa !147, !alias.scope !914, !noalias !917
   %info.i.i.i.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %__cur.010.i.i.i57, i64 24
   %info2.i.i.i.i.i.i.i.i.i63 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i58, i64 24
-  %20 = load ptr, ptr %info2.i.i.i.i.i.i.i.i.i63, align 8, !tbaa !246, !alias.scope !917, !noalias !914
-  store ptr %20, ptr %info.i.i.i.i.i.i.i.i.i62, align 8, !tbaa !246, !alias.scope !914, !noalias !917
-  %vtable.i.i.i.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %__cur.010.i.i.i57, i64 32
   %vtable3.i.i.i.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i58, i64 32
-  %21 = load ptr, ptr %vtable3.i.i.i.i.i.i.i.i.i65, align 8, !tbaa !157, !alias.scope !917, !noalias !914
-  store ptr %21, ptr %vtable.i.i.i.i.i.i.i.i.i64, align 8, !tbaa !157, !alias.scope !914, !noalias !917
+  %20 = load ptr, ptr %vtable3.i.i.i.i.i.i.i.i.i65, align 8, !tbaa !157, !alias.scope !917, !noalias !914
+  %21 = load <2 x ptr>, ptr %info2.i.i.i.i.i.i.i.i.i63, align 8, !tbaa !38, !alias.scope !917, !noalias !914
+  store <2 x ptr> %21, ptr %info.i.i.i.i.i.i.i.i.i62, align 8, !tbaa !38, !alias.scope !914, !noalias !917
   %mode.i.i.i.i.i.i.i.i.i66 = getelementptr inbounds i8, ptr %__cur.010.i.i.i57, i64 40
   %mode4.i.i.i.i.i.i.i.i.i67 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i58, i64 40
   %22 = load i8, ptr %mode4.i.i.i.i.i.i.i.i.i67, align 8, !alias.scope !917, !noalias !914
   store i8 %22, ptr %mode.i.i.i.i.i.i.i.i.i66, align 8, !tbaa !272, !alias.scope !914, !noalias !917
-  %tobool.not.i.i.i.i.i.i.i.i.i68 = icmp eq ptr %21, null
+  %tobool.not.i.i.i.i.i.i.i.i.i68 = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i68, label %_ZSt19__relocate_object_aIN4entt8internal14dense_map_nodeIjNS0_9basic_anyILm0ELm8EEEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i79, label %if.then.i.i.i.i.i.i.i.i.i69
 
 if.then.i.i.i.i.i.i.i.i.i69:                      ; preds = %for.body.i.i.i56
   %second3.i.i.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i58, i64 16
-  %call.i.i.i.i.i.i.i.i.i71 = invoke noundef ptr %21(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(25) %second3.i.i.i.i.i.i.i.i70, ptr noundef nonnull %second.i.i.i.i.i.i.i.i61)
+  %call.i.i.i.i.i.i.i.i.i71 = invoke noundef ptr %20(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(25) %second3.i.i.i.i.i.i.i.i70, ptr noundef nonnull %second.i.i.i.i.i.i.i.i61)
           to label %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjNS0_9basic_anyILm0ELm8EEEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i73 unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i72
 
 terminate.lpad.i.i.i.i.i.i.i.i.i72:               ; preds = %if.then.i.i.i.i.i.i.i.i.i69
@@ -59118,22 +59106,20 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %_ZSt1
   store ptr null, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !147, !alias.scope !928, !noalias !931
   %info.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i, i64 24
   %info2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i, i64 24
-  %14 = load ptr, ptr %info2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !246, !alias.scope !931, !noalias !928
-  store ptr %14, ptr %info.i.i.i.i.i.i.i.i.i, align 8, !tbaa !246, !alias.scope !928, !noalias !931
-  %vtable.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i, i64 32
   %vtable3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i, i64 32
-  %15 = load ptr, ptr %vtable3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !157, !alias.scope !931, !noalias !928
-  store ptr %15, ptr %vtable.i.i.i.i.i.i.i.i.i, align 8, !tbaa !157, !alias.scope !928, !noalias !931
+  %14 = load ptr, ptr %vtable3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !157, !alias.scope !931, !noalias !928
+  %15 = load <2 x ptr>, ptr %info2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !38, !alias.scope !931, !noalias !928
+  store <2 x ptr> %15, ptr %info.i.i.i.i.i.i.i.i.i, align 8, !tbaa !38, !alias.scope !928, !noalias !931
   %mode.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i, i64 40
   %mode4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i, i64 40
   %16 = load i8, ptr %mode4.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !931, !noalias !928
   store i8 %16, ptr %mode.i.i.i.i.i.i.i.i.i, align 8, !tbaa !272, !alias.scope !928, !noalias !931
-  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %15, null
+  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN4entt8internal14dense_map_nodeIjNS0_9basic_anyILm0ELm8EEEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i
   %second3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i, i64 16
-  %call.i.i.i.i.i.i.i.i.i = invoke noundef ptr %15(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(25) %second3.i.i.i.i.i.i.i.i, ptr noundef nonnull %second.i.i.i.i.i.i.i.i)
+  %call.i.i.i.i.i.i.i.i.i = invoke noundef ptr %14(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(25) %second3.i.i.i.i.i.i.i.i, ptr noundef nonnull %second.i.i.i.i.i.i.i.i)
           to label %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjNS0_9basic_anyILm0ELm8EEEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i.i.i
@@ -59189,22 +59175,20 @@ for.body.i.i.i56:                                 ; preds = %_ZNSt6vectorIN4entt
   store ptr null, ptr %second.i.i.i.i.i.i.i.i61, align 8, !tbaa !147, !alias.scope !933, !noalias !936
   %info.i.i.i.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %__cur.010.i.i.i57, i64 24
   %info2.i.i.i.i.i.i.i.i.i63 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i58, i64 24
-  %23 = load ptr, ptr %info2.i.i.i.i.i.i.i.i.i63, align 8, !tbaa !246, !alias.scope !936, !noalias !933
-  store ptr %23, ptr %info.i.i.i.i.i.i.i.i.i62, align 8, !tbaa !246, !alias.scope !933, !noalias !936
-  %vtable.i.i.i.i.i.i.i.i.i64 = getelementptr inbounds i8, ptr %__cur.010.i.i.i57, i64 32
   %vtable3.i.i.i.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i58, i64 32
-  %24 = load ptr, ptr %vtable3.i.i.i.i.i.i.i.i.i65, align 8, !tbaa !157, !alias.scope !936, !noalias !933
-  store ptr %24, ptr %vtable.i.i.i.i.i.i.i.i.i64, align 8, !tbaa !157, !alias.scope !933, !noalias !936
+  %23 = load ptr, ptr %vtable3.i.i.i.i.i.i.i.i.i65, align 8, !tbaa !157, !alias.scope !936, !noalias !933
+  %24 = load <2 x ptr>, ptr %info2.i.i.i.i.i.i.i.i.i63, align 8, !tbaa !38, !alias.scope !936, !noalias !933
+  store <2 x ptr> %24, ptr %info.i.i.i.i.i.i.i.i.i62, align 8, !tbaa !38, !alias.scope !933, !noalias !936
   %mode.i.i.i.i.i.i.i.i.i66 = getelementptr inbounds i8, ptr %__cur.010.i.i.i57, i64 40
   %mode4.i.i.i.i.i.i.i.i.i67 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i58, i64 40
   %25 = load i8, ptr %mode4.i.i.i.i.i.i.i.i.i67, align 8, !alias.scope !936, !noalias !933
   store i8 %25, ptr %mode.i.i.i.i.i.i.i.i.i66, align 8, !tbaa !272, !alias.scope !933, !noalias !936
-  %tobool.not.i.i.i.i.i.i.i.i.i68 = icmp eq ptr %24, null
+  %tobool.not.i.i.i.i.i.i.i.i.i68 = icmp eq ptr %23, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i68, label %_ZSt19__relocate_object_aIN4entt8internal14dense_map_nodeIjNS0_9basic_anyILm0ELm8EEEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i79, label %if.then.i.i.i.i.i.i.i.i.i69
 
 if.then.i.i.i.i.i.i.i.i.i69:                      ; preds = %for.body.i.i.i56
   %second3.i.i.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i58, i64 16
-  %call.i.i.i.i.i.i.i.i.i71 = invoke noundef ptr %24(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(25) %second3.i.i.i.i.i.i.i.i70, ptr noundef nonnull %second.i.i.i.i.i.i.i.i61)
+  %call.i.i.i.i.i.i.i.i.i71 = invoke noundef ptr %23(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(25) %second3.i.i.i.i.i.i.i.i70, ptr noundef nonnull %second.i.i.i.i.i.i.i.i61)
           to label %_ZNSt16allocator_traitsISaIN4entt8internal14dense_map_nodeIjNS0_9basic_anyILm0ELm8EEEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit.i.i.i.i73 unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i72
 
 terminate.lpad.i.i.i.i.i.i.i.i.i72:               ; preds = %if.then.i.i.i.i.i.i.i.i.i69

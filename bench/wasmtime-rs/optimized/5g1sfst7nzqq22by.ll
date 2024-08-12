@@ -2345,30 +2345,26 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h94b4bd9097c76390E.exit: ; preds = %
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq28_$u7b$$u7b$closure$u7d$$u7d$17h4423d037666d290aE"(ptr nocapture readnone align 1 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
-  %3 = alloca { ptr, ptr }, align 8
-  %4 = alloca { ptr, ptr }, align 8
-  %5 = load ptr, ptr %1, align 8, !nonnull !3, !align !8, !noundef !3
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !nonnull !3, !align !9, !noundef !3
-  store ptr %5, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !nonnull !3, !align !8, !noundef !3
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
-  %12 = load ptr, ptr %11, align 8, !nonnull !3, !align !9, !noundef !3
-  store ptr %10, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %12, ptr %13, align 8
-  %14 = tail call zeroext i1 @"_ZN4core3cmp5impls54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$u16$GT$2eq17h785a02675c4ce0bbE"(ptr nonnull align 2 %5, ptr nonnull align 2 %10)
-  br i1 %14, label %15, label %17
+  %3 = alloca { ptr, ptr }, align 16
+  %4 = alloca { ptr, ptr }, align 16
+  %5 = load <2 x ptr>, ptr %1, align 8
+  %6 = load ptr, ptr %1, align 8, !nonnull !3, !align !8, !noundef !3
+  store <2 x ptr> %5, ptr %4, align 16
+  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = load <2 x ptr>, ptr %7, align 8
+  %9 = load ptr, ptr %7, align 8, !nonnull !3, !align !8, !noundef !3
+  store <2 x ptr> %8, ptr %3, align 16
+  %10 = tail call zeroext i1 @"_ZN4core3cmp5impls54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$u16$GT$2eq17h785a02675c4ce0bbE"(ptr nonnull align 2 %6, ptr nonnull align 2 %9)
+  br i1 %10, label %11, label %15
 
-15:                                               ; preds = %2
-  %16 = call zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hcb396ee0888eb03bE"(ptr nonnull align 8 %8, ptr nonnull align 8 %13)
-  br label %17
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = call zeroext i1 @"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17hcb396ee0888eb03bE"(ptr nonnull align 8 %13, ptr nonnull align 8 %12)
+  br label %15
 
-17:                                               ; preds = %2, %15
-  %.0 = phi i1 [ %16, %15 ], [ false, %2 ]
+15:                                               ; preds = %2, %11
+  %.0 = phi i1 [ %14, %11 ], [ false, %2 ]
   ret i1 %.0
 }
 
@@ -2679,4 +2675,3 @@ attributes #11 = { cold noreturn nounwind }
 !6 = !{i64 8}
 !7 = !{i64 0, i64 -9223372036854775807}
 !8 = !{i64 2}
-!9 = !{i64 1}

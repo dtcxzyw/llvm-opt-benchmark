@@ -294,128 +294,130 @@ define internal { double, double } @_ZL17e_healpix_inverse5PJ_XYP8PJconsts(doubl
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 19
   br i1 %exitcond.not.i.i, label %.lr.ph60.i.i, label %.lr.ph.i.i, !llvm.loop !4
 
-.lr.ph60.i.i:                                     ; preds = %24, %53
-  %indvars.iv63.i.i = phi i64 [ %indvars.iv.next64.i.i, %53 ], [ 1, %24 ]
-  %.sroa.09.057.i.i = phi double [ %26, %53 ], [ 0xC00921FB54442D1A, %24 ]
-  %.sroa.7.056.i.i = phi double [ %28, %53 ], [ 0x3FE921FB54442D18, %24 ]
-  %.04855.i.i = phi i32 [ %.149.i.i, %53 ], [ 0, %24 ]
-  %25 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv63.i.i
-  %26 = load double, ptr %25, align 16
-  %27 = getelementptr inbounds i8, ptr %25, i64 8
-  %28 = load double, ptr %27, align 8
-  %29 = fcmp olt double %.sroa.7.056.i.i, %28
-  %30 = select i1 %29, double %.sroa.7.056.i.i, double %28
-  %31 = fcmp olt double %30, %16
-  br i1 %31, label %32, label %53
+.lr.ph60.i.i:                                     ; preds = %24, %55
+  %indvars.iv63.i.i = phi i64 [ %indvars.iv.next64.i.i, %55 ], [ 1, %24 ]
+  %.sroa.09.057.i.i = phi double [ %29, %55 ], [ 0xC00921FB54442D1A, %24 ]
+  %.sroa.7.056.i.i = phi double [ %28, %55 ], [ 0x3FE921FB54442D18, %24 ]
+  %.04855.i.i = phi i32 [ %.149.i.i, %55 ], [ 0, %24 ]
+  %25 = phi <2 x double> [ %27, %55 ], [ <double 0xC00921FB54442D1A, double 0x3FE921FB54442D18>, %24 ]
+  %26 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv63.i.i
+  %27 = load <2 x double>, ptr %26, align 16
+  %28 = extractelement <2 x double> %27, i64 1
+  %29 = extractelement <2 x double> %27, i64 0
+  %30 = fcmp olt double %.sroa.7.056.i.i, %28
+  %31 = select i1 %30, double %.sroa.7.056.i.i, double %28
+  %32 = fcmp olt double %31, %16
+  br i1 %32, label %33, label %55
 
-32:                                               ; preds = %.lr.ph60.i.i
-  %33 = fcmp ogt double %.sroa.7.056.i.i, %28
-  %34 = select i1 %33, double %.sroa.7.056.i.i, double %28
-  %35 = fcmp ult double %34, %16
-  br i1 %35, label %53, label %36
+33:                                               ; preds = %.lr.ph60.i.i
+  %34 = fcmp ogt double %.sroa.7.056.i.i, %28
+  %35 = select i1 %34, double %.sroa.7.056.i.i, double %28
+  %36 = fcmp ult double %35, %16
+  br i1 %36, label %55, label %37
 
-36:                                               ; preds = %32
-  %37 = fcmp ogt double %.sroa.09.057.i.i, %26
-  %38 = select i1 %37, double %.sroa.09.057.i.i, double %26
-  %39 = fcmp oge double %38, %12
-  %40 = fcmp une double %.sroa.7.056.i.i, %28
-  %or.cond.i.i = and i1 %40, %39
-  br i1 %or.cond.i.i, label %41, label %53
+37:                                               ; preds = %33
+  %38 = fcmp ogt double %.sroa.09.057.i.i, %29
+  %39 = select i1 %38, double %.sroa.09.057.i.i, double %29
+  %40 = fcmp oge double %39, %12
+  %41 = fcmp une double %.sroa.7.056.i.i, %28
+  %or.cond.i.i = and i1 %41, %40
+  br i1 %or.cond.i.i, label %42, label %55
 
-41:                                               ; preds = %36
-  %42 = fcmp oeq double %.sroa.09.057.i.i, %26
-  br i1 %42, label %51, label %43
+42:                                               ; preds = %37
+  %43 = fcmp oeq double %.sroa.09.057.i.i, %29
+  br i1 %43, label %53, label %44
 
-43:                                               ; preds = %41
-  %44 = fsub double %16, %.sroa.7.056.i.i
-  %45 = fsub double %26, %.sroa.09.057.i.i
-  %46 = fmul double %44, %45
-  %47 = fsub double %28, %.sroa.7.056.i.i
-  %48 = fdiv double %46, %47
-  %49 = fadd double %.sroa.09.057.i.i, %48
-  %50 = fcmp ult double %49, %12
-  br i1 %50, label %53, label %51
+44:                                               ; preds = %42
+  %45 = fsub double %16, %.sroa.7.056.i.i
+  %46 = fsub <2 x double> %27, %25
+  %47 = extractelement <2 x double> %46, i64 0
+  %48 = fmul double %45, %47
+  %49 = extractelement <2 x double> %46, i64 1
+  %50 = fdiv double %48, %49
+  %51 = fadd double %.sroa.09.057.i.i, %50
+  %52 = fcmp ult double %51, %12
+  br i1 %52, label %55, label %53
 
-51:                                               ; preds = %43, %41
-  %52 = add nsw i32 %.04855.i.i, 1
-  br label %53
+53:                                               ; preds = %44, %42
+  %54 = add nsw i32 %.04855.i.i, 1
+  br label %55
 
-53:                                               ; preds = %51, %43, %36, %32, %.lr.ph60.i.i
-  %.149.i.i = phi i32 [ %52, %51 ], [ %.04855.i.i, %43 ], [ %.04855.i.i, %36 ], [ %.04855.i.i, %32 ], [ %.04855.i.i, %.lr.ph60.i.i ]
+55:                                               ; preds = %53, %44, %37, %33, %.lr.ph60.i.i
+  %.149.i.i = phi i32 [ %54, %53 ], [ %.04855.i.i, %44 ], [ %.04855.i.i, %37 ], [ %.04855.i.i, %33 ], [ %.04855.i.i, %.lr.ph60.i.i ]
   %indvars.iv.next64.i.i = add nuw nsw i64 %indvars.iv63.i.i, 1
   %exitcond67.not.i.i = icmp eq i64 %indvars.iv.next64.i.i, 19
   br i1 %exitcond67.not.i.i, label %_ZL8in_imageddiii.exit, label %.lr.ph60.i.i, !llvm.loop !6
 
-_ZL8in_imageddiii.exit:                           ; preds = %53
-  %54 = and i32 %.149.i.i, 1
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %_ZL8in_imageddiii.exit.thread
+_ZL8in_imageddiii.exit:                           ; preds = %55
+  %56 = and i32 %.149.i.i, 1
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %_ZL8in_imageddiii.exit.thread
 
-56:                                               ; preds = %_ZL8in_imageddiii.exit
-  %57 = load ptr, ptr %2, align 8
-  tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %57, i32 noundef 2050)
-  br label %97
+58:                                               ; preds = %_ZL8in_imageddiii.exit
+  %59 = load ptr, ptr %2, align 8
+  tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %59, i32 noundef 2050)
+  br label %99
 
 _ZL8in_imageddiii.exit.thread:                    ; preds = %20, %_ZL8in_imageddiii.exit
-  %58 = tail call double @llvm.fabs.f64(double %16)
-  %59 = fcmp ugt double %58, 0x3FE921FB54442D18
-  br i1 %59, label %64, label %60
+  %60 = tail call double @llvm.fabs.f64(double %16)
+  %61 = fcmp ugt double %60, 0x3FE921FB54442D18
+  br i1 %61, label %66, label %62
 
-60:                                               ; preds = %_ZL8in_imageddiii.exit.thread
-  %61 = fmul double %16, 8.000000e+00
-  %62 = fdiv double %61, 0x4022D97C7F3321D2
-  %63 = tail call double @asin(double noundef %62) #11
+62:                                               ; preds = %_ZL8in_imageddiii.exit.thread
+  %63 = fmul double %16, 8.000000e+00
+  %64 = fdiv double %63, 0x4022D97C7F3321D2
+  %65 = tail call double @asin(double noundef %64) #11
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-64:                                               ; preds = %_ZL8in_imageddiii.exit.thread
-  %65 = fcmp olt double %58, 0x3FF921FB54442D18
-  br i1 %65, label %66, label %87
+66:                                               ; preds = %_ZL8in_imageddiii.exit.thread
+  %67 = fcmp olt double %60, 0x3FF921FB54442D18
+  br i1 %67, label %68, label %89
 
-66:                                               ; preds = %64
-  %67 = fmul double %12, 2.000000e+00
-  %68 = fdiv double %67, 0x400921FB54442D18
-  %69 = fadd double %68, 2.000000e+00
-  %70 = tail call double @llvm.floor.f64(double %69)
-  %71 = fcmp ult double %70, 4.000000e+00
-  %.0.i14 = select i1 %71, double %70, double 3.000000e+00
-  %72 = tail call double @llvm.fmuladd.f64(double %.0.i14, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
-  %73 = fmul double %58, 4.000000e+00
-  %74 = fdiv double %73, 0x400921FB54442D18
-  %75 = fsub double 2.000000e+00, %74
-  %76 = fsub double %12, %72
-  %77 = fdiv double %76, %75
-  %78 = fadd double %72, %77
-  %79 = fcmp ogt double %16, 0.000000e+00
-  %80 = fcmp olt double %16, 0.000000e+00
-  %81 = sitofp i1 %80 to double
-  %82 = select i1 %79, double 1.000000e+00, double %81
-  %square.i = fmul double %75, %75
-  %83 = fdiv double %square.i, 3.000000e+00
-  %84 = fsub double 1.000000e+00, %83
-  %85 = tail call double @asin(double noundef %84) #11
-  %86 = fmul double %82, %85
+68:                                               ; preds = %66
+  %69 = fmul double %12, 2.000000e+00
+  %70 = fdiv double %69, 0x400921FB54442D18
+  %71 = fadd double %70, 2.000000e+00
+  %72 = tail call double @llvm.floor.f64(double %71)
+  %73 = fcmp ult double %72, 4.000000e+00
+  %.0.i14 = select i1 %73, double %72, double 3.000000e+00
+  %74 = tail call double @llvm.fmuladd.f64(double %.0.i14, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
+  %75 = fmul double %60, 4.000000e+00
+  %76 = fdiv double %75, 0x400921FB54442D18
+  %77 = fsub double 2.000000e+00, %76
+  %78 = fsub double %12, %74
+  %79 = fdiv double %78, %77
+  %80 = fadd double %74, %79
+  %81 = fcmp ogt double %16, 0.000000e+00
+  %82 = fcmp olt double %16, 0.000000e+00
+  %83 = sitofp i1 %82 to double
+  %84 = select i1 %81, double 1.000000e+00, double %83
+  %square.i = fmul double %77, %77
+  %85 = fdiv double %square.i, 3.000000e+00
+  %86 = fsub double 1.000000e+00, %85
+  %87 = tail call double @asin(double noundef %86) #11
+  %88 = fmul double %84, %87
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-87:                                               ; preds = %64
-  %88 = fcmp ogt double %16, 0.000000e+00
-  %89 = fcmp olt double %16, 0.000000e+00
-  %90 = sitofp i1 %89 to double
-  %91 = fmul double %90, 0x3FF921FB54442D18
-  %92 = select i1 %88, double 0x3FF921FB54442D18, double %91
+89:                                               ; preds = %66
+  %90 = fcmp ogt double %16, 0.000000e+00
+  %91 = fcmp olt double %16, 0.000000e+00
+  %92 = sitofp i1 %91 to double
+  %93 = fmul double %92, 0x3FF921FB54442D18
+  %94 = select i1 %90, double 0x3FF921FB54442D18, double %93
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %60, %66, %87
-  %.sroa.016.0.i = phi double [ %12, %60 ], [ %78, %66 ], [ 0xC00921FB54442D18, %87 ]
-  %.sroa.4.0.i = phi double [ %63, %60 ], [ %86, %66 ], [ %92, %87 ]
-  %93 = load ptr, ptr %4, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 24
-  %95 = load ptr, ptr %94, align 8
-  %96 = tail call noundef double @_Z10pj_authlatdPd(double noundef %.sroa.4.0.i, ptr noundef %95)
-  br label %97
+_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %62, %68, %89
+  %.sroa.016.0.i = phi double [ %12, %62 ], [ %80, %68 ], [ 0xC00921FB54442D18, %89 ]
+  %.sroa.4.0.i = phi double [ %65, %62 ], [ %88, %68 ], [ %94, %89 ]
+  %95 = load ptr, ptr %4, align 8
+  %96 = getelementptr inbounds i8, ptr %95, i64 24
+  %97 = load ptr, ptr %96, align 8
+  %98 = tail call noundef double @_Z10pj_authlatdPd(double noundef %.sroa.4.0.i, ptr noundef %97)
+  br label %99
 
-97:                                               ; preds = %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit, %56
-  %.sroa.4.0 = phi double [ 0x7FF0000000000000, %56 ], [ %96, %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit ]
-  %.sroa.011.0 = phi double [ 0x7FF0000000000000, %56 ], [ %.sroa.016.0.i, %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit ]
+99:                                               ; preds = %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit, %58
+  %.sroa.4.0 = phi double [ 0x7FF0000000000000, %58 ], [ %98, %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit ]
+  %.sroa.011.0 = phi double [ 0x7FF0000000000000, %58 ], [ %.sroa.016.0.i, %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.011.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
@@ -512,119 +514,121 @@ define internal { double, double } @_ZL17s_healpix_inverse5PJ_XYP8PJconsts(doubl
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 19
   br i1 %exitcond.not.i.i, label %.lr.ph60.i.i, label %.lr.ph.i.i, !llvm.loop !4
 
-.lr.ph60.i.i:                                     ; preds = %24, %53
-  %indvars.iv63.i.i = phi i64 [ %indvars.iv.next64.i.i, %53 ], [ 1, %24 ]
-  %.sroa.09.057.i.i = phi double [ %26, %53 ], [ 0xC00921FB54442D1A, %24 ]
-  %.sroa.7.056.i.i = phi double [ %28, %53 ], [ 0x3FE921FB54442D18, %24 ]
-  %.04855.i.i = phi i32 [ %.149.i.i, %53 ], [ 0, %24 ]
-  %25 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv63.i.i
-  %26 = load double, ptr %25, align 16
-  %27 = getelementptr inbounds i8, ptr %25, i64 8
-  %28 = load double, ptr %27, align 8
-  %29 = fcmp olt double %.sroa.7.056.i.i, %28
-  %30 = select i1 %29, double %.sroa.7.056.i.i, double %28
-  %31 = fcmp olt double %30, %16
-  br i1 %31, label %32, label %53
+.lr.ph60.i.i:                                     ; preds = %24, %55
+  %indvars.iv63.i.i = phi i64 [ %indvars.iv.next64.i.i, %55 ], [ 1, %24 ]
+  %.sroa.09.057.i.i = phi double [ %29, %55 ], [ 0xC00921FB54442D1A, %24 ]
+  %.sroa.7.056.i.i = phi double [ %28, %55 ], [ 0x3FE921FB54442D18, %24 ]
+  %.04855.i.i = phi i32 [ %.149.i.i, %55 ], [ 0, %24 ]
+  %25 = phi <2 x double> [ %27, %55 ], [ <double 0xC00921FB54442D1A, double 0x3FE921FB54442D18>, %24 ]
+  %26 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv63.i.i
+  %27 = load <2 x double>, ptr %26, align 16
+  %28 = extractelement <2 x double> %27, i64 1
+  %29 = extractelement <2 x double> %27, i64 0
+  %30 = fcmp olt double %.sroa.7.056.i.i, %28
+  %31 = select i1 %30, double %.sroa.7.056.i.i, double %28
+  %32 = fcmp olt double %31, %16
+  br i1 %32, label %33, label %55
 
-32:                                               ; preds = %.lr.ph60.i.i
-  %33 = fcmp ogt double %.sroa.7.056.i.i, %28
-  %34 = select i1 %33, double %.sroa.7.056.i.i, double %28
-  %35 = fcmp ult double %34, %16
-  br i1 %35, label %53, label %36
+33:                                               ; preds = %.lr.ph60.i.i
+  %34 = fcmp ogt double %.sroa.7.056.i.i, %28
+  %35 = select i1 %34, double %.sroa.7.056.i.i, double %28
+  %36 = fcmp ult double %35, %16
+  br i1 %36, label %55, label %37
 
-36:                                               ; preds = %32
-  %37 = fcmp ogt double %.sroa.09.057.i.i, %26
-  %38 = select i1 %37, double %.sroa.09.057.i.i, double %26
-  %39 = fcmp oge double %38, %12
-  %40 = fcmp une double %.sroa.7.056.i.i, %28
-  %or.cond.i.i = and i1 %40, %39
-  br i1 %or.cond.i.i, label %41, label %53
+37:                                               ; preds = %33
+  %38 = fcmp ogt double %.sroa.09.057.i.i, %29
+  %39 = select i1 %38, double %.sroa.09.057.i.i, double %29
+  %40 = fcmp oge double %39, %12
+  %41 = fcmp une double %.sroa.7.056.i.i, %28
+  %or.cond.i.i = and i1 %41, %40
+  br i1 %or.cond.i.i, label %42, label %55
 
-41:                                               ; preds = %36
-  %42 = fcmp oeq double %.sroa.09.057.i.i, %26
-  br i1 %42, label %51, label %43
+42:                                               ; preds = %37
+  %43 = fcmp oeq double %.sroa.09.057.i.i, %29
+  br i1 %43, label %53, label %44
 
-43:                                               ; preds = %41
-  %44 = fsub double %16, %.sroa.7.056.i.i
-  %45 = fsub double %26, %.sroa.09.057.i.i
-  %46 = fmul double %44, %45
-  %47 = fsub double %28, %.sroa.7.056.i.i
-  %48 = fdiv double %46, %47
-  %49 = fadd double %.sroa.09.057.i.i, %48
-  %50 = fcmp ult double %49, %12
-  br i1 %50, label %53, label %51
+44:                                               ; preds = %42
+  %45 = fsub double %16, %.sroa.7.056.i.i
+  %46 = fsub <2 x double> %27, %25
+  %47 = extractelement <2 x double> %46, i64 0
+  %48 = fmul double %45, %47
+  %49 = extractelement <2 x double> %46, i64 1
+  %50 = fdiv double %48, %49
+  %51 = fadd double %.sroa.09.057.i.i, %50
+  %52 = fcmp ult double %51, %12
+  br i1 %52, label %55, label %53
 
-51:                                               ; preds = %43, %41
-  %52 = add nsw i32 %.04855.i.i, 1
-  br label %53
+53:                                               ; preds = %44, %42
+  %54 = add nsw i32 %.04855.i.i, 1
+  br label %55
 
-53:                                               ; preds = %51, %43, %36, %32, %.lr.ph60.i.i
-  %.149.i.i = phi i32 [ %52, %51 ], [ %.04855.i.i, %43 ], [ %.04855.i.i, %36 ], [ %.04855.i.i, %32 ], [ %.04855.i.i, %.lr.ph60.i.i ]
+55:                                               ; preds = %53, %44, %37, %33, %.lr.ph60.i.i
+  %.149.i.i = phi i32 [ %54, %53 ], [ %.04855.i.i, %44 ], [ %.04855.i.i, %37 ], [ %.04855.i.i, %33 ], [ %.04855.i.i, %.lr.ph60.i.i ]
   %indvars.iv.next64.i.i = add nuw nsw i64 %indvars.iv63.i.i, 1
   %exitcond67.not.i.i = icmp eq i64 %indvars.iv.next64.i.i, 19
   br i1 %exitcond67.not.i.i, label %_ZL8in_imageddiii.exit, label %.lr.ph60.i.i, !llvm.loop !6
 
-_ZL8in_imageddiii.exit:                           ; preds = %53
-  %54 = and i32 %.149.i.i, 1
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %_ZL8in_imageddiii.exit.thread
+_ZL8in_imageddiii.exit:                           ; preds = %55
+  %56 = and i32 %.149.i.i, 1
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %58, label %_ZL8in_imageddiii.exit.thread
 
-56:                                               ; preds = %_ZL8in_imageddiii.exit
-  %57 = load ptr, ptr %2, align 8
-  tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %57, i32 noundef 2050)
+58:                                               ; preds = %_ZL8in_imageddiii.exit
+  %59 = load ptr, ptr %2, align 8
+  tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %59, i32 noundef 2050)
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
 _ZL8in_imageddiii.exit.thread:                    ; preds = %20, %_ZL8in_imageddiii.exit
-  %58 = tail call double @llvm.fabs.f64(double %16)
-  %59 = fcmp ugt double %58, 0x3FE921FB54442D18
-  br i1 %59, label %64, label %60
+  %60 = tail call double @llvm.fabs.f64(double %16)
+  %61 = fcmp ugt double %60, 0x3FE921FB54442D18
+  br i1 %61, label %66, label %62
 
-60:                                               ; preds = %_ZL8in_imageddiii.exit.thread
-  %61 = fmul double %16, 8.000000e+00
-  %62 = fdiv double %61, 0x4022D97C7F3321D2
-  %63 = tail call double @asin(double noundef %62) #11
+62:                                               ; preds = %_ZL8in_imageddiii.exit.thread
+  %63 = fmul double %16, 8.000000e+00
+  %64 = fdiv double %63, 0x4022D97C7F3321D2
+  %65 = tail call double @asin(double noundef %64) #11
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-64:                                               ; preds = %_ZL8in_imageddiii.exit.thread
-  %65 = fcmp olt double %58, 0x3FF921FB54442D18
-  br i1 %65, label %66, label %87
+66:                                               ; preds = %_ZL8in_imageddiii.exit.thread
+  %67 = fcmp olt double %60, 0x3FF921FB54442D18
+  br i1 %67, label %68, label %89
 
-66:                                               ; preds = %64
-  %67 = fmul double %12, 2.000000e+00
-  %68 = fdiv double %67, 0x400921FB54442D18
-  %69 = fadd double %68, 2.000000e+00
-  %70 = tail call double @llvm.floor.f64(double %69)
-  %71 = fcmp ult double %70, 4.000000e+00
-  %.0.i11 = select i1 %71, double %70, double 3.000000e+00
-  %72 = tail call double @llvm.fmuladd.f64(double %.0.i11, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
-  %73 = fmul double %58, 4.000000e+00
-  %74 = fdiv double %73, 0x400921FB54442D18
-  %75 = fsub double 2.000000e+00, %74
-  %76 = fsub double %12, %72
-  %77 = fdiv double %76, %75
-  %78 = fadd double %72, %77
-  %79 = fcmp ogt double %16, 0.000000e+00
-  %80 = fcmp olt double %16, 0.000000e+00
-  %81 = sitofp i1 %80 to double
-  %82 = select i1 %79, double 1.000000e+00, double %81
-  %square.i = fmul double %75, %75
-  %83 = fdiv double %square.i, 3.000000e+00
-  %84 = fsub double 1.000000e+00, %83
-  %85 = tail call double @asin(double noundef %84) #11
-  %86 = fmul double %82, %85
+68:                                               ; preds = %66
+  %69 = fmul double %12, 2.000000e+00
+  %70 = fdiv double %69, 0x400921FB54442D18
+  %71 = fadd double %70, 2.000000e+00
+  %72 = tail call double @llvm.floor.f64(double %71)
+  %73 = fcmp ult double %72, 4.000000e+00
+  %.0.i11 = select i1 %73, double %72, double 3.000000e+00
+  %74 = tail call double @llvm.fmuladd.f64(double %.0.i11, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
+  %75 = fmul double %60, 4.000000e+00
+  %76 = fdiv double %75, 0x400921FB54442D18
+  %77 = fsub double 2.000000e+00, %76
+  %78 = fsub double %12, %74
+  %79 = fdiv double %78, %77
+  %80 = fadd double %74, %79
+  %81 = fcmp ogt double %16, 0.000000e+00
+  %82 = fcmp olt double %16, 0.000000e+00
+  %83 = sitofp i1 %82 to double
+  %84 = select i1 %81, double 1.000000e+00, double %83
+  %square.i = fmul double %77, %77
+  %85 = fdiv double %square.i, 3.000000e+00
+  %86 = fsub double 1.000000e+00, %85
+  %87 = tail call double @asin(double noundef %86) #11
+  %88 = fmul double %84, %87
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-87:                                               ; preds = %64
-  %88 = fcmp ogt double %16, 0.000000e+00
-  %89 = fcmp olt double %16, 0.000000e+00
-  %90 = sitofp i1 %89 to double
-  %91 = fmul double %90, 0x3FF921FB54442D18
-  %92 = select i1 %88, double 0x3FF921FB54442D18, double %91
+89:                                               ; preds = %66
+  %90 = fcmp ogt double %16, 0.000000e+00
+  %91 = fcmp olt double %16, 0.000000e+00
+  %92 = sitofp i1 %91 to double
+  %93 = fmul double %92, 0x3FF921FB54442D18
+  %94 = select i1 %90, double 0x3FF921FB54442D18, double %93
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
-_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %87, %66, %60, %56
-  %.sroa.08.0 = phi double [ 0x7FF0000000000000, %56 ], [ %12, %60 ], [ %78, %66 ], [ 0xC00921FB54442D18, %87 ]
-  %.sroa.3.0 = phi double [ 0x7FF0000000000000, %56 ], [ %63, %60 ], [ %86, %66 ], [ %92, %87 ]
+_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit:   ; preds = %89, %68, %62, %58
+  %.sroa.08.0 = phi double [ 0x7FF0000000000000, %58 ], [ %12, %62 ], [ %80, %68 ], [ 0xC00921FB54442D18, %89 ]
+  %.sroa.3.0 = phi double [ 0x7FF0000000000000, %58 ], [ %65, %62 ], [ %88, %68 ], [ %94, %89 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.08.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.0, 1
   ret { double, double } %.fca.1.insert
@@ -1372,7 +1376,7 @@ declare double @llvm.floor.f64(double) #7
 define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double noundef %0, double noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #8 {
   %6 = alloca [12 x [2 x double]], align 16
   %7 = icmp eq i32 %2, 0
-  br i1 %7, label %.lr.ph.i, label %46
+  br i1 %7, label %.lr.ph.i, label %48
 
 .lr.ph.i:                                         ; preds = %5, %15
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %15 ], [ 0, %5 ]
@@ -1392,192 +1396,196 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL8in_imageddiii(double nou
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 19
   br i1 %exitcond.not.i, label %.lr.ph60.i, label %.lr.ph.i, !llvm.loop !4
 
-.lr.ph60.i:                                       ; preds = %15, %44
-  %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %44 ], [ 1, %15 ]
-  %.sroa.09.057.i = phi double [ %17, %44 ], [ 0xC00921FB54442D1A, %15 ]
-  %.sroa.7.056.i = phi double [ %19, %44 ], [ 0x3FE921FB54442D18, %15 ]
-  %.04855.i = phi i32 [ %.149.i, %44 ], [ 0, %15 ]
-  %16 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv63.i
-  %17 = load double, ptr %16, align 16
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
-  %19 = load double, ptr %18, align 8
-  %20 = fcmp olt double %.sroa.7.056.i, %19
-  %21 = select i1 %20, double %.sroa.7.056.i, double %19
-  %22 = fcmp olt double %21, %1
-  br i1 %22, label %23, label %44
+.lr.ph60.i:                                       ; preds = %15, %46
+  %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %46 ], [ 1, %15 ]
+  %.sroa.09.057.i = phi double [ %20, %46 ], [ 0xC00921FB54442D1A, %15 ]
+  %.sroa.7.056.i = phi double [ %19, %46 ], [ 0x3FE921FB54442D18, %15 ]
+  %.04855.i = phi i32 [ %.149.i, %46 ], [ 0, %15 ]
+  %16 = phi <2 x double> [ %18, %46 ], [ <double 0xC00921FB54442D1A, double 0x3FE921FB54442D18>, %15 ]
+  %17 = getelementptr inbounds [2 x double], ptr @__const._ZL8in_imageddiii.healpixVertsJit, i64 %indvars.iv63.i
+  %18 = load <2 x double>, ptr %17, align 16
+  %19 = extractelement <2 x double> %18, i64 1
+  %20 = extractelement <2 x double> %18, i64 0
+  %21 = fcmp olt double %.sroa.7.056.i, %19
+  %22 = select i1 %21, double %.sroa.7.056.i, double %19
+  %23 = fcmp olt double %22, %1
+  br i1 %23, label %24, label %46
 
-23:                                               ; preds = %.lr.ph60.i
-  %24 = fcmp ogt double %.sroa.7.056.i, %19
-  %25 = select i1 %24, double %.sroa.7.056.i, double %19
-  %26 = fcmp ult double %25, %1
-  br i1 %26, label %44, label %27
+24:                                               ; preds = %.lr.ph60.i
+  %25 = fcmp ogt double %.sroa.7.056.i, %19
+  %26 = select i1 %25, double %.sroa.7.056.i, double %19
+  %27 = fcmp ult double %26, %1
+  br i1 %27, label %46, label %28
 
-27:                                               ; preds = %23
-  %28 = fcmp ogt double %.sroa.09.057.i, %17
-  %29 = select i1 %28, double %.sroa.09.057.i, double %17
-  %30 = fcmp oge double %29, %0
-  %31 = fcmp une double %.sroa.7.056.i, %19
-  %or.cond.i = and i1 %31, %30
-  br i1 %or.cond.i, label %32, label %44
+28:                                               ; preds = %24
+  %29 = fcmp ogt double %.sroa.09.057.i, %20
+  %30 = select i1 %29, double %.sroa.09.057.i, double %20
+  %31 = fcmp oge double %30, %0
+  %32 = fcmp une double %.sroa.7.056.i, %19
+  %or.cond.i = and i1 %32, %31
+  br i1 %or.cond.i, label %33, label %46
 
-32:                                               ; preds = %27
-  %33 = fcmp oeq double %.sroa.09.057.i, %17
-  br i1 %33, label %42, label %34
+33:                                               ; preds = %28
+  %34 = fcmp oeq double %.sroa.09.057.i, %20
+  br i1 %34, label %44, label %35
 
-34:                                               ; preds = %32
-  %35 = fsub double %1, %.sroa.7.056.i
-  %36 = fsub double %17, %.sroa.09.057.i
-  %37 = fmul double %35, %36
-  %38 = fsub double %19, %.sroa.7.056.i
-  %39 = fdiv double %37, %38
-  %40 = fadd double %.sroa.09.057.i, %39
-  %41 = fcmp ult double %40, %0
-  br i1 %41, label %44, label %42
+35:                                               ; preds = %33
+  %36 = fsub double %1, %.sroa.7.056.i
+  %37 = fsub <2 x double> %18, %16
+  %38 = extractelement <2 x double> %37, i64 0
+  %39 = fmul double %36, %38
+  %40 = extractelement <2 x double> %37, i64 1
+  %41 = fdiv double %39, %40
+  %42 = fadd double %.sroa.09.057.i, %41
+  %43 = fcmp ult double %42, %0
+  br i1 %43, label %46, label %44
 
-42:                                               ; preds = %34, %32
-  %43 = add nsw i32 %.04855.i, 1
-  br label %44
+44:                                               ; preds = %35, %33
+  %45 = add nsw i32 %.04855.i, 1
+  br label %46
 
-44:                                               ; preds = %42, %34, %27, %23, %.lr.ph60.i
-  %.149.i = phi i32 [ %43, %42 ], [ %.04855.i, %34 ], [ %.04855.i, %27 ], [ %.04855.i, %23 ], [ %.04855.i, %.lr.ph60.i ]
+46:                                               ; preds = %44, %35, %28, %24, %.lr.ph60.i
+  %.149.i = phi i32 [ %45, %44 ], [ %.04855.i, %35 ], [ %.04855.i, %28 ], [ %.04855.i, %24 ], [ %.04855.i, %.lr.ph60.i ]
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next64.i, 19
   br i1 %exitcond67.not.i, label %._crit_edge61.loopexit.i, label %.lr.ph60.i, !llvm.loop !6
 
-._crit_edge61.loopexit.i:                         ; preds = %44
-  %45 = and i32 %.149.i, 1
+._crit_edge61.loopexit.i:                         ; preds = %46
+  %47 = and i32 %.149.i, 1
   br label %_ZL6pnpolyiPA2_ddd.exit
 
-46:                                               ; preds = %5
+48:                                               ; preds = %5
   store <2 x double> <double 0xC00921FB54442D1A, double 0x3FE921FB54442D21>, ptr %6, align 16
-  %47 = getelementptr inbounds i8, ptr %6, i64 16
-  %48 = sitofp i32 %3 to double
-  %49 = tail call double @llvm.fmuladd.f64(double %48, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
-  %50 = fadd double %49, -1.000000e-15
-  store double %50, ptr %47, align 16
-  %51 = getelementptr inbounds i8, ptr %6, i64 24
-  store double 0x3FE921FB54442D21, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %6, i64 32
-  store double %50, ptr %52, align 16
-  %53 = getelementptr inbounds i8, ptr %6, i64 40
-  store double 0x4002D97C7F3321D4, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %6, i64 48
-  %55 = fadd double %48, 1.000000e+00
-  %56 = tail call double @llvm.fmuladd.f64(double %55, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
-  %57 = fadd double %56, 1.000000e-15
-  store double %57, ptr %54, align 16
-  %58 = getelementptr inbounds i8, ptr %6, i64 56
-  store double 0x4002D97C7F3321D4, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %6, i64 64
-  store double %57, ptr %59, align 16
-  %60 = getelementptr inbounds i8, ptr %6, i64 72
-  store <2 x double> <double 0x3FE921FB54442D21, double 0x400921FB54442D1A>, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %6, i64 88
-  store <2 x double> <double 0x3FE921FB54442D21, double 0x400921FB54442D1A>, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %6, i64 104
-  store double 0xBFE921FB54442D21, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %6, i64 112
-  %64 = sitofp i32 %4 to double
-  %65 = fadd double %64, 1.000000e+00
-  %66 = tail call double @llvm.fmuladd.f64(double %65, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
-  %67 = fadd double %66, 1.000000e-15
-  store double %67, ptr %63, align 16
-  %68 = getelementptr inbounds i8, ptr %6, i64 120
-  store double 0xBFE921FB54442D21, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %6, i64 128
-  store double %67, ptr %69, align 16
-  %70 = getelementptr inbounds i8, ptr %6, i64 136
-  store double 0xC002D97C7F3321D4, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %6, i64 144
-  %72 = tail call double @llvm.fmuladd.f64(double %64, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
-  %73 = fadd double %72, -1.000000e-15
-  store double %73, ptr %71, align 16
-  %74 = getelementptr inbounds i8, ptr %6, i64 152
-  store double 0xC002D97C7F3321D4, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %6, i64 160
-  store double %73, ptr %75, align 16
-  %76 = getelementptr inbounds i8, ptr %6, i64 168
-  store <2 x double> <double 0xBFE921FB54442D21, double 0xC00921FB54442D1A>, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %6, i64 184
-  store double 0xBFE921FB54442D21, ptr %77, align 8
+  %49 = getelementptr inbounds i8, ptr %6, i64 16
+  %50 = sitofp i32 %3 to double
+  %51 = tail call double @llvm.fmuladd.f64(double %50, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
+  %52 = fadd double %51, -1.000000e-15
+  store double %52, ptr %49, align 16
+  %53 = getelementptr inbounds i8, ptr %6, i64 24
+  store double 0x3FE921FB54442D21, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %6, i64 32
+  store double %52, ptr %54, align 16
+  %55 = getelementptr inbounds i8, ptr %6, i64 40
+  store double 0x4002D97C7F3321D4, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %6, i64 48
+  %57 = fadd double %50, 1.000000e+00
+  %58 = tail call double @llvm.fmuladd.f64(double %57, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
+  %59 = fadd double %58, 1.000000e-15
+  store double %59, ptr %56, align 16
+  %60 = getelementptr inbounds i8, ptr %6, i64 56
+  store double 0x4002D97C7F3321D4, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %6, i64 64
+  store double %59, ptr %61, align 16
+  %62 = getelementptr inbounds i8, ptr %6, i64 72
+  store <2 x double> <double 0x3FE921FB54442D21, double 0x400921FB54442D1A>, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %6, i64 88
+  store <2 x double> <double 0x3FE921FB54442D21, double 0x400921FB54442D1A>, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %6, i64 104
+  store double 0xBFE921FB54442D21, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %6, i64 112
+  %66 = sitofp i32 %4 to double
+  %67 = fadd double %66, 1.000000e+00
+  %68 = tail call double @llvm.fmuladd.f64(double %67, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
+  %69 = fadd double %68, 1.000000e-15
+  store double %69, ptr %65, align 16
+  %70 = getelementptr inbounds i8, ptr %6, i64 120
+  store double 0xBFE921FB54442D21, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %6, i64 128
+  store double %69, ptr %71, align 16
+  %72 = getelementptr inbounds i8, ptr %6, i64 136
+  store double 0xC002D97C7F3321D4, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %6, i64 144
+  %74 = tail call double @llvm.fmuladd.f64(double %66, double 0x3FF921FB54442D18, double 0xC00921FB54442D18)
+  %75 = fadd double %74, -1.000000e-15
+  store double %75, ptr %73, align 16
+  %76 = getelementptr inbounds i8, ptr %6, i64 152
+  store double 0xC002D97C7F3321D4, ptr %76, align 8
+  %77 = getelementptr inbounds i8, ptr %6, i64 160
+  store double %75, ptr %77, align 16
+  %78 = getelementptr inbounds i8, ptr %6, i64 168
+  store <2 x double> <double 0xBFE921FB54442D21, double 0xC00921FB54442D1A>, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %6, i64 184
+  store double 0xBFE921FB54442D21, ptr %79, align 8
   br label %.lr.ph.i13
 
-.lr.ph.i13:                                       ; preds = %85, %46
-  %indvars.iv.i14 = phi i64 [ 0, %46 ], [ %indvars.iv.next.i15, %85 ]
-  %78 = getelementptr inbounds [2 x double], ptr %6, i64 %indvars.iv.i14
-  %79 = load double, ptr %78, align 16
-  %80 = fcmp oeq double %79, %0
-  br i1 %80, label %81, label %85
+.lr.ph.i13:                                       ; preds = %87, %48
+  %indvars.iv.i14 = phi i64 [ 0, %48 ], [ %indvars.iv.next.i15, %87 ]
+  %80 = getelementptr inbounds [2 x double], ptr %6, i64 %indvars.iv.i14
+  %81 = load double, ptr %80, align 16
+  %82 = fcmp oeq double %81, %0
+  br i1 %82, label %83, label %87
 
-81:                                               ; preds = %.lr.ph.i13
-  %82 = getelementptr inbounds i8, ptr %78, i64 8
-  %83 = load double, ptr %82, align 8
-  %84 = fcmp oeq double %83, %1
-  br i1 %84, label %_ZL6pnpolyiPA2_ddd.exit, label %85
+83:                                               ; preds = %.lr.ph.i13
+  %84 = getelementptr inbounds i8, ptr %80, i64 8
+  %85 = load double, ptr %84, align 8
+  %86 = fcmp oeq double %85, %1
+  br i1 %86, label %_ZL6pnpolyiPA2_ddd.exit, label %87
 
-85:                                               ; preds = %81, %.lr.ph.i13
+87:                                               ; preds = %83, %.lr.ph.i13
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
   %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i15, 12
   br i1 %exitcond.not.i16, label %.lr.ph60.i18, label %.lr.ph.i13, !llvm.loop !4
 
-.lr.ph60.i18:                                     ; preds = %85, %114
-  %indvars.iv63.i19 = phi i64 [ %indvars.iv.next64.i24, %114 ], [ 1, %85 ]
-  %.sroa.09.057.i20 = phi double [ %87, %114 ], [ 0xC00921FB54442D1A, %85 ]
-  %.sroa.7.056.i21 = phi double [ %89, %114 ], [ 0x3FE921FB54442D21, %85 ]
-  %.04855.i22 = phi i32 [ %.149.i23, %114 ], [ 0, %85 ]
-  %86 = getelementptr inbounds [2 x double], ptr %6, i64 %indvars.iv63.i19
-  %87 = load double, ptr %86, align 16
-  %88 = getelementptr inbounds i8, ptr %86, i64 8
-  %89 = load double, ptr %88, align 8
-  %90 = fcmp olt double %.sroa.7.056.i21, %89
-  %91 = select i1 %90, double %.sroa.7.056.i21, double %89
-  %92 = fcmp olt double %91, %1
-  br i1 %92, label %93, label %114
+.lr.ph60.i18:                                     ; preds = %87, %118
+  %indvars.iv63.i19 = phi i64 [ %indvars.iv.next64.i24, %118 ], [ 1, %87 ]
+  %.sroa.09.057.i20 = phi double [ %92, %118 ], [ 0xC00921FB54442D1A, %87 ]
+  %.sroa.7.056.i21 = phi double [ %91, %118 ], [ 0x3FE921FB54442D21, %87 ]
+  %.04855.i22 = phi i32 [ %.149.i23, %118 ], [ 0, %87 ]
+  %88 = phi <2 x double> [ %90, %118 ], [ <double 0xC00921FB54442D1A, double 0x3FE921FB54442D21>, %87 ]
+  %89 = getelementptr inbounds [2 x double], ptr %6, i64 %indvars.iv63.i19
+  %90 = load <2 x double>, ptr %89, align 16
+  %91 = extractelement <2 x double> %90, i64 1
+  %92 = extractelement <2 x double> %90, i64 0
+  %93 = fcmp olt double %.sroa.7.056.i21, %91
+  %94 = select i1 %93, double %.sroa.7.056.i21, double %91
+  %95 = fcmp olt double %94, %1
+  br i1 %95, label %96, label %118
 
-93:                                               ; preds = %.lr.ph60.i18
-  %94 = fcmp ogt double %.sroa.7.056.i21, %89
-  %95 = select i1 %94, double %.sroa.7.056.i21, double %89
-  %96 = fcmp ult double %95, %1
-  br i1 %96, label %114, label %97
+96:                                               ; preds = %.lr.ph60.i18
+  %97 = fcmp ogt double %.sroa.7.056.i21, %91
+  %98 = select i1 %97, double %.sroa.7.056.i21, double %91
+  %99 = fcmp ult double %98, %1
+  br i1 %99, label %118, label %100
 
-97:                                               ; preds = %93
-  %98 = fcmp ogt double %.sroa.09.057.i20, %87
-  %99 = select i1 %98, double %.sroa.09.057.i20, double %87
-  %100 = fcmp oge double %99, %0
-  %101 = fcmp une double %.sroa.7.056.i21, %89
-  %or.cond.i28 = and i1 %101, %100
-  br i1 %or.cond.i28, label %102, label %114
+100:                                              ; preds = %96
+  %101 = fcmp ogt double %.sroa.09.057.i20, %92
+  %102 = select i1 %101, double %.sroa.09.057.i20, double %92
+  %103 = fcmp oge double %102, %0
+  %104 = fcmp une double %.sroa.7.056.i21, %91
+  %or.cond.i28 = and i1 %104, %103
+  br i1 %or.cond.i28, label %105, label %118
 
-102:                                              ; preds = %97
-  %103 = fcmp oeq double %.sroa.09.057.i20, %87
-  br i1 %103, label %112, label %104
+105:                                              ; preds = %100
+  %106 = fcmp oeq double %.sroa.09.057.i20, %92
+  br i1 %106, label %116, label %107
 
-104:                                              ; preds = %102
-  %105 = fsub double %1, %.sroa.7.056.i21
-  %106 = fsub double %87, %.sroa.09.057.i20
-  %107 = fmul double %105, %106
-  %108 = fsub double %89, %.sroa.7.056.i21
-  %109 = fdiv double %107, %108
-  %110 = fadd double %.sroa.09.057.i20, %109
-  %111 = fcmp ult double %110, %0
-  br i1 %111, label %114, label %112
+107:                                              ; preds = %105
+  %108 = fsub double %1, %.sroa.7.056.i21
+  %109 = fsub <2 x double> %90, %88
+  %110 = extractelement <2 x double> %109, i64 0
+  %111 = fmul double %108, %110
+  %112 = extractelement <2 x double> %109, i64 1
+  %113 = fdiv double %111, %112
+  %114 = fadd double %.sroa.09.057.i20, %113
+  %115 = fcmp ult double %114, %0
+  br i1 %115, label %118, label %116
 
-112:                                              ; preds = %104, %102
-  %113 = add nsw i32 %.04855.i22, 1
-  br label %114
+116:                                              ; preds = %107, %105
+  %117 = add nsw i32 %.04855.i22, 1
+  br label %118
 
-114:                                              ; preds = %112, %104, %97, %93, %.lr.ph60.i18
-  %.149.i23 = phi i32 [ %113, %112 ], [ %.04855.i22, %104 ], [ %.04855.i22, %97 ], [ %.04855.i22, %93 ], [ %.04855.i22, %.lr.ph60.i18 ]
+118:                                              ; preds = %116, %107, %100, %96, %.lr.ph60.i18
+  %.149.i23 = phi i32 [ %117, %116 ], [ %.04855.i22, %107 ], [ %.04855.i22, %100 ], [ %.04855.i22, %96 ], [ %.04855.i22, %.lr.ph60.i18 ]
   %indvars.iv.next64.i24 = add nuw nsw i64 %indvars.iv63.i19, 1
   %exitcond67.not.i25 = icmp eq i64 %indvars.iv.next64.i24, 12
   br i1 %exitcond67.not.i25, label %._crit_edge61.loopexit.i26, label %.lr.ph60.i18, !llvm.loop !6
 
-._crit_edge61.loopexit.i26:                       ; preds = %114
-  %115 = and i32 %.149.i23, 1
+._crit_edge61.loopexit.i26:                       ; preds = %118
+  %119 = and i32 %.149.i23, 1
   br label %_ZL6pnpolyiPA2_ddd.exit
 
-_ZL6pnpolyiPA2_ddd.exit:                          ; preds = %81, %11, %._crit_edge61.loopexit.i26, %._crit_edge61.loopexit.i
-  %.0 = phi i32 [ %45, %._crit_edge61.loopexit.i ], [ %115, %._crit_edge61.loopexit.i26 ], [ 1, %11 ], [ 1, %81 ]
+_ZL6pnpolyiPA2_ddd.exit:                          ; preds = %83, %11, %._crit_edge61.loopexit.i26, %._crit_edge61.loopexit.i
+  %.0 = phi i32 [ %47, %._crit_edge61.loopexit.i ], [ %119, %._crit_edge61.loopexit.i26 ], [ 1, %11 ], [ 1, %83 ]
   ret i32 %.0
 }
 

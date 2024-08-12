@@ -486,7 +486,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i.i
   %.0.i.i2.i.i.i.i.i.i = phi ptr [ %151, %.noexc.i.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 8), %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit.i.i.i ]
   %.sroa.0.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
   %155 = load <2 x i64>, ptr %.0.i.i2.i.i.i.i.i.i, align 8, !noalias !36
-  %156 = extractelement <2 x i64> %155, i64 0
+  %156 = load i64, ptr %.0.i.i2.i.i.i.i.i.i, align 8, !noalias !36, !noundef !5
   %157 = add i64 %156, 1
   store i64 %157, ptr %.0.i.i2.i.i.i.i.i.i, align 8, !noalias !36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) @anon.2af8d14b581023a98652fefa142da3f0.1, i64 32, i1 false), !noalias !25

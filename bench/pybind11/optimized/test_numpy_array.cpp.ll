@@ -5529,37 +5529,37 @@ define hidden void @_Z30get_platform_dtype_size_checksv(ptr dead_on_unwind noali
   call void @_Z20get_dtype_size_checkIsE14DtypeSizeCheckv(ptr dead_on_unwind nonnull writable sret(%struct.DtypeSizeCheck) align 8 %2)
   %3 = getelementptr inbounds i8, ptr %2, i64 48
   invoke void @_Z20get_dtype_size_checkItE14DtypeSizeCheckv(ptr dead_on_unwind nonnull writable sret(%struct.DtypeSizeCheck) align 8 %3)
-          to label %4 unwind label %61
+          to label %4 unwind label %60
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %2, i64 96
   invoke void @_Z20get_dtype_size_checkIiE14DtypeSizeCheckv(ptr dead_on_unwind nonnull writable sret(%struct.DtypeSizeCheck) align 8 %5)
-          to label %6 unwind label %61
+          to label %6 unwind label %60
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds i8, ptr %2, i64 144
   invoke void @_Z20get_dtype_size_checkIjE14DtypeSizeCheckv(ptr dead_on_unwind nonnull writable sret(%struct.DtypeSizeCheck) align 8 %7)
-          to label %8 unwind label %61
+          to label %8 unwind label %60
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %2, i64 192
   invoke void @_Z20get_dtype_size_checkIlE14DtypeSizeCheckv(ptr dead_on_unwind nonnull writable sret(%struct.DtypeSizeCheck) align 8 %9)
-          to label %10 unwind label %61
+          to label %10 unwind label %60
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %2, i64 240
   invoke void @_Z20get_dtype_size_checkImE14DtypeSizeCheckv(ptr dead_on_unwind nonnull writable sret(%struct.DtypeSizeCheck) align 8 %11)
-          to label %12 unwind label %61
+          to label %12 unwind label %60
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds i8, ptr %2, i64 288
   invoke void @_Z20get_dtype_size_checkIxE14DtypeSizeCheckv(ptr dead_on_unwind nonnull writable sret(%struct.DtypeSizeCheck) align 8 %13)
-          to label %14 unwind label %61
+          to label %14 unwind label %60
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %2, i64 336
   invoke void @_Z20get_dtype_size_checkIyE14DtypeSizeCheckv(ptr dead_on_unwind nonnull writable sret(%struct.DtypeSizeCheck) align 8 %15)
-          to label %16 unwind label %61
+          to label %16 unwind label %60
 
 16:                                               ; preds = %14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -5575,144 +5575,142 @@ _ZNSt12_Vector_baseI14DtypeSizeCheckSaIS0_EE11_M_allocateEm.exit.i.i: ; preds = 
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt12_Vector_baseI14DtypeSizeCheckSaIS0_EE11_M_allocateEm.exit.i.i, %_ZSt10_ConstructI14DtypeSizeCheckJRKS0_EEvPT_DpOT0_.exit.i
-  %.016.i = phi ptr [ %31, %_ZSt10_ConstructI14DtypeSizeCheckJRKS0_EEvPT_DpOT0_.exit.i ], [ %18, %_ZNSt12_Vector_baseI14DtypeSizeCheckSaIS0_EE11_M_allocateEm.exit.i.i ]
+  %.016.i = phi ptr [ %30, %_ZSt10_ConstructI14DtypeSizeCheckJRKS0_EEvPT_DpOT0_.exit.i ], [ %18, %_ZNSt12_Vector_baseI14DtypeSizeCheckSaIS0_EE11_M_allocateEm.exit.i.i ]
   %.01215.i.idx = phi i64 [ %.01215.i.add, %_ZSt10_ConstructI14DtypeSizeCheckJRKS0_EEvPT_DpOT0_.exit.i ], [ 0, %_ZNSt12_Vector_baseI14DtypeSizeCheckSaIS0_EE11_M_allocateEm.exit.i.i ]
   %.01215.i.ptr = getelementptr inbounds i8, ptr %2, i64 %.01215.i.idx
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.016.i, ptr noundef nonnull align 8 dereferenceable(32) %.01215.i.ptr)
-          to label %.noexc.i unwind label %32
+          to label %.noexc.i unwind label %31
 
 .noexc.i:                                         ; preds = %.lr.ph.i
   %21 = getelementptr inbounds i8, ptr %.016.i, i64 32
   %22 = getelementptr inbounds i8, ptr %.01215.i.ptr, i64 32
-  %23 = load i64, ptr %22, align 8
-  store i64 %23, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %.016.i, i64 40
-  %25 = getelementptr inbounds i8, ptr %.01215.i.ptr, i64 40
-  %26 = load i64, ptr %25, align 8
-  store i64 %26, ptr %24, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %26, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt10_ConstructI14DtypeSizeCheckJRKS0_EEvPT_DpOT0_.exit.i, label %27
+  %23 = getelementptr inbounds i8, ptr %.01215.i.ptr, i64 40
+  %24 = load i64, ptr %23, align 8
+  %25 = load <2 x i64>, ptr %22, align 8
+  store <2 x i64> %25, ptr %21, align 8
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %24, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt10_ConstructI14DtypeSizeCheckJRKS0_EEvPT_DpOT0_.exit.i, label %26
 
-27:                                               ; preds = %.noexc.i
-  %28 = inttoptr i64 %26 to ptr
-  %29 = load i64, ptr %28, align 8
-  %30 = add nsw i64 %29, 1
-  store i64 %30, ptr %28, align 8
+26:                                               ; preds = %.noexc.i
+  %27 = inttoptr i64 %24 to ptr
+  %28 = load i64, ptr %27, align 8
+  %29 = add nsw i64 %28, 1
+  store i64 %29, ptr %27, align 8
   br label %_ZSt10_ConstructI14DtypeSizeCheckJRKS0_EEvPT_DpOT0_.exit.i
 
-_ZSt10_ConstructI14DtypeSizeCheckJRKS0_EEvPT_DpOT0_.exit.i: ; preds = %27, %.noexc.i
+_ZSt10_ConstructI14DtypeSizeCheckJRKS0_EEvPT_DpOT0_.exit.i: ; preds = %26, %.noexc.i
   %.01215.i.add = add nuw nsw i64 %.01215.i.idx, 48
-  %31 = getelementptr inbounds i8, ptr %.016.i, i64 48
+  %30 = getelementptr inbounds i8, ptr %.016.i, i64 48
   %.not.i = icmp eq i64 %.01215.i.add, 384
-  br i1 %.not.i, label %45, label %.lr.ph.i, !llvm.loop !158
+  br i1 %.not.i, label %44, label %.lr.ph.i, !llvm.loop !158
 
-32:                                               ; preds = %.lr.ph.i
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %.lr.ph.i
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  %35 = call ptr @__cxa_begin_catch(ptr %34) #25
+  %33 = extractvalue { ptr, i32 } %32, 0
+  %34 = call ptr @__cxa_begin_catch(ptr %33) #25
   invoke void @_ZSt8_DestroyIP14DtypeSizeCheckEvT_S2_(ptr noundef nonnull %18, ptr noundef nonnull %.016.i)
-          to label %36 unwind label %37
+          to label %35 unwind label %36
 
-36:                                               ; preds = %32
+35:                                               ; preds = %31
   invoke void @__cxa_rethrow() #29
-          to label %42 unwind label %37
+          to label %41 unwind label %36
 
-37:                                               ; preds = %36, %32
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %35, %31
+  %37 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %.body5 unwind label %39
+          to label %.body5 unwind label %38
 
-39:                                               ; preds = %37
-  %40 = landingpad { ptr, i32 }
+38:                                               ; preds = %36
+  %39 = landingpad { ptr, i32 }
           catch ptr null
-  %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #26
+  %40 = extractvalue { ptr, i32 } %39, 0
+  call void @__clang_call_terminate(ptr %40) #26
   unreachable
 
-42:                                               ; preds = %36
+41:                                               ; preds = %35
   unreachable
 
 .body5.thread:                                    ; preds = %16
-  %43 = landingpad { ptr, i32 }
+  %42 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body5:                                           ; preds = %37
+.body5:                                           ; preds = %36
   %.pr = load ptr, ptr %0, align 8
   %.not.i.i5.i = icmp eq ptr %.pr, null
-  br i1 %.not.i.i5.i, label %.body, label %44
+  br i1 %.not.i.i5.i, label %.body, label %43
 
-44:                                               ; preds = %.body5
+43:                                               ; preds = %.body5
   call void @_ZdlPv(ptr noundef nonnull %.pr) #30
   br label %.body
 
-45:                                               ; preds = %_ZSt10_ConstructI14DtypeSizeCheckJRKS0_EEvPT_DpOT0_.exit.i
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %31, ptr %46, align 8
-  br label %47
+44:                                               ; preds = %_ZSt10_ConstructI14DtypeSizeCheckJRKS0_EEvPT_DpOT0_.exit.i
+  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %30, ptr %45, align 8
+  br label %46
 
-47:                                               ; preds = %_ZN14DtypeSizeCheckD2Ev.exit, %45
-  %48 = phi ptr [ %17, %45 ], [ %49, %_ZN14DtypeSizeCheckD2Ev.exit ]
-  %49 = getelementptr inbounds i8, ptr %48, i64 -48
-  %50 = getelementptr inbounds i8, ptr %48, i64 -8
-  %51 = load ptr, ptr %50, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %51, null
-  br i1 %.not.i.i.i.i.i, label %_ZN14DtypeSizeCheckD2Ev.exit, label %52
+46:                                               ; preds = %_ZN14DtypeSizeCheckD2Ev.exit, %44
+  %47 = phi ptr [ %17, %44 ], [ %48, %_ZN14DtypeSizeCheckD2Ev.exit ]
+  %48 = getelementptr inbounds i8, ptr %47, i64 -48
+  %49 = getelementptr inbounds i8, ptr %47, i64 -8
+  %50 = load ptr, ptr %49, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %50, null
+  br i1 %.not.i.i.i.i.i, label %_ZN14DtypeSizeCheckD2Ev.exit, label %51
 
-52:                                               ; preds = %47
-  %53 = load i64, ptr %51, align 8
-  %54 = add nsw i64 %53, -1
-  store i64 %54, ptr %51, align 8
-  %.not.i.i.i.i.i.i = icmp eq i64 %54, 0
-  br i1 %.not.i.i.i.i.i.i, label %55, label %_ZN14DtypeSizeCheckD2Ev.exit
+51:                                               ; preds = %46
+  %52 = load i64, ptr %50, align 8
+  %53 = add nsw i64 %52, -1
+  store i64 %53, ptr %50, align 8
+  %.not.i.i.i.i.i.i = icmp eq i64 %53, 0
+  br i1 %.not.i.i.i.i.i.i, label %54, label %_ZN14DtypeSizeCheckD2Ev.exit
 
-55:                                               ; preds = %52
-  invoke void @_Py_Dealloc(ptr noundef nonnull %51)
-          to label %_ZN14DtypeSizeCheckD2Ev.exit unwind label %56
+54:                                               ; preds = %51
+  invoke void @_Py_Dealloc(ptr noundef nonnull %50)
+          to label %_ZN14DtypeSizeCheckD2Ev.exit unwind label %55
 
-56:                                               ; preds = %55
-  %57 = landingpad { ptr, i32 }
+55:                                               ; preds = %54
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #26
+  %57 = extractvalue { ptr, i32 } %56, 0
+  call void @__clang_call_terminate(ptr %57) #26
   unreachable
 
-_ZN14DtypeSizeCheckD2Ev.exit:                     ; preds = %47, %52, %55
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #25
-  %59 = icmp eq ptr %49, %2
-  br i1 %59, label %60, label %47
+_ZN14DtypeSizeCheckD2Ev.exit:                     ; preds = %46, %51, %54
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #25
+  %58 = icmp eq ptr %48, %2
+  br i1 %58, label %59, label %46
 
-60:                                               ; preds = %_ZN14DtypeSizeCheckD2Ev.exit
+59:                                               ; preds = %_ZN14DtypeSizeCheckD2Ev.exit
   ret void
 
-61:                                               ; preds = %14, %12, %10, %8, %6, %4, %1
+60:                                               ; preds = %14, %12, %10, %8, %6, %4, %1
   %.03 = phi ptr [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %9, %8 ], [ %7, %6 ], [ %5, %4 ], [ %3, %1 ]
-  %62 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  br label %62
 
-63:                                               ; preds = %61, %63
-  %64 = phi ptr [ %.03, %61 ], [ %65, %63 ]
-  %65 = getelementptr inbounds i8, ptr %64, i64 -48
-  call void @_ZN14DtypeSizeCheckD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %65) #25
-  %66 = icmp eq ptr %65, %2
-  br i1 %66, label %.loopexit, label %63
+62:                                               ; preds = %60, %62
+  %63 = phi ptr [ %.03, %60 ], [ %64, %62 ]
+  %64 = getelementptr inbounds i8, ptr %63, i64 -48
+  call void @_ZN14DtypeSizeCheckD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %64) #25
+  %65 = icmp eq ptr %64, %2
+  br i1 %65, label %.loopexit, label %62
 
-.body:                                            ; preds = %.body5.thread, %.body5, %44
-  %eh.lpad-body614 = phi { ptr, i32 } [ %43, %.body5.thread ], [ %38, %.body5 ], [ %38, %44 ]
-  br label %67
+.body:                                            ; preds = %.body5.thread, %.body5, %43
+  %eh.lpad-body614 = phi { ptr, i32 } [ %42, %.body5.thread ], [ %37, %.body5 ], [ %37, %43 ]
+  br label %66
 
-67:                                               ; preds = %67, %.body
-  %68 = phi ptr [ %17, %.body ], [ %69, %67 ]
-  %69 = getelementptr inbounds i8, ptr %68, i64 -48
-  call void @_ZN14DtypeSizeCheckD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %69) #25
-  %70 = icmp eq ptr %69, %2
-  br i1 %70, label %.loopexit, label %67
+66:                                               ; preds = %66, %.body
+  %67 = phi ptr [ %17, %.body ], [ %68, %66 ]
+  %68 = getelementptr inbounds i8, ptr %67, i64 -48
+  call void @_ZN14DtypeSizeCheckD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %68) #25
+  %69 = icmp eq ptr %68, %2
+  br i1 %69, label %.loopexit, label %66
 
-.loopexit:                                        ; preds = %63, %67
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body614, %67 ], [ %62, %63 ]
+.loopexit:                                        ; preds = %62, %66
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body614, %66 ], [ %61, %62 ]
   resume { ptr, i32 } %.pn
 }
 

@@ -1058,7 +1058,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h1bf548a8
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load <2 x i64>, ptr %4, align 8
-  %9 = extractelement <2 x i64> %8, i64 0
+  %9 = load i64, ptr %4, align 8, !noundef !34
   %10 = add i64 %9, 1
   store i64 %10, ptr %4, align 8
   store <2 x i64> %8, ptr %7, align 8
@@ -1724,7 +1724,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.13596
   store i64 %3, ptr %14, align 8, !alias.scope !416, !noalias !419
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
   %15 = load <2 x i64>, ptr %.0.i.i3.i, align 8, !noalias !430
-  %16 = extractelement <2 x i64> %15, i64 0
+  %16 = load i64, ptr %.0.i.i3.i, align 8, !noalias !430, !noundef !34
   %17 = add i64 %16, 1
   store i64 %17, ptr %.0.i.i3.i, align 8, !noalias !430
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.e168b2a6a86c0a8f0ac82162b7b87b15.351.llvm.13596990030671032255, i64 32, i1 false), !noalias !419
@@ -11181,7 +11181,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.13596
   %.0.i.i816845 = phi ptr [ %61, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.13596990030671032255.exit ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h918368743278089dE.exit" ]
   %.sroa.4216.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 32
   %70 = load <2 x i64>, ptr %.0.i.i816845, align 8, !noalias !1912
-  %71 = extractelement <2 x i64> %70, i64 0
+  %71 = load i64, ptr %.0.i.i816845, align 8, !noalias !1912, !noundef !34
   %72 = add i64 %71, 1
   store i64 %72, ptr %.0.i.i816845, align 8, !noalias !1912
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) @anon.e168b2a6a86c0a8f0ac82162b7b87b15.351.llvm.13596990030671032255, i64 32, i1 false)
@@ -13503,7 +13503,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.13596
   store i64 %3, ptr %14, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   %15 = load <2 x i64>, ptr %.0.i.i3, align 8, !noalias !2379
-  %16 = extractelement <2 x i64> %15, i64 0
+  %16 = load i64, ptr %.0.i.i3, align 8, !noalias !2379, !noundef !34
   %17 = add i64 %16, 1
   store i64 %17, ptr %.0.i.i3, align 8, !noalias !2379
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.e168b2a6a86c0a8f0ac82162b7b87b15.351.llvm.13596990030671032255, i64 32, i1 false)

@@ -1469,7 +1469,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h127d4c51
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load <2 x i64>, ptr %4, align 8
-  %9 = extractelement <2 x i64> %8, i64 0
+  %9 = load i64, ptr %4, align 8, !noundef !16
   %10 = add i64 %9, 1
   store i64 %10, ptr %4, align 8
   store <2 x i64> %8, ptr %7, align 8
@@ -5538,7 +5538,7 @@ _ZN5tokio7runtime8blocking8shutdown7channel17h9fd5e1ee0305821eE.exit: ; preds = 
 .noexc.thread:                                    ; preds = %31, %.noexc
   %.0.i.i61 = phi ptr [ %36, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 8), %31 ]
   %39 = load <2 x i64>, ptr %.0.i.i61, align 8, !noalias !555
-  %40 = extractelement <2 x i64> %39, i64 0
+  %40 = load i64, ptr %.0.i.i61, align 8, !noalias !555, !noundef !16
   %41 = add i64 %40, 1
   store i64 %41, ptr %.0.i.i61, align 8, !noalias !555
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
@@ -5862,7 +5862,7 @@ _ZN11parking_lot7condvar7Condvar10notify_all17h4281c1b5e82a9165E.llvm.1809027223
   %58 = getelementptr inbounds i8, ptr %47, i64 40
   %.sroa.013.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 72
   %59 = load <2 x i64>, ptr %.0.i.i7298, align 8, !noalias !596
-  %60 = extractelement <2 x i64> %59, i64 0
+  %60 = load i64, ptr %.0.i.i7298, align 8, !noalias !596, !noundef !16
   %61 = add i64 %60, 1
   store i64 %61, ptr %.0.i.i7298, align 8, !noalias !596
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %58, i64 48, i1 false)

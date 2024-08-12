@@ -3431,14 +3431,11 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFvPN6hermes2vm6GCCellEEEC2ERKS5_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
-  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %call3.i = call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %callback, i32 noundef 2) #34
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %callback, i64 24
-  %1 = load ptr, ptr %_M_invoker4.i, align 8
-  store ptr %1, ptr %_M_invoker.i, align 8
+  %1 = load <2 x ptr>, ptr %_M_manager.i.i.i, align 8
   %2 = load ptr, ptr %_M_manager.i.i.i, align 8
-  store ptr %2, ptr %_M_manager.i.i, align 8
+  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
   br label %_ZNSt8functionIFvPN6hermes2vm6GCCellEEEC2ERKS5_.exit
 
 _ZNSt8functionIFvPN6hermes2vm6GCCellEEEC2ERKS5_.exit: ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit, %if.then.i
@@ -3530,11 +3527,9 @@ for.body.lr.ph:                                   ; preds = %_ZNSt8functionIFvPN
   %concurrentPhase_ = getelementptr inbounds i8, ptr %this, i64 7656
   %_M_invoker.i31 = getelementptr inbounds i8, ptr %agg.tmp4, i64 24
   %_M_manager.i.i32 = getelementptr inbounds i8, ptr %agg.tmp4, i64 16
-  %_M_invoker4.i34 = getelementptr inbounds i8, ptr %callback, i64 24
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %skipGarbageCallback, i64 16
   %_M_invoker.i.i66 = getelementptr inbounds i8, ptr %agg.tmp5, i64 24
   %_M_manager.i.i.i67 = getelementptr inbounds i8, ptr %agg.tmp5, i64 16
-  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %skipGarbageCallback, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt15_Deque_iteratorIN6hermes2vm7HadesGC11HeapSegmentERS3_PS3_EppEv.exit
@@ -3553,10 +3548,9 @@ if.then:                                          ; preds = %for.body
 
 if.then.i30:                                      ; preds = %if.then
   %call3.i33 = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp4, ptr noundef nonnull align 8 dereferenceable(16) %callback, i32 noundef 2) #34
-  %17 = load ptr, ptr %_M_invoker4.i34, align 8
-  store ptr %17, ptr %_M_invoker.i31, align 8
+  %17 = load <2 x ptr>, ptr %_M_manager.i.i.i, align 8
   %18 = load ptr, ptr %_M_manager.i.i.i, align 8
-  store ptr %18, ptr %_M_manager.i.i32, align 8
+  store <2 x ptr> %17, ptr %_M_manager.i.i32, align 8
   br label %_ZNSt8functionIFvPN6hermes2vm6GCCellEEEC2ERKS5_.exit35
 
 _ZNSt8functionIFvPN6hermes2vm6GCCellEEEC2ERKS5_.exit35: ; preds = %if.then, %if.then.i30
@@ -3622,10 +3616,9 @@ if.else:                                          ; preds = %for.body
 
 if.then.i.i65:                                    ; preds = %if.else
   %call3.i.i = call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5, ptr noundef nonnull align 8 dereferenceable(16) %skipGarbageCallback, i32 noundef 2) #34
-  %26 = load ptr, ptr %_M_invoker4.i.i, align 8
-  store ptr %26, ptr %_M_invoker.i.i66, align 8
+  %26 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8
   %27 = load ptr, ptr %_M_manager.i.i.i.i, align 8
-  store ptr %27, ptr %_M_manager.i.i.i67, align 8
+  store <2 x ptr> %26, ptr %_M_manager.i.i.i67, align 8
   br label %"_ZZN6hermes2vm7HadesGC10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEEN3$_0C2ERKS9_.exit"
 
 "_ZZN6hermes2vm7HadesGC10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEEN3$_0C2ERKS9_.exit": ; preds = %if.else, %if.then.i.i65
@@ -3737,14 +3730,11 @@ if.then11:                                        ; preds = %if.then8
   br i1 %tobool.not.i.i.not.i91, label %_ZNSt8functionIFvPN6hermes2vm6GCCellEEEC2ERKS5_.exit97, label %if.then.i92
 
 if.then.i92:                                      ; preds = %if.then11
-  %_M_invoker.i93 = getelementptr inbounds i8, ptr %agg.tmp15, i64 24
   %_M_manager.i.i94 = getelementptr inbounds i8, ptr %agg.tmp15, i64 16
   %call3.i95 = call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp15, ptr noundef nonnull align 8 dereferenceable(16) %callback, i32 noundef 2) #34
-  %_M_invoker4.i96 = getelementptr inbounds i8, ptr %callback, i64 24
-  %40 = load ptr, ptr %_M_invoker4.i96, align 8
-  store ptr %40, ptr %_M_invoker.i93, align 8
+  %40 = load <2 x ptr>, ptr %_M_manager.i.i.i, align 8
   %41 = load ptr, ptr %_M_manager.i.i.i, align 8
-  store ptr %41, ptr %_M_manager.i.i94, align 8
+  store <2 x ptr> %40, ptr %_M_manager.i.i94, align 8
   br label %_ZNSt8functionIFvPN6hermes2vm6GCCellEEEC2ERKS5_.exit97
 
 _ZNSt8functionIFvPN6hermes2vm6GCCellEEEC2ERKS5_.exit97: ; preds = %if.then11, %if.then.i92
@@ -3815,14 +3805,11 @@ if.else16:                                        ; preds = %if.then8
   br i1 %tobool.not.i.i.not.i.i128, label %"_ZZN6hermes2vm7HadesGC10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEEN3$_0C2ERKS9_.exit134", label %if.then.i.i129
 
 if.then.i.i129:                                   ; preds = %if.else16
-  %_M_invoker.i.i130 = getelementptr inbounds i8, ptr %agg.tmp20, i64 24
   %_M_manager.i.i.i131 = getelementptr inbounds i8, ptr %agg.tmp20, i64 16
   %call3.i.i132 = call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp20, ptr noundef nonnull align 8 dereferenceable(16) %skipGarbageCallback, i32 noundef 2) #34
-  %_M_invoker4.i.i133 = getelementptr inbounds i8, ptr %skipGarbageCallback, i64 24
-  %49 = load ptr, ptr %_M_invoker4.i.i133, align 8
-  store ptr %49, ptr %_M_invoker.i.i130, align 8
+  %49 = load <2 x ptr>, ptr %_M_manager.i.i.i.i127, align 8
   %50 = load ptr, ptr %_M_manager.i.i.i.i127, align 8
-  store ptr %50, ptr %_M_manager.i.i.i131, align 8
+  store <2 x ptr> %49, ptr %_M_manager.i.i.i131, align 8
   br label %"_ZZN6hermes2vm7HadesGC10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEEN3$_0C2ERKS9_.exit134"
 
 "_ZZN6hermes2vm7HadesGC10forAllObjsERKSt8functionIFvPNS0_6GCCellEEEEN3$_0C2ERKS9_.exit134": ; preds = %if.else16, %if.then.i.i129

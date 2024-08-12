@@ -29027,11 +29027,11 @@ _ZN6id_gen2mkEv.exit:                             ; preds = %if.then.i, %_ZN6vec
   %m_total_degree.i = getelementptr inbounds i8, ptr %call5, i64 8
   %m_size.i9 = getelementptr inbounds i8, ptr %call5, i64 12
   %15 = load <2 x i32>, ptr %m_size.i6, align 4
+  %16 = load i32, ptr %m_size.i6, align 4
   store i32 0, ptr %call5, align 4
   store i32 %r.0.i, ptr %m_id.i, align 4
   store i32 0, ptr %m_total_degree.i, align 4
   store <2 x i32> %15, ptr %m_size.i9, align 4
-  %16 = extractelement <2 x i32> %15, i64 0
   %cmp8.not.i = icmp eq i32 %16, 0
   br i1 %cmp8.not.i, label %_ZN10polynomial8monomialC2EjjPKNS_5powerEj.exit, label %for.body.lr.ph.i
 
@@ -51561,17 +51561,16 @@ if.then.us16.us:                                  ; preds = %for.body.us12.us
   store i32 %13, ptr %__i.011.us13.us, align 4
   %14 = load i32, ptr %second.i1.i.i, align 4
   store i32 %14, ptr %second.i.i.i.us14.us, align 4
-  %15 = load i32, ptr %add.ptr14.i.i, align 4
-  store i32 %15, ptr %__first, align 4
-  %16 = load i32, ptr %second.i.i23.i.i, align 4
-  store i32 %16, ptr %second.i1.i.i, align 4
+  %15 = load i32, ptr %second.i.i23.i.i, align 4
+  %16 = load <2 x i32>, ptr %add.ptr14.i.i, align 4
+  store <2 x i32> %16, ptr %__first, align 4
   %__value.sroa.2.0.extract.shift.i.i.i.us22.us = lshr i64 %__value.sroa.0.0.copyload.i.us17.us, 32
   %__value.sroa.2.0.extract.trunc.i.i.i.us23.us = trunc nuw i64 %__value.sroa.2.0.extract.shift.i.i.i.us22.us to i32
-  %cmp.i.i.i.i.i.us31.us = icmp ult i32 %16, %__value.sroa.2.0.extract.trunc.i.i.i.us23.us
+  %cmp.i.i.i.i.i.us31.us = icmp ult i32 %15, %__value.sroa.2.0.extract.trunc.i.i.i.us23.us
   br i1 %cmp.i.i.i.i.i.us31.us, label %while.body.i.i.i.us32.us, label %_ZSt10__pop_heapIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEEvT_S8_S8_RT0_.exit.loopexit.us45.us
 
 while.body.i.i.i.us32.us:                         ; preds = %if.then.us16.us
-  store i32 %16, ptr %second3.i.i.i.i.i.us34.us, align 4
+  store i32 %15, ptr %second3.i.i.i.i.i.us34.us, align 4
   br label %_ZSt10__pop_heapIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEEvT_S8_S8_RT0_.exit.loopexit.us45.us
 
 for.inc.us41.us:                                  ; preds = %_ZSt10__pop_heapIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEEvT_S8_S8_RT0_.exit.loopexit.us45.us, %for.body.us12.us
@@ -64995,11 +64994,11 @@ _ZN6id_gen2mkEv.exit.i:                           ; preds = %_ZN6vectorIjLb0EjE4
   %m_total_degree.i.i = getelementptr inbounds i8, ptr %call5.i440, i64 8
   %m_size.i9.i = getelementptr inbounds i8, ptr %call5.i440, i64 12
   %169 = load <2 x i32>, ptr %m_size.i6.i, align 4
+  %170 = load i32, ptr %m_size.i6.i, align 4
   store i32 0, ptr %call5.i440, align 4
   store i32 %r.0.i.i, ptr %m_id.i.i, align 4
   store i32 0, ptr %m_total_degree.i.i, align 4
   store <2 x i32> %169, ptr %m_size.i9.i, align 4
-  %170 = extractelement <2 x i32> %169, i64 0
   %cmp8.not.i.i = icmp eq i32 %170, 0
   br i1 %cmp8.not.i.i, label %invoke.cont66.thread, label %for.body.lr.ph.i.i427
 
@@ -66678,11 +66677,11 @@ _ZN6id_gen2mkEv.exit.i:                           ; preds = %_ZN6vectorIjLb0EjE4
   %m_total_degree.i.i = getelementptr inbounds i8, ptr %call5.i406, i64 8
   %m_size.i9.i = getelementptr inbounds i8, ptr %call5.i406, i64 12
   %152 = load <2 x i32>, ptr %m_size.i6.i, align 4
+  %153 = load i32, ptr %m_size.i6.i, align 4
   store i32 0, ptr %call5.i406, align 4
   store i32 %r.0.i.i, ptr %m_id.i.i, align 4
   store i32 0, ptr %m_total_degree.i.i, align 4
   store <2 x i32> %152, ptr %m_size.i9.i, align 4
-  %153 = extractelement <2 x i32> %152, i64 0
   %cmp8.not.i.i = icmp eq i32 %153, 0
   br i1 %cmp8.not.i.i, label %invoke.cont48.thread, label %for.body.lr.ph.i.i393
 
@@ -68622,11 +68621,11 @@ _ZN6id_gen2mkEv.exit.i:                           ; preds = %_ZN6vectorIjLb0EjE4
   %m_total_degree.i.i = getelementptr inbounds i8, ptr %call5.i556, i64 8
   %m_size.i9.i = getelementptr inbounds i8, ptr %call5.i556, i64 12
   %195 = load <2 x i32>, ptr %m_size.i6.i, align 4
+  %196 = load i32, ptr %m_size.i6.i, align 4
   store i32 0, ptr %call5.i556, align 4
   store i32 %r.0.i.i, ptr %m_id.i.i, align 4
   store i32 0, ptr %m_total_degree.i.i, align 4
   store <2 x i32> %195, ptr %m_size.i9.i, align 4
-  %196 = extractelement <2 x i32> %195, i64 0
   %cmp8.not.i.i = icmp eq i32 %196, 0
   br i1 %cmp8.not.i.i, label %invoke.cont89.thread, label %for.body.lr.ph.i.i543
 
@@ -70450,11 +70449,11 @@ _ZN6id_gen2mkEv.exit.i:                           ; preds = %_ZN6vectorIjLb0EjE4
   %m_total_degree.i.i = getelementptr inbounds i8, ptr %call5.i467, i64 8
   %m_size.i9.i = getelementptr inbounds i8, ptr %call5.i467, i64 12
   %157 = load <2 x i32>, ptr %m_size.i6.i, align 4
+  %158 = load i32, ptr %m_size.i6.i, align 4
   store i32 0, ptr %call5.i467, align 4
   store i32 %r.0.i.i, ptr %m_id.i.i, align 4
   store i32 0, ptr %m_total_degree.i.i, align 4
   store <2 x i32> %157, ptr %m_size.i9.i, align 4
-  %158 = extractelement <2 x i32> %157, i64 0
   %cmp8.not.i.i = icmp eq i32 %158, 0
   br i1 %cmp8.not.i.i, label %invoke.cont49.thread, label %for.body.lr.ph.i.i454
 
@@ -82341,11 +82340,11 @@ _ZN6id_gen2mkEv.exit.i:                           ; preds = %_ZN6vectorIjLb0EjE4
   %m_total_degree.i.i = getelementptr inbounds i8, ptr %call5.i666, i64 8
   %m_size.i9.i = getelementptr inbounds i8, ptr %call5.i666, i64 12
   %210 = load <2 x i32>, ptr %m_size.i6.i, align 4
+  %211 = load i32, ptr %m_size.i6.i, align 4
   store i32 0, ptr %call5.i666, align 4
   store i32 %r.0.i.i, ptr %m_id.i.i, align 4
   store i32 0, ptr %m_total_degree.i.i, align 4
   store <2 x i32> %210, ptr %m_size.i9.i, align 4
-  %211 = extractelement <2 x i32> %210, i64 0
   %cmp8.not.i.i = icmp eq i32 %211, 0
   br i1 %cmp8.not.i.i, label %invoke.cont107.thread, label %for.body.lr.ph.i.i653
 

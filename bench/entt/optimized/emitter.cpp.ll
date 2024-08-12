@@ -9782,29 +9782,26 @@ cleanup.cont97:                                   ; preds = %if.then.i, %invoke.
   %28 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !57
   %packed9.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 32
   %_M_finish3.i.i.i.i.i.i.i23.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 40
-  %_M_end_of_storage4.i.i.i.i.i.i.i25.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 48
   %handlers.i.i228 = getelementptr inbounds i8, ptr %other, i64 8
   %29 = load <2 x ptr>, ptr %handlers.i.i, align 8, !tbaa !37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %handlers.i.i, i8 0, i64 24, i1 false)
   %30 = load ptr, ptr %packed9.i.i.i, align 8, !tbaa !58
-  %31 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i23.i.i.i, align 8, !tbaa !59
-  %32 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i25.i.i.i, align 8, !tbaa !60
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 24
+  %packed.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 32
+  %_M_finish.i.i.i.i.i.i7.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 40
+  %31 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i.i.i.i23.i.i.i, align 8, !tbaa !37
+  %32 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i23.i.i.i, align 8, !tbaa !59
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %packed9.i.i.i, i8 0, i64 24, i1 false)
   %33 = load float, ptr %threshold.i.i.i.i.i.i, align 8, !tbaa !17
   store <2 x ptr> %29, ptr %handlers.i.i228, align 8, !tbaa !37
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 24
   store ptr %28, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !57
-  %packed.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 32
   store ptr %30, ptr %packed.i.i.i.i.i, align 8, !tbaa !58
-  %_M_finish.i.i.i.i.i.i7.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 40
-  store ptr %31, ptr %_M_finish.i.i.i.i.i.i7.i.i.i.i.i, align 8, !tbaa !59
-  %_M_end_of_storage.i.i.i.i.i.i9.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 48
-  store ptr %32, ptr %_M_end_of_storage.i.i.i.i.i.i9.i.i.i.i.i, align 8, !tbaa !60
+  store <2 x ptr> %31, ptr %_M_finish.i.i.i.i.i.i7.i.i.i.i.i, align 8, !tbaa !37
   %threshold.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 56
   store float %33, ptr %threshold.i.i.i.i.i, align 8, !tbaa !17
   store ptr getelementptr inbounds (i8, ptr @_ZTV12test_emitter, i64 16), ptr %other, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_99) #22
-  %cmp.i.i.i.i281 = icmp ne ptr %30, %31
+  %cmp.i.i.i.i281 = icmp ne ptr %30, %32
   %frombool103 = zext i1 %cmp.i.i.i.i281 to i8
   store i8 %frombool103, ptr %gtest_ar_99, align 8, !tbaa !38
   %message_.i282 = getelementptr inbounds i8, ptr %gtest_ar_99, i64 8
@@ -9947,7 +9944,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 cleanup137:                                       ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i311, %cleanup131, %cleanup.cont97
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_99) #22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 16), ptr %other, align 8, !tbaa !4
-  %cmp.not3.i.i.i.i.i.i.i.i = icmp eq ptr %30, %31
+  %cmp.not3.i.i.i.i.i.i.i.i = icmp eq ptr %30, %32
   br i1 %cmp.not3.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %cleanup137, %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i
@@ -9971,7 +9968,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i.i.i.i:           ; preds = %if.then.i.i.i.i.i.i
 
 _ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i, i64 48
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %31
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %32
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !61
 
 invoke.contthread-pre-split.i.i.i.i.i:            ; preds = %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i

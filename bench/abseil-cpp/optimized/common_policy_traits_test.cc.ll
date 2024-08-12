@@ -1541,7 +1541,6 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   %0 = ptrtoint ptr %this to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %1, align 8
   store i64 %0, ptr %ref.tmp.i, align 8
@@ -1550,17 +1549,16 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps9constructE, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps9constructE, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps9constructE, i64 16), align 8
-  store ptr %2, ptr %_M_manager.i.i.i, align 8
+  %2 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps9constructE, i64 16), align 8
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps9constructE, i64 16), align 8
   store ptr @_ZNSt17_Function_handlerIFvPvPiiEZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_iE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps9constructE, i64 16), align 8
-  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps9constructE, i64 24), align 8
-  store ptr %3, ptr %_M_invoker.i.i, align 8
+  store <2 x ptr> %2, ptr %_M_manager.i.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvPvPiiEZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_iE_E9_M_invokeERKSt9_Any_dataOS0_OS1_Oi, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps9constructE, i64 24), align 8
-  %tobool.not.i.i.i = icmp eq ptr %2, null
+  %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFvPvPiiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_iE_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_iEEEE5valueERS3_E4typeEOSC_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont7
-  %call.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvPvPiiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_iE_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_iEEEE5valueERS3_E4typeEOSC_.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -1574,7 +1572,6 @@ _ZNSt8functionIFvPvPiiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUl
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i5)
   %_M_manager.i.i.i6 = getelementptr inbounds i8, ptr %ref.tmp.i5, i64 16
-  %_M_invoker.i.i7 = getelementptr inbounds i8, ptr %ref.tmp.i5, i64 24
   %6 = getelementptr inbounds i8, ptr %ref.tmp.i5, i64 8
   store i64 0, ptr %6, align 8
   store i64 %0, ptr %ref.tmp.i5, align 8
@@ -1583,17 +1580,16 @@ _ZNSt8functionIFvPvPiiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUl
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i5, ptr noundef nonnull align 8 dereferenceable(16) @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7destroyE, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7destroyE, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i4, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i4)
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7destroyE, i64 16), align 8
-  store ptr %7, ptr %_M_manager.i.i.i6, align 8
+  %7 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7destroyE, i64 16), align 8
+  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7destroyE, i64 16), align 8
   store ptr @_ZNSt17_Function_handlerIFvPvPiEZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7destroyE, i64 16), align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7destroyE, i64 24), align 8
-  store ptr %8, ptr %_M_invoker.i.i7, align 8
+  store <2 x ptr> %7, ptr %_M_manager.i.i.i6, align 8
   store ptr @_ZNSt17_Function_handlerIFvPvPiEZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_E_E9_M_invokeERKSt9_Any_dataOS0_OS1_, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7destroyE, i64 24), align 8
-  %tobool.not.i.i.i8 = icmp eq ptr %7, null
+  %tobool.not.i.i.i8 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i8, label %_ZNSt8functionIFvPvPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_EEEE5valueERS3_E4typeEOSC_.exit, label %if.then.i.i.i9
 
 if.then.i.i.i9:                                   ; preds = %_ZNSt8functionIFvPvPiiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_iE_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_iEEEE5valueERS3_E4typeEOSC_.exit
-  %call.i.i.i10 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i5, i32 noundef 3)
+  %call.i.i.i10 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i5, i32 noundef 3)
           to label %_ZNSt8functionIFvPvPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_EEEE5valueERS3_E4typeEOSC_.exit unwind label %terminate.lpad.i.i.i11
 
 terminate.lpad.i.i.i11:                           ; preds = %if.then.i.i.i9
@@ -1607,7 +1603,6 @@ _ZNSt8functionIFvPvPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i13)
   %_M_manager.i.i.i14 = getelementptr inbounds i8, ptr %ref.tmp.i13, i64 16
-  %_M_invoker.i.i15 = getelementptr inbounds i8, ptr %ref.tmp.i13, i64 24
   %11 = getelementptr inbounds i8, ptr %ref.tmp.i13, i64 8
   store i64 0, ptr %11, align 8
   store i64 %0, ptr %ref.tmp.i13, align 8
@@ -1616,17 +1611,16 @@ _ZNSt8functionIFvPvPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i13, ptr noundef nonnull align 8 dereferenceable(16) @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7elementE, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7elementE, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i12, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i12)
-  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7elementE, i64 16), align 8
-  store ptr %12, ptr %_M_manager.i.i.i14, align 8
+  %12 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7elementE, i64 16), align 8
+  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7elementE, i64 16), align 8
   store ptr @_ZNSt17_Function_handlerIFRiPiEZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7elementE, i64 16), align 8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7elementE, i64 24), align 8
-  store ptr %13, ptr %_M_invoker.i.i15, align 8
+  store <2 x ptr> %12, ptr %_M_manager.i.i.i14, align 8
   store ptr @_ZNSt17_Function_handlerIFRiPiEZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS1_E_E9_M_invokeERKSt9_Any_dataOS1_, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_124PolicyWithoutOptionalOps7elementE, i64 24), align 8
-  %tobool.not.i.i.i16 = icmp eq ptr %12, null
+  %tobool.not.i.i.i16 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i16, label %_ZNSt8functionIFRiPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.exit, label %if.then.i.i.i17
 
 if.then.i.i.i17:                                  ; preds = %_ZNSt8functionIFvPvPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_EEEE5valueERS3_E4typeEOSC_.exit
-  %call.i.i.i18 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i13, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i13, i32 noundef 3)
+  %call.i.i.i18 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i13, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i13, i32 noundef 3)
           to label %_ZNSt8functionIFRiPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.exit unwind label %terminate.lpad.i.i.i19
 
 terminate.lpad.i.i.i19:                           ; preds = %if.then.i.i.i17
@@ -1640,7 +1634,6 @@ _ZNSt8functionIFRiPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i21)
   %_M_manager.i.i.i22 = getelementptr inbounds i8, ptr %ref.tmp.i21, i64 16
-  %_M_invoker.i.i23 = getelementptr inbounds i8, ptr %ref.tmp.i21, i64 24
   %16 = getelementptr inbounds i8, ptr %ref.tmp.i21, i64 8
   store i64 0, ptr %16, align 8
   store i64 %0, ptr %ref.tmp.i21, align 8
@@ -1649,17 +1642,16 @@ _ZNSt8functionIFRiPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i21, ptr noundef nonnull align 8 dereferenceable(16) @_ZN4absl18container_internal12_GLOBAL__N_121PolicyWithOptionalOps8transferE, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZN4absl18container_internal12_GLOBAL__N_121PolicyWithOptionalOps8transferE, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i20, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i20)
-  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_121PolicyWithOptionalOps8transferE, i64 16), align 8
-  store ptr %17, ptr %_M_manager.i.i.i22, align 8
+  %17 = load <2 x ptr>, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_121PolicyWithOptionalOps8transferE, i64 16), align 8
+  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_121PolicyWithOptionalOps8transferE, i64 16), align 8
   store ptr @_ZNSt17_Function_handlerIFvPvPiS1_EZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_S1_E_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_121PolicyWithOptionalOps8transferE, i64 16), align 8
-  %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_121PolicyWithOptionalOps8transferE, i64 24), align 8
-  store ptr %18, ptr %_M_invoker.i.i23, align 8
+  store <2 x ptr> %17, ptr %_M_manager.i.i.i22, align 8
   store ptr @_ZNSt17_Function_handlerIFvPvPiS1_EZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_S1_E_E9_M_invokeERKSt9_Any_dataOS0_OS1_SD_, ptr getelementptr inbounds (i8, ptr @_ZN4absl18container_internal12_GLOBAL__N_121PolicyWithOptionalOps8transferE, i64 24), align 8
-  %tobool.not.i.i.i24 = icmp eq ptr %17, null
+  %tobool.not.i.i.i24 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i24, label %_ZNSt8functionIFvPvPiS1_EEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_S1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_S1_EEEE5valueERS3_E4typeEOSC_.exit, label %if.then.i.i.i25
 
 if.then.i.i.i25:                                  ; preds = %_ZNSt8functionIFRiPiEEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_.exit
-  %call.i.i.i26 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i21, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i21, i32 noundef 3)
+  %call.i.i.i26 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i21, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i21, i32 noundef 3)
           to label %_ZNSt8functionIFvPvPiS1_EEaSIZN4absl18container_internal12_GLOBAL__N_14TestC1EvEUlS0_S1_S1_E_EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS0_S1_S1_EEEE5valueERS3_E4typeEOSC_.exit unwind label %terminate.lpad.i.i.i27
 
 terminate.lpad.i.i.i27:                           ; preds = %if.then.i.i.i25
@@ -15785,17 +15777,15 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10s
 _ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::shared_ptr.68", ptr %cond.i10, i64 %sub.ptr.div.i
-  %3 = load ptr, ptr %__args, align 8
-  store ptr %3, ptr %add.ptr, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %4 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
-  store ptr %4, ptr %_M_refcount.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  %4 = load <2 x ptr>, ptr %__args, align 8
+  store <2 x ptr> %4, ptr %add.ptr, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i

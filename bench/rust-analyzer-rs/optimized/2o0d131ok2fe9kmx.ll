@@ -11236,16 +11236,16 @@ _ZN13project_model13manifest_path12ManifestPath16is_rust_manifest17h5b2efaeadb54
 793:                                              ; preds = %786
   %794 = getelementptr inbounds i8, ptr %13, i64 8
   %795 = load <2 x i64>, ptr %794, align 8, !noalias !2101
+  %796 = load i64, ptr %794, align 8, !noalias !2101
   %.sroa.02.0.copyload.i = load i64, ptr %16, align 8, !noalias !2102
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %780, i64 16, i1 false), !noalias !2093
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !2101
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16), !noalias !2093
-  %796 = icmp eq i64 %.sroa.02.0.copyload.i, -9223372036854775808
-  %797 = extractelement <2 x i64> %795, i64 0
-  br i1 %796, label %798, label %800
+  %797 = icmp eq i64 %.sroa.02.0.copyload.i, -9223372036854775808
+  br i1 %797, label %798, label %800
 
 798:                                              ; preds = %793, %.thread9.i
-  %.sroa.51.sroa.7.0.i = phi i64 [ %797, %793 ], [ %783, %.thread9.i ]
+  %.sroa.51.sroa.7.0.i = phi i64 [ %796, %793 ], [ %783, %.thread9.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.610.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.51.sroa.0.i, i64 16, i1 false), !noalias !2093
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.51.sroa.0.i)
   %799 = getelementptr inbounds i8, ptr %91, i64 8

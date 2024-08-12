@@ -963,39 +963,41 @@ _ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit: ; preds = %8, %9
   br label %24
 
 24:                                               ; preds = %_ZN12hb_extents_t9add_pointEff.exit.i, %_ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit
+  %25 = phi float [ -1.000000e+00, %_ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit ], [ %50, %_ZN12hb_extents_t9add_pointEff.exit.i ]
+  %26 = phi float [ 0.000000e+00, %_ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit ], [ %51, %_ZN12hb_extents_t9add_pointEff.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %_ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit ], [ %indvars.iv.next.i, %_ZN12hb_extents_t9add_pointEff.exit.i ]
-  %25 = phi <2 x float> [ zeroinitializer, %_ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit ], [ %48, %_ZN12hb_extents_t9add_pointEff.exit.i ]
-  %26 = phi <2 x float> [ <float -1.000000e+00, float -1.000000e+00>, %_ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit ], [ %49, %_ZN12hb_extents_t9add_pointEff.exit.i ]
-  %27 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %indvars.iv.i
-  %28 = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 %indvars.iv.i
-  %29 = load float, ptr %27, align 4
-  %30 = load float, ptr %28, align 4
-  %31 = insertelement <2 x float> poison, float %30, i64 0
-  %32 = shufflevector <2 x float> %31, <2 x float> poison, <2 x i32> zeroinitializer
-  %33 = fmul <2 x float> %32, %22
-  %34 = insertelement <2 x float> poison, float %29, i64 0
-  %35 = shufflevector <2 x float> %34, <2 x float> poison, <2 x i32> zeroinitializer
-  %36 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %21, <2 x float> %35, <2 x float> %33)
-  %37 = fadd <2 x float> %36, %23
-  %38 = extractelement <2 x float> %37, i64 0
-  store float %38, ptr %27, align 4
-  %39 = extractelement <2 x float> %37, i64 1
-  store float %39, ptr %28, align 4
-  %40 = extractelement <2 x float> %25, i64 0
-  %41 = extractelement <2 x float> %26, i64 0
-  %42 = fcmp ogt float %40, %41
+  %27 = phi <2 x float> [ zeroinitializer, %_ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit ], [ %48, %_ZN12hb_extents_t9add_pointEff.exit.i ]
+  %28 = phi <2 x float> [ <float -1.000000e+00, float -1.000000e+00>, %_ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit ], [ %49, %_ZN12hb_extents_t9add_pointEff.exit.i ]
+  %29 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %indvars.iv.i
+  %30 = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 %indvars.iv.i
+  %31 = load float, ptr %29, align 4
+  %32 = load float, ptr %30, align 4
+  %33 = insertelement <2 x float> poison, float %32, i64 0
+  %34 = shufflevector <2 x float> %33, <2 x float> poison, <2 x i32> zeroinitializer
+  %35 = fmul <2 x float> %34, %22
+  %36 = insertelement <2 x float> poison, float %31, i64 0
+  %37 = shufflevector <2 x float> %36, <2 x float> poison, <2 x i32> zeroinitializer
+  %38 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %21, <2 x float> %37, <2 x float> %35)
+  %39 = fadd <2 x float> %38, %23
+  %40 = extractelement <2 x float> %39, i64 0
+  store float %40, ptr %29, align 4
+  %41 = extractelement <2 x float> %39, i64 1
+  store float %41, ptr %30, align 4
+  %42 = fcmp ogt float %26, %25
   br i1 %42, label %_ZN12hb_extents_t9add_pointEff.exit.i, label %43
 
 43:                                               ; preds = %24
-  %44 = fcmp ole <2 x float> %25, %37
-  %45 = select <2 x i1> %44, <2 x float> %25, <2 x float> %37
-  %46 = fcmp oge <2 x float> %26, %37
-  %47 = select <2 x i1> %46, <2 x float> %26, <2 x float> %37
+  %44 = fcmp ole <2 x float> %27, %39
+  %45 = select <2 x i1> %44, <2 x float> %27, <2 x float> %39
+  %46 = fcmp oge <2 x float> %28, %39
+  %47 = select <2 x i1> %46, <2 x float> %28, <2 x float> %39
   br label %_ZN12hb_extents_t9add_pointEff.exit.i
 
 _ZN12hb_extents_t9add_pointEff.exit.i:            ; preds = %43, %24
-  %48 = phi <2 x float> [ %45, %43 ], [ %37, %24 ]
-  %49 = phi <2 x float> [ %47, %43 ], [ %37, %24 ]
+  %48 = phi <2 x float> [ %45, %43 ], [ %39, %24 ]
+  %49 = phi <2 x float> [ %47, %43 ], [ %39, %24 ]
+  %50 = extractelement <2 x float> %49, i64 0
+  %51 = extractelement <2 x float> %48, i64 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %_ZNK14hb_transform_t17transform_extentsER12hb_extents_t.exit, label %24, !llvm.loop !18
@@ -1003,17 +1005,15 @@ _ZN12hb_extents_t9add_pointEff.exit.i:            ; preds = %43, %24
 _ZNK14hb_transform_t17transform_extentsER12hb_extents_t.exit: ; preds = %_ZN12hb_extents_t9add_pointEff.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
-  %51 = extractelement <2 x float> %48, i64 0
-  %52 = extractelement <2 x float> %49, i64 0
-  %53 = fcmp oge float %51, %52
+  %52 = getelementptr inbounds i8, ptr %0, i64 16
+  %53 = fcmp oge float %51, %50
   %54 = fcmp oge <2 x float> %48, %49
   %55 = extractelement <2 x i1> %54, i64 1
   %56 = select i1 %53, i1 true, i1 %55
   %57 = select i1 %56, i32 2, i32 1
   %58 = getelementptr inbounds i8, ptr %0, i64 20
   %59 = load i32, ptr %58, align 4
-  %60 = load i32, ptr %50, align 8
+  %60 = load i32, ptr %52, align 8
   %.not.i = icmp slt i32 %59, %60
   br i1 %.not.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread.i, label %61
 
@@ -1048,19 +1048,19 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3st
   br i1 %.not43.i.i, label %75, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.i
 
 75:                                               ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
-  %76 = load i32, ptr %50, align 8
+  %76 = load i32, ptr %52, align 8
   %.not21.i.i = icmp ugt i32 %67, %76
   br i1 %.not21.i.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread.i
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread9.i: ; preds = %75, %.thread.i.i
   %.01538.sink.i.ph.in.i = phi i32 [ %60, %.thread.i.i ], [ %76, %75 ]
   %.01538.sink.i.ph.i = xor i32 %.01538.sink.i.ph.in.i, -1
-  store i32 %.01538.sink.i.ph.i, ptr %50, align 8
+  store i32 %.01538.sink.i.ph.i, ptr %52, align 8
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread6.i
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.i: ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
   store ptr %74, ptr %70, align 8
-  store i32 %67, ptr %50, align 8
+  store i32 %67, ptr %52, align 8
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread.i
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread6.i: ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread9.i, %61

@@ -2939,14 +2939,15 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   %17 = load ptr, ptr %state_, align 8
   %atfork_handler_12 = getelementptr inbounds i8, ptr %17, i64 352
   %_M_refcount.i.i35 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %18 = load <2 x ptr>, ptr %atfork_handler_12, align 8
-  store <2 x ptr> %18, ptr %agg.tmp, align 16
-  %19 = extractelement <2 x ptr> %18, i64 1
-  %cmp.not.i.i.i37 = icmp eq ptr %19, null
+  %_M_refcount3.i.i36 = getelementptr inbounds i8, ptr %17, i64 360
+  %18 = load ptr, ptr %_M_refcount3.i.i36, align 8
+  %19 = load <2 x ptr>, ptr %atfork_handler_12, align 8
+  store <2 x ptr> %19, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i37 = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i37, label %_ZNSt8weak_ptrIN5arrow8internal13AtForkHandlerEEC2IS2_vEERKSt10shared_ptrIT_E.exit, label %if.then.i.i.i38
 
 if.then.i.i.i38:                                  ; preds = %"_ZZN5arrow8internal10ThreadPoolC1EvEN3$_0D2Ev.exit"
-  %_M_weak_count.i.i.i.i39 = getelementptr inbounds i8, ptr %19, i64 12
+  %_M_weak_count.i.i.i.i39 = getelementptr inbounds i8, ptr %18, i64 12
   %20 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i40 = icmp eq i8 %20, 0
   br i1 %tobool.i.not.i.i.i.i40, label %if.else.i.i.i.i.i43, label %if.then.i.i.i.i.i41
@@ -3816,14 +3817,15 @@ entry:
   %ref.tmp6 = alloca %"class.std::thread", align 8
   %sp_state_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %state, i64 8
-  %0 = load <2 x ptr>, ptr %sp_state_, align 8
-  store <2 x ptr> %0, ptr %state, align 16
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %sp_state_, align 8
+  store <2 x ptr> %1, ptr %state, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow8internal10ThreadPool5StateEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -3865,13 +3867,13 @@ invoke.cont:                                      ; preds = %for.body
   %_M_prev.i = getelementptr inbounds i8, ptr %7, i64 192
   %8 = load ptr, ptr %_M_prev.i, align 8
   %9 = ptrtoint ptr %8 to i64
-  %10 = load <2 x ptr>, ptr %state, align 16
-  %11 = extractelement <2 x ptr> %10, i64 1
-  %cmp.not.i.i.i7 = icmp eq ptr %11, null
+  %10 = load ptr, ptr %_M_refcount.i.i, align 8
+  %11 = load <2 x ptr>, ptr %state, align 16
+  %cmp.not.i.i.i7 = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i7, label %_ZNSt10shared_ptrIN5arrow8internal10ThreadPool5StateEEC2ERKS4_.exit14, label %if.then.i.i.i8
 
 if.then.i.i.i8:                                   ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i9 = getelementptr inbounds i8, ptr %11, i64 8
+  %_M_use_count.i.i.i.i9 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i10 = icmp eq i8 %12, 0
   br i1 %tobool.i.not.i.i.i.i10, label %if.else.i.i.i.i.i13, label %if.then.i.i.i.i.i11
@@ -3897,7 +3899,7 @@ call.i.noexc:                                     ; preds = %_ZNSt10shared_ptrIN
   %_M_func.i.i = getelementptr inbounds i8, ptr %call.i15, i64 8
   store ptr %this, ptr %_M_func.i.i, align 8
   %15 = getelementptr inbounds i8, ptr %call.i15, i64 16
-  store <2 x ptr> %10, ptr %15, align 8
+  store <2 x ptr> %11, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %call.i15, i64 32
   store i64 %9, ptr %16, align 8
   store ptr %call.i15, ptr %agg.tmp.i, align 8
@@ -3960,7 +3962,7 @@ lpad8:                                            ; preds = %_ZNSt10shared_ptrIN
   br label %lpad8.body
 
 lpad8.body:                                       ; preds = %lpad2.i, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i, %lpad8
-  %ref.tmp7.sroa.5.0 = phi ptr [ %11, %lpad8 ], [ null, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i ], [ null, %lpad2.i ]
+  %ref.tmp7.sroa.5.0 = phi ptr [ %10, %lpad8 ], [ null, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i ], [ null, %lpad2.i ]
   %eh.lpad-body = phi { ptr, i32 } [ %24, %lpad8 ], [ %19, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i ], [ %19, %lpad2.i ]
   call fastcc void @"_ZZN5arrow8internal10ThreadPool21LaunchWorkersUnlockedEiEN3$_0D2Ev"(ptr %ref.tmp7.sroa.5.0) #28
   br label %ehcleanup
@@ -7302,15 +7304,16 @@ sw.bb1:                                           ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %entry
   %__source.val5 = load ptr, ptr %__source, align 8
-  %0 = load <2 x ptr>, ptr %__source.val5, align 8
+  %0 = getelementptr i8, ptr %__source.val5, i64 8
+  %call5.val6.i = load ptr, ptr %0, align 8
+  %1 = load <2 x ptr>, ptr %__source.val5, align 8
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
-  store <2 x ptr> %0, ptr %call.i.i.i, align 8
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %1, null
+  store <2 x ptr> %1, ptr %call.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %call5.val6.i, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN5arrow8internal10ThreadPoolC1EvE3$_0E15_M_init_functorIRKS4_EEvRSt9_Any_dataOT_.exit.i", label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %sw.bb4.i
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.val6.i, i64 12
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i

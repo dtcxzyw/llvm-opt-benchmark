@@ -12776,7 +12776,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Destroy
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3dnn14dnn4_v202405213Net4Impl12forwardLayerERNS1_6detail9LayerDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(576) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::utils::trace::details::Region", align 8
-  %4 = alloca %"struct.cv::Ptr.90", align 8
+  %4 = alloca %"struct.cv::Ptr.90", align 16
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12815,17 +12815,16 @@ define void @_ZN2cv3dnn14dnn4_v202405213Net4Impl12forwardLayerERNS1_6detail9Laye
   %40 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv3dnn14dnn4_v202405213Net4Impl12forwardLayerERNS1_6detail9LayerDataEE25__cv_trace_location_fn620)
   %41 = getelementptr inbounds i8, ptr %1, i64 432
-  %42 = load ptr, ptr %41, align 8
-  store ptr %42, ptr %4, align 8
-  %43 = getelementptr inbounds i8, ptr %4, i64 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 440
-  %45 = load ptr, ptr %44, align 8
-  store ptr %45, ptr %43, align 8
-  %.not.i.i.i.i = icmp eq ptr %45, null
+  %42 = getelementptr inbounds i8, ptr %4, i64 8
+  %43 = getelementptr inbounds i8, ptr %1, i64 440
+  %44 = load ptr, ptr %43, align 8
+  %45 = load <2 x ptr>, ptr %41, align 8
+  store <2 x ptr> %45, ptr %4, align 16
+  %.not.i.i.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_3dnn14dnn4_v202405215LayerEEC2ERKS4_.exit, label %46
 
 46:                                               ; preds = %2
-  %47 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = getelementptr inbounds i8, ptr %44, i64 8
   %48 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %48, 0
   br i1 %.not.i.i.i.i.i, label %52, label %49
@@ -12939,7 +12938,7 @@ _ZNSt3mapIiN2cv3PtrINS0_3dnn14dnn4_v2024052111BackendNodeEEESt4lessIiESaISt4pair
   br label %665
 
 88:                                               ; preds = %.critedge
-  %89 = load ptr, ptr %4, align 8
+  %89 = load ptr, ptr %4, align 16
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 120
   %92 = load ptr, ptr %91, align 8
@@ -14418,7 +14417,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZNSt16_Sp_counted_
   store i64 %.sink506, ptr %622, align 8
   %623 = getelementptr inbounds i8, ptr %1, i64 572
   store i32 1, ptr %623, align 4
-  %624 = load ptr, ptr %43, align 8
+  %624 = load ptr, ptr %42, align 8
   %.not.i.i.i.i222 = icmp eq ptr %624, null
   br i1 %.not.i.i.i.i222, label %_ZN2cv3PtrINS_3dnn14dnn4_v202405215LayerEED2Ev.exit, label %625
 

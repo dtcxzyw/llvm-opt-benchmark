@@ -1095,8 +1095,8 @@ define i32 @php_network_connect_socket_to_host(ptr noundef %0, i16 noundef zeroe
   %24 = load <2 x i64>, ptr %12, align 16
   %25 = load <2 x i64>, ptr %13, align 16
   %26 = add nsw <2 x i64> %25, %24
-  store <2 x i64> %26, ptr %13, align 16
   %27 = extractelement <2 x i64> %26, i64 1
+  store <2 x i64> %26, ptr %13, align 16
   %28 = icmp sgt i64 %27, 999999
   br i1 %28, label %29, label %31
 

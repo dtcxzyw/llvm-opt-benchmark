@@ -712,8 +712,8 @@ _ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal4prop13PropPfManager10checkProofERKNS_7context6CDListINS0_12NodeTemplateILb1EEENS3_14DefaultCleanUpIS6_EESaIS6_EEE(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(74) %assertions) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
-  %conflictProof = alloca %"class.std::shared_ptr", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr", align 8
+  %conflictProof = alloca %"class.std::shared_ptr", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr", align 16
   %avec = alloca %"class.std::vector", align 8
   %d_satSolver = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %d_satSolver, align 8
@@ -723,17 +723,16 @@ cond.end:
   call void %1(ptr nonnull sret(%"class.std::shared_ptr") align 8 %conflictProof, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %d_pfpp = getelementptr inbounds i8, ptr %this, i64 128
   %2 = load ptr, ptr %d_pfpp, align 8
-  %3 = load ptr, ptr %conflictProof, align 8
-  store ptr %3, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %conflictProof, i64 8
-  %4 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %4, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %4 = load <2 x ptr>, ptr %conflictProof, align 16
+  store <2 x ptr> %4, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cond.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -979,7 +978,7 @@ invoke.cont29:                                    ; preds = %_ZNSt12_Vector_base
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont29
-  %35 = load ptr, ptr %conflictProof, align 8
+  %35 = load ptr, ptr %conflictProof, align 16
   invoke void @_ZN4cvc58internal18pfnEnsureClosedWrtERKNS0_7OptionsEPNS0_9ProofNodeERKSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EEPKcSE_(ptr noundef nonnull align 8 dereferenceable(392) %call32, ptr noundef %35, ptr noundef nonnull align 8 dereferenceable(24) %avec, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
           to label %invoke.cont34 unwind label %lpad30
 
@@ -1707,11 +1706,11 @@ entry:
   %ref.tmp166 = alloca %"class.std::vector", align 8
   %ref.tmp167 = alloca %"class.std::vector", align 8
   %ref.tmp169 = alloca [1 x %"class.cvc5::internal::NodeTemplate"], align 8
-  %agg.tmp199 = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp199 = alloca %"class.std::shared_ptr", align 16
   %ref.tmp204 = alloca %"class.std::shared_ptr", align 16
   %agg.tmp205 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp208 = alloca i8, align 1
-  %agg.tmp226 = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp226 = alloca %"class.std::shared_ptr", align 16
   %frombool = zext i1 %connectCnf to i8
   store i8 %frombool, ptr %connectCnf.addr, align 1
   %d_propProofs = getelementptr inbounds i8, ptr %this, i64 16
@@ -2313,17 +2312,16 @@ ehcleanup194:                                     ; preds = %ehcleanup181, %lpad
   br label %ehcleanup214
 
 for.end198:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit469, %invoke.cont152
-  %86 = load ptr, ptr %agg.result, align 8
-  store ptr %86, ptr %agg.tmp199, align 8
   %_M_refcount.i.i471 = getelementptr inbounds i8, ptr %agg.tmp199, i64 8
   %_M_refcount3.i.i472 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %87 = load ptr, ptr %_M_refcount3.i.i472, align 8
-  store ptr %87, ptr %_M_refcount.i.i471, align 8
-  %cmp.not.i.i.i473 = icmp eq ptr %87, null
+  %86 = load ptr, ptr %_M_refcount3.i.i472, align 8
+  %87 = load <2 x ptr>, ptr %agg.result, align 8
+  store <2 x ptr> %87, ptr %agg.tmp199, align 16
+  %cmp.not.i.i.i473 = icmp eq ptr %86, null
   br i1 %cmp.not.i.i.i473, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit480, label %if.then.i.i.i474
 
 if.then.i.i.i474:                                 ; preds = %for.end198
-  %_M_use_count.i.i.i.i475 = getelementptr inbounds i8, ptr %87, i64 8
+  %_M_use_count.i.i.i.i475 = getelementptr inbounds i8, ptr %86, i64 8
   %88 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i476 = icmp eq i8 %88, 0
   br i1 %tobool.i.not.i.i.i.i476, label %if.else.i.i.i.i.i479, label %if.then.i.i.i.i.i477
@@ -2800,17 +2798,16 @@ ehcleanup217:                                     ; preds = %ehcleanup216, %lpad
 if.end224:                                        ; preds = %cleanup.done26
   %d_pfpp = getelementptr inbounds i8, ptr %this, i64 128
   %152 = load ptr, ptr %d_pfpp, align 8
-  %153 = load ptr, ptr %agg.result, align 8
-  store ptr %153, ptr %agg.tmp226, align 8
   %_M_refcount.i.i611 = getelementptr inbounds i8, ptr %agg.tmp226, i64 8
   %_M_refcount3.i.i612 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %154 = load ptr, ptr %_M_refcount3.i.i612, align 8
-  store ptr %154, ptr %_M_refcount.i.i611, align 8
-  %cmp.not.i.i.i613 = icmp eq ptr %154, null
+  %153 = load ptr, ptr %_M_refcount3.i.i612, align 8
+  %154 = load <2 x ptr>, ptr %agg.result, align 8
+  store <2 x ptr> %154, ptr %agg.tmp226, align 16
+  %cmp.not.i.i.i613 = icmp eq ptr %153, null
   br i1 %cmp.not.i.i.i613, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit620, label %if.then.i.i.i614
 
 if.then.i.i.i614:                                 ; preds = %if.end224
-  %_M_use_count.i.i.i.i615 = getelementptr inbounds i8, ptr %154, i64 8
+  %_M_use_count.i.i.i.i615 = getelementptr inbounds i8, ptr %153, i64 8
   %155 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i616 = icmp eq i8 %155, 0
   br i1 %tobool.i.not.i.i.i.i616, label %if.else.i.i.i.i.i619, label %if.then.i.i.i.i.i617
@@ -4781,17 +4778,15 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10s
 _ZNSt12_Vector_baseISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::shared_ptr", ptr %cond.i10, i64 %sub.ptr.div.i
-  %3 = load ptr, ptr %__args, align 8
-  store ptr %3, ptr %add.ptr, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %4 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
-  store ptr %4, ptr %_M_refcount.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  %4 = load <2 x ptr>, ptr %__args, align 8
+  store <2 x ptr> %4, ptr %add.ptr, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN4cvc58internal9ProofNodeEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i

@@ -4900,43 +4900,45 @@ if.then21:                                        ; preds = %if.end19
   %44 = extractelement <2 x i1> %41, i64 0
   %or.cond = select i1 %43, i1 %44, i1 false
   %45 = insertelement <2 x double> %35, double %s0.0, i64 1
+  %46 = extractelement <2 x double> %35, i64 0
   br i1 %or.cond, label %if.then37, label %if.end57
 
 if.then37:                                        ; preds = %if.then21
-  %46 = insertelement <2 x double> %45, double 0.000000e+00, i64 0
+  %47 = insertelement <2 x double> %45, double 0.000000e+00, i64 0
   br label %if.end57
 
 if.else:                                          ; preds = %if.end19
-  %47 = shufflevector <2 x double> %2, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %48 = fdiv <2 x double> %16, %47
-  %49 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %48)
-  %50 = fcmp oeq <2 x double> %49, <double 0x7FF0000000000000, double 0x7FF0000000000000>
-  %51 = extractelement <2 x i1> %50, i64 1
-  %52 = extractelement <2 x double> %48, i64 1
-  %53 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %16)
-  %54 = fcmp olt <2 x double> %53, <double 0x3E112E0BE0000000, double 0x3E112E0BE0000000>
-  %55 = extractelement <2 x i1> %54, i64 1
-  %or.cond112 = select i1 %51, i1 %55, i1 false
-  %s0.2 = select i1 %or.cond112, double 0.000000e+00, double %52
-  %56 = extractelement <2 x i1> %50, i64 0
-  %57 = extractelement <2 x i1> %54, i64 0
-  %or.cond9 = select i1 %56, i1 %57, i1 false
-  %58 = insertelement <2 x double> %48, double %s0.2, i64 1
+  %48 = shufflevector <2 x double> %2, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %49 = fdiv <2 x double> %16, %48
+  %50 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %49)
+  %51 = fcmp oeq <2 x double> %50, <double 0x7FF0000000000000, double 0x7FF0000000000000>
+  %52 = extractelement <2 x i1> %51, i64 1
+  %53 = extractelement <2 x double> %49, i64 1
+  %54 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %16)
+  %55 = fcmp olt <2 x double> %54, <double 0x3E112E0BE0000000, double 0x3E112E0BE0000000>
+  %56 = extractelement <2 x i1> %55, i64 1
+  %or.cond112 = select i1 %52, i1 %56, i1 false
+  %s0.2 = select i1 %or.cond112, double 0.000000e+00, double %53
+  %57 = extractelement <2 x i1> %51, i64 0
+  %58 = extractelement <2 x i1> %55, i64 0
+  %or.cond9 = select i1 %57, i1 %58, i1 false
+  %59 = insertelement <2 x double> %49, double %s0.2, i64 1
+  %60 = extractelement <2 x double> %49, i64 0
   br i1 %or.cond9, label %if.then55, label %if.end57
 
 if.then55:                                        ; preds = %if.else
-  %59 = insertelement <2 x double> %58, double 0.000000e+00, i64 0
+  %61 = insertelement <2 x double> %59, double 0.000000e+00, i64 0
   br label %if.end57
 
 if.end57:                                         ; preds = %if.else, %if.then55, %if.then21, %if.then37
-  %60 = phi <2 x double> [ %46, %if.then37 ], [ %45, %if.then21 ], [ %59, %if.then55 ], [ %58, %if.else ]
-  %61 = extractelement <2 x double> %60, i64 0
-  %62 = extractelement <2 x double> %60, i64 1
-  %cmp58 = fcmp olt double %61, %62
+  %s1.0 = phi double [ 0.000000e+00, %if.then37 ], [ %46, %if.then21 ], [ 0.000000e+00, %if.then55 ], [ %60, %if.else ]
+  %s0.1 = phi double [ %s0.0, %if.then37 ], [ %s0.0, %if.then21 ], [ %s0.2, %if.then55 ], [ %s0.2, %if.else ]
+  %62 = phi <2 x double> [ %47, %if.then37 ], [ %45, %if.then21 ], [ %61, %if.then55 ], [ %59, %if.else ]
+  %cmp58 = fcmp olt double %s1.0, %s0.1
   %63 = insertelement <2 x i1> poison, i1 %cmp58, i64 0
   %64 = shufflevector <2 x i1> %63, <2 x i1> poison, <2 x i32> zeroinitializer
-  %65 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %66 = select <2 x i1> %64, <2 x double> %60, <2 x double> %65
+  %65 = shufflevector <2 x double> %62, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %66 = select <2 x i1> %64, <2 x double> %62, <2 x double> %65
   %67 = fcmp ogt <2 x double> %66, zeroinitializer
   %68 = select <2 x i1> %67, <2 x double> %66, <2 x double> zeroinitializer
   %69 = fcmp olt <2 x double> %68, <double 1.000000e+00, double 1.000000e+00>
@@ -5214,42 +5216,44 @@ if.then21.i:                                      ; preds = %if.end19.i
   %71 = extractelement <2 x i1> %68, i64 0
   %or.cond.i60 = select i1 %70, i1 %71, i1 false
   %72 = insertelement <2 x double> %62, double %s0.0.i, i64 1
+  %73 = extractelement <2 x double> %62, i64 0
   br i1 %or.cond.i60, label %if.then37.i, label %if.end57.i
 
 if.then37.i:                                      ; preds = %if.then21.i
-  %73 = insertelement <2 x double> %72, double 0.000000e+00, i64 0
+  %74 = insertelement <2 x double> %72, double 0.000000e+00, i64 0
   br label %if.end57.i
 
 if.else.i:                                        ; preds = %if.end19.i
-  %74 = fdiv <2 x double> %53, %45
-  %75 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %74)
-  %76 = fcmp oeq <2 x double> %75, <double 0x7FF0000000000000, double 0x7FF0000000000000>
-  %77 = extractelement <2 x i1> %76, i64 1
-  %78 = extractelement <2 x double> %74, i64 1
-  %79 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %53)
-  %80 = fcmp olt <2 x double> %79, <double 0x3E112E0BE0000000, double 0x3E112E0BE0000000>
-  %81 = extractelement <2 x i1> %80, i64 1
-  %or.cond112.i = select i1 %77, i1 %81, i1 false
-  %s0.2.i = select i1 %or.cond112.i, double 0.000000e+00, double %78
-  %82 = extractelement <2 x i1> %76, i64 0
-  %83 = extractelement <2 x i1> %80, i64 0
-  %or.cond9.i = select i1 %82, i1 %83, i1 false
-  %84 = insertelement <2 x double> %74, double %s0.2.i, i64 1
+  %75 = fdiv <2 x double> %53, %45
+  %76 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %75)
+  %77 = fcmp oeq <2 x double> %76, <double 0x7FF0000000000000, double 0x7FF0000000000000>
+  %78 = extractelement <2 x i1> %77, i64 1
+  %79 = extractelement <2 x double> %75, i64 1
+  %80 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %53)
+  %81 = fcmp olt <2 x double> %80, <double 0x3E112E0BE0000000, double 0x3E112E0BE0000000>
+  %82 = extractelement <2 x i1> %81, i64 1
+  %or.cond112.i = select i1 %78, i1 %82, i1 false
+  %s0.2.i = select i1 %or.cond112.i, double 0.000000e+00, double %79
+  %83 = extractelement <2 x i1> %77, i64 0
+  %84 = extractelement <2 x i1> %81, i64 0
+  %or.cond9.i = select i1 %83, i1 %84, i1 false
+  %85 = insertelement <2 x double> %75, double %s0.2.i, i64 1
+  %86 = extractelement <2 x double> %75, i64 0
   br i1 %or.cond9.i, label %if.then55.i, label %if.end57.i
 
 if.then55.i:                                      ; preds = %if.else.i
-  %85 = insertelement <2 x double> %84, double 0.000000e+00, i64 0
+  %87 = insertelement <2 x double> %85, double 0.000000e+00, i64 0
   br label %if.end57.i
 
 if.end57.i:                                       ; preds = %if.then55.i, %if.else.i, %if.then37.i, %if.then21.i
-  %86 = phi <2 x double> [ %73, %if.then37.i ], [ %72, %if.then21.i ], [ %85, %if.then55.i ], [ %84, %if.else.i ]
-  %87 = extractelement <2 x double> %86, i64 0
-  %88 = extractelement <2 x double> %86, i64 1
-  %cmp58.i = fcmp olt double %87, %88
+  %s1.0.i = phi double [ 0.000000e+00, %if.then37.i ], [ %73, %if.then21.i ], [ 0.000000e+00, %if.then55.i ], [ %86, %if.else.i ]
+  %s0.1.i = phi double [ %s0.0.i, %if.then37.i ], [ %s0.0.i, %if.then21.i ], [ %s0.2.i, %if.then55.i ], [ %s0.2.i, %if.else.i ]
+  %88 = phi <2 x double> [ %74, %if.then37.i ], [ %72, %if.then21.i ], [ %87, %if.then55.i ], [ %85, %if.else.i ]
+  %cmp58.i = fcmp olt double %s1.0.i, %s0.1.i
   %89 = insertelement <2 x i1> poison, i1 %cmp58.i, i64 0
   %90 = shufflevector <2 x i1> %89, <2 x i1> poison, <2 x i32> zeroinitializer
-  %91 = shufflevector <2 x double> %86, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %92 = select <2 x i1> %90, <2 x double> %86, <2 x double> %91
+  %91 = shufflevector <2 x double> %88, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %92 = select <2 x i1> %90, <2 x double> %88, <2 x double> %91
   %93 = fcmp ogt <2 x double> %92, zeroinitializer
   %94 = select <2 x i1> %93, <2 x double> %92, <2 x double> zeroinitializer
   %95 = fcmp olt <2 x double> %94, <double 1.000000e+00, double 1.000000e+00>
@@ -8929,8 +8933,8 @@ if.end147:                                        ; preds = %for.end129
 if.end151:                                        ; preds = %if.then145, %lor.lhs.false, %if.end147
   %temp_contour2.sroa.0.0.temp_contour2.sroa.0.0.temp_contour2.sroa.0.0.515732758 = phi ptr [ %temp_contour2.sroa.0.0.temp_contour2.sroa.0.0.temp_contour2.sroa.0.0.515, %if.end147 ], [ %.pre735, %if.then145 ], [ %temp_contour2.sroa.0.0.temp_contour2.sroa.0.0.temp_contour2.sroa.0.0.515, %lor.lhs.false ]
   %sub.ptr.sub.i217.pre-phi757 = phi i64 [ %sub.ptr.sub.i209, %if.end147 ], [ %sub.ptr.sub.i192, %if.then145 ], [ %sub.ptr.sub.i209, %lor.lhs.false ]
-  %150 = phi <2 x double> [ %137, %if.end147 ], [ %138, %if.then145 ], [ %137, %lor.lhs.false ]
-  %151 = phi <2 x double> [ %139, %if.end147 ], [ %140, %if.then145 ], [ %139, %lor.lhs.false ]
+  %150 = phi <2 x double> [ %139, %if.end147 ], [ %140, %if.then145 ], [ %139, %lor.lhs.false ]
+  %151 = phi <2 x double> [ %137, %if.end147 ], [ %138, %if.then145 ], [ %137, %lor.lhs.false ]
   %brmerge.not = and i1 %is_2d_source.0.not, %check_intersection
   br i1 %brmerge.not, label %land.lhs.true156, label %if.end163
 
@@ -8945,9 +8949,9 @@ land.lhs.true156:                                 ; preds = %if.end151
   br i1 %or.cond, label %cleanup317, label %if.end163
 
 if.end163:                                        ; preds = %land.lhs.true156, %if.end151
-  store <2 x double> %150, ptr %bb, align 16
-  store <2 x double> %151, ptr %second.i, align 16
-  %153 = fsub <2 x double> %151, %150
+  store <2 x double> %151, ptr %bb, align 16
+  store <2 x double> %150, ptr %second.i, align 16
+  %153 = fsub <2 x double> %150, %151
   %shift = shufflevector <2 x double> %153, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %154 = fmul <2 x double> %shift, %153
   %155 = extractelement <2 x double> %154, i64 0

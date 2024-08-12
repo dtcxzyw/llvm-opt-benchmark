@@ -2868,14 +2868,14 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
   %687 = shufflevector <2 x i1> %686, <2 x i1> poison, <2 x i32> zeroinitializer
   %688 = select <2 x i1> %687, <2 x float> %684, <2 x float> %674
   %689 = fadd <2 x float> %673, %688
+  %690 = extractelement <2 x float> %689, i64 0
   store <2 x float> %689, ptr %666, align 4
-  %690 = fadd float %670, %.sroa.10.0.i397
-  store float %690, ptr %669, align 4
-  %691 = fmul <2 x float> %689, %689
-  %692 = extractelement <2 x float> %691, i64 1
-  %693 = extractelement <2 x float> %689, i64 0
-  %694 = call float @llvm.fmuladd.f32(float %693, float %693, float %692)
-  %695 = call float @llvm.fmuladd.f32(float %690, float %690, float %694)
+  %691 = fadd float %670, %.sroa.10.0.i397
+  store float %691, ptr %669, align 4
+  %692 = fmul <2 x float> %689, %689
+  %693 = extractelement <2 x float> %692, i64 1
+  %694 = call float @llvm.fmuladd.f32(float %690, float %690, float %693)
+  %695 = call float @llvm.fmuladd.f32(float %691, float %691, float %694)
   %sqrt.i17.i = call noundef float @llvm.sqrt.f32(float %695)
   %696 = fcmp ogt float %sqrt.i17.i, 0x3F1A36E2E0000000
   br i1 %696, label %697, label %704
@@ -2887,7 +2887,7 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
   store <2 x float> %700, ptr %698, align 4
   %701 = getelementptr inbounds i8, ptr %658, i64 424
   %702 = load float, ptr %701, align 4
-  %703 = call float @llvm.fmuladd.f32(float %690, float %1, float %702)
+  %703 = call float @llvm.fmuladd.f32(float %691, float %1, float %702)
   store float %703, ptr %701, align 4
   br label %_ZL9integrateP12dtCrowdAgentf.exit
 

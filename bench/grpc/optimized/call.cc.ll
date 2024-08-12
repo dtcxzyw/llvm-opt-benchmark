@@ -12030,18 +12030,17 @@ entry:
   %manager_.i.i.i = getelementptr inbounds i8, ptr %fn, i64 16
   %1 = load ptr, ptr %manager_.i.i.i, align 16
   call void %1(i1 noundef zeroext false, ptr noundef nonnull %fn, ptr noundef nonnull %agg.tmp) #29
-  %2 = load ptr, ptr %manager_.i.i.i, align 16
   %manager_5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  store ptr %2, ptr %manager_5.i.i.i, align 16
   %invoker_.i.i.i = getelementptr inbounds i8, ptr %fn, i64 24
-  %3 = load ptr, ptr %invoker_.i.i.i, align 8
   %invoker_6.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
-  store ptr %3, ptr %invoker_6.i.i.i, align 8
+  %2 = load <2 x ptr>, ptr %manager_.i.i.i, align 16
+  %3 = load ptr, ptr %manager_.i.i.i, align 16
+  store <2 x ptr> %2, ptr %manager_5.i.i.i, align 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 112
-  call void %2(i1 noundef zeroext false, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2.i) #29
+  call void %3(i1 noundef zeroext false, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2.i) #29
   %manager_5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 16
   %4 = load <2 x ptr>, ptr %manager_5.i.i.i, align 16
   store <2 x ptr> %4, ptr %manager_5.i.i.i.i, align 16
@@ -21642,13 +21641,11 @@ entry:
   %manager_.i.i.i.i = getelementptr inbounds i8, ptr %promise_factory, i64 16
   %0 = load ptr, ptr %manager_.i.i.i.i, align 16
   call void %0(i1 noundef zeroext false, ptr noundef nonnull %promise_factory, ptr noundef nonnull %agg.tmp2) #29
-  %1 = load ptr, ptr %manager_.i.i.i.i, align 16
   %manager_5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 16
-  store ptr %1, ptr %manager_5.i.i.i.i, align 16
   %invoker_.i.i.i.i = getelementptr inbounds i8, ptr %promise_factory, i64 24
-  %2 = load ptr, ptr %invoker_.i.i.i.i, align 8
-  %invoker_6.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
-  store ptr %2, ptr %invoker_6.i.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %manager_.i.i.i.i, align 16
+  %2 = load ptr, ptr %manager_.i.i.i.i, align 16
+  store <2 x ptr> %1, ptr %manager_5.i.i.i.i, align 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i)
@@ -21656,13 +21653,13 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void %1(i1 noundef zeroext false, ptr noundef nonnull %agg.tmp2, ptr noundef nonnull %agg.tmp6.i.i) #29
-  %3 = load ptr, ptr %manager_5.i.i.i.i, align 16
+  %invoker_6.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
+  call void %2(i1 noundef zeroext false, ptr noundef nonnull %agg.tmp2, ptr noundef nonnull %agg.tmp6.i.i) #29
   %manager_5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp6.i.i, i64 16
-  store ptr %3, ptr %manager_5.i.i.i.i.i.i, align 16
-  %4 = load ptr, ptr %invoker_6.i.i.i.i, align 8
   %invoker_6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp6.i.i, i64 24
-  store ptr %4, ptr %invoker_6.i.i.i.i.i.i, align 8
+  %3 = load <2 x ptr>, ptr %manager_5.i.i.i.i, align 16
+  %4 = load ptr, ptr %manager_5.i.i.i.i, align 16
+  store <2 x ptr> %3, ptr %manager_5.i.i.i.i.i.i, align 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_5.i.i.i.i, align 16
   store ptr null, ptr %invoker_6.i.i.i.i, align 8
   %handle_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2, i64 8
@@ -21676,16 +21673,14 @@ invoke.cont:                                      ; preds = %entry
   store i8 0, ptr %started_.i.i.i, align 16
   %5 = getelementptr inbounds i8, ptr %call.i.i2, i64 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i)
-  call void %3(i1 noundef zeroext false, ptr noundef nonnull %agg.tmp6.i.i, ptr noundef nonnull %agg.tmp.i.i.i.i) #29
-  %6 = load ptr, ptr %manager_5.i.i.i.i.i.i, align 16
+  call void %4(i1 noundef zeroext false, ptr noundef nonnull %agg.tmp6.i.i, ptr noundef nonnull %agg.tmp.i.i.i.i) #29
   %manager_5.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 16
-  store ptr %6, ptr %manager_5.i.i.i.i.i.i.i.i, align 16
-  %7 = load ptr, ptr %invoker_6.i.i.i.i.i.i, align 8
-  %invoker_6.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 24
-  store ptr %7, ptr %invoker_6.i.i.i.i.i.i.i.i, align 8
+  %6 = load <2 x ptr>, ptr %manager_5.i.i.i.i.i.i, align 16
+  %7 = load ptr, ptr %manager_5.i.i.i.i.i.i, align 16
+  store <2 x ptr> %6, ptr %manager_5.i.i.i.i.i.i.i.i, align 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_5.i.i.i.i.i.i, align 16
   store ptr null, ptr %invoker_6.i.i.i.i.i.i, align 8
-  call void %6(i1 noundef zeroext false, ptr noundef nonnull %agg.tmp.i.i.i.i, ptr noundef nonnull %5) #29
+  call void %7(i1 noundef zeroext false, ptr noundef nonnull %agg.tmp.i.i.i.i, ptr noundef nonnull %5) #29
   %manager_5.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2, i64 48
   %8 = load <2 x ptr>, ptr %manager_5.i.i.i.i.i.i.i.i, align 16
   store <2 x ptr> %8, ptr %manager_5.i.i.i.i.i.i.i.i.i, align 16
@@ -21719,7 +21714,7 @@ _ZN9grpc_core5Party11BulkSpawnerD2Ev.exit:        ; preds = %invoke.cont
 lpad:                                             ; preds = %entry
   %16 = landingpad { ptr, i32 }
           cleanup
-  call void %1(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp2, ptr noundef nonnull %agg.tmp2) #29
+  call void %2(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp2, ptr noundef nonnull %agg.tmp2) #29
   call void @_ZN9grpc_core5Party11BulkSpawnerD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %ref.tmp) #29
   resume { ptr, i32 } %16
 }
@@ -21749,17 +21744,15 @@ if.then:                                          ; preds = %entry
   %manager_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %manager_.i.i.i.i.i, align 16, !noalias !259
   call void %2(i1 noundef zeroext false, ptr noundef nonnull %1, ptr noundef nonnull %agg.tmp.i) #29, !noalias !259
-  %3 = load ptr, ptr %manager_.i.i.i.i.i, align 16, !noalias !259
   %manager_5.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
-  store ptr %3, ptr %manager_5.i.i.i.i.i, align 16, !noalias !259
   %invoker_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %4 = load ptr, ptr %invoker_.i.i.i.i.i, align 8, !noalias !259
-  %invoker_6.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
-  store ptr %4, ptr %invoker_6.i.i.i.i.i, align 8, !noalias !259
+  %3 = load <2 x ptr>, ptr %manager_.i.i.i.i.i, align 16, !noalias !259
+  %4 = load ptr, ptr %manager_.i.i.i.i.i, align 16, !noalias !259
+  store <2 x ptr> %3, ptr %manager_5.i.i.i.i.i, align 16, !noalias !259
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i, align 16, !noalias !259
   store ptr null, ptr %invoker_.i.i.i.i.i, align 8, !noalias !259
   call void @llvm.experimental.noalias.scope.decl(metadata !262)
-  call void %3(i1 noundef zeroext false, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %p) #29
+  call void %4(i1 noundef zeroext false, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %p) #29
   %manager_5.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 16
   %invoker_6.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 24
   %5 = load <2 x ptr>, ptr %manager_5.i.i.i.i.i, align 16, !noalias !265
@@ -21769,17 +21762,16 @@ if.then:                                          ; preds = %entry
   call void %6(i1 noundef zeroext true, ptr noundef nonnull %1, ptr noundef nonnull %1) #29
   %7 = load ptr, ptr %manager_5.i.i.i.i.i.i.i, align 16
   call void %7(i1 noundef zeroext false, ptr noundef nonnull %p, ptr noundef nonnull %1) #29
-  %8 = load ptr, ptr %manager_5.i.i.i.i.i.i.i, align 16
-  store ptr %8, ptr %manager_.i.i.i.i.i, align 16
-  %9 = load ptr, ptr %invoker_6.i.i.i.i.i.i.i, align 8
-  store ptr %9, ptr %invoker_.i.i.i.i.i, align 8
+  %8 = load ptr, ptr %invoker_6.i.i.i.i.i.i.i, align 8
+  %9 = load <2 x ptr>, ptr %manager_5.i.i.i.i.i.i.i, align 16
+  store <2 x ptr> %9, ptr %manager_.i.i.i.i.i, align 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_5.i.i.i.i.i.i.i, align 16
   store ptr null, ptr %invoker_6.i.i.i.i.i.i.i, align 8
   store i8 1, ptr %started_, align 16
   br label %if.then7
 
 if.then7:                                         ; preds = %entry.if.then7_crit_edge, %if.then
-  %10 = phi ptr [ %.pre, %entry.if.then7_crit_edge ], [ %9, %if.then ]
+  %10 = phi ptr [ %.pre, %entry.if.then7_crit_edge ], [ %8, %if.then ]
   %11 = getelementptr inbounds i8, ptr %this, i64 32
   call void %10(ptr noundef nonnull %11)
   %12 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core14promise_detail7ContextINS_5ArenaEE8current_E)

@@ -2097,25 +2097,22 @@ _ZL10open_chunkPKc.exit:                          ; preds = %1, %6
   %10 = getelementptr inbounds i8, ptr %0, i64 64
   store i64 0, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %15, ptr %16, align 8
-  %17 = icmp ne i32 %8, -1
-  br i1 %17, label %18, label %20
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = load <2 x ptr>, ptr %11, align 8
+  %14 = load ptr, ptr %11, align 8
+  store ptr %14, ptr %0, align 8
+  store <2 x ptr> %13, ptr %12, align 8
+  %15 = icmp ne i32 %8, -1
+  br i1 %15, label %16, label %18
 
-18:                                               ; preds = %_ZL10open_chunkPKc.exit
-  %19 = load ptr, ptr %3, align 8
-  tail call void @_ZN8JfrChunk5resetEv(ptr noundef nonnull align 8 dereferenceable(66) %19) #13
+16:                                               ; preds = %_ZL10open_chunkPKc.exit
+  %17 = load ptr, ptr %3, align 8
+  tail call void @_ZN8JfrChunk5resetEv(ptr noundef nonnull align 8 dereferenceable(66) %17) #13
   call void @_ZN18JfrChunkHeadWriterC2EP14JfrChunkWriterlb(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %0, i64 noundef 68, i1 noundef zeroext true)
-  br label %20
+  br label %18
 
-20:                                               ; preds = %18, %_ZL10open_chunkPKc.exit
-  ret i1 %17
+18:                                               ; preds = %16, %_ZL10open_chunkPKc.exit
+  ret i1 %15
 }
 
 declare noundef ptr @_ZNK8JfrChunk4pathEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #2

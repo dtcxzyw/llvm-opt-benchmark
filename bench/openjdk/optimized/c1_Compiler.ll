@@ -367,34 +367,32 @@ define hidden void @_ZN8Compiler14compile_methodEP5ciEnvP8ciMethodibP12Directive
   %14 = getelementptr inbounds i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 32
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %13, i64 40
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 8
-  %21 = load i64, ptr %20, align 8
+  %17 = load <2 x ptr>, ptr %16, align 8
+  %18 = load ptr, ptr %16, align 8
+  %19 = getelementptr inbounds i8, ptr %13, i64 8
+  %20 = load i64, ptr %19, align 8
   call void @_ZN11CompilationC1EP16AbstractCompilerP5ciEnvP8ciMethodiP10BufferBlobbP12DirectiveSet(ptr noundef nonnull align 8 dereferenceable(704) %7, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %11, i1 noundef zeroext %4, ptr noundef %5) #10
   call void @_ZN11CompilationD1Ev(ptr noundef nonnull align 8 dereferenceable(704) %7) #10
-  %22 = load ptr, ptr %15, align 8
-  %.not.i.i.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.i.i, label %24, label %23
+  %21 = load ptr, ptr %15, align 8
+  %.not.i.i.i.i = icmp eq ptr %21, null
+  br i1 %.not.i.i.i.i, label %23, label %22
 
-23:                                               ; preds = %6
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %13, i64 noundef %21) #10
+22:                                               ; preds = %6
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %13, i64 noundef %20) #10
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %15) #10
-  br label %24
+  br label %23
 
-24:                                               ; preds = %23, %6
-  %25 = load ptr, ptr %16, align 8
-  %.not8.i.i.i.i = icmp eq ptr %25, %17
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %26
+23:                                               ; preds = %22, %6
+  %24 = load ptr, ptr %16, align 8
+  %.not8.i.i.i.i = icmp eq ptr %24, %18
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %25
 
-26:                                               ; preds = %24
+25:                                               ; preds = %23
   store ptr %15, ptr %14, align 8
-  store ptr %17, ptr %16, align 8
-  store ptr %19, ptr %18, align 8
+  store <2 x ptr> %17, ptr %16, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %24, %26
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %23, %25
   ret void
 }
 

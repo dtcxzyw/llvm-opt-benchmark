@@ -18144,20 +18144,18 @@ sw.bb2:                                           ; preds = %entry
   %element.i = getelementptr inbounds i8, ptr %type, i64 4
   %5 = load i32, ptr %element.i, align 4, !noalias !443
   %struct_def.i = getelementptr inbounds i8, ptr %type, i64 8
-  %6 = load ptr, ptr %struct_def.i, align 8, !noalias !443
   %enum_def.i = getelementptr inbounds i8, ptr %type, i64 16
-  %7 = load ptr, ptr %enum_def.i, align 8, !noalias !443
   %fixed_length.i = getelementptr inbounds i8, ptr %type, i64 24
-  %8 = load i16, ptr %fixed_length.i, align 8, !noalias !443
+  %6 = load i16, ptr %fixed_length.i, align 8, !noalias !443
   store i32 %5, ptr %ref.tmp3, align 8, !alias.scope !443
   %element.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 4
   store i32 0, ptr %element.i.i, align 4, !alias.scope !443
   %struct_def.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
-  store ptr %6, ptr %struct_def.i.i, align 8, !alias.scope !443
-  %enum_def.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
-  store ptr %7, ptr %enum_def.i.i, align 8, !alias.scope !443
+  %7 = load ptr, ptr %enum_def.i, align 8, !noalias !443
+  %8 = load <2 x ptr>, ptr %struct_def.i, align 8, !noalias !443
+  store <2 x ptr> %8, ptr %struct_def.i.i, align 8, !alias.scope !443
   %fixed_length.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 24
-  store i16 %8, ptr %fixed_length.i.i, align 8, !alias.scope !443
+  store i16 %6, ptr %fixed_length.i.i, align 8, !alias.scope !443
   %cmp.not.i = icmp eq ptr %7, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
@@ -21144,20 +21142,17 @@ invoke.cont12:                                    ; preds = %invoke.cont7
   %element.i = getelementptr inbounds i8, ptr %field, i64 204
   %2 = load i32, ptr %element.i, align 4, !noalias !576
   %struct_def.i = getelementptr inbounds i8, ptr %field, i64 208
-  %3 = load ptr, ptr %struct_def.i, align 8, !noalias !576
-  %enum_def.i = getelementptr inbounds i8, ptr %field, i64 216
-  %4 = load ptr, ptr %enum_def.i, align 8, !noalias !576
   %fixed_length.i = getelementptr inbounds i8, ptr %field, i64 224
-  %5 = load i16, ptr %fixed_length.i, align 8, !noalias !576
+  %3 = load i16, ptr %fixed_length.i, align 8, !noalias !576
   store i32 %2, ptr %vector_type, align 8, !alias.scope !576
   %element.i.i = getelementptr inbounds i8, ptr %vector_type, i64 4
   store i32 0, ptr %element.i.i, align 4, !alias.scope !576
   %struct_def.i.i = getelementptr inbounds i8, ptr %vector_type, i64 8
-  store ptr %3, ptr %struct_def.i.i, align 8, !alias.scope !576
-  %enum_def.i.i = getelementptr inbounds i8, ptr %vector_type, i64 16
-  store ptr %4, ptr %enum_def.i.i, align 8, !alias.scope !576
+  %4 = load <2 x ptr>, ptr %struct_def.i, align 8, !noalias !576
+  %5 = load ptr, ptr %struct_def.i, align 8, !noalias !576
+  store <2 x ptr> %4, ptr %struct_def.i.i, align 8, !alias.scope !576
   %fixed_length.i.i = getelementptr inbounds i8, ptr %vector_type, i64 24
-  store i16 %5, ptr %fixed_length.i.i, align 8, !alias.scope !576
+  store i16 %3, ptr %fixed_length.i.i, align 8, !alias.scope !576
   switch i32 %2, label %sw.epilog.i30.i [
     i32 15, label %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i
     i32 17, label %_ZN11flatbuffers15InlineAlignmentERKNS_4TypeE.exit
@@ -21181,13 +21176,13 @@ invoke.cont12:                                    ; preds = %invoke.cont7
   ]
 
 _ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i:     ; preds = %invoke.cont12
-  %fixed.i.i = getelementptr inbounds i8, ptr %3, i64 272
+  %fixed.i.i = getelementptr inbounds i8, ptr %5, i64 272
   %6 = load i8, ptr %fixed.i.i, align 8
   %tobool.i.i = trunc i8 %6 to i1
   br i1 %tobool.i.i, label %if.then.i, label %_ZN11flatbuffers15InlineAlignmentERKNS_4TypeE.exit
 
 if.then.i:                                        ; preds = %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i
-  %minalign.i = getelementptr inbounds i8, ptr %3, i64 280
+  %minalign.i = getelementptr inbounds i8, ptr %5, i64 280
   %7 = load i64, ptr %minalign.i, align 8
   br label %_ZN11flatbuffers15InlineAlignmentERKNS_4TypeE.exit
 

@@ -617,14 +617,14 @@ _ZL22initVdwEwaldParametersP8_IO_FILERK10t_inputrecP19interaction_const_t.exit: 
   %227 = getelementptr inbounds i8, ptr %0, i64 48
   %228 = fsub float %226, %225
   %229 = fmul float %228, %228
-  %230 = insertelement <2 x float> poison, float %228, i64 0
-  %231 = insertelement <2 x float> %230, float %229, i64 1
-  %232 = shufflevector <2 x float> %231, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %233 = fmul <2 x float> %231, %232
-  %234 = fdiv <2 x float> <float -1.000000e+01, float 1.500000e+01>, %233
-  store <2 x float> %234, ptr %227, align 8
-  %235 = extractelement <2 x float> %233, i64 1
-  %236 = fmul float %228, %235
+  %230 = fmul float %229, %229
+  %231 = insertelement <2 x float> poison, float %228, i64 0
+  %232 = insertelement <2 x float> %231, float %229, i64 1
+  %233 = shufflevector <2 x float> %232, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %234 = fmul <2 x float> %232, %233
+  %235 = fdiv <2 x float> <float -1.000000e+01, float 1.500000e+01>, %234
+  store <2 x float> %235, ptr %227, align 8
+  %236 = fmul float %228, %230
   %237 = fdiv float -6.000000e+00, %236
   %238 = getelementptr inbounds i8, ptr %0, i64 56
   store float %237, ptr %238, align 8

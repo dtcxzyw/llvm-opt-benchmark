@@ -1864,7 +1864,7 @@ entry:
   %looks = alloca %"class.OpenColorIO_v2_4dev::LookParseResult", align 8
   %ref.tmp53 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp57 = alloca %"class.std::allocator", align 1
-  %currentColorSpace = alloca %"class.std::shared_ptr.7", align 8
+  %currentColorSpace = alloca %"class.std::shared_ptr.7", align 16
   %m_impl.i.i = getelementptr inbounds i8, ptr %lookTransform, i64 8
   %0 = load ptr, ptr %m_impl.i.i, align 8
   %m_src.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -2095,17 +2095,16 @@ invoke.cont71:                                    ; preds = %invoke.cont66, %if.
   %m_skipColorSpaceConversion.i = getelementptr inbounds i8, ptr %23, i64 4
   %24 = load i8, ptr %m_skipColorSpaceConversion.i, align 4
   %tobool.i = trunc i8 %24 to i1
-  %25 = load ptr, ptr %src, align 16
-  store ptr %25, ptr %currentColorSpace, align 8
   %_M_refcount.i.i36 = getelementptr inbounds i8, ptr %currentColorSpace, i64 8
   %_M_refcount3.i.i37 = getelementptr inbounds i8, ptr %src, i64 8
-  %26 = load ptr, ptr %_M_refcount3.i.i37, align 8
-  store ptr %26, ptr %_M_refcount.i.i36, align 8
-  %cmp.not.i.i.i = icmp eq ptr %26, null
+  %25 = load ptr, ptr %_M_refcount3.i.i37, align 8
+  %26 = load <2 x ptr>, ptr %src, align 16
+  store <2 x ptr> %26, ptr %currentColorSpace, align 16
+  %cmp.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont71
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %27, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -2128,7 +2127,7 @@ invoke.cont74:                                    ; preds = %_ZNSt10shared_ptrIK
   br i1 %tobool.i, label %if.end81, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %invoke.cont74
-  %30 = load ptr, ptr %currentColorSpace, align 8
+  %30 = load ptr, ptr %currentColorSpace, align 16
   %31 = load ptr, ptr %dst, align 16
   %cmp78.not = icmp eq ptr %30, %31
   br i1 %cmp78.not, label %if.end81, label %if.then79

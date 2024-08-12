@@ -4905,7 +4905,7 @@ lpad:                                             ; preds = %invoke.cont13
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost18depth_first_searchIN3ue28NGHolderENS_6detail18tarjan_scc_visitorINS_24associative_property_mapISt3mapINS1_12graph_detail17vertex_descriptorINS1_9ue2_graphIS2_NS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEEmSt4lessISD_ESaISt4pairIKSD_mEEEEENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEENSC_8prop_mapIRKmSA_EESD_RSD_EENSM_INSO_IPmSQ_ImSaImEEEESX_mRmEESt5stackISD_St5dequeISD_SR_EEEENS_25shared_array_property_mapINS_18default_color_typeESX_EEEEvRKT_T0_T1_NS_12graph_traitsIS1E_E17vertex_descriptorE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef byval(%"class.boost::detail::tarjan_scc_visitor") align 8 %vis, ptr noundef %color, ptr %start_vertex.coerce0, i64 %start_vertex.coerce1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp15 = alloca %"class.boost::shared_array_property_map", align 8
+  %agg.tmp15 = alloca %"class.boost::shared_array_property_map", align 16
   %agg.tmp32 = alloca %"class.boost::shared_array_property_map", align 8
   %m_header.i.i.i.i.i = getelementptr inbounds i8, ptr %g, i64 16
   %ui.sroa.0.0103 = load ptr, ptr %m_header.i.i.i.i.i, align 8
@@ -4941,17 +4941,16 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end
-  %4 = load ptr, ptr %color, align 8
-  store ptr %4, ptr %agg.tmp15, align 8
   %pn.i.i = getelementptr inbounds i8, ptr %agg.tmp15, i64 8
   %pn3.i.i = getelementptr inbounds i8, ptr %color, i64 8
-  %5 = load ptr, ptr %pn3.i.i, align 8
-  store ptr %5, ptr %pn.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %pn3.i.i, align 8
+  %5 = load <2 x ptr>, ptr %color, align 8
+  store <2 x ptr> %5, ptr %agg.tmp15, align 16
+  %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %_ZN5boost25shared_array_property_mapINS_18default_color_typeEN3ue29ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRKmS5_EEEC2ERKSC_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %use_count_.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %use_count_.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = atomicrmw add ptr %use_count_.i.i.i.i, i32 1 monotonic, align 4
   br label %_ZN5boost25shared_array_property_mapINS_18default_color_typeEN3ue29ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRKmS5_EEEC2ERKSC_.exit
 
@@ -4959,7 +4958,7 @@ _ZN5boost25shared_array_property_mapINS_18default_color_typeEN3ue29ue2_graphINS2
   %index.i = getelementptr inbounds i8, ptr %agg.tmp15, i64 16
   %index3.i = getelementptr inbounds i8, ptr %color, i64 16
   %7 = load i64, ptr %index3.i, align 8
-  store i64 %7, ptr %index.i, align 8
+  store i64 %7, ptr %index.i, align 16
   invoke void @_ZN5boost6detail22depth_first_visit_implIN3ue28NGHolderENS0_18tarjan_scc_visitorINS_24associative_property_mapISt3mapINS2_12graph_detail17vertex_descriptorINS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEEmSt4lessISD_ESaISt4pairIKSD_mEEEEENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPSD_St6vectorISD_SaISD_EEEENSC_8prop_mapIRKmSA_EESD_RSD_EENSM_INSO_IPmSQ_ImSaImEEEESX_mRmEESt5stackISD_St5dequeISD_SR_EEEENS_25shared_array_property_mapINS_18default_color_typeESX_EENS0_9nontruth2EEEvRKT_NS_12graph_traitsIS1F_E17vertex_descriptorERT0_T1_T2_(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %start_vertex.coerce0, i64 %start_vertex.coerce1, ptr noundef nonnull align 8 dereferenceable(72) %vis, ptr noundef nonnull %agg.tmp15)
           to label %invoke.cont unwind label %lpad
 

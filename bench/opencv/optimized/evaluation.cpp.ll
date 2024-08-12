@@ -1267,7 +1267,7 @@ define void @_ZN2cv23evaluateFeatureDetectorERKNS_3MatES2_S2_PSt6vectorINS_8KeyP
   %20 = alloca %"class.cv::Size_.0", align 8
   %21 = alloca %"class.cv::Size_.0", align 8
   %22 = alloca %"class.cv::utils::trace::details::Region", align 8
-  %23 = alloca %"struct.cv::Ptr", align 8
+  %23 = alloca %"struct.cv::Ptr", align 16
   %24 = alloca %"class.std::vector", align 8
   %25 = alloca %"class.std::vector", align 8
   %26 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1275,17 +1275,16 @@ define void @_ZN2cv23evaluateFeatureDetectorERKNS_3MatES2_S2_PSt6vectorINS_8KeyP
   %28 = alloca %"class.cv::_InputArray", align 8
   %29 = alloca %"class.cv::_InputArray", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %22, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv23evaluateFeatureDetectorERKNS_3MatES2_S2_PSt6vectorINS_8KeyPointESaIS4_EES7_RfRiRKNS_3PtrINS_9Feature2DEEEE25__cv_trace_location_fn465)
-  %30 = load ptr, ptr %7, align 8
-  store ptr %30, ptr %23, align 8
-  %31 = getelementptr inbounds i8, ptr %23, i64 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 8
-  %33 = load ptr, ptr %32, align 8
-  store ptr %33, ptr %31, align 8
-  %.not.i.i.i.i = icmp eq ptr %33, null
+  %30 = getelementptr inbounds i8, ptr %23, i64 8
+  %31 = getelementptr inbounds i8, ptr %7, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = load <2 x ptr>, ptr %7, align 8
+  store <2 x ptr> %33, ptr %23, align 16
+  %.not.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_9Feature2DEEC2ERKS2_.exit, label %34
 
 34:                                               ; preds = %8
-  %35 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = getelementptr inbounds i8, ptr %32, i64 8
   %36 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %36, 0
   br i1 %.not.i.i.i.i.i, label %40, label %37
@@ -1320,13 +1319,13 @@ _ZN2cv3PtrINS_9Feature2DEEC2ERKS2_.exit:          ; preds = %8, %37, %40
   %.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 8
   %49 = load ptr, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   %50 = icmp ne ptr %48, %49
-  %51 = load ptr, ptr %23, align 8
+  %51 = load ptr, ptr %23, align 16
   %52 = icmp ne ptr %51, null
   %or.cond = select i1 %50, i1 true, i1 %52
   br i1 %or.cond, label %.thread, label %55
 
 53:                                               ; preds = %_ZN2cv3PtrINS_9Feature2DEEC2ERKS2_.exit
-  %54 = load ptr, ptr %23, align 8
+  %54 = load ptr, ptr %23, align 16
   %.not49 = icmp eq ptr %54, null
   br i1 %.not49, label %55, label %63
 
@@ -2250,7 +2249,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit:     ; preds = %425, %427
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit28
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit28:   ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit, %429
-  %430 = load ptr, ptr %31, align 8
+  %430 = load ptr, ptr %30, align 8
   %.not.i.i.i.i29 = icmp eq ptr %430, null
   br i1 %.not.i.i.i.i29, label %_ZN2cv3PtrINS_9Feature2DEED2Ev.exit, label %431
 

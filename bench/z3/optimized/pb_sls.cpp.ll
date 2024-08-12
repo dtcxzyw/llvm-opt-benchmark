@@ -946,7 +946,7 @@ if.end29:                                         ; preds = %_ZlsRSoRK8rational.
 _ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i:        ; preds = %if.end29
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %12, i64 -8
   %13 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
-  %14 = extractelement <2 x i32> %13, i64 0
+  %14 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %14 to i64
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
   %call3.i.i.i = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i)
@@ -8544,7 +8544,7 @@ entry:
 _ZNK6vectorIN3sat7literalELb0EjE8capacityEv.exit.i.i.i: ; preds = %entry
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %2 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
-  %3 = extractelement <2 x i32> %2, i64 0
+  %3 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %3 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 2
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 8

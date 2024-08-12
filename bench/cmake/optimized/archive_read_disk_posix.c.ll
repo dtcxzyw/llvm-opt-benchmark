@@ -690,73 +690,71 @@ define internal fastcc void @tree_push(ptr nocapture noundef %0, ptr noundef %1,
   unreachable
 
 10:                                               ; preds = %6
-  %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr %14, ptr %15, align 8
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %19, label %16
+  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %14 = load <2 x ptr>, ptr %0, align 8
+  store <2 x ptr> %14, ptr %11, align 8
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %18, label %15
 
-16:                                               ; preds = %10
-  %17 = load i32, ptr %14, align 8
-  %18 = add nsw i32 %17, 1
-  store i32 %18, ptr %7, align 8
-  br label %19
+15:                                               ; preds = %10
+  %16 = load i32, ptr %13, align 8
+  %17 = add nsw i32 %16, 1
+  store i32 %17, ptr %7, align 8
+  br label %18
 
-19:                                               ; preds = %16, %10
+18:                                               ; preds = %15, %10
   store ptr %7, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 24
-  %21 = getelementptr inbounds i8, ptr %7, i64 32
-  %22 = getelementptr inbounds i8, ptr %7, i64 80
-  store i32 -1, ptr %22, align 8
-  store i64 0, ptr %21, align 8
-  %23 = icmp eq ptr %1, null
-  br i1 %23, label %26, label %24
+  %19 = getelementptr inbounds i8, ptr %7, i64 24
+  %20 = getelementptr inbounds i8, ptr %7, i64 32
+  %21 = getelementptr inbounds i8, ptr %7, i64 80
+  store i32 -1, ptr %21, align 8
+  store i64 0, ptr %20, align 8
+  %22 = icmp eq ptr %1, null
+  br i1 %22, label %25, label %23
 
-24:                                               ; preds = %19
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
-  br label %26
+23:                                               ; preds = %18
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
+  br label %25
 
-26:                                               ; preds = %19, %24
-  %27 = phi i64 [ %25, %24 ], [ 0, %19 ]
-  %28 = tail call ptr @archive_strncat(ptr noundef nonnull %20, ptr noundef %1, i64 noundef %27) #17
-  %29 = getelementptr inbounds i8, ptr %7, i64 72
-  store i32 56, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %7, i64 76
-  store i32 %2, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %7, i64 56
-  store i64 %3, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 64
-  store i64 %4, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 80
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %7, i64 48
-  store i64 %34, ptr %35, align 8
-  %36 = load ptr, ptr %20, align 8
-  %37 = getelementptr inbounds i8, ptr %7, i64 88
-  store ptr %36, ptr %37, align 8
+25:                                               ; preds = %18, %23
+  %26 = phi i64 [ %24, %23 ], [ 0, %18 ]
+  %27 = tail call ptr @archive_strncat(ptr noundef nonnull %19, ptr noundef %1, i64 noundef %26) #17
+  %28 = getelementptr inbounds i8, ptr %7, i64 72
+  store i32 56, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %7, i64 76
+  store i32 %2, ptr %29, align 4
+  %30 = getelementptr inbounds i8, ptr %7, i64 56
+  store i64 %3, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %7, i64 64
+  store i64 %4, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 80
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %7, i64 48
+  store i64 %33, ptr %34, align 8
+  %35 = load ptr, ptr %19, align 8
+  %36 = getelementptr inbounds i8, ptr %7, i64 88
+  store ptr %35, ptr %36, align 8
   %.not45 = icmp eq ptr %5, null
-  br i1 %.not45, label %48, label %38
+  br i1 %.not45, label %47, label %37
 
-38:                                               ; preds = %26
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
-  %40 = getelementptr inbounds i8, ptr %7, i64 96
-  %41 = load <2 x i64>, ptr %39, align 8
-  store <2 x i64> %41, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %5, i64 24
-  %43 = getelementptr inbounds i8, ptr %7, i64 112
-  %44 = load <2 x i64>, ptr %42, align 8
-  store <2 x i64> %44, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %5, i64 40
-  %46 = getelementptr inbounds i8, ptr %7, i64 128
-  %47 = load <2 x i32>, ptr %45, align 8
-  store <2 x i32> %47, ptr %46, align 8
-  br label %48
+37:                                               ; preds = %25
+  %38 = getelementptr inbounds i8, ptr %5, i64 8
+  %39 = getelementptr inbounds i8, ptr %7, i64 96
+  %40 = load <2 x i64>, ptr %38, align 8
+  store <2 x i64> %40, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %5, i64 24
+  %42 = getelementptr inbounds i8, ptr %7, i64 112
+  %43 = load <2 x i64>, ptr %41, align 8
+  store <2 x i64> %43, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %5, i64 40
+  %45 = getelementptr inbounds i8, ptr %7, i64 128
+  %46 = load <2 x i32>, ptr %44, align 8
+  store <2 x i32> %46, ptr %45, align 8
+  br label %47
 
-48:                                               ; preds = %38, %26
+47:                                               ; preds = %37, %25
   ret void
 }
 

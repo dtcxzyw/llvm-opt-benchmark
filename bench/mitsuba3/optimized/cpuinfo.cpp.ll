@@ -361,98 +361,98 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %290 = insertelement <4 x i32> %289, i32 %194, i64 1
   %291 = shufflevector <4 x i32> %290, <4 x i32> poison, <4 x i32> <i32 0, i32 1, i32 1, i32 1>
   %292 = lshr <4 x i32> %291, <i32 20, i32 5, i32 14, i32 16>
-  %293 = and <4 x i32> %292, <i32 1, i32 1, i32 1, i32 1>
-  %294 = zext nneg <4 x i32> %293 to <4 x i64>
-  %295 = shl nuw nsw <4 x i64> %294, <i64 41, i64 56, i64 38, i64 55>
-  %296 = shl i32 %194, 6
-  %297 = and i32 %296, 16777216
-  %298 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %295)
-  %op.rdx = or disjoint i64 %298, %269
-  %op.rdx1318 = or disjoint i32 %267, %297
+  %293 = lshr i32 %194, 14
+  %294 = and <4 x i32> %292, <i32 1, i32 1, i32 1, i32 1>
+  %295 = zext nneg <4 x i32> %294 to <4 x i64>
+  %296 = shl nuw nsw <4 x i64> %295, <i64 41, i64 56, i64 38, i64 55>
+  %297 = shl i32 %194, 6
+  %298 = and i32 %297, 16777216
+  %299 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %296)
+  %op.rdx = or disjoint i64 %299, %269
+  %op.rdx1318 = or disjoint i32 %267, %298
   %op.rdx13 = zext i32 %op.rdx1318 to i64
   %op.rdx15 = or disjoint i64 %op.rdx, %op.rdx13
-  %299 = or disjoint i64 %266, %279
-  %op.rdx16 = or i64 %299, %233
+  %300 = or disjoint i64 %266, %279
+  %op.rdx16 = or i64 %300, %233
   %op.rdx17 = or i64 %op.rdx15, %op.rdx16
-  %300 = lshr i32 %194, 20
-  %301 = and i32 %300, 1
-  %302 = zext nneg i32 %301 to i64
-  %303 = shl nuw nsw i64 %302, 38
-  %304 = or disjoint i64 %255, %273
-  %305 = or disjoint i64 %304, %303
-  %306 = or disjoint i64 %305, %288
-  %307 = or i64 %306, %247
-  %308 = or i64 %307, %182
-  %309 = and i64 %233, 137438953476
-  %310 = icmp eq i64 %309, 0
-  br i1 %310, label %313, label %311
+  %301 = lshr i32 %194, 20
+  %302 = and i32 %301, 1
+  %303 = zext nneg i32 %302 to i64
+  %304 = shl nuw nsw i64 %303, 38
+  %305 = or disjoint i64 %255, %273
+  %306 = or disjoint i64 %305, %304
+  %307 = or disjoint i64 %306, %288
+  %308 = or i64 %307, %247
+  %309 = or i64 %308, %182
+  %310 = and i64 %233, 137438953476
+  %311 = icmp eq i64 %310, 0
+  br i1 %311, label %314, label %312
 
-311:                                              ; preds = %189
-  %312 = or i64 %op.rdx17, 18014398509481984
-  store i64 %312, ptr %7, align 8, !tbaa !21
-  br label %313
+312:                                              ; preds = %189
+  %313 = or i64 %op.rdx17, 18014398509481984
+  store i64 %313, ptr %7, align 8, !tbaa !21
+  br label %314
 
-313:                                              ; preds = %311, %189
-  %314 = phi i64 [ %312, %311 ], [ %op.rdx17, %189 ]
-  %315 = and i32 %192, 32
-  %316 = icmp ne i32 %315, 0
-  %317 = and i64 %182, 4096
-  %318 = icmp ne i64 %317, 0
-  %319 = select i1 %316, i1 %318, i1 false
-  %320 = or i64 %308, 8192
-  %spec.select = select i1 %319, i64 %320, i64 %308
-  %321 = and i32 %192, 65536
-  %322 = icmp ne i32 %321, 0
-  %323 = select i1 %187, i1 %322, i1 false
-  br i1 %323, label %324, label %362
+314:                                              ; preds = %312, %189
+  %315 = phi i64 [ %313, %312 ], [ %op.rdx17, %189 ]
+  %316 = and i32 %192, 32
+  %317 = icmp ne i32 %316, 0
+  %318 = and i64 %182, 4096
+  %319 = icmp ne i64 %318, 0
+  %320 = select i1 %317, i1 %319, i1 false
+  %321 = or i64 %309, 8192
+  %spec.select = select i1 %320, i64 %321, i64 %309
+  %322 = and i32 %192, 65536
+  %323 = icmp ne i32 %322, 0
+  %324 = select i1 %187, i1 %323, i1 false
+  br i1 %324, label %325, label %363
 
-324:                                              ; preds = %313
-  %325 = shl i32 %192, 3
-  %326 = lshr i32 %192, 1
-  %327 = and i32 %326, 33554432
-  %328 = lshr i32 %192, 6
-  %329 = and i32 %328, 2097152
-  %330 = and i32 %217, 524288
-  %331 = lshr i32 %192, 12
-  %332 = and i32 %331, 262144
-  %333 = and i32 %200, 268435456
-  %334 = shl i32 %193, 25
-  %335 = and i32 %334, 67108864
-  %336 = shl i32 %193, 21
-  %337 = and i32 %336, 134217728
-  %338 = and i32 %250, 536870912
-  %339 = insertelement <4 x i32> %257, i32 %194, i64 1
-  %340 = shufflevector <4 x i32> %339, <4 x i32> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
-  %341 = shl <4 x i32> %340, <i32 5, i32 17, i32 13, i32 11>
-  %342 = and <4 x i32> %341, <i32 131072, i32 -2147483648, i32 32768, i32 16384>
-  %343 = shl i32 %194, 22
-  %344 = and i32 %343, 1073741824
-  %345 = and i32 %194, 8388608
-  %346 = and i32 %325, 17825792
-  %347 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %342)
-  %348 = or disjoint i32 %345, %337
-  %349 = or disjoint i32 %348, %335
-  %350 = or disjoint i32 %349, %344
-  %351 = or disjoint i32 %350, %338
-  %352 = or disjoint i32 %351, %330
-  %353 = or i32 %352, %329
-  %354 = or i32 %353, %333
-  %355 = or i32 %354, %332
-  %356 = or i32 %355, %327
-  %357 = or i32 %356, %346
+325:                                              ; preds = %314
+  %326 = shl i32 %192, 3
+  %327 = lshr i32 %192, 1
+  %328 = and i32 %327, 33554432
+  %329 = lshr i32 %192, 6
+  %330 = and i32 %329, 2097152
+  %331 = and i32 %217, 524288
+  %332 = lshr i32 %192, 12
+  %333 = and i32 %332, 262144
+  %334 = and i32 %200, 268435456
+  %335 = shl i32 %193, 25
+  %336 = and i32 %335, 67108864
+  %337 = shl i32 %193, 21
+  %338 = and i32 %337, 134217728
+  %339 = and i32 %250, 536870912
+  %340 = insertelement <4 x i32> %257, i32 %194, i64 1
+  %341 = shufflevector <4 x i32> %340, <4 x i32> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
+  %342 = shl <4 x i32> %341, <i32 5, i32 17, i32 13, i32 11>
+  %343 = and <4 x i32> %342, <i32 131072, i32 -2147483648, i32 32768, i32 16384>
+  %344 = shl i32 %194, 22
+  %345 = and i32 %344, 1073741824
+  %346 = and i32 %194, 8388608
+  %347 = and i32 %326, 17825792
+  %348 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %343)
+  %349 = or disjoint i32 %346, %338
+  %350 = or disjoint i32 %349, %336
+  %351 = or disjoint i32 %350, %345
+  %352 = or disjoint i32 %351, %339
+  %353 = or disjoint i32 %352, %331
+  %354 = or i32 %353, %330
+  %355 = or i32 %354, %334
+  %356 = or i32 %355, %333
+  %357 = or i32 %356, %328
   %358 = or i32 %357, %347
-  %359 = or i32 %358, 4194304
-  %360 = zext i32 %359 to i64
-  %361 = or i64 %spec.select, %360
-  br label %362
+  %359 = or i32 %358, %348
+  %360 = or i32 %359, 4194304
+  %361 = zext i32 %360 to i64
+  %362 = or i64 %spec.select, %361
+  br label %363
 
-362:                                              ; preds = %324, %313
-  %363 = phi i64 [ %361, %324 ], [ %spec.select, %313 ]
-  br i1 %185, label %364, label %375
+363:                                              ; preds = %325, %314
+  %364 = phi i64 [ %362, %325 ], [ %spec.select, %314 ]
+  br i1 %185, label %365, label %375
 
-364:                                              ; preds = %362
-  %365 = extractelement <4 x i32> %292, i64 2
-  %366 = and i32 %365, 256
+365:                                              ; preds = %363
+  %366 = and i32 %293, 256
   %367 = lshr i32 %194, 13
   %368 = and i32 %367, 2048
   %369 = lshr i32 %194, 15
@@ -460,11 +460,11 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %371 = or disjoint i32 %368, %366
   %372 = or disjoint i32 %371, %370
   %373 = zext nneg i32 %372 to i64
-  %374 = or i64 %363, %373
+  %374 = or i64 %364, %373
   br label %375
 
-375:                                              ; preds = %364, %362
-  %376 = phi i64 [ %374, %364 ], [ %363, %362 ]
+375:                                              ; preds = %365, %363
+  %376 = phi i64 [ %374, %365 ], [ %364, %363 ]
   %377 = icmp eq i32 %191, 0
   br i1 %377, label %444, label %378
 
@@ -501,7 +501,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %408 = zext nneg i32 %407 to i64
   %409 = or disjoint i64 %405, %408
   %410 = or disjoint i64 %409, %384
-  %411 = or i64 %410, %314
+  %411 = or i64 %410, %315
   %412 = lshr i32 %381, 18
   %413 = and i32 %412, 1
   %414 = zext nneg i32 %413 to i64
@@ -545,7 +545,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
 
 444:                                              ; preds = %439, %430, %375
   %445 = phi i64 [ %443, %439 ], [ %438, %430 ], [ %376, %375 ]
-  %446 = phi i64 [ %411, %439 ], [ %411, %430 ], [ %314, %375 ]
+  %446 = phi i64 [ %411, %439 ], [ %411, %430 ], [ %315, %375 ]
   %447 = icmp ugt i32 %9, 12
   br i1 %447, label %448, label %472
 

@@ -42851,14 +42851,13 @@ _ZNK10MainWindow3GLAEv.exit13:                    ; preds = %_ZNK10MainWindow3GL
   %22 = getelementptr inbounds i8, ptr %21, i64 256
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 1520
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 1528
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
-  %28 = load ptr, ptr %26, align 8
-  %29 = load <2 x ptr>, ptr %2, align 16
-  store ptr %25, ptr %2, align 16
-  store <2 x ptr> %29, ptr %24, align 8
-  store ptr %28, ptr %27, align 8
+  %25 = getelementptr inbounds i8, ptr %23, i64 1528
+  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = load <2 x ptr>, ptr %2, align 16
+  %28 = load ptr, ptr %25, align 8
+  %29 = load <2 x ptr>, ptr %24, align 8
+  store <2 x ptr> %27, ptr %24, align 8
+  store <2 x ptr> %29, ptr %2, align 16
   %30 = getelementptr inbounds i8, ptr %23, i64 1536
   %31 = getelementptr inbounds i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 16 dereferenceable(16) %31, i64 16, i1 false)
@@ -42874,7 +42873,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.i.i:          ; preds = %_ZNK10MainWindow3GL
   br i1 %.not.i.i, label %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i, label %_ZN7QStringD2Ev.exit.i
 
 _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i: ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.i.i
-  %.pre.i.i = load ptr, ptr %27, align 8
+  %.pre.i.i = load ptr, ptr %26, align 8
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_crit_edge.i.i, %_ZNK10MainWindow3GLAEv.exit13

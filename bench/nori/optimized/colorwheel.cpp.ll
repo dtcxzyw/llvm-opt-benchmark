@@ -46,14 +46,14 @@ define hidden void @_ZN7nanogui10ColorWheel9set_colorERKNS_5ColorE(ptr nocapture
   %7 = load <2 x float>, ptr %1, align 4
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load float, ptr %8, align 4
+  %10 = extractelement <2 x float> %7, i64 0
   store <2 x float> %7, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  store float %9, ptr %10, align 8
-  %11 = extractelement <2 x float> %7, i64 0
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  store float %9, ptr %11, align 8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %2
-  %12 = phi float [ %15, %.lr.ph.i.i ], [ %11, %2 ]
+  %12 = phi float [ %15, %.lr.ph.i.i ], [ %10, %2 ]
   %.idx = phi i64 [ %.add, %.lr.ph.i.i ], [ 4, %2 ]
   %.018.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %3, %2 ]
   %.ptr = getelementptr inbounds i8, ptr %3, i64 %.idx
@@ -73,7 +73,7 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
   br label %.lr.ph.i.i63
 
 .lr.ph.i.i63:                                     ; preds = %.lr.ph.i.i63, %_ZSt3maxIfET_St16initializer_listIS0_E.exit
-  %18 = phi float [ %21, %.lr.ph.i.i63 ], [ %11, %_ZSt3maxIfET_St16initializer_listIS0_E.exit ]
+  %18 = phi float [ %21, %.lr.ph.i.i63 ], [ %10, %_ZSt3maxIfET_St16initializer_listIS0_E.exit ]
   %.idx87 = phi i64 [ %.add88, %.lr.ph.i.i63 ], [ 4, %_ZSt3maxIfET_St16initializer_listIS0_E.exit ]
   %.018.i.i64 = phi ptr [ %spec.select.i.i65, %.lr.ph.i.i63 ], [ %4, %_ZSt3maxIfET_St16initializer_listIS0_E.exit ]
   %.ptr89 = getelementptr inbounds i8, ptr %4, i64 %.idx87
@@ -104,7 +104,7 @@ _ZSt3minIfET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i63
 
 31:                                               ; preds = %_ZSt3minIfET_St16initializer_listIS0_E.exit
   %32 = fsub float %16, %22
-  %33 = fcmp oeq float %16, %11
+  %33 = fcmp oeq float %16, %10
   br i1 %33, label %34, label %41
 
 34:                                               ; preds = %31
@@ -122,13 +122,13 @@ _ZSt3minIfET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i63
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %41
-  %45 = fsub float %9, %11
+  %45 = fsub float %9, %10
   %46 = fdiv float %45, %32
   %47 = fadd float %46, 2.000000e+00
   br label %52
 
 48:                                               ; preds = %41
-  %49 = fsub float %11, %42
+  %49 = fsub float %10, %42
   %50 = fdiv float %49, %32
   %51 = fadd float %50, 4.000000e+00
   br label %52

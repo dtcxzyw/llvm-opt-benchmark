@@ -777,7 +777,7 @@ declare void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN11opencv_test28SobelEdgeDetector_Fluid_Test12PerfTestBodyEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::__detail::_AllocNode", align 8
-  %3 = alloca %"class.cv::GMat", align 8
+  %3 = alloca %"class.cv::GMat", align 16
   %4 = alloca %"class.cv::GMat", align 8
   %5 = alloca %"class.cv::Scalar_", align 8
   %6 = alloca %"class.cv::GMat", align 8
@@ -786,10 +786,10 @@ define hidden void @_ZN11opencv_test28SobelEdgeDetector_Fluid_Test12PerfTestBody
   %9 = alloca %"class.cv::GMat", align 8
   %10 = alloca %"class.cv::GMat", align 8
   %11 = alloca %"class.cv::GMat", align 8
-  %12 = alloca %"class.cv::GMat", align 8
+  %12 = alloca %"class.cv::GMat", align 16
   %13 = alloca %"class.cv::GComputation", align 8
-  %14 = alloca %"class.cv::GMat", align 8
-  %15 = alloca %"class.cv::GMat", align 8
+  %14 = alloca %"class.cv::GMat", align 16
+  %15 = alloca %"class.cv::GMat", align 16
   %16 = alloca %"class.cv::GKernelPackage", align 8
   %17 = alloca %"class.cv::GKernelPackage", align 8
   %18 = alloca %"class.cv::GKernelPackage", align 8
@@ -1057,17 +1057,16 @@ _ZN2cv4GMatD2Ev.exit45:                           ; preds = %_ZN2cv4GMatD2Ev.exi
           to label %142 unwind label %306
 
 142:                                              ; preds = %_ZN2cv4GMatD2Ev.exit45
-  %143 = load ptr, ptr %3, align 8
-  store ptr %143, ptr %14, align 8
-  %144 = getelementptr inbounds i8, ptr %14, i64 8
-  %145 = getelementptr inbounds i8, ptr %3, i64 8
-  %146 = load ptr, ptr %145, align 8
-  store ptr %146, ptr %144, align 8
-  %.not.i.i.i.i46 = icmp eq ptr %146, null
+  %143 = getelementptr inbounds i8, ptr %14, i64 8
+  %144 = getelementptr inbounds i8, ptr %3, i64 8
+  %145 = load ptr, ptr %144, align 8
+  %146 = load <2 x ptr>, ptr %3, align 16
+  store <2 x ptr> %146, ptr %14, align 16
+  %.not.i.i.i.i46 = icmp eq ptr %145, null
   br i1 %.not.i.i.i.i46, label %_ZN2cv4GMatC2ERKS0_.exit, label %147
 
 147:                                              ; preds = %142
-  %148 = getelementptr inbounds i8, ptr %146, i64 8
+  %148 = getelementptr inbounds i8, ptr %145, i64 8
   %149 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i47 = icmp eq i8 %149, 0
   br i1 %.not.i.i.i.i.i47, label %153, label %150
@@ -1083,17 +1082,16 @@ _ZN2cv4GMatD2Ev.exit45:                           ; preds = %_ZN2cv4GMatD2Ev.exi
   br label %_ZN2cv4GMatC2ERKS0_.exit
 
 _ZN2cv4GMatC2ERKS0_.exit:                         ; preds = %142, %150, %153
-  %155 = load ptr, ptr %12, align 8
-  store ptr %155, ptr %15, align 8
-  %156 = getelementptr inbounds i8, ptr %15, i64 8
-  %157 = getelementptr inbounds i8, ptr %12, i64 8
-  %158 = load ptr, ptr %157, align 8
-  store ptr %158, ptr %156, align 8
-  %.not.i.i.i.i48 = icmp eq ptr %158, null
+  %155 = getelementptr inbounds i8, ptr %15, i64 8
+  %156 = getelementptr inbounds i8, ptr %12, i64 8
+  %157 = load ptr, ptr %156, align 8
+  %158 = load <2 x ptr>, ptr %12, align 16
+  store <2 x ptr> %158, ptr %15, align 16
+  %.not.i.i.i.i48 = icmp eq ptr %157, null
   br i1 %.not.i.i.i.i48, label %_ZN2cv4GMatC2ERKS0_.exit50, label %159
 
 159:                                              ; preds = %_ZN2cv4GMatC2ERKS0_.exit
-  %160 = getelementptr inbounds i8, ptr %158, i64 8
+  %160 = getelementptr inbounds i8, ptr %157, i64 8
   %161 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i49 = icmp eq i8 %161, 0
   br i1 %.not.i.i.i.i.i49, label %165, label %162
@@ -1113,7 +1111,7 @@ _ZN2cv4GMatC2ERKS0_.exit50:                       ; preds = %_ZN2cv4GMatC2ERKS0_
           to label %167 unwind label %308
 
 167:                                              ; preds = %_ZN2cv4GMatC2ERKS0_.exit50
-  %168 = load ptr, ptr %156, align 8
+  %168 = load ptr, ptr %155, align 8
   %.not.i.i.i.i51 = icmp eq ptr %168, null
   br i1 %.not.i.i.i.i51, label %_ZN2cv4GMatD2Ev.exit57, label %169
 
@@ -1186,7 +1184,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv4GMatD2Ev.exit57
 
 _ZN2cv4GMatD2Ev.exit57:                           ; preds = %167, %185, %198, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i56
-  %203 = load ptr, ptr %144, align 8
+  %203 = load ptr, ptr %143, align 8
   %.not.i.i.i.i58 = icmp eq ptr %203, null
   br i1 %.not.i.i.i.i58, label %_ZN2cv4GMatD2Ev.exit64, label %204
 
@@ -1714,7 +1712,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv12GComputationD2Ev.exit
 
 _ZN2cv12GComputationD2Ev.exit:                    ; preds = %_ZN2cv9GCompiledD2Ev.exit, %388, %401, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i80
-  %406 = load ptr, ptr %157, align 8
+  %406 = load ptr, ptr %156, align 8
   %.not.i.i.i.i81 = icmp eq ptr %406, null
   br i1 %.not.i.i.i.i81, label %_ZN2cv4GMatD2Ev.exit87, label %407
 
@@ -2009,7 +2007,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv4GMatD2Ev.exit108
 
 _ZN2cv4GMatD2Ev.exit108:                          ; preds = %_ZN2cv4GMatD2Ev.exit101, %531, %544, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i107
-  %549 = load ptr, ptr %145, align 8
+  %549 = load ptr, ptr %144, align 8
   %.not.i.i.i.i109 = icmp eq ptr %549, null
   br i1 %.not.i.i.i.i109, label %_ZN2cv4GMatD2Ev.exit115, label %550
 

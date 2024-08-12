@@ -3003,33 +3003,30 @@ common.resume:                                    ; preds = %100, %.body
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN228_$LT$ockam_core..routing..message..opentelemetry.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17h59bd62e5e9a0cc80E.llvm.15328536302644105373"(ptr noalias nocapture noundef writeonly sret({ ptr, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(16) %1) unnamed_addr #1 {
   %.sroa.5 = alloca [32 x i8], align 8
-  %3 = alloca { ptr, [5 x i64] }, align 8
+  %3 = alloca { ptr, [5 x i64] }, align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_map17h22106a0097a19458E.llvm.15328536302644105373"(ptr noalias nocapture noundef nonnull sret({ ptr, [5 x i64] }) align 8 dereferenceable(48) %3, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
-  %4 = load ptr, ptr %3, align 8, !noundef !4
-  %5 = icmp eq ptr %4, null
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = load ptr, ptr %6, align 8
-  br i1 %5, label %9, label %8
+  %4 = load <2 x ptr>, ptr %3, align 16
+  %5 = load ptr, ptr %3, align 16, !noundef !4
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %8, label %7
 
-8:                                                ; preds = %2
+7:                                                ; preds = %2
   %.sroa.59.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59.0..sroa_idx, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.59.0..sroa_idx, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.5)
-  br label %10
+  br label %9
 
-9:                                                ; preds = %2
+8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  br label %10
+  br label %9
 
-10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %7, ptr %11, align 8
-  store ptr %4, ptr %0, align 8
+9:                                                ; preds = %8, %7
+  store <2 x ptr> %4, ptr %0, align 8
   ret void
 }
 
@@ -6510,7 +6507,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !1558
   %.sroa.417.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 32
   %24 = load <2 x i64>, ptr %.0.i.i2.i.i.i, align 8, !noalias !1567
-  %25 = extractelement <2 x i64> %24, i64 0
+  %25 = load i64, ptr %.0.i.i2.i.i.i, align 8, !noalias !1567, !noundef !4
   %26 = add i64 %25, 1
   store i64 %26, ptr %.0.i.i2.i.i.i, align 8, !noalias !1567
   call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$22fallible_with_capacity17h4651fe06cdf6c512E.llvm.15385779655158985082"(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %10, i64 noundef 0, i1 noundef zeroext true), !noalias !1571
@@ -7552,34 +7549,31 @@ _ZN5serde2de7Visitor9visit_u3217h9a8e8e3617bbbdbeE.exit: ; preds = %20, %18, %13
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$26deserialize_newtype_struct17h4a698c3165774ab4E"(ptr noalias nocapture noundef writeonly sret({ ptr, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
   %.sroa.5.i = alloca [32 x i8], align 8
-  %5 = alloca { ptr, [5 x i64] }, align 8
+  %5 = alloca { ptr, [5 x i64] }, align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1765)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !1768
   call void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_map17h22106a0097a19458E.llvm.15328536302644105373"(ptr noalias nocapture noundef nonnull sret({ ptr, [5 x i64] }) align 8 dereferenceable(48) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1), !noalias !1765
-  %6 = load ptr, ptr %5, align 8, !noalias !1768, !noundef !4
-  %7 = icmp eq ptr %6, null
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !1768
-  br i1 %7, label %11, label %10
+  %6 = load <2 x ptr>, ptr %5, align 16, !noalias !1768
+  %7 = load ptr, ptr %5, align 16, !noalias !1768, !noundef !4
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %10, label %9
 
-10:                                               ; preds = %4
+9:                                                ; preds = %4
   %.sroa.59.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.5.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59.0..sroa_idx.i, i64 32, i1 false), !noalias !1768
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.i, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.59.0..sroa_idx.i, i64 32, i1 false), !noalias !1768
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !1768
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.i, i64 32, i1 false), !noalias !1770
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.5.i)
   br label %"_ZN228_$LT$ockam_core..routing..message..opentelemetry.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17h59bd62e5e9a0cc80E.llvm.15328536302644105373.exit"
 
-11:                                               ; preds = %4
+10:                                               ; preds = %4
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !1768
   br label %"_ZN228_$LT$ockam_core..routing..message..opentelemetry.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17h59bd62e5e9a0cc80E.llvm.15328536302644105373.exit"
 
-"_ZN228_$LT$ockam_core..routing..message..opentelemetry.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17h59bd62e5e9a0cc80E.llvm.15328536302644105373.exit": ; preds = %10, %11
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %9, ptr %12, align 8, !alias.scope !1765, !noalias !1770
-  store ptr %6, ptr %0, align 8, !alias.scope !1765, !noalias !1770
+"_ZN228_$LT$ockam_core..routing..message..opentelemetry.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17h59bd62e5e9a0cc80E.llvm.15328536302644105373.exit": ; preds = %9, %10
+  store <2 x ptr> %6, ptr %0, align 8, !alias.scope !1765, !noalias !1770
   ret void
 }
 

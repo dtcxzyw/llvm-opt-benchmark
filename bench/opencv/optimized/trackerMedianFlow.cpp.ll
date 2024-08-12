@@ -3853,142 +3853,140 @@ define internal fastcc void @_ZN2cv8tracking4implL8getPatchENS_3MatENS_5Size_IiE
   %6 = alloca %"class.cv::Mat", align 8
   %7 = alloca %"class.cv::_InputArray", align 8
   %8 = alloca %"class.cv::_OutputArray", align 8
-  %.sroa.014.0.extract.trunc = trunc i64 %2 to i32
   %.sroa.517.0.extract.shift = lshr i64 %2, 32
-  %.sroa.517.0.extract.trunc = trunc nuw i64 %.sroa.517.0.extract.shift to i32
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #24
   %.sroa.02.0.vec.extract = extractelement <2 x float> %3, i64 0
   %9 = fpext float %.sroa.02.0.vec.extract to double
-  %10 = sitofp i32 %.sroa.014.0.extract.trunc to double
-  %11 = fmul double %10, 5.000000e-01
-  %12 = fsub double %9, %11
-  %13 = insertelement <2 x double> poison, double %12, i64 0
-  %14 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %13)
   %.sroa.02.4.vec.extract = extractelement <2 x float> %3, i64 1
-  %15 = fpext float %.sroa.02.4.vec.extract to double
-  %16 = sitofp i32 %.sroa.517.0.extract.trunc to double
-  %17 = fmul double %16, 5.000000e-01
-  %18 = fsub double %15, %17
-  %19 = insertelement <2 x double> poison, double %18, i64 0
-  %20 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %19)
-  store i32 %14, ptr %5, align 4
-  %21 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %20, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %.sroa.014.0.extract.trunc, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %5, i64 12
-  store i32 %.sroa.517.0.extract.trunc, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 12
-  %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  %27 = load i32, ptr %26, align 8
-  %28 = icmp slt i32 %.sroa.014.0.extract.trunc, 1
-  %29 = icmp slt i32 %.sroa.517.0.extract.trunc, 1
-  %30 = select i1 %28, i1 true, i1 %29
-  br i1 %30, label %.sink.split.i.i, label %31
+  %10 = fpext float %.sroa.02.4.vec.extract to double
+  %.sroa.517.0.extract.trunc = trunc nuw i64 %.sroa.517.0.extract.shift to i32
+  %11 = bitcast i64 %2 to <2 x i32>
+  %.sroa.014.0.extract.trunc = trunc i64 %2 to i32
+  %12 = sitofp <2 x i32> %11 to <2 x double>
+  %13 = fmul <2 x double> %12, <double 5.000000e-01, double 5.000000e-01>
+  %14 = extractelement <2 x double> %13, i64 0
+  %15 = fsub double %9, %14
+  %16 = insertelement <2 x double> poison, double %15, i64 0
+  %17 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %16)
+  %18 = extractelement <2 x double> %13, i64 1
+  %19 = fsub double %10, %18
+  %20 = insertelement <2 x double> poison, double %19, i64 0
+  %21 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %20)
+  store i32 %17, ptr %5, align 4
+  %22 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %21, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %.sroa.014.0.extract.trunc, ptr %23, align 4
+  %24 = getelementptr inbounds i8, ptr %5, i64 12
+  store i32 %.sroa.517.0.extract.trunc, ptr %24, align 4
+  %25 = getelementptr inbounds i8, ptr %1, i64 12
+  %26 = load i32, ptr %25, align 4
+  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp slt i32 %.sroa.014.0.extract.trunc, 1
+  %30 = icmp slt i32 %.sroa.517.0.extract.trunc, 1
+  %31 = select i1 %29, i1 true, i1 %30
+  br i1 %31, label %.sink.split.i.i, label %32
 
-31:                                               ; preds = %4
-  %32 = icmp slt i32 %25, 1
-  %33 = icmp slt i32 %27, 1
-  %34 = select i1 %32, i1 true, i1 %33
-  br i1 %34, label %.sink.split.i.i, label %35
+32:                                               ; preds = %4
+  %33 = icmp slt i32 %26, 1
+  %34 = icmp slt i32 %28, 1
+  %35 = select i1 %33, i1 true, i1 %34
+  br i1 %35, label %.sink.split.i.i, label %36
 
-35:                                               ; preds = %31
-  %36 = icmp slt i32 %14, 0
-  %37 = tail call i32 @llvm.smin.i32(i32 %14, i32 0)
-  %38 = tail call i32 @llvm.smax.i32(i32 %14, i32 0)
-  %39 = add nsw i32 %37, %.sroa.014.0.extract.trunc
-  %40 = icmp slt i32 %39, %38
-  %or.cond23 = select i1 %36, i1 %40, i1 false
-  br i1 %or.cond23, label %.sink.split.i.i, label %41
+36:                                               ; preds = %32
+  %37 = icmp slt i32 %17, 0
+  %38 = tail call i32 @llvm.smin.i32(i32 %17, i32 0)
+  %39 = tail call i32 @llvm.smax.i32(i32 %17, i32 0)
+  %40 = add nsw i32 %38, %.sroa.014.0.extract.trunc
+  %41 = icmp slt i32 %40, %39
+  %or.cond23 = select i1 %37, i1 %41, i1 false
+  br i1 %or.cond23, label %.sink.split.i.i, label %42
 
-41:                                               ; preds = %35
-  %42 = icmp slt i32 %20, 0
-  br i1 %42, label %43, label %._crit_edge.i
+42:                                               ; preds = %36
+  %43 = icmp slt i32 %21, 0
+  br i1 %43, label %44, label %._crit_edge.i
 
-43:                                               ; preds = %41
-  %44 = add nsw i32 %20, %.sroa.517.0.extract.trunc
-  %45 = icmp slt i32 %44, 0
-  br i1 %45, label %.sink.split.i.i, label %._crit_edge.i
+44:                                               ; preds = %42
+  %45 = add nsw i32 %21, %.sroa.517.0.extract.trunc
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %.sink.split.i.i, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %41, %43
-  %.sroa.speculated.i = phi i32 [ %27, %43 ], [ %.sroa.517.0.extract.trunc, %41 ]
-  %.neg49.i.i.pre-phi = phi i32 [ %44, %43 ], [ %27, %41 ]
-  %.sroa.speculated60.pre-phi.i = phi i32 [ 0, %43 ], [ %20, %41 ]
-  %.sroa.speculated49.i = select i1 %36, i32 %.sroa.014.0.extract.trunc, i32 %25
-  %.neg.i.i = sub i32 %37, %38
-  %46 = add i32 %.neg.i.i, %.sroa.speculated49.i
-  %.sroa.speculated43.i = select i1 %36, i32 %25, i32 %.sroa.014.0.extract.trunc
-  %.sroa.speculated53.i.i = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated43.i, i32 %46)
-  %47 = sub nsw i32 %.neg49.i.i.pre-phi, %.sroa.speculated60.pre-phi.i
-  %.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated.i, i32 %47)
-  %48 = icmp slt i32 %.sroa.speculated53.i.i, 1
-  %49 = icmp slt i32 %.sroa.speculated.i.i, 1
-  %50 = select i1 %48, i1 true, i1 %49
-  br i1 %50, label %.sink.split.i.i, label %51
+._crit_edge.i:                                    ; preds = %42, %44
+  %.sroa.speculated.i = phi i32 [ %28, %44 ], [ %.sroa.517.0.extract.trunc, %42 ]
+  %.neg49.i.i.pre-phi = phi i32 [ %45, %44 ], [ %28, %42 ]
+  %.sroa.speculated60.pre-phi.i = phi i32 [ 0, %44 ], [ %21, %42 ]
+  %.sroa.speculated49.i = select i1 %37, i32 %.sroa.014.0.extract.trunc, i32 %26
+  %.neg.i.i = sub i32 %38, %39
+  %47 = add i32 %.neg.i.i, %.sroa.speculated49.i
+  %.sroa.speculated43.i = select i1 %37, i32 %26, i32 %.sroa.014.0.extract.trunc
+  %.sroa.speculated53.i.i = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated43.i, i32 %47)
+  %48 = sub nsw i32 %.neg49.i.i.pre-phi, %.sroa.speculated60.pre-phi.i
+  %.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated.i, i32 %48)
+  %49 = icmp slt i32 %.sroa.speculated53.i.i, 1
+  %50 = icmp slt i32 %.sroa.speculated.i.i, 1
+  %51 = select i1 %49, i1 true, i1 %50
+  br i1 %51, label %.sink.split.i.i, label %52
 
-.sink.split.i.i:                                  ; preds = %35, %._crit_edge.i, %43, %31, %4
-  br label %51
+.sink.split.i.i:                                  ; preds = %36, %._crit_edge.i, %44, %32, %4
+  br label %52
 
-51:                                               ; preds = %.sink.split.i.i, %._crit_edge.i
-  %.sroa.0.sroa.0.0.i = phi i32 [ 0, %.sink.split.i.i ], [ %38, %._crit_edge.i ]
+52:                                               ; preds = %.sink.split.i.i, %._crit_edge.i
+  %.sroa.0.sroa.0.0.i = phi i32 [ 0, %.sink.split.i.i ], [ %39, %._crit_edge.i ]
   %.sroa.0.sroa.6.0.i = phi i32 [ 0, %.sink.split.i.i ], [ %.sroa.speculated60.pre-phi.i, %._crit_edge.i ]
   %.sroa.11.sroa.0.0.i = phi i32 [ 0, %.sink.split.i.i ], [ %.sroa.speculated53.i.i, %._crit_edge.i ]
   %.sroa.11.sroa.8.0.i = phi i32 [ 0, %.sink.split.i.i ], [ %.sroa.speculated.i.i, %._crit_edge.i ]
-  %52 = icmp eq i32 %14, %.sroa.0.sroa.0.0.i
-  %53 = icmp eq i32 %20, %.sroa.0.sroa.6.0.i
-  %or.cond = and i1 %52, %53
-  %54 = icmp eq i32 %.sroa.11.sroa.0.0.i, %.sroa.014.0.extract.trunc
-  %or.cond20 = select i1 %or.cond, i1 %54, i1 false
-  %55 = icmp eq i32 %.sroa.11.sroa.8.0.i, %.sroa.517.0.extract.trunc
-  %or.cond21 = select i1 %or.cond20, i1 %55, i1 false
-  br i1 %or.cond21, label %56, label %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread
+  %53 = icmp eq i32 %17, %.sroa.0.sroa.0.0.i
+  %54 = icmp eq i32 %21, %.sroa.0.sroa.6.0.i
+  %or.cond = and i1 %53, %54
+  %55 = icmp eq i32 %.sroa.11.sroa.0.0.i, %.sroa.014.0.extract.trunc
+  %or.cond20 = and i1 %or.cond, %55
+  %56 = icmp eq i32 %.sroa.11.sroa.8.0.i, %.sroa.517.0.extract.trunc
+  %or.cond21 = select i1 %or.cond20, i1 %56, i1 false
+  br i1 %or.cond21, label %57, label %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread
 
-56:                                               ; preds = %51
+57:                                               ; preds = %52
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 4 dereferenceable(16) %5)
-          to label %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit unwind label %59
+          to label %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit unwind label %60
 
-_ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %56
-  %57 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %6)
-          to label %58 unwind label %61
+_ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %57
+  %58 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %6)
+          to label %59 unwind label %62
 
-58:                                               ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit
+59:                                               ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #24
   br label %76
 
-59:                                               ; preds = %56
-  %60 = landingpad { ptr, i32 }
+60:                                               ; preds = %57
+  %61 = landingpad { ptr, i32 }
           cleanup
   br label %77
 
-61:                                               ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit
-  %62 = landingpad { ptr, i32 }
+62:                                               ; preds = %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit
+  %63 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #24
   br label %77
 
-_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread:     ; preds = %51
-  %63 = getelementptr inbounds i8, ptr %7, i64 16
-  store i32 0, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %7, i64 20
-  store i32 0, ptr %64, align 4
+_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread:     ; preds = %52
+  %64 = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 0, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %7, i64 20
+  store i32 0, ptr %65, align 4
   store i32 16842752, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %1, ptr %65, align 8
-  %66 = sitofp i32 %14 to double
-  %67 = fadd double %11, %66
-  %68 = fptrunc double %67 to float
-  %69 = sitofp i32 %20 to double
-  %70 = fadd double %17, %69
-  %71 = fptrunc double %70 to float
-  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %68, i64 0
-  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %71, i64 1
+  %66 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %1, ptr %66, align 8
+  %67 = insertelement <2 x i32> poison, i32 %17, i64 0
+  %68 = insertelement <2 x i32> %67, i32 %21, i64 1
+  %69 = sitofp <2 x i32> %68 to <2 x double>
+  %70 = fadd <2 x double> %13, %69
+  %71 = fptrunc <2 x double> %70 to <2 x float>
   %72 = getelementptr inbounds i8, ptr %8, i64 8
   %73 = getelementptr inbounds i8, ptr %8, i64 16
   store i64 0, ptr %73, align 8
   store i32 33619968, ptr %8, align 8
   store ptr %0, ptr %72, align 8
-  invoke void @_ZN2cv13getRectSubPixERKNS_11_InputArrayENS_5Size_IiEENS_6Point_IfEERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 %2, <2 x float> %.sroa.0.4.vec.insert, ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef -1)
+  invoke void @_ZN2cv13getRectSubPixERKNS_11_InputArrayENS_5Size_IiEENS_6Point_IfEERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 %2, <2 x float> %71, ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef -1)
           to label %76 unwind label %74
 
 74:                                               ; preds = %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread
@@ -3996,11 +3994,11 @@ _ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread:     ; preds = %51
           cleanup
   br label %77
 
-76:                                               ; preds = %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread, %58
+76:                                               ; preds = %_ZN2cveqIiEEbRKNS_5Rect_IT_EES5_.exit.thread, %59
   ret void
 
-77:                                               ; preds = %74, %61, %59
-  %.pn6 = phi { ptr, i32 } [ %62, %61 ], [ %60, %59 ], [ %75, %74 ]
+77:                                               ; preds = %74, %62, %60
+  %.pn6 = phi { ptr, i32 } [ %63, %62 ], [ %61, %60 ], [ %75, %74 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #24
   resume { ptr, i32 } %.pn6
 }

@@ -2547,34 +2547,32 @@ define hidden void @_ZN29ShenandoahUpdateThreadClosure9do_threadEP6Thread(ptr no
   %12 = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 32
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 40
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 8
-  %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN6Thread7oops_doEP10OopClosureP14NMethodClosure(ptr noundef nonnull align 8 dereferenceable(888) %1, ptr noundef nonnull %20, ptr noundef null) #14
-  %21 = load ptr, ptr %13, align 8
-  %.not.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i, label %23, label %22
+  %15 = load <2 x ptr>, ptr %14, align 8
+  %16 = load ptr, ptr %14, align 8
+  %17 = getelementptr inbounds i8, ptr %11, i64 8
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  tail call void @_ZN6Thread7oops_doEP10OopClosureP14NMethodClosure(ptr noundef nonnull align 8 dereferenceable(888) %1, ptr noundef nonnull %19, ptr noundef null) #14
+  %20 = load ptr, ptr %13, align 8
+  %.not.i.i.i.i = icmp eq ptr %20, null
+  br i1 %.not.i.i.i.i, label %22, label %21
 
-22:                                               ; preds = %7
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %11, i64 noundef %19) #14
+21:                                               ; preds = %7
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %11, i64 noundef %18) #14
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %13) #14
-  br label %23
+  br label %22
 
-23:                                               ; preds = %22, %7
-  %24 = load ptr, ptr %14, align 8
-  %.not8.i.i.i.i = icmp eq ptr %24, %15
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %25
+22:                                               ; preds = %21, %7
+  %23 = load ptr, ptr %14, align 8
+  %.not8.i.i.i.i = icmp eq ptr %23, %16
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %24
 
-25:                                               ; preds = %23
+24:                                               ; preds = %22
   store ptr %13, ptr %12, align 8
-  store ptr %15, ptr %14, align 8
-  store ptr %17, ptr %16, align 8
+  store <2 x ptr> %15, ptr %14, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %25, %23, %2
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %24, %22, %2
   ret void
 }
 

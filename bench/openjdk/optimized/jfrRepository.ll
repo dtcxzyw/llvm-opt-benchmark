@@ -286,56 +286,54 @@ define hidden void @_ZN13JfrRepository14set_chunk_pathEP8_jstringP10JavaThread(p
   %5 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 32
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 40
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
-  %12 = load i64, ptr %11, align 8
-  %13 = tail call noundef ptr @_ZN14JfrJavaSupport5c_strEP8_jstringP6Threadb(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false) #8
-  %14 = icmp eq ptr %13, null
+  %8 = load <2 x ptr>, ptr %7, align 8
+  %9 = load ptr, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = load i64, ptr %10, align 8
+  %12 = tail call noundef ptr @_ZN14JfrJavaSupport5c_strEP8_jstringP6Threadb(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false) #8
+  %13 = icmp eq ptr %12, null
   %.pre = load ptr, ptr @_ZL12_chunkwriter, align 8
-  br i1 %14, label %15, label %18
+  br i1 %13, label %14, label %17
 
-15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %.pre, i64 72
-  %17 = load i32, ptr %16, align 8
-  %.not = icmp eq i32 %17, -1
-  br i1 %.not, label %_ZN13JfrRepository24notify_on_new_chunk_pathEv.exit, label %18
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds i8, ptr %.pre, i64 72
+  %16 = load i32, ptr %15, align 8
+  %.not = icmp eq i32 %16, -1
+  br i1 %.not, label %_ZN13JfrRepository24notify_on_new_chunk_pathEv.exit, label %17
 
-18:                                               ; preds = %15, %2
-  tail call void @_ZN14JfrChunkWriter8set_pathEPKc(ptr noundef nonnull align 8 dereferenceable(88) %.pre, ptr noundef %13) #8
-  %19 = tail call noundef zeroext i1 @_ZN3Jfr12is_recordingEv() #8
-  br i1 %19, label %20, label %_ZN13JfrRepository24notify_on_new_chunk_pathEv.exit
+17:                                               ; preds = %14, %2
+  tail call void @_ZN14JfrChunkWriter8set_pathEPKc(ptr noundef nonnull align 8 dereferenceable(88) %.pre, ptr noundef %12) #8
+  %18 = tail call noundef zeroext i1 @_ZN3Jfr12is_recordingEv() #8
+  br i1 %18, label %19, label %_ZN13JfrRepository24notify_on_new_chunk_pathEv.exit
 
-20:                                               ; preds = %18
-  %21 = load ptr, ptr @_ZL9_instance, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
-  %23 = load ptr, ptr %22, align 8
-  tail call void @_ZN10JfrPostBox4postE7JFR_Msg(ptr noundef nonnull align 8 dereferenceable(21) %23, i32 noundef 3) #8
+19:                                               ; preds = %17
+  %20 = load ptr, ptr @_ZL9_instance, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = load ptr, ptr %21, align 8
+  tail call void @_ZN10JfrPostBox4postE7JFR_Msg(ptr noundef nonnull align 8 dereferenceable(21) %22, i32 noundef 3) #8
   br label %_ZN13JfrRepository24notify_on_new_chunk_pathEv.exit
 
-_ZN13JfrRepository24notify_on_new_chunk_pathEv.exit: ; preds = %20, %18, %15
-  %24 = load ptr, ptr %6, align 8
-  %.not.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i, label %26, label %25
+_ZN13JfrRepository24notify_on_new_chunk_pathEv.exit: ; preds = %19, %17, %14
+  %23 = load ptr, ptr %6, align 8
+  %.not.i.i.i.i = icmp eq ptr %23, null
+  br i1 %.not.i.i.i.i, label %25, label %24
 
-25:                                               ; preds = %_ZN13JfrRepository24notify_on_new_chunk_pathEv.exit
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %12) #8
+24:                                               ; preds = %_ZN13JfrRepository24notify_on_new_chunk_pathEv.exit
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %11) #8
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %6) #8
-  br label %26
+  br label %25
 
-26:                                               ; preds = %25, %_ZN13JfrRepository24notify_on_new_chunk_pathEv.exit
-  %27 = load ptr, ptr %7, align 8
-  %.not8.i.i.i.i = icmp eq ptr %27, %8
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %28
+25:                                               ; preds = %24, %_ZN13JfrRepository24notify_on_new_chunk_pathEv.exit
+  %26 = load ptr, ptr %7, align 8
+  %.not8.i.i.i.i = icmp eq ptr %26, %9
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %27
 
-28:                                               ; preds = %26
+27:                                               ; preds = %25
   store ptr %6, ptr %5, align 8
-  store ptr %8, ptr %7, align 8
-  store ptr %10, ptr %9, align 8
+  store <2 x ptr> %8, ptr %7, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %26, %28
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %25, %27
   ret void
 }
 
@@ -348,62 +346,60 @@ define hidden void @_ZN13JfrRepository8set_pathEP8_jstringP10JavaThread(ptr noun
   %5 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 32
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 40
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
-  %12 = load i64, ptr %11, align 8
-  %13 = tail call noundef ptr @_ZN14JfrJavaSupport5c_strEP8_jstringP6Threadb(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false) #8
-  %.not = icmp eq ptr %13, null
-  br i1 %.not, label %_ZN13JfrRepository8set_pathEPKc.exit, label %14
+  %8 = load <2 x ptr>, ptr %7, align 8
+  %9 = load ptr, ptr %7, align 8
+  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = load i64, ptr %10, align 8
+  %12 = tail call noundef ptr @_ZN14JfrJavaSupport5c_strEP8_jstringP6Threadb(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false) #8
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %_ZN13JfrRepository8set_pathEPKc.exit, label %13
 
-14:                                               ; preds = %2
-  %15 = load ptr, ptr @_ZL9_instance, align 8
-  %16 = load ptr, ptr %15, align 8
-  %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %20, label %17
+13:                                               ; preds = %2
+  %14 = load ptr, ptr @_ZL9_instance, align 8
+  %15 = load ptr, ptr %14, align 8
+  %.not.i = icmp eq ptr %15, null
+  br i1 %.not.i, label %19, label %16
 
-17:                                               ; preds = %14
-  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #9
-  %19 = add i64 %18, 1
-  tail call void @_ZN11JfrCHeapObj4freeEPvm(ptr noundef nonnull %16, i64 noundef %19) #8
-  br label %20
+16:                                               ; preds = %13
+  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #9
+  %18 = add i64 %17, 1
+  tail call void @_ZN11JfrCHeapObj4freeEPvm(ptr noundef nonnull %15, i64 noundef %18) #8
+  br label %19
 
-20:                                               ; preds = %17, %14
-  %21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #9
-  %22 = add i64 %21, 1
-  %23 = tail call noundef ptr @_ZN11JfrCHeapObj23allocate_array_noinlineEmm(i64 noundef %22, i64 noundef 1) #8
-  tail call void @_ZN11JfrCHeapObj20on_memory_allocationEPKvm(ptr noundef %23, i64 noundef %22) #8
-  store ptr %23, ptr %15, align 8
-  %.not8 = icmp eq ptr %23, null
-  br i1 %.not8, label %_ZN13JfrRepository8set_pathEPKc.exit, label %24
+19:                                               ; preds = %16, %13
+  %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %12) #9
+  %21 = add i64 %20, 1
+  %22 = tail call noundef ptr @_ZN11JfrCHeapObj23allocate_array_noinlineEmm(i64 noundef %21, i64 noundef 1) #8
+  tail call void @_ZN11JfrCHeapObj20on_memory_allocationEPKvm(ptr noundef %22, i64 noundef %21) #8
+  store ptr %22, ptr %14, align 8
+  %.not8 = icmp eq ptr %22, null
+  br i1 %.not8, label %_ZN13JfrRepository8set_pathEPKc.exit, label %23
 
-24:                                               ; preds = %20
-  %25 = tail call ptr @strncpy(ptr noundef nonnull %23, ptr noundef nonnull readonly %13, i64 noundef %22) #8
+23:                                               ; preds = %19
+  %24 = tail call ptr @strncpy(ptr noundef nonnull %22, ptr noundef nonnull readonly %12, i64 noundef %21) #8
   br label %_ZN13JfrRepository8set_pathEPKc.exit
 
-_ZN13JfrRepository8set_pathEPKc.exit:             ; preds = %24, %20, %2
-  %26 = load ptr, ptr %6, align 8
-  %.not.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i, label %28, label %27
+_ZN13JfrRepository8set_pathEPKc.exit:             ; preds = %23, %19, %2
+  %25 = load ptr, ptr %6, align 8
+  %.not.i.i.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i.i.i, label %27, label %26
 
-27:                                               ; preds = %_ZN13JfrRepository8set_pathEPKc.exit
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %12) #8
+26:                                               ; preds = %_ZN13JfrRepository8set_pathEPKc.exit
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %4, i64 noundef %11) #8
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %6) #8
-  br label %28
+  br label %27
 
-28:                                               ; preds = %27, %_ZN13JfrRepository8set_pathEPKc.exit
-  %29 = load ptr, ptr %7, align 8
-  %.not8.i.i.i.i = icmp eq ptr %29, %8
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %30
+27:                                               ; preds = %26, %_ZN13JfrRepository8set_pathEPKc.exit
+  %28 = load ptr, ptr %7, align 8
+  %.not8.i.i.i.i = icmp eq ptr %28, %9
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %29
 
-30:                                               ; preds = %28
+29:                                               ; preds = %27
   store ptr %6, ptr %5, align 8
-  store ptr %8, ptr %7, align 8
-  store ptr %10, ptr %9, align 8
+  store <2 x ptr> %8, ptr %7, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %28, %30
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %27, %29
   ret void
 }
 

@@ -22445,14 +22445,15 @@ if.then37:                                        ; preds = %invoke.cont35
 if.end38:                                         ; preds = %if.then37, %invoke.cont35
   %info_log = getelementptr inbounds i8, ptr %options, i64 48
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp39, i64 8
-  %16 = load <2 x ptr>, ptr %info_log, align 8
-  store <2 x ptr> %16, ptr %agg.tmp39, align 16
-  %17 = extractelement <2 x ptr> %16, i64 1
-  %cmp.not.i.i.i28 = icmp eq ptr %17, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %options, i64 56
+  %16 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %17 = load <2 x ptr>, ptr %info_log, align 8
+  store <2 x ptr> %17, ptr %agg.tmp39, align 16
+  %cmp.not.i.i.i28 = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i28, label %_ZNSt10shared_ptrIN7rocksdb6LoggerEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end38
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %18, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

@@ -6602,6 +6602,7 @@ if.then6:                                         ; preds = %if.then3
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %ictl_ctx.i195.i, i64 4
   %arrayidx19.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %slot_ctx.i198.i, i64 4
   %arrayidx21.i.i = getelementptr inbounds i8, ptr %islot_ctx.i197.i, i64 4
+  %arrayidx24.i.i = getelementptr inbounds i8, ptr %islot_ctx.i197.i, i64 8
   %arrayidx57.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ep0_ctx.i196.i, i64 4
   %arrayidx59.i.i = getelementptr inbounds i8, ptr %iep0_ctx.i.i, i64 4
   %tv_usec.i.i.i176.i = getelementptr inbounds i8, ptr %_now.i.i.i118.i, i64 8
@@ -7866,12 +7867,12 @@ do.end.i41.i.i:                                   ; preds = %if.then32.i40.i.i, 
 xhci_dma_read_u32s.exit44.i.i:                    ; preds = %do.end.i41.i.i, %xhci_dma_read_u32s.exit33.xhci_dma_read_u32s.exit44_crit_edge.i.i
   %164 = phi <2 x i32> [ %161, %xhci_dma_read_u32s.exit33.xhci_dma_read_u32s.exit44_crit_edge.i.i ], [ <i32 -65536, i32 4194303>, %do.end.i41.i.i ]
   %intr.i230.i = getelementptr inbounds i8, ptr %arrayidx.i186.i, i64 2
-  %165 = load <2 x i32>, ptr %arrayidx21.i.i, align 4
-  %166 = extractelement <2 x i32> %165, i64 1
-  %shr.i228.i = lshr i32 %166, 22
+  %165 = load i32, ptr %arrayidx24.i.i, align 8
+  %166 = load <2 x i32>, ptr %arrayidx21.i.i, align 4
+  %shr.i228.i = lshr i32 %165, 22
   %conv.i229.i = trunc nuw nsw i32 %shr.i228.i to i16
   store i16 %conv.i229.i, ptr %intr.i230.i, align 2
-  %167 = and <2 x i32> %165, <i32 65535, i32 -4194304>
+  %167 = and <2 x i32> %166, <i32 65535, i32 -4194304>
   %168 = or disjoint <2 x i32> %167, %164
   store <2 x i32> %168, ptr %arrayidx19.phi.trans.insert.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %tmp.i.i193.i)

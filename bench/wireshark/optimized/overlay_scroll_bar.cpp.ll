@@ -539,84 +539,81 @@ define void @_ZN16OverlayScrollBar19setNearOverlayImageER6QImageiii5QListIiEi(pt
   %13 = getelementptr inbounds i8, ptr %0, i64 160
   store i32 %4, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 168
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
-  %19 = load i64, ptr %18, align 8
-  %.not.i.i.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i.i.i, label %_ZN17QArrayDataPointerIiEC2ERKS0_.exit.i.i, label %20
+  %15 = load <2 x ptr>, ptr %5, align 8
+  %16 = load ptr, ptr %5, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %18 = load i64, ptr %17, align 8
+  %.not.i.i.i.i = icmp eq ptr %16, null
+  br i1 %.not.i.i.i.i, label %_ZN17QArrayDataPointerIiEC2ERKS0_.exit.i.i, label %19
 
-20:                                               ; preds = %7
-  %21 = atomicrmw add ptr %15, i32 1 seq_cst, align 4
+19:                                               ; preds = %7
+  %20 = atomicrmw add ptr %16, i32 1 seq_cst, align 4
   br label %_ZN17QArrayDataPointerIiEC2ERKS0_.exit.i.i
 
-_ZN17QArrayDataPointerIiEC2ERKS0_.exit.i.i:       ; preds = %20, %7
-  %22 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %14, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 176
-  store ptr %17, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 184
-  store i64 %19, ptr %24, align 8
-  %.not.i.i2.i.i = icmp eq ptr %22, null
+_ZN17QArrayDataPointerIiEC2ERKS0_.exit.i.i:       ; preds = %19, %7
+  %21 = load ptr, ptr %14, align 8
+  store <2 x ptr> %15, ptr %14, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 184
+  store i64 %18, ptr %22, align 8
+  %.not.i.i2.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i2.i.i, label %_ZN5QListIiEaSERKS0_.exit, label %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i
 
 _ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i:     ; preds = %_ZN17QArrayDataPointerIiEC2ERKS0_.exit.i.i
-  %25 = atomicrmw sub ptr %22, i32 1 seq_cst, align 4
-  %.not.i.i.i = icmp eq i32 %25, 1
-  br i1 %.not.i.i.i, label %26, label %_ZN5QListIiEaSERKS0_.exit
+  %23 = atomicrmw sub ptr %21, i32 1 seq_cst, align 4
+  %.not.i.i.i = icmp eq i32 %23, 1
+  br i1 %.not.i.i.i, label %24, label %_ZN5QListIiEaSERKS0_.exit
 
-26:                                               ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i
-  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %22, i64 noundef 4, i64 noundef 8) #11
+24:                                               ; preds = %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i
+  tail call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %21, i64 noundef 4, i64 noundef 8) #11
   br label %_ZN5QListIiEaSERKS0_.exit
 
-_ZN5QListIiEaSERKS0_.exit:                        ; preds = %_ZN17QArrayDataPointerIiEC2ERKS0_.exit.i.i, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i, %26
-  %27 = sitofp i32 %6 to double
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+_ZN5QListIiEaSERKS0_.exit:                        ; preds = %_ZN17QArrayDataPointerIiEC2ERKS0_.exit.i.i, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i, %24
+  %25 = sitofp i32 %6 to double
+  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 32
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call noundef i32 %31(ptr noundef nonnull align 8 dereferenceable(10) %28, i32 noundef 12)
-  %33 = sitofp i32 %32 to double
-  %34 = fmul double %33, 0x3EF0000000000000
-  %35 = fcmp olt double %34, %27
-  br i1 %35, label %43, label %36
+  %30 = tail call noundef i32 %29(ptr noundef nonnull align 8 dereferenceable(10) %26, i32 noundef 12)
+  %31 = sitofp i32 %30 to double
+  %32 = fmul double %31, 0x3EF0000000000000
+  %33 = fcmp olt double %32, %25
+  br i1 %33, label %41, label %34
 
-36:                                               ; preds = %_ZN5QListIiEaSERKS0_.exit
-  %37 = load ptr, ptr %28, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = tail call noundef i32 %39(ptr noundef nonnull align 8 dereferenceable(10) %28, i32 noundef 12)
-  %41 = sitofp i32 %40 to double
-  %42 = fmul double %41, 0x3EF0000000000000
-  br label %43
+34:                                               ; preds = %_ZN5QListIiEaSERKS0_.exit
+  %35 = load ptr, ptr %26, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 32
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(10) %26, i32 noundef 12)
+  %39 = sitofp i32 %38 to double
+  %40 = fmul double %39, 0x3EF0000000000000
+  br label %41
 
-43:                                               ; preds = %_ZN5QListIiEaSERKS0_.exit, %36
-  %44 = phi double [ %42, %36 ], [ %27, %_ZN5QListIiEaSERKS0_.exit ]
-  %45 = fptosi double %44 to i32
-  %46 = getelementptr inbounds i8, ptr %0, i64 192
-  store i32 %45, ptr %46, align 8
-  %47 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
-  %.not = icmp eq i32 %9, %47
-  br i1 %.not, label %60, label %48
+41:                                               ; preds = %_ZN5QListIiEaSERKS0_.exit, %34
+  %42 = phi double [ %40, %34 ], [ %25, %_ZN5QListIiEaSERKS0_.exit ]
+  %43 = fptosi double %42 to i32
+  %44 = getelementptr inbounds i8, ptr %0, i64 192
+  store i32 %43, ptr %44, align 8
+  %45 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
+  %.not = icmp eq i32 %9, %45
+  br i1 %.not, label %58, label %46
 
-48:                                               ; preds = %43
-  %49 = load ptr, ptr %28, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 32
-  %51 = load ptr, ptr %50, align 8
-  %52 = tail call noundef i32 %51(ptr noundef nonnull align 8 dereferenceable(10) %28, i32 noundef 12)
-  %53 = sitofp i32 %52 to double
-  %54 = fmul double %53, 0x3EF0000000000000
-  %55 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
-  %56 = sitofp i32 %55 to double
-  %57 = fdiv double %56, %54
-  %58 = fptosi double %57 to i32
-  %59 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 %58, ptr %59, align 8
+46:                                               ; preds = %41
+  %47 = load ptr, ptr %26, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 32
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call noundef i32 %49(ptr noundef nonnull align 8 dereferenceable(10) %26, i32 noundef 12)
+  %51 = sitofp i32 %50 to double
+  %52 = fmul double %51, 0x3EF0000000000000
+  %53 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
+  %54 = sitofp i32 %53 to double
+  %55 = fdiv double %54, %52
+  %56 = fptosi double %55 to i32
+  %57 = getelementptr inbounds i8, ptr %0, i64 144
+  store i32 %56, ptr %57, align 8
   tail call void @_ZN7QWidget14updateGeometryEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  br label %60
+  br label %58
 
-60:                                               ; preds = %48, %43
+58:                                               ; preds = %46, %41
   tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   ret void
 }

@@ -1345,7 +1345,7 @@ define internal void @_ZN4node11credentialsL10SafeGetenvERKN2v820FunctionCallbac
 entry:
   %strenvtag = alloca %"class.node::Utf8Value", align 8
   %text = alloca %"class.std::__cxx11::basic_string", align 8
-  %agg.tmp19 = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp19 = alloca %"class.std::shared_ptr", align 16
   %length_.i59 = getelementptr inbounds i8, ptr %args, i64 16
   %0 = load i32, ptr %length_.i59, align 8
   %cmp2.i60 = icmp slt i32 %0, 1
@@ -1450,13 +1450,12 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %30 = load ptr, ptr %buf_.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %env_vars_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 1384
-  %31 = load ptr, ptr %env_vars_.i, align 8, !noalias !6
-  store ptr %31, ptr %agg.tmp19, align 8, !alias.scope !6
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp19, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 1392
-  %32 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !6
-  store ptr %32, ptr %_M_refcount.i.i.i, align 8, !alias.scope !6
-  %cmp.not.i.i.i.i = icmp eq ptr %32, null
+  %31 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !6
+  %32 = load <2 x ptr>, ptr %env_vars_.i, align 8, !noalias !6
+  store <2 x ptr> %32, ptr %agg.tmp19, align 16, !alias.scope !6
+  %cmp.not.i.i.i.i = icmp eq ptr %31, null
   br i1 %cmp.not.i.i.i.i, label %_ZN4node11Environment8env_varsEv.exit.thread, label %if.then.i.i.i.i
 
 _ZN4node11Environment8env_varsEv.exit.thread:     ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
@@ -1464,7 +1463,7 @@ _ZN4node11Environment8env_varsEv.exit.thread:     ; preds = %_ZNK2v820FunctionCa
   br i1 %call2023, label %if.end23, label %cleanup
 
 if.then.i.i.i.i:                                  ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load i8, ptr @__libc_single_threaded, align 1, !noalias !6
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %33, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZN4node11Environment8env_varsEv.exit, label %_ZN4node11Environment8env_varsEv.exit.thread38
@@ -1485,7 +1484,7 @@ _ZN4node11Environment8env_varsEv.exit:            ; preds = %if.then.i.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4node11Environment8env_varsEv.exit.thread38, %_ZN4node11Environment8env_varsEv.exit
   %call2043 = phi i1 [ %call2040, %_ZN4node11Environment8env_varsEv.exit.thread38 ], [ %call20, %_ZN4node11Environment8env_varsEv.exit ]
-  %.pr42 = phi ptr [ %32, %_ZN4node11Environment8env_varsEv.exit.thread38 ], [ %.pr.pre, %_ZN4node11Environment8env_varsEv.exit ]
+  %.pr42 = phi ptr [ %31, %_ZN4node11Environment8env_varsEv.exit.thread38 ], [ %.pr.pre, %_ZN4node11Environment8env_varsEv.exit ]
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %.pr42, i64 8
   %36 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i17 = icmp eq i64 %36, 4294967297

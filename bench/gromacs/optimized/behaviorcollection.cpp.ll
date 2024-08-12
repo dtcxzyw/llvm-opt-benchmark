@@ -368,83 +368,84 @@ _ZNKSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE12_M_check_lenEmPK
 _ZNSt12_Vector_baseISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"class.std::shared_ptr", ptr %23, i64 %19
-  %25 = load <2 x ptr>, ptr %2, align 8
-  store <2 x ptr> %25, ptr %24, align 8
-  %26 = extractelement <2 x ptr> %25, i64 1
+  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = load <2 x ptr>, ptr %2, align 8
+  store <2 x ptr> %27, ptr %24, align 8
   %.not.i.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx16IOptionsBehaviorEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit, label %27
+  br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx16IOptionsBehaviorEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit, label %28
 
-27:                                               ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_M_allocateEm.exit
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
-  %29 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %29, 0
-  br i1 %.not.i.i.i.i.i.i, label %33, label %30
+28:                                               ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_M_allocateEm.exit
+  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %30, 0
+  br i1 %.not.i.i.i.i.i.i, label %34, label %31
 
-30:                                               ; preds = %27
-  %31 = load i32, ptr %28, align 4
-  %32 = add nsw i32 %31, 1
-  store i32 %32, ptr %28, align 4
+31:                                               ; preds = %28
+  %32 = load i32, ptr %29, align 4
+  %33 = add nsw i32 %32, 1
+  store i32 %33, ptr %29, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx16IOptionsBehaviorEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
 
-33:                                               ; preds = %27
-  %34 = atomicrmw volatile add ptr %28, i32 1 acq_rel, align 4
+34:                                               ; preds = %28
+  %35 = atomicrmw volatile add ptr %29, i32 1 acq_rel, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx16IOptionsBehaviorEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
 
-_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx16IOptionsBehaviorEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_M_allocateEm.exit, %30, %33
+_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx16IOptionsBehaviorEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_M_allocateEm.exit, %31, %34
   %.not10.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx16IOptionsBehaviorEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx16IOptionsBehaviorEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ]
-  %.0911.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx16IOptionsBehaviorEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ]
+  %.012.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx16IOptionsBehaviorEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ]
+  %.0911.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx16IOptionsBehaviorEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
-  %35 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
-  %36 = load <2 x ptr>, ptr %.0911.i.i.i, align 8, !alias.scope !15, !noalias !12
-  store ptr null, ptr %35, align 8, !alias.scope !15, !noalias !12
-  store <2 x ptr> %36, ptr %.012.i.i.i, align 8, !alias.scope !12, !noalias !15
+  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 8
+  %37 = load <2 x ptr>, ptr %.0911.i.i.i, align 8, !alias.scope !15, !noalias !12
+  store ptr null, ptr %36, align 8, !alias.scope !15, !noalias !12
+  store <2 x ptr> %37, ptr %.012.i.i.i, align 8, !alias.scope !12, !noalias !15
   store ptr null, ptr %.0911.i.i.i, align 8, !alias.scope !15, !noalias !12
-  %37 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
-  %38 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
-  %.not.i.i.i = icmp eq ptr %37, %1
+  %38 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 16
+  %39 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 16
+  %.not.i.i.i = icmp eq ptr %38, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !11
 
 _ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx16IOptionsBehaviorEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx16IOptionsBehaviorEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ], [ %38, %.lr.ph.i.i.i ]
-  %39 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 16
+  %.0.lcssa.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx16IOptionsBehaviorEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ], [ %39, %.lr.ph.i.i.i ]
+  %40 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 16
   %.not10.i.i.i16 = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i16, label %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i17
-  %.012.i.i.i18 = phi ptr [ %43, %.lr.ph.i.i.i17 ], [ %39, %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
-  %.0911.i.i.i19 = phi ptr [ %42, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+  %.012.i.i.i18 = phi ptr [ %44, %.lr.ph.i.i.i17 ], [ %40, %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+  %.0911.i.i.i19 = phi ptr [ %43, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  %40 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 8
-  %41 = load <2 x ptr>, ptr %.0911.i.i.i19, align 8, !alias.scope !20, !noalias !17
-  store ptr null, ptr %40, align 8, !alias.scope !20, !noalias !17
-  store <2 x ptr> %41, ptr %.012.i.i.i18, align 8, !alias.scope !17, !noalias !20
+  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 8
+  %42 = load <2 x ptr>, ptr %.0911.i.i.i19, align 8, !alias.scope !20, !noalias !17
+  store ptr null, ptr %41, align 8, !alias.scope !20, !noalias !17
+  store <2 x ptr> %42, ptr %.012.i.i.i18, align 8, !alias.scope !17, !noalias !20
   store ptr null, ptr %.0911.i.i.i19, align 8, !alias.scope !20, !noalias !17
-  %42 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
-  %43 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
-  %.not.i.i.i20 = icmp eq ptr %42, %5
+  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i19, i64 16
+  %44 = getelementptr inbounds i8, ptr %.012.i.i.i18, i64 16
+  %.not.i.i.i20 = icmp eq ptr %43, %5
   br i1 %.not.i.i.i20, label %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !11
 
 _ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
-  %.0.lcssa.i.i.i21 = phi ptr [ %39, %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %43, %.lr.ph.i.i.i17 ]
+  %.0.lcssa.i.i.i21 = phi ptr [ %40, %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %44, %.lr.ph.i.i.i17 ]
   %.not.i23 = icmp eq ptr %6, null
-  br i1 %.not.i23, label %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE13_M_deallocateEPS3_m.exit, label %44
+  br i1 %.not.i23, label %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE13_M_deallocateEPS3_m.exit, label %45
 
-44:                                               ; preds = %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22
+45:                                               ; preds = %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22
   tail call void @_ZdlPv(ptr noundef nonnull %6) #14
   br label %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE13_M_deallocateEPS3_m.exit
 
-_ZNSt12_Vector_baseISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %44
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %45
+  %46 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %46 = getelementptr inbounds %"class.std::shared_ptr", ptr %23, i64 %16
-  store ptr %46, ptr %45, align 8
+  %47 = getelementptr inbounds %"class.std::shared_ptr", ptr %23, i64 %16
+  store ptr %47, ptr %46, align 8
   ret void
 }
 

@@ -15156,17 +15156,14 @@ if.then31:                                        ; preds = %if.end28
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %if.then31
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %v_geom, i64 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %v_geom, i64 16
   %22 = load ptr, ptr %ref.tmp32, align 8, !tbaa !189
   store ptr %22, ptr %v_geom, align 8, !tbaa !189
   %_M_finish.i3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp32, i64 8
-  %23 = load ptr, ptr %_M_finish.i3.i.i.i, align 8, !tbaa !190
-  store ptr %23, ptr %_M_finish.i.i.i.i, align 8, !tbaa !190
-  %_M_end_of_storage.i5.i.i.i = getelementptr inbounds i8, ptr %ref.tmp32, i64 16
-  %24 = load ptr, ptr %_M_end_of_storage.i5.i.i.i, align 8, !tbaa !266
-  store ptr %24, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !266
+  %23 = load <2 x ptr>, ptr %_M_finish.i3.i.i.i, align 8, !tbaa !182
+  %24 = load ptr, ptr %_M_finish.i3.i.i.i, align 8, !tbaa !190
+  store <2 x ptr> %23, ptr %_M_finish.i.i.i.i, align 8, !tbaa !182
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp32) #32
-  %sub.ptr.lhs.cast.i331 = ptrtoint ptr %23 to i64
+  %sub.ptr.lhs.cast.i331 = ptrtoint ptr %24 to i64
   %sub.ptr.rhs.cast.i332 = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i333 = sub i64 %sub.ptr.lhs.cast.i331, %sub.ptr.rhs.cast.i332
   %cmp39.not = icmp eq i64 %sub.ptr.sub.i333, 64
@@ -15304,7 +15301,7 @@ lpad41:                                           ; preds = %call1.i.noexc703, %
 
 if.end56:                                         ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %if.end28
   %add = phi i64 [ 2, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ 1, %if.end28 ]
-  %38 = phi ptr [ %23, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ null, %if.end28 ]
+  %38 = phi ptr [ %24, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ null, %if.end28 ]
   %39 = phi ptr [ %22, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ null, %if.end28 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %name) #32
   %add.ptr.i376 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre795, i64 %add
@@ -16130,7 +16127,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit592: ; preds = %if
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit592, %call1.i.noexc703, %invoke.cont51, %invoke.cont49, %invoke.cont46, %invoke.cont44, %invoke.cont42, %call.i.noexc342
-  %194 = phi ptr [ %23, %call.i.noexc342 ], [ %23, %invoke.cont42 ], [ %23, %invoke.cont46 ], [ %23, %invoke.cont44 ], [ %23, %invoke.cont49 ], [ %23, %invoke.cont51 ], [ %23, %call1.i.noexc703 ], [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit592 ]
+  %194 = phi ptr [ %24, %call.i.noexc342 ], [ %24, %invoke.cont42 ], [ %24, %invoke.cont46 ], [ %24, %invoke.cont44 ], [ %24, %invoke.cont49 ], [ %24, %invoke.cont51 ], [ %24, %call1.i.noexc703 ], [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit592 ]
   %.pr.i603 = phi ptr [ %22, %call.i.noexc342 ], [ %22, %invoke.cont42 ], [ %22, %invoke.cont46 ], [ %22, %invoke.cont44 ], [ %22, %invoke.cont49 ], [ %22, %invoke.cont51 ], [ %22, %call1.i.noexc703 ], [ %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit592 ]
   %cmp.not3.i.i.i.i594 = icmp eq ptr %.pr.i603, %194
   br i1 %cmp.not3.i.i.i.i594, label %invoke.cont.i604, label %for.body.i.i.i.i595

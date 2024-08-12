@@ -801,7 +801,7 @@ declare void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN11opencv_test37CompilerPerfTest_TestPerformance_Test12PerfTestBodyEv(ptr noundef nonnull align 8 dereferenceable(673) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = alloca %"class.cv::GMat", align 8
+  %2 = alloca %"class.cv::GMat", align 16
   %3 = alloca %"class.std::tuple.10", align 8
   %4 = alloca %"class.cv::GMat", align 8
   %5 = alloca %"class.cv::GScalar", align 8
@@ -809,10 +809,10 @@ define hidden void @_ZN11opencv_test37CompilerPerfTest_TestPerformance_Test12Per
   %7 = alloca %"class.cv::GScalar", align 8
   %8 = alloca %"class.cv::GMat", align 8
   %9 = alloca %"class.cv::GScalar", align 8
-  %10 = alloca %"class.cv::GMat", align 8
+  %10 = alloca %"class.cv::GMat", align 16
   %11 = alloca %"class.cv::GComputation", align 8
-  %12 = alloca %"class.cv::GMat", align 8
-  %13 = alloca %"class.cv::GMat", align 8
+  %12 = alloca %"class.cv::GMat", align 16
+  %13 = alloca %"class.cv::GMat", align 16
   %14 = alloca %"class.cv::Mat", align 8
   %15 = alloca %"class.std::vector.20", align 8
   %16 = alloca %"class.cv::GKernelPackage", align 8
@@ -1104,15 +1104,14 @@ _ZN2cv7GScalarD2Ev.exit35:                        ; preds = %100, %119, %132, %_
   br i1 %148, label %150, label %.critedge
 
 150:                                              ; preds = %149
-  %151 = load ptr, ptr %2, align 8
-  store ptr %151, ptr %12, align 8
-  %152 = load ptr, ptr %138, align 8
-  store ptr %152, ptr %137, align 8
-  %.not.i.i.i.i36 = icmp eq ptr %152, null
+  %151 = load ptr, ptr %138, align 8
+  %152 = load <2 x ptr>, ptr %2, align 16
+  store <2 x ptr> %152, ptr %12, align 16
+  %.not.i.i.i.i36 = icmp eq ptr %151, null
   br i1 %.not.i.i.i.i36, label %_ZN2cv4GMatC2ERKS0_.exit, label %153
 
 153:                                              ; preds = %150
-  %154 = getelementptr inbounds i8, ptr %152, i64 8
+  %154 = getelementptr inbounds i8, ptr %151, i64 8
   %155 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i37 = icmp eq i8 %155, 0
   br i1 %.not.i.i.i.i.i37, label %159, label %156
@@ -1128,15 +1127,14 @@ _ZN2cv7GScalarD2Ev.exit35:                        ; preds = %100, %119, %132, %_
   br label %_ZN2cv4GMatC2ERKS0_.exit
 
 _ZN2cv4GMatC2ERKS0_.exit:                         ; preds = %150, %156, %159
-  %161 = load ptr, ptr %10, align 8
-  store ptr %161, ptr %13, align 8
-  %162 = load ptr, ptr %140, align 8
-  store ptr %162, ptr %139, align 8
-  %.not.i.i.i.i38 = icmp eq ptr %162, null
+  %161 = load ptr, ptr %140, align 8
+  %162 = load <2 x ptr>, ptr %10, align 16
+  store <2 x ptr> %162, ptr %13, align 16
+  %.not.i.i.i.i38 = icmp eq ptr %161, null
   br i1 %.not.i.i.i.i38, label %_ZN2cv4GMatC2ERKS0_.exit40, label %163
 
 163:                                              ; preds = %_ZN2cv4GMatC2ERKS0_.exit
-  %164 = getelementptr inbounds i8, ptr %162, i64 8
+  %164 = getelementptr inbounds i8, ptr %161, i64 8
   %165 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i39 = icmp eq i8 %165, 0
   br i1 %.not.i.i.i.i.i39, label %169, label %166

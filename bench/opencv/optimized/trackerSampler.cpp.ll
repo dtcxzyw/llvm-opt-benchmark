@@ -418,7 +418,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN2cv6detail8tracking21TrackerContribSampler26addTrackerSamplerAlgorithmENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"struct.cv::Ptr", align 8
+  %3 = alloca %"struct.cv::Ptr", align 16
   %4 = alloca %"struct.std::pair", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load i8, ptr %5, align 8
@@ -427,7 +427,7 @@ define noundef zeroext i1 @_ZN2cv6detail8tracking21TrackerContribSampler26addTra
 
 8:                                                ; preds = %2
   call void @_ZN2cv6detail8tracking30TrackerContribSamplerAlgorithm6createERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %9 = load ptr, ptr %3, align 8
+  %9 = load ptr, ptr %3, align 16
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %76
 
@@ -438,17 +438,16 @@ define noundef zeroext i1 @_ZN2cv6detail8tracking21TrackerContribSampler26addTra
 
 .noexc:                                           ; preds = %11
   %12 = getelementptr inbounds i8, ptr %4, i64 32
-  %13 = load ptr, ptr %3, align 8, !noalias !9
-  store ptr %13, ptr %12, align 8, !alias.scope !9
-  %14 = getelementptr inbounds i8, ptr %4, i64 40
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
-  %16 = load ptr, ptr %15, align 8, !noalias !9
-  store ptr %16, ptr %14, align 8, !alias.scope !9
-  %.not.i.i.i.i.i.i = icmp eq ptr %16, null
+  %13 = getelementptr inbounds i8, ptr %4, i64 40
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = load ptr, ptr %14, align 8, !noalias !9
+  %16 = load <2 x ptr>, ptr %3, align 16, !noalias !9
+  store <2 x ptr> %16, ptr %12, align 8, !alias.scope !9
+  %.not.i.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt9make_pairIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSF_INSG_IT0_E4typeEE6__typeEEOSH_OSM_.exit, label %17
 
 17:                                               ; preds = %.noexc
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds i8, ptr %15, i64 8
   %19 = load i8, ptr @__libc_single_threaded, align 1, !noalias !9
   %.not.i.i.i.i.i.i.i = icmp eq i8 %19, 0
   br i1 %.not.i.i.i.i.i.i.i, label %23, label %20
@@ -478,8 +477,8 @@ _ZSt9make_pairIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN2cv3PtrINS
   store ptr %31, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %26, i64 40
   store ptr null, ptr %32, align 8
-  %33 = load ptr, ptr %14, align 8
-  store ptr null, ptr %14, align 8
+  %33 = load ptr, ptr %13, align 8
+  store ptr null, ptr %13, align 8
   store ptr %33, ptr %32, align 8
   store ptr null, ptr %12, align 8
   %34 = load ptr, ptr %25, align 8
@@ -492,7 +491,7 @@ _ZSt9make_pairIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN2cv3PtrINS
           to label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE9push_backEOSD_.exit unwind label %74
 
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE9push_backEOSD_.exit: ; preds = %29, %36
-  %37 = load ptr, ptr %14, align 8
+  %37 = load ptr, ptr %13, align 8
   %.not.i.i.i.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS6_6detail8tracking30TrackerContribSamplerAlgorithmEEEED2Ev.exit, label %38
 
@@ -846,17 +845,16 @@ define noundef zeroext i1 @_ZN2cv6detail8tracking21TrackerContribSampler26addTra
 
 .noexc:                                           ; preds = %10
   %11 = getelementptr inbounds i8, ptr %4, i64 32
-  %12 = load ptr, ptr %1, align 8, !noalias !12
-  store ptr %12, ptr %11, align 8, !alias.scope !12
-  %13 = getelementptr inbounds i8, ptr %4, i64 40
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !noalias !12
-  store ptr %15, ptr %13, align 8, !alias.scope !12
-  %.not.i.i.i.i.i.i = icmp eq ptr %15, null
+  %12 = getelementptr inbounds i8, ptr %4, i64 40
+  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = load ptr, ptr %13, align 8, !noalias !12
+  %15 = load <2 x ptr>, ptr %1, align 8, !noalias !12
+  store <2 x ptr> %15, ptr %11, align 8, !alias.scope !12
+  %.not.i.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt9make_pairIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSF_INSG_IT0_E4typeEE6__typeEEOSH_OSM_.exit, label %16
 
 16:                                               ; preds = %.noexc
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds i8, ptr %14, i64 8
   %18 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
   %.not.i.i.i.i.i.i.i = icmp eq i8 %18, 0
   br i1 %.not.i.i.i.i.i.i.i, label %22, label %19
@@ -886,8 +884,8 @@ _ZSt9make_pairIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN2cv3PtrINS
   store ptr %30, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %25, i64 40
   store ptr null, ptr %31, align 8
-  %32 = load ptr, ptr %13, align 8
-  store ptr null, ptr %13, align 8
+  %32 = load ptr, ptr %12, align 8
+  store ptr null, ptr %12, align 8
   store ptr %32, ptr %31, align 8
   store ptr null, ptr %11, align 8
   %33 = load ptr, ptr %24, align 8
@@ -900,7 +898,7 @@ _ZSt9make_pairIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN2cv3PtrINS
           to label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE9push_backEOSD_.exit unwind label %73
 
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE9push_backEOSD_.exit: ; preds = %28, %35
-  %36 = load ptr, ptr %13, align 8
+  %36 = load ptr, ptr %12, align 8
   %.not.i.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS6_6detail8tracking30TrackerContribSamplerAlgorithmEEEED2Ev.exit, label %37
 

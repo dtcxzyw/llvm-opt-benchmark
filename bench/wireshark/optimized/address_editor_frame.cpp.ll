@@ -687,8 +687,8 @@ define void @_ZN18AddressEditorFrame15addressToStringERK16FieldInformation(ptr d
   %3 = alloca i32, align 4
   %4 = alloca %struct._address, align 8
   %5 = alloca %"struct.FieldInformation::HeaderInfo", align 8
-  %6 = alloca %class.QString, align 8
-  %7 = alloca %class.QString, align 8
+  %6 = alloca %class.QString, align 16
+  %7 = alloca %class.QString, align 16
   %8 = tail call noundef zeroext i1 @_ZNK16FieldInformation7isValidEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   br i1 %8, label %13, label %9
 
@@ -697,7 +697,7 @@ define void @_ZN18AddressEditorFrame15addressToStringERK16FieldInformation(ptr d
   br label %_ZN7QStringD2Ev.exit28
 
 10:                                               ; preds = %70, %51
-  %.sroa.031.0.ph = phi ptr [ %41, %51 ], [ %60, %70 ]
+  %.sroa.031.0.ph = phi ptr [ %43, %51 ], [ %62, %70 ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i = icmp eq ptr %.sroa.031.0.ph, null
@@ -791,14 +791,14 @@ _ZN7QStringD2Ev.exit11:                           ; preds = %_ZN16FieldInformati
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %40 = call ptr @address_to_str(ptr noundef null, ptr noundef nonnull %4)
   call void @_Z21gchar_free_to_qstringPc(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef %40)
-  %41 = load ptr, ptr %6, align 8
-  store ptr null, ptr %6, align 8
-  %42 = getelementptr inbounds i8, ptr %6, i64 8
-  %43 = load ptr, ptr %42, align 8
-  store ptr null, ptr %42, align 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 8
+  %42 = load <2 x ptr>, ptr %6, align 16
+  %43 = load ptr, ptr %6, align 16
+  store ptr null, ptr %6, align 16
+  store ptr null, ptr %41, align 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
-  %45 = load i64, ptr %44, align 8
-  store i64 0, ptr %44, align 8
+  %45 = load i64, ptr %44, align 16
+  store i64 0, ptr %44, align 16
   %46 = load i32, ptr %4, align 8
   %.not.i.i12 = icmp ne i32 %46, 0
   %47 = load i32, ptr %34, align 4
@@ -829,14 +829,14 @@ _ZN7QStringD2Ev.exit16:                           ; preds = %_ZN16FieldInformati
   store ptr null, ptr %58, align 8
   %59 = call ptr @address_to_str(ptr noundef null, ptr noundef nonnull %4)
   call void @_Z21gchar_free_to_qstringPc(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %7, ptr noundef %59)
-  %60 = load ptr, ptr %7, align 8
-  store ptr null, ptr %7, align 8
-  %61 = getelementptr inbounds i8, ptr %7, i64 8
-  %62 = load ptr, ptr %61, align 8
-  store ptr null, ptr %61, align 8
+  %60 = getelementptr inbounds i8, ptr %7, i64 8
+  %61 = load <2 x ptr>, ptr %7, align 16
+  %62 = load ptr, ptr %7, align 16
+  store ptr null, ptr %7, align 16
+  store ptr null, ptr %60, align 8
   %63 = getelementptr inbounds i8, ptr %7, i64 16
-  %64 = load i64, ptr %63, align 8
-  store i64 0, ptr %63, align 8
+  %64 = load i64, ptr %63, align 16
+  store i64 0, ptr %63, align 16
   %65 = load i32, ptr %4, align 8
   %.not.i.i17 = icmp ne i32 %65, 0
   %66 = load i32, ptr %56, align 4
@@ -854,12 +854,9 @@ _ZN7QStringD2Ev.exit16:                           ; preds = %_ZN16FieldInformati
           to label %_ZN7QStringD2Ev.exit24 unwind label %10
 
 _ZN7QStringD2Ev.exit24:                           ; preds = %68, %_ZN7QStringD2Ev.exit16, %70, %49, %_ZN7QStringD2Ev.exit11, %51, %_ZN16FieldInformation10HeaderInfoD2Ev.exit
-  %.sroa.031.2 = phi ptr [ null, %_ZN16FieldInformation10HeaderInfoD2Ev.exit ], [ %41, %51 ], [ %41, %_ZN7QStringD2Ev.exit11 ], [ %41, %49 ], [ %60, %70 ], [ %60, %_ZN7QStringD2Ev.exit16 ], [ %60, %68 ]
-  %.sroa.13.0 = phi ptr [ null, %_ZN16FieldInformation10HeaderInfoD2Ev.exit ], [ %43, %51 ], [ %43, %_ZN7QStringD2Ev.exit11 ], [ %43, %49 ], [ %62, %70 ], [ %62, %_ZN7QStringD2Ev.exit16 ], [ %62, %68 ]
   %.sroa.21.0 = phi i64 [ 0, %_ZN16FieldInformation10HeaderInfoD2Ev.exit ], [ %45, %51 ], [ %45, %_ZN7QStringD2Ev.exit11 ], [ %45, %49 ], [ %64, %70 ], [ %64, %_ZN7QStringD2Ev.exit16 ], [ %64, %68 ]
-  store ptr %.sroa.031.2, ptr %0, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.13.0, ptr %71, align 8
+  %71 = phi <2 x ptr> [ zeroinitializer, %_ZN16FieldInformation10HeaderInfoD2Ev.exit ], [ %42, %51 ], [ %42, %_ZN7QStringD2Ev.exit11 ], [ %42, %49 ], [ %61, %70 ], [ %61, %_ZN7QStringD2Ev.exit16 ], [ %61, %68 ]
+  store <2 x ptr> %71, ptr %0, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.21.0, ptr %72, align 8
   br label %_ZN7QStringD2Ev.exit28
@@ -3261,13 +3258,12 @@ _ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit: ; preds = %
   br i1 %7, label %95, label %101
 
 95:                                               ; preds = %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit
-  %96 = load ptr, ptr %3, align 8
+  %96 = getelementptr inbounds i8, ptr %3, i64 8
+  %97 = load <2 x ptr>, ptr %3, align 8
+  %98 = load ptr, ptr %3, align 8
   store ptr %88, ptr %3, align 8
-  store ptr %96, ptr %5, align 16
-  %97 = getelementptr inbounds i8, ptr %3, i64 8
-  %98 = load ptr, ptr %97, align 8
-  store ptr %90, ptr %97, align 8
-  store ptr %98, ptr %29, align 8
+  store ptr %90, ptr %96, align 8
+  store <2 x ptr> %97, ptr %5, align 16
   %99 = getelementptr inbounds i8, ptr %3, i64 16
   %100 = load i64, ptr %99, align 8
   store i64 %93, ptr %99, align 8
@@ -3275,7 +3271,7 @@ _ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit: ; preds = %
   br label %101
 
 101:                                              ; preds = %95, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit
-  %102 = phi ptr [ %96, %95 ], [ %88, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit ]
+  %102 = phi ptr [ %98, %95 ], [ %88, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit ]
   %.not.i.i = icmp eq ptr %102, null
   br i1 %.not.i.i, label %_ZN17QArrayDataPointerI7QStringED2Ev.exit, label %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i
 

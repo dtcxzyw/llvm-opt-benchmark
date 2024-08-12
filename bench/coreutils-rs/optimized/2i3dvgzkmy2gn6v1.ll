@@ -96,11 +96,11 @@ define hidden void @"_ZN100_$LT$rayon..slice..chunks..ChunksMutProducer$LT$T$GT$
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8, !noundef !4
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = load i64, ptr %6, align 8, !noundef !4
+  %8 = load <2 x i64>, ptr %5, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
-  %9 = icmp eq i64 %8, 0
+  %9 = icmp eq i64 %7, 0
   br i1 %9, label %10, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h36c770a0d6aa21e8E.llvm.687266931824691263.exit"
 
 10:                                               ; preds = %2
@@ -120,9 +120,7 @@ define hidden void @"_ZN100_$LT$rayon..slice..chunks..ChunksMutProducer$LT$T$GT$
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$10chunks_mut17h36c770a0d6aa21e8E.llvm.687266931824691263.exit": ; preds = %2
   store ptr %4, ptr %0, align 8, !alias.scope !6, !noalias !13
   %15 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %6, ptr %15, align 8, !alias.scope !6, !noalias !13
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %8, ptr %16, align 8, !alias.scope !6, !noalias !13
+  store <2 x i64> %8, ptr %15, align 8, !alias.scope !6, !noalias !13
   ret void
 }
 
@@ -3648,7 +3646,7 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h2
   %28 = getelementptr inbounds i8, ptr %13, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false), !alias.scope !674
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  br label %52
+  br label %56
 
 29:                                               ; preds = %22, %25
   %.sink.i = phi i64 [ %26, %25 ], [ %.0.sroa.speculated.i.i, %22 ]
@@ -3803,31 +3801,27 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h2
 _ZN10rayon_core8registry9in_worker17h62aed3435f8edab6E.exit: ; preds = %43, %47
   %.sroa.053.0.copyload = load ptr, ptr %14, align 8
   %.sroa.355.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
-  %.sroa.355.0.copyload = load i64, ptr %.sroa.355.0..sroa_idx, align 8
   %.sroa.558.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 16
-  %.sroa.558.0.copyload = load i64, ptr %.sroa.558.0..sroa_idx, align 8
   %48 = getelementptr inbounds i8, ptr %14, i64 24
   %.sroa.061.0.copyload = load ptr, ptr %48, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 32
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.362.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 40
-  %.sroa.362.0.copyload = load i64, ptr %.sroa.362.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
-  %49 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %.sroa.053.0.copyload, i64 %.sroa.558.0.copyload
-  %.not.i13 = icmp eq ptr %49, %.sroa.061.0.copyload
-  %50 = select i1 %.not.i13, i64 %.sroa.2.0.copyload, i64 0
-  %.sroa.355.0 = add i64 %50, %.sroa.355.0.copyload
-  %51 = select i1 %.not.i13, i64 %.sroa.362.0.copyload, i64 0
-  %.sroa.558.0 = add i64 %51, %.sroa.558.0.copyload
-  store ptr %.sroa.053.0.copyload, ptr %0, align 8, !alias.scope !690, !noalias !694
   %.sroa.355.0..sroa_idx56 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.355.0, ptr %.sroa.355.0..sroa_idx56, align 8, !alias.scope !690, !noalias !694
-  %.sroa.558.0..sroa_idx59 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.558.0, ptr %.sroa.558.0..sroa_idx59, align 8, !alias.scope !690, !noalias !694
+  %.sroa.558.0.copyload = load i64, ptr %.sroa.558.0..sroa_idx, align 8
+  %49 = load <2 x i64>, ptr %.sroa.355.0..sroa_idx, align 8
+  %50 = load <2 x i64>, ptr %.sroa.2.0..sroa_idx, align 8
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
+  %51 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %.sroa.053.0.copyload, i64 %.sroa.558.0.copyload
+  %.not.i13 = icmp eq ptr %51, %.sroa.061.0.copyload
+  %52 = insertelement <2 x i1> poison, i1 %.not.i13, i64 0
+  %53 = shufflevector <2 x i1> %52, <2 x i1> poison, <2 x i32> zeroinitializer
+  %54 = select <2 x i1> %53, <2 x i64> %50, <2 x i64> zeroinitializer
+  %55 = add <2 x i64> %54, %49
+  store ptr %.sroa.053.0.copyload, ptr %0, align 8, !alias.scope !690, !noalias !694
+  store <2 x i64> %55, ptr %.sroa.355.0..sroa_idx56, align 8, !alias.scope !690, !noalias !694
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
-  br label %52
+  br label %56
 
-52:                                               ; preds = %.critedge, %_ZN10rayon_core8registry9in_worker17h62aed3435f8edab6E.exit
+56:                                               ; preds = %.critedge, %_ZN10rayon_core8registry9in_worker17h62aed3435f8edab6E.exit
   ret void
 }
 

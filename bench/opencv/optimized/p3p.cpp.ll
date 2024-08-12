@@ -88,9 +88,9 @@ define hidden void @_ZN3p3pC2EN2cv3MatE(ptr nocapture noundef nonnull writeonly 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %7, i64 8
   %11 = load float, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = fpext float %11 to double
-  store double %13, ptr %12, align 8
+  %12 = fpext float %11 to double
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %12, ptr %13, align 8
   %14 = load ptr, ptr %6, align 8
   %15 = load ptr, ptr %8, align 8
   %16 = load i64, ptr %15, align 8
@@ -113,7 +113,7 @@ define hidden void @_ZN3p3pC2EN2cv3MatE(ptr nocapture noundef nonnull writeonly 
   %31 = fpext float %30 to double
   %32 = insertelement <2 x double> poison, double %24, i64 0
   %33 = insertelement <2 x double> %32, double %31, i64 1
-  %34 = insertelement <2 x double> poison, double %13, i64 0
+  %34 = insertelement <2 x double> poison, double %12, i64 0
   %35 = insertelement <2 x double> %34, double %20, i64 1
   br label %59
 
@@ -146,17 +146,17 @@ define hidden void @_ZN3p3pC2EN2cv3MatE(ptr nocapture noundef nonnull writeonly 
   br label %59
 
 59:                                               ; preds = %36, %9
-  %60 = phi <2 x double> [ %33, %9 ], [ %56, %36 ]
-  %61 = phi <2 x double> [ %35, %9 ], [ %58, %36 ]
+  %.sink = phi double [ %31, %9 ], [ %54, %36 ]
+  %60 = phi <2 x double> [ %35, %9 ], [ %58, %36 ]
+  %61 = phi <2 x double> [ %33, %9 ], [ %56, %36 ]
   %62 = getelementptr inbounds i8, ptr %0, i64 8
-  %63 = extractelement <2 x double> %60, i64 1
-  store double %63, ptr %62, align 8
-  %64 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %60
-  %65 = getelementptr inbounds i8, ptr %0, i64 32
-  store <2 x double> %64, ptr %65, align 8
+  store double %.sink, ptr %62, align 8
+  %63 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %61
+  %64 = getelementptr inbounds i8, ptr %0, i64 32
+  store <2 x double> %63, ptr %64, align 8
+  %65 = fdiv <2 x double> %60, %61
   %66 = getelementptr inbounds i8, ptr %0, i64 48
-  %67 = fdiv <2 x double> %61, %60
-  store <2 x double> %67, ptr %66, align 8
+  store <2 x double> %65, ptr %66, align 8
   ret void
 }
 
@@ -2243,28 +2243,28 @@ define hidden noundef i32 @_ZN3p3p5solveEPA3_A3_dPS0_ddddddddddddddddddddb(ptr n
   %35 = insertelement <2 x double> poison, double %3, i64 0
   %36 = insertelement <2 x double> %35, double %4, i64 1
   %37 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %32, <2 x double> %36, <2 x double> %34)
-  %38 = insertelement <2 x double> poison, double %8, i64 0
-  %39 = insertelement <2 x double> %38, double %9, i64 1
-  %40 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %32, <2 x double> %39, <2 x double> %34)
-  %41 = insertelement <2 x double> poison, double %13, i64 0
-  %42 = insertelement <2 x double> %41, double %14, i64 1
-  %43 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %32, <2 x double> %42, <2 x double> %34)
-  %44 = fmul <2 x double> %43, %43
-  %45 = extractelement <2 x double> %44, i64 1
-  %46 = extractelement <2 x double> %43, i64 0
-  %47 = tail call double @llvm.fmuladd.f64(double %46, double %46, double %45)
-  %48 = fadd double %47, 1.000000e+00
-  %sqrt198 = tail call double @llvm.sqrt.f64(double %48)
-  %49 = fdiv double 1.000000e+00, %sqrt198
-  %50 = insertelement <2 x double> poison, double %49, i64 0
-  %51 = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> zeroinitializer
-  %52 = fmul <2 x double> %43, %51
-  %53 = extractelement <2 x double> %32, i64 0
-  %54 = extractelement <2 x double> %34, i64 0
-  %55 = tail call double @llvm.fmuladd.f64(double %53, double %18, double %54)
-  %56 = extractelement <2 x double> %32, i64 1
-  %57 = extractelement <2 x double> %34, i64 1
-  %58 = tail call double @llvm.fmuladd.f64(double %56, double %19, double %57)
+  %38 = extractelement <2 x double> %32, i64 0
+  %39 = extractelement <2 x double> %34, i64 0
+  %40 = extractelement <2 x double> %32, i64 1
+  %41 = extractelement <2 x double> %34, i64 1
+  %42 = insertelement <2 x double> poison, double %8, i64 0
+  %43 = insertelement <2 x double> %42, double %9, i64 1
+  %44 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %32, <2 x double> %43, <2 x double> %34)
+  %45 = insertelement <2 x double> poison, double %13, i64 0
+  %46 = insertelement <2 x double> %45, double %14, i64 1
+  %47 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %32, <2 x double> %46, <2 x double> %34)
+  %48 = fmul <2 x double> %47, %47
+  %49 = extractelement <2 x double> %48, i64 1
+  %50 = extractelement <2 x double> %47, i64 0
+  %51 = tail call double @llvm.fmuladd.f64(double %50, double %50, double %49)
+  %52 = fadd double %51, 1.000000e+00
+  %sqrt198 = tail call double @llvm.sqrt.f64(double %52)
+  %53 = fdiv double 1.000000e+00, %sqrt198
+  %54 = insertelement <2 x double> poison, double %53, i64 0
+  %55 = shufflevector <2 x double> %54, <2 x double> poison, <2 x i32> zeroinitializer
+  %56 = fmul <2 x double> %47, %55
+  %57 = tail call double @llvm.fmuladd.f64(double %38, double %18, double %39)
+  %58 = tail call double @llvm.fmuladd.f64(double %40, double %19, double %41)
   %59 = insertelement <2 x double> poison, double %10, i64 0
   %60 = insertelement <2 x double> %59, double %5, i64 1
   %61 = insertelement <2 x double> poison, double %15, i64 0
@@ -2294,9 +2294,9 @@ define hidden noundef i32 @_ZN3p3p5solveEPA3_A3_dPS0_ddddddddddddddddddddb(ptr n
   %sqrt = tail call double @llvm.sqrt.f64(double %83)
   %84 = getelementptr inbounds i8, ptr %25, i64 16
   store double %sqrt, ptr %84, align 16
-  %85 = shufflevector <2 x double> %40, <2 x double> %37, <2 x i32> <i32 1, i32 3>
+  %85 = shufflevector <2 x double> %44, <2 x double> %37, <2 x i32> <i32 1, i32 3>
   %86 = fmul <2 x double> %85, %85
-  %87 = shufflevector <2 x double> %40, <2 x double> %37, <2 x i32> <i32 0, i32 2>
+  %87 = shufflevector <2 x double> %44, <2 x double> %37, <2 x i32> <i32 0, i32 2>
   %88 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %87, <2 x double> %87, <2 x double> %86)
   %89 = fadd <2 x double> %88, <double 1.000000e+00, double 1.000000e+00>
   %90 = tail call <2 x double> @llvm.sqrt.v2f64(<2 x double> %89)
@@ -2304,16 +2304,16 @@ define hidden noundef i32 @_ZN3p3p5solveEPA3_A3_dPS0_ddddddddddddddddddddb(ptr n
   %92 = shufflevector <2 x double> %91, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %93 = fmul <2 x double> %37, %92
   %94 = shufflevector <2 x double> %91, <2 x double> poison, <2 x i32> zeroinitializer
-  %95 = fmul <2 x double> %40, %94
+  %95 = fmul <2 x double> %44, %94
   %96 = extractelement <2 x double> %95, i64 0
   %97 = shufflevector <2 x double> %95, <2 x double> %93, <2 x i32> <i32 1, i32 3>
-  %98 = shufflevector <2 x double> %52, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %98 = shufflevector <2 x double> %56, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %99 = fmul <2 x double> %97, %98
   %100 = extractelement <2 x double> %93, i64 0
   %101 = shufflevector <2 x double> %95, <2 x double> %93, <2 x i32> <i32 0, i32 2>
-  %102 = shufflevector <2 x double> %52, <2 x double> poison, <2 x i32> zeroinitializer
+  %102 = shufflevector <2 x double> %56, <2 x double> poison, <2 x i32> zeroinitializer
   %103 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %101, <2 x double> %102, <2 x double> %99)
-  %104 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %91, <2 x double> %51, <2 x double> %103)
+  %104 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %91, <2 x double> %55, <2 x double> %103)
   store <2 x double> %104, ptr %26, align 16
   %105 = fmul <2 x double> %93, %95
   %106 = extractelement <2 x double> %105, i64 1
@@ -2375,9 +2375,9 @@ define hidden noundef i32 @_ZN3p3p5solveEPA3_A3_dPS0_ddddddddddddddddddddb(ptr n
   %142 = load double, ptr %141, align 8
   %143 = insertelement <2 x double> poison, double %142, i64 0
   %144 = shufflevector <2 x double> %143, <2 x double> poison, <2 x i32> zeroinitializer
-  %145 = fmul <2 x double> %52, %144
+  %145 = fmul <2 x double> %56, %144
   store <2 x double> %145, ptr %118, align 16
-  %146 = fmul double %49, %142
+  %146 = fmul double %53, %142
   store double %146, ptr %119, align 16
   %147 = getelementptr inbounds [3 x [3 x double]], ptr %1, i64 %indvars.iv211
   %148 = getelementptr inbounds [3 x double], ptr %2, i64 %indvars.iv211
@@ -2424,7 +2424,7 @@ define hidden noundef i32 @_ZN3p3p5solveEPA3_A3_dPS0_ddddddddddddddddddddb(ptr n
   %189 = extractelement <2 x double> %187, i64 1
   %190 = fdiv double %188, %189
   %191 = fdiv double %167, %189
-  %192 = fsub double %190, %55
+  %192 = fsub double %190, %57
   %193 = fsub double %191, %58
   %194 = fmul double %193, %193
   %195 = tail call double @llvm.fmuladd.f64(double %192, double %192, double %194)
@@ -2450,9 +2450,9 @@ define hidden noundef i32 @_ZN3p3p5solveEPA3_A3_dPS0_ddddddddddddddddddddb(ptr n
   %205 = load double, ptr %204, align 8
   %206 = insertelement <2 x double> poison, double %205, i64 0
   %207 = shufflevector <2 x double> %206, <2 x double> poison, <2 x i32> zeroinitializer
-  %208 = fmul <2 x double> %52, %207
+  %208 = fmul <2 x double> %56, %207
   store <2 x double> %208, ptr %118, align 16
-  %209 = fmul double %49, %205
+  %209 = fmul double %53, %205
   store double %209, ptr %119, align 16
   %210 = getelementptr inbounds [3 x [3 x double]], ptr %1, i64 %indvars.iv
   %211 = getelementptr inbounds [3 x double], ptr %2, i64 %indvars.iv

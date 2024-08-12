@@ -14543,7 +14543,7 @@ define linkonce_odr hidden void @_ZN34pull_nested_quantifiers_simplifier6reduceE
 entry:
   %new_curr = alloca %class.obj_ref.352, align 8
   %new_pr = alloca %class.obj_ref.494, align 8
-  %d = alloca %class.dependent_expr, align 8
+  %d = alloca %class.dependent_expr, align 16
   %ref.tmp20 = alloca %class.dependent_expr, align 8
   %m_fmls = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_fmls, align 8
@@ -14608,30 +14608,27 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
           to label %invoke.cont13 unwind label %lpad3.loopexit
 
 invoke.cont13:                                    ; preds = %for.body
-  %11 = load ptr, ptr %call14, align 8
-  store ptr %11, ptr %d, align 8
   %m_fml3.i = getelementptr inbounds i8, ptr %call14, i64 8
-  %12 = load ptr, ptr %m_fml3.i, align 8
-  store ptr %12, ptr %m_fml.i, align 8
+  %11 = load ptr, ptr %m_fml3.i, align 8
+  %12 = load <2 x ptr>, ptr %call14, align 8
+  store <2 x ptr> %12, ptr %d, align 16
   %m_proof4.i = getelementptr inbounds i8, ptr %call14, i64 16
-  %13 = load ptr, ptr %m_proof4.i, align 8
-  store ptr %13, ptr %m_proof.i, align 8
-  %m_dep5.i = getelementptr inbounds i8, ptr %call14, i64 24
-  %14 = load ptr, ptr %m_dep5.i, align 8
-  store ptr %14, ptr %m_dep.i, align 8
-  %tobool.not.i.i = icmp eq ptr %12, null
+  %13 = load <2 x ptr>, ptr %m_proof4.i, align 8
+  %14 = load ptr, ptr %m_proof4.i, align 8
+  store <2 x ptr> %13, ptr %m_proof.i, align 16
+  %tobool.not.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i, label %_ZN11ast_manager7inc_refEP3ast.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont13
-  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %15 = load i32, ptr %m_ref_count.i.i.i, align 4
   %inc.i.i.i = add i32 %15, 1
   store i32 %inc.i.i.i, ptr %m_ref_count.i.i.i, align 4
-  %.pre.i = load ptr, ptr %m_proof.i, align 8
+  %.pre.i = load ptr, ptr %m_proof.i, align 16
   br label %_ZN11ast_manager7inc_refEP3ast.exit.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %if.then.i.i, %invoke.cont13
-  %16 = phi ptr [ %13, %invoke.cont13 ], [ %.pre.i, %if.then.i.i ]
+  %16 = phi ptr [ %14, %invoke.cont13 ], [ %.pre.i, %if.then.i.i ]
   %tobool.not.i4.i = icmp eq ptr %16, null
   br i1 %tobool.not.i4.i, label %_ZN11ast_manager7inc_refEP3ast.exit8.i, label %if.then.i5.i
 
@@ -14665,7 +14662,7 @@ invoke.cont18:                                    ; preds = %invoke.cont15
   %20 = load ptr, ptr %m_fmls, align 8
   %21 = load ptr, ptr %m, align 8
   %22 = load ptr, ptr %new_curr, align 8
-  %23 = load ptr, ptr %m_proof.i, align 8
+  %23 = load ptr, ptr %m_proof.i, align 16
   %24 = load ptr, ptr %new_pr, align 8
   %tobool.i = icmp ne ptr %23, null
   %tobool2.i = icmp ne ptr %24, null
@@ -16186,7 +16183,7 @@ define linkonce_odr hidden void @_ZN19rewriter_simplifier6reduceEv(ptr noundef n
 invoke.cont4:
   %new_curr = alloca %class.obj_ref.352, align 8
   %new_pr = alloca %class.obj_ref.494, align 8
-  %d = alloca %class.dependent_expr, align 8
+  %d = alloca %class.dependent_expr, align 16
   %ref.tmp22 = alloca %class.dependent_expr, align 8
   %m_num_steps = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %m_num_steps, align 8
@@ -16248,30 +16245,27 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
           to label %invoke.cont11 unwind label %lpad3.loopexit
 
 invoke.cont11:                                    ; preds = %for.body
-  %10 = load ptr, ptr %call12, align 8
-  store ptr %10, ptr %d, align 8
   %m_fml3.i = getelementptr inbounds i8, ptr %call12, i64 8
-  %11 = load ptr, ptr %m_fml3.i, align 8
-  store ptr %11, ptr %m_fml.i, align 8
+  %10 = load ptr, ptr %m_fml3.i, align 8
+  %11 = load <2 x ptr>, ptr %call12, align 8
+  store <2 x ptr> %11, ptr %d, align 16
   %m_proof4.i = getelementptr inbounds i8, ptr %call12, i64 16
-  %12 = load ptr, ptr %m_proof4.i, align 8
-  store ptr %12, ptr %m_proof.i, align 8
-  %m_dep5.i = getelementptr inbounds i8, ptr %call12, i64 24
-  %13 = load ptr, ptr %m_dep5.i, align 8
-  store ptr %13, ptr %m_dep.i, align 8
-  %tobool.not.i.i = icmp eq ptr %11, null
+  %12 = load <2 x ptr>, ptr %m_proof4.i, align 8
+  %13 = load ptr, ptr %m_proof4.i, align 8
+  store <2 x ptr> %12, ptr %m_proof.i, align 16
+  %tobool.not.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i, label %_ZN11ast_manager7inc_refEP3ast.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont11
-  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %14 = load i32, ptr %m_ref_count.i.i.i, align 4
   %inc.i.i.i = add i32 %14, 1
   store i32 %inc.i.i.i, ptr %m_ref_count.i.i.i, align 4
-  %.pre.i = load ptr, ptr %m_proof.i, align 8
+  %.pre.i = load ptr, ptr %m_proof.i, align 16
   br label %_ZN11ast_manager7inc_refEP3ast.exit.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %if.then.i.i, %invoke.cont11
-  %15 = phi ptr [ %12, %invoke.cont11 ], [ %.pre.i, %if.then.i.i ]
+  %15 = phi ptr [ %13, %invoke.cont11 ], [ %.pre.i, %if.then.i.i ]
   %tobool.not.i4.i = icmp eq ptr %15, null
   br i1 %tobool.not.i4.i, label %_ZN11ast_manager7inc_refEP3ast.exit8.i, label %if.then.i5.i
 
@@ -16312,7 +16306,7 @@ invoke.cont18:                                    ; preds = %invoke.cont16
   %20 = load ptr, ptr %m_fmls.i.i, align 8
   %21 = load ptr, ptr %m, align 8
   %22 = load ptr, ptr %new_curr, align 8
-  %23 = load ptr, ptr %m_proof.i, align 8
+  %23 = load ptr, ptr %m_proof.i, align 16
   %24 = load ptr, ptr %new_pr, align 8
   %tobool.i = icmp ne ptr %23, null
   %tobool2.i = icmp ne ptr %24, null

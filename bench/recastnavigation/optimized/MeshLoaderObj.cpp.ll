@@ -665,19 +665,19 @@ _ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit:     ; preds = %._crit_edge17.i, %1
   %200 = shufflevector <2 x float> %195, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %201 = insertelement <2 x float> %200, float %192, i64 1
   %202 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %194, <2 x float> %201, <2 x float> %199)
+  %203 = extractelement <2 x float> %202, i64 0
   store <2 x float> %202, ptr %191, align 4
-  %203 = extractelement <2 x float> %194, i64 0
-  %204 = fneg float %203
-  %205 = fmul float %192, %204
-  %206 = extractelement <2 x float> %195, i64 0
-  %207 = call float @llvm.fmuladd.f32(float %193, float %206, float %205)
-  %208 = getelementptr inbounds i8, ptr %191, i64 8
-  store float %207, ptr %208, align 4
-  %209 = fmul <2 x float> %202, %202
-  %210 = extractelement <2 x float> %209, i64 1
-  %211 = extractelement <2 x float> %202, i64 0
-  %212 = call float @llvm.fmuladd.f32(float %211, float %211, float %210)
-  %213 = call float @llvm.fmuladd.f32(float %207, float %207, float %212)
+  %204 = extractelement <2 x float> %194, i64 0
+  %205 = fneg float %204
+  %206 = fmul float %192, %205
+  %207 = extractelement <2 x float> %195, i64 0
+  %208 = call float @llvm.fmuladd.f32(float %193, float %207, float %206)
+  %209 = getelementptr inbounds i8, ptr %191, i64 8
+  store float %208, ptr %209, align 4
+  %210 = fmul <2 x float> %202, %202
+  %211 = extractelement <2 x float> %210, i64 1
+  %212 = call float @llvm.fmuladd.f32(float %203, float %203, float %211)
+  %213 = call float @llvm.fmuladd.f32(float %208, float %208, float %212)
   %214 = fcmp ogt float %213, 0.000000e+00
   br i1 %214, label %215, label %221
 
@@ -688,8 +688,8 @@ _ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit:     ; preds = %._crit_edge17.i, %1
   %218 = shufflevector <2 x float> %217, <2 x float> poison, <2 x i32> zeroinitializer
   %219 = fmul <2 x float> %218, %202
   store <2 x float> %219, ptr %191, align 4
-  %220 = fmul float %216, %207
-  store float %220, ptr %208, align 4
+  %220 = fmul float %216, %208
+  store float %220, ptr %209, align 4
   br label %221
 
 221:                                              ; preds = %189, %215

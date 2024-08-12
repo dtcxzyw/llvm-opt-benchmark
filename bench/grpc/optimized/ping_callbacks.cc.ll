@@ -419,12 +419,9 @@ _ZNSt6vectorIN4absl12lts_2023080212AnyInvocableIFvvEEESaIS4_EED2Ev.exit: ; preds
   store ptr %15, ptr %cbs, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %cbs, i64 8
   %_M_finish3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %16 = load ptr, ptr %_M_finish3.i.i.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %cbs, i64 16
-  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %17 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %16 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i, align 8
+  %17 = load ptr, ptr %_M_finish3.i.i.i.i, align 8
+  store <2 x ptr> %16, ptr %_M_finish.i.i.i.i, align 8
   %on_ack_.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %on_start_, i8 0, i64 24, i1 false)
   %.pre = load ptr, ptr %on_ack_.phi.trans.insert, align 8
@@ -515,7 +512,7 @@ invoke.cont:                                      ; preds = %for.body.i.i, %call
   store i64 %3, ptr %most_recent_inflight_, align 8
   %ping_requested_ = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %ping_requested_, align 8
-  %cmp.i.not51 = icmp eq ptr %15, %16
+  %cmp.i.not51 = icmp eq ptr %15, %17
   br i1 %cmp.i.not51, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont, %for.inc
@@ -527,7 +524,7 @@ for.body:                                         ; preds = %invoke.cont, %for.i
 
 for.inc:                                          ; preds = %for.body
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.052, i64 32
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %16
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %17
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 lpad.loopexit:                                    ; preds = %for.body

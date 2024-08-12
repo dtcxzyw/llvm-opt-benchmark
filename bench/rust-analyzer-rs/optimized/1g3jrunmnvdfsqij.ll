@@ -906,7 +906,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.15907
 "_ZN73_$LT$std..hash..random..RandomState$u20$as$u20$core..default..Default$GT$7default17h6420f6cd5f39a78aE.llvm.1590763243138948660.exit": ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfd8a4bdb01ccd71dE.llvm.1590763243138948660.exit", %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.1590763243138948660.exit.i
   %.0.i.i2.i = phi ptr [ %11, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.1590763243138948660.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfd8a4bdb01ccd71dE.llvm.1590763243138948660.exit" ]
   %14 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !322
-  %15 = extractelement <2 x i64> %14, i64 0
+  %15 = load i64, ptr %.0.i.i2.i, align 8, !noalias !322, !noundef !9
   %16 = add i64 %15, 1
   store i64 %16, ptr %.0.i.i2.i, align 8, !noalias !322
   tail call void @llvm.experimental.noalias.scope.decl(metadata !326)
@@ -1088,7 +1088,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17ha4991892
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load <2 x i64>, ptr %4, align 8
-  %9 = extractelement <2 x i64> %8, i64 0
+  %9 = load i64, ptr %4, align 8, !noundef !9
   %10 = add i64 %9, 1
   store i64 %10, ptr %4, align 8
   store <2 x i64> %8, ptr %7, align 8

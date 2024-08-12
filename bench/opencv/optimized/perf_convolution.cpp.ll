@@ -1402,13 +1402,13 @@ define internal fastcc void @_ZN11opencv_testL9build_netERKNS_11ConvParam_tEN2cv
   %132 = getelementptr inbounds i8, ptr %113, i64 12
   %133 = load i32, ptr %132, align 4
   %134 = load <2 x i32>, ptr %131, align 4
-  %135 = load i32, ptr %13, align 4
-  store i32 %135, ptr %22, align 16
-  %136 = getelementptr inbounds i8, ptr %22, i64 4
-  %137 = load i32, ptr %14, align 4
-  %138 = extractelement <2 x i32> %134, i64 0
-  %139 = sdiv i32 %138, %137
-  store i32 %139, ptr %136, align 4
+  %135 = load i32, ptr %131, align 4
+  %136 = load i32, ptr %13, align 4
+  store i32 %136, ptr %22, align 16
+  %137 = getelementptr inbounds i8, ptr %22, i64 4
+  %138 = load i32, ptr %14, align 4
+  %139 = sdiv i32 %135, %138
+  store i32 %139, ptr %137, align 4
   %140 = getelementptr inbounds i8, ptr %22, i64 8
   %141 = getelementptr inbounds i8, ptr %12, i64 4
   %142 = load <2 x i32>, ptr %12, align 8

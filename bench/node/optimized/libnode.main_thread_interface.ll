@@ -1222,17 +1222,15 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %if.end
 
 if.end:                                           ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEaSEOS3_.exit, %entry
-  %24 = load ptr, ptr %handle_, align 8
-  store ptr %24, ptr %agg.result, align 8
-  %_M_refcount.i.i3 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 288
-  %25 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %25, ptr %_M_refcount.i.i3, align 8
-  %cmp.not.i.i.i4 = icmp eq ptr %25, null
+  %24 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %25 = load <2 x ptr>, ptr %handle_, align 8
+  store <2 x ptr> %25, ptr %agg.result, align 8
+  %cmp.not.i.i.i4 = icmp eq ptr %24, null
   br i1 %cmp.not.i.i.i4, label %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit, label %if.then.i.i.i5
 
 if.then.i.i.i5:                                   ; preds = %if.end
-  %_M_use_count.i.i.i.i6 = getelementptr inbounds i8, ptr %25, i64 8
+  %_M_use_count.i.i.i.i6 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %26, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i9, label %if.then.i.i.i.i.i7

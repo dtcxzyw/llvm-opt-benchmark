@@ -6675,88 +6675,86 @@ define linkonce_odr void @_ZNK8LightGBM17ArrowChunkedArray5beginIdEENS0_8Iterato
   %37 = load <2 x ptr>, ptr %19, align 8
   store <2 x ptr> %37, ptr %24, align 8
   store ptr %22, ptr %20, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
-  %39 = load ptr, ptr %15, align 8
-  store ptr %39, ptr %38, align 8
-  %40 = load ptr, ptr %14, align 8
-  store ptr %40, ptr %21, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
-  %.not.i.i = icmp eq ptr %40, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
-  br i1 %.not.i.i, label %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit, label %42
+  %38 = load <2 x ptr>, ptr %14, align 8
+  %39 = load ptr, ptr %14, align 8
+  store <2 x ptr> %38, ptr %21, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %.not.i.i = icmp eq ptr %39, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
+  br i1 %.not.i.i, label %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit, label %41
 
-42:                                               ; preds = %36
-  %43 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit unwind label %44
+41:                                               ; preds = %36
+  %42 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit unwind label %43
 
-44:                                               ; preds = %42
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %41
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #27
+  %45 = extractvalue { ptr, i32 } %44, 0
+  call void @__clang_call_terminate(ptr %45) #27
   unreachable
 
-_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit:      ; preds = %.thread, %36, %42
-  %47 = load ptr, ptr %8, align 8
-  %.not.i.i4 = icmp eq ptr %47, null
-  br i1 %.not.i.i4, label %_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit, label %48
+_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit:      ; preds = %.thread, %36, %41
+  %46 = load ptr, ptr %8, align 8
+  %.not.i.i4 = icmp eq ptr %46, null
+  br i1 %.not.i.i4, label %_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit, label %47
 
-48:                                               ; preds = %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit
-  %49 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit unwind label %50
+47:                                               ; preds = %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit
+  %48 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit unwind label %49
 
-50:                                               ; preds = %48
-  %51 = landingpad { ptr, i32 }
+49:                                               ; preds = %47
+  %50 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #27
+  %51 = extractvalue { ptr, i32 } %50, 0
+  call void @__clang_call_terminate(ptr %51) #27
   unreachable
 
-_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit:      ; preds = %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit, %48
+_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit:      ; preds = %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit, %47
   ret void
 
 _ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6.thread: ; preds = %10
-  %53 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %58
 
 .body:                                            ; preds = %.body.i.i.i, %34
   %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %27, %.body.i.i.i ]
   %.pre = load ptr, ptr %14, align 8
   %.not.i.i5 = icmp eq ptr %.pre, null
-  br i1 %.not.i.i5, label %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6, label %54
+  br i1 %.not.i.i5, label %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6, label %53
 
-54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6 unwind label %56
+53:                                               ; preds = %.body
+  %54 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6 unwind label %55
 
-56:                                               ; preds = %54
-  %57 = landingpad { ptr, i32 }
+55:                                               ; preds = %53
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #27
+  %57 = extractvalue { ptr, i32 } %56, 0
+  call void @__clang_call_terminate(ptr %57) #27
   unreachable
 
-_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6:     ; preds = %54, %.body
+_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6:     ; preds = %53, %.body
   %.pr = load ptr, ptr %8, align 8
   %.not.i.i7 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i7, label %_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit8, label %59
+  br i1 %.not.i.i7, label %_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit8, label %58
 
-59:                                               ; preds = %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6.thread, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6
-  %.pn12 = phi { ptr, i32 } [ %53, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6.thread ], [ %eh.lpad-body, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6 ]
-  %60 = phi ptr [ %9, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6.thread ], [ %.pr, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6 ]
-  %61 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit8 unwind label %62
+58:                                               ; preds = %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6.thread, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6
+  %.pn12 = phi { ptr, i32 } [ %52, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6.thread ], [ %eh.lpad-body, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6 ]
+  %59 = phi ptr [ %9, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6.thread ], [ %.pr, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6 ]
+  %60 = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit8 unwind label %61
 
-62:                                               ; preds = %59
-  %63 = landingpad { ptr, i32 }
+61:                                               ; preds = %58
+  %62 = landingpad { ptr, i32 }
           catch ptr null
-  %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #27
+  %63 = extractvalue { ptr, i32 } %62, 0
+  call void @__clang_call_terminate(ptr %63) #27
   unreachable
 
-_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit8:     ; preds = %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6, %59
-  %.pn13 = phi { ptr, i32 } [ %eh.lpad-body, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6 ], [ %.pn12, %59 ]
+_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit8:     ; preds = %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6, %58
+  %.pn13 = phi { ptr, i32 } [ %eh.lpad-body, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6 ], [ %.pn12, %58 ]
   resume { ptr, i32 } %.pn13
 }
 
@@ -6808,124 +6806,121 @@ _ZNSt8functionIFdPK10ArrowArraylEEC2IS_IFdS2_mEEvEEOT_.exit: ; preds = %.noexc, 
   store ptr %1, ptr %0, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = getelementptr inbounds i8, ptr %0, i64 24
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
-  %31 = getelementptr inbounds i8, ptr %3, i64 16
+  %30 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false)
-  br i1 %.not.i.i.i.not.i, label %.thread, label %34
+  br i1 %.not.i.i.i.not.i, label %.thread, label %33
 
 .thread:                                          ; preds = %_ZNSt8functionIFdPK10ArrowArraylEEC2IS_IFdS2_mEEvEEOT_.exit
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %27, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 0, ptr %33, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %27, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 0, ptr %32, align 8
   br label %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit
 
-34:                                               ; preds = %_ZNSt8functionIFdPK10ArrowArraylEEC2IS_IFdS2_mEEvEEOT_.exit
-  %35 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
-          to label %44 unwind label %36
+33:                                               ; preds = %_ZNSt8functionIFdPK10ArrowArraylEEC2IS_IFdS2_mEEvEEOT_.exit
+  %34 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
+          to label %43 unwind label %35
 
-36:                                               ; preds = %34
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %33
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %38 = load ptr, ptr %29, align 8
-  %.not.i.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i.i, label %.body, label %39
+  %37 = load ptr, ptr %29, align 8
+  %.not.i.i.i = icmp eq ptr %37, null
+  br i1 %.not.i.i.i, label %.body, label %38
 
-39:                                               ; preds = %36
-  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
-          to label %.body unwind label %41
+38:                                               ; preds = %35
+  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+          to label %.body unwind label %40
 
-41:                                               ; preds = %39
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %38
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #27
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #27
   unreachable
 
-44:                                               ; preds = %34
-  %45 = getelementptr inbounds i8, ptr %3, i64 24
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %30, align 8
-  %47 = load ptr, ptr %31, align 8
-  store ptr %47, ptr %29, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %27, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 0, ptr %49, align 8
-  %.not.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i, label %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit, label %50
+43:                                               ; preds = %33
+  %44 = load <2 x ptr>, ptr %30, align 8
+  %45 = load ptr, ptr %30, align 8
+  store <2 x ptr> %44, ptr %29, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %27, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 0, ptr %47, align 8
+  %.not.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i, label %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit, label %48
 
-50:                                               ; preds = %44
-  %51 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit unwind label %52
+48:                                               ; preds = %43
+  %49 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit unwind label %50
 
-52:                                               ; preds = %50
-  %53 = landingpad { ptr, i32 }
+50:                                               ; preds = %48
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #27
+  %52 = extractvalue { ptr, i32 } %51, 0
+  call void @__clang_call_terminate(ptr %52) #27
   unreachable
 
-_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit:      ; preds = %.thread, %44, %50
-  %55 = load ptr, ptr %8, align 8
-  %.not.i.i4 = icmp eq ptr %55, null
-  br i1 %.not.i.i4, label %_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit, label %56
+_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit:      ; preds = %.thread, %43, %48
+  %53 = load ptr, ptr %8, align 8
+  %.not.i.i4 = icmp eq ptr %53, null
+  br i1 %.not.i.i4, label %_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit, label %54
 
-56:                                               ; preds = %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit
-  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit unwind label %58
+54:                                               ; preds = %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit
+  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit unwind label %56
 
-58:                                               ; preds = %56
-  %59 = landingpad { ptr, i32 }
+56:                                               ; preds = %54
+  %57 = landingpad { ptr, i32 }
           catch ptr null
-  %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #27
+  %58 = extractvalue { ptr, i32 } %57, 0
+  call void @__clang_call_terminate(ptr %58) #27
   unreachable
 
-_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit:      ; preds = %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit, %56
+_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit:      ; preds = %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit, %54
   ret void
 
 _ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6.thread: ; preds = %10
-  %61 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  br label %68
+  br label %66
 
-.body:                                            ; preds = %36, %39
-  %62 = load ptr, ptr %31, align 8
-  %.not.i.i5 = icmp eq ptr %62, null
-  br i1 %.not.i.i5, label %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6, label %63
+.body:                                            ; preds = %35, %38
+  %60 = load ptr, ptr %30, align 8
+  %.not.i.i5 = icmp eq ptr %60, null
+  br i1 %.not.i.i5, label %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6, label %61
 
-63:                                               ; preds = %.body
-  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6 unwind label %65
+61:                                               ; preds = %.body
+  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6 unwind label %63
 
-65:                                               ; preds = %63
-  %66 = landingpad { ptr, i32 }
+63:                                               ; preds = %61
+  %64 = landingpad { ptr, i32 }
           catch ptr null
-  %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #27
+  %65 = extractvalue { ptr, i32 } %64, 0
+  call void @__clang_call_terminate(ptr %65) #27
   unreachable
 
-_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6:     ; preds = %63, %.body
+_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6:     ; preds = %61, %.body
   %.pr = load ptr, ptr %8, align 8
   %.not.i.i7 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i7, label %_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit8, label %68
+  br i1 %.not.i.i7, label %_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit8, label %66
 
-68:                                               ; preds = %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6.thread, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6
-  %.pn12 = phi { ptr, i32 } [ %61, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6.thread ], [ %37, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6 ]
-  %69 = phi ptr [ %9, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6.thread ], [ %.pr, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6 ]
-  %70 = invoke noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit8 unwind label %71
+66:                                               ; preds = %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6.thread, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6
+  %.pn12 = phi { ptr, i32 } [ %59, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6.thread ], [ %36, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6 ]
+  %67 = phi ptr [ %9, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6.thread ], [ %.pr, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6 ]
+  %68 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit8 unwind label %69
 
-71:                                               ; preds = %68
-  %72 = landingpad { ptr, i32 }
+69:                                               ; preds = %66
+  %70 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #27
+  %71 = extractvalue { ptr, i32 } %70, 0
+  call void @__clang_call_terminate(ptr %71) #27
   unreachable
 
-_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit8:     ; preds = %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6, %68
-  %.pn13 = phi { ptr, i32 } [ %37, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6 ], [ %.pn12, %68 ]
+_ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit8:     ; preds = %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6, %66
+  %.pn13 = phi { ptr, i32 } [ %36, %_ZNSt8functionIFdPK10ArrowArraylEED2Ev.exit6 ], [ %.pn12, %66 ]
   resume { ptr, i32 } %.pn13
 }
 
@@ -8620,88 +8615,86 @@ define linkonce_odr void @_ZNK8LightGBM17ArrowChunkedArray5beginIfEENS0_8Iterato
   %37 = load <2 x ptr>, ptr %19, align 8
   store <2 x ptr> %37, ptr %24, align 8
   store ptr %22, ptr %20, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
-  %39 = load ptr, ptr %15, align 8
-  store ptr %39, ptr %38, align 8
-  %40 = load ptr, ptr %14, align 8
-  store ptr %40, ptr %21, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
-  %.not.i.i = icmp eq ptr %40, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
-  br i1 %.not.i.i, label %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit, label %42
+  %38 = load <2 x ptr>, ptr %14, align 8
+  %39 = load ptr, ptr %14, align 8
+  store <2 x ptr> %38, ptr %21, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %.not.i.i = icmp eq ptr %39, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
+  br i1 %.not.i.i, label %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit, label %41
 
-42:                                               ; preds = %36
-  %43 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit unwind label %44
+41:                                               ; preds = %36
+  %42 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit unwind label %43
 
-44:                                               ; preds = %42
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %41
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #27
+  %45 = extractvalue { ptr, i32 } %44, 0
+  call void @__clang_call_terminate(ptr %45) #27
   unreachable
 
-_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit:      ; preds = %.thread, %36, %42
-  %47 = load ptr, ptr %8, align 8
-  %.not.i.i4 = icmp eq ptr %47, null
-  br i1 %.not.i.i4, label %_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit, label %48
+_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit:      ; preds = %.thread, %36, %41
+  %46 = load ptr, ptr %8, align 8
+  %.not.i.i4 = icmp eq ptr %46, null
+  br i1 %.not.i.i4, label %_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit, label %47
 
-48:                                               ; preds = %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit
-  %49 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit unwind label %50
+47:                                               ; preds = %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit
+  %48 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit unwind label %49
 
-50:                                               ; preds = %48
-  %51 = landingpad { ptr, i32 }
+49:                                               ; preds = %47
+  %50 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #27
+  %51 = extractvalue { ptr, i32 } %50, 0
+  call void @__clang_call_terminate(ptr %51) #27
   unreachable
 
-_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit:      ; preds = %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit, %48
+_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit:      ; preds = %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit, %47
   ret void
 
 _ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6.thread: ; preds = %10
-  %53 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %58
 
 .body:                                            ; preds = %.body.i.i.i, %34
   %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %27, %.body.i.i.i ]
   %.pre = load ptr, ptr %14, align 8
   %.not.i.i5 = icmp eq ptr %.pre, null
-  br i1 %.not.i.i5, label %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6, label %54
+  br i1 %.not.i.i5, label %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6, label %53
 
-54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6 unwind label %56
+53:                                               ; preds = %.body
+  %54 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6 unwind label %55
 
-56:                                               ; preds = %54
-  %57 = landingpad { ptr, i32 }
+55:                                               ; preds = %53
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #27
+  %57 = extractvalue { ptr, i32 } %56, 0
+  call void @__clang_call_terminate(ptr %57) #27
   unreachable
 
-_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6:     ; preds = %54, %.body
+_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6:     ; preds = %53, %.body
   %.pr = load ptr, ptr %8, align 8
   %.not.i.i7 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i7, label %_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit8, label %59
+  br i1 %.not.i.i7, label %_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit8, label %58
 
-59:                                               ; preds = %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6.thread, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6
-  %.pn12 = phi { ptr, i32 } [ %53, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6.thread ], [ %eh.lpad-body, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6 ]
-  %60 = phi ptr [ %9, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6.thread ], [ %.pr, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6 ]
-  %61 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit8 unwind label %62
+58:                                               ; preds = %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6.thread, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6
+  %.pn12 = phi { ptr, i32 } [ %52, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6.thread ], [ %eh.lpad-body, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6 ]
+  %59 = phi ptr [ %9, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6.thread ], [ %.pr, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6 ]
+  %60 = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit8 unwind label %61
 
-62:                                               ; preds = %59
-  %63 = landingpad { ptr, i32 }
+61:                                               ; preds = %58
+  %62 = landingpad { ptr, i32 }
           catch ptr null
-  %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #27
+  %63 = extractvalue { ptr, i32 } %62, 0
+  call void @__clang_call_terminate(ptr %63) #27
   unreachable
 
-_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit8:     ; preds = %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6, %59
-  %.pn13 = phi { ptr, i32 } [ %eh.lpad-body, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6 ], [ %.pn12, %59 ]
+_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit8:     ; preds = %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6, %58
+  %.pn13 = phi { ptr, i32 } [ %eh.lpad-body, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6 ], [ %.pn12, %58 ]
   resume { ptr, i32 } %.pn13
 }
 
@@ -8753,124 +8746,121 @@ _ZNSt8functionIFfPK10ArrowArraylEEC2IS_IFfS2_mEEvEEOT_.exit: ; preds = %.noexc, 
   store ptr %1, ptr %0, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = getelementptr inbounds i8, ptr %0, i64 24
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
-  %31 = getelementptr inbounds i8, ptr %3, i64 16
+  %30 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false)
-  br i1 %.not.i.i.i.not.i, label %.thread, label %34
+  br i1 %.not.i.i.i.not.i, label %.thread, label %33
 
 .thread:                                          ; preds = %_ZNSt8functionIFfPK10ArrowArraylEEC2IS_IFfS2_mEEvEEOT_.exit
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %27, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 0, ptr %33, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %27, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 0, ptr %32, align 8
   br label %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit
 
-34:                                               ; preds = %_ZNSt8functionIFfPK10ArrowArraylEEC2IS_IFfS2_mEEvEEOT_.exit
-  %35 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
-          to label %44 unwind label %36
+33:                                               ; preds = %_ZNSt8functionIFfPK10ArrowArraylEEC2IS_IFfS2_mEEvEEOT_.exit
+  %34 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
+          to label %43 unwind label %35
 
-36:                                               ; preds = %34
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %33
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %38 = load ptr, ptr %29, align 8
-  %.not.i.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i.i, label %.body, label %39
+  %37 = load ptr, ptr %29, align 8
+  %.not.i.i.i = icmp eq ptr %37, null
+  br i1 %.not.i.i.i, label %.body, label %38
 
-39:                                               ; preds = %36
-  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
-          to label %.body unwind label %41
+38:                                               ; preds = %35
+  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+          to label %.body unwind label %40
 
-41:                                               ; preds = %39
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %38
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #27
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #27
   unreachable
 
-44:                                               ; preds = %34
-  %45 = getelementptr inbounds i8, ptr %3, i64 24
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %30, align 8
-  %47 = load ptr, ptr %31, align 8
-  store ptr %47, ptr %29, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %27, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 0, ptr %49, align 8
-  %.not.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i, label %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit, label %50
+43:                                               ; preds = %33
+  %44 = load <2 x ptr>, ptr %30, align 8
+  %45 = load ptr, ptr %30, align 8
+  store <2 x ptr> %44, ptr %29, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %27, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 0, ptr %47, align 8
+  %.not.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i, label %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit, label %48
 
-50:                                               ; preds = %44
-  %51 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit unwind label %52
+48:                                               ; preds = %43
+  %49 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit unwind label %50
 
-52:                                               ; preds = %50
-  %53 = landingpad { ptr, i32 }
+50:                                               ; preds = %48
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #27
+  %52 = extractvalue { ptr, i32 } %51, 0
+  call void @__clang_call_terminate(ptr %52) #27
   unreachable
 
-_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit:      ; preds = %.thread, %44, %50
-  %55 = load ptr, ptr %8, align 8
-  %.not.i.i4 = icmp eq ptr %55, null
-  br i1 %.not.i.i4, label %_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit, label %56
+_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit:      ; preds = %.thread, %43, %48
+  %53 = load ptr, ptr %8, align 8
+  %.not.i.i4 = icmp eq ptr %53, null
+  br i1 %.not.i.i4, label %_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit, label %54
 
-56:                                               ; preds = %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit
-  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit unwind label %58
+54:                                               ; preds = %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit
+  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit unwind label %56
 
-58:                                               ; preds = %56
-  %59 = landingpad { ptr, i32 }
+56:                                               ; preds = %54
+  %57 = landingpad { ptr, i32 }
           catch ptr null
-  %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #27
+  %58 = extractvalue { ptr, i32 } %57, 0
+  call void @__clang_call_terminate(ptr %58) #27
   unreachable
 
-_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit:      ; preds = %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit, %56
+_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit:      ; preds = %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit, %54
   ret void
 
 _ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6.thread: ; preds = %10
-  %61 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  br label %68
+  br label %66
 
-.body:                                            ; preds = %36, %39
-  %62 = load ptr, ptr %31, align 8
-  %.not.i.i5 = icmp eq ptr %62, null
-  br i1 %.not.i.i5, label %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6, label %63
+.body:                                            ; preds = %35, %38
+  %60 = load ptr, ptr %30, align 8
+  %.not.i.i5 = icmp eq ptr %60, null
+  br i1 %.not.i.i5, label %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6, label %61
 
-63:                                               ; preds = %.body
-  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6 unwind label %65
+61:                                               ; preds = %.body
+  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6 unwind label %63
 
-65:                                               ; preds = %63
-  %66 = landingpad { ptr, i32 }
+63:                                               ; preds = %61
+  %64 = landingpad { ptr, i32 }
           catch ptr null
-  %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #27
+  %65 = extractvalue { ptr, i32 } %64, 0
+  call void @__clang_call_terminate(ptr %65) #27
   unreachable
 
-_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6:     ; preds = %63, %.body
+_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6:     ; preds = %61, %.body
   %.pr = load ptr, ptr %8, align 8
   %.not.i.i7 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i7, label %_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit8, label %68
+  br i1 %.not.i.i7, label %_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit8, label %66
 
-68:                                               ; preds = %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6.thread, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6
-  %.pn12 = phi { ptr, i32 } [ %61, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6.thread ], [ %37, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6 ]
-  %69 = phi ptr [ %9, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6.thread ], [ %.pr, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6 ]
-  %70 = invoke noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit8 unwind label %71
+66:                                               ; preds = %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6.thread, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6
+  %.pn12 = phi { ptr, i32 } [ %59, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6.thread ], [ %36, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6 ]
+  %67 = phi ptr [ %9, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6.thread ], [ %.pr, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6 ]
+  %68 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit8 unwind label %69
 
-71:                                               ; preds = %68
-  %72 = landingpad { ptr, i32 }
+69:                                               ; preds = %66
+  %70 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #27
+  %71 = extractvalue { ptr, i32 } %70, 0
+  call void @__clang_call_terminate(ptr %71) #27
   unreachable
 
-_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit8:     ; preds = %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6, %68
-  %.pn13 = phi { ptr, i32 } [ %37, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6 ], [ %.pn12, %68 ]
+_ZNSt8functionIFfPK10ArrowArraymEED2Ev.exit8:     ; preds = %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6, %66
+  %.pn13 = phi { ptr, i32 } [ %36, %_ZNSt8functionIFfPK10ArrowArraylEED2Ev.exit6 ], [ %.pn12, %66 ]
   resume { ptr, i32 } %.pn13
 }
 
@@ -11432,88 +11422,86 @@ define linkonce_odr void @_ZNK8LightGBM17ArrowChunkedArray5beginIiEENS0_8Iterato
   %37 = load <2 x ptr>, ptr %19, align 8
   store <2 x ptr> %37, ptr %24, align 8
   store ptr %22, ptr %20, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
-  %39 = load ptr, ptr %15, align 8
-  store ptr %39, ptr %38, align 8
-  %40 = load ptr, ptr %14, align 8
-  store ptr %40, ptr %21, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
-  %.not.i.i = icmp eq ptr %40, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
-  br i1 %.not.i.i, label %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit, label %42
+  %38 = load <2 x ptr>, ptr %14, align 8
+  %39 = load ptr, ptr %14, align 8
+  store <2 x ptr> %38, ptr %21, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %.not.i.i = icmp eq ptr %39, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
+  br i1 %.not.i.i, label %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit, label %41
 
-42:                                               ; preds = %36
-  %43 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit unwind label %44
+41:                                               ; preds = %36
+  %42 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit unwind label %43
 
-44:                                               ; preds = %42
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %41
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #27
+  %45 = extractvalue { ptr, i32 } %44, 0
+  call void @__clang_call_terminate(ptr %45) #27
   unreachable
 
-_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit:      ; preds = %.thread, %36, %42
-  %47 = load ptr, ptr %8, align 8
-  %.not.i.i4 = icmp eq ptr %47, null
-  br i1 %.not.i.i4, label %_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit, label %48
+_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit:      ; preds = %.thread, %36, %41
+  %46 = load ptr, ptr %8, align 8
+  %.not.i.i4 = icmp eq ptr %46, null
+  br i1 %.not.i.i4, label %_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit, label %47
 
-48:                                               ; preds = %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit
-  %49 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit unwind label %50
+47:                                               ; preds = %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit
+  %48 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit unwind label %49
 
-50:                                               ; preds = %48
-  %51 = landingpad { ptr, i32 }
+49:                                               ; preds = %47
+  %50 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #27
+  %51 = extractvalue { ptr, i32 } %50, 0
+  call void @__clang_call_terminate(ptr %51) #27
   unreachable
 
-_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit:      ; preds = %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit, %48
+_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit:      ; preds = %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit, %47
   ret void
 
 _ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6.thread: ; preds = %10
-  %53 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
-  br label %59
+  br label %58
 
 .body:                                            ; preds = %.body.i.i.i, %34
   %eh.lpad-body = phi { ptr, i32 } [ %35, %34 ], [ %27, %.body.i.i.i ]
   %.pre = load ptr, ptr %14, align 8
   %.not.i.i5 = icmp eq ptr %.pre, null
-  br i1 %.not.i.i5, label %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6, label %54
+  br i1 %.not.i.i5, label %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6, label %53
 
-54:                                               ; preds = %.body
-  %55 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6 unwind label %56
+53:                                               ; preds = %.body
+  %54 = invoke noundef zeroext i1 %.pre(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6 unwind label %55
 
-56:                                               ; preds = %54
-  %57 = landingpad { ptr, i32 }
+55:                                               ; preds = %53
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #27
+  %57 = extractvalue { ptr, i32 } %56, 0
+  call void @__clang_call_terminate(ptr %57) #27
   unreachable
 
-_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6:     ; preds = %54, %.body
+_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6:     ; preds = %53, %.body
   %.pr = load ptr, ptr %8, align 8
   %.not.i.i7 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i7, label %_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit8, label %59
+  br i1 %.not.i.i7, label %_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit8, label %58
 
-59:                                               ; preds = %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6.thread, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6
-  %.pn12 = phi { ptr, i32 } [ %53, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6.thread ], [ %eh.lpad-body, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6 ]
-  %60 = phi ptr [ %9, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6.thread ], [ %.pr, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6 ]
-  %61 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit8 unwind label %62
+58:                                               ; preds = %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6.thread, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6
+  %.pn12 = phi { ptr, i32 } [ %52, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6.thread ], [ %eh.lpad-body, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6 ]
+  %59 = phi ptr [ %9, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6.thread ], [ %.pr, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6 ]
+  %60 = invoke noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit8 unwind label %61
 
-62:                                               ; preds = %59
-  %63 = landingpad { ptr, i32 }
+61:                                               ; preds = %58
+  %62 = landingpad { ptr, i32 }
           catch ptr null
-  %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #27
+  %63 = extractvalue { ptr, i32 } %62, 0
+  call void @__clang_call_terminate(ptr %63) #27
   unreachable
 
-_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit8:     ; preds = %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6, %59
-  %.pn13 = phi { ptr, i32 } [ %eh.lpad-body, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6 ], [ %.pn12, %59 ]
+_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit8:     ; preds = %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6, %58
+  %.pn13 = phi { ptr, i32 } [ %eh.lpad-body, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6 ], [ %.pn12, %58 ]
   resume { ptr, i32 } %.pn13
 }
 
@@ -11565,124 +11553,121 @@ _ZNSt8functionIFiPK10ArrowArraylEEC2IS_IFiS2_mEEvEEOT_.exit: ; preds = %.noexc, 
   store ptr %1, ptr %0, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = getelementptr inbounds i8, ptr %0, i64 24
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
-  %31 = getelementptr inbounds i8, ptr %3, i64 16
+  %30 = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false)
-  br i1 %.not.i.i.i.not.i, label %.thread, label %34
+  br i1 %.not.i.i.i.not.i, label %.thread, label %33
 
 .thread:                                          ; preds = %_ZNSt8functionIFiPK10ArrowArraylEEC2IS_IFiS2_mEEvEEOT_.exit
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %27, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 0, ptr %33, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %27, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 0, ptr %32, align 8
   br label %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit
 
-34:                                               ; preds = %_ZNSt8functionIFiPK10ArrowArraylEEC2IS_IFiS2_mEEvEEOT_.exit
-  %35 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
-          to label %44 unwind label %36
+33:                                               ; preds = %_ZNSt8functionIFiPK10ArrowArraylEEC2IS_IFiS2_mEEvEEOT_.exit
+  %34 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
+          to label %43 unwind label %35
 
-36:                                               ; preds = %34
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %33
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %38 = load ptr, ptr %29, align 8
-  %.not.i.i.i = icmp eq ptr %38, null
-  br i1 %.not.i.i.i, label %.body, label %39
+  %37 = load ptr, ptr %29, align 8
+  %.not.i.i.i = icmp eq ptr %37, null
+  br i1 %.not.i.i.i, label %.body, label %38
 
-39:                                               ; preds = %36
-  %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
-          to label %.body unwind label %41
+38:                                               ; preds = %35
+  %39 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef 3)
+          to label %.body unwind label %40
 
-41:                                               ; preds = %39
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %38
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #27
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #27
   unreachable
 
-44:                                               ; preds = %34
-  %45 = getelementptr inbounds i8, ptr %3, i64 24
-  %46 = load ptr, ptr %45, align 8
-  store ptr %46, ptr %30, align 8
-  %47 = load ptr, ptr %31, align 8
-  store ptr %47, ptr %29, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %27, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 0, ptr %49, align 8
-  %.not.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i, label %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit, label %50
+43:                                               ; preds = %33
+  %44 = load <2 x ptr>, ptr %30, align 8
+  %45 = load ptr, ptr %30, align 8
+  store <2 x ptr> %44, ptr %29, align 8
+  %46 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %27, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 0, ptr %47, align 8
+  %.not.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i, label %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit, label %48
 
-50:                                               ; preds = %44
-  %51 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit unwind label %52
+48:                                               ; preds = %43
+  %49 = invoke noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit unwind label %50
 
-52:                                               ; preds = %50
-  %53 = landingpad { ptr, i32 }
+50:                                               ; preds = %48
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #27
+  %52 = extractvalue { ptr, i32 } %51, 0
+  call void @__clang_call_terminate(ptr %52) #27
   unreachable
 
-_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit:      ; preds = %.thread, %44, %50
-  %55 = load ptr, ptr %8, align 8
-  %.not.i.i4 = icmp eq ptr %55, null
-  br i1 %.not.i.i4, label %_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit, label %56
+_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit:      ; preds = %.thread, %43, %48
+  %53 = load ptr, ptr %8, align 8
+  %.not.i.i4 = icmp eq ptr %53, null
+  br i1 %.not.i.i4, label %_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit, label %54
 
-56:                                               ; preds = %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit
-  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit unwind label %58
+54:                                               ; preds = %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit
+  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit unwind label %56
 
-58:                                               ; preds = %56
-  %59 = landingpad { ptr, i32 }
+56:                                               ; preds = %54
+  %57 = landingpad { ptr, i32 }
           catch ptr null
-  %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #27
+  %58 = extractvalue { ptr, i32 } %57, 0
+  call void @__clang_call_terminate(ptr %58) #27
   unreachable
 
-_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit:      ; preds = %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit, %56
+_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit:      ; preds = %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit, %54
   ret void
 
 _ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6.thread: ; preds = %10
-  %61 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  br label %68
+  br label %66
 
-.body:                                            ; preds = %36, %39
-  %62 = load ptr, ptr %31, align 8
-  %.not.i.i5 = icmp eq ptr %62, null
-  br i1 %.not.i.i5, label %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6, label %63
+.body:                                            ; preds = %35, %38
+  %60 = load ptr, ptr %30, align 8
+  %.not.i.i5 = icmp eq ptr %60, null
+  br i1 %.not.i.i5, label %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6, label %61
 
-63:                                               ; preds = %.body
-  %64 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6 unwind label %65
+61:                                               ; preds = %.body
+  %62 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6 unwind label %63
 
-65:                                               ; preds = %63
-  %66 = landingpad { ptr, i32 }
+63:                                               ; preds = %61
+  %64 = landingpad { ptr, i32 }
           catch ptr null
-  %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #27
+  %65 = extractvalue { ptr, i32 } %64, 0
+  call void @__clang_call_terminate(ptr %65) #27
   unreachable
 
-_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6:     ; preds = %63, %.body
+_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6:     ; preds = %61, %.body
   %.pr = load ptr, ptr %8, align 8
   %.not.i.i7 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i7, label %_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit8, label %68
+  br i1 %.not.i.i7, label %_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit8, label %66
 
-68:                                               ; preds = %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6.thread, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6
-  %.pn12 = phi { ptr, i32 } [ %61, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6.thread ], [ %37, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6 ]
-  %69 = phi ptr [ %9, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6.thread ], [ %.pr, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6 ]
-  %70 = invoke noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
-          to label %_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit8 unwind label %71
+66:                                               ; preds = %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6.thread, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6
+  %.pn12 = phi { ptr, i32 } [ %59, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6.thread ], [ %36, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6 ]
+  %67 = phi ptr [ %9, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6.thread ], [ %.pr, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6 ]
+  %68 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
+          to label %_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit8 unwind label %69
 
-71:                                               ; preds = %68
-  %72 = landingpad { ptr, i32 }
+69:                                               ; preds = %66
+  %70 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #27
+  %71 = extractvalue { ptr, i32 } %70, 0
+  call void @__clang_call_terminate(ptr %71) #27
   unreachable
 
-_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit8:     ; preds = %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6, %68
-  %.pn13 = phi { ptr, i32 } [ %37, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6 ], [ %.pn12, %68 ]
+_ZNSt8functionIFiPK10ArrowArraymEED2Ev.exit8:     ; preds = %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6, %66
+  %.pn13 = phi { ptr, i32 } [ %36, %_ZNSt8functionIFiPK10ArrowArraylEED2Ev.exit6 ], [ %.pn12, %66 ]
   resume { ptr, i32 } %.pn13
 }
 

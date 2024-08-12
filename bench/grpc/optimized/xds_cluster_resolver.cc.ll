@@ -8802,14 +8802,14 @@ _ZNSt10unique_ptrIN9grpc_core19LoadBalancingPolicy20ChannelControlHelperESt14def
 
 _ZN9grpc_core19LoadBalancingPolicy4ArgsC2Ev.exit.i: ; preds = %if.then20
   %work_serializer_.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %62 = load ptr, ptr %work_serializer_.i.i, align 8, !noalias !107
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %63 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !107
-  %cmp.not.i.i.i.i.i40 = icmp eq ptr %63, null
+  %62 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !107
+  %63 = load <2 x ptr>, ptr %work_serializer_.i.i, align 8, !noalias !107
+  %cmp.not.i.i.i.i.i40 = icmp eq ptr %62, null
   br i1 %cmp.not.i.i.i.i.i40, label %_ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit.i, label %if.then.i.i.i.i.i41
 
 if.then.i.i.i.i.i41:                              ; preds = %_ZN9grpc_core19LoadBalancingPolicy4ArgsC2Ev.exit.i
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %63, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %62, i64 8
   %64 = load i8, ptr @__libc_single_threaded, align 1, !noalias !107
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %64, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i55, label %if.then.i.i.i.i.i.i.i42
@@ -8825,10 +8825,9 @@ if.else.i.i.i.i.i.i.i55:                          ; preds = %if.then.i.i.i.i.i41
   br label %_ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit.i
 
 _ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit.i: ; preds = %if.else.i.i.i.i.i.i.i55, %if.then.i.i.i.i.i.i.i42, %_ZN9grpc_core19LoadBalancingPolicy4ArgsC2Ev.exit.i
-  store ptr %62, ptr %lb_policy_args.i, align 16, !noalias !104
   %_M_refcount3.i.i.i2.i = getelementptr inbounds i8, ptr %lb_policy_args.i, i64 8
   %67 = load ptr, ptr %_M_refcount3.i.i.i2.i, align 8, !noalias !104
-  store ptr %63, ptr %_M_refcount3.i.i.i2.i, align 8, !noalias !104
+  store <2 x ptr> %63, ptr %lb_policy_args.i, align 16, !noalias !104
   %cmp.not.i.i.i.i3.i = icmp eq ptr %67, null
   br i1 %cmp.not.i.i.i.i3.i, label %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev.exit.i, label %if.then.i.i.i.i4.i
 
@@ -22693,19 +22692,18 @@ _ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15Endpoi
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core19XdsResourceTypeImplINS_23XdsEndpointResourceTypeENS_19XdsEndpointResourceEE16WatcherInterface24OnGenericResourceChangedESt10shared_ptrIKNS_15XdsResourceType12ResourceDataEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %resource) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.334", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.334", align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !286)
-  %0 = load ptr, ptr %resource, align 8, !noalias !286
-  store ptr %0, ptr %agg.tmp, align 8, !alias.scope !286
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount2.i.i.i = getelementptr inbounds i8, ptr %resource, i64 8
-  %1 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !noalias !286
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8, !alias.scope !286
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !noalias !286
+  %1 = load <2 x ptr>, ptr %resource, align 8, !noalias !286
+  store <2 x ptr> %1, ptr %agg.tmp, align 16, !alias.scope !286
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZSt19static_pointer_castIKN9grpc_core19XdsEndpointResourceEKNS0_15XdsResourceType12ResourceDataEESt10shared_ptrIT_ERKS6_IT0_E.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !286
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -28059,7 +28057,7 @@ invoke.cont:
   %ref.tmp22 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp24 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp31 = alloca %"class.std::unique_ptr.623", align 8
-  %agg.tmp41 = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp41 = alloca %"class.std::shared_ptr", align 16
   %agg.tmp44 = alloca %"class.std::unique_ptr.663", align 8
   %agg.tmp63 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp64 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -28213,17 +28211,16 @@ invoke.cont42:                                    ; preds = %if.end, %if.end.i
   %28 = load ptr, ptr %interested_parties_.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !353)
   %work_serializer_.i = getelementptr inbounds i8, ptr %this.val9, i64 16
-  %29 = load ptr, ptr %work_serializer_.i, align 8, !noalias !353
-  store ptr %29, ptr %agg.tmp41, align 8, !alias.scope !353
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp41, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this.val9, i64 24
-  %30 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !353
-  store ptr %30, ptr %_M_refcount.i.i.i, align 8, !alias.scope !353
-  %cmp.not.i.i.i.i = icmp eq ptr %30, null
+  %29 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !353
+  %30 = load <2 x ptr>, ptr %work_serializer_.i, align 8, !noalias !353
+  store <2 x ptr> %30, ptr %agg.tmp41, align 16, !alias.scope !353
+  %cmp.not.i.i.i.i = icmp eq ptr %29, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont50, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont42
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load i8, ptr @__libc_single_threaded, align 1, !noalias !353
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %31, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

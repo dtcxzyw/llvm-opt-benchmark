@@ -1688,15 +1688,15 @@ list_length.exit:                                 ; preds = %6, %9
   call void @cost_agg(ptr noundef nonnull %7, ptr noundef %0, i32 noundef 2, ptr noundef null, i32 noundef %12, double noundef %3, ptr noundef null, double noundef %41, double noundef %43, double noundef %45, double noundef %46) #7
   %47 = getelementptr inbounds i8, ptr %8, i64 48
   %48 = getelementptr inbounds i8, ptr %8, i64 56
-  %49 = load <2 x double>, ptr %40, align 8
-  store <2 x double> %49, ptr %47, align 8
-  %50 = load double, ptr %44, align 8
-  %51 = load ptr, ptr %27, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 40
-  %53 = load i32, ptr %52, align 8
-  %54 = load i32, ptr @work_mem, align 4
-  %55 = extractelement <2 x double> %49, i64 1
-  call void @cost_sort(ptr noundef nonnull %8, ptr noundef %0, ptr noundef null, double noundef %55, double noundef %50, i32 noundef %53, double noundef 0.000000e+00, i32 noundef %54, double noundef -1.000000e+00) #7
+  %49 = load double, ptr %42, align 8
+  %50 = load <2 x double>, ptr %40, align 8
+  store <2 x double> %50, ptr %47, align 8
+  %51 = load double, ptr %44, align 8
+  %52 = load ptr, ptr %27, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 40
+  %54 = load i32, ptr %53, align 8
+  %55 = load i32, ptr @work_mem, align 4
+  call void @cost_sort(ptr noundef nonnull %8, ptr noundef %0, ptr noundef null, double noundef %49, double noundef %51, i32 noundef %54, double noundef 0.000000e+00, i32 noundef %55, double noundef -1.000000e+00) #7
   %56 = load double, ptr %47, align 8
   %57 = load double, ptr %48, align 8
   %58 = load double, ptr %44, align 8

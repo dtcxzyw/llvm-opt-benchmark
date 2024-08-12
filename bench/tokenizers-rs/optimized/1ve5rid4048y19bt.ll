@@ -22643,7 +22643,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.exit.i.i.i
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h18827e038e7b6ccdE.exit.i.i.i": ; preds = %.noexc.i.i, %94
   %.0.i.i2.i.i.i.i = phi ptr [ %100, %.noexc.i.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hac0b16592a59a329E, i64 8), %94 ]
   %103 = load <2 x i64>, ptr %.0.i.i2.i.i.i.i, align 8, !noalias !6518
-  %104 = extractelement <2 x i64> %103, i64 0
+  %104 = load i64, ptr %.0.i.i2.i.i.i.i, align 8, !noalias !6518, !noundef !14
   %105 = add i64 %104, 1
   store i64 %105, ptr %.0.i.i2.i.i.i.i, align 8, !noalias !6518
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) @anon.e37bee9ecd86850f7b20684adaad159f.6, i64 32, i1 false), !noalias !6508
@@ -22708,7 +22708,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.exit.i26.i
 118:                                              ; preds = %.noexc.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h18827e038e7b6ccdE.exit.i.i.i"
   %.0.i.i2.i28.i.i.i = phi ptr [ %107, %.noexc.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hac0b16592a59a329E, i64 8), %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h18827e038e7b6ccdE.exit.i.i.i" ]
   %119 = load <2 x i64>, ptr %.0.i.i2.i28.i.i.i, align 8, !noalias !6545
-  %120 = extractelement <2 x i64> %119, i64 0
+  %120 = load i64, ptr %.0.i.i2.i28.i.i.i, align 8, !noalias !6545, !noundef !14
   %121 = add i64 %120, 1
   store i64 %121, ptr %.0.i.i2.i28.i.i.i, align 8, !noalias !6545
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) @anon.e37bee9ecd86850f7b20684adaad159f.6, i64 32, i1 false), !noalias !6508
@@ -23480,7 +23480,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.exit.i.i.i
 355:                                              ; preds = %.noexc35.i.i.i, %340
   %.0.i.i2.i.i.i.i.i.i.i.i = phi ptr [ %352, %.noexc35.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hac0b16592a59a329E, i64 8), %340 ]
   %356 = load <2 x i64>, ptr %.0.i.i2.i.i.i.i.i.i.i.i, align 8, !noalias !6818
-  %357 = extractelement <2 x i64> %356, i64 0
+  %357 = load i64, ptr %.0.i.i2.i.i.i.i.i.i.i.i, align 8, !noalias !6818, !noundef !14
   %358 = add i64 %357, 1
   store i64 %358, ptr %.0.i.i2.i.i.i.i.i.i.i.i, align 8, !noalias !6818
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) @anon.e37bee9ecd86850f7b20684adaad159f.6, i64 32, i1 false), !noalias !6807

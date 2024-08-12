@@ -9156,14 +9156,14 @@ _ZNSt6vectorIP8CVertexOSaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %76, %82
   %277 = load ptr, ptr %14, align 8
   %278 = load ptr, ptr %18, align 8
   %.not266301 = icmp eq ptr %277, %278
+  %279 = extractelement <2 x float> %.sroa.026.0.i, i64 0
+  %280 = extractelement <2 x float> %.sroa.026.0.i, i64 1
   br i1 %.not266301, label %._crit_edge308.thread, label %.lr.ph307
 
 .lr.ph307:                                        ; preds = %275
-  %279 = load float, ptr %228, align 4
-  %280 = load float, ptr %233, align 4
-  %281 = load float, ptr %234, align 4
-  %282 = extractelement <2 x float> %.sroa.026.0.i, i64 0
-  %283 = extractelement <2 x float> %.sroa.026.0.i, i64 1
+  %281 = load float, ptr %228, align 4
+  %282 = load float, ptr %233, align 4
+  %283 = load float, ptr %234, align 4
   br label %284
 
 284:                                              ; preds = %.lr.ph307, %284
@@ -9173,15 +9173,15 @@ _ZNSt6vectorIP8CVertexOSaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %76, %82
   %.sroa.0239.2302 = phi ptr [ %277, %.lr.ph307 ], [ %299, %284 ]
   %285 = getelementptr inbounds i8, ptr %.sroa.0239.2302, i64 8
   %286 = load float, ptr %285, align 4
-  %287 = fsub float %286, %279
+  %287 = fsub float %286, %281
   %288 = getelementptr inbounds i8, ptr %.sroa.0239.2302, i64 12
   %289 = load float, ptr %288, align 4
-  %290 = fsub float %289, %280
+  %290 = fsub float %289, %282
   %291 = getelementptr inbounds i8, ptr %.sroa.0239.2302, i64 16
   %292 = load float, ptr %291, align 4
-  %293 = fsub float %292, %281
-  %294 = fmul float %290, %283
-  %295 = call float @llvm.fmuladd.f32(float %287, float %282, float %294)
+  %293 = fsub float %292, %283
+  %294 = fmul float %290, %280
+  %295 = call float @llvm.fmuladd.f32(float %287, float %279, float %294)
   %296 = call noundef float @llvm.fmuladd.f32(float %293, float %.sroa.6.0.i, float %295)
   %297 = call noundef float @llvm.fabs.f32(float %296)
   %298 = fcmp ogt float %297, %.0114303

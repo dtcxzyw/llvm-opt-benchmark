@@ -626,28 +626,28 @@ entry:
   store <2 x float> %6, ptr %m_bvhAabbMax, align 8
   %ref.tmp2.sroa.2.0.m_bvhAabbMax.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
   store <2 x float> %retval.sroa.3.12.vec.insert.i9, ptr %ref.tmp2.sroa.2.0.m_bvhAabbMax.sroa_idx, align 8
+  %8 = extractelement <2 x float> %3, i64 0
   %arrayidx5.i13 = getelementptr inbounds i8, ptr %this, i64 28
   %arrayidx7.i14 = getelementptr inbounds i8, ptr %this, i64 12
+  %9 = extractelement <2 x float> %3, i64 1
   %sub14.i18 = fsub float %add14.i, %sub14.i
-  %8 = fsub <2 x float> %6, %3
-  %9 = fdiv <2 x float> <float 6.553300e+04, float 6.553300e+04>, %8
+  %10 = fsub <2 x float> %6, %3
+  %11 = fdiv <2 x float> <float 6.553300e+04, float 6.553300e+04>, %10
   %div14.i = fdiv float 6.553300e+04, %sub14.i18
   %retval.sroa.3.12.vec.insert.i33 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %div14.i, i64 0
   %m_bvhQuantization = getelementptr inbounds i8, ptr %this, i64 40
-  store <2 x float> %9, ptr %m_bvhQuantization, align 8
+  store <2 x float> %11, ptr %m_bvhQuantization, align 8
   %ref.tmp9.sroa.2.0.m_bvhQuantization.sroa_idx = getelementptr inbounds i8, ptr %this, i64 48
   store <2 x float> %retval.sroa.3.12.vec.insert.i33, ptr %ref.tmp9.sroa.2.0.m_bvhQuantization.sroa_idx, align 8
   %m_useQuantization = getelementptr inbounds i8, ptr %this, i64 64
   store i8 1, ptr %m_useQuantization, align 8
-  %10 = extractelement <2 x float> %3, i64 0
-  %11 = fsub <2 x float> %3, %3
-  %12 = extractelement <2 x float> %3, i64 1
-  %sub8.i.i = fsub float %12, %12
+  %12 = fsub <2 x float> %3, %3
+  %sub8.i.i = fsub float %9, %9
   %sub14.i.i = fsub float %sub14.i, %sub14.i
-  %13 = extractelement <2 x float> %9, i64 0
-  %14 = fmul <2 x float> %11, %9
+  %13 = extractelement <2 x float> %11, i64 0
+  %14 = fmul <2 x float> %12, %11
   %mul.i.i = extractelement <2 x float> %14, i64 0
-  %15 = extractelement <2 x float> %9, i64 1
+  %15 = extractelement <2 x float> %11, i64 1
   %mul8.i.i = fmul float %sub8.i.i, %15
   %mul14.i.i = fmul float %sub14.i.i, %div14.i
   %conv22.i = fptoui float %mul.i.i to i16
@@ -662,13 +662,13 @@ entry:
   %div7.i = fdiv float %conv4.i, %15
   %conv10.i = uitofp i16 %18 to float
   %div13.i = fdiv float %conv10.i, %div14.i
-  %add.i.i = fadd float %10, %div.i37
-  %add8.i.i = fadd float %12, %div7.i
+  %add.i.i = fadd float %8, %div.i37
+  %add8.i.i = fadd float %9, %div7.i
   %add13.i.i = fadd float %div13.i, %sub14.i
   %sub.i42 = fsub float %add.i.i, %quantizationMargin
   %sub8.i45 = fsub float %add8.i.i, %quantizationMargin
   %sub14.i48 = fsub float %add13.i.i, %quantizationMargin
-  %cmp.i.i = fcmp olt float %sub.i42, %10
+  %cmp.i.i = fcmp olt float %sub.i42, %8
   br i1 %cmp.i.i, label %if.then.i.i, label %_Z8btSetMinIfEvRT_RKS0_.exit.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -676,7 +676,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %_Z8btSetMinIfEvRT_RKS0_.exit.i
 
 _Z8btSetMinIfEvRT_RKS0_.exit.i:                   ; preds = %if.then.i.i, %entry
-  %cmp.i4.i = fcmp olt float %sub8.i45, %12
+  %cmp.i4.i = fcmp olt float %sub8.i45, %9
   br i1 %cmp.i4.i, label %if.then.i5.i, label %_Z8btSetMinIfEvRT_RKS0_.exit6.i
 
 if.then.i5.i:                                     ; preds = %_Z8btSetMinIfEvRT_RKS0_.exit.i

@@ -1918,7 +1918,6 @@ _ZN9grpc_core13RefCountedPtrINS_8ResolverEED2Ev.exit: ; preds = %do.body
           to label %call.i.i2.i.i.noexc unwind label %if.then.i.i45
 
 call.i.i2.i.i.noexc:                              ; preds = %_ZN9grpc_core13RefCountedPtrINS_8ResolverEED2Ev.exit
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %_M_manager.i.i.i29 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store ptr %this, ptr %call.i.i2.i.i30, align 8
   store ptr %call.i.i2.i.i30, ptr %ref.tmp.i, align 8
@@ -1927,18 +1926,17 @@ call.i.i2.i.i.noexc:                              ; preds = %_ZN9grpc_core13RefC
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %result_health_callback, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %result_health_callback, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  %33 = load ptr, ptr %_M_manager.i.i.i, align 8
-  store ptr %33, ptr %_M_manager.i.i.i29, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN4absl12lts_202308026StatusEEZN9grpc_core15PollingResolver23OnRequestCompleteLockedENS4_8Resolver6ResultEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %result, i64 112
-  %34 = load ptr, ptr %_M_invoker4.i.i, align 8
-  store ptr %34, ptr %_M_invoker.i.i, align 8
+  %33 = load <2 x ptr>, ptr %_M_manager.i.i.i, align 8
+  %34 = load ptr, ptr %_M_manager.i.i.i, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN4absl12lts_202308026StatusEEZN9grpc_core15PollingResolver23OnRequestCompleteLockedENS4_8Resolver6ResultEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
+  store <2 x ptr> %33, ptr %_M_manager.i.i.i29, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN4absl12lts_202308026StatusEEZN9grpc_core15PollingResolver23OnRequestCompleteLockedENS4_8Resolver6ResultEE3$_0E9_M_invokeERKSt9_Any_dataOS2_", ptr %_M_invoker4.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %33, null
+  %tobool.not.i.i.i = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.i, label %"_ZZN9grpc_core15PollingResolver23OnRequestCompleteLockedENS_8Resolver6ResultEEN3$_0D2Ev.exit", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %call.i.i2.i.i.noexc
-  %call.i.i.i = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %"_ZZN9grpc_core15PollingResolver23OnRequestCompleteLockedENS_8Resolver6ResultEEN3$_0D2Ev.exit" unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i

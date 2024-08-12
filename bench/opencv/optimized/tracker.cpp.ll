@@ -417,17 +417,17 @@ define hidden void @_ZN3vas2ot7Tracker16ComputeOcclusionEv(ptr nocapture noundef
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph24, label %._crit_edge25
 
-.lr.ph24:                                         ; preds = %1, %118
-  %12 = phi ptr [ %119, %118 ], [ %5, %1 ]
-  %13 = phi ptr [ %120, %118 ], [ %4, %1 ]
-  %indvars.iv27 = phi i64 [ %indvars.iv.next28, %118 ], [ 0, %1 ]
-  %14 = phi i32 [ %125, %118 ], [ %10, %1 ]
+.lr.ph24:                                         ; preds = %1, %114
+  %12 = phi ptr [ %115, %114 ], [ %5, %1 ]
+  %13 = phi ptr [ %116, %114 ], [ %4, %1 ]
+  %indvars.iv27 = phi i64 [ %indvars.iv.next28, %114 ], [ 0, %1 ]
+  %14 = phi i32 [ %121, %114 ], [ %10, %1 ]
   %15 = getelementptr inbounds %"class.std::shared_ptr", ptr %12, i64 %indvars.iv27
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 20
   %18 = load i32, ptr %17, align 4
   %.not = icmp eq i32 %18, 1
-  br i1 %.not, label %19, label %118
+  br i1 %.not, label %19, label %114
 
 19:                                               ; preds = %.lr.ph24
   %20 = getelementptr inbounds i8, ptr %16, i64 96
@@ -456,11 +456,11 @@ _ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE4backEv.exit:   ; preds = %19, %25
   %wide.trip.count = zext nneg i32 %14 to i64
   br label %34
 
-34:                                               ; preds = %.lr.ph, %116
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %116 ]
-  %.01920 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1, %116 ]
+34:                                               ; preds = %.lr.ph, %112
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %112 ]
+  %.01920 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1, %112 ]
   %35 = icmp eq i64 %indvars.iv27, %indvars.iv
-  br i1 %35, label %116, label %36
+  br i1 %35, label %112, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds %"class.std::shared_ptr", ptr %12, i64 %indvars.iv
@@ -468,7 +468,7 @@ _ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE4backEv.exit:   ; preds = %19, %25
   %39 = getelementptr inbounds i8, ptr %38, i64 20
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, 2
-  br i1 %41, label %116, label %42
+  br i1 %41, label %112, label %42
 
 42:                                               ; preds = %36
   %43 = getelementptr inbounds i8, ptr %38, i64 96
@@ -491,125 +491,125 @@ _ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE4backEv.exit17: ; preds = %42, %48
   %55 = getelementptr inbounds i8, ptr %54, i64 -16
   %.sroa.0.0.copyload27.i = load <2 x float>, ptr %32, align 4
   %.sroa.11.0.copyload.i = load <2 x float>, ptr %.sroa.11.0..sroa_idx.i, align 4
-  %56 = extractelement <2 x float> %.sroa.11.0.copyload.i, i64 0
-  %57 = fcmp ole float %56, 0.000000e+00
-  %58 = extractelement <2 x float> %.sroa.11.0.copyload.i, i64 1
-  %59 = fcmp ole float %58, 0.000000e+00
-  %60 = select i1 %57, i1 true, i1 %59
-  br i1 %60, label %.sink.split.i.i, label %61
+  %.sroa.11.0.vec.extract.i = extractelement <2 x float> %.sroa.11.0.copyload.i, i64 0
+  %56 = fcmp ole float %.sroa.11.0.vec.extract.i, 0.000000e+00
+  %.sroa.11.4.vec.extract.i = extractelement <2 x float> %.sroa.11.0.copyload.i, i64 1
+  %57 = fcmp ole float %.sroa.11.4.vec.extract.i, 0.000000e+00
+  %58 = select i1 %56, i1 true, i1 %57
+  br i1 %58, label %.sink.split.i.i, label %59
 
-61:                                               ; preds = %_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE4backEv.exit17
-  %62 = getelementptr inbounds i8, ptr %54, i64 -8
-  %63 = load <2 x float>, ptr %62, align 4
-  %64 = extractelement <2 x float> %63, i64 0
+59:                                               ; preds = %_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE4backEv.exit17
+  %60 = getelementptr inbounds i8, ptr %54, i64 -8
+  %61 = load <2 x float>, ptr %60, align 4
+  %62 = extractelement <2 x float> %61, i64 0
+  %63 = fcmp ole float %62, 0.000000e+00
+  %64 = extractelement <2 x float> %61, i64 1
   %65 = fcmp ole float %64, 0.000000e+00
-  %66 = extractelement <2 x float> %63, i64 1
-  %67 = fcmp ole float %66, 0.000000e+00
-  %68 = select i1 %65, i1 true, i1 %67
-  br i1 %68, label %.sink.split.i.i, label %69
+  %66 = select i1 %63, i1 true, i1 %65
+  br i1 %66, label %.sink.split.i.i, label %67
 
-69:                                               ; preds = %61
-  %70 = load <2 x float>, ptr %55, align 4
-  %71 = fcmp olt <2 x float> %.sroa.0.0.copyload27.i, %70
-  %72 = extractelement <2 x i1> %71, i64 0
-  %73 = extractelement <2 x float> %.sroa.0.0.copyload27.i, i64 0
-  %74 = extractelement <2 x float> %70, i64 0
-  %75 = select i1 %72, float %73, float %74
-  %76 = select i1 %72, float %74, float %73
-  %77 = fcmp olt float %75, 0.000000e+00
-  br i1 %77, label %78, label %82
+67:                                               ; preds = %59
+  %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.0.0.copyload27.i, i64 0
+  %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.0.0.copyload27.i, i64 1
+  %68 = load <2 x float>, ptr %55, align 4
+  %69 = fcmp olt <2 x float> %.sroa.0.0.copyload27.i, %68
+  %70 = extractelement <2 x i1> %69, i64 0
+  %71 = extractelement <2 x float> %68, i64 0
+  %72 = select i1 %70, float %.sroa.0.0.vec.extract.i, float %71
+  %73 = select i1 %70, float %71, float %.sroa.0.0.vec.extract.i
+  %74 = fcmp olt float %72, 0.000000e+00
+  br i1 %74, label %75, label %79
 
-78:                                               ; preds = %69
-  %79 = select i1 %72, float %56, float %64
-  %80 = fadd float %75, %79
-  %81 = fcmp olt float %80, %76
-  br i1 %81, label %.sink.split.i.i, label %82
+75:                                               ; preds = %67
+  %76 = select i1 %70, float %.sroa.11.0.vec.extract.i, float %62
+  %77 = fadd float %72, %76
+  %78 = fcmp olt float %77, %73
+  br i1 %78, label %.sink.split.i.i, label %79
 
-82:                                               ; preds = %78, %69
-  %83 = extractelement <2 x i1> %71, i64 1
-  %84 = extractelement <2 x float> %.sroa.0.0.copyload27.i, i64 1
-  %85 = extractelement <2 x float> %70, i64 1
-  %86 = select i1 %83, float %84, float %85
-  %87 = fcmp olt float %86, 0.000000e+00
-  br i1 %87, label %88, label %._crit_edge.i
+79:                                               ; preds = %75, %67
+  %80 = extractelement <2 x i1> %69, i64 1
+  %81 = extractelement <2 x float> %68, i64 1
+  %82 = select i1 %80, float %.sroa.0.4.vec.extract.i, float %81
+  %83 = fcmp olt float %82, 0.000000e+00
+  br i1 %83, label %84, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %82
-  %.pre.i = select i1 %83, float %85, float %84
-  %.pre31 = select i1 %83, float %58, float %66
-  br label %93
+._crit_edge.i:                                    ; preds = %79
+  %.pre.i = select i1 %80, float %81, float %.sroa.0.4.vec.extract.i
+  %.pre31 = select i1 %80, float %.sroa.11.4.vec.extract.i, float %64
+  br label %89
 
-88:                                               ; preds = %82
-  %89 = select i1 %83, float %58, float %66
-  %90 = fadd float %86, %89
-  %91 = select i1 %83, float %85, float %84
-  %92 = fcmp olt float %90, %91
-  br i1 %92, label %.sink.split.i.i, label %93
+84:                                               ; preds = %79
+  %85 = select i1 %80, float %.sroa.11.4.vec.extract.i, float %64
+  %86 = fadd float %82, %85
+  %87 = select i1 %80, float %81, float %.sroa.0.4.vec.extract.i
+  %88 = fcmp olt float %86, %87
+  br i1 %88, label %.sink.split.i.i, label %89
 
-93:                                               ; preds = %88, %._crit_edge.i
-  %.pre-phi = phi float [ %89, %88 ], [ %.pre31, %._crit_edge.i ]
-  %.pre-phi.i = phi float [ %91, %88 ], [ %.pre.i, %._crit_edge.i ]
-  %94 = select i1 %72, float %56, float %64
-  %95 = insertelement <2 x float> poison, float %76, i64 0
-  %96 = insertelement <2 x float> %95, float %.pre-phi.i, i64 1
-  %97 = insertelement <2 x float> poison, float %75, i64 0
-  %98 = insertelement <2 x float> %97, float %86, i64 1
-  %99 = fsub <2 x float> %96, %98
-  %100 = select <2 x i1> %71, <2 x float> %63, <2 x float> %.sroa.11.0.copyload.i
-  %101 = insertelement <2 x float> poison, float %94, i64 0
-  %102 = insertelement <2 x float> %101, float %.pre-phi, i64 1
-  %103 = fsub <2 x float> %102, %99
-  %104 = fcmp olt <2 x float> %100, %103
-  %105 = select <2 x i1> %104, <2 x float> %100, <2 x float> %103
-  %106 = extractelement <2 x float> %105, i64 0
-  %107 = fcmp ole float %106, 0.000000e+00
-  %108 = extractelement <2 x float> %105, i64 1
-  %109 = fcmp ole float %108, 0.000000e+00
-  %110 = select i1 %107, i1 true, i1 %109
-  br i1 %110, label %.sink.split.i.i, label %_ZN2cvanIfEENS_5Rect_IT_EERKS3_S5_.exit
+89:                                               ; preds = %84, %._crit_edge.i
+  %.pre-phi = phi float [ %85, %84 ], [ %.pre31, %._crit_edge.i ]
+  %.pre-phi.i = phi float [ %87, %84 ], [ %.pre.i, %._crit_edge.i ]
+  %90 = select i1 %70, float %.sroa.11.0.vec.extract.i, float %62
+  %91 = insertelement <2 x float> poison, float %73, i64 0
+  %92 = insertelement <2 x float> %91, float %.pre-phi.i, i64 1
+  %93 = insertelement <2 x float> poison, float %72, i64 0
+  %94 = insertelement <2 x float> %93, float %82, i64 1
+  %95 = fsub <2 x float> %92, %94
+  %96 = select <2 x i1> %69, <2 x float> %61, <2 x float> %.sroa.11.0.copyload.i
+  %97 = insertelement <2 x float> poison, float %90, i64 0
+  %98 = insertelement <2 x float> %97, float %.pre-phi, i64 1
+  %99 = fsub <2 x float> %98, %95
+  %100 = fcmp olt <2 x float> %96, %99
+  %101 = select <2 x i1> %100, <2 x float> %96, <2 x float> %99
+  %102 = extractelement <2 x float> %101, i64 0
+  %103 = fcmp ole float %102, 0.000000e+00
+  %104 = extractelement <2 x float> %101, i64 1
+  %105 = fcmp ole float %104, 0.000000e+00
+  %106 = select i1 %103, i1 true, i1 %105
+  br i1 %106, label %.sink.split.i.i, label %_ZN2cvanIfEENS_5Rect_IT_EERKS3_S5_.exit
 
-.sink.split.i.i:                                  ; preds = %93, %88, %78, %61, %_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE4backEv.exit17
+.sink.split.i.i:                                  ; preds = %89, %84, %75, %59, %_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE4backEv.exit17
   br label %_ZN2cvanIfEENS_5Rect_IT_EERKS3_S5_.exit
 
-_ZN2cvanIfEENS_5Rect_IT_EERKS3_S5_.exit:          ; preds = %93, %.sink.split.i.i
-  %.sroa.11.0.i = phi <2 x float> [ zeroinitializer, %.sink.split.i.i ], [ %105, %93 ]
+_ZN2cvanIfEENS_5Rect_IT_EERKS3_S5_.exit:          ; preds = %89, %.sink.split.i.i
+  %.sroa.11.0.i = phi <2 x float> [ zeroinitializer, %.sink.split.i.i ], [ %101, %89 ]
   %shift = shufflevector <2 x float> %.sroa.11.0.i, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %111 = fmul <2 x float> %.sroa.11.0.i, %shift
-  %112 = extractelement <2 x float> %111, i64 0
-  %113 = fmul float %56, %58
-  %114 = fdiv float %112, %113
-  %115 = fcmp olt float %.01920, %114
-  %.sroa.speculated = select i1 %115, float %114, float %.01920
-  br label %116
+  %107 = fmul <2 x float> %.sroa.11.0.i, %shift
+  %108 = extractelement <2 x float> %107, i64 0
+  %109 = fmul float %.sroa.11.0.vec.extract.i, %.sroa.11.4.vec.extract.i
+  %110 = fdiv float %108, %109
+  %111 = fcmp olt float %.01920, %110
+  %.sroa.speculated = select i1 %111, float %110, float %.01920
+  br label %112
 
-116:                                              ; preds = %34, %36, %_ZN2cvanIfEENS_5Rect_IT_EERKS3_S5_.exit
+112:                                              ; preds = %34, %36, %_ZN2cvanIfEENS_5Rect_IT_EERKS3_S5_.exit
   %.1 = phi float [ %.01920, %34 ], [ %.01920, %36 ], [ %.sroa.speculated, %_ZN2cvanIfEENS_5Rect_IT_EERKS3_S5_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %116, %_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE4backEv.exit
-  %.019.lcssa = phi float [ 0.000000e+00, %_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE4backEv.exit ], [ %.1, %116 ]
-  %117 = getelementptr inbounds i8, ptr %16, i64 32
-  store float %.019.lcssa, ptr %117, align 8
+._crit_edge:                                      ; preds = %112, %_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE4backEv.exit
+  %.019.lcssa = phi float [ 0.000000e+00, %_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE4backEv.exit ], [ %.1, %112 ]
+  %113 = getelementptr inbounds i8, ptr %16, i64 32
+  store float %.019.lcssa, ptr %113, align 8
   %.pre = load ptr, ptr %3, align 8
   %.pre30 = load ptr, ptr %2, align 8
-  br label %118
+  br label %114
 
-118:                                              ; preds = %.lr.ph24, %._crit_edge
-  %119 = phi ptr [ %12, %.lr.ph24 ], [ %.pre30, %._crit_edge ]
-  %120 = phi ptr [ %13, %.lr.ph24 ], [ %.pre, %._crit_edge ]
+114:                                              ; preds = %.lr.ph24, %._crit_edge
+  %115 = phi ptr [ %12, %.lr.ph24 ], [ %.pre30, %._crit_edge ]
+  %116 = phi ptr [ %13, %.lr.ph24 ], [ %.pre, %._crit_edge ]
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %121 = ptrtoint ptr %120 to i64
-  %122 = ptrtoint ptr %119 to i64
-  %123 = sub i64 %121, %122
-  %124 = lshr exact i64 %123, 4
-  %125 = trunc i64 %124 to i32
-  %sext = shl i64 %123, 28
-  %126 = ashr i64 %sext, 32
-  %127 = icmp slt i64 %indvars.iv.next28, %126
-  br i1 %127, label %.lr.ph24, label %._crit_edge25, !llvm.loop !14
+  %117 = ptrtoint ptr %116 to i64
+  %118 = ptrtoint ptr %115 to i64
+  %119 = sub i64 %117, %118
+  %120 = lshr exact i64 %119, 4
+  %121 = trunc i64 %120 to i32
+  %sext = shl i64 %119, 28
+  %122 = ashr i64 %sext, 32
+  %123 = icmp slt i64 %indvars.iv.next28, %122
+  br i1 %123, label %.lr.ph24, label %._crit_edge25, !llvm.loop !14
 
-._crit_edge25:                                    ; preds = %118, %1
+._crit_edge25:                                    ; preds = %114, %1
   ret void
 }
 

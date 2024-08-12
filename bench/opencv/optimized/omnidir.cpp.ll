@@ -3985,10 +3985,10 @@ _ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   %439 = fmul <2 x double> %430, %438
   %440 = fmul <2 x double> %434, %438
   %441 = fmul <2 x double> %436, %438
-  %442 = insertelement <2 x double> %428, double %396, i64 0
-  %443 = insertelement <2 x double> %399, double %389, i64 1
-  %444 = fneg <2 x double> %443
-  %445 = fmul <2 x double> %442, %444
+  %442 = insertelement <2 x double> %399, double %389, i64 1
+  %443 = fneg <2 x double> %442
+  %444 = insertelement <2 x double> %428, double %396, i64 0
+  %445 = fmul <2 x double> %444, %443
   %446 = insertelement <2 x double> poison, double %394, i64 0
   %447 = insertelement <2 x double> %446, double %396, i64 1
   %448 = shufflevector <2 x double> %398, <2 x double> %409, <2 x i32> <i32 0, i32 2>

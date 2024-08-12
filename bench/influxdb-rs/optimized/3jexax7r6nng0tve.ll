@@ -8816,7 +8816,7 @@ _ZN15influxdb3_write7catalog7Catalog3new17h4035dd3cf2f40c04E.exit: ; preds = %1,
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.158a1d868de0ce315240a9233181e89c.118, i64 32, i1 false)
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load <2 x i64>, ptr %.0.i.i2.i.i.i, align 8, !noalias !1183
-  %8 = extractelement <2 x i64> %7, i64 0
+  %8 = load i64, ptr %.0.i.i2.i.i.i, align 8, !noalias !1183, !noundef !4
   %9 = add i64 %8, 1
   store i64 %9, ptr %.0.i.i2.i.i.i, align 8, !noalias !1183
   store <2 x i64> %7, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !1171
@@ -8849,7 +8849,7 @@ _ZN15influxdb3_write7catalog12InnerCatalog3new17hd1b649cbdf16bd16E.exit: ; preds
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) @anon.158a1d868de0ce315240a9233181e89c.118, i64 32, i1 false)
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load <2 x i64>, ptr %.0.i.i2.i.i, align 8, !noalias !1197
-  %8 = extractelement <2 x i64> %7, i64 0
+  %8 = load i64, ptr %.0.i.i2.i.i, align 8, !noalias !1197, !noundef !4
   %9 = add i64 %8, 1
   store i64 %9, ptr %.0.i.i2.i.i, align 8, !noalias !1197
   store <2 x i64> %7, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8

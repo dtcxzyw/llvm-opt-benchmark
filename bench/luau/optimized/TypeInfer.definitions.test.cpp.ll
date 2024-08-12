@@ -4856,7 +4856,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_22Ev() #5 personality
   %3 = alloca %struct._Guard, align 8
   %4 = alloca %struct._Guard, align 8
   %5 = alloca %"struct.Luau::LoadDefinitionFileResult", align 8
-  %6 = alloca %"class.std::shared_ptr.133", align 8
+  %6 = alloca %"class.std::shared_ptr.133", align 16
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.0", align 1
   %9 = alloca %"struct.doctest::detail::ResultBuilder", align 8
@@ -4873,7 +4873,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_22Ev() #5 personality
   %20 = alloca %"struct.doctest::detail::Expression_lhs.452", align 8
   %21 = alloca %"struct.doctest::detail::ExpressionDecomposer", align 4
   %22 = alloca %"struct.Luau::LoadDefinitionFileResult", align 8
-  %23 = alloca %"class.std::shared_ptr.133", align 8
+  %23 = alloca %"class.std::shared_ptr.133", align 16
   %24 = alloca %"class.std::__cxx11::basic_string", align 8
   %25 = alloca %"class.std::allocator.0", align 1
   %26 = alloca %"struct.doctest::detail::ResultBuilder", align 8
@@ -4933,17 +4933,16 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_22Ev() #5 personality
 
 .noexc:                                           ; preds = %0
   %43 = getelementptr inbounds i8, ptr %39, i64 1328
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %6, align 8
-  %45 = getelementptr inbounds i8, ptr %6, i64 8
-  %46 = getelementptr inbounds i8, ptr %39, i64 1336
-  %47 = load ptr, ptr %46, align 8
-  store ptr %47, ptr %45, align 8
-  %.not.i.i.i.i = icmp eq ptr %47, null
+  %44 = getelementptr inbounds i8, ptr %6, i64 8
+  %45 = getelementptr inbounds i8, ptr %39, i64 1336
+  %46 = load ptr, ptr %45, align 8
+  %47 = load <2 x ptr>, ptr %43, align 8
+  store <2 x ptr> %47, ptr %6, align 16
+  %.not.i.i.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit.i, label %48
 
 48:                                               ; preds = %.noexc
-  %49 = getelementptr inbounds i8, ptr %47, i64 8
+  %49 = getelementptr inbounds i8, ptr %46, i64 8
   %50 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %50, 0
   br i1 %.not.i.i.i.i.i, label %54, label %51
@@ -5005,7 +5004,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 65:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #15
-  %66 = load ptr, ptr %45, align 8
+  %66 = load ptr, ptr %44, align 8
   %.not.i.i.i44.i = icmp eq ptr %66, null
   br i1 %.not.i.i.i44.i, label %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit.i, label %67
 
@@ -5369,16 +5368,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50.i: 
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %190) #15
   %191 = getelementptr inbounds i8, ptr %17, i64 48
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %191) #15
-  %192 = load ptr, ptr %43, align 8
-  store ptr %192, ptr %23, align 8
-  %193 = getelementptr inbounds i8, ptr %23, i64 8
-  %194 = load ptr, ptr %46, align 8
-  store ptr %194, ptr %193, align 8
-  %.not.i.i.i55.i = icmp eq ptr %194, null
+  %192 = getelementptr inbounds i8, ptr %23, i64 8
+  %193 = load ptr, ptr %45, align 8
+  %194 = load <2 x ptr>, ptr %43, align 8
+  store <2 x ptr> %194, ptr %23, align 16
+  %.not.i.i.i55.i = icmp eq ptr %193, null
   br i1 %.not.i.i.i55.i, label %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit57.i, label %195
 
 195:                                              ; preds = %188
-  %196 = getelementptr inbounds i8, ptr %194, i64 8
+  %196 = getelementptr inbounds i8, ptr %193, i64 8
   %197 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i56.i = icmp eq i8 %197, 0
   br i1 %.not.i.i.i.i56.i, label %201, label %198
@@ -5440,7 +5438,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit62.i: 
 212:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit62.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #15
-  %213 = load ptr, ptr %193, align 8
+  %213 = load ptr, ptr %192, align 8
   %.not.i.i.i63.i = icmp eq ptr %213, null
   br i1 %.not.i.i.i63.i, label %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit69.i, label %214
 
@@ -8092,7 +8090,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_31Ev() #5 personality
   %3 = alloca %"class.doctest::String", align 8
   %4 = alloca %"class.doctest::String", align 8
   %5 = alloca %"struct.Luau::LoadDefinitionFileResult", align 8
-  %6 = alloca %"class.std::shared_ptr.133", align 8
+  %6 = alloca %"class.std::shared_ptr.133", align 16
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.0", align 1
   %9 = alloca %"struct.doctest::detail::ResultBuilder", align 8
@@ -8159,17 +8157,16 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_31Ev() #5 personality
 
 .noexc:                                           ; preds = %0
   %37 = getelementptr inbounds i8, ptr %35, i64 1328
-  %38 = load ptr, ptr %37, align 8
-  store ptr %38, ptr %6, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 8
-  %40 = getelementptr inbounds i8, ptr %35, i64 1336
-  %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %39, align 8
-  %.not.i.i.i.i = icmp eq ptr %41, null
+  %38 = getelementptr inbounds i8, ptr %6, i64 8
+  %39 = getelementptr inbounds i8, ptr %35, i64 1336
+  %40 = load ptr, ptr %39, align 8
+  %41 = load <2 x ptr>, ptr %37, align 8
+  store <2 x ptr> %41, ptr %6, align 16
+  %.not.i.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit.i, label %42
 
 42:                                               ; preds = %.noexc
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds i8, ptr %40, i64 8
   %44 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %44, 0
   br i1 %.not.i.i.i.i.i, label %48, label %45
@@ -8233,7 +8230,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 61:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #15
-  %62 = load ptr, ptr %39, align 8
+  %62 = load ptr, ptr %38, align 8
   %.not.i.i.i36.i = icmp eq ptr %62, null
   br i1 %.not.i.i.i36.i, label %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit.i, label %63
 
@@ -9172,7 +9169,7 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_34Ev() #5 personality
   %3 = alloca %"class.doctest::String", align 8
   %4 = alloca %"class.doctest::String", align 8
   %5 = alloca %"struct.Luau::LoadDefinitionFileResult", align 8
-  %6 = alloca %"class.std::shared_ptr.133", align 8
+  %6 = alloca %"class.std::shared_ptr.133", align 16
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.0", align 1
   %9 = alloca %"struct.doctest::detail::ResultBuilder", align 8
@@ -9239,17 +9236,16 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_34Ev() #5 personality
 
 .noexc:                                           ; preds = %0
   %37 = getelementptr inbounds i8, ptr %35, i64 1328
-  %38 = load ptr, ptr %37, align 8
-  store ptr %38, ptr %6, align 8
-  %39 = getelementptr inbounds i8, ptr %6, i64 8
-  %40 = getelementptr inbounds i8, ptr %35, i64 1336
-  %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %39, align 8
-  %.not.i.i.i.i = icmp eq ptr %41, null
+  %38 = getelementptr inbounds i8, ptr %6, i64 8
+  %39 = getelementptr inbounds i8, ptr %35, i64 1336
+  %40 = load ptr, ptr %39, align 8
+  %41 = load <2 x ptr>, ptr %37, align 8
+  store <2 x ptr> %41, ptr %6, align 16
+  %.not.i.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit.i, label %42
 
 42:                                               ; preds = %.noexc
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds i8, ptr %40, i64 8
   %44 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %44, 0
   br i1 %.not.i.i.i.i.i, label %48, label %45
@@ -9313,7 +9309,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 61:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #15
-  %62 = load ptr, ptr %39, align 8
+  %62 = load ptr, ptr %38, align 8
   %.not.i.i.i36.i = icmp eq ptr %62, null
   br i1 %.not.i.i.i36.i, label %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit.i, label %63
 
@@ -10249,7 +10245,7 @@ _ZSt8_DestroyIPN4Luau10HotCommentES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt
 define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_37Ev() #5 personality ptr @__gxx_personality_v0 {
   %1 = alloca %struct._Guard, align 8
   %2 = alloca %"struct.Luau::LoadDefinitionFileResult", align 8
-  %3 = alloca %"class.std::shared_ptr.133", align 8
+  %3 = alloca %"class.std::shared_ptr.133", align 16
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.0", align 1
   %6 = alloca %"struct.doctest::detail::ResultBuilder", align 8
@@ -10274,17 +10270,16 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_37Ev() #5 personality
 
 .noexc:                                           ; preds = %0
   %13 = getelementptr inbounds i8, ptr %11, i64 1328
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 1336
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %15, align 8
-  %.not.i.i.i.i = icmp eq ptr %17, null
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds i8, ptr %11, i64 1336
+  %16 = load ptr, ptr %15, align 8
+  %17 = load <2 x ptr>, ptr %13, align 8
+  store <2 x ptr> %17, ptr %3, align 16
+  %.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit.i, label %18
 
 18:                                               ; preds = %.noexc
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds i8, ptr %16, i64 8
   %20 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %20, 0
   br i1 %.not.i.i.i.i.i, label %24, label %21
@@ -10348,7 +10343,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 37:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #15
-  %38 = load ptr, ptr %15, align 8
+  %38 = load ptr, ptr %14, align 8
   %.not.i.i.i14.i = icmp eq ptr %38, null
   br i1 %.not.i.i.i14.i, label %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit.i, label %39
 
@@ -18799,7 +18794,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit72.i: 
 define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_91Ev() #5 personality ptr @__gxx_personality_v0 {
   %1 = alloca %struct._Guard, align 8
   %2 = alloca %"struct.Luau::LoadDefinitionFileResult", align 8
-  %3 = alloca %"class.std::shared_ptr.133", align 8
+  %3 = alloca %"class.std::shared_ptr.133", align 16
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.0", align 1
   %6 = alloca %"struct.doctest::detail::ResultBuilder", align 8
@@ -18824,17 +18819,16 @@ define internal void @_ZN12_GLOBAL__N_120DOCTEST_ANON_FUNC_91Ev() #5 personality
 
 .noexc:                                           ; preds = %0
   %13 = getelementptr inbounds i8, ptr %11, i64 1328
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 1336
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %15, align 8
-  %.not.i.i.i.i = icmp eq ptr %17, null
+  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds i8, ptr %11, i64 1336
+  %16 = load ptr, ptr %15, align 8
+  %17 = load <2 x ptr>, ptr %13, align 8
+  store <2 x ptr> %17, ptr %3, align 16
+  %.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit.i, label %18
 
 18:                                               ; preds = %.noexc
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds i8, ptr %16, i64 8
   %20 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %20, 0
   br i1 %.not.i.i.i.i.i, label %24, label %21
@@ -18898,7 +18892,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 37:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #15
-  %38 = load ptr, ptr %15, align 8
+  %38 = load ptr, ptr %14, align 8
   %.not.i.i.i14.i = icmp eq ptr %38, null
   br i1 %.not.i.i.i14.i, label %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit.i, label %39
 

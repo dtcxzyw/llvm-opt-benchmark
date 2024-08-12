@@ -182,8 +182,8 @@ entry:
   %ret.i = alloca %"struct.std::pair", align 8
   %agg.tmp.i = alloca %"class.std::unique_ptr.39", align 8
   %bytecode.i = alloca %"class.std::unique_ptr.31", align 8
-  %disas.i = alloca %"class.hermes::hbc::BytecodeDisassembler", align 8
-  %agg.tmp142.i = alloca %"class.std::shared_ptr", align 8
+  %disas.i = alloca %"class.hermes::hbc::BytecodeDisassembler", align 16
+  %agg.tmp142.i = alloca %"class.std::shared_ptr", align 16
   %filenames = alloca %"class.std::vector.0", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::allocator.5", align 1
@@ -1992,19 +1992,18 @@ if.then4.i.i.i:                                   ; preds = %if.then137.i
 if.end140.i:                                      ; preds = %_ZNSt6vectorIlSaIlEE9push_backEOl.exit673.i
   %170 = load ptr, ptr %bytecode.i, align 8
   call void @_ZNSt12__shared_ptrIN6hermes3hbc14BCProviderBaseELN9__gnu_cxx12_Lock_policyE2EEC2INS1_20BCProviderFromBufferESt14default_deleteIS7_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp142.i, ptr noundef nonnull align 8 dereferenceable(8) %bytecode.i)
-  %171 = load ptr, ptr %agg.tmp142.i, align 8
-  store ptr %171, ptr %disas.i, align 8
-  %172 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
-  store ptr %172, ptr %_M_refcount.i.i.i.i, align 8
-  %cmp.not.i.i.i.i683.i = icmp eq ptr %172, null
+  %171 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  %172 = load <2 x ptr>, ptr %agg.tmp142.i, align 16
+  store <2 x ptr> %172, ptr %disas.i, align 16
+  %cmp.not.i.i.i.i683.i = icmp eq ptr %171, null
   br i1 %cmp.not.i.i.i.i683.i, label %_ZN6hermes3hbc20BytecodeDisassemblerC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit.thread.i, label %if.then.i.i.i.i684.i
 
 _ZN6hermes3hbc20BytecodeDisassemblerC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit.thread.i: ; preds = %if.end140.i
-  store i32 1, ptr %options_.i.i, align 8
+  store i32 1, ptr %options_.i.i, align 16
   br label %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit.i
 
 if.then.i.i.i.i684.i:                             ; preds = %if.end140.i
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %172, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %171, i64 8
   %173 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %173, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i685.i
@@ -2021,7 +2020,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i684.
 
 _ZN6hermes3hbc20BytecodeDisassemblerC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i685.i
   %.pr.i = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
-  store i32 1, ptr %options_.i.i, align 8
+  store i32 1, ptr %options_.i.i, align 16
   %cmp.not.i.i.i.i = icmp eq ptr %.pr.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit.i, label %if.then.i.i.i.i
 

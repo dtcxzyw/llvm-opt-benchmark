@@ -576,11 +576,11 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr nocapture noundef %0
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 20
   %6 = load <2 x i32>, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = load double, ptr %7, align 8
-  %9 = extractelement <2 x i32> %6, i64 0
-  %10 = sitofp i32 %9 to double
-  %11 = fmul double %8, %10
+  %7 = load i32, ptr %4, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = load double, ptr %8, align 8
+  %10 = sitofp i32 %7 to double
+  %11 = fmul double %9, %10
   %12 = fptosi double %11 to i32
   %spec.select = or i32 %12, 1
   store i32 %spec.select, ptr %4, align 8
@@ -602,12 +602,12 @@ define internal fastcc range(i32 -10000, 2) i32 @rehash(ptr nocapture noundef %0
   br label %64
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader54
-  %19 = icmp sgt i32 %9, 0
+  %19 = icmp sgt i32 %7, 0
   br i1 %19, label %.lr.ph60, label %._crit_edge61
 
 .lr.ph60:                                         ; preds = %.preheader
   %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %wide.trip.count = zext nneg i32 %9 to i64
+  %wide.trip.count = zext nneg i32 %7 to i64
   br label %26
 
 .lr.ph:                                           ; preds = %.preheader54, %.lr.ph

@@ -943,27 +943,26 @@ StoreCompressedMetaBlockHeader.exit:              ; preds = %if.end.i, %if.then2
   %distance_enc7 = getelementptr inbounds i8, ptr %call4, i64 1904
   %18 = load i64, ptr %mb, align 8
   %types = getelementptr inbounds i8, ptr %mb, i64 16
-  %19 = load ptr, ptr %types, align 8
   %lengths = getelementptr inbounds i8, ptr %mb, i64 24
-  %20 = load ptr, ptr %lengths, align 8
   %num_blocks = getelementptr inbounds i8, ptr %mb, i64 8
-  %21 = load i64, ptr %num_blocks, align 8
-  store i64 256, ptr %call4, align 8
+  %19 = load i64, ptr %num_blocks, align 8
   %num_block_types_.i = getelementptr inbounds i8, ptr %call4, i64 8
-  store i64 %18, ptr %num_block_types_.i, align 8
   %block_types_.i = getelementptr inbounds i8, ptr %call4, i64 16
-  store ptr %19, ptr %block_types_.i, align 8
   %block_lengths_.i = getelementptr inbounds i8, ptr %call4, i64 24
-  store ptr %20, ptr %block_lengths_.i, align 8
+  %20 = load ptr, ptr %lengths, align 8
+  %21 = load <2 x ptr>, ptr %types, align 8
+  store i64 256, ptr %call4, align 8
+  store i64 %18, ptr %num_block_types_.i, align 8
+  store <2 x ptr> %21, ptr %block_types_.i, align 8
   %num_blocks_.i = getelementptr inbounds i8, ptr %call4, i64 32
-  store i64 %21, ptr %num_blocks_.i, align 8
+  store i64 %19, ptr %num_blocks_.i, align 8
   %block_split_code_.i = getelementptr inbounds i8, ptr %call4, i64 40
   store i64 1, ptr %block_split_code_.i, align 8
   %second_last_type.i.i = getelementptr inbounds i8, ptr %call4, i64 48
   store i64 0, ptr %second_last_type.i.i, align 8
   %block_ix_.i = getelementptr inbounds i8, ptr %call4, i64 912
   store i64 0, ptr %block_ix_.i, align 8
-  %cmp.i = icmp eq i64 %21, 0
+  %cmp.i = icmp eq i64 %19, 0
   br i1 %cmp.i, label %InitBlockEncoder.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %StoreCompressedMetaBlockHeader.exit
@@ -980,27 +979,25 @@ InitBlockEncoder.exit:                            ; preds = %StoreCompressedMeta
   %command_split = getelementptr inbounds i8, ptr %mb, i64 48
   %24 = load i64, ptr %command_split, align 8
   %types13 = getelementptr inbounds i8, ptr %mb, i64 64
-  %25 = load ptr, ptr %types13, align 8
   %lengths15 = getelementptr inbounds i8, ptr %mb, i64 72
-  %26 = load ptr, ptr %lengths15, align 8
   %num_blocks17 = getelementptr inbounds i8, ptr %mb, i64 56
-  %27 = load i64, ptr %num_blocks17, align 8
-  store i64 704, ptr %command_enc6, align 8
+  %25 = load i64, ptr %num_blocks17, align 8
   %num_block_types_.i217 = getelementptr inbounds i8, ptr %call4, i64 960
-  store i64 %24, ptr %num_block_types_.i217, align 8
   %block_types_.i218 = getelementptr inbounds i8, ptr %call4, i64 968
-  store ptr %25, ptr %block_types_.i218, align 8
-  %block_lengths_.i219 = getelementptr inbounds i8, ptr %call4, i64 976
-  store ptr %26, ptr %block_lengths_.i219, align 8
+  %26 = load ptr, ptr %lengths15, align 8
+  %27 = load <2 x ptr>, ptr %types13, align 8
+  store i64 704, ptr %command_enc6, align 8
+  store i64 %24, ptr %num_block_types_.i217, align 8
+  store <2 x ptr> %27, ptr %block_types_.i218, align 8
   %num_blocks_.i220 = getelementptr inbounds i8, ptr %call4, i64 984
-  store i64 %27, ptr %num_blocks_.i220, align 8
+  store i64 %25, ptr %num_blocks_.i220, align 8
   %block_split_code_.i221 = getelementptr inbounds i8, ptr %call4, i64 992
   store i64 1, ptr %block_split_code_.i221, align 8
   %second_last_type.i.i222 = getelementptr inbounds i8, ptr %call4, i64 1000
   store i64 0, ptr %second_last_type.i.i222, align 8
   %block_ix_.i223 = getelementptr inbounds i8, ptr %call4, i64 1864
   store i64 0, ptr %block_ix_.i223, align 8
-  %cmp.i224 = icmp eq i64 %27, 0
+  %cmp.i224 = icmp eq i64 %25, 0
   br i1 %cmp.i224, label %InitBlockEncoder.exit229, label %cond.false.i225
 
 cond.false.i225:                                  ; preds = %InitBlockEncoder.exit
@@ -1018,27 +1015,26 @@ InitBlockEncoder.exit229:                         ; preds = %InitBlockEncoder.ex
   %distance_split = getelementptr inbounds i8, ptr %mb, i64 96
   %30 = load i64, ptr %distance_split, align 8
   %types20 = getelementptr inbounds i8, ptr %mb, i64 112
-  %31 = load ptr, ptr %types20, align 8
   %lengths22 = getelementptr inbounds i8, ptr %mb, i64 120
-  %32 = load ptr, ptr %lengths22, align 8
   %num_blocks24 = getelementptr inbounds i8, ptr %mb, i64 104
-  %33 = load i64, ptr %num_blocks24, align 8
-  store i64 %conv, ptr %distance_enc7, align 8
+  %31 = load i64, ptr %num_blocks24, align 8
   %num_block_types_.i230 = getelementptr inbounds i8, ptr %call4, i64 1912
-  store i64 %30, ptr %num_block_types_.i230, align 8
   %block_types_.i231 = getelementptr inbounds i8, ptr %call4, i64 1920
-  store ptr %31, ptr %block_types_.i231, align 8
   %block_lengths_.i232 = getelementptr inbounds i8, ptr %call4, i64 1928
-  store ptr %32, ptr %block_lengths_.i232, align 8
+  %32 = load ptr, ptr %lengths22, align 8
+  %33 = load <2 x ptr>, ptr %types20, align 8
+  store i64 %conv, ptr %distance_enc7, align 8
+  store i64 %30, ptr %num_block_types_.i230, align 8
+  store <2 x ptr> %33, ptr %block_types_.i231, align 8
   %num_blocks_.i233 = getelementptr inbounds i8, ptr %call4, i64 1936
-  store i64 %33, ptr %num_blocks_.i233, align 8
+  store i64 %31, ptr %num_blocks_.i233, align 8
   %block_split_code_.i234 = getelementptr inbounds i8, ptr %call4, i64 1944
   store i64 1, ptr %block_split_code_.i234, align 8
   %second_last_type.i.i235 = getelementptr inbounds i8, ptr %call4, i64 1952
   store i64 0, ptr %second_last_type.i.i235, align 8
   %block_ix_.i236 = getelementptr inbounds i8, ptr %call4, i64 2816
   store i64 0, ptr %block_ix_.i236, align 8
-  %cmp.i237 = icmp eq i64 %33, 0
+  %cmp.i237 = icmp eq i64 %31, 0
   br i1 %cmp.i237, label %InitBlockEncoder.exit242, label %cond.false.i238
 
 cond.false.i238:                                  ; preds = %InitBlockEncoder.exit229

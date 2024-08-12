@@ -2170,14 +2170,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit: ; preds = %848
   %852 = getelementptr inbounds i8, ptr %850, i64 96
   %853 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %852, ptr noundef nonnull align 8 dereferenceable(16) %42) #21
   %854 = getelementptr inbounds i8, ptr %44, i64 8
-  %855 = load <2 x ptr>, ptr %43, align 16
-  store <2 x ptr> %855, ptr %44, align 16
-  %856 = extractelement <2 x ptr> %855, i64 1
-  %.not.i.i.i = icmp eq ptr %856, null
+  %855 = load ptr, ptr %849, align 8
+  %856 = load <2 x ptr>, ptr %43, align 16
+  store <2 x ptr> %856, ptr %44, align 16
+  %.not.i.i.i = icmp eq ptr %855, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit, label %857
 
 857:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit
-  %858 = getelementptr inbounds i8, ptr %856, i64 8
+  %858 = getelementptr inbounds i8, ptr %855, i64 8
   %859 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %859, 0
   br i1 %.not.i.i.i.i, label %863, label %860
@@ -2302,14 +2302,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1317: ; preds = 
   %907 = getelementptr inbounds i8, ptr %906, i64 112
   %908 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %907, ptr noundef nonnull align 8 dereferenceable(16) %46) #21
   %909 = getelementptr inbounds i8, ptr %48, i64 8
-  %910 = load <2 x ptr>, ptr %47, align 16
-  store <2 x ptr> %910, ptr %48, align 16
-  %911 = extractelement <2 x ptr> %910, i64 1
-  %.not.i.i.i1318 = icmp eq ptr %911, null
+  %910 = load ptr, ptr %899, align 8
+  %911 = load <2 x ptr>, ptr %47, align 16
+  store <2 x ptr> %911, ptr %48, align 16
+  %.not.i.i.i1318 = icmp eq ptr %910, null
   br i1 %.not.i.i.i1318, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1320, label %912
 
 912:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1317
-  %913 = getelementptr inbounds i8, ptr %911, i64 8
+  %913 = getelementptr inbounds i8, ptr %910, i64 8
   %914 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i1319 = icmp eq i8 %914, 0
   br i1 %.not.i.i.i.i1319, label %918, label %915
@@ -2446,14 +2446,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1322: ; preds = 
   %965 = getelementptr inbounds i8, ptr %964, i64 112
   %966 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %965, ptr noundef nonnull align 8 dereferenceable(16) %50) #21
   %967 = getelementptr inbounds i8, ptr %52, i64 8
-  %968 = load <2 x ptr>, ptr %51, align 16
-  store <2 x ptr> %968, ptr %52, align 16
-  %969 = extractelement <2 x ptr> %968, i64 1
-  %.not.i.i.i1323 = icmp eq ptr %969, null
+  %968 = load ptr, ptr %957, align 8
+  %969 = load <2 x ptr>, ptr %51, align 16
+  store <2 x ptr> %969, ptr %52, align 16
+  %.not.i.i.i1323 = icmp eq ptr %968, null
   br i1 %.not.i.i.i1323, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1325, label %970
 
 970:                                              ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1322
-  %971 = getelementptr inbounds i8, ptr %969, i64 8
+  %971 = getelementptr inbounds i8, ptr %968, i64 8
   %972 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i1324 = icmp eq i8 %972, 0
   br i1 %.not.i.i.i.i1324, label %976, label %973
@@ -3308,14 +3308,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1335: ; preds = 
   %1295 = load ptr, ptr %1294, align 8
   store i32 %1292, ptr %1295, align 4
   %1296 = getelementptr inbounds i8, ptr %76, i64 8
-  %1297 = load <2 x ptr>, ptr %75, align 16
-  store <2 x ptr> %1297, ptr %76, align 16
-  %1298 = extractelement <2 x ptr> %1297, i64 1
-  %.not.i.i.i1336 = icmp eq ptr %1298, null
+  %1297 = load ptr, ptr %1286, align 8
+  %1298 = load <2 x ptr>, ptr %75, align 16
+  store <2 x ptr> %1298, ptr %76, align 16
+  %.not.i.i.i1336 = icmp eq ptr %1297, null
   br i1 %.not.i.i.i1336, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1338, label %1299
 
 1299:                                             ; preds = %1290
-  %1300 = getelementptr inbounds i8, ptr %1298, i64 8
+  %1300 = getelementptr inbounds i8, ptr %1297, i64 8
   %1301 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i1337 = icmp eq i8 %1301, 0
   br i1 %.not.i.i.i.i1337, label %1305, label %1302
@@ -3431,14 +3431,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1340: ; preds = 
   %1343 = load ptr, ptr %1342, align 8
   store float %1340, ptr %1343, align 4
   %1344 = getelementptr inbounds i8, ptr %78, i64 8
-  %1345 = load <2 x ptr>, ptr %77, align 16
-  store <2 x ptr> %1345, ptr %78, align 16
-  %1346 = extractelement <2 x ptr> %1345, i64 1
-  %.not.i.i.i1341 = icmp eq ptr %1346, null
+  %1345 = load ptr, ptr %1334, align 8
+  %1346 = load <2 x ptr>, ptr %77, align 16
+  store <2 x ptr> %1346, ptr %78, align 16
+  %.not.i.i.i1341 = icmp eq ptr %1345, null
   br i1 %.not.i.i.i1341, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1343, label %1347
 
 1347:                                             ; preds = %1338
-  %1348 = getelementptr inbounds i8, ptr %1346, i64 8
+  %1348 = getelementptr inbounds i8, ptr %1345, i64 8
   %1349 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i1342 = icmp eq i8 %1349, 0
   br i1 %.not.i.i.i.i1342, label %1353, label %1350
@@ -4368,14 +4368,14 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2IS1_vEEPT_.exit1354: ; preds = 
   %1695 = load ptr, ptr %1694, align 8
   store ptr %1692, ptr %1695, align 8
   %1696 = getelementptr inbounds i8, ptr %107, i64 8
-  %1697 = load <2 x ptr>, ptr %106, align 16
-  store <2 x ptr> %1697, ptr %107, align 16
-  %1698 = extractelement <2 x ptr> %1697, i64 1
-  %.not.i.i.i1355 = icmp eq ptr %1698, null
+  %1697 = load ptr, ptr %1686, align 8
+  %1698 = load <2 x ptr>, ptr %106, align 16
+  store <2 x ptr> %1698, ptr %107, align 16
+  %.not.i.i.i1355 = icmp eq ptr %1697, null
   br i1 %.not.i.i.i1355, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit1357, label %1699
 
 1699:                                             ; preds = %1690
-  %1700 = getelementptr inbounds i8, ptr %1698, i64 8
+  %1700 = getelementptr inbounds i8, ptr %1697, i64 8
   %1701 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i1356 = icmp eq i8 %1701, 0
   br i1 %.not.i.i.i.i1356, label %1705, label %1702
@@ -7771,14 +7771,14 @@ _ZN3gmx20ExceptionInitializerD2Ev.exit:           ; preds = %_ZSt8_DestroyIPNSt1
   %38 = getelementptr inbounds i8, ptr %5, i64 8
   %39 = getelementptr inbounds i8, ptr %9, i64 16
   %40 = getelementptr inbounds i8, ptr %5, i64 16
-  %41 = load <2 x ptr>, ptr %38, align 8
-  store <2 x ptr> %41, ptr %37, align 8
-  %42 = extractelement <2 x ptr> %41, i64 1
-  %.not.i.i.i.i.i.i = icmp eq ptr %42, null
+  %41 = load ptr, ptr %40, align 8
+  %42 = load <2 x ptr>, ptr %38, align 8
+  store <2 x ptr> %42, ptr %37, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN3gmx17InvalidInputErrorC2ERKS0_.exit, label %43
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %42, i64 8
+  %44 = getelementptr inbounds i8, ptr %41, i64 8
   %45 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i15 = icmp eq i8 %45, 0
   br i1 %.not.i.i.i.i.i.i.i15, label %49, label %46
@@ -9299,50 +9299,51 @@ define linkonce_odr void @_ZNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_E
   store i32 %5, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = load <2 x ptr>, ptr %7, align 8
-  store <2 x ptr> %8, ptr %6, align 8
-  %9 = extractelement <2 x ptr> %8, i64 1
+  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %10 = load <2 x ptr>, ptr %7, align 8
+  store <2 x ptr> %10, ptr %6, align 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i.i.i.i.i, label %10
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i.i.i.i.i, label %11
 
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
-  %12 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %12, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %16, label %13
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %13, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %17, label %14
 
-13:                                               ; preds = %10
-  %14 = load i32, ptr %11, align 4
-  %15 = add nsw i32 %14, 1
-  store i32 %15, ptr %11, align 4
+14:                                               ; preds = %11
+  %15 = load i32, ptr %12, align 4
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %12, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i.i.i.i.i
 
-16:                                               ; preds = %10
-  %17 = atomicrmw volatile add ptr %11, i32 1 acq_rel, align 4
+17:                                               ; preds = %11
+  %18 = atomicrmw volatile add ptr %12, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i.i.i.i.i
 
-_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i.i.i.i.i: ; preds = %16, %13, %2
-  %18 = getelementptr inbounds i8, ptr %3, i64 40
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19)
+_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i.i.i.i.i: ; preds = %17, %14, %2
+  %19 = getelementptr inbounds i8, ptr %3, i64 40
+  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20)
           to label %_ZNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EE9_M_insertIJRKS2_EEEvSt14_List_iteratorIS2_EDpOT_.exit unwind label %_ZNSt15__allocated_ptrISaISt10_List_nodeIN3gmx20SelectionParserValueEEEED2Ev.exit9.i.i
 
 _ZNSt15__allocated_ptrISaISt10_List_nodeIN3gmx20SelectionParserValueEEEED2Ev.exit9.i.i: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i.i.i.i.i
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
   tail call void @_ZdlPv(ptr noundef nonnull %3) #25
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %21
 
 _ZNSt7__cxx114listIN3gmx20SelectionParserValueESaIS2_EE9_M_insertIJRKS2_EEEvSt14_List_iteratorIS2_EDpOT_.exit: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit.i.i.i.i.i
-  %21 = getelementptr inbounds i8, ptr %3, i64 72
-  %22 = getelementptr inbounds i8, ptr %1, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %21, ptr noundef nonnull align 8 dereferenceable(20) %22, i64 20, i1 false)
+  %22 = getelementptr inbounds i8, ptr %3, i64 72
+  %23 = getelementptr inbounds i8, ptr %1, i64 56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %22, ptr noundef nonnull align 8 dereferenceable(20) %23, i64 20, i1 false)
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %0) #21
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = load i64, ptr %23, align 8
-  %25 = add i64 %24, 1
-  store i64 %25, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = load i64, ptr %24, align 8
+  %26 = add i64 %25, 1
+  store i64 %26, ptr %24, align 8
   ret void
 }
 

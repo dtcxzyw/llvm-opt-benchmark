@@ -2245,7 +2245,7 @@ define void @_ZN3nix7listNarB5cxx11ENS_3refINS_14SourceAccessorEEERKNS_9CanonPat
   %11 = alloca %"class.nlohmann::basic_json", align 8
   %12 = alloca %"class.std::map", align 8
   %13 = alloca %"class.nlohmann::basic_json", align 8
-  %14 = alloca %"class.nix::ref", align 8
+  %14 = alloca %"class.nix::ref", align 16
   %15 = alloca %"class.nix::CanonPath", align 8
   %16 = alloca %"class.nlohmann::basic_json", align 8
   %17 = alloca %"class.nlohmann::basic_json", align 8
@@ -2516,15 +2516,14 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN3nix3refINS_14SourceAccessorEED2Ev.exit.us
   %.sroa.052.059.us = phi ptr [ %183, %_ZN3nix3refINS_14SourceAccessorEED2Ev.exit.us ], [ %113, %.lr.ph ]
   %122 = getelementptr inbounds i8, ptr %.sroa.052.059.us, i64 32
-  %123 = load ptr, ptr %1, align 8
-  store ptr %123, ptr %14, align 8
-  %124 = load ptr, ptr %118, align 8
-  store ptr %124, ptr %117, align 8
-  %.not.i.i.i.i.us = icmp eq ptr %124, null
+  %123 = load ptr, ptr %118, align 8
+  %124 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %124, ptr %14, align 16
+  %.not.i.i.i.i.us = icmp eq ptr %123, null
   br i1 %.not.i.i.i.i.us, label %_ZN3nix3refINS_14SourceAccessorEEC2ERKS2_.exit.us, label %125
 
 125:                                              ; preds = %.lr.ph.split.us
-  %126 = getelementptr inbounds i8, ptr %124, i64 8
+  %126 = getelementptr inbounds i8, ptr %123, i64 8
   %127 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.us = icmp eq i8 %127, 0
   br i1 %.not.i.i.i.i.i.us, label %131, label %128

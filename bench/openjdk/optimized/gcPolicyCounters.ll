@@ -33,7 +33,7 @@ define hidden void @_ZN16GCPolicyCountersC2EPKcii(ptr nocapture noundef nonnull 
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV16GCPolicyCounters, i64 16), ptr %0, align 8
   %6 = load i8, ptr @UsePerfData, align 1
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %8, label %71
+  br i1 %7, label %8, label %70
 
 8:                                                ; preds = %4
   call void @_ZN13ExceptionMarkC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #4
@@ -45,104 +45,102 @@ define hidden void @_ZN16GCPolicyCountersC2EPKcii(ptr nocapture noundef nonnull 
   %14 = getelementptr inbounds i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 32
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %13, i64 40
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 8
-  %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr @.str, ptr %22, align 8
-  %23 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #4
-  %24 = call noundef ptr @_ZN15PerfDataManager22create_string_constantE9CounterNSPKcS2_P10JavaThread(i32 noundef 5, ptr noundef %23, ptr noundef %1, ptr noundef %9) #4
-  %25 = getelementptr inbounds i8, ptr %9, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %.not = icmp eq ptr %26, null
-  br i1 %.not, label %27, label %65
+  %17 = load <2 x ptr>, ptr %16, align 8
+  %18 = load ptr, ptr %16, align 8
+  %19 = getelementptr inbounds i8, ptr %13, i64 8
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr @.str, ptr %21, align 8
+  %22 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #4
+  %23 = call noundef ptr @_ZN15PerfDataManager22create_string_constantE9CounterNSPKcS2_P10JavaThread(i32 noundef 5, ptr noundef %22, ptr noundef %1, ptr noundef %9) #4
+  %24 = getelementptr inbounds i8, ptr %9, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %.not = icmp eq ptr %25, null
+  br i1 %.not, label %26, label %64
 
-27:                                               ; preds = %8
-  %28 = load ptr, ptr %22, align 8
-  %29 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %28, ptr noundef nonnull @.str.5) #4
-  %30 = sext i32 %2 to i64
-  %31 = call noundef ptr @_ZN15PerfDataManager20create_long_constantE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %29, i32 noundef 1, i64 noundef %30, ptr noundef nonnull %9) #4
-  %32 = load ptr, ptr %25, align 8
-  %.not27 = icmp eq ptr %32, null
-  br i1 %.not27, label %33, label %65
+26:                                               ; preds = %8
+  %27 = load ptr, ptr %21, align 8
+  %28 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %27, ptr noundef nonnull @.str.5) #4
+  %29 = sext i32 %2 to i64
+  %30 = call noundef ptr @_ZN15PerfDataManager20create_long_constantE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %28, i32 noundef 1, i64 noundef %29, ptr noundef nonnull %9) #4
+  %31 = load ptr, ptr %24, align 8
+  %.not27 = icmp eq ptr %31, null
+  br i1 %.not27, label %32, label %64
 
-33:                                               ; preds = %27
-  %34 = load ptr, ptr %22, align 8
-  %35 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %34, ptr noundef nonnull @.str.6) #4
-  %36 = sext i32 %3 to i64
-  %37 = call noundef ptr @_ZN15PerfDataManager20create_long_constantE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %35, i32 noundef 1, i64 noundef %36, ptr noundef nonnull %9) #4
-  %38 = load ptr, ptr %25, align 8
-  %.not28 = icmp eq ptr %38, null
-  br i1 %.not28, label %39, label %65
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %21, align 8
+  %34 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %33, ptr noundef nonnull @.str.6) #4
+  %35 = sext i32 %3 to i64
+  %36 = call noundef ptr @_ZN15PerfDataManager20create_long_constantE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %34, i32 noundef 1, i64 noundef %35, ptr noundef nonnull %9) #4
+  %37 = load ptr, ptr %24, align 8
+  %.not28 = icmp eq ptr %37, null
+  br i1 %.not28, label %38, label %64
 
-39:                                               ; preds = %33
-  %40 = load ptr, ptr %22, align 8
-  %41 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %40, ptr noundef nonnull @.str.7) #4
-  %42 = load i32, ptr @MaxTenuringThreshold, align 4
-  %43 = zext i32 %42 to i64
-  %44 = call noundef ptr @_ZN15PerfDataManager20create_long_constantE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %41, i32 noundef 1, i64 noundef %43, ptr noundef nonnull %9) #4
-  %45 = load ptr, ptr %25, align 8
-  %.not29 = icmp eq ptr %45, null
-  br i1 %.not29, label %46, label %65
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %21, align 8
+  %40 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %39, ptr noundef nonnull @.str.7) #4
+  %41 = load i32, ptr @MaxTenuringThreshold, align 4
+  %42 = zext i32 %41 to i64
+  %43 = call noundef ptr @_ZN15PerfDataManager20create_long_constantE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %40, i32 noundef 1, i64 noundef %42, ptr noundef nonnull %9) #4
+  %44 = load ptr, ptr %24, align 8
+  %.not29 = icmp eq ptr %44, null
+  br i1 %.not29, label %45, label %64
 
-46:                                               ; preds = %39
-  %47 = load ptr, ptr %22, align 8
-  %48 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %47, ptr noundef nonnull @.str.8) #4
-  %49 = load i32, ptr @MaxTenuringThreshold, align 4
-  %50 = zext i32 %49 to i64
-  %51 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %48, i32 noundef 1, i64 noundef %50, ptr noundef nonnull %9) #4
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %51, ptr %52, align 8
-  %53 = load ptr, ptr %25, align 8
-  %.not30 = icmp eq ptr %53, null
-  br i1 %.not30, label %54, label %65
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %21, align 8
+  %47 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %46, ptr noundef nonnull @.str.8) #4
+  %48 = load i32, ptr @MaxTenuringThreshold, align 4
+  %49 = zext i32 %48 to i64
+  %50 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %47, i32 noundef 1, i64 noundef %49, ptr noundef nonnull %9) #4
+  %51 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %50, ptr %51, align 8
+  %52 = load ptr, ptr %24, align 8
+  %.not30 = icmp eq ptr %52, null
+  br i1 %.not30, label %53, label %64
 
-54:                                               ; preds = %46
-  %55 = load ptr, ptr %22, align 8
-  %56 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %55, ptr noundef nonnull @.str.9) #4
-  %57 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %56, i32 noundef 2, i64 noundef 0, ptr noundef nonnull %9) #4
-  %58 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %57, ptr %58, align 8
-  %59 = load ptr, ptr %25, align 8
-  %.not31 = icmp eq ptr %59, null
-  br i1 %.not31, label %60, label %65
+53:                                               ; preds = %45
+  %54 = load ptr, ptr %21, align 8
+  %55 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %54, ptr noundef nonnull @.str.9) #4
+  %56 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %55, i32 noundef 2, i64 noundef 0, ptr noundef nonnull %9) #4
+  %57 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %56, ptr %57, align 8
+  %58 = load ptr, ptr %24, align 8
+  %.not31 = icmp eq ptr %58, null
+  br i1 %.not31, label %59, label %64
 
-60:                                               ; preds = %54
-  %61 = load ptr, ptr %22, align 8
-  %62 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %61, ptr noundef nonnull @.str.10) #4
-  %63 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %62, i32 noundef 4, i64 noundef 0, ptr noundef nonnull %9) #4
-  %64 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %63, ptr %64, align 8
-  br label %65
+59:                                               ; preds = %53
+  %60 = load ptr, ptr %21, align 8
+  %61 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %60, ptr noundef nonnull @.str.10) #4
+  %62 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %61, i32 noundef 4, i64 noundef 0, ptr noundef nonnull %9) #4
+  %63 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %62, ptr %63, align 8
+  br label %64
 
-65:                                               ; preds = %60, %54, %46, %39, %33, %27, %8
-  %66 = load ptr, ptr %15, align 8
-  %.not.i.i.i.i = icmp eq ptr %66, null
-  br i1 %.not.i.i.i.i, label %68, label %67
+64:                                               ; preds = %59, %53, %45, %38, %32, %26, %8
+  %65 = load ptr, ptr %15, align 8
+  %.not.i.i.i.i = icmp eq ptr %65, null
+  br i1 %.not.i.i.i.i, label %67, label %66
 
-67:                                               ; preds = %65
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %13, i64 noundef %21) #4
+66:                                               ; preds = %64
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %13, i64 noundef %20) #4
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %15) #4
-  br label %68
+  br label %67
 
-68:                                               ; preds = %67, %65
-  %69 = load ptr, ptr %16, align 8
-  %.not8.i.i.i.i = icmp eq ptr %69, %17
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %70
+67:                                               ; preds = %66, %64
+  %68 = load ptr, ptr %16, align 8
+  %.not8.i.i.i.i = icmp eq ptr %68, %18
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %69
 
-70:                                               ; preds = %68
+69:                                               ; preds = %67
   store ptr %15, ptr %14, align 8
-  store ptr %17, ptr %16, align 8
-  store ptr %19, ptr %18, align 8
+  store <2 x ptr> %17, ptr %16, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %68, %70
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %67, %69
   call void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #4
-  br label %71
+  br label %70
 
-71:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %4
+70:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %4
   ret void
 }
 

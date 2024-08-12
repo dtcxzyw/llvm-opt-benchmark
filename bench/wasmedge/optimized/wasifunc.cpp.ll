@@ -2846,7 +2846,7 @@ define void @_ZN8WasmEdge4Host11WasiFdClose4bodyERKNS_7Runtime12CallingFrameEi(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden i32 @_ZN8WasmEdge4Host4WASI7Environ7fdCloseEi(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::shared_ptr", align 8
+  %3 = alloca %"class.std::shared_ptr", align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 232
   %5 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #18
   %6 = icmp eq i32 %5, 35
@@ -2922,17 +2922,16 @@ _ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8e
   %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %14 ], [ %33, %31 ]
   %39 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i, i64 8
   %40 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i, i64 16
-  %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %3, align 8
-  %42 = getelementptr inbounds i8, ptr %3, i64 8
-  %43 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i, i64 24
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %42, align 8
-  %.not.i.i.i = icmp eq ptr %44, null
+  %41 = getelementptr inbounds i8, ptr %3, i64 8
+  %42 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i, i64 24
+  %43 = load ptr, ptr %42, align 8
+  %44 = load <2 x ptr>, ptr %40, align 8
+  store <2 x ptr> %44, ptr %3, align 16
+  %.not.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEC2ERKS4_.exit, label %45
 
 45:                                               ; preds = %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit
-  %46 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = getelementptr inbounds i8, ptr %43, i64 8
   %47 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i2 = icmp eq i8 %47, 0
   br i1 %.not.i.i.i.i2, label %51, label %48
@@ -2949,7 +2948,7 @@ _ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8e
 
 _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEC2ERKS4_.exit: ; preds = %_ZNSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, %48, %51
   call void @_ZN8WasmEdge4Host4WASI7Environ5closeESt10shared_ptrINS1_6VINodeEE(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr noundef nonnull %3) #18
-  %53 = load ptr, ptr %42, align 8
+  %53 = load ptr, ptr %41, align 8
   %.not.i.i.i3 = icmp eq ptr %53, null
   br i1 %.not.i.i.i3, label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit, label %54
 
@@ -8459,7 +8458,7 @@ define linkonce_odr hidden i64 @_ZN8WasmEdge4Host4WASI7Environ8pathOpenEiSt17bas
   %10 = alloca %"class.std::shared_ptr", align 16
   %11 = alloca %"class.cxx20::expected.741", align 8
   %12 = alloca %"class.std::shared_ptr", align 16
-  %13 = alloca %"class.std::shared_ptr", align 8
+  %13 = alloca %"class.std::shared_ptr", align 16
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %_ZN8WasmEdge4Host4WASI6VINode11isPathValidESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
 
@@ -8732,16 +8731,15 @@ _ZN5cxx208expectedISt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEE14__wasi_errno_tE
   br i1 %59, label %141, label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit25
 
 141:                                              ; preds = %_ZN5cxx208expectedISt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEE14__wasi_errno_tED2Ev.exit
-  %142 = load ptr, ptr %10, align 16
-  store ptr %142, ptr %13, align 8
-  %143 = getelementptr inbounds i8, ptr %13, i64 8
-  %144 = load ptr, ptr %19, align 8
-  store ptr %144, ptr %143, align 8
-  %.not.i.i.i17 = icmp eq ptr %144, null
+  %142 = getelementptr inbounds i8, ptr %13, i64 8
+  %143 = load ptr, ptr %19, align 8
+  %144 = load <2 x ptr>, ptr %10, align 16
+  store <2 x ptr> %144, ptr %13, align 16
+  %.not.i.i.i17 = icmp eq ptr %143, null
   br i1 %.not.i.i.i17, label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEC2ERKS4_.exit, label %145
 
 145:                                              ; preds = %141
-  %146 = getelementptr inbounds i8, ptr %144, i64 8
+  %146 = getelementptr inbounds i8, ptr %143, i64 8
   %147 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i18 = icmp eq i8 %147, 0
   br i1 %.not.i.i.i.i18, label %151, label %148
@@ -8768,7 +8766,7 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEC2ERKS4_.exit: ; preds = %141, %1
   %.sroa.435.0.extract.trunc = trunc i64 %.sroa.435.0.extract.shift to i16
   %.sroa.6.0.extract.shift = lshr i64 %153, 48
   %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i16
-  %155 = load ptr, ptr %143, align 8
+  %155 = load ptr, ptr %142, align 8
   %.not.i.i.i19 = icmp eq ptr %155, null
   br i1 %.not.i.i.i19, label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit25, label %156
 
@@ -10964,7 +10962,7 @@ _ZN8WasmEdge4Host12_GLOBAL__N_111AllowAFUNIXERKNS_7Runtime12CallingFrameE23__was
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden i64 @_ZN8WasmEdge4Host4WASI7Environ8sockOpenE23__wasi_address_family_t18__wasi_sock_type_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cxx20::expected.741", align 8
-  %5 = alloca %"class.std::shared_ptr", align 8
+  %5 = alloca %"class.std::shared_ptr", align 16
   invoke void @_ZN8WasmEdge4Host4WASI6VINode8sockOpenE23__wasi_address_family_t18__wasi_sock_type_t(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.741") align 8 %4, i8 noundef zeroext %1, i8 noundef zeroext %2)
           to label %6 unwind label %132
 
@@ -10975,9 +10973,9 @@ define linkonce_odr hidden i64 @_ZN8WasmEdge4Host4WASI7Environ8sockOpenE23__wasi
   br i1 %8, label %10, label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread
 
 10:                                               ; preds = %6
-  %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
-  %13 = load ptr, ptr %12, align 8
+  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = load ptr, ptr %11, align 8
+  %13 = load <2 x ptr>, ptr %9, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %4, i64 16
   %15 = load ptr, ptr %14, align 8
@@ -11057,14 +11055,13 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread: ; preds = %6
   br label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit12
 
 51:                                               ; preds = %10, %32, %45, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %11, ptr %5, align 8
   %52 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %13, ptr %52, align 8
-  %.not.i.i.i = icmp eq ptr %13, null
+  store <2 x ptr> %13, ptr %5, align 16
+  %.not.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEC2ERKS4_.exit, label %53
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %13, i64 8
+  %54 = getelementptr inbounds i8, ptr %12, i64 8
   %55 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i3 = icmp eq i8 %55, 0
   br i1 %.not.i.i.i.i3, label %59, label %56
@@ -11161,11 +11158,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit
 
 _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %93, %80, %62
-  %.not.i.i.i6 = icmp eq ptr %13, null
+  %.not.i.i.i6 = icmp eq ptr %12, null
   br i1 %.not.i.i.i6, label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit12, label %98
 
 98:                                               ; preds = %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit
-  %99 = getelementptr inbounds i8, ptr %13, i64 8
+  %99 = getelementptr inbounds i8, ptr %12, i64 8
   %100 = load atomic i64, ptr %99 acquire, align 8
   %101 = icmp eq i64 %100, 4294967297
   %102 = trunc i64 %100 to i32
@@ -11173,12 +11170,12 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %_ZNSt16_Sp_
 
 103:                                              ; preds = %98
   store i32 0, ptr %99, align 8
-  %104 = getelementptr inbounds i8, ptr %13, i64 12
+  %104 = getelementptr inbounds i8, ptr %12, i64 12
   store i32 0, ptr %104, align 4
-  %105 = load ptr, ptr %13, align 8
+  %105 = load ptr, ptr %12, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 16
   %107 = load ptr, ptr %106, align 8
-  call void %107(ptr noundef nonnull align 8 dereferenceable(16) %13) #18
+  call void %107(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11
 
 108:                                              ; preds = %98
@@ -11201,11 +11198,11 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %_ZNSt16_Sp_
   br i1 %115, label %116, label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit12
 
 116:                                              ; preds = %114
-  %117 = load ptr, ptr %13, align 8
+  %117 = load ptr, ptr %12, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 16
   %119 = load ptr, ptr %118, align 8
-  call void %119(ptr noundef nonnull align 8 dereferenceable(16) %13) #18
-  %120 = getelementptr inbounds i8, ptr %13, i64 12
+  call void %119(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
+  %120 = getelementptr inbounds i8, ptr %12, i64 12
   %121 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i9 = icmp eq i8 %121, 0
   br i1 %.not.i.i.i.i.i.i9, label %125, label %122
@@ -11226,10 +11223,10 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %_ZNSt16_Sp_
   br i1 %128, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11, label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit12
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11: ; preds = %127, %103
-  %129 = load ptr, ptr %13, align 8
+  %129 = load ptr, ptr %12, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 24
   %131 = load ptr, ptr %130, align 8
-  call void %131(ptr noundef nonnull align 8 dereferenceable(16) %13) #18
+  call void %131(ptr noundef nonnull align 8 dereferenceable(16) %12) #18
   br label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit12
 
 _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit12: ; preds = %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit, %114, %127, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11
@@ -11703,7 +11700,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %
 define linkonce_odr hidden i64 @_ZN8WasmEdge4Host4WASI7Environ10sockAcceptEi16__wasi_fdflags_t(ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr", align 8
   %5 = alloca %"class.cxx20::expected.741", align 8
-  %6 = alloca %"class.std::shared_ptr", align 8
+  %6 = alloca %"class.std::shared_ptr", align 16
   invoke void @_ZNK8WasmEdge4Host4WASI7Environ13getNodeOrNullEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(344) %0, i32 noundef %1)
           to label %7 unwind label %172
 
@@ -11723,9 +11720,9 @@ define linkonce_odr hidden i64 @_ZN8WasmEdge4Host4WASI7Environ10sockAcceptEi16__
   br i1 %12, label %14, label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
-  %17 = load ptr, ptr %16, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = load <2 x ptr>, ptr %13, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %18 = getelementptr inbounds i8, ptr %5, i64 16
   %19 = load ptr, ptr %18, align 8
@@ -11805,14 +11802,13 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread: ; preds = %10
   br label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit12
 
 55:                                               ; preds = %14, %36, %49, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %15, ptr %6, align 8
   %56 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %17, ptr %56, align 8
-  %.not.i.i.i = icmp eq ptr %17, null
+  store <2 x ptr> %17, ptr %6, align 16
+  %.not.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEC2ERKS4_.exit, label %57
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %17, i64 8
+  %58 = getelementptr inbounds i8, ptr %16, i64 8
   %59 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i3 = icmp eq i8 %59, 0
   br i1 %.not.i.i.i.i3, label %63, label %60
@@ -11909,11 +11905,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit
 
 _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %97, %84, %66
-  %.not.i.i.i6 = icmp eq ptr %17, null
+  %.not.i.i.i6 = icmp eq ptr %16, null
   br i1 %.not.i.i.i6, label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit12, label %102
 
 102:                                              ; preds = %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit
-  %103 = getelementptr inbounds i8, ptr %17, i64 8
+  %103 = getelementptr inbounds i8, ptr %16, i64 8
   %104 = load atomic i64, ptr %103 acquire, align 8
   %105 = icmp eq i64 %104, 4294967297
   %106 = trunc i64 %104 to i32
@@ -11921,12 +11917,12 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %_ZNSt16_Sp_
 
 107:                                              ; preds = %102
   store i32 0, ptr %103, align 8
-  %108 = getelementptr inbounds i8, ptr %17, i64 12
+  %108 = getelementptr inbounds i8, ptr %16, i64 12
   store i32 0, ptr %108, align 4
-  %109 = load ptr, ptr %17, align 8
+  %109 = load ptr, ptr %16, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 16
   %111 = load ptr, ptr %110, align 8
-  call void %111(ptr noundef nonnull align 8 dereferenceable(16) %17) #18
+  call void %111(ptr noundef nonnull align 8 dereferenceable(16) %16) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11
 
 112:                                              ; preds = %102
@@ -11949,11 +11945,11 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %_ZNSt16_Sp_
   br i1 %119, label %120, label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit12
 
 120:                                              ; preds = %118
-  %121 = load ptr, ptr %17, align 8
+  %121 = load ptr, ptr %16, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 16
   %123 = load ptr, ptr %122, align 8
-  call void %123(ptr noundef nonnull align 8 dereferenceable(16) %17) #18
-  %124 = getelementptr inbounds i8, ptr %17, i64 12
+  call void %123(ptr noundef nonnull align 8 dereferenceable(16) %16) #18
+  %124 = getelementptr inbounds i8, ptr %16, i64 12
   %125 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i9 = icmp eq i8 %125, 0
   br i1 %.not.i.i.i.i.i.i9, label %129, label %126
@@ -11974,10 +11970,10 @@ _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit: ; preds = %_ZNSt16_Sp_
   br i1 %132, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11, label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit12
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11: ; preds = %131, %107
-  %133 = load ptr, ptr %17, align 8
+  %133 = load ptr, ptr %16, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 24
   %135 = load ptr, ptr %134, align 8
-  call void %135(ptr noundef nonnull align 8 dereferenceable(16) %17) #18
+  call void %135(ptr noundef nonnull align 8 dereferenceable(16) %16) #18
   br label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit12
 
 _ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit12: ; preds = %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit.thread, %7, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit, %118, %131, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i11
@@ -17481,37 +17477,35 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %5
 _ZNKSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit: ; preds = %31, %13, %26
   %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %13 ], [ %33, %31 ]
   %39 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i, i64 16
-  %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i, i64 24
-  %43 = load ptr, ptr %42, align 8
-  store ptr %43, ptr %41, align 8
-  %.not.i.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i.i, label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit3, label %44
+  %40 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i, i64 24
+  %41 = load ptr, ptr %40, align 8
+  %42 = load <2 x ptr>, ptr %39, align 8
+  store <2 x ptr> %42, ptr %0, align 8
+  %.not.i.i.i = icmp eq ptr %41, null
+  br i1 %.not.i.i.i, label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit3, label %43
 
-44:                                               ; preds = %_ZNKSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit
-  %45 = getelementptr inbounds i8, ptr %43, i64 8
-  %46 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i2 = icmp eq i8 %46, 0
-  br i1 %.not.i.i.i.i2, label %50, label %47
+43:                                               ; preds = %_ZNKSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit
+  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %45 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i2 = icmp eq i8 %45, 0
+  br i1 %.not.i.i.i.i2, label %49, label %46
 
-47:                                               ; preds = %44
-  %48 = load i32, ptr %45, align 4
-  %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %45, align 4
+46:                                               ; preds = %43
+  %47 = load i32, ptr %44, align 4
+  %48 = add nsw i32 %47, 1
+  store i32 %48, ptr %44, align 4
   br label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit3
 
-50:                                               ; preds = %44
-  %51 = atomicrmw volatile add ptr %45, i32 1 acq_rel, align 4
+49:                                               ; preds = %43
+  %50 = atomicrmw volatile add ptr %44, i32 1 acq_rel, align 4
   br label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit3
 
 .loopexit:                                        ; preds = %34, %.lr.ph.i.i.i.i, %12, %17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit3
 
-_ZNSt11shared_lockISt12shared_mutexED2Ev.exit3:   ; preds = %50, %47, %_ZNKSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, %.loopexit
-  %52 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #18
+_ZNSt11shared_lockISt12shared_mutexED2Ev.exit3:   ; preds = %49, %46, %_ZNKSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, %.loopexit
+  %51 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #18
   ret void
 }
 
@@ -17707,7 +17701,7 @@ declare i32 @_ZNK8WasmEdge4Host4WASI5INode10fdAllocateEmm(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge4Host4WASI7Environ5closeESt10shared_ptrINS1_6VINodeEE(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::shared_ptr", align 8
+  %3 = alloca %"class.std::shared_ptr", align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   %5 = tail call noundef i32 @pthread_rwlock_wrlock(ptr noundef nonnull %4) #18
   %6 = icmp eq i32 %5, 35
@@ -17735,15 +17729,14 @@ _ZNSt11unique_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %2
 
 14:                                               ; preds = %.lr.ph, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit
   %.sroa.06.011 = phi ptr [ %9, %.lr.ph ], [ %60, %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEED2Ev.exit ]
-  %15 = load ptr, ptr %1, align 8
-  store ptr %15, ptr %3, align 8
-  %16 = load ptr, ptr %13, align 8
-  store ptr %16, ptr %12, align 8
-  %.not.i.i.i = icmp eq ptr %16, null
+  %15 = load ptr, ptr %13, align 8
+  %16 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %16, ptr %3, align 16
+  %.not.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEC2ERKS4_.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds i8, ptr %15, i64 8
   %19 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %19, 0
   br i1 %.not.i.i.i.i, label %23, label %20
@@ -19071,17 +19064,16 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8W
   %7 = load i32, ptr %1, align 4
   store i32 %7, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
-  %9 = load ptr, ptr %2, align 8
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %10, align 8
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
+  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = load <2 x ptr>, ptr %2, align 8
+  store <2 x ptr> %12, ptr %8, align 8
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeC2IJRiRS7_EEEPNSA_16_Hashtable_allocISaINSA_10_Hash_nodeIS8_Lb0EEEEEEDpOT_.exit, label %13
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds i8, ptr %11, i64 8
   %15 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %15, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %19, label %16
@@ -19180,7 +19172,7 @@ _ZNKSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8
 
 _ZNKSt10_HashtableIiSt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit: ; preds = %53, %35, %48
   %.sroa.024.0.ph = phi ptr [ %49, %48 ], [ %.sroa.021.0, %35 ], [ %55, %53 ]
-  %64 = load ptr, ptr %10, align 8
+  %64 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i.i.i.i15 = icmp eq ptr %64, null
   br i1 %.not.i.i.i.i.i.i.i.i15, label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEEELb0EEEEE18_M_deallocate_nodeEPSB_.exit.i, label %65
 

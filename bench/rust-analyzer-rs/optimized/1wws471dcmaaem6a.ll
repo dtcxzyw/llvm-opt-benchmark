@@ -16153,38 +16153,38 @@ define hidden void @"_ZN84_$LT$rayon..iter..map..Map$LT$I$C$F$GT$$u20$as$u20$ray
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load <2 x i64>, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %5 = icmp eq i64 %.sroa.4.0.copyload, 0
   br i1 %5, label %"_ZN92_$LT$rayon..iter..enumerate..Enumerate$LT$I$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$15drive_unindexed17h017dd2016bbe1c66E.exit", label %6
 
 6:                                                ; preds = %2
-  %7 = extractelement <2 x i64> %4, i64 0
-  %8 = icmp eq i64 %7, 0
-  br i1 %8, label %13, label %9, !prof !1853
+  %7 = icmp eq i64 %.sroa.5.0.copyload, 0
+  br i1 %7, label %12, label %8, !prof !1853
 
-9:                                                ; preds = %6
-  %10 = add i64 %.sroa.4.0.copyload, -1
-  %11 = udiv i64 %10, %7
-  %12 = add nuw i64 %11, 1
+8:                                                ; preds = %6
+  %9 = add i64 %.sroa.4.0.copyload, -1
+  %10 = udiv i64 %9, %.sroa.5.0.copyload
+  %11 = add nuw i64 %10, 1
   br label %"_ZN92_$LT$rayon..iter..enumerate..Enumerate$LT$I$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$15drive_unindexed17h017dd2016bbe1c66E.exit"
 
-13:                                               ; preds = %6
+12:                                               ; preds = %6
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.1.llvm.18263967998570167583, i64 noundef 25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.26d2c8a87f4bfa638a02c66113af3c5c.94.llvm.18263967998570167583) #40, !noalias !1854
   unreachable
 
-"_ZN92_$LT$rayon..iter..enumerate..Enumerate$LT$I$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$15drive_unindexed17h017dd2016bbe1c66E.exit": ; preds = %2, %9
-  %.0.i.i.i.i.i = phi i64 [ %12, %9 ], [ 0, %2 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
-  %15 = icmp ne ptr %.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %15)
+"_ZN92_$LT$rayon..iter..enumerate..Enumerate$LT$I$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$15drive_unindexed17h017dd2016bbe1c66E.exit": ; preds = %2, %8
+  %.0.i.i.i.i.i = phi i64 [ %11, %8 ], [ 0, %2 ]
+  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = icmp ne ptr %.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %14)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !1869
   store ptr %.sroa.0.0.copyload, ptr %3, align 8, !noalias !1886
   %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8, !noalias !1886
   %.sroa.5.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   store <2 x i64> %4, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i, align 8, !noalias !1886
-  %16 = getelementptr inbounds i8, ptr %3, i64 32
-  store i64 0, ptr %16, align 8, !noalias !1887
-  call void @_ZN5rayon4iter8plumbing24bridge_producer_consumer17h1f20eb3cb5089dfdE.llvm.17814153394679541470(ptr noalias nocapture noundef nonnull sret({ ptr, ptr, i64, {}, {} }) align 8 dereferenceable(24) %0, i64 noundef %.0.i.i.i.i.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %14), !noalias !1892
+  %15 = getelementptr inbounds i8, ptr %3, i64 32
+  store i64 0, ptr %15, align 8, !noalias !1887
+  call void @_ZN5rayon4iter8plumbing24bridge_producer_consumer17h1f20eb3cb5089dfdE.llvm.17814153394679541470(ptr noalias nocapture noundef nonnull sret({ ptr, ptr, i64, {}, {} }) align 8 dereferenceable(24) %0, i64 noundef %.0.i.i.i.i.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13), !noalias !1892
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3), !noalias !1869
   ret void
 }
@@ -16198,31 +16198,31 @@ define hidden void @"_ZN84_$LT$rayon..iter..map..Map$LT$I$C$F$GT$$u20$as$u20$ray
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load <2 x i64>, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %8 = icmp eq i64 %.sroa.4.0.copyload, 0
   br i1 %8, label %"_ZN92_$LT$rayon..iter..enumerate..Enumerate$LT$I$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$15drive_unindexed17hd09bfb02d403c613E.exit", label %9
 
 9:                                                ; preds = %4
-  %10 = extractelement <2 x i64> %7, i64 0
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %16, label %12, !prof !1853
+  %10 = icmp eq i64 %.sroa.5.0.copyload, 0
+  br i1 %10, label %15, label %11, !prof !1853
 
-12:                                               ; preds = %9
-  %13 = add i64 %.sroa.4.0.copyload, -1
-  %14 = udiv i64 %13, %10
-  %15 = add nuw i64 %14, 1
+11:                                               ; preds = %9
+  %12 = add i64 %.sroa.4.0.copyload, -1
+  %13 = udiv i64 %12, %.sroa.5.0.copyload
+  %14 = add nuw i64 %13, 1
   br label %"_ZN92_$LT$rayon..iter..enumerate..Enumerate$LT$I$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$15drive_unindexed17hd09bfb02d403c613E.exit"
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.1.llvm.18263967998570167583, i64 noundef 25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.26d2c8a87f4bfa638a02c66113af3c5c.94.llvm.18263967998570167583) #40, !noalias !1893
   unreachable
 
-"_ZN92_$LT$rayon..iter..enumerate..Enumerate$LT$I$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$15drive_unindexed17hd09bfb02d403c613E.exit": ; preds = %4, %12
-  %.0.i.i.i.i.i = phi i64 [ %15, %12 ], [ 0, %4 ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
-  %18 = icmp ne ptr %.sroa.01.0.copyload, null
-  tail call void @llvm.assume(i1 %18)
+"_ZN92_$LT$rayon..iter..enumerate..Enumerate$LT$I$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$15drive_unindexed17hd09bfb02d403c613E.exit": ; preds = %4, %11
+  %.0.i.i.i.i.i = phi i64 [ %14, %11 ], [ 0, %4 ]
+  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = icmp ne ptr %.sroa.01.0.copyload, null
+  tail call void @llvm.assume(i1 %17)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !1908
-  store ptr %17, ptr %5, align 8, !noalias !1929
+  store ptr %16, ptr %5, align 8, !noalias !1929
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %2, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !1929
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
@@ -16235,8 +16235,8 @@ define hidden void @"_ZN84_$LT$rayon..iter..map..Map$LT$I$C$F$GT$$u20$as$u20$ray
   store i64 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8, !noalias !1932
   %.sroa.5.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   store <2 x i64> %7, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i, align 8, !noalias !1932
-  %19 = getelementptr inbounds i8, ptr %6, i64 32
-  store i64 0, ptr %19, align 8, !noalias !1908
+  %18 = getelementptr inbounds i8, ptr %6, i64 32
+  store i64 0, ptr %18, align 8, !noalias !1908
   call void @"_ZN117_$LT$rayon..iter..plumbing..bridge..Callback$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..ProducerCallback$LT$I$GT$$GT$8callback17h3e75abf9325ef946E"(ptr noalias nocapture noundef nonnull sret({ ptr, i64, i64, {} }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %6), !noalias !1933
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !1908
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !1931
@@ -31495,9 +31495,9 @@ define void @"_ZN95_$LT$ide_db..search..UsageSearchResult$u20$as$u20$core..iter.
   store ptr %.sroa.0.sroa.0.0.copyload, ptr %3, align 8, !noalias !4476
   %.sroa.54.0..sroa_idx5.i = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load <2 x i64>, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
-  %10 = extractelement <2 x i64> %9, i64 0
-  %11 = getelementptr i8, ptr %.sroa.0.sroa.0.0.copyload, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 1
+  %.sroa.0.sroa.4.0.copyload = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %10 = getelementptr i8, ptr %.sroa.0.sroa.0.0.copyload, i64 %.sroa.0.sroa.4.0.copyload
+  %11 = getelementptr i8, ptr %10, i64 1
   store <2 x i64> %9, ptr %.sroa.54.0..sroa_idx5.i, align 8, !noalias !4476
   %.sroa.610.0..sroa_idx11.i = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %.sroa.0.sroa.6.0.copyload, ptr %.sroa.610.0..sroa_idx11.i, align 8, !noalias !4476
@@ -31509,7 +31509,7 @@ define void @"_ZN95_$LT$ide_db..search..UsageSearchResult$u20$as$u20$core..iter.
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %8, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %12, ptr %.sroa.6.0..sroa_idx, align 8
+  store ptr %11, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   store i16 %7, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.82.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
@@ -33184,9 +33184,9 @@ define void @"_ZN89_$LT$ide_db..search..SearchScope$u20$as$u20$core..iter..trait
   store ptr %.sroa.0.sroa.0.0.copyload, ptr %3, align 8, !noalias !4809
   %.sroa.54.0..sroa_idx5.i = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load <2 x i64>, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
-  %10 = extractelement <2 x i64> %9, i64 0
-  %11 = getelementptr i8, ptr %.sroa.0.sroa.0.0.copyload, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 1
+  %.sroa.0.sroa.4.0.copyload = load i64, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  %10 = getelementptr i8, ptr %.sroa.0.sroa.0.0.copyload, i64 %.sroa.0.sroa.4.0.copyload
+  %11 = getelementptr i8, ptr %10, i64 1
   store <2 x i64> %9, ptr %.sroa.54.0..sroa_idx5.i, align 8, !noalias !4809
   %.sroa.610.0..sroa_idx11.i = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %.sroa.0.sroa.6.0.copyload, ptr %.sroa.610.0..sroa_idx11.i, align 8, !noalias !4809
@@ -33198,7 +33198,7 @@ define void @"_ZN89_$LT$ide_db..search..SearchScope$u20$as$u20$core..iter..trait
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %8, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %12, ptr %.sroa.6.0..sroa_idx, align 8
+  store ptr %11, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   store i16 %7, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.82.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56

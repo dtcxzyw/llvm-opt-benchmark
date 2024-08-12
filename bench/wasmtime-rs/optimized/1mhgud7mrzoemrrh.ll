@@ -724,7 +724,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17hb915b300c746ab72E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 16
@@ -756,7 +756,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17hb915b300c746ab72E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 16
@@ -788,7 +788,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17haac61c09f68e9fadE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 16
@@ -820,7 +820,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17haac61c09f68e9fadE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 16
@@ -852,7 +852,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17haac61c09f68e9fadE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 16
@@ -884,7 +884,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17hb915b300c746ab72E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 16
@@ -916,7 +916,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config22deserialize_disk_space17h1a49c67e4566e290E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 16
@@ -1018,7 +1018,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17hb915b300c746ab72E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 16
@@ -1050,7 +1050,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17h7e48039a6f53913dE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 16
@@ -1082,7 +1082,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17heaaa377b7a6eb0fbE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, i64 noundef %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 16
@@ -1114,7 +1114,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17hb915b300c746ab72E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 16
@@ -1146,7 +1146,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17h7e48039a6f53913dE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 16
@@ -1178,7 +1178,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17heaaa377b7a6eb0fbE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, i64 noundef %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 16
@@ -1210,7 +1210,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17haac61c09f68e9fadE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 16
@@ -1242,7 +1242,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17h91e757e6f5823089E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 16
@@ -1274,7 +1274,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17h7e94a8d7f8ad91c0E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, i64 noundef %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 16
@@ -1306,7 +1306,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17h7e94a8d7f8ad91c0E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, i64 noundef %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 16
@@ -1338,7 +1338,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17haac61c09f68e9fadE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 16
@@ -1370,7 +1370,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17h91e757e6f5823089E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 16
@@ -1402,7 +1402,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17h7e94a8d7f8ad91c0E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, i64 noundef %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 16
@@ -1434,7 +1434,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17haac61c09f68e9fadE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 16
@@ -1466,7 +1466,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config20deserialize_duration17h91e757e6f5823089E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 16
@@ -1498,7 +1498,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17h7e48039a6f53913dE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 16
@@ -1530,7 +1530,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17heaaa377b7a6eb0fbE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, i64 noundef %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 16
@@ -1562,7 +1562,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config21deserialize_si_prefix17hb915b300c746ab72E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 16
@@ -1594,7 +1594,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config22deserialize_disk_space17h86a911fb053088d9E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, i64 noundef %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 16
@@ -1626,7 +1626,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config22deserialize_disk_space17h1a49c67e4566e290E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 16
@@ -1658,7 +1658,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN14wasmtime_cache6config22deserialize_disk_space17habfae793b67ec783E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
   %4 = load <2 x i64>, ptr %3, align 16
-  %5 = extractelement <2 x i64> %4, i64 0
+  %5 = load i64, ptr %3, align 16, !range !136, !noundef !4
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 16

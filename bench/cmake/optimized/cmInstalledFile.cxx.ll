@@ -198,9 +198,9 @@ _ZNSt6vectorISt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15cmInstalledFile7SetNameEP10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %class.cmListFileBacktrace, align 8
+  %4 = alloca %class.cmListFileBacktrace, align 16
   %5 = alloca %class.cmGeneratorExpression, align 8
-  %6 = alloca %class.cmListFileBacktrace, align 8
+  %6 = alloca %class.cmListFileBacktrace, align 16
   %7 = alloca %"class.std::unique_ptr", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNK10cmMakefile12GetBacktraceEv(ptr dead_on_unwind nonnull writable sret(%class.cmListFileBacktrace) align 8 %4, ptr noundef nonnull align 8 dereferenceable(3520) %1)
@@ -208,17 +208,16 @@ define dso_local void @_ZN15cmInstalledFile7SetNameEP10cmMakefileRKNSt7__cxx1112
           to label %10 unwind label %101
 
 10:                                               ; preds = %3
-  %11 = load ptr, ptr %4, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %12, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %14, null
+  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %14 = load <2 x ptr>, ptr %4, align 16
+  store <2 x ptr> %14, ptr %6, align 16
+  %.not.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i.i.i, label %_ZN19cmListFileBacktraceC2ERKS_.exit, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds i8, ptr %13, i64 8
   %17 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %17, 0
   br i1 %.not.i.i.i.i.i.i, label %21, label %18
@@ -238,7 +237,7 @@ _ZN19cmListFileBacktraceC2ERKS_.exit:             ; preds = %10, %18, %21
           to label %23 unwind label %103
 
 23:                                               ; preds = %_ZN19cmListFileBacktraceC2ERKS_.exit
-  %24 = load ptr, ptr %12, align 8
+  %24 = load ptr, ptr %11, align 8
   %.not.i.i.i.i.i10 = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i.i10, label %_ZN19cmListFileBacktraceD2Ev.exit, label %25
 
@@ -347,7 +346,7 @@ _ZNSt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS0_EED2Ev.ex
   store ptr null, ptr %7, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   call void @_ZN21cmGeneratorExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
-  %66 = load ptr, ptr %13, align 8
+  %66 = load ptr, ptr %12, align 8
   %.not.i.i.i.i.i12 = icmp eq ptr %66, null
   br i1 %.not.i.i.i.i.i12, label %_ZN19cmListFileBacktraceD2Ev.exit18, label %67
 
@@ -672,9 +671,9 @@ _ZN15cmInstalledFile14RemovePropertyERKNSt7__cxx1112basic_stringIcSt11char_trait
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15cmInstalledFile14AppendPropertyEPK10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 zeroext %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %6 = alloca %class.cmListFileBacktrace, align 8
+  %6 = alloca %class.cmListFileBacktrace, align 16
   %7 = alloca %class.cmGeneratorExpression, align 8
-  %8 = alloca %class.cmListFileBacktrace, align 8
+  %8 = alloca %class.cmListFileBacktrace, align 16
   %9 = alloca %"class.std::unique_ptr", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNK10cmMakefile12GetBacktraceEv(ptr dead_on_unwind nonnull writable sret(%class.cmListFileBacktrace) align 8 %6, ptr noundef nonnull align 8 dereferenceable(3520) %1)
@@ -682,17 +681,16 @@ define dso_local void @_ZN15cmInstalledFile14AppendPropertyEPK10cmMakefileRKNSt7
           to label %12 unwind label %132
 
 12:                                               ; preds = %5
-  %13 = load ptr, ptr %6, align 8
-  store ptr %13, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %14, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %16, null
+  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = load <2 x ptr>, ptr %6, align 16
+  store <2 x ptr> %16, ptr %8, align 16
+  %.not.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i.i, label %_ZN19cmListFileBacktraceC2ERKS_.exit, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds i8, ptr %15, i64 8
   %19 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %19, 0
   br i1 %.not.i.i.i.i.i.i, label %23, label %20
@@ -712,7 +710,7 @@ _ZN19cmListFileBacktraceC2ERKS_.exit:             ; preds = %12, %20, %23
           to label %25 unwind label %134
 
 25:                                               ; preds = %_ZN19cmListFileBacktraceC2ERKS_.exit
-  %26 = load ptr, ptr %14, align 8
+  %26 = load ptr, ptr %13, align 8
   %.not.i.i.i.i.i13 = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i.i13, label %_ZN19cmListFileBacktraceD2Ev.exit, label %27
 
@@ -893,7 +891,7 @@ _ZNSt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS0_EED2Ev.ex
   store ptr null, ptr %9, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
   call void @_ZN21cmGeneratorExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #18
-  %97 = load ptr, ptr %15, align 8
+  %97 = load ptr, ptr %14, align 8
   %.not.i.i.i.i.i15 = icmp eq ptr %97, null
   br i1 %.not.i.i.i.i.i15, label %_ZN19cmListFileBacktraceD2Ev.exit21, label %98
 

@@ -4794,7 +4794,7 @@ declare void @_ZN8proxygen18WheelTimerInstance15scheduleTimeoutEPN5folly16HHWhee
 define void @_ZN8proxygen11HTTPSession13scheduleWriteEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9 = alloca %"class.google::LogMessage", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr", align 16
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 1632
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 1640
   %0 = load ptr, ptr %add.ptr.i, align 8
@@ -4882,17 +4882,16 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
   %call22 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr21)
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %call.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14RequestContext16getStaticContextEv(), !noalias !21
-  %15 = load ptr, ptr %call.i, align 8, !noalias !21
-  store ptr %15, ptr %agg.tmp, align 8, !alias.scope !21
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %16 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !21
-  store ptr %16, ptr %_M_refcount.i.i.i, align 8, !alias.scope !21
-  %cmp.not.i.i.i.i = icmp eq ptr %16, null
+  %15 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !21
+  %16 = load <2 x ptr>, ptr %call.i, align 8, !noalias !21
+  store <2 x ptr> %16, ptr %agg.tmp, align 16, !alias.scope !21
+  %cmp.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly14RequestContext11saveContextEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %cleanup.done
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i8, ptr @__libc_single_threaded, align 1, !noalias !21
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %17, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -21202,7 +21201,7 @@ entry:
   %ref.tmp26 = alloca %"class.google::LogMessage", align 8
   %ref.tmp43 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp44 = alloca %"class.std::allocator", align 1
-  %agg.tmp = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr", align 16
   %sizeAndChunkShiftAndPackedBegin_.i.i.i = getelementptr inbounds i8, ptr %this, i64 1928
   %0 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i.i, align 8
   %cmp.i.i = icmp ult i64 %0, 256
@@ -21459,17 +21458,16 @@ _ZNSt10unique_ptrIN8proxygen11HTTPSession25ShutdownTransportCallbackESt14default
   %34 = load ptr, ptr %shutdownTransportCb_, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !174)
   %call.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14RequestContext16getStaticContextEv(), !noalias !174
-  %35 = load ptr, ptr %call.i, align 8, !noalias !174
-  store ptr %35, ptr %agg.tmp, align 8, !alias.scope !174
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %36 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !174
-  store ptr %36, ptr %_M_refcount.i.i.i, align 8, !alias.scope !174
-  %cmp.not.i.i.i.i = icmp eq ptr %36, null
+  %35 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !174
+  %36 = load <2 x ptr>, ptr %call.i, align 8, !noalias !174
+  store <2 x ptr> %36, ptr %agg.tmp, align 16, !alias.scope !174
+  %cmp.not.i.i.i.i = icmp eq ptr %35, null
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly14RequestContext11saveContextEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPSession25ShutdownTransportCallbackESt14default_deleteIS2_EE5resetEPS2_.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 8
   %37 = load i8, ptr @__libc_single_threaded, align 1, !noalias !174
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %37, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -24245,7 +24243,7 @@ _ZN8proxygen11HTTPSession26notifyIngressBodyProcessedEj.exit: ; preds = %if.end.
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen11HTTPSession24notifyEgressBodyBufferedEl(ptr noundef nonnull align 8 dereferenceable(2504) %this, i64 noundef %bytes) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr", align 16
   %call = invoke noundef zeroext i1 @_ZN8proxygen15HTTPSessionBase24notifyEgressBodyBufferedElb(ptr noundef nonnull align 8 dereferenceable(1582) %this, i64 noundef %bytes, i1 noundef zeroext true)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -24283,17 +24281,16 @@ invoke.cont7:                                     ; preds = %if.then
           to label %call.i.noexc unwind label %terminate.lpad
 
 call.i.noexc:                                     ; preds = %invoke.cont7
-  %4 = load ptr, ptr %call.i1, align 8, !noalias !187
-  store ptr %4, ptr %agg.tmp, align 8, !alias.scope !187
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !187
-  store ptr %5, ptr %_M_refcount.i.i.i, align 8, !alias.scope !187
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !187
+  %5 = load <2 x ptr>, ptr %call.i1, align 8, !noalias !187
+  store <2 x ptr> %5, ptr %agg.tmp, align 16, !alias.scope !187
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont10, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %call.i.noexc
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !noalias !187
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -28659,7 +28656,7 @@ if.end:                                           ; preds = %if.then, %cleanup.d
 define void @_ZN8proxygen11HTTPSession15resumeReadsImplEv(ptr noundef nonnull align 8 dereferenceable(2504) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.google::LogMessage", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr", align 16
   %0 = load ptr, ptr @_ZZN8proxygen11HTTPSession15resumeReadsImplEvE8vlocal__, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %cond.true, label %cond.end
@@ -28720,17 +28717,16 @@ if.then:                                          ; preds = %cleanup.done
   %call24 = call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr21)
   call void @llvm.experimental.noalias.scope.decl(metadata !206)
   %call.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14RequestContext16getStaticContextEv(), !noalias !206
-  %8 = load ptr, ptr %call.i, align 8, !noalias !206
-  store ptr %8, ptr %agg.tmp, align 8, !alias.scope !206
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  %9 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !206
-  store ptr %9, ptr %_M_refcount.i.i.i, align 8, !alias.scope !206
-  %cmp.not.i.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !206
+  %9 = load <2 x ptr>, ptr %call.i, align 8, !noalias !206
+  store <2 x ptr> %9, ptr %agg.tmp, align 16, !alias.scope !206
+  %cmp.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly14RequestContext11saveContextEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !206
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -31381,7 +31377,7 @@ entry:
 define linkonce_odr void @_ZN5folly17ObserverContainerIN8proxygen28HTTPSessionObserverInterfaceENS1_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEENS_35ObserverContainerStorePolicyDefaultILj2EEELm4EE11addObserverESt10shared_ptrINS_21ObserverContainerBaseIS2_S3_S6_E8ObserverEE(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef %observer) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca ptr, align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.629", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.629", align 16
   %dc = alloca %"class.folly::DestructorCheck::Safety", align 8
   %0 = load ptr, ptr %observer, align 8
   store ptr %0, ptr %ref.tmp, align 8
@@ -31390,17 +31386,16 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   %call3 = call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(81) %this)
-  %2 = load ptr, ptr %observer, align 8
-  store ptr %2, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %observer, i64 8
-  %3 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %3, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %3 = load <2 x ptr>, ptr %observer, align 8
+  store <2 x ptr> %3, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEC2ERKSA_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -31735,7 +31730,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 define linkonce_odr noundef zeroext i1 @_ZN5folly17ObserverContainerIN8proxygen28HTTPSessionObserverInterfaceENS1_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEENS_35ObserverContainerStorePolicyDefaultILj2EEELm4EE14removeObserverESt10shared_ptrINS_21ObserverContainerBaseIS2_S3_S6_E8ObserverEE(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef %observer) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca ptr, align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.629", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.629", align 16
   %dc = alloca %"class.folly::DestructorCheck::Safety", align 8
   %0 = load ptr, ptr %observer, align 8
   store ptr %0, ptr %ref.tmp, align 8
@@ -31744,17 +31739,16 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   %call3 = call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(81) %this)
-  %2 = load ptr, ptr %observer, align 8
-  store ptr %2, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %observer, i64 8
-  %3 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %3, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %3 = load <2 x ptr>, ptr %observer, align 8
+  store <2 x ptr> %3, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEC2ERKSA_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -33051,19 +33045,18 @@ entry:
   store ptr null, ptr %agg.tmp, align 16
   %call_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
   %call_2.i = getelementptr inbounds i8, ptr %fn, i64 48
-  %0 = load ptr, ptr %call_2.i, align 16
-  store ptr %0, ptr %call_.i, align 16
   %exec_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 56
   %exec_3.i = getelementptr inbounds i8, ptr %fn, i64 56
-  %1 = load ptr, ptr %exec_3.i, align 8
-  store ptr %1, ptr %exec_.i, align 8
+  %0 = load ptr, ptr %exec_3.i, align 8
+  %1 = load <2 x ptr>, ptr %call_2.i, align 16
+  store <2 x ptr> %1, ptr %call_.i, align 16
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS4_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEEE10uninitCallESC_RNS1_4DataE, ptr %call_2.i, align 16
   store ptr null, ptr %exec_3.i, align 8
-  %tobool.not.i.i = icmp eq ptr %1, null
+  %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN5folly8FunctionIFvPNS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEC2EOSC_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %call.i.i = call noundef i64 %1(i32 noundef 0, ptr noundef nonnull %fn, ptr noundef nonnull %agg.tmp) #39
+  %call.i.i = call noundef i64 %0(i32 noundef 0, ptr noundef nonnull %fn, ptr noundef nonnull %agg.tmp) #39
   br label %_ZN5folly8FunctionIFvPNS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEC2EOSC_.exit
 
 _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEC2EOSC_.exit: ; preds = %entry, %if.end.i.i
@@ -33078,18 +33071,16 @@ _ZN5folly8FunctionIFvPNS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserver
 call2.i.noexc:                                    ; preds = %_ZN5folly8FunctionIFvPNS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEEC2EOSC_.exit
   store ptr null, ptr %call2.i4, align 16
   %call_.i.i.i = getelementptr inbounds i8, ptr %call2.i4, i64 48
-  %2 = load ptr, ptr %call_.i, align 16
-  store ptr %2, ptr %call_.i.i.i, align 16
-  %exec_.i.i.i = getelementptr inbounds i8, ptr %call2.i4, i64 56
-  %3 = load ptr, ptr %exec_.i, align 8
-  store ptr %3, ptr %exec_.i.i.i, align 8
+  %2 = load ptr, ptr %exec_.i, align 8
+  %3 = load <2 x ptr>, ptr %call_.i, align 16
+  store <2 x ptr> %3, ptr %call_.i.i.i, align 16
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvPNS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS4_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS5_6EventsELm32EEEE8ObserverEEE10uninitCallESC_RNS1_4DataE, ptr %call_.i, align 16
   store ptr null, ptr %exec_.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %3, null
+  %tobool.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i, label %invoke.cont, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %call2.i.noexc
-  %call.i.i.i.i = call noundef i64 %3(i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %call2.i4) #39
+  %call.i.i.i.i = call noundef i64 %2(i32 noundef 0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %call2.i4) #39
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i.i.i.i, %call2.i.noexc
@@ -33554,18 +33545,17 @@ declare void @__cxa_end_catch() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN5folly12small_vectorISt10shared_ptrINS_21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS3_27HTTPSessionObserverAccessorENS_34ObserverContainerBasePolicyDefaultINS4_6EventsELm32EEEE8ObserverEELm2EvE6insertEPKSB_RSD_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(16) %t) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.std::shared_ptr.629", align 8
-  %0 = load ptr, ptr %t, align 8
-  store ptr %0, ptr %ref.tmp, align 8
+  %ref.tmp = alloca %"class.std::shared_ptr.629", align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %t, align 8
+  store <2 x ptr> %1, ptr %ref.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5folly21ObserverContainerBaseIN8proxygen28HTTPSessionObserverInterfaceENS2_27HTTPSessionObserverAccessorENS0_34ObserverContainerBasePolicyDefaultINS3_6EventsELm32EEEE8ObserverEEC2ERKSA_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

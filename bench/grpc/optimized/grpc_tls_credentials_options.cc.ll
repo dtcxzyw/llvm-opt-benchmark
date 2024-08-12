@@ -1211,14 +1211,14 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %0 = load ptr, ptr %provider, align 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %provider, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %provider, align 8
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core12experimental11CrlProviderEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -1235,10 +1235,9 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 
 _ZNSt10shared_ptrIN9grpc_core12experimental11CrlProviderEEC2ERKS3_.exit: ; preds = %do.end, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   %crl_provider_.i = getelementptr inbounds i8, ptr %options, i64 200
-  store ptr %0, ptr %crl_provider_.i, align 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %options, i64 208
   %5 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
-  store ptr %1, ptr %_M_refcount3.i.i.i.i, align 8
+  store <2 x ptr> %1, ptr %crl_provider_.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core12experimental11CrlProviderEED2Ev.exit, label %if.then.i.i.i.i.i2
 

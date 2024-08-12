@@ -3365,11 +3365,9 @@ invoke.cont:                                      ; preds = %sw.bb
 invoke.cont4:                                     ; preds = %invoke.cont
   %function = getelementptr inbounds i8, ptr %bound_function, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #20
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i8 0, i64 24, i1 false)
-  %1 = load ptr, ptr %_M_invoker2.i.i, align 8, !tbaa !11
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %1 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8, !tbaa !10
   %2 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !14
   %tobool.not.i.i.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i, label %if.then.i.i
@@ -3387,14 +3385,11 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %bound_function, i64 192
-  %3 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !10
-  store ptr %3, ptr %_M_manager.i.i, align 8, !tbaa !10
-  store ptr %2, ptr %_M_manager3.i.i, align 8, !tbaa !10
-  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %bound_function, i64 200
-  %4 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !10
-  store ptr %4, ptr %_M_invoker.i.i, align 8, !tbaa !10
-  store ptr %1, ptr %_M_invoker4.i.i, align 8, !tbaa !10
-  %tobool.not.i.i = icmp eq ptr %3, null
+  %3 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !10
+  %4 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !10
+  store <2 x ptr> %3, ptr %_M_manager.i.i, align 8, !tbaa !10
+  store <2 x ptr> %1, ptr %_M_manager3.i.i, align 8, !tbaa !10
+  %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit.thread, label %if.then.i4.i
 
 _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit.thread: ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i
@@ -3402,7 +3397,7 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS
   br label %_ZNSt14_Function_baseD2Ev.exit
 
 if.then.i4.i:                                     ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i
-  %call.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i4.i
@@ -3462,11 +3457,9 @@ invoke.cont10:                                    ; preds = %sw.bb6
 invoke.cont12:                                    ; preds = %invoke.cont10
   %function13 = getelementptr inbounds i8, ptr %bound_function, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i63) #20
-  %_M_invoker.i.i64 = getelementptr inbounds i8, ptr %ref.tmp.i63, i64 24
-  %_M_invoker2.i.i65 = getelementptr inbounds i8, ptr %ref.tmp7, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i63, i8 0, i64 24, i1 false)
-  %11 = load ptr, ptr %_M_invoker2.i.i65, align 8, !tbaa !11
   %_M_manager.i.i.i.i66 = getelementptr inbounds i8, ptr %ref.tmp7, i64 16
+  %11 = load <2 x ptr>, ptr %_M_manager.i.i.i.i66, align 8, !tbaa !10
   %12 = load ptr, ptr %_M_manager.i.i.i.i66, align 8, !tbaa !14
   %tobool.not.i.i.not.i.i67 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.not.i.i67, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i69, label %if.then.i.i68
@@ -3484,14 +3477,11 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i62)
   %_M_manager.i.i70 = getelementptr inbounds i8, ptr %ref.tmp.i63, i64 16
   %_M_manager3.i.i71 = getelementptr inbounds i8, ptr %bound_function, i64 192
-  %13 = load ptr, ptr %_M_manager3.i.i71, align 8, !tbaa !10
-  store ptr %13, ptr %_M_manager.i.i70, align 8, !tbaa !10
-  store ptr %12, ptr %_M_manager3.i.i71, align 8, !tbaa !10
-  %_M_invoker4.i.i72 = getelementptr inbounds i8, ptr %bound_function, i64 200
-  %14 = load ptr, ptr %_M_invoker4.i.i72, align 8, !tbaa !10
-  store ptr %14, ptr %_M_invoker.i.i64, align 8, !tbaa !10
-  store ptr %11, ptr %_M_invoker4.i.i72, align 8, !tbaa !10
-  %tobool.not.i.i73 = icmp eq ptr %13, null
+  %13 = load <2 x ptr>, ptr %_M_manager3.i.i71, align 8, !tbaa !10
+  %14 = load ptr, ptr %_M_manager3.i.i71, align 8, !tbaa !10
+  store <2 x ptr> %13, ptr %_M_manager.i.i70, align 8, !tbaa !10
+  store <2 x ptr> %11, ptr %_M_manager3.i.i71, align 8, !tbaa !10
+  %tobool.not.i.i73 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i73, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit77.thread, label %if.then.i4.i74
 
 _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit77.thread: ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i69
@@ -3499,7 +3489,7 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS
   br label %_ZNSt14_Function_baseD2Ev.exit83
 
 if.then.i4.i74:                                   ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i69
-  %call.i.i75 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i63, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i63, i32 noundef 3)
+  %call.i.i75 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i63, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i63, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit77 unwind label %terminate.lpad.i.i76
 
 terminate.lpad.i.i76:                             ; preds = %if.then.i4.i74
@@ -3559,11 +3549,9 @@ invoke.cont21:                                    ; preds = %sw.bb17
 invoke.cont23:                                    ; preds = %invoke.cont21
   %function24 = getelementptr inbounds i8, ptr %bound_function, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i85) #20
-  %_M_invoker.i.i86 = getelementptr inbounds i8, ptr %ref.tmp.i85, i64 24
-  %_M_invoker2.i.i87 = getelementptr inbounds i8, ptr %ref.tmp18, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i85, i8 0, i64 24, i1 false)
-  %21 = load ptr, ptr %_M_invoker2.i.i87, align 8, !tbaa !11
   %_M_manager.i.i.i.i88 = getelementptr inbounds i8, ptr %ref.tmp18, i64 16
+  %21 = load <2 x ptr>, ptr %_M_manager.i.i.i.i88, align 8, !tbaa !10
   %22 = load ptr, ptr %_M_manager.i.i.i.i88, align 8, !tbaa !14
   %tobool.not.i.i.not.i.i89 = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.not.i.i89, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i91, label %if.then.i.i90
@@ -3581,14 +3569,11 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i84)
   %_M_manager.i.i92 = getelementptr inbounds i8, ptr %ref.tmp.i85, i64 16
   %_M_manager3.i.i93 = getelementptr inbounds i8, ptr %bound_function, i64 192
-  %23 = load ptr, ptr %_M_manager3.i.i93, align 8, !tbaa !10
-  store ptr %23, ptr %_M_manager.i.i92, align 8, !tbaa !10
-  store ptr %22, ptr %_M_manager3.i.i93, align 8, !tbaa !10
-  %_M_invoker4.i.i94 = getelementptr inbounds i8, ptr %bound_function, i64 200
-  %24 = load ptr, ptr %_M_invoker4.i.i94, align 8, !tbaa !10
-  store ptr %24, ptr %_M_invoker.i.i86, align 8, !tbaa !10
-  store ptr %21, ptr %_M_invoker4.i.i94, align 8, !tbaa !10
-  %tobool.not.i.i95 = icmp eq ptr %23, null
+  %23 = load <2 x ptr>, ptr %_M_manager3.i.i93, align 8, !tbaa !10
+  %24 = load ptr, ptr %_M_manager3.i.i93, align 8, !tbaa !10
+  store <2 x ptr> %23, ptr %_M_manager.i.i92, align 8, !tbaa !10
+  store <2 x ptr> %21, ptr %_M_manager3.i.i93, align 8, !tbaa !10
+  %tobool.not.i.i95 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i95, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit99.thread, label %if.then.i4.i96
 
 _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit99.thread: ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i91
@@ -3596,7 +3581,7 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS
   br label %_ZNSt14_Function_baseD2Ev.exit105
 
 if.then.i4.i96:                                   ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i91
-  %call.i.i97 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i85, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i85, i32 noundef 3)
+  %call.i.i97 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i85, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i85, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit99 unwind label %terminate.lpad.i.i98
 
 terminate.lpad.i.i98:                             ; preds = %if.then.i4.i96
@@ -3656,11 +3641,9 @@ invoke.cont31:                                    ; preds = %sw.default
 invoke.cont33:                                    ; preds = %invoke.cont31
   %function34 = getelementptr inbounds i8, ptr %bound_function, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i107) #20
-  %_M_invoker.i.i108 = getelementptr inbounds i8, ptr %ref.tmp.i107, i64 24
-  %_M_invoker2.i.i109 = getelementptr inbounds i8, ptr %ref.tmp28, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i107, i8 0, i64 24, i1 false)
-  %31 = load ptr, ptr %_M_invoker2.i.i109, align 8, !tbaa !11
   %_M_manager.i.i.i.i110 = getelementptr inbounds i8, ptr %ref.tmp28, i64 16
+  %31 = load <2 x ptr>, ptr %_M_manager.i.i.i.i110, align 8, !tbaa !10
   %32 = load ptr, ptr %_M_manager.i.i.i.i110, align 8, !tbaa !14
   %tobool.not.i.i.not.i.i111 = icmp eq ptr %32, null
   br i1 %tobool.not.i.i.not.i.i111, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i113, label %if.then.i.i112
@@ -3678,14 +3661,11 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i106)
   %_M_manager.i.i114 = getelementptr inbounds i8, ptr %ref.tmp.i107, i64 16
   %_M_manager3.i.i115 = getelementptr inbounds i8, ptr %bound_function, i64 192
-  %33 = load ptr, ptr %_M_manager3.i.i115, align 8, !tbaa !10
-  store ptr %33, ptr %_M_manager.i.i114, align 8, !tbaa !10
-  store ptr %32, ptr %_M_manager3.i.i115, align 8, !tbaa !10
-  %_M_invoker4.i.i116 = getelementptr inbounds i8, ptr %bound_function, i64 200
-  %34 = load ptr, ptr %_M_invoker4.i.i116, align 8, !tbaa !10
-  store ptr %34, ptr %_M_invoker.i.i108, align 8, !tbaa !10
-  store ptr %31, ptr %_M_invoker4.i.i116, align 8, !tbaa !10
-  %tobool.not.i.i117 = icmp eq ptr %33, null
+  %33 = load <2 x ptr>, ptr %_M_manager3.i.i115, align 8, !tbaa !10
+  %34 = load ptr, ptr %_M_manager3.i.i115, align 8, !tbaa !10
+  store <2 x ptr> %33, ptr %_M_manager.i.i114, align 8, !tbaa !10
+  store <2 x ptr> %31, ptr %_M_manager3.i.i115, align 8, !tbaa !10
+  %tobool.not.i.i117 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i117, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit121.thread, label %if.then.i4.i118
 
 _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit121.thread: ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i113
@@ -3693,7 +3673,7 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS
   br label %_ZNSt14_Function_baseD2Ev.exit127
 
 if.then.i4.i118:                                  ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i113
-  %call.i.i119 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i107, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i107, i32 noundef 3)
+  %call.i.i119 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i107, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i107, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit121 unwind label %terminate.lpad.i.i120
 
 terminate.lpad.i.i120:                            ; preds = %if.then.i4.i118
@@ -4482,11 +4462,9 @@ invoke.cont140:                                   ; preds = %invoke.cont133
 invoke.cont142:                                   ; preds = %invoke.cont140
   %function143 = getelementptr inbounds i8, ptr %1, i64 256
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #20
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
-  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %ref.tmp136, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i8 0, i64 24, i1 false)
-  %30 = load ptr, ptr %_M_invoker2.i.i, align 8, !tbaa !11
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp136, i64 16
+  %30 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8, !tbaa !10
   %31 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !14
   %tobool.not.i.i.not.i.i = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i, label %if.then.i.i
@@ -4504,14 +4482,11 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %1, i64 272
-  %32 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !10
-  store ptr %32, ptr %_M_manager.i.i, align 8, !tbaa !10
-  store ptr %31, ptr %_M_manager3.i.i, align 8, !tbaa !10
-  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %1, i64 280
-  %33 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !10
-  store ptr %33, ptr %_M_invoker.i.i, align 8, !tbaa !10
-  store ptr %30, ptr %_M_invoker4.i.i, align 8, !tbaa !10
-  %tobool.not.i.i = icmp eq ptr %32, null
+  %32 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !10
+  %33 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !10
+  store <2 x ptr> %32, ptr %_M_manager.i.i, align 8, !tbaa !10
+  store <2 x ptr> %30, ptr %_M_manager3.i.i, align 8, !tbaa !10
+  %tobool.not.i.i = icmp eq ptr %33, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit.thread, label %if.then.i4.i
 
 _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit.thread: ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i
@@ -4519,7 +4494,7 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS
   br label %_ZNSt14_Function_baseD2Ev.exit
 
 if.then.i4.i:                                     ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEC2EOS8_.exit.i
-  %call.i.i = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSEOS8_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i4.i
@@ -6983,12 +6958,10 @@ invoke.cont:                                      ; preds = %entry
 
 for.body.lr.ph:                                   ; preds = %invoke.cont
   %_M_manager.i.i.i106 = getelementptr inbounds i8, ptr %ref.tmp.i105, i64 16
-  %_M_invoker.i.i107 = getelementptr inbounds i8, ptr %ref.tmp.i105, i64 24
   %2 = getelementptr inbounds i8, ptr %ref.tmp.i105, i64 8
   %_M_manager3.i.i108 = getelementptr inbounds i8, ptr %func, i64 16
   %_M_invoker4.i.i109 = getelementptr inbounds i8, ptr %func, i64 24
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %3 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %agg.tmp23, i64 16
   %_M_finish.i163 = getelementptr inbounds i8, ptr %agg.tmp23, i64 8
@@ -7069,17 +7042,16 @@ sw.bb:                                            ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %func, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %func, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  %8 = load ptr, ptr %_M_manager3.i.i108, align 8, !tbaa !10
-  store ptr %8, ptr %_M_manager.i.i.i, align 8, !tbaa !10
+  %8 = load <2 x ptr>, ptr %_M_manager3.i.i108, align 8, !tbaa !10
+  %9 = load ptr, ptr %_M_manager3.i.i108, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i108, align 8, !tbaa !10
-  %9 = load ptr, ptr %_M_invoker4.i.i109, align 8, !tbaa !10
-  store ptr %9, ptr %_M_invoker.i.i, align 8, !tbaa !10
+  store <2 x ptr> %8, ptr %_M_manager.i.i.i, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i109, align 8, !tbaa !10
-  %tobool.not.i.i = icmp eq ptr %8, null
+  %tobool.not.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb
-  %call.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -7102,17 +7074,16 @@ sw.bb11:                                          ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i105, ptr noundef nonnull align 8 dereferenceable(16) %func, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %func, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i104, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i104)
-  %12 = load ptr, ptr %_M_manager3.i.i108, align 8, !tbaa !10
-  store ptr %12, ptr %_M_manager.i.i.i106, align 8, !tbaa !10
+  %12 = load <2 x ptr>, ptr %_M_manager3.i.i108, align 8, !tbaa !10
+  %13 = load ptr, ptr %_M_manager3.i.i108, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i108, align 8, !tbaa !10
-  %13 = load ptr, ptr %_M_invoker4.i.i109, align 8, !tbaa !10
-  store ptr %13, ptr %_M_invoker.i.i107, align 8, !tbaa !10
+  store <2 x ptr> %12, ptr %_M_manager.i.i.i106, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i109, align 8, !tbaa !10
-  %tobool.not.i.i110 = icmp eq ptr %12, null
+  %tobool.not.i.i110 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i110, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit114, label %if.then.i.i111
 
 if.then.i.i111:                                   ; preds = %sw.bb11
-  %call.i.i112 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i105, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i105, i32 noundef 3)
+  %call.i.i112 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i105, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i105, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit114 unwind label %terminate.lpad.i.i113
 
 terminate.lpad.i.i113:                            ; preds = %if.then.i.i111
@@ -7558,7 +7529,6 @@ if.then:                                          ; preds = %entry
   %function = getelementptr inbounds i8, ptr %bound_function, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #20
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %0, align 8
   store ptr @_ZN6duckdb14ScalarFunction11NopFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i, align 8, !tbaa !10
@@ -7568,18 +7538,17 @@ if.then:                                          ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %bound_function, i64 192
-  %1 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !10
-  store ptr %1, ptr %_M_manager.i.i.i, align 8, !tbaa !10
-  store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i, align 8, !tbaa !10
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %bound_function, i64 200
-  %2 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !10
-  store ptr %2, ptr %_M_invoker.i.i, align 8, !tbaa !10
+  %1 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !10
+  %2 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !10
+  store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i, align 8, !tbaa !10
+  store <2 x ptr> %1, ptr %_M_manager.i.i.i, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i, align 8, !tbaa !10
-  %tobool.not.i.i = icmp eq ptr %1, null
+  %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -7608,7 +7577,6 @@ if.else:                                          ; preds = %entry
 sw.bb:                                            ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i32) #20
   %_M_manager.i.i.i33 = getelementptr inbounds i8, ptr %ref.tmp.i32, i64 16
-  %_M_invoker.i.i34 = getelementptr inbounds i8, ptr %ref.tmp.i32, i64 24
   %6 = getelementptr inbounds i8, ptr %ref.tmp.i32, i64 8
   store i64 0, ptr %6, align 8
   store ptr @_ZN6duckdbL27GenericRoundFunctionDecimalIsNS_13NumericHelperENS_19CeilDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i32, align 8, !tbaa !10
@@ -7617,17 +7585,16 @@ sw.bb:                                            ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i32, ptr noundef nonnull align 8 dereferenceable(16) %function14, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function14, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i31, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i31)
-  %7 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  store ptr %7, ptr %_M_manager.i.i.i33, align 8, !tbaa !10
+  %7 = load <2 x ptr>, ptr %_M_manager3.i.i68, align 8, !tbaa !10
+  %8 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  %8 = load ptr, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  store ptr %8, ptr %_M_invoker.i.i34, align 8, !tbaa !10
+  store <2 x ptr> %7, ptr %_M_manager.i.i.i33, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  %tobool.not.i.i37 = icmp eq ptr %7, null
+  %tobool.not.i.i37 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i37, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit41, label %if.then.i.i38
 
 if.then.i.i38:                                    ; preds = %sw.bb
-  %call.i.i39 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i32, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i32, i32 noundef 3)
+  %call.i.i39 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i32, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i32, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit41 unwind label %terminate.lpad.i.i40
 
 terminate.lpad.i.i40:                             ; preds = %if.then.i.i38
@@ -7644,7 +7611,6 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
 sw.bb8:                                           ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i43) #20
   %_M_manager.i.i.i44 = getelementptr inbounds i8, ptr %ref.tmp.i43, i64 16
-  %_M_invoker.i.i45 = getelementptr inbounds i8, ptr %ref.tmp.i43, i64 24
   %11 = getelementptr inbounds i8, ptr %ref.tmp.i43, i64 8
   store i64 0, ptr %11, align 8
   store ptr @_ZN6duckdbL27GenericRoundFunctionDecimalIiNS_13NumericHelperENS_19CeilDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i43, align 8, !tbaa !10
@@ -7653,17 +7619,16 @@ sw.bb8:                                           ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i43, ptr noundef nonnull align 8 dereferenceable(16) %function14, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function14, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i42, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i42)
-  %12 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  store ptr %12, ptr %_M_manager.i.i.i44, align 8, !tbaa !10
+  %12 = load <2 x ptr>, ptr %_M_manager3.i.i68, align 8, !tbaa !10
+  %13 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  %13 = load ptr, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  store ptr %13, ptr %_M_invoker.i.i45, align 8, !tbaa !10
+  store <2 x ptr> %12, ptr %_M_manager.i.i.i44, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  %tobool.not.i.i48 = icmp eq ptr %12, null
+  %tobool.not.i.i48 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i48, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit52, label %if.then.i.i49
 
 if.then.i.i49:                                    ; preds = %sw.bb8
-  %call.i.i50 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i43, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i43, i32 noundef 3)
+  %call.i.i50 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i43, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i43, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit52 unwind label %terminate.lpad.i.i51
 
 terminate.lpad.i.i51:                             ; preds = %if.then.i.i49
@@ -7680,7 +7645,6 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
 sw.bb11:                                          ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i54) #20
   %_M_manager.i.i.i55 = getelementptr inbounds i8, ptr %ref.tmp.i54, i64 16
-  %_M_invoker.i.i56 = getelementptr inbounds i8, ptr %ref.tmp.i54, i64 24
   %16 = getelementptr inbounds i8, ptr %ref.tmp.i54, i64 8
   store i64 0, ptr %16, align 8
   store ptr @_ZN6duckdbL27GenericRoundFunctionDecimalIlNS_13NumericHelperENS_19CeilDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i54, align 8, !tbaa !10
@@ -7689,17 +7653,16 @@ sw.bb11:                                          ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, ptr noundef nonnull align 8 dereferenceable(16) %function14, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function14, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i53, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i53)
-  %17 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  store ptr %17, ptr %_M_manager.i.i.i55, align 8, !tbaa !10
+  %17 = load <2 x ptr>, ptr %_M_manager3.i.i68, align 8, !tbaa !10
+  %18 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  %18 = load ptr, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  store ptr %18, ptr %_M_invoker.i.i56, align 8, !tbaa !10
+  store <2 x ptr> %17, ptr %_M_manager.i.i.i55, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  %tobool.not.i.i59 = icmp eq ptr %17, null
+  %tobool.not.i.i59 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i59, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit63, label %if.then.i.i60
 
 if.then.i.i60:                                    ; preds = %sw.bb11
-  %call.i.i61 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, i32 noundef 3)
+  %call.i.i61 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit63 unwind label %terminate.lpad.i.i62
 
 terminate.lpad.i.i62:                             ; preds = %if.then.i.i60
@@ -7716,7 +7679,6 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
 sw.default:                                       ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i65) #20
   %_M_manager.i.i.i66 = getelementptr inbounds i8, ptr %ref.tmp.i65, i64 16
-  %_M_invoker.i.i67 = getelementptr inbounds i8, ptr %ref.tmp.i65, i64 24
   %21 = getelementptr inbounds i8, ptr %ref.tmp.i65, i64 8
   store i64 0, ptr %21, align 8
   store ptr @_ZN6duckdbL27GenericRoundFunctionDecimalINS_9hugeint_tENS_7HugeintENS_19CeilDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i65, align 8, !tbaa !10
@@ -7725,17 +7687,16 @@ sw.default:                                       ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65, ptr noundef nonnull align 8 dereferenceable(16) %function14, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function14, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i64, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i64)
-  %22 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  store ptr %22, ptr %_M_manager.i.i.i66, align 8, !tbaa !10
+  %22 = load <2 x ptr>, ptr %_M_manager3.i.i68, align 8, !tbaa !10
+  %23 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  %23 = load ptr, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  store ptr %23, ptr %_M_invoker.i.i67, align 8, !tbaa !10
+  store <2 x ptr> %22, ptr %_M_manager.i.i.i66, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  %tobool.not.i.i70 = icmp eq ptr %22, null
+  %tobool.not.i.i70 = icmp eq ptr %23, null
   br i1 %tobool.not.i.i70, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit74, label %if.then.i.i71
 
 if.then.i.i71:                                    ; preds = %sw.default
-  %call.i.i72 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65, i32 noundef 3)
+  %call.i.i72 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit74 unwind label %terminate.lpad.i.i73
 
 terminate.lpad.i.i73:                             ; preds = %if.then.i.i71
@@ -7908,12 +7869,10 @@ invoke.cont:                                      ; preds = %entry
 
 for.body.lr.ph:                                   ; preds = %invoke.cont
   %_M_manager.i.i.i106 = getelementptr inbounds i8, ptr %ref.tmp.i105, i64 16
-  %_M_invoker.i.i107 = getelementptr inbounds i8, ptr %ref.tmp.i105, i64 24
   %2 = getelementptr inbounds i8, ptr %ref.tmp.i105, i64 8
   %_M_manager3.i.i108 = getelementptr inbounds i8, ptr %func, i64 16
   %_M_invoker4.i.i109 = getelementptr inbounds i8, ptr %func, i64 24
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %3 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %agg.tmp23, i64 16
   %_M_finish.i163 = getelementptr inbounds i8, ptr %agg.tmp23, i64 8
@@ -7994,17 +7953,16 @@ sw.bb:                                            ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %func, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %func, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  %8 = load ptr, ptr %_M_manager3.i.i108, align 8, !tbaa !10
-  store ptr %8, ptr %_M_manager.i.i.i, align 8, !tbaa !10
+  %8 = load <2 x ptr>, ptr %_M_manager3.i.i108, align 8, !tbaa !10
+  %9 = load ptr, ptr %_M_manager3.i.i108, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i108, align 8, !tbaa !10
-  %9 = load ptr, ptr %_M_invoker4.i.i109, align 8, !tbaa !10
-  store ptr %9, ptr %_M_invoker.i.i, align 8, !tbaa !10
+  store <2 x ptr> %8, ptr %_M_manager.i.i.i, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i109, align 8, !tbaa !10
-  %tobool.not.i.i = icmp eq ptr %8, null
+  %tobool.not.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb
-  %call.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -8027,17 +7985,16 @@ sw.bb11:                                          ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i105, ptr noundef nonnull align 8 dereferenceable(16) %func, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %func, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i104, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i104)
-  %12 = load ptr, ptr %_M_manager3.i.i108, align 8, !tbaa !10
-  store ptr %12, ptr %_M_manager.i.i.i106, align 8, !tbaa !10
+  %12 = load <2 x ptr>, ptr %_M_manager3.i.i108, align 8, !tbaa !10
+  %13 = load ptr, ptr %_M_manager3.i.i108, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i108, align 8, !tbaa !10
-  %13 = load ptr, ptr %_M_invoker4.i.i109, align 8, !tbaa !10
-  store ptr %13, ptr %_M_invoker.i.i107, align 8, !tbaa !10
+  store <2 x ptr> %12, ptr %_M_manager.i.i.i106, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i109, align 8, !tbaa !10
-  %tobool.not.i.i110 = icmp eq ptr %12, null
+  %tobool.not.i.i110 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i110, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit114, label %if.then.i.i111
 
 if.then.i.i111:                                   ; preds = %sw.bb11
-  %call.i.i112 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i105, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i105, i32 noundef 3)
+  %call.i.i112 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i105, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i105, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit114 unwind label %terminate.lpad.i.i113
 
 terminate.lpad.i.i113:                            ; preds = %if.then.i.i111
@@ -8481,7 +8438,6 @@ if.then:                                          ; preds = %entry
   %function = getelementptr inbounds i8, ptr %bound_function, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #20
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %0, align 8
   store ptr @_ZN6duckdb14ScalarFunction11NopFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i, align 8, !tbaa !10
@@ -8491,18 +8447,17 @@ if.then:                                          ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %bound_function, i64 192
-  %1 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !10
-  store ptr %1, ptr %_M_manager.i.i.i, align 8, !tbaa !10
-  store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i, align 8, !tbaa !10
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %bound_function, i64 200
-  %2 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !10
-  store ptr %2, ptr %_M_invoker.i.i, align 8, !tbaa !10
+  %1 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !10
+  %2 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !10
+  store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i, align 8, !tbaa !10
+  store <2 x ptr> %1, ptr %_M_manager.i.i.i, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i, align 8, !tbaa !10
-  %tobool.not.i.i = icmp eq ptr %1, null
+  %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -8531,7 +8486,6 @@ if.else:                                          ; preds = %entry
 sw.bb:                                            ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i32) #20
   %_M_manager.i.i.i33 = getelementptr inbounds i8, ptr %ref.tmp.i32, i64 16
-  %_M_invoker.i.i34 = getelementptr inbounds i8, ptr %ref.tmp.i32, i64 24
   %6 = getelementptr inbounds i8, ptr %ref.tmp.i32, i64 8
   store i64 0, ptr %6, align 8
   store ptr @_ZN6duckdbL27GenericRoundFunctionDecimalIsNS_13NumericHelperENS_20FloorDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i32, align 8, !tbaa !10
@@ -8540,17 +8494,16 @@ sw.bb:                                            ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i32, ptr noundef nonnull align 8 dereferenceable(16) %function14, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function14, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i31, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i31)
-  %7 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  store ptr %7, ptr %_M_manager.i.i.i33, align 8, !tbaa !10
+  %7 = load <2 x ptr>, ptr %_M_manager3.i.i68, align 8, !tbaa !10
+  %8 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  %8 = load ptr, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  store ptr %8, ptr %_M_invoker.i.i34, align 8, !tbaa !10
+  store <2 x ptr> %7, ptr %_M_manager.i.i.i33, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  %tobool.not.i.i37 = icmp eq ptr %7, null
+  %tobool.not.i.i37 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i37, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit41, label %if.then.i.i38
 
 if.then.i.i38:                                    ; preds = %sw.bb
-  %call.i.i39 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i32, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i32, i32 noundef 3)
+  %call.i.i39 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i32, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i32, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit41 unwind label %terminate.lpad.i.i40
 
 terminate.lpad.i.i40:                             ; preds = %if.then.i.i38
@@ -8567,7 +8520,6 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
 sw.bb8:                                           ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i43) #20
   %_M_manager.i.i.i44 = getelementptr inbounds i8, ptr %ref.tmp.i43, i64 16
-  %_M_invoker.i.i45 = getelementptr inbounds i8, ptr %ref.tmp.i43, i64 24
   %11 = getelementptr inbounds i8, ptr %ref.tmp.i43, i64 8
   store i64 0, ptr %11, align 8
   store ptr @_ZN6duckdbL27GenericRoundFunctionDecimalIiNS_13NumericHelperENS_20FloorDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i43, align 8, !tbaa !10
@@ -8576,17 +8528,16 @@ sw.bb8:                                           ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i43, ptr noundef nonnull align 8 dereferenceable(16) %function14, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function14, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i42, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i42)
-  %12 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  store ptr %12, ptr %_M_manager.i.i.i44, align 8, !tbaa !10
+  %12 = load <2 x ptr>, ptr %_M_manager3.i.i68, align 8, !tbaa !10
+  %13 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  %13 = load ptr, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  store ptr %13, ptr %_M_invoker.i.i45, align 8, !tbaa !10
+  store <2 x ptr> %12, ptr %_M_manager.i.i.i44, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  %tobool.not.i.i48 = icmp eq ptr %12, null
+  %tobool.not.i.i48 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i48, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit52, label %if.then.i.i49
 
 if.then.i.i49:                                    ; preds = %sw.bb8
-  %call.i.i50 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i43, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i43, i32 noundef 3)
+  %call.i.i50 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i43, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i43, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit52 unwind label %terminate.lpad.i.i51
 
 terminate.lpad.i.i51:                             ; preds = %if.then.i.i49
@@ -8603,7 +8554,6 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
 sw.bb11:                                          ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i54) #20
   %_M_manager.i.i.i55 = getelementptr inbounds i8, ptr %ref.tmp.i54, i64 16
-  %_M_invoker.i.i56 = getelementptr inbounds i8, ptr %ref.tmp.i54, i64 24
   %16 = getelementptr inbounds i8, ptr %ref.tmp.i54, i64 8
   store i64 0, ptr %16, align 8
   store ptr @_ZN6duckdbL27GenericRoundFunctionDecimalIlNS_13NumericHelperENS_20FloorDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i54, align 8, !tbaa !10
@@ -8612,17 +8562,16 @@ sw.bb11:                                          ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, ptr noundef nonnull align 8 dereferenceable(16) %function14, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function14, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i53, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i53)
-  %17 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  store ptr %17, ptr %_M_manager.i.i.i55, align 8, !tbaa !10
+  %17 = load <2 x ptr>, ptr %_M_manager3.i.i68, align 8, !tbaa !10
+  %18 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  %18 = load ptr, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  store ptr %18, ptr %_M_invoker.i.i56, align 8, !tbaa !10
+  store <2 x ptr> %17, ptr %_M_manager.i.i.i55, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  %tobool.not.i.i59 = icmp eq ptr %17, null
+  %tobool.not.i.i59 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i59, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit63, label %if.then.i.i60
 
 if.then.i.i60:                                    ; preds = %sw.bb11
-  %call.i.i61 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, i32 noundef 3)
+  %call.i.i61 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit63 unwind label %terminate.lpad.i.i62
 
 terminate.lpad.i.i62:                             ; preds = %if.then.i.i60
@@ -8639,7 +8588,6 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
 sw.default:                                       ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i65) #20
   %_M_manager.i.i.i66 = getelementptr inbounds i8, ptr %ref.tmp.i65, i64 16
-  %_M_invoker.i.i67 = getelementptr inbounds i8, ptr %ref.tmp.i65, i64 24
   %21 = getelementptr inbounds i8, ptr %ref.tmp.i65, i64 8
   store i64 0, ptr %21, align 8
   store ptr @_ZN6duckdbL27GenericRoundFunctionDecimalINS_9hugeint_tENS_7HugeintENS_20FloorDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i65, align 8, !tbaa !10
@@ -8648,17 +8596,16 @@ sw.default:                                       ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65, ptr noundef nonnull align 8 dereferenceable(16) %function14, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function14, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i64, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i64)
-  %22 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  store ptr %22, ptr %_M_manager.i.i.i66, align 8, !tbaa !10
+  %22 = load <2 x ptr>, ptr %_M_manager3.i.i68, align 8, !tbaa !10
+  %23 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  %23 = load ptr, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  store ptr %23, ptr %_M_invoker.i.i67, align 8, !tbaa !10
+  store <2 x ptr> %22, ptr %_M_manager.i.i.i66, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  %tobool.not.i.i70 = icmp eq ptr %22, null
+  %tobool.not.i.i70 = icmp eq ptr %23, null
   br i1 %tobool.not.i.i70, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit74, label %if.then.i.i71
 
 if.then.i.i71:                                    ; preds = %sw.default
-  %call.i.i72 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65, i32 noundef 3)
+  %call.i.i72 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit74 unwind label %terminate.lpad.i.i73
 
 terminate.lpad.i.i73:                             ; preds = %if.then.i.i71
@@ -9330,7 +9277,6 @@ if.then:                                          ; preds = %entry
   %function = getelementptr inbounds i8, ptr %bound_function, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #20
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %0, align 8
   store ptr @_ZN6duckdb14ScalarFunction11NopFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i, align 8, !tbaa !10
@@ -9340,18 +9286,17 @@ if.then:                                          ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %bound_function, i64 192
-  %1 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !10
-  store ptr %1, ptr %_M_manager.i.i.i, align 8, !tbaa !10
-  store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i, align 8, !tbaa !10
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %bound_function, i64 200
-  %2 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !10
-  store ptr %2, ptr %_M_invoker.i.i, align 8, !tbaa !10
+  %1 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !10
+  %2 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !10
+  store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i, align 8, !tbaa !10
+  store <2 x ptr> %1, ptr %_M_manager.i.i.i, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i, align 8, !tbaa !10
-  %tobool.not.i.i = icmp eq ptr %1, null
+  %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -9380,7 +9325,6 @@ if.else:                                          ; preds = %entry
 sw.bb:                                            ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i32) #20
   %_M_manager.i.i.i33 = getelementptr inbounds i8, ptr %ref.tmp.i32, i64 16
-  %_M_invoker.i.i34 = getelementptr inbounds i8, ptr %ref.tmp.i32, i64 24
   %6 = getelementptr inbounds i8, ptr %ref.tmp.i32, i64 8
   store i64 0, ptr %6, align 8
   store ptr @_ZN6duckdbL27GenericRoundFunctionDecimalIsNS_13NumericHelperENS_20TruncDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i32, align 8, !tbaa !10
@@ -9389,17 +9333,16 @@ sw.bb:                                            ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i32, ptr noundef nonnull align 8 dereferenceable(16) %function14, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function14, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i31, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i31)
-  %7 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  store ptr %7, ptr %_M_manager.i.i.i33, align 8, !tbaa !10
+  %7 = load <2 x ptr>, ptr %_M_manager3.i.i68, align 8, !tbaa !10
+  %8 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  %8 = load ptr, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  store ptr %8, ptr %_M_invoker.i.i34, align 8, !tbaa !10
+  store <2 x ptr> %7, ptr %_M_manager.i.i.i33, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  %tobool.not.i.i37 = icmp eq ptr %7, null
+  %tobool.not.i.i37 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i37, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit41, label %if.then.i.i38
 
 if.then.i.i38:                                    ; preds = %sw.bb
-  %call.i.i39 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i32, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i32, i32 noundef 3)
+  %call.i.i39 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i32, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i32, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit41 unwind label %terminate.lpad.i.i40
 
 terminate.lpad.i.i40:                             ; preds = %if.then.i.i38
@@ -9416,7 +9359,6 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
 sw.bb8:                                           ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i43) #20
   %_M_manager.i.i.i44 = getelementptr inbounds i8, ptr %ref.tmp.i43, i64 16
-  %_M_invoker.i.i45 = getelementptr inbounds i8, ptr %ref.tmp.i43, i64 24
   %11 = getelementptr inbounds i8, ptr %ref.tmp.i43, i64 8
   store i64 0, ptr %11, align 8
   store ptr @_ZN6duckdbL27GenericRoundFunctionDecimalIiNS_13NumericHelperENS_20TruncDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i43, align 8, !tbaa !10
@@ -9425,17 +9367,16 @@ sw.bb8:                                           ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i43, ptr noundef nonnull align 8 dereferenceable(16) %function14, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function14, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i42, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i42)
-  %12 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  store ptr %12, ptr %_M_manager.i.i.i44, align 8, !tbaa !10
+  %12 = load <2 x ptr>, ptr %_M_manager3.i.i68, align 8, !tbaa !10
+  %13 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  %13 = load ptr, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  store ptr %13, ptr %_M_invoker.i.i45, align 8, !tbaa !10
+  store <2 x ptr> %12, ptr %_M_manager.i.i.i44, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  %tobool.not.i.i48 = icmp eq ptr %12, null
+  %tobool.not.i.i48 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i48, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit52, label %if.then.i.i49
 
 if.then.i.i49:                                    ; preds = %sw.bb8
-  %call.i.i50 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i43, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i43, i32 noundef 3)
+  %call.i.i50 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i43, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i43, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit52 unwind label %terminate.lpad.i.i51
 
 terminate.lpad.i.i51:                             ; preds = %if.then.i.i49
@@ -9452,7 +9393,6 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
 sw.bb11:                                          ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i54) #20
   %_M_manager.i.i.i55 = getelementptr inbounds i8, ptr %ref.tmp.i54, i64 16
-  %_M_invoker.i.i56 = getelementptr inbounds i8, ptr %ref.tmp.i54, i64 24
   %16 = getelementptr inbounds i8, ptr %ref.tmp.i54, i64 8
   store i64 0, ptr %16, align 8
   store ptr @_ZN6duckdbL27GenericRoundFunctionDecimalIlNS_13NumericHelperENS_20TruncDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i54, align 8, !tbaa !10
@@ -9461,17 +9401,16 @@ sw.bb11:                                          ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, ptr noundef nonnull align 8 dereferenceable(16) %function14, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function14, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i53, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i53)
-  %17 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  store ptr %17, ptr %_M_manager.i.i.i55, align 8, !tbaa !10
+  %17 = load <2 x ptr>, ptr %_M_manager3.i.i68, align 8, !tbaa !10
+  %18 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  %18 = load ptr, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  store ptr %18, ptr %_M_invoker.i.i56, align 8, !tbaa !10
+  store <2 x ptr> %17, ptr %_M_manager.i.i.i55, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  %tobool.not.i.i59 = icmp eq ptr %17, null
+  %tobool.not.i.i59 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i59, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit63, label %if.then.i.i60
 
 if.then.i.i60:                                    ; preds = %sw.bb11
-  %call.i.i61 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, i32 noundef 3)
+  %call.i.i61 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit63 unwind label %terminate.lpad.i.i62
 
 terminate.lpad.i.i62:                             ; preds = %if.then.i.i60
@@ -9488,7 +9427,6 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
 sw.default:                                       ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i65) #20
   %_M_manager.i.i.i66 = getelementptr inbounds i8, ptr %ref.tmp.i65, i64 16
-  %_M_invoker.i.i67 = getelementptr inbounds i8, ptr %ref.tmp.i65, i64 24
   %21 = getelementptr inbounds i8, ptr %ref.tmp.i65, i64 8
   store i64 0, ptr %21, align 8
   store ptr @_ZN6duckdbL27GenericRoundFunctionDecimalINS_9hugeint_tENS_7HugeintENS_20TruncDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i65, align 8, !tbaa !10
@@ -9497,17 +9435,16 @@ sw.default:                                       ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65, ptr noundef nonnull align 8 dereferenceable(16) %function14, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function14, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i64, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i64)
-  %22 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  store ptr %22, ptr %_M_manager.i.i.i66, align 8, !tbaa !10
+  %22 = load <2 x ptr>, ptr %_M_manager3.i.i68, align 8, !tbaa !10
+  %23 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  %23 = load ptr, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  store ptr %23, ptr %_M_invoker.i.i67, align 8, !tbaa !10
+  store <2 x ptr> %22, ptr %_M_manager.i.i.i66, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  %tobool.not.i.i70 = icmp eq ptr %22, null
+  %tobool.not.i.i70 = icmp eq ptr %23, null
   br i1 %tobool.not.i.i70, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit74, label %if.then.i.i71
 
 if.then.i.i71:                                    ; preds = %sw.default
-  %call.i.i72 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65, i32 noundef 3)
+  %call.i.i72 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit74 unwind label %terminate.lpad.i.i73
 
 terminate.lpad.i.i73:                             ; preds = %if.then.i.i71
@@ -9892,7 +9829,6 @@ lpad60:                                           ; preds = %if.end97, %invoke.c
 sw.bb:                                            ; preds = %if.then63
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #20
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %20 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %20, align 8
   store ptr @_ZN6duckdbL37DecimalRoundNegativePrecisionFunctionIsNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i, align 8, !tbaa !10
@@ -9901,17 +9837,16 @@ sw.bb:                                            ; preds = %if.then63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %function73, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function73, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  %21 = load ptr, ptr %_M_manager3.i.i187, align 8, !tbaa !10
-  store ptr %21, ptr %_M_manager.i.i.i, align 8, !tbaa !10
+  %21 = load <2 x ptr>, ptr %_M_manager3.i.i187, align 8, !tbaa !10
+  %22 = load ptr, ptr %_M_manager3.i.i187, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i187, align 8, !tbaa !10
-  %22 = load ptr, ptr %_M_invoker4.i.i188, align 8, !tbaa !10
-  store ptr %22, ptr %_M_invoker.i.i, align 8, !tbaa !10
+  store <2 x ptr> %21, ptr %_M_manager.i.i.i, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i188, align 8, !tbaa !10
-  %tobool.not.i.i = icmp eq ptr %21, null
+  %tobool.not.i.i = icmp eq ptr %22, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit, label %if.then.i.i160
 
 if.then.i.i160:                                   ; preds = %sw.bb
-  %call.i.i = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i160
@@ -9928,7 +9863,6 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
 sw.bb67:                                          ; preds = %if.then63
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i162) #20
   %_M_manager.i.i.i163 = getelementptr inbounds i8, ptr %ref.tmp.i162, i64 16
-  %_M_invoker.i.i164 = getelementptr inbounds i8, ptr %ref.tmp.i162, i64 24
   %25 = getelementptr inbounds i8, ptr %ref.tmp.i162, i64 8
   store i64 0, ptr %25, align 8
   store ptr @_ZN6duckdbL37DecimalRoundNegativePrecisionFunctionIiNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i162, align 8, !tbaa !10
@@ -9937,17 +9871,16 @@ sw.bb67:                                          ; preds = %if.then63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i162, ptr noundef nonnull align 8 dereferenceable(16) %function73, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function73, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i161, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i161)
-  %26 = load ptr, ptr %_M_manager3.i.i187, align 8, !tbaa !10
-  store ptr %26, ptr %_M_manager.i.i.i163, align 8, !tbaa !10
+  %26 = load <2 x ptr>, ptr %_M_manager3.i.i187, align 8, !tbaa !10
+  %27 = load ptr, ptr %_M_manager3.i.i187, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i187, align 8, !tbaa !10
-  %27 = load ptr, ptr %_M_invoker4.i.i188, align 8, !tbaa !10
-  store ptr %27, ptr %_M_invoker.i.i164, align 8, !tbaa !10
+  store <2 x ptr> %26, ptr %_M_manager.i.i.i163, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i188, align 8, !tbaa !10
-  %tobool.not.i.i167 = icmp eq ptr %26, null
+  %tobool.not.i.i167 = icmp eq ptr %27, null
   br i1 %tobool.not.i.i167, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit171, label %if.then.i.i168
 
 if.then.i.i168:                                   ; preds = %sw.bb67
-  %call.i.i169 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i162, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i162, i32 noundef 3)
+  %call.i.i169 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i162, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i162, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit171 unwind label %terminate.lpad.i.i170
 
 terminate.lpad.i.i170:                            ; preds = %if.then.i.i168
@@ -9964,7 +9897,6 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
 sw.bb70:                                          ; preds = %if.then63
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i173) #20
   %_M_manager.i.i.i174 = getelementptr inbounds i8, ptr %ref.tmp.i173, i64 16
-  %_M_invoker.i.i175 = getelementptr inbounds i8, ptr %ref.tmp.i173, i64 24
   %30 = getelementptr inbounds i8, ptr %ref.tmp.i173, i64 8
   store i64 0, ptr %30, align 8
   store ptr @_ZN6duckdbL37DecimalRoundNegativePrecisionFunctionIlNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i173, align 8, !tbaa !10
@@ -9973,17 +9905,16 @@ sw.bb70:                                          ; preds = %if.then63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i173, ptr noundef nonnull align 8 dereferenceable(16) %function73, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function73, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i172, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i172)
-  %31 = load ptr, ptr %_M_manager3.i.i187, align 8, !tbaa !10
-  store ptr %31, ptr %_M_manager.i.i.i174, align 8, !tbaa !10
+  %31 = load <2 x ptr>, ptr %_M_manager3.i.i187, align 8, !tbaa !10
+  %32 = load ptr, ptr %_M_manager3.i.i187, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i187, align 8, !tbaa !10
-  %32 = load ptr, ptr %_M_invoker4.i.i188, align 8, !tbaa !10
-  store ptr %32, ptr %_M_invoker.i.i175, align 8, !tbaa !10
+  store <2 x ptr> %31, ptr %_M_manager.i.i.i174, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i188, align 8, !tbaa !10
-  %tobool.not.i.i178 = icmp eq ptr %31, null
+  %tobool.not.i.i178 = icmp eq ptr %32, null
   br i1 %tobool.not.i.i178, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit182, label %if.then.i.i179
 
 if.then.i.i179:                                   ; preds = %sw.bb70
-  %call.i.i180 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i173, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i173, i32 noundef 3)
+  %call.i.i180 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i173, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i173, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit182 unwind label %terminate.lpad.i.i181
 
 terminate.lpad.i.i181:                            ; preds = %if.then.i.i179
@@ -10000,7 +9931,6 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
 sw.default:                                       ; preds = %if.then63
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i184) #20
   %_M_manager.i.i.i185 = getelementptr inbounds i8, ptr %ref.tmp.i184, i64 16
-  %_M_invoker.i.i186 = getelementptr inbounds i8, ptr %ref.tmp.i184, i64 24
   %35 = getelementptr inbounds i8, ptr %ref.tmp.i184, i64 8
   store i64 0, ptr %35, align 8
   store ptr @_ZN6duckdbL37DecimalRoundNegativePrecisionFunctionINS_9hugeint_tENS_7HugeintEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i184, align 8, !tbaa !10
@@ -10009,17 +9939,16 @@ sw.default:                                       ; preds = %if.then63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i184, ptr noundef nonnull align 8 dereferenceable(16) %function73, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function73, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i183, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i183)
-  %36 = load ptr, ptr %_M_manager3.i.i187, align 8, !tbaa !10
-  store ptr %36, ptr %_M_manager.i.i.i185, align 8, !tbaa !10
+  %36 = load <2 x ptr>, ptr %_M_manager3.i.i187, align 8, !tbaa !10
+  %37 = load ptr, ptr %_M_manager3.i.i187, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i187, align 8, !tbaa !10
-  %37 = load ptr, ptr %_M_invoker4.i.i188, align 8, !tbaa !10
-  store ptr %37, ptr %_M_invoker.i.i186, align 8, !tbaa !10
+  store <2 x ptr> %36, ptr %_M_manager.i.i.i185, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i188, align 8, !tbaa !10
-  %tobool.not.i.i189 = icmp eq ptr %36, null
+  %tobool.not.i.i189 = icmp eq ptr %37, null
   br i1 %tobool.not.i.i189, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit193, label %if.then.i.i190
 
 if.then.i.i190:                                   ; preds = %sw.default
-  %call.i.i191 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i184, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i184, i32 noundef 3)
+  %call.i.i191 = invoke noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i184, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i184, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit193 unwind label %terminate.lpad.i.i192
 
 terminate.lpad.i.i192:                            ; preds = %if.then.i.i190
@@ -10042,7 +9971,6 @@ if.then76:                                        ; preds = %if.else
   %function77 = getelementptr inbounds i8, ptr %bound_function, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i195) #20
   %_M_manager.i.i.i196 = getelementptr inbounds i8, ptr %ref.tmp.i195, i64 16
-  %_M_invoker.i.i197 = getelementptr inbounds i8, ptr %ref.tmp.i195, i64 24
   %40 = getelementptr inbounds i8, ptr %ref.tmp.i195, i64 8
   store i64 0, ptr %40, align 8
   store ptr @_ZN6duckdb14ScalarFunction11NopFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i195, align 8, !tbaa !10
@@ -10052,18 +9980,17 @@ if.then76:                                        ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function77, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i194, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i194)
   %_M_manager3.i.i198 = getelementptr inbounds i8, ptr %bound_function, i64 192
-  %41 = load ptr, ptr %_M_manager3.i.i198, align 8, !tbaa !10
-  store ptr %41, ptr %_M_manager.i.i.i196, align 8, !tbaa !10
-  store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i198, align 8, !tbaa !10
   %_M_invoker4.i.i199 = getelementptr inbounds i8, ptr %bound_function, i64 200
-  %42 = load ptr, ptr %_M_invoker4.i.i199, align 8, !tbaa !10
-  store ptr %42, ptr %_M_invoker.i.i197, align 8, !tbaa !10
+  %41 = load <2 x ptr>, ptr %_M_manager3.i.i198, align 8, !tbaa !10
+  %42 = load ptr, ptr %_M_manager3.i.i198, align 8, !tbaa !10
+  store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i198, align 8, !tbaa !10
+  store <2 x ptr> %41, ptr %_M_manager.i.i.i196, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i199, align 8, !tbaa !10
-  %tobool.not.i.i200 = icmp eq ptr %41, null
+  %tobool.not.i.i200 = icmp eq ptr %42, null
   br i1 %tobool.not.i.i200, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit204, label %if.then.i.i201
 
 if.then.i.i201:                                   ; preds = %if.then76
-  %call.i.i202 = invoke noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i195, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i195, i32 noundef 3)
+  %call.i.i202 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i195, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i195, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit204 unwind label %terminate.lpad.i.i203
 
 terminate.lpad.i.i203:                            ; preds = %if.then.i.i201
@@ -10093,7 +10020,6 @@ if.else79:                                        ; preds = %if.else
 sw.bb83:                                          ; preds = %if.else79
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i207) #20
   %_M_manager.i.i.i208 = getelementptr inbounds i8, ptr %ref.tmp.i207, i64 16
-  %_M_invoker.i.i209 = getelementptr inbounds i8, ptr %ref.tmp.i207, i64 24
   %46 = getelementptr inbounds i8, ptr %ref.tmp.i207, i64 8
   store i64 0, ptr %46, align 8
   store ptr @_ZN6duckdbL37DecimalRoundPositivePrecisionFunctionIsNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i207, align 8, !tbaa !10
@@ -10102,17 +10028,16 @@ sw.bb83:                                          ; preds = %if.else79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i207, ptr noundef nonnull align 8 dereferenceable(16) %function93, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function93, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i206, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i206)
-  %47 = load ptr, ptr %_M_manager3.i.i243, align 8, !tbaa !10
-  store ptr %47, ptr %_M_manager.i.i.i208, align 8, !tbaa !10
+  %47 = load <2 x ptr>, ptr %_M_manager3.i.i243, align 8, !tbaa !10
+  %48 = load ptr, ptr %_M_manager3.i.i243, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i243, align 8, !tbaa !10
-  %48 = load ptr, ptr %_M_invoker4.i.i244, align 8, !tbaa !10
-  store ptr %48, ptr %_M_invoker.i.i209, align 8, !tbaa !10
+  store <2 x ptr> %47, ptr %_M_manager.i.i.i208, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i244, align 8, !tbaa !10
-  %tobool.not.i.i212 = icmp eq ptr %47, null
+  %tobool.not.i.i212 = icmp eq ptr %48, null
   br i1 %tobool.not.i.i212, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit216, label %if.then.i.i213
 
 if.then.i.i213:                                   ; preds = %sw.bb83
-  %call.i.i214 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i207, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i207, i32 noundef 3)
+  %call.i.i214 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i207, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i207, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit216 unwind label %terminate.lpad.i.i215
 
 terminate.lpad.i.i215:                            ; preds = %if.then.i.i213
@@ -10129,7 +10054,6 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
 sw.bb86:                                          ; preds = %if.else79
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i218) #20
   %_M_manager.i.i.i219 = getelementptr inbounds i8, ptr %ref.tmp.i218, i64 16
-  %_M_invoker.i.i220 = getelementptr inbounds i8, ptr %ref.tmp.i218, i64 24
   %51 = getelementptr inbounds i8, ptr %ref.tmp.i218, i64 8
   store i64 0, ptr %51, align 8
   store ptr @_ZN6duckdbL37DecimalRoundPositivePrecisionFunctionIiNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i218, align 8, !tbaa !10
@@ -10138,17 +10062,16 @@ sw.bb86:                                          ; preds = %if.else79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i218, ptr noundef nonnull align 8 dereferenceable(16) %function93, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function93, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i217, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i217)
-  %52 = load ptr, ptr %_M_manager3.i.i243, align 8, !tbaa !10
-  store ptr %52, ptr %_M_manager.i.i.i219, align 8, !tbaa !10
+  %52 = load <2 x ptr>, ptr %_M_manager3.i.i243, align 8, !tbaa !10
+  %53 = load ptr, ptr %_M_manager3.i.i243, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i243, align 8, !tbaa !10
-  %53 = load ptr, ptr %_M_invoker4.i.i244, align 8, !tbaa !10
-  store ptr %53, ptr %_M_invoker.i.i220, align 8, !tbaa !10
+  store <2 x ptr> %52, ptr %_M_manager.i.i.i219, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i244, align 8, !tbaa !10
-  %tobool.not.i.i223 = icmp eq ptr %52, null
+  %tobool.not.i.i223 = icmp eq ptr %53, null
   br i1 %tobool.not.i.i223, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit227, label %if.then.i.i224
 
 if.then.i.i224:                                   ; preds = %sw.bb86
-  %call.i.i225 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i218, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i218, i32 noundef 3)
+  %call.i.i225 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i218, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i218, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit227 unwind label %terminate.lpad.i.i226
 
 terminate.lpad.i.i226:                            ; preds = %if.then.i.i224
@@ -10165,7 +10088,6 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
 sw.bb89:                                          ; preds = %if.else79
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i229) #20
   %_M_manager.i.i.i230 = getelementptr inbounds i8, ptr %ref.tmp.i229, i64 16
-  %_M_invoker.i.i231 = getelementptr inbounds i8, ptr %ref.tmp.i229, i64 24
   %56 = getelementptr inbounds i8, ptr %ref.tmp.i229, i64 8
   store i64 0, ptr %56, align 8
   store ptr @_ZN6duckdbL37DecimalRoundPositivePrecisionFunctionIlNS_13NumericHelperEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i229, align 8, !tbaa !10
@@ -10174,17 +10096,16 @@ sw.bb89:                                          ; preds = %if.else79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i229, ptr noundef nonnull align 8 dereferenceable(16) %function93, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function93, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i228, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i228)
-  %57 = load ptr, ptr %_M_manager3.i.i243, align 8, !tbaa !10
-  store ptr %57, ptr %_M_manager.i.i.i230, align 8, !tbaa !10
+  %57 = load <2 x ptr>, ptr %_M_manager3.i.i243, align 8, !tbaa !10
+  %58 = load ptr, ptr %_M_manager3.i.i243, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i243, align 8, !tbaa !10
-  %58 = load ptr, ptr %_M_invoker4.i.i244, align 8, !tbaa !10
-  store ptr %58, ptr %_M_invoker.i.i231, align 8, !tbaa !10
+  store <2 x ptr> %57, ptr %_M_manager.i.i.i230, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i244, align 8, !tbaa !10
-  %tobool.not.i.i234 = icmp eq ptr %57, null
+  %tobool.not.i.i234 = icmp eq ptr %58, null
   br i1 %tobool.not.i.i234, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit238, label %if.then.i.i235
 
 if.then.i.i235:                                   ; preds = %sw.bb89
-  %call.i.i236 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i229, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i229, i32 noundef 3)
+  %call.i.i236 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i229, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i229, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit238 unwind label %terminate.lpad.i.i237
 
 terminate.lpad.i.i237:                            ; preds = %if.then.i.i235
@@ -10201,7 +10122,6 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
 sw.default92:                                     ; preds = %if.else79
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i240) #20
   %_M_manager.i.i.i241 = getelementptr inbounds i8, ptr %ref.tmp.i240, i64 16
-  %_M_invoker.i.i242 = getelementptr inbounds i8, ptr %ref.tmp.i240, i64 24
   %61 = getelementptr inbounds i8, ptr %ref.tmp.i240, i64 8
   store i64 0, ptr %61, align 8
   store ptr @_ZN6duckdbL37DecimalRoundPositivePrecisionFunctionINS_9hugeint_tENS_7HugeintEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i240, align 8, !tbaa !10
@@ -10210,17 +10130,16 @@ sw.default92:                                     ; preds = %if.else79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i240, ptr noundef nonnull align 8 dereferenceable(16) %function93, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function93, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i239, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i239)
-  %62 = load ptr, ptr %_M_manager3.i.i243, align 8, !tbaa !10
-  store ptr %62, ptr %_M_manager.i.i.i241, align 8, !tbaa !10
+  %62 = load <2 x ptr>, ptr %_M_manager3.i.i243, align 8, !tbaa !10
+  %63 = load ptr, ptr %_M_manager3.i.i243, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i243, align 8, !tbaa !10
-  %63 = load ptr, ptr %_M_invoker4.i.i244, align 8, !tbaa !10
-  store ptr %63, ptr %_M_invoker.i.i242, align 8, !tbaa !10
+  store <2 x ptr> %62, ptr %_M_manager.i.i.i241, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i244, align 8, !tbaa !10
-  %tobool.not.i.i245 = icmp eq ptr %62, null
+  %tobool.not.i.i245 = icmp eq ptr %63, null
   br i1 %tobool.not.i.i245, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit249, label %if.then.i.i246
 
 if.then.i.i246:                                   ; preds = %sw.default92
-  %call.i.i247 = invoke noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i240, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i240, i32 noundef 3)
+  %call.i.i247 = invoke noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i240, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i240, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit249 unwind label %terminate.lpad.i.i248
 
 terminate.lpad.i.i248:                            ; preds = %if.then.i.i246
@@ -17094,20 +17013,16 @@ invoke.cont:                                      ; preds = %entry
 
 for.body.lr.ph:                                   ; preds = %invoke.cont
   %_M_manager.i.i.i190 = getelementptr inbounds i8, ptr %ref.tmp.i189, i64 16
-  %_M_invoker.i.i191 = getelementptr inbounds i8, ptr %ref.tmp.i189, i64 24
   %2 = getelementptr inbounds i8, ptr %ref.tmp.i189, i64 8
   %_M_manager3.i.i192 = getelementptr inbounds i8, ptr %round_func, i64 16
   %_M_invoker4.i.i193 = getelementptr inbounds i8, ptr %round_func, i64 24
   %_M_manager.i.i.i201 = getelementptr inbounds i8, ptr %ref.tmp.i200, i64 16
-  %_M_invoker.i.i202 = getelementptr inbounds i8, ptr %ref.tmp.i200, i64 24
   %3 = getelementptr inbounds i8, ptr %ref.tmp.i200, i64 8
   %_M_manager3.i.i203 = getelementptr inbounds i8, ptr %round_prec_func, i64 16
   %_M_invoker4.i.i204 = getelementptr inbounds i8, ptr %round_prec_func, i64 24
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %_M_manager.i.i.i179 = getelementptr inbounds i8, ptr %ref.tmp.i178, i64 16
-  %_M_invoker.i.i180 = getelementptr inbounds i8, ptr %ref.tmp.i178, i64 24
   %5 = getelementptr inbounds i8, ptr %ref.tmp.i178, i64 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %agg.tmp25, i64 16
   %_M_finish.i346 = getelementptr inbounds i8, ptr %agg.tmp25, i64 8
@@ -17198,17 +17113,16 @@ sw.bb:                                            ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %round_func, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %round_func, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
-  %10 = load ptr, ptr %_M_manager3.i.i192, align 8, !tbaa !10
-  store ptr %10, ptr %_M_manager.i.i.i, align 8, !tbaa !10
+  %10 = load <2 x ptr>, ptr %_M_manager3.i.i192, align 8, !tbaa !10
+  %11 = load ptr, ptr %_M_manager3.i.i192, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i192, align 8, !tbaa !10
-  %11 = load ptr, ptr %_M_invoker4.i.i193, align 8, !tbaa !10
-  store ptr %11, ptr %_M_invoker.i.i, align 8, !tbaa !10
+  store <2 x ptr> %10, ptr %_M_manager.i.i.i, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i193, align 8, !tbaa !10
-  %tobool.not.i.i = icmp eq ptr %10, null
+  %tobool.not.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb
-  %call.i.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -17228,17 +17142,16 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i178, ptr noundef nonnull align 8 dereferenceable(16) %round_prec_func, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %round_prec_func, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i177, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i177)
-  %14 = load ptr, ptr %_M_manager3.i.i203, align 8, !tbaa !10
-  store ptr %14, ptr %_M_manager.i.i.i179, align 8, !tbaa !10
+  %14 = load <2 x ptr>, ptr %_M_manager3.i.i203, align 8, !tbaa !10
+  %15 = load ptr, ptr %_M_manager3.i.i203, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i203, align 8, !tbaa !10
-  %15 = load ptr, ptr %_M_invoker4.i.i204, align 8, !tbaa !10
-  store ptr %15, ptr %_M_invoker.i.i180, align 8, !tbaa !10
+  store <2 x ptr> %14, ptr %_M_manager.i.i.i179, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i204, align 8, !tbaa !10
-  %tobool.not.i.i183 = icmp eq ptr %14, null
+  %tobool.not.i.i183 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i183, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit187, label %if.then.i.i184
 
 if.then.i.i184:                                   ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit
-  %call.i.i185 = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i178, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i178, i32 noundef 3)
+  %call.i.i185 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i178, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i178, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit187 unwind label %terminate.lpad.i.i186
 
 terminate.lpad.i.i186:                            ; preds = %if.then.i.i184
@@ -17261,17 +17174,16 @@ sw.bb12:                                          ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i189, ptr noundef nonnull align 8 dereferenceable(16) %round_func, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %round_func, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i188, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i188)
-  %18 = load ptr, ptr %_M_manager3.i.i192, align 8, !tbaa !10
-  store ptr %18, ptr %_M_manager.i.i.i190, align 8, !tbaa !10
+  %18 = load <2 x ptr>, ptr %_M_manager3.i.i192, align 8, !tbaa !10
+  %19 = load ptr, ptr %_M_manager3.i.i192, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i192, align 8, !tbaa !10
-  %19 = load ptr, ptr %_M_invoker4.i.i193, align 8, !tbaa !10
-  store ptr %19, ptr %_M_invoker.i.i191, align 8, !tbaa !10
+  store <2 x ptr> %18, ptr %_M_manager.i.i.i190, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i193, align 8, !tbaa !10
-  %tobool.not.i.i194 = icmp eq ptr %18, null
+  %tobool.not.i.i194 = icmp eq ptr %19, null
   br i1 %tobool.not.i.i194, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit198, label %if.then.i.i195
 
 if.then.i.i195:                                   ; preds = %sw.bb12
-  %call.i.i196 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i189, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i189, i32 noundef 3)
+  %call.i.i196 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i189, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i189, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit198 unwind label %terminate.lpad.i.i197
 
 terminate.lpad.i.i197:                            ; preds = %if.then.i.i195
@@ -17291,17 +17203,16 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i200, ptr noundef nonnull align 8 dereferenceable(16) %round_prec_func, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %round_prec_func, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i199, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i199)
-  %22 = load ptr, ptr %_M_manager3.i.i203, align 8, !tbaa !10
-  store ptr %22, ptr %_M_manager.i.i.i201, align 8, !tbaa !10
+  %22 = load <2 x ptr>, ptr %_M_manager3.i.i203, align 8, !tbaa !10
+  %23 = load ptr, ptr %_M_manager3.i.i203, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i203, align 8, !tbaa !10
-  %23 = load ptr, ptr %_M_invoker4.i.i204, align 8, !tbaa !10
-  store ptr %23, ptr %_M_invoker.i.i202, align 8, !tbaa !10
+  store <2 x ptr> %22, ptr %_M_manager.i.i.i201, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i204, align 8, !tbaa !10
-  %tobool.not.i.i205 = icmp eq ptr %22, null
+  %tobool.not.i.i205 = icmp eq ptr %23, null
   br i1 %tobool.not.i.i205, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit209, label %if.then.i.i206
 
 if.then.i.i206:                                   ; preds = %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit198
-  %call.i.i207 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i200, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i200, i32 noundef 3)
+  %call.i.i207 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i200, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i200, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit209 unwind label %terminate.lpad.i.i208
 
 terminate.lpad.i.i208:                            ; preds = %if.then.i.i206
@@ -18105,7 +18016,6 @@ if.then:                                          ; preds = %entry
   %function = getelementptr inbounds i8, ptr %bound_function, i64 176
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i) #20
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %0, align 8
   store ptr @_ZN6duckdb14ScalarFunction11NopFunctionERNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i, align 8, !tbaa !10
@@ -18115,18 +18025,17 @@ if.then:                                          ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %bound_function, i64 192
-  %1 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !10
-  store ptr %1, ptr %_M_manager.i.i.i, align 8, !tbaa !10
-  store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i, align 8, !tbaa !10
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %bound_function, i64 200
-  %2 = load ptr, ptr %_M_invoker4.i.i, align 8, !tbaa !10
-  store ptr %2, ptr %_M_invoker.i.i, align 8, !tbaa !10
+  %1 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8, !tbaa !10
+  %2 = load ptr, ptr %_M_manager3.i.i, align 8, !tbaa !10
+  store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i, align 8, !tbaa !10
+  store <2 x ptr> %1, ptr %_M_manager.i.i.i, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i, align 8, !tbaa !10
-  %tobool.not.i.i = icmp eq ptr %1, null
+  %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %call.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
@@ -18155,7 +18064,6 @@ if.else:                                          ; preds = %entry
 sw.bb:                                            ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i32) #20
   %_M_manager.i.i.i33 = getelementptr inbounds i8, ptr %ref.tmp.i32, i64 16
-  %_M_invoker.i.i34 = getelementptr inbounds i8, ptr %ref.tmp.i32, i64 24
   %6 = getelementptr inbounds i8, ptr %ref.tmp.i32, i64 8
   store i64 0, ptr %6, align 8
   store ptr @_ZN6duckdbL27GenericRoundFunctionDecimalIsNS_13NumericHelperENS_20RoundDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i32, align 8, !tbaa !10
@@ -18164,17 +18072,16 @@ sw.bb:                                            ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i32, ptr noundef nonnull align 8 dereferenceable(16) %function14, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function14, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i31, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i31)
-  %7 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  store ptr %7, ptr %_M_manager.i.i.i33, align 8, !tbaa !10
+  %7 = load <2 x ptr>, ptr %_M_manager3.i.i68, align 8, !tbaa !10
+  %8 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  %8 = load ptr, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  store ptr %8, ptr %_M_invoker.i.i34, align 8, !tbaa !10
+  store <2 x ptr> %7, ptr %_M_manager.i.i.i33, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  %tobool.not.i.i37 = icmp eq ptr %7, null
+  %tobool.not.i.i37 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i37, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit41, label %if.then.i.i38
 
 if.then.i.i38:                                    ; preds = %sw.bb
-  %call.i.i39 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i32, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i32, i32 noundef 3)
+  %call.i.i39 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i32, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i32, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit41 unwind label %terminate.lpad.i.i40
 
 terminate.lpad.i.i40:                             ; preds = %if.then.i.i38
@@ -18191,7 +18098,6 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
 sw.bb8:                                           ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i43) #20
   %_M_manager.i.i.i44 = getelementptr inbounds i8, ptr %ref.tmp.i43, i64 16
-  %_M_invoker.i.i45 = getelementptr inbounds i8, ptr %ref.tmp.i43, i64 24
   %11 = getelementptr inbounds i8, ptr %ref.tmp.i43, i64 8
   store i64 0, ptr %11, align 8
   store ptr @_ZN6duckdbL27GenericRoundFunctionDecimalIiNS_13NumericHelperENS_20RoundDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i43, align 8, !tbaa !10
@@ -18200,17 +18106,16 @@ sw.bb8:                                           ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i43, ptr noundef nonnull align 8 dereferenceable(16) %function14, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function14, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i42, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i42)
-  %12 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  store ptr %12, ptr %_M_manager.i.i.i44, align 8, !tbaa !10
+  %12 = load <2 x ptr>, ptr %_M_manager3.i.i68, align 8, !tbaa !10
+  %13 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  %13 = load ptr, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  store ptr %13, ptr %_M_invoker.i.i45, align 8, !tbaa !10
+  store <2 x ptr> %12, ptr %_M_manager.i.i.i44, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  %tobool.not.i.i48 = icmp eq ptr %12, null
+  %tobool.not.i.i48 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i48, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit52, label %if.then.i.i49
 
 if.then.i.i49:                                    ; preds = %sw.bb8
-  %call.i.i50 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i43, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i43, i32 noundef 3)
+  %call.i.i50 = invoke noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i43, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i43, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit52 unwind label %terminate.lpad.i.i51
 
 terminate.lpad.i.i51:                             ; preds = %if.then.i.i49
@@ -18227,7 +18132,6 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
 sw.bb11:                                          ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i54) #20
   %_M_manager.i.i.i55 = getelementptr inbounds i8, ptr %ref.tmp.i54, i64 16
-  %_M_invoker.i.i56 = getelementptr inbounds i8, ptr %ref.tmp.i54, i64 24
   %16 = getelementptr inbounds i8, ptr %ref.tmp.i54, i64 8
   store i64 0, ptr %16, align 8
   store ptr @_ZN6duckdbL27GenericRoundFunctionDecimalIlNS_13NumericHelperENS_20RoundDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i54, align 8, !tbaa !10
@@ -18236,17 +18140,16 @@ sw.bb11:                                          ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, ptr noundef nonnull align 8 dereferenceable(16) %function14, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function14, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i53, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i53)
-  %17 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  store ptr %17, ptr %_M_manager.i.i.i55, align 8, !tbaa !10
+  %17 = load <2 x ptr>, ptr %_M_manager3.i.i68, align 8, !tbaa !10
+  %18 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  %18 = load ptr, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  store ptr %18, ptr %_M_invoker.i.i56, align 8, !tbaa !10
+  store <2 x ptr> %17, ptr %_M_manager.i.i.i55, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  %tobool.not.i.i59 = icmp eq ptr %17, null
+  %tobool.not.i.i59 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i59, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit63, label %if.then.i.i60
 
 if.then.i.i60:                                    ; preds = %sw.bb11
-  %call.i.i61 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, i32 noundef 3)
+  %call.i.i61 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i54, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit63 unwind label %terminate.lpad.i.i62
 
 terminate.lpad.i.i62:                             ; preds = %if.then.i.i60
@@ -18263,7 +18166,6 @@ _ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS
 sw.default:                                       ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i65) #20
   %_M_manager.i.i.i66 = getelementptr inbounds i8, ptr %ref.tmp.i65, i64 16
-  %_M_invoker.i.i67 = getelementptr inbounds i8, ptr %ref.tmp.i65, i64 24
   %21 = getelementptr inbounds i8, ptr %ref.tmp.i65, i64 8
   store i64 0, ptr %21, align 8
   store ptr @_ZN6duckdbL27GenericRoundFunctionDecimalINS_9hugeint_tENS_7HugeintENS_20RoundDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE, ptr %ref.tmp.i65, align 8, !tbaa !10
@@ -18272,17 +18174,16 @@ sw.default:                                       ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65, ptr noundef nonnull align 8 dereferenceable(16) %function14, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %function14, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i64, i64 16, i1 false), !tbaa.struct !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i64)
-  %22 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  store ptr %22, ptr %_M_manager.i.i.i66, align 8, !tbaa !10
+  %22 = load <2 x ptr>, ptr %_M_manager3.i.i68, align 8, !tbaa !10
+  %23 = load ptr, ptr %_M_manager3.i.i68, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %_M_manager3.i.i68, align 8, !tbaa !10
-  %23 = load ptr, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  store ptr %23, ptr %_M_invoker.i.i67, align 8, !tbaa !10
+  store <2 x ptr> %22, ptr %_M_manager.i.i.i66, align 8, !tbaa !10
   store ptr @_ZNSt17_Function_handlerIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEPS7_E9_M_invokeERKSt9_Any_dataS2_S4_S6_, ptr %_M_invoker4.i.i69, align 8, !tbaa !10
-  %tobool.not.i.i70 = icmp eq ptr %22, null
+  %tobool.not.i.i70 = icmp eq ptr %23, null
   br i1 %tobool.not.i.i70, label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit74, label %if.then.i.i71
 
 if.then.i.i71:                                    ; preds = %sw.default
-  %call.i.i72 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65, i32 noundef 3)
+  %call.i.i72 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65, i32 noundef 3)
           to label %_ZNSt8functionIFvRN6duckdb9DataChunkERNS0_15ExpressionStateERNS0_6VectorEEEaSIRS7_EENSt9enable_ifIXsrNS8_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES8_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS2_S4_S6_EEEE5valueERS8_E4typeEOSD_.exit74 unwind label %terminate.lpad.i.i73
 
 terminate.lpad.i.i73:                             ; preds = %if.then.i.i71
@@ -88674,12 +88575,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !114
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %left, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !115
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !115
-  %validity_data.i.i = getelementptr inbounds i8, ptr %left, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !124
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !124
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !10
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !115
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !10
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %left, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !63
@@ -88763,7 +88661,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %left, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !125
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64
@@ -89031,12 +88929,9 @@ if.else:                                          ; preds = %_ZN6duckdb14Constan
   %4 = load ptr, ptr %data.i.i.i22, align 8, !tbaa !114
   %validity.i23 = getelementptr inbounds i8, ptr %result, i64 40
   %validity.i25 = getelementptr inbounds i8, ptr %right, i64 40
-  %5 = load ptr, ptr %validity.i25, align 8, !tbaa !115
-  store ptr %5, ptr %validity.i23, align 8, !tbaa !115
-  %validity_data.i.i = getelementptr inbounds i8, ptr %right, i64 48
-  %validity_data3.i.i = getelementptr inbounds i8, ptr %result, i64 48
-  %6 = load ptr, ptr %validity_data.i.i, align 8, !tbaa !124
-  store ptr %6, ptr %validity_data3.i.i, align 8, !tbaa !124
+  %5 = load <2 x ptr>, ptr %validity.i25, align 8, !tbaa !10
+  %6 = load ptr, ptr %validity.i25, align 8, !tbaa !115
+  store <2 x ptr> %5, ptr %validity.i23, align 8, !tbaa !10
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 56
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %right, i64 56
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !63
@@ -89120,7 +89015,7 @@ if.end9.i.i.i.i.i:                                ; preds = %if.then7.i.i.i.i.i.
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.i.i.i.i.i, %if.else
-  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %5, %if.else ]
+  %19 = phi ptr [ %.pre, %if.end9.i.i.i.i.i ], [ %6, %if.else ]
   %target_count.i.i = getelementptr inbounds i8, ptr %right, i64 64
   %20 = load i64, ptr %target_count.i.i, align 8, !tbaa !125
   %target_count4.i.i = getelementptr inbounds i8, ptr %result, i64 64

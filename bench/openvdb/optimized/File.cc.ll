@@ -979,17 +979,15 @@ entry:
   %mImpl = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %mImpl, align 8
   %mMeta = getelementptr inbounds i8, ptr %0, i64 32
-  %1 = load ptr, ptr %mMeta, align 8
-  store ptr %1, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %mMeta, align 8
+  store <2 x ptr> %2, ptr %agg.result, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_07MetaMapEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -1014,17 +1012,15 @@ entry:
   %mImpl = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %mImpl, align 8
   %mMeta = getelementptr inbounds i8, ptr %0, i64 32
-  %1 = load ptr, ptr %mMeta, align 8
-  store ptr %1, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %mMeta, align 8
+  store <2 x ptr> %2, ptr %agg.result, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN7openvdb5v11_07MetaMapEEC2IS2_vEERKS_IT_E.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -1493,8 +1489,8 @@ entry:
   %ref.tmp247 = alloca %"class.std::__cxx11::basic_string", align 8
   %gd = alloca %"class.openvdb::v11_0::io::GridDescriptor", align 8
   %agg.tmp.ensured = alloca %"class.std::shared_ptr.71", align 8
-  %grid = alloca %"class.std::shared_ptr.71", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.71", align 8
+  %grid = alloca %"class.std::shared_ptr.71", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.71", align 16
   %ref.tmp369 = alloca %"struct.std::pair", align 8
   %mImpl.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %mImpl.i, align 8
@@ -2979,15 +2975,14 @@ _ZNSt10shared_ptrIN7openvdb5v11_08GridBaseEED2Ev.exit: ; preds = %invoke.cont361
           to label %invoke.cont362 unwind label %lpad358
 
 invoke.cont362:                                   ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_08GridBaseEED2Ev.exit
-  %182 = load ptr, ptr %grid, align 8
-  store ptr %182, ptr %agg.tmp, align 8
-  %183 = load ptr, ptr %_M_refcount3.i.i232, align 8
-  store ptr %183, ptr %_M_refcount.i.i231, align 8
-  %cmp.not.i.i.i233 = icmp eq ptr %183, null
+  %182 = load ptr, ptr %_M_refcount3.i.i232, align 8
+  %183 = load <2 x ptr>, ptr %grid, align 16
+  store <2 x ptr> %183, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i233 = icmp eq ptr %182, null
   br i1 %cmp.not.i.i.i233, label %_ZNSt10shared_ptrIN7openvdb5v11_08GridBaseEEC2ERKS3_.exit, label %if.then.i.i.i234
 
 if.then.i.i.i234:                                 ; preds = %invoke.cont362
-  %_M_use_count.i.i.i.i235 = getelementptr inbounds i8, ptr %183, i64 8
+  %_M_use_count.i.i.i.i235 = getelementptr inbounds i8, ptr %182, i64 8
   %184 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i236 = icmp eq i8 %184, 0
   br i1 %tobool.i.not.i.i.i.i236, label %if.else.i.i.i.i.i239, label %if.then.i.i.i.i.i237
@@ -3117,7 +3112,7 @@ invoke.cont375:                                   ; preds = %invoke.cont373
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont375
-  %204 = load ptr, ptr %grid, align 8
+  %204 = load ptr, ptr %grid, align 16
   store ptr %204, ptr %202, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %202, i64 8
   %205 = load ptr, ptr %_M_refcount3.i.i232, align 8
@@ -3158,7 +3153,7 @@ invoke.cont382:                                   ; preds = %_ZNSt16allocator_tr
           to label %invoke.cont388 unwind label %lpad370
 
 invoke.cont388:                                   ; preds = %invoke.cont382
-  %211 = load ptr, ptr %grid, align 8
+  %211 = load ptr, ptr %grid, align 16
   store ptr %211, ptr %call389, align 8
   %_M_refcount.i.i281 = getelementptr inbounds i8, ptr %call389, i64 8
   %212 = load ptr, ptr %_M_refcount3.i.i232, align 8
@@ -7003,8 +6998,8 @@ unreachable:                                      ; preds = %try.cont
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7openvdb5v11_02io4File15readGridPartialERKNS1_14GridDescriptorEb(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.83") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(160) %gd, i1 noundef zeroext %readTopology) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %grid = alloca %"class.std::shared_ptr.71", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.71", align 8
+  %grid = alloca %"class.std::shared_ptr.71", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.71", align 16
   call void @_ZNK7openvdb5v11_02io4File10createGridERKNS1_14GridDescriptorE(ptr nonnull sret(%"class.std::shared_ptr.71") align 8 %grid, ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(160) %gd)
   %call = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK7openvdb5v11_02io4File11inputStreamEv(ptr noundef nonnull align 8 dereferenceable(80) %this)
           to label %invoke.cont unwind label %lpad
@@ -7014,17 +7009,16 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %0 = load ptr, ptr %grid, align 8
-  store ptr %0, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %grid, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %grid, align 16
+  store <2 x ptr> %1, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_08GridBaseEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont2
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -7124,16 +7118,14 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN7openvdb5v11_08GridBaseEED2Ev.exit
 
 _ZNSt10shared_ptrIN7openvdb5v11_08GridBaseEED2Ev.exit: ; preds = %invoke.cont8, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %16 = load ptr, ptr %grid, align 8
-  store ptr %16, ptr %agg.result, align 8
-  %_M_refcount.i.i11 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %17 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %17, ptr %_M_refcount.i.i11, align 8
-  %cmp.not.i.i.i13 = icmp eq ptr %17, null
+  %16 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %17 = load <2 x ptr>, ptr %grid, align 16
+  store <2 x ptr> %17, ptr %agg.result, align 8
+  %cmp.not.i.i.i13 = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i13, label %_ZNSt10shared_ptrIN7openvdb5v11_08GridBaseEED2Ev.exit51, label %if.then.i.i.i14
 
 if.then.i.i.i14:                                  ; preds = %_ZNSt10shared_ptrIN7openvdb5v11_08GridBaseEED2Ev.exit
-  %_M_use_count.i.i.i.i15 = getelementptr inbounds i8, ptr %17, i64 8
+  %_M_use_count.i.i.i.i15 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i16 = icmp eq i8 %18, 0
   br i1 %tobool.i.not.i.i.i.i16, label %if.else.i.i.i.i.i19, label %if.then.i.i.i.i.i17
@@ -7621,7 +7613,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7openvdb5v11_02io4File14readGridByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_4math4BBoxINSB_4Vec3IdEEEE(ptr noalias sret(%"class.std::shared_ptr.71") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(48) %bbox) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i = alloca %"class.std::shared_ptr.108", align 8
+  %ref.tmp.i = alloca %"class.std::shared_ptr.108", align 16
   %_openvdb_throw_msg = alloca %"class.std::__cxx11::basic_string", align 8
   %_openvdb_throw_os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7640,7 +7632,7 @@ entry:
   %indexBBox = alloca %"class.openvdb::v11_0::math::CoordBBox", align 4
   %ref.tmp129 = alloca %"class.std::shared_ptr.71", align 8
   %ref.tmp134 = alloca %"class.std::shared_ptr.71", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.86", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.86", align 16
   %mImpl.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %mImpl.i, align 8
   %mIsOpen.i = getelementptr inbounds i8, ptr %0, i64 72
@@ -8396,17 +8388,16 @@ if.then141:                                       ; preds = %if.end139
 .noexc284:                                        ; preds = %if.then141
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
-  %90 = load ptr, ptr %ref.tmp.i, align 8, !noalias !27
-  store ptr %90, ptr %agg.tmp, align 8, !alias.scope !27
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount2.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  %91 = load ptr, ptr %_M_refcount2.i.i.i.i.i, align 8, !noalias !18
-  store ptr %91, ptr %_M_refcount.i.i.i.i.i, align 8, !alias.scope !27
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %91, null
+  %90 = load ptr, ptr %_M_refcount2.i.i.i.i.i, align 8, !noalias !18
+  %91 = load <2 x ptr>, ptr %ref.tmp.i, align 16, !noalias !18
+  store <2 x ptr> %91, ptr %agg.tmp, align 16, !alias.scope !27
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %90, null
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont144, label %if.then.i.i.i.i.i.i254
 
 if.then.i.i.i.i.i.i254:                           ; preds = %.noexc284
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %91, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %90, i64 8
   %92 = load i8, ptr @__libc_single_threaded, align 1, !noalias !27
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %92, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i283, label %if.then.i.i.i.i.i.i.i.i255
@@ -10501,17 +10492,15 @@ entry:
 .noexc.i:                                         ; preds = %entry
   %second.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 64
   %second3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 32
-  %0 = load ptr, ptr %second3.i.i.i.i, align 8
-  store ptr %0, ptr %second.i.i.i.i, align 8
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 72
   %_M_refcount3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 40
-  %1 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %second3.i.i.i.i, align 8
+  store <2 x ptr> %1, ptr %second.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7openvdb5v11_08GridBaseEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE17_M_construct_nodeIJRKSD_EEEvPSt13_Rb_tree_nodeISD_EDpOT_.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %.noexc.i
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -12249,17 +12238,15 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10s
 _ZNSt12_Vector_baseISt10shared_ptrIN7openvdb5v11_08GridBaseEESaIS4_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIN7openvdb5v11_08GridBaseEESaIS4_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10shared_ptrIN7openvdb5v11_08GridBaseEESaIS4_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::shared_ptr.71", ptr %cond.i10, i64 %sub.ptr.div.i
-  %3 = load ptr, ptr %__args, align 8
-  store ptr %3, ptr %add.ptr, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %4 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
-  store ptr %4, ptr %_M_refcount.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  %4 = load <2 x ptr>, ptr %__args, align 8
+  store <2 x ptr> %4, ptr %add.ptr, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7openvdb5v11_08GridBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN7openvdb5v11_08GridBaseEESaIS4_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -13150,18 +13137,17 @@ return:                                           ; preds = %if.end19, %_ZNKSt4l
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7openvdb5v11_02io4File4Impl9unarchiveERKS2_RSt10shared_ptrINS0_8GridBaseEERKNS1_14GridDescriptorENS3_6NoBBoxE(ptr noundef nonnull align 8 dereferenceable(80) %file, ptr noundef nonnull align 8 dereferenceable(16) %grid, ptr noundef nonnull align 8 dereferenceable(160) %gd) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.71", align 8
-  %0 = load ptr, ptr %grid, align 8
-  store ptr %0, ptr %agg.tmp, align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.71", align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %grid, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %grid, align 8
+  store <2 x ptr> %1, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_08GridBaseEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -13270,18 +13256,17 @@ lpad:                                             ; preds = %invoke.cont, %_ZNSt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7openvdb5v11_02io4File4Impl9unarchiveERKS2_RSt10shared_ptrINS0_8GridBaseEERKNS1_14GridDescriptorERKNS0_4math4BBoxINSD_4Vec3IdEEEE(ptr noundef nonnull align 8 dereferenceable(80) %file, ptr noundef nonnull align 8 dereferenceable(16) %grid, ptr noundef nonnull align 8 dereferenceable(160) %gd, ptr noundef nonnull align 8 dereferenceable(48) %worldBBox) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.71", align 8
-  %0 = load ptr, ptr %grid, align 8
-  store ptr %0, ptr %agg.tmp, align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.71", align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %grid, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %grid, align 8
+  store <2 x ptr> %1, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_08GridBaseEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -13392,18 +13377,17 @@ declare void @_ZN7openvdb5v11_02io7Archive8readGridESt10shared_ptrINS0_8GridBase
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7openvdb5v11_02io4File4Impl9unarchiveERKS2_RSt10shared_ptrINS0_8GridBaseEERKNS1_14GridDescriptorERKNS0_4math9CoordBBoxE(ptr noundef nonnull align 8 dereferenceable(80) %file, ptr noundef nonnull align 8 dereferenceable(16) %grid, ptr noundef nonnull align 8 dereferenceable(160) %gd, ptr noundef nonnull align 4 dereferenceable(24) %indexBBox) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.71", align 8
-  %0 = load ptr, ptr %grid, align 8
-  store ptr %0, ptr %agg.tmp, align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.71", align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %grid, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %grid, align 8
+  store <2 x ptr> %1, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_08GridBaseEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

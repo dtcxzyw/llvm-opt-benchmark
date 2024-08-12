@@ -2534,11 +2534,11 @@ cond.false35.i:                                   ; preds = %entry
   br label %_ZN19OpenColorIO_v2_4dev11GradingToneC2ENS_12GradingStyleE.exit
 
 _ZN19OpenColorIO_v2_4dev11GradingToneC2ENS_12GradingStyleE.exit: ; preds = %entry, %cond.true34.i, %cond.false35.i
-  %.sink103.i = phi double [ 6.000000e-01, %cond.true34.i ], [ 0x3FE6666666666666, %cond.false35.i ], [ 8.000000e+00, %entry ]
   %0 = phi <2 x double> [ <double 4.000000e-01, double 4.000000e-01>, %cond.true34.i ], [ <double 4.000000e-01, double 4.000000e-01>, %cond.false35.i ], [ <double 0.000000e+00, double 4.000000e+00>, %entry ]
   %1 = phi <2 x double> [ <double 5.000000e-01, double 0.000000e+00>, %cond.true34.i ], [ <double 6.000000e-01, double 0.000000e+00>, %cond.false35.i ], [ <double 2.000000e+00, double -7.000000e+00>, %entry ]
-  %2 = phi <2 x double> [ <double 3.000000e-01, double 1.000000e+00>, %cond.true34.i ], [ <double 2.000000e-01, double 1.000000e+00>, %cond.false35.i ], [ <double -2.000000e+00, double 9.000000e+00>, %entry ]
-  %3 = phi <2 x double> [ <double 4.000000e-01, double 5.000000e-01>, %cond.true34.i ], [ <double 5.000000e-01, double 5.000000e-01>, %cond.false35.i ], [ <double 0.000000e+00, double 8.000000e+00>, %entry ]
+  %2 = phi <2 x double> [ <double 4.000000e-01, double 6.000000e-01>, %cond.true34.i ], [ <double 4.000000e-01, double 0x3FE6666666666666>, %cond.false35.i ], [ <double 0.000000e+00, double 8.000000e+00>, %entry ]
+  %3 = phi <2 x double> [ <double 3.000000e-01, double 1.000000e+00>, %cond.true34.i ], [ <double 2.000000e-01, double 1.000000e+00>, %cond.false35.i ], [ <double -2.000000e+00, double 9.000000e+00>, %entry ]
+  %4 = phi <2 x double> [ <double 4.000000e-01, double 5.000000e-01>, %cond.true34.i ], [ <double 5.000000e-01, double 5.000000e-01>, %cond.false35.i ], [ <double 0.000000e+00, double 8.000000e+00>, %entry ]
   %m_value = getelementptr inbounds i8, ptr %this, i64 24
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %m_value, align 8
   %ref.tmp.sroa.3.0.m_value.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
@@ -2556,22 +2556,19 @@ _ZN19OpenColorIO_v2_4dev11GradingToneC2ENS_12GradingStyleE.exit: ; preds = %entr
   %ref.tmp.sroa.15.0.m_value.sroa_idx = getelementptr inbounds i8, ptr %this, i64 136
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %ref.tmp.sroa.15.0.m_value.sroa_idx, align 8
   %ref.tmp.sroa.17.0.m_value.sroa_idx = getelementptr inbounds i8, ptr %this, i64 152
-  %4 = extractelement <2 x double> %0, i64 0
-  store double %4, ptr %ref.tmp.sroa.17.0.m_value.sroa_idx, align 8
-  %ref.tmp.sroa.18.0.m_value.sroa_idx = getelementptr inbounds i8, ptr %this, i64 160
-  store double %.sink103.i, ptr %ref.tmp.sroa.18.0.m_value.sroa_idx, align 8
+  store <2 x double> %2, ptr %ref.tmp.sroa.17.0.m_value.sroa_idx, align 8
   %ref.tmp.sroa.19.0.m_value.sroa_idx = getelementptr inbounds i8, ptr %this, i64 168
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %ref.tmp.sroa.19.0.m_value.sroa_idx, align 8
   %ref.tmp.sroa.21.0.m_value.sroa_idx = getelementptr inbounds i8, ptr %this, i64 184
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %ref.tmp.sroa.21.0.m_value.sroa_idx, align 8
   %ref.tmp.sroa.23.0.m_value.sroa_idx = getelementptr inbounds i8, ptr %this, i64 200
-  store <2 x double> %2, ptr %ref.tmp.sroa.23.0.m_value.sroa_idx, align 8
+  store <2 x double> %3, ptr %ref.tmp.sroa.23.0.m_value.sroa_idx, align 8
   %ref.tmp.sroa.25.0.m_value.sroa_idx = getelementptr inbounds i8, ptr %this, i64 216
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %ref.tmp.sroa.25.0.m_value.sroa_idx, align 8
   %ref.tmp.sroa.27.0.m_value.sroa_idx = getelementptr inbounds i8, ptr %this, i64 232
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %ref.tmp.sroa.27.0.m_value.sroa_idx, align 8
   %ref.tmp.sroa.29.0.m_value.sroa_idx = getelementptr inbounds i8, ptr %this, i64 248
-  store <2 x double> %3, ptr %ref.tmp.sroa.29.0.m_value.sroa_idx, align 8
+  store <2 x double> %4, ptr %ref.tmp.sroa.29.0.m_value.sroa_idx, align 8
   %ref.tmp.sroa.31.0.m_value.sroa_idx = getelementptr inbounds i8, ptr %this, i64 264
   store double 1.000000e+00, ptr %ref.tmp.sroa.31.0.m_value.sroa_idx, align 8
   %m_preRenderValues = getelementptr inbounds i8, ptr %this, i64 272

@@ -5433,7 +5433,9 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17he9c90ee80
 
 12:                                               ; preds = %.noexc
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 16
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.4.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !noalias !1072
   %13 = load <2 x i64>, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1072
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !1072
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1072
@@ -5477,25 +5479,24 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17he9c90ee80
   %31 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN93_$LT$alloc..collections..btree..mem..replace..PanicGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hab92bc2cb1609f04E"(ptr noalias noundef nonnull align 1 %2)
-          to label %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..mem..replace..PanicGuard$GT$17hb43db894393860b0E.exit" unwind label %39
+          to label %"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..mem..replace..PanicGuard$GT$17hb43db894393860b0E.exit" unwind label %38
 
 32:                                               ; preds = %21, %25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1079
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1072
   %33 = getelementptr inbounds i8, ptr %9, i64 360
-  %34 = extractelement <2 x i64> %13, i64 1
-  %35 = getelementptr inbounds { [3 x i64] }, ptr %33, i64 %34
-  %36 = getelementptr inbounds { [4 x i64] }, ptr %9, i64 %34
+  %34 = getelementptr inbounds { [3 x i64] }, ptr %33, i64 %.sroa.4.sroa.4.0.copyload.i
+  %35 = getelementptr inbounds { [4 x i64] }, ptr %9, i64 %.sroa.4.sroa.4.0.copyload.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1072
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  %37 = insertvalue { ptr, ptr } poison, ptr %35, 0
-  %38 = insertvalue { ptr, ptr } %37, ptr %36, 1
-  ret { ptr, ptr } %38
+  %36 = insertvalue { ptr, ptr } poison, ptr %34, 0
+  %37 = insertvalue { ptr, ptr } %36, ptr %35, 1
+  ret { ptr, ptr } %37
 
-39:                                               ; preds = %30
-  %40 = landingpad { ptr, i32 }
+38:                                               ; preds = %30
+  %39 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #25
   unreachable
@@ -5580,7 +5581,9 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 
 10:                                               ; preds = %2
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.4.sroa.4.0.copyload = load i64, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %11 = load <2 x i64>, ptr %.sroa.4.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -5621,14 +5624,13 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1085
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %28 = getelementptr inbounds i8, ptr %7, i64 360
-  %29 = extractelement <2 x i64> %11, i64 1
-  %30 = getelementptr inbounds { [3 x i64] }, ptr %28, i64 %29
-  %31 = getelementptr inbounds { [4 x i64] }, ptr %7, i64 %29
+  %29 = getelementptr inbounds { [3 x i64] }, ptr %28, i64 %.sroa.4.sroa.4.0.copyload
+  %30 = getelementptr inbounds { [4 x i64] }, ptr %7, i64 %.sroa.4.sroa.4.0.copyload
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %29, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %30, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %31, ptr %33, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }

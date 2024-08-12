@@ -41845,12 +41845,9 @@ invoke.cont:
   store ptr %2, ptr %lookaround.i.i.i.i.i.i.i, align 8
   %_M_finish.i.i.i.i9.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 152
   %_M_finish3.i.i.i.i10.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 104
-  %3 = load ptr, ptr %_M_finish3.i.i.i.i10.i.i.i.i.i.i.i, align 8
-  store ptr %3, ptr %_M_finish.i.i.i.i9.i.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i11.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 160
-  %_M_end_of_storage4.i.i.i.i12.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 112
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i12.i.i.i.i.i.i.i, align 8
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i11.i.i.i.i.i.i.i, align 8
+  %3 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i10.i.i.i.i.i.i.i, align 8
+  %4 = load ptr, ptr %_M_finish3.i.i.i.i10.i.i.i.i.i.i.i, align 8
+  store <2 x ptr> %3, ptr %_M_finish.i.i.i.i9.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %lookaround5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -41991,7 +41988,7 @@ cleanup.thread:                                   ; preds = %if.else.i.i.i.i, %i
 
 if.then.i32:                                      ; preds = %cond.end.i.thread.us, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit39.i, %if.then.i.i34.i
   %__j.sroa.0.0.i22 = phi ptr [ %__j.sroa.0.0.i, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit39.i ], [ %__j.sroa.0.0.i, %if.then.i.i34.i ], [ %__x.057.i.us, %cond.end.i.thread.us ]
-  %cmp.not3.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
+  %cmp.not3.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %4
   br i1 %cmp.not3.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i32, %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i
@@ -42006,7 +42003,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %for.body.i.i.i.i.i.
 
 _ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i, i64 24
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %3
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !327
 
 invoke.contthread-pre-split.i.i.i.i.i.i.i.i:      ; preds = %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i
@@ -42126,12 +42123,9 @@ invoke.cont:
   store ptr %2, ptr %lookaround.i.i.i.i.i.i.i, align 8
   %_M_finish.i.i.i.i9.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 152
   %_M_finish3.i.i.i.i10.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 104
-  %3 = load ptr, ptr %_M_finish3.i.i.i.i10.i.i.i.i.i.i.i, align 8
-  store ptr %3, ptr %_M_finish.i.i.i.i9.i.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i11.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 160
-  %_M_end_of_storage4.i.i.i.i12.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args1, i64 112
-  %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i12.i.i.i.i.i.i.i, align 8
-  store ptr %4, ptr %_M_end_of_storage.i.i.i.i11.i.i.i.i.i.i.i, align 8
+  %3 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i10.i.i.i.i.i.i.i, align 8
+  %4 = load ptr, ptr %_M_finish3.i.i.i.i10.i.i.i.i.i.i.i, align 8
+  store <2 x ptr> %3, ptr %_M_finish.i.i.i.i9.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %lookaround5.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -42272,7 +42266,7 @@ cleanup.thread:                                   ; preds = %if.else.i.i.i.i, %i
 
 if.then.i32:                                      ; preds = %cond.end.i.thread.us, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit39.i, %if.then.i.i34.i
   %__j.sroa.0.0.i22 = phi ptr [ %__j.sroa.0.0.i, %_ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEEEclERKS8_SB_.exit39.i ], [ %__j.sroa.0.0.i, %if.then.i.i34.i ], [ %__x.057.i.us, %cond.end.i.thread.us ]
-  %cmp.not3.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
+  %cmp.not3.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %4
   br i1 %cmp.not3.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %if.then.i32, %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i
@@ -42287,7 +42281,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %for.body.i.i.i.i.i.
 
 _ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i, i64 24
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %3
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !327
 
 invoke.contthread-pre-split.i.i.i.i.i.i.i.i:      ; preds = %_ZSt8_DestroyISt6vectorIN3ue29LookEntryESaIS2_EEEvPT_.exit.i.i.i.i.i.i.i.i.i.i.i

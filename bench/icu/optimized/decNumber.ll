@@ -3952,19 +3952,19 @@ if.end15.uprv_decNumberCopy_75.exit_crit_edge:    ; preds = %if.end15
 if.end.i:                                         ; preds = %if.end15
   %4 = load i8, ptr %bits, align 4
   %5 = load <2 x i32>, ptr %lhs, align 4
+  %6 = load i32, ptr %lhs, align 4
   store <2 x i32> %5, ptr %a.0, align 4
   %lsu.ptr.i = getelementptr inbounds i8, ptr %lhs, i64 9
-  %6 = load i8, ptr %lsu.ptr.i, align 1
+  %7 = load i8, ptr %lsu.ptr.i, align 1
   %lsu4.i = getelementptr inbounds i8, ptr %a.0, i64 9
-  store i8 %6, ptr %lsu4.i, align 1
-  %7 = extractelement <2 x i32> %5, i64 0
-  %cmp7.i = icmp sgt i32 %7, 1
+  store i8 %7, ptr %lsu4.i, align 1
+  %cmp7.i = icmp sgt i32 %6, 1
   br i1 %cmp7.i, label %if.then8.i, label %uprv_decNumberCopy_75.exit
 
 if.then8.i:                                       ; preds = %if.end.i
   %add.ptr.i = getelementptr i8, ptr %a.0, i64 10
-  %cmp13.i = icmp ult i32 %7, 50
-  %idxprom.i = zext nneg i32 %7 to i64
+  %cmp13.i = icmp ult i32 %6, 50
+  %idxprom.i = zext nneg i32 %6 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
 
 cond.end.i:                                       ; preds = %if.then8.i
@@ -4040,19 +4040,19 @@ if.end56.uprv_decNumberCopy_75.exit59_crit_edge:  ; preds = %if.end56
 if.end.i32:                                       ; preds = %if.end56
   %20 = load i8, ptr %bits22, align 4
   %21 = load <2 x i32>, ptr %rhs, align 4
+  %22 = load i32, ptr %rhs, align 4
   store <2 x i32> %21, ptr %b.0, align 4
   %lsu.ptr.i37 = getelementptr inbounds i8, ptr %rhs, i64 9
-  %22 = load i8, ptr %lsu.ptr.i37, align 1
+  %23 = load i8, ptr %lsu.ptr.i37, align 1
   %lsu4.i38 = getelementptr inbounds i8, ptr %b.0, i64 9
-  store i8 %22, ptr %lsu4.i38, align 1
-  %23 = extractelement <2 x i32> %21, i64 0
-  %cmp7.i39 = icmp sgt i32 %23, 1
+  store i8 %23, ptr %lsu4.i38, align 1
+  %cmp7.i39 = icmp sgt i32 %22, 1
   br i1 %cmp7.i39, label %if.then8.i40, label %uprv_decNumberCopy_75.exit59
 
 if.then8.i40:                                     ; preds = %if.end.i32
   %add.ptr.i41 = getelementptr i8, ptr %b.0, i64 10
-  %cmp13.i42 = icmp ult i32 %23, 50
-  %idxprom.i43 = zext nneg i32 %23 to i64
+  %cmp13.i42 = icmp ult i32 %22, 50
+  %idxprom.i43 = zext nneg i32 %22 to i64
   br i1 %cmp13.i42, label %cond.end.i56, label %for.body.preheader.i45
 
 cond.end.i56:                                     ; preds = %if.then8.i40
@@ -8712,19 +8712,19 @@ if.end.i:                                         ; preds = %if.then78
   %bits1.i67 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %23, ptr %bits1.i67, align 4
   %27 = load <2 x i32>, ptr %a.0, align 4
+  %28 = load i32, ptr %a.0, align 4
   store <2 x i32> %27, ptr %res, align 4
   %lsu.ptr.i = getelementptr inbounds i8, ptr %a.0, i64 9
-  %28 = load i8, ptr %lsu.ptr.i, align 1
+  %29 = load i8, ptr %lsu.ptr.i, align 1
   %lsu4.i = getelementptr inbounds i8, ptr %res, i64 9
-  store i8 %28, ptr %lsu4.i, align 1
-  %29 = extractelement <2 x i32> %27, i64 0
-  %cmp7.i = icmp sgt i32 %29, 1
+  store i8 %29, ptr %lsu4.i, align 1
+  %cmp7.i = icmp sgt i32 %28, 1
   br i1 %cmp7.i, label %if.then8.i, label %if.end120
 
 if.then8.i:                                       ; preds = %if.end.i
   %add.ptr.i = getelementptr i8, ptr %res, i64 10
-  %cmp13.i = icmp ult i32 %29, 50
-  %idxprom.i = zext nneg i32 %29 to i64
+  %cmp13.i = icmp ult i32 %28, 50
+  %idxprom.i = zext nneg i32 %28 to i64
   br i1 %cmp13.i, label %cond.end.i, label %for.body.preheader.i
 
 cond.end.i:                                       ; preds = %if.then8.i
@@ -13363,18 +13363,18 @@ if.end.i256:                                      ; preds = %if.then179
   %bits1.i258 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %46, ptr %bits1.i258, align 4
   %47 = load <2 x i32>, ptr %a.0, align 4
+  %48 = load i32, ptr %a.0, align 4
   store <2 x i32> %47, ptr %res, align 4
-  %48 = load i8, ptr %38, align 1
+  %49 = load i8, ptr %38, align 1
   %lsu4.i262 = getelementptr inbounds i8, ptr %res, i64 9
-  store i8 %48, ptr %lsu4.i262, align 1
-  %49 = extractelement <2 x i32> %47, i64 0
-  %cmp7.i263 = icmp sgt i32 %49, 1
+  store i8 %49, ptr %lsu4.i262, align 1
+  %cmp7.i263 = icmp sgt i32 %48, 1
   br i1 %cmp7.i263, label %if.then8.i264, label %do.end
 
 if.then8.i264:                                    ; preds = %if.end.i256
   %add.ptr.i265 = getelementptr i8, ptr %res, i64 10
-  %cmp13.i266 = icmp ult i32 %49, 50
-  %idxprom.i267 = zext nneg i32 %49 to i64
+  %cmp13.i266 = icmp ult i32 %48, 50
+  %idxprom.i267 = zext nneg i32 %48 to i64
   br i1 %cmp13.i266, label %cond.end.i280, label %for.body.preheader.i269
 
 cond.end.i280:                                    ; preds = %if.then8.i264
@@ -13720,18 +13720,18 @@ if.end.i343:                                      ; preds = %if.end340
   %bits1.i345 = getelementptr inbounds i8, ptr %res, i64 8
   store i8 %104, ptr %bits1.i345, align 4
   %105 = load <2 x i32>, ptr %a.0, align 4
+  %106 = load i32, ptr %a.0, align 4
   store <2 x i32> %105, ptr %res, align 4
-  %106 = load i8, ptr %38, align 1
+  %107 = load i8, ptr %38, align 1
   %lsu4.i349 = getelementptr inbounds i8, ptr %res, i64 9
-  store i8 %106, ptr %lsu4.i349, align 1
-  %107 = extractelement <2 x i32> %105, i64 0
-  %cmp7.i350 = icmp sgt i32 %107, 1
+  store i8 %107, ptr %lsu4.i349, align 1
+  %cmp7.i350 = icmp sgt i32 %106, 1
   br i1 %cmp7.i350, label %if.then8.i351, label %do.end
 
 if.then8.i351:                                    ; preds = %if.end.i343
   %add.ptr.i352 = getelementptr i8, ptr %res, i64 10
-  %cmp13.i353 = icmp ult i32 %107, 50
-  %idxprom.i354 = zext nneg i32 %107 to i64
+  %cmp13.i353 = icmp ult i32 %106, 50
+  %idxprom.i354 = zext nneg i32 %106 to i64
   br i1 %cmp13.i353, label %cond.end.i367, label %for.body.preheader.i356
 
 cond.end.i367:                                    ; preds = %if.then8.i351

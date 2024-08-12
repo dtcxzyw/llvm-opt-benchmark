@@ -5640,13 +5640,13 @@ zend_hash_real_init_mixed.exit:                   ; preds = %52, %32, %.loopexit
 111:                                              ; preds = %106, %zend_hash_real_init_mixed.exit
   %112 = getelementptr inbounds i8, ptr %0, i64 24
   %113 = load <2 x i32>, ptr %112, align 8
-  %114 = add <2 x i32> %113, <i32 1, i32 1>
-  store <2 x i32> %114, ptr %112, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 16
-  %116 = load ptr, ptr %115, align 8
-  %117 = extractelement <2 x i32> %113, i64 0
-  %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds %struct._Bucket, ptr %116, i64 %118
+  %114 = load i32, ptr %112, align 8
+  %115 = add <2 x i32> %113, <i32 1, i32 1>
+  store <2 x i32> %115, ptr %112, align 8
+  %116 = getelementptr inbounds i8, ptr %0, i64 16
+  %117 = load ptr, ptr %116, align 8
+  %118 = zext i32 %114 to i64
+  %119 = getelementptr inbounds %struct._Bucket, ptr %117, i64 %118
   %120 = getelementptr inbounds i8, ptr %119, i64 24
   store ptr %1, ptr %120, align 8
   %121 = load i64, ptr %4, align 8
@@ -5657,11 +5657,11 @@ zend_hash_real_init_mixed.exit:                   ; preds = %52, %32, %.loopexit
   %125 = trunc i64 %121 to i32
   %126 = or i32 %124, %125
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds i32, ptr %116, i64 %127
+  %128 = getelementptr inbounds i32, ptr %117, i64 %127
   %129 = load i32, ptr %128, align 4
   %130 = getelementptr inbounds i8, ptr %119, i64 12
   store i32 %129, ptr %130, align 4
-  store i32 %117, ptr %128, align 4
+  store i32 %114, ptr %128, align 4
   %131 = load ptr, ptr %2, align 8
   %132 = getelementptr inbounds i8, ptr %2, i64 8
   %133 = load i32, ptr %132, align 8
@@ -5805,13 +5805,13 @@ zend_hash_real_init_mixed.exit:                   ; preds = %52, %32, %56, %61
 70:                                               ; preds = %65, %zend_hash_real_init_mixed.exit
   %71 = getelementptr inbounds i8, ptr %0, i64 24
   %72 = load <2 x i32>, ptr %71, align 8
-  %73 = add <2 x i32> %72, <i32 1, i32 1>
-  store <2 x i32> %73, ptr %71, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 16
-  %75 = load ptr, ptr %74, align 8
-  %76 = extractelement <2 x i32> %72, i64 0
-  %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds %struct._Bucket, ptr %75, i64 %77
+  %73 = load i32, ptr %71, align 8
+  %74 = add <2 x i32> %72, <i32 1, i32 1>
+  store <2 x i32> %74, ptr %71, align 8
+  %75 = getelementptr inbounds i8, ptr %0, i64 16
+  %76 = load ptr, ptr %75, align 8
+  %77 = zext i32 %73 to i64
+  %78 = getelementptr inbounds %struct._Bucket, ptr %76, i64 %77
   %79 = getelementptr inbounds i8, ptr %78, i64 24
   store ptr %1, ptr %79, align 8
   %80 = load i64, ptr %4, align 8
@@ -5822,11 +5822,11 @@ zend_hash_real_init_mixed.exit:                   ; preds = %52, %32, %56, %61
   %84 = trunc i64 %80 to i32
   %85 = or i32 %83, %84
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i32, ptr %75, i64 %86
+  %87 = getelementptr inbounds i32, ptr %76, i64 %86
   %88 = load i32, ptr %87, align 4
   %89 = getelementptr inbounds i8, ptr %78, i64 12
   store i32 %88, ptr %89, align 4
-  store i32 %76, ptr %87, align 4
+  store i32 %73, ptr %87, align 4
   %90 = load ptr, ptr %2, align 8
   %91 = getelementptr inbounds i8, ptr %2, i64 8
   %92 = load i32, ptr %91, align 8
@@ -6043,13 +6043,13 @@ zend_hash_real_init_mixed.exit:                   ; preds = %52, %32, %.loopexit
 115:                                              ; preds = %110, %zend_hash_real_init_mixed.exit
   %116 = getelementptr inbounds i8, ptr %0, i64 24
   %117 = load <2 x i32>, ptr %116, align 8
-  %118 = add <2 x i32> %117, <i32 1, i32 1>
-  store <2 x i32> %118, ptr %116, align 8
-  %119 = getelementptr inbounds i8, ptr %0, i64 16
-  %120 = load ptr, ptr %119, align 8
-  %121 = extractelement <2 x i32> %117, i64 0
-  %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds %struct._Bucket, ptr %120, i64 %122
+  %118 = load i32, ptr %116, align 8
+  %119 = add <2 x i32> %117, <i32 1, i32 1>
+  store <2 x i32> %119, ptr %116, align 8
+  %120 = getelementptr inbounds i8, ptr %0, i64 16
+  %121 = load ptr, ptr %120, align 8
+  %122 = zext i32 %118 to i64
+  %123 = getelementptr inbounds %struct._Bucket, ptr %121, i64 %122
   %124 = getelementptr inbounds i8, ptr %123, i64 24
   store ptr %1, ptr %124, align 8
   %125 = load i64, ptr %4, align 8
@@ -6060,11 +6060,11 @@ zend_hash_real_init_mixed.exit:                   ; preds = %52, %32, %.loopexit
   %129 = trunc i64 %125 to i32
   %130 = or i32 %128, %129
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds i32, ptr %120, i64 %131
+  %132 = getelementptr inbounds i32, ptr %121, i64 %131
   %133 = load i32, ptr %132, align 4
   %134 = getelementptr inbounds i8, ptr %123, i64 12
   store i32 %133, ptr %134, align 4
-  store i32 %121, ptr %132, align 4
+  store i32 %118, ptr %132, align 4
   br label %135
 
 135:                                              ; preds = %.loopexit, %101, %115
@@ -6296,13 +6296,13 @@ zend_hash_real_init_mixed.exit:                   ; preds = %52, %32, %.loopexit
 121:                                              ; preds = %116, %zend_hash_real_init_mixed.exit
   %122 = getelementptr inbounds i8, ptr %0, i64 24
   %123 = load <2 x i32>, ptr %122, align 8
-  %124 = add <2 x i32> %123, <i32 1, i32 1>
-  store <2 x i32> %124, ptr %122, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 16
-  %126 = load ptr, ptr %125, align 8
-  %127 = extractelement <2 x i32> %123, i64 0
-  %128 = zext i32 %127 to i64
-  %129 = getelementptr inbounds %struct._Bucket, ptr %126, i64 %128
+  %124 = load i32, ptr %122, align 8
+  %125 = add <2 x i32> %123, <i32 1, i32 1>
+  store <2 x i32> %125, ptr %122, align 8
+  %126 = getelementptr inbounds i8, ptr %0, i64 16
+  %127 = load ptr, ptr %126, align 8
+  %128 = zext i32 %124 to i64
+  %129 = getelementptr inbounds %struct._Bucket, ptr %127, i64 %128
   %130 = getelementptr inbounds i8, ptr %129, i64 24
   store ptr %1, ptr %130, align 8
   %131 = load i64, ptr %4, align 8
@@ -6313,11 +6313,11 @@ zend_hash_real_init_mixed.exit:                   ; preds = %52, %32, %.loopexit
   %135 = trunc i64 %131 to i32
   %136 = or i32 %134, %135
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds i32, ptr %126, i64 %137
+  %138 = getelementptr inbounds i32, ptr %127, i64 %137
   %139 = load i32, ptr %138, align 4
   %140 = getelementptr inbounds i8, ptr %129, i64 12
   store i32 %139, ptr %140, align 4
-  store i32 %127, ptr %138, align 4
+  store i32 %124, ptr %138, align 4
   br label %141
 
 141:                                              ; preds = %104, %107, %121
@@ -6525,13 +6525,13 @@ zend_hash_real_init_mixed.exit:                   ; preds = %51, %31, %.loopexit
 110:                                              ; preds = %105, %zend_hash_real_init_mixed.exit
   %111 = getelementptr inbounds i8, ptr %0, i64 24
   %112 = load <2 x i32>, ptr %111, align 8
-  %113 = add <2 x i32> %112, <i32 1, i32 1>
-  store <2 x i32> %113, ptr %111, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 16
-  %115 = load ptr, ptr %114, align 8
-  %116 = extractelement <2 x i32> %112, i64 0
-  %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds %struct._Bucket, ptr %115, i64 %117
+  %113 = load i32, ptr %111, align 8
+  %114 = add <2 x i32> %112, <i32 1, i32 1>
+  store <2 x i32> %114, ptr %111, align 8
+  %115 = getelementptr inbounds i8, ptr %0, i64 16
+  %116 = load ptr, ptr %115, align 8
+  %117 = zext i32 %113 to i64
+  %118 = getelementptr inbounds %struct._Bucket, ptr %116, i64 %117
   %119 = getelementptr inbounds i8, ptr %118, i64 24
   store ptr %1, ptr %119, align 8
   %120 = load i64, ptr %3, align 8
@@ -6542,11 +6542,11 @@ zend_hash_real_init_mixed.exit:                   ; preds = %51, %31, %.loopexit
   %124 = trunc i64 %120 to i32
   %125 = or i32 %123, %124
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds i32, ptr %115, i64 %126
+  %127 = getelementptr inbounds i32, ptr %116, i64 %126
   %128 = load i32, ptr %127, align 4
   %129 = getelementptr inbounds i8, ptr %118, i64 12
   store i32 %128, ptr %129, align 4
-  store i32 %116, ptr %127, align 4
+  store i32 %113, ptr %127, align 4
   %130 = getelementptr inbounds i8, ptr %118, i64 8
   store i32 1, ptr %130, align 8
   br label %.thread
@@ -6745,13 +6745,13 @@ define ptr @zend_hash_str_add(ptr noundef %0, ptr noundef %1, i64 noundef %2, pt
 zend_hash_real_init_mixed.exit:                   ; preds = %49, %29, %.thread, %85
   %86 = getelementptr inbounds i8, ptr %0, i64 24
   %87 = load <2 x i32>, ptr %86, align 8
-  %88 = add <2 x i32> %87, <i32 1, i32 1>
-  store <2 x i32> %88, ptr %86, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 16
-  %90 = load ptr, ptr %89, align 8
-  %91 = extractelement <2 x i32> %87, i64 0
-  %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds %struct._Bucket, ptr %90, i64 %92
+  %88 = load i32, ptr %86, align 8
+  %89 = add <2 x i32> %87, <i32 1, i32 1>
+  store <2 x i32> %89, ptr %86, align 8
+  %90 = getelementptr inbounds i8, ptr %0, i64 16
+  %91 = load ptr, ptr %90, align 8
+  %92 = zext i32 %88 to i64
+  %93 = getelementptr inbounds %struct._Bucket, ptr %91, i64 %92
   %94 = getelementptr inbounds i8, ptr %0, i64 4
   %95 = load i32, ptr %94, align 4
   %96 = and i32 %95, 128
@@ -6799,15 +6799,15 @@ zend_hash_real_init_mixed.exit:                   ; preds = %49, %29, %.thread, 
   %120 = load i32, ptr %119, align 4
   %121 = trunc i64 %5 to i32
   %122 = or i32 %120, %121
-  %123 = load ptr, ptr %89, align 8
+  %123 = load ptr, ptr %90, align 8
   %124 = sext i32 %122 to i64
   %125 = getelementptr inbounds i32, ptr %123, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = getelementptr inbounds i8, ptr %93, i64 12
   store i32 %126, ptr %127, align 4
-  %128 = load ptr, ptr %89, align 8
+  %128 = load ptr, ptr %90, align 8
   %129 = getelementptr inbounds i32, ptr %128, i64 %124
-  store i32 %91, ptr %129, align 4
+  store i32 %88, ptr %129, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %78, %103
@@ -6920,44 +6920,44 @@ define noundef ptr @zend_hash_str_add_new(ptr noundef %0, ptr noundef %1, i64 no
 zend_hash_real_init_mixed.exit:                   ; preds = %49, %29, %53, %58
   %59 = getelementptr inbounds i8, ptr %0, i64 24
   %60 = load <2 x i32>, ptr %59, align 8
-  %61 = add <2 x i32> %60, <i32 1, i32 1>
-  store <2 x i32> %61, ptr %59, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 16
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 4
-  %65 = load i32, ptr %64, align 4
-  %66 = and i32 %65, 128
-  %.not170 = icmp eq i32 %66, 0
-  %67 = and i64 %2, -8
-  %68 = add i64 %67, 32
-  br i1 %.not170, label %71, label %69
+  %61 = load i32, ptr %59, align 8
+  %62 = add <2 x i32> %60, <i32 1, i32 1>
+  store <2 x i32> %62, ptr %59, align 8
+  %63 = getelementptr inbounds i8, ptr %0, i64 16
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %0, i64 4
+  %66 = load i32, ptr %65, align 4
+  %67 = and i32 %66, 128
+  %.not170 = icmp eq i32 %67, 0
+  %68 = and i64 %2, -8
+  %69 = add i64 %68, 32
+  br i1 %.not170, label %72, label %70
 
-69:                                               ; preds = %zend_hash_real_init_mixed.exit
-  %70 = tail call noalias ptr @__zend_malloc(i64 noundef %68) #27
-  br label %73
+70:                                               ; preds = %zend_hash_real_init_mixed.exit
+  %71 = tail call noalias ptr @__zend_malloc(i64 noundef %69) #27
+  br label %74
 
-71:                                               ; preds = %zend_hash_real_init_mixed.exit
-  %72 = tail call noalias ptr @_emalloc(i64 noundef %68) #27
-  br label %73
+72:                                               ; preds = %zend_hash_real_init_mixed.exit
+  %73 = tail call noalias ptr @_emalloc(i64 noundef %69) #27
+  br label %74
 
-73:                                               ; preds = %71, %69
-  %74 = phi ptr [ %70, %69 ], [ %72, %71 ]
-  %75 = extractelement <2 x i32> %60, i64 0
-  %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds %struct._Bucket, ptr %63, i64 %76
-  store i32 1, ptr %74, align 4
-  %78 = or disjoint i32 %66, 22
-  %79 = getelementptr inbounds i8, ptr %74, i64 4
+74:                                               ; preds = %72, %70
+  %75 = phi ptr [ %71, %70 ], [ %73, %72 ]
+  %76 = zext i32 %61 to i64
+  %77 = getelementptr inbounds %struct._Bucket, ptr %64, i64 %76
+  store i32 1, ptr %75, align 4
+  %78 = or disjoint i32 %67, 22
+  %79 = getelementptr inbounds i8, ptr %75, i64 4
   store i32 %78, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %74, i64 8
-  %81 = getelementptr inbounds i8, ptr %74, i64 16
+  %80 = getelementptr inbounds i8, ptr %75, i64 8
+  %81 = getelementptr inbounds i8, ptr %75, i64 16
   store i64 %2, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %74, i64 24
+  %82 = getelementptr inbounds i8, ptr %75, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %82, ptr align 1 %1, i64 %2, i1 false)
   %83 = getelementptr inbounds [1 x i8], ptr %82, i64 0, i64 %2
   store i8 0, ptr %83, align 1
   %84 = getelementptr inbounds i8, ptr %77, i64 24
-  store ptr %74, ptr %84, align 8
+  store ptr %75, ptr %84, align 8
   store i64 %5, ptr %80, align 8
   %85 = getelementptr inbounds i8, ptr %77, i64 16
   store i64 %5, ptr %85, align 8
@@ -6974,15 +6974,15 @@ zend_hash_real_init_mixed.exit:                   ; preds = %49, %29, %53, %58
   %93 = load i32, ptr %92, align 4
   %94 = trunc i64 %5 to i32
   %95 = or i32 %93, %94
-  %96 = load ptr, ptr %62, align 8
+  %96 = load ptr, ptr %63, align 8
   %97 = sext i32 %95 to i64
   %98 = getelementptr inbounds i32, ptr %96, i64 %97
   %99 = load i32, ptr %98, align 4
   %100 = getelementptr inbounds i8, ptr %77, i64 12
   store i32 %99, ptr %100, align 4
-  %101 = load ptr, ptr %62, align 8
+  %101 = load ptr, ptr %63, align 8
   %102 = getelementptr inbounds i32, ptr %101, i64 %97
-  store i32 %75, ptr %102, align 4
+  store i32 %61, ptr %102, align 4
   ret ptr %77
 }
 
@@ -7165,13 +7165,13 @@ define ptr @zend_hash_str_update(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 zend_hash_real_init_mixed.exit:                   ; preds = %49, %29, %.thread, %95
   %96 = getelementptr inbounds i8, ptr %0, i64 24
   %97 = load <2 x i32>, ptr %96, align 8
-  %98 = add <2 x i32> %97, <i32 1, i32 1>
-  store <2 x i32> %98, ptr %96, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 16
-  %100 = load ptr, ptr %99, align 8
-  %101 = extractelement <2 x i32> %97, i64 0
-  %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds %struct._Bucket, ptr %100, i64 %102
+  %98 = load i32, ptr %96, align 8
+  %99 = add <2 x i32> %97, <i32 1, i32 1>
+  store <2 x i32> %99, ptr %96, align 8
+  %100 = getelementptr inbounds i8, ptr %0, i64 16
+  %101 = load ptr, ptr %100, align 8
+  %102 = zext i32 %98 to i64
+  %103 = getelementptr inbounds %struct._Bucket, ptr %101, i64 %102
   %104 = getelementptr inbounds i8, ptr %0, i64 4
   %105 = load i32, ptr %104, align 4
   %106 = and i32 %105, 128
@@ -7219,15 +7219,15 @@ zend_hash_real_init_mixed.exit:                   ; preds = %49, %29, %.thread, 
   %130 = load i32, ptr %129, align 4
   %131 = trunc i64 %5 to i32
   %132 = or i32 %130, %131
-  %133 = load ptr, ptr %99, align 8
+  %133 = load ptr, ptr %100, align 8
   %134 = sext i32 %132 to i64
   %135 = getelementptr inbounds i32, ptr %133, i64 %134
   %136 = load i32, ptr %135, align 4
   %137 = getelementptr inbounds i8, ptr %103, i64 12
   store i32 %136, ptr %137, align 4
-  %138 = load ptr, ptr %99, align 8
+  %138 = load ptr, ptr %100, align 8
   %139 = getelementptr inbounds i32, ptr %138, i64 %134
-  store i32 %101, ptr %139, align 4
+  store i32 %98, ptr %139, align 4
   br label %140
 
 140:                                              ; preds = %113, %86
@@ -7425,13 +7425,13 @@ define ptr @zend_hash_str_update_ind(ptr noundef %0, ptr noundef %1, i64 noundef
 zend_hash_real_init_mixed.exit:                   ; preds = %49, %29, %.thread, %101
   %102 = getelementptr inbounds i8, ptr %0, i64 24
   %103 = load <2 x i32>, ptr %102, align 8
-  %104 = add <2 x i32> %103, <i32 1, i32 1>
-  store <2 x i32> %104, ptr %102, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 16
-  %106 = load ptr, ptr %105, align 8
-  %107 = extractelement <2 x i32> %103, i64 0
-  %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds %struct._Bucket, ptr %106, i64 %108
+  %104 = load i32, ptr %102, align 8
+  %105 = add <2 x i32> %103, <i32 1, i32 1>
+  store <2 x i32> %105, ptr %102, align 8
+  %106 = getelementptr inbounds i8, ptr %0, i64 16
+  %107 = load ptr, ptr %106, align 8
+  %108 = zext i32 %104 to i64
+  %109 = getelementptr inbounds %struct._Bucket, ptr %107, i64 %108
   %110 = getelementptr inbounds i8, ptr %0, i64 4
   %111 = load i32, ptr %110, align 4
   %112 = and i32 %111, 128
@@ -7479,15 +7479,15 @@ zend_hash_real_init_mixed.exit:                   ; preds = %49, %29, %.thread, 
   %136 = load i32, ptr %135, align 4
   %137 = trunc i64 %5 to i32
   %138 = or i32 %136, %137
-  %139 = load ptr, ptr %105, align 8
+  %139 = load ptr, ptr %106, align 8
   %140 = sext i32 %138 to i64
   %141 = getelementptr inbounds i32, ptr %139, i64 %140
   %142 = load i32, ptr %141, align 4
   %143 = getelementptr inbounds i8, ptr %109, i64 12
   store i32 %142, ptr %143, align 4
-  %144 = load ptr, ptr %105, align 8
+  %144 = load ptr, ptr %106, align 8
   %145 = getelementptr inbounds i32, ptr %144, i64 %140
-  store i32 %107, ptr %145, align 4
+  store i32 %104, ptr %145, align 4
   br label %146
 
 146:                                              ; preds = %119, %92
@@ -15673,12 +15673,12 @@ zend_hash_real_init_mixed.exit:                   ; preds = %101, %85, %.loopexi
 
 165:                                              ; preds = %160, %zend_hash_real_init_mixed.exit
   %166 = load <2 x i32>, ptr %31, align 8
-  %167 = add <2 x i32> %166, <i32 1, i32 1>
-  store <2 x i32> %167, ptr %31, align 8
-  %168 = load ptr, ptr %29, align 8
-  %169 = extractelement <2 x i32> %166, i64 0
-  %170 = zext i32 %169 to i64
-  %171 = getelementptr inbounds %struct._Bucket, ptr %168, i64 %170
+  %167 = load i32, ptr %31, align 8
+  %168 = add <2 x i32> %166, <i32 1, i32 1>
+  store <2 x i32> %168, ptr %31, align 8
+  %169 = load ptr, ptr %29, align 8
+  %170 = zext i32 %167 to i64
+  %171 = getelementptr inbounds %struct._Bucket, ptr %169, i64 %170
   %172 = getelementptr inbounds i8, ptr %171, i64 24
   store ptr %58, ptr %172, align 8
   %173 = load i64, ptr %60, align 8
@@ -15688,11 +15688,11 @@ zend_hash_real_init_mixed.exit:                   ; preds = %101, %85, %.loopexi
   %176 = trunc i64 %173 to i32
   %177 = or i32 %175, %176
   %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds i32, ptr %168, i64 %178
+  %179 = getelementptr inbounds i32, ptr %169, i64 %178
   %180 = load i32, ptr %179, align 4
   %181 = getelementptr inbounds i8, ptr %171, i64 12
   store i32 %180, ptr %181, align 4
-  store i32 %169, ptr %179, align 4
+  store i32 %167, ptr %179, align 4
   br label %182
 
 182:                                              ; preds = %151, %153, %165
@@ -16040,12 +16040,12 @@ zend_hash_real_init_mixed.exit368:                ; preds = %288, %272, %.loopex
 
 357:                                              ; preds = %352, %zend_hash_real_init_mixed.exit368
   %358 = load <2 x i32>, ptr %217, align 8
-  %359 = add <2 x i32> %358, <i32 1, i32 1>
-  store <2 x i32> %359, ptr %217, align 8
-  %360 = load ptr, ptr %215, align 8
-  %361 = extractelement <2 x i32> %358, i64 0
-  %362 = zext i32 %361 to i64
-  %363 = getelementptr inbounds %struct._Bucket, ptr %360, i64 %362
+  %359 = load i32, ptr %217, align 8
+  %360 = add <2 x i32> %358, <i32 1, i32 1>
+  store <2 x i32> %360, ptr %217, align 8
+  %361 = load ptr, ptr %215, align 8
+  %362 = zext i32 %359 to i64
+  %363 = getelementptr inbounds %struct._Bucket, ptr %361, i64 %362
   %364 = getelementptr inbounds i8, ptr %363, i64 24
   store ptr %245, ptr %364, align 8
   %365 = load i64, ptr %247, align 8
@@ -16055,11 +16055,11 @@ zend_hash_real_init_mixed.exit368:                ; preds = %288, %272, %.loopex
   %368 = trunc i64 %365 to i32
   %369 = or i32 %367, %368
   %370 = sext i32 %369 to i64
-  %371 = getelementptr inbounds i32, ptr %360, i64 %370
+  %371 = getelementptr inbounds i32, ptr %361, i64 %370
   %372 = load i32, ptr %371, align 4
   %373 = getelementptr inbounds i8, ptr %363, i64 12
   store i32 %372, ptr %373, align 4
-  store i32 %361, ptr %371, align 4
+  store i32 %359, ptr %371, align 4
   %374 = load ptr, ptr %.1, align 8
   %375 = load i32, ptr %241, align 8
   store ptr %374, ptr %363, align 8

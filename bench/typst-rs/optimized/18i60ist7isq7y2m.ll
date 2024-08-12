@@ -862,19 +862,19 @@ _ZN10ttf_parser6tables4glyf10CoordsIter4next17h20496966498cbd79E.exit.i: ; preds
 
 _ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i: ; preds = %441, %438
   %453 = phi <2 x float> [ %430, %438 ], [ %452, %441 ]
-  %454 = load <2 x float>, ptr %7, align 8, !alias.scope !230
-  %455 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %454, <2 x float> %453)
-  store <2 x float> %455, ptr %7, align 8, !alias.scope !230
-  %456 = load <2 x float>, ptr %323, align 8, !alias.scope !230
-  %457 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %456, <2 x float> %453)
-  store <2 x float> %457, ptr %323, align 8, !alias.scope !230
-  %458 = load ptr, ptr %324, align 8, !alias.scope !230, !nonnull !128, !align !231, !noundef !128
-  %459 = load ptr, ptr %325, align 8, !alias.scope !230, !nonnull !128, !align !232, !noundef !128
-  %460 = getelementptr inbounds i8, ptr %459, i64 32
-  %461 = load ptr, ptr %460, align 8, !invariant.load !128, !noalias !226, !nonnull !128
-  %462 = extractelement <2 x float> %453, i64 0
-  %463 = extractelement <2 x float> %453, i64 1
-  call void %461(ptr noundef nonnull align 1 %458, float noundef %462, float noundef %463), !noalias !226
+  %454 = extractelement <2 x float> %453, i64 0
+  %455 = extractelement <2 x float> %453, i64 1
+  %456 = load <2 x float>, ptr %7, align 8, !alias.scope !230
+  %457 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %456, <2 x float> %453)
+  store <2 x float> %457, ptr %7, align 8, !alias.scope !230
+  %458 = load <2 x float>, ptr %323, align 8, !alias.scope !230
+  %459 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %458, <2 x float> %453)
+  store <2 x float> %459, ptr %323, align 8, !alias.scope !230
+  %460 = load ptr, ptr %324, align 8, !alias.scope !230, !nonnull !128, !align !231, !noundef !128
+  %461 = load ptr, ptr %325, align 8, !alias.scope !230, !nonnull !128, !align !232, !noundef !128
+  %462 = getelementptr inbounds i8, ptr %461, i64 32
+  %463 = load ptr, ptr %462, align 8, !invariant.load !128, !noalias !226, !nonnull !128
+  call void %463(ptr noundef nonnull align 1 %460, float noundef %454, float noundef %455), !noalias !226
   br label %464
 
 464:                                              ; preds = %600, %_ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit44.i, %_ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit.i, %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit39.i, %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i, %_ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i, %437
@@ -917,23 +917,23 @@ _ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i: ; preds 
 _ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i: ; preds = %471, %465
   %492 = phi <2 x float> [ %433, %465 ], [ %482, %471 ]
   %493 = phi <2 x float> [ %468, %465 ], [ %491, %471 ]
-  %494 = load <2 x float>, ptr %7, align 8, !alias.scope !236
-  %495 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %494, <2 x float> %492)
-  %496 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %495, <2 x float> %493)
-  store <2 x float> %496, ptr %7, align 8, !alias.scope !236
-  %497 = load <2 x float>, ptr %323, align 8, !alias.scope !236
-  %498 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %497, <2 x float> %492)
-  %499 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %498, <2 x float> %493)
-  store <2 x float> %499, ptr %323, align 8, !alias.scope !236
-  %500 = load ptr, ptr %324, align 8, !alias.scope !236, !nonnull !128, !align !231, !noundef !128
-  %501 = load ptr, ptr %325, align 8, !alias.scope !236, !nonnull !128, !align !232, !noundef !128
-  %502 = getelementptr inbounds i8, ptr %501, i64 40
-  %503 = load ptr, ptr %502, align 8, !invariant.load !128, !noalias !233, !nonnull !128
-  %504 = extractelement <2 x float> %492, i64 0
-  %505 = extractelement <2 x float> %492, i64 1
-  %506 = extractelement <2 x float> %493, i64 0
-  %507 = extractelement <2 x float> %493, i64 1
-  call void %503(ptr noundef nonnull align 1 %500, float noundef %504, float noundef %505, float noundef %506, float noundef %507), !noalias !233
+  %494 = extractelement <2 x float> %492, i64 0
+  %495 = extractelement <2 x float> %492, i64 1
+  %496 = extractelement <2 x float> %493, i64 0
+  %497 = extractelement <2 x float> %493, i64 1
+  %498 = load <2 x float>, ptr %7, align 8, !alias.scope !236
+  %499 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %498, <2 x float> %492)
+  %500 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %499, <2 x float> %493)
+  store <2 x float> %500, ptr %7, align 8, !alias.scope !236
+  %501 = load <2 x float>, ptr %323, align 8, !alias.scope !236
+  %502 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %501, <2 x float> %492)
+  %503 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %502, <2 x float> %493)
+  store <2 x float> %503, ptr %323, align 8, !alias.scope !236
+  %504 = load ptr, ptr %324, align 8, !alias.scope !236, !nonnull !128, !align !231, !noundef !128
+  %505 = load ptr, ptr %325, align 8, !alias.scope !236, !nonnull !128, !align !232, !noundef !128
+  %506 = getelementptr inbounds i8, ptr %505, i64 40
+  %507 = load ptr, ptr %506, align 8, !invariant.load !128, !noalias !233, !nonnull !128
+  call void %507(ptr noundef nonnull align 1 %504, float noundef %494, float noundef %495, float noundef %496, float noundef %497), !noalias !233
   br label %464
 
 508:                                              ; preds = %436
@@ -965,23 +965,23 @@ _ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i: ; preds 
 _ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit39.i: ; preds = %511, %508
   %528 = phi <2 x float> [ %433, %508 ], [ %522, %511 ]
   %529 = phi <2 x float> [ %430, %508 ], [ %527, %511 ]
-  %530 = load <2 x float>, ptr %7, align 8, !alias.scope !240
-  %531 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %530, <2 x float> %528)
-  %532 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %531, <2 x float> %529)
-  store <2 x float> %532, ptr %7, align 8, !alias.scope !240
-  %533 = load <2 x float>, ptr %323, align 8, !alias.scope !240
-  %534 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %533, <2 x float> %528)
-  %535 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %534, <2 x float> %529)
-  store <2 x float> %535, ptr %323, align 8, !alias.scope !240
-  %536 = load ptr, ptr %324, align 8, !alias.scope !240, !nonnull !128, !align !231, !noundef !128
-  %537 = load ptr, ptr %325, align 8, !alias.scope !240, !nonnull !128, !align !232, !noundef !128
-  %538 = getelementptr inbounds i8, ptr %537, i64 40
-  %539 = load ptr, ptr %538, align 8, !invariant.load !128, !noalias !237, !nonnull !128
-  %540 = extractelement <2 x float> %528, i64 0
-  %541 = extractelement <2 x float> %528, i64 1
-  %542 = extractelement <2 x float> %529, i64 0
-  %543 = extractelement <2 x float> %529, i64 1
-  call void %539(ptr noundef nonnull align 1 %536, float noundef %540, float noundef %541, float noundef %542, float noundef %543), !noalias !237
+  %530 = extractelement <2 x float> %528, i64 0
+  %531 = extractelement <2 x float> %528, i64 1
+  %532 = extractelement <2 x float> %529, i64 0
+  %533 = extractelement <2 x float> %529, i64 1
+  %534 = load <2 x float>, ptr %7, align 8, !alias.scope !240
+  %535 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %534, <2 x float> %528)
+  %536 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %535, <2 x float> %529)
+  store <2 x float> %536, ptr %7, align 8, !alias.scope !240
+  %537 = load <2 x float>, ptr %323, align 8, !alias.scope !240
+  %538 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %537, <2 x float> %528)
+  %539 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %538, <2 x float> %529)
+  store <2 x float> %539, ptr %323, align 8, !alias.scope !240
+  %540 = load ptr, ptr %324, align 8, !alias.scope !240, !nonnull !128, !align !231, !noundef !128
+  %541 = load ptr, ptr %325, align 8, !alias.scope !240, !nonnull !128, !align !232, !noundef !128
+  %542 = getelementptr inbounds i8, ptr %541, i64 40
+  %543 = load ptr, ptr %542, align 8, !invariant.load !128, !noalias !237, !nonnull !128
+  call void %543(ptr noundef nonnull align 1 %540, float noundef %530, float noundef %531, float noundef %532, float noundef %533), !noalias !237
   br label %464
 
 544:                                              ; preds = %434
@@ -1013,19 +1013,19 @@ _ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit39.i: ; pred
 
 _ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit.i: ; preds = %549, %546
   %561 = phi <2 x float> [ %430, %546 ], [ %560, %549 ]
-  %562 = load <2 x float>, ptr %7, align 8, !alias.scope !244
-  %563 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %562, <2 x float> %561)
-  store <2 x float> %563, ptr %7, align 8, !alias.scope !244
-  %564 = load <2 x float>, ptr %323, align 8, !alias.scope !244
-  %565 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %564, <2 x float> %561)
-  store <2 x float> %565, ptr %323, align 8, !alias.scope !244
-  %566 = load ptr, ptr %324, align 8, !alias.scope !244, !nonnull !128, !align !231, !noundef !128
-  %567 = load ptr, ptr %325, align 8, !alias.scope !244, !nonnull !128, !align !232, !noundef !128
-  %568 = getelementptr inbounds i8, ptr %567, i64 24
-  %569 = load ptr, ptr %568, align 8, !invariant.load !128, !noalias !241, !nonnull !128
-  %570 = extractelement <2 x float> %561, i64 0
-  %571 = extractelement <2 x float> %561, i64 1
-  call void %569(ptr noundef nonnull align 1 %566, float noundef %570, float noundef %571), !noalias !241
+  %562 = extractelement <2 x float> %561, i64 0
+  %563 = extractelement <2 x float> %561, i64 1
+  %564 = load <2 x float>, ptr %7, align 8, !alias.scope !244
+  %565 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %564, <2 x float> %561)
+  store <2 x float> %565, ptr %7, align 8, !alias.scope !244
+  %566 = load <2 x float>, ptr %323, align 8, !alias.scope !244
+  %567 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %566, <2 x float> %561)
+  store <2 x float> %567, ptr %323, align 8, !alias.scope !244
+  %568 = load ptr, ptr %324, align 8, !alias.scope !244, !nonnull !128, !align !231, !noundef !128
+  %569 = load ptr, ptr %325, align 8, !alias.scope !244, !nonnull !128, !align !232, !noundef !128
+  %570 = getelementptr inbounds i8, ptr %569, i64 24
+  %571 = load ptr, ptr %570, align 8, !invariant.load !128, !noalias !241, !nonnull !128
+  call void %571(ptr noundef nonnull align 1 %568, float noundef %562, float noundef %563), !noalias !241
   br label %464
 
 572:                                              ; preds = %544
@@ -1056,19 +1056,19 @@ _ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit.i: ; preds 
 
 _ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit44.i: ; preds = %579, %572
   %589 = phi <2 x float> [ %576, %572 ], [ %588, %579 ]
-  %590 = load <2 x float>, ptr %7, align 8, !alias.scope !248
-  %591 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %590, <2 x float> %589)
-  store <2 x float> %591, ptr %7, align 8, !alias.scope !248
-  %592 = load <2 x float>, ptr %323, align 8, !alias.scope !248
-  %593 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %592, <2 x float> %589)
-  store <2 x float> %593, ptr %323, align 8, !alias.scope !248
-  %594 = load ptr, ptr %324, align 8, !alias.scope !248, !nonnull !128, !align !231, !noundef !128
-  %595 = load ptr, ptr %325, align 8, !alias.scope !248, !nonnull !128, !align !232, !noundef !128
-  %596 = getelementptr inbounds i8, ptr %595, i64 24
-  %597 = load ptr, ptr %596, align 8, !invariant.load !128, !noalias !245, !nonnull !128
-  %598 = extractelement <2 x float> %589, i64 0
-  %599 = extractelement <2 x float> %589, i64 1
-  call void %597(ptr noundef nonnull align 1 %594, float noundef %598, float noundef %599), !noalias !245
+  %590 = extractelement <2 x float> %589, i64 0
+  %591 = extractelement <2 x float> %589, i64 1
+  %592 = load <2 x float>, ptr %7, align 8, !alias.scope !248
+  %593 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %592, <2 x float> %589)
+  store <2 x float> %593, ptr %7, align 8, !alias.scope !248
+  %594 = load <2 x float>, ptr %323, align 8, !alias.scope !248
+  %595 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %594, <2 x float> %589)
+  store <2 x float> %595, ptr %323, align 8, !alias.scope !248
+  %596 = load ptr, ptr %324, align 8, !alias.scope !248, !nonnull !128, !align !231, !noundef !128
+  %597 = load ptr, ptr %325, align 8, !alias.scope !248, !nonnull !128, !align !232, !noundef !128
+  %598 = getelementptr inbounds i8, ptr %597, i64 24
+  %599 = load ptr, ptr %598, align 8, !invariant.load !128, !noalias !245, !nonnull !128
+  call void %599(ptr noundef nonnull align 1 %596, float noundef %590, float noundef %591), !noalias !245
   br label %464
 
 600:                                              ; preds = %544
@@ -1131,23 +1131,23 @@ _ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit44.i: ; pred
 _ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i.i: ; preds = %616, %608
   %637 = phi <2 x float> [ %609, %608 ], [ %627, %616 ]
   %638 = phi <2 x float> [ %613, %608 ], [ %636, %616 ]
-  %639 = load <2 x float>, ptr %7, align 8, !alias.scope !255
-  %640 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %639, <2 x float> %637)
-  %641 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %640, <2 x float> %638)
-  store <2 x float> %641, ptr %7, align 8, !alias.scope !255
-  %642 = load <2 x float>, ptr %323, align 8, !alias.scope !255
-  %643 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %642, <2 x float> %637)
-  %644 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %643, <2 x float> %638)
-  store <2 x float> %644, ptr %323, align 8, !alias.scope !255
-  %645 = load ptr, ptr %324, align 8, !alias.scope !255, !nonnull !128, !align !231, !noundef !128
-  %646 = load ptr, ptr %325, align 8, !alias.scope !255, !nonnull !128, !align !232, !noundef !128
-  %647 = getelementptr inbounds i8, ptr %646, i64 40
-  %648 = load ptr, ptr %647, align 8, !invariant.load !128, !noalias !252, !nonnull !128
-  %649 = extractelement <2 x float> %637, i64 0
-  %650 = extractelement <2 x float> %637, i64 1
-  %651 = extractelement <2 x float> %638, i64 0
-  %652 = extractelement <2 x float> %638, i64 1
-  call void %648(ptr noundef nonnull align 1 %645, float noundef %649, float noundef %650, float noundef %651, float noundef %652), !noalias !252
+  %639 = extractelement <2 x float> %637, i64 0
+  %640 = extractelement <2 x float> %637, i64 1
+  %641 = extractelement <2 x float> %638, i64 0
+  %642 = extractelement <2 x float> %638, i64 1
+  %643 = load <2 x float>, ptr %7, align 8, !alias.scope !255
+  %644 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %643, <2 x float> %637)
+  %645 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %644, <2 x float> %638)
+  store <2 x float> %645, ptr %7, align 8, !alias.scope !255
+  %646 = load <2 x float>, ptr %323, align 8, !alias.scope !255
+  %647 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %646, <2 x float> %637)
+  %648 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %647, <2 x float> %638)
+  store <2 x float> %648, ptr %323, align 8, !alias.scope !255
+  %649 = load ptr, ptr %324, align 8, !alias.scope !255, !nonnull !128, !align !231, !noundef !128
+  %650 = load ptr, ptr %325, align 8, !alias.scope !255, !nonnull !128, !align !232, !noundef !128
+  %651 = getelementptr inbounds i8, ptr %650, i64 40
+  %652 = load ptr, ptr %651, align 8, !invariant.load !128, !noalias !252, !nonnull !128
+  call void %652(ptr noundef nonnull align 1 %649, float noundef %639, float noundef %640, float noundef %641, float noundef %642), !noalias !252
   %.sroa.016.0.copyload.pre.i.i = load i32, ptr %326, align 4, !alias.scope !249
   br label %604
 
@@ -1186,23 +1186,23 @@ _ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i.i: ; pred
 _ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit37.i.i: ; preds = %659, %655
   %676 = phi <2 x float> [ %656, %655 ], [ %670, %659 ]
   %677 = phi <2 x float> [ %605, %655 ], [ %675, %659 ]
-  %678 = load <2 x float>, ptr %7, align 8, !alias.scope !259
-  %679 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %678, <2 x float> %676)
-  %680 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %679, <2 x float> %677)
-  store <2 x float> %680, ptr %7, align 8, !alias.scope !259
-  %681 = load <2 x float>, ptr %323, align 8, !alias.scope !259
-  %682 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %681, <2 x float> %676)
-  %683 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %682, <2 x float> %677)
-  store <2 x float> %683, ptr %323, align 8, !alias.scope !259
-  %684 = load ptr, ptr %324, align 8, !alias.scope !259, !nonnull !128, !align !231, !noundef !128
-  %685 = load ptr, ptr %325, align 8, !alias.scope !259, !nonnull !128, !align !232, !noundef !128
-  %686 = getelementptr inbounds i8, ptr %685, i64 40
-  %687 = load ptr, ptr %686, align 8, !invariant.load !128, !noalias !256, !nonnull !128
-  %688 = extractelement <2 x float> %676, i64 0
-  %689 = extractelement <2 x float> %676, i64 1
-  %690 = extractelement <2 x float> %677, i64 0
-  %691 = extractelement <2 x float> %677, i64 1
-  call void %687(ptr noundef nonnull align 1 %684, float noundef %688, float noundef %689, float noundef %690, float noundef %691), !noalias !256
+  %678 = extractelement <2 x float> %676, i64 0
+  %679 = extractelement <2 x float> %676, i64 1
+  %680 = extractelement <2 x float> %677, i64 0
+  %681 = extractelement <2 x float> %677, i64 1
+  %682 = load <2 x float>, ptr %7, align 8, !alias.scope !259
+  %683 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %682, <2 x float> %676)
+  %684 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %683, <2 x float> %677)
+  store <2 x float> %684, ptr %7, align 8, !alias.scope !259
+  %685 = load <2 x float>, ptr %323, align 8, !alias.scope !259
+  %686 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %685, <2 x float> %676)
+  %687 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %686, <2 x float> %677)
+  store <2 x float> %687, ptr %323, align 8, !alias.scope !259
+  %688 = load ptr, ptr %324, align 8, !alias.scope !259, !nonnull !128, !align !231, !noundef !128
+  %689 = load ptr, ptr %325, align 8, !alias.scope !259, !nonnull !128, !align !232, !noundef !128
+  %690 = getelementptr inbounds i8, ptr %689, i64 40
+  %691 = load ptr, ptr %690, align 8, !invariant.load !128, !noalias !256, !nonnull !128
+  call void %691(ptr noundef nonnull align 1 %688, float noundef %678, float noundef %679, float noundef %680, float noundef %681), !noalias !256
   br label %_ZN10ttf_parser6tables4glyf7Builder14finish_contour17ha08100daaabb72b0E.exit.i
 
 692:                                              ; preds = %653
@@ -1237,23 +1237,23 @@ _ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit37.i.i: ; pr
 _ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit42.i.i: ; preds = %697, %693
   %714 = phi <2 x float> [ %694, %693 ], [ %708, %697 ]
   %715 = phi <2 x float> [ %605, %693 ], [ %713, %697 ]
-  %716 = load <2 x float>, ptr %7, align 8, !alias.scope !263
-  %717 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %716, <2 x float> %714)
-  %718 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %717, <2 x float> %715)
-  store <2 x float> %718, ptr %7, align 8, !alias.scope !263
-  %719 = load <2 x float>, ptr %323, align 8, !alias.scope !263
-  %720 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %719, <2 x float> %714)
-  %721 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %720, <2 x float> %715)
-  store <2 x float> %721, ptr %323, align 8, !alias.scope !263
-  %722 = load ptr, ptr %324, align 8, !alias.scope !263, !nonnull !128, !align !231, !noundef !128
-  %723 = load ptr, ptr %325, align 8, !alias.scope !263, !nonnull !128, !align !232, !noundef !128
-  %724 = getelementptr inbounds i8, ptr %723, i64 40
-  %725 = load ptr, ptr %724, align 8, !invariant.load !128, !noalias !260, !nonnull !128
-  %726 = extractelement <2 x float> %714, i64 0
-  %727 = extractelement <2 x float> %714, i64 1
-  %728 = extractelement <2 x float> %715, i64 0
-  %729 = extractelement <2 x float> %715, i64 1
-  call void %725(ptr noundef nonnull align 1 %722, float noundef %726, float noundef %727, float noundef %728, float noundef %729), !noalias !260
+  %716 = extractelement <2 x float> %714, i64 0
+  %717 = extractelement <2 x float> %714, i64 1
+  %718 = extractelement <2 x float> %715, i64 0
+  %719 = extractelement <2 x float> %715, i64 1
+  %720 = load <2 x float>, ptr %7, align 8, !alias.scope !263
+  %721 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %720, <2 x float> %714)
+  %722 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %721, <2 x float> %715)
+  store <2 x float> %722, ptr %7, align 8, !alias.scope !263
+  %723 = load <2 x float>, ptr %323, align 8, !alias.scope !263
+  %724 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %723, <2 x float> %714)
+  %725 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %724, <2 x float> %715)
+  store <2 x float> %725, ptr %323, align 8, !alias.scope !263
+  %726 = load ptr, ptr %324, align 8, !alias.scope !263, !nonnull !128, !align !231, !noundef !128
+  %727 = load ptr, ptr %325, align 8, !alias.scope !263, !nonnull !128, !align !232, !noundef !128
+  %728 = getelementptr inbounds i8, ptr %727, i64 40
+  %729 = load ptr, ptr %728, align 8, !invariant.load !128, !noalias !260, !nonnull !128
+  call void %729(ptr noundef nonnull align 1 %726, float noundef %716, float noundef %717, float noundef %718, float noundef %719), !noalias !260
   br label %_ZN10ttf_parser6tables4glyf7Builder14finish_contour17ha08100daaabb72b0E.exit.i
 
 730:                                              ; preds = %692
@@ -1278,19 +1278,19 @@ _ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit42.i.i: ; pr
 
 _ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i.i: ; preds = %733, %730
   %745 = phi <2 x float> [ %605, %730 ], [ %744, %733 ]
-  %746 = load <2 x float>, ptr %7, align 8, !alias.scope !267
-  %747 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %746, <2 x float> %745)
-  store <2 x float> %747, ptr %7, align 8, !alias.scope !267
-  %748 = load <2 x float>, ptr %323, align 8, !alias.scope !267
-  %749 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %748, <2 x float> %745)
-  store <2 x float> %749, ptr %323, align 8, !alias.scope !267
-  %750 = load ptr, ptr %324, align 8, !alias.scope !267, !nonnull !128, !align !231, !noundef !128
-  %751 = load ptr, ptr %325, align 8, !alias.scope !267, !nonnull !128, !align !232, !noundef !128
-  %752 = getelementptr inbounds i8, ptr %751, i64 32
-  %753 = load ptr, ptr %752, align 8, !invariant.load !128, !noalias !264, !nonnull !128
-  %754 = extractelement <2 x float> %745, i64 0
-  %755 = extractelement <2 x float> %745, i64 1
-  call void %753(ptr noundef nonnull align 1 %750, float noundef %754, float noundef %755), !noalias !264
+  %746 = extractelement <2 x float> %745, i64 0
+  %747 = extractelement <2 x float> %745, i64 1
+  %748 = load <2 x float>, ptr %7, align 8, !alias.scope !267
+  %749 = call <2 x float> @llvm.minnum.v2f32(<2 x float> %748, <2 x float> %745)
+  store <2 x float> %749, ptr %7, align 8, !alias.scope !267
+  %750 = load <2 x float>, ptr %323, align 8, !alias.scope !267
+  %751 = call <2 x float> @llvm.maxnum.v2f32(<2 x float> %750, <2 x float> %745)
+  store <2 x float> %751, ptr %323, align 8, !alias.scope !267
+  %752 = load ptr, ptr %324, align 8, !alias.scope !267, !nonnull !128, !align !231, !noundef !128
+  %753 = load ptr, ptr %325, align 8, !alias.scope !267, !nonnull !128, !align !232, !noundef !128
+  %754 = getelementptr inbounds i8, ptr %753, i64 32
+  %755 = load ptr, ptr %754, align 8, !invariant.load !128, !noalias !264, !nonnull !128
+  call void %755(ptr noundef nonnull align 1 %752, float noundef %746, float noundef %747), !noalias !264
   br label %_ZN10ttf_parser6tables4glyf7Builder14finish_contour17ha08100daaabb72b0E.exit.i
 
 _ZN10ttf_parser6tables4glyf7Builder14finish_contour17ha08100daaabb72b0E.exit.i: ; preds = %_ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i.i, %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit42.i.i, %692, %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit37.i.i

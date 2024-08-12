@@ -8868,18 +8868,18 @@ _ZNSt10unique_ptrIN3gmx15UpdateGroupsCogESt14default_deleteIS1_EED2Ev.exit.i: ; 
   %133 = getelementptr inbounds i8, ptr %31, i64 152
   %134 = getelementptr inbounds i8, ptr %31, i64 156
   %135 = load <4 x i32>, ptr %131, align 4
+  %136 = load i32, ptr %131, align 4
   store <4 x i32> %135, ptr %132, align 4
-  %136 = getelementptr inbounds i8, ptr %1, i64 452
-  %137 = getelementptr inbounds i8, ptr %31, i64 164
-  %138 = load <2 x i32>, ptr %136, align 4
-  store <2 x i32> %138, ptr %137, align 4
-  %139 = getelementptr inbounds i8, ptr %1, i64 460
-  %140 = load i32, ptr %139, align 4
-  %141 = getelementptr inbounds i8, ptr %31, i64 172
-  store i32 %140, ptr %141, align 4
-  %142 = extractelement <4 x i32> %135, i64 0
+  %137 = getelementptr inbounds i8, ptr %1, i64 452
+  %138 = getelementptr inbounds i8, ptr %31, i64 164
+  %139 = load <2 x i32>, ptr %137, align 4
+  store <2 x i32> %139, ptr %138, align 4
+  %140 = getelementptr inbounds i8, ptr %1, i64 460
+  %141 = load i32, ptr %140, align 4
+  %142 = getelementptr inbounds i8, ptr %31, i64 172
+  store i32 %141, ptr %142, align 4
   %143 = extractelement <4 x i32> %135, i64 1
-  %144 = mul nsw i32 %143, %142
+  %144 = mul nsw i32 %143, %136
   %145 = extractelement <4 x i32> %135, i64 2
   %146 = mul nsw i32 %144, %145
   store i32 %146, ptr %31, align 8
@@ -8890,7 +8890,7 @@ _ZNSt10unique_ptrIN3gmx15UpdateGroupsCogESt14default_deleteIS1_EED2Ev.exit.i: ; 
 147:                                              ; preds = %_ZNSt10unique_ptrIN3gmx15UpdateGroupsCogESt14default_deleteIS1_EED2Ev.exit.i
   %148 = getelementptr inbounds i8, ptr %1, i64 56
   %149 = load ptr, ptr %148, align 8
-  invoke fastcc void @_ZL12get_slb_fracRKN3gmx8MDLoggerEPKciS4_(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull readonly align 8 dereferenceable(40) %85, ptr noundef nonnull @.str.139, i32 noundef %142, ptr noundef %149)
+  invoke fastcc void @_ZL12get_slb_fracRKN3gmx8MDLoggerEPKciS4_(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull readonly align 8 dereferenceable(40) %85, ptr noundef nonnull @.str.139, i32 noundef %136, ptr noundef %149)
           to label %.noexc20 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc20:                                         ; preds = %147

@@ -7826,7 +7826,7 @@ define dso_local void @_ZN21cmExportFileGenerator27GenerateFindDependencyCallsER
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
-  %7 = alloca %class.cmFindPackageStack, align 8
+  %7 = alloca %class.cmFindPackageStack, align 16
   %8 = alloca %"class.std::vector.494", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.105)
@@ -7906,16 +7906,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %40 unwind label %58
 
 40:                                               ; preds = %37
-  %41 = load ptr, ptr %39, align 8
-  store ptr %41, ptr %7, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 8
-  %43 = load ptr, ptr %42, align 8
-  store ptr %43, ptr %29, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %43, null
+  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = load <2 x ptr>, ptr %39, align 8
+  store <2 x ptr> %43, ptr %7, align 16
+  %.not.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i.i, label %_ZN18cmFindPackageStackC2ERKS_.exit, label %44
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = getelementptr inbounds i8, ptr %42, i64 8
   %46 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %46, 0
   br i1 %.not.i.i.i.i.i.i, label %50, label %47

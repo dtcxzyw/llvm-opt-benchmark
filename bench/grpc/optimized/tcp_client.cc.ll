@@ -155,8 +155,8 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define noundef i64 @_ZN17grpc_event_engine12experimental31event_engine_tcp_client_connectEP12grpc_closurePP13grpc_endpointRKNS0_14EndpointConfigEPK21grpc_resolved_addressN9grpc_core9TimestampE(ptr noundef %on_connect, ptr noundef %endpoint, ptr noundef nonnull align 8 dereferenceable(8) %config, ptr noundef %addr, i64 %deadline.coerce) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %addr_uri = alloca %"class.absl::lts_20230802::StatusOr", align 8
-  %keeper = alloca %"class.std::shared_ptr", align 8
-  %ref.tmp = alloca %"class.std::shared_ptr", align 8
+  %keeper = alloca %"class.std::shared_ptr", align 16
+  %ref.tmp = alloca %"class.std::shared_ptr", align 16
   %agg.tmp11 = alloca %"class.absl::lts_20230802::AnyInvocable", align 16
   %ref.tmp14 = alloca %"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress", align 4
   %agg.tmp17 = alloca %"class.grpc_event_engine::experimental::MemoryAllocator", align 16
@@ -176,7 +176,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %keeper, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %keeper, i8 0, i64 16, i1 false)
   %cmp = icmp eq ptr %call4, null
   br i1 %cmp, label %if.then, label %invoke.cont13
 
@@ -185,13 +185,10 @@ if.then:                                          ; preds = %invoke.cont
           to label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEED2Ev.exit unwind label %lpad6
 
 _ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEED2Ev.exit: ; preds = %if.then
-  %2 = load ptr, ptr %ref.tmp, align 8
-  %_M_refcount4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %3 = load ptr, ptr %_M_refcount4.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
-  store ptr %2, ptr %keeper, align 8
-  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %keeper, i64 8
-  store ptr %3, ptr %_M_refcount3.i.i.i, align 8
+  %2 = load <2 x ptr>, ptr %ref.tmp, align 16
+  %3 = load ptr, ptr %ref.tmp, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
+  store <2 x ptr> %2, ptr %keeper, align 16
   br label %invoke.cont13
 
 lpad:                                             ; preds = %entry
@@ -205,7 +202,7 @@ lpad6:                                            ; preds = %if.then.i.i143, %in
   br label %ehcleanup92
 
 invoke.cont13:                                    ; preds = %invoke.cont, %_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEED2Ev.exit
-  %engine_ptr.0 = phi ptr [ %2, %_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEED2Ev.exit ], [ %call4, %invoke.cont ]
+  %engine_ptr.0 = phi ptr [ %3, %_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEED2Ev.exit ], [ %call4, %invoke.cont ]
   store ptr %on_connect, ptr %agg.tmp11, align 16
   %ref.tmp12.sroa.2.0.agg.tmp11.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp11, i64 8
   store ptr %endpoint, ptr %ref.tmp12.sroa.2.0.agg.tmp11.sroa_idx, align 8

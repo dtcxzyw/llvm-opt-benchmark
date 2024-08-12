@@ -1135,7 +1135,7 @@ define hidden void @_ZN7VMError6reportEP12outputStreamb(ptr noundef %0, i1 nound
   br label %58
 
 58:                                               ; preds = %56, %57, %55
-  br i1 %1, label %59, label %1051
+  br i1 %1, label %59, label %1045
 
 59:                                               ; preds = %58
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.177) #21
@@ -2107,7 +2107,7 @@ _ZN7VMError18can_reattempt_stepERPKc.exit:        ; preds = %305
 408:                                              ; preds = %407, %398
   %409 = phi i32 [ %.pre632, %407 ], [ %399, %398 ]
   %410 = icmp slt i32 %409, 1074
-  br i1 %410, label %411, label %438
+  br i1 %410, label %411, label %437
 
 411:                                              ; preds = %408
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
@@ -2137,1699 +2137,1687 @@ _ZN7VMError18can_reattempt_stepERPKc.exit:        ; preds = %305
   %424 = getelementptr inbounds i8, ptr %423, i64 24
   %425 = load ptr, ptr %424, align 8
   %426 = getelementptr inbounds i8, ptr %423, i64 32
-  %427 = load ptr, ptr %426, align 8
-  %428 = getelementptr inbounds i8, ptr %423, i64 40
-  %429 = load ptr, ptr %428, align 8
-  %430 = getelementptr inbounds i8, ptr %423, i64 8
-  %431 = load i64, ptr %430, align 8
+  %427 = load <2 x ptr>, ptr %426, align 8
+  %428 = load ptr, ptr %426, align 8
+  %429 = getelementptr inbounds i8, ptr %423, i64 8
+  %430 = load i64, ptr %429, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.83) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
-  %432 = load ptr, ptr @_ZN7VMError8_contextE, align 8
-  call void @_ZN2os19print_register_infoEP12outputStreamPKvRi(ptr noundef %0, ptr noundef %432, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN7VMError6reportEP12outputStreambE12continuation) #21
+  %431 = load ptr, ptr @_ZN7VMError8_contextE, align 8
+  call void @_ZN2os19print_register_infoEP12outputStreamPKvRi(ptr noundef %0, ptr noundef %431, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN7VMError6reportEP12outputStreambE12continuation) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
-  %433 = load ptr, ptr %425, align 8
-  %.not.i.i.i.i = icmp eq ptr %433, null
-  br i1 %.not.i.i.i.i, label %435, label %434
+  %432 = load ptr, ptr %425, align 8
+  %.not.i.i.i.i = icmp eq ptr %432, null
+  br i1 %.not.i.i.i.i, label %434, label %433
 
-434:                                              ; preds = %419
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %423, i64 noundef %431) #21
+433:                                              ; preds = %419
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %423, i64 noundef %430) #21
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %425) #21
-  br label %435
+  br label %434
 
-435:                                              ; preds = %434, %419
-  %436 = load ptr, ptr %426, align 8
-  %.not8.i.i.i.i = icmp eq ptr %436, %427
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %437
+434:                                              ; preds = %433, %419
+  %435 = load ptr, ptr %426, align 8
+  %.not8.i.i.i.i = icmp eq ptr %435, %428
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %436
 
-437:                                              ; preds = %435
+436:                                              ; preds = %434
   store ptr %425, ptr %424, align 8
-  store ptr %427, ptr %426, align 8
-  store ptr %429, ptr %428, align 8
+  store <2 x ptr> %427, ptr %426, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %437, %435, %416, %411
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %436, %434, %416, %411
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
   %.pr531 = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %438
+  br label %437
 
-438:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit, %408
-  %439 = phi i32 [ %.pr531, %_ZN12ResourceMarkD2Ev.exit ], [ %409, %408 ]
-  %440 = icmp slt i32 %439, 1083
-  br i1 %440, label %441, label %487
+437:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit, %408
+  %438 = phi i32 [ %.pr531, %_ZN12ResourceMarkD2Ev.exit ], [ %409, %408 ]
+  %439 = icmp slt i32 %438, 1083
+  br i1 %439, label %440, label %485
 
-441:                                              ; preds = %438
-  %442 = load volatile i8, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  %443 = trunc i8 %442 to i1
-  br i1 %443, label %.thread691, label %444
+440:                                              ; preds = %437
+  %441 = load volatile i8, ptr @_ZN7VMError17_step_did_succeedE, align 1
+  %442 = trunc i8 %441 to i1
+  br i1 %442, label %.thread691, label %443
 
-444:                                              ; preds = %441
+443:                                              ; preds = %440
   store i32 1083, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.84, ptr @_ZN7VMError18_current_step_infoE, align 8
-  %445 = load ptr, ptr @_ZN7VMError8_contextE, align 8
-  %446 = icmp ne ptr %445, null
-  %or.cond23 = select i1 %1, i1 %446, i1 false
-  %447 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  %448 = icmp ne ptr %447, null
-  %or.cond25 = select i1 %or.cond23, i1 %448, i1 false
-  br i1 %or.cond25, label %449, label %.critedge400
+  %444 = load ptr, ptr @_ZN7VMError8_contextE, align 8
+  %445 = icmp ne ptr %444, null
+  %or.cond23 = select i1 %1, i1 %445, i1 false
+  %446 = load ptr, ptr @_ZN7VMError7_threadE, align 8
+  %447 = icmp ne ptr %446, null
+  %or.cond25 = select i1 %or.cond23, i1 %447, i1 false
+  br i1 %or.cond25, label %448, label %.critedge400
 
-449:                                              ; preds = %444
-  %450 = load i8, ptr @_ZN8Universe18_fully_initializedE, align 1
-  %451 = trunc i8 %450 to i1
-  br i1 %451, label %452, label %.critedge400
+448:                                              ; preds = %443
+  %449 = load i8, ptr @_ZN8Universe18_fully_initializedE, align 1
+  %450 = trunc i8 %449 to i1
+  br i1 %450, label %451, label %.critedge400
 
-452:                                              ; preds = %449
+451:                                              ; preds = %448
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i64 0, ptr %10, align 8
   store ptr null, ptr %11, align 8
   call void @_ZN2os27current_stack_base_and_sizeEPPhPm(ptr noundef nonnull %11, ptr noundef nonnull %10) #21
-  %453 = load i64, ptr @_ZN13StackOverflow20_stack_red_zone_sizeE, align 8
-  %454 = load i64, ptr @_ZN13StackOverflow23_stack_yellow_zone_sizeE, align 8
-  %455 = load i64, ptr @_ZN13StackOverflow25_stack_reserved_zone_sizeE, align 8
-  %456 = load i64, ptr %10, align 8
-  %457 = add i64 %454, %453
-  %458 = add i64 %457, %455
-  %459 = sub i64 %456, %458
-  %460 = icmp ult i64 %459, 65536
-  br i1 %460, label %_ZL18stack_has_headroomm.exit.thread.i423, label %_ZL18stack_has_headroomm.exit.i418
+  %452 = load i64, ptr @_ZN13StackOverflow20_stack_red_zone_sizeE, align 8
+  %453 = load i64, ptr @_ZN13StackOverflow23_stack_yellow_zone_sizeE, align 8
+  %454 = load i64, ptr @_ZN13StackOverflow25_stack_reserved_zone_sizeE, align 8
+  %455 = load i64, ptr %10, align 8
+  %456 = add i64 %453, %452
+  %457 = add i64 %456, %454
+  %458 = sub i64 %455, %457
+  %459 = icmp ult i64 %458, 65536
+  br i1 %459, label %_ZL18stack_has_headroomm.exit.thread.i423, label %_ZL18stack_has_headroomm.exit.i418
 
-_ZL18stack_has_headroomm.exit.thread.i423:        ; preds = %452
+_ZL18stack_has_headroomm.exit.thread.i423:        ; preds = %451
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %.sink.split.i421
 
-_ZL18stack_has_headroomm.exit.i418:               ; preds = %452
-  %461 = load ptr, ptr %11, align 8
-  %462 = sub i64 0, %459
-  %463 = getelementptr inbounds i8, ptr %461, i64 %462
-  %464 = call noundef ptr @_ZN2os21current_stack_pointerEv() #21
-  %465 = getelementptr inbounds i8, ptr %463, i64 65536
-  %.not.i419 = icmp ult ptr %464, %465
+_ZL18stack_has_headroomm.exit.i418:               ; preds = %451
+  %460 = load ptr, ptr %11, align 8
+  %461 = sub i64 0, %458
+  %462 = getelementptr inbounds i8, ptr %460, i64 %461
+  %463 = call noundef ptr @_ZN2os21current_stack_pointerEv() #21
+  %464 = getelementptr inbounds i8, ptr %462, i64 65536
+  %.not.i419 = icmp ult ptr %463, %464
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  br i1 %.not.i419, label %.sink.split.i421, label %466
+  br i1 %.not.i419, label %.sink.split.i421, label %465
 
-466:                                              ; preds = %_ZL18stack_has_headroomm.exit.i418
-  %467 = load volatile i8, ptr @_ZN7VMError17_step_did_timeoutE, align 1
-  %468 = trunc i8 %467 to i1
-  br i1 %468, label %.sink.split.i421, label %_ZN7VMError18can_reattempt_stepERPKc.exit424
+465:                                              ; preds = %_ZL18stack_has_headroomm.exit.i418
+  %466 = load volatile i8, ptr @_ZN7VMError17_step_did_timeoutE, align 1
+  %467 = trunc i8 %466 to i1
+  br i1 %467, label %.sink.split.i421, label %_ZN7VMError18can_reattempt_stepERPKc.exit424
 
-.sink.split.i421:                                 ; preds = %466, %_ZL18stack_has_headroomm.exit.i418, %_ZL18stack_has_headroomm.exit.thread.i423
-  %.9.ph = phi ptr [ @.str, %_ZL18stack_has_headroomm.exit.i418 ], [ @.str, %_ZL18stack_has_headroomm.exit.thread.i423 ], [ @.str.4, %466 ]
-  %469 = load ptr, ptr @_ZN7VMError18_current_step_infoE, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.73, ptr noundef %469, ptr noundef nonnull %.9.ph) #21
+.sink.split.i421:                                 ; preds = %465, %_ZL18stack_has_headroomm.exit.i418, %_ZL18stack_has_headroomm.exit.thread.i423
+  %.9.ph = phi ptr [ @.str, %_ZL18stack_has_headroomm.exit.i418 ], [ @.str, %_ZL18stack_has_headroomm.exit.thread.i423 ], [ @.str.4, %465 ]
+  %468 = load ptr, ptr @_ZN7VMError18_current_step_infoE, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.73, ptr noundef %468, ptr noundef nonnull %.9.ph) #21
   br label %.critedge400
 
-_ZN7VMError18can_reattempt_stepERPKc.exit424:     ; preds = %466
-  %470 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  %471 = getelementptr inbounds i8, ptr %470, i64 800
-  %472 = load ptr, ptr %471, align 8
-  %473 = getelementptr inbounds i8, ptr %472, i64 24
-  %474 = load ptr, ptr %473, align 8
-  %475 = getelementptr inbounds i8, ptr %472, i64 32
-  %476 = load ptr, ptr %475, align 8
-  %477 = getelementptr inbounds i8, ptr %472, i64 40
-  %478 = load ptr, ptr %477, align 8
-  %479 = getelementptr inbounds i8, ptr %472, i64 8
-  %480 = load i64, ptr %479, align 8
-  %481 = load ptr, ptr @_ZN7VMError8_contextE, align 8
-  call void @_ZN2os19print_register_infoEP12outputStreamPKvRi(ptr noundef %0, ptr noundef %481, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN7VMError6reportEP12outputStreambE12continuation) #21
+_ZN7VMError18can_reattempt_stepERPKc.exit424:     ; preds = %465
+  %469 = load ptr, ptr @_ZN7VMError7_threadE, align 8
+  %470 = getelementptr inbounds i8, ptr %469, i64 800
+  %471 = load ptr, ptr %470, align 8
+  %472 = getelementptr inbounds i8, ptr %471, i64 24
+  %473 = load ptr, ptr %472, align 8
+  %474 = getelementptr inbounds i8, ptr %471, i64 32
+  %475 = load <2 x ptr>, ptr %474, align 8
+  %476 = load ptr, ptr %474, align 8
+  %477 = getelementptr inbounds i8, ptr %471, i64 8
+  %478 = load i64, ptr %477, align 8
+  %479 = load ptr, ptr @_ZN7VMError8_contextE, align 8
+  call void @_ZN2os19print_register_infoEP12outputStreamPKvRi(ptr noundef %0, ptr noundef %479, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN7VMError6reportEP12outputStreambE12continuation) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
-  %482 = load ptr, ptr %474, align 8
-  %.not.i.i.i.i425 = icmp eq ptr %482, null
-  br i1 %.not.i.i.i.i425, label %484, label %483
+  %480 = load ptr, ptr %473, align 8
+  %.not.i.i.i.i425 = icmp eq ptr %480, null
+  br i1 %.not.i.i.i.i425, label %482, label %481
 
-483:                                              ; preds = %_ZN7VMError18can_reattempt_stepERPKc.exit424
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %472, i64 noundef %480) #21
-  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %474) #21
-  br label %484
+481:                                              ; preds = %_ZN7VMError18can_reattempt_stepERPKc.exit424
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %471, i64 noundef %478) #21
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %473) #21
+  br label %482
 
-484:                                              ; preds = %483, %_ZN7VMError18can_reattempt_stepERPKc.exit424
-  %485 = load ptr, ptr %475, align 8
-  %.not8.i.i.i.i426 = icmp eq ptr %485, %476
-  br i1 %.not8.i.i.i.i426, label %.critedge400, label %486
+482:                                              ; preds = %481, %_ZN7VMError18can_reattempt_stepERPKc.exit424
+  %483 = load ptr, ptr %474, align 8
+  %.not8.i.i.i.i426 = icmp eq ptr %483, %476
+  br i1 %.not8.i.i.i.i426, label %.critedge400, label %484
 
-486:                                              ; preds = %484
-  store ptr %474, ptr %473, align 8
-  store ptr %476, ptr %475, align 8
-  store ptr %478, ptr %477, align 8
+484:                                              ; preds = %482
+  store ptr %473, ptr %472, align 8
+  store <2 x ptr> %475, ptr %474, align 8
   br label %.critedge400
 
-.critedge400:                                     ; preds = %444, %486, %484, %449, %.sink.split.i421
+.critedge400:                                     ; preds = %443, %484, %482, %448, %.sink.split.i421
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
   %.pre633 = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %487
+  br label %485
 
-487:                                              ; preds = %.critedge400, %438
-  %488 = phi i32 [ %.pre633, %.critedge400 ], [ %439, %438 ]
-  %489 = icmp slt i32 %488, 1089
-  br i1 %489, label %.thread691, label %534
+485:                                              ; preds = %.critedge400, %437
+  %486 = phi i32 [ %.pre633, %.critedge400 ], [ %438, %437 ]
+  %487 = icmp slt i32 %486, 1089
+  br i1 %487, label %.thread691, label %531
 
-.thread691:                                       ; preds = %441, %487
-  %490 = load volatile i8, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  %491 = trunc i8 %490 to i1
+.thread691:                                       ; preds = %440, %485
+  %488 = load volatile i8, ptr @_ZN7VMError17_step_did_succeedE, align 1
+  %489 = trunc i8 %488 to i1
   %.pre635 = load ptr, ptr @_ZN7VMError8_contextE, align 8
-  br i1 %491, label %.thread541, label %492
+  br i1 %489, label %.thread541, label %490
 
-492:                                              ; preds = %.thread691
+490:                                              ; preds = %.thread691
   store i32 1089, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.85, ptr @_ZN7VMError18_current_step_infoE, align 8
-  %493 = icmp ne ptr %.pre635, null
-  %or.cond27 = select i1 %1, i1 %493, i1 false
-  %494 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  %495 = icmp ne ptr %494, null
-  %or.cond29 = select i1 %or.cond27, i1 %495, i1 false
-  br i1 %or.cond29, label %496, label %.critedge402
+  %491 = icmp ne ptr %.pre635, null
+  %or.cond27 = select i1 %1, i1 %491, i1 false
+  %492 = load ptr, ptr @_ZN7VMError7_threadE, align 8
+  %493 = icmp ne ptr %492, null
+  %or.cond29 = select i1 %or.cond27, i1 %493, i1 false
+  br i1 %or.cond29, label %494, label %.critedge402
 
-496:                                              ; preds = %492
-  %497 = load i8, ptr @_ZN8Universe18_fully_initializedE, align 1
-  %498 = trunc i8 %497 to i1
-  br i1 %498, label %499, label %.critedge402
+494:                                              ; preds = %490
+  %495 = load i8, ptr @_ZN8Universe18_fully_initializedE, align 1
+  %496 = trunc i8 %495 to i1
+  br i1 %496, label %497, label %.critedge402
 
-499:                                              ; preds = %496
+497:                                              ; preds = %494
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i64 0, ptr %8, align 8
   store ptr null, ptr %9, align 8
   call void @_ZN2os27current_stack_base_and_sizeEPPhPm(ptr noundef nonnull %9, ptr noundef nonnull %8) #21
-  %500 = load i64, ptr @_ZN13StackOverflow20_stack_red_zone_sizeE, align 8
-  %501 = load i64, ptr @_ZN13StackOverflow23_stack_yellow_zone_sizeE, align 8
-  %502 = load i64, ptr @_ZN13StackOverflow25_stack_reserved_zone_sizeE, align 8
-  %503 = load i64, ptr %8, align 8
-  %504 = add i64 %501, %500
-  %505 = add i64 %504, %502
-  %506 = sub i64 %503, %505
-  %507 = icmp ult i64 %506, 65536
-  br i1 %507, label %_ZL18stack_has_headroomm.exit.thread.i433, label %_ZL18stack_has_headroomm.exit.i428
+  %498 = load i64, ptr @_ZN13StackOverflow20_stack_red_zone_sizeE, align 8
+  %499 = load i64, ptr @_ZN13StackOverflow23_stack_yellow_zone_sizeE, align 8
+  %500 = load i64, ptr @_ZN13StackOverflow25_stack_reserved_zone_sizeE, align 8
+  %501 = load i64, ptr %8, align 8
+  %502 = add i64 %499, %498
+  %503 = add i64 %502, %500
+  %504 = sub i64 %501, %503
+  %505 = icmp ult i64 %504, 65536
+  br i1 %505, label %_ZL18stack_has_headroomm.exit.thread.i433, label %_ZL18stack_has_headroomm.exit.i428
 
-_ZL18stack_has_headroomm.exit.thread.i433:        ; preds = %499
+_ZL18stack_has_headroomm.exit.thread.i433:        ; preds = %497
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %.sink.split.i431
 
-_ZL18stack_has_headroomm.exit.i428:               ; preds = %499
-  %508 = load ptr, ptr %9, align 8
-  %509 = sub i64 0, %506
-  %510 = getelementptr inbounds i8, ptr %508, i64 %509
-  %511 = call noundef ptr @_ZN2os21current_stack_pointerEv() #21
-  %512 = getelementptr inbounds i8, ptr %510, i64 65536
-  %.not.i429 = icmp ult ptr %511, %512
+_ZL18stack_has_headroomm.exit.i428:               ; preds = %497
+  %506 = load ptr, ptr %9, align 8
+  %507 = sub i64 0, %504
+  %508 = getelementptr inbounds i8, ptr %506, i64 %507
+  %509 = call noundef ptr @_ZN2os21current_stack_pointerEv() #21
+  %510 = getelementptr inbounds i8, ptr %508, i64 65536
+  %.not.i429 = icmp ult ptr %509, %510
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br i1 %.not.i429, label %.sink.split.i431, label %513
+  br i1 %.not.i429, label %.sink.split.i431, label %511
 
-513:                                              ; preds = %_ZL18stack_has_headroomm.exit.i428
-  %514 = load volatile i8, ptr @_ZN7VMError17_step_did_timeoutE, align 1
-  %515 = trunc i8 %514 to i1
-  br i1 %515, label %.sink.split.i431, label %_ZN7VMError18can_reattempt_stepERPKc.exit434
+511:                                              ; preds = %_ZL18stack_has_headroomm.exit.i428
+  %512 = load volatile i8, ptr @_ZN7VMError17_step_did_timeoutE, align 1
+  %513 = trunc i8 %512 to i1
+  br i1 %513, label %.sink.split.i431, label %_ZN7VMError18can_reattempt_stepERPKc.exit434
 
-.sink.split.i431:                                 ; preds = %513, %_ZL18stack_has_headroomm.exit.i428, %_ZL18stack_has_headroomm.exit.thread.i433
-  %.10.ph = phi ptr [ @.str, %_ZL18stack_has_headroomm.exit.i428 ], [ @.str, %_ZL18stack_has_headroomm.exit.thread.i433 ], [ @.str.4, %513 ]
-  %516 = load ptr, ptr @_ZN7VMError18_current_step_infoE, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.73, ptr noundef %516, ptr noundef nonnull %.10.ph) #21
+.sink.split.i431:                                 ; preds = %511, %_ZL18stack_has_headroomm.exit.i428, %_ZL18stack_has_headroomm.exit.thread.i433
+  %.10.ph = phi ptr [ @.str, %_ZL18stack_has_headroomm.exit.i428 ], [ @.str, %_ZL18stack_has_headroomm.exit.thread.i433 ], [ @.str.4, %511 ]
+  %514 = load ptr, ptr @_ZN7VMError18_current_step_infoE, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.73, ptr noundef %514, ptr noundef nonnull %.10.ph) #21
   br label %.critedge402
 
-_ZN7VMError18can_reattempt_stepERPKc.exit434:     ; preds = %513
-  %517 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  %518 = getelementptr inbounds i8, ptr %517, i64 800
+_ZN7VMError18can_reattempt_stepERPKc.exit434:     ; preds = %511
+  %515 = load ptr, ptr @_ZN7VMError7_threadE, align 8
+  %516 = getelementptr inbounds i8, ptr %515, i64 800
+  %517 = load ptr, ptr %516, align 8
+  %518 = getelementptr inbounds i8, ptr %517, i64 24
   %519 = load ptr, ptr %518, align 8
-  %520 = getelementptr inbounds i8, ptr %519, i64 24
-  %521 = load ptr, ptr %520, align 8
-  %522 = getelementptr inbounds i8, ptr %519, i64 32
-  %523 = load ptr, ptr %522, align 8
-  %524 = getelementptr inbounds i8, ptr %519, i64 40
-  %525 = load ptr, ptr %524, align 8
-  %526 = getelementptr inbounds i8, ptr %519, i64 8
-  %527 = load i64, ptr %526, align 8
-  %528 = load ptr, ptr @_ZN7VMError8_contextE, align 8
-  call void @_ZN2os19print_register_infoEP12outputStreamPKvRi(ptr noundef %0, ptr noundef %528, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN7VMError6reportEP12outputStreambE12continuation) #21
+  %520 = getelementptr inbounds i8, ptr %517, i64 32
+  %521 = load <2 x ptr>, ptr %520, align 8
+  %522 = load ptr, ptr %520, align 8
+  %523 = getelementptr inbounds i8, ptr %517, i64 8
+  %524 = load i64, ptr %523, align 8
+  %525 = load ptr, ptr @_ZN7VMError8_contextE, align 8
+  call void @_ZN2os19print_register_infoEP12outputStreamPKvRi(ptr noundef %0, ptr noundef %525, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN7VMError6reportEP12outputStreambE12continuation) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
-  %529 = load ptr, ptr %521, align 8
-  %.not.i.i.i.i435 = icmp eq ptr %529, null
-  br i1 %.not.i.i.i.i435, label %531, label %530
+  %526 = load ptr, ptr %519, align 8
+  %.not.i.i.i.i435 = icmp eq ptr %526, null
+  br i1 %.not.i.i.i.i435, label %528, label %527
 
-530:                                              ; preds = %_ZN7VMError18can_reattempt_stepERPKc.exit434
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %519, i64 noundef %527) #21
-  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %521) #21
-  br label %531
+527:                                              ; preds = %_ZN7VMError18can_reattempt_stepERPKc.exit434
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %517, i64 noundef %524) #21
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %519) #21
+  br label %528
 
-531:                                              ; preds = %530, %_ZN7VMError18can_reattempt_stepERPKc.exit434
-  %532 = load ptr, ptr %522, align 8
-  %.not8.i.i.i.i436 = icmp eq ptr %532, %523
-  br i1 %.not8.i.i.i.i436, label %.critedge402, label %533
+528:                                              ; preds = %527, %_ZN7VMError18can_reattempt_stepERPKc.exit434
+  %529 = load ptr, ptr %520, align 8
+  %.not8.i.i.i.i436 = icmp eq ptr %529, %522
+  br i1 %.not8.i.i.i.i436, label %.critedge402, label %530
 
-533:                                              ; preds = %531
-  store ptr %521, ptr %520, align 8
-  store ptr %523, ptr %522, align 8
-  store ptr %525, ptr %524, align 8
+530:                                              ; preds = %528
+  store ptr %519, ptr %518, align 8
+  store <2 x ptr> %521, ptr %520, align 8
   br label %.critedge402
 
-.critedge402:                                     ; preds = %492, %533, %531, %496, %.sink.split.i431
+.critedge402:                                     ; preds = %490, %530, %528, %494, %.sink.split.i431
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
   %.pr540 = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %534
+  br label %531
 
-534:                                              ; preds = %.critedge402, %487
-  %535 = phi i32 [ %.pr540, %.critedge402 ], [ %488, %487 ]
-  %536 = icmp slt i32 %535, 1094
-  br i1 %536, label %..thread541_crit_edge, label %543
+531:                                              ; preds = %.critedge402, %485
+  %532 = phi i32 [ %.pr540, %.critedge402 ], [ %486, %485 ]
+  %533 = icmp slt i32 %532, 1094
+  br i1 %533, label %..thread541_crit_edge, label %540
 
-..thread541_crit_edge:                            ; preds = %534
+..thread541_crit_edge:                            ; preds = %531
   %.pre634 = load ptr, ptr @_ZN7VMError8_contextE, align 8
   br label %.thread541
 
 .thread541:                                       ; preds = %..thread541_crit_edge, %.thread691
-  %537 = phi ptr [ %.pre634, %..thread541_crit_edge ], [ %.pre635, %.thread691 ]
+  %534 = phi ptr [ %.pre634, %..thread541_crit_edge ], [ %.pre635, %.thread691 ]
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1094, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.86, ptr @_ZN7VMError18_current_step_infoE, align 8
-  %538 = icmp ne ptr %537, null
-  %or.cond31 = select i1 %1, i1 %538, i1 false
-  br i1 %or.cond31, label %539, label %542
+  %535 = icmp ne ptr %534, null
+  %or.cond31 = select i1 %1, i1 %535, i1 false
+  br i1 %or.cond31, label %536, label %539
 
-539:                                              ; preds = %.thread541
-  %540 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %540, ptr @_ZN7VMError16_step_start_timeE, align 8
+536:                                              ; preds = %.thread541
+  %537 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %537, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
-  %541 = load ptr, ptr @_ZN7VMError8_contextE, align 8
-  call void @_ZN2os12print_tos_pcEP12outputStreamPKv(ptr noundef %0, ptr noundef %541) #21
+  %538 = load ptr, ptr @_ZN7VMError8_contextE, align 8
+  call void @_ZN2os12print_tos_pcEP12outputStreamPKv(ptr noundef %0, ptr noundef %538) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pre636.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %542
+  br label %539
 
-542:                                              ; preds = %539, %.thread541
-  %.pre636 = phi i32 [ %.pre636.pre, %539 ], [ 1094, %.thread541 ]
+539:                                              ; preds = %536, %.thread541
+  %.pre636 = phi i32 [ %.pre636.pre, %536 ], [ 1094, %.thread541 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %543
+  br label %540
 
-543:                                              ; preds = %542, %534
-  %544 = phi i32 [ %.pre636, %542 ], [ %535, %534 ]
-  %545 = icmp slt i32 %544, 1100
-  br i1 %545, label %546, label %573
+540:                                              ; preds = %539, %531
+  %541 = phi i32 [ %.pre636, %539 ], [ %532, %531 ]
+  %542 = icmp slt i32 %541, 1100
+  br i1 %542, label %543, label %569
 
-546:                                              ; preds = %543
+543:                                              ; preds = %540
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1100, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.87, ptr @_ZN7VMError18_current_step_infoE, align 8
-  %547 = load ptr, ptr @_ZN7VMError8_contextE, align 8
-  %548 = icmp ne ptr %547, null
-  %or.cond33 = select i1 %1, i1 %548, i1 false
-  %549 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  %550 = icmp ne ptr %549, null
-  %or.cond35 = select i1 %or.cond33, i1 %550, i1 false
-  br i1 %or.cond35, label %551, label %_ZN12ResourceMarkD2Ev.exit440
+  %544 = load ptr, ptr @_ZN7VMError8_contextE, align 8
+  %545 = icmp ne ptr %544, null
+  %or.cond33 = select i1 %1, i1 %545, i1 false
+  %546 = load ptr, ptr @_ZN7VMError7_threadE, align 8
+  %547 = icmp ne ptr %546, null
+  %or.cond35 = select i1 %or.cond33, i1 %547, i1 false
+  br i1 %or.cond35, label %548, label %_ZN12ResourceMarkD2Ev.exit440
 
-551:                                              ; preds = %546
-  %552 = load i8, ptr @_ZN8Universe18_fully_initializedE, align 1
-  %553 = trunc i8 %552 to i1
-  br i1 %553, label %554, label %_ZN12ResourceMarkD2Ev.exit440
+548:                                              ; preds = %543
+  %549 = load i8, ptr @_ZN8Universe18_fully_initializedE, align 1
+  %550 = trunc i8 %549 to i1
+  br i1 %550, label %551, label %_ZN12ResourceMarkD2Ev.exit440
 
-554:                                              ; preds = %551
-  %555 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %555, ptr @_ZN7VMError16_step_start_timeE, align 8
+551:                                              ; preds = %548
+  %552 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %552, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   store i32 0, ptr @_ZZN7VMError6reportEP12outputStreambE12continuation, align 4
-  %556 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  %557 = getelementptr inbounds i8, ptr %556, i64 800
-  %558 = load ptr, ptr %557, align 8
-  %559 = getelementptr inbounds i8, ptr %558, i64 24
-  %560 = load ptr, ptr %559, align 8
-  %561 = getelementptr inbounds i8, ptr %558, i64 32
-  %562 = load ptr, ptr %561, align 8
-  %563 = getelementptr inbounds i8, ptr %558, i64 40
-  %564 = load ptr, ptr %563, align 8
-  %565 = getelementptr inbounds i8, ptr %558, i64 8
-  %566 = load i64, ptr %565, align 8
+  %553 = load ptr, ptr @_ZN7VMError7_threadE, align 8
+  %554 = getelementptr inbounds i8, ptr %553, i64 800
+  %555 = load ptr, ptr %554, align 8
+  %556 = getelementptr inbounds i8, ptr %555, i64 24
+  %557 = load ptr, ptr %556, align 8
+  %558 = getelementptr inbounds i8, ptr %555, i64 32
+  %559 = load <2 x ptr>, ptr %558, align 8
+  %560 = load ptr, ptr %558, align 8
+  %561 = getelementptr inbounds i8, ptr %555, i64 8
+  %562 = load i64, ptr %561, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.88) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
-  %567 = load ptr, ptr @_ZN7VMError8_contextE, align 8
-  call fastcc void @_ZL20print_stack_locationP12outputStreamPvRi(ptr noundef %0, ptr noundef %567)
+  %563 = load ptr, ptr @_ZN7VMError8_contextE, align 8
+  call fastcc void @_ZL20print_stack_locationP12outputStreamPvRi(ptr noundef %0, ptr noundef %563)
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
-  %568 = load ptr, ptr %560, align 8
-  %.not.i.i.i.i438 = icmp eq ptr %568, null
-  br i1 %.not.i.i.i.i438, label %570, label %569
+  %564 = load ptr, ptr %557, align 8
+  %.not.i.i.i.i438 = icmp eq ptr %564, null
+  br i1 %.not.i.i.i.i438, label %566, label %565
 
-569:                                              ; preds = %554
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %558, i64 noundef %566) #21
-  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %560) #21
-  br label %570
+565:                                              ; preds = %551
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %555, i64 noundef %562) #21
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %557) #21
+  br label %566
 
-570:                                              ; preds = %569, %554
-  %571 = load ptr, ptr %561, align 8
-  %.not8.i.i.i.i439 = icmp eq ptr %571, %562
-  br i1 %.not8.i.i.i.i439, label %_ZN12ResourceMarkD2Ev.exit440, label %572
+566:                                              ; preds = %565, %551
+  %567 = load ptr, ptr %558, align 8
+  %.not8.i.i.i.i439 = icmp eq ptr %567, %560
+  br i1 %.not8.i.i.i.i439, label %_ZN12ResourceMarkD2Ev.exit440, label %568
 
-572:                                              ; preds = %570
-  store ptr %560, ptr %559, align 8
-  store ptr %562, ptr %561, align 8
-  store ptr %564, ptr %563, align 8
+568:                                              ; preds = %566
+  store ptr %557, ptr %556, align 8
+  store <2 x ptr> %559, ptr %558, align 8
   br label %_ZN12ResourceMarkD2Ev.exit440
 
-_ZN12ResourceMarkD2Ev.exit440:                    ; preds = %572, %570, %551, %546
+_ZN12ResourceMarkD2Ev.exit440:                    ; preds = %568, %566, %548, %543
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
   %.pr545 = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %573
+  br label %569
 
-573:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit440, %543
-  %574 = phi i32 [ %.pr545, %_ZN12ResourceMarkD2Ev.exit440 ], [ %544, %543 ]
-  %575 = icmp slt i32 %574, 1109
-  br i1 %575, label %576, label %622
+569:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit440, %540
+  %570 = phi i32 [ %.pr545, %_ZN12ResourceMarkD2Ev.exit440 ], [ %541, %540 ]
+  %571 = icmp slt i32 %570, 1109
+  br i1 %571, label %572, label %617
 
-576:                                              ; preds = %573
-  %577 = load volatile i8, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  %578 = trunc i8 %577 to i1
-  br i1 %578, label %.thread692, label %579
+572:                                              ; preds = %569
+  %573 = load volatile i8, ptr @_ZN7VMError17_step_did_succeedE, align 1
+  %574 = trunc i8 %573 to i1
+  br i1 %574, label %.thread692, label %575
 
-579:                                              ; preds = %576
+575:                                              ; preds = %572
   store i32 1109, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.89, ptr @_ZN7VMError18_current_step_infoE, align 8
-  %580 = load ptr, ptr @_ZN7VMError8_contextE, align 8
-  %581 = icmp ne ptr %580, null
-  %or.cond37 = select i1 %1, i1 %581, i1 false
-  %582 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  %583 = icmp ne ptr %582, null
-  %or.cond39 = select i1 %or.cond37, i1 %583, i1 false
-  br i1 %or.cond39, label %584, label %.critedge404
+  %576 = load ptr, ptr @_ZN7VMError8_contextE, align 8
+  %577 = icmp ne ptr %576, null
+  %or.cond37 = select i1 %1, i1 %577, i1 false
+  %578 = load ptr, ptr @_ZN7VMError7_threadE, align 8
+  %579 = icmp ne ptr %578, null
+  %or.cond39 = select i1 %or.cond37, i1 %579, i1 false
+  br i1 %or.cond39, label %580, label %.critedge404
 
-584:                                              ; preds = %579
-  %585 = load i8, ptr @_ZN8Universe18_fully_initializedE, align 1
-  %586 = trunc i8 %585 to i1
-  br i1 %586, label %587, label %.critedge404
+580:                                              ; preds = %575
+  %581 = load i8, ptr @_ZN8Universe18_fully_initializedE, align 1
+  %582 = trunc i8 %581 to i1
+  br i1 %582, label %583, label %.critedge404
 
-587:                                              ; preds = %584
+583:                                              ; preds = %580
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 0, ptr %6, align 8
   store ptr null, ptr %7, align 8
   call void @_ZN2os27current_stack_base_and_sizeEPPhPm(ptr noundef nonnull %7, ptr noundef nonnull %6) #21
-  %588 = load i64, ptr @_ZN13StackOverflow20_stack_red_zone_sizeE, align 8
-  %589 = load i64, ptr @_ZN13StackOverflow23_stack_yellow_zone_sizeE, align 8
-  %590 = load i64, ptr @_ZN13StackOverflow25_stack_reserved_zone_sizeE, align 8
-  %591 = load i64, ptr %6, align 8
-  %592 = add i64 %589, %588
-  %593 = add i64 %592, %590
-  %594 = sub i64 %591, %593
-  %595 = icmp ult i64 %594, 65536
-  br i1 %595, label %_ZL18stack_has_headroomm.exit.thread.i446, label %_ZL18stack_has_headroomm.exit.i441
+  %584 = load i64, ptr @_ZN13StackOverflow20_stack_red_zone_sizeE, align 8
+  %585 = load i64, ptr @_ZN13StackOverflow23_stack_yellow_zone_sizeE, align 8
+  %586 = load i64, ptr @_ZN13StackOverflow25_stack_reserved_zone_sizeE, align 8
+  %587 = load i64, ptr %6, align 8
+  %588 = add i64 %585, %584
+  %589 = add i64 %588, %586
+  %590 = sub i64 %587, %589
+  %591 = icmp ult i64 %590, 65536
+  br i1 %591, label %_ZL18stack_has_headroomm.exit.thread.i446, label %_ZL18stack_has_headroomm.exit.i441
 
-_ZL18stack_has_headroomm.exit.thread.i446:        ; preds = %587
+_ZL18stack_has_headroomm.exit.thread.i446:        ; preds = %583
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %.sink.split.i444
 
-_ZL18stack_has_headroomm.exit.i441:               ; preds = %587
-  %596 = load ptr, ptr %7, align 8
-  %597 = sub i64 0, %594
-  %598 = getelementptr inbounds i8, ptr %596, i64 %597
-  %599 = call noundef ptr @_ZN2os21current_stack_pointerEv() #21
-  %600 = getelementptr inbounds i8, ptr %598, i64 65536
-  %.not.i442 = icmp ult ptr %599, %600
+_ZL18stack_has_headroomm.exit.i441:               ; preds = %583
+  %592 = load ptr, ptr %7, align 8
+  %593 = sub i64 0, %590
+  %594 = getelementptr inbounds i8, ptr %592, i64 %593
+  %595 = call noundef ptr @_ZN2os21current_stack_pointerEv() #21
+  %596 = getelementptr inbounds i8, ptr %594, i64 65536
+  %.not.i442 = icmp ult ptr %595, %596
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br i1 %.not.i442, label %.sink.split.i444, label %601
+  br i1 %.not.i442, label %.sink.split.i444, label %597
 
-601:                                              ; preds = %_ZL18stack_has_headroomm.exit.i441
-  %602 = load volatile i8, ptr @_ZN7VMError17_step_did_timeoutE, align 1
-  %603 = trunc i8 %602 to i1
-  br i1 %603, label %.sink.split.i444, label %_ZN7VMError18can_reattempt_stepERPKc.exit447
+597:                                              ; preds = %_ZL18stack_has_headroomm.exit.i441
+  %598 = load volatile i8, ptr @_ZN7VMError17_step_did_timeoutE, align 1
+  %599 = trunc i8 %598 to i1
+  br i1 %599, label %.sink.split.i444, label %_ZN7VMError18can_reattempt_stepERPKc.exit447
 
-.sink.split.i444:                                 ; preds = %601, %_ZL18stack_has_headroomm.exit.i441, %_ZL18stack_has_headroomm.exit.thread.i446
-  %.11.ph = phi ptr [ @.str, %_ZL18stack_has_headroomm.exit.i441 ], [ @.str, %_ZL18stack_has_headroomm.exit.thread.i446 ], [ @.str.4, %601 ]
-  %604 = load ptr, ptr @_ZN7VMError18_current_step_infoE, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.73, ptr noundef %604, ptr noundef nonnull %.11.ph) #21
+.sink.split.i444:                                 ; preds = %597, %_ZL18stack_has_headroomm.exit.i441, %_ZL18stack_has_headroomm.exit.thread.i446
+  %.11.ph = phi ptr [ @.str, %_ZL18stack_has_headroomm.exit.i441 ], [ @.str, %_ZL18stack_has_headroomm.exit.thread.i446 ], [ @.str.4, %597 ]
+  %600 = load ptr, ptr @_ZN7VMError18_current_step_infoE, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.73, ptr noundef %600, ptr noundef nonnull %.11.ph) #21
   br label %.critedge404
 
-_ZN7VMError18can_reattempt_stepERPKc.exit447:     ; preds = %601
-  %605 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  %606 = getelementptr inbounds i8, ptr %605, i64 800
-  %607 = load ptr, ptr %606, align 8
-  %608 = getelementptr inbounds i8, ptr %607, i64 24
-  %609 = load ptr, ptr %608, align 8
-  %610 = getelementptr inbounds i8, ptr %607, i64 32
-  %611 = load ptr, ptr %610, align 8
-  %612 = getelementptr inbounds i8, ptr %607, i64 40
-  %613 = load ptr, ptr %612, align 8
-  %614 = getelementptr inbounds i8, ptr %607, i64 8
-  %615 = load i64, ptr %614, align 8
-  %616 = load ptr, ptr @_ZN7VMError8_contextE, align 8
-  call fastcc void @_ZL20print_stack_locationP12outputStreamPvRi(ptr noundef %0, ptr noundef %616)
+_ZN7VMError18can_reattempt_stepERPKc.exit447:     ; preds = %597
+  %601 = load ptr, ptr @_ZN7VMError7_threadE, align 8
+  %602 = getelementptr inbounds i8, ptr %601, i64 800
+  %603 = load ptr, ptr %602, align 8
+  %604 = getelementptr inbounds i8, ptr %603, i64 24
+  %605 = load ptr, ptr %604, align 8
+  %606 = getelementptr inbounds i8, ptr %603, i64 32
+  %607 = load <2 x ptr>, ptr %606, align 8
+  %608 = load ptr, ptr %606, align 8
+  %609 = getelementptr inbounds i8, ptr %603, i64 8
+  %610 = load i64, ptr %609, align 8
+  %611 = load ptr, ptr @_ZN7VMError8_contextE, align 8
+  call fastcc void @_ZL20print_stack_locationP12outputStreamPvRi(ptr noundef %0, ptr noundef %611)
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
-  %617 = load ptr, ptr %609, align 8
-  %.not.i.i.i.i448 = icmp eq ptr %617, null
-  br i1 %.not.i.i.i.i448, label %619, label %618
+  %612 = load ptr, ptr %605, align 8
+  %.not.i.i.i.i448 = icmp eq ptr %612, null
+  br i1 %.not.i.i.i.i448, label %614, label %613
 
-618:                                              ; preds = %_ZN7VMError18can_reattempt_stepERPKc.exit447
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %607, i64 noundef %615) #21
-  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %609) #21
-  br label %619
+613:                                              ; preds = %_ZN7VMError18can_reattempt_stepERPKc.exit447
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %603, i64 noundef %610) #21
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %605) #21
+  br label %614
 
-619:                                              ; preds = %618, %_ZN7VMError18can_reattempt_stepERPKc.exit447
-  %620 = load ptr, ptr %610, align 8
-  %.not8.i.i.i.i449 = icmp eq ptr %620, %611
-  br i1 %.not8.i.i.i.i449, label %.critedge404, label %621
+614:                                              ; preds = %613, %_ZN7VMError18can_reattempt_stepERPKc.exit447
+  %615 = load ptr, ptr %606, align 8
+  %.not8.i.i.i.i449 = icmp eq ptr %615, %608
+  br i1 %.not8.i.i.i.i449, label %.critedge404, label %616
 
-621:                                              ; preds = %619
-  store ptr %609, ptr %608, align 8
-  store ptr %611, ptr %610, align 8
-  store ptr %613, ptr %612, align 8
+616:                                              ; preds = %614
+  store ptr %605, ptr %604, align 8
+  store <2 x ptr> %607, ptr %606, align 8
   br label %.critedge404
 
-.critedge404:                                     ; preds = %579, %621, %619, %584, %.sink.split.i444
+.critedge404:                                     ; preds = %575, %616, %614, %580, %.sink.split.i444
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
   %.pre637 = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %622
+  br label %617
 
-622:                                              ; preds = %.critedge404, %573
-  %623 = phi i32 [ %.pre637, %.critedge404 ], [ %574, %573 ]
-  %624 = icmp slt i32 %623, 1115
-  br i1 %624, label %.thread692, label %669
+617:                                              ; preds = %.critedge404, %569
+  %618 = phi i32 [ %.pre637, %.critedge404 ], [ %570, %569 ]
+  %619 = icmp slt i32 %618, 1115
+  br i1 %619, label %.thread692, label %663
 
-.thread692:                                       ; preds = %576, %622
-  %625 = load volatile i8, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  %626 = trunc i8 %625 to i1
+.thread692:                                       ; preds = %572, %617
+  %620 = load volatile i8, ptr @_ZN7VMError17_step_did_succeedE, align 1
+  %621 = trunc i8 %620 to i1
   %.pre639 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  br i1 %626, label %.thread555, label %627
+  br i1 %621, label %.thread555, label %622
 
-627:                                              ; preds = %.thread692
+622:                                              ; preds = %.thread692
   store i32 1115, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.90, ptr @_ZN7VMError18_current_step_infoE, align 8
-  %628 = load ptr, ptr @_ZN7VMError8_contextE, align 8
-  %629 = icmp ne ptr %628, null
-  %or.cond41 = select i1 %1, i1 %629, i1 false
-  %630 = icmp ne ptr %.pre639, null
-  %or.cond43 = select i1 %or.cond41, i1 %630, i1 false
-  br i1 %or.cond43, label %631, label %.critedge406
+  %623 = load ptr, ptr @_ZN7VMError8_contextE, align 8
+  %624 = icmp ne ptr %623, null
+  %or.cond41 = select i1 %1, i1 %624, i1 false
+  %625 = icmp ne ptr %.pre639, null
+  %or.cond43 = select i1 %or.cond41, i1 %625, i1 false
+  br i1 %or.cond43, label %626, label %.critedge406
 
-631:                                              ; preds = %627
-  %632 = load i8, ptr @_ZN8Universe18_fully_initializedE, align 1
-  %633 = trunc i8 %632 to i1
-  br i1 %633, label %634, label %.critedge406
+626:                                              ; preds = %622
+  %627 = load i8, ptr @_ZN8Universe18_fully_initializedE, align 1
+  %628 = trunc i8 %627 to i1
+  br i1 %628, label %629, label %.critedge406
 
-634:                                              ; preds = %631
+629:                                              ; preds = %626
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 0, ptr %4, align 8
   store ptr null, ptr %5, align 8
   call void @_ZN2os27current_stack_base_and_sizeEPPhPm(ptr noundef nonnull %5, ptr noundef nonnull %4) #21
-  %635 = load i64, ptr @_ZN13StackOverflow20_stack_red_zone_sizeE, align 8
-  %636 = load i64, ptr @_ZN13StackOverflow23_stack_yellow_zone_sizeE, align 8
-  %637 = load i64, ptr @_ZN13StackOverflow25_stack_reserved_zone_sizeE, align 8
-  %638 = load i64, ptr %4, align 8
-  %639 = add i64 %636, %635
-  %640 = add i64 %639, %637
-  %641 = sub i64 %638, %640
-  %642 = icmp ult i64 %641, 65536
-  br i1 %642, label %_ZL18stack_has_headroomm.exit.thread.i456, label %_ZL18stack_has_headroomm.exit.i451
+  %630 = load i64, ptr @_ZN13StackOverflow20_stack_red_zone_sizeE, align 8
+  %631 = load i64, ptr @_ZN13StackOverflow23_stack_yellow_zone_sizeE, align 8
+  %632 = load i64, ptr @_ZN13StackOverflow25_stack_reserved_zone_sizeE, align 8
+  %633 = load i64, ptr %4, align 8
+  %634 = add i64 %631, %630
+  %635 = add i64 %634, %632
+  %636 = sub i64 %633, %635
+  %637 = icmp ult i64 %636, 65536
+  br i1 %637, label %_ZL18stack_has_headroomm.exit.thread.i456, label %_ZL18stack_has_headroomm.exit.i451
 
-_ZL18stack_has_headroomm.exit.thread.i456:        ; preds = %634
+_ZL18stack_has_headroomm.exit.thread.i456:        ; preds = %629
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %.sink.split.i454
 
-_ZL18stack_has_headroomm.exit.i451:               ; preds = %634
-  %643 = load ptr, ptr %5, align 8
-  %644 = sub i64 0, %641
-  %645 = getelementptr inbounds i8, ptr %643, i64 %644
-  %646 = call noundef ptr @_ZN2os21current_stack_pointerEv() #21
-  %647 = getelementptr inbounds i8, ptr %645, i64 65536
-  %.not.i452 = icmp ult ptr %646, %647
+_ZL18stack_has_headroomm.exit.i451:               ; preds = %629
+  %638 = load ptr, ptr %5, align 8
+  %639 = sub i64 0, %636
+  %640 = getelementptr inbounds i8, ptr %638, i64 %639
+  %641 = call noundef ptr @_ZN2os21current_stack_pointerEv() #21
+  %642 = getelementptr inbounds i8, ptr %640, i64 65536
+  %.not.i452 = icmp ult ptr %641, %642
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %.not.i452, label %.sink.split.i454, label %648
+  br i1 %.not.i452, label %.sink.split.i454, label %643
 
-648:                                              ; preds = %_ZL18stack_has_headroomm.exit.i451
-  %649 = load volatile i8, ptr @_ZN7VMError17_step_did_timeoutE, align 1
-  %650 = trunc i8 %649 to i1
-  br i1 %650, label %.sink.split.i454, label %_ZN7VMError18can_reattempt_stepERPKc.exit457
+643:                                              ; preds = %_ZL18stack_has_headroomm.exit.i451
+  %644 = load volatile i8, ptr @_ZN7VMError17_step_did_timeoutE, align 1
+  %645 = trunc i8 %644 to i1
+  br i1 %645, label %.sink.split.i454, label %_ZN7VMError18can_reattempt_stepERPKc.exit457
 
-.sink.split.i454:                                 ; preds = %648, %_ZL18stack_has_headroomm.exit.i451, %_ZL18stack_has_headroomm.exit.thread.i456
-  %.12.ph = phi ptr [ @.str, %_ZL18stack_has_headroomm.exit.i451 ], [ @.str, %_ZL18stack_has_headroomm.exit.thread.i456 ], [ @.str.4, %648 ]
-  %651 = load ptr, ptr @_ZN7VMError18_current_step_infoE, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.73, ptr noundef %651, ptr noundef nonnull %.12.ph) #21
+.sink.split.i454:                                 ; preds = %643, %_ZL18stack_has_headroomm.exit.i451, %_ZL18stack_has_headroomm.exit.thread.i456
+  %.12.ph = phi ptr [ @.str, %_ZL18stack_has_headroomm.exit.i451 ], [ @.str, %_ZL18stack_has_headroomm.exit.thread.i456 ], [ @.str.4, %643 ]
+  %646 = load ptr, ptr @_ZN7VMError18_current_step_infoE, align 8
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.73, ptr noundef %646, ptr noundef nonnull %.12.ph) #21
   br label %.critedge406
 
-_ZN7VMError18can_reattempt_stepERPKc.exit457:     ; preds = %648
-  %652 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  %653 = getelementptr inbounds i8, ptr %652, i64 800
-  %654 = load ptr, ptr %653, align 8
-  %655 = getelementptr inbounds i8, ptr %654, i64 24
-  %656 = load ptr, ptr %655, align 8
-  %657 = getelementptr inbounds i8, ptr %654, i64 32
-  %658 = load ptr, ptr %657, align 8
-  %659 = getelementptr inbounds i8, ptr %654, i64 40
-  %660 = load ptr, ptr %659, align 8
-  %661 = getelementptr inbounds i8, ptr %654, i64 8
-  %662 = load i64, ptr %661, align 8
-  %663 = load ptr, ptr @_ZN7VMError8_contextE, align 8
-  call fastcc void @_ZL20print_stack_locationP12outputStreamPvRi(ptr noundef %0, ptr noundef %663)
+_ZN7VMError18can_reattempt_stepERPKc.exit457:     ; preds = %643
+  %647 = load ptr, ptr @_ZN7VMError7_threadE, align 8
+  %648 = getelementptr inbounds i8, ptr %647, i64 800
+  %649 = load ptr, ptr %648, align 8
+  %650 = getelementptr inbounds i8, ptr %649, i64 24
+  %651 = load ptr, ptr %650, align 8
+  %652 = getelementptr inbounds i8, ptr %649, i64 32
+  %653 = load <2 x ptr>, ptr %652, align 8
+  %654 = load ptr, ptr %652, align 8
+  %655 = getelementptr inbounds i8, ptr %649, i64 8
+  %656 = load i64, ptr %655, align 8
+  %657 = load ptr, ptr @_ZN7VMError8_contextE, align 8
+  call fastcc void @_ZL20print_stack_locationP12outputStreamPvRi(ptr noundef %0, ptr noundef %657)
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
-  %664 = load ptr, ptr %656, align 8
-  %.not.i.i.i.i458 = icmp eq ptr %664, null
-  br i1 %.not.i.i.i.i458, label %666, label %665
+  %658 = load ptr, ptr %651, align 8
+  %.not.i.i.i.i458 = icmp eq ptr %658, null
+  br i1 %.not.i.i.i.i458, label %660, label %659
 
-665:                                              ; preds = %_ZN7VMError18can_reattempt_stepERPKc.exit457
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %654, i64 noundef %662) #21
-  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %656) #21
-  br label %666
+659:                                              ; preds = %_ZN7VMError18can_reattempt_stepERPKc.exit457
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %649, i64 noundef %656) #21
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %651) #21
+  br label %660
 
-666:                                              ; preds = %665, %_ZN7VMError18can_reattempt_stepERPKc.exit457
-  %667 = load ptr, ptr %657, align 8
-  %.not8.i.i.i.i459 = icmp eq ptr %667, %658
-  br i1 %.not8.i.i.i.i459, label %.critedge406, label %668
+660:                                              ; preds = %659, %_ZN7VMError18can_reattempt_stepERPKc.exit457
+  %661 = load ptr, ptr %652, align 8
+  %.not8.i.i.i.i459 = icmp eq ptr %661, %654
+  br i1 %.not8.i.i.i.i459, label %.critedge406, label %662
 
-668:                                              ; preds = %666
-  store ptr %656, ptr %655, align 8
-  store ptr %658, ptr %657, align 8
-  store ptr %660, ptr %659, align 8
+662:                                              ; preds = %660
+  store ptr %651, ptr %650, align 8
+  store <2 x ptr> %653, ptr %652, align 8
   br label %.critedge406
 
-.critedge406:                                     ; preds = %627, %668, %666, %631, %.sink.split.i454
+.critedge406:                                     ; preds = %622, %662, %660, %626, %.sink.split.i454
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
   %.pr554 = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %669
+  br label %663
 
-669:                                              ; preds = %.critedge406, %622
-  %670 = phi i32 [ %.pr554, %.critedge406 ], [ %623, %622 ]
-  %671 = icmp slt i32 %670, 1120
-  br i1 %671, label %..thread555_crit_edge, label %686
+663:                                              ; preds = %.critedge406, %617
+  %664 = phi i32 [ %.pr554, %.critedge406 ], [ %618, %617 ]
+  %665 = icmp slt i32 %664, 1120
+  br i1 %665, label %..thread555_crit_edge, label %680
 
-..thread555_crit_edge:                            ; preds = %669
+..thread555_crit_edge:                            ; preds = %663
   %.pre638 = load ptr, ptr @_ZN7VMError7_threadE, align 8
   br label %.thread555
 
 .thread555:                                       ; preds = %..thread555_crit_edge, %.thread692
-  %672 = phi ptr [ %.pre638, %..thread555_crit_edge ], [ %.pre639, %.thread692 ]
+  %666 = phi ptr [ %.pre638, %..thread555_crit_edge ], [ %.pre639, %.thread692 ]
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1120, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.91, ptr @_ZN7VMError18_current_step_infoE, align 8
-  %673 = icmp ne ptr %672, null
-  %or.cond45 = select i1 %1, i1 %673, i1 false
-  br i1 %or.cond45, label %674, label %685
+  %667 = icmp ne ptr %666, null
+  %or.cond45 = select i1 %1, i1 %667, i1 false
+  br i1 %or.cond45, label %668, label %679
 
-674:                                              ; preds = %.thread555
-  %675 = load ptr, ptr %672, align 8
-  %676 = getelementptr inbounds i8, ptr %675, i64 56
-  %677 = load ptr, ptr %676, align 8
-  %678 = call noundef zeroext i1 %677(ptr noundef nonnull align 8 dereferenceable(888) %672) #21
-  %679 = load i32, ptr @LockingMode, align 4
-  %680 = icmp eq i32 %679, 2
-  %or.cond47 = select i1 %678, i1 %680, i1 false
-  br i1 %or.cond47, label %681, label %685
+668:                                              ; preds = %.thread555
+  %669 = load ptr, ptr %666, align 8
+  %670 = getelementptr inbounds i8, ptr %669, i64 56
+  %671 = load ptr, ptr %670, align 8
+  %672 = call noundef zeroext i1 %671(ptr noundef nonnull align 8 dereferenceable(888) %666) #21
+  %673 = load i32, ptr @LockingMode, align 4
+  %674 = icmp eq i32 %673, 2
+  %or.cond47 = select i1 %672, i1 %674, i1 false
+  br i1 %or.cond47, label %675, label %679
 
-681:                                              ; preds = %674
-  %682 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %682, ptr @_ZN7VMError16_step_start_timeE, align 8
+675:                                              ; preds = %668
+  %676 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %676, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.92) #21
-  %683 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  %684 = getelementptr inbounds i8, ptr %683, i64 1720
-  call void @_ZN9LockStack8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(80) %684, ptr noundef %0) #21
+  %677 = load ptr, ptr @_ZN7VMError7_threadE, align 8
+  %678 = getelementptr inbounds i8, ptr %677, i64 1720
+  call void @_ZN9LockStack8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(80) %678, ptr noundef %0) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
-  br label %685
+  br label %679
 
-685:                                              ; preds = %681, %674, %.thread555
+679:                                              ; preds = %675, %668, %.thread555
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
   %.pre640 = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %686
+  br label %680
 
-686:                                              ; preds = %685, %669
-  %687 = phi i32 [ %.pre640, %685 ], [ %670, %669 ]
-  %688 = icmp slt i32 %687, 1125
-  br i1 %688, label %689, label %771
+680:                                              ; preds = %679, %663
+  %681 = phi i32 [ %.pre640, %679 ], [ %664, %663 ]
+  %682 = icmp slt i32 %681, 1125
+  br i1 %682, label %683, label %765
 
-689:                                              ; preds = %686
+683:                                              ; preds = %680
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1125, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.93, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %690, label %.critedge49
+  br i1 %1, label %684, label %.critedge49
 
-690:                                              ; preds = %689
-  %691 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %691, ptr @_ZN7VMError16_step_start_timeE, align 8
+684:                                              ; preds = %683
+  %685 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %685, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   store ptr null, ptr %20, align 16
-  %692 = load i32, ptr @ErrorLogPrintCodeLimit, align 4
-  %693 = call noundef i32 @llvm.smin.i32(i32 %692, i32 10)
-  %694 = icmp sgt i32 %692, 0
-  br i1 %694, label %695, label %.critedge49
+  %686 = load i32, ptr @ErrorLogPrintCodeLimit, align 4
+  %687 = call noundef i32 @llvm.smin.i32(i32 %686, i32 10)
+  %688 = icmp sgt i32 %686, 0
+  br i1 %688, label %689, label %.critedge49
 
-695:                                              ; preds = %690
-  %696 = load i8, ptr @_ZN7VMError24_print_native_stack_usedE, align 1
-  %697 = trunc i8 %696 to i1
-  br i1 %697, label %702, label %698
+689:                                              ; preds = %684
+  %690 = load i8, ptr @_ZN7VMError24_print_native_stack_usedE, align 1
+  %691 = trunc i8 %690 to i1
+  br i1 %691, label %696, label %692
 
-698:                                              ; preds = %695
-  %699 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  %700 = load ptr, ptr @_ZN7VMError3_pcE, align 8
-  %701 = call fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i(ptr noundef %0, ptr noundef %699, ptr noundef %700, i1 noundef zeroext true, ptr noundef nonnull %20)
-  %spec.select407 = zext i1 %701 to i32
+692:                                              ; preds = %689
+  %693 = load ptr, ptr @_ZN7VMError7_threadE, align 8
+  %694 = load ptr, ptr @_ZN7VMError3_pcE, align 8
+  %695 = call fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i(ptr noundef %0, ptr noundef %693, ptr noundef %694, i1 noundef zeroext true, ptr noundef nonnull %20)
+  %spec.select407 = zext i1 %695 to i32
   br label %.critedge
 
-702:                                              ; preds = %695
-  %703 = load ptr, ptr @_ZN7VMError8_contextE, align 8
-  %.not389 = icmp eq ptr %703, null
-  br i1 %.not389, label %705, label %704
+696:                                              ; preds = %689
+  %697 = load ptr, ptr @_ZN7VMError8_contextE, align 8
+  %.not389 = icmp eq ptr %697, null
+  br i1 %.not389, label %699, label %698
 
-704:                                              ; preds = %702
-  call void @_ZN2os24fetch_frame_from_contextEPKv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %21, ptr noundef nonnull %703) #21
+698:                                              ; preds = %696
+  call void @_ZN2os24fetch_frame_from_contextEPKv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %21, ptr noundef nonnull %697) #21
   br label %.lr.ph.preheader
 
-705:                                              ; preds = %702
+699:                                              ; preds = %696
   call void @_ZN2os13current_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %21) #21
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %704, %705
-  %706 = getelementptr inbounds i8, ptr %21, i64 8
+.lr.ph.preheader:                                 ; preds = %698, %699
+  %700 = getelementptr inbounds i8, ptr %21, i64 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %708
-  %.2603 = phi i32 [ %spec.select408, %708 ], [ 0, %.lr.ph.preheader ]
-  %707 = load ptr, ptr %706, align 8
-  %.not390 = icmp eq ptr %707, null
-  br i1 %.not390, label %.critedge, label %708
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %702
+  %.2603 = phi i32 [ %spec.select408, %702 ], [ 0, %.lr.ph.preheader ]
+  %701 = load ptr, ptr %700, align 8
+  %.not390 = icmp eq ptr %701, null
+  br i1 %.not390, label %.critedge, label %702
 
-708:                                              ; preds = %.lr.ph
-  %709 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  %710 = load ptr, ptr @_ZN7VMError3_pcE, align 8
-  %711 = icmp eq ptr %707, %710
-  %712 = call fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i(ptr noundef %0, ptr noundef %709, ptr noundef nonnull %707, i1 noundef zeroext %711, ptr noundef nonnull %20)
-  %713 = zext i1 %712 to i32
-  %spec.select408 = add nuw nsw i32 %.2603, %713
-  %714 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  call fastcc void @_ZL10next_frame5frameP6Thread(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull byval(%class.frame) align 8 %21, ptr noundef %714)
+702:                                              ; preds = %.lr.ph
+  %703 = load ptr, ptr @_ZN7VMError7_threadE, align 8
+  %704 = load ptr, ptr @_ZN7VMError3_pcE, align 8
+  %705 = icmp eq ptr %701, %704
+  %706 = call fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i(ptr noundef %0, ptr noundef %703, ptr noundef nonnull %701, i1 noundef zeroext %705, ptr noundef nonnull %20)
+  %707 = zext i1 %706 to i32
+  %spec.select408 = add nuw nsw i32 %.2603, %707
+  %708 = load ptr, ptr @_ZN7VMError7_threadE, align 8
+  call fastcc void @_ZL10next_frame5frameP6Thread(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull byval(%class.frame) align 8 %21, ptr noundef %708)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %22, i64 56, i1 false)
-  %715 = icmp slt i32 %spec.select408, %693
-  br i1 %715, label %.lr.ph, label %.critedge, !llvm.loop !15
+  %709 = icmp slt i32 %spec.select408, %687
+  br i1 %709, label %.lr.ph, label %.critedge, !llvm.loop !15
 
-.critedge:                                        ; preds = %708, %.lr.ph, %698
-  %.1 = phi i32 [ %spec.select407, %698 ], [ %spec.select408, %708 ], [ %.2603, %.lr.ph ]
-  %716 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  %.not391 = icmp eq ptr %716, null
-  br i1 %.not391, label %.critedge49, label %717
+.critedge:                                        ; preds = %702, %.lr.ph, %692
+  %.1 = phi i32 [ %spec.select407, %692 ], [ %spec.select408, %702 ], [ %.2603, %.lr.ph ]
+  %710 = load ptr, ptr @_ZN7VMError7_threadE, align 8
+  %.not391 = icmp eq ptr %710, null
+  br i1 %.not391, label %.critedge49, label %711
 
-717:                                              ; preds = %.critedge
-  %718 = load ptr, ptr %716, align 8
-  %719 = getelementptr inbounds i8, ptr %718, i64 56
-  %720 = load ptr, ptr %719, align 8
-  %721 = call noundef zeroext i1 %720(ptr noundef nonnull align 8 dereferenceable(888) %716) #21
-  br i1 %721, label %722, label %.critedge49
+711:                                              ; preds = %.critedge
+  %712 = load ptr, ptr %710, align 8
+  %713 = getelementptr inbounds i8, ptr %712, i64 56
+  %714 = load ptr, ptr %713, align 8
+  %715 = call noundef zeroext i1 %714(ptr noundef nonnull align 8 dereferenceable(888) %710) #21
+  br i1 %715, label %716, label %.critedge49
 
-722:                                              ; preds = %717
-  %723 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  %724 = getelementptr inbounds i8, ptr %723, i64 928
-  %725 = load volatile ptr, ptr %724, align 8
-  %.not578 = icmp eq ptr %725, null
-  br i1 %.not578, label %.critedge49, label %726
+716:                                              ; preds = %711
+  %717 = load ptr, ptr @_ZN7VMError7_threadE, align 8
+  %718 = getelementptr inbounds i8, ptr %717, i64 928
+  %719 = load volatile ptr, ptr %718, align 8
+  %.not578 = icmp eq ptr %719, null
+  br i1 %.not578, label %.critedge49, label %720
 
-726:                                              ; preds = %722
-  call void @_ZN16StackFrameStreamC1EP10JavaThreadbbb(ptr noundef nonnull align 8 dereferenceable(5041) %23, ptr noundef nonnull %723, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext false) #21
-  %727 = icmp slt i32 %.1, %693
-  br i1 %727, label %.lr.ph607, label %.critedge49
+720:                                              ; preds = %716
+  call void @_ZN16StackFrameStreamC1EP10JavaThreadbbb(ptr noundef nonnull align 8 dereferenceable(5041) %23, ptr noundef nonnull %717, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext false) #21
+  %721 = icmp slt i32 %.1, %687
+  br i1 %721, label %.lr.ph607, label %.critedge49
 
-.lr.ph607:                                        ; preds = %726
-  %728 = getelementptr inbounds i8, ptr %23, i64 5040
-  %729 = getelementptr inbounds i8, ptr %23, i64 8
-  %730 = getelementptr inbounds i8, ptr %23, i64 16
-  %731 = getelementptr inbounds i8, ptr %23, i64 56
-  %732 = getelementptr inbounds i8, ptr %23, i64 5037
-  %733 = getelementptr inbounds i8, ptr %23, i64 5024
-  %734 = getelementptr inbounds i8, ptr %23, i64 5016
-  br label %735
+.lr.ph607:                                        ; preds = %720
+  %722 = getelementptr inbounds i8, ptr %23, i64 5040
+  %723 = getelementptr inbounds i8, ptr %23, i64 8
+  %724 = getelementptr inbounds i8, ptr %23, i64 16
+  %725 = getelementptr inbounds i8, ptr %23, i64 56
+  %726 = getelementptr inbounds i8, ptr %23, i64 5037
+  %727 = getelementptr inbounds i8, ptr %23, i64 5024
+  %728 = getelementptr inbounds i8, ptr %23, i64 5016
+  br label %729
 
-735:                                              ; preds = %.lr.ph607, %_ZN16StackFrameStream4nextEv.exit
+729:                                              ; preds = %.lr.ph607, %_ZN16StackFrameStream4nextEv.exit
   %.4606 = phi i32 [ %.1, %.lr.ph607 ], [ %spec.select409, %_ZN16StackFrameStream4nextEv.exit ]
-  %736 = load i8, ptr %728, align 8
-  %737 = trunc i8 %736 to i1
-  br i1 %737, label %.critedge49, label %738
+  %730 = load i8, ptr %722, align 8
+  %731 = trunc i8 %730 to i1
+  br i1 %731, label %.critedge49, label %732
 
-738:                                              ; preds = %735
-  %739 = load ptr, ptr %729, align 8
-  %740 = load ptr, ptr @_ZN12StubRoutines25_call_stub_return_addressE, align 8
-  %741 = icmp eq ptr %740, %739
-  br i1 %741, label %742, label %744
+732:                                              ; preds = %729
+  %733 = load ptr, ptr %723, align 8
+  %734 = load ptr, ptr @_ZN12StubRoutines25_call_stub_return_addressE, align 8
+  %735 = icmp eq ptr %734, %733
+  br i1 %735, label %736, label %738
 
-742:                                              ; preds = %738
-  %743 = call noundef zeroext i1 @_ZNK5frame20entry_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(56) %23) #21
-  br i1 %743, label %752, label %744
+736:                                              ; preds = %732
+  %737 = call noundef zeroext i1 @_ZNK5frame20entry_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(56) %23) #21
+  br i1 %737, label %746, label %738
 
-744:                                              ; preds = %742, %738
-  %745 = load ptr, ptr %730, align 8
-  %.not.i.i.i461 = icmp eq ptr %745, null
-  br i1 %.not.i.i.i461, label %752, label %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i
+738:                                              ; preds = %736, %732
+  %739 = load ptr, ptr %724, align 8
+  %.not.i.i.i461 = icmp eq ptr %739, null
+  br i1 %.not.i.i.i461, label %746, label %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i
 
-_ZNK5frame20is_upcall_stub_frameEv.exit.i.i:      ; preds = %744
-  %746 = getelementptr inbounds i8, ptr %745, i64 52
-  %747 = load i8, ptr %746, align 4
-  %748 = icmp eq i8 %747, 11
-  br i1 %748, label %749, label %752
+_ZNK5frame20is_upcall_stub_frameEv.exit.i.i:      ; preds = %738
+  %740 = getelementptr inbounds i8, ptr %739, i64 52
+  %741 = load i8, ptr %740, align 4
+  %742 = icmp eq i8 %741, 11
+  br i1 %742, label %743, label %746
 
-749:                                              ; preds = %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i
-  %750 = call noundef zeroext i1 @_ZNK5frame26upcall_stub_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(56) %23) #21
-  %751 = zext i1 %750 to i8
-  br label %752
+743:                                              ; preds = %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i
+  %744 = call noundef zeroext i1 @_ZNK5frame26upcall_stub_frame_is_firstEv(ptr noundef nonnull align 8 dereferenceable(56) %23) #21
+  %745 = zext i1 %744 to i8
+  br label %746
 
-752:                                              ; preds = %749, %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i, %744, %742
-  %753 = phi i8 [ 1, %742 ], [ 0, %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i ], [ %751, %749 ], [ 0, %744 ]
-  store i8 %753, ptr %728, align 8
-  %754 = load ptr, ptr %729, align 8
-  %755 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  %756 = load ptr, ptr @_ZN7VMError3_pcE, align 8
-  %757 = icmp eq ptr %754, %756
-  %758 = call fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i(ptr noundef %0, ptr noundef %755, ptr noundef %754, i1 noundef zeroext %757, ptr noundef nonnull %20)
-  %759 = zext i1 %758 to i32
-  %spec.select409 = add nsw i32 %.4606, %759
+746:                                              ; preds = %743, %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i, %738, %736
+  %747 = phi i8 [ 1, %736 ], [ 0, %_ZNK5frame20is_upcall_stub_frameEv.exit.i.i ], [ %745, %743 ], [ 0, %738 ]
+  store i8 %747, ptr %722, align 8
+  %748 = load ptr, ptr %723, align 8
+  %749 = load ptr, ptr @_ZN7VMError7_threadE, align 8
+  %750 = load ptr, ptr @_ZN7VMError3_pcE, align 8
+  %751 = icmp eq ptr %748, %750
+  %752 = call fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i(ptr noundef %0, ptr noundef %749, ptr noundef %748, i1 noundef zeroext %751, ptr noundef nonnull %20)
+  %753 = zext i1 %752 to i32
+  %spec.select409 = add nsw i32 %.4606, %753
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  %760 = load i8, ptr %728, align 8
-  %761 = trunc i8 %760 to i1
-  br i1 %761, label %_ZN16StackFrameStream4nextEv.exit, label %762
+  %754 = load i8, ptr %722, align 8
+  %755 = trunc i8 %754 to i1
+  br i1 %755, label %_ZN16StackFrameStream4nextEv.exit, label %756
 
-762:                                              ; preds = %752
-  call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %3, ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull %731)
-  %763 = load i8, ptr %732, align 1, !noalias !16
-  %764 = trunc i8 %763 to i1
-  br i1 %764, label %765, label %_ZNK5frame6senderEP11RegisterMap.exit.i
+756:                                              ; preds = %746
+  call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %3, ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull %725)
+  %757 = load i8, ptr %726, align 1, !noalias !16
+  %758 = trunc i8 %757 to i1
+  br i1 %758, label %759, label %_ZNK5frame6senderEP11RegisterMap.exit.i
 
-765:                                              ; preds = %762
-  %766 = load ptr, ptr %733, align 8, !noalias !16
-  %767 = icmp eq ptr %766, null
-  br i1 %767, label %_ZNK11RegisterMap7in_contEv.exit.thread.i.i, label %_ZNK11RegisterMap7in_contEv.exit.i.i
+759:                                              ; preds = %756
+  %760 = load ptr, ptr %727, align 8, !noalias !16
+  %761 = icmp eq ptr %760, null
+  br i1 %761, label %_ZNK11RegisterMap7in_contEv.exit.thread.i.i, label %_ZNK11RegisterMap7in_contEv.exit.i.i
 
-_ZNK11RegisterMap7in_contEv.exit.i.i:             ; preds = %765
-  %768 = load ptr, ptr %766, align 8
-  %.not.i.i462 = icmp eq ptr %768, null
+_ZNK11RegisterMap7in_contEv.exit.i.i:             ; preds = %759
+  %762 = load ptr, ptr %760, align 8
+  %.not.i.i462 = icmp eq ptr %762, null
   br i1 %.not.i.i462, label %_ZNK11RegisterMap7in_contEv.exit.thread.i.i, label %_ZNK5frame6senderEP11RegisterMap.exit.i
 
-_ZNK11RegisterMap7in_contEv.exit.thread.i.i:      ; preds = %_ZNK11RegisterMap7in_contEv.exit.i.i, %765
-  %769 = load ptr, ptr %734, align 8, !noalias !16
-  call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %769, ptr noundef nonnull align 8 dereferenceable(56) %3) #21
+_ZNK11RegisterMap7in_contEv.exit.thread.i.i:      ; preds = %_ZNK11RegisterMap7in_contEv.exit.i.i, %759
+  %763 = load ptr, ptr %728, align 8, !noalias !16
+  call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %763, ptr noundef nonnull align 8 dereferenceable(56) %3) #21
   br label %_ZNK5frame6senderEP11RegisterMap.exit.i
 
-_ZNK5frame6senderEP11RegisterMap.exit.i:          ; preds = %_ZNK11RegisterMap7in_contEv.exit.thread.i.i, %_ZNK11RegisterMap7in_contEv.exit.i.i, %762
+_ZNK5frame6senderEP11RegisterMap.exit.i:          ; preds = %_ZNK11RegisterMap7in_contEv.exit.thread.i.i, %_ZNK11RegisterMap7in_contEv.exit.i.i, %756
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
   br label %_ZN16StackFrameStream4nextEv.exit
 
-_ZN16StackFrameStream4nextEv.exit:                ; preds = %752, %_ZNK5frame6senderEP11RegisterMap.exit.i
+_ZN16StackFrameStream4nextEv.exit:                ; preds = %746, %_ZNK5frame6senderEP11RegisterMap.exit.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  %770 = icmp slt i32 %spec.select409, %693
-  br i1 %770, label %735, label %.critedge49, !llvm.loop !19
+  %764 = icmp slt i32 %spec.select409, %687
+  br i1 %764, label %729, label %.critedge49, !llvm.loop !19
 
-.critedge49:                                      ; preds = %_ZN16StackFrameStream4nextEv.exit, %735, %726, %690, %722, %717, %.critedge, %689
+.critedge49:                                      ; preds = %_ZN16StackFrameStream4nextEv.exit, %729, %720, %684, %716, %711, %.critedge, %683
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
   %.pr556 = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %771
+  br label %765
 
-771:                                              ; preds = %.critedge49, %686
-  %772 = phi i32 [ %.pr556, %.critedge49 ], [ %687, %686 ]
-  %773 = icmp slt i32 %772, 1175
-  br i1 %773, label %774, label %790
+765:                                              ; preds = %.critedge49, %680
+  %766 = phi i32 [ %.pr556, %.critedge49 ], [ %681, %680 ]
+  %767 = icmp slt i32 %766, 1175
+  br i1 %767, label %768, label %784
 
-774:                                              ; preds = %771
+768:                                              ; preds = %765
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1175, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.94, ptr @_ZN7VMError18_current_step_infoE, align 8
-  %775 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  %776 = icmp ne ptr %775, null
-  %or.cond51 = select i1 %1, i1 %776, i1 false
-  br i1 %or.cond51, label %777, label %789
+  %769 = load ptr, ptr @_ZN7VMError7_threadE, align 8
+  %770 = icmp ne ptr %769, null
+  %or.cond51 = select i1 %1, i1 %770, i1 false
+  br i1 %or.cond51, label %771, label %783
 
-777:                                              ; preds = %774
-  %778 = load ptr, ptr %775, align 8
-  %779 = getelementptr inbounds i8, ptr %778, i64 48
-  %780 = load ptr, ptr %779, align 8
-  %781 = call noundef zeroext i1 %780(ptr noundef nonnull align 8 dereferenceable(888) %775) #21
-  br i1 %781, label %782, label %789
+771:                                              ; preds = %768
+  %772 = load ptr, ptr %769, align 8
+  %773 = getelementptr inbounds i8, ptr %772, i64 48
+  %774 = load ptr, ptr %773, align 8
+  %775 = call noundef zeroext i1 %774(ptr noundef nonnull align 8 dereferenceable(888) %769) #21
+  br i1 %775, label %776, label %783
 
-782:                                              ; preds = %777
-  %783 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %783, ptr @_ZN7VMError16_step_start_timeE, align 8
+776:                                              ; preds = %771
+  %777 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %777, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
-  %784 = load ptr, ptr @_ZN8VMThread17_cur_vm_operationE, align 8
-  %.not392 = icmp eq ptr %784, null
-  br i1 %.not392, label %789, label %785
+  %778 = load ptr, ptr @_ZN8VMThread17_cur_vm_operationE, align 8
+  %.not392 = icmp eq ptr %778, null
+  br i1 %.not392, label %783, label %779
 
-785:                                              ; preds = %782
-  %786 = load ptr, ptr %784, align 8
-  %787 = getelementptr inbounds i8, ptr %786, i64 56
-  %788 = load ptr, ptr %787, align 8
-  call void %788(ptr noundef nonnull align 8 dereferenceable(16) %784, ptr noundef %0) #21
+779:                                              ; preds = %776
+  %780 = load ptr, ptr %778, align 8
+  %781 = getelementptr inbounds i8, ptr %780, i64 56
+  %782 = load ptr, ptr %781, align 8
+  call void %782(ptr noundef nonnull align 8 dereferenceable(16) %778, ptr noundef %0) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
-  br label %789
+  br label %783
 
-789:                                              ; preds = %782, %785, %777, %774
+783:                                              ; preds = %776, %779, %771, %768
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
   %.pre641 = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %790
+  br label %784
 
-790:                                              ; preds = %789, %771
-  %791 = phi i32 [ %.pre641, %789 ], [ %772, %771 ]
-  %792 = icmp slt i32 %791, 1184
-  br i1 %792, label %793, label %803
+784:                                              ; preds = %783, %765
+  %785 = phi i32 [ %.pre641, %783 ], [ %766, %765 ]
+  %786 = icmp slt i32 %785, 1184
+  br i1 %786, label %787, label %797
 
-793:                                              ; preds = %790
+787:                                              ; preds = %784
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1184, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.95, ptr @_ZN7VMError18_current_step_infoE, align 8
-  %794 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  %795 = icmp ne ptr %794, null
-  %or.cond53 = select i1 %1, i1 %795, i1 false
-  br i1 %or.cond53, label %796, label %.loopexit
+  %788 = load ptr, ptr @_ZN7VMError7_threadE, align 8
+  %789 = icmp ne ptr %788, null
+  %or.cond53 = select i1 %1, i1 %789, i1 false
+  br i1 %or.cond53, label %790, label %.loopexit
 
-796:                                              ; preds = %793
-  %797 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %797, ptr @_ZN7VMError16_step_start_timeE, align 8
+790:                                              ; preds = %787
+  %791 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %791, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
-  %798 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  %799 = getelementptr inbounds i8, ptr %798, i64 880
-  %.0609 = load ptr, ptr %799, align 8
+  %792 = load ptr, ptr @_ZN7VMError7_threadE, align 8
+  %793 = getelementptr inbounds i8, ptr %792, i64 880
+  %.0609 = load ptr, ptr %793, align 8
   %.not393610 = icmp eq ptr %.0609, null
   br i1 %.not393610, label %.loopexit, label %.lr.ph612
 
-.lr.ph612:                                        ; preds = %796, %.lr.ph612
-  %.0611 = phi ptr [ %.0, %.lr.ph612 ], [ %.0609, %796 ]
-  %800 = load ptr, ptr %.0611, align 8
-  %801 = load ptr, ptr %800, align 8
-  call void %801(ptr noundef nonnull align 8 dereferenceable(16) %.0611, ptr noundef %0) #21
+.lr.ph612:                                        ; preds = %790, %.lr.ph612
+  %.0611 = phi ptr [ %.0, %.lr.ph612 ], [ %.0609, %790 ]
+  %794 = load ptr, ptr %.0611, align 8
+  %795 = load ptr, ptr %794, align 8
+  call void %795(ptr noundef nonnull align 8 dereferenceable(16) %.0611, ptr noundef %0) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
-  %802 = getelementptr inbounds i8, ptr %.0611, i64 8
-  %.0 = load ptr, ptr %802, align 8
+  %796 = getelementptr inbounds i8, ptr %.0611, i64 8
+  %.0 = load ptr, ptr %796, align 8
   %.not393 = icmp eq ptr %.0, null
   br i1 %.not393, label %.loopexit, label %.lr.ph612, !llvm.loop !20
 
-.loopexit:                                        ; preds = %.lr.ph612, %796, %793
+.loopexit:                                        ; preds = %.lr.ph612, %790, %787
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
   %.pr557 = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %803
+  br label %797
 
-803:                                              ; preds = %.loopexit, %790
-  %804 = phi i32 [ %.pr557, %.loopexit ], [ %791, %790 ]
-  %805 = icmp slt i32 %804, 1192
-  br i1 %805, label %806, label %810
+797:                                              ; preds = %.loopexit, %784
+  %798 = phi i32 [ %.pr557, %.loopexit ], [ %785, %784 ]
+  %799 = icmp slt i32 %798, 1192
+  br i1 %799, label %800, label %804
 
-806:                                              ; preds = %803
+800:                                              ; preds = %797
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1192, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.96, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %807, label %809
+  br i1 %1, label %801, label %803
 
-807:                                              ; preds = %806
-  %808 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %808, ptr @_ZN7VMError16_step_start_timeE, align 8
+801:                                              ; preds = %800
+  %802 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %802, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.97) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pre642.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %809
+  br label %803
 
-809:                                              ; preds = %807, %806
-  %.pre642 = phi i32 [ %.pre642.pre, %807 ], [ 1192, %806 ]
+803:                                              ; preds = %801, %800
+  %.pre642 = phi i32 [ %.pre642.pre, %801 ], [ 1192, %800 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %810
+  br label %804
 
-810:                                              ; preds = %809, %803
-  %811 = phi i32 [ %.pre642, %809 ], [ %804, %803 ]
-  %812 = icmp slt i32 %811, 1197
-  br i1 %812, label %813, label %819
+804:                                              ; preds = %803, %797
+  %805 = phi i32 [ %.pre642, %803 ], [ %798, %797 ]
+  %806 = icmp slt i32 %805, 1197
+  br i1 %806, label %807, label %813
 
-813:                                              ; preds = %810
+807:                                              ; preds = %804
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1197, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.98, ptr @_ZN7VMError18_current_step_infoE, align 8
-  %814 = load i8, ptr @ExtensiveErrorReports, align 1
-  %815 = trunc i8 %814 to i1
-  %brmerge412.demorgan = and i1 %815, %1
-  br i1 %brmerge412.demorgan, label %816, label %818
+  %808 = load i8, ptr @ExtensiveErrorReports, align 1
+  %809 = trunc i8 %808 to i1
+  %brmerge412.demorgan = and i1 %809, %1
+  br i1 %brmerge412.demorgan, label %810, label %812
 
-816:                                              ; preds = %813
-  %817 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %817, ptr @_ZN7VMError16_step_start_timeE, align 8
+810:                                              ; preds = %807
+  %811 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %811, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void @_ZN2os15print_user_infoEP12outputStream(ptr noundef %0) #21
   %.pr558.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %818
+  br label %812
 
-818:                                              ; preds = %813, %816
-  %.pr558 = phi i32 [ 1197, %813 ], [ %.pr558.pre, %816 ]
+812:                                              ; preds = %807, %810
+  %.pr558 = phi i32 [ 1197, %807 ], [ %.pr558.pre, %810 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %819
+  br label %813
 
-819:                                              ; preds = %818, %810
-  %820 = phi i32 [ %.pr558, %818 ], [ %811, %810 ]
-  %821 = icmp slt i32 %820, 1200
-  br i1 %821, label %822, label %829
+813:                                              ; preds = %812, %804
+  %814 = phi i32 [ %.pr558, %812 ], [ %805, %804 ]
+  %815 = icmp slt i32 %814, 1200
+  br i1 %815, label %816, label %823
 
-822:                                              ; preds = %819
+816:                                              ; preds = %813
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1200, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.99, ptr @_ZN7VMError18_current_step_infoE, align 8
-  %823 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  %824 = icmp ne ptr %823, null
-  %or.cond55 = select i1 %1, i1 %824, i1 false
-  br i1 %or.cond55, label %825, label %828
+  %817 = load ptr, ptr @_ZN7VMError7_threadE, align 8
+  %818 = icmp ne ptr %817, null
+  %or.cond55 = select i1 %1, i1 %818, i1 false
+  br i1 %or.cond55, label %819, label %822
 
-825:                                              ; preds = %822
-  %826 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %826, ptr @_ZN7VMError16_step_start_timeE, align 8
+819:                                              ; preds = %816
+  %820 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %820, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
-  %827 = load ptr, ptr @_ZN7VMError7_threadE, align 8
-  call void @_ZN7Threads14print_on_errorEP12outputStreamP6ThreadPci(ptr noundef %0, ptr noundef %827, ptr noundef nonnull @_ZZN7VMError6reportEP12outputStreambE3buf, i32 noundef 2000) #21
+  %821 = load ptr, ptr @_ZN7VMError7_threadE, align 8
+  call void @_ZN7Threads14print_on_errorEP12outputStreamP6ThreadPci(ptr noundef %0, ptr noundef %821, ptr noundef nonnull @_ZZN7VMError6reportEP12outputStreambE3buf, i32 noundef 2000) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pre644.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %828
+  br label %822
 
-828:                                              ; preds = %825, %822
-  %.pre644 = phi i32 [ %.pre644.pre, %825 ], [ 1200, %822 ]
+822:                                              ; preds = %819, %816
+  %.pre644 = phi i32 [ %.pre644.pre, %819 ], [ 1200, %816 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %829
+  br label %823
 
-829:                                              ; preds = %828, %819
-  %830 = phi i32 [ %.pre644, %828 ], [ %820, %819 ]
-  %831 = icmp slt i32 %830, 1205
-  br i1 %831, label %832, label %848
+823:                                              ; preds = %822, %813
+  %824 = phi i32 [ %.pre644, %822 ], [ %814, %813 ]
+  %825 = icmp slt i32 %824, 1205
+  br i1 %825, label %826, label %842
 
-832:                                              ; preds = %829
+826:                                              ; preds = %823
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1205, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.100, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %833, label %847
+  br i1 %1, label %827, label %841
 
-833:                                              ; preds = %832
-  %834 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %834, ptr @_ZN7VMError16_step_start_timeE, align 8
+827:                                              ; preds = %826
+  %828 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %828, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.101) #21
-  %835 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %836 = icmp eq i32 %835, 1
-  br i1 %836, label %840, label %837
+  %829 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
+  %830 = icmp eq i32 %829, 1
+  br i1 %830, label %834, label %831
 
-837:                                              ; preds = %833
-  %838 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %839 = icmp eq i32 %838, 2
-  %.str.103..str.104 = select i1 %839, ptr @.str.103, ptr @.str.104
+831:                                              ; preds = %827
+  %832 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
+  %833 = icmp eq i32 %832, 2
+  %.str.103..str.104 = select i1 %833, ptr @.str.103, ptr @.str.104
+  br label %834
+
+834:                                              ; preds = %831, %827
+  %.str.103.sink = phi ptr [ @.str.102, %827 ], [ %.str.103..str.104, %831 ]
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %.str.103.sink) #21
+  %835 = load i8, ptr @_ZN8Universe18_fully_initializedE, align 1
+  %836 = trunc i8 %835 to i1
+  br i1 %836, label %837, label %840
+
+837:                                              ; preds = %834
+  %838 = load volatile i8, ptr @_ZN7VM_Exit10_vm_exitedE, align 1
+  %839 = trunc i8 %838 to i1
+  %.str.106..str.107 = select i1 %839, ptr @.str.106, ptr @.str.107
   br label %840
 
-840:                                              ; preds = %837, %833
-  %.str.103.sink = phi ptr [ @.str.102, %833 ], [ %.str.103..str.104, %837 ]
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %.str.103.sink) #21
-  %841 = load i8, ptr @_ZN8Universe18_fully_initializedE, align 1
-  %842 = trunc i8 %841 to i1
-  br i1 %842, label %843, label %846
-
-843:                                              ; preds = %840
-  %844 = load volatile i8, ptr @_ZN7VM_Exit10_vm_exitedE, align 1
-  %845 = trunc i8 %844 to i1
-  %.str.106..str.107 = select i1 %845, ptr @.str.106, ptr @.str.107
-  br label %846
-
-846:                                              ; preds = %843, %840
-  %.str.106.sink = phi ptr [ @.str.105, %840 ], [ %.str.106..str.107, %843 ]
+840:                                              ; preds = %837, %834
+  %.str.106.sink = phi ptr [ @.str.105, %834 ], [ %.str.106..str.107, %837 ]
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %.str.106.sink) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pr559.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %847
+  br label %841
 
-847:                                              ; preds = %846, %832
-  %.pr559 = phi i32 [ %.pr559.pre, %846 ], [ 1205, %832 ]
+841:                                              ; preds = %840, %826
+  %.pr559 = phi i32 [ %.pr559.pre, %840 ], [ 1205, %826 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %848
+  br label %842
 
-848:                                              ; preds = %847, %829
-  %849 = phi i32 [ %.pr559, %847 ], [ %830, %829 ]
-  %850 = icmp slt i32 %849, 1224
-  br i1 %850, label %851, label %855
+842:                                              ; preds = %841, %823
+  %843 = phi i32 [ %.pr559, %841 ], [ %824, %823 ]
+  %844 = icmp slt i32 %843, 1224
+  br i1 %844, label %845, label %849
 
-851:                                              ; preds = %848
+845:                                              ; preds = %842
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1224, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.108, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %852, label %854
+  br i1 %1, label %846, label %848
 
-852:                                              ; preds = %851
-  %853 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %853, ptr @_ZN7VMError16_step_start_timeE, align 8
+846:                                              ; preds = %845
+  %847 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %847, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void @_Z26print_owned_locks_on_errorP12outputStream(ptr noundef %0) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pre646.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %854
+  br label %848
 
-854:                                              ; preds = %852, %851
-  %.pre646 = phi i32 [ %.pre646.pre, %852 ], [ 1224, %851 ]
+848:                                              ; preds = %846, %845
+  %.pre646 = phi i32 [ %.pre646.pre, %846 ], [ 1224, %845 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %855
+  br label %849
 
-855:                                              ; preds = %854, %848
-  %856 = phi i32 [ %.pre646, %854 ], [ %849, %848 ]
-  %857 = icmp slt i32 %856, 1230
-  br i1 %857, label %858, label %864
+849:                                              ; preds = %848, %842
+  %850 = phi i32 [ %.pre646, %848 ], [ %843, %842 ]
+  %851 = icmp slt i32 %850, 1230
+  br i1 %851, label %852, label %858
 
-858:                                              ; preds = %855
+852:                                              ; preds = %849
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1230, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.109, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %859, label %863
+  br i1 %1, label %853, label %857
 
-859:                                              ; preds = %858
-  %860 = call noundef zeroext i1 @_ZN10Exceptions20has_exception_countsEv() #21
-  br i1 %860, label %861, label %863
+853:                                              ; preds = %852
+  %854 = call noundef zeroext i1 @_ZN10Exceptions20has_exception_countsEv() #21
+  br i1 %854, label %855, label %857
 
-861:                                              ; preds = %859
-  %862 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %862, ptr @_ZN7VMError16_step_start_timeE, align 8
+855:                                              ; preds = %853
+  %856 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %856, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.110) #21
   call void @_ZN10Exceptions31print_exception_counts_on_errorEP12outputStream(ptr noundef %0) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
-  br label %863
+  br label %857
 
-863:                                              ; preds = %861, %859, %858
+857:                                              ; preds = %855, %853, %852
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
   %.pr560 = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %864
+  br label %858
 
-864:                                              ; preds = %863, %855
-  %865 = phi i32 [ %.pr560, %863 ], [ %856, %855 ]
-  %866 = icmp slt i32 %865, 1236
-  br i1 %866, label %867, label %874
+858:                                              ; preds = %857, %849
+  %859 = phi i32 [ %.pr560, %857 ], [ %850, %849 ]
+  %860 = icmp slt i32 %859, 1236
+  br i1 %860, label %861, label %868
 
-867:                                              ; preds = %864
+861:                                              ; preds = %858
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1236, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.111, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %868, label %873
+  br i1 %1, label %862, label %867
 
-868:                                              ; preds = %867
-  %869 = load i8, ptr @UseCompressedOops, align 1
-  %870 = trunc i8 %869 to i1
-  br i1 %870, label %871, label %873
+862:                                              ; preds = %861
+  %863 = load i8, ptr @UseCompressedOops, align 1
+  %864 = trunc i8 %863 to i1
+  br i1 %864, label %865, label %867
 
-871:                                              ; preds = %868
-  %872 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %872, ptr @_ZN7VMError16_step_start_timeE, align 8
+865:                                              ; preds = %862
+  %866 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %866, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void @_ZN14CompressedOops10print_modeEP12outputStream(ptr noundef %0) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pre647.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %873
+  br label %867
 
-873:                                              ; preds = %871, %868, %867
-  %.pre647 = phi i32 [ %.pre647.pre, %871 ], [ 1236, %868 ], [ 1236, %867 ]
+867:                                              ; preds = %865, %862, %861
+  %.pre647 = phi i32 [ %.pre647.pre, %865 ], [ 1236, %862 ], [ 1236, %861 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %874
+  br label %868
 
-874:                                              ; preds = %873, %864
-  %875 = phi i32 [ %.pre647, %873 ], [ %865, %864 ]
-  %876 = icmp slt i32 %875, 1240
-  br i1 %876, label %877, label %884
+868:                                              ; preds = %867, %858
+  %869 = phi i32 [ %.pre647, %867 ], [ %859, %858 ]
+  %870 = icmp slt i32 %869, 1240
+  br i1 %870, label %871, label %878
 
-877:                                              ; preds = %874
+871:                                              ; preds = %868
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1240, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.112, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %878, label %883
+  br i1 %1, label %872, label %877
 
-878:                                              ; preds = %877
-  %879 = load i8, ptr @UseCompressedClassPointers, align 1
-  %880 = trunc i8 %879 to i1
-  br i1 %880, label %881, label %883
+872:                                              ; preds = %871
+  %873 = load i8, ptr @UseCompressedClassPointers, align 1
+  %874 = trunc i8 %873 to i1
+  br i1 %874, label %875, label %877
 
-881:                                              ; preds = %878
-  %882 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %882, ptr @_ZN7VMError16_step_start_timeE, align 8
+875:                                              ; preds = %872
+  %876 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %876, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void @_ZN15MetaspaceShared8print_onEP12outputStream(ptr noundef %0) #21
   call void @_ZN9Metaspace28print_compressed_class_spaceEP12outputStream(ptr noundef %0) #21
   call void @_ZN23CompressedKlassPointers10print_modeEP12outputStream(ptr noundef %0) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pr561.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %883
+  br label %877
 
-883:                                              ; preds = %881, %878, %877
-  %.pr561 = phi i32 [ %.pr561.pre, %881 ], [ 1240, %878 ], [ 1240, %877 ]
+877:                                              ; preds = %875, %872, %871
+  %.pr561 = phi i32 [ %.pr561.pre, %875 ], [ 1240, %872 ], [ 1240, %871 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %884
+  br label %878
 
-884:                                              ; preds = %883, %874
-  %885 = phi i32 [ %.pr561, %883 ], [ %875, %874 ]
-  %886 = icmp slt i32 %885, 1247
-  br i1 %886, label %887, label %902
+878:                                              ; preds = %877, %868
+  %879 = phi i32 [ %.pr561, %877 ], [ %869, %868 ]
+  %880 = icmp slt i32 %879, 1247
+  br i1 %880, label %881, label %896
 
-887:                                              ; preds = %884
+881:                                              ; preds = %878
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1247, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.113, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %888, label %901
+  br i1 %1, label %882, label %895
 
-888:                                              ; preds = %887
-  %889 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %889, ptr @_ZN7VMError16_step_start_timeE, align 8
+882:                                              ; preds = %881
+  %883 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %883, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void @_ZN13GCLogPrecious14print_on_errorEP12outputStream(ptr noundef %0) #21
-  %890 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %.not394 = icmp eq ptr %890, null
-  br i1 %.not394, label %895, label %891
+  %884 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  %.not394 = icmp eq ptr %884, null
+  br i1 %.not394, label %889, label %885
 
-891:                                              ; preds = %888
-  %892 = load ptr, ptr %890, align 8
-  %893 = getelementptr inbounds i8, ptr %892, i64 336
-  %894 = load ptr, ptr %893, align 8
-  call void %894(ptr noundef nonnull align 8 dereferenceable(104) %890, ptr noundef %0) #21
+885:                                              ; preds = %882
+  %886 = load ptr, ptr %884, align 8
+  %887 = getelementptr inbounds i8, ptr %886, i64 336
+  %888 = load ptr, ptr %887, align 8
+  call void %888(ptr noundef nonnull align 8 dereferenceable(104) %884, ptr noundef %0) #21
+  call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
+  br label %889
+
+889:                                              ; preds = %885, %882
+  %890 = load i8, ptr @_ZN8Universe18_fully_initializedE, align 1
+  %891 = trunc i8 %890 to i1
+  br i1 %891, label %892, label %895
+
+892:                                              ; preds = %889
+  %893 = load ptr, ptr @_ZN18SafepointMechanism13_polling_pageE, align 8
+  %894 = ptrtoint ptr %893 to i64
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.114, i64 noundef %894) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   br label %895
 
-895:                                              ; preds = %891, %888
-  %896 = load i8, ptr @_ZN8Universe18_fully_initializedE, align 1
-  %897 = trunc i8 %896 to i1
-  br i1 %897, label %898, label %901
-
-898:                                              ; preds = %895
-  %899 = load ptr, ptr @_ZN18SafepointMechanism13_polling_pageE, align 8
-  %900 = ptrtoint ptr %899 to i64
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.114, i64 noundef %900) #21
-  call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
-  br label %901
-
-901:                                              ; preds = %895, %898, %887
+895:                                              ; preds = %889, %892, %881
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
   %.pre649 = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %902
+  br label %896
 
-902:                                              ; preds = %901, %884
-  %903 = phi i32 [ %.pre649, %901 ], [ %885, %884 ]
-  %904 = icmp slt i32 %903, 1260
-  br i1 %904, label %905, label %912
+896:                                              ; preds = %895, %878
+  %897 = phi i32 [ %.pre649, %895 ], [ %879, %878 ]
+  %898 = icmp slt i32 %897, 1260
+  br i1 %898, label %899, label %906
 
-905:                                              ; preds = %902
+899:                                              ; preds = %896
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1260, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.115, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %906, label %911
+  br i1 %1, label %900, label %905
 
-906:                                              ; preds = %905
-  %907 = load i8, ptr @_ZN8Universe18_fully_initializedE, align 1
-  %908 = trunc i8 %907 to i1
-  br i1 %908, label %909, label %911
+900:                                              ; preds = %899
+  %901 = load i8, ptr @_ZN8Universe18_fully_initializedE, align 1
+  %902 = trunc i8 %901 to i1
+  br i1 %902, label %903, label %905
 
-909:                                              ; preds = %906
-  %910 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %910, ptr @_ZN7VMError16_step_start_timeE, align 8
+903:                                              ; preds = %900
+  %904 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %904, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.116) #21
   call void @_ZN14MetaspaceUtils18print_basic_reportEP12outputStreamm(ptr noundef %0, i64 noundef 0) #21
   %.pr562.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %911
+  br label %905
 
-911:                                              ; preds = %909, %906, %905
-  %.pr562 = phi i32 [ %.pr562.pre, %909 ], [ 1260, %906 ], [ 1260, %905 ]
+905:                                              ; preds = %903, %900, %899
+  %.pr562 = phi i32 [ %.pr562.pre, %903 ], [ 1260, %900 ], [ 1260, %899 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %912
+  br label %906
 
-912:                                              ; preds = %911, %902
-  %913 = phi i32 [ %.pr562, %911 ], [ %903, %902 ]
-  %914 = icmp slt i32 %913, 1264
-  br i1 %914, label %915, label %922
+906:                                              ; preds = %905, %896
+  %907 = phi i32 [ %.pr562, %905 ], [ %897, %896 ]
+  %908 = icmp slt i32 %907, 1264
+  br i1 %908, label %909, label %916
 
-915:                                              ; preds = %912
+909:                                              ; preds = %906
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1264, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.117, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %916, label %921
+  br i1 %1, label %910, label %915
 
-916:                                              ; preds = %915
-  %917 = load i8, ptr @_ZN8Universe18_fully_initializedE, align 1
-  %918 = trunc i8 %917 to i1
-  br i1 %918, label %919, label %921
+910:                                              ; preds = %909
+  %911 = load i8, ptr @_ZN8Universe18_fully_initializedE, align 1
+  %912 = trunc i8 %911 to i1
+  br i1 %912, label %913, label %915
 
-919:                                              ; preds = %916
-  %920 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %920, ptr @_ZN7VMError16_step_start_timeE, align 8
+913:                                              ; preds = %910
+  %914 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %914, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void @_ZN9CodeCache13print_summaryEP12outputStreamb(ptr noundef %0, i1 noundef zeroext true) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pre651.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %921
+  br label %915
 
-921:                                              ; preds = %919, %916, %915
-  %.pre651 = phi i32 [ %.pre651.pre, %919 ], [ 1264, %916 ], [ 1264, %915 ]
+915:                                              ; preds = %913, %910, %909
+  %.pre651 = phi i32 [ %.pre651.pre, %913 ], [ 1264, %910 ], [ 1264, %909 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %922
+  br label %916
 
-922:                                              ; preds = %921, %912
-  %923 = phi i32 [ %.pre651, %921 ], [ %913, %912 ]
-  %924 = icmp slt i32 %923, 1269
-  br i1 %924, label %925, label %929
+916:                                              ; preds = %915, %906
+  %917 = phi i32 [ %.pre651, %915 ], [ %907, %906 ]
+  %918 = icmp slt i32 %917, 1269
+  br i1 %918, label %919, label %923
 
-925:                                              ; preds = %922
+919:                                              ; preds = %916
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1269, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.118, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %926, label %928
+  br i1 %1, label %920, label %922
 
-926:                                              ; preds = %925
-  %927 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %927, ptr @_ZN7VMError16_step_start_timeE, align 8
+920:                                              ; preds = %919
+  %921 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %921, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void @_ZN6Events9print_allEP12outputStreami(ptr noundef %0, i32 noundef -1) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pr563.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %928
+  br label %922
 
-928:                                              ; preds = %926, %925
-  %.pr563 = phi i32 [ %.pr563.pre, %926 ], [ 1269, %925 ]
+922:                                              ; preds = %920, %919
+  %.pr563 = phi i32 [ %.pr563.pre, %920 ], [ 1269, %919 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %929
+  br label %923
 
-929:                                              ; preds = %928, %922
-  %930 = phi i32 [ %.pr563, %928 ], [ %923, %922 ]
-  %931 = icmp slt i32 %930, 1273
-  br i1 %931, label %932, label %936
+923:                                              ; preds = %922, %916
+  %924 = phi i32 [ %.pr563, %922 ], [ %917, %916 ]
+  %925 = icmp slt i32 %924, 1273
+  br i1 %925, label %926, label %930
 
-932:                                              ; preds = %929
+926:                                              ; preds = %923
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1273, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.119, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %933, label %935
+  br i1 %1, label %927, label %929
 
-933:                                              ; preds = %932
-  %934 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %934, ptr @_ZN7VMError16_step_start_timeE, align 8
+927:                                              ; preds = %926
+  %928 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %928, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void @_ZN2os14print_dll_infoEP12outputStream(ptr noundef %0) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pre653.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %935
+  br label %929
 
-935:                                              ; preds = %933, %932
-  %.pre653 = phi i32 [ %.pre653.pre, %933 ], [ 1273, %932 ]
+929:                                              ; preds = %927, %926
+  %.pre653 = phi i32 [ %.pre653.pre, %927 ], [ 1273, %926 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %936
+  br label %930
 
-936:                                              ; preds = %935, %929
-  %937 = phi i32 [ %.pre653, %935 ], [ %930, %929 ]
-  %938 = icmp slt i32 %937, 1278
-  br i1 %938, label %939, label %943
+930:                                              ; preds = %929, %923
+  %931 = phi i32 [ %.pre653, %929 ], [ %924, %923 ]
+  %932 = icmp slt i32 %931, 1278
+  br i1 %932, label %933, label %937
 
-939:                                              ; preds = %936
+933:                                              ; preds = %930
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1278, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.120, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %940, label %942
+  br i1 %1, label %934, label %936
 
-940:                                              ; preds = %939
-  %941 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %941, ptr @_ZN7VMError16_step_start_timeE, align 8
+934:                                              ; preds = %933
+  %935 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %935, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void @_ZN7Decoder14print_state_onEP12outputStream(ptr noundef %0) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pr564.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %942
+  br label %936
 
-942:                                              ; preds = %940, %939
-  %.pr564 = phi i32 [ %.pr564.pre, %940 ], [ 1278, %939 ]
+936:                                              ; preds = %934, %933
+  %.pr564 = phi i32 [ %.pr564.pre, %934 ], [ 1278, %933 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %943
+  br label %937
 
-943:                                              ; preds = %942, %936
-  %944 = phi i32 [ %.pr564, %942 ], [ %937, %936 ]
-  %945 = icmp slt i32 %944, 1282
-  br i1 %945, label %946, label %950
+937:                                              ; preds = %936, %930
+  %938 = phi i32 [ %.pr564, %936 ], [ %931, %930 ]
+  %939 = icmp slt i32 %938, 1282
+  br i1 %939, label %940, label %944
 
-946:                                              ; preds = %943
+940:                                              ; preds = %937
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1282, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.121, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %947, label %949
+  br i1 %1, label %941, label %943
 
-947:                                              ; preds = %946
-  %948 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %948, ptr @_ZN7VMError16_step_start_timeE, align 8
+941:                                              ; preds = %940
+  %942 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %942, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void @_ZN9Arguments8print_onEP12outputStream(ptr noundef %0) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pre655.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %949
+  br label %943
 
-949:                                              ; preds = %947, %946
-  %.pre655 = phi i32 [ %.pre655.pre, %947 ], [ 1282, %946 ]
+943:                                              ; preds = %941, %940
+  %.pre655 = phi i32 [ %.pre655.pre, %941 ], [ 1282, %940 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %950
+  br label %944
 
-950:                                              ; preds = %949, %943
-  %951 = phi i32 [ %.pre655, %949 ], [ %944, %943 ]
-  %952 = icmp slt i32 %951, 1287
-  br i1 %952, label %953, label %957
+944:                                              ; preds = %943, %937
+  %945 = phi i32 [ %.pre655, %943 ], [ %938, %937 ]
+  %946 = icmp slt i32 %945, 1287
+  br i1 %946, label %947, label %951
 
-953:                                              ; preds = %950
+947:                                              ; preds = %944
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1287, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.122, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %954, label %956
+  br i1 %1, label %948, label %950
 
-954:                                              ; preds = %953
-  %955 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %955, ptr @_ZN7VMError16_step_start_timeE, align 8
+948:                                              ; preds = %947
+  %949 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %949, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void @_ZN7JVMFlag10printFlagsEP12outputStreambbb(ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pr565.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %956
+  br label %950
 
-956:                                              ; preds = %954, %953
-  %.pr565 = phi i32 [ %.pr565.pre, %954 ], [ 1287, %953 ]
+950:                                              ; preds = %948, %947
+  %.pr565 = phi i32 [ %.pr565.pre, %948 ], [ 1287, %947 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %957
+  br label %951
 
-957:                                              ; preds = %956, %950
-  %958 = phi i32 [ %.pr565, %956 ], [ %951, %950 ]
-  %959 = icmp slt i32 %958, 1295
-  br i1 %959, label %960, label %966
+951:                                              ; preds = %950, %944
+  %952 = phi i32 [ %.pr565, %950 ], [ %945, %944 ]
+  %953 = icmp slt i32 %952, 1295
+  br i1 %953, label %954, label %960
 
-960:                                              ; preds = %957
+954:                                              ; preds = %951
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1295, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.123, ptr @_ZN7VMError18_current_step_infoE, align 8
-  %961 = load i8, ptr @_ZN8WhiteBox5_usedE, align 1
-  %962 = trunc i8 %961 to i1
-  br i1 %962, label %963, label %965
+  %955 = load i8, ptr @_ZN8WhiteBox5_usedE, align 1
+  %956 = trunc i8 %955 to i1
+  br i1 %956, label %957, label %959
 
-963:                                              ; preds = %960
-  %964 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %964, ptr @_ZN7VMError16_step_start_timeE, align 8
+957:                                              ; preds = %954
+  %958 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %958, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.124) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pre657.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %965
+  br label %959
 
-965:                                              ; preds = %963, %960
-  %.pre657 = phi i32 [ %.pre657.pre, %963 ], [ 1295, %960 ]
+959:                                              ; preds = %957, %954
+  %.pre657 = phi i32 [ %.pre657.pre, %957 ], [ 1295, %954 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %966
+  br label %960
 
-966:                                              ; preds = %965, %957
-  %967 = phi i32 [ %.pre657, %965 ], [ %958, %957 ]
-  %968 = icmp slt i32 %967, 1299
-  br i1 %968, label %969, label %973
+960:                                              ; preds = %959, %951
+  %961 = phi i32 [ %.pre657, %959 ], [ %952, %951 ]
+  %962 = icmp slt i32 %961, 1299
+  br i1 %962, label %963, label %967
 
-969:                                              ; preds = %966
+963:                                              ; preds = %960
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1299, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.125, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %970, label %972
+  br i1 %1, label %964, label %966
 
-970:                                              ; preds = %969
-  %971 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %971, ptr @_ZN7VMError16_step_start_timeE, align 8
+964:                                              ; preds = %963
+  %965 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %965, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.126) #21
   call void @_ZN16LogConfiguration30describe_current_configurationEP12outputStream(ptr noundef %0) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pr566.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %972
+  br label %966
 
-972:                                              ; preds = %970, %969
-  %.pr566 = phi i32 [ %.pr566.pre, %970 ], [ 1299, %969 ]
+966:                                              ; preds = %964, %963
+  %.pr566 = phi i32 [ %.pr566.pre, %964 ], [ 1299, %963 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %973
+  br label %967
 
-973:                                              ; preds = %972, %966
-  %974 = phi i32 [ %.pr566, %972 ], [ %967, %966 ]
-  %975 = icmp slt i32 %974, 1304
-  br i1 %975, label %976, label %980
+967:                                              ; preds = %966, %960
+  %968 = phi i32 [ %.pr566, %966 ], [ %961, %960 ]
+  %969 = icmp slt i32 %968, 1304
+  br i1 %969, label %970, label %974
 
-976:                                              ; preds = %973
+970:                                              ; preds = %967
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1304, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.127, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %977, label %979
+  br i1 %1, label %971, label %973
 
-977:                                              ; preds = %976
-  %978 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %978, ptr @_ZN7VMError16_step_start_timeE, align 8
+971:                                              ; preds = %970
+  %972 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %972, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void @_ZN2os27print_environment_variablesEP12outputStreamPPKc(ptr noundef %0, ptr noundef nonnull @_ZL8env_list) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pre659.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %979
+  br label %973
 
-979:                                              ; preds = %977, %976
-  %.pre659 = phi i32 [ %.pre659.pre, %977 ], [ 1304, %976 ]
+973:                                              ; preds = %971, %970
+  %.pre659 = phi i32 [ %.pre659.pre, %971 ], [ 1304, %970 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %980
+  br label %974
 
-980:                                              ; preds = %979, %973
-  %981 = phi i32 [ %.pre659, %979 ], [ %974, %973 ]
-  %982 = icmp slt i32 %981, 1308
-  br i1 %982, label %983, label %987
+974:                                              ; preds = %973, %967
+  %975 = phi i32 [ %.pre659, %973 ], [ %968, %967 ]
+  %976 = icmp slt i32 %975, 1308
+  br i1 %976, label %977, label %981
 
-983:                                              ; preds = %980
+977:                                              ; preds = %974
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1308, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.128, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %984, label %986
+  br i1 %1, label %978, label %980
 
-984:                                              ; preds = %983
-  %985 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %985, ptr @_ZN7VMError16_step_start_timeE, align 8
+978:                                              ; preds = %977
+  %979 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %979, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void @_ZN2os19print_active_localeEP12outputStream(ptr noundef %0) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pr567.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %986
+  br label %980
 
-986:                                              ; preds = %984, %983
-  %.pr567 = phi i32 [ %.pr567.pre, %984 ], [ 1308, %983 ]
+980:                                              ; preds = %978, %977
+  %.pr567 = phi i32 [ %.pr567.pre, %978 ], [ 1308, %977 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %987
+  br label %981
 
-987:                                              ; preds = %986, %980
-  %988 = phi i32 [ %.pr567, %986 ], [ %981, %980 ]
-  %989 = icmp slt i32 %988, 1312
-  br i1 %989, label %990, label %994
+981:                                              ; preds = %980, %974
+  %982 = phi i32 [ %.pr567, %980 ], [ %975, %974 ]
+  %983 = icmp slt i32 %982, 1312
+  br i1 %983, label %984, label %988
 
-990:                                              ; preds = %987
+984:                                              ; preds = %981
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1312, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.129, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %991, label %993
+  br i1 %1, label %985, label %987
 
-991:                                              ; preds = %990
-  %992 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %992, ptr @_ZN7VMError16_step_start_timeE, align 8
+985:                                              ; preds = %984
+  %986 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %986, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void @_ZN2os21print_signal_handlersEP12outputStreamPcm(ptr noundef %0, ptr noundef nonnull @_ZZN7VMError6reportEP12outputStreambE3buf, i64 noundef 2000) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pre661.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %993
+  br label %987
 
-993:                                              ; preds = %991, %990
-  %.pre661 = phi i32 [ %.pre661.pre, %991 ], [ 1312, %990 ]
+987:                                              ; preds = %985, %984
+  %.pre661 = phi i32 [ %.pre661.pre, %985 ], [ 1312, %984 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %994
+  br label %988
 
-994:                                              ; preds = %993, %987
-  %995 = phi i32 [ %.pre661, %993 ], [ %988, %987 ]
-  %996 = icmp slt i32 %995, 1316
-  br i1 %996, label %997, label %1001
+988:                                              ; preds = %987, %981
+  %989 = phi i32 [ %.pre661, %987 ], [ %982, %981 ]
+  %990 = icmp slt i32 %989, 1316
+  br i1 %990, label %991, label %995
 
-997:                                              ; preds = %994
+991:                                              ; preds = %988
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1316, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.130, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %998, label %1000
+  br i1 %1, label %992, label %994
 
-998:                                              ; preds = %997
-  %999 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %999, ptr @_ZN7VMError16_step_start_timeE, align 8
+992:                                              ; preds = %991
+  %993 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %993, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void @_ZN10MemTracker12error_reportEP12outputStream(ptr noundef %0) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pr568.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %1000
+  br label %994
 
-1000:                                             ; preds = %998, %997
-  %.pr568 = phi i32 [ %.pr568.pre, %998 ], [ 1316, %997 ]
+994:                                              ; preds = %992, %991
+  %.pr568 = phi i32 [ %.pr568.pre, %992 ], [ 1316, %991 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %1001
+  br label %995
 
-1001:                                             ; preds = %1000, %994
-  %1002 = phi i32 [ %.pr568, %1000 ], [ %995, %994 ]
-  %1003 = icmp slt i32 %1002, 1320
-  br i1 %1003, label %1004, label %1008
+995:                                              ; preds = %994, %988
+  %996 = phi i32 [ %.pr568, %994 ], [ %989, %988 ]
+  %997 = icmp slt i32 %996, 1320
+  br i1 %997, label %998, label %1002
 
-1004:                                             ; preds = %1001
+998:                                              ; preds = %995
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1320, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.131, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %1005, label %1007
+  br i1 %1, label %999, label %1001
 
-1005:                                             ; preds = %1004
-  %1006 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %1006, ptr @_ZN7VMError16_step_start_timeE, align 8
+999:                                              ; preds = %998
+  %1000 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %1000, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void @_ZN17NativeHeapTrimmer11print_stateEP12outputStream(ptr noundef %0) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pre663.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %1007
+  br label %1001
 
-1007:                                             ; preds = %1005, %1004
-  %.pre663 = phi i32 [ %.pre663.pre, %1005 ], [ 1320, %1004 ]
+1001:                                             ; preds = %999, %998
+  %.pre663 = phi i32 [ %.pre663.pre, %999 ], [ 1320, %998 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %1008
+  br label %1002
 
-1008:                                             ; preds = %1007, %1001
-  %1009 = phi i32 [ %.pre663, %1007 ], [ %1002, %1001 ]
-  %1010 = icmp slt i32 %1009, 1324
-  br i1 %1010, label %1011, label %1015
+1002:                                             ; preds = %1001, %995
+  %1003 = phi i32 [ %.pre663, %1001 ], [ %996, %995 ]
+  %1004 = icmp slt i32 %1003, 1324
+  br i1 %1004, label %1005, label %1009
 
-1011:                                             ; preds = %1008
+1005:                                             ; preds = %1002
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1324, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.132, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %1012, label %1014
+  br i1 %1, label %1006, label %1008
 
-1012:                                             ; preds = %1011
-  %1013 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %1013, ptr @_ZN7VMError16_step_start_timeE, align 8
+1006:                                             ; preds = %1005
+  %1007 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %1007, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.133) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pr569.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %1014
+  br label %1008
 
-1014:                                             ; preds = %1012, %1011
-  %.pr569 = phi i32 [ %.pr569.pre, %1012 ], [ 1324, %1011 ]
+1008:                                             ; preds = %1006, %1005
+  %.pr569 = phi i32 [ %.pr569.pre, %1006 ], [ 1324, %1005 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %1015
+  br label %1009
 
-1015:                                             ; preds = %1014, %1008
-  %1016 = phi i32 [ %.pr569, %1014 ], [ %1009, %1008 ]
-  %1017 = icmp slt i32 %1016, 1328
-  br i1 %1017, label %1018, label %1022
+1009:                                             ; preds = %1008, %1002
+  %1010 = phi i32 [ %.pr569, %1008 ], [ %1003, %1002 ]
+  %1011 = icmp slt i32 %1010, 1328
+  br i1 %1011, label %1012, label %1016
 
-1018:                                             ; preds = %1015
+1012:                                             ; preds = %1009
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1328, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.134, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %1019, label %1021
+  br i1 %1, label %1013, label %1015
 
-1019:                                             ; preds = %1018
-  %1020 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %1020, ptr @_ZN7VMError16_step_start_timeE, align 8
+1013:                                             ; preds = %1012
+  %1014 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %1014, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void @_ZN2os13print_os_infoEP12outputStream(ptr noundef %0) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pre665.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %1021
+  br label %1015
 
-1021:                                             ; preds = %1019, %1018
-  %.pre665 = phi i32 [ %.pre665.pre, %1019 ], [ 1328, %1018 ]
+1015:                                             ; preds = %1013, %1012
+  %.pre665 = phi i32 [ %.pre665.pre, %1013 ], [ 1328, %1012 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %1022
+  br label %1016
 
-1022:                                             ; preds = %1021, %1015
-  %1023 = phi i32 [ %.pre665, %1021 ], [ %1016, %1015 ]
-  %1024 = icmp slt i32 %1023, 1332
-  br i1 %1024, label %1025, label %1029
+1016:                                             ; preds = %1015, %1009
+  %1017 = phi i32 [ %.pre665, %1015 ], [ %1010, %1009 ]
+  %1018 = icmp slt i32 %1017, 1332
+  br i1 %1018, label %1019, label %1023
 
-1025:                                             ; preds = %1022
+1019:                                             ; preds = %1016
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1332, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.135, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %1026, label %1028
+  br i1 %1, label %1020, label %1022
 
-1026:                                             ; preds = %1025
-  %1027 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %1027, ptr @_ZN7VMError16_step_start_timeE, align 8
+1020:                                             ; preds = %1019
+  %1021 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %1021, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void @_ZN2os14print_cpu_infoEP12outputStreamPcm(ptr noundef %0, ptr noundef nonnull @_ZZN7VMError6reportEP12outputStreambE3buf, i64 noundef 2000) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pr570.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %1028
+  br label %1022
 
-1028:                                             ; preds = %1026, %1025
-  %.pr570 = phi i32 [ %.pr570.pre, %1026 ], [ 1332, %1025 ]
+1022:                                             ; preds = %1020, %1019
+  %.pr570 = phi i32 [ %.pr570.pre, %1020 ], [ 1332, %1019 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %1029
+  br label %1023
 
-1029:                                             ; preds = %1028, %1022
-  %1030 = phi i32 [ %.pr570, %1028 ], [ %1023, %1022 ]
-  %1031 = icmp slt i32 %1030, 1336
-  br i1 %1031, label %1032, label %1036
+1023:                                             ; preds = %1022, %1016
+  %1024 = phi i32 [ %.pr570, %1022 ], [ %1017, %1016 ]
+  %1025 = icmp slt i32 %1024, 1336
+  br i1 %1025, label %1026, label %1030
 
-1032:                                             ; preds = %1029
+1026:                                             ; preds = %1023
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1336, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.136, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %1033, label %1035
+  br i1 %1, label %1027, label %1029
 
-1033:                                             ; preds = %1032
-  %1034 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %1034, ptr @_ZN7VMError16_step_start_timeE, align 8
+1027:                                             ; preds = %1026
+  %1028 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %1028, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void @_ZN2os17print_memory_infoEP12outputStream(ptr noundef %0) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pre667.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %1035
+  br label %1029
 
-1035:                                             ; preds = %1033, %1032
-  %.pre667 = phi i32 [ %.pre667.pre, %1033 ], [ 1336, %1032 ]
+1029:                                             ; preds = %1027, %1026
+  %.pre667 = phi i32 [ %.pre667.pre, %1027 ], [ 1336, %1026 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %1036
+  br label %1030
 
-1036:                                             ; preds = %1035, %1029
-  %1037 = phi i32 [ %.pre667, %1035 ], [ %1030, %1029 ]
-  %1038 = icmp slt i32 %1037, 1340
-  br i1 %1038, label %1039, label %1044
+1030:                                             ; preds = %1029, %1023
+  %1031 = phi i32 [ %.pre667, %1029 ], [ %1024, %1023 ]
+  %1032 = icmp slt i32 %1031, 1340
+  br i1 %1032, label %1033, label %1038
 
-1039:                                             ; preds = %1036
+1033:                                             ; preds = %1030
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1340, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.137, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %1040, label %1043
+  br i1 %1, label %1034, label %1037
 
-1040:                                             ; preds = %1039
-  %1041 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %1041, ptr @_ZN7VMError16_step_start_timeE, align 8
+1034:                                             ; preds = %1033
+  %1035 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %1035, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
-  %1042 = call noundef ptr @_ZN19Abstract_VM_Version23internal_vm_info_stringEv() #21
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.138, ptr noundef %1042) #21
+  %1036 = call noundef ptr @_ZN19Abstract_VM_Version23internal_vm_info_stringEv() #21
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.138, ptr noundef %1036) #21
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
   %.pr571.pre = load i32, ptr @_ZN7VMError13_current_stepE, align 4
-  br label %1043
+  br label %1037
 
-1043:                                             ; preds = %1040, %1039
-  %.pr571 = phi i32 [ %.pr571.pre, %1040 ], [ 1340, %1039 ]
+1037:                                             ; preds = %1034, %1033
+  %.pr571 = phi i32 [ %.pr571.pre, %1034 ], [ 1340, %1033 ]
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
-  br label %1044
+  br label %1038
 
-1044:                                             ; preds = %1043, %1036
-  %1045 = phi i32 [ %.pr571, %1043 ], [ %1037, %1036 ]
-  %1046 = icmp slt i32 %1045, 1345
-  br i1 %1046, label %1047, label %1051
+1038:                                             ; preds = %1037, %1030
+  %1039 = phi i32 [ %.pr571, %1037 ], [ %1031, %1030 ]
+  %1040 = icmp slt i32 %1039, 1345
+  br i1 %1040, label %1041, label %1045
 
-1047:                                             ; preds = %1044
+1041:                                             ; preds = %1038
   store volatile i8 0, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store i32 1345, ptr @_ZN7VMError13_current_stepE, align 4
   store ptr @.str.139, ptr @_ZN7VMError18_current_step_infoE, align 8
-  br i1 %1, label %1048, label %1050
+  br i1 %1, label %1042, label %1044
 
-1048:                                             ; preds = %1047
-  %1049 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
-  store volatile i64 %1049, ptr @_ZN7VMError16_step_start_timeE, align 8
+1042:                                             ; preds = %1041
+  %1043 = call noundef i64 @_ZN2os13javaTimeNanosEv() #21
+  store volatile i64 %1043, ptr @_ZN7VMError16_step_start_timeE, align 8
   store volatile i8 0, ptr @_ZN7VMError17_step_did_timeoutE, align 1
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.140) #21
-  br label %1050
+  br label %1044
 
-1050:                                             ; preds = %1048, %1047
+1044:                                             ; preds = %1042, %1041
   store volatile i8 1, ptr @_ZN7VMError17_step_did_succeedE, align 1
   store volatile i64 0, ptr @_ZN7VMError16_step_start_timeE, align 8
-  br label %1051
+  br label %1045
 
-1051:                                             ; preds = %58, %1050, %1044
+1045:                                             ; preds = %58, %1044, %1038
   ret void
 }
 
@@ -4208,35 +4196,33 @@ _ZN19TemplateInterpreter8containsEPh.exit.thread: ; preds = %5, %_ZN19TemplateIn
   %75 = getelementptr inbounds i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %74, i64 32
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %74, i64 40
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %74, i64 8
-  %82 = load i64, ptr %81, align 8
+  %78 = load <2 x ptr>, ptr %77, align 8
+  %79 = load ptr, ptr %77, align 8
+  %80 = getelementptr inbounds i8, ptr %74, i64 8
+  %81 = load i64, ptr %80, align 8
   tail call void @_ZN12Disassembler6decodeEP8CodeBlobP12outputStream(ptr noundef nonnull %61, ptr noundef %0) #21
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #21
-  %83 = load ptr, ptr %76, align 8
-  %.not.i.i.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i, label %85, label %84
+  %82 = load ptr, ptr %76, align 8
+  %.not.i.i.i.i = icmp eq ptr %82, null
+  br i1 %.not.i.i.i.i, label %84, label %83
 
-84:                                               ; preds = %72
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %74, i64 noundef %82) #21
+83:                                               ; preds = %72
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %74, i64 noundef %81) #21
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %76) #21
-  br label %85
+  br label %84
 
-85:                                               ; preds = %84, %72
-  %86 = load ptr, ptr %77, align 8
-  %.not8.i.i.i.i = icmp eq ptr %86, %78
-  br i1 %.not8.i.i.i.i, label %_ZL13add_if_absentPhPS_i.exit, label %87
+84:                                               ; preds = %83, %72
+  %85 = load ptr, ptr %77, align 8
+  %.not8.i.i.i.i = icmp eq ptr %85, %79
+  br i1 %.not8.i.i.i.i, label %_ZL13add_if_absentPhPS_i.exit, label %86
 
-87:                                               ; preds = %85
+86:                                               ; preds = %84
   store ptr %76, ptr %75, align 8
-  store ptr %78, ptr %77, align 8
-  store ptr %80, ptr %79, align 8
+  store <2 x ptr> %78, ptr %77, align 8
   br label %_ZL13add_if_absentPhPS_i.exit
 
-_ZL13add_if_absentPhPS_i.exit:                    ; preds = %27, %.preheader61, %53, %.preheader59, %71, %.preheader, %87, %85, %16, %15, %59, %60, %43, %54, %28
-  %.0 = phi i1 [ true, %28 ], [ true, %54 ], [ false, %43 ], [ false, %60 ], [ false, %59 ], [ false, %15 ], [ false, %16 ], [ true, %85 ], [ true, %87 ], [ false, %.preheader ], [ false, %71 ], [ false, %.preheader59 ], [ false, %53 ], [ false, %.preheader61 ], [ false, %27 ]
+_ZL13add_if_absentPhPS_i.exit:                    ; preds = %27, %.preheader61, %53, %.preheader59, %71, %.preheader, %86, %84, %16, %15, %59, %60, %43, %54, %28
+  %.0 = phi i1 [ true, %28 ], [ true, %54 ], [ false, %43 ], [ false, %60 ], [ false, %59 ], [ false, %15 ], [ false, %16 ], [ true, %84 ], [ true, %86 ], [ false, %.preheader ], [ false, %71 ], [ false, %.preheader59 ], [ false, %53 ], [ false, %.preheader61 ], [ false, %27 ]
   ret i1 %.0
 }
 

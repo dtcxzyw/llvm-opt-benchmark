@@ -8391,20 +8391,20 @@ _ZNSt8functionIFN4pstd8optionalIN4pbrt5TokenEEEiEED2Ev.exit: ; preds = %_ZNSt8fu
   %395 = load ptr, ptr %target.addr, align 8
   %396 = load i64, ptr %params, align 8
   store i64 %396, ptr %agg.tmp1302, align 8
-  %397 = load <2 x i64>, ptr %nAlloc5.i, align 8
-  store <2 x i64> %397, ptr %nAlloc.i, align 8
-  %398 = load ptr, ptr %ptr7.i, align 8
-  store ptr %398, ptr %ptr.i, align 8
-  %399 = extractelement <2 x i64> %397, i64 1
-  %cmp.i2528 = icmp ult i64 %399, 9
+  %397 = load i64, ptr %nStored3.i, align 8
+  %398 = load <2 x i64>, ptr %nAlloc5.i, align 8
+  store <2 x i64> %398, ptr %nAlloc.i, align 8
+  %399 = load ptr, ptr %ptr7.i, align 8
+  store ptr %399, ptr %ptr.i, align 8
+  %cmp.i2528 = icmp ult i64 %397, 9
   br i1 %cmp.i2528, label %for.cond.preheader.i, label %if.else.i2529
 
 for.cond.preheader.i:                             ; preds = %_ZNSt8functionIFN4pstd8optionalIN4pbrt5TokenEEEiEED2Ev.exit
-  %cmp1113.not.i = icmp eq i64 %399, 0
+  %cmp1113.not.i = icmp eq i64 %397, 0
   br i1 %cmp1113.not.i, label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %for.cond.preheader.i
-  %400 = shl nuw nsw i64 %399, 3
+  %400 = shl nuw nsw i64 %397, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr nonnull align 8 %17, i64 %400, i1 false)
   br label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit
 
@@ -9166,23 +9166,23 @@ memptr.end:                                       ; preds = %memptr.nonvirtual, 
   %nStored.i = getelementptr inbounds i8, ptr %agg.tmp12, i64 88
   %nStored3.i = getelementptr inbounds i8, ptr %parameterVector, i64 88
   %nAlloc5.i = getelementptr inbounds i8, ptr %parameterVector, i64 80
-  %46 = load <2 x i64>, ptr %nAlloc5.i, align 8
-  store <2 x i64> %46, ptr %nAlloc.i, align 8
+  %46 = load i64, ptr %nStored3.i, align 8
+  %47 = load <2 x i64>, ptr %nAlloc5.i, align 8
+  store <2 x i64> %47, ptr %nAlloc.i, align 8
   %ptr7.i = getelementptr inbounds i8, ptr %parameterVector, i64 8
-  %47 = load ptr, ptr %ptr7.i, align 8
-  store ptr %47, ptr %ptr.i, align 8
-  %48 = extractelement <2 x i64> %46, i64 1
-  %cmp.i = icmp ult i64 %48, 9
+  %48 = load ptr, ptr %ptr7.i, align 8
+  store ptr %48, ptr %ptr.i, align 8
+  %cmp.i = icmp ult i64 %46, 9
   br i1 %cmp.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %memptr.end
-  %cmp1113.not.i = icmp eq i64 %48, 0
+  %cmp1113.not.i = icmp eq i64 %46, 0
   br i1 %cmp1113.not.i, label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %49 = getelementptr inbounds i8, ptr %agg.tmp12, i64 16
   %50 = getelementptr inbounds i8, ptr %parameterVector, i64 16
-  %51 = shl nuw nsw i64 %48, 3
+  %51 = shl nuw nsw i64 %46, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %49, ptr nonnull align 8 %50, i64 %51, i1 false)
   br label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit
 
@@ -11979,29 +11979,29 @@ entry:
   %ptr.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %nAlloc.i = getelementptr inbounds i8, ptr %agg.tmp, i64 80
   %nStored.i = getelementptr inbounds i8, ptr %agg.tmp, i64 88
+  %nStored3.i = getelementptr inbounds i8, ptr %params, i64 88
   %nAlloc5.i = getelementptr inbounds i8, ptr %params, i64 80
-  %1 = load <2 x i64>, ptr %nAlloc5.i, align 8
-  store <2 x i64> %1, ptr %nAlloc.i, align 8
+  %1 = load i64, ptr %nStored3.i, align 8
+  %2 = load <2 x i64>, ptr %nAlloc5.i, align 8
+  store <2 x i64> %2, ptr %nAlloc.i, align 8
   %ptr7.i = getelementptr inbounds i8, ptr %params, i64 8
-  %2 = load ptr, ptr %ptr7.i, align 8
-  store ptr %2, ptr %ptr.i, align 8
-  %3 = extractelement <2 x i64> %1, i64 1
-  %cmp.i = icmp ult i64 %3, 9
+  %3 = load ptr, ptr %ptr7.i, align 8
+  store ptr %3, ptr %ptr.i, align 8
+  %cmp.i = icmp ult i64 %1, 9
   br i1 %cmp.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %cmp1113.not.i = icmp eq i64 %3, 0
+  %cmp1113.not.i = icmp eq i64 %1, 0
   br i1 %cmp1113.not.i, label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %5 = getelementptr inbounds i8, ptr %params, i64 16
-  %6 = shl nuw nsw i64 %3, 3
+  %6 = shl nuw nsw i64 %1, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 8 %5, i64 %6, i1 false)
   br label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit
 
 if.else.i:                                        ; preds = %entry
-  %nStored3.i = getelementptr inbounds i8, ptr %params, i64 88
   store i64 0, ptr %nStored3.i, align 8
   br label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit
 
@@ -12675,29 +12675,29 @@ entry:
   %ptr.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %nAlloc.i = getelementptr inbounds i8, ptr %agg.tmp, i64 80
   %nStored.i = getelementptr inbounds i8, ptr %agg.tmp, i64 88
+  %nStored3.i = getelementptr inbounds i8, ptr %params, i64 88
   %nAlloc5.i = getelementptr inbounds i8, ptr %params, i64 80
-  %1 = load <2 x i64>, ptr %nAlloc5.i, align 8
-  store <2 x i64> %1, ptr %nAlloc.i, align 8
+  %1 = load i64, ptr %nStored3.i, align 8
+  %2 = load <2 x i64>, ptr %nAlloc5.i, align 8
+  store <2 x i64> %2, ptr %nAlloc.i, align 8
   %ptr7.i = getelementptr inbounds i8, ptr %params, i64 8
-  %2 = load ptr, ptr %ptr7.i, align 8
-  store ptr %2, ptr %ptr.i, align 8
-  %3 = extractelement <2 x i64> %1, i64 1
-  %cmp.i = icmp ult i64 %3, 9
+  %3 = load ptr, ptr %ptr7.i, align 8
+  store ptr %3, ptr %ptr.i, align 8
+  %cmp.i = icmp ult i64 %1, 9
   br i1 %cmp.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %cmp1113.not.i = icmp eq i64 %3, 0
+  %cmp1113.not.i = icmp eq i64 %1, 0
   br i1 %cmp1113.not.i, label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %5 = getelementptr inbounds i8, ptr %params, i64 16
-  %6 = shl nuw nsw i64 %3, 3
+  %6 = shl nuw nsw i64 %1, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 8 %5, i64 %6, i1 false)
   br label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit
 
 if.else.i:                                        ; preds = %entry
-  %nStored3.i = getelementptr inbounds i8, ptr %params, i64 88
   store i64 0, ptr %nStored3.i, align 8
   br label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit
 
@@ -13194,29 +13194,29 @@ entry:
   %ptr.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %nAlloc.i = getelementptr inbounds i8, ptr %agg.tmp, i64 80
   %nStored.i = getelementptr inbounds i8, ptr %agg.tmp, i64 88
+  %nStored3.i = getelementptr inbounds i8, ptr %params, i64 88
   %nAlloc5.i = getelementptr inbounds i8, ptr %params, i64 80
-  %1 = load <2 x i64>, ptr %nAlloc5.i, align 8
-  store <2 x i64> %1, ptr %nAlloc.i, align 8
+  %1 = load i64, ptr %nStored3.i, align 8
+  %2 = load <2 x i64>, ptr %nAlloc5.i, align 8
+  store <2 x i64> %2, ptr %nAlloc.i, align 8
   %ptr7.i = getelementptr inbounds i8, ptr %params, i64 8
-  %2 = load ptr, ptr %ptr7.i, align 8
-  store ptr %2, ptr %ptr.i, align 8
-  %3 = extractelement <2 x i64> %1, i64 1
-  %cmp.i = icmp ult i64 %3, 9
+  %3 = load ptr, ptr %ptr7.i, align 8
+  store ptr %3, ptr %ptr.i, align 8
+  %cmp.i = icmp ult i64 %1, 9
   br i1 %cmp.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %cmp1113.not.i = icmp eq i64 %3, 0
+  %cmp1113.not.i = icmp eq i64 %1, 0
   br i1 %cmp1113.not.i, label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %5 = getelementptr inbounds i8, ptr %params, i64 16
-  %6 = shl nuw nsw i64 %3, 3
+  %6 = shl nuw nsw i64 %1, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 8 %5, i64 %6, i1 false)
   br label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit
 
 if.else.i:                                        ; preds = %entry
-  %nStored3.i = getelementptr inbounds i8, ptr %params, i64 88
   store i64 0, ptr %nStored3.i, align 8
   br label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit
 
@@ -13483,29 +13483,29 @@ entry:
   %ptr.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %nAlloc.i = getelementptr inbounds i8, ptr %agg.tmp, i64 80
   %nStored.i = getelementptr inbounds i8, ptr %agg.tmp, i64 88
+  %nStored3.i = getelementptr inbounds i8, ptr %params, i64 88
   %nAlloc5.i = getelementptr inbounds i8, ptr %params, i64 80
-  %1 = load <2 x i64>, ptr %nAlloc5.i, align 8
-  store <2 x i64> %1, ptr %nAlloc.i, align 8
+  %1 = load i64, ptr %nStored3.i, align 8
+  %2 = load <2 x i64>, ptr %nAlloc5.i, align 8
+  store <2 x i64> %2, ptr %nAlloc.i, align 8
   %ptr7.i = getelementptr inbounds i8, ptr %params, i64 8
-  %2 = load ptr, ptr %ptr7.i, align 8
-  store ptr %2, ptr %ptr.i, align 8
-  %3 = extractelement <2 x i64> %1, i64 1
-  %cmp.i = icmp ult i64 %3, 9
+  %3 = load ptr, ptr %ptr7.i, align 8
+  store ptr %3, ptr %ptr.i, align 8
+  %cmp.i = icmp ult i64 %1, 9
   br i1 %cmp.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %cmp1113.not.i = icmp eq i64 %3, 0
+  %cmp1113.not.i = icmp eq i64 %1, 0
   br i1 %cmp1113.not.i, label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %5 = getelementptr inbounds i8, ptr %params, i64 16
-  %6 = shl nuw nsw i64 %3, 3
+  %6 = shl nuw nsw i64 %1, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 8 %5, i64 %6, i1 false)
   br label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit
 
 if.else.i:                                        ; preds = %entry
-  %nStored3.i = getelementptr inbounds i8, ptr %params, i64 88
   store i64 0, ptr %nStored3.i, align 8
   br label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit
 
@@ -13665,29 +13665,29 @@ entry:
   %ptr.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %nAlloc.i = getelementptr inbounds i8, ptr %agg.tmp, i64 80
   %nStored.i = getelementptr inbounds i8, ptr %agg.tmp, i64 88
+  %nStored3.i = getelementptr inbounds i8, ptr %params, i64 88
   %nAlloc5.i = getelementptr inbounds i8, ptr %params, i64 80
-  %1 = load <2 x i64>, ptr %nAlloc5.i, align 8
-  store <2 x i64> %1, ptr %nAlloc.i, align 8
+  %1 = load i64, ptr %nStored3.i, align 8
+  %2 = load <2 x i64>, ptr %nAlloc5.i, align 8
+  store <2 x i64> %2, ptr %nAlloc.i, align 8
   %ptr7.i = getelementptr inbounds i8, ptr %params, i64 8
-  %2 = load ptr, ptr %ptr7.i, align 8
-  store ptr %2, ptr %ptr.i, align 8
-  %3 = extractelement <2 x i64> %1, i64 1
-  %cmp.i = icmp ult i64 %3, 9
+  %3 = load ptr, ptr %ptr7.i, align 8
+  store ptr %3, ptr %ptr.i, align 8
+  %cmp.i = icmp ult i64 %1, 9
   br i1 %cmp.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %cmp1113.not.i = icmp eq i64 %3, 0
+  %cmp1113.not.i = icmp eq i64 %1, 0
   br i1 %cmp1113.not.i, label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %5 = getelementptr inbounds i8, ptr %params, i64 16
-  %6 = shl nuw nsw i64 %3, 3
+  %6 = shl nuw nsw i64 %1, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 8 %5, i64 %6, i1 false)
   br label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit
 
 if.else.i:                                        ; preds = %entry
-  %nStored3.i = getelementptr inbounds i8, ptr %params, i64 88
   store i64 0, ptr %nStored3.i, align 8
   br label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit
 
@@ -14295,29 +14295,29 @@ entry:
   %ptr.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %nAlloc.i = getelementptr inbounds i8, ptr %agg.tmp, i64 80
   %nStored.i = getelementptr inbounds i8, ptr %agg.tmp, i64 88
+  %nStored3.i = getelementptr inbounds i8, ptr %params, i64 88
   %nAlloc5.i = getelementptr inbounds i8, ptr %params, i64 80
-  %1 = load <2 x i64>, ptr %nAlloc5.i, align 8
-  store <2 x i64> %1, ptr %nAlloc.i, align 8
+  %1 = load i64, ptr %nStored3.i, align 8
+  %2 = load <2 x i64>, ptr %nAlloc5.i, align 8
+  store <2 x i64> %2, ptr %nAlloc.i, align 8
   %ptr7.i = getelementptr inbounds i8, ptr %params, i64 8
-  %2 = load ptr, ptr %ptr7.i, align 8
-  store ptr %2, ptr %ptr.i, align 8
-  %3 = extractelement <2 x i64> %1, i64 1
-  %cmp.i = icmp ult i64 %3, 9
+  %3 = load ptr, ptr %ptr7.i, align 8
+  store ptr %3, ptr %ptr.i, align 8
+  %cmp.i = icmp ult i64 %1, 9
   br i1 %cmp.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %cmp1113.not.i = icmp eq i64 %3, 0
+  %cmp1113.not.i = icmp eq i64 %1, 0
   br i1 %cmp1113.not.i, label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %5 = getelementptr inbounds i8, ptr %params, i64 16
-  %6 = shl nuw nsw i64 %3, 3
+  %6 = shl nuw nsw i64 %1, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 8 %5, i64 %6, i1 false)
   br label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit
 
 if.else.i:                                        ; preds = %entry
-  %nStored3.i = getelementptr inbounds i8, ptr %params, i64 88
   store i64 0, ptr %nStored3.i, align 8
   br label %_ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EOS7_.exit
 

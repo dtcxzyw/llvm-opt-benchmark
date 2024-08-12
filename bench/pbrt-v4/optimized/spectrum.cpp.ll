@@ -3649,37 +3649,37 @@ declare { <2 x float>, float } @_ZNK4pbrt13RGBColorSpace11ToRGBCoeffsENS_3RGBE(p
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt20RGBUnboundedSpectrumC2ERKNS_13RGBColorSpaceENS_3RGBE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(152) %cs, <2 x float> %rgb.coerce0, float %rgb.coerce1) unnamed_addr #1 align 2 {
 entry:
-  %0 = extractelement <2 x float> %rgb.coerce0, i64 0
   %ref.tmp = alloca [3 x float], align 8
+  %rgb.sroa.0.0.vec.extract = extractelement <2 x float> %rgb.coerce0, i64 0
   store <2 x float> %rgb.coerce0, ptr %ref.tmp, align 8
   %arrayinit.element2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store float %rgb.coerce1, ptr %arrayinit.element2, align 8
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
-  %1 = phi float [ %3, %while.body.i.i ], [ %0, %entry ]
+  %0 = phi float [ %2, %while.body.i.i ], [ %rgb.sroa.0.0.vec.extract, %entry ]
   %incdec.ptr11.i.i.idx = phi i64 [ %incdec.ptr11.i.i.add, %while.body.i.i ], [ 4, %entry ]
   %__result.010.i.i = phi ptr [ %spec.select.i.i, %while.body.i.i ], [ %ref.tmp, %entry ]
   %incdec.ptr11.i.i.ptr = getelementptr inbounds i8, ptr %ref.tmp, i64 %incdec.ptr11.i.i.idx
-  %2 = load float, ptr %incdec.ptr11.i.i.ptr, align 4
-  %cmp.i.i.i = fcmp olt float %1, %2
-  %3 = select i1 %cmp.i.i.i, float %2, float %1
+  %1 = load float, ptr %incdec.ptr11.i.i.ptr, align 4
+  %cmp.i.i.i = fcmp olt float %0, %1
+  %2 = select i1 %cmp.i.i.i, float %1, float %0
   %spec.select.i.i = select i1 %cmp.i.i.i, ptr %incdec.ptr11.i.i.ptr, ptr %__result.010.i.i
   %incdec.ptr11.i.i.add = add nuw nsw i64 %incdec.ptr11.i.i.idx, 4
   %cmp1.not.i.i = icmp eq i64 %incdec.ptr11.i.i.add, 12
   br i1 %cmp1.not.i.i, label %_ZSt3maxIfET_St16initializer_listIS0_E.exit, label %while.body.i.i, !llvm.loop !9
 
 _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %while.body.i.i
-  %4 = load float, ptr %spec.select.i.i, align 4
-  %mul = fmul float %4, 2.000000e+00
+  %3 = load float, ptr %spec.select.i.i, align 4
+  %mul = fmul float %3, 2.000000e+00
   store float %mul, ptr %this, align 4
   %tobool = fcmp une float %mul, 0.000000e+00
-  %5 = insertelement <2 x float> poison, float %mul, i64 0
-  %6 = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> zeroinitializer
-  %7 = fdiv <2 x float> %rgb.coerce0, %6
+  %4 = insertelement <2 x float> poison, float %mul, i64 0
+  %5 = shufflevector <2 x float> %4, <2 x float> poison, <2 x i32> zeroinitializer
+  %6 = fdiv <2 x float> %rgb.coerce0, %5
   %div5.i.i = fdiv float %rgb.coerce1, %mul
   %agg.tmp5.sroa.4.0 = select i1 %tobool, float %div5.i.i, float 0.000000e+00
-  %agg.tmp5.sroa.0.0 = select i1 %tobool, <2 x float> %7, <2 x float> zeroinitializer
+  %agg.tmp5.sroa.0.0 = select i1 %tobool, <2 x float> %6, <2 x float> zeroinitializer
   %call9 = tail call { <2 x float>, float } @_ZNK4pbrt13RGBColorSpace11ToRGBCoeffsENS_3RGBE(ptr noundef nonnull align 8 dereferenceable(152) %cs, <2 x float> %agg.tmp5.sroa.0.0, float %agg.tmp5.sroa.4.0)
   %call9.fca.0.extract = extractvalue { <2 x float>, float } %call9, 0
   %call9.fca.1.extract = extractvalue { <2 x float>, float } %call9, 1
@@ -3693,40 +3693,40 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %while.body.i.i
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt21RGBIlluminantSpectrumC2ERKNS_13RGBColorSpaceENS_3RGBE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(152) %cs, <2 x float> %rgb.coerce0, float %rgb.coerce1) unnamed_addr #1 align 2 {
 entry:
-  %0 = extractelement <2 x float> %rgb.coerce0, i64 0
   %ref.tmp = alloca [3 x float], align 8
   %illuminant = getelementptr inbounds i8, ptr %this, i64 16
   %illuminant2 = getelementptr inbounds i8, ptr %cs, i64 32
   store ptr %illuminant2, ptr %illuminant, align 8
+  %rgb.sroa.0.0.vec.extract = extractelement <2 x float> %rgb.coerce0, i64 0
   store <2 x float> %rgb.coerce0, ptr %ref.tmp, align 8
   %arrayinit.element3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store float %rgb.coerce1, ptr %arrayinit.element3, align 8
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %entry
-  %1 = phi float [ %3, %while.body.i.i ], [ %0, %entry ]
+  %0 = phi float [ %2, %while.body.i.i ], [ %rgb.sroa.0.0.vec.extract, %entry ]
   %incdec.ptr11.i.i.idx = phi i64 [ %incdec.ptr11.i.i.add, %while.body.i.i ], [ 4, %entry ]
   %__result.010.i.i = phi ptr [ %spec.select.i.i, %while.body.i.i ], [ %ref.tmp, %entry ]
   %incdec.ptr11.i.i.ptr = getelementptr inbounds i8, ptr %ref.tmp, i64 %incdec.ptr11.i.i.idx
-  %2 = load float, ptr %incdec.ptr11.i.i.ptr, align 4
-  %cmp.i.i.i = fcmp olt float %1, %2
-  %3 = select i1 %cmp.i.i.i, float %2, float %1
+  %1 = load float, ptr %incdec.ptr11.i.i.ptr, align 4
+  %cmp.i.i.i = fcmp olt float %0, %1
+  %2 = select i1 %cmp.i.i.i, float %1, float %0
   %spec.select.i.i = select i1 %cmp.i.i.i, ptr %incdec.ptr11.i.i.ptr, ptr %__result.010.i.i
   %incdec.ptr11.i.i.add = add nuw nsw i64 %incdec.ptr11.i.i.idx, 4
   %cmp1.not.i.i = icmp eq i64 %incdec.ptr11.i.i.add, 12
   br i1 %cmp1.not.i.i, label %_ZSt3maxIfET_St16initializer_listIS0_E.exit, label %while.body.i.i, !llvm.loop !9
 
 _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %while.body.i.i
-  %4 = load float, ptr %spec.select.i.i, align 4
-  %mul = fmul float %4, 2.000000e+00
+  %3 = load float, ptr %spec.select.i.i, align 4
+  %mul = fmul float %3, 2.000000e+00
   store float %mul, ptr %this, align 8
   %tobool = fcmp une float %mul, 0.000000e+00
-  %5 = insertelement <2 x float> poison, float %mul, i64 0
-  %6 = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> zeroinitializer
-  %7 = fdiv <2 x float> %rgb.coerce0, %6
+  %4 = insertelement <2 x float> poison, float %mul, i64 0
+  %5 = shufflevector <2 x float> %4, <2 x float> poison, <2 x i32> zeroinitializer
+  %6 = fdiv <2 x float> %rgb.coerce0, %5
   %div5.i.i = fdiv float %rgb.coerce1, %mul
   %agg.tmp5.sroa.4.0 = select i1 %tobool, float %div5.i.i, float 0.000000e+00
-  %agg.tmp5.sroa.0.0 = select i1 %tobool, <2 x float> %7, <2 x float> zeroinitializer
+  %agg.tmp5.sroa.0.0 = select i1 %tobool, <2 x float> %6, <2 x float> zeroinitializer
   %call9 = tail call { <2 x float>, float } @_ZNK4pbrt13RGBColorSpace11ToRGBCoeffsENS_3RGBE(ptr noundef nonnull align 8 dereferenceable(152) %cs, <2 x float> %agg.tmp5.sroa.0.0, float %agg.tmp5.sroa.4.0)
   %call9.fca.0.extract = extractvalue { <2 x float>, float } %call9, 0
   %call9.fca.1.extract = extractvalue { <2 x float>, float } %call9, 1

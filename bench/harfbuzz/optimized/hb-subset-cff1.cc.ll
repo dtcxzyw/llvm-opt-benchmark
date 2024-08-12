@@ -10801,18 +10801,15 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %rhs, align 8, !noalias !105
   %agg.tmp.sroa.2.0.p.sroa_idx.i = getelementptr inbounds i8, ptr %rhs, i64 8
-  %agg.tmp.sroa.2.0.copyload.i = load ptr, ptr %agg.tmp.sroa.2.0.p.sroa_idx.i, align 8, !noalias !105
-  %f.i = getelementptr inbounds i8, ptr %rhs, i64 16
-  %0 = load ptr, ptr %f.i, align 8, !noalias !105
   store ptr %lhs.0.val, ptr %agg.result, align 8, !alias.scope !105
   %it.sroa.2.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %lhs.8.val, ptr %it.sroa.2.0.agg.result.sroa_idx.i, align 8, !alias.scope !105
   %p.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %p.i.i, align 8, !alias.scope !105
   %v.sroa.2.0.v2.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store ptr %agg.tmp.sroa.2.0.copyload.i, ptr %v.sroa.2.0.v2.sroa_idx.i.i.i, align 8, !alias.scope !105
-  %f.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
-  store ptr %0, ptr %f.i.i, align 8, !alias.scope !105
+  %0 = load <2 x ptr>, ptr %agg.tmp.sroa.2.0.p.sroa_idx.i, align 8, !noalias !105
+  %agg.tmp.sroa.2.0.copyload.i = load ptr, ptr %agg.tmp.sroa.2.0.p.sroa_idx.i, align 8, !noalias !105
+  store <2 x ptr> %0, ptr %v.sroa.2.0.v2.sroa_idx.i.i.i, align 8, !alias.scope !105
   %1 = trunc i64 %lhs.8.val to i32
   %tobool.i.i.not9.i.i = icmp eq i32 %1, 0
   %2 = lshr i64 %lhs.8.val, 32

@@ -2574,17 +2574,14 @@ _ZN7datalog11instructionC2Ev.exit.i:              ; preds = %entry
   %m_reg.i = getelementptr inbounds i8, ptr %call, i64 72
   store i32 %reg, ptr %m_reg.i, align 8
   %m_cond.i = getelementptr inbounds i8, ptr %call, i64 80
-  %2 = load ptr, ptr %condition, align 8
-  store ptr %2, ptr %m_cond.i, align 8
-  %m_manager.i.i = getelementptr inbounds i8, ptr %call, i64 88
-  %m_manager3.i.i = getelementptr inbounds i8, ptr %condition, i64 8
-  %3 = load ptr, ptr %m_manager3.i.i, align 8
-  store ptr %3, ptr %m_manager.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %2, null
+  %2 = load <2 x ptr>, ptr %condition, align 8
+  %3 = load ptr, ptr %condition, align 8
+  store <2 x ptr> %2, ptr %m_cond.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %_ZN7datalog24instr_filter_interpretedC2EjR7obj_refI3app11ast_managerE.exit, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i.i.i:        ; preds = %_ZN7datalog11instructionC2Ev.exit.i
-  %m_ref_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %m_ref_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %m_ref_count.i.i.i.i.i, align 4
   %inc.i.i.i.i.i = add i32 %4, 1
   store i32 %inc.i.i.i.i.i, ptr %m_ref_count.i.i.i.i.i, align 4
@@ -3596,7 +3593,7 @@ _ZN7datalog11instructionC2Ev.exit:                ; preds = %entry
 _ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i: ; preds = %_ZN7datalog11instructionC2Ev.exit
   %arrayidx.i11.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   %3 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i.i, align 4
-  %4 = extractelement <2 x i32> %3, i64 0
+  %4 = load i32, ptr %arrayidx.i11.i.i.i.i.i, align 4
   %conv.i.i.i.i.i = zext i32 %4 to i64
   %mul.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i, 3
   %add.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i, 8
@@ -3741,7 +3738,7 @@ _ZN7datalog11instructionC2Ev.exit:                ; preds = %entry
 _ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i: ; preds = %_ZN7datalog11instructionC2Ev.exit
   %arrayidx.i11.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   %3 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i.i, align 4
-  %4 = extractelement <2 x i32> %3, i64 0
+  %4 = load i32, ptr %arrayidx.i11.i.i.i.i.i, align 4
   %conv.i.i.i.i.i = zext i32 %4 to i64
   %mul.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i, 3
   %add.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i, 8
@@ -15173,17 +15170,16 @@ if.then.us16.us:                                  ; preds = %for.body.us12.us
   store i32 %13, ptr %__i.011.us13.us, align 4
   %14 = load i32, ptr %second2.i.i, align 4
   store i32 %14, ptr %second.i.i.us14.us, align 4
-  %15 = load i32, ptr %add.ptr14.i.i, align 4
-  store i32 %15, ptr %__first, align 4
-  %16 = load i32, ptr %second.i23.i.i, align 4
-  store i32 %16, ptr %second2.i.i, align 4
+  %15 = load i32, ptr %second.i23.i.i, align 4
+  %16 = load <2 x i32>, ptr %add.ptr14.i.i, align 4
+  store <2 x i32> %16, ptr %__first, align 4
   %__value.sroa.2.0.extract.shift.i.i.i.us22.us = lshr i64 %__value.sroa.0.0.copyload.i.us17.us, 32
   %__value.sroa.2.0.extract.trunc.i.i.i.us23.us = trunc nuw i64 %__value.sroa.2.0.extract.shift.i.i.i.us22.us to i32
-  %cmp.i.i.i.i.i.us31.us = icmp ugt i32 %16, %__value.sroa.2.0.extract.trunc.i.i.i.us23.us
+  %cmp.i.i.i.i.i.us31.us = icmp ugt i32 %15, %__value.sroa.2.0.extract.trunc.i.i.i.us23.us
   br i1 %cmp.i.i.i.i.i.us31.us, label %while.body.i.i.i.us32.us, label %_ZSt10__pop_heapIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_RT0_.exit.loopexit.us45.us
 
 while.body.i.i.i.us32.us:                         ; preds = %if.then.us16.us
-  store i32 %16, ptr %second3.i.i.i.i.us34.us, align 4
+  store i32 %15, ptr %second3.i.i.i.i.us34.us, align 4
   br label %_ZSt10__pop_heapIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_RT0_.exit.loopexit.us45.us
 
 for.inc.us41.us:                                  ; preds = %_ZSt10__pop_heapIPSt4pairIjjEN9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_S9_S9_RT0_.exit.loopexit.us45.us, %for.body.us12.us

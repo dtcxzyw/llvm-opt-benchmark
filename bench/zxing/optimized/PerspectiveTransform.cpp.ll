@@ -20,47 +20,48 @@ define void @_ZNK5ZXing20PerspectiveTransform7inverseEv(ptr dead_on_unwind noali
   %10 = load double, ptr %1, align 8
   %11 = load <2 x double>, ptr %6, align 8
   %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %13 = insertelement <2 x double> poison, double %4, i64 0
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = load <2 x double>, ptr %5, align 8
-  %16 = load <2 x double>, ptr %7, align 8
-  %17 = fneg <2 x double> %16
-  %18 = insertelement <2 x double> %11, double %4, i64 0
-  %19 = fmul <2 x double> %18, %17
-  %20 = insertelement <2 x double> poison, double %9, i64 0
-  %21 = shufflevector <2 x double> %20, <2 x double> %15, <2 x i32> <i32 0, i32 2>
-  %22 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %21, <2 x double> %15, <2 x double> %19)
-  %23 = insertelement <2 x double> %15, double %9, i64 1
-  %24 = fneg <2 x double> %23
-  %25 = fmul <2 x double> %11, %24
-  %26 = shufflevector <2 x double> %13, <2 x double> %16, <2 x i32> <i32 0, i32 2>
-  %27 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %26, <2 x double> %12, <2 x double> %25)
-  %28 = fmul <2 x double> %16, %24
-  %29 = extractelement <2 x double> %28, i64 1
-  %30 = tail call double @llvm.fmuladd.f64(double %10, double %4, double %29)
-  store <2 x double> %27, ptr %0, align 8
-  store <2 x double> %22, ptr %14, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
-  %32 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %33 = insertelement <2 x double> %16, double %10, i64 1
-  %34 = shufflevector <2 x double> %16, <2 x double> %11, <2 x i32> <i32 1, i32 3>
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
-  %36 = insertelement <2 x double> %13, double %10, i64 1
-  %37 = fneg <2 x double> %36
-  %38 = shufflevector <2 x double> %15, <2 x double> %12, <2 x i32> <i32 1, i32 3>
-  %39 = fmul <2 x double> %38, %37
-  %40 = shufflevector <2 x double> %16, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %41 = insertelement <2 x double> %40, double %9, i64 1
-  %42 = shufflevector <2 x double> %11, <2 x double> %15, <2 x i32> <i32 0, i32 3>
-  %43 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %41, <2 x double> %42, <2 x double> %39)
-  %44 = shufflevector <2 x double> %32, <2 x double> %37, <2 x i32> <i32 3, i32 1>
-  %45 = fmul <2 x double> %15, %44
-  %46 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %33, <2 x double> %34, <2 x double> %45)
-  %47 = shufflevector <2 x double> %46, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %47, ptr %31, align 8
-  store <2 x double> %43, ptr %35, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 64
-  store double %30, ptr %48, align 8
+  %13 = fneg double %9
+  %14 = insertelement <2 x double> poison, double %4, i64 0
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = load <2 x double>, ptr %5, align 8
+  %17 = load <2 x double>, ptr %7, align 8
+  %18 = fneg <2 x double> %17
+  %19 = extractelement <2 x double> %17, i64 1
+  %20 = insertelement <2 x double> %11, double %4, i64 0
+  %21 = fmul <2 x double> %20, %18
+  %22 = insertelement <2 x double> poison, double %9, i64 0
+  %23 = shufflevector <2 x double> %22, <2 x double> %16, <2 x i32> <i32 0, i32 2>
+  %24 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %23, <2 x double> %16, <2 x double> %21)
+  %25 = insertelement <2 x double> %16, double %9, i64 1
+  %26 = fneg <2 x double> %25
+  %27 = fmul <2 x double> %11, %26
+  %28 = shufflevector <2 x double> %14, <2 x double> %17, <2 x i32> <i32 0, i32 2>
+  %29 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %28, <2 x double> %12, <2 x double> %27)
+  %30 = fmul double %19, %13
+  %31 = tail call double @llvm.fmuladd.f64(double %10, double %4, double %30)
+  store <2 x double> %29, ptr %0, align 8
+  store <2 x double> %24, ptr %15, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %34 = insertelement <2 x double> %17, double %10, i64 1
+  %35 = shufflevector <2 x double> %17, <2 x double> %11, <2 x i32> <i32 1, i32 3>
+  %36 = getelementptr inbounds i8, ptr %0, i64 48
+  %37 = insertelement <2 x double> %14, double %10, i64 1
+  %38 = fneg <2 x double> %37
+  %39 = shufflevector <2 x double> %16, <2 x double> %12, <2 x i32> <i32 1, i32 3>
+  %40 = fmul <2 x double> %39, %38
+  %41 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %42 = insertelement <2 x double> %41, double %9, i64 1
+  %43 = shufflevector <2 x double> %11, <2 x double> %16, <2 x i32> <i32 0, i32 3>
+  %44 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %42, <2 x double> %43, <2 x double> %40)
+  %45 = shufflevector <2 x double> %33, <2 x double> %38, <2 x i32> <i32 3, i32 1>
+  %46 = fmul <2 x double> %16, %45
+  %47 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %34, <2 x double> %35, <2 x double> %46)
+  %48 = shufflevector <2 x double> %47, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x double> %48, ptr %32, align 8
+  store <2 x double> %44, ptr %36, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 64
+  store double %31, ptr %49, align 8
   ret void
 }
 

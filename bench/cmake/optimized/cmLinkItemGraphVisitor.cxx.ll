@@ -1118,15 +1118,14 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %282, %300, %313, %_
   %319 = load i8, ptr %255, align 8
   %320 = and i8 %319, 1
   store i8 %320, ptr %254, align 8
-  %321 = load ptr, ptr %257, align 8
-  store ptr %321, ptr %256, align 8
-  %322 = load ptr, ptr %259, align 8
-  store ptr %322, ptr %258, align 8
-  %.not.i.i.i.i.i.i.i101 = icmp eq ptr %322, null
+  %321 = load ptr, ptr %259, align 8
+  %322 = load <2 x ptr>, ptr %257, align 8
+  store <2 x ptr> %322, ptr %256, align 8
+  %.not.i.i.i.i.i.i.i101 = icmp eq ptr %321, null
   br i1 %.not.i.i.i.i.i.i.i101, label %_ZNSt4pairIN22cmLinkItemGraphVisitor14DependencyTypeE10cmLinkItemEC2IS1_RS2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit, label %323
 
 323:                                              ; preds = %318
-  %324 = getelementptr inbounds i8, ptr %322, i64 8
+  %324 = getelementptr inbounds i8, ptr %321, i64 8
   %325 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i102 = icmp eq i8 %325, 0
   br i1 %.not.i.i.i.i.i.i.i.i102, label %329, label %326
@@ -1454,16 +1453,15 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIN22cmLinkI
   %456 = and i8 %455, 1
   store i8 %456, ptr %429, align 8
   %457 = getelementptr inbounds i8, ptr %.sroa.0146.0204, i64 120
-  %458 = load ptr, ptr %457, align 8
-  store ptr %458, ptr %430, align 8
-  %459 = getelementptr inbounds i8, ptr %.sroa.0146.0204, i64 128
-  %460 = load ptr, ptr %459, align 8
-  store ptr %460, ptr %431, align 8
-  %.not.i.i.i.i.i.i.i127 = icmp eq ptr %460, null
+  %458 = getelementptr inbounds i8, ptr %.sroa.0146.0204, i64 128
+  %459 = load ptr, ptr %458, align 8
+  %460 = load <2 x ptr>, ptr %457, align 8
+  store <2 x ptr> %460, ptr %430, align 8
+  %.not.i.i.i.i.i.i.i127 = icmp eq ptr %459, null
   br i1 %.not.i.i.i.i.i.i.i127, label %_ZNSt4pairIN22cmLinkItemGraphVisitor14DependencyTypeE10cmLinkItemEC2IS1_RKS2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS8_S9_EEEbE4typeELb1EEEOS8_OS9_.exit132, label %461
 
 461:                                              ; preds = %453
-  %462 = getelementptr inbounds i8, ptr %460, i64 8
+  %462 = getelementptr inbounds i8, ptr %459, i64 8
   %463 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i128 = icmp eq i8 %463, 0
   br i1 %.not.i.i.i.i.i.i.i.i128, label %467, label %464

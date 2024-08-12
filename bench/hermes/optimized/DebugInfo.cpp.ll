@@ -3354,10 +3354,10 @@ _ZNSt6vectorIhSaIhEE7reserveEm.exit:              ; preds = %if.end.i, %_ZNSt12_
   call void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %combinedData, ptr %add.ptr.i.i42, ptr %20, ptr %21)
   %22 = load ptr, ptr %combinedData, align 8
   %filenameStrings_ = getelementptr inbounds i8, ptr %this, i64 32
-  %23 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %24 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %23 = load <2 x ptr>, ptr %_M_finish.i.i.i.i, align 8
+  %24 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %combinedData, i8 0, i64 24, i1 false)
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %23 to i64
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %24 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !67)
@@ -3411,9 +3411,7 @@ _ZN6hermes3hbc12StreamVectorIhED2Ev.exit:         ; preds = %if.then.i.i44, %_ZN
   %data_.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store ptr %22, ptr %data_.i, align 8
   %_M_finish.i.i.i.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 104
-  store ptr %23, ptr %_M_finish.i.i.i.i.i6.i, align 8
-  %_M_end_of_storage.i.i.i.i.i8.i = getelementptr inbounds i8, ptr %agg.result, i64 112
-  store ptr %24, ptr %_M_end_of_storage.i.i.i.i.i8.i, align 8
+  store <2 x ptr> %23, ptr %_M_finish.i.i.i.i.i6.i, align 8
   %ref_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 120
   store ptr %22, ptr %ref_.i.i, align 8
   %ref.tmp62.sroa.12.24.ref_.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 128

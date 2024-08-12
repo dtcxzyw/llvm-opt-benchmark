@@ -2564,9 +2564,9 @@ _ZNSt8functionIFN5arrow6ResultINS0_10TypeHolderEEEPNS0_7compute13KernelContextER
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %20 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %21 = load ptr, ptr %_M_manager3.i.i, align 8
   store <2 x ptr> %20, ptr %_M_manager.i.i.i, align 8
   store <2 x ptr> %19, ptr %_M_manager3.i.i, align 8
-  %21 = extractelement <2 x ptr> %20, i64 0
   %tobool.not.i.i4.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i4.i, label %invoke.cont, label %if.then.i.i5.i
 

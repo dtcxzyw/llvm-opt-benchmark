@@ -6265,16 +6265,16 @@ _ZN17AstUser1AllocatorI7AstNodeN15SimulateVisitor11AuxVariableEEC2Ev.exit: ; pre
   %19 = getelementptr inbounds i8, ptr %0, i64 32
   %20 = load <2 x ptr>, ptr %19, align 8, !noalias !23
   %21 = getelementptr inbounds i8, ptr %0, i64 48
-  %22 = load ptr, ptr %21, align 8, !noalias !23
-  %23 = getelementptr inbounds i8, ptr %0, i64 56
-  %24 = load ptr, ptr %23, align 8, !noalias !23
+  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = load ptr, ptr %22, align 8, !noalias !23
+  %24 = load <2 x ptr>, ptr %21, align 8, !noalias !23
   %25 = getelementptr inbounds i8, ptr %0, i64 88
   %26 = load ptr, ptr %25, align 8
-  %27 = icmp ult ptr %24, %26
+  %27 = icmp ult ptr %23, %26
   br i1 %27, label %.lr.ph.i.i.i.i.i, label %.loopexit
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.noexc7, %.lr.ph.i.i.i.i.i
-  %.06.i.pn.i.i.i.i = phi ptr [ %.06.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %24, %.noexc7 ]
+  %.06.i.pn.i.i.i.i = phi ptr [ %.06.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %23, %.noexc7 ]
   %.06.i.i.i.i.i = getelementptr inbounds i8, ptr %.06.i.pn.i.i.i.i, i64 8
   %28 = load ptr, ptr %.06.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %28) #19
@@ -6285,8 +6285,7 @@ _ZN17AstUser1AllocatorI7AstNodeN15SimulateVisitor11AuxVariableEEC2Ev.exit: ; pre
   %30 = getelementptr inbounds i8, ptr %0, i64 64
   store <2 x ptr> %20, ptr %30, align 8
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr %22, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
-  store ptr %24, ptr %25, align 8
+  store <2 x ptr> %24, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
   ret void
 
 31:                                               ; preds = %_ZN12VNUser1InUseC2Ev.exit

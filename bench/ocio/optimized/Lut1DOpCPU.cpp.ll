@@ -4510,17 +4510,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 1)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 1)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -5085,17 +5084,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 1)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 1)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i103, label %if.then.i.i.i.i.i.i36
@@ -5863,17 +5861,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1E
   %call5.i126 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 1)
   %192 = load ptr, ptr %lut, align 8
   %call7.i127 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 1)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i104, align 16
   %_M_refcount.i.i.i128 = getelementptr inbounds i8, ptr %newLut.i104, i64 8
   %_M_refcount3.i.i.i129 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i129, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i128, align 8
-  %cmp.not.i.i.i.i130 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i129, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i104, align 16
+  %cmp.not.i.i.i.i130 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i130, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i136, label %if.then.i.i.i.i131
 
 if.then.i.i.i.i131:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i132 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i132 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i133 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i133, label %if.else.i.i.i.i.i.i321, label %if.then.i.i.i.i.i.i134
@@ -6633,17 +6630,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 1)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 1)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -11270,17 +11266,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 2)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 1)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -11845,17 +11840,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 2)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 1)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -12623,17 +12617,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 2)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 1)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -13376,17 +13369,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 2)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 1)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -17659,17 +17651,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 3)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 1)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -18234,17 +18225,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 3)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 1)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -19012,17 +19002,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 3)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 1)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -19765,17 +19754,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 3)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 1)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -24048,17 +24036,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 5)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 1)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -24623,17 +24610,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 5)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 1)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -25401,17 +25387,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 5)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 1)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -26154,17 +26139,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 5)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 1)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -30514,17 +30498,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 7)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 1)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -31089,17 +31072,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 7)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 1)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -31867,17 +31849,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 7)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 1)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -32620,17 +32601,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 7)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 1)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -38659,17 +38639,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 8)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 1)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -39234,17 +39213,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 8)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 1)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -40012,17 +39990,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 8)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 1)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -40765,17 +40742,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 8)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 1)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -46679,17 +46655,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 1)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 2)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -47254,17 +47229,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 1)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 2)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -48032,17 +48006,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 1)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 2)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -48785,17 +48758,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 1)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 2)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -53074,17 +53046,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 2)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 2)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -53649,17 +53620,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 2)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 2)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -54427,17 +54397,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 2)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 2)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -55180,17 +55149,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 2)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 2)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -59461,17 +59429,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 3)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 2)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -60036,17 +60003,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 3)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 2)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -60814,17 +60780,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 3)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 2)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -61567,17 +61532,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 3)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 2)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -65848,17 +65812,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 5)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 2)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -66423,17 +66386,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 5)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 2)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -67201,17 +67163,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 5)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 2)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -67954,17 +67915,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 5)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 2)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -72312,17 +72272,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 7)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 2)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -72887,17 +72846,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 7)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 2)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -73665,17 +73623,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 7)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 2)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -74418,17 +74375,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 7)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 2)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -80455,17 +80411,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 8)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 2)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -81030,17 +80985,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 8)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 2)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -81808,17 +81762,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 8)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 2)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -82561,17 +82514,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 8)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 2)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -88473,17 +88425,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 1)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 3)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -89048,17 +88999,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 1)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 3)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -89826,17 +89776,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 1)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 3)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -90579,17 +90528,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 1)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 3)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -94868,17 +94816,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 2)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 3)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -95443,17 +95390,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 2)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 3)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -96221,17 +96167,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 2)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 3)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -96974,17 +96919,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 2)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 3)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -101255,17 +101199,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 3)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 3)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -101830,17 +101773,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 3)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 3)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -102608,17 +102550,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 3)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 3)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -103361,17 +103302,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 3)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 3)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -107642,17 +107582,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 5)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 3)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -108217,17 +108156,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 5)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 3)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -108995,17 +108933,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 5)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 3)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -109748,17 +109685,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 5)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 3)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -114106,17 +114042,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 7)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 3)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -114681,17 +114616,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 7)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 3)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -115459,17 +115393,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 7)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 3)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -116212,17 +116145,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 7)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 3)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -122249,17 +122181,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 8)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 3)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -122824,17 +122755,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 8)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 3)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -123602,17 +123532,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 8)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 3)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -124355,17 +124284,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 8)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 3)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -130267,17 +130195,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 1)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 5)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -130842,17 +130769,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 1)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 5)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -131620,17 +131546,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 1)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 5)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -132373,17 +132298,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 1)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 5)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -136662,17 +136586,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 2)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 5)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -137237,17 +137160,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 2)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 5)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -138015,17 +137937,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 2)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 5)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -138768,17 +138689,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 2)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 5)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -143049,17 +142969,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 3)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 5)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -143624,17 +143543,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 3)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 5)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -144402,17 +144320,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 3)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 5)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -145155,17 +145072,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 3)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 5)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -149436,17 +149352,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 5)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 5)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -150011,17 +149926,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 5)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 5)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -150789,17 +150703,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 5)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 5)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -151542,17 +151455,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 5)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 5)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -155900,17 +155812,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 7)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 5)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -156475,17 +156386,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 7)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 5)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -157253,17 +157163,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 7)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 5)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -158006,17 +157915,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 7)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 5)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -164043,17 +163951,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 8)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 5)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -164618,17 +164525,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 8)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 5)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -165396,17 +165302,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 8)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 5)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -166149,17 +166054,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 8)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 5)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -172098,17 +172002,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 1)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 7)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -172673,17 +172576,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 1)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 7)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -173451,17 +173353,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 1)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 7)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -174204,17 +174105,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 1)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 7)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -179463,17 +179363,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 2)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 7)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -180038,17 +179937,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 2)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 7)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -180816,17 +180714,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 2)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 7)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -181569,17 +181466,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 2)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 7)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -186820,17 +186716,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 3)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 7)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -187395,17 +187290,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 3)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 7)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -188173,17 +188067,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 3)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 7)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -188926,17 +188819,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 3)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 7)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -194177,17 +194069,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 5)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 7)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -194752,17 +194643,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 5)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 7)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -195530,17 +195420,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 5)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 7)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -196283,17 +196172,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 5)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 7)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -201611,17 +201499,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 7)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 7)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -202186,17 +202073,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 7)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 7)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -202964,17 +202850,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 7)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 7)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -203717,17 +203602,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 7)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 7)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -210724,17 +210608,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8E
   %call5.i = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 8)
   %6 = load ptr, ptr %lut, align 8
   %call7.i = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %6, i32 noundef 7)
-  %7 = load ptr, ptr %lut, align 8
-  store ptr %7, ptr %newLut.i, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newLut.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %8, ptr %newLut.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8EE9resetDataIhEEvv.exit.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -211299,17 +211182,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8E
   %call5.i28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 8)
   %95 = load ptr, ptr %lut, align 8
   %call7.i29 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %95, i32 noundef 7)
-  %96 = load ptr, ptr %lut, align 8
-  store ptr %96, ptr %newLut.i6, align 16
   %_M_refcount.i.i.i30 = getelementptr inbounds i8, ptr %newLut.i6, i64 8
   %_M_refcount3.i.i.i31 = getelementptr inbounds i8, ptr %lut, i64 8
-  %97 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
-  store ptr %97, ptr %_M_refcount.i.i.i30, align 8
-  %cmp.not.i.i.i.i32 = icmp eq ptr %97, null
+  %96 = load ptr, ptr %_M_refcount3.i.i.i31, align 8
+  %97 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %97, ptr %newLut.i6, align 16
+  %cmp.not.i.i.i.i32 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i32, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i38, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8EE9resetDataIN9Imath_3_14halfEEEvv.exit.i
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %97, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %96, i64 8
   %98 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i35 = icmp eq i8 %98, 0
   br i1 %tobool.i.not.i.i.i.i.i35, label %if.else.i.i.i.i.i.i115, label %if.then.i.i.i.i.i.i36
@@ -212077,17 +211959,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8E
   %call5.i138 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 8)
   %192 = load ptr, ptr %lut, align 8
   %call7.i139 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %192, i32 noundef 7)
-  %193 = load ptr, ptr %lut, align 8
-  store ptr %193, ptr %newLut.i116, align 16
   %_M_refcount.i.i.i140 = getelementptr inbounds i8, ptr %newLut.i116, i64 8
   %_M_refcount3.i.i.i141 = getelementptr inbounds i8, ptr %lut, i64 8
-  %194 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
-  store ptr %194, ptr %_M_refcount.i.i.i140, align 8
-  %cmp.not.i.i.i.i142 = icmp eq ptr %194, null
+  %193 = load ptr, ptr %_M_refcount3.i.i.i141, align 8
+  %194 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %194, ptr %newLut.i116, align 16
+  %cmp.not.i.i.i.i142 = icmp eq ptr %193, null
   br i1 %cmp.not.i.i.i.i142, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit.i148, label %if.then.i.i.i.i143
 
 if.then.i.i.i.i143:                               ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8EE9resetDataIfEEvv.exit.i
-  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %194, i64 8
+  %_M_use_count.i.i.i.i.i144 = getelementptr inbounds i8, ptr %193, i64 8
   %195 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i145 = icmp eq i8 %195, 0
   br i1 %tobool.i.not.i.i.i.i.i145, label %if.else.i.i.i.i.i.i332, label %if.then.i.i.i.i.i.i146
@@ -212830,17 +212711,16 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8E
   %call5 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev15IsFloatBitDepthENS_8BitDepthE(i32 noundef 8)
   %5 = load ptr, ptr %lut, align 8
   %call7 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut1DOpData9mayLookupENS_8BitDepthE(ptr noundef nonnull align 8 dereferenceable(364) %5, i32 noundef 7)
-  %6 = load ptr, ptr %lut, align 8
-  store ptr %6, ptr %newLut, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %newLut, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lut, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %lut, align 8
+  store <2 x ptr> %7, ptr %newLut, align 16
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11Lut1DOpDataEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8EE9resetDataItEEvv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -221573,11 +221453,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   store float %4, ptr %RGB, align 4
   %arrayidx2 = getelementptr inbounds i8, ptr %in.060, i64 4
   %5 = load <2 x float>, ptr %arrayidx2, align 4
-  store <2 x float> %5, ptr %arrayinit.element, align 4
   %6 = extractelement <2 x float> %5, i64 0
+  %7 = extractelement <2 x float> %5, i64 1
+  store <2 x float> %5, ptr %arrayinit.element, align 4
   %cmp.i = fcmp ogt float %4, %6
   %mul.i25 = select i1 %cmp.i, i32 5, i32 0
-  %7 = extractelement <2 x float> %5, i64 1
   %cmp4.i = fcmp ogt float %6, %7
   %mul6.i = select i1 %cmp4.i, i32 4, i32 0
   %add.i26 = add nuw nsw i32 %mul6.i, %mul.i25
@@ -226545,11 +226425,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   store float %4, ptr %RGB, align 4
   %arrayidx2 = getelementptr inbounds i8, ptr %in.060, i64 4
   %5 = load <2 x float>, ptr %arrayidx2, align 4
-  store <2 x float> %5, ptr %arrayinit.element, align 4
   %6 = extractelement <2 x float> %5, i64 0
+  %7 = extractelement <2 x float> %5, i64 1
+  store <2 x float> %5, ptr %arrayinit.element, align 4
   %cmp.i = fcmp ogt float %4, %6
   %mul.i25 = select i1 %cmp.i, i32 5, i32 0
-  %7 = extractelement <2 x float> %5, i64 1
   %cmp4.i = fcmp ogt float %6, %7
   %mul6.i = select i1 %cmp4.i, i32 4, i32 0
   %add.i26 = add nuw nsw i32 %mul6.i, %mul.i25
@@ -231508,11 +231388,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   store float %4, ptr %RGB, align 4
   %arrayidx2 = getelementptr inbounds i8, ptr %in.060, i64 4
   %5 = load <2 x float>, ptr %arrayidx2, align 4
-  store <2 x float> %5, ptr %arrayinit.element, align 4
   %6 = extractelement <2 x float> %5, i64 0
+  %7 = extractelement <2 x float> %5, i64 1
+  store <2 x float> %5, ptr %arrayinit.element, align 4
   %cmp.i = fcmp ogt float %4, %6
   %mul.i25 = select i1 %cmp.i, i32 5, i32 0
-  %7 = extractelement <2 x float> %5, i64 1
   %cmp4.i = fcmp ogt float %6, %7
   %mul6.i = select i1 %cmp4.i, i32 4, i32 0
   %add.i26 = add nuw nsw i32 %mul6.i, %mul.i25
@@ -236471,11 +236351,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   store float %4, ptr %RGB, align 4
   %arrayidx2 = getelementptr inbounds i8, ptr %in.060, i64 4
   %5 = load <2 x float>, ptr %arrayidx2, align 4
-  store <2 x float> %5, ptr %arrayinit.element, align 4
   %6 = extractelement <2 x float> %5, i64 0
+  %7 = extractelement <2 x float> %5, i64 1
+  store <2 x float> %5, ptr %arrayinit.element, align 4
   %cmp.i = fcmp ogt float %4, %6
   %mul.i25 = select i1 %cmp.i, i32 5, i32 0
-  %7 = extractelement <2 x float> %5, i64 1
   %cmp4.i = fcmp ogt float %6, %7
   %mul6.i = select i1 %cmp4.i, i32 4, i32 0
   %add.i26 = add nuw nsw i32 %mul6.i, %mul.i25
@@ -242226,11 +242106,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   store float %4, ptr %RGB, align 4
   %arrayidx2 = getelementptr inbounds i8, ptr %in.0187, i64 4
   %5 = load <2 x float>, ptr %arrayidx2, align 4
-  store <2 x float> %5, ptr %arrayinit.element, align 4
   %6 = extractelement <2 x float> %5, i64 0
+  %7 = extractelement <2 x float> %5, i64 1
+  store <2 x float> %5, ptr %arrayinit.element, align 4
   %cmp.i = fcmp ogt float %4, %6
   %mul.i25 = select i1 %cmp.i, i32 5, i32 0
-  %7 = extractelement <2 x float> %5, i64 1
   %cmp4.i = fcmp ogt float %6, %7
   %mul6.i = select i1 %cmp4.i, i32 4, i32 0
   %add.i26 = add nuw nsw i32 %mul6.i, %mul.i25
@@ -248360,11 +248240,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %co
   store float %4, ptr %RGB, align 4
   %arrayidx2 = getelementptr inbounds i8, ptr %in.037, i64 4
   %5 = load <2 x float>, ptr %arrayidx2, align 4
-  store <2 x float> %5, ptr %arrayinit.element, align 4
   %6 = extractelement <2 x float> %5, i64 0
+  %7 = extractelement <2 x float> %5, i64 1
+  store <2 x float> %5, ptr %arrayinit.element, align 4
   %cmp.i = fcmp ogt float %4, %6
   %mul.i25 = select i1 %cmp.i, i32 5, i32 0
-  %7 = extractelement <2 x float> %5, i64 1
   %cmp4.i = fcmp ogt float %6, %7
   %mul6.i = select i1 %cmp4.i, i32 4, i32 0
   %add.i26 = add nuw nsw i32 %mul6.i, %mul.i25

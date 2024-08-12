@@ -535,7 +535,7 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGr
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN3ue214findMaxBAWidthERKNS_13RoseBuildImplE(ptr noundef nonnull readonly align 8 dereferenceable(780) %tbi) local_unnamed_addr #0 {
 entry:
-  %ref.tmp54 = alloca %"struct.ue2::suffix_id", align 8
+  %ref.tmp54 = alloca %"struct.ue2::suffix_id", align 16
   %ref.tmp61 = alloca %"struct.ue2::suffix_id", align 8
   %root = getelementptr inbounds i8, ptr %tbi, i64 72
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %root, align 8
@@ -575,7 +575,6 @@ for.end:                                          ; preds = %for.inc, %if.end
   br i1 %cmp.i.i.i.i.not217, label %do.end108, label %for.body25.lr.ph
 
 for.body25.lr.ph:                                 ; preds = %for.end
-  %c.i = getelementptr inbounds i8, ptr %ref.tmp54, i64 8
   %d.i = getelementptr inbounds i8, ptr %ref.tmp54, i64 16
   %h.i = getelementptr inbounds i8, ptr %ref.tmp54, i64 24
   %t.i = getelementptr inbounds i8, ptr %ref.tmp54, i64 32
@@ -610,90 +609,93 @@ land.lhs.true.if.end45_crit_edge:                 ; preds = %land.lhs.true
   %.pre223 = load ptr, ptr %haig.i157.phi.trans.insert, align 8
   %rdfa.i160.phi.trans.insert = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 272
   %.pre224 = load ptr, ptr %rdfa.i160.phi.trans.insert, align 8
+  %6 = insertelement <2 x ptr> poison, ptr %.pre, i64 0
+  %7 = insertelement <2 x ptr> %6, ptr %.pre222, i64 1
   br label %if.end45
 
 land.lhs.true40:                                  ; preds = %for.body25
   %graph.i = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 224
-  %6 = load ptr, ptr %graph.i, align 8
+  %8 = load ptr, ptr %graph.i, align 8
   %castle.i = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 240
-  %7 = load ptr, ptr %castle.i, align 8
+  %9 = load ptr, ptr %castle.i, align 8
   %haig.i = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 256
-  %8 = load ptr, ptr %haig.i, align 8
+  %10 = load ptr, ptr %haig.i, align 8
   %rdfa.i = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 272
-  %9 = load ptr, ptr %rdfa.i, align 8
-  %10 = insertelement <4 x ptr> poison, ptr %7, i64 0
-  %11 = insertelement <4 x ptr> %10, ptr %6, i64 1
-  %12 = insertelement <4 x ptr> %11, ptr %8, i64 2
-  %13 = insertelement <4 x ptr> %12, ptr %9, i64 3
-  %.fr = freeze <4 x ptr> %13
-  %14 = icmp ne <4 x ptr> %.fr, zeroinitializer
-  %15 = bitcast <4 x i1> %14 to i4
-  %.not = icmp eq i4 %15, 0
+  %11 = load ptr, ptr %rdfa.i, align 8
+  %12 = insertelement <4 x ptr> poison, ptr %9, i64 0
+  %13 = insertelement <4 x ptr> %12, ptr %8, i64 1
+  %14 = insertelement <4 x ptr> %13, ptr %10, i64 2
+  %15 = insertelement <4 x ptr> %14, ptr %11, i64 3
+  %.fr = freeze <4 x ptr> %15
+  %16 = icmp ne <4 x ptr> %.fr, zeroinitializer
+  %17 = bitcast <4 x i1> %16 to i4
+  %.not = icmp eq i4 %17, 0
+  %18 = insertelement <2 x ptr> poison, ptr %8, i64 0
+  %19 = insertelement <2 x ptr> %18, ptr %9, i64 1
   br i1 %.not, label %_ZNK3ue214RoseSuffixInfocvbEv.exit, label %if.end45
 
 _ZNK3ue214RoseSuffixInfocvbEv.exit:               ; preds = %land.lhs.true40
   %tamarama.i = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 288
-  %16 = load ptr, ptr %tamarama.i, align 8
-  %cmp.i11.i.not = icmp eq ptr %16, null
+  %20 = load ptr, ptr %tamarama.i, align 8
+  %cmp.i11.i.not = icmp eq ptr %20, null
   br i1 %cmp.i11.i.not, label %for.inc98, label %if.end45
 
 if.end45:                                         ; preds = %_ZNK3ue214RoseSuffixInfocvbEv.exit, %land.lhs.true40, %land.lhs.true.if.end45_crit_edge
-  %17 = phi ptr [ %.pre224, %land.lhs.true.if.end45_crit_edge ], [ %9, %land.lhs.true40 ], [ null, %_ZNK3ue214RoseSuffixInfocvbEv.exit ]
-  %18 = phi ptr [ %.pre223, %land.lhs.true.if.end45_crit_edge ], [ %8, %land.lhs.true40 ], [ null, %_ZNK3ue214RoseSuffixInfocvbEv.exit ]
-  %19 = phi ptr [ %.pre222, %land.lhs.true.if.end45_crit_edge ], [ %7, %land.lhs.true40 ], [ null, %_ZNK3ue214RoseSuffixInfocvbEv.exit ]
-  %20 = phi ptr [ %.pre, %land.lhs.true.if.end45_crit_edge ], [ %6, %land.lhs.true40 ], [ null, %_ZNK3ue214RoseSuffixInfocvbEv.exit ]
+  %21 = phi ptr [ %.pre224, %land.lhs.true.if.end45_crit_edge ], [ %11, %land.lhs.true40 ], [ null, %_ZNK3ue214RoseSuffixInfocvbEv.exit ]
+  %22 = phi ptr [ %.pre223, %land.lhs.true.if.end45_crit_edge ], [ %10, %land.lhs.true40 ], [ null, %_ZNK3ue214RoseSuffixInfocvbEv.exit ]
+  %23 = phi ptr [ %.pre222, %land.lhs.true.if.end45_crit_edge ], [ %9, %land.lhs.true40 ], [ null, %_ZNK3ue214RoseSuffixInfocvbEv.exit ]
+  %24 = phi <2 x ptr> [ %7, %land.lhs.true.if.end45_crit_edge ], [ %19, %land.lhs.true40 ], [ zeroinitializer, %_ZNK3ue214RoseSuffixInfocvbEv.exit ]
   %max_offset = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 108
-  %21 = load i32, ptr %max_offset, align 4
-  %conv48 = zext i32 %21 to i64
+  %25 = load i32, ptr %max_offset, align 4
+  %conv48 = zext i32 %25 to i64
   %suffix51 = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 216
   %graph.i152 = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 224
   %castle.i154 = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 240
-  %cmp.i8.i155 = icmp eq ptr %19, null
+  %cmp.i8.i155 = icmp eq ptr %23, null
   %haig.i157 = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 256
   %rdfa.i160 = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 272
   %tamarama.i172.phi.trans.insert = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 288
   %.pre225 = load ptr, ptr %tamarama.i172.phi.trans.insert, align 8
-  %22 = insertelement <4 x ptr> poison, ptr %20, i64 0
-  %23 = insertelement <4 x ptr> %22, ptr %18, i64 1
-  %24 = insertelement <4 x ptr> %23, ptr %17, i64 2
-  %25 = insertelement <4 x ptr> %24, ptr %.pre225, i64 3
-  %.fr228 = freeze <4 x ptr> %25
-  %26 = icmp ne <4 x ptr> %.fr228, zeroinitializer
-  %27 = bitcast <4 x i1> %26 to i4
-  %28 = icmp eq i4 %27, 0
-  %op.rdx = select i1 %28, i1 %cmp.i8.i155, i1 false
+  %26 = shufflevector <2 x ptr> %24, <2 x ptr> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
+  %27 = insertelement <4 x ptr> %26, ptr %22, i64 1
+  %28 = insertelement <4 x ptr> %27, ptr %21, i64 2
+  %29 = insertelement <4 x ptr> %28, ptr %.pre225, i64 3
+  %.fr228 = freeze <4 x ptr> %29
+  %30 = icmp ne <4 x ptr> %.fr228, zeroinitializer
+  %31 = bitcast <4 x i1> %30 to i4
+  %32 = icmp eq i4 %31, 0
+  %op.rdx = select i1 %32, i1 %cmp.i8.i155, i1 false
   br i1 %op.rdx, label %if.end84, label %if.then53
 
 if.then53:                                        ; preds = %if.end45
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp54) #15
-  store ptr %20, ptr %ref.tmp54, align 8
-  store ptr %19, ptr %c.i, align 8
-  store ptr %17, ptr %d.i, align 8
-  store ptr %18, ptr %h.i, align 8
-  store ptr %.pre225, ptr %t.i, align 8
+  store <2 x ptr> %24, ptr %ref.tmp54, align 16
+  store ptr %21, ptr %d.i, align 16
+  store ptr %22, ptr %h.i, align 8
+  store ptr %.pre225, ptr %t.i, align 16
   %dfa_min_width6.i = getelementptr inbounds i8, ptr %__begin120.sroa.0.0219, i64 304
-  %29 = load <2 x i32>, ptr %dfa_min_width6.i, align 8
-  store <2 x i32> %29, ptr %dfa_min_width.i, align 8
+  %33 = load <2 x i32>, ptr %dfa_min_width6.i, align 8
+  store <2 x i32> %33, ptr %dfa_min_width.i, align 8
   %call58 = call noundef zeroext i1 @_ZN3ue219has_non_eod_acceptsERKNS_9suffix_idE(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp54)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp54) #15
   br i1 %call58, label %cleanup111, label %if.end60
 
 if.end60:                                         ; preds = %if.then53
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp61) #15
-  %30 = load ptr, ptr %graph.i152, align 8
-  store ptr %30, ptr %ref.tmp61, align 8
-  %31 = load ptr, ptr %castle.i154, align 8
-  store ptr %31, ptr %c.i175, align 8
-  %32 = load ptr, ptr %rdfa.i160, align 8
-  store ptr %32, ptr %d.i177, align 8
-  %33 = load ptr, ptr %haig.i157, align 8
-  store ptr %33, ptr %h.i179, align 8
-  %34 = load ptr, ptr %tamarama.i172.phi.trans.insert, align 8
-  store ptr %34, ptr %t.i181, align 8
-  %35 = load <2 x i32>, ptr %dfa_min_width6.i, align 8
-  store <2 x i32> %35, ptr %dfa_min_width.i183, align 8
-  %36 = load i32, ptr %suffix51, align 8
-  %call68 = call i32 @_ZN3ue212findMaxWidthERKNS_9suffix_idEj(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp61, i32 noundef %36)
+  %34 = load ptr, ptr %graph.i152, align 8
+  store ptr %34, ptr %ref.tmp61, align 8
+  %35 = load ptr, ptr %castle.i154, align 8
+  store ptr %35, ptr %c.i175, align 8
+  %36 = load ptr, ptr %rdfa.i160, align 8
+  store ptr %36, ptr %d.i177, align 8
+  %37 = load ptr, ptr %haig.i157, align 8
+  store ptr %37, ptr %h.i179, align 8
+  %38 = load ptr, ptr %tamarama.i172.phi.trans.insert, align 8
+  store ptr %38, ptr %t.i181, align 8
+  %39 = load <2 x i32>, ptr %dfa_min_width6.i, align 8
+  store <2 x i32> %39, ptr %dfa_min_width.i183, align 8
+  %40 = load i32, ptr %suffix51, align 8
+  %call68 = call i32 @_ZN3ue212findMaxWidthERKNS_9suffix_idEj(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp61, i32 noundef %40)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp61) #15
   %cmp.i188 = icmp ult i32 %call68, 2147483647
   br i1 %cmp.i188, label %_ZNK3ue25depthcvjEv.exit, label %cleanup111

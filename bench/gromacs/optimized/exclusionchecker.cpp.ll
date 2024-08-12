@@ -420,7 +420,7 @@ define internal void @"_ZNSt17_Function_handlerIFvOSt8functionIFN3gmx24Observabl
   %4 = alloca %"class.std::function", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load <2 x ptr>, ptr %5, align 8
-  %7 = extractelement <2 x ptr> %6, i64 0
+  %7 = load ptr, ptr %5, align 8
   %.not.i.i.not.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.not.i.i.i, label %_ZNSt8functionIFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEEC2EOS4_.exit.thread.i.i, label %11
 

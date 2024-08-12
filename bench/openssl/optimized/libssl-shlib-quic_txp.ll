@@ -618,7 +618,7 @@ entry:
 define range(i32 0, 2) i32 @ossl_quic_tx_packetiser_generate(ptr noundef %txp, ptr nocapture noundef %status) local_unnamed_addr #0 {
 entry:
   %chunks.i.i = alloca [2 x %struct.chunk_info], align 16
-  %chunk.i.i221 = alloca %struct.quic_txpim_chunk_st, align 8
+  %chunk.i.i221 = alloca %struct.quic_txpim_chunk_st, align 16
   %hdr_len_implicit.i.i = alloca i64, align 8
   %payload_len_implicit.i.i = alloca i64, align 8
   %hdr_len_explicit.i.i = alloca i64, align 8
@@ -726,7 +726,6 @@ txp_determine_archetype.exit:                     ; preds = %for.body.i, %for.en
   %stream2.i = getelementptr inbounds i8, ptr %it.i222, i64 16
   %app_error_code57.i = getelementptr inbounds i8, ptr %f37.i, i64 8
   %final_size.i = getelementptr inbounds i8, ptr %f37.i, i64 16
-  %start.i.i231 = getelementptr inbounds i8, ptr %chunk.i.i221, i64 8
   %end.i.i232 = getelementptr inbounds i8, ptr %chunk.i.i221, i64 16
   %has_fin.i.i233 = getelementptr inbounds i8, ptr %chunk.i.i221, i64 24
   %now.i = getelementptr inbounds i8, ptr %txp, i64 248
@@ -2826,14 +2825,13 @@ if.end166.i.i:                                    ; preds = %if.then161.i.i, %fo
   %cmp168.not.i.i = icmp eq i64 %235, 0
   %offset182.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %arrayidx13.i.i, i64 8
   %.pre.i.i285 = load i64, ptr %offset182.phi.trans.insert.i.i, align 8
+  %236 = load <2 x i64>, ptr %arrayidx13.i.i, align 16
   %add172.i.i = add i64 %.pre.i.i285, %235
   %spec.select.i.i = call i64 @llvm.umax.i64(i64 %add172.i.i, i64 %fc_new_hwm.1.i.i)
   %fc_new_hwm.2.i.i = select i1 %cmp168.not.i.i, i64 %fc_new_hwm.1.i.i, i64 %spec.select.i.i
-  %236 = load i64, ptr %arrayidx13.i.i, align 16
-  store i64 %236, ptr %chunk.i.i221, align 8
-  store i64 %.pre.i.i285, ptr %start.i.i231, align 8
+  store <2 x i64> %236, ptr %chunk.i.i221, align 16
   %sub.i.i286 = add i64 %add172.i.i, -1
-  store i64 %sub.i.i286, ptr %end.i.i232, align 8
+  store i64 %sub.i.i286, ptr %end.i.i232, align 16
   %bf.lshr188.i.i = lshr i8 %bf.load157.i.i, 1
   %bf.clear189.i.i = and i8 %bf.lshr188.i.i, 1
   %bf.load191.i.i = load i8, ptr %has_fin.i.i233, align 8

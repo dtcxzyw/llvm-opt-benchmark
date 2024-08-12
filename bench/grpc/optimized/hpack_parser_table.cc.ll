@@ -974,19 +974,18 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   %entries_11 = getelementptr inbounds i8, ptr %this, i64 16
   %13 = load ptr, ptr %entries_11, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %_M_finish.i.i.i, align 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %15 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %_M_finish.i2.i.i = getelementptr inbounds i8, ptr %entries, i64 8
-  %16 = load <2 x ptr>, ptr %entries, align 16
-  store <2 x ptr> %16, ptr %entries_11, align 8
+  %14 = load <2 x ptr>, ptr %entries, align 16
   %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %entries, i64 16
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 16
-  store ptr %17, ptr %_M_end_of_storage.i.i.i, align 8
+  %15 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 16
   store ptr %13, ptr %entries, align 16
-  store ptr %14, ptr %_M_finish.i2.i.i, align 8
-  store ptr %15, ptr %_M_end_of_storage.i4.i.i, align 16
-  %cmp.not3.i.i.i.i = icmp eq ptr %13, %14
+  %16 = load <2 x ptr>, ptr %_M_finish.i.i.i, align 8
+  %17 = load ptr, ptr %_M_finish.i.i.i, align 8
+  store <2 x ptr> %14, ptr %entries_11, align 8
+  store ptr %15, ptr %_M_end_of_storage.i.i.i, align 8
+  store <2 x ptr> %16, ptr %_M_finish.i2.i.i, align 8
+  %cmp.not3.i.i.i.i = icmp eq ptr %13, %17
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.end, %_ZSt8_DestroyIN9grpc_core10HPackTable7MementoEEvPT_.exit.i.i.i.i
@@ -1036,7 +1035,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %_ZNSt10unique_ptrIN
 
 _ZSt8_DestroyIN9grpc_core10HPackTable7MementoEEvPT_.exit.i.i.i.i: ; preds = %_ZNSt10unique_ptrIN9grpc_core16HpackParseResultESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 56
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %14
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %17
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !6
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN9grpc_core10HPackTable7MementoEEvPT_.exit.i.i.i.i

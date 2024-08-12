@@ -4221,7 +4221,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7xgboost4JsonESt
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_18WaitImplEPSt4pairISt10shared_ptrIN7xgboost10collective7TrackerEESt13shared_futureINS3_6ResultEEENSt6chrono8durationIlSt5ratioILl1ELl1EEEE(ptr noundef %0, i64 %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::chrono::duration", align 8
-  %4 = alloca %"class.std::shared_ptr.19", align 8
+  %4 = alloca %"class.std::shared_ptr.19", align 16
   %5 = alloca %"class.std::shared_future", align 8
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = alloca %"struct.xgboost::collective::Result", align 8
@@ -4234,17 +4234,16 @@ define internal fastcc void @_ZN12_GLOBAL__N_18WaitImplEPSt4pairISt10shared_ptrI
   store i64 %.0, ptr %3, align 8
   %11 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #10
   %12 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #10
-  %13 = load ptr, ptr %0, align 8
-  store ptr %13, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %14, align 8
-  %.not.i.i.i = icmp eq ptr %16, null
+  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = load <2 x ptr>, ptr %0, align 8
+  store <2 x ptr> %16, ptr %4, align 16
+  %.not.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN7xgboost10collective7TrackerEEC2ERKS3_.exit, label %17
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds i8, ptr %15, i64 8
   %19 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %19, 0
   br i1 %.not.i.i.i.i, label %23, label %20
@@ -4606,7 +4605,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt13shared_futureIN7xgboost10collective6ResultEED2Ev.exit
 
 _ZNSt13shared_futureIN7xgboost10collective6ResultEED2Ev.exit: ; preds = %.loopexit, %117, %130, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
-  %135 = load ptr, ptr %14, align 8
+  %135 = load ptr, ptr %13, align 8
   %.not.i.i.i23 = icmp eq ptr %135, null
   br i1 %.not.i.i.i23, label %_ZNSt10shared_ptrIN7xgboost10collective7TrackerEED2Ev.exit, label %136
 

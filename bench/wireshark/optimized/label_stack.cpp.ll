@@ -1447,13 +1447,12 @@ _ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10copyAppendEPKS2_S5_
   br i1 %.not18, label %86, label %80
 
 80:                                               ; preds = %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10copyAppendEPKS2_S5_.exit
-  %81 = load ptr, ptr %3, align 8
+  %81 = getelementptr inbounds i8, ptr %3, i64 8
+  %82 = load <2 x ptr>, ptr %3, align 8
+  %83 = load ptr, ptr %3, align 8
   store ptr %73, ptr %3, align 8
-  store ptr %81, ptr %5, align 16
-  %82 = getelementptr inbounds i8, ptr %3, i64 8
-  %83 = load ptr, ptr %82, align 8
-  store ptr %75, ptr %82, align 8
-  store ptr %83, ptr %7, align 8
+  store ptr %75, ptr %81, align 8
+  store <2 x ptr> %82, ptr %5, align 16
   %84 = getelementptr inbounds i8, ptr %3, i64 16
   %85 = load i64, ptr %84, align 8
   store i64 %78, ptr %84, align 8
@@ -1461,7 +1460,7 @@ _ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10copyAppendEPKS2_S5_
   br label %86
 
 86:                                               ; preds = %80, %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10copyAppendEPKS2_S5_.exit
-  %87 = phi ptr [ %81, %80 ], [ %73, %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10copyAppendEPKS2_S5_.exit ]
+  %87 = phi ptr [ %83, %80 ], [ %73, %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE10copyAppendEPKS2_S5_.exit ]
   %.not.i.i = icmp eq ptr %87, null
   br i1 %.not.i.i, label %_ZN17QArrayDataPointerIN10LabelStack10_StackItemEED2Ev.exit, label %_ZN17QArrayDataPointerIN10LabelStack10_StackItemEE5derefEv.exit.i
 

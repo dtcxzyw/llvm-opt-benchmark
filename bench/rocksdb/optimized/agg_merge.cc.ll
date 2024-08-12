@@ -1341,14 +1341,15 @@ invoke.cont2:                                     ; preds = %invoke.cont
 
 init.end:                                         ; preds = %invoke.cont2, %init.check, %entry
   %3 = load ptr, ptr @_ZZN7rocksdb19GetAggMergeOperatorEvE8instance, align 8
-  %4 = load <2 x ptr>, ptr %3, align 8
-  store <2 x ptr> %4, ptr %agg.result, align 8
-  %5 = extractelement <2 x ptr> %4, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %5, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %5 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %5, ptr %agg.result, align 8
+  %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb13MergeOperatorEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %init.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

@@ -263,17 +263,16 @@ _ZL20printMessagePreamble11MessageTypeRSo.exit:   ; preds = %21
 
 28:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
-  %29 = load ptr, ptr %3, align 8
-  store ptr %29, ptr %17, align 16
-  %30 = getelementptr inbounds i8, ptr %17, i64 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
-  %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr %30, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %32, null
+  %29 = getelementptr inbounds i8, ptr %17, i64 8
+  %30 = getelementptr inbounds i8, ptr %3, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %32, ptr %17, align 16
+  %.not.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i.i, label %_ZN19cmListFileBacktraceC2ERKS_.exit, label %33
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %35, 0
   br i1 %.not.i.i.i.i.i.i, label %39, label %36
@@ -307,7 +306,7 @@ _ZN19cmListFileBacktraceC2ERKS_.exit:             ; preds = %28, %36, %39
   %43 = getelementptr inbounds i8, ptr %11, i64 8
   %44 = load <2 x ptr>, ptr %11, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  %45 = load ptr, ptr %30, align 8
+  %45 = load ptr, ptr %29, align 8
   store <2 x ptr> %44, ptr %17, align 16
   %.not.i.i.i.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN19cmListFileBacktraceaSEOS_.exit.i, label %46
@@ -591,7 +590,7 @@ _ZN17cmListFileContextD2Ev.exit.i:                ; preds = %161, %158
 .noexc18:                                         ; preds = %_ZN17cmListFileContextD2Ev.exit.i
   %162 = load <2 x ptr>, ptr %14, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %163 = load ptr, ptr %30, align 8
+  %163 = load ptr, ptr %29, align 8
   store <2 x ptr> %162, ptr %17, align 16
   %.not.i.i.i.i.i.i9.i = icmp eq ptr %163, null
   br i1 %.not.i.i.i.i.i.i9.i, label %_ZN19cmListFileBacktraceaSEOS_.exit15.i, label %164
@@ -749,7 +748,7 @@ _ZN19cmListFileBacktraceD2Ev.exit22.i:            ; preds = %_ZNSt16_Sp_counted_
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
-  %234 = load ptr, ptr %30, align 8
+  %234 = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i20 = icmp eq ptr %234, null
   br i1 %.not.i.i.i.i.i20, label %_ZN19cmListFileBacktraceD2Ev.exit, label %235
 

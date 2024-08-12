@@ -20603,21 +20603,22 @@ if.end76:                                         ; preds = %_qcheck_pow_one.exi
   %digits.i = getelementptr inbounds i8, ptr %abs_x.i, i64 16
   %digits5.i = getelementptr inbounds i8, ptr %base, i64 16
   %162 = load <2 x i64>, ptr %digits5.i, align 8
+  %163 = load i64, ptr %digits5.i, align 8
   store <2 x i64> %162, ptr %digits.i, align 8
   %alloc.i = getelementptr inbounds i8, ptr %abs_x.i, i64 32
   %alloc7.i = getelementptr inbounds i8, ptr %base, i64 32
-  %163 = load i64, ptr %alloc7.i, align 8
-  store i64 %163, ptr %alloc.i, align 8
+  %164 = load i64, ptr %alloc7.i, align 8
+  store i64 %164, ptr %alloc.i, align 8
   %data.i236 = getelementptr inbounds i8, ptr %abs_x.i, i64 40
   %data8.i = getelementptr inbounds i8, ptr %base, i64 40
-  %164 = load ptr, ptr %data8.i, align 8
-  store ptr %164, ptr %data.i236, align 8
-  %165 = or disjoint i8 %25, 80
-  store i8 %165, ptr %abs_x.i, align 8
+  %165 = load ptr, ptr %data8.i, align 8
+  store ptr %165, ptr %data.i236, align 8
+  %166 = or disjoint i8 %25, 80
+  store i8 %166, ptr %abs_x.i, align 8
   %digits.i39.i = getelementptr inbounds i8, ptr %exp, i64 16
-  %166 = load i64, ptr %digits.i39.i, align 8
+  %167 = load i64, ptr %digits.i39.i, align 8
   %add.i40.i = add i64 %160, -1
-  %sub.i41.i = add i64 %add.i40.i, %166
+  %sub.i41.i = add i64 %add.i40.i, %167
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %maxctx.i.i)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %scratch_data.i.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %scratch.i.i)
@@ -20629,8 +20630,7 @@ if.end76:                                         ; preds = %_qcheck_pow_one.exi
   store i64 64, ptr %alloc.i.i238, align 8
   %data.i.i239 = getelementptr inbounds i8, ptr %scratch.i.i, i64 40
   store ptr %scratch_data.i.i, ptr %data.i.i239, align 8
-  %167 = extractelement <2 x i64> %162, i64 0
-  %add.i19.i.i = add i64 %167, %161
+  %add.i19.i.i = add i64 %163, %161
   %sub.i20.i.i = add i64 %add.i19.i.i, -1
   %cmp.i.i240 = icmp sgt i64 %sub.i20.i.i, 0
   br i1 %cmp.i.i240, label %_lower_bound_zeta.exit.thread65.i, label %if.else.i.i241
@@ -20790,7 +20790,7 @@ mpd_seterror.exit.i:                              ; preds = %if.then4.i.i.i253, 
 
 if.end.i257:                                      ; preds = %_lower_bound_zeta.exit.if.end_crit_edge.i, %_lower_bound_zeta.exit.thread65.i
   %195 = phi i8 [ %4, %_lower_bound_zeta.exit.thread65.i ], [ %.pre299, %_lower_bound_zeta.exit.if.end_crit_edge.i ]
-  %196 = phi i64 [ %167, %_lower_bound_zeta.exit.thread65.i ], [ %.pre69.i, %_lower_bound_zeta.exit.if.end_crit_edge.i ]
+  %196 = phi i64 [ %163, %_lower_bound_zeta.exit.thread65.i ], [ %.pre69.i, %_lower_bound_zeta.exit.if.end_crit_edge.i ]
   %197 = phi i64 [ %161, %_lower_bound_zeta.exit.thread65.i ], [ %.pre.i, %_lower_bound_zeta.exit.if.end_crit_edge.i ]
   %retval.0.i68.i = phi i64 [ %retval.0.i.ph.i, %_lower_bound_zeta.exit.thread65.i ], [ %cond.i.i255, %_lower_bound_zeta.exit.if.end_crit_edge.i ]
   %add.i.i258 = add i64 %196, -1
@@ -29130,10 +29130,11 @@ if.end25:                                         ; preds = %if.end15
   store i64 %.fr.i.i.i, ptr %digits.i87, align 8
   %len.i88 = getelementptr inbounds i8, ptr %vtmp.i, i64 24
   %18 = load <2 x i64>, ptr %len4.i81, align 8
+  %19 = load i64, ptr %len4.i81, align 8
   store <2 x i64> %18, ptr %len.i88, align 8
   %data.i90 = getelementptr inbounds i8, ptr %vtmp.i, i64 40
-  %19 = load ptr, ptr %data6.i85, align 8
-  store ptr %19, ptr %data.i90, align 8
+  %20 = load ptr, ptr %data6.i85, align 8
+  store ptr %20, ptr %data.i90, align 8
   store i8 48, ptr %s.i, align 8
   %exp10.i = getelementptr inbounds i8, ptr %s.i, i64 8
   %alloc13.i = getelementptr inbounds i8, ptr %s.i, i64 32
@@ -29160,18 +29161,17 @@ if.end25:                                         ; preds = %if.end15
   store i64 1, ptr %alloc26.i, align 8
   %data27.i = getelementptr inbounds i8, ptr %two.i, i64 40
   store ptr %two_data.i, ptr %data27.i, align 8
-  %20 = and i8 %15, 1
+  %21 = and i8 %15, 1
   store i8 80, ptr %vtmp.i, align 8
   store i64 %sub.i, ptr %exp.i86, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p10data.i.i)
   store i64 0, ptr %p10data.i.i, align 16
   %arrayinit.element.i.i = getelementptr inbounds i8, ptr %p10data.i.i, i64 8
-  %21 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 136), align 8
-  store i64 %21, ptr %arrayinit.element.i.i, align 8
-  %22 = urem i64 %.fr.i.i.i, 19
-  %cmp.i36.not.i.i = icmp eq i64 %22, 0
-  %23 = extractelement <2 x i64> %18, i64 0
-  %24 = getelementptr i64, ptr %19, i64 %23
+  %22 = load i64, ptr getelementptr (i8, ptr @mpd_pow10, i64 136), align 8
+  store i64 %22, ptr %arrayinit.element.i.i, align 8
+  %23 = urem i64 %.fr.i.i.i, 19
+  %cmp.i36.not.i.i = icmp eq i64 %23, 0
+  %24 = getelementptr i64, ptr %20, i64 %19
   %arrayidx.i.i.i = getelementptr i8, ptr %24, i64 -8
   %25 = load i64, ptr %arrayidx.i.i.i, align 8
   br i1 %cmp.i36.not.i.i, label %if.then.i37.i.i, label %if.else.i.i.i
@@ -29182,17 +29182,17 @@ if.then.i37.i.i:                                  ; preds = %if.end25
   br label %_mpd_get_msdigits.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end25
-  %cmp7.i.i.i = icmp sgt i64 %23, 1
+  %cmp7.i.i.i = icmp sgt i64 %19, 1
   br i1 %cmp7.i.i.i, label %if.then9.i.i.i, label %_mpd_get_msdigits.exit.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.else.i.i.i
-  %sub11.i.i.i = sub nuw nsw i64 19, %22
+  %sub11.i.i.i = sub nuw nsw i64 19, %23
   %arrayidx12.i.i.i = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %sub11.i.i.i
   %27 = load i64, ptr %arrayidx12.i.i.i, align 8
   %mul.i17.i.i.i = mul i64 %27, %25
   %arrayidx16.i.i.i = getelementptr i8, ptr %24, i64 -16
   %28 = load i64, ptr %arrayidx16.i.i.i, align 8
-  %arrayidx20.i.i.i = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %22
+  %arrayidx20.i.i.i = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %23
   %29 = load i64, ptr %arrayidx20.i.i.i, align 8
   %div21.i.i.i = udiv i64 %28, %29
   %add.i.i.i = add i64 %div21.i.i.i, %mul.i17.i.i.i
@@ -29292,7 +29292,7 @@ if.then36.i.i.i:                                  ; preds = %if.then34.i.i.i
   br label %mpd_word_digits.exit.i.i
 
 if.end39.i.i.i:                                   ; preds = %if.then34.i.i.i
-  %cmp40.i.i.i = icmp ult i64 %word.0.i.i, %21
+  %cmp40.i.i.i = icmp ult i64 %word.0.i.i, %22
   %cond41.i.neg.i.i = select i1 %cmp40.i.i.i, i64 -17, i64 -18
   br label %mpd_word_digits.exit.i.i
 
@@ -29537,7 +29537,7 @@ if.then55.i:                                      ; preds = %for.end.i
   %sub57.i = sub i64 %91, %92
   store i64 %sub57.i, ptr %exp.i.i, align 8
   %93 = and i8 %89, -16
-  %or.i42.i = or disjoint i8 %93, %20
+  %or.i42.i = or disjoint i8 %93, %21
   store i8 %or.i42.i, ptr %rr.1, align 8
   br label %if.end58.i
 

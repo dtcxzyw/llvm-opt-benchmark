@@ -8245,17 +8245,16 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %__args, i64 16, i1 false)
   %parser_info.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %parser_info3.i = getelementptr inbounds i8, ptr %__args, i64 16
-  %0 = load ptr, ptr %parser_info3.i, align 8, !tbaa !174
-  store ptr %0, ptr %parser_info.i, align 8, !tbaa !174
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
-  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !172
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8, !tbaa !172
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !172
+  %1 = load <2 x ptr>, ptr %parser_info3.i, align 8, !tbaa !33
+  store <2 x ptr> %1, ptr %parser_info.i, align 8, !tbaa !33
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN6duckdb15ParserExtensionC2ERKS0_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !22
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -14970,17 +14969,15 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb17RelationStatementE, i64 16), ptr %call, align 8, !tbaa !23
   %relation.i = getelementptr inbounds i8, ptr %call, i64 128
   %relation2.i = getelementptr inbounds i8, ptr %this, i64 128
-  %0 = load ptr, ptr %relation2.i, align 8, !tbaa !346
-  store ptr %0, ptr %relation.i, align 8, !tbaa !346
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %call, i64 136
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
-  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !172
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8, !tbaa !172
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !172
+  %1 = load <2 x ptr>, ptr %relation2.i, align 8, !tbaa !33
+  store <2 x ptr> %1, ptr %relation.i, align 8, !tbaa !33
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10unique_ptrIN6duckdb17RelationStatementESt14default_deleteIS1_EED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !22
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

@@ -19088,7 +19088,7 @@ entry:
   %r2.i = alloca %"struct.ue2::left_id", align 8
   %victim.i = alloca %"class.ue2::NGHolder", align 8
   %edge_props.i = alloca %"class.std::map.868", align 8
-  %winner.i = alloca %"class.std::shared_ptr", align 8
+  %winner.i = alloca %"class.std::shared_ptr", align 16
   %ref.tmp.i = alloca %"class.ue2::(anonymous namespace)::Bouquet", align 8
   %ref.tmp10.i = alloca %"class.ue2::(anonymous namespace)::Bouquet", align 8
   %nfa_leftfixes = alloca %"class.ue2::(anonymous namespace)::Bouquet", align 8
@@ -20892,16 +20892,15 @@ if.end168.i:                                      ; preds = %invoke.cont139.i
   %285 = load ptr, ptr %_M_start.i.i.i181, align 8, !noalias !533
   %agg.tmp169.sroa.0.0.copyload.i = load ptr, ptr %285, align 8
   %left.i = getelementptr inbounds i8, ptr %agg.tmp169.sroa.0.0.copyload.i, i64 120
-  %286 = load ptr, ptr %left.i, align 8
-  store ptr %286, ptr %winner.i, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp169.sroa.0.0.copyload.i, i64 128
-  %287 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %287, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i193 = icmp eq ptr %287, null
+  %286 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %287 = load <2 x ptr>, ptr %left.i, align 8
+  store <2 x ptr> %287, ptr %winner.i, align 16
+  %cmp.not.i.i.i.i193 = icmp eq ptr %286, null
   br i1 %cmp.not.i.i.i.i193, label %_ZNSt10shared_ptrIN3ue28NGHolderEEC2ERKS2_.exit.i, label %if.then.i.i.i347.i
 
 if.then.i.i.i347.i:                               ; preds = %if.end168.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %287, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %286, i64 8
   %288 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %288, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -20937,7 +20936,7 @@ for.body180.i:                                    ; preds = %_ZNSt15_Deque_itera
   %__begin3175.sroa.0.0506.i = phi ptr [ %__begin3175.sroa.0.1.i, %_ZNSt15_Deque_iteratorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEERKS8_PS9_EppEv.exit384.i ], [ %291, %for.body180.preheader.i ]
   %v181.sroa.0.0.copyload.i = load ptr, ptr %__begin3175.sroa.0.0506.i, align 8
   %left187.i = getelementptr inbounds i8, ptr %v181.sroa.0.0.copyload.i, i64 120
-  %295 = load ptr, ptr %winner.i, align 8
+  %295 = load ptr, ptr %winner.i, align 16
   store ptr %295, ptr %left187.i, align 8
   %_M_refcount.i.i364.i = getelementptr inbounds i8, ptr %v181.sroa.0.0.copyload.i, i64 128
   %296 = load ptr, ptr %_M_refcount.i.i.i, align 8
@@ -21083,7 +21082,7 @@ if.else.i.i198:                                   ; preds = %invoke.cont198.i
           to label %invoke.cont201.i unwind label %lpad197.i
 
 invoke.cont201.i:                                 ; preds = %if.else.i.i198, %if.then.i388.i
-  %316 = load ptr, ptr %winner.i, align 8
+  %316 = load ptr, ptr %winner.i, align 16
   %add.ptr.i390.i = getelementptr inbounds i8, ptr %316, i64 8
   %317 = load i64, ptr %add.ptr.i390.i, align 8
   %318 = load ptr, ptr %cc, align 8
@@ -25991,7 +25990,7 @@ entry:
   %s2 = alloca %"struct.ue2::suffix_id", align 8
   %victim = alloca %"class.ue2::NGHolder", align 8
   %old_tops = alloca %"class.std::map.962", align 8
-  %winner = alloca %"class.std::shared_ptr", align 8
+  %winner = alloca %"class.std::shared_ptr", align 16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %accel_count) #17
   %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %accel_count, i64 48
   store ptr %_M_single_bucket.i.i, ptr %accel_count, align 8
@@ -26893,16 +26892,15 @@ if.end149:                                        ; preds = %invoke.cont118
   %137 = load ptr, ptr %_M_start.i.i332, align 8, !noalias !619
   %agg.tmp150.sroa.0.0.copyload = load ptr, ptr %137, align 8
   %graph = getelementptr inbounds i8, ptr %agg.tmp150.sroa.0.0.copyload, i64 224
-  %138 = load ptr, ptr %graph, align 8
-  store ptr %138, ptr %winner, align 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %agg.tmp150.sroa.0.0.copyload, i64 232
-  %139 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %139, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %139, null
+  %138 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %139 = load <2 x ptr>, ptr %graph, align 8
+  store <2 x ptr> %139, ptr %winner, align 16
+  %cmp.not.i.i.i = icmp eq ptr %138, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN3ue28NGHolderEEC2ERKS2_.exit, label %if.then.i.i.i334
 
 if.then.i.i.i334:                                 ; preds = %if.end149
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %139, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %138, i64 8
   %140 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %140, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -26938,7 +26936,7 @@ for.body162:                                      ; preds = %_ZNSt15_Deque_itera
   %__begin3157.sroa.0.0465 = phi ptr [ %__begin3157.sroa.0.1, %_ZNSt15_Deque_iteratorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEERKS8_PS9_EppEv.exit371 ], [ %143, %for.body162.preheader ]
   %v163.sroa.0.0.copyload = load ptr, ptr %__begin3157.sroa.0.0465, align 8
   %graph170 = getelementptr inbounds i8, ptr %v163.sroa.0.0.copyload, i64 224
-  %147 = load ptr, ptr %winner, align 8
+  %147 = load ptr, ptr %winner, align 16
   store ptr %147, ptr %graph170, align 8
   %_M_refcount.i.i351 = getelementptr inbounds i8, ptr %v163.sroa.0.0.copyload, i64 232
   %148 = load ptr, ptr %_M_refcount.i.i, align 8

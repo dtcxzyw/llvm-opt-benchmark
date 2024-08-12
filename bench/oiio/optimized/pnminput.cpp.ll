@@ -2665,14 +2665,14 @@ declare void @_ZN18OpenImageIO_v2_6_010ImageInput13ioproxy_clearEv(ptr noundef n
 define linkonce_odr noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorIcSaIcEELb1EE8_S_do_itERS2_(ptr noundef nonnull align 8 dereferenceable(24) %__c) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont11:
   %ref.tmp.i.i.i = alloca %"class.std::allocator.14", align 1
-  %ref.tmp = alloca %"class.std::vector.12", align 8
+  %ref.tmp = alloca %"class.std::vector.12", align 16
   %ref.tmp15 = alloca %"class.std::allocator.14", align 1
   %0 = load ptr, ptr %__c, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %__c, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15, ptr noundef nonnull align 1 dereferenceable(1) %__c) #19
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #19
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
@@ -2715,20 +2715,21 @@ lpad.i:                                           ; preds = %if.then.i.i.i.i.i.i
 invoke.cont21:                                    ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i, %call5.i.i.i.i.noexc.i
   %4 = phi ptr [ %call5.i.i.i.i1.i, %call5.i.i.i.i.noexc.i ], [ null, %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %5 = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub.i.i.i.i.i.i
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %6 = load ptr, ptr %__c, align 8
-  store ptr %6, ptr %ref.tmp, align 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %6 = load <2 x ptr>, ptr %__c, align 8
+  %7 = load ptr, ptr %__c, align 8
+  store <2 x ptr> %6, ptr %ref.tmp, align 16
   %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %__c, i64 16
-  %7 = load <2 x ptr>, ptr %_M_finish.i, align 8
-  store <2 x ptr> %7, ptr %_M_finish.i.i, align 8
+  %8 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
+  store ptr %8, ptr %_M_end_of_storage.i.i.i, align 16
   store ptr %4, ptr %__c, align 8
   store ptr %5, ptr %_M_finish.i, align 8
   store ptr %5, ptr %_M_end_of_storage.i4.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %6, null
+  %tobool.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %invoke.cont21
-  call void @_ZdlPv(ptr noundef nonnull %6) #22
+  call void @_ZdlPv(ptr noundef nonnull %7) #22
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %invoke.cont21, %if.then.i.i.i4
@@ -2741,10 +2742,10 @@ return:                                           ; preds = %lpad.i, %_ZNSt6vect
   ret i1 %retval.0
 
 terminate.lpad:                                   ; preds = %lpad.i
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #23
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #23
   unreachable
 }
 

@@ -9106,7 +9106,7 @@ define hidden void @_ZN10LinearScan23resolve_exception_entryEP10BlockBeginiR12Mo
   %14 = tail call noundef ptr @_ZN10LinearScan20split_child_at_op_idEP8IntervaliN16LIR_OpVisitState7OprModeE(ptr noundef nonnull readonly align 8 dereferenceable(256) %0, ptr noundef nonnull %9, i32 noundef %13, i32 noundef 2)
   %15 = getelementptr inbounds i8, ptr %14, i64 60
   %16 = load <2 x i32>, ptr %15, align 4
-  %17 = extractelement <2 x i32> %16, i64 0
+  %17 = load i32, ptr %15, align 4
   %18 = icmp slt i32 %17, 56
   br i1 %18, label %19, label %141
 

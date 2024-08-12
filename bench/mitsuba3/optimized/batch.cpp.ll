@@ -581,23 +581,23 @@ _ZN7mitsuba3refINS_6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exi
 112:                                              ; preds = %108
   %113 = getelementptr inbounds i8, ptr %9, i64 4
   %114 = load <2 x i32>, ptr %111, align 4
+  %115 = load i32, ptr %111, align 4
   store <2 x i32> %114, ptr %9, align 8
-  %115 = load ptr, ptr %33, align 8
-  %116 = load ptr, ptr %14, align 16
-  %117 = ptrtoint ptr %115 to i64
+  %116 = load ptr, ptr %33, align 8
+  %117 = load ptr, ptr %14, align 16
   %118 = ptrtoint ptr %116 to i64
-  %119 = sub i64 %117, %118
-  %120 = ashr exact i64 %119, 3
-  %121 = trunc i64 %120 to i32
-  %122 = extractelement <2 x i32> %114, i64 0
-  %123 = udiv i32 %122, %121
-  %124 = mul i32 %123, %121
-  %.not = icmp eq i32 %124, %122
+  %119 = ptrtoint ptr %117 to i64
+  %120 = sub i64 %118, %119
+  %121 = ashr exact i64 %120, 3
+  %122 = trunc i64 %121 to i32
+  %123 = udiv i32 %115, %122
+  %124 = mul i32 %123, %122
+  %.not = icmp eq i32 %124, %115
   br i1 %.not, label %131, label %125
 
 125:                                              ; preds = %112
   %126 = load ptr, ptr @_ZN7mitsuba11BatchSensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
-  store i64 %120, ptr %11, align 8
+  store i64 %121, ptr %11, align 8
   invoke void @_ZN10tinyformat6formatIJjmEEENSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEPKcDpRKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %10, ptr noundef nonnull @.str.3, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %127 unwind label %.loopexit.split-lp
 
@@ -617,7 +617,7 @@ _ZN7mitsuba3refINS_6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exi
 131:                                              ; preds = %112
   %132 = getelementptr inbounds i8, ptr %0, i64 161
   store i8 0, ptr %132, align 1
-  %.not138 = icmp eq ptr %115, %116
+  %.not138 = icmp eq ptr %116, %117
   br i1 %.not138, label %._crit_edge135.thread, label %.lr.ph134
 
 .lr.ph134:                                        ; preds = %131
@@ -626,7 +626,7 @@ _ZN7mitsuba3refINS_6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEEED2Ev.exi
   br label %135
 
 135:                                              ; preds = %.lr.ph134, %159
-  %136 = phi ptr [ %116, %.lr.ph134 ], [ %166, %159 ]
+  %136 = phi ptr [ %117, %.lr.ph134 ], [ %166, %159 ]
   %.0132 = phi i64 [ 0, %.lr.ph134 ], [ %164, %159 ]
   %137 = getelementptr inbounds %"class.mitsuba::ref.30", ptr %136, i64 %.0132
   %138 = load ptr, ptr %137, align 8
@@ -718,8 +718,8 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
           to label %._crit_edge135.thread unwind label %.loopexit.split-lp
 
 ._crit_edge135.thread:                            ; preds = %131, %._crit_edge135, %.noexc.i
-  %.lcssa157 = phi i64 [ %170, %._crit_edge135 ], [ %170, %.noexc.i ], [ %120, %131 ]
-  %.lcssa123156 = phi ptr [ %166, %._crit_edge135 ], [ %166, %.noexc.i ], [ %116, %131 ]
+  %.lcssa157 = phi i64 [ %170, %._crit_edge135 ], [ %170, %.noexc.i ], [ %121, %131 ]
+  %.lcssa123156 = phi ptr [ %166, %._crit_edge135 ], [ %166, %.noexc.i ], [ %117, %131 ]
   %.sroa.0.0 = phi ptr [ null, %._crit_edge135 ], [ %177, %.noexc.i ], [ null, %131 ]
   %.pre-phi.i = phi i64 [ 0, %._crit_edge135 ], [ %169, %.noexc.i ], [ 0, %131 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %.sroa.0.0, ptr align 1 %.lcssa123156, i64 %.pre-phi.i, i1 false), !noalias !6

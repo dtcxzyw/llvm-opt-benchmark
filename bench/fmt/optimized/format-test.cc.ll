@@ -153182,17 +153182,15 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10s
 _ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::shared_ptr.472", ptr %cond.i10, i64 %sub.ptr.div.i
-  %3 = load ptr, ptr %__args, align 8
-  store ptr %3, ptr %add.ptr, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %4 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
-  store ptr %4, ptr %_M_refcount.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  %4 = load <2 x ptr>, ptr %__args, align 8
+  store <2 x ptr> %4, ptr %add.ptr, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN7testing8internal15ExpectationBaseEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -180906,14 +180904,14 @@ _ZNK3fmt3v109formatterIdcvE6formatINS0_20basic_format_contextINS0_8appenderEcEEE
 define linkonce_odr hidden ptr @_ZN3fmt3v106detail11write_floatIcNS0_8appenderEdEET0_S4_T1_NS0_12format_specsIT_EENS1_10locale_refE(ptr %out.coerce, double noundef %value, i64 %specs.coerce0, i64 %specs.coerce1, ptr %loc.coerce) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i20 = alloca %class.anon.727, align 8
-  %specs.i = alloca %"struct.fmt::v10::format_specs", align 8
+  %specs.i = alloca %"struct.fmt::v10::format_specs", align 16
   %ref.tmp.i = alloca %class.anon.726, align 8
-  %specs = alloca %"struct.fmt::v10::format_specs", align 8
+  %specs = alloca %"struct.fmt::v10::format_specs", align 16
   %ref.tmp = alloca %"struct.fmt::v10::detail::error_handler", align 1
   %buffer = alloca %"class.fmt::v10::basic_memory_buffer.39", align 8
   %ref.tmp76 = alloca %"class.std::allocator", align 1
   %f = alloca %"struct.fmt::v10::detail::big_decimal_fp", align 8
-  store i64 %specs.coerce0, ptr %specs, align 8
+  store i64 %specs.coerce0, ptr %specs, align 16
   %0 = getelementptr inbounds i8, ptr %specs, i64 8
   store i64 %specs.coerce1, ptr %0, align 8
   %call = call i64 @_ZN3fmt3v106detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_12format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -180948,13 +180946,11 @@ if.end21:                                         ; preds = %if.else, %if.then
 
 if.then23:                                        ; preds = %if.end21
   %cmp.i = fcmp uno double %value.addr.0, 0.000000e+00
-  %agg.tmp25.sroa.0.0.copyload = load i64, ptr %specs, align 8
-  %agg.tmp25.sroa.2.0.copyload = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  store i64 %agg.tmp25.sroa.0.0.copyload, ptr %specs.i, align 8
-  %6 = getelementptr inbounds i8, ptr %specs.i, i64 8
-  store i64 %agg.tmp25.sroa.2.0.copyload, ptr %6, align 8
+  %agg.tmp25.sroa.2.0.copyload = load i64, ptr %0, align 8
+  %6 = load <2 x i64>, ptr %specs, align 16
+  store <2 x i64> %6, ptr %specs.i, align 16
   %7 = and i64 %agg.tmp25.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %7, 72057594843234304
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit
@@ -181021,13 +181017,13 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %18, i64 %17
   store i8 %13, ptr %arrayidx.i.i, align 1
   %bf.clear69 = and i32 %fspecs.sroa.5.0, -65281
-  %19 = load i32, ptr %specs, align 8
+  %19 = load i32, ptr %specs, align 16
   %cmp71.not = icmp eq i32 %19, 0
   br i1 %cmp71.not, label %if.end75, label %if.then72
 
 if.then72:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
   %dec = add nsw i32 %19, -1
-  store i32 %dec, ptr %specs, align 8
+  store i32 %dec, ptr %specs, align 16
   br label %if.end75
 
 if.end75:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit, %if.then72, %if.end31
@@ -190306,14 +190302,14 @@ if.end:                                           ; preds = %for.cond.i, %sw.def
 define linkonce_odr hidden ptr @_ZN3fmt3v106detail11write_floatIcNS0_8appenderEfEET0_S4_T1_NS0_12format_specsIT_EENS1_10locale_refE(ptr %out.coerce, float noundef %value, i64 %specs.coerce0, i64 %specs.coerce1, ptr %loc.coerce) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i21 = alloca %class.anon.727, align 8
-  %specs.i = alloca %"struct.fmt::v10::format_specs", align 8
+  %specs.i = alloca %"struct.fmt::v10::format_specs", align 16
   %ref.tmp.i = alloca %class.anon.726, align 8
-  %specs = alloca %"struct.fmt::v10::format_specs", align 8
+  %specs = alloca %"struct.fmt::v10::format_specs", align 16
   %ref.tmp = alloca %"struct.fmt::v10::detail::error_handler", align 1
   %buffer = alloca %"class.fmt::v10::basic_memory_buffer.39", align 8
   %ref.tmp76 = alloca %"class.std::allocator", align 1
   %f = alloca %"struct.fmt::v10::detail::big_decimal_fp", align 8
-  store i64 %specs.coerce0, ptr %specs, align 8
+  store i64 %specs.coerce0, ptr %specs, align 16
   %0 = getelementptr inbounds i8, ptr %specs, i64 8
   store i64 %specs.coerce1, ptr %0, align 8
   %call = call i64 @_ZN3fmt3v106detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_12format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -190348,13 +190344,11 @@ if.end21:                                         ; preds = %if.else, %if.then
 
 if.then23:                                        ; preds = %if.end21
   %cmp.i = fcmp uno float %value.addr.0, 0.000000e+00
-  %agg.tmp25.sroa.0.0.copyload = load i64, ptr %specs, align 8
-  %agg.tmp25.sroa.2.0.copyload = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  store i64 %agg.tmp25.sroa.0.0.copyload, ptr %specs.i, align 8
-  %6 = getelementptr inbounds i8, ptr %specs.i, i64 8
-  store i64 %agg.tmp25.sroa.2.0.copyload, ptr %6, align 8
+  %agg.tmp25.sroa.2.0.copyload = load i64, ptr %0, align 8
+  %6 = load <2 x i64>, ptr %specs, align 16
+  store <2 x i64> %6, ptr %specs.i, align 16
   %7 = and i64 %agg.tmp25.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %7, 72057594843234304
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit
@@ -190421,13 +190415,13 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %18, i64 %17
   store i8 %13, ptr %arrayidx.i.i, align 1
   %bf.clear69 = and i32 %fspecs.sroa.5.0, -65281
-  %19 = load i32, ptr %specs, align 8
+  %19 = load i32, ptr %specs, align 16
   %cmp71.not = icmp eq i32 %19, 0
   br i1 %cmp71.not, label %if.end75, label %if.then72
 
 if.then72:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
   %dec = add nsw i32 %19, -1
-  store i32 %dec, ptr %specs, align 8
+  store i32 %dec, ptr %specs, align 16
   br label %if.end75
 
 if.end75:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit, %if.then72, %if.end31

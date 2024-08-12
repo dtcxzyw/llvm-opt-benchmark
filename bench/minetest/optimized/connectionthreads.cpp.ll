@@ -6465,7 +6465,7 @@ entry:
   %next_to_ack = alloca i16, align 2
   %next_to_receive = alloca i16, align 2
   %ref.tmp69 = alloca %"class.std::__cxx11::basic_string", align 8
-  %p = alloca %"class.std::shared_ptr.87", align 8
+  %p = alloca %"class.std::shared_ptr.87", align 16
   %ref.tmp174 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp237 = alloca %"class.std::__cxx11::basic_string", align 8
   %packet = alloca %"struct.con::OutgoingPacket", align 8
@@ -7638,16 +7638,15 @@ land.rhs:                                         ; preds = %invoke.cont158
 while.body:                                       ; preds = %land.rhs
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p) #25
   %108 = load ptr, ptr %_M_start.i.i613, align 8, !tbaa !155, !noalias !182
-  %109 = load ptr, ptr %108, align 8, !tbaa !137
-  store ptr %109, ptr %p, align 8, !tbaa !137
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %108, i64 8
-  %110 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !74
-  store ptr %110, ptr %_M_refcount.i.i, align 8, !tbaa !74
-  %cmp.not.i.i.i766 = icmp eq ptr %110, null
+  %109 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !74
+  %110 = load <2 x ptr>, ptr %108, align 8, !tbaa !35
+  store <2 x ptr> %110, ptr %p, align 16, !tbaa !35
+  %cmp.not.i.i.i766 = icmp eq ptr %109, null
   br i1 %cmp.not.i.i.i766, label %_ZNSt10shared_ptrIN3con14BufferedPacketEEC2ERKS2_.exit, label %if.then.i.i.i767
 
 if.then.i.i.i767:                                 ; preds = %while.body
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %110, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %109, i64 8
   %111 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !13
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %111, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i768
@@ -7903,7 +7902,7 @@ if.then.i798:                                     ; preds = %invoke.cont185
           to label %invoke.cont187 unwind label %lpad178
 
 invoke.cont187:                                   ; preds = %if.then.i798, %invoke.cont185, %invoke.cont183, %invoke.cont181, %invoke.cont179, %call.i.noexc776
-  %148 = load ptr, ptr %p, align 8, !tbaa !137
+  %148 = load ptr, ptr %p, align 16, !tbaa !137
   %call193 = invoke noundef zeroext i16 @_ZNK3con14BufferedPacket9getSeqnumEv(ptr noundef nonnull align 8 dereferenceable(80) %148)
           to label %invoke.cont192 unwind label %lpad191.loopexit
 
@@ -9831,7 +9830,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %have_seqnum = alloca i8, align 1
   %reliable32 = alloca %class.SharedBuffer, align 8
-  %p = alloca %"class.std::shared_ptr.87", align 8
+  %p = alloca %"class.std::shared_ptr.87", align 16
   %ref.tmp54 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp83 = alloca %"class.std::__cxx11::basic_string", align 8
   %p123 = alloca %"class.std::shared_ptr.87", align 8
@@ -10482,17 +10481,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit326: ; preds = %if
   br i1 %cmp.not.i.i, label %if.else.i.i329, label %if.then.i.i328
 
 if.then.i.i328:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit326
-  %73 = load ptr, ptr %p, align 8, !tbaa !137
-  store ptr %73, ptr %71, align 8, !tbaa !137
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %71, i64 8
   %_M_refcount3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
-  %74 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !tbaa !74
-  store ptr %74, ptr %_M_refcount.i.i.i.i.i.i, align 8, !tbaa !74
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %74, null
+  %73 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !tbaa !74
+  %74 = load <2 x ptr>, ptr %p, align 16, !tbaa !35
+  store <2 x ptr> %74, ptr %71, align 8, !tbaa !35
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %73, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN3con14BufferedPacketEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i328
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %74, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %73, i64 8
   %75 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !13
   %tobool.i.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %75, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -22333,17 +22330,15 @@ _ZNSt5dequeISt10shared_ptrIN3con14BufferedPacketEESaIS3_EE22_M_reserve_map_at_ba
   %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8, !tbaa !35
   %9 = load ptr, ptr %_M_finish.i, align 8, !tbaa !244
-  %10 = load ptr, ptr %__args, align 8, !tbaa !137
-  store ptr %10, ptr %9, align 8, !tbaa !137
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %11 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !74
-  store ptr %11, ptr %_M_refcount.i.i.i.i, align 8, !tbaa !74
-  %cmp.not.i.i.i.i.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !74
+  %11 = load <2 x ptr>, ptr %__args, align 8, !tbaa !35
+  store <2 x ptr> %11, ptr %9, align 8, !tbaa !35
+  %cmp.not.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN3con14BufferedPacketEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt5dequeISt10shared_ptrIN3con14BufferedPacketEESaIS3_EE22_M_reserve_map_at_backEm.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !13
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i

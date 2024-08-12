@@ -3576,7 +3576,7 @@ define void @_ZN25FilterTextureDefragPlugin11applyFilterB5cxx11EPK7QActionRK17Ri
   %18 = alloca %class.QString, align 8
   %19 = alloca %class.QDir, align 8
   %20 = alloca %class.Mesh, align 8
-  %21 = alloca %"class.std::shared_ptr", align 8
+  %21 = alloca %"class.std::shared_ptr", align 16
   %22 = alloca %class.QImage, align 8
   %23 = alloca %struct.AlgoParameters, align 16
   %24 = alloca %class.QString, align 8
@@ -3586,28 +3586,28 @@ define void @_ZN25FilterTextureDefragPlugin11applyFilterB5cxx11EPK7QActionRK17Ri
   %28 = alloca %class.QString, align 8
   %29 = alloca %class.QString, align 8
   %30 = alloca %class.QString, align 8
-  %31 = alloca %"class.std::shared_ptr", align 8
-  %32 = alloca %"class.std::shared_ptr.344", align 8
-  %33 = alloca %"class.std::shared_ptr", align 8
-  %34 = alloca %"class.std::shared_ptr.344", align 8
+  %31 = alloca %"class.std::shared_ptr", align 16
+  %32 = alloca %"class.std::shared_ptr.344", align 16
+  %33 = alloca %"class.std::shared_ptr", align 16
+  %34 = alloca %"class.std::shared_ptr.344", align 16
   %35 = alloca %"class.std::map.347", align 8
   %36 = alloca %"class.std::shared_ptr.344", align 8
   %37 = alloca %"class.std::map.387", align 8
-  %38 = alloca %"class.std::shared_ptr.394", align 8
-  %39 = alloca %"class.std::shared_ptr.344", align 8
-  %40 = alloca %"class.std::shared_ptr.344", align 8
-  %41 = alloca %"class.std::shared_ptr.394", align 8
+  %38 = alloca %"class.std::shared_ptr.394", align 16
+  %39 = alloca %"class.std::shared_ptr.344", align 16
+  %40 = alloca %"class.std::shared_ptr.344", align 16
+  %41 = alloca %"class.std::shared_ptr.394", align 16
   %42 = alloca i32, align 4
-  %43 = alloca %"class.std::shared_ptr.344", align 8
+  %43 = alloca %"class.std::shared_ptr.344", align 16
   %44 = alloca %"class.std::shared_ptr.362", align 8
   %45 = alloca double, align 8
   %46 = alloca %"class.std::shared_ptr.362", align 8
   %47 = alloca %"class.std::vector.540", align 8
   %48 = alloca %"class.std::vector.546", align 8
-  %49 = alloca %"class.std::shared_ptr", align 8
+  %49 = alloca %"class.std::shared_ptr", align 16
   %50 = alloca %class.QString, align 8
   %51 = alloca %"class.std::vector.552", align 8
-  %52 = alloca %"class.std::shared_ptr", align 8
+  %52 = alloca %"class.std::shared_ptr", align 16
   %53 = alloca %class.QString, align 8
   %54 = alloca %class.QString, align 8
   %55 = alloca %class.QString, align 8
@@ -4151,7 +4151,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
 
 ._crit_edge593:                                   ; preds = %.lr.ph592, %._crit_edge
   call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  store ptr null, ptr %21, align 8, !alias.scope !39
+  store ptr null, ptr %21, align 16, !alias.scope !39
   %321 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
           to label %.noexc228 unwind label %249
 
@@ -4174,7 +4174,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI13TextureObjectSaIvELN9__g
 326:                                              ; preds = %.noexc228
   %327 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %321, ptr %327, align 8, !alias.scope !39
-  store ptr %324, ptr %21, align 8, !alias.scope !39
+  store ptr %324, ptr %21, align 16, !alias.scope !39
   %328 = getelementptr inbounds i8, ptr %63, i64 680
   %329 = load ptr, ptr %328, align 8
   %330 = getelementptr inbounds i8, ptr %63, i64 688
@@ -4520,16 +4520,15 @@ _ZN3vcg6Point3IdE9NormalizeEv.exit.i.i:           ; preds = %432, %421, %.lr.ph.
   br i1 %.not.i.i288, label %_ZN3vcg3tri12UpdateNormalI4MeshE19PerVertexNormalizedERS2_.exit, label %.lr.ph.i.i286, !llvm.loop !42
 
 _ZN3vcg3tri12UpdateNormalI4MeshE19PerVertexNormalizedERS2_.exit: ; preds = %_ZN3vcg6Point3IdE9NormalizeEv.exit.i.i, %.noexc290
-  %438 = load ptr, ptr %21, align 8
-  store ptr %438, ptr %31, align 8
-  %439 = getelementptr inbounds i8, ptr %31, i64 8
-  %440 = load ptr, ptr %327, align 8
-  store ptr %440, ptr %439, align 8
-  %.not.i.i.i = icmp eq ptr %440, null
+  %438 = getelementptr inbounds i8, ptr %31, i64 8
+  %439 = load ptr, ptr %327, align 8
+  %440 = load <2 x ptr>, ptr %21, align 16
+  store <2 x ptr> %440, ptr %31, align 16
+  %.not.i.i.i = icmp eq ptr %439, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrI13TextureObjectEC2ERKS1_.exit, label %441
 
 441:                                              ; preds = %_ZN3vcg3tri12UpdateNormalI4MeshE19PerVertexNormalizedERS2_.exit
-  %442 = getelementptr inbounds i8, ptr %440, i64 8
+  %442 = getelementptr inbounds i8, ptr %439, i64 8
   %443 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %443, 0
   br i1 %.not.i.i.i.i, label %447, label %444
@@ -4549,7 +4548,7 @@ _ZNSt10shared_ptrI13TextureObjectEC2ERKS1_.exit:  ; preds = %_ZN3vcg3tri12Update
           to label %449 unwind label %550
 
 449:                                              ; preds = %_ZNSt10shared_ptrI13TextureObjectEC2ERKS1_.exit
-  %450 = load ptr, ptr %439, align 8
+  %450 = load ptr, ptr %438, align 8
   %.not.i.i.i291 = icmp eq ptr %450, null
   br i1 %.not.i.i.i291, label %_ZNSt10shared_ptrI13TextureObjectED2Ev.exit, label %451
 
@@ -4630,16 +4629,15 @@ _ZNSt10shared_ptrI13TextureObjectED2Ev.exit:      ; preds = %449, %467, %480, %_
           to label %486 unwind label %.loopexit.split-lp570
 
 486:                                              ; preds = %485
-  %487 = load ptr, ptr %21, align 8
-  store ptr %487, ptr %33, align 8
-  %488 = getelementptr inbounds i8, ptr %33, i64 8
-  %489 = load ptr, ptr %327, align 8
-  store ptr %489, ptr %488, align 8
-  %.not.i.i.i293 = icmp eq ptr %489, null
+  %487 = getelementptr inbounds i8, ptr %33, i64 8
+  %488 = load ptr, ptr %327, align 8
+  %489 = load <2 x ptr>, ptr %21, align 16
+  store <2 x ptr> %489, ptr %33, align 16
+  %.not.i.i.i293 = icmp eq ptr %488, null
   br i1 %.not.i.i.i293, label %_ZNSt10shared_ptrI13TextureObjectEC2ERKS1_.exit295, label %490
 
 490:                                              ; preds = %486
-  %491 = getelementptr inbounds i8, ptr %489, i64 8
+  %491 = getelementptr inbounds i8, ptr %488, i64 8
   %492 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i294 = icmp eq i8 %492, 0
   br i1 %.not.i.i.i.i294, label %496, label %493
@@ -4659,7 +4657,7 @@ _ZNSt10shared_ptrI13TextureObjectEC2ERKS1_.exit295: ; preds = %486, %493, %496
           to label %498 unwind label %552
 
 498:                                              ; preds = %_ZNSt10shared_ptrI13TextureObjectEC2ERKS1_.exit295
-  %499 = load ptr, ptr %488, align 8
+  %499 = load ptr, ptr %487, align 8
   %.not.i.i.i296 = icmp eq ptr %499, null
   br i1 %.not.i.i.i296, label %_ZNSt10shared_ptrI13TextureObjectED2Ev.exit302.preheader, label %500
 
@@ -4811,17 +4809,16 @@ _ZNSt10shared_ptrI13TextureObjectED2Ev.exit302:   ; preds = %_ZNSt10shared_ptrI1
           to label %555 unwind label %.loopexit.split-lp
 
 555:                                              ; preds = %554
-  %556 = load ptr, ptr %32, align 8
-  store ptr %556, ptr %34, align 8
-  %557 = getelementptr inbounds i8, ptr %34, i64 8
-  %558 = getelementptr inbounds i8, ptr %32, i64 8
-  %559 = load ptr, ptr %558, align 8
-  store ptr %559, ptr %557, align 8
-  %.not.i.i.i303 = icmp eq ptr %559, null
+  %556 = getelementptr inbounds i8, ptr %34, i64 8
+  %557 = getelementptr inbounds i8, ptr %32, i64 8
+  %558 = load ptr, ptr %557, align 8
+  %559 = load <2 x ptr>, ptr %32, align 16
+  store <2 x ptr> %559, ptr %34, align 16
+  %.not.i.i.i303 = icmp eq ptr %558, null
   br i1 %.not.i.i.i303, label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit, label %560
 
 560:                                              ; preds = %555
-  %561 = getelementptr inbounds i8, ptr %559, i64 8
+  %561 = getelementptr inbounds i8, ptr %558, i64 8
   %562 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i304 = icmp eq i8 %562, 0
   br i1 %.not.i.i.i.i304, label %566, label %563
@@ -4841,7 +4838,7 @@ _ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit:       ; preds = %555, %563, %566
           to label %568 unwind label %652
 
 568:                                              ; preds = %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit
-  %569 = load ptr, ptr %557, align 8
+  %569 = load ptr, ptr %556, align 8
   %.not.i.i.i305 = icmp eq ptr %569, null
   br i1 %.not.i.i.i305, label %_ZNSt10shared_ptrI9MeshGraphED2Ev.exit, label %570
 
@@ -5003,7 +5000,7 @@ _ZN3vcg3tri14UpdateTopologyI4MeshE10VertexFaceERS2_.exit: ; preds = %.loopexit.i
   store ptr %637, ptr %640, align 8
   %641 = getelementptr inbounds i8, ptr %35, i64 40
   store i64 0, ptr %641, align 8
-  %642 = load ptr, ptr %32, align 8
+  %642 = load ptr, ptr %32, align 16
   %643 = getelementptr inbounds i8, ptr %642, i64 24
   %.sroa.0527.0599 = load ptr, ptr %643, align 8
   %.not562600 = icmp eq ptr %.sroa.0527.0599, null
@@ -5040,14 +5037,14 @@ _ZN3vcg3tri14UpdateTopologyI4MeshE10VertexFaceERS2_.exit: ; preds = %.loopexit.i
   br label %1626
 
 ._crit_edge604.loopexit:                          ; preds = %650
-  %.pre = load ptr, ptr %32, align 8
+  %.pre = load ptr, ptr %32, align 16
   br label %._crit_edge604
 
 ._crit_edge604:                                   ; preds = %._crit_edge604.loopexit, %636
   %656 = phi ptr [ %.pre, %._crit_edge604.loopexit ], [ %642, %636 ]
   store ptr %656, ptr %36, align 8
   %657 = getelementptr inbounds i8, ptr %36, i64 8
-  %658 = load ptr, ptr %558, align 8
+  %658 = load ptr, ptr %557, align 8
   store ptr %658, ptr %657, align 8
   %.not.i.i.i313 = icmp eq ptr %658, null
   br i1 %.not.i.i.i313, label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit315, label %659
@@ -5156,16 +5153,15 @@ _ZNSt10shared_ptrI9MeshGraphED2Ev.exit322:        ; preds = %667, %685, %698, %_
   store ptr %703, ptr %706, align 8
   %707 = getelementptr inbounds i8, ptr %37, i64 40
   store i64 0, ptr %707, align 8
-  %708 = load ptr, ptr %32, align 8
-  store ptr %708, ptr %39, align 8
-  %709 = getelementptr inbounds i8, ptr %39, i64 8
-  %710 = load ptr, ptr %558, align 8
-  store ptr %710, ptr %709, align 8
-  %.not.i.i.i323 = icmp eq ptr %710, null
+  %708 = getelementptr inbounds i8, ptr %39, i64 8
+  %709 = load ptr, ptr %557, align 8
+  %710 = load <2 x ptr>, ptr %32, align 16
+  store <2 x ptr> %710, ptr %39, align 16
+  %.not.i.i.i323 = icmp eq ptr %709, null
   br i1 %.not.i.i.i323, label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit325, label %711
 
 711:                                              ; preds = %_ZNSt10shared_ptrI9MeshGraphED2Ev.exit322
-  %712 = getelementptr inbounds i8, ptr %710, i64 8
+  %712 = getelementptr inbounds i8, ptr %709, i64 8
   %713 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i324 = icmp eq i8 %713, 0
   br i1 %.not.i.i.i.i324, label %717, label %714
@@ -5185,7 +5181,7 @@ _ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit325:    ; preds = %_ZNSt10shared_ptrI9
           to label %719 unwind label %909
 
 719:                                              ; preds = %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit325
-  %720 = load ptr, ptr %709, align 8
+  %720 = load ptr, ptr %708, align 8
   %.not.i.i.i326 = icmp eq ptr %720, null
   br i1 %.not.i.i.i326, label %_ZNSt10shared_ptrI9MeshGraphED2Ev.exit332, label %721
 
@@ -5262,16 +5258,15 @@ _ZNSt10shared_ptrI9MeshGraphED2Ev.exit332:        ; preds = %719, %737, %750, %_
           to label %756 unwind label %911
 
 756:                                              ; preds = %_ZNSt10shared_ptrI9MeshGraphED2Ev.exit332
-  %757 = load ptr, ptr %32, align 8
-  store ptr %757, ptr %40, align 8
-  %758 = getelementptr inbounds i8, ptr %40, i64 8
-  %759 = load ptr, ptr %558, align 8
-  store ptr %759, ptr %758, align 8
-  %.not.i.i.i333 = icmp eq ptr %759, null
+  %757 = getelementptr inbounds i8, ptr %40, i64 8
+  %758 = load ptr, ptr %557, align 8
+  %759 = load <2 x ptr>, ptr %32, align 16
+  store <2 x ptr> %759, ptr %40, align 16
+  %.not.i.i.i333 = icmp eq ptr %758, null
   br i1 %.not.i.i.i333, label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit335, label %760
 
 760:                                              ; preds = %756
-  %761 = getelementptr inbounds i8, ptr %759, i64 8
+  %761 = getelementptr inbounds i8, ptr %758, i64 8
   %762 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i334 = icmp eq i8 %762, 0
   br i1 %.not.i.i.i.i334, label %766, label %763
@@ -5287,17 +5282,16 @@ _ZNSt10shared_ptrI9MeshGraphED2Ev.exit332:        ; preds = %719, %737, %750, %_
   br label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit335
 
 _ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit335:    ; preds = %756, %763, %766
-  %768 = load ptr, ptr %38, align 8
-  store ptr %768, ptr %41, align 8
-  %769 = getelementptr inbounds i8, ptr %41, i64 8
-  %770 = getelementptr inbounds i8, ptr %38, i64 8
-  %771 = load ptr, ptr %770, align 8
-  store ptr %771, ptr %769, align 8
-  %.not.i.i.i336 = icmp eq ptr %771, null
+  %768 = getelementptr inbounds i8, ptr %41, i64 8
+  %769 = getelementptr inbounds i8, ptr %38, i64 8
+  %770 = load ptr, ptr %769, align 8
+  %771 = load <2 x ptr>, ptr %38, align 16
+  store <2 x ptr> %771, ptr %41, align 16
+  %.not.i.i.i336 = icmp eq ptr %770, null
   br i1 %.not.i.i.i336, label %_ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit, label %772
 
 772:                                              ; preds = %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit335
-  %773 = getelementptr inbounds i8, ptr %771, i64 8
+  %773 = getelementptr inbounds i8, ptr %770, i64 8
   %774 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i337 = icmp eq i8 %774, 0
   br i1 %.not.i.i.i.i337, label %778, label %775
@@ -5317,7 +5311,7 @@ _ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit:       ; preds = %_ZNSt10shared_ptrI9
           to label %780 unwind label %913
 
 780:                                              ; preds = %_ZNSt10shared_ptrI9AlgoStateEC2ERKS1_.exit
-  %781 = load ptr, ptr %769, align 8
+  %781 = load ptr, ptr %768, align 8
   %.not.i.i.i338 = icmp eq ptr %781, null
   br i1 %.not.i.i.i338, label %_ZNSt10shared_ptrI9AlgoStateED2Ev.exit, label %782
 
@@ -5390,7 +5384,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI9AlgoStateED2Ev.exit
 
 _ZNSt10shared_ptrI9AlgoStateED2Ev.exit:           ; preds = %780, %798, %811, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i343
-  %816 = load ptr, ptr %758, align 8
+  %816 = load ptr, ptr %757, align 8
   %.not.i.i.i344 = icmp eq ptr %816, null
   br i1 %.not.i.i.i344, label %_ZNSt10shared_ptrI9MeshGraphED2Ev.exit350, label %817
 
@@ -5463,16 +5457,15 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrI9MeshGraphED2Ev.exit350
 
 _ZNSt10shared_ptrI9MeshGraphED2Ev.exit350:        ; preds = %_ZNSt10shared_ptrI9AlgoStateED2Ev.exit, %833, %846, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i349
-  %851 = load ptr, ptr %32, align 8
-  store ptr %851, ptr %43, align 8
-  %852 = getelementptr inbounds i8, ptr %43, i64 8
-  %853 = load ptr, ptr %558, align 8
-  store ptr %853, ptr %852, align 8
-  %.not.i.i.i351 = icmp eq ptr %853, null
+  %851 = getelementptr inbounds i8, ptr %43, i64 8
+  %852 = load ptr, ptr %557, align 8
+  %853 = load <2 x ptr>, ptr %32, align 16
+  store <2 x ptr> %853, ptr %43, align 16
+  %.not.i.i.i351 = icmp eq ptr %852, null
   br i1 %.not.i.i.i351, label %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit353, label %854
 
 854:                                              ; preds = %_ZNSt10shared_ptrI9MeshGraphED2Ev.exit350
-  %855 = getelementptr inbounds i8, ptr %853, i64 8
+  %855 = getelementptr inbounds i8, ptr %852, i64 8
   %856 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i352 = icmp eq i8 %856, 0
   br i1 %.not.i.i.i.i352, label %860, label %857
@@ -5492,7 +5485,7 @@ _ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit353:    ; preds = %_ZNSt10shared_ptrI9
           to label %862 unwind label %915
 
 862:                                              ; preds = %_ZNSt10shared_ptrI9MeshGraphEC2ERKS1_.exit353
-  %863 = load ptr, ptr %852, align 8
+  %863 = load ptr, ptr %851, align 8
   %.not.i.i.i354 = icmp eq ptr %863, null
   br i1 %.not.i.i.i354, label %_ZNSt10shared_ptrI9MeshGraphED2Ev.exit360, label %864
 
@@ -5619,7 +5612,7 @@ _ZNSt10shared_ptrI9MeshGraphED2Ev.exit360:        ; preds = %_ZNSt16_Sp_counted_
   br label %1624
 
 _ZN3vcg3tri11UpdateColorI4MeshE15PerFaceConstantERS2_NS_6Color4IhEEb.exit: ; preds = %905, %_ZNSt10shared_ptrI9MeshGraphED2Ev.exit360
-  %917 = load ptr, ptr %32, align 8
+  %917 = load ptr, ptr %32, align 16
   %918 = getelementptr inbounds i8, ptr %917, i64 24
   %.sroa.0522.0605 = load ptr, ptr %918, align 8
   %.not563606 = icmp eq ptr %.sroa.0522.0605, null
@@ -5688,7 +5681,7 @@ _ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit:       ; preds = %929, %932
   br label %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit368
 
 _ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit368:    ; preds = %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit.thread, %_ZNSt10shared_ptrI9FaceGroupEC2ERKS1_.exit, %938, %941
-  %943 = load ptr, ptr %38, align 8
+  %943 = load ptr, ptr %38, align 16
   %944 = getelementptr inbounds i8, ptr %943, i64 1240
   %945 = invoke noundef i32 @_Z24RotateChartForResamplingSt10shared_ptrI9FaceGroupERKSt3setIP8MeshFaceSt4lessIS4_ESaIS4_EERKSt3mapIibS5_IiESaISt4pairIKibEEEbPd(ptr noundef nonnull %46, ptr noundef nonnull align 8 dereferenceable(48) %944, ptr noundef nonnull align 8 dereferenceable(48) %35, i1 noundef zeroext true, ptr noundef nonnull %45)
           to label %946 unwind label %996
@@ -5919,7 +5912,7 @@ _ZNSt10shared_ptrI9FaceGroupED2Ev.exit383:        ; preds = %1000, %1018, %1031,
 
 1038:                                             ; preds = %._crit_edge609
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
-  %1039 = load ptr, ptr %32, align 8
+  %1039 = load ptr, ptr %32, align 16
   %1040 = getelementptr inbounds i8, ptr %1039, i64 24
   %.sroa.0518.0615 = load ptr, ptr %1040, align 8
   %.not564616 = icmp eq ptr %.sroa.0518.0615, null
@@ -6030,7 +6023,7 @@ _ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE9push_backERKS2_.exit: ; preds = 
   br i1 %.not564, label %._crit_edge620.loopexit, label %1043
 
 ._crit_edge620.loopexit:                          ; preds = %_ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE9push_backERKS2_.exit
-  %.pre655 = load ptr, ptr %32, align 8
+  %.pre655 = load ptr, ptr %32, align 16
   br label %._crit_edge620
 
 ._crit_edge620:                                   ; preds = %._crit_edge620.loopexit, %1038
@@ -6084,16 +6077,15 @@ _ZN3vcg4face10IsManifoldI8MeshFaceEEbRKT_i.exit.thread: ; preds = %1096, %_ZN3vc
 
 ._crit_edge624:                                   ; preds = %1109, %._crit_edge620
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
-  %1111 = load ptr, ptr %21, align 8
-  store ptr %1111, ptr %49, align 8
-  %1112 = getelementptr inbounds i8, ptr %49, i64 8
-  %1113 = load ptr, ptr %327, align 8
-  store ptr %1113, ptr %1112, align 8
-  %.not.i.i.i387 = icmp eq ptr %1113, null
+  %1111 = getelementptr inbounds i8, ptr %49, i64 8
+  %1112 = load ptr, ptr %327, align 8
+  %1113 = load <2 x ptr>, ptr %21, align 16
+  store <2 x ptr> %1113, ptr %49, align 16
+  %.not.i.i.i387 = icmp eq ptr %1112, null
   br i1 %.not.i.i.i387, label %_ZNSt10shared_ptrI13TextureObjectEC2ERKS1_.exit389, label %1114
 
 1114:                                             ; preds = %._crit_edge624
-  %1115 = getelementptr inbounds i8, ptr %1113, i64 8
+  %1115 = getelementptr inbounds i8, ptr %1112, i64 8
   %1116 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i388 = icmp eq i8 %1116, 0
   br i1 %.not.i.i.i.i388, label %1120, label %1117
@@ -6113,7 +6105,7 @@ _ZNSt10shared_ptrI13TextureObjectEC2ERKS1_.exit389: ; preds = %._crit_edge624, %
           to label %1123 unwind label %1174
 
 1123:                                             ; preds = %_ZNSt10shared_ptrI13TextureObjectEC2ERKS1_.exit389
-  %1124 = load ptr, ptr %1112, align 8
+  %1124 = load ptr, ptr %1111, align 8
   %.not.i.i.i390 = icmp eq ptr %1124, null
   br i1 %.not.i.i.i390, label %_ZNSt10shared_ptrI13TextureObjectED2Ev.exit396, label %1125
 
@@ -6261,16 +6253,15 @@ _ZNSt10shared_ptrI13TextureObjectED2Ev.exit396:   ; preds = %1123, %1141, %1154,
           to label %1189 unwind label %1252
 
 1189:                                             ; preds = %1188
-  %1190 = load ptr, ptr %21, align 8
-  store ptr %1190, ptr %52, align 8
-  %1191 = getelementptr inbounds i8, ptr %52, i64 8
-  %1192 = load ptr, ptr %327, align 8
-  store ptr %1192, ptr %1191, align 8
-  %.not.i.i.i399 = icmp eq ptr %1192, null
+  %1190 = getelementptr inbounds i8, ptr %52, i64 8
+  %1191 = load ptr, ptr %327, align 8
+  %1192 = load <2 x ptr>, ptr %21, align 16
+  store <2 x ptr> %1192, ptr %52, align 16
+  %.not.i.i.i399 = icmp eq ptr %1191, null
   br i1 %.not.i.i.i399, label %_ZNSt10shared_ptrI13TextureObjectEC2ERKS1_.exit401, label %1193
 
 1193:                                             ; preds = %1189
-  %1194 = getelementptr inbounds i8, ptr %1192, i64 8
+  %1194 = getelementptr inbounds i8, ptr %1191, i64 8
   %1195 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i400 = icmp eq i8 %1195, 0
   br i1 %.not.i.i.i.i400, label %1199, label %1196
@@ -6290,7 +6281,7 @@ _ZNSt10shared_ptrI13TextureObjectEC2ERKS1_.exit401: ; preds = %1189, %1196, %119
           to label %1201 unwind label %1254
 
 1201:                                             ; preds = %_ZNSt10shared_ptrI13TextureObjectEC2ERKS1_.exit401
-  %1202 = load ptr, ptr %1191, align 8
+  %1202 = load ptr, ptr %1190, align 8
   %.not.i.i.i402 = icmp eq ptr %1202, null
   br i1 %.not.i.i.i402, label %_ZNSt10shared_ptrI13TextureObjectED2Ev.exit408, label %1203
 
@@ -7057,7 +7048,7 @@ _ZSt8_DestroyIPSt10shared_ptrI9FaceGroupES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_
   br label %_ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EED2Ev.exit
 
 _ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10shared_ptrI9FaceGroupES2_EvT_S4_RSaIT0_E.exit.i, %1498
-  %1499 = load ptr, ptr %770, align 8
+  %1499 = load ptr, ptr %769, align 8
   %.not.i.i.i481 = icmp eq ptr %1499, null
   br i1 %.not.i.i.i481, label %_ZNSt10shared_ptrI9AlgoStateED2Ev.exit487, label %1500
 
@@ -7154,7 +7145,7 @@ _ZNSt3mapISt10shared_ptrI9FaceGroupEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit: ;
   unreachable
 
 _ZNSt3mapIibSt4lessIiESaISt4pairIKibEEED2Ev.exit: ; preds = %_ZNSt3mapISt10shared_ptrI9FaceGroupEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit
-  %1542 = load ptr, ptr %558, align 8
+  %1542 = load ptr, ptr %557, align 8
   %.not.i.i.i488 = icmp eq ptr %1542, null
   br i1 %.not.i.i.i488, label %_ZNSt10shared_ptrI9MeshGraphED2Ev.exit494, label %1543
 
@@ -28975,86 +28966,84 @@ _ZNKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE12_M_check_lenEmPKc.exit: ; pred
 _ZNSt12_Vector_baseISt10shared_ptrI9FaceGroupESaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE12_M_check_lenEmPKc.exit, %20
   %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE12_M_check_lenEmPKc.exit ]
   %24 = getelementptr inbounds %"class.std::shared_ptr.362", ptr %23, i64 %19
-  %25 = load ptr, ptr %2, align 8
-  store ptr %25, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %26, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrI9FaceGroupEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit, label %29
+  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = load <2 x ptr>, ptr %2, align 8
+  store <2 x ptr> %27, ptr %24, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrI9FaceGroupEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit, label %28
 
-29:                                               ; preds = %_ZNSt12_Vector_baseISt10shared_ptrI9FaceGroupESaIS2_EE11_M_allocateEm.exit
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
-  %31 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i.i.i.i.i, label %35, label %32
+28:                                               ; preds = %_ZNSt12_Vector_baseISt10shared_ptrI9FaceGroupESaIS2_EE11_M_allocateEm.exit
+  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %30, 0
+  br i1 %.not.i.i.i.i.i.i, label %34, label %31
 
-32:                                               ; preds = %29
-  %33 = load i32, ptr %30, align 4
-  %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %30, align 4
+31:                                               ; preds = %28
+  %32 = load i32, ptr %29, align 4
+  %33 = add nsw i32 %32, 1
+  store i32 %33, ptr %29, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrI9FaceGroupEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
 
-35:                                               ; preds = %29
-  %36 = atomicrmw volatile add ptr %30, i32 1 acq_rel, align 4
+34:                                               ; preds = %28
+  %35 = atomicrmw volatile add ptr %29, i32 1 acq_rel, align 4
   br label %_ZNSt16allocator_traitsISaISt10shared_ptrI9FaceGroupEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
 
-_ZNSt16allocator_traitsISaISt10shared_ptrI9FaceGroupEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseISt10shared_ptrI9FaceGroupESaIS2_EE11_M_allocateEm.exit, %32, %35
+_ZNSt16allocator_traitsISaISt10shared_ptrI9FaceGroupEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseISt10shared_ptrI9FaceGroupESaIS2_EE11_M_allocateEm.exit, %31, %34
   %.not10.i.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt16allocator_traitsISaISt10shared_ptrI9FaceGroupEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrI9FaceGroupEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
-  %.0911.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaISt10shared_ptrI9FaceGroupEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
+  %.012.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrI9FaceGroupEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
+  %.0911.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaISt10shared_ptrI9FaceGroupEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !456)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !459)
-  %37 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %38 = load <2 x ptr>, ptr %.0911.i.i.i.i, align 8, !alias.scope !459, !noalias !456
-  store ptr null, ptr %37, align 8, !alias.scope !459, !noalias !456
-  store <2 x ptr> %38, ptr %.012.i.i.i.i, align 8, !alias.scope !456, !noalias !459
+  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
+  %37 = load <2 x ptr>, ptr %.0911.i.i.i.i, align 8, !alias.scope !459, !noalias !456
+  store ptr null, ptr %36, align 8, !alias.scope !459, !noalias !456
+  store <2 x ptr> %37, ptr %.012.i.i.i.i, align 8, !alias.scope !456, !noalias !459
   store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !459, !noalias !456
-  %39 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
-  %40 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
-  %.not.i.i.i.i = icmp eq ptr %39, %1
+  %38 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 16
+  %39 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 16
+  %.not.i.i.i.i = icmp eq ptr %38, %1
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !461
 
 _ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrI9FaceGroupEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit
-  %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrI9FaceGroupEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ], [ %40, %.lr.ph.i.i.i.i ]
-  %41 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %.0.lcssa.i.i.i.i = phi ptr [ %23, %_ZNSt16allocator_traitsISaISt10shared_ptrI9FaceGroupEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit ], [ %39, %.lr.ph.i.i.i.i ]
+  %40 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %.not10.i.i.i.i16 = icmp eq ptr %5, %1
   br i1 %.not10.i.i.i.i16, label %_ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i.i17
 
 .lr.ph.i.i.i.i17:                                 ; preds = %_ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %.lr.ph.i.i.i.i17
-  %.012.i.i.i.i18 = phi ptr [ %45, %.lr.ph.i.i.i.i17 ], [ %41, %_ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  %.0911.i.i.i.i19 = phi ptr [ %44, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
+  %.012.i.i.i.i18 = phi ptr [ %44, %.lr.ph.i.i.i.i17 ], [ %40, %_ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
+  %.0911.i.i.i.i19 = phi ptr [ %43, %.lr.ph.i.i.i.i17 ], [ %1, %_ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !462)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !465)
-  %42 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 8
-  %43 = load <2 x ptr>, ptr %.0911.i.i.i.i19, align 8, !alias.scope !465, !noalias !462
-  store ptr null, ptr %42, align 8, !alias.scope !465, !noalias !462
-  store <2 x ptr> %43, ptr %.012.i.i.i.i18, align 8, !alias.scope !462, !noalias !465
+  %41 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 8
+  %42 = load <2 x ptr>, ptr %.0911.i.i.i.i19, align 8, !alias.scope !465, !noalias !462
+  store ptr null, ptr %41, align 8, !alias.scope !465, !noalias !462
+  store <2 x ptr> %42, ptr %.012.i.i.i.i18, align 8, !alias.scope !462, !noalias !465
   store ptr null, ptr %.0911.i.i.i.i19, align 8, !alias.scope !465, !noalias !462
-  %44 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
-  %45 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 16
-  %.not.i.i.i.i20 = icmp eq ptr %44, %5
+  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i.i19, i64 16
+  %44 = getelementptr inbounds i8, ptr %.012.i.i.i.i18, i64 16
+  %.not.i.i.i.i20 = icmp eq ptr %43, %5
   br i1 %.not.i.i.i.i20, label %_ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, label %.lr.ph.i.i.i.i17, !llvm.loop !461
 
 _ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22: ; preds = %.lr.ph.i.i.i.i17, %_ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
-  %.0.lcssa.i.i.i.i21 = phi ptr [ %41, %_ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %45, %.lr.ph.i.i.i.i17 ]
+  %.0.lcssa.i.i.i.i21 = phi ptr [ %40, %_ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %44, %.lr.ph.i.i.i.i17 ]
   %.not.i23 = icmp eq ptr %6, null
-  br i1 %.not.i23, label %_ZNSt12_Vector_baseISt10shared_ptrI9FaceGroupESaIS2_EE13_M_deallocateEPS2_m.exit, label %46
+  br i1 %.not.i23, label %_ZNSt12_Vector_baseISt10shared_ptrI9FaceGroupESaIS2_EE13_M_deallocateEPS2_m.exit, label %45
 
-46:                                               ; preds = %_ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22
+45:                                               ; preds = %_ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22
   tail call void @_ZdlPv(ptr noundef nonnull %6) #21
   br label %_ZNSt12_Vector_baseISt10shared_ptrI9FaceGroupESaIS2_EE13_M_deallocateEPS2_m.exit
 
-_ZNSt12_Vector_baseISt10shared_ptrI9FaceGroupESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %46
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+_ZNSt12_Vector_baseISt10shared_ptrI9FaceGroupESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %45
+  %46 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8
-  %48 = getelementptr inbounds %"class.std::shared_ptr.362", ptr %23, i64 %16
-  store ptr %48, ptr %47, align 8
+  %47 = getelementptr inbounds %"class.std::shared_ptr.362", ptr %23, i64 %16
+  store ptr %47, ptr %46, align 8
   ret void
 }
 

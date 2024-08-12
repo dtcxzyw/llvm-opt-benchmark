@@ -13367,7 +13367,7 @@ define hidden void @_ZN4cvc58internal12TheoryEngine14getExplanationERSt6vectorIN
 entry:
   %ref.tmp.i.i.i.i.i = alloca %"struct.std::hash", align 1
   %conclusion = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %lcp = alloca %"class.std::shared_ptr", align 8
+  %lcp = alloca %"class.std::shared_ptr", align 16
   %ref.tmp22 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp23 = alloca %"class.std::allocator", align 1
   %inputAssertions = alloca %"class.std::unique_ptr.1003", align 8
@@ -13434,7 +13434,7 @@ entry:
   %ref.tmp1096 = alloca %"class.std::vector.387", align 8
   %agg.tmp1122 = alloca %"class.cvc5::internal::NodeTemplate.799", align 8
   %agg.tmp1124 = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %agg.tmp1127 = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp1127 = alloca %"class.std::shared_ptr", align 16
   %agg.tmp1135 = alloca %"class.cvc5::internal::NodeTemplate.799", align 8
   %agg.tmp1137 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load ptr, ptr %explanationVector, align 8
@@ -13506,7 +13506,7 @@ invoke.cont:                                      ; preds = %if.end6.i, %call4.i
   %7 = load ptr, ptr %explanationVector, align 8
   %d_theory5 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 %retval.0.i, ptr %d_theory5, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lcp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %lcp, i8 0, i64 16, i1 false)
   %d_env.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %d_env.i, align 8
   %call.i73 = invoke noundef zeroext i1 @_ZNK4cvc58internal3Env22isTheoryProofProducingEv(ptr noundef nonnull align 8 dereferenceable(576) %8)
@@ -13959,7 +13959,7 @@ cleanup.done124:                                  ; preds = %if.then13.i.i480, %
   br i1 %52, label %if.then129, label %if.end166
 
 if.then129:                                       ; preds = %invoke.cont92, %cleanup.done124
-  %57 = load ptr, ptr %lcp, align 8
+  %57 = load ptr, ptr %lcp, align 16
   %cmp.i.i483.not = icmp eq ptr %57, null
   br i1 %cmp.i.i483.not, label %cleanup, label %if.else.i, !llvm.loop !79
 
@@ -13970,7 +13970,7 @@ if.else.i:                                        ; preds = %if.then129
           to label %invoke.cont155 unwind label %lpad154
 
 invoke.cont155:                                   ; preds = %if.else.i
-  %.pre4062 = load ptr, ptr %lcp, align 8
+  %.pre4062 = load ptr, ptr %lcp, align 16
   %.pre4063 = load ptr, ptr %toExplain, align 8
   store ptr %.pre4063, ptr %agg.tmp, align 8
   %bf.load.i.i604 = load i64, ptr %.pre4063, align 8
@@ -14403,7 +14403,7 @@ lpad259:                                          ; preds = %if.else.i1010, %if.
   br label %ehcleanup542
 
 for.end:                                          ; preds = %_ZN4cvc58internal14NodeTheoryPairD2Ev.exit, %_ZNK4cvc58internal12NodeTemplateILb1EE14getNumChildrenEv.exit
-  %106 = load ptr, ptr %lcp, align 8
+  %106 = load ptr, ptr %lcp, align 16
   %cmp.i.i1021.not = icmp eq ptr %106, null
   br i1 %cmp.i.i1021.not, label %cleanup, label %cond.true268, !llvm.loop !79
 
@@ -14776,7 +14776,7 @@ if.else.i1457:                                    ; preds = %cond.true355
           to label %invoke.cont382 unwind label %lpad36.loopexit.split-lp
 
 invoke.cont382:                                   ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal14NodeTheoryPairEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i1445, %if.else.i1457
-  %163 = load ptr, ptr %lcp, align 8
+  %163 = load ptr, ptr %lcp, align 16
   %cmp.i.i1461.not = icmp eq ptr %163, null
   br i1 %cmp.i.i1461.not, label %cleanup, label %invoke.cont387, !llvm.loop !79
 
@@ -15024,7 +15024,7 @@ if.end445:                                        ; preds = %lor.lhs.false.i.i.i
           to label %invoke.cont451 unwind label %lpad450
 
 invoke.cont451:                                   ; preds = %if.end445
-  %199 = load ptr, ptr %lcp, align 8
+  %199 = load ptr, ptr %lcp, align 16
   %cmp.i.i1712.not = icmp eq ptr %199, null
   br i1 %cmp.i.i1712.not, label %if.end503, label %if.then454
 
@@ -15725,7 +15725,7 @@ ehcleanup591:                                     ; preds = %lpad587, %lpad579, 
 
 if.end593:                                        ; preds = %if.else.i.i2286, %if.then.i5.i2291, %if.then559, %if.then13.i4.i2289, %if.then13.i.i2267, %if.then.i.i2260, %invoke.cont554, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2343
   %283 = phi ptr [ %267, %if.else.i.i2286 ], [ %267, %if.then.i5.i2291 ], [ %252, %if.then559 ], [ %267, %if.then13.i4.i2289 ], [ %258, %if.then13.i.i2267 ], [ %258, %if.then.i.i2260 ], [ %258, %invoke.cont554 ], [ %277, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2343 ]
-  %284 = load ptr, ptr %lcp, align 8
+  %284 = load ptr, ptr %lcp, align 16
   %cmp.i.i2344.not = icmp eq ptr %284, null
   br i1 %cmp.i.i2344.not, label %if.end1134, label %if.end687
 
@@ -15981,7 +15981,7 @@ invoke.cont774:                                   ; preds = %if.then763
           to label %invoke.cont780 unwind label %lpad769
 
 invoke.cont780:                                   ; preds = %invoke.cont774
-  %305 = load ptr, ptr %lcp, align 8
+  %305 = load ptr, ptr %lcp, align 16
   store ptr %292, ptr %agg.tmp785, align 8
   %bf.load.i.i2742 = load i64, ptr %292, align 8
   %bf.lshr.i.i2743 = lshr i64 %bf.load.i.i2742, 40
@@ -16168,7 +16168,7 @@ ehcleanup809:                                     ; preds = %lpad788, %lpad769
   br label %ehcleanup1022
 
 if.end810:                                        ; preds = %if.then759
-  %329 = load ptr, ptr %lcp, align 8
+  %329 = load ptr, ptr %lcp, align 16
   store ptr %292, ptr %agg.tmp812, align 8
   %bf.load.i.i2863 = load i64, ptr %292, align 8
   %bf.lshr.i.i2864 = lshr i64 %bf.load.i.i2863, 40
@@ -16535,7 +16535,7 @@ invoke.cont912:                                   ; preds = %if.end911
   br i1 %cmp914.not, label %cond.true943, label %cond.true919
 
 cond.true919:                                     ; preds = %invoke.cont912
-  %366 = load ptr, ptr %lcp, align 8
+  %366 = load ptr, ptr %lcp, align 16
   %367 = load ptr, ptr %proven, align 8
   store ptr %367, ptr %agg.tmp932, align 8
   %bf.load.i.i3156 = load i64, ptr %367, align 8
@@ -16609,7 +16609,7 @@ cond.true943:                                     ; preds = %invoke.cont912
           to label %invoke.cont955 unwind label %lpad760
 
 invoke.cont955:                                   ; preds = %cond.true943
-  %374 = load ptr, ptr %lcp, align 8
+  %374 = load ptr, ptr %lcp, align 16
   %375 = load ptr, ptr %proven, align 8
   store ptr %375, ptr %agg.tmp957, align 8
   %bf.load.i.i3230 = load i64, ptr %375, align 8
@@ -17032,7 +17032,7 @@ if.else.i3411:                                    ; preds = %_ZN4cvc58internal12
           to label %invoke.cont1010 unwind label %lpad1005
 
 invoke.cont1010:                                  ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i3401, %if.else.i3411
-  %424 = load ptr, ptr %lcp, align 8
+  %424 = load ptr, ptr %lcp, align 16
   store ptr %292, ptr %agg.tmp1012, align 8
   %bf.load.i.i3415 = load i64, ptr %292, align 8
   %bf.lshr.i.i3416 = lshr i64 %bf.load.i.i3415, 40
@@ -17350,7 +17350,7 @@ ehcleanup1030:                                    ; preds = %ehcleanup1026, %lpa
   br label %ehcleanup1145
 
 for.end1034.loopexit:                             ; preds = %_ZN4cvc58internal9TrustNodeD2Ev.exit3537
-  %.pre4064 = load ptr, ptr %lcp, align 8
+  %.pre4064 = load ptr, ptr %lcp, align 16
   br label %for.end1034
 
 for.end1034:                                      ; preds = %for.end1034.loopexit, %if.end687
@@ -17506,7 +17506,7 @@ invoke.cont1070:                                  ; preds = %invoke.cont.i.i3603
   br i1 %cmp.i3597, label %if.end1118, label %if.then1072
 
 if.then1072:                                      ; preds = %invoke.cont1070
-  %477 = load ptr, ptr %lcp, align 8
+  %477 = load ptr, ptr %lcp, align 16
   %478 = load ptr, ptr %conclusion, align 8
   store ptr %478, ptr %agg.tmp1074, align 8
   %bf.load.i.i3607 = load i64, ptr %478, align 8
@@ -17856,17 +17856,16 @@ if.then13.i.i3741:                                ; preds = %if.else.i.i3739
           to label %invoke.cont1126 unwind label %lpad1125
 
 invoke.cont1126:                                  ; preds = %if.else.i.i3739, %if.then.i.i3743, %if.then13.i.i3741
-  %519 = load ptr, ptr %lcp, align 8
-  store ptr %519, ptr %agg.tmp1127, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp1127, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %lcp, i64 8
-  %520 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %520, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i3750 = icmp eq ptr %520, null
+  %519 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %520 = load <2 x ptr>, ptr %lcp, align 16
+  store <2 x ptr> %520, ptr %agg.tmp1127, align 16
+  %cmp.not.i.i.i3750 = icmp eq ptr %519, null
   br i1 %cmp.not.i.i.i3750, label %_ZNSt10shared_ptrIN4cvc58internal11LazyCDProofEEC2ERKS3_.exit, label %if.then.i.i.i3751
 
 if.then.i.i.i3751:                                ; preds = %invoke.cont1126
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %520, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %519, i64 8
   %521 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %521, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i3753, label %if.then.i.i.i.i.i3752

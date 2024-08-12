@@ -8831,7 +8831,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_118processSourceFilesESt10shared_pt
 entry:
   %__tmp.sroa.0.i.i.i.i.i.i = alloca { ptr, i64 }, align 8
   %ref.tmp.i.i.i = alloca %"class.std::allocator.74", align 1
-  %context.i = alloca %"class.std::shared_ptr", align 8
+  %context.i = alloca %"class.std::shared_ptr", align 16
   %rootPath.i = alloca %"class.llvh::SmallString.772", align 8
   %ref.tmp.i = alloca i32, align 4
   %entryPointFilename.i = alloca %"class.llvh::SmallString.772", align 8
@@ -8869,7 +8869,7 @@ entry:
   %sourceMapGen = alloca %"class.llvh::Optional.565", align 8
   %ref.tmp61 = alloca %"class.hermes::SourceMapGenerator", align 8
   %M = alloca %"class.hermes::Module", align 8
-  %agg.tmp64 = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp64 = alloca %"class.std::shared_ptr", align 16
   %semCtx = alloca %"class.hermes::sem::SemContext", align 8
   %agg.tmp67 = alloca %"class.std::map", align 8
   %ref.tmp89 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9166,17 +9166,16 @@ _ZN4llvh8OptionalIN6hermes18SourceMapGeneratorEEaSEOS2_.exit: ; preds = %for.end
   br label %if.end63
 
 if.end63:                                         ; preds = %_ZN4llvh8OptionalIN6hermes18SourceMapGeneratorEEaSEOS2_.exit, %for.end58
-  %26 = load ptr, ptr %context, align 8
-  store ptr %26, ptr %agg.tmp64, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp64, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %context, i64 8
-  %27 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %27, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %27, null
+  %26 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %27 = load <2 x ptr>, ptr %context, align 8
+  store <2 x ptr> %27, ptr %agg.tmp64, align 16
+  %cmp.not.i.i.i = icmp eq ptr %26, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6hermes7ContextEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end63
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %28, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -9377,17 +9376,16 @@ cond.end:                                         ; preds = %_ZNSt3mapIjSt6vecto
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp116.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !119)
   %Ctx.i.i = getelementptr inbounds i8, ptr %M, i64 40
-  %49 = load ptr, ptr %Ctx.i.i, align 8, !noalias !119
-  store ptr %49, ptr %context.i, align 8, !alias.scope !119
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %context.i, i64 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %M, i64 48
-  %50 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !119
-  store ptr %50, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !119
-  %cmp.not.i.i.i.i.i = icmp eq ptr %50, null
+  %49 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !119
+  %50 = load <2 x ptr>, ptr %Ctx.i.i, align 8, !noalias !119
+  store <2 x ptr> %50, ptr %context.i, align 16, !alias.scope !119
+  %cmp.not.i.i.i.i.i = icmp eq ptr %49, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK6hermes6Module12shareContextEv.exit.i, label %if.then.i.i.i.i.i87
 
 if.then.i.i.i.i.i87:                              ; preds = %cond.end
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %50, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %49, i64 8
   %51 = load i8, ptr @__libc_single_threaded, align 1, !noalias !119
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %51, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i100, label %if.then.i.i.i.i.i.i.i88
@@ -18241,8 +18239,8 @@ entry:
   %ref.tmp.i.i = alloca %"class.llvh::Twine", align 8
   %fileOS = alloca %"class.(anonymous namespace)::OutputStream", align 8
   %agg.tmp = alloca %"class.llvh::Twine", align 8
-  %disassembler = alloca %"class.hermes::hbc::BytecodeDisassembler", align 8
-  %agg.tmp8 = alloca %"class.std::shared_ptr.450", align 8
+  %disassembler = alloca %"class.hermes::hbc::BytecodeDisassembler", align 16
+  %agg.tmp8 = alloca %"class.std::shared_ptr.450", align 16
   %call = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4outsEv() #25
   store ptr %call, ptr %fileOS, align 8
   %tempName_.i = getelementptr inbounds i8, ptr %fileOS, i64 8
@@ -18285,13 +18283,12 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %or.i = or disjoint i32 %cond, 2
   %spec.select = select i1 %cmp.not, i32 %cond, i32 %or.i
   call void @_ZNSt12__shared_ptrIN6hermes3hbc14BCProviderBaseELN9__gnu_cxx12_Lock_policyE2EEC2IS2_St14default_deleteIS2_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp8, ptr noundef nonnull align 8 dereferenceable(8) %bytecode)
-  %3 = load ptr, ptr %agg.tmp8, align 8
-  store ptr %3, ptr %disassembler, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %disassembler, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp8, i64 8
-  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %4, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %4 = load <2 x ptr>, ptr %agg.tmp8, align 16
+  store <2 x ptr> %4, ptr %disassembler, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN6hermes3hbc20BytecodeDisassemblerC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit.thread, label %if.then.i.i.i.i
 
 _ZN6hermes3hbc20BytecodeDisassemblerC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit.thread: ; preds = %if.end
@@ -18299,7 +18296,7 @@ _ZN6hermes3hbc20BytecodeDisassemblerC2ESt10shared_ptrINS0_14BCProviderBaseEE.exi
   br label %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.end
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -18317,7 +18314,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 _ZN6hermes3hbc20BytecodeDisassemblerC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit: ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %.pr = load ptr, ptr %_M_refcount3.i.i.i, align 8
   %options_.i = getelementptr inbounds i8, ptr %disassembler, i64 16
-  store i32 1, ptr %options_.i, align 8
+  store i32 1, ptr %options_.i, align 16
   %cmp.not.i.i.i = icmp eq ptr %.pr, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit, label %if.then.i.i.i
 

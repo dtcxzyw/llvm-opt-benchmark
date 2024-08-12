@@ -5384,16 +5384,15 @@ define linkonce_odr dso_local void @_ZN4node6crypto9CipherJobINS0_15AESCipherTra
 entry:
   %ref.tmp.i7 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr", align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   %key_.i = getelementptr inbounds i8, ptr %this, i64 352
-  %0 = load ptr, ptr %key_.i, align 8, !noalias !44
-  store ptr %0, ptr %agg.tmp, align 8, !alias.scope !44
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 360
-  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !44
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8, !alias.scope !44
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !44
+  %1 = load <2 x ptr>, ptr %key_.i, align 8, !noalias !44
+  store <2 x ptr> %1, ptr %agg.tmp, align 16, !alias.scope !44
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK4node6crypto9CipherJobINS0_15AESCipherTraitsEE3keyEv.exit.thread, label %if.then.i.i.i.i
 
 _ZNK4node6crypto9CipherJobINS0_15AESCipherTraitsEE3keyEv.exit.thread: ; preds = %entry
@@ -5406,7 +5405,7 @@ _ZNK4node6crypto9CipherJobINS0_15AESCipherTraitsEE3keyEv.exit.thread: ; preds = 
   br label %_ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1, !noalias !44
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZNK4node6crypto9CipherJobINS0_15AESCipherTraitsEE3keyEv.exit, label %_ZNK4node6crypto9CipherJobINS0_15AESCipherTraitsEE3keyEv.exit.thread24
@@ -5437,7 +5436,7 @@ _ZNK4node6crypto9CipherJobINS0_15AESCipherTraitsEE3keyEv.exit: ; preds = %if.the
 
 if.then.i.i.i:                                    ; preds = %_ZNK4node6crypto9CipherJobINS0_15AESCipherTraitsEE3keyEv.exit.thread24, %_ZNK4node6crypto9CipherJobINS0_15AESCipherTraitsEE3keyEv.exit
   %call333 = phi i32 [ %call330, %_ZNK4node6crypto9CipherJobINS0_15AESCipherTraitsEE3keyEv.exit.thread24 ], [ %call3, %_ZNK4node6crypto9CipherJobINS0_15AESCipherTraitsEE3keyEv.exit ]
-  %.pr32 = phi ptr [ %1, %_ZNK4node6crypto9CipherJobINS0_15AESCipherTraitsEE3keyEv.exit.thread24 ], [ %.pr.pre, %_ZNK4node6crypto9CipherJobINS0_15AESCipherTraitsEE3keyEv.exit ]
+  %.pr32 = phi ptr [ %0, %_ZNK4node6crypto9CipherJobINS0_15AESCipherTraitsEE3keyEv.exit.thread24 ], [ %.pr.pre, %_ZNK4node6crypto9CipherJobINS0_15AESCipherTraitsEE3keyEv.exit ]
   %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %.pr32, i64 8
   %8 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %8, 4294967297

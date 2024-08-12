@@ -2249,43 +2249,41 @@ _ZNSt16allocator_traitsISaI5EventEE9constructIS0_J9EventTypeRSt10shared_ptrIN12_
   br label %67
 
 24:                                               ; preds = %2
-  %.val9 = load ptr, ptr %1, align 8
   %25 = getelementptr inbounds i8, ptr %1, i64 8
   %.val10 = load ptr, ptr %25, align 8
-  %26 = load ptr, ptr %0, align 8
-  %27 = ptrtoint ptr %4 to i64
-  %28 = ptrtoint ptr %26 to i64
-  %29 = sub i64 %27, %28
-  %30 = icmp eq i64 %29, 9223372036854775776
-  br i1 %30, label %31, label %_ZNKSt6vectorI5EventSaIS0_EE12_M_check_lenEmPKc.exit.i
+  %26 = load <2 x ptr>, ptr %1, align 8
+  %27 = load ptr, ptr %0, align 8
+  %28 = ptrtoint ptr %4 to i64
+  %29 = ptrtoint ptr %27 to i64
+  %30 = sub i64 %28, %29
+  %31 = icmp eq i64 %30, 9223372036854775776
+  br i1 %31, label %32, label %_ZNKSt6vectorI5EventSaIS0_EE12_M_check_lenEmPKc.exit.i
 
-31:                                               ; preds = %24
+32:                                               ; preds = %24
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #22
   unreachable
 
 _ZNKSt6vectorI5EventSaIS0_EE12_M_check_lenEmPKc.exit.i: ; preds = %24
-  %32 = ashr exact i64 %29, 5
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %32, i64 1)
-  %33 = add nsw i64 %.sroa.speculated.i.i, %32
-  %34 = icmp ult i64 %33, %32
-  %35 = tail call i64 @llvm.umin.i64(i64 %33, i64 288230376151711743)
-  %36 = select i1 %34, i64 288230376151711743, i64 %35
-  %.not.i.i = icmp eq i64 %36, 0
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseI5EventSaIS0_EE11_M_allocateEm.exit.i, label %37
+  %33 = ashr exact i64 %30, 5
+  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %33, i64 1)
+  %34 = add nsw i64 %.sroa.speculated.i.i, %33
+  %35 = icmp ult i64 %34, %33
+  %36 = tail call i64 @llvm.umin.i64(i64 %34, i64 288230376151711743)
+  %37 = select i1 %35, i64 288230376151711743, i64 %36
+  %.not.i.i = icmp eq i64 %37, 0
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseI5EventSaIS0_EE11_M_allocateEm.exit.i, label %38
 
-37:                                               ; preds = %_ZNKSt6vectorI5EventSaIS0_EE12_M_check_lenEmPKc.exit.i
-  %38 = shl nuw nsw i64 %36, 5
-  %39 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %38) #23
+38:                                               ; preds = %_ZNKSt6vectorI5EventSaIS0_EE12_M_check_lenEmPKc.exit.i
+  %39 = shl nuw nsw i64 %37, 5
+  %40 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #23
   br label %_ZNSt12_Vector_baseI5EventSaIS0_EE11_M_allocateEm.exit.i
 
-_ZNSt12_Vector_baseI5EventSaIS0_EE11_M_allocateEm.exit.i: ; preds = %37, %_ZNKSt6vectorI5EventSaIS0_EE12_M_check_lenEmPKc.exit.i
-  %40 = phi ptr [ %39, %37 ], [ null, %_ZNKSt6vectorI5EventSaIS0_EE12_M_check_lenEmPKc.exit.i ]
-  %41 = getelementptr inbounds %struct.Event, ptr %40, i64 %32
-  store i32 %.0.val, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
-  store ptr %.val9, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %41, i64 16
-  store ptr %.val10, ptr %43, align 8
+_ZNSt12_Vector_baseI5EventSaIS0_EE11_M_allocateEm.exit.i: ; preds = %38, %_ZNKSt6vectorI5EventSaIS0_EE12_M_check_lenEmPKc.exit.i
+  %41 = phi ptr [ %40, %38 ], [ null, %_ZNKSt6vectorI5EventSaIS0_EE12_M_check_lenEmPKc.exit.i ]
+  %42 = getelementptr inbounds %struct.Event, ptr %41, i64 %33
+  store i32 %.0.val, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  store <2 x ptr> %26, ptr %43, align 8
   %.not.i.i.i.i.i.i.i12 = icmp eq ptr %.val10, null
   br i1 %.not.i.i.i.i.i.i.i12, label %52, label %44
 
@@ -2306,14 +2304,14 @@ _ZNSt12_Vector_baseI5EventSaIS0_EE11_M_allocateEm.exit.i: ; preds = %37, %_ZNKSt
   br label %52
 
 52:                                               ; preds = %50, %47, %_ZNSt12_Vector_baseI5EventSaIS0_EE11_M_allocateEm.exit.i
-  %53 = getelementptr inbounds i8, ptr %41, i64 24
+  %53 = getelementptr inbounds i8, ptr %42, i64 24
   store double %.0.val1, ptr %53, align 8
-  %.not10.i.i.i.i.i = icmp eq ptr %26, %4
+  %.not10.i.i.i.i.i = icmp eq ptr %27, %4
   br i1 %.not10.i.i.i.i.i, label %_ZNSt6vectorI5EventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %52, %.lr.ph.i.i.i.i.i
-  %.012.i.i.i.i.i = phi ptr [ %63, %.lr.ph.i.i.i.i.i ], [ %40, %52 ]
-  %.0911.i.i.i.i.i = phi ptr [ %62, %.lr.ph.i.i.i.i.i ], [ %26, %52 ]
+  %.012.i.i.i.i.i = phi ptr [ %63, %.lr.ph.i.i.i.i.i ], [ %41, %52 ]
+  %.0911.i.i.i.i.i = phi ptr [ %62, %.lr.ph.i.i.i.i.i ], [ %27, %52 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %54 = load i32, ptr %.0911.i.i.i.i.i, align 8, !alias.scope !28, !noalias !25
@@ -2335,19 +2333,19 @@ _ZNSt12_Vector_baseI5EventSaIS0_EE11_M_allocateEm.exit.i: ; preds = %37, %_ZNKSt
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorI5EventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !30
 
 _ZNSt6vectorI5EventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i: ; preds = %.lr.ph.i.i.i.i.i, %52
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %40, %52 ], [ %63, %.lr.ph.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %41, %52 ], [ %63, %.lr.ph.i.i.i.i.i ]
   %64 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 32
-  %.not.i36.i = icmp eq ptr %26, null
+  %.not.i36.i = icmp eq ptr %27, null
   br i1 %.not.i36.i, label %_ZNSt6vectorI5EventSaIS0_EE17_M_realloc_insertIJ9EventTypeRSt10shared_ptrIN12_GLOBAL__N_14NodeEEdEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit, label %65
 
 65:                                               ; preds = %_ZNSt6vectorI5EventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i
-  tail call void @_ZdlPv(ptr noundef nonnull %26) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %27) #26
   br label %_ZNSt6vectorI5EventSaIS0_EE17_M_realloc_insertIJ9EventTypeRSt10shared_ptrIN12_GLOBAL__N_14NodeEEdEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit
 
 _ZNSt6vectorI5EventSaIS0_EE17_M_realloc_insertIJ9EventTypeRSt10shared_ptrIN12_GLOBAL__N_14NodeEEdEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit: ; preds = %_ZNSt6vectorI5EventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35.i, %65
-  store ptr %40, ptr %0, align 8
+  store ptr %41, ptr %0, align 8
   store ptr %64, ptr %3, align 8
-  %66 = getelementptr inbounds %struct.Event, ptr %40, i64 %36
+  %66 = getelementptr inbounds %struct.Event, ptr %41, i64 %37
   store ptr %66, ptr %5, align 8
   br label %67
 

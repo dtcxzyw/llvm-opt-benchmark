@@ -3804,7 +3804,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_116XdsClusterImplLb12UpdateLockedENS_19LoadBalancingPolicy10UpdateArgsE(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %args) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %lb_policy_args.i.i = alloca %"struct.grpc_core::LoadBalancingPolicy::Args", align 8
+  %lb_policy_args.i.i = alloca %"struct.grpc_core::LoadBalancingPolicy::Args", align 16
   %ref.tmp13.i.i = alloca %"class.std::unique_ptr.390", align 8
   %ref.tmp14.i.i = alloca ptr, align 8
   %update_args.i = alloca %"struct.grpc_core::LoadBalancingPolicy::UpdateArgs", align 8
@@ -4513,14 +4513,14 @@ if.then.i95:                                      ; preds = %_ZN4absl12lts_20230
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp14.i.i), !noalias !72
   %channel_control_helper.i.i.i = getelementptr inbounds i8, ptr %lb_policy_args.i.i, i64 16
   %args.i.i.i = getelementptr inbounds i8, ptr %lb_policy_args.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %lb_policy_args.i.i, i8 0, i64 24, i1 false), !noalias !75
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %lb_policy_args.i.i, i8 0, i64 24, i1 false), !noalias !75
   invoke void @_ZN9grpc_core11ChannelArgsC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %args.i.i.i)
           to label %_ZN9grpc_core19LoadBalancingPolicy4ArgsC2Ev.exit.i.i unwind label %lpad.i.i.i96, !noalias !78
 
 lpad.i.i.i96:                                     ; preds = %if.then.i95
   %88 = landingpad { ptr, i32 }
           cleanup
-  %89 = load ptr, ptr %channel_control_helper.i.i.i, align 8, !noalias !75
+  %89 = load ptr, ptr %channel_control_helper.i.i.i, align 16, !noalias !75
   %cmp.not.i.i.i.i97 = icmp eq ptr %89, null
   br i1 %cmp.not.i.i.i.i97, label %_ZNSt10unique_ptrIN9grpc_core19LoadBalancingPolicy20ChannelControlHelperESt14default_deleteIS2_EED2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIN9grpc_core19LoadBalancingPolicy20ChannelControlHelperEEclEPS2_.exit.i.i.i.i
 
@@ -4532,20 +4532,20 @@ _ZNKSt14default_deleteIN9grpc_core19LoadBalancingPolicy20ChannelControlHelperEEc
   br label %_ZNSt10unique_ptrIN9grpc_core19LoadBalancingPolicy20ChannelControlHelperESt14default_deleteIS2_EED2Ev.exit.i.i.i
 
 _ZNSt10unique_ptrIN9grpc_core19LoadBalancingPolicy20ChannelControlHelperESt14default_deleteIS2_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core19LoadBalancingPolicy20ChannelControlHelperEEclEPS2_.exit.i.i.i.i, %lpad.i.i.i96
-  store ptr null, ptr %channel_control_helper.i.i.i, align 8, !noalias !75
+  store ptr null, ptr %channel_control_helper.i.i.i, align 16, !noalias !75
   call void @_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %lb_policy_args.i.i) #24, !noalias !78
   br label %lpad143.body
 
 _ZN9grpc_core19LoadBalancingPolicy4ArgsC2Ev.exit.i.i: ; preds = %if.then.i95
   %work_serializer_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %91 = load ptr, ptr %work_serializer_.i.i.i, align 8, !noalias !79
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %92 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !noalias !79
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %92, null
+  %91 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !noalias !79
+  %92 = load <2 x ptr>, ptr %work_serializer_.i.i.i, align 8, !noalias !79
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %91, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN9grpc_core19LoadBalancingPolicy4ArgsC2Ev.exit.i.i
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %92, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %91, i64 8
   %93 = load i8, ptr @__libc_single_threaded, align 1, !noalias !79
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %93, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -4561,10 +4561,9 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
   br label %_ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit.i.i
 
 _ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %_ZN9grpc_core19LoadBalancingPolicy4ArgsC2Ev.exit.i.i
-  store ptr %91, ptr %lb_policy_args.i.i, align 8, !noalias !75
   %_M_refcount3.i.i.i2.i.i = getelementptr inbounds i8, ptr %lb_policy_args.i.i, i64 8
   %96 = load ptr, ptr %_M_refcount3.i.i.i2.i.i, align 8, !noalias !75
-  store ptr %92, ptr %_M_refcount3.i.i.i2.i.i, align 8, !noalias !75
+  store <2 x ptr> %92, ptr %lb_policy_args.i.i, align 16, !noalias !75
   %cmp.not.i.i.i.i3.i.i = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i3.i.i, label %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev.exit.i.i, label %if.then.i.i.i.i4.i.i
 
@@ -4650,8 +4649,8 @@ invoke.cont11.i.i:                                ; preds = %invoke.cont9.i.i
   %parent_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i11.i.i, i64 8
   store ptr %this, ptr %parent_.i.i.i.i.i, align 8, !noalias !86
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_116XdsClusterImplLb6HelperE, i64 16), ptr %call.i11.i.i, align 8, !noalias !86
-  %108 = load ptr, ptr %channel_control_helper.i.i.i, align 8, !noalias !75
-  store ptr %call.i11.i.i, ptr %channel_control_helper.i.i.i, align 8, !noalias !75
+  %108 = load ptr, ptr %channel_control_helper.i.i.i, align 16, !noalias !75
+  store ptr %call.i11.i.i, ptr %channel_control_helper.i.i.i, align 16, !noalias !75
   %tobool.not.i.i.i.i.i = icmp eq ptr %108, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicyEED2Ev.exit.i.i, label %_ZNKSt14default_deleteIN9grpc_core19LoadBalancingPolicy20ChannelControlHelperEEclEPS2_.exit.i.i.i.i.i
 
@@ -4732,7 +4731,7 @@ lpad18.i.thread.i:                                ; preds = %if.end.i.i103
 
 nrvo.skipdtor.i.i:                                ; preds = %if.end.i.i103
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %args.i.i.i) #24, !noalias !78
-  %124 = load ptr, ptr %channel_control_helper.i.i.i, align 8, !noalias !75
+  %124 = load ptr, ptr %channel_control_helper.i.i.i, align 16, !noalias !75
   %cmp.not.i.i32.i.i = icmp eq ptr %124, null
   br i1 %cmp.not.i.i32.i.i, label %_ZNSt10unique_ptrIN9grpc_core19LoadBalancingPolicy20ChannelControlHelperESt14default_deleteIS2_EED2Ev.exit.i36.i.i, label %_ZNKSt14default_deleteIN9grpc_core19LoadBalancingPolicy20ChannelControlHelperEEclEPS2_.exit.i.i33.i.i
 
@@ -4744,7 +4743,7 @@ _ZNKSt14default_deleteIN9grpc_core19LoadBalancingPolicy20ChannelControlHelperEEc
   br label %_ZNSt10unique_ptrIN9grpc_core19LoadBalancingPolicy20ChannelControlHelperESt14default_deleteIS2_EED2Ev.exit.i36.i.i
 
 _ZNSt10unique_ptrIN9grpc_core19LoadBalancingPolicy20ChannelControlHelperESt14default_deleteIS2_EED2Ev.exit.i36.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core19LoadBalancingPolicy20ChannelControlHelperEEclEPS2_.exit.i.i33.i.i, %nrvo.skipdtor.i.i
-  store ptr null, ptr %channel_control_helper.i.i.i, align 8, !noalias !75
+  store ptr null, ptr %channel_control_helper.i.i.i, align 16, !noalias !75
   %126 = load ptr, ptr %_M_refcount3.i.i.i2.i.i, align 8, !noalias !75
   %cmp.not.i.i.i.i38.i.i = icmp eq ptr %126, null
   br i1 %cmp.not.i.i.i.i38.i.i, label %_ZN9grpc_core12_GLOBAL__N_116XdsClusterImplLb23CreateChildPolicyLockedERKNS_11ChannelArgsE.exit.i, label %if.then.i.i.i.i39.i.i

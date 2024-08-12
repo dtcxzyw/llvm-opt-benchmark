@@ -782,7 +782,6 @@ invoke.cont40:                                    ; preds = %invoke.cont38
   %4 = ptrtoint ptr %this to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 0, ptr %5, align 8
   store i64 %4, ptr %ref.tmp.i, align 8
@@ -792,18 +791,17 @@ invoke.cont40:                                    ; preds = %invoke.cont38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_find_monics_with_changed_bounds_func, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %3, i64 1872
-  %6 = load ptr, ptr %_M_manager3.i.i, align 8
-  store ptr %6, ptr %_M_manager.i.i.i, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvRK16indexed_uint_setEZN3nla4coreC1ERN2lp10lar_solverERK10params_refR8reslimitE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %_M_manager3.i.i, align 8
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %3, i64 1880
-  %7 = load ptr, ptr %_M_invoker4.i.i, align 8
-  store ptr %7, ptr %_M_invoker.i.i, align 8
+  %6 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %7 = load ptr, ptr %_M_manager3.i.i, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvRK16indexed_uint_setEZN3nla4coreC1ERN2lp10lar_solverERK10params_refR8reslimitE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %_M_manager3.i.i, align 8
+  store <2 x ptr> %6, ptr %_M_manager.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRK16indexed_uint_setEZN3nla4coreC1ERN2lp10lar_solverERK10params_refR8reslimitE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %_M_invoker4.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %6, null
+  %tobool.not.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i, label %"_ZNSt8functionIFvRK16indexed_uint_setEEaSIZN3nla4coreC1ERN2lp10lar_solverERK10params_refR8reslimitE3$_0EENSt9enable_ifIXsrNS4_9_CallableIT_NSH_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISJ_E4typeEE4typeES4_EE5valueESt5decayISJ_EE4type4typeESt15__invoke_resultIRSU_JS2_EEEE5valueERS4_E4typeEOSJ_.exit", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont40
-  %call.i.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %"_ZNSt8functionIFvRK16indexed_uint_setEEaSIZN3nla4coreC1ERN2lp10lar_solverERK10params_refR8reslimitE3$_0EENSt9enable_ifIXsrNS4_9_CallableIT_NSH_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISJ_E4typeEE4typeES4_EE5valueESt5decayISJ_EE4type4typeESt15__invoke_resultIRSU_JS2_EEEE5valueERS4_E4typeEOSJ_.exit" unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
@@ -3132,7 +3130,7 @@ if.end:                                           ; preds = %entry
 _ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i:        ; preds = %if.end
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %12, i64 -8
   %13 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
-  %14 = extractelement <2 x i32> %13, i64 0
+  %14 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %14 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 2
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 8
@@ -8712,7 +8710,7 @@ entry:
 _ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i:        ; preds = %entry
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
-  %2 = extractelement <2 x i32> %1, i64 0
+  %2 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %2 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 2
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 8
@@ -15894,7 +15892,7 @@ _ZN6vectorIN3nla6factorELb0EjE7destroyEv.exit.i.i.i: ; preds = %if.then.i.i.i.i,
 _ZNK6vectorIN3nla6factorELb0EjE8capacityEv.exit.i.i.i.i: ; preds = %_ZN6vectorIN3nla6factorELb0EjE7destroyEv.exit.i.i.i
   %arrayidx.i11.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 -8
   %24 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i, align 4
-  %25 = extractelement <2 x i32> %24, i64 0
+  %25 = load i32, ptr %arrayidx.i11.i.i.i.i, align 4
   %conv.i.i.i.i = zext i32 %25 to i64
   %mul.i.i.i.i = mul nuw nsw i64 %conv.i.i.i.i, 12
   %add.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i, 8

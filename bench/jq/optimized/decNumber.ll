@@ -8739,27 +8739,27 @@ decNumberFromInt32.exit:                          ; preds = %decNumberFromUInt32
   %134 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %122, ptr %134, align 4
   %135 = load <2 x i32>, ptr %.063, align 4
+  %136 = load i32, ptr %.063, align 4
   store <2 x i32> %135, ptr %0, align 4
   %.ptr.i = getelementptr inbounds i8, ptr %.063, i64 10
-  %136 = load i16, ptr %.ptr.i, align 2
-  %137 = getelementptr inbounds i8, ptr %0, i64 10
-  store i16 %136, ptr %137, align 2
-  %138 = extractelement <2 x i32> %135, i64 0
-  %139 = icmp sgt i32 %138, 3
+  %137 = load i16, ptr %.ptr.i, align 2
+  %138 = getelementptr inbounds i8, ptr %0, i64 10
+  store i16 %137, ptr %138, align 2
+  %139 = icmp sgt i32 %136, 3
   br i1 %139, label %140, label %decNumberCopy.exit
 
 140:                                              ; preds = %133
   %141 = getelementptr i8, ptr %0, i64 12
-  %142 = icmp ult i32 %138, 50
+  %142 = icmp ult i32 %136, 50
   br i1 %142, label %145, label %.thread.i
 
 .thread.i:                                        ; preds = %140
-  %143 = add nuw nsw i32 %138, 2
+  %143 = add nuw nsw i32 %136, 2
   %144 = udiv i32 %143, 3
   br label %.lr.ph.preheader.i
 
 145:                                              ; preds = %140
-  %146 = zext nneg i32 %138 to i64
+  %146 = zext nneg i32 %136 to i64
   %147 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %146
   %148 = load i8, ptr %147, align 1
   %149 = zext i8 %148 to i32
@@ -13058,26 +13058,26 @@ decNumberCopy.exit260:                            ; preds = %.decNumberCopy.exit
   %204 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %203, ptr %204, align 4
   %205 = load <2 x i32>, ptr %.0194, align 4
+  %206 = load i32, ptr %.0194, align 4
   store <2 x i32> %205, ptr %0, align 4
-  %206 = load i16, ptr %178, align 2
-  %207 = getelementptr inbounds i8, ptr %0, i64 10
-  store i16 %206, ptr %207, align 2
-  %208 = extractelement <2 x i32> %205, i64 0
-  %209 = icmp sgt i32 %208, 3
+  %207 = load i16, ptr %178, align 2
+  %208 = getelementptr inbounds i8, ptr %0, i64 10
+  store i16 %207, ptr %208, align 2
+  %209 = icmp sgt i32 %206, 3
   br i1 %209, label %210, label %decNumberCopy.exit
 
 210:                                              ; preds = %202
   %211 = getelementptr i8, ptr %0, i64 12
-  %212 = icmp ult i32 %208, 50
+  %212 = icmp ult i32 %206, 50
   br i1 %212, label %215, label %.thread.i262
 
 .thread.i262:                                     ; preds = %210
-  %213 = add nuw nsw i32 %208, 2
+  %213 = add nuw nsw i32 %206, 2
   %214 = udiv i32 %213, 3
   br label %.lr.ph.preheader.i263
 
 215:                                              ; preds = %210
-  %216 = zext nneg i32 %208 to i64
+  %216 = zext nneg i32 %206 to i64
   %217 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %216
   %218 = load i8, ptr %217, align 1
   %219 = zext i8 %218 to i32
@@ -13540,26 +13540,26 @@ condstore.split:                                  ; preds = %435
   %454 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %453, ptr %454, align 4
   %455 = load <2 x i32>, ptr %.0194, align 4
+  %456 = load i32, ptr %.0194, align 4
   store <2 x i32> %455, ptr %0, align 4
-  %456 = load i16, ptr %178, align 2
-  %457 = getelementptr inbounds i8, ptr %0, i64 10
-  store i16 %456, ptr %457, align 2
-  %458 = extractelement <2 x i32> %455, i64 0
-  %459 = icmp sgt i32 %458, 3
+  %457 = load i16, ptr %178, align 2
+  %458 = getelementptr inbounds i8, ptr %0, i64 10
+  store i16 %457, ptr %458, align 2
+  %459 = icmp sgt i32 %456, 3
   br i1 %459, label %460, label %decNumberCopy.exit
 
 460:                                              ; preds = %452
   %461 = getelementptr i8, ptr %0, i64 12
-  %462 = icmp ult i32 %458, 50
+  %462 = icmp ult i32 %456, 50
   br i1 %462, label %465, label %.thread.i291
 
 .thread.i291:                                     ; preds = %460
-  %463 = add nuw nsw i32 %458, 2
+  %463 = add nuw nsw i32 %456, 2
   %464 = udiv i32 %463, 3
   br label %.lr.ph.preheader.i292
 
 465:                                              ; preds = %460
-  %466 = zext nneg i32 %458 to i64
+  %466 = zext nneg i32 %456 to i64
   %467 = getelementptr inbounds [50 x i8], ptr @d2utable, i64 0, i64 %466
   %468 = load i8, ptr %467, align 1
   %469 = zext i8 %468 to i32

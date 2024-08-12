@@ -1889,9 +1889,10 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
   %.sroa.53.0.copyload = load ptr, ptr %.sroa.53.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load <2 x i64>, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
   %6 = load i64, ptr %0, align 8, !alias.scope !109, !noalias !112, !noundef !4
   %7 = icmp eq i64 %4, %6
-  br i1 %7, label %8, label %14
+  br i1 %7, label %8, label %13
 
 8:                                                ; preds = %2
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h5aa1e7c94d151ff8E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %4)
@@ -1899,41 +1900,40 @@ define hidden noundef i32 @"_ZN16cranelift_entity7primary23PrimaryMap$LT$K$C$V$G
 
 ._crit_edge.i:                                    ; preds = %8
   %.pre.i = load i64, ptr %3, align 8, !alias.scope !109, !noalias !112
-  br label %14
+  br label %13
 
 9:                                                ; preds = %8
   %10 = landingpad { ptr, i32 }
           cleanup
   %cond.i.i = icmp ne i8 %.sroa.0.0.copyload, 1
-  %11 = extractelement <2 x i64> %5, i64 0
-  %12 = icmp eq i64 %11, 0
-  %or.cond = select i1 %cond.i.i, i1 true, i1 %12
+  %11 = icmp eq i64 %.sroa.6.0.copyload, 0
+  %or.cond = select i1 %cond.i.i, i1 true, i1 %11
   br i1 %or.cond, label %.body, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i.i": ; preds = %9
-  %13 = icmp ne ptr %.sroa.53.0.copyload, null
-  tail call void @llvm.assume(i1 %13)
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.53.0.copyload, i64 noundef %11, i64 noundef 1) #38, !noalias !114
+  %12 = icmp ne ptr %.sroa.53.0.copyload, null
+  tail call void @llvm.assume(i1 %12)
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.53.0.copyload, i64 noundef %.sroa.6.0.copyload, i64 noundef 1) #38, !noalias !114
   br label %.body
 
-14:                                               ; preds = %._crit_edge.i, %2
-  %15 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %4, %2 ]
+13:                                               ; preds = %._crit_edge.i, %2
+  %14 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %4, %2 ]
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 1
-  %16 = trunc i64 %4 to i32
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !alias.scope !109, !noalias !112, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds { { i8, [23 x i8] }, i32, i8, [3 x i8] }, ptr %18, i64 %15
-  store i8 %.sroa.0.0.copyload, ptr %19, align 8
-  %.sroa.5.0..sroa_idx2 = getelementptr inbounds i8, ptr %19, i64 1
+  %15 = trunc i64 %4 to i32
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = load ptr, ptr %16, align 8, !alias.scope !109, !noalias !112, !nonnull !4, !noundef !4
+  %18 = getelementptr inbounds { { i8, [23 x i8] }, i32, i8, [3 x i8] }, ptr %17, i64 %14
+  store i8 %.sroa.0.0.copyload, ptr %18, align 8
+  %.sroa.5.0..sroa_idx2 = getelementptr inbounds i8, ptr %18, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx2, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx, i64 7, i1 false)
-  %.sroa.53.0..sroa_idx4 = getelementptr inbounds i8, ptr %19, i64 8
+  %.sroa.53.0..sroa_idx4 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %.sroa.53.0.copyload, ptr %.sroa.53.0..sroa_idx4, align 8
-  %.sroa.6.0..sroa_idx6 = getelementptr inbounds i8, ptr %19, i64 16
+  %.sroa.6.0..sroa_idx6 = getelementptr inbounds i8, ptr %18, i64 16
   store <2 x i64> %5, ptr %.sroa.6.0..sroa_idx6, align 8
-  %20 = load i64, ptr %3, align 8, !alias.scope !109, !noalias !112, !noundef !4
-  %21 = add i64 %20, 1
-  store i64 %21, ptr %3, align 8, !alias.scope !109, !noalias !112
-  ret i32 %16
+  %19 = load i64, ptr %3, align 8, !alias.scope !109, !noalias !112, !noundef !4
+  %20 = add i64 %19, 1
+  store i64 %20, ptr %3, align 8, !alias.scope !109, !noalias !112
+  ret i32 %15
 
 .body:                                            ; preds = %9, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.16803308262639080379.exit.i.i.i.i.i"
   resume { ptr, i32 } %10

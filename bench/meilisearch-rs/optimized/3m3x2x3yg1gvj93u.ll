@@ -214,9 +214,9 @@ define hidden void @"_ZN106_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   store ptr %.sroa.0.0.copyload, ptr %3, align 8, !noalias !40
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds i8, ptr %3, i64 8
   %10 = load <2 x i64>, ptr %.sroa.5.0..sroa_idx, align 8
-  %11 = extractelement <2 x i64> %10, i64 0
-  %12 = getelementptr i8, ptr %.sroa.0.0.copyload, i64 %11
-  %13 = getelementptr i8, ptr %12, i64 1
+  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
+  %11 = getelementptr i8, ptr %.sroa.0.0.copyload, i64 %.sroa.5.0.copyload
+  %12 = getelementptr i8, ptr %11, i64 1
   store <2 x i64> %10, ptr %.sroa.5.0..sroa_idx2, align 8, !noalias !40
   %.sroa.66.0..sroa_idx7 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %.sroa.66.0.copyload, ptr %.sroa.66.0..sroa_idx7, align 8, !noalias !40
@@ -224,12 +224,12 @@ define hidden void @"_ZN106_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17hc862d8e47fd4adbaE.llvm.2578285723087592023"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3), !noalias !56
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !49
-  %14 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %.sroa.0.0.copyload, ptr %14, align 8, !alias.scope !57, !noalias !58
+  %13 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr %.sroa.0.0.copyload, ptr %13, align 8, !alias.scope !57, !noalias !58
   %.sroa.0.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %9, ptr %.sroa.0.sroa.2.0..sroa_idx.i, align 8, !alias.scope !57, !noalias !58
   %.sroa.0.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 40
-  store ptr %13, ptr %.sroa.0.sroa.3.0..sroa_idx.i, align 8, !alias.scope !57, !noalias !58
+  store ptr %12, ptr %.sroa.0.sroa.3.0..sroa_idx.i, align 8, !alias.scope !57, !noalias !58
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48
   store i16 %8, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !57, !noalias !58
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 56
@@ -258,9 +258,9 @@ define hidden void @"_ZN106_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   store ptr %.sroa.0.0.copyload, ptr %3, align 8, !noalias !59
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds i8, ptr %3, i64 8
   %10 = load <2 x i64>, ptr %.sroa.5.0..sroa_idx, align 8
-  %11 = extractelement <2 x i64> %10, i64 0
-  %12 = getelementptr i8, ptr %.sroa.0.0.copyload, i64 %11
-  %13 = getelementptr i8, ptr %12, i64 1
+  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
+  %11 = getelementptr i8, ptr %.sroa.0.0.copyload, i64 %.sroa.5.0.copyload
+  %12 = getelementptr i8, ptr %11, i64 1
   store <2 x i64> %10, ptr %.sroa.5.0..sroa_idx2, align 8, !noalias !59
   %.sroa.66.0..sroa_idx7 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %.sroa.66.0.copyload, ptr %.sroa.66.0..sroa_idx7, align 8, !noalias !59
@@ -268,12 +268,12 @@ define hidden void @"_ZN106_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
   call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h187078fcbc4bdd2eE.llvm.2578285723087592023"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3), !noalias !75
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !68
-  %14 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %.sroa.0.0.copyload, ptr %14, align 8, !alias.scope !76, !noalias !77
+  %13 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr %.sroa.0.0.copyload, ptr %13, align 8, !alias.scope !76, !noalias !77
   %.sroa.0.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %9, ptr %.sroa.0.sroa.2.0..sroa_idx.i, align 8, !alias.scope !76, !noalias !77
   %.sroa.0.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 40
-  store ptr %13, ptr %.sroa.0.sroa.3.0..sroa_idx.i, align 8, !alias.scope !76, !noalias !77
+  store ptr %12, ptr %.sroa.0.sroa.3.0..sroa_idx.i, align 8, !alias.scope !76, !noalias !77
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 48
   store i16 %8, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !76, !noalias !77
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 56
@@ -504,7 +504,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.llvm.15137
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 24
   %8 = getelementptr inbounds i8, ptr %3, i64 56
   %9 = load <2 x i64>, ptr %.sroa.0.0.i.i2.i, align 8, !noalias !174
-  %10 = extractelement <2 x i64> %9, i64 0
+  %10 = load i64, ptr %.sroa.0.0.i.i2.i, align 8, !noalias !174, !noundef !9
   %11 = add i64 %10, 1
   store i64 %11, ptr %.sroa.0.0.i.i2.i, align 8, !noalias !174
   store i64 0, ptr %3, align 8, !alias.scope !178
@@ -563,7 +563,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.llvm.15137
   %.sroa.0.0.i.i2.i = phi ptr [ %6, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.llvm.15137815808512737898.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17heee2209a1bfc2aa6E, i64 8), %2 ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
   %9 = load <2 x i64>, ptr %.sroa.0.0.i.i2.i, align 8, !noalias !189
-  %10 = extractelement <2 x i64> %9, i64 0
+  %10 = load i64, ptr %.sroa.0.0.i.i2.i, align 8, !noalias !189, !noundef !9
   %11 = add i64 %10, 1
   store i64 %11, ptr %.sroa.0.0.i.i2.i, align 8, !noalias !189
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) @anon.fee0d65d709d5101380b0a62c062edc1.3.llvm.15137815808512737898, i64 32, i1 false)
@@ -1224,7 +1224,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0c9a5939
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load <2 x i64>, ptr %4, align 8
-  %9 = extractelement <2 x i64> %8, i64 0
+  %9 = load i64, ptr %4, align 8, !noundef !9
   %10 = add i64 %9, 1
   store i64 %10, ptr %4, align 8
   store <2 x i64> %8, ptr %7, align 8
@@ -3135,7 +3135,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.llvm.15137
   %.sroa.0.0.i.i2.i = phi ptr [ %4, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h4b052c8f88cfae3bE.llvm.15137815808512737898.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17heee2209a1bfc2aa6E, i64 8), %1 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load <2 x i64>, ptr %.sroa.0.0.i.i2.i, align 8, !noalias !865
-  %9 = extractelement <2 x i64> %8, i64 0
+  %9 = load i64, ptr %.sroa.0.0.i.i2.i, align 8, !noalias !865, !noundef !9
   %10 = add i64 %9, 1
   store i64 %10, ptr %.sroa.0.0.i.i2.i, align 8, !noalias !865
   store <2 x i64> %8, ptr %7, align 8

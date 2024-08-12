@@ -1875,61 +1875,58 @@ define linkonce_odr hidden void @_ZN31ShenandoahVerifierReachableTask4workEj(ptr
   %12 = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 32
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 40
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 8
-  %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 510, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 -256, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 4, ptr %22, align 8
+  %15 = load <2 x ptr>, ptr %14, align 8
+  %16 = load ptr, ptr %14, align 8
+  %17 = getelementptr inbounds i8, ptr %11, i64 8
+  %18 = load i64, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 510, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 -256, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 4, ptr %21, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE, i64 16), ptr %3, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 32
-  store i64 510, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false)
-  %25 = load i64, ptr @ShenandoahVerifyLevel, align 8
-  %26 = icmp eq i64 %25, 2
-  %27 = icmp eq i32 %1, 0
-  %or.cond = and i1 %27, %26
-  %28 = icmp sgt i64 %25, 2
-  %or.cond3 = or i1 %28, %or.cond
-  br i1 %or.cond3, label %29, label %52
+  %22 = getelementptr inbounds i8, ptr %3, i64 32
+  store i64 510, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %3, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false)
+  %24 = load i64, ptr @ShenandoahVerifyLevel, align 8
+  %25 = icmp eq i64 %24, 2
+  %26 = icmp eq i32 %1, 0
+  %or.cond = and i1 %26, %25
+  %27 = icmp sgt i64 %24, 2
+  %or.cond3 = or i1 %27, %or.cond
+  br i1 %or.cond3, label %28, label %52
 
-29:                                               ; preds = %2
-  %30 = getelementptr inbounds i8, ptr %0, i64 64
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+28:                                               ; preds = %2
+  %29 = getelementptr inbounds i8, ptr %0, i64 64
+  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 36
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 16
-  %36 = getelementptr inbounds i8, ptr %4, i64 24
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 28
-  %37 = getelementptr inbounds i8, ptr %4, i64 48
-  %38 = getelementptr inbounds i8, ptr %4, i64 56
-  %39 = getelementptr inbounds i8, ptr %4, i64 64
-  %40 = load <2 x ptr>, ptr %30, align 8
-  call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %5, ptr noundef nonnull @.str.60, ptr noundef %32)
-  %41 = load ptr, ptr %5, align 8
-  %.sroa.016.0.copyload = load i32, ptr %33, align 8
-  %.sroa.217.0.copyload = load i32, ptr %.sroa.217.0..sroa_idx, align 4
+  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  %34 = getelementptr inbounds i8, ptr %4, i64 16
+  %35 = getelementptr inbounds i8, ptr %4, i64 24
+  %36 = getelementptr inbounds i8, ptr %4, i64 48
+  %37 = getelementptr inbounds i8, ptr %4, i64 56
+  %38 = getelementptr inbounds i8, ptr %4, i64 64
+  %39 = load <2 x ptr>, ptr %29, align 8
+  call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %5, ptr noundef nonnull @.str.60, ptr noundef %31)
+  %40 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i64 16, i1 false)
-  store ptr null, ptr %34, align 8
+  store ptr null, ptr %33, align 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV26ShenandoahVerifyOopClosure, i64 16), ptr %4, align 8
-  store ptr %41, ptr %35, align 8
-  store i32 %.sroa.016.0.copyload, ptr %36, align 8
-  store i32 %.sroa.217.0.copyload, ptr %.sroa.4.0..sroa_idx, align 4
-  store ptr %3, ptr %37, align 8
+  store ptr %40, ptr %34, align 8
+  %.sroa.217.0.copyload = load i32, ptr %.sroa.217.0..sroa_idx, align 4
+  %41 = load <2 x i32>, ptr %32, align 8
+  store <2 x i32> %41, ptr %35, align 8
+  store ptr %3, ptr %36, align 8
   %42 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  store ptr %42, ptr %38, align 8
-  %43 = shufflevector <2 x ptr> %40, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %43, ptr %39, align 8
+  store ptr %42, ptr %37, align 8
+  %43 = shufflevector <2 x ptr> %39, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x ptr> %43, ptr %38, align 8
   %44 = getelementptr inbounds i8, ptr %4, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   switch i32 %.sroa.217.0.copyload, label %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit [
@@ -1937,13 +1934,13 @@ define linkonce_odr hidden void @_ZN31ShenandoahVerifierReachableTask4workEj(ptr
     i32 0, label %45
   ]
 
-45:                                               ; preds = %29, %29
+45:                                               ; preds = %28, %28
   %46 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 5, i32 noundef 0) #13
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV35ShenandoahIgnoreReferenceDiscoverer, i64 16), ptr %46, align 8
-  store ptr %46, ptr %34, align 8
+  store ptr %46, ptr %33, align 8
   br label %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit
 
-_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit: ; preds = %29, %45
+_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit: ; preds = %28, %45
   %47 = getelementptr inbounds i8, ptr %0, i64 56
   %48 = load ptr, ptr %47, align 8
   %49 = call noundef zeroext i1 @_ZNK14ShenandoahHeap14unload_classesEv(ptr noundef nonnull align 8 dereferenceable(2657) %48) #13
@@ -1973,219 +1970,216 @@ _ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP
   %60 = getelementptr inbounds i8, ptr %6, i64 8
   %61 = getelementptr inbounds i8, ptr %6, i64 16
   %62 = getelementptr inbounds i8, ptr %6, i64 24
-  %.sroa.420.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 28
   %63 = getelementptr inbounds i8, ptr %6, i64 48
   %64 = getelementptr inbounds i8, ptr %6, i64 56
   %65 = getelementptr inbounds i8, ptr %6, i64 64
   %66 = load <2 x ptr>, ptr %56, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %7, ptr noundef nonnull @.str.61, ptr noundef %58)
   %67 = load ptr, ptr %7, align 8
-  %.sroa.025.0.copyload = load i32, ptr %59, align 8
-  %.sroa.226.0.copyload = load i32, ptr %.sroa.226.0..sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.523.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.327.0..sroa_idx, i64 16, i1 false)
   store ptr null, ptr %60, align 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV26ShenandoahVerifyOopClosure, i64 16), ptr %6, align 8
   store ptr %67, ptr %61, align 8
-  store i32 %.sroa.025.0.copyload, ptr %62, align 8
-  store i32 %.sroa.226.0.copyload, ptr %.sroa.420.0..sroa_idx, align 4
+  %.sroa.226.0.copyload = load i32, ptr %.sroa.226.0..sroa_idx, align 4
+  %68 = load <2 x i32>, ptr %59, align 8
+  store <2 x i32> %68, ptr %62, align 8
   store ptr %3, ptr %63, align 8
-  %68 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  store ptr %68, ptr %64, align 8
-  %69 = shufflevector <2 x ptr> %66, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x ptr> %69, ptr %65, align 8
-  %70 = getelementptr inbounds i8, ptr %6, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
+  %69 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  store ptr %69, ptr %64, align 8
+  %70 = shufflevector <2 x ptr> %66, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x ptr> %70, ptr %65, align 8
+  %71 = getelementptr inbounds i8, ptr %6, i64 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
   switch i32 %.sroa.226.0.copyload, label %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit6 [
-    i32 3, label %71
-    i32 0, label %71
+    i32 3, label %72
+    i32 0, label %72
   ]
 
-71:                                               ; preds = %55, %55
-  %72 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 5, i32 noundef 0) #13
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV35ShenandoahIgnoreReferenceDiscoverer, i64 16), ptr %72, align 8
-  store ptr %72, ptr %60, align 8
+72:                                               ; preds = %55, %55
+  %73 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 5, i32 noundef 0) #13
+  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV35ShenandoahIgnoreReferenceDiscoverer, i64 16), ptr %73, align 8
+  store ptr %73, ptr %60, align 8
   br label %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit6
 
-_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit6: ; preds = %55, %71
-  %73 = getelementptr inbounds i8, ptr %3, i64 56
-  %74 = load ptr, ptr %73, align 8
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %.loopexit, label %.lr.ph
+_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit6: ; preds = %55, %72
+  %74 = getelementptr inbounds i8, ptr %3, i64 56
+  %75 = load ptr, ptr %74, align 8
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit6
-  %76 = getelementptr inbounds i8, ptr %3, i64 48
-  %77 = getelementptr inbounds i8, ptr %3, i64 64
-  %78 = getelementptr inbounds i8, ptr %6, i64 88
-  br label %79
+  %77 = getelementptr inbounds i8, ptr %3, i64 48
+  %78 = getelementptr inbounds i8, ptr %3, i64 64
+  %79 = getelementptr inbounds i8, ptr %6, i64 88
+  br label %80
 
-79:                                               ; preds = %.lr.ph, %_ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit
-  %80 = phi ptr [ %74, %.lr.ph ], [ %127, %_ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit ]
-  %.128 = phi i64 [ 0, %.lr.ph ], [ %81, %_ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit ]
-  %81 = add i64 %.128, 1
-  %82 = load i64, ptr %23, align 8
-  %83 = add i64 %82, -1
-  store i64 %83, ptr %23, align 8
-  %84 = getelementptr inbounds %class.ShenandoahVerifierTask, ptr %80, i64 %83
-  %.sroa.0.0.copyload.i = load ptr, ptr %84, align 8
-  %85 = icmp eq i64 %83, 0
-  br i1 %85, label %86, label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE3popEv.exit
+80:                                               ; preds = %.lr.ph, %_ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit
+  %81 = phi ptr [ %75, %.lr.ph ], [ %128, %_ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit ]
+  %.128 = phi i64 [ 0, %.lr.ph ], [ %82, %_ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit ]
+  %82 = add i64 %.128, 1
+  %83 = load i64, ptr %22, align 8
+  %84 = add i64 %83, -1
+  store i64 %84, ptr %22, align 8
+  %85 = getelementptr inbounds %class.ShenandoahVerifierTask, ptr %81, i64 %84
+  %.sroa.0.0.copyload.i = load ptr, ptr %85, align 8
+  %86 = icmp eq i64 %84, 0
+  br i1 %86, label %87, label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE3popEv.exit
 
-86:                                               ; preds = %79
-  %87 = load i64, ptr %20, align 8
-  %88 = shl i64 %87, 3
-  %89 = getelementptr inbounds i8, ptr %80, i64 %88
-  %90 = load ptr, ptr %89, align 8
-  %91 = load i64, ptr %76, align 8
-  %92 = load i64, ptr %22, align 8
-  %93 = icmp ult i64 %91, %92
-  br i1 %93, label %94, label %98
+87:                                               ; preds = %80
+  %88 = load i64, ptr %19, align 8
+  %89 = shl i64 %88, 3
+  %90 = getelementptr inbounds i8, ptr %81, i64 %89
+  %91 = load ptr, ptr %90, align 8
+  %92 = load i64, ptr %77, align 8
+  %93 = load i64, ptr %21, align 8
+  %94 = icmp ult i64 %92, %93
+  br i1 %94, label %95, label %99
 
-94:                                               ; preds = %86
-  %95 = load ptr, ptr %77, align 8
-  store ptr %95, ptr %89, align 8
-  store ptr %80, ptr %77, align 8
-  %96 = load i64, ptr %76, align 8
-  %97 = add i64 %96, 1
-  store i64 %97, ptr %76, align 8
+95:                                               ; preds = %87
+  %96 = load ptr, ptr %78, align 8
+  store ptr %96, ptr %90, align 8
+  store ptr %81, ptr %78, align 8
+  %97 = load i64, ptr %77, align 8
+  %98 = add i64 %97, 1
+  store i64 %98, ptr %77, align 8
   br label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE11pop_segmentEv.exit.i
 
-98:                                               ; preds = %86
-  %99 = add i64 %88, 8
-  %100 = load ptr, ptr %3, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 8
-  %102 = load ptr, ptr %101, align 8
-  call void %102(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull %80, i64 noundef %99) #13
+99:                                               ; preds = %87
+  %100 = add i64 %89, 8
+  %101 = load ptr, ptr %3, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %103 = load ptr, ptr %102, align 8
+  call void %103(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull %81, i64 noundef %100) #13
   br label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE11pop_segmentEv.exit.i
 
-_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE11pop_segmentEv.exit.i: ; preds = %98, %94
-  %103 = icmp eq ptr %90, null
-  store ptr %90, ptr %73, align 8
-  %104 = load i64, ptr %20, align 8
-  store i64 %104, ptr %23, align 8
-  %spec.select.i.i = select i1 %103, i64 0, i64 %104
-  %105 = load i64, ptr %24, align 8
-  %106 = sub i64 %105, %spec.select.i.i
-  store i64 %106, ptr %24, align 8
+_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE11pop_segmentEv.exit.i: ; preds = %99, %95
+  %104 = icmp eq ptr %91, null
+  store ptr %91, ptr %74, align 8
+  %105 = load i64, ptr %19, align 8
+  store i64 %105, ptr %22, align 8
+  %spec.select.i.i = select i1 %104, i64 0, i64 %105
+  %106 = load i64, ptr %23, align 8
+  %107 = sub i64 %106, %spec.select.i.i
+  store i64 %107, ptr %23, align 8
   br label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE3popEv.exit
 
-_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE3popEv.exit: ; preds = %79, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE11pop_segmentEv.exit.i
-  store ptr %.sroa.0.0.copyload.i, ptr %78, align 8
-  %107 = load i8, ptr @UseCompressedClassPointers, align 1
-  %108 = trunc i8 %107 to i1
-  %109 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 8
-  br i1 %108, label %110, label %120
+_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE3popEv.exit: ; preds = %80, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE11pop_segmentEv.exit.i
+  store ptr %.sroa.0.0.copyload.i, ptr %79, align 8
+  %108 = load i8, ptr @UseCompressedClassPointers, align 1
+  %109 = trunc i8 %108 to i1
+  %110 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 8
+  br i1 %109, label %111, label %121
 
-110:                                              ; preds = %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE3popEv.exit
-  %111 = load i32, ptr %109, align 8
-  %112 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %113 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %114 = ptrtoint ptr %112 to i64
-  %115 = zext i32 %111 to i64
-  %116 = zext nneg i32 %113 to i64
-  %117 = shl i64 %115, %116
-  %118 = add i64 %117, %114
-  %119 = inttoptr i64 %118 to ptr
+111:                                              ; preds = %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE3popEv.exit
+  %112 = load i32, ptr %110, align 8
+  %113 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %114 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %115 = ptrtoint ptr %113 to i64
+  %116 = zext i32 %112 to i64
+  %117 = zext nneg i32 %114 to i64
+  %118 = shl i64 %116, %117
+  %119 = add i64 %118, %115
+  %120 = inttoptr i64 %119 to ptr
   br label %_ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit
 
-120:                                              ; preds = %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE3popEv.exit
-  %121 = load ptr, ptr %109, align 8
+121:                                              ; preds = %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE3popEv.exit
+  %122 = load ptr, ptr %110, align 8
   br label %_ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit
 
-_ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit: ; preds = %110, %120
-  %.0.i.i.i = phi ptr [ %119, %110 ], [ %121, %120 ]
-  %122 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 12
-  %123 = load i32, ptr %122, align 4
-  %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI26ShenandoahVerifyOopClosureE6_tableE, i64 0, i64 %124
-  %126 = load ptr, ptr %125, align 8
-  call void %126(ptr noundef nonnull %6, ptr noundef nonnull %.sroa.0.0.copyload.i, ptr noundef %.0.i.i.i) #13
-  store ptr null, ptr %78, align 8
-  %127 = load ptr, ptr %73, align 8
-  %128 = icmp eq ptr %127, null
-  br i1 %128, label %.loopexit, label %79, !llvm.loop !11
+_ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit: ; preds = %111, %121
+  %.0.i.i.i = phi ptr [ %120, %111 ], [ %122, %121 ]
+  %123 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 12
+  %124 = load i32, ptr %123, align 4
+  %125 = sext i32 %124 to i64
+  %126 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI26ShenandoahVerifyOopClosureE6_tableE, i64 0, i64 %125
+  %127 = load ptr, ptr %126, align 8
+  call void %127(ptr noundef nonnull %6, ptr noundef nonnull %.sroa.0.0.copyload.i, ptr noundef %.0.i.i.i) #13
+  store ptr null, ptr %79, align 8
+  %128 = load ptr, ptr %74, align 8
+  %129 = icmp eq ptr %128, null
+  br i1 %129, label %.loopexit, label %80, !llvm.loop !11
 
 .loopexit:                                        ; preds = %_ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit, %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit6, %52
-  %.0 = phi i64 [ 0, %52 ], [ 0, %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit6 ], [ %81, %_ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit ]
-  %129 = getelementptr inbounds i8, ptr %0, i64 80
-  %130 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0, ptr nonnull %129) #13, !srcloc !12
+  %.0 = phi i64 [ 0, %52 ], [ 0, %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit6 ], [ %82, %_ZN26ShenandoahVerifyOopClosure16verify_oops_fromEP7oopDesc.exit ]
+  %130 = getelementptr inbounds i8, ptr %0, i64 80
+  %131 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0, ptr nonnull %130) #13, !srcloc !12
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE, i64 16), ptr %3, align 8
-  %131 = getelementptr inbounds i8, ptr %3, i64 56
-  %132 = load ptr, ptr %131, align 8
-  %133 = load i64, ptr %20, align 8
-  %134 = shl i64 %133, 3
-  %135 = add i64 %134, 8
-  %.not5.i.i.i = icmp eq ptr %132, null
+  %132 = getelementptr inbounds i8, ptr %3, i64 56
+  %133 = load ptr, ptr %132, align 8
+  %134 = load i64, ptr %19, align 8
+  %135 = shl i64 %134, 3
+  %136 = add i64 %135, 8
+  %.not5.i.i.i = icmp eq ptr %133, null
   br i1 %.not5.i.i.i, label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.loopexit, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %139, %.lr.ph.i.i.i ], [ %132, %.loopexit ]
-  %136 = load i64, ptr %20, align 8
-  %137 = shl i64 %136, 3
-  %138 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 %137
-  %139 = load ptr, ptr %138, align 8
-  %140 = load ptr, ptr %3, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 8
-  %142 = load ptr, ptr %141, align 8
-  call void %142(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull %.06.i.i.i, i64 noundef %135) #13
-  %.not.i.i.i = icmp eq ptr %139, null
+  %.06.i.i.i = phi ptr [ %140, %.lr.ph.i.i.i ], [ %133, %.loopexit ]
+  %137 = load i64, ptr %19, align 8
+  %138 = shl i64 %137, 3
+  %139 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 %138
+  %140 = load ptr, ptr %139, align 8
+  %141 = load ptr, ptr %3, align 8
+  %142 = getelementptr inbounds i8, ptr %141, i64 8
+  %143 = load ptr, ptr %142, align 8
+  call void %143(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull %.06.i.i.i, i64 noundef %136) #13
+  %.not.i.i.i = icmp eq ptr %140, null
   br i1 %.not.i.i.i, label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !13
 
 _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i
-  %.pre.i = load i64, ptr %20, align 8
+  %.pre.i = load i64, ptr %19, align 8
   %.pre1.i = shl i64 %.pre.i, 3
   %.pre2.i = add i64 %.pre1.i, 8
   br label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i
 
 _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i: ; preds = %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i, %.loopexit
-  %.pre-phi3.i = phi i64 [ %.pre2.i, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i ], [ %135, %.loopexit ]
-  %143 = phi i64 [ %.pre.i, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i ], [ %133, %.loopexit ]
-  %144 = getelementptr inbounds i8, ptr %3, i64 64
-  %145 = load ptr, ptr %144, align 8
-  %.not5.i2.i.i = icmp eq ptr %145, null
+  %.pre-phi3.i = phi i64 [ %.pre2.i, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i ], [ %136, %.loopexit ]
+  %144 = phi i64 [ %.pre.i, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i ], [ %134, %.loopexit ]
+  %145 = getelementptr inbounds i8, ptr %3, i64 64
+  %146 = load ptr, ptr %145, align 8
+  %.not5.i2.i.i = icmp eq ptr %146, null
   br i1 %.not5.i2.i.i, label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EED2Ev.exit, label %.lr.ph.i3.i.i
 
 .lr.ph.i3.i.i:                                    ; preds = %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i, %.lr.ph.i3.i.i
-  %.06.i4.i.i = phi ptr [ %149, %.lr.ph.i3.i.i ], [ %145, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i ]
-  %146 = load i64, ptr %20, align 8
-  %147 = shl i64 %146, 3
-  %148 = getelementptr inbounds i8, ptr %.06.i4.i.i, i64 %147
-  %149 = load ptr, ptr %148, align 8
-  %150 = load ptr, ptr %3, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 8
-  %152 = load ptr, ptr %151, align 8
-  call void %152(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull %.06.i4.i.i, i64 noundef %.pre-phi3.i) #13
-  %.not.i5.i.i = icmp eq ptr %149, null
+  %.06.i4.i.i = phi ptr [ %150, %.lr.ph.i3.i.i ], [ %146, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i ]
+  %147 = load i64, ptr %19, align 8
+  %148 = shl i64 %147, 3
+  %149 = getelementptr inbounds i8, ptr %.06.i4.i.i, i64 %148
+  %150 = load ptr, ptr %149, align 8
+  %151 = load ptr, ptr %3, align 8
+  %152 = getelementptr inbounds i8, ptr %151, i64 8
+  %153 = load ptr, ptr %152, align 8
+  call void %153(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull %.06.i4.i.i, i64 noundef %.pre-phi3.i) #13
+  %.not.i5.i.i = icmp eq ptr %150, null
   br i1 %.not.i5.i.i, label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i, label %.lr.ph.i3.i.i, !llvm.loop !13
 
 _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i: ; preds = %.lr.ph.i3.i.i
-  %153 = load i64, ptr %20, align 8
+  %154 = load i64, ptr %19, align 8
   br label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EED2Ev.exit
 
 _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EED2Ev.exit: ; preds = %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i
-  %.sink.i.i = phi i64 [ %153, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i ], [ %143, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i ]
-  store i64 %.sink.i.i, ptr %23, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false)
-  %154 = load ptr, ptr %13, align 8
-  %.not.i.i.i.i = icmp eq ptr %154, null
-  br i1 %.not.i.i.i.i, label %156, label %155
+  %.sink.i.i = phi i64 [ %154, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i ], [ %144, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i ]
+  store i64 %.sink.i.i, ptr %22, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false)
+  %155 = load ptr, ptr %13, align 8
+  %.not.i.i.i.i = icmp eq ptr %155, null
+  br i1 %.not.i.i.i.i, label %157, label %156
 
-155:                                              ; preds = %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EED2Ev.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %11, i64 noundef %19) #13
+156:                                              ; preds = %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EED2Ev.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %11, i64 noundef %18) #13
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %13) #13
-  br label %156
+  br label %157
 
-156:                                              ; preds = %155, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EED2Ev.exit
-  %157 = load ptr, ptr %14, align 8
-  %.not8.i.i.i.i = icmp eq ptr %157, %15
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %158
+157:                                              ; preds = %156, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EED2Ev.exit
+  %158 = load ptr, ptr %14, align 8
+  %.not8.i.i.i.i = icmp eq ptr %158, %16
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %159
 
-158:                                              ; preds = %156
+159:                                              ; preds = %157
   store ptr %13, ptr %12, align 8
-  store ptr %15, ptr %14, align 8
-  store ptr %17, ptr %16, align 8
+  store <2 x ptr> %15, ptr %14, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %156, %158
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %157, %159
   ret void
 }
 
@@ -3622,104 +3616,102 @@ define linkonce_odr hidden void @_ZN34ShenandoahVerifierMarkedRegionTask4workEj(
   %15 = getelementptr inbounds i8, ptr %4, i64 8
   %16 = getelementptr inbounds i8, ptr %4, i64 16
   %17 = getelementptr inbounds i8, ptr %4, i64 24
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 28
   %18 = getelementptr inbounds i8, ptr %4, i64 48
   %19 = getelementptr inbounds i8, ptr %4, i64 56
   %20 = getelementptr inbounds i8, ptr %4, i64 64
   %21 = load <2 x ptr>, ptr %11, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm8192EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(8200) %5, ptr noundef nonnull @.str.89, ptr noundef %13)
   %22 = load ptr, ptr %5, align 8
-  %.sroa.011.0.copyload = load i32, ptr %14, align 8
-  %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i64 16, i1 false)
   store ptr null, ptr %15, align 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV26ShenandoahVerifyOopClosure, i64 16), ptr %4, align 8
   store ptr %22, ptr %16, align 8
-  store i32 %.sroa.011.0.copyload, ptr %17, align 8
-  store i32 %.sroa.2.0.copyload, ptr %.sroa.4.0..sroa_idx, align 4
+  %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
+  %23 = load <2 x i32>, ptr %14, align 8
+  store <2 x i32> %23, ptr %17, align 8
   store ptr %3, ptr %18, align 8
-  %23 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  store ptr %23, ptr %19, align 8
+  %24 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  store ptr %24, ptr %19, align 8
   store <2 x ptr> %21, ptr %20, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
+  %25 = getelementptr inbounds i8, ptr %4, i64 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   switch i32 %.sroa.2.0.copyload, label %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit [
-    i32 3, label %25
-    i32 0, label %25
+    i32 3, label %26
+    i32 0, label %26
   ]
 
-25:                                               ; preds = %2, %2
-  %26 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 5, i32 noundef 0) #13
-  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV35ShenandoahIgnoreReferenceDiscoverer, i64 16), ptr %26, align 8
-  store ptr %26, ptr %15, align 8
+26:                                               ; preds = %2, %2
+  %27 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 5, i32 noundef 0) #13
+  store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV35ShenandoahIgnoreReferenceDiscoverer, i64 16), ptr %27, align 8
+  store ptr %27, ptr %15, align 8
   br label %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit
 
-_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit: ; preds = %2, %25
-  %27 = getelementptr inbounds i8, ptr %0, i64 80
-  %28 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %27) #13, !srcloc !12
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 544
-  %32 = load i64, ptr %31, align 8
-  %33 = icmp ult i64 %28, %32
-  br i1 %33, label %_ZNK14ShenandoahHeap10get_regionEm.exit, label %._crit_edge
+_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit: ; preds = %2, %26
+  %28 = getelementptr inbounds i8, ptr %0, i64 80
+  %29 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %28) #13, !srcloc !12
+  %30 = getelementptr inbounds i8, ptr %0, i64 56
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 544
+  %33 = load i64, ptr %32, align 8
+  %34 = icmp ult i64 %29, %33
+  br i1 %34, label %_ZNK14ShenandoahHeap10get_regionEm.exit, label %._crit_edge
 
-_ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit, %46
-  %34 = phi ptr [ %48, %46 ], [ %30, %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit ]
-  %35 = phi i64 [ %47, %46 ], [ %28, %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit ]
-  %36 = getelementptr inbounds i8, ptr %34, i64 552
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %35
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 40
-  %41 = load i32, ptr %40, align 8
-  switch i32 %41, label %.sink.split [
-    i32 5, label %42
-    i32 3, label %42
-    i32 4, label %46
-    i32 9, label %46
+_ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit, %47
+  %35 = phi ptr [ %49, %47 ], [ %31, %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit ]
+  %36 = phi i64 [ %48, %47 ], [ %29, %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit ]
+  %37 = getelementptr inbounds i8, ptr %35, i64 552
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds ptr, ptr %38, i64 %36
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %40, i64 40
+  %42 = load i32, ptr %41, align 8
+  switch i32 %42, label %.sink.split [
+    i32 5, label %43
+    i32 3, label %43
+    i32 4, label %47
+    i32 9, label %47
   ]
 
-42:                                               ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit, %_ZNK14ShenandoahHeap10get_regionEm.exit
+43:                                               ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit, %_ZNK14ShenandoahHeap10get_regionEm.exit
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit, %42
-  %.sink13 = phi i64 [ 8, %42 ], [ 16, %_ZNK14ShenandoahHeap10get_regionEm.exit ]
-  %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 %.sink13
-  %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %39, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(96) %4) #13
-  br label %46
+.sink.split:                                      ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit, %43
+  %.sink13 = phi i64 [ 8, %43 ], [ 16, %_ZNK14ShenandoahHeap10get_regionEm.exit ]
+  %44 = load ptr, ptr %0, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 %.sink13
+  %46 = load ptr, ptr %45, align 8
+  call void %46(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %40, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(96) %4) #13
+  br label %47
 
-46:                                               ; preds = %.sink.split, %_ZNK14ShenandoahHeap10get_regionEm.exit, %_ZNK14ShenandoahHeap10get_regionEm.exit
-  %47 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %27) #13, !srcloc !12
-  %48 = load ptr, ptr %29, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 544
-  %50 = load i64, ptr %49, align 8
-  %51 = icmp ult i64 %47, %50
-  br i1 %51, label %_ZNK14ShenandoahHeap10get_regionEm.exit, label %._crit_edge, !llvm.loop !18
+47:                                               ; preds = %.sink.split, %_ZNK14ShenandoahHeap10get_regionEm.exit, %_ZNK14ShenandoahHeap10get_regionEm.exit
+  %48 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %28) #13, !srcloc !12
+  %49 = load ptr, ptr %30, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i64 544
+  %51 = load i64, ptr %50, align 8
+  %52 = icmp ult i64 %48, %51
+  br i1 %52, label %_ZNK14ShenandoahHeap10get_regionEm.exit, label %._crit_edge, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %46, %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit
+._crit_edge:                                      ; preds = %47, %_ZN26ShenandoahVerifyOopClosureC2EP5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EEP10MarkBitMapPVjPKcN18ShenandoahVerifier13VerifyOptionsE.exit
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE, i64 16), ptr %3, align 8
-  %52 = getelementptr inbounds i8, ptr %3, i64 56
-  %53 = load ptr, ptr %52, align 8
-  %54 = load i64, ptr %6, align 8
-  %55 = shl i64 %54, 3
-  %56 = add i64 %55, 8
-  %.not5.i.i.i = icmp eq ptr %53, null
+  %53 = getelementptr inbounds i8, ptr %3, i64 56
+  %54 = load ptr, ptr %53, align 8
+  %55 = load i64, ptr %6, align 8
+  %56 = shl i64 %55, 3
+  %57 = add i64 %56, 8
+  %.not5.i.i.i = icmp eq ptr %54, null
   br i1 %.not5.i.i.i, label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %60, %.lr.ph.i.i.i ], [ %53, %._crit_edge ]
-  %57 = load i64, ptr %6, align 8
-  %58 = shl i64 %57, 3
-  %59 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 %58
-  %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %3, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
-  %63 = load ptr, ptr %62, align 8
-  call void %63(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull %.06.i.i.i, i64 noundef %56) #13
-  %.not.i.i.i = icmp eq ptr %60, null
+  %.06.i.i.i = phi ptr [ %61, %.lr.ph.i.i.i ], [ %54, %._crit_edge ]
+  %58 = load i64, ptr %6, align 8
+  %59 = shl i64 %58, 3
+  %60 = getelementptr inbounds i8, ptr %.06.i.i.i, i64 %59
+  %61 = load ptr, ptr %60, align 8
+  %62 = load ptr, ptr %3, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %64 = load ptr, ptr %63, align 8
+  call void %64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull %.06.i.i.i, i64 noundef %57) #13
+  %.not.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i, label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !13
 
 _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i
@@ -3729,23 +3721,23 @@ _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loope
   br label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i
 
 _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i: ; preds = %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i, %._crit_edge
-  %.pre-phi3.i = phi i64 [ %.pre2.i, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i ], [ %56, %._crit_edge ]
-  %64 = getelementptr inbounds i8, ptr %3, i64 64
-  %65 = load ptr, ptr %64, align 8
-  %.not5.i2.i.i = icmp eq ptr %65, null
+  %.pre-phi3.i = phi i64 [ %.pre2.i, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i ], [ %57, %._crit_edge ]
+  %65 = getelementptr inbounds i8, ptr %3, i64 64
+  %66 = load ptr, ptr %65, align 8
+  %.not5.i2.i.i = icmp eq ptr %66, null
   br i1 %.not5.i2.i.i, label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EED2Ev.exit, label %.lr.ph.i3.i.i
 
 .lr.ph.i3.i.i:                                    ; preds = %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i, %.lr.ph.i3.i.i
-  %.06.i4.i.i = phi ptr [ %69, %.lr.ph.i3.i.i ], [ %65, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i ]
-  %66 = load i64, ptr %6, align 8
-  %67 = shl i64 %66, 3
-  %68 = getelementptr inbounds i8, ptr %.06.i4.i.i, i64 %67
-  %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr %3, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
-  %72 = load ptr, ptr %71, align 8
-  call void %72(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull %.06.i4.i.i, i64 noundef %.pre-phi3.i) #13
-  %.not.i5.i.i = icmp eq ptr %69, null
+  %.06.i4.i.i = phi ptr [ %70, %.lr.ph.i3.i.i ], [ %66, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i ]
+  %67 = load i64, ptr %6, align 8
+  %68 = shl i64 %67, 3
+  %69 = getelementptr inbounds i8, ptr %.06.i4.i.i, i64 %68
+  %70 = load ptr, ptr %69, align 8
+  %71 = load ptr, ptr %3, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %73 = load ptr, ptr %72, align 8
+  call void %73(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull %.06.i4.i.i, i64 noundef %.pre-phi3.i) #13
+  %.not.i5.i.i = icmp eq ptr %70, null
   br i1 %.not.i5.i.i, label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EED2Ev.exit, label %.lr.ph.i3.i.i, !llvm.loop !13
 
 _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EED2Ev.exit: ; preds = %.lr.ph.i3.i.i, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i

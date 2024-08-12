@@ -26666,11 +26666,11 @@ define noalias noundef nonnull ptr @_ZN14ockam_identity12purpose_keys20purpose_k
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8ce2eff61af33469E.llvm.7022646624147239703.exit": ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 56
-  %9 = load ptr, ptr %8, align 8, !alias.scope !4477, !nonnull !4, !align !5, !noundef !4
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4480)
-  %11 = load ptr, ptr %10, align 8, !alias.scope !4480, !nonnull !4, !noundef !4
-  %12 = atomicrmw add ptr %11, i64 1 monotonic, align 8, !noalias !4480
+  %10 = load ptr, ptr %9, align 8, !alias.scope !4480, !nonnull !4, !noundef !4
+  %11 = load <2 x ptr>, ptr %8, align 8
+  %12 = atomicrmw add ptr %10, i64 1 monotonic, align 8, !noalias !4480
   %13 = icmp slt i64 %12, 0
   br i1 %13, label %14, label %15
 
@@ -26688,9 +26688,7 @@ define noalias noundef nonnull ptr @_ZN14ockam_identity12purpose_keys20purpose_k
   %19 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %19, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
-  store ptr %9, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr %11, ptr %.sroa.5.0..sroa_idx, align 8
+  store <2 x ptr> %11, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %17, ptr %.sroa.6.0..sroa_idx, align 8
   %20 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4486
@@ -26863,11 +26861,11 @@ define void @_ZN14ockam_identity12purpose_keys20purpose_key_creation18PurposeKey
 
 "_ZN67_$LT$ockam_identity..vault..Vault$u20$as$u20$core..clone..Clone$GT$5clone17h35274da4f052ea6cE.exit": ; preds = %22
   %29 = getelementptr inbounds i8, ptr %1, i64 56
-  %30 = load ptr, ptr %29, align 8, !alias.scope !4510, !noalias !4504, !nonnull !4, !align !5, !noundef !4
-  %31 = getelementptr inbounds i8, ptr %1, i64 64
+  %30 = getelementptr inbounds i8, ptr %1, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4512)
-  %32 = load ptr, ptr %31, align 8, !alias.scope !4512, !nonnull !4, !noundef !4
-  %33 = atomicrmw add ptr %32, i64 1 monotonic, align 8, !noalias !4512
+  %31 = load ptr, ptr %30, align 8, !alias.scope !4512, !nonnull !4, !noundef !4
+  %32 = load <2 x ptr>, ptr %29, align 8
+  %33 = atomicrmw add ptr %31, i64 1 monotonic, align 8, !noalias !4512
   %34 = icmp slt i64 %33, 0
   br i1 %34, label %35, label %36
 
@@ -26877,9 +26875,9 @@ define void @_ZN14ockam_identity12purpose_keys20purpose_key_creation18PurposeKey
 
 36:                                               ; preds = %"_ZN67_$LT$ockam_identity..vault..Vault$u20$as$u20$core..clone..Clone$GT$5clone17h35274da4f052ea6cE.exit"
   %37 = getelementptr inbounds i8, ptr %1, i64 72
-  %38 = load ptr, ptr %37, align 8, !alias.scope !4512, !nonnull !4, !align !5, !noundef !4
-  %39 = getelementptr inbounds i8, ptr %1, i64 80
-  %.val = load ptr, ptr %39, align 8, !nonnull !4, !noundef !4
+  %38 = getelementptr inbounds i8, ptr %1, i64 80
+  %.val = load ptr, ptr %38, align 8, !nonnull !4, !noundef !4
+  %39 = load <2 x ptr>, ptr %37, align 8
   %40 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
   %41 = icmp slt i64 %40, 0
   br i1 %41, label %42, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h18730d5447a4a85bE.exit"
@@ -26922,13 +26920,9 @@ define void @_ZN14ockam_identity12purpose_keys20purpose_key_creation18PurposeKey
   %.sroa.0.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %25, ptr %.sroa.0.sroa.9.0..sroa_idx, align 8
   %.sroa.0.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 72
-  store ptr %30, ptr %.sroa.0.sroa.10.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 80
-  store ptr %32, ptr %.sroa.4.0..sroa_idx, align 8
+  store <2 x ptr> %32, ptr %.sroa.0.sroa.10.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 88
-  store ptr %38, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 96
-  store ptr %.val, ptr %.sroa.6.0..sroa_idx, align 8
+  store <2 x ptr> %39, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 104
   store ptr %44, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 112
@@ -27038,11 +27032,11 @@ define void @_ZN14ockam_identity12purpose_keys20purpose_key_creation18PurposeKey
 
 "_ZN67_$LT$ockam_identity..vault..Vault$u20$as$u20$core..clone..Clone$GT$5clone17h35274da4f052ea6cE.exit": ; preds = %22
   %29 = getelementptr inbounds i8, ptr %1, i64 56
-  %30 = load ptr, ptr %29, align 8, !alias.scope !4539, !noalias !4533, !nonnull !4, !align !5, !noundef !4
-  %31 = getelementptr inbounds i8, ptr %1, i64 64
+  %30 = getelementptr inbounds i8, ptr %1, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4541)
-  %32 = load ptr, ptr %31, align 8, !alias.scope !4541, !nonnull !4, !noundef !4
-  %33 = atomicrmw add ptr %32, i64 1 monotonic, align 8, !noalias !4541
+  %31 = load ptr, ptr %30, align 8, !alias.scope !4541, !nonnull !4, !noundef !4
+  %32 = load <2 x ptr>, ptr %29, align 8
+  %33 = atomicrmw add ptr %31, i64 1 monotonic, align 8, !noalias !4541
   %34 = icmp slt i64 %33, 0
   br i1 %34, label %35, label %36
 
@@ -27052,9 +27046,9 @@ define void @_ZN14ockam_identity12purpose_keys20purpose_key_creation18PurposeKey
 
 36:                                               ; preds = %"_ZN67_$LT$ockam_identity..vault..Vault$u20$as$u20$core..clone..Clone$GT$5clone17h35274da4f052ea6cE.exit"
   %37 = getelementptr inbounds i8, ptr %1, i64 72
-  %38 = load ptr, ptr %37, align 8, !alias.scope !4541, !nonnull !4, !align !5, !noundef !4
-  %39 = getelementptr inbounds i8, ptr %1, i64 80
-  %.val = load ptr, ptr %39, align 8, !nonnull !4, !noundef !4
+  %38 = getelementptr inbounds i8, ptr %1, i64 80
+  %.val = load ptr, ptr %38, align 8, !nonnull !4, !noundef !4
+  %39 = load <2 x ptr>, ptr %37, align 8
   %40 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
   %41 = icmp slt i64 %40, 0
   br i1 %41, label %42, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h18730d5447a4a85bE.exit"
@@ -27097,13 +27091,9 @@ define void @_ZN14ockam_identity12purpose_keys20purpose_key_creation18PurposeKey
   %.sroa.0.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %25, ptr %.sroa.0.sroa.9.0..sroa_idx, align 8
   %.sroa.0.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 72
-  store ptr %30, ptr %.sroa.0.sroa.10.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 80
-  store ptr %32, ptr %.sroa.4.0..sroa_idx, align 8
+  store <2 x ptr> %32, ptr %.sroa.0.sroa.10.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 88
-  store ptr %38, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 96
-  store ptr %.val, ptr %.sroa.6.0..sroa_idx, align 8
+  store <2 x ptr> %39, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 104
   store ptr %44, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 112

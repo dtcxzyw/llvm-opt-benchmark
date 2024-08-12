@@ -2496,14 +2496,14 @@ _ZNSt8optionalIN3nix5ErrorEED2Ev.exit:            ; preds = %76, %_ZNSt22_Option
 103:                                              ; preds = %1
   %104 = load ptr, ptr %16, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 16
-  %106 = load ptr, ptr %105, align 8, !noalias !12
-  %107 = getelementptr inbounds i8, ptr %104, i64 24
-  %108 = load ptr, ptr %107, align 8, !noalias !12
-  %.not.i.i.i.i = icmp eq ptr %108, null
+  %106 = getelementptr inbounds i8, ptr %104, i64 24
+  %107 = load ptr, ptr %106, align 8, !noalias !12
+  %108 = load <2 x ptr>, ptr %105, align 8, !noalias !12
+  %.not.i.i.i.i = icmp eq ptr %107, null
   br i1 %.not.i.i.i.i, label %_ZNK3nix3refINS_5StoreEEcvSt10shared_ptrIS1_EEv.exit, label %109
 
 109:                                              ; preds = %103
-  %110 = getelementptr inbounds i8, ptr %108, i64 8
+  %110 = getelementptr inbounds i8, ptr %107, i64 8
   %111 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
   %.not.i.i.i.i.i = icmp eq i8 %111, 0
   br i1 %.not.i.i.i.i.i, label %115, label %112
@@ -2520,10 +2520,9 @@ _ZNSt8optionalIN3nix5ErrorEED2Ev.exit:            ; preds = %76, %_ZNSt22_Option
 
 _ZNK3nix3refINS_5StoreEEcvSt10shared_ptrIS1_EEv.exit: ; preds = %103, %112, %115
   %117 = getelementptr inbounds i8, ptr %0, i64 872
-  store ptr %106, ptr %117, align 8
   %118 = getelementptr inbounds i8, ptr %0, i64 880
   %119 = load ptr, ptr %118, align 8
-  store ptr %108, ptr %118, align 8
+  store <2 x ptr> %108, ptr %117, align 8
   %.not.i.i.i.i31 = icmp eq ptr %119, null
   br i1 %.not.i.i.i.i31, label %_ZNSt10shared_ptrIN3nix5StoreEED2Ev.exit, label %120
 
@@ -18204,13 +18203,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureISt10sh
 
 6:                                                ; preds = %3
   %.val6 = load ptr, ptr %1, align 8
-  %.val7.i = load ptr, ptr %.val6, align 8
   %7 = getelementptr i8, ptr %.val6, i64 8
   %.val8.i = load ptr, ptr %7, align 8
-  %8 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr %.val7.i, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr %.val8.i, ptr %9, align 8
+  %8 = load <2 x ptr>, ptr %.val6, align 8
+  %9 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
+  store <2 x ptr> %8, ptr %9, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %.val8.i, null
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.exit.i", label %10
 
@@ -18231,7 +18228,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvSt6futureISt10sh
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.exit.i"
 
 "_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.exit.i": ; preds = %16, %13, %6
-  store ptr %8, ptr %0, align 8
+  store ptr %9, ptr %0, align 8
   br label %"_ZNSt14_Function_base13_Base_managerIZN3nix25DrvOutputSubstitutionGoal7tryNextEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 18:                                               ; preds = %3

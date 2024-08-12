@@ -5284,140 +5284,138 @@ declare noundef zeroext i1 @_ZN7testing8internal9DeathTest6CreateEPKcNS_7Matcher
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7testing8internal20MakeDeathTestMatcherB5cxx11EPKc(ptr dead_on_unwind noalias writable sret(%"class.testing::Matcher") align 8 %0, ptr noundef %1) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
-  %4 = alloca %"class.testing::PolymorphicMatcher", align 8
+  %4 = alloca %"class.testing::PolymorphicMatcher", align 16
   store ptr %1, ptr %3, align 8
   call void @_ZN7testing13ContainsRegexIPKcEENS_18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEEERKT_(ptr dead_on_unwind nonnull writable sret(%"class.testing::PolymorphicMatcher") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !49)
   %5 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
-          to label %.noexc unwind label %64
+          to label %.noexc unwind label %63
 
 .noexc:                                           ; preds = %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %5, align 8, !noalias !49
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  %7 = load ptr, ptr %4, align 8, !noalias !49
-  store ptr %7, ptr %6, align 8, !noalias !49
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
-  %10 = load ptr, ptr %9, align 8, !noalias !49
-  store ptr %10, ptr %8, align 8, !noalias !49
-  %.not.i.i.i.i.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS2_.exit.i, label %11
+  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = load ptr, ptr %7, align 8, !noalias !49
+  %9 = load <2 x ptr>, ptr %4, align 16, !noalias !49
+  store <2 x ptr> %9, ptr %6, align 8, !noalias !49
+  %.not.i.i.i.i.i.i = icmp eq ptr %8, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS2_.exit.i, label %10
 
-11:                                               ; preds = %.noexc
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
-  %13 = load i8, ptr @__libc_single_threaded, align 1, !noalias !49
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %13, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %17, label %14
+10:                                               ; preds = %.noexc
+  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = load i8, ptr @__libc_single_threaded, align 1, !noalias !49
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %12, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %16, label %13
 
-14:                                               ; preds = %11
-  %15 = load i32, ptr %12, align 4, !noalias !49
-  %16 = add nsw i32 %15, 1
-  store i32 %16, ptr %12, align 4, !noalias !49
+13:                                               ; preds = %10
+  %14 = load i32, ptr %11, align 4, !noalias !49
+  %15 = add nsw i32 %14, 1
+  store i32 %15, ptr %11, align 4, !noalias !49
   br label %_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS2_.exit.i
 
-17:                                               ; preds = %11
-  %18 = atomicrmw volatile add ptr %12, i32 1 acq_rel, align 4, !noalias !49
+16:                                               ; preds = %10
+  %17 = atomicrmw volatile add ptr %11, i32 1 acq_rel, align 4, !noalias !49
   br label %_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS2_.exit.i
 
-_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS2_.exit.i: ; preds = %17, %14, %.noexc
-  %19 = getelementptr inbounds i8, ptr %5, i64 24
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
-  %21 = load i8, ptr %20, align 8, !noalias !49
-  %22 = and i8 %21, 1
-  store i8 %22, ptr %19, align 8, !noalias !49
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr @_ZZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9GetVTableINSA_11ValuePolicyIPKNS_16MatcherInterfaceIS9_EELb1EEEEEPKNSA_6VTableEvE7kVTableB5cxx11, ptr %23, align 8, !alias.scope !49
-  %24 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
-          to label %25 unwind label %64
+_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS2_.exit.i: ; preds = %16, %13, %.noexc
+  %18 = getelementptr inbounds i8, ptr %5, i64 24
+  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %20 = load i8, ptr %19, align 16, !noalias !49
+  %21 = and i8 %20, 1
+  store i8 %21, ptr %18, align 8, !noalias !49
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr @_ZZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9GetVTableINSA_11ValuePolicyIPKNS_16MatcherInterfaceIS9_EELb1EEEEEPKNSA_6VTableEvE7kVTableB5cxx11, ptr %22, align 8, !alias.scope !49
+  %23 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
+          to label %24 unwind label %63
 
-25:                                               ; preds = %_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS2_.exit.i
-  store i32 1, ptr %24, align 4, !noalias !49
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
-  %27 = ptrtoint ptr %5 to i64
-  store i64 %27, ptr %26, align 8, !noalias !49
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %24, ptr %28, align 8, !alias.scope !49
+24:                                               ; preds = %_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS2_.exit.i
+  store i32 1, ptr %23, align 4, !noalias !49
+  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = ptrtoint ptr %5 to i64
+  store i64 %26, ptr %25, align 8, !noalias !49
+  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %23, ptr %27, align 8, !alias.scope !49
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %0, align 8, !alias.scope !49
-  %29 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %29, null
-  br i1 %.not.i.i.i.i.i, label %_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEED2Ev.exit, label %30
+  %28 = load ptr, ptr %7, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %28, null
+  br i1 %.not.i.i.i.i.i, label %_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEED2Ev.exit, label %29
 
-30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
-  %32 = load atomic i64, ptr %31 acquire, align 8
-  %33 = icmp eq i64 %32, 4294967297
-  %34 = trunc i64 %32 to i32
-  br i1 %33, label %35, label %40
+29:                                               ; preds = %24
+  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = load atomic i64, ptr %30 acquire, align 8
+  %32 = icmp eq i64 %31, 4294967297
+  %33 = trunc i64 %31 to i32
+  br i1 %32, label %34, label %39
 
-35:                                               ; preds = %30
-  store i32 0, ptr %31, align 8
-  %36 = getelementptr inbounds i8, ptr %29, i64 12
-  store i32 0, ptr %36, align 4
-  %37 = load ptr, ptr %29, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(16) %29) #26
+34:                                               ; preds = %29
+  store i32 0, ptr %30, align 8
+  %35 = getelementptr inbounds i8, ptr %28, i64 12
+  store i32 0, ptr %35, align 4
+  %36 = load ptr, ptr %28, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %38 = load ptr, ptr %37, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(16) %28) #26
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
 
-40:                                               ; preds = %30
-  %41 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i2 = icmp eq i8 %41, 0
-  br i1 %.not.i.i.i.i.i.i2, label %44, label %42
+39:                                               ; preds = %29
+  %40 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i2 = icmp eq i8 %40, 0
+  br i1 %.not.i.i.i.i.i.i2, label %43, label %41
 
-42:                                               ; preds = %40
-  %43 = add nsw i32 %34, -1
-  store i32 %43, ptr %31, align 4
-  br label %46
+41:                                               ; preds = %39
+  %42 = add nsw i32 %33, -1
+  store i32 %42, ptr %30, align 4
+  br label %45
 
-44:                                               ; preds = %40
-  %45 = atomicrmw volatile add ptr %31, i32 -1 acq_rel, align 4
-  br label %46
+43:                                               ; preds = %39
+  %44 = atomicrmw volatile add ptr %30, i32 -1 acq_rel, align 4
+  br label %45
 
-46:                                               ; preds = %44, %42
-  %.0.i.i.i.i.i.i = phi i32 [ %34, %42 ], [ %45, %44 ]
-  %47 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %47, label %48, label %_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEED2Ev.exit
+45:                                               ; preds = %43, %41
+  %.0.i.i.i.i.i.i = phi i32 [ %33, %41 ], [ %44, %43 ]
+  %46 = icmp eq i32 %.0.i.i.i.i.i.i, 1
+  br i1 %46, label %47, label %_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEED2Ev.exit
 
-48:                                               ; preds = %46
-  %49 = load ptr, ptr %29, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
-  %51 = load ptr, ptr %50, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(16) %29) #26
-  %52 = getelementptr inbounds i8, ptr %29, i64 12
-  %53 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %53, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %57, label %54
+47:                                               ; preds = %45
+  %48 = load ptr, ptr %28, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %50 = load ptr, ptr %49, align 8
+  call void %50(ptr noundef nonnull align 8 dereferenceable(16) %28) #26
+  %51 = getelementptr inbounds i8, ptr %28, i64 12
+  %52 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %52, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %56, label %53
 
-54:                                               ; preds = %48
-  %55 = load i32, ptr %52, align 4
-  %56 = add nsw i32 %55, -1
-  store i32 %56, ptr %52, align 4
-  br label %59
+53:                                               ; preds = %47
+  %54 = load i32, ptr %51, align 4
+  %55 = add nsw i32 %54, -1
+  store i32 %55, ptr %51, align 4
+  br label %58
 
-57:                                               ; preds = %48
-  %58 = atomicrmw volatile add ptr %52, i32 -1 acq_rel, align 4
-  br label %59
+56:                                               ; preds = %47
+  %57 = atomicrmw volatile add ptr %51, i32 -1 acq_rel, align 4
+  br label %58
 
-59:                                               ; preds = %57, %54
-  %.0.i.i.i.i.i.i.i.i = phi i32 [ %55, %54 ], [ %58, %57 ]
-  %60 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
-  br i1 %60, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEED2Ev.exit
+58:                                               ; preds = %56, %53
+  %.0.i.i.i.i.i.i.i.i = phi i32 [ %54, %53 ], [ %57, %56 ]
+  %59 = icmp eq i32 %.0.i.i.i.i.i.i.i.i, 1
+  br i1 %59, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, label %_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEED2Ev.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %59, %35
-  %61 = load ptr, ptr %29, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 24
-  %63 = load ptr, ptr %62, align 8
-  call void %63(ptr noundef nonnull align 8 dereferenceable(16) %29) #26
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %58, %34
+  %60 = load ptr, ptr %28, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  %62 = load ptr, ptr %61, align 8
+  call void %62(ptr noundef nonnull align 8 dereferenceable(16) %28) #26
   br label %_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEED2Ev.exit
 
-_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEED2Ev.exit: ; preds = %25, %46, %59, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
+_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEED2Ev.exit: ; preds = %24, %45, %58, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
   ret void
 
-64:                                               ; preds = %_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS2_.exit.i, %2
-  %65 = landingpad { ptr, i32 }
+63:                                               ; preds = %_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS2_.exit.i, %2
+  %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #26
-  resume { ptr, i32 } %65
+  resume { ptr, i32 } %64
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -46181,14 +46181,14 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.i.i, 
 define linkonce_odr hidden ptr @_ZN3fmt3v106detail11write_floatIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdEET0_SB_T1_NS0_12format_specsIT_EENS1_10locale_refE(ptr %out.coerce, double noundef %value, i64 %specs.coerce0, i64 %specs.coerce1, ptr %loc.coerce) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i22 = alloca %class.anon.375, align 8
-  %specs.i = alloca %"struct.fmt::v10::format_specs", align 8
+  %specs.i = alloca %"struct.fmt::v10::format_specs", align 16
   %ref.tmp.i = alloca %class.anon.374, align 8
-  %specs = alloca %"struct.fmt::v10::format_specs", align 8
+  %specs = alloca %"struct.fmt::v10::format_specs", align 16
   %ref.tmp = alloca %"struct.fmt::v10::detail::error_handler", align 1
   %buffer = alloca %"class.fmt::v10::basic_memory_buffer", align 8
   %ref.tmp63 = alloca %"class.std::allocator", align 1
   %f = alloca %"struct.fmt::v10::detail::big_decimal_fp", align 8
-  store i64 %specs.coerce0, ptr %specs, align 8
+  store i64 %specs.coerce0, ptr %specs, align 16
   %0 = getelementptr inbounds i8, ptr %specs, i64 8
   store i64 %specs.coerce1, ptr %0, align 8
   %call = call i64 @_ZN3fmt3v106detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_12format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -46223,13 +46223,11 @@ if.end20:                                         ; preds = %if.else, %if.then
 
 if.then22:                                        ; preds = %if.end20
   %cmp.i = fcmp uno double %value.addr.0, 0.000000e+00
-  %agg.tmp24.sroa.0.0.copyload = load i64, ptr %specs, align 8
-  %agg.tmp24.sroa.2.0.copyload = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  store i64 %agg.tmp24.sroa.0.0.copyload, ptr %specs.i, align 8
-  %6 = getelementptr inbounds i8, ptr %specs.i, i64 8
-  store i64 %agg.tmp24.sroa.2.0.copyload, ptr %6, align 8
+  %agg.tmp24.sroa.2.0.copyload = load i64, ptr %0, align 8
+  %6 = load <2 x i64>, ptr %specs, align 16
+  store <2 x i64> %6, ptr %specs.i, align 16
   %7 = and i64 %agg.tmp24.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %7, 72057594843234304
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt3v106detail15write_nonfiniteIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET0_SB_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit
@@ -46278,13 +46276,13 @@ if.then39:                                        ; preds = %if.end28
   %13 = load i8, ptr %arrayidx.i, align 1
   store i8 %13, ptr %add.ptr.i, align 1
   %bf.clear56 = and i32 %fspecs.sroa.5.0, -65281
-  %14 = load i32, ptr %specs, align 8
+  %14 = load i32, ptr %specs, align 16
   %cmp58.not = icmp eq i32 %14, 0
   br i1 %cmp58.not, label %if.end62, label %if.then59
 
 if.then59:                                        ; preds = %if.then39
   %dec = add nsw i32 %14, -1
-  store i32 %dec, ptr %specs, align 8
+  store i32 %dec, ptr %specs, align 16
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then39, %if.then59, %if.end28

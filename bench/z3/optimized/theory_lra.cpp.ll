@@ -9946,11 +9946,9 @@ common.resume:                                    ; preds = %lpad.body, %if.then
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyEvEEC2ERKS8_.exit: ; preds = %if.then.i53
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %explain_bound, i64 24
-  %35 = load ptr, ptr %_M_invoker4.i, align 8
-  store ptr %35, ptr %_M_invoker.i, align 8
+  %35 = load <2 x ptr>, ptr %_M_manager.i.i.i, align 8
   %36 = load ptr, ptr %_M_manager.i.i.i, align 8
-  store ptr %36, ptr %_M_manager.i.i, align 8
+  store <2 x ptr> %35, ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i)
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
@@ -10463,11 +10461,9 @@ terminate.lpad.i.i225:                            ; preds = %if.then.i.i223
   unreachable
 
 _ZNSt8functionIFPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyEvEEC2ERKS8_.exit229: ; preds = %if.then.i219
-  %_M_invoker4.i228 = getelementptr inbounds i8, ptr %explain_bound, i64 24
-  %111 = load ptr, ptr %_M_invoker4.i228, align 8
-  store ptr %111, ptr %_M_invoker.i216, align 8
+  %111 = load <2 x ptr>, ptr %_M_manager.i.i.i217, align 8
   %112 = load ptr, ptr %_M_manager.i.i.i217, align 8
-  store ptr %112, ptr %_M_manager.i.i215, align 8
+  store <2 x ptr> %111, ptr %_M_manager.i.i215, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i231)
   %_M_manager.i.i.i.i233 = getelementptr inbounds i8, ptr %ref.tmp.i.i231, i64 16
   %_M_invoker.i.i.i234 = getelementptr inbounds i8, ptr %ref.tmp.i.i231, i64 24
@@ -38418,7 +38414,7 @@ for.end:                                          ; preds = %_ZNK6vectorIPN6lp_a
 _ZNK6vectorIPN6lp_api5boundIN3sat7literalEEELb0EjE8capacityEv.exit.i.i.i: ; preds = %for.end
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %39, i64 -8
   %40 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
-  %41 = extractelement <2 x i32> %40, i64 0
+  %41 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %41 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 3
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 8
@@ -46343,7 +46339,7 @@ _ZN6vectorISt4pairIj8rationalELb1EjE7destroyEv.exit: ; preds = %if.end, %_ZN6vec
 _ZNK6vectorISt4pairIj8rationalELb1EjE8capacityEv.exit.i: ; preds = %_ZN6vectorISt4pairIj8rationalELb1EjE7destroyEv.exit
   %arrayidx.i11.i = getelementptr inbounds i8, ptr %6, i64 -8
   %7 = load <2 x i32>, ptr %arrayidx.i11.i, align 4
-  %8 = extractelement <2 x i32> %7, i64 0
+  %8 = load i32, ptr %arrayidx.i11.i, align 4
   %conv.i = zext i32 %8 to i64
   %mul.i = mul nuw nsw i64 %conv.i, 40
   %add.i = add nuw nsw i64 %mul.i, 8

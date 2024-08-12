@@ -3100,9 +3100,9 @@ declare i16 @_ZN2v86Object17DefineOwnPropertyENS_5LocalINS_7ContextEEENS1_INS_4N
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node6crypto12_GLOBAL__N_112SecureBufferERKN2v820FunctionCallbackInfoINS2_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #4 {
 entry:
-  %store = alloca %"class.std::shared_ptr.274", align 8
+  %store = alloca %"class.std::shared_ptr.274", align 16
   %ref.tmp25 = alloca %"class.std::unique_ptr.264", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.274", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.274", align 16
   %length_.i60 = getelementptr inbounds i8, ptr %args, i64 16
   %0 = load i32, ptr %length_.i60, align 8
   %cmp2.i61 = icmp slt i32 %0, 1
@@ -3209,17 +3209,16 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit: ; preds 
   store ptr null, ptr %ref.tmp25, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
   %25 = load ptr, ptr %isolate_.i, align 8
-  %26 = load ptr, ptr %store, align 8
-  store ptr %26, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %store, i64 8
-  %27 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %27, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %27, null
+  %26 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %27 = load <2 x ptr>, ptr %store, align 16
+  store <2 x ptr> %27, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %26, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %28, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

@@ -4294,20 +4294,20 @@ define hidden void @_ZNK5ceres8internal14DoglegStrategy27ComputeSubspaceStepFrom
   store double %30, ptr %18, align 16, !alias.scope !64
   %31 = getelementptr inbounds i8, ptr %6, i64 40
   %32 = getelementptr inbounds i8, ptr %6, i64 8
-  %33 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %12)
-  %34 = extractelement <2 x double> %33, i64 0
-  %35 = extractelement <2 x double> %33, i64 1
-  %36 = fcmp ogt double %35, %34
-  %.sroa.0.1.i.i.i.i.i.i.i.i.i = zext i1 %36 to i64
-  %.sroa.5.1.i.i.i.i.i.i.i.i.i = select i1 %36, double %35, double %34
-  %37 = zext i1 %36 to i32
-  store i32 %37, ptr %31, align 8, !alias.scope !64
-  %38 = fcmp une double %.sroa.5.1.i.i.i.i.i.i.i.i.i, 0.000000e+00
-  %39 = extractelement <2 x double> %12, i64 1
-  br i1 %38, label %40, label %_ZN5Eigen8internal18partial_lu_inplaceINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS_14TranspositionsILi2ELi2EiEEEEvRT_RT0_RNS8_12StorageIndexE.exit.i.i.i.i
+  %33 = extractelement <2 x double> %12, i64 1
+  %34 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %12)
+  %35 = extractelement <2 x double> %34, i64 0
+  %36 = extractelement <2 x double> %34, i64 1
+  %37 = fcmp ogt double %36, %35
+  %.sroa.0.1.i.i.i.i.i.i.i.i.i = zext i1 %37 to i64
+  %.sroa.5.1.i.i.i.i.i.i.i.i.i = select i1 %37, double %36, double %35
+  %38 = zext i1 %37 to i32
+  store i32 %38, ptr %31, align 8, !alias.scope !64
+  %39 = fcmp une double %.sroa.5.1.i.i.i.i.i.i.i.i.i, 0.000000e+00
+  br i1 %39, label %40, label %_ZN5Eigen8internal18partial_lu_inplaceINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS_14TranspositionsILi2ELi2EiEEEEvRT_RT0_RNS8_12StorageIndexE.exit.i.i.i.i
 
 40:                                               ; preds = %3
-  br i1 %36, label %41, label %50
+  br i1 %37, label %41, label %50
 
 41:                                               ; preds = %40
   %42 = getelementptr inbounds double, ptr %6, i64 %.sroa.0.1.i.i.i.i.i.i.i.i.i
@@ -4336,7 +4336,7 @@ define hidden void @_ZNK5ceres8internal14DoglegStrategy27ComputeSubspaceStepFrom
 
 _ZN5Eigen8internal18partial_lu_inplaceINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS_14TranspositionsILi2ELi2EiEEEEvRT_RT0_RNS8_12StorageIndexE.exit.i.i.i.i: ; preds = %50, %3
   %.1.i.i.i.i = phi i8 [ %51, %50 ], [ 1, %3 ]
-  %57 = phi double [ %56, %50 ], [ %39, %3 ]
+  %57 = phi double [ %56, %50 ], [ %33, %3 ]
   %58 = phi <2 x double> [ %52, %50 ], [ %17, %3 ]
   %59 = getelementptr inbounds i8, ptr %6, i64 24
   %60 = extractelement <2 x double> %58, i64 0

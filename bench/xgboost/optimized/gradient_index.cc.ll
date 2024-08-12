@@ -1267,18 +1267,18 @@ define void @_ZN7xgboost16GHistIndexMatrixC2EPKNS_7ContextEPNS_7DMatrixEidbNS_6c
   %11 = alloca %"class.xgboost::common::RefResourceView", align 8
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
-  %14 = alloca %"class.xgboost::BatchSet", align 8
-  %15 = alloca %"class.xgboost::BatchIterator", align 8
+  %14 = alloca %"class.xgboost::BatchSet", align 16
+  %15 = alloca %"class.xgboost::BatchIterator", align 16
   %16 = alloca %"class.xgboost::BatchIterator", align 8
   %17 = alloca %"class.xgboost::common::RefResourceView", align 8
   %18 = alloca i64, align 8
-  %19 = alloca %"class.xgboost::BatchSet", align 8
-  %20 = alloca %"class.xgboost::BatchIterator", align 8
+  %19 = alloca %"class.xgboost::BatchSet", align 16
+  %20 = alloca %"class.xgboost::BatchIterator", align 16
   %21 = alloca %"class.xgboost::BatchIterator", align 8
   %22 = alloca %"class.xgboost::common::Span.29", align 8
   %23 = alloca %"class.dmlc::LogMessageFatal", align 1
-  %24 = alloca %"class.xgboost::BatchSet", align 8
-  %25 = alloca %"class.xgboost::BatchIterator", align 8
+  %24 = alloca %"class.xgboost::BatchSet", align 16
+  %25 = alloca %"class.xgboost::BatchIterator", align 16
   %26 = alloca %"class.xgboost::BatchIterator", align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 104, i1 false)
@@ -1599,17 +1599,16 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %171, %169, %167, %1
 
 _ZN7xgboost7DMatrix10GetBatchesINS_10SparsePageEEENS_8BatchSetIT_EEv.exit: ; preds = %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  %175 = load ptr, ptr %14, align 8, !noalias !11
-  store ptr %175, ptr %15, align 8, !alias.scope !11
-  %176 = getelementptr inbounds i8, ptr %15, i64 8
-  %177 = getelementptr inbounds i8, ptr %14, i64 8
-  %178 = load ptr, ptr %177, align 8, !noalias !11
-  store ptr %178, ptr %176, align 8, !alias.scope !11
-  %.not.i.i.i.i.i59 = icmp eq ptr %178, null
+  %175 = getelementptr inbounds i8, ptr %15, i64 8
+  %176 = getelementptr inbounds i8, ptr %14, i64 8
+  %177 = load ptr, ptr %176, align 8, !noalias !11
+  %178 = load <2 x ptr>, ptr %14, align 16, !noalias !11
+  store <2 x ptr> %178, ptr %15, align 16, !alias.scope !11
+  %.not.i.i.i.i.i59 = icmp eq ptr %177, null
   br i1 %.not.i.i.i.i.i59, label %_ZN7xgboost8BatchSetINS_10SparsePageEE5beginEv.exit, label %179
 
 179:                                              ; preds = %_ZN7xgboost7DMatrix10GetBatchesINS_10SparsePageEEENS_8BatchSetIT_EEv.exit
-  %180 = getelementptr inbounds i8, ptr %178, i64 8
+  %180 = getelementptr inbounds i8, ptr %177, i64 8
   %181 = load i8, ptr @__libc_single_threaded, align 1, !noalias !11
   %.not.i.i.i.i.i.i60 = icmp eq i8 %181, 0
   br i1 %.not.i.i.i.i.i.i60, label %185, label %182
@@ -1718,7 +1717,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN7xgboost13BatchIteratorINS_10SparsePageEED2Ev.exit
 
 _ZN7xgboost13BatchIteratorINS_10SparsePageEED2Ev.exit: ; preds = %191, %210, %223, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i67
-  %228 = load ptr, ptr %176, align 8
+  %228 = load ptr, ptr %175, align 8
   %.not.i.i.i.i68 = icmp eq ptr %228, null
   br i1 %.not.i.i.i.i68, label %_ZN7xgboost13BatchIteratorINS_10SparsePageEED2Ev.exit74, label %229
 
@@ -1791,7 +1790,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN7xgboost13BatchIteratorINS_10SparsePageEED2Ev.exit74
 
 _ZN7xgboost13BatchIteratorINS_10SparsePageEED2Ev.exit74: ; preds = %_ZN7xgboost13BatchIteratorINS_10SparsePageEED2Ev.exit, %245, %258, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i73
-  %263 = load ptr, ptr %177, align 8
+  %263 = load ptr, ptr %176, align 8
   %.not.i.i.i.i.i75 = icmp eq ptr %263, null
   br i1 %.not.i.i.i.i.i75, label %_ZN7xgboost8BatchSetINS_10SparsePageEED2Ev.exit, label %264
 
@@ -2109,17 +2108,16 @@ _ZN7xgboost6common15RefResourceViewImED2Ev.exit96: ; preds = %_ZN7xgboost6common
 
 _ZN7xgboost7DMatrix10GetBatchesINS_10SparsePageEEENS_8BatchSetIT_EEv.exit100: ; preds = %410
   call void @llvm.experimental.noalias.scope.decl(metadata !25)
-  %420 = load ptr, ptr %19, align 8, !noalias !25
-  store ptr %420, ptr %20, align 8, !alias.scope !25
-  %421 = getelementptr inbounds i8, ptr %20, i64 8
-  %422 = getelementptr inbounds i8, ptr %19, i64 8
-  %423 = load ptr, ptr %422, align 8, !noalias !25
-  store ptr %423, ptr %421, align 8, !alias.scope !25
-  %.not.i.i.i.i.i101 = icmp eq ptr %423, null
+  %420 = getelementptr inbounds i8, ptr %20, i64 8
+  %421 = getelementptr inbounds i8, ptr %19, i64 8
+  %422 = load ptr, ptr %421, align 8, !noalias !25
+  %423 = load <2 x ptr>, ptr %19, align 16, !noalias !25
+  store <2 x ptr> %423, ptr %20, align 16, !alias.scope !25
+  %.not.i.i.i.i.i101 = icmp eq ptr %422, null
   br i1 %.not.i.i.i.i.i101, label %_ZN7xgboost8BatchSetINS_10SparsePageEE5beginEv.exit103, label %424
 
 424:                                              ; preds = %_ZN7xgboost7DMatrix10GetBatchesINS_10SparsePageEEENS_8BatchSetIT_EEv.exit100
-  %425 = getelementptr inbounds i8, ptr %423, i64 8
+  %425 = getelementptr inbounds i8, ptr %422, i64 8
   %426 = load i8, ptr @__libc_single_threaded, align 1, !noalias !25
   %.not.i.i.i.i.i.i102 = icmp eq i8 %426, 0
   br i1 %.not.i.i.i.i.i.i102, label %430, label %427
@@ -2231,7 +2229,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN7xgboost13BatchIteratorINS_10SparsePageEED2Ev.exit115
 
 _ZN7xgboost13BatchIteratorINS_10SparsePageEED2Ev.exit115: ; preds = %437, %456, %469, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i114
-  %474 = load ptr, ptr %421, align 8
+  %474 = load ptr, ptr %420, align 8
   %.not.i.i.i.i116 = icmp eq ptr %474, null
   br i1 %.not.i.i.i.i116, label %_ZN7xgboost13BatchIteratorINS_10SparsePageEED2Ev.exit122, label %475
 
@@ -2304,7 +2302,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN7xgboost13BatchIteratorINS_10SparsePageEED2Ev.exit122
 
 _ZN7xgboost13BatchIteratorINS_10SparsePageEED2Ev.exit122: ; preds = %_ZN7xgboost13BatchIteratorINS_10SparsePageEED2Ev.exit115, %491, %504, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i121
-  %509 = load ptr, ptr %422, align 8
+  %509 = load ptr, ptr %421, align 8
   %.not.i.i.i.i.i123 = icmp eq ptr %509, null
   br i1 %.not.i.i.i.i.i123, label %_ZN7xgboost8BatchSetINS_10SparsePageEED2Ev.exit129, label %510
 
@@ -2506,17 +2504,16 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit138: ; preds = %.noexc137, %_ZN4dm
 
 _ZN7xgboost7DMatrix10GetBatchesINS_10SparsePageEEENS_8BatchSetIT_EEv.exit140: ; preds = %581
   call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  %585 = load ptr, ptr %24, align 8, !noalias !37
-  store ptr %585, ptr %25, align 8, !alias.scope !37
-  %586 = getelementptr inbounds i8, ptr %25, i64 8
-  %587 = getelementptr inbounds i8, ptr %24, i64 8
-  %588 = load ptr, ptr %587, align 8, !noalias !37
-  store ptr %588, ptr %586, align 8, !alias.scope !37
-  %.not.i.i.i.i.i141 = icmp eq ptr %588, null
+  %585 = getelementptr inbounds i8, ptr %25, i64 8
+  %586 = getelementptr inbounds i8, ptr %24, i64 8
+  %587 = load ptr, ptr %586, align 8, !noalias !37
+  %588 = load <2 x ptr>, ptr %24, align 16, !noalias !37
+  store <2 x ptr> %588, ptr %25, align 16, !alias.scope !37
+  %.not.i.i.i.i.i141 = icmp eq ptr %587, null
   br i1 %.not.i.i.i.i.i141, label %_ZN7xgboost8BatchSetINS_10SparsePageEE5beginEv.exit143, label %589
 
 589:                                              ; preds = %_ZN7xgboost7DMatrix10GetBatchesINS_10SparsePageEEENS_8BatchSetIT_EEv.exit140
-  %590 = getelementptr inbounds i8, ptr %588, i64 8
+  %590 = getelementptr inbounds i8, ptr %587, i64 8
   %591 = load i8, ptr @__libc_single_threaded, align 1, !noalias !37
   %.not.i.i.i.i.i.i142 = icmp eq i8 %591, 0
   br i1 %.not.i.i.i.i.i.i142, label %595, label %592
@@ -2624,7 +2621,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN7xgboost13BatchIteratorINS_10SparsePageEED2Ev.exit155
 
 _ZN7xgboost13BatchIteratorINS_10SparsePageEED2Ev.exit155: ; preds = %601, %620, %633, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i154
-  %638 = load ptr, ptr %586, align 8
+  %638 = load ptr, ptr %585, align 8
   %.not.i.i.i.i156 = icmp eq ptr %638, null
   br i1 %.not.i.i.i.i156, label %_ZN7xgboost13BatchIteratorINS_10SparsePageEED2Ev.exit162, label %639
 
@@ -2697,7 +2694,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN7xgboost13BatchIteratorINS_10SparsePageEED2Ev.exit162
 
 _ZN7xgboost13BatchIteratorINS_10SparsePageEED2Ev.exit162: ; preds = %_ZN7xgboost13BatchIteratorINS_10SparsePageEED2Ev.exit155, %655, %668, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i161
-  %673 = load ptr, ptr %587, align 8
+  %673 = load ptr, ptr %586, align 8
   %.not.i.i.i.i.i163 = icmp eq ptr %673, null
   br i1 %.not.i.i.i.i.i163, label %_ZN7xgboost8BatchSetINS_10SparsePageEED2Ev.exit169, label %674
 
@@ -13181,18 +13178,17 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatImmEESt10unique_ptrINSt7__cxx1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7xgboost6common15RefResourceViewIhEC2EPhmSt10shared_ptrINS0_15ResourceHandlerEERKh(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %6 = alloca %"class.std::shared_ptr", align 8
-  %7 = load ptr, ptr %3, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %8, align 8
-  %.not.i.i.i = icmp eq ptr %10, null
+  %6 = alloca %"class.std::shared_ptr", align 16
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %10, ptr %6, align 16
+  %.not.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2ERKS3_.exit, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %13, 0
   br i1 %.not.i.i.i.i, label %17, label %14
@@ -13212,7 +13208,7 @@ _ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2ERKS3_.exit: ; preds = %5
           to label %19 unwind label %57
 
 19:                                               ; preds = %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2ERKS3_.exit
-  %20 = load ptr, ptr %8, align 8
+  %20 = load ptr, ptr %7, align 8
   %.not.i.i.i10 = icmp eq ptr %20, null
   br i1 %.not.i.i.i10, label %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEED2Ev.exit, label %21
 
@@ -21261,18 +21257,17 @@ _ZN7xgboost6common12ColumnMatrix12SetBinSparseIjjmEEvT0_T1_jPT_.exit: ; preds = 
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7xgboost6common15RefResourceViewImEC2EPmmSt10shared_ptrINS0_15ResourceHandlerEERKm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %6 = alloca %"class.std::shared_ptr", align 8
-  %7 = load ptr, ptr %3, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %8, align 8
-  %.not.i.i.i = icmp eq ptr %10, null
+  %6 = alloca %"class.std::shared_ptr", align 16
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %10, ptr %6, align 16
+  %.not.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2ERKS3_.exit, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %13, 0
   br i1 %.not.i.i.i.i, label %17, label %14
@@ -21292,7 +21287,7 @@ _ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2ERKS3_.exit: ; preds = %5
           to label %19 unwind label %60
 
 19:                                               ; preds = %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2ERKS3_.exit
-  %20 = load ptr, ptr %8, align 8
+  %20 = load ptr, ptr %7, align 8
   %.not.i.i.i10 = icmp eq ptr %20, null
   br i1 %.not.i.i.i10, label %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEED2Ev.exit, label %21
 

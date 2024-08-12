@@ -288,99 +288,99 @@ OGLVertexCache_FlushVertexCache.exit:             ; preds = %14, %16
   %46 = load ptr, ptr @vertexCache, align 8
   %47 = sext i32 %38 to i64
   %48 = getelementptr inbounds %struct._J2DVertex, ptr %46, i64 %47
+  %49 = extractelement <2 x float> %39, i64 0
+  %50 = extractelement <2 x float> %39, i64 1
   store <2 x float> %39, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 28
-  %50 = load i8, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %48, i64 8
-  store i8 %50, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %0, i64 29
-  %53 = load i8, ptr %52, align 1
-  %54 = getelementptr inbounds i8, ptr %48, i64 9
-  store i8 %53, ptr %54, align 1
-  %55 = getelementptr inbounds i8, ptr %0, i64 30
-  %56 = load i8, ptr %55, align 2
-  %57 = getelementptr inbounds i8, ptr %48, i64 10
-  store i8 %56, ptr %57, align 2
-  %58 = getelementptr inbounds i8, ptr %0, i64 31
-  %59 = load i8, ptr %58, align 1
-  %60 = getelementptr inbounds i8, ptr %48, i64 11
-  store i8 %59, ptr %60, align 1
-  %61 = getelementptr inbounds i8, ptr %48, i64 12
-  store <2 x float> %45, ptr %61, align 4
-  %62 = sext i32 %38 to i64
-  %63 = getelementptr %struct._J2DVertex, ptr %46, i64 %62
-  %64 = getelementptr i8, ptr %63, i64 20
-  %65 = getelementptr i8, ptr %63, i64 24
-  %66 = extractelement <2 x float> %39, i64 1
-  store float %66, ptr %65, align 4
-  %67 = getelementptr i8, ptr %63, i64 28
-  %68 = getelementptr i8, ptr %63, i64 29
-  %69 = getelementptr i8, ptr %63, i64 30
-  %70 = getelementptr i8, ptr %63, i64 31
-  %71 = getelementptr i8, ptr %63, i64 32
-  %72 = getelementptr i8, ptr %63, i64 36
-  %73 = sext i32 %38 to i64
-  %74 = getelementptr %struct._J2DVertex, ptr %46, i64 %73
-  %75 = getelementptr i8, ptr %74, i64 40
-  %76 = fmul <2 x float> %42, <float 3.906250e-03, float 7.812500e-03>
-  %77 = fadd <2 x float> %76, %39
-  %78 = extractelement <2 x float> %77, i64 0
-  store float %78, ptr %64, align 4
-  %79 = load i8, ptr %49, align 4
-  store i8 %79, ptr %67, align 4
-  %80 = load i8, ptr %52, align 1
-  store i8 %80, ptr %68, align 1
-  %81 = load i8, ptr %55, align 2
-  store i8 %81, ptr %69, align 2
-  %82 = load i8, ptr %58, align 1
-  store i8 %82, ptr %70, align 1
-  %83 = extractelement <2 x float> %45, i64 1
-  store float %83, ptr %72, align 4
-  store <2 x float> %77, ptr %75, align 4
-  %84 = getelementptr i8, ptr %74, i64 48
-  %85 = getelementptr i8, ptr %74, i64 49
-  %86 = getelementptr i8, ptr %74, i64 50
-  %87 = getelementptr i8, ptr %74, i64 51
-  %88 = getelementptr i8, ptr %74, i64 52
-  %89 = fadd <2 x float> %45, %42
-  %90 = extractelement <2 x float> %89, i64 0
-  store float %90, ptr %71, align 4
-  %91 = load i8, ptr %49, align 4
-  store i8 %91, ptr %84, align 4
-  %92 = load i8, ptr %52, align 1
-  store i8 %92, ptr %85, align 1
-  %93 = load i8, ptr %55, align 2
-  store i8 %93, ptr %86, align 2
-  %94 = load i8, ptr %58, align 1
+  %51 = getelementptr inbounds i8, ptr %0, i64 28
+  %52 = load i8, ptr %51, align 4
+  %53 = getelementptr inbounds i8, ptr %48, i64 8
+  store i8 %52, ptr %53, align 4
+  %54 = getelementptr inbounds i8, ptr %0, i64 29
+  %55 = load i8, ptr %54, align 1
+  %56 = getelementptr inbounds i8, ptr %48, i64 9
+  store i8 %55, ptr %56, align 1
+  %57 = getelementptr inbounds i8, ptr %0, i64 30
+  %58 = load i8, ptr %57, align 2
+  %59 = getelementptr inbounds i8, ptr %48, i64 10
+  store i8 %58, ptr %59, align 2
+  %60 = getelementptr inbounds i8, ptr %0, i64 31
+  %61 = load i8, ptr %60, align 1
+  %62 = getelementptr inbounds i8, ptr %48, i64 11
+  store i8 %61, ptr %62, align 1
+  %63 = getelementptr inbounds i8, ptr %48, i64 12
+  %64 = extractelement <2 x float> %45, i64 0
+  %65 = extractelement <2 x float> %45, i64 1
+  store <2 x float> %45, ptr %63, align 4
+  %66 = sext i32 %38 to i64
+  %67 = getelementptr %struct._J2DVertex, ptr %46, i64 %66
+  %68 = getelementptr i8, ptr %67, i64 20
+  %69 = getelementptr i8, ptr %67, i64 24
+  store float %50, ptr %69, align 4
+  %70 = getelementptr i8, ptr %67, i64 28
+  %71 = getelementptr i8, ptr %67, i64 29
+  %72 = getelementptr i8, ptr %67, i64 30
+  %73 = getelementptr i8, ptr %67, i64 31
+  %74 = getelementptr i8, ptr %67, i64 32
+  %75 = getelementptr i8, ptr %67, i64 36
+  %76 = sext i32 %38 to i64
+  %77 = getelementptr %struct._J2DVertex, ptr %46, i64 %76
+  %78 = getelementptr i8, ptr %77, i64 40
+  %79 = fmul <2 x float> %42, <float 3.906250e-03, float 7.812500e-03>
+  %80 = fadd <2 x float> %79, %39
+  %81 = extractelement <2 x float> %80, i64 0
+  store float %81, ptr %68, align 4
+  %82 = load i8, ptr %51, align 4
+  store i8 %82, ptr %70, align 4
+  %83 = load i8, ptr %54, align 1
+  store i8 %83, ptr %71, align 1
+  %84 = load i8, ptr %57, align 2
+  store i8 %84, ptr %72, align 2
+  %85 = load i8, ptr %60, align 1
+  store i8 %85, ptr %73, align 1
+  store float %65, ptr %75, align 4
+  store <2 x float> %80, ptr %78, align 4
+  %86 = getelementptr i8, ptr %77, i64 48
+  %87 = getelementptr i8, ptr %77, i64 49
+  %88 = getelementptr i8, ptr %77, i64 50
+  %89 = getelementptr i8, ptr %77, i64 51
+  %90 = getelementptr i8, ptr %77, i64 52
+  %91 = fadd <2 x float> %45, %42
+  %92 = extractelement <2 x float> %91, i64 0
+  store float %92, ptr %74, align 4
+  %93 = load i8, ptr %51, align 4
+  store i8 %93, ptr %86, align 4
+  %94 = load i8, ptr %54, align 1
   store i8 %94, ptr %87, align 1
-  store <2 x float> %89, ptr %88, align 4
-  %95 = add nsw i32 %38, 4
-  store i32 %95, ptr @vertexCacheIndex, align 4
-  %96 = sext i32 %38 to i64
-  %97 = getelementptr %struct._J2DVertex, ptr %46, i64 %96
-  %98 = getelementptr i8, ptr %97, i64 60
-  %99 = extractelement <2 x float> %39, i64 0
-  store float %99, ptr %98, align 4
-  %100 = getelementptr i8, ptr %97, i64 64
-  %101 = extractelement <2 x float> %77, i64 1
-  store float %101, ptr %100, align 4
-  %102 = load i8, ptr %49, align 4
-  %103 = getelementptr i8, ptr %97, i64 68
-  store i8 %102, ptr %103, align 4
-  %104 = load i8, ptr %52, align 1
-  %105 = getelementptr i8, ptr %97, i64 69
-  store i8 %104, ptr %105, align 1
-  %106 = load i8, ptr %55, align 2
-  %107 = getelementptr i8, ptr %97, i64 70
-  store i8 %106, ptr %107, align 2
-  %108 = load i8, ptr %58, align 1
-  %109 = getelementptr i8, ptr %97, i64 71
-  store i8 %108, ptr %109, align 1
-  %110 = getelementptr i8, ptr %97, i64 72
-  %111 = extractelement <2 x float> %45, i64 0
-  store float %111, ptr %110, align 4
-  %112 = getelementptr i8, ptr %97, i64 76
-  %113 = extractelement <2 x float> %89, i64 1
+  %95 = load i8, ptr %57, align 2
+  store i8 %95, ptr %88, align 2
+  %96 = load i8, ptr %60, align 1
+  store i8 %96, ptr %89, align 1
+  store <2 x float> %91, ptr %90, align 4
+  %97 = add nsw i32 %38, 4
+  store i32 %97, ptr @vertexCacheIndex, align 4
+  %98 = sext i32 %38 to i64
+  %99 = getelementptr %struct._J2DVertex, ptr %46, i64 %98
+  %100 = getelementptr i8, ptr %99, i64 60
+  store float %49, ptr %100, align 4
+  %101 = getelementptr i8, ptr %99, i64 64
+  %102 = extractelement <2 x float> %80, i64 1
+  store float %102, ptr %101, align 4
+  %103 = load i8, ptr %51, align 4
+  %104 = getelementptr i8, ptr %99, i64 68
+  store i8 %103, ptr %104, align 4
+  %105 = load i8, ptr %54, align 1
+  %106 = getelementptr i8, ptr %99, i64 69
+  store i8 %105, ptr %106, align 1
+  %107 = load i8, ptr %57, align 2
+  %108 = getelementptr i8, ptr %99, i64 70
+  store i8 %107, ptr %108, align 2
+  %109 = load i8, ptr %60, align 1
+  %110 = getelementptr i8, ptr %99, i64 71
+  store i8 %109, ptr %110, align 1
+  %111 = getelementptr i8, ptr %99, i64 72
+  store float %64, ptr %111, align 4
+  %112 = getelementptr i8, ptr %99, i64 76
+  %113 = extractelement <2 x float> %91, i64 1
   store float %113, ptr %112, align 4
   ret void
 }

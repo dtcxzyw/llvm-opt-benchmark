@@ -248,19 +248,18 @@ entry:
   store ptr null, ptr %agg.tmp, align 16, !tbaa !31
   %call_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
   %call_2.i = getelementptr inbounds i8, ptr %func, i64 48
-  %2 = load ptr, ptr %call_2.i, align 16, !tbaa !35
-  store ptr %2, ptr %call_.i, align 16, !tbaa !35
   %exec_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 56
   %exec_3.i = getelementptr inbounds i8, ptr %func, i64 56
-  %3 = load ptr, ptr %exec_3.i, align 8, !tbaa !38
-  store ptr %3, ptr %exec_.i, align 8, !tbaa !38
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i, align 16, !tbaa !35
-  store ptr null, ptr %exec_3.i, align 8, !tbaa !38
-  %tobool.not.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %exec_3.i, align 8, !tbaa !35
+  %3 = load <2 x ptr>, ptr %call_2.i, align 16, !tbaa !38
+  store <2 x ptr> %3, ptr %call_.i, align 16, !tbaa !38
+  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i, align 16, !tbaa !39
+  store ptr null, ptr %exec_3.i, align 8, !tbaa !35
+  %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %call.i.i = call noundef i64 %3(i32 noundef 0, ptr noundef nonnull %func, ptr noundef nonnull %agg.tmp) #11
+  %call.i.i = call noundef i64 %2(i32 noundef 0, ptr noundef nonnull %func, ptr noundef nonnull %agg.tmp) #11
   br label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
 
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %if.end.i.i, %entry
@@ -271,7 +270,7 @@ _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %if.end.i.i, %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
-  %5 = load ptr, ptr %exec_.i, align 8, !tbaa !38
+  %5 = load ptr, ptr %exec_.i, align 8, !tbaa !35
   %tobool.not.i.i4 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i4, label %_ZN5folly8FunctionIFvvEED2Ev.exit, label %if.end.i.i5
 
@@ -285,7 +284,7 @@ _ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %if.end.i.i5, %invok
 lpad:                                             ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = load ptr, ptr %exec_.i, align 8, !tbaa !38
+  %7 = load ptr, ptr %exec_.i, align 8, !tbaa !35
   %tobool.not.i.i8 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i8, label %_ZN5folly8FunctionIFvvEED2Ev.exit11, label %if.end.i.i9
 
@@ -432,7 +431,8 @@ attributes #15 = { noreturn }
 !32 = !{!9, !9, i64 0}
 !33 = !{!34, !10, i64 0}
 !34 = !{!"_ZTSZN5folly20ExecutorWithPriority6createENS_8Executor9KeepAliveIS1_EEaE3$_0", !10, i64 0}
-!35 = !{!36, !37, i64 48}
+!35 = !{!36, !37, i64 56}
 !36 = !{!"_ZTSN5folly8FunctionIFvvEEE", !10, i64 0, !37, i64 48, !37, i64 56}
 !37 = !{!"any pointer", !10, i64 0}
-!38 = !{!36, !37, i64 56}
+!38 = !{!37, !37, i64 0}
+!39 = !{!36, !37, i64 48}

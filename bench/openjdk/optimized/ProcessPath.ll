@@ -707,20 +707,22 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
   %106 = shufflevector <2 x float> %24, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   br label %107
 
-107:                                              ; preds = %.lr.ph, %488
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %488 ]
-  %.0281 = phi i32 [ 0, %.lr.ph ], [ %.1, %488 ]
-  %.0188279 = phi i8 [ 0, %.lr.ph ], [ %.1189, %488 ]
-  %.0190278 = phi i8 [ 0, %.lr.ph ], [ %.1191, %488 ]
-  %108 = phi <2 x float> [ %105, %.lr.ph ], [ %489, %488 ]
+107:                                              ; preds = %.lr.ph, %479
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %479 ]
+  %.0281 = phi i32 [ 0, %.lr.ph ], [ %.1, %479 ]
+  %.0188279 = phi i8 [ 0, %.lr.ph ], [ %.1189, %479 ]
+  %.0190278 = phi i8 [ 0, %.lr.ph ], [ %.1191, %479 ]
+  %.sroa.0.1276 = phi float [ %.sroa.13.0, %.lr.ph ], [ %.sroa.0.2, %479 ]
+  %.sroa.13.1274 = phi float [ %.sroa.13.0, %.lr.ph ], [ %.sroa.13.2, %479 ]
+  %108 = phi <2 x float> [ %105, %.lr.ph ], [ %480, %479 ]
   %109 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv
   %110 = load i8, ptr %109, align 1
-  switch i8 %110, label %488 [
+  switch i8 %110, label %479 [
     i8 0, label %111
-    i8 1, label %138
-    i8 2, label %154
-    i8 3, label %268
-    i8 4, label %475
+    i8 1, label %137
+    i8 2, label %152
+    i8 3, label %263
+    i8 4, label %468
   ]
 
 111:                                              ; preds = %107
@@ -733,537 +735,536 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
   %114 = and i8 %.0188279, 1
   %.not216217 = icmp eq i8 %114, 0
   %.not216 = select i1 %.not215, i1 true, i1 %.not216217
-  br i1 %.not216, label %128, label %115
+  br i1 %.not216, label %126, label %115
 
 115:                                              ; preds = %113
   %116 = load i32, ptr %103, align 4
   %117 = icmp eq i32 %116, 1
-  br i1 %117, label %118, label %126
+  br i1 %117, label %118, label %124
 
 118:                                              ; preds = %115
   %119 = load float, ptr %14, align 16
-  %120 = extractelement <2 x float> %108, i64 0
-  %121 = fcmp une float %119, %120
-  %122 = load float, ptr %81, align 4
-  %123 = extractelement <2 x float> %108, i64 1
-  %124 = fcmp une float %122, %123
-  %or.cond254 = select i1 %121, i1 true, i1 %124
-  br i1 %or.cond254, label %125, label %126
+  %120 = fcmp une float %119, %.sroa.0.1276
+  %121 = load float, ptr %81, align 4
+  %122 = fcmp une float %121, %.sroa.13.1274
+  %or.cond254 = select i1 %120, i1 true, i1 %122
+  br i1 %or.cond254, label %123, label %124
 
-125:                                              ; preds = %118
-  call fastcc void @ProcessLine(ptr noundef nonnull %0, float %119, float %122, float %120, float %123, ptr noundef nonnull %15)
+123:                                              ; preds = %118
+  call fastcc void @ProcessLine(ptr noundef nonnull %0, float %119, float %121, float %.sroa.0.1276, float %.sroa.13.1274, ptr noundef nonnull %15)
+  br label %124
+
+124:                                              ; preds = %118, %123, %115
+  %125 = load ptr, ptr %82, align 8
+  call void %125(ptr noundef nonnull %0) #12
   br label %126
 
-126:                                              ; preds = %118, %125, %115
-  %127 = load ptr, ptr %82, align 8
-  call void %127(ptr noundef nonnull %0) #12
-  br label %128
+126:                                              ; preds = %124, %113
+  %127 = sext i32 %.0281 to i64
+  %128 = getelementptr inbounds float, ptr %3, i64 %127
+  %129 = load <2 x float>, ptr %128, align 4
+  %130 = fadd <2 x float> %24, %129
+  %131 = extractelement <2 x float> %130, i64 1
+  %132 = extractelement <2 x float> %130, i64 0
+  store <2 x float> %130, ptr %14, align 16
+  %133 = call float @llvm.fabs.f32(float %132)
+  %or.cond = fcmp olt float %133, 0x47CFFFFFE0000000
+  %134 = call float @llvm.fabs.f32(float %131)
+  %135 = fcmp olt float %134, 0x47CFFFFFE0000000
+  %or.cond8 = select i1 %or.cond, i1 %135, i1 false
+  br i1 %or.cond8, label %136, label %479
 
-128:                                              ; preds = %126, %113
-  %129 = sext i32 %.0281 to i64
-  %130 = getelementptr inbounds float, ptr %3, i64 %129
-  %131 = load <2 x float>, ptr %130, align 4
-  %132 = fadd <2 x float> %24, %131
-  store <2 x float> %132, ptr %14, align 16
-  %133 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %132)
-  %134 = fcmp olt <2 x float> %133, <float 0x47CFFFFFE0000000, float 0x47CFFFFFE0000000>
-  %135 = extractelement <2 x i1> %134, i64 0
-  %136 = extractelement <2 x i1> %134, i64 1
-  %or.cond8 = select i1 %135, i1 %136, i1 false
-  br i1 %or.cond8, label %137, label %488
+136:                                              ; preds = %126
+  br label %479
 
-137:                                              ; preds = %128
-  br label %488
+137:                                              ; preds = %107
+  %138 = add nsw i32 %.0281, 2
+  %.not212 = icmp sgt i32 %138, %4
+  br i1 %.not212, label %.loopexit, label %139
 
-138:                                              ; preds = %107
-  %139 = add nsw i32 %.0281, 2
-  %.not212 = icmp sgt i32 %139, %4
-  br i1 %.not212, label %.loopexit, label %140
+139:                                              ; preds = %137
+  %140 = sext i32 %.0281 to i64
+  %141 = getelementptr inbounds float, ptr %3, i64 %140
+  %142 = load <2 x float>, ptr %141, align 4
+  %143 = fadd <2 x float> %24, %142
+  %144 = extractelement <2 x float> %143, i64 1
+  %145 = extractelement <2 x float> %143, i64 0
+  store <2 x float> %143, ptr %83, align 8
+  %146 = call float @llvm.fabs.f32(float %145)
+  %or.cond10 = fcmp olt float %146, 0x47CFFFFFE0000000
+  %147 = call float @llvm.fabs.f32(float %144)
+  %148 = fcmp olt float %147, 0x47CFFFFFE0000000
+  %or.cond14 = select i1 %or.cond10, i1 %148, i1 false
+  br i1 %or.cond14, label %149, label %479
 
-140:                                              ; preds = %138
-  %141 = sext i32 %.0281 to i64
-  %142 = getelementptr inbounds float, ptr %3, i64 %141
-  %143 = load <2 x float>, ptr %142, align 4
-  %144 = fadd <2 x float> %24, %143
-  store <2 x float> %144, ptr %83, align 8
-  %145 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %144)
-  %146 = fcmp olt <2 x float> %145, <float 0x47CFFFFFE0000000, float 0x47CFFFFFE0000000>
-  %147 = extractelement <2 x i1> %146, i64 0
-  %148 = extractelement <2 x i1> %146, i64 1
-  %or.cond14 = select i1 %147, i1 %148, i1 false
-  br i1 %or.cond14, label %149, label %488
-
-149:                                              ; preds = %140
+149:                                              ; preds = %139
   %.not213 = icmp eq i8 %.0190278, 0
   br i1 %.not213, label %151, label %150
 
 150:                                              ; preds = %149
-  store <2 x float> %144, ptr %14, align 16
-  br label %488
+  store <2 x float> %143, ptr %14, align 16
+  br label %479
 
 151:                                              ; preds = %149
   %.val221 = load float, ptr %14, align 16
   %.val222 = load float, ptr %81, align 4
-  %152 = extractelement <2 x float> %144, i64 0
-  %153 = extractelement <2 x float> %144, i64 1
-  call fastcc void @ProcessLine(ptr noundef %0, float %.val221, float %.val222, float %152, float %153, ptr noundef nonnull %15)
-  store <2 x float> %144, ptr %14, align 16
-  br label %488
+  call fastcc void @ProcessLine(ptr noundef %0, float %.val221, float %.val222, float %145, float %144, ptr noundef nonnull %15)
+  store <2 x float> %143, ptr %14, align 16
+  br label %479
 
-154:                                              ; preds = %107
-  %155 = add nsw i32 %.0281, 4
-  %.not210 = icmp sgt i32 %155, %4
-  br i1 %.not210, label %.loopexit, label %156
+152:                                              ; preds = %107
+  %153 = add nsw i32 %.0281, 4
+  %.not210 = icmp sgt i32 %153, %4
+  br i1 %.not210, label %.loopexit, label %154
 
-156:                                              ; preds = %154
-  %157 = sext i32 %.0281 to i64
-  %158 = getelementptr inbounds float, ptr %3, i64 %157
-  %159 = load <2 x float>, ptr %158, align 4
-  %160 = fadd <2 x float> %24, %159
-  %161 = getelementptr i8, ptr %158, i64 8
-  %162 = load <2 x float>, ptr %161, align 4
-  %163 = fadd <2 x float> %24, %162
-  %164 = shufflevector <2 x float> %160, <2 x float> %163, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+154:                                              ; preds = %152
+  %155 = sext i32 %.0281 to i64
+  %156 = getelementptr inbounds float, ptr %3, i64 %155
+  %157 = load <2 x float>, ptr %156, align 4
+  %158 = fadd <2 x float> %24, %157
+  %159 = getelementptr i8, ptr %156, i64 8
+  %160 = load <2 x float>, ptr %159, align 4
+  %161 = fadd <2 x float> %24, %160
+  %162 = extractelement <2 x float> %161, i64 1
+  %163 = extractelement <2 x float> %161, i64 0
+  %164 = shufflevector <2 x float> %158, <2 x float> %161, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   store <4 x float> %164, ptr %83, align 8
-  %165 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %163)
-  %166 = fcmp olt <2 x float> %165, <float 0x47CFFFFFE0000000, float 0x47CFFFFFE0000000>
-  %167 = extractelement <2 x i1> %166, i64 0
-  %168 = extractelement <2 x i1> %166, i64 1
-  %or.cond20 = select i1 %167, i1 %168, i1 false
-  br i1 %or.cond20, label %169, label %488
+  %165 = call float @llvm.fabs.f32(float %163)
+  %or.cond16 = fcmp olt float %165, 0x47CFFFFFE0000000
+  %166 = call float @llvm.fabs.f32(float %162)
+  %167 = fcmp olt float %166, 0x47CFFFFFE0000000
+  %or.cond20 = select i1 %or.cond16, i1 %167, i1 false
+  br i1 %or.cond20, label %168, label %479
 
-169:                                              ; preds = %156
+168:                                              ; preds = %154
   %.not211 = icmp eq i8 %.0190278, 0
-  br i1 %.not211, label %171, label %170
+  br i1 %.not211, label %170, label %169
 
-170:                                              ; preds = %169
-  store <2 x float> %163, ptr %14, align 16
-  br label %488
+169:                                              ; preds = %168
+  store <2 x float> %161, ptr %14, align 16
+  br label %479
 
-171:                                              ; preds = %169
-  %172 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %160)
-  %173 = fcmp olt <2 x float> %172, <float 0x47CFFFFFE0000000, float 0x47CFFFFFE0000000>
-  %174 = extractelement <2 x i1> %173, i64 0
-  %175 = extractelement <2 x i1> %173, i64 1
-  %or.cond29 = select i1 %174, i1 %175, i1 false
-  %176 = load float, ptr %14, align 16
-  br i1 %or.cond29, label %177, label %264
+170:                                              ; preds = %168
+  %171 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %158)
+  %172 = fcmp olt <2 x float> %171, <float 0x47CFFFFFE0000000, float 0x47CFFFFFE0000000>
+  %173 = extractelement <2 x i1> %172, i64 0
+  %174 = extractelement <2 x i1> %172, i64 1
+  %or.cond29 = select i1 %173, i1 %174, i1 false
+  %175 = load float, ptr %14, align 16
+  br i1 %or.cond29, label %176, label %261
 
-177:                                              ; preds = %171
-  %178 = extractelement <2 x float> %160, i64 0
-  %179 = fcmp ogt float %176, %178
-  %180 = extractelement <2 x float> %163, i64 0
-  %181 = fcmp ogt float %178, %180
-  %or.cond255 = select i1 %179, i1 true, i1 %181
-  br i1 %or.cond255, label %182, label %196
+176:                                              ; preds = %170
+  %177 = extractelement <2 x float> %158, i64 0
+  %178 = fcmp ogt float %175, %177
+  %179 = fcmp ogt float %177, %163
+  %or.cond255 = select i1 %178, i1 true, i1 %179
+  br i1 %or.cond255, label %180, label %194
 
-182:                                              ; preds = %177
-  %183 = fcmp olt float %176, %178
-  %184 = fcmp olt float %178, %180
-  %or.cond92.i = select i1 %183, i1 true, i1 %184
-  br i1 %or.cond92.i, label %._crit_edge.i, label %196
+180:                                              ; preds = %176
+  %181 = fcmp olt float %175, %177
+  %182 = fcmp olt float %177, %163
+  %or.cond92.i = select i1 %181, i1 true, i1 %182
+  br i1 %or.cond92.i, label %._crit_edge.i, label %194
 
-._crit_edge.i:                                    ; preds = %182
-  %185 = call float @llvm.fmuladd.f32(float %178, float -2.000000e+00, float %176)
-  %186 = fadd float %180, %185
-  %187 = fcmp une float %186, 0.000000e+00
-  br i1 %187, label %188, label %196
+._crit_edge.i:                                    ; preds = %180
+  %183 = call float @llvm.fmuladd.f32(float %177, float -2.000000e+00, float %175)
+  %184 = fadd float %163, %183
+  %185 = fcmp une float %184, 0.000000e+00
+  br i1 %185, label %186, label %194
 
-188:                                              ; preds = %._crit_edge.i
-  %189 = fpext float %186 to double
-  %190 = fsub float %176, %178
-  %191 = fpext float %190 to double
-  %192 = fdiv double %191, %189
-  %193 = fcmp olt double %192, 1.000000e+00
-  %194 = fcmp ogt double %192, 0.000000e+00
-  %or.cond.i = and i1 %193, %194
-  br i1 %or.cond.i, label %195, label %196
+186:                                              ; preds = %._crit_edge.i
+  %187 = fpext float %184 to double
+  %188 = fsub float %175, %177
+  %189 = fpext float %188 to double
+  %190 = fdiv double %189, %187
+  %191 = fcmp olt double %190, 1.000000e+00
+  %192 = fcmp ogt double %190, 0.000000e+00
+  %or.cond.i = and i1 %191, %192
+  br i1 %or.cond.i, label %193, label %194
 
-195:                                              ; preds = %188
-  br label %196
+193:                                              ; preds = %186
+  br label %194
 
-196:                                              ; preds = %177, %195, %188, %._crit_edge.i, %182
-  %.sroa.0.0.i = phi double [ %192, %195 ], [ undef, %188 ], [ undef, %._crit_edge.i ], [ undef, %182 ], [ undef, %177 ]
-  %197 = phi i1 [ true, %195 ], [ false, %188 ], [ false, %._crit_edge.i ], [ false, %182 ], [ false, %177 ]
-  %198 = load float, ptr %81, align 4
-  %199 = extractelement <2 x float> %160, i64 1
-  %200 = fcmp ogt float %198, %199
-  %201 = extractelement <2 x float> %163, i64 1
-  %202 = fcmp ogt float %199, %201
-  %or.cond256 = select i1 %200, i1 true, i1 %202
-  br i1 %or.cond256, label %203, label %221
+194:                                              ; preds = %176, %193, %186, %._crit_edge.i, %180
+  %.sroa.0.0.i = phi double [ %190, %193 ], [ undef, %186 ], [ undef, %._crit_edge.i ], [ undef, %180 ], [ undef, %176 ]
+  %195 = phi i1 [ true, %193 ], [ false, %186 ], [ false, %._crit_edge.i ], [ false, %180 ], [ false, %176 ]
+  %196 = load float, ptr %81, align 4
+  %197 = extractelement <2 x float> %158, i64 1
+  %198 = fcmp ogt float %196, %197
+  %199 = fcmp ogt float %197, %162
+  %or.cond256 = select i1 %198, i1 true, i1 %199
+  br i1 %or.cond256, label %200, label %218
 
-203:                                              ; preds = %196
-  %204 = fcmp olt float %198, %199
-  %205 = fcmp olt float %199, %201
-  %or.cond93.i = select i1 %204, i1 true, i1 %205
-  br i1 %or.cond93.i, label %._crit_edge89.i, label %221
+200:                                              ; preds = %194
+  %201 = fcmp olt float %196, %197
+  %202 = fcmp olt float %197, %162
+  %or.cond93.i = select i1 %201, i1 true, i1 %202
+  br i1 %or.cond93.i, label %._crit_edge89.i, label %218
 
-._crit_edge89.i:                                  ; preds = %203
-  %206 = call float @llvm.fmuladd.f32(float %199, float -2.000000e+00, float %198)
-  %207 = fadd float %201, %206
-  %208 = fcmp une float %207, 0.000000e+00
-  br i1 %208, label %209, label %221
+._crit_edge89.i:                                  ; preds = %200
+  %203 = call float @llvm.fmuladd.f32(float %197, float -2.000000e+00, float %196)
+  %204 = fadd float %162, %203
+  %205 = fcmp une float %204, 0.000000e+00
+  br i1 %205, label %206, label %218
 
-209:                                              ; preds = %._crit_edge89.i
-  %210 = fpext float %207 to double
-  %211 = fsub float %198, %199
-  %212 = fpext float %211 to double
-  %213 = fdiv double %212, %210
-  %214 = fcmp olt double %213, 1.000000e+00
-  %215 = fcmp ogt double %213, 0.000000e+00
-  %or.cond3.i = and i1 %214, %215
-  br i1 %or.cond3.i, label %216, label %221
+206:                                              ; preds = %._crit_edge89.i
+  %207 = fpext float %204 to double
+  %208 = fsub float %196, %197
+  %209 = fpext float %208 to double
+  %210 = fdiv double %209, %207
+  %211 = fcmp olt double %210, 1.000000e+00
+  %212 = fcmp ogt double %210, 0.000000e+00
+  %or.cond3.i = and i1 %211, %212
+  br i1 %or.cond3.i, label %213, label %218
 
-216:                                              ; preds = %209
-  br i1 %197, label %217, label %.thread84.i
+213:                                              ; preds = %206
+  br i1 %195, label %214, label %.thread84.i
 
-217:                                              ; preds = %216
-  %218 = fcmp ogt double %.sroa.0.0.i, %213
-  br i1 %218, label %.thread.i, label %219
+214:                                              ; preds = %213
+  %215 = fcmp ogt double %.sroa.0.0.i, %210
+  br i1 %215, label %.thread.i, label %216
 
-219:                                              ; preds = %217
-  %220 = fcmp olt double %.sroa.0.0.i, %213
-  br i1 %220, label %.thread.i, label %.thread84.i
+216:                                              ; preds = %214
+  %217 = fcmp olt double %.sroa.0.0.i, %210
+  br i1 %217, label %.thread.i, label %.thread84.i
 
-221:                                              ; preds = %196, %209, %._crit_edge89.i, %203
-  br i1 %197, label %.thread84.i, label %ProcessQuad.exit
+218:                                              ; preds = %194, %206, %._crit_edge89.i, %200
+  br i1 %195, label %.thread84.i, label %ProcessQuad.exit
 
-.thread84.i:                                      ; preds = %221, %219, %216
-  %.sroa.0.188.i = phi double [ %.sroa.0.0.i, %221 ], [ %213, %216 ], [ %.sroa.0.0.i, %219 ]
-  %222 = fptrunc double %.sroa.0.188.i to float
+.thread84.i:                                      ; preds = %218, %216, %213
+  %.sroa.0.188.i = phi double [ %.sroa.0.0.i, %218 ], [ %210, %213 ], [ %.sroa.0.0.i, %216 ]
+  %219 = fptrunc double %.sroa.0.188.i to float
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
-  store float %176, ptr %13, align 16
-  store float %198, ptr %95, align 4
-  %223 = insertelement <2 x float> poison, float %176, i64 0
-  %224 = insertelement <2 x float> %223, float %198, i64 1
-  %225 = fsub <2 x float> %160, %224
-  %226 = insertelement <2 x float> poison, float %222, i64 0
-  %227 = shufflevector <2 x float> %226, <2 x float> poison, <2 x i32> zeroinitializer
-  %228 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %227, <2 x float> %225, <2 x float> %224)
-  store <2 x float> %228, ptr %96, align 8
-  %229 = fsub <2 x float> %163, %160
-  %230 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %227, <2 x float> %229, <2 x float> %160)
-  %231 = fsub <2 x float> %230, %228
-  %232 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %227, <2 x float> %231, <2 x float> %228)
-  store <2 x float> %232, ptr %97, align 16
-  %233 = shufflevector <2 x float> %232, <2 x float> %230, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x float> %233, ptr %14, align 16
+  store float %175, ptr %13, align 16
+  store float %196, ptr %95, align 4
+  %220 = insertelement <2 x float> poison, float %175, i64 0
+  %221 = insertelement <2 x float> %220, float %196, i64 1
+  %222 = fsub <2 x float> %158, %221
+  %223 = insertelement <2 x float> poison, float %219, i64 0
+  %224 = shufflevector <2 x float> %223, <2 x float> poison, <2 x i32> zeroinitializer
+  %225 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %224, <2 x float> %222, <2 x float> %221)
+  store <2 x float> %225, ptr %96, align 8
+  %226 = fsub <2 x float> %161, %158
+  %227 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %224, <2 x float> %226, <2 x float> %158)
+  %228 = fsub <2 x float> %227, %225
+  %229 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %224, <2 x float> %228, <2 x float> %225)
+  store <2 x float> %229, ptr %97, align 16
+  %230 = shufflevector <2 x float> %229, <2 x float> %227, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  store <4 x float> %230, ptr %14, align 16
   call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br label %ProcessQuad.exit
 
-.thread.i:                                        ; preds = %219, %217
-  %.sroa.0.181.i = phi double [ %213, %217 ], [ %.sroa.0.0.i, %219 ]
-  %.sroa.6.080.i = phi double [ %.sroa.0.0.i, %217 ], [ %213, %219 ]
-  %234 = fptrunc double %.sroa.0.181.i to float
+.thread.i:                                        ; preds = %216, %214
+  %.sroa.0.181.i = phi double [ %210, %214 ], [ %.sroa.0.0.i, %216 ]
+  %.sroa.6.080.i = phi double [ %.sroa.0.0.i, %214 ], [ %210, %216 ]
+  %231 = fptrunc double %.sroa.0.181.i to float
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
-  store float %176, ptr %12, align 16
-  store float %198, ptr %98, align 4
-  %235 = insertelement <2 x float> poison, float %176, i64 0
-  %236 = insertelement <2 x float> %235, float %198, i64 1
-  %237 = fsub <2 x float> %160, %236
-  %238 = insertelement <2 x float> poison, float %234, i64 0
-  %239 = shufflevector <2 x float> %238, <2 x float> poison, <2 x i32> zeroinitializer
-  %240 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %239, <2 x float> %237, <2 x float> %236)
-  store <2 x float> %240, ptr %99, align 8
-  %241 = fsub <2 x float> %163, %160
-  %242 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %239, <2 x float> %241, <2 x float> %160)
-  %243 = fsub <2 x float> %242, %240
-  %244 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %239, <2 x float> %243, <2 x float> %240)
-  store <2 x float> %244, ptr %100, align 16
-  %245 = shufflevector <2 x float> %244, <2 x float> %242, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x float> %245, ptr %14, align 16
+  store float %175, ptr %12, align 16
+  store float %196, ptr %98, align 4
+  %232 = insertelement <2 x float> poison, float %175, i64 0
+  %233 = insertelement <2 x float> %232, float %196, i64 1
+  %234 = fsub <2 x float> %158, %233
+  %235 = insertelement <2 x float> poison, float %231, i64 0
+  %236 = shufflevector <2 x float> %235, <2 x float> poison, <2 x i32> zeroinitializer
+  %237 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %236, <2 x float> %234, <2 x float> %233)
+  store <2 x float> %237, ptr %99, align 8
+  %238 = fsub <2 x float> %161, %158
+  %239 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %236, <2 x float> %238, <2 x float> %158)
+  %240 = fsub <2 x float> %239, %237
+  %241 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %236, <2 x float> %240, <2 x float> %237)
+  store <2 x float> %241, ptr %100, align 16
+  %242 = shufflevector <2 x float> %241, <2 x float> %239, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  store <4 x float> %242, ptr %14, align 16
   call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  %246 = fsub double %.sroa.6.080.i, %.sroa.0.181.i
-  %247 = fcmp ogt double %246, 0.000000e+00
-  br i1 %247, label %248, label %ProcessQuad.exit
+  %243 = fsub double %.sroa.6.080.i, %.sroa.0.181.i
+  %244 = fcmp ogt double %243, 0.000000e+00
+  br i1 %244, label %245, label %ProcessQuad.exit
 
-248:                                              ; preds = %.thread.i
-  %249 = fsub double 1.000000e+00, %.sroa.0.181.i
-  %250 = fdiv double %246, %249
-  %251 = fptrunc double %250 to float
+245:                                              ; preds = %.thread.i
+  %246 = fsub double 1.000000e+00, %.sroa.0.181.i
+  %247 = fdiv double %243, %246
+  %248 = fptrunc double %247 to float
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  %252 = load <2 x float>, ptr %14, align 16
-  store <2 x float> %252, ptr %11, align 16
-  %253 = load <2 x float>, ptr %83, align 8
-  %254 = fsub <2 x float> %253, %252
-  %255 = insertelement <2 x float> poison, float %251, i64 0
-  %256 = shufflevector <2 x float> %255, <2 x float> poison, <2 x i32> zeroinitializer
-  %257 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %256, <2 x float> %254, <2 x float> %252)
-  store <2 x float> %257, ptr %101, align 8
-  %258 = load <2 x float>, ptr %85, align 16
-  %259 = fsub <2 x float> %258, %253
-  %260 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %256, <2 x float> %259, <2 x float> %253)
-  %261 = fsub <2 x float> %260, %257
-  %262 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %256, <2 x float> %261, <2 x float> %257)
-  store <2 x float> %262, ptr %102, align 16
-  %263 = shufflevector <2 x float> %262, <2 x float> %260, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x float> %263, ptr %14, align 16
+  %249 = load <2 x float>, ptr %14, align 16
+  store <2 x float> %249, ptr %11, align 16
+  %250 = load <2 x float>, ptr %83, align 8
+  %251 = fsub <2 x float> %250, %249
+  %252 = insertelement <2 x float> poison, float %248, i64 0
+  %253 = shufflevector <2 x float> %252, <2 x float> poison, <2 x i32> zeroinitializer
+  %254 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %253, <2 x float> %251, <2 x float> %249)
+  store <2 x float> %254, ptr %101, align 8
+  %255 = load <2 x float>, ptr %85, align 16
+  %256 = fsub <2 x float> %255, %250
+  %257 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %253, <2 x float> %256, <2 x float> %250)
+  %258 = fsub <2 x float> %257, %254
+  %259 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %253, <2 x float> %258, <2 x float> %254)
+  store <2 x float> %259, ptr %102, align 16
+  %260 = shufflevector <2 x float> %259, <2 x float> %257, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  store <4 x float> %260, ptr %14, align 16
   call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %ProcessQuad.exit
 
-ProcessQuad.exit:                                 ; preds = %221, %.thread84.i, %.thread.i, %248
+ProcessQuad.exit:                                 ; preds = %218, %.thread84.i, %.thread.i, %245
   call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %15)
-  br label %267
+  br label %262
 
-264:                                              ; preds = %171
+261:                                              ; preds = %170
   %.val226 = load float, ptr %81, align 4
-  %265 = extractelement <2 x float> %163, i64 0
-  %266 = extractelement <2 x float> %163, i64 1
-  call fastcc void @ProcessLine(ptr noundef %0, float %176, float %.val226, float %265, float %266, ptr noundef nonnull %15)
-  br label %267
+  call fastcc void @ProcessLine(ptr noundef %0, float %175, float %.val226, float %163, float %162, ptr noundef nonnull %15)
+  br label %262
 
-267:                                              ; preds = %264, %ProcessQuad.exit
-  store <2 x float> %163, ptr %14, align 16
-  br label %488
+262:                                              ; preds = %261, %ProcessQuad.exit
+  store <2 x float> %161, ptr %14, align 16
+  br label %479
 
-268:                                              ; preds = %107
-  %269 = add nsw i32 %.0281, 6
-  %.not208 = icmp sgt i32 %269, %4
-  br i1 %.not208, label %.loopexit, label %270
+263:                                              ; preds = %107
+  %264 = add nsw i32 %.0281, 6
+  %.not208 = icmp sgt i32 %264, %4
+  br i1 %.not208, label %.loopexit, label %265
 
-270:                                              ; preds = %268
-  %271 = sext i32 %.0281 to i64
-  %272 = getelementptr inbounds float, ptr %3, i64 %271
-  %273 = load <4 x float>, ptr %272, align 4
-  %274 = fadd <4 x float> %106, %273
-  %.fr294 = freeze <4 x float> %274
+265:                                              ; preds = %263
+  %266 = sext i32 %.0281 to i64
+  %267 = getelementptr inbounds float, ptr %3, i64 %266
+  %268 = load <4 x float>, ptr %267, align 4
+  %269 = fadd <4 x float> %106, %268
+  %.fr294 = freeze <4 x float> %269
   store <4 x float> %.fr294, ptr %83, align 8
-  %275 = getelementptr i8, ptr %272, i64 16
-  %276 = load <2 x float>, ptr %275, align 4
-  %277 = fadd <2 x float> %24, %276
-  store <2 x float> %277, ptr %87, align 8
-  %278 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %277)
-  %279 = fcmp olt <2 x float> %278, <float 0x47CFFFFFE0000000, float 0x47CFFFFFE0000000>
-  %280 = extractelement <2 x i1> %279, i64 0
-  %281 = extractelement <2 x i1> %279, i64 1
-  %or.cond35 = select i1 %280, i1 %281, i1 false
-  br i1 %or.cond35, label %282, label %488
+  %270 = getelementptr i8, ptr %267, i64 16
+  %271 = load <2 x float>, ptr %270, align 4
+  %272 = fadd <2 x float> %24, %271
+  %273 = extractelement <2 x float> %272, i64 1
+  %274 = extractelement <2 x float> %272, i64 0
+  store <2 x float> %272, ptr %87, align 8
+  %275 = call float @llvm.fabs.f32(float %274)
+  %or.cond31 = fcmp olt float %275, 0x47CFFFFFE0000000
+  %276 = call float @llvm.fabs.f32(float %273)
+  %277 = fcmp olt float %276, 0x47CFFFFFE0000000
+  %or.cond35 = select i1 %or.cond31, i1 %277, i1 false
+  br i1 %or.cond35, label %278, label %479
 
-282:                                              ; preds = %270
+278:                                              ; preds = %265
   %.not209 = icmp eq i8 %.0190278, 0
-  br i1 %.not209, label %284, label %283
+  br i1 %.not209, label %280, label %279
 
-283:                                              ; preds = %282
-  store <2 x float> %277, ptr %14, align 16
-  br label %488
+279:                                              ; preds = %278
+  store <2 x float> %272, ptr %14, align 16
+  br label %479
 
-284:                                              ; preds = %282
-  %285 = call <4 x float> @llvm.fabs.v4f32(<4 x float> %.fr294)
-  %286 = fcmp uge <4 x float> %285, <float 0x47CFFFFFE0000000, float 0x47CFFFFFE0000000, float 0x47CFFFFFE0000000, float 0x47CFFFFFE0000000>
-  %287 = bitcast <4 x i1> %286 to i4
-  %288 = icmp eq i4 %287, 0
-  br i1 %288, label %289, label %471
+280:                                              ; preds = %278
+  %281 = call <4 x float> @llvm.fabs.v4f32(<4 x float> %.fr294)
+  %282 = fcmp uge <4 x float> %281, <float 0x47CFFFFFE0000000, float 0x47CFFFFFE0000000, float 0x47CFFFFFE0000000, float 0x47CFFFFFE0000000>
+  %283 = bitcast <4 x i1> %282 to i4
+  %284 = icmp eq i4 %283, 0
+  br i1 %284, label %285, label %466
 
-289:                                              ; preds = %284
+285:                                              ; preds = %280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  %290 = load float, ptr %14, align 16
-  %291 = extractelement <4 x float> %.fr294, i64 0
-  %292 = fcmp ogt float %290, %291
-  %293 = extractelement <4 x float> %.fr294, i64 2
-  %294 = fcmp ogt float %291, %293
-  %or.cond257 = or i1 %292, %294
-  %295 = extractelement <2 x float> %277, i64 0
-  %296 = fcmp ogt float %293, %295
-  %or.cond258 = select i1 %or.cond257, i1 true, i1 %296
-  br i1 %or.cond258, label %297, label %347
+  %286 = load float, ptr %14, align 16
+  %287 = extractelement <4 x float> %.fr294, i64 0
+  %288 = fcmp ogt float %286, %287
+  %289 = extractelement <4 x float> %.fr294, i64 2
+  %290 = fcmp ogt float %287, %289
+  %or.cond257 = or i1 %288, %290
+  %291 = fcmp ogt float %289, %274
+  %or.cond258 = select i1 %or.cond257, i1 true, i1 %291
+  br i1 %or.cond258, label %292, label %342
 
-297:                                              ; preds = %289
-  %298 = fcmp olt float %290, %291
-  %299 = fcmp olt float %291, %293
-  %or.cond205.i = or i1 %298, %299
-  %300 = fcmp olt float %293, %295
-  %or.cond259 = select i1 %or.cond205.i, i1 true, i1 %300
-  br i1 %or.cond259, label %._crit_edge198.i, label %347
+292:                                              ; preds = %285
+  %293 = fcmp olt float %286, %287
+  %294 = fcmp olt float %287, %289
+  %or.cond205.i = or i1 %293, %294
+  %295 = fcmp olt float %289, %274
+  %or.cond259 = select i1 %or.cond205.i, i1 true, i1 %295
+  br i1 %or.cond259, label %._crit_edge198.i, label %342
 
-._crit_edge198.i:                                 ; preds = %297
-  %301 = fneg float %290
-  %302 = call float @llvm.fmuladd.f32(float %291, float 3.000000e+00, float %301)
-  %303 = call float @llvm.fmuladd.f32(float %293, float -3.000000e+00, float %302)
-  %304 = fadd float %295, %303
-  %305 = fpext float %304 to double
-  %306 = call float @llvm.fmuladd.f32(float %291, float -2.000000e+00, float %290)
-  %307 = fadd float %293, %306
-  %308 = fmul float %307, 2.000000e+00
-  %309 = fpext float %308 to double
-  %310 = fsub float %291, %290
-  %311 = fpext float %310 to double
-  %312 = fcmp une float %304, 0.000000e+00
-  br i1 %312, label %313, label %339
+._crit_edge198.i:                                 ; preds = %292
+  %296 = fneg float %286
+  %297 = call float @llvm.fmuladd.f32(float %287, float 3.000000e+00, float %296)
+  %298 = call float @llvm.fmuladd.f32(float %289, float -3.000000e+00, float %297)
+  %299 = fadd float %274, %298
+  %300 = fpext float %299 to double
+  %301 = call float @llvm.fmuladd.f32(float %287, float -2.000000e+00, float %286)
+  %302 = fadd float %289, %301
+  %303 = fmul float %302, 2.000000e+00
+  %304 = fpext float %303 to double
+  %305 = fsub float %287, %286
+  %306 = fpext float %305 to double
+  %307 = fcmp une float %299, 0.000000e+00
+  br i1 %307, label %308, label %334
 
-313:                                              ; preds = %._crit_edge198.i
-  %314 = fmul double %305, -4.000000e+00
-  %315 = fmul double %314, %311
-  %316 = call double @llvm.fmuladd.f64(double %309, double %309, double %315)
-  %317 = fcmp olt double %316, 0.000000e+00
-  br i1 %317, label %347, label %318
+308:                                              ; preds = %._crit_edge198.i
+  %309 = fmul double %300, -4.000000e+00
+  %310 = fmul double %309, %306
+  %311 = call double @llvm.fmuladd.f64(double %304, double %304, double %310)
+  %312 = fcmp olt double %311, 0.000000e+00
+  br i1 %312, label %342, label %313
 
-318:                                              ; preds = %313
-  %319 = call double @sqrt(double noundef %316) #12
-  %320 = fcmp olt float %308, 0.000000e+00
-  %321 = fneg double %319
-  %.0155.i = select i1 %320, double %321, double %319
-  %322 = fadd double %.0155.i, %309
-  %323 = fmul double %322, -5.000000e-01
-  %324 = fdiv double %323, %305
-  %325 = fcmp olt double %324, 1.000000e+00
-  %326 = fcmp ogt double %324, 0.000000e+00
-  %or.cond.i244 = and i1 %325, %326
-  br i1 %or.cond.i244, label %327, label %328
+313:                                              ; preds = %308
+  %314 = call double @sqrt(double noundef %311) #12
+  %315 = fcmp olt float %303, 0.000000e+00
+  %316 = fneg double %314
+  %.0155.i = select i1 %315, double %316, double %314
+  %317 = fadd double %.0155.i, %304
+  %318 = fmul double %317, -5.000000e-01
+  %319 = fdiv double %318, %300
+  %320 = fcmp olt double %319, 1.000000e+00
+  %321 = fcmp ogt double %319, 0.000000e+00
+  %or.cond.i244 = and i1 %320, %321
+  br i1 %or.cond.i244, label %322, label %323
 
-327:                                              ; preds = %318
-  store double %324, ptr %10, align 16
-  br label %328
+322:                                              ; preds = %313
+  store double %319, ptr %10, align 16
+  br label %323
 
-328:                                              ; preds = %327, %318
-  %.1.i = phi i32 [ 1, %327 ], [ 0, %318 ]
-  %329 = fcmp oeq double %319, 0.000000e+00
-  %330 = fcmp oeq double %323, 0.000000e+00
-  %or.cond3.i245 = or i1 %329, %330
-  br i1 %or.cond3.i245, label %347, label %331
+323:                                              ; preds = %322, %313
+  %.1.i = phi i32 [ 1, %322 ], [ 0, %313 ]
+  %324 = fcmp oeq double %314, 0.000000e+00
+  %325 = fcmp oeq double %318, 0.000000e+00
+  %or.cond3.i245 = or i1 %324, %325
+  br i1 %or.cond3.i245, label %342, label %326
 
-331:                                              ; preds = %328
-  %332 = fdiv double %311, %323
-  %333 = fcmp olt double %332, 1.000000e+00
-  %334 = fcmp ogt double %332, 0.000000e+00
-  %or.cond5.i = and i1 %333, %334
-  br i1 %or.cond5.i, label %335, label %347
+326:                                              ; preds = %323
+  %327 = fdiv double %306, %318
+  %328 = fcmp olt double %327, 1.000000e+00
+  %329 = fcmp ogt double %327, 0.000000e+00
+  %or.cond5.i = and i1 %328, %329
+  br i1 %or.cond5.i, label %330, label %342
 
-335:                                              ; preds = %331
-  %336 = add nuw nsw i32 %.1.i, 1
-  %337 = zext nneg i32 %.1.i to i64
-  %338 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %337
-  store double %332, ptr %338, align 8
-  br label %347
+330:                                              ; preds = %326
+  %331 = add nuw nsw i32 %.1.i, 1
+  %332 = zext nneg i32 %.1.i to i64
+  %333 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %332
+  store double %327, ptr %333, align 8
+  br label %342
 
-339:                                              ; preds = %._crit_edge198.i
-  %340 = fcmp oeq float %308, 0.000000e+00
-  br i1 %340, label %347, label %341
+334:                                              ; preds = %._crit_edge198.i
+  %335 = fcmp oeq float %303, 0.000000e+00
+  br i1 %335, label %342, label %336
 
-341:                                              ; preds = %339
-  %342 = fneg double %311
-  %343 = fdiv double %342, %309
-  %344 = fcmp olt double %343, 1.000000e+00
-  %345 = fcmp ogt double %343, 0.000000e+00
-  %or.cond7.i = and i1 %344, %345
-  br i1 %or.cond7.i, label %346, label %347
+336:                                              ; preds = %334
+  %337 = fneg double %306
+  %338 = fdiv double %337, %304
+  %339 = fcmp olt double %338, 1.000000e+00
+  %340 = fcmp ogt double %338, 0.000000e+00
+  %or.cond7.i = and i1 %339, %340
+  br i1 %or.cond7.i, label %341, label %342
 
-346:                                              ; preds = %341
-  store double %343, ptr %10, align 16
-  br label %347
+341:                                              ; preds = %336
+  store double %338, ptr %10, align 16
+  br label %342
 
-347:                                              ; preds = %297, %289, %346, %341, %339, %335, %331, %328, %313
-  %.0.i = phi i32 [ 0, %313 ], [ %.1.i, %328 ], [ %336, %335 ], [ %.1.i, %331 ], [ 0, %339 ], [ 1, %346 ], [ 0, %341 ], [ 0, %289 ], [ 0, %297 ]
-  %348 = load float, ptr %81, align 4
-  %349 = load float, ptr %84, align 4
-  %350 = fcmp ogt float %348, %349
+342:                                              ; preds = %292, %285, %341, %336, %334, %330, %326, %323, %308
+  %.0.i = phi i32 [ 0, %308 ], [ %.1.i, %323 ], [ %331, %330 ], [ %.1.i, %326 ], [ 0, %334 ], [ 1, %341 ], [ 0, %336 ], [ 0, %285 ], [ 0, %292 ]
+  %343 = load float, ptr %81, align 4
+  %344 = load float, ptr %84, align 4
+  %345 = fcmp ogt float %343, %344
   %.pre201.i.pre = load float, ptr %86, align 4
   %.pre = load float, ptr %88, align 4
-  br i1 %350, label %354, label %351
+  br i1 %345, label %349, label %346
 
-351:                                              ; preds = %347
-  %352 = fcmp ogt float %349, %.pre201.i.pre
-  %353 = fcmp ogt float %.pre201.i.pre, %.pre
-  %or.cond261 = select i1 %352, i1 true, i1 %353
-  br i1 %or.cond261, label %354, label %402
+346:                                              ; preds = %342
+  %347 = fcmp ogt float %344, %.pre201.i.pre
+  %348 = fcmp ogt float %.pre201.i.pre, %.pre
+  %or.cond261 = select i1 %347, i1 true, i1 %348
+  br i1 %or.cond261, label %349, label %397
 
-354:                                              ; preds = %351, %347
-  %355 = fcmp olt float %348, %349
-  %356 = fcmp olt float %349, %.pre201.i.pre
-  %or.cond206.i = select i1 %355, i1 true, i1 %356
-  %357 = fcmp olt float %.pre201.i.pre, %.pre
-  %or.cond263 = select i1 %or.cond206.i, i1 true, i1 %357
-  br i1 %or.cond263, label %._crit_edge199.i, label %402
+349:                                              ; preds = %346, %342
+  %350 = fcmp olt float %343, %344
+  %351 = fcmp olt float %344, %.pre201.i.pre
+  %or.cond206.i = select i1 %350, i1 true, i1 %351
+  %352 = fcmp olt float %.pre201.i.pre, %.pre
+  %or.cond263 = select i1 %or.cond206.i, i1 true, i1 %352
+  br i1 %or.cond263, label %._crit_edge199.i, label %397
 
-._crit_edge199.i:                                 ; preds = %354
-  %358 = fneg float %348
-  %359 = call float @llvm.fmuladd.f32(float %349, float 3.000000e+00, float %358)
-  %360 = call float @llvm.fmuladd.f32(float %.pre201.i.pre, float -3.000000e+00, float %359)
-  %361 = fadd float %360, %.pre
-  %362 = fpext float %361 to double
-  %363 = call float @llvm.fmuladd.f32(float %349, float -2.000000e+00, float %348)
-  %364 = fadd float %363, %.pre201.i.pre
-  %365 = fmul float %364, 2.000000e+00
-  %366 = fpext float %365 to double
-  %367 = fsub float %349, %348
-  %368 = fpext float %367 to double
-  %369 = fcmp une float %361, 0.000000e+00
-  br i1 %369, label %370, label %395
+._crit_edge199.i:                                 ; preds = %349
+  %353 = fneg float %343
+  %354 = call float @llvm.fmuladd.f32(float %344, float 3.000000e+00, float %353)
+  %355 = call float @llvm.fmuladd.f32(float %.pre201.i.pre, float -3.000000e+00, float %354)
+  %356 = fadd float %355, %.pre
+  %357 = fpext float %356 to double
+  %358 = call float @llvm.fmuladd.f32(float %344, float -2.000000e+00, float %343)
+  %359 = fadd float %358, %.pre201.i.pre
+  %360 = fmul float %359, 2.000000e+00
+  %361 = fpext float %360 to double
+  %362 = fsub float %344, %343
+  %363 = fpext float %362 to double
+  %364 = fcmp une float %356, 0.000000e+00
+  br i1 %364, label %365, label %390
 
-370:                                              ; preds = %._crit_edge199.i
-  %371 = fmul double %362, -4.000000e+00
-  %372 = fmul double %371, %368
-  %373 = call double @llvm.fmuladd.f64(double %366, double %366, double %372)
-  %374 = fcmp olt double %373, 0.000000e+00
-  br i1 %374, label %402, label %375
+365:                                              ; preds = %._crit_edge199.i
+  %366 = fmul double %357, -4.000000e+00
+  %367 = fmul double %366, %363
+  %368 = call double @llvm.fmuladd.f64(double %361, double %361, double %367)
+  %369 = fcmp olt double %368, 0.000000e+00
+  br i1 %369, label %397, label %370
 
-375:                                              ; preds = %370
-  %376 = call double @sqrt(double noundef %373) #12
-  %377 = fcmp olt float %365, 0.000000e+00
-  %378 = fneg double %376
-  %.0154.i = select i1 %377, double %378, double %376
-  %379 = fadd double %.0154.i, %366
-  %380 = fmul double %379, -5.000000e-01
-  %381 = fdiv double %380, %362
-  %382 = fcmp olt double %381, 1.000000e+00
-  %383 = fcmp ogt double %381, 0.000000e+00
-  %or.cond9.i = and i1 %382, %383
-  br i1 %or.cond9.i, label %384, label %388
+370:                                              ; preds = %365
+  %371 = call double @sqrt(double noundef %368) #12
+  %372 = fcmp olt float %360, 0.000000e+00
+  %373 = fneg double %371
+  %.0154.i = select i1 %372, double %373, double %371
+  %374 = fadd double %.0154.i, %361
+  %375 = fmul double %374, -5.000000e-01
+  %376 = fdiv double %375, %357
+  %377 = fcmp olt double %376, 1.000000e+00
+  %378 = fcmp ogt double %376, 0.000000e+00
+  %or.cond9.i = and i1 %377, %378
+  br i1 %or.cond9.i, label %379, label %383
 
-384:                                              ; preds = %375
-  %385 = add nuw nsw i32 %.0.i, 1
-  %386 = zext nneg i32 %.0.i to i64
-  %387 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %386
-  store double %381, ptr %387, align 8
-  br label %388
+379:                                              ; preds = %370
+  %380 = add nuw nsw i32 %.0.i, 1
+  %381 = zext nneg i32 %.0.i to i64
+  %382 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %381
+  store double %376, ptr %382, align 8
+  br label %383
 
-388:                                              ; preds = %384, %375
-  %.3.i = phi i32 [ %385, %384 ], [ %.0.i, %375 ]
-  %389 = fcmp oeq double %376, 0.000000e+00
-  %390 = fcmp oeq double %380, 0.000000e+00
-  %or.cond11.i = or i1 %389, %390
-  br i1 %or.cond11.i, label %402, label %391
+383:                                              ; preds = %379, %370
+  %.3.i = phi i32 [ %380, %379 ], [ %.0.i, %370 ]
+  %384 = fcmp oeq double %371, 0.000000e+00
+  %385 = fcmp oeq double %375, 0.000000e+00
+  %or.cond11.i = or i1 %384, %385
+  br i1 %or.cond11.i, label %397, label %386
 
-391:                                              ; preds = %388
-  %392 = fdiv double %368, %380
-  %393 = fcmp olt double %392, 1.000000e+00
-  %394 = fcmp ogt double %392, 0.000000e+00
-  %or.cond13.i = and i1 %393, %394
-  br i1 %or.cond13.i, label %.preheader.sink.split.i, label %402
+386:                                              ; preds = %383
+  %387 = fdiv double %363, %375
+  %388 = fcmp olt double %387, 1.000000e+00
+  %389 = fcmp ogt double %387, 0.000000e+00
+  %or.cond13.i = and i1 %388, %389
+  br i1 %or.cond13.i, label %.preheader.sink.split.i, label %397
 
-395:                                              ; preds = %._crit_edge199.i
-  %396 = fcmp oeq float %365, 0.000000e+00
-  br i1 %396, label %402, label %397
+390:                                              ; preds = %._crit_edge199.i
+  %391 = fcmp oeq float %360, 0.000000e+00
+  br i1 %391, label %397, label %392
 
-397:                                              ; preds = %395
-  %398 = fneg double %368
-  %399 = fdiv double %398, %366
-  %400 = fcmp olt double %399, 1.000000e+00
-  %401 = fcmp ogt double %399, 0.000000e+00
-  %or.cond15.i = and i1 %400, %401
-  br i1 %or.cond15.i, label %.preheader.sink.split.i, label %402
+392:                                              ; preds = %390
+  %393 = fneg double %363
+  %394 = fdiv double %393, %361
+  %395 = fcmp olt double %394, 1.000000e+00
+  %396 = fcmp ogt double %394, 0.000000e+00
+  %or.cond15.i = and i1 %395, %396
+  br i1 %or.cond15.i, label %.preheader.sink.split.i, label %397
 
-402:                                              ; preds = %354, %351, %397, %395, %391, %388, %370
-  %.2.i = phi i32 [ %.0.i, %370 ], [ %.3.i, %388 ], [ %.3.i, %391 ], [ %.0.i, %395 ], [ %.0.i, %397 ], [ %.0.i, %351 ], [ %.0.i, %354 ]
+397:                                              ; preds = %349, %346, %392, %390, %386, %383, %365
+  %.2.i = phi i32 [ %.0.i, %365 ], [ %.3.i, %383 ], [ %.3.i, %386 ], [ %.0.i, %390 ], [ %.0.i, %392 ], [ %.0.i, %346 ], [ %.0.i, %349 ]
   %.not.i = icmp eq i32 %.2.i, 0
   br i1 %.not.i, label %ProcessCubic.exit, label %.preheader.i
 
-.preheader.sink.split.i:                          ; preds = %397, %391
-  %.0.sink209.i = phi i32 [ %.3.i, %391 ], [ %.0.i, %397 ]
-  %.sink.i = phi double [ %392, %391 ], [ %399, %397 ]
-  %403 = add nuw nsw i32 %.0.sink209.i, 1
-  %404 = zext nneg i32 %.0.sink209.i to i64
-  %405 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %404
-  store double %.sink.i, ptr %405, align 8
+.preheader.sink.split.i:                          ; preds = %392, %386
+  %.0.sink209.i = phi i32 [ %.3.i, %386 ], [ %.0.i, %392 ]
+  %.sink.i = phi double [ %387, %386 ], [ %394, %392 ]
+  %398 = add nuw nsw i32 %.0.sink209.i, 1
+  %399 = zext nneg i32 %.0.sink209.i to i64
+  %400 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %399
+  store double %.sink.i, ptr %400, align 8
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader.sink.split.i, %402
-  %.2204.i = phi i32 [ %.2.i, %402 ], [ %403, %.preheader.sink.split.i ]
-  %406 = icmp ugt i32 %.2204.i, 1
-  br i1 %406, label %.lr.ph.preheader.i, label %._crit_edge.i241
+.preheader.i:                                     ; preds = %.preheader.sink.split.i, %397
+  %.2204.i = phi i32 [ %.2.i, %397 ], [ %398, %.preheader.sink.split.i ]
+  %401 = icmp ugt i32 %.2204.i, 1
+  br i1 %401, label %.lr.ph.preheader.i, label %._crit_edge.i241
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %wide.trip.count.i = zext nneg i32 %.2204.i to i64
@@ -1271,214 +1272,211 @@ ProcessQuad.exit:                                 ; preds = %221, %.thread84.i, 
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.critedge.i ]
-  %407 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %indvars.iv.i
-  %408 = load double, ptr %407, align 8
-  br label %409
+  %402 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %indvars.iv.i
+  %403 = load double, ptr %402, align 8
+  br label %404
 
-409:                                              ; preds = %414, %.lr.ph.i
-  %indvars.iv187.i = phi i64 [ %indvars.iv.i, %.lr.ph.i ], [ %indvars.iv.next188.i, %414 ]
+404:                                              ; preds = %409, %.lr.ph.i
+  %indvars.iv187.i = phi i64 [ %indvars.iv.i, %.lr.ph.i ], [ %indvars.iv.next188.i, %409 ]
   %indvars.iv.next188.i = add nsw i64 %indvars.iv187.i, -1
-  %410 = and i64 %indvars.iv.next188.i, 4294967295
-  %411 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %410
-  %412 = load double, ptr %411, align 8
-  %413 = fcmp ogt double %412, %408
-  br i1 %413, label %414, label %.critedge.i
+  %405 = and i64 %indvars.iv.next188.i, 4294967295
+  %406 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %405
+  %407 = load double, ptr %406, align 8
+  %408 = fcmp ogt double %407, %403
+  br i1 %408, label %409, label %.critedge.i
 
-414:                                              ; preds = %409
-  %415 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %indvars.iv187.i
-  store double %412, ptr %415, align 8
-  %416 = icmp sgt i64 %indvars.iv187.i, 1
-  br i1 %416, label %409, label %.critedge.i, !llvm.loop !6
+409:                                              ; preds = %404
+  %410 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %indvars.iv187.i
+  store double %407, ptr %410, align 8
+  %411 = icmp sgt i64 %indvars.iv187.i, 1
+  br i1 %411, label %404, label %.critedge.i, !llvm.loop !6
 
-.critedge.i:                                      ; preds = %414, %409
-  %.0153.in.lcssa.i = phi i64 [ 0, %414 ], [ %indvars.iv187.i, %409 ]
+.critedge.i:                                      ; preds = %409, %404
+  %.0153.in.lcssa.i = phi i64 [ 0, %409 ], [ %indvars.iv187.i, %404 ]
   %sext.i = shl i64 %.0153.in.lcssa.i, 32
-  %417 = ashr exact i64 %sext.i, 32
-  %418 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %417
-  store double %408, ptr %418, align 8
+  %412 = ashr exact i64 %sext.i, 32
+  %413 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %412
+  store double %403, ptr %413, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i241, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i241:                                 ; preds = %.critedge.i, %.preheader.i
-  %419 = load double, ptr %10, align 16
-  %420 = fptrunc double %419 to float
+  %414 = load double, ptr %10, align 16
+  %415 = fptrunc double %414 to float
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  %421 = load <2 x float>, ptr %14, align 16
-  store <2 x float> %421, ptr %9, align 16
-  %422 = load <2 x float>, ptr %83, align 8
-  %423 = fsub <2 x float> %422, %421
-  %424 = insertelement <2 x float> poison, float %420, i64 0
-  %425 = shufflevector <2 x float> %424, <2 x float> poison, <2 x i32> zeroinitializer
-  %426 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %425, <2 x float> %423, <2 x float> %421)
-  store <2 x float> %426, ptr %89, align 8
-  %427 = load <2 x float>, ptr %85, align 16
+  %416 = load <2 x float>, ptr %14, align 16
+  store <2 x float> %416, ptr %9, align 16
+  %417 = load <2 x float>, ptr %83, align 8
+  %418 = fsub <2 x float> %417, %416
+  %419 = insertelement <2 x float> poison, float %415, i64 0
+  %420 = shufflevector <2 x float> %419, <2 x float> poison, <2 x i32> zeroinitializer
+  %421 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %420, <2 x float> %418, <2 x float> %416)
+  store <2 x float> %421, ptr %89, align 8
+  %422 = load <2 x float>, ptr %85, align 16
+  %423 = fsub <2 x float> %422, %417
+  %424 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %420, <2 x float> %423, <2 x float> %417)
+  %425 = fsub <2 x float> %424, %421
+  %426 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %420, <2 x float> %425, <2 x float> %421)
+  store <2 x float> %426, ptr %90, align 16
+  %427 = load <2 x float>, ptr %87, align 8
   %428 = fsub <2 x float> %427, %422
-  %429 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %425, <2 x float> %428, <2 x float> %422)
-  %430 = fsub <2 x float> %429, %426
-  %431 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %425, <2 x float> %430, <2 x float> %426)
-  store <2 x float> %431, ptr %90, align 16
-  %432 = load <2 x float>, ptr %87, align 8
-  %433 = fsub <2 x float> %432, %427
-  %434 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %425, <2 x float> %433, <2 x float> %427)
-  store <2 x float> %434, ptr %85, align 16
-  %435 = fsub <2 x float> %434, %429
-  %436 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %425, <2 x float> %435, <2 x float> %429)
-  %437 = fsub <2 x float> %436, %431
-  %438 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %425, <2 x float> %437, <2 x float> %431)
-  store <2 x float> %438, ptr %91, align 8
-  %439 = shufflevector <2 x float> %438, <2 x float> %436, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x float> %439, ptr %14, align 16
+  %429 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %420, <2 x float> %428, <2 x float> %422)
+  store <2 x float> %429, ptr %85, align 16
+  %430 = fsub <2 x float> %429, %424
+  %431 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %420, <2 x float> %430, <2 x float> %424)
+  %432 = fsub <2 x float> %431, %426
+  %433 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %420, <2 x float> %432, <2 x float> %426)
+  store <2 x float> %433, ptr %91, align 8
+  %434 = shufflevector <2 x float> %433, <2 x float> %431, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  store <4 x float> %434, ptr %14, align 16
   call fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
-  br i1 %406, label %.lr.ph186.i, label %ProcessCubic.exit
+  br i1 %401, label %.lr.ph186.i, label %ProcessCubic.exit
 
 .lr.ph186.i:                                      ; preds = %._crit_edge.i241
   %wide.trip.count196.i = zext nneg i32 %.2204.i to i64
-  %440 = load <2 x float>, ptr %87, align 8
+  %435 = load <2 x float>, ptr %87, align 8
   %.promoted = load <2 x float>, ptr %85, align 16
-  br label %441
+  br label %436
 
-441:                                              ; preds = %469, %.lr.ph186.i
-  %442 = phi <2 x float> [ %.promoted, %.lr.ph186.i ], [ %470, %469 ]
-  %443 = phi double [ %419, %.lr.ph186.i ], [ %445, %469 ]
-  %indvars.iv192.i = phi i64 [ 1, %.lr.ph186.i ], [ %indvars.iv.next193.i, %469 ]
-  %444 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %indvars.iv192.i
-  %445 = load double, ptr %444, align 8
-  %446 = fsub double %445, %443
-  %447 = fcmp ogt double %446, 0.000000e+00
-  br i1 %447, label %448, label %469
+436:                                              ; preds = %464, %.lr.ph186.i
+  %437 = phi <2 x float> [ %.promoted, %.lr.ph186.i ], [ %465, %464 ]
+  %438 = phi double [ %414, %.lr.ph186.i ], [ %440, %464 ]
+  %indvars.iv192.i = phi i64 [ 1, %.lr.ph186.i ], [ %indvars.iv.next193.i, %464 ]
+  %439 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %indvars.iv192.i
+  %440 = load double, ptr %439, align 8
+  %441 = fsub double %440, %438
+  %442 = fcmp ogt double %441, 0.000000e+00
+  br i1 %442, label %443, label %464
 
-448:                                              ; preds = %441
-  %449 = fsub double 1.000000e+00, %443
-  %450 = fdiv double %446, %449
-  %451 = fptrunc double %450 to float
+443:                                              ; preds = %436
+  %444 = fsub double 1.000000e+00, %438
+  %445 = fdiv double %441, %444
+  %446 = fptrunc double %445 to float
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  %452 = load <2 x float>, ptr %14, align 16
-  store <2 x float> %452, ptr %8, align 16
-  %453 = load <2 x float>, ptr %83, align 8
-  %454 = fsub <2 x float> %453, %452
-  %455 = insertelement <2 x float> poison, float %451, i64 0
-  %456 = shufflevector <2 x float> %455, <2 x float> poison, <2 x i32> zeroinitializer
-  %457 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %456, <2 x float> %454, <2 x float> %452)
-  store <2 x float> %457, ptr %92, align 8
-  %458 = fsub <2 x float> %442, %453
-  %459 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %456, <2 x float> %458, <2 x float> %453)
-  %460 = fsub <2 x float> %459, %457
-  %461 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %456, <2 x float> %460, <2 x float> %457)
-  store <2 x float> %461, ptr %93, align 16
-  %462 = fsub <2 x float> %440, %442
-  %463 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %456, <2 x float> %462, <2 x float> %442)
-  %464 = fsub <2 x float> %463, %459
-  %465 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %456, <2 x float> %464, <2 x float> %459)
-  %466 = fsub <2 x float> %465, %461
-  %467 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %456, <2 x float> %466, <2 x float> %461)
-  store <2 x float> %467, ptr %94, align 8
-  %468 = shufflevector <2 x float> %467, <2 x float> %465, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x float> %468, ptr %14, align 16
+  %447 = load <2 x float>, ptr %14, align 16
+  store <2 x float> %447, ptr %8, align 16
+  %448 = load <2 x float>, ptr %83, align 8
+  %449 = fsub <2 x float> %448, %447
+  %450 = insertelement <2 x float> poison, float %446, i64 0
+  %451 = shufflevector <2 x float> %450, <2 x float> poison, <2 x i32> zeroinitializer
+  %452 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %451, <2 x float> %449, <2 x float> %447)
+  store <2 x float> %452, ptr %92, align 8
+  %453 = fsub <2 x float> %437, %448
+  %454 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %451, <2 x float> %453, <2 x float> %448)
+  %455 = fsub <2 x float> %454, %452
+  %456 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %451, <2 x float> %455, <2 x float> %452)
+  store <2 x float> %456, ptr %93, align 16
+  %457 = fsub <2 x float> %435, %437
+  %458 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %451, <2 x float> %457, <2 x float> %437)
+  %459 = fsub <2 x float> %458, %454
+  %460 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %451, <2 x float> %459, <2 x float> %454)
+  %461 = fsub <2 x float> %460, %456
+  %462 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %451, <2 x float> %461, <2 x float> %456)
+  store <2 x float> %462, ptr %94, align 8
+  %463 = shufflevector <2 x float> %462, <2 x float> %460, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  store <4 x float> %463, ptr %14, align 16
   call fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  br label %469
+  br label %464
 
-469:                                              ; preds = %448, %441
-  %470 = phi <2 x float> [ %463, %448 ], [ %442, %441 ]
+464:                                              ; preds = %443, %436
+  %465 = phi <2 x float> [ %458, %443 ], [ %437, %436 ]
   %indvars.iv.next193.i = add nuw nsw i64 %indvars.iv192.i, 1
   %exitcond197.not.i = icmp eq i64 %indvars.iv.next193.i, %wide.trip.count196.i
-  br i1 %exitcond197.not.i, label %ProcessCubic.exit.loopexit, label %441, !llvm.loop !9
+  br i1 %exitcond197.not.i, label %ProcessCubic.exit.loopexit, label %436, !llvm.loop !9
 
-ProcessCubic.exit.loopexit:                       ; preds = %469
-  store <2 x float> %470, ptr %85, align 16
+ProcessCubic.exit.loopexit:                       ; preds = %464
+  store <2 x float> %465, ptr %85, align 16
   br label %ProcessCubic.exit
 
-ProcessCubic.exit:                                ; preds = %ProcessCubic.exit.loopexit, %402, %._crit_edge.i241
+ProcessCubic.exit:                                ; preds = %ProcessCubic.exit.loopexit, %397, %._crit_edge.i241
   call fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  br label %474
+  br label %467
 
-471:                                              ; preds = %284
+466:                                              ; preds = %280
   %.val229 = load float, ptr %14, align 16
   %.val230 = load float, ptr %81, align 4
-  %472 = extractelement <2 x float> %277, i64 0
-  %473 = extractelement <2 x float> %277, i64 1
-  call fastcc void @ProcessLine(ptr noundef %0, float %.val229, float %.val230, float %472, float %473, ptr noundef nonnull %15)
-  br label %474
+  call fastcc void @ProcessLine(ptr noundef %0, float %.val229, float %.val230, float %274, float %273, ptr noundef nonnull %15)
+  br label %467
 
-474:                                              ; preds = %471, %ProcessCubic.exit
-  store <2 x float> %277, ptr %14, align 16
-  br label %488
+467:                                              ; preds = %466, %ProcessCubic.exit
+  store <2 x float> %272, ptr %14, align 16
+  br label %479
 
-475:                                              ; preds = %107
-  %476 = icmp eq i8 %.0188279, 0
-  %477 = icmp ne i8 %.0190278, 0
-  %or.cond58 = select i1 %476, i1 true, i1 %477
-  br i1 %or.cond58, label %488, label %478
+468:                                              ; preds = %107
+  %469 = icmp eq i8 %.0188279, 0
+  %470 = icmp ne i8 %.0190278, 0
+  %or.cond58 = select i1 %469, i1 true, i1 %470
+  br i1 %or.cond58, label %479, label %471
 
-478:                                              ; preds = %475
-  %479 = load float, ptr %14, align 16
-  %480 = extractelement <2 x float> %108, i64 0
-  %481 = fcmp une float %479, %480
-  %482 = load float, ptr %81, align 4
-  %483 = extractelement <2 x float> %108, i64 1
-  %484 = fcmp une float %482, %483
-  %or.cond266 = select i1 %481, i1 true, i1 %484
-  br i1 %or.cond266, label %485, label %486
+471:                                              ; preds = %468
+  %472 = load float, ptr %14, align 16
+  %473 = fcmp une float %472, %.sroa.0.1276
+  %474 = load float, ptr %81, align 4
+  %475 = fcmp une float %474, %.sroa.13.1274
+  %or.cond266 = select i1 %473, i1 true, i1 %475
+  br i1 %or.cond266, label %476, label %477
 
-485:                                              ; preds = %478
-  call fastcc void @ProcessLine(ptr noundef %0, float %479, float %482, float %480, float %483, ptr noundef nonnull %15)
-  store <2 x float> %108, ptr %14, align 16
-  br label %486
+476:                                              ; preds = %471
+  call fastcc void @ProcessLine(ptr noundef %0, float %472, float %474, float %.sroa.0.1276, float %.sroa.13.1274, ptr noundef nonnull %15)
+  store float %.sroa.0.1276, ptr %14, align 16
+  store float %.sroa.13.1274, ptr %81, align 4
+  br label %477
 
-486:                                              ; preds = %478, %485
-  %487 = load ptr, ptr %82, align 8
-  call void %487(ptr noundef %0) #12
-  br label %488
+477:                                              ; preds = %471, %476
+  %478 = load ptr, ptr %82, align 8
+  call void %478(ptr noundef %0) #12
+  br label %479
 
-488:                                              ; preds = %128, %107, %137, %140, %151, %150, %156, %267, %170, %270, %474, %283, %486, %475
-  %.1191 = phi i8 [ %.0190278, %107 ], [ %.0190278, %475 ], [ 0, %486 ], [ 0, %474 ], [ 0, %283 ], [ %.0190278, %270 ], [ 0, %267 ], [ 0, %170 ], [ %.0190278, %156 ], [ 0, %151 ], [ 0, %150 ], [ %.0190278, %140 ], [ 0, %137 ], [ 1, %128 ]
-  %.1189 = phi i8 [ %.0188279, %107 ], [ %.0188279, %475 ], [ %.0188279, %486 ], [ %.0188279, %474 ], [ 1, %283 ], [ %.0188279, %270 ], [ %.0188279, %267 ], [ 1, %170 ], [ %.0188279, %156 ], [ %.0188279, %151 ], [ 1, %150 ], [ %.0188279, %140 ], [ 1, %137 ], [ %.0188279, %128 ]
-  %.1 = phi i32 [ %.0281, %107 ], [ %.0281, %475 ], [ %.0281, %486 ], [ %269, %474 ], [ %269, %283 ], [ %269, %270 ], [ %155, %267 ], [ %155, %170 ], [ %155, %156 ], [ %139, %151 ], [ %139, %150 ], [ %139, %140 ], [ %112, %137 ], [ %112, %128 ]
-  %489 = phi <2 x float> [ %108, %107 ], [ %108, %475 ], [ %108, %486 ], [ %108, %474 ], [ %277, %283 ], [ %108, %270 ], [ %108, %267 ], [ %163, %170 ], [ %108, %156 ], [ %108, %151 ], [ %144, %150 ], [ %108, %140 ], [ %132, %137 ], [ %108, %128 ]
+479:                                              ; preds = %126, %107, %136, %139, %151, %150, %154, %262, %169, %265, %467, %279, %477, %468
+  %.sroa.13.2 = phi float [ %.sroa.13.1274, %107 ], [ %.sroa.13.1274, %468 ], [ %.sroa.13.1274, %477 ], [ %.sroa.13.1274, %467 ], [ %273, %279 ], [ %.sroa.13.1274, %265 ], [ %.sroa.13.1274, %262 ], [ %162, %169 ], [ %.sroa.13.1274, %154 ], [ %.sroa.13.1274, %151 ], [ %144, %150 ], [ %.sroa.13.1274, %139 ], [ %131, %136 ], [ %.sroa.13.1274, %126 ]
+  %.sroa.0.2 = phi float [ %.sroa.0.1276, %107 ], [ %.sroa.0.1276, %468 ], [ %.sroa.0.1276, %477 ], [ %.sroa.0.1276, %467 ], [ %274, %279 ], [ %.sroa.0.1276, %265 ], [ %.sroa.0.1276, %262 ], [ %163, %169 ], [ %.sroa.0.1276, %154 ], [ %.sroa.0.1276, %151 ], [ %145, %150 ], [ %.sroa.0.1276, %139 ], [ %132, %136 ], [ %.sroa.0.1276, %126 ]
+  %.1191 = phi i8 [ %.0190278, %107 ], [ %.0190278, %468 ], [ 0, %477 ], [ 0, %467 ], [ 0, %279 ], [ %.0190278, %265 ], [ 0, %262 ], [ 0, %169 ], [ %.0190278, %154 ], [ 0, %151 ], [ 0, %150 ], [ %.0190278, %139 ], [ 0, %136 ], [ 1, %126 ]
+  %.1189 = phi i8 [ %.0188279, %107 ], [ %.0188279, %468 ], [ %.0188279, %477 ], [ %.0188279, %467 ], [ 1, %279 ], [ %.0188279, %265 ], [ %.0188279, %262 ], [ 1, %169 ], [ %.0188279, %154 ], [ %.0188279, %151 ], [ 1, %150 ], [ %.0188279, %139 ], [ 1, %136 ], [ %.0188279, %126 ]
+  %.1 = phi i32 [ %.0281, %107 ], [ %.0281, %468 ], [ %.0281, %477 ], [ %264, %467 ], [ %264, %279 ], [ %264, %265 ], [ %153, %262 ], [ %153, %169 ], [ %153, %154 ], [ %138, %151 ], [ %138, %150 ], [ %138, %139 ], [ %112, %136 ], [ %112, %126 ]
+  %480 = phi <2 x float> [ %108, %107 ], [ %108, %468 ], [ %108, %477 ], [ %108, %467 ], [ %272, %279 ], [ %108, %265 ], [ %108, %262 ], [ %161, %169 ], [ %108, %154 ], [ %108, %151 ], [ %143, %150 ], [ %108, %139 ], [ %130, %136 ], [ %108, %126 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %107, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %488
-  %490 = icmp ne i8 %.1191, 0
-  %491 = and i8 %.1189, 1
-  %492 = icmp eq i8 %491, 0
-  %493 = select i1 %490, i1 true, i1 %492
-  br i1 %493, label %.loopexit, label %494
+._crit_edge:                                      ; preds = %479
+  %481 = icmp ne i8 %.1191, 0
+  %482 = and i8 %.1189, 1
+  %483 = icmp eq i8 %482, 0
+  %484 = select i1 %481, i1 true, i1 %483
+  br i1 %484, label %.loopexit, label %485
 
-494:                                              ; preds = %._crit_edge
-  %495 = getelementptr inbounds i8, ptr %0, i64 28
-  %496 = load i32, ptr %495, align 4
-  %497 = icmp eq i32 %496, 1
-  br i1 %497, label %498, label %508
+485:                                              ; preds = %._crit_edge
+  %486 = getelementptr inbounds i8, ptr %0, i64 28
+  %487 = load i32, ptr %486, align 4
+  %488 = icmp eq i32 %487, 1
+  br i1 %488, label %489, label %497
 
-498:                                              ; preds = %494
-  %499 = load <2 x float>, ptr %14, align 16
-  %500 = fcmp une <2 x float> %499, %489
-  %501 = extractelement <2 x i1> %500, i64 0
-  %502 = extractelement <2 x i1> %500, i64 1
-  %or.cond269 = select i1 %501, i1 true, i1 %502
-  br i1 %or.cond269, label %503, label %508
+489:                                              ; preds = %485
+  %490 = load <2 x float>, ptr %14, align 16
+  %491 = fcmp une <2 x float> %490, %480
+  %492 = extractelement <2 x i1> %491, i64 0
+  %493 = extractelement <2 x i1> %491, i64 1
+  %or.cond269 = select i1 %492, i1 true, i1 %493
+  br i1 %or.cond269, label %494, label %497
 
-503:                                              ; preds = %498
-  %504 = extractelement <2 x float> %499, i64 0
-  %505 = extractelement <2 x float> %499, i64 1
-  %506 = extractelement <2 x float> %489, i64 0
-  %507 = extractelement <2 x float> %489, i64 1
-  call fastcc void @ProcessLine(ptr noundef nonnull %0, float %504, float %505, float %506, float %507, ptr noundef nonnull %15)
-  br label %508
+494:                                              ; preds = %489
+  %495 = extractelement <2 x float> %490, i64 0
+  %496 = extractelement <2 x float> %490, i64 1
+  call fastcc void @ProcessLine(ptr noundef nonnull %0, float %495, float %496, float %.sroa.0.2, float %.sroa.13.2, ptr noundef nonnull %15)
+  br label %497
 
-508:                                              ; preds = %498, %503, %494
-  %509 = getelementptr inbounds i8, ptr %0, i64 8
-  %510 = load ptr, ptr %509, align 8
-  call void %510(ptr noundef nonnull %0) #12
+497:                                              ; preds = %489, %494, %485
+  %498 = getelementptr inbounds i8, ptr %0, i64 8
+  %499 = load ptr, ptr %498, align 8
+  call void %499(ptr noundef nonnull %0) #12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %268, %154, %138, %111, %53, %._crit_edge, %508
-  %.0192 = phi i8 [ 1, %508 ], [ 1, %._crit_edge ], [ 1, %53 ], [ 0, %111 ], [ 0, %138 ], [ 0, %154 ], [ 0, %268 ]
+.loopexit:                                        ; preds = %263, %152, %137, %111, %53, %._crit_edge, %497
+  %.0192 = phi i8 [ 1, %497 ], [ 1, %._crit_edge ], [ 1, %53 ], [ 0, %111 ], [ 0, %137 ], [ 0, %152 ], [ 0, %263 ]
   ret i8 %.0192
 }
 
@@ -1531,273 +1529,267 @@ define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.
   br label %36
 
 36:                                               ; preds = %22, %2
+  %.0232 = phi float [ %33, %22 ], [ %.0.val, %2 ]
+  %.0229 = phi float [ %.0222.in, %22 ], [ %.4.val, %2 ]
   %37 = phi <2 x float> [ %35, %22 ], [ %16, %2 ]
   %38 = fcmp ogt float %8, %.4.val3
   %39 = fcmp olt float %12, %.4.val3
   %or.cond259 = select i1 %38, i1 true, i1 %39
-  br i1 %or.cond259, label %40, label %61
+  br i1 %or.cond259, label %40, label %57
 
 40:                                               ; preds = %36
-  br i1 %38, label %41, label %44
+  br i1 %38, label %41, label %43
 
 41:                                               ; preds = %40
-  %42 = extractelement <2 x float> %37, i64 1
-  %43 = fcmp olt float %42, %8
-  br i1 %43, label %.thread, label %47
+  %42 = fcmp olt float %.0229, %8
+  br i1 %42, label %.thread, label %45
 
-44:                                               ; preds = %40
-  %45 = extractelement <2 x float> %37, i64 1
-  %46 = fcmp ogt float %45, %12
-  br i1 %46, label %.thread, label %47
+43:                                               ; preds = %40
+  %44 = fcmp ogt float %.0229, %12
+  br i1 %44, label %.thread, label %45
 
-47:                                               ; preds = %44, %41
-  %.0221.in = phi float [ %8, %41 ], [ %12, %44 ]
+45:                                               ; preds = %43, %41
+  %.0221.in = phi float [ %8, %41 ], [ %12, %43 ]
   %.0221 = fpext float %.0221.in to double
-  %48 = fpext float %.0.val1 to double
-  %49 = fpext float %.4.val3 to double
-  %50 = fsub double %.0221, %49
-  %51 = extractelement <2 x float> %37, i64 0
-  %52 = fsub float %51, %.0.val1
+  %46 = fpext float %.0.val1 to double
+  %47 = fpext float %.4.val3 to double
+  %48 = fsub double %.0221, %47
+  %49 = fsub float %.0232, %.0.val1
+  %50 = fpext float %49 to double
+  %51 = fmul double %48, %50
+  %52 = fsub float %.0229, %.4.val3
   %53 = fpext float %52 to double
-  %54 = fmul double %50, %53
-  %55 = extractelement <2 x float> %37, i64 1
-  %56 = fsub float %55, %.4.val3
-  %57 = fpext float %56 to double
-  %58 = fdiv double %54, %57
-  %59 = fadd double %58, %48
-  %60 = fptrunc double %59 to float
-  br label %61
+  %54 = fdiv double %51, %53
+  %55 = fadd double %54, %46
+  %56 = fptrunc double %55 to float
+  br label %57
 
-61:                                               ; preds = %47, %36
-  %.0226 = phi float [ %60, %47 ], [ %.0.val1, %36 ]
-  %.0224 = phi float [ %.0221.in, %47 ], [ %.4.val3, %36 ]
-  %62 = zext i1 %or.cond259 to i8
-  %63 = or i1 %or.cond, %or.cond259
-  %64 = getelementptr inbounds i8, ptr %0, i64 28
-  %65 = load i32, ptr %64, align 4
-  %66 = icmp eq i32 %65, 0
-  %67 = extractelement <2 x float> %37, i64 0
-  %68 = fcmp olt float %67, %6
-  %69 = fcmp ogt float %67, %10
-  %or.cond260 = select i1 %68, i1 true, i1 %69
-  br i1 %66, label %70, label %122
+57:                                               ; preds = %45, %36
+  %.0226 = phi float [ %56, %45 ], [ %.0.val1, %36 ]
+  %.0224 = phi float [ %.0221.in, %45 ], [ %.4.val3, %36 ]
+  %58 = zext i1 %or.cond259 to i8
+  %59 = or i1 %or.cond, %or.cond259
+  %60 = getelementptr inbounds i8, ptr %0, i64 28
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp eq i32 %61, 0
+  %63 = fcmp olt float %.0232, %6
+  %64 = fcmp ogt float %.0232, %10
+  %or.cond260 = select i1 %63, i1 true, i1 %64
+  br i1 %62, label %65, label %116
 
-70:                                               ; preds = %61
-  %71 = extractelement <2 x float> %37, i64 1
-  br i1 %or.cond260, label %72, label %89
+65:                                               ; preds = %57
+  br i1 %or.cond260, label %66, label %83
 
-72:                                               ; preds = %70
-  br i1 %68, label %73, label %75
+66:                                               ; preds = %65
+  br i1 %63, label %67, label %69
 
-73:                                               ; preds = %72
-  %74 = fcmp olt float %.0226, %6
-  br i1 %74, label %.thread, label %77
+67:                                               ; preds = %66
+  %68 = fcmp olt float %.0226, %6
+  br i1 %68, label %.thread, label %71
 
-75:                                               ; preds = %72
-  %76 = fcmp ogt float %.0226, %10
-  br i1 %76, label %.thread, label %77
+69:                                               ; preds = %66
+  %70 = fcmp ogt float %.0226, %10
+  br i1 %70, label %.thread, label %71
 
-77:                                               ; preds = %75, %73
-  %.0220.in = phi float [ %6, %73 ], [ %10, %75 ]
+71:                                               ; preds = %69, %67
+  %.0220.in = phi float [ %6, %67 ], [ %10, %69 ]
   %.0220 = fpext float %.0220.in to double
-  %78 = fpext float %71 to double
-  %79 = fpext float %67 to double
-  %80 = fsub double %.0220, %79
-  %81 = fsub float %.0224, %71
-  %82 = fpext float %81 to double
-  %83 = fmul double %80, %82
-  %84 = fsub float %.0226, %67
-  %85 = fpext float %84 to double
-  %86 = fdiv double %83, %85
-  %87 = fadd double %86, %78
-  %88 = fptrunc double %87 to float
-  br label %89
+  %72 = fpext float %.0229 to double
+  %73 = fpext float %.0232 to double
+  %74 = fsub double %.0220, %73
+  %75 = fsub float %.0224, %.0229
+  %76 = fpext float %75 to double
+  %77 = fmul double %74, %76
+  %78 = fsub float %.0226, %.0232
+  %79 = fpext float %78 to double
+  %80 = fdiv double %77, %79
+  %81 = fadd double %80, %72
+  %82 = fptrunc double %81 to float
+  br label %83
 
-89:                                               ; preds = %77, %70
-  %.1233 = phi float [ %.0220.in, %77 ], [ %67, %70 ]
-  %.1230 = phi float [ %88, %77 ], [ %71, %70 ]
-  %spec.select = or i1 %63, %or.cond260
-  %90 = fcmp olt float %.0226, %6
-  %91 = fcmp ogt float %.0226, %10
-  %or.cond261 = select i1 %90, i1 true, i1 %91
-  br i1 %or.cond261, label %92, label %109
+83:                                               ; preds = %71, %65
+  %.1233 = phi float [ %.0220.in, %71 ], [ %.0232, %65 ]
+  %.1230 = phi float [ %82, %71 ], [ %.0229, %65 ]
+  %spec.select = or i1 %59, %or.cond260
+  %84 = fcmp olt float %.0226, %6
+  %85 = fcmp ogt float %.0226, %10
+  %or.cond261 = select i1 %84, i1 true, i1 %85
+  br i1 %or.cond261, label %86, label %103
 
-92:                                               ; preds = %89
-  br i1 %90, label %93, label %95
+86:                                               ; preds = %83
+  br i1 %84, label %87, label %89
 
-93:                                               ; preds = %92
-  %94 = fcmp olt float %.1233, %6
-  br i1 %94, label %.thread, label %97
+87:                                               ; preds = %86
+  %88 = fcmp olt float %.1233, %6
+  br i1 %88, label %.thread, label %91
 
-95:                                               ; preds = %92
-  %96 = fcmp ogt float %.1233, %10
-  br i1 %96, label %.thread, label %97
+89:                                               ; preds = %86
+  %90 = fcmp ogt float %.1233, %10
+  br i1 %90, label %.thread, label %91
 
-97:                                               ; preds = %95, %93
-  %.0219.in = phi float [ %6, %93 ], [ %10, %95 ]
+91:                                               ; preds = %89, %87
+  %.0219.in = phi float [ %6, %87 ], [ %10, %89 ]
   %.0219 = fpext float %.0219.in to double
-  %98 = fpext float %.0224 to double
-  %99 = fpext float %.0226 to double
-  %100 = fsub double %.0219, %99
-  %101 = fsub float %.1230, %.0224
-  %102 = fpext float %101 to double
-  %103 = fmul double %100, %102
-  %104 = fsub float %.1233, %.0226
-  %105 = fpext float %104 to double
-  %106 = fdiv double %103, %105
-  %107 = fadd double %106, %98
-  %108 = fptrunc double %107 to float
-  br label %109
+  %92 = fpext float %.0224 to double
+  %93 = fpext float %.0226 to double
+  %94 = fsub double %.0219, %93
+  %95 = fsub float %.1230, %.0224
+  %96 = fpext float %95 to double
+  %97 = fmul double %94, %96
+  %98 = fsub float %.1233, %.0226
+  %99 = fpext float %98 to double
+  %100 = fdiv double %97, %99
+  %101 = fadd double %100, %92
+  %102 = fptrunc double %101 to float
+  br label %103
 
-109:                                              ; preds = %97, %89
-  %.1227 = phi float [ %.0219.in, %97 ], [ %.0226, %89 ]
-  %.1225 = phi float [ %108, %97 ], [ %.0224, %89 ]
+103:                                              ; preds = %91, %83
+  %.1227 = phi float [ %.0219.in, %91 ], [ %.0226, %83 ]
+  %.1225 = phi float [ %102, %91 ], [ %.0224, %83 ]
   %narrow = or i1 %or.cond259, %or.cond261
-  %110 = zext i1 %narrow to i8
-  %111 = or i1 %spec.select, %or.cond261
-  %112 = zext i1 %111 to i8
-  %113 = fmul float %.1233, 1.024000e+03
+  %104 = zext i1 %narrow to i8
+  %105 = or i1 %spec.select, %or.cond261
+  %106 = zext i1 %105 to i8
+  %107 = fmul float %.1233, 1.024000e+03
+  %108 = fptosi float %107 to i32
+  %109 = fmul float %.1230, 1.024000e+03
+  %110 = fptosi float %109 to i32
+  %111 = fmul float %.1227, 1.024000e+03
+  %112 = fptosi float %111 to i32
+  %113 = fmul float %.1225, 1.024000e+03
   %114 = fptosi float %113 to i32
-  %115 = fmul float %.1230, 1.024000e+03
-  %116 = fptosi float %115 to i32
-  %117 = fmul float %.1227, 1.024000e+03
-  %118 = fptosi float %117 to i32
-  %119 = fmul float %.1225, 1.024000e+03
-  %120 = fptosi float %119 to i32
-  %121 = load ptr, ptr %0, align 8
-  tail call void %121(ptr noundef nonnull %0, i32 noundef %114, i32 noundef %116, i32 noundef %118, i32 noundef %120, ptr noundef %1, i8 noundef zeroext %112, i8 noundef zeroext %110) #12
+  %115 = load ptr, ptr %0, align 8
+  tail call void %115(ptr noundef nonnull %0, i32 noundef %108, i32 noundef %110, i32 noundef %112, i32 noundef %114, ptr noundef %1, i8 noundef zeroext %106, i8 noundef zeroext %104) #12
   br label %.thread
 
-122:                                              ; preds = %61
-  br i1 %or.cond260, label %123, label %.thread57
+116:                                              ; preds = %57
+  br i1 %or.cond260, label %117, label %.thread57
 
-123:                                              ; preds = %122
-  br i1 %68, label %124, label %126
+117:                                              ; preds = %116
+  br i1 %63, label %118, label %120
 
-124:                                              ; preds = %123
-  %125 = fcmp olt float %.0226, %6
-  br i1 %125, label %156, label %128
+118:                                              ; preds = %117
+  %119 = fcmp olt float %.0226, %6
+  br i1 %119, label %147, label %122
 
-126:                                              ; preds = %123
-  %127 = fcmp ogt float %.0226, %10
-  br i1 %127, label %156, label %128
+120:                                              ; preds = %117
+  %121 = fcmp ogt float %.0226, %10
+  br i1 %121, label %147, label %122
 
-128:                                              ; preds = %124, %126
-  %.0218.in = phi float [ %6, %124 ], [ %10, %126 ]
+122:                                              ; preds = %118, %120
+  %.0218.in = phi float [ %6, %118 ], [ %10, %120 ]
   %.0218 = fpext float %.0218.in to double
-  %129 = extractelement <2 x float> %37, i64 1
+  %123 = fpext float %.0229 to double
+  %124 = fpext float %.0232 to double
+  %125 = fsub double %.0218, %124
+  %126 = fsub float %.0224, %.0229
+  %127 = fpext float %126 to double
+  %128 = fmul double %125, %127
+  %129 = fsub float %.0226, %.0232
   %130 = fpext float %129 to double
-  %131 = fpext float %67 to double
-  %132 = fsub double %.0218, %131
-  %133 = fsub float %.0224, %129
-  %134 = fpext float %133 to double
-  %135 = fmul double %132, %134
-  %136 = fsub float %.0226, %67
-  %137 = fpext float %136 to double
-  %138 = fdiv double %135, %137
-  %139 = fadd double %138, %130
-  %140 = fptrunc double %139 to float
-  %141 = insertelement <2 x float> poison, float %.0218.in, i64 0
-  %142 = insertelement <2 x float> %141, float %140, i64 1
-  br i1 %68, label %143, label %.thread57
+  %131 = fdiv double %128, %130
+  %132 = fadd double %131, %123
+  %133 = fptrunc double %132 to float
+  %134 = insertelement <2 x float> poison, float %.0218.in, i64 0
+  %135 = insertelement <2 x float> %134, float %133, i64 1
+  br i1 %63, label %136, label %.thread57
 
-143:                                              ; preds = %128
-  %144 = fmul <2 x float> %142, <float 1.024000e+03, float 1.024000e+03>
-  %145 = fptosi <2 x float> %144 to <2 x i32>
-  %146 = fmul float %129, 1.024000e+03
-  %147 = fptosi float %146 to i32
-  %148 = load ptr, ptr %0, align 8
-  %149 = extractelement <2 x i32> %145, i64 0
-  %150 = extractelement <2 x i32> %145, i64 1
-  tail call void %148(ptr noundef nonnull %0, i32 noundef %149, i32 noundef %147, i32 noundef %149, i32 noundef %150, ptr noundef %1, i8 noundef zeroext 0, i8 noundef zeroext %62) #12
-  br label %161
+136:                                              ; preds = %122
+  %137 = fmul <2 x float> %135, <float 1.024000e+03, float 1.024000e+03>
+  %138 = fptosi <2 x float> %137 to <2 x i32>
+  %139 = fmul float %.0229, 1.024000e+03
+  %140 = fptosi float %139 to i32
+  %141 = load ptr, ptr %0, align 8
+  %142 = extractelement <2 x i32> %138, i64 0
+  %143 = extractelement <2 x i32> %138, i64 1
+  tail call void %141(ptr noundef nonnull %0, i32 noundef %142, i32 noundef %140, i32 noundef %142, i32 noundef %143, ptr noundef %1, i8 noundef zeroext 0, i8 noundef zeroext %58) #12
+  br label %151
 
-.thread57:                                        ; preds = %122, %128
-  %151 = phi <2 x float> [ %37, %122 ], [ %142, %128 ]
-  %152 = fmul <2 x float> %151, <float 1.024000e+03, float 1.024000e+03>
-  %153 = fptosi <2 x float> %152 to <2 x i32>
-  %154 = extractelement <2 x float> %151, i64 0
-  %155 = extractelement <2 x float> %151, i64 1
-  br label %161
+.thread57:                                        ; preds = %116, %122
+  %.223137.ph.ph = phi float [ %.0229, %116 ], [ %133, %122 ]
+  %.3235.ph.ph = phi float [ %.0232, %116 ], [ %.0218.in, %122 ]
+  %144 = phi <2 x float> [ %37, %116 ], [ %135, %122 ]
+  %145 = fmul <2 x float> %144, <float 1.024000e+03, float 1.024000e+03>
+  %146 = fptosi <2 x float> %145 to <2 x i32>
+  br label %151
 
-156:                                              ; preds = %124, %126
-  %.2234. = select i1 %69, float %67, float %6
-  %157 = insertelement <2 x float> %37, float %.2234., i64 0
-  %158 = fmul <2 x float> %157, <float 1.024000e+03, float 1.024000e+03>
-  %159 = fptosi <2 x float> %158 to <2 x i32>
-  %160 = extractelement <2 x float> %37, i64 1
-  br i1 %69, label %.thread, label %161
+147:                                              ; preds = %118, %120
+  %.2234. = select i1 %64, float %.0232, float %6
+  %148 = insertelement <2 x float> %37, float %.2234., i64 0
+  %149 = fmul <2 x float> %148, <float 1.024000e+03, float 1.024000e+03>
+  %150 = fptosi <2 x float> %149 to <2 x i32>
+  br i1 %64, label %.thread, label %151
 
-161:                                              ; preds = %.thread57, %143, %156
-  %.222854 = phi float [ %.0226, %143 ], [ %6, %156 ], [ %.0226, %.thread57 ]
-  %.323552 = phi float [ %.0218.in, %143 ], [ %6, %156 ], [ %154, %.thread57 ]
-  %.22313750 = phi float [ %140, %143 ], [ %160, %156 ], [ %155, %.thread57 ]
-  %162 = phi <2 x i32> [ %145, %143 ], [ %159, %156 ], [ %153, %.thread57 ]
-  %163 = fcmp olt float %.222854, %6
-  %164 = fcmp ogt float %.222854, %10
-  %or.cond263 = select i1 %163, i1 true, i1 %164
-  br i1 %or.cond263, label %165, label %.fold.split264
+151:                                              ; preds = %.thread57, %136, %147
+  %.222854 = phi float [ %.0226, %136 ], [ %6, %147 ], [ %.0226, %.thread57 ]
+  %.323552 = phi float [ %.0218.in, %136 ], [ %6, %147 ], [ %.3235.ph.ph, %.thread57 ]
+  %.22313750 = phi float [ %133, %136 ], [ %.0229, %147 ], [ %.223137.ph.ph, %.thread57 ]
+  %152 = phi <2 x i32> [ %138, %136 ], [ %150, %147 ], [ %146, %.thread57 ]
+  %153 = fcmp olt float %.222854, %6
+  %154 = fcmp ogt float %.222854, %10
+  %or.cond263 = select i1 %153, i1 true, i1 %154
+  br i1 %or.cond263, label %155, label %.fold.split264
 
-165:                                              ; preds = %161
-  br i1 %163, label %166, label %168
+155:                                              ; preds = %151
+  br i1 %153, label %156, label %158
 
-166:                                              ; preds = %165
-  %167 = fcmp olt float %.323552, %6
-  br i1 %167, label %182, label %170
+156:                                              ; preds = %155
+  %157 = fcmp olt float %.323552, %6
+  br i1 %157, label %172, label %160
 
-168:                                              ; preds = %165
-  %169 = fcmp ogt float %.323552, %10
-  br i1 %169, label %182, label %170
+158:                                              ; preds = %155
+  %159 = fcmp ogt float %.323552, %10
+  br i1 %159, label %172, label %160
 
-170:                                              ; preds = %166, %168
-  %.0.in = phi float [ %6, %166 ], [ %10, %168 ]
+160:                                              ; preds = %156, %158
+  %.0.in = phi float [ %6, %156 ], [ %10, %158 ]
   %.0 = fpext float %.0.in to double
-  %171 = fpext float %.0224 to double
-  %172 = fpext float %.222854 to double
-  %173 = fsub double %.0, %172
-  %174 = fsub float %.22313750, %.0224
-  %175 = fpext float %174 to double
-  %176 = fmul double %173, %175
-  %177 = fsub float %.323552, %.222854
-  %178 = fpext float %177 to double
-  %179 = fdiv double %176, %178
-  %180 = fadd double %179, %171
-  %181 = fptrunc double %180 to float
-  %not. = xor i1 %163, true
+  %161 = fpext float %.0224 to double
+  %162 = fpext float %.222854 to double
+  %163 = fsub double %.0, %162
+  %164 = fsub float %.22313750, %.0224
+  %165 = fpext float %164 to double
+  %166 = fmul double %163, %165
+  %167 = fsub float %.323552, %.222854
+  %168 = fpext float %167 to double
+  %169 = fdiv double %166, %168
+  %170 = fadd double %169, %161
+  %171 = fptrunc double %170 to float
+  %not. = xor i1 %153, true
   br label %.fold.split264
 
-182:                                              ; preds = %168, %166
-  %.3. = select i1 %164, float %.222854, float %6
+172:                                              ; preds = %158, %156
+  %.3. = select i1 %154, float %.222854, float %6
   br label %.fold.split264
 
-.fold.split264:                                   ; preds = %170, %161, %182
-  %183 = phi i1 [ false, %182 ], [ false, %161 ], [ %163, %170 ]
-  %.270 = phi float [ %.0224, %182 ], [ %.0224, %161 ], [ %181, %170 ]
-  %184 = phi i1 [ false, %182 ], [ false, %161 ], [ %not., %170 ]
-  %.4 = phi float [ %.3., %182 ], [ %.222854, %161 ], [ %.0.in, %170 ]
-  %.1 = phi float [ %.222854, %182 ], [ %.222854, %161 ], [ %.0.in, %170 ]
-  %185 = or i1 %or.cond259, %184
-  %186 = zext i1 %185 to i8
-  %187 = fmul float %.4, 1.024000e+03
+.fold.split264:                                   ; preds = %160, %151, %172
+  %173 = phi i1 [ false, %172 ], [ false, %151 ], [ %153, %160 ]
+  %.270 = phi float [ %.0224, %172 ], [ %.0224, %151 ], [ %171, %160 ]
+  %174 = phi i1 [ false, %172 ], [ false, %151 ], [ %not., %160 ]
+  %.4 = phi float [ %.3., %172 ], [ %.222854, %151 ], [ %.0.in, %160 ]
+  %.1 = phi float [ %.222854, %172 ], [ %.222854, %151 ], [ %.0.in, %160 ]
+  %175 = or i1 %or.cond259, %174
+  %176 = zext i1 %175 to i8
+  %177 = fmul float %.4, 1.024000e+03
+  %178 = fptosi float %177 to i32
+  %179 = fmul float %.270, 1.024000e+03
+  %180 = fptosi float %179 to i32
+  %181 = load ptr, ptr %0, align 8
+  %182 = extractelement <2 x i32> %152, i64 0
+  %183 = extractelement <2 x i32> %152, i64 1
+  tail call void %181(ptr noundef nonnull %0, i32 noundef %182, i32 noundef %183, i32 noundef %178, i32 noundef %180, ptr noundef %1, i8 noundef zeroext 0, i8 noundef zeroext %176) #12
+  br i1 %173, label %184, label %.thread
+
+184:                                              ; preds = %.fold.split264
+  %185 = fmul float %.1, 1.024000e+03
+  %186 = fptosi float %185 to i32
+  %187 = fmul float %.0224, 1.024000e+03
   %188 = fptosi float %187 to i32
-  %189 = fmul float %.270, 1.024000e+03
-  %190 = fptosi float %189 to i32
-  %191 = load ptr, ptr %0, align 8
-  %192 = extractelement <2 x i32> %162, i64 0
-  %193 = extractelement <2 x i32> %162, i64 1
-  tail call void %191(ptr noundef nonnull %0, i32 noundef %192, i32 noundef %193, i32 noundef %188, i32 noundef %190, ptr noundef %1, i8 noundef zeroext 0, i8 noundef zeroext %186) #12
-  br i1 %183, label %194, label %.thread
-
-194:                                              ; preds = %.fold.split264
-  %195 = fmul float %.1, 1.024000e+03
-  %196 = fptosi float %195 to i32
-  %197 = fmul float %.0224, 1.024000e+03
-  %198 = fptosi float %197 to i32
-  %199 = load ptr, ptr %0, align 8
-  tail call void %199(ptr noundef nonnull %0, i32 noundef %188, i32 noundef %190, i32 noundef %196, i32 noundef %198, ptr noundef %1, i8 noundef zeroext 0, i8 noundef zeroext %186) #12
+  %189 = load ptr, ptr %0, align 8
+  tail call void %189(ptr noundef nonnull %0, i32 noundef %178, i32 noundef %180, i32 noundef %186, i32 noundef %188, ptr noundef %1, i8 noundef zeroext 0, i8 noundef zeroext %176) #12
   br label %.thread
 
-.thread:                                          ; preds = %95, %93, %75, %73, %44, %41, %20, %18, %.fold.split264, %194, %156, %109
+.thread:                                          ; preds = %89, %87, %69, %67, %43, %41, %20, %18, %.fold.split264, %184, %147, %103
   ret void
 }
 
@@ -3580,6 +3572,9 @@ DrawMonotonicCubic.exit:                          ; preds = %267, %.thread.i, %5
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -3595,10 +3590,10 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #9
+declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #9
+declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x float> @llvm.fabs.v4f32(<4 x float>) #9

@@ -2073,14 +2073,12 @@ add_uint.exit:                                    ; preds = %175, %180
   %206 = getelementptr inbounds i8, ptr %205, i64 408
   %207 = load ptr, ptr %206, align 8
   %208 = call noalias ptr @wmem_alloc(ptr noundef %207, i64 noundef 80) #9
-  %209 = load ptr, ptr %0, align 8
+  %209 = getelementptr inbounds i8, ptr %0, i64 16
   %210 = load ptr, ptr %6, align 8
-  %211 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %209, ptr %208, align 8
-  %.sroa.249.0..sroa_idx = getelementptr inbounds i8, ptr %208, i64 8
-  store ptr %210, ptr %.sroa.249.0..sroa_idx, align 8
+  %211 = load <2 x ptr>, ptr %0, align 8
+  store <2 x ptr> %211, ptr %208, align 8
   %.sroa.350.0..sroa_idx = getelementptr inbounds i8, ptr %208, i64 16
-  %212 = load <2 x i32>, ptr %211, align 8
+  %212 = load <2 x i32>, ptr %209, align 8
   %213 = add <2 x i32> %212, <i32 1, i32 1>
   store <2 x i32> %213, ptr %.sroa.350.0..sroa_idx, align 8
   %.sroa.552.0..sroa_idx = getelementptr inbounds i8, ptr %208, i64 24
@@ -2268,15 +2266,15 @@ is_basic_type.exit.thread:                        ; preds = %252, %is_basic_type
   %287 = getelementptr inbounds i8, ptr %286, i64 408
   %288 = load ptr, ptr %287, align 8
   %289 = tail call noalias ptr @wmem_alloc(ptr noundef %288, i64 noundef 80) #9
-  %290 = load ptr, ptr %0, align 8
-  %291 = load ptr, ptr %6, align 8
+  %290 = load ptr, ptr %6, align 8
+  %291 = load <2 x ptr>, ptr %0, align 8
   %292 = getelementptr inbounds i8, ptr %0, i64 16
   %293 = load i32, ptr %292, align 8
   %294 = add i32 %293, 1
   %295 = getelementptr inbounds i8, ptr %0, i64 28
   %296 = load i32, ptr %295, align 4
   %297 = add i32 %296, 1
-  %298 = getelementptr i8, ptr %291, i64 1
+  %298 = getelementptr i8, ptr %290, i64 1
   %299 = load i8, ptr %298, align 1
   %switch.tableidx = add i8 %299, -98
   %300 = icmp ult i8 %switch.tableidx, 24
@@ -2290,9 +2288,7 @@ switch.lookup:                                    ; preds = %278
 
 is_basic_type.exit359:                            ; preds = %278, %switch.lookup
   %.0.i358 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %278 ]
-  store ptr %290, ptr %289, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %289, i64 8
-  store ptr %291, ptr %.sroa.2.0..sroa_idx, align 8
+  store <2 x ptr> %291, ptr %289, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %289, i64 16
   store i32 %294, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %289, i64 20

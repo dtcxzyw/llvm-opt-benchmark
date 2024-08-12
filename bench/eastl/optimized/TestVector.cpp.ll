@@ -16949,7 +16949,7 @@ invoke.cont2:
   %ref.tmp.i.i3459 = alloca i32, align 4
   %ref.tmp.i.i3427 = alloca i32, align 4
   %ref.tmp.i.i = alloca i32, align 4
-  %agg.tmp.i.i.i.i.i = alloca %"struct.eastl::DequeIterator.66", align 8
+  %agg.tmp.i.i.i.i.i = alloca %"struct.eastl::DequeIterator.66", align 16
   %agg.tmp1.i.i.i.i.i = alloca %"struct.eastl::DequeIterator.66", align 8
   %first.addr.i.i.i5.i.i = alloca ptr, align 8
   %nErrorCount = alloca i32, align 4
@@ -18257,9 +18257,8 @@ invoke.cont181:                                   ; preds = %_ZN5eastl13DequeIte
 
 invoke.cont187:                                   ; preds = %invoke.cont181
   %mItBegin.i593 = getelementptr inbounds i8, ptr %toListDeque, i64 16
-  %149 = load ptr, ptr %mItBegin.i593, align 8, !noalias !108
-  %mpBegin3.i.i595 = getelementptr inbounds i8, ptr %toListDeque, i64 24
-  %150 = load ptr, ptr %mpBegin3.i.i595, align 8, !noalias !108
+  %149 = load <2 x ptr>, ptr %mItBegin.i593, align 8, !noalias !108
+  %150 = load ptr, ptr %mItBegin.i593, align 8, !noalias !108
   %mpEnd4.i.i597 = getelementptr inbounds i8, ptr %toListDeque, i64 32
   %151 = load ptr, ptr %mpEnd4.i.i597, align 8, !noalias !108
   %mpCurrentArrayPtr5.i.i599 = getelementptr inbounds i8, ptr %toListDeque, i64 40
@@ -18267,20 +18266,19 @@ invoke.cont187:                                   ; preds = %invoke.cont181
   %mItEnd.i600 = getelementptr inbounds i8, ptr %toListDeque, i64 48
   %153 = load ptr, ptr %mItEnd.i600, align 8, !noalias !111
   %mpBegin3.i.i602 = getelementptr inbounds i8, ptr %toListDeque, i64 56
-  %154 = load ptr, ptr %mpBegin3.i.i602, align 8, !noalias !111
-  %mpEnd4.i.i604 = getelementptr inbounds i8, ptr %toListDeque, i64 64
-  %155 = load ptr, ptr %mpEnd4.i.i604, align 8, !noalias !111
+  %154 = load <2 x ptr>, ptr %mpBegin3.i.i602, align 8, !noalias !111
+  %155 = load ptr, ptr %mpBegin3.i.i602, align 8, !noalias !111
   %mpCurrentArrayPtr5.i.i606 = getelementptr inbounds i8, ptr %toListDeque, i64 72
   %156 = load ptr, ptr %mpCurrentArrayPtr5.i.i606, align 8, !noalias !111
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %toListArray5, i8 0, i64 24, i1 false)
   %sub.ptr.lhs.cast.i.i.i.i.i.i612 = ptrtoint ptr %156 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i613 = ptrtoint ptr %152 to i64
   %sub.ptr.lhs.cast2.i.i.i.i.i.i614 = ptrtoint ptr %153 to i64
-  %sub.ptr.rhs.cast3.i.i.i.i.i.i615 = ptrtoint ptr %154 to i64
+  %sub.ptr.rhs.cast3.i.i.i.i.i.i615 = ptrtoint ptr %155 to i64
   %sub.ptr.sub4.i.i.i.i.i.i616 = sub i64 %sub.ptr.lhs.cast2.i.i.i.i.i.i614, %sub.ptr.rhs.cast3.i.i.i.i.i.i615
   %sub.ptr.div5.i.i.i.i.i.i617 = sdiv exact i64 %sub.ptr.sub4.i.i.i.i.i.i616, 24
   %sub.ptr.lhs.cast7.i.i.i.i.i.i618 = ptrtoint ptr %151 to i64
-  %sub.ptr.rhs.cast8.i.i.i.i.i.i619 = ptrtoint ptr %149 to i64
+  %sub.ptr.rhs.cast8.i.i.i.i.i.i619 = ptrtoint ptr %150 to i64
   %sub.ptr.sub9.i.i.i.i.i.i620 = sub i64 %sub.ptr.lhs.cast7.i.i.i.i.i.i618, %sub.ptr.rhs.cast8.i.i.i.i.i.i619
   %sub.ptr.div10.i.i.i.i.i.i621 = sdiv exact i64 %sub.ptr.sub9.i.i.i.i.i.i620, 24
   %reass.sub = sub i64 %sub.ptr.div10.i.i.i.i.i.i621, %sub.ptr.rhs.cast.i.i.i.i.i.i613
@@ -18310,18 +18308,14 @@ _ZN5eastl6vectorINS_4listI10TestObjectNS_9allocatorEEES3_E18DoInitFromIteratorIN
   store ptr %add.ptr.i.i.i634, ptr %mpEnd.i7.i.i636, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i.i.i)
-  store ptr %149, ptr %agg.tmp.i.i.i.i.i, align 8
-  %mpBegin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i, i64 8
-  store ptr %150, ptr %mpBegin.i.i.i.i.i.i, align 8
+  store <2 x ptr> %149, ptr %agg.tmp.i.i.i.i.i, align 16
   %mpEnd.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i, i64 16
-  store ptr %151, ptr %mpEnd.i.i.i.i.i.i, align 8
+  store ptr %151, ptr %mpEnd.i.i.i.i.i.i, align 16
   %mpCurrentArrayPtr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i, i64 24
   store ptr %152, ptr %mpCurrentArrayPtr.i.i.i.i.i.i, align 8
   store ptr %153, ptr %agg.tmp1.i.i.i.i.i, align 8
   %mpBegin.i1.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i.i, i64 8
-  store ptr %154, ptr %mpBegin.i1.i.i.i.i.i, align 8
-  %mpEnd.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i.i, i64 16
-  store ptr %155, ptr %mpEnd.i3.i.i.i.i.i, align 8
+  store <2 x ptr> %154, ptr %mpBegin.i1.i.i.i.i.i, align 8
   %mpCurrentArrayPtr.i5.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i.i.i, i64 24
   store ptr %156, ptr %mpCurrentArrayPtr.i5.i.i.i.i.i, align 8
   %call.i.i.i.i8.i = invoke noundef ptr @_ZN5eastl8Internal23uninitialized_copy_implILb0ELb1ELb0EE4implINS_13DequeIteratorINS_4listI10TestObjectNS_9allocatorEEEPS8_RS8_Lj8EEES9_EET0_T_SD_SC_(ptr noundef nonnull %agg.tmp.i.i.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i.i.i, ptr noundef %.pr.i)
@@ -31911,16 +31905,15 @@ invoke.cont3190:                                  ; preds = %invoke.cont3181
   %2253 = load ptr, ptr %v13149, align 8
   store ptr %2249, ptr %v13149, align 8
   store ptr %2253, ptr %v23150, align 8
-  %2254 = load ptr, ptr %mpEnd.i6433, align 8
+  %2254 = load <2 x ptr>, ptr %mpEnd.i6433, align 8
+  %2255 = load ptr, ptr %mpEnd.i6433, align 8
   store ptr %2250, ptr %mpEnd.i6433, align 8
-  store ptr %2254, ptr %mpEnd.i6485, align 8
-  %2255 = load ptr, ptr %mCapacityAllocator.i.i6434, align 8
   store ptr %2251, ptr %mCapacityAllocator.i.i6434, align 8
-  store ptr %2255, ptr %mCapacityAllocator4.i.i.i.i6500, align 8
+  store <2 x ptr> %2254, ptr %mpEnd.i6485, align 8
   %2256 = load i8, ptr %mSecond.i.i.i.i6426, align 8
   store i8 %2252, ptr %mSecond.i.i.i.i6426, align 8
   store i8 %2256, ptr %mSecond.i.i.i.i6428, align 8
-  %cmp.i6519 = icmp eq ptr %2253, %2254
+  %cmp.i6519 = icmp eq ptr %2253, %2255
   %2257 = select i1 %cmp.i6509, i1 %cmp.i6519, i1 false
   %call3196 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %2257, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1771, ptr noundef nonnull @.str.275)
           to label %invoke.cont3195 unwind label %lpad3153
@@ -31941,7 +31934,7 @@ invoke.cont3.i.i.i.i.i6525:                       ; preds = %for.body.i.i.i6522
 
 _ZN5eastl10unique_ptrIiNS_14default_deleteIiEEED2Ev.exit.i.i.i6526: ; preds = %invoke.cont3.i.i.i.i.i6525, %for.body.i.i.i6522
   %incdec.ptr.i.i.i6527 = getelementptr inbounds i8, ptr %first.addr.04.i.i.i6523, i64 8
-  %cmp.not.i.i.i6528 = icmp eq ptr %incdec.ptr.i.i.i6527, %2254
+  %cmp.not.i.i.i6528 = icmp eq ptr %incdec.ptr.i.i.i6527, %2255
   br i1 %cmp.not.i.i.i6528, label %invoke.cont.i6531, label %for.body.i.i.i6522, !llvm.loop !214
 
 invoke.cont.i6531:                                ; preds = %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEED2Ev.exit.i.i.i6526, %invoke.cont3195

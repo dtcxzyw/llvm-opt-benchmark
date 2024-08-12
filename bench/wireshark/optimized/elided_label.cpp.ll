@@ -646,34 +646,31 @@ define void @_ZN11ElidedLabel7setTextERK7QString(ptr noundef nonnull align 8 der
   %3 = alloca %class.QString, align 16
   call void @_ZNK7QString13toHtmlEscapedEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
-  %8 = load ptr, ptr %6, align 8
-  %9 = load <2 x ptr>, ptr %3, align 16
-  store ptr %5, ptr %3, align 16
-  store <2 x ptr> %9, ptr %4, align 8
-  store ptr %8, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
-  %12 = load i64, ptr %10, align 8
-  %13 = load i64, ptr %11, align 16
-  store i64 %13, ptr %10, align 8
-  store i64 %12, ptr %11, align 16
-  %.not.i.i.i = icmp eq ptr %5, null
+  %5 = load <2 x ptr>, ptr %3, align 16
+  %6 = load <2 x ptr>, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8
+  store <2 x ptr> %5, ptr %4, align 8
+  store <2 x ptr> %6, ptr %3, align 16
+  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = load i64, ptr %8, align 8
+  %11 = load i64, ptr %9, align 16
+  store i64 %11, ptr %8, align 8
+  store i64 %10, ptr %9, align 16
+  %.not.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i, label %_ZN7QStringD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
 
 _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %2
-  %14 = atomicrmw sub ptr %5, i32 1 seq_cst, align 4
-  %.not.i.i = icmp eq i32 %14, 1
-  br i1 %.not.i.i, label %15, label %_ZN7QStringD2Ev.exit
+  %12 = atomicrmw sub ptr %7, i32 1 seq_cst, align 4
+  %.not.i.i = icmp eq i32 %12, 1
+  br i1 %.not.i.i, label %13, label %_ZN7QStringD2Ev.exit
 
-15:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
-  %16 = load ptr, ptr %3, align 16
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %16, i64 noundef 2, i64 noundef 8) #8
+13:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
+  %14 = load ptr, ptr %3, align 16
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %14, i64 noundef 2, i64 noundef 8) #8
   br label %_ZN7QStringD2Ev.exit
 
-_ZN7QStringD2Ev.exit:                             ; preds = %2, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %15
+_ZN7QStringD2Ev.exit:                             ; preds = %2, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %13
   call void @_ZN11ElidedLabel10updateTextEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
   ret void
 }

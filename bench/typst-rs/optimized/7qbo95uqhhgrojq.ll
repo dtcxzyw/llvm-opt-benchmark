@@ -1405,7 +1405,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h10a7bd4b
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load <2 x i64>, ptr %4, align 8
-  %9 = extractelement <2 x i64> %8, i64 0
+  %9 = load i64, ptr %4, align 8, !noundef !4
   %10 = add i64 %9, 1
   store i64 %10, ptr %4, align 8
   store <2 x i64> %8, ptr %7, align 8
@@ -1847,7 +1847,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17h79c194c208b61acc
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   %16 = load <2 x i64>, ptr %.0.i.i7, align 8, !noalias !453
-  %17 = extractelement <2 x i64> %16, i64 0
+  %17 = load i64, ptr %.0.i.i7, align 8, !noalias !453, !noundef !4
   %18 = add i64 %17, 1
   store i64 %18, ptr %.0.i.i7, align 8, !noalias !453
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -1909,7 +1909,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17h7b4a0e3500c205df
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   %16 = load <2 x i64>, ptr %.0.i.i7, align 8, !noalias !462
-  %17 = extractelement <2 x i64> %16, i64 0
+  %17 = load i64, ptr %.0.i.i7, align 8, !noalias !462, !noundef !4
   %18 = add i64 %17, 1
   store i64 %18, ptr %.0.i.i7, align 8, !noalias !462
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -1971,7 +1971,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17h83227d805056b24e
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   %16 = load <2 x i64>, ptr %.0.i.i7, align 8, !noalias !471
-  %17 = extractelement <2 x i64> %16, i64 0
+  %17 = load i64, ptr %.0.i.i7, align 8, !noalias !471, !noundef !4
   %18 = add i64 %17, 1
   store i64 %18, ptr %.0.i.i7, align 8, !noalias !471
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -2033,7 +2033,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17h991c62f1dc1a95a7
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   %16 = load <2 x i64>, ptr %.0.i.i7, align 8, !noalias !480
-  %17 = extractelement <2 x i64> %16, i64 0
+  %17 = load i64, ptr %.0.i.i7, align 8, !noalias !480, !noundef !4
   %18 = add i64 %17, 1
   store i64 %18, ptr %.0.i.i7, align 8, !noalias !480
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -2095,7 +2095,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17hbb2c26315a092f4f
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   %16 = load <2 x i64>, ptr %.0.i.i7, align 8, !noalias !489
-  %17 = extractelement <2 x i64> %16, i64 0
+  %17 = load i64, ptr %.0.i.i7, align 8, !noalias !489, !noundef !4
   %18 = add i64 %17, 1
   store i64 %18, ptr %.0.i.i7, align 8, !noalias !489
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -2157,7 +2157,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17hcc92cf9116842f8b
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   %16 = load <2 x i64>, ptr %.0.i.i7, align 8, !noalias !498
-  %17 = extractelement <2 x i64> %16, i64 0
+  %17 = load i64, ptr %.0.i.i7, align 8, !noalias !498, !noundef !4
   %18 = add i64 %17, 1
   store i64 %18, ptr %.0.i.i7, align 8, !noalias !498
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -2219,7 +2219,7 @@ define hidden void @"_ZN9typst_svg21Deduplicator$LT$T$GT$3new17hd47b527f80d84611
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   %16 = load <2 x i64>, ptr %.0.i.i7, align 8, !noalias !507
-  %17 = extractelement <2 x i64> %16, i64 0
+  %17 = load i64, ptr %.0.i.i7, align 8, !noalias !507, !noundef !4
   %18 = add i64 %17, 1
   store i64 %18, ptr %.0.i.i7, align 8, !noalias !507
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)

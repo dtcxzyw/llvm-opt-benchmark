@@ -976,13 +976,14 @@ invoke.cont:                                      ; preds = %if.then.i.i.i, %inv
   br i1 %tobool.not.not, label %cleanup.done, label %cond.true
 
 cond.true:                                        ; preds = %invoke.cont
-  %42 = load <2 x ptr>, ptr %selectedCandidateType, align 16
-  %43 = extractelement <2 x ptr> %42, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %43, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %selectedCandidateType, i64 8
+  %42 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %43 = load <2 x ptr>, ptr %selectedCandidateType, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %42, null
   br i1 %cmp.not.i.i.i.i, label %_ZN8facebook5velox4exec22SimpleFunctionRegistry22ResolvedSimpleFunctionD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %cond.true
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %44, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i1
@@ -1000,7 +1001,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 _ZN8facebook5velox4exec22SimpleFunctionRegistry22ResolvedSimpleFunctionD2Ev.exit: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i1, %cond.true
   store ptr %selectedCandidate.3, ptr %agg.result, align 8
   %type_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store <2 x ptr> %42, ptr %type_.i.i.i.i.i.i.i, align 8
+  store <2 x ptr> %43, ptr %type_.i.i.i.i.i.i.i, align 8
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %invoke.cont, %_ZN8facebook5velox4exec22SimpleFunctionRegistry22ResolvedSimpleFunctionD2Ev.exit
@@ -1899,14 +1900,15 @@ _ZNSt11unique_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolic
 define linkonce_odr void @_ZSt11make_uniqueIKN8facebook5velox4exec13FunctionEntryEJRKSt10shared_ptrIKNS1_4core23ISimpleFunctionMetadataEERKSt8functionIFSt10unique_ptrINS2_28SimpleFunctionAdapterFactoryESt14default_deleteISE_EEvEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %__args, ptr noundef nonnull align 8 dereferenceable(32) %__args1) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #17
-  %0 = load <2 x ptr>, ptr %__args, align 8
-  store <2 x ptr> %0, ptr %call, align 8
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %__args, align 8
+  store <2 x ptr> %1, ptr %call, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN8facebook5velox4core23ISimpleFunctionMetadataEEC2ERKS5_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

@@ -565,22 +565,22 @@ define void @_ZN2cv11RotatedRectC2ERKNS_6Point_IfEES4_S4_(ptr nocapture noundef 
   %8 = load <2 x float>, ptr %1, align 4
   %9 = load <2 x float>, ptr %3, align 4
   %indvars.iv.i.i.sroa.gep83 = getelementptr inbounds i8, ptr %5, i64 4
-  %10 = load <2 x float>, ptr %2, align 4
-  %11 = fsub <2 x float> %8, %10
-  store <2 x float> %11, ptr %5, align 16
-  %12 = fsub <2 x float> %10, %9
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
-  store <2 x float> %12, ptr %13, align 8
-  %14 = extractelement <2 x float> %8, i64 0
-  %15 = fpext float %14 to double
-  %16 = extractelement <2 x float> %8, i64 1
-  %17 = fpext float %16 to double
+  %10 = extractelement <2 x float> %8, i64 0
+  %11 = extractelement <2 x float> %8, i64 1
+  %12 = load <2 x float>, ptr %2, align 4
+  %13 = fsub <2 x float> %8, %12
+  store <2 x float> %13, ptr %5, align 16
+  %14 = fsub <2 x float> %12, %9
+  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  store <2 x float> %14, ptr %15, align 8
+  %16 = fpext float %10 to double
+  %17 = fpext float %11 to double
   %18 = fmul double %17, %17
-  %19 = tail call double @llvm.fmuladd.f64(double %15, double %15, double %18)
+  %19 = tail call double @llvm.fmuladd.f64(double %16, double %16, double %18)
   %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %19)
-  %20 = shufflevector <2 x float> %10, <2 x float> %9, <2 x i32> <i32 0, i32 2>
+  %20 = shufflevector <2 x float> %12, <2 x float> %9, <2 x i32> <i32 0, i32 2>
   %21 = fpext <2 x float> %20 to <2 x double>
-  %22 = shufflevector <2 x float> %10, <2 x float> %9, <2 x i32> <i32 1, i32 3>
+  %22 = shufflevector <2 x float> %12, <2 x float> %9, <2 x i32> <i32 1, i32 3>
   %23 = fpext <2 x float> %22 to <2 x double>
   %24 = fmul <2 x double> %23, %23
   %25 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %21, <2 x double> %21, <2 x double> %24)
@@ -609,7 +609,7 @@ _ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit: ; preds = %32
   %39 = phi i1 [ true, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit ], [ false, %38 ]
   %indvars.iv.i.i53 = phi i64 [ 0, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit ], [ 1, %38 ]
   %.010.i.i54 = phi double [ 0.000000e+00, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit ], [ %43, %38 ]
-  %40 = getelementptr inbounds float, ptr %13, i64 %indvars.iv.i.i53
+  %40 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i.i53
   %41 = load float, ptr %40, align 4
   %42 = fpext float %41 to double
   %43 = tail call double @llvm.fmuladd.f64(double %42, double %42, double %.010.i.i54)
@@ -627,7 +627,7 @@ _ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit55: ; preds = %38
   %.078.i = phi double [ 0.000000e+00, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit55 ], [ %53, %46 ]
   %48 = load float, ptr %indvars.iv.i.sroa.phi, align 4
   %49 = fpext float %48 to double
-  %50 = getelementptr inbounds [2 x float], ptr %13, i64 0, i64 %indvars.iv.i
+  %50 = getelementptr inbounds [2 x float], ptr %15, i64 0, i64 %indvars.iv.i
   %51 = load float, ptr %50, align 4
   %52 = fpext float %51 to double
   %53 = tail call double @llvm.fmuladd.f64(double %49, double %52, double %.078.i)
@@ -657,7 +657,7 @@ _ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit59: ; preds = %56
   %63 = phi i1 [ true, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit59 ], [ false, %62 ]
   %indvars.iv.i.i60 = phi i64 [ 0, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit59 ], [ 1, %62 ]
   %.010.i.i61 = phi double [ 0.000000e+00, %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit59 ], [ %67, %62 ]
-  %64 = getelementptr inbounds float, ptr %13, i64 %indvars.iv.i.i60
+  %64 = getelementptr inbounds float, ptr %15, i64 %indvars.iv.i.i60
   %65 = load float, ptr %64, align 4
   %66 = fpext float %65 to double
   %67 = tail call double @llvm.fmuladd.f64(double %66, double %66, double %.010.i.i61)
@@ -700,7 +700,7 @@ _ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit62: ; preds = %62
   resume { ptr, i32 } %.pn
 
 81:                                               ; preds = %_ZN2cvL4normIfLi2ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit62
-  %82 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %12)
+  %82 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %14)
   %83 = extractelement <2 x float> %82, i64 0
   %84 = extractelement <2 x float> %82, i64 1
   %85 = fcmp olt float %84, %83

@@ -35701,16 +35701,14 @@ for.end352:                                       ; preds = %_ZN4cvc58internal6S
 if.then354:                                       ; preds = %for.end352
   %176 = load ptr, ptr %node_vec, align 8
   %_M_finish.i.i.i1146 = getelementptr inbounds i8, ptr %node_vec, i64 8
-  %177 = load ptr, ptr %_M_finish.i.i.i1146, align 8
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %node_vec, i64 16
-  %178 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %_M_finish.i2.i.i = getelementptr inbounds i8, ptr %nodeVecTmp, i64 8
-  %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %nodeVecTmp, i64 16
+  %177 = load <2 x ptr>, ptr %_M_finish.i.i.i1146, align 8
+  %178 = load ptr, ptr %_M_finish.i.i.i1146, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %node_vec, i8 0, i64 24, i1 false)
   store ptr %176, ptr %nodeVecTmp, align 8
-  store ptr %177, ptr %_M_finish.i2.i.i, align 8
-  store ptr %178, ptr %_M_end_of_storage.i4.i.i, align 8
-  %cmp.i1148.not1911 = icmp eq ptr %176, %177
+  store <2 x ptr> %177, ptr %_M_finish.i2.i.i, align 8
+  %cmp.i1148.not1911 = icmp eq ptr %176, %178
   br i1 %cmp.i1148.not1911, label %invoke.cont.i, label %for.body364
 
 for.body364:                                      ; preds = %if.then354, %for.inc380
@@ -35833,7 +35831,7 @@ lpad367:                                          ; preds = %if.else.i1206, %if.
 
 for.inc380:                                       ; preds = %for.cond.i.i.i.i1169, %for.body.i.i1179, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i1196, %if.else.i1206, %if.end.i.i.i.i1156
   %incdec.ptr.i1210 = getelementptr inbounds i8, ptr %__begin5356.sroa.0.01912, i64 8
-  %cmp.i1148.not = icmp eq ptr %incdec.ptr.i1210, %177
+  %cmp.i1148.not = icmp eq ptr %incdec.ptr.i1210, %178
   br i1 %cmp.i1148.not, label %for.end382, label %for.body364
 
 for.end382:                                       ; preds = %for.inc380
@@ -35869,7 +35867,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then13.i.i.i.i.i
 
 _ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i: ; preds = %if.then13.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i1212 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i1213 = icmp eq ptr %incdec.ptr.i.i.i.i1212, %177
+  %cmp.not.i.i.i.i1213 = icmp eq ptr %incdec.ptr.i.i.i.i1212, %178
   br i1 %cmp.not.i.i.i.i1213, label %invoke.cont.i, label %for.body.i.i.i.i, !llvm.loop !89
 
 invoke.cont.i:                                    ; preds = %_ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i, %if.then354, %for.end382

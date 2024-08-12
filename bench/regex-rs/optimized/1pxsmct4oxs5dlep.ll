@@ -8015,15 +8015,15 @@ define internal fastcc void @_ZN12regex_syntax7unicode23symbolic_name_normalize1
 73:                                               ; preds = %69
   %74 = getelementptr inbounds i8, ptr %5, i64 8
   %75 = load <2 x i64>, ptr %74, align 8, !noalias !799
+  %76 = load i64, ptr %74, align 8, !noalias !799
   %.sroa.016.0.copyload = load i64, ptr %6, align 8, !noalias !794
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false), !noalias !5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !799
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !801)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !804)
-  %76 = icmp eq i64 %.sroa.016.0.copyload, -9223372036854775808
-  %77 = extractelement <2 x i64> %75, i64 0
-  br i1 %76, label %84, label %78
+  %77 = icmp eq i64 %.sroa.016.0.copyload, -9223372036854775808
+  br i1 %77, label %84, label %78
 
 78:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !806
@@ -8051,7 +8051,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode23symbolic_name_normalize1
   unreachable
 
 84:                                               ; preds = %73, %.thread23
-  %.sroa.6.sroa.6.0 = phi i64 [ %77, %73 ], [ %66, %.thread23 ]
+  %.sroa.6.sroa.6.0 = phi i64 [ %76, %73 ], [ %66, %.thread23 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, i64 16, i1 false), !alias.scope !806
   %.sroa.6.sroa.6.0..sroa_idx41 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.6.sroa.6.0, ptr %.sroa.6.sroa.6.0..sroa_idx41, align 8, !alias.scope !806

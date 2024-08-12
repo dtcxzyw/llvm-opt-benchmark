@@ -5564,38 +5564,38 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit:
   %67 = load <2 x double>, ptr %65, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %21, i8 0, i64 368, i1 false)
   store double %64, ptr %1, align 16
+  %68 = extractelement <2 x double> %67, i64 0
+  %69 = extractelement <2 x double> %67, i64 1
   store <2 x double> %67, ptr %22, align 8
-  %68 = extractelement <2 x double> %67, i64 1
-  store double %68, ptr %24, align 8
-  %69 = fneg <2 x double> %67
-  %70 = extractelement <2 x double> %69, i64 0
-  store double %70, ptr %25, align 16
+  store double %69, ptr %24, align 8
+  %70 = fneg <2 x double> %67
+  %71 = extractelement <2 x double> %70, i64 0
+  store double %71, ptr %25, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 16 dereferenceable(24) %23, i64 24, i1 false)
-  %71 = extractelement <2 x double> %69, i64 1
-  store double %71, ptr %27, align 16
+  %72 = extractelement <2 x double> %70, i64 1
+  store double %72, ptr %27, align 16
   store double %64, ptr %28, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %29, ptr noundef nonnull align 16 dereferenceable(24) %27, i64 24, i1 false)
-  %72 = extractelement <2 x double> %67, i64 0
-  store double %72, ptr %30, align 16
+  store double %68, ptr %30, align 16
   store double %66, ptr %31, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 16 dereferenceable(24) %30, i64 24, i1 false)
   store double %64, ptr %33, align 8
-  store <2 x double> %69, ptr %34, align 16
-  store double %72, ptr %35, align 8
+  store <2 x double> %70, ptr %34, align 16
+  store double %68, ptr %35, align 8
   store double %64, ptr %36, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
-  store double %68, ptr %38, align 8
+  store double %69, ptr %38, align 8
   store double %64, ptr %39, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
   store double %66, ptr %41, align 16
-  store double %72, ptr %42, align 8
-  store double %71, ptr %43, align 16
-  store double %68, ptr %45, align 8
-  store double %72, ptr %46, align 16
+  store double %68, ptr %42, align 8
+  store double %72, ptr %43, align 16
+  store double %69, ptr %45, align 8
+  store double %68, ptr %46, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 16 dereferenceable(24) %44, i64 24, i1 false)
   store double %66, ptr %48, align 8
-  store double %70, ptr %49, align 16
-  store double %68, ptr %50, align 8
+  store double %71, ptr %49, align 16
+  store double %69, ptr %50, align 8
   invoke void @_ZNK19rotation_derivativeIN12colvarmodule4atomENS0_7rvectorEE20calc_derivative_implERA4_A4_KS2_PS2_PNS0_8vector1dIS2_EEPNS0_8matrix2dIS2_EE(ptr noundef nonnull align 8 dereferenceable(664) %59, ptr noundef nonnull align 8 dereferenceable(384) %1, ptr noundef null, ptr noundef nonnull %4, ptr noundef null)
           to label %73 unwind label %.loopexit
 
@@ -6571,38 +6571,38 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit: ; preds = %1
   %69 = load <2 x double>, ptr %67, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %26, i8 0, i64 368, i1 false)
   store double %66, ptr %2, align 16
+  %70 = extractelement <2 x double> %69, i64 0
+  %71 = extractelement <2 x double> %69, i64 1
   store <2 x double> %69, ptr %27, align 8
-  %70 = extractelement <2 x double> %69, i64 1
-  store double %70, ptr %29, align 8
-  %71 = fneg <2 x double> %69
-  %72 = extractelement <2 x double> %71, i64 0
-  store double %72, ptr %30, align 16
+  store double %71, ptr %29, align 8
+  %72 = fneg <2 x double> %69
+  %73 = extractelement <2 x double> %72, i64 0
+  store double %73, ptr %30, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 16 dereferenceable(24) %28, i64 24, i1 false)
-  %73 = extractelement <2 x double> %71, i64 1
-  store double %73, ptr %32, align 16
+  %74 = extractelement <2 x double> %72, i64 1
+  store double %74, ptr %32, align 16
   store double %66, ptr %33, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %34, ptr noundef nonnull align 16 dereferenceable(24) %32, i64 24, i1 false)
-  %74 = extractelement <2 x double> %69, i64 0
-  store double %74, ptr %35, align 16
+  store double %70, ptr %35, align 16
   store double %68, ptr %36, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 16 dereferenceable(24) %35, i64 24, i1 false)
   store double %66, ptr %38, align 8
-  store <2 x double> %71, ptr %39, align 16
-  store double %74, ptr %40, align 8
+  store <2 x double> %72, ptr %39, align 16
+  store double %70, ptr %40, align 8
   store double %66, ptr %41, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
-  store double %70, ptr %43, align 8
+  store double %71, ptr %43, align 8
   store double %66, ptr %44, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %43, i64 24, i1 false)
   store double %68, ptr %46, align 16
-  store double %74, ptr %47, align 8
-  store double %73, ptr %48, align 16
-  store double %70, ptr %50, align 8
-  store double %74, ptr %51, align 16
+  store double %70, ptr %47, align 8
+  store double %74, ptr %48, align 16
+  store double %71, ptr %50, align 8
+  store double %70, ptr %51, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 16 dereferenceable(24) %49, i64 24, i1 false)
   store double %68, ptr %53, align 8
-  store double %72, ptr %54, align 16
-  store double %70, ptr %55, align 8
+  store double %73, ptr %54, align 16
+  store double %71, ptr %55, align 8
   invoke void @_ZNK19rotation_derivativeIN12colvarmodule4atomENS0_7rvectorEE20calc_derivative_implERA4_A4_KS2_PS2_PNS0_8vector1dIS2_EEPNS0_8matrix2dIS2_EE(ptr noundef nonnull align 8 dereferenceable(664) %61, ptr noundef nonnull align 8 dereferenceable(384) %2, ptr noundef null, ptr noundef nonnull %5, ptr noundef null)
           to label %75 unwind label %.loopexit
 

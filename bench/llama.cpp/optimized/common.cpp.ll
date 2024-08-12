@@ -41316,17 +41316,18 @@ _ZNSt6vectorINSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic
   %_M_current = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %_M_current, align 8
   %_M_end = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_re = getelementptr inbounds i8, ptr %this, i64 48
   %_M_flags = getelementptr inbounds i8, ptr %this, i64 112
   %2 = load i32, ptr %_M_flags, align 8
   %_M_begin.i = getelementptr inbounds i8, ptr %__sub, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__sub, i8 0, i64 32, i1 false)
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %_M_begin.i, align 8
   %_M_end.i = getelementptr inbounds i8, ptr %__sub, i64 40
-  %3 = load <2 x ptr>, ptr %_M_end, align 8
-  store <2 x ptr> %3, ptr %_M_end.i, align 8
+  %3 = load ptr, ptr %_M_re, align 8
+  %4 = load <2 x ptr>, ptr %_M_end, align 8
+  store <2 x ptr> %4, ptr %_M_end.i, align 8
   %_M_nfa.i = getelementptr inbounds i8, ptr %__sub, i64 56
-  %4 = extractelement <2 x ptr> %3, i64 1
-  %_M_automaton.i = getelementptr inbounds i8, ptr %4, i64 16
+  %_M_automaton.i = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %_M_automaton.i, align 8
   store ptr %5, ptr %_M_nfa.i, align 8
   %_M_results.i = getelementptr inbounds i8, ptr %__sub, i64 64

@@ -181,298 +181,296 @@ define hidden void @_ZN21JfrNetworkUtilization11send_eventsEv() local_unnamed_ad
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 32
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 40
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
-  %15 = load i64, ptr %14, align 8
-  %16 = call noundef i32 @_ZN14JfrOSInterface19network_utilizationEPP16NetworkInterface(ptr noundef nonnull %2) #12
-  switch i32 %16, label %20 [
-    i32 -1, label %17
+  %11 = load <2 x ptr>, ptr %10, align 8
+  %12 = load ptr, ptr %10, align 8
+  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = load i64, ptr %13, align 8
+  %15 = call noundef i32 @_ZN14JfrOSInterface19network_utilizationEPP16NetworkInterface(ptr noundef nonnull %2) #12
+  switch i32 %15, label %19 [
+    i32 -1, label %16
     i32 -8, label %_ZL14get_interfacesPP16NetworkInterface.exit.thread
   ]
 
-17:                                               ; preds = %0
-  %18 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_ZL14get_interfacesPP16NetworkInterface.exit.thread, label %19
+16:                                               ; preds = %0
+  %17 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %_ZL14get_interfacesPP16NetworkInterface.exit.thread, label %18
 
-19:                                               ; preds = %17
+18:                                               ; preds = %16
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str)
   br label %_ZL14get_interfacesPP16NetworkInterface.exit.thread
 
-20:                                               ; preds = %0
-  %21 = load atomic i8, ptr @_ZGVZN21JfrNetworkUtilization11send_eventsEvE19last_sample_instant acquire, align 8
-  %22 = icmp eq i8 %21, 0
-  br i1 %22, label %23, label %26, !prof !8
+19:                                               ; preds = %0
+  %20 = load atomic i8, ptr @_ZGVZN21JfrNetworkUtilization11send_eventsEvE19last_sample_instant acquire, align 8
+  %21 = icmp eq i8 %20, 0
+  br i1 %21, label %22, label %25, !prof !8
 
-23:                                               ; preds = %20
-  %24 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN21JfrNetworkUtilization11send_eventsEvE19last_sample_instant) #12
-  %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %26, label %25
+22:                                               ; preds = %19
+  %23 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN21JfrNetworkUtilization11send_eventsEvE19last_sample_instant) #12
+  %.not = icmp eq i32 %23, 0
+  br i1 %.not, label %25, label %24
 
-25:                                               ; preds = %23
+24:                                               ; preds = %22
   store i64 0, ptr @_ZZN21JfrNetworkUtilization11send_eventsEvE19last_sample_instant.0, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN21JfrNetworkUtilization11send_eventsEvE19last_sample_instant) #12
-  br label %26
+  br label %25
 
-26:                                               ; preds = %25, %23, %20
-  %27 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #12
-  %28 = load i64, ptr @_ZZN21JfrNetworkUtilization11send_eventsEvE19last_sample_instant.0, align 8
-  %29 = icmp sgt i64 %27, %28
-  br i1 %29, label %30, label %.loopexit
+25:                                               ; preds = %24, %22, %19
+  %26 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #12
+  %27 = load i64, ptr @_ZZN21JfrNetworkUtilization11send_eventsEvE19last_sample_instant.0, align 8
+  %28 = icmp sgt i64 %26, %27
+  br i1 %28, label %29, label %.loopexit
 
-30:                                               ; preds = %26
-  %31 = sub nsw i64 %27, %28
+29:                                               ; preds = %25
+  %30 = sub nsw i64 %26, %27
   %.040 = load ptr, ptr %2, align 8
   %.not1941 = icmp eq ptr %.040, null
   br i1 %.not1941, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %3, i64 16
-  %33 = getelementptr inbounds i8, ptr %3, i64 17
-  %34 = getelementptr inbounds i8, ptr %3, i64 18
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
-  %36 = getelementptr inbounds i8, ptr %3, i64 24
-  %37 = getelementptr inbounds i8, ptr %3, i64 32
-  %38 = getelementptr inbounds i8, ptr %3, i64 40
-  br label %39
+.lr.ph:                                           ; preds = %29
+  %31 = getelementptr inbounds i8, ptr %3, i64 16
+  %32 = getelementptr inbounds i8, ptr %3, i64 17
+  %33 = getelementptr inbounds i8, ptr %3, i64 18
+  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  %35 = getelementptr inbounds i8, ptr %3, i64 24
+  %36 = getelementptr inbounds i8, ptr %3, i64 32
+  %37 = getelementptr inbounds i8, ptr %3, i64 40
+  br label %38
 
-39:                                               ; preds = %.lr.ph, %130
-  %.042 = phi ptr [ %.040, %.lr.ph ], [ %.0, %130 ]
-  %40 = load ptr, ptr @_ZL11_interfaces, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %_ZL14get_interfacesv.exit.i
+38:                                               ; preds = %.lr.ph, %129
+  %.042 = phi ptr [ %.040, %.lr.ph ], [ %.0, %129 ]
+  %39 = load ptr, ptr @_ZL11_interfaces, align 8
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %_ZL14get_interfacesv.exit.i
 
-42:                                               ; preds = %39
-  %43 = call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 16) #12
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %50, label %45
+41:                                               ; preds = %38
+  %42 = call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 16) #12
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %49, label %44
 
-45:                                               ; preds = %42
-  %46 = call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 10, i32 noundef 40, i8 noundef zeroext 16) #12
-  store i32 0, ptr %43, align 4
-  %47 = getelementptr inbounds i8, ptr %43, i64 4
-  store i32 10, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %43, i64 8
-  store ptr %46, ptr %48, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %46, i8 0, i64 400, i1 false)
-  %49 = getelementptr inbounds i8, ptr %43, i64 16
-  store i64 33, ptr %49, align 8
-  br label %50
+44:                                               ; preds = %41
+  %45 = call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 10, i32 noundef 40, i8 noundef zeroext 16) #12
+  store i32 0, ptr %42, align 4
+  %46 = getelementptr inbounds i8, ptr %42, i64 4
+  store i32 10, ptr %46, align 4
+  %47 = getelementptr inbounds i8, ptr %42, i64 8
+  store ptr %45, ptr %47, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %45, i8 0, i64 400, i1 false)
+  %48 = getelementptr inbounds i8, ptr %42, i64 16
+  store i64 33, ptr %48, align 8
+  br label %49
 
-50:                                               ; preds = %45, %42
-  store ptr %43, ptr @_ZL11_interfaces, align 8
+49:                                               ; preds = %44, %41
+  store ptr %42, ptr @_ZL11_interfaces, align 8
   br label %_ZL14get_interfacesv.exit.i
 
-_ZL14get_interfacesv.exit.i:                      ; preds = %50, %39
-  %51 = phi ptr [ %40, %39 ], [ %43, %50 ]
-  %52 = load i32, ptr %51, align 4
-  %53 = icmp sgt i32 %52, 0
+_ZL14get_interfacesv.exit.i:                      ; preds = %49, %38
+  %50 = phi ptr [ %39, %38 ], [ %42, %49 ]
+  %51 = load i32, ptr %50, align 4
+  %52 = icmp sgt i32 %51, 0
   %.pre.i = load ptr, ptr %.042, align 8
-  br i1 %53, label %.lr.ph.i, label %67
+  br i1 %52, label %.lr.ph.i, label %66
 
 .lr.ph.i:                                         ; preds = %_ZL14get_interfacesv.exit.i
   %_ZZL9get_entryPK16NetworkInterfaceE11saved_index.promoted.i = load i32, ptr @_ZZL9get_entryPK16NetworkInterfaceE11saved_index, align 4
-  %54 = getelementptr inbounds i8, ptr %51, i64 8
-  %55 = load ptr, ptr %54, align 8
-  br label %58
+  %53 = getelementptr inbounds i8, ptr %50, i64 8
+  %54 = load ptr, ptr %53, align 8
+  br label %57
 
-56:                                               ; preds = %58
-  %57 = add nuw nsw i32 %.06.i, 1
-  %exitcond.not.i = icmp eq i32 %57, %52
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %58, !llvm.loop !9
+55:                                               ; preds = %57
+  %56 = add nuw nsw i32 %.06.i, 1
+  %exitcond.not.i = icmp eq i32 %56, %51
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %57, !llvm.loop !9
 
-58:                                               ; preds = %56, %.lr.ph.i
-  %.06.i = phi i32 [ 0, %.lr.ph.i ], [ %57, %56 ]
-  %59 = phi i32 [ %_ZZL9get_entryPK16NetworkInterfaceE11saved_index.promoted.i, %.lr.ph.i ], [ %61, %56 ]
-  %60 = add nsw i32 %59, 1
-  %61 = srem i32 %60, %52
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds %struct.InterfaceEntry, ptr %55, i64 %62
-  %64 = load ptr, ptr %63, align 8
-  %65 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(1) %.pre.i) #13
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %.loopexit.i, label %56
+57:                                               ; preds = %55, %.lr.ph.i
+  %.06.i = phi i32 [ 0, %.lr.ph.i ], [ %56, %55 ]
+  %58 = phi i32 [ %_ZZL9get_entryPK16NetworkInterfaceE11saved_index.promoted.i, %.lr.ph.i ], [ %60, %55 ]
+  %59 = add nsw i32 %58, 1
+  %60 = srem i32 %59, %51
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds %struct.InterfaceEntry, ptr %54, i64 %61
+  %63 = load ptr, ptr %62, align 8
+  %64 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %.pre.i) #13
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %.loopexit.i, label %55
 
-._crit_edge.i:                                    ; preds = %56
-  store i32 %61, ptr @_ZZL9get_entryPK16NetworkInterfaceE11saved_index, align 4
-  br label %67
+._crit_edge.i:                                    ; preds = %55
+  store i32 %60, ptr @_ZZL9get_entryPK16NetworkInterfaceE11saved_index, align 4
+  br label %66
 
-67:                                               ; preds = %._crit_edge.i, %_ZL14get_interfacesv.exit.i
-  %68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre.i) #13
-  %69 = add i64 %68, 1
-  %70 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %69, i8 noundef zeroext 9, i32 noundef 0) #12
-  %71 = call ptr @strncpy(ptr noundef %70, ptr noundef %.pre.i, i64 noundef %69) #12
-  %72 = load i64, ptr @_ZZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryEE12interface_id, align 8
-  %73 = add i64 %72, 1
-  store i64 %73, ptr @_ZZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryEE12interface_id, align 8
-  %74 = getelementptr inbounds i8, ptr %.042, i64 8
-  %75 = load <2 x i64>, ptr %74, align 8
-  %76 = load ptr, ptr @_ZL11_interfaces, align 8
-  %77 = load i32, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %76, i64 4
-  %79 = load i32, ptr %78, align 4
-  %80 = icmp eq i32 %77, %79
-  br i1 %80, label %81, label %_ZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryE.exit.i
+66:                                               ; preds = %._crit_edge.i, %_ZL14get_interfacesv.exit.i
+  %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre.i) #13
+  %68 = add i64 %67, 1
+  %69 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %68, i8 noundef zeroext 9, i32 noundef 0) #12
+  %70 = call ptr @strncpy(ptr noundef %69, ptr noundef %.pre.i, i64 noundef %68) #12
+  %71 = load i64, ptr @_ZZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryEE12interface_id, align 8
+  %72 = add i64 %71, 1
+  store i64 %72, ptr @_ZZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryEE12interface_id, align 8
+  %73 = getelementptr inbounds i8, ptr %.042, i64 8
+  %74 = load <2 x i64>, ptr %73, align 8
+  %75 = load ptr, ptr @_ZL11_interfaces, align 8
+  %76 = load i32, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %75, i64 4
+  %78 = load i32, ptr %77, align 4
+  %79 = icmp eq i32 %76, %78
+  br i1 %79, label %80, label %_ZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryE.exit.i
 
-81:                                               ; preds = %67
-  %82 = add nsw i32 %77, 1
-  %83 = icmp sgt i32 %77, -1
-  %84 = xor i32 %77, -2147483648
-  %85 = and i32 %84, %82
-  %86 = icmp eq i32 %85, 0
-  %87 = and i1 %83, %86
-  %88 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %82, i1 true)
-  %89 = sub nuw nsw i32 32, %88
-  %90 = shl nuw i32 1, %89
-  %.0.i.i.i.i.i.i = select i1 %87, i32 %82, i32 %90
-  call void @_ZN26GrowableArrayWithAllocatorI14InterfaceEntry13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %76, i32 noundef %.0.i.i.i.i.i.i)
-  %.pre.i.i.i = load i32, ptr %76, align 8
+80:                                               ; preds = %66
+  %81 = add nsw i32 %76, 1
+  %82 = icmp sgt i32 %76, -1
+  %83 = xor i32 %76, -2147483648
+  %84 = and i32 %83, %81
+  %85 = icmp eq i32 %84, 0
+  %86 = and i1 %82, %85
+  %87 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %81, i1 true)
+  %88 = sub nuw nsw i32 32, %87
+  %89 = shl nuw i32 1, %88
+  %.0.i.i.i.i.i.i = select i1 %86, i32 %81, i32 %89
+  call void @_ZN26GrowableArrayWithAllocatorI14InterfaceEntry13GrowableArrayIS0_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %75, i32 noundef %.0.i.i.i.i.i.i)
+  %.pre.i.i.i = load i32, ptr %75, align 8
   br label %_ZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryE.exit.i
 
-_ZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryE.exit.i: ; preds = %81, %67
-  %91 = phi i32 [ %.pre.i.i.i, %81 ], [ %77, %67 ]
-  %92 = add nsw i32 %91, 1
-  store i32 %92, ptr %76, align 8
-  %93 = getelementptr inbounds i8, ptr %76, i64 8
-  %94 = load ptr, ptr %93, align 8
-  %95 = sext i32 %91 to i64
-  %96 = getelementptr inbounds %struct.InterfaceEntry, ptr %94, i64 %95
-  store ptr %70, ptr %96, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %96, i64 8
-  store i64 %73, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %96, i64 16
-  store <2 x i64> %75, ptr %.sroa.3.0..sroa_idx.i.i, align 8
-  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %96, i64 32
+_ZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryE.exit.i: ; preds = %80, %66
+  %90 = phi i32 [ %.pre.i.i.i, %80 ], [ %76, %66 ]
+  %91 = add nsw i32 %90, 1
+  store i32 %91, ptr %75, align 8
+  %92 = getelementptr inbounds i8, ptr %75, i64 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = sext i32 %90 to i64
+  %95 = getelementptr inbounds %struct.InterfaceEntry, ptr %93, i64 %94
+  store ptr %69, ptr %95, align 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %95, i64 8
+  store i64 %72, ptr %.sroa.2.0..sroa_idx.i.i, align 8
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %95, i64 16
+  store <2 x i64> %74, ptr %.sroa.3.0..sroa_idx.i.i, align 8
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %95, i64 32
   store i8 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8
-  %97 = load ptr, ptr %93, align 8
-  %98 = getelementptr inbounds %struct.InterfaceEntry, ptr %97, i64 %95
+  %96 = load ptr, ptr %92, align 8
+  %97 = getelementptr inbounds %struct.InterfaceEntry, ptr %96, i64 %94
   br label %_ZL9get_entryPK16NetworkInterface.exit
 
-.loopexit.i:                                      ; preds = %58
-  store i32 %61, ptr @_ZZL9get_entryPK16NetworkInterfaceE11saved_index, align 4
+.loopexit.i:                                      ; preds = %57
+  store i32 %60, ptr @_ZZL9get_entryPK16NetworkInterfaceE11saved_index, align 4
   br label %_ZL9get_entryPK16NetworkInterface.exit
 
 _ZL9get_entryPK16NetworkInterface.exit:           ; preds = %_ZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryE.exit.i, %.loopexit.i
-  %.05.i = phi ptr [ %98, %_ZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryE.exit.i ], [ %63, %.loopexit.i ]
-  %99 = getelementptr inbounds i8, ptr %.042, i64 8
-  %100 = load i64, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %.042, i64 16
-  %102 = load i64, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %.05.i, i64 16
-  %104 = load i64, ptr %103, align 8
-  %.not.i21 = icmp ugt i64 %100, %104
-  br i1 %.not.i21, label %105, label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit
+  %.05.i = phi ptr [ %97, %_ZL9new_entryPK16NetworkInterfaceP13GrowableArrayI14InterfaceEntryE.exit.i ], [ %62, %.loopexit.i ]
+  %98 = getelementptr inbounds i8, ptr %.042, i64 8
+  %99 = load i64, ptr %98, align 8
+  %100 = getelementptr inbounds i8, ptr %.042, i64 16
+  %101 = load i64, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %.05.i, i64 16
+  %103 = load i64, ptr %102, align 8
+  %.not.i21 = icmp ugt i64 %99, %103
+  br i1 %.not.i21, label %104, label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit
 
-105:                                              ; preds = %_ZL9get_entryPK16NetworkInterface.exit
-  %106 = sub nuw i64 %100, %104
-  %107 = mul i64 %106, 1000000000
-  %108 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource11nanosecondsEl(i64 noundef %31) #12
-  %109 = udiv i64 %107, %108
+104:                                              ; preds = %_ZL9get_entryPK16NetworkInterface.exit
+  %105 = sub nuw i64 %99, %103
+  %106 = mul i64 %105, 1000000000
+  %107 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource11nanosecondsEl(i64 noundef %30) #12
+  %108 = udiv i64 %106, %107
   br label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit
 
-_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit: ; preds = %_ZL9get_entryPK16NetworkInterface.exit, %105
-  %.0.i22 = phi i64 [ %109, %105 ], [ 0, %_ZL9get_entryPK16NetworkInterface.exit ]
-  %110 = getelementptr inbounds i8, ptr %.05.i, i64 24
-  %111 = load i64, ptr %110, align 8
-  %.not.i23 = icmp ugt i64 %102, %111
-  br i1 %.not.i23, label %112, label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit25
+_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit: ; preds = %_ZL9get_entryPK16NetworkInterface.exit, %104
+  %.0.i22 = phi i64 [ %108, %104 ], [ 0, %_ZL9get_entryPK16NetworkInterface.exit ]
+  %109 = getelementptr inbounds i8, ptr %.05.i, i64 24
+  %110 = load i64, ptr %109, align 8
+  %.not.i23 = icmp ugt i64 %101, %110
+  br i1 %.not.i23, label %111, label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit25
 
-112:                                              ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit
-  %113 = sub nuw i64 %102, %111
-  %114 = mul i64 %113, 1000000000
-  %115 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource11nanosecondsEl(i64 noundef %31) #12
-  %116 = udiv i64 %114, %115
+111:                                              ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit
+  %112 = sub nuw i64 %101, %110
+  %113 = mul i64 %112, 1000000000
+  %114 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource11nanosecondsEl(i64 noundef %30) #12
+  %115 = udiv i64 %113, %114
   br label %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit25
 
-_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit25: ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit, %112
-  %.0.i24 = phi i64 [ %116, %112 ], [ 0, %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit ]
-  %117 = or i64 %.0.i24, %.0.i22
-  %or.cond.not = icmp eq i64 %117, 0
-  br i1 %or.cond.not, label %130, label %118
+_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit25: ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit, %111
+  %.0.i24 = phi i64 [ %115, %111 ], [ 0, %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit ]
+  %116 = or i64 %.0.i24, %.0.i22
+  %or.cond.not = icmp eq i64 %116, 0
+  br i1 %or.cond.not, label %129, label %117
 
-118:                                              ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit25
+117:                                              ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit25
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %1)
-  %119 = getelementptr inbounds i8, ptr %.05.i, i64 32
-  %120 = load i8, ptr %119, align 8
-  %121 = trunc i8 %120 to i1
-  br i1 %121, label %_ZL24write_interface_constantRK14InterfaceEntry.exit, label %122
+  %118 = getelementptr inbounds i8, ptr %.05.i, i64 32
+  %119 = load i8, ptr %118, align 8
+  %120 = trunc i8 %119 to i1
+  br i1 %120, label %_ZL24write_interface_constantRK14InterfaceEntry.exit, label %121
 
-122:                                              ; preds = %118
+121:                                              ; preds = %117
   call void @_ZN19JfrCheckpointWriterC1Eb17JfrCheckpointType23JfrCheckpointBufferKind(ptr noundef nonnull align 8 dereferenceable(73) %1, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #12
   call void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnull align 8 dereferenceable(73) %1, i32 noundef 178) #12
   call void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73) %1, i32 noundef 1) #12
-  %123 = getelementptr inbounds i8, ptr %.05.i, i64 8
-  %124 = load i64, ptr %123, align 8
-  call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %1, i64 noundef %124) #12
-  %125 = load ptr, ptr %.05.i, align 8
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %125)
-  store i8 1, ptr %119, align 8
+  %122 = getelementptr inbounds i8, ptr %.05.i, i64 8
+  %123 = load i64, ptr %122, align 8
+  call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %1, i64 noundef %123) #12
+  %124 = load ptr, ptr %.05.i, align 8
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %124)
+  store i8 1, ptr %118, align 8
   call void @_ZN19JfrCheckpointWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(73) %1) #12
   br label %_ZL24write_interface_constantRK14InterfaceEntry.exit
 
-_ZL24write_interface_constantRK14InterfaceEntry.exit: ; preds = %118, %122
+_ZL24write_interface_constantRK14InterfaceEntry.exit: ; preds = %117, %121
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %1)
-  store i8 1, ptr %32, align 8
-  store i8 0, ptr %33, align 1
-  store i8 0, ptr %34, align 2
-  store i64 %27, ptr %3, align 8
-  store i64 %27, ptr %35, align 8
-  %126 = getelementptr inbounds i8, ptr %.05.i, i64 8
-  %127 = load i64, ptr %126, align 8
+  store i8 1, ptr %31, align 8
+  store i8 0, ptr %32, align 1
+  store i8 0, ptr %33, align 2
+  store i64 %26, ptr %3, align 8
+  store i64 %26, ptr %34, align 8
+  %125 = getelementptr inbounds i8, ptr %.05.i, i64 8
+  %126 = load i64, ptr %125, align 8
+  store i64 %126, ptr %35, align 8
+  %127 = shl i64 %.0.i22, 3
   store i64 %127, ptr %36, align 8
-  %128 = shl i64 %.0.i22, 3
+  %128 = shl i64 %.0.i24, 3
   store i64 %128, ptr %37, align 8
-  %129 = shl i64 %.0.i24, 3
-  store i64 %129, ptr %38, align 8
   call void @_ZN8JfrEventI23EventNetworkUtilizationE6commitEv(ptr noundef nonnull align 8 dereferenceable(19) %3)
-  br label %130
+  br label %129
 
-130:                                              ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit25, %_ZL24write_interface_constantRK14InterfaceEntry.exit
-  store i64 %100, ptr %103, align 8
-  store i64 %102, ptr %110, align 8
-  %131 = getelementptr inbounds i8, ptr %.042, i64 24
-  %.0 = load ptr, ptr %131, align 8
+129:                                              ; preds = %_ZL15rate_per_secondmmRK12TimeIntervalI21CounterRepresentation33FastUnorderedElapsedCounterSourceE.exit25, %_ZL24write_interface_constantRK14InterfaceEntry.exit
+  store i64 %99, ptr %102, align 8
+  store i64 %101, ptr %109, align 8
+  %130 = getelementptr inbounds i8, ptr %.042, i64 24
+  %.0 = load ptr, ptr %130, align 8
   %.not19 = icmp eq ptr %.0, null
-  br i1 %.not19, label %.loopexit, label %39, !llvm.loop !10
+  br i1 %.not19, label %.loopexit, label %38, !llvm.loop !10
 
-.loopexit:                                        ; preds = %130, %30, %26
-  store i64 %27, ptr @_ZZN21JfrNetworkUtilization11send_eventsEvE19last_sample_instant.0, align 8
-  %132 = load i8, ptr @_ZZN21JfrNetworkUtilization11send_eventsEvE24is_serializer_registered, align 1
-  %133 = trunc nuw i8 %132 to i1
-  br i1 %133, label %_ZL14get_interfacesPP16NetworkInterface.exit.thread, label %134
+.loopexit:                                        ; preds = %129, %29, %25
+  store i64 %26, ptr @_ZZN21JfrNetworkUtilization11send_eventsEvE19last_sample_instant.0, align 8
+  %131 = load i8, ptr @_ZZN21JfrNetworkUtilization11send_eventsEvE24is_serializer_registered, align 1
+  %132 = trunc nuw i8 %131 to i1
+  br i1 %132, label %_ZL14get_interfacesPP16NetworkInterface.exit.thread, label %133
 
-134:                                              ; preds = %.loopexit
-  %135 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #12
-  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV23JfrNetworkInterfaceName, i64 16), ptr %135, align 8
-  %136 = call noundef zeroext i1 @_ZN13JfrSerializer19register_serializerE9JfrTypeIdbPS_(i32 noundef 178, i1 noundef zeroext false, ptr noundef nonnull %135) #12
-  %137 = zext i1 %136 to i8
-  store i8 %137, ptr @_ZZN21JfrNetworkUtilization11send_eventsEvE24is_serializer_registered, align 1
+133:                                              ; preds = %.loopexit
+  %134 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #12
+  store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV23JfrNetworkInterfaceName, i64 16), ptr %134, align 8
+  %135 = call noundef zeroext i1 @_ZN13JfrSerializer19register_serializerE9JfrTypeIdbPS_(i32 noundef 178, i1 noundef zeroext false, ptr noundef nonnull %134) #12
+  %136 = zext i1 %135 to i8
+  store i8 %136, ptr @_ZZN21JfrNetworkUtilization11send_eventsEvE24is_serializer_registered, align 1
   br label %_ZL14get_interfacesPP16NetworkInterface.exit.thread
 
-_ZL14get_interfacesPP16NetworkInterface.exit.thread: ; preds = %0, %19, %17, %.loopexit, %134
-  %138 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i = icmp eq ptr %138, null
-  br i1 %.not.i.i.i.i, label %140, label %139
+_ZL14get_interfacesPP16NetworkInterface.exit.thread: ; preds = %0, %18, %16, %.loopexit, %133
+  %137 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i = icmp eq ptr %137, null
+  br i1 %.not.i.i.i.i, label %139, label %138
 
-139:                                              ; preds = %_ZL14get_interfacesPP16NetworkInterface.exit.thread
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %15) #12
+138:                                              ; preds = %_ZL14get_interfacesPP16NetworkInterface.exit.thread
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %14) #12
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %9) #12
-  br label %140
+  br label %139
 
-140:                                              ; preds = %139, %_ZL14get_interfacesPP16NetworkInterface.exit.thread
-  %141 = load ptr, ptr %10, align 8
-  %.not8.i.i.i.i = icmp eq ptr %141, %11
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %142
+139:                                              ; preds = %138, %_ZL14get_interfacesPP16NetworkInterface.exit.thread
+  %140 = load ptr, ptr %10, align 8
+  %.not8.i.i.i.i = icmp eq ptr %140, %12
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %141
 
-142:                                              ; preds = %140
+141:                                              ; preds = %139
   store ptr %9, ptr %8, align 8
-  store ptr %11, ptr %10, align 8
-  store ptr %13, ptr %12, align 8
+  store <2 x ptr> %11, ptr %10, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %140, %142
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %139, %141
   ret void
 }
 

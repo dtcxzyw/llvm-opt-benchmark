@@ -20492,37 +20492,35 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit: ; preds = %5
 _ZNKSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit: ; preds = %31, %13, %26
   %.sroa.06.1.i.i = phi ptr [ %27, %26 ], [ %.sroa.06.0.i.i, %13 ], [ %33, %31 ]
   %39 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i, i64 16
-  %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  %42 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i, i64 24
-  %43 = load ptr, ptr %42, align 8
-  store ptr %43, ptr %41, align 8
-  %.not.i.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i.i, label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit3, label %44
+  %40 = getelementptr inbounds i8, ptr %.sroa.06.1.i.i, i64 24
+  %41 = load ptr, ptr %40, align 8
+  %42 = load <2 x ptr>, ptr %39, align 8
+  store <2 x ptr> %42, ptr %0, align 8
+  %.not.i.i.i = icmp eq ptr %41, null
+  br i1 %.not.i.i.i, label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit3, label %43
 
-44:                                               ; preds = %_ZNKSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit
-  %45 = getelementptr inbounds i8, ptr %43, i64 8
-  %46 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i2 = icmp eq i8 %46, 0
-  br i1 %.not.i.i.i.i2, label %50, label %47
+43:                                               ; preds = %_ZNKSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit
+  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %45 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i2 = icmp eq i8 %45, 0
+  br i1 %.not.i.i.i.i2, label %49, label %46
 
-47:                                               ; preds = %44
-  %48 = load i32, ptr %45, align 4
-  %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %45, align 4
+46:                                               ; preds = %43
+  %47 = load i32, ptr %44, align 4
+  %48 = add nsw i32 %47, 1
+  store i32 %48, ptr %44, align 4
   br label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit3
 
-50:                                               ; preds = %44
-  %51 = atomicrmw volatile add ptr %45, i32 1 acq_rel, align 4
+49:                                               ; preds = %43
+  %50 = atomicrmw volatile add ptr %44, i32 1 acq_rel, align 4
   br label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit3
 
 .loopexit:                                        ; preds = %34, %.lr.ph.i.i.i.i, %12, %17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit3
 
-_ZNSt11shared_lockISt12shared_mutexED2Ev.exit3:   ; preds = %50, %47, %_ZNKSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, %.loopexit
-  %52 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #37
+_ZNSt11shared_lockISt12shared_mutexED2Ev.exit3:   ; preds = %49, %46, %_ZNKSt13unordered_mapIiSt10shared_ptrIN8WasmEdge4Host4WASI6VINodeEESt4hashIiESt8equal_toIiESaISt4pairIKiS5_EEE4findERSB_.exit, %.loopexit
+  %51 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #37
   ret void
 }
 
@@ -38381,14 +38379,14 @@ _ZN3fmt2v86detail17write_significandIcNS0_8appenderEmEET0_S4_T1_i.exit: ; preds 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEeTnNSt9enable_ifIXsr3std17is_floating_pointIT1_EE5valueEiE4typeELi0EEET0_S8_S5_NS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %0, x86_fp80 noundef %1, i64 %2, i64 %3, ptr %4) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.anon.1180, align 8
-  %7 = alloca %"struct.fmt::v8::basic_format_specs", align 8
+  %7 = alloca %"struct.fmt::v8::basic_format_specs", align 16
   %8 = alloca %class.anon.1165, align 8
-  %9 = alloca %"struct.fmt::v8::basic_format_specs", align 8
+  %9 = alloca %"struct.fmt::v8::basic_format_specs", align 16
   %10 = alloca %"struct.fmt::v8::detail::error_handler", align 1
   %11 = alloca %"class.fmt::v8::basic_memory_buffer.1171", align 8
   %12 = alloca %"class.std::allocator.125", align 1
   %13 = alloca %"struct.fmt::v8::detail::big_decimal_fp", align 8
-  store i64 %2, ptr %9, align 8
+  store i64 %2, ptr %9, align 16
   %14 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %3, ptr %14, align 8
   %15 = call i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
@@ -38423,13 +38421,11 @@ define linkonce_odr ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEeTnNSt9enable_if
 
 31:                                               ; preds = %29
   %32 = fcmp oeq x86_fp80 %.0, 0xK7FFF8000000000000000
-  %.sroa.016.0.copyload = load i64, ptr %9, align 8
-  %.sroa.2.0.copyload = load i64, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  store i64 %.sroa.016.0.copyload, ptr %7, align 8
-  %33 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %.sroa.2.0.copyload, ptr %33, align 8
+  %.sroa.2.0.copyload = load i64, ptr %14, align 8
+  %33 = load <2 x i64>, ptr %9, align 16
+  store <2 x i64> %33, ptr %7, align 16
   %34 = and i64 %.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %34, 72057594843234304
   br i1 %or.cond.i, label %35, label %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -38496,13 +38492,13 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %48
   %66 = getelementptr inbounds i8, ptr %65, i64 %63
   store i8 %53, ptr %66, align 1
   %67 = and i32 %.sroa.5.0, -65281
-  %68 = load i32, ptr %9, align 8
+  %68 = load i32, ptr %9, align 16
   %.not35 = icmp eq i32 %68, 0
   br i1 %.not35, label %71, label %69
 
 69:                                               ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit
   %70 = add nsw i32 %68, -1
-  store i32 %70, ptr %9, align 8
+  store i32 %70, ptr %9, align 16
   br label %71
 
 71:                                               ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit, %69, %44
@@ -51112,14 +51108,14 @@ _ZN3fmt2v86detail18make_write_int_argIiEENS1_13write_int_argINSt11conditionalIXa
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEfTnNSt9enable_ifIXsr3std17is_floating_pointIT1_EE5valueEiE4typeELi0EEET0_S8_S5_NS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %0, float noundef %1, i64 %2, i64 %3, ptr %4) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.anon.1180, align 8
-  %7 = alloca %"struct.fmt::v8::basic_format_specs", align 8
+  %7 = alloca %"struct.fmt::v8::basic_format_specs", align 16
   %8 = alloca %class.anon.1165, align 8
-  %9 = alloca %"struct.fmt::v8::basic_format_specs", align 8
+  %9 = alloca %"struct.fmt::v8::basic_format_specs", align 16
   %10 = alloca %"struct.fmt::v8::detail::error_handler", align 1
   %11 = alloca %"class.fmt::v8::basic_memory_buffer.1171", align 8
   %12 = alloca %"class.std::allocator.125", align 1
   %13 = alloca %"struct.fmt::v8::detail::big_decimal_fp", align 8
-  store i64 %2, ptr %9, align 8
+  store i64 %2, ptr %9, align 16
   %14 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %3, ptr %14, align 8
   %15 = call i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
@@ -51154,13 +51150,11 @@ define linkonce_odr ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEfTnNSt9enable_if
 
 31:                                               ; preds = %29
   %32 = fcmp oeq float %.0, 0x7FF0000000000000
-  %.sroa.016.0.copyload = load i64, ptr %9, align 8
-  %.sroa.2.0.copyload = load i64, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  store i64 %.sroa.016.0.copyload, ptr %7, align 8
-  %33 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %.sroa.2.0.copyload, ptr %33, align 8
+  %.sroa.2.0.copyload = load i64, ptr %14, align 8
+  %33 = load <2 x i64>, ptr %9, align 16
+  store <2 x i64> %33, ptr %7, align 16
   %34 = and i64 %.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %34, 72057594843234304
   br i1 %or.cond.i, label %35, label %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -51227,13 +51221,13 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %48
   %66 = getelementptr inbounds i8, ptr %65, i64 %63
   store i8 %53, ptr %66, align 1
   %67 = and i32 %.sroa.5.0, -65281
-  %68 = load i32, ptr %9, align 8
+  %68 = load i32, ptr %9, align 16
   %.not35 = icmp eq i32 %68, 0
   br i1 %.not35, label %71, label %69
 
 69:                                               ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit
   %70 = add nsw i32 %68, -1
-  store i32 %70, ptr %9, align 8
+  store i32 %70, ptr %9, align 16
   br label %71
 
 71:                                               ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit, %69, %44
@@ -51401,14 +51395,14 @@ declare noundef i32 @_ZN3fmt2v86detail12format_floatIdEEiT_iNS1_11float_specsERN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEdTnNSt9enable_ifIXsr3std17is_floating_pointIT1_EE5valueEiE4typeELi0EEET0_S8_S5_NS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %0, double noundef %1, i64 %2, i64 %3, ptr %4) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.anon.1180, align 8
-  %7 = alloca %"struct.fmt::v8::basic_format_specs", align 8
+  %7 = alloca %"struct.fmt::v8::basic_format_specs", align 16
   %8 = alloca %class.anon.1165, align 8
-  %9 = alloca %"struct.fmt::v8::basic_format_specs", align 8
+  %9 = alloca %"struct.fmt::v8::basic_format_specs", align 16
   %10 = alloca %"struct.fmt::v8::detail::error_handler", align 1
   %11 = alloca %"class.fmt::v8::basic_memory_buffer.1171", align 8
   %12 = alloca %"class.std::allocator.125", align 1
   %13 = alloca %"struct.fmt::v8::detail::big_decimal_fp", align 8
-  store i64 %2, ptr %9, align 8
+  store i64 %2, ptr %9, align 16
   %14 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %3, ptr %14, align 8
   %15 = call i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_18basic_format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
@@ -51443,13 +51437,11 @@ define linkonce_odr ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEdTnNSt9enable_if
 
 31:                                               ; preds = %29
   %32 = fcmp oeq double %.0, 0x7FF0000000000000
-  %.sroa.016.0.copyload = load i64, ptr %9, align 8
-  %.sroa.2.0.copyload = load i64, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  store i64 %.sroa.016.0.copyload, ptr %7, align 8
-  %33 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %.sroa.2.0.copyload, ptr %33, align 8
+  %.sroa.2.0.copyload = load i64, ptr %14, align 8
+  %33 = load <2 x i64>, ptr %9, align 16
+  store <2 x i64> %33, ptr %7, align 16
   %34 = and i64 %.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %34, 72057594843234304
   br i1 %or.cond.i, label %35, label %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
@@ -51516,13 +51508,13 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %48
   %66 = getelementptr inbounds i8, ptr %65, i64 %63
   store i8 %53, ptr %66, align 1
   %67 = and i32 %.sroa.5.0, -65281
-  %68 = load i32, ptr %9, align 8
+  %68 = load i32, ptr %9, align 16
   %.not35 = icmp eq i32 %68, 0
   br i1 %.not35, label %71, label %69
 
 69:                                               ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit
   %70 = add nsw i32 %68, -1
-  store i32 %70, ptr %9, align 8
+  store i32 %70, ptr %9, align 16
   br label %71
 
 71:                                               ; preds = %_ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit, %69, %44

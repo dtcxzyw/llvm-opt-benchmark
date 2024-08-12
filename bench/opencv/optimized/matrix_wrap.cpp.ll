@@ -3480,35 +3480,33 @@ define void @_ZNK2cv11_InputArray12getOGlBufferEv(ptr dead_on_unwind noalias noc
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %19, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i.i.i.i, label %_ZN2cv3ogl6BufferC2ERKS1_.exit, label %22
+  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = load <2 x ptr>, ptr %17, align 8
+  store <2 x ptr> %20, ptr %0, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %19, null
+  br i1 %.not.i.i.i.i.i, label %_ZN2cv3ogl6BufferC2ERKS1_.exit, label %21
 
-22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %21, i64 8
-  %24 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %24, 0
-  br i1 %.not.i.i.i.i.i.i, label %28, label %25
+21:                                               ; preds = %15
+  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %23 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %23, 0
+  br i1 %.not.i.i.i.i.i.i, label %27, label %24
 
-25:                                               ; preds = %22
-  %26 = load i32, ptr %23, align 4
-  %27 = add nsw i32 %26, 1
-  store i32 %27, ptr %23, align 4
+24:                                               ; preds = %21
+  %25 = load i32, ptr %22, align 4
+  %26 = add nsw i32 %25, 1
+  store i32 %26, ptr %22, align 4
   br label %_ZN2cv3ogl6BufferC2ERKS1_.exit
 
-28:                                               ; preds = %22
-  %29 = atomicrmw volatile add ptr %23, i32 1 acq_rel, align 4
+27:                                               ; preds = %21
+  %28 = atomicrmw volatile add ptr %22, i32 1 acq_rel, align 4
   br label %_ZN2cv3ogl6BufferC2ERKS1_.exit
 
-_ZN2cv3ogl6BufferC2ERKS1_.exit:                   ; preds = %15, %25, %28
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
-  %31 = getelementptr inbounds i8, ptr %17, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %30, ptr noundef nonnull align 8 dereferenceable(12) %31, i64 12, i1 false)
+_ZN2cv3ogl6BufferC2ERKS1_.exit:                   ; preds = %15, %24, %27
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds i8, ptr %17, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %29, ptr noundef nonnull align 8 dereferenceable(12) %30, i64 12, i1 false)
   ret void
 }
 

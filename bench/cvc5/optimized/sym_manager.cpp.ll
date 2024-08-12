@@ -2168,27 +2168,27 @@ entry:
   %agg.tmp.i318 = alloca %"class.cvc5::Term", align 8
   %agg.tmp.i173 = alloca %"class.cvc5::Sort", align 8
   %agg.tmp.i = alloca %"class.cvc5::Sort", align 8
-  %t = alloca %"class.cvc5::Sort", align 8
+  %t = alloca %"class.cvc5::Sort", align 16
   %ref.tmp = alloca %"class.cvc5::Datatype", align 8
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
   %paramTypes = alloca %"class.std::vector.15", align 8
-  %agg.tmp = alloca %"class.cvc5::Sort", align 8
-  %agg.tmp28 = alloca %"class.cvc5::Sort", align 8
+  %agg.tmp = alloca %"class.cvc5::Sort", align 16
+  %agg.tmp28 = alloca %"class.cvc5::Sort", align 16
   %ref.tmp36 = alloca %"class.cvc5::DatatypeConstructor", align 8
   %constructor = alloca %"class.cvc5::Term", align 16
   %constructorName = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp64 = alloca %"class.cvc5::Term", align 16
   %ref.tmp65 = alloca %"class.std::vector.21", align 8
   %ref.tmp67 = alloca [1 x %"class.cvc5::Term"], align 16
-  %agg.tmp83 = alloca %"class.cvc5::Term", align 8
+  %agg.tmp83 = alloca %"class.cvc5::Term", align 16
   %testerName = alloca %"class.std::__cxx11::basic_stringstream", align 8
-  %tester = alloca %"class.cvc5::Term", align 8
+  %tester = alloca %"class.cvc5::Term", align 16
   %ref.tmp123 = alloca %"class.std::__cxx11::basic_string", align 8
-  %agg.tmp125 = alloca %"class.cvc5::Term", align 8
+  %agg.tmp125 = alloca %"class.cvc5::Term", align 16
   %ref.tmp143 = alloca %"class.cvc5::DatatypeSelector", align 8
-  %selector = alloca %"class.cvc5::Term", align 8
+  %selector = alloca %"class.cvc5::Term", align 16
   %selectorName = alloca %"class.std::__cxx11::basic_string", align 8
-  %agg.tmp166 = alloca %"class.cvc5::Term", align 8
+  %agg.tmp166 = alloca %"class.cvc5::Term", align 16
   %_M_finish.i = getelementptr inbounds i8, ptr %datatypes, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %datatypes, align 8
@@ -2212,7 +2212,6 @@ for.body.lr.ph:                                   ; preds = %entry
   %d_type.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   %_M_finish.i159 = getelementptr inbounds i8, ptr %paramTypes, i64 8
-  %d_node3.i = getelementptr inbounds i8, ptr %constructor, i64 8
   %_M_refcount.i.i.i269 = getelementptr inbounds i8, ptr %ref.tmp67, i64 16
   %_M_refcount3.i.i.i270 = getelementptr inbounds i8, ptr %constructor, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %ref.tmp65, i64 16
@@ -2224,13 +2223,11 @@ for.body.lr.ph:                                   ; preds = %entry
   %_M_refcount.i.i.i.i320 = getelementptr inbounds i8, ptr %agg.tmp.i318, i64 16
   %add.ptr = getelementptr inbounds i8, ptr %testerName, i64 16
   %d_node.i413 = getelementptr inbounds i8, ptr %agg.tmp125, i64 8
-  %d_node3.i414 = getelementptr inbounds i8, ptr %tester, i64 8
   %_M_refcount.i.i.i415 = getelementptr inbounds i8, ptr %agg.tmp125, i64 16
   %_M_refcount3.i.i.i416 = getelementptr inbounds i8, ptr %tester, i64 16
   %d_node.i.i427 = getelementptr inbounds i8, ptr %agg.tmp.i425, i64 8
   %_M_refcount.i.i.i.i429 = getelementptr inbounds i8, ptr %agg.tmp.i425, i64 16
   %d_node.i524 = getelementptr inbounds i8, ptr %agg.tmp166, i64 8
-  %d_node3.i525 = getelementptr inbounds i8, ptr %selector, i64 8
   %_M_refcount.i.i.i526 = getelementptr inbounds i8, ptr %agg.tmp166, i64 16
   %_M_refcount3.i.i.i527 = getelementptr inbounds i8, ptr %selector, i64 16
   %d_node.i.i538 = getelementptr inbounds i8, ptr %agg.tmp.i536, i64 8
@@ -2244,13 +2241,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %2 = load ptr, ptr %datatypes, align 8
   %add.ptr.i = getelementptr inbounds %"class.cvc5::Sort", ptr %2, i64 %i.0602
   %3 = load ptr, ptr %add.ptr.i, align 8
-  store ptr %3, ptr %t, align 8
+  store ptr %3, ptr %t, align 16
   %d_type3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %4 = load ptr, ptr %d_type3.i, align 8
   store ptr %4, ptr %d_type.i, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %5, ptr %_M_refcount.i.i.i, align 8
+  store ptr %5, ptr %_M_refcount.i.i.i, align 16
   %cmp.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i, label %_ZN4cvc54SortC2ERKS0_.exit, label %if.then.i.i.i.i
 
@@ -2290,19 +2287,18 @@ if.then:                                          ; preds = %invoke.cont23
           to label %invoke.cont25 unwind label %lpad7.loopexit.split-lp
 
 invoke.cont25:                                    ; preds = %if.then
-  %9 = load ptr, ptr %t, align 8
-  store ptr %9, ptr %agg.tmp, align 8
-  %10 = load ptr, ptr %d_type.i, align 8
-  store ptr %10, ptr %d_type.i147, align 8
-  %11 = load ptr, ptr %_M_refcount.i.i.i, align 8
-  store ptr %11, ptr %_M_refcount.i.i.i149, align 8
+  %9 = load <2 x ptr>, ptr %t, align 16
+  %10 = load ptr, ptr %t, align 16
+  store <2 x ptr> %9, ptr %agg.tmp, align 16
+  %11 = load ptr, ptr %_M_refcount.i.i.i, align 16
+  store ptr %11, ptr %_M_refcount.i.i.i149, align 16
   %cmp.not.i.i.i.i151 = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i.i151, label %_ZN4cvc54SortC2ERKS0_.exit158.thread, label %if.then.i.i.i.i152
 
 _ZN4cvc54SortC2ERKS0_.exit158.thread:             ; preds = %invoke.cont25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i)
   %12 = load ptr, ptr %d_implementation.i174, align 8
-  store ptr %9, ptr %agg.tmp.i, align 8
+  store ptr %10, ptr %agg.tmp.i, align 8
   %13 = load ptr, ptr %d_type.i147, align 8
   store ptr %13, ptr %d_type.i.i, align 8
   store ptr %11, ptr %_M_refcount.i.i.i.i, align 8
@@ -2322,18 +2318,17 @@ if.then.i.i.i.i.i.i155:                           ; preds = %if.then.i.i.i.i152
 
 if.else.i.i.i.i.i.i157:                           ; preds = %if.then.i.i.i.i152
   %16 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i153, i32 1 acq_rel, align 4
-  %.pre631 = load ptr, ptr %agg.tmp, align 8
+  %.pre631 = load ptr, ptr %agg.tmp, align 16
   br label %_ZN4cvc54SortC2ERKS0_.exit158
 
 _ZN4cvc54SortC2ERKS0_.exit158:                    ; preds = %if.then.i.i.i.i.i.i155, %if.else.i.i.i.i.i.i157
-  %.ph = phi ptr [ %.pre631, %if.else.i.i.i.i.i.i157 ], [ %9, %if.then.i.i.i.i.i.i155 ]
-  %.pr = load ptr, ptr %_M_refcount.i.i.i149, align 8
+  %.ph = phi ptr [ %.pre631, %if.else.i.i.i.i.i.i157 ], [ %10, %if.then.i.i.i.i.i.i155 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i)
   %17 = load ptr, ptr %d_implementation.i174, align 8
   store ptr %.ph, ptr %agg.tmp.i, align 8
-  %18 = load ptr, ptr %d_type.i147, align 8
-  store ptr %18, ptr %d_type.i.i, align 8
-  store ptr %.pr, ptr %_M_refcount.i.i.i.i, align 8
+  %.pr = load ptr, ptr %_M_refcount.i.i.i149, align 16
+  %18 = load <2 x ptr>, ptr %d_type.i147, align 8
+  store <2 x ptr> %18, ptr %d_type.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %.pr, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN4cvc54SortC2ERKS0_.exit.i, label %if.then.i.i.i.i.i
 
@@ -2416,19 +2411,18 @@ lpad7.loopexit.split-lp:                          ; preds = %cond.true, %if.then
   br label %ehcleanup194
 
 if.else:                                          ; preds = %invoke.cont23
-  %29 = load ptr, ptr %t, align 8
-  store ptr %29, ptr %agg.tmp28, align 8
-  %30 = load ptr, ptr %d_type.i, align 8
-  store ptr %30, ptr %d_type.i161, align 8
-  %31 = load ptr, ptr %_M_refcount.i.i.i, align 8
-  store ptr %31, ptr %_M_refcount.i.i.i163, align 8
+  %29 = load <2 x ptr>, ptr %t, align 16
+  %30 = load ptr, ptr %t, align 16
+  store <2 x ptr> %29, ptr %agg.tmp28, align 16
+  %31 = load ptr, ptr %_M_refcount.i.i.i, align 16
+  store ptr %31, ptr %_M_refcount.i.i.i163, align 16
   %cmp.not.i.i.i.i165 = icmp eq ptr %31, null
   br i1 %cmp.not.i.i.i.i165, label %_ZN4cvc54SortC2ERKS0_.exit172.thread, label %if.then.i.i.i.i166
 
 _ZN4cvc54SortC2ERKS0_.exit172.thread:             ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i173)
   %32 = load ptr, ptr %d_implementation.i174, align 8
-  store ptr %29, ptr %agg.tmp.i173, align 8
+  store ptr %30, ptr %agg.tmp.i173, align 8
   %33 = load ptr, ptr %d_type.i161, align 8
   store ptr %33, ptr %d_type.i.i175, align 8
   store ptr %31, ptr %_M_refcount.i.i.i.i177, align 8
@@ -2448,18 +2442,17 @@ if.then.i.i.i.i.i.i169:                           ; preds = %if.then.i.i.i.i166
 
 if.else.i.i.i.i.i.i171:                           ; preds = %if.then.i.i.i.i166
   %36 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i167, i32 1 acq_rel, align 4
-  %.pre = load ptr, ptr %agg.tmp28, align 8
+  %.pre = load ptr, ptr %agg.tmp28, align 16
   br label %_ZN4cvc54SortC2ERKS0_.exit172
 
 _ZN4cvc54SortC2ERKS0_.exit172:                    ; preds = %if.then.i.i.i.i.i.i169, %if.else.i.i.i.i.i.i171
-  %.ph636 = phi ptr [ %.pre, %if.else.i.i.i.i.i.i171 ], [ %29, %if.then.i.i.i.i.i.i169 ]
-  %.pr637 = load ptr, ptr %_M_refcount.i.i.i163, align 8
+  %.ph636 = phi ptr [ %.pre, %if.else.i.i.i.i.i.i171 ], [ %30, %if.then.i.i.i.i.i.i169 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i173)
   %37 = load ptr, ptr %d_implementation.i174, align 8
   store ptr %.ph636, ptr %agg.tmp.i173, align 8
-  %38 = load ptr, ptr %d_type.i161, align 8
-  store ptr %38, ptr %d_type.i.i175, align 8
-  store ptr %.pr637, ptr %_M_refcount.i.i.i.i177, align 8
+  %.pr637 = load ptr, ptr %_M_refcount.i.i.i163, align 16
+  %38 = load <2 x ptr>, ptr %d_type.i161, align 8
+  store <2 x ptr> %38, ptr %d_type.i.i175, align 8
   %cmp.not.i.i.i.i.i179 = icmp eq ptr %.pr637, null
   br i1 %cmp.not.i.i.i.i.i179, label %_ZN4cvc54SortC2ERKS0_.exit.i185, label %if.then.i.i.i.i.i180
 
@@ -2766,19 +2759,18 @@ ehcleanup:                                        ; preds = %lpad.i278, %lpad71
   br label %ehcleanup183
 
 if.end82:                                         ; preds = %_ZNSt6vectorIN4cvc54TermESaIS1_EED2Ev.exit, %invoke.cont60
-  %79 = load ptr, ptr %constructor, align 16
-  store ptr %79, ptr %agg.tmp83, align 8
-  %80 = load ptr, ptr %d_node3.i, align 8
-  store ptr %80, ptr %d_node.i306, align 8
+  %79 = load <2 x ptr>, ptr %constructor, align 16
+  %80 = load ptr, ptr %constructor, align 16
+  store <2 x ptr> %79, ptr %agg.tmp83, align 16
   %81 = load ptr, ptr %_M_refcount3.i.i.i270, align 16
-  store ptr %81, ptr %_M_refcount.i.i.i308, align 8
+  store ptr %81, ptr %_M_refcount.i.i.i308, align 16
   %cmp.not.i.i.i.i310 = icmp eq ptr %81, null
   br i1 %cmp.not.i.i.i.i310, label %_ZN4cvc54TermC2ERKS0_.exit317.thread, label %if.then.i.i.i.i311
 
 _ZN4cvc54TermC2ERKS0_.exit317.thread:             ; preds = %if.end82
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i318)
   %82 = load ptr, ptr %d_implementation.i174, align 8
-  store ptr %79, ptr %agg.tmp.i318, align 8
+  store ptr %80, ptr %agg.tmp.i318, align 8
   %83 = load ptr, ptr %d_node.i306, align 8
   store ptr %83, ptr %d_node.i.i, align 8
   store ptr %81, ptr %_M_refcount.i.i.i.i320, align 8
@@ -2798,18 +2790,17 @@ if.then.i.i.i.i.i.i314:                           ; preds = %if.then.i.i.i.i311
 
 if.else.i.i.i.i.i.i316:                           ; preds = %if.then.i.i.i.i311
   %86 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i312, i32 1 acq_rel, align 4
-  %.pre632 = load ptr, ptr %agg.tmp83, align 8
+  %.pre632 = load ptr, ptr %agg.tmp83, align 16
   br label %_ZN4cvc54TermC2ERKS0_.exit317
 
 _ZN4cvc54TermC2ERKS0_.exit317:                    ; preds = %if.then.i.i.i.i.i.i314, %if.else.i.i.i.i.i.i316
-  %.ph639 = phi ptr [ %.pre632, %if.else.i.i.i.i.i.i316 ], [ %79, %if.then.i.i.i.i.i.i314 ]
-  %.pr640 = load ptr, ptr %_M_refcount.i.i.i308, align 8
+  %.ph639 = phi ptr [ %.pre632, %if.else.i.i.i.i.i.i316 ], [ %80, %if.then.i.i.i.i.i.i314 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i318)
   %87 = load ptr, ptr %d_implementation.i174, align 8
   store ptr %.ph639, ptr %agg.tmp.i318, align 8
-  %88 = load ptr, ptr %d_node.i306, align 8
-  store ptr %88, ptr %d_node.i.i, align 8
-  store ptr %.pr640, ptr %_M_refcount.i.i.i.i320, align 8
+  %.pr640 = load ptr, ptr %_M_refcount.i.i.i308, align 16
+  %88 = load <2 x ptr>, ptr %d_node.i306, align 8
+  store <2 x ptr> %88, ptr %d_node.i.i, align 8
   %cmp.not.i.i.i.i.i322 = icmp eq ptr %.pr640, null
   br i1 %cmp.not.i.i.i.i.i322, label %_ZN4cvc54TermC2ERKS0_.exit.i, label %if.then.i.i.i.i.i323
 
@@ -2871,19 +2862,18 @@ cond.true102:                                     ; preds = %invoke.cont95
           to label %invoke.cont124 unwind label %lpad99
 
 invoke.cont124:                                   ; preds = %cond.true102
-  %94 = load ptr, ptr %tester, align 8
-  store ptr %94, ptr %agg.tmp125, align 8
-  %95 = load ptr, ptr %d_node3.i414, align 8
-  store ptr %95, ptr %d_node.i413, align 8
-  %96 = load ptr, ptr %_M_refcount3.i.i.i416, align 8
-  store ptr %96, ptr %_M_refcount.i.i.i415, align 8
+  %94 = load <2 x ptr>, ptr %tester, align 16
+  %95 = load ptr, ptr %tester, align 16
+  store <2 x ptr> %94, ptr %agg.tmp125, align 16
+  %96 = load ptr, ptr %_M_refcount3.i.i.i416, align 16
+  store ptr %96, ptr %_M_refcount.i.i.i415, align 16
   %cmp.not.i.i.i.i417 = icmp eq ptr %96, null
   br i1 %cmp.not.i.i.i.i417, label %_ZN4cvc54TermC2ERKS0_.exit424.thread, label %if.then.i.i.i.i418
 
 _ZN4cvc54TermC2ERKS0_.exit424.thread:             ; preds = %invoke.cont124
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i425)
   %97 = load ptr, ptr %d_implementation.i174, align 8
-  store ptr %94, ptr %agg.tmp.i425, align 8
+  store ptr %95, ptr %agg.tmp.i425, align 8
   %98 = load ptr, ptr %d_node.i413, align 8
   store ptr %98, ptr %d_node.i.i427, align 8
   store ptr %96, ptr %_M_refcount.i.i.i.i429, align 8
@@ -2903,18 +2893,17 @@ if.then.i.i.i.i.i.i421:                           ; preds = %if.then.i.i.i.i418
 
 if.else.i.i.i.i.i.i423:                           ; preds = %if.then.i.i.i.i418
   %101 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i419, i32 1 acq_rel, align 4
-  %.pre633 = load ptr, ptr %agg.tmp125, align 8
+  %.pre633 = load ptr, ptr %agg.tmp125, align 16
   br label %_ZN4cvc54TermC2ERKS0_.exit424
 
 _ZN4cvc54TermC2ERKS0_.exit424:                    ; preds = %if.then.i.i.i.i.i.i421, %if.else.i.i.i.i.i.i423
-  %.ph642 = phi ptr [ %.pre633, %if.else.i.i.i.i.i.i423 ], [ %94, %if.then.i.i.i.i.i.i421 ]
-  %.pr643 = load ptr, ptr %_M_refcount.i.i.i415, align 8
+  %.ph642 = phi ptr [ %.pre633, %if.else.i.i.i.i.i.i423 ], [ %95, %if.then.i.i.i.i.i.i421 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i425)
   %102 = load ptr, ptr %d_implementation.i174, align 8
   store ptr %.ph642, ptr %agg.tmp.i425, align 8
-  %103 = load ptr, ptr %d_node.i413, align 8
-  store ptr %103, ptr %d_node.i.i427, align 8
-  store ptr %.pr643, ptr %_M_refcount.i.i.i.i429, align 8
+  %.pr643 = load ptr, ptr %_M_refcount.i.i.i415, align 16
+  %103 = load <2 x ptr>, ptr %d_node.i413, align 8
+  store <2 x ptr> %103, ptr %d_node.i.i427, align 8
   %cmp.not.i.i.i.i.i431 = icmp eq ptr %.pr643, null
   br i1 %cmp.not.i.i.i.i.i431, label %_ZN4cvc54TermC2ERKS0_.exit.i437, label %if.then.i.i.i.i.i432
 
@@ -3003,19 +2992,18 @@ cond.true151:                                     ; preds = %invoke.cont144
           to label %invoke.cont165 unwind label %lpad148
 
 invoke.cont165:                                   ; preds = %cond.true151
-  %111 = load ptr, ptr %selector, align 8
-  store ptr %111, ptr %agg.tmp166, align 8
-  %112 = load ptr, ptr %d_node3.i525, align 8
-  store ptr %112, ptr %d_node.i524, align 8
-  %113 = load ptr, ptr %_M_refcount3.i.i.i527, align 8
-  store ptr %113, ptr %_M_refcount.i.i.i526, align 8
+  %111 = load <2 x ptr>, ptr %selector, align 16
+  %112 = load ptr, ptr %selector, align 16
+  store <2 x ptr> %111, ptr %agg.tmp166, align 16
+  %113 = load ptr, ptr %_M_refcount3.i.i.i527, align 16
+  store ptr %113, ptr %_M_refcount.i.i.i526, align 16
   %cmp.not.i.i.i.i528 = icmp eq ptr %113, null
   br i1 %cmp.not.i.i.i.i528, label %_ZN4cvc54TermC2ERKS0_.exit535.thread, label %if.then.i.i.i.i529
 
 _ZN4cvc54TermC2ERKS0_.exit535.thread:             ; preds = %invoke.cont165
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i536)
   %114 = load ptr, ptr %d_implementation.i174, align 8
-  store ptr %111, ptr %agg.tmp.i536, align 8
+  store ptr %112, ptr %agg.tmp.i536, align 8
   %115 = load ptr, ptr %d_node.i524, align 8
   store ptr %115, ptr %d_node.i.i538, align 8
   store ptr %113, ptr %_M_refcount.i.i.i.i540, align 8
@@ -3035,18 +3023,17 @@ if.then.i.i.i.i.i.i532:                           ; preds = %if.then.i.i.i.i529
 
 if.else.i.i.i.i.i.i534:                           ; preds = %if.then.i.i.i.i529
   %118 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i530, i32 1 acq_rel, align 4
-  %.pre634 = load ptr, ptr %agg.tmp166, align 8
+  %.pre634 = load ptr, ptr %agg.tmp166, align 16
   br label %_ZN4cvc54TermC2ERKS0_.exit535
 
 _ZN4cvc54TermC2ERKS0_.exit535:                    ; preds = %if.then.i.i.i.i.i.i532, %if.else.i.i.i.i.i.i534
-  %.ph645 = phi ptr [ %.pre634, %if.else.i.i.i.i.i.i534 ], [ %111, %if.then.i.i.i.i.i.i532 ]
-  %.pr646 = load ptr, ptr %_M_refcount.i.i.i526, align 8
+  %.ph645 = phi ptr [ %.pre634, %if.else.i.i.i.i.i.i534 ], [ %112, %if.then.i.i.i.i.i.i532 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i536)
   %119 = load ptr, ptr %d_implementation.i174, align 8
   store ptr %.ph645, ptr %agg.tmp.i536, align 8
-  %120 = load ptr, ptr %d_node.i524, align 8
-  store ptr %120, ptr %d_node.i.i538, align 8
-  store ptr %.pr646, ptr %_M_refcount.i.i.i.i540, align 8
+  %.pr646 = load ptr, ptr %_M_refcount.i.i.i526, align 16
+  %120 = load <2 x ptr>, ptr %d_node.i524, align 8
+  store <2 x ptr> %120, ptr %d_node.i.i538, align 8
   %cmp.not.i.i.i.i.i542 = icmp eq ptr %.pr646, null
   br i1 %cmp.not.i.i.i.i.i542, label %_ZN4cvc54TermC2ERKS0_.exit.i548, label %if.then.i.i.i.i.i543
 

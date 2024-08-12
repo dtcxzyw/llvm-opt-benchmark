@@ -63,7 +63,7 @@ $_ZTSSt19_Sp_make_shared_tag = comdat any
 
 $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 
-@_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors = internal global { ptr, %"class.std::__shared_count" } zeroinitializer, align 8
+@_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors = internal global { ptr, %"class.std::__shared_count" } zeroinitializer, align 16
 @_ZGVZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors = internal global i64 0, align 8
 @__dso_handle = external hidden global i8
 @_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE5mutex = internal global { %union.pthread_mutex_t } zeroinitializer, align 8
@@ -127,7 +127,7 @@ if.then.i.i:                                      ; preds = %init.end
   unreachable
 
 invoke.cont:                                      ; preds = %init.end
-  %3 = load ptr, ptr @_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors, align 8
+  %3 = load ptr, ptr @_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors, align 16
   %cmp.i.not = icmp eq ptr %3, null
   br i1 %cmp.i.not, label %if.then, label %if.end
 
@@ -228,7 +228,7 @@ if.end8.sink.split.i.i.i.i33:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18SystemMonitorsImplEED2Ev.exit42
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18SystemMonitorsImplEED2Ev.exit42: ; preds = %dynamic_cast.end.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i20, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i30, %if.end8.sink.split.i.i.i.i33
-  store ptr %_M_impl.i.i.i.i.i.i, ptr @_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors, align 8
+  store ptr %_M_impl.i.i.i.i.i.i, ptr @_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors, align 16
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors, i64 8), align 8
   %cmp.not.i.i.i44 = icmp eq ptr %call5.i.i.i2.i.i.i.i1, %17
   br i1 %cmp.not.i.i.i44, label %if.then.i.i.i76, label %if.then4.i.i.i
@@ -392,16 +392,14 @@ if.end8.sink.split.i.i.i.i96:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %if.end
 
 if.end:                                           ; preds = %if.end8.sink.split.i.i.i.i96, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i93, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i83, %invoke.cont
-  %41 = load ptr, ptr @_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors, align 8
-  store ptr %41, ptr %agg.result, align 8
-  %_M_refcount.i.i105 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors, i64 8), align 8
-  store ptr %42, ptr %_M_refcount.i.i105, align 8
-  %cmp.not.i.i.i106 = icmp eq ptr %42, null
+  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors, i64 8), align 8
+  %42 = load <2 x ptr>, ptr @_ZZN19OpenColorIO_v2_4dev14SystemMonitors3GetEvE8monitors, align 16
+  store <2 x ptr> %42, ptr %agg.result, align 8
+  %cmp.not.i.i.i106 = icmp eq ptr %41, null
   br i1 %cmp.not.i.i.i106, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev14SystemMonitorsEEC2ERKS3_.exit, label %if.then.i.i.i107
 
 if.then.i.i.i107:                                 ; preds = %if.end
-  %_M_use_count.i.i.i.i108 = getelementptr inbounds i8, ptr %42, i64 8
+  %_M_use_count.i.i.i.i108 = getelementptr inbounds i8, ptr %41, i64 8
   %43 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i109 = icmp eq i8 %43, 0
   br i1 %tobool.i.i.not.i.i.i.i109, label %if.else.i.i.i.i.i112, label %if.then.i.i.i.i.i110

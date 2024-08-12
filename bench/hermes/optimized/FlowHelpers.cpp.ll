@@ -94,17 +94,14 @@ while.end:                                        ; preds = %while.cond.while.en
   %numComments.0.in.lcssa = phi i64 [ %sub.ptr.sub.i.i.i10.le, %while.cond.while.end_crit_edge ], [ %sub.ptr.sub.i.i.i, %entry ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %9 = load ptr, ptr %commentStorage_.i, align 8, !noalias !6
   store ptr %9, ptr %agg.result, align 8, !alias.scope !6
-  %10 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !6
-  store ptr %10, ptr %_M_finish.i.i.i.i.i, align 8, !alias.scope !6
-  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %lexer, i64 1096
-  %11 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8, !noalias !6
-  store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !alias.scope !6
+  %10 = load <2 x ptr>, ptr %_M_finish.i.i.i, align 8, !noalias !6
+  %11 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !6
+  store <2 x ptr> %10, ptr %_M_finish.i.i.i.i.i, align 8, !alias.scope !6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %commentStorage_.i, i8 0, i64 24, i1 false), !noalias !6
   %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 %numComments.0.in.lcssa
-  %cmp.i.not.i.i = icmp eq ptr %add.ptr.i, %10
+  %cmp.i.not.i.i = icmp eq ptr %add.ptr.i, %11
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EES9_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end

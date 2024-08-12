@@ -552,14 +552,14 @@ invoke.cont:                                      ; preds = %entry
   %blob_file_ = getelementptr inbounds i8, ptr %this, i64 152
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 160
-  %1 = load <2 x ptr>, ptr %blob_file_, align 8
-  store <2 x ptr> %1, ptr %agg.tmp, align 16
-  %2 = extractelement <2 x ptr> %1, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %blob_file_, align 8
+  store <2 x ptr> %2, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb7blob_db8BlobFileEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -700,14 +700,14 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN7rocksdb7blob_db8BlobFileEED2Ev.exit: ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %_M_refcount.i.i18 = getelementptr inbounds i8, ptr %agg.tmp5, i64 8
-  %25 = load <2 x ptr>, ptr %blob_file_, align 8
-  store <2 x ptr> %25, ptr %agg.tmp5, align 16
-  %26 = extractelement <2 x ptr> %25, i64 1
-  %cmp.not.i.i.i20 = icmp eq ptr %26, null
+  %25 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %26 = load <2 x ptr>, ptr %blob_file_, align 8
+  store <2 x ptr> %26, ptr %agg.tmp5, align 16
+  %cmp.not.i.i.i20 = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i20, label %_ZNSt10shared_ptrIN7rocksdb7blob_db8BlobFileEEC2ERKS3_.exit27, label %if.then.i.i.i21
 
 if.then.i.i.i21:                                  ; preds = %_ZNSt10shared_ptrIN7rocksdb7blob_db8BlobFileEED2Ev.exit
-  %_M_use_count.i.i.i.i22 = getelementptr inbounds i8, ptr %26, i64 8
+  %_M_use_count.i.i.i.i22 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i23 = icmp eq i8 %27, 0
   br i1 %tobool.i.i.not.i.i.i.i23, label %if.else.i.i.i.i.i26, label %if.then.i.i.i.i.i24

@@ -461,11 +461,10 @@ sw.bb6:                                           ; preds = %entry
   %datasize7 = getelementptr inbounds i8, ptr %src, i64 112
   %8 = load i64, ptr %datasize7, align 8
   %readfunc = getelementptr inbounds i8, ptr %src, i64 32
-  %9 = load ptr, ptr %readfunc, align 8
-  %seekfunc = getelementptr inbounds i8, ptr %src, i64 40
-  %10 = load <2 x ptr>, ptr %seekfunc, align 8
-  %arg = getelementptr inbounds i8, ptr %src, i64 56
-  %11 = load ptr, ptr %arg, align 8
+  %9 = load <2 x ptr>, ptr %readfunc, align 8
+  %10 = load ptr, ptr %readfunc, align 8
+  %freefunc = getelementptr inbounds i8, ptr %src, i64 48
+  %11 = load <2 x ptr>, ptr %freefunc, align 8
   %tobool.not.i41 = icmp eq ptr %dst, null
   br i1 %tobool.not.i41, label %if.then51, label %if.end.i42
 
@@ -504,14 +503,12 @@ cleanup_part_content.exit.i47:                    ; preds = %if.then.i.i45, %if.
   store i64 1, ptr %lastreadstatus.i.i57, align 8
   %state.i.i58 = getelementptr inbounds i8, ptr %dst, i64 120
   store i32 0, ptr %state.i.i58, align 8
-  %tobool1.not.i59 = icmp eq ptr %9, null
+  %tobool1.not.i59 = icmp eq ptr %10, null
   br i1 %tobool1.not.i59, label %land.lhs.true, label %if.then2.i60
 
 if.then2.i60:                                     ; preds = %cleanup_part_content.exit.i47
-  store ptr %9, ptr %readfunc.i.i48, align 8
-  %seekfunc4.i = getelementptr inbounds i8, ptr %dst, i64 40
-  store <2 x ptr> %10, ptr %seekfunc4.i, align 8
-  store ptr %11, ptr %arg3.i.i49, align 8
+  store <2 x ptr> %9, ptr %readfunc.i.i48, align 8
+  store <2 x ptr> %11, ptr %freefunc.i.i43, align 8
   store i64 %8, ptr %datasize.i.i52, align 8
   store i32 3, ptr %kind.i.i54, align 8
   br label %land.lhs.true

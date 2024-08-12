@@ -88,9 +88,9 @@ define hidden void @_ZN2cv4ap3pC2ENS_3MatE(ptr nocapture noundef nonnull writeon
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %7, i64 8
   %11 = load float, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = fpext float %11 to double
-  store double %13, ptr %12, align 8
+  %12 = fpext float %11 to double
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %12, ptr %13, align 8
   %14 = load ptr, ptr %6, align 8
   %15 = load ptr, ptr %8, align 8
   %16 = load i64, ptr %15, align 8
@@ -113,7 +113,7 @@ define hidden void @_ZN2cv4ap3pC2ENS_3MatE(ptr nocapture noundef nonnull writeon
   %31 = fpext float %30 to double
   %32 = insertelement <2 x double> poison, double %24, i64 0
   %33 = insertelement <2 x double> %32, double %31, i64 1
-  %34 = insertelement <2 x double> poison, double %13, i64 0
+  %34 = insertelement <2 x double> poison, double %12, i64 0
   %35 = insertelement <2 x double> %34, double %20, i64 1
   br label %59
 
@@ -146,17 +146,17 @@ define hidden void @_ZN2cv4ap3pC2ENS_3MatE(ptr nocapture noundef nonnull writeon
   br label %59
 
 59:                                               ; preds = %36, %9
-  %60 = phi <2 x double> [ %33, %9 ], [ %56, %36 ]
-  %61 = phi <2 x double> [ %35, %9 ], [ %58, %36 ]
+  %.sink = phi double [ %31, %9 ], [ %54, %36 ]
+  %60 = phi <2 x double> [ %35, %9 ], [ %58, %36 ]
+  %61 = phi <2 x double> [ %33, %9 ], [ %56, %36 ]
   %62 = getelementptr inbounds i8, ptr %0, i64 8
-  %63 = extractelement <2 x double> %60, i64 1
-  store double %63, ptr %62, align 8
-  %64 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %60
-  %65 = getelementptr inbounds i8, ptr %0, i64 32
-  store <2 x double> %64, ptr %65, align 8
+  store double %.sink, ptr %62, align 8
+  %63 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %61
+  %64 = getelementptr inbounds i8, ptr %0, i64 32
+  store <2 x double> %63, ptr %64, align 8
+  %65 = fdiv <2 x double> %60, %61
   %66 = getelementptr inbounds i8, ptr %0, i64 48
-  %67 = fdiv <2 x double> %61, %60
-  store <2 x double> %67, ptr %66, align 8
+  store <2 x double> %65, ptr %66, align 8
   ret void
 }
 

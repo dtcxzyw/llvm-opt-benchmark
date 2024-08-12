@@ -49,165 +49,162 @@ _ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EEC2ERKS5_.exit.thread: ; pre
   br label %_ZN12_GLOBAL__N_122ReadableOrderTraverserC2ESt8functionIFvPN3spv5BlockENS2_11ReachReasonES4_EE.exit
 
 _ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EEC2ERKS5_.exit: ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %4, i64 24
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
-  %10 = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2) #10
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %8, align 8
-  %13 = load ptr, ptr %5, align 8
-  store ptr %13, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2) #10
+  %10 = load <2 x ptr>, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8
+  store <2 x ptr> %10, ptr %8, align 8
+  %12 = getelementptr inbounds i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  %.not.i.i.not.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.not.i.i, label %_ZN12_GLOBAL__N_122ReadableOrderTraverserC2ESt8functionIFvPN3spv5BlockENS2_11ReachReasonES4_EE.exit, label %15
+  %.not.i.i.not.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i.not.i.i, label %_ZN12_GLOBAL__N_122ReadableOrderTraverserC2ESt8functionIFvPN3spv5BlockENS2_11ReachReasonES4_EE.exit, label %13
 
-15:                                               ; preds = %_ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EEC2ERKS5_.exit
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
-  %17 = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2) #10
-  %18 = load <2 x ptr>, ptr %14, align 8
-  store <2 x ptr> %18, ptr %16, align 8
+13:                                               ; preds = %_ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EEC2ERKS5_.exit
+  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2) #10
+  %16 = load <2 x ptr>, ptr %12, align 8
+  store <2 x ptr> %16, ptr %14, align 8
   br label %_ZN12_GLOBAL__N_122ReadableOrderTraverserC2ESt8functionIFvPN3spv5BlockENS2_11ReachReasonES4_EE.exit
 
-_ZN12_GLOBAL__N_122ReadableOrderTraverserC2ESt8functionIFvPN3spv5BlockENS2_11ReachReasonES4_EE.exit: ; preds = %_ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EEC2ERKS5_.exit.thread, %_ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EEC2ERKS5_.exit, %15
-  %19 = phi ptr [ %7, %_ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EEC2ERKS5_.exit.thread ], [ %14, %_ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EEC2ERKS5_.exit ], [ %14, %15 ]
-  %20 = getelementptr inbounds i8, ptr %3, i64 32
-  %21 = getelementptr inbounds i8, ptr %3, i64 80
-  store ptr %21, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 40
-  store i64 1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 48
-  %24 = getelementptr inbounds i8, ptr %3, i64 64
+_ZN12_GLOBAL__N_122ReadableOrderTraverserC2ESt8functionIFvPN3spv5BlockENS2_11ReachReasonES4_EE.exit: ; preds = %_ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EEC2ERKS5_.exit.thread, %_ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EEC2ERKS5_.exit, %13
+  %17 = phi ptr [ %7, %_ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EEC2ERKS5_.exit.thread ], [ %12, %_ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EEC2ERKS5_.exit ], [ %12, %13 ]
+  %18 = getelementptr inbounds i8, ptr %3, i64 32
+  %19 = getelementptr inbounds i8, ptr %3, i64 80
+  store ptr %19, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %3, i64 40
+  store i64 1, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %3, i64 48
+  %22 = getelementptr inbounds i8, ptr %3, i64 64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %3, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
-  %26 = getelementptr inbounds i8, ptr %3, i64 88
-  %27 = getelementptr inbounds i8, ptr %3, i64 136
-  store ptr %27, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 96
-  store i64 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 104
-  %30 = getelementptr inbounds i8, ptr %3, i64 120
+  %24 = getelementptr inbounds i8, ptr %3, i64 88
+  %25 = getelementptr inbounds i8, ptr %3, i64 136
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %3, i64 96
+  store i64 1, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %3, i64 104
+  %28 = getelementptr inbounds i8, ptr %3, i64 120
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %3, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
-  %32 = getelementptr inbounds i8, ptr %3, i64 144
-  %33 = getelementptr inbounds i8, ptr %3, i64 192
-  store ptr %33, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 152
-  store i64 1, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 160
-  %36 = getelementptr inbounds i8, ptr %3, i64 176
+  %30 = getelementptr inbounds i8, ptr %3, i64 144
+  %31 = getelementptr inbounds i8, ptr %3, i64 192
+  store ptr %31, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %3, i64 152
+  store i64 1, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %3, i64 160
+  %34 = getelementptr inbounds i8, ptr %3, i64 176
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %3, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %3, i64 184
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   call fastcc void @_ZN12_GLOBAL__N_122ReadableOrderTraverser5visitEPN3spv5BlockENS1_11ReachReasonES3_(ptr noundef nonnull align 8 dereferenceable(200) %3, ptr noundef %0, i32 noundef 0, ptr noundef null)
-  %38 = load ptr, ptr %35, align 8
-  %.not5.i.i.i.i.i = icmp eq ptr %38, null
+  %36 = load ptr, ptr %33, align 8
+  %.not5.i.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not5.i.i.i.i.i, label %_ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN12_GLOBAL__N_122ReadableOrderTraverserC2ESt8functionIFvPN3spv5BlockENS2_11ReachReasonES4_EE.exit, %.lr.ph.i.i.i.i.i
-  %.06.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i ], [ %38, %_ZN12_GLOBAL__N_122ReadableOrderTraverserC2ESt8functionIFvPN3spv5BlockENS2_11ReachReasonES4_EE.exit ]
-  %39 = load ptr, ptr %.06.i.i.i.i.i, align 8
+  %.06.i.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i ], [ %36, %_ZN12_GLOBAL__N_122ReadableOrderTraverserC2ESt8functionIFvPN3spv5BlockENS2_11ReachReasonES4_EE.exit ]
+  %37 = load ptr, ptr %.06.i.i.i.i.i, align 8
   call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i.i, i64 noundef 16) #11
-  %.not.i.i.i.i.i = icmp eq ptr %39, null
+  %.not.i.i.i.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !4
 
 _ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZN12_GLOBAL__N_122ReadableOrderTraverserC2ESt8functionIFvPN3spv5BlockENS2_11ReachReasonES4_EE.exit
-  %40 = load ptr, ptr %32, align 8
-  %41 = load i64, ptr %34, align 8
-  %42 = shl i64 %41, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %40, i8 0, i64 %42, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  %43 = load ptr, ptr %32, align 8
-  %44 = icmp eq ptr %33, %43
-  br i1 %44, label %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit.i, label %45
+  %38 = load ptr, ptr %30, align 8
+  %39 = load i64, ptr %32, align 8
+  %40 = shl i64 %39, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %38, i8 0, i64 %40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
+  %41 = load ptr, ptr %30, align 8
+  %42 = icmp eq ptr %31, %41
+  br i1 %42, label %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit.i, label %43
 
-45:                                               ; preds = %_ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i
-  %46 = load i64, ptr %34, align 8
-  %47 = shl i64 %46, 3
-  call void @_ZdlPvm(ptr noundef %43, i64 noundef %47) #11
+43:                                               ; preds = %_ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i
+  %44 = load i64, ptr %32, align 8
+  %45 = shl i64 %44, 3
+  call void @_ZdlPvm(ptr noundef %41, i64 noundef %45) #11
   br label %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit.i
 
-_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit.i: ; preds = %45, %_ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i
-  %48 = load ptr, ptr %29, align 8
-  %.not5.i.i.i.i1.i = icmp eq ptr %48, null
+_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit.i: ; preds = %43, %_ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i
+  %46 = load ptr, ptr %27, align 8
+  %.not5.i.i.i.i1.i = icmp eq ptr %46, null
   br i1 %.not5.i.i.i.i1.i, label %_ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i5.i, label %.lr.ph.i.i.i.i2.i
 
 .lr.ph.i.i.i.i2.i:                                ; preds = %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit.i, %.lr.ph.i.i.i.i2.i
-  %.06.i.i.i.i3.i = phi ptr [ %49, %.lr.ph.i.i.i.i2.i ], [ %48, %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit.i ]
-  %49 = load ptr, ptr %.06.i.i.i.i3.i, align 8
+  %.06.i.i.i.i3.i = phi ptr [ %47, %.lr.ph.i.i.i.i2.i ], [ %46, %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit.i ]
+  %47 = load ptr, ptr %.06.i.i.i.i3.i, align 8
   call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i3.i, i64 noundef 16) #11
-  %.not.i.i.i.i4.i = icmp eq ptr %49, null
+  %.not.i.i.i.i4.i = icmp eq ptr %47, null
   br i1 %.not.i.i.i.i4.i, label %_ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i5.i, label %.lr.ph.i.i.i.i2.i, !llvm.loop !4
 
 _ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i5.i: ; preds = %.lr.ph.i.i.i.i2.i, %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit.i
-  %50 = load ptr, ptr %26, align 8
-  %51 = load i64, ptr %28, align 8
-  %52 = shl i64 %51, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %50, i8 0, i64 %52, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  %53 = load ptr, ptr %26, align 8
-  %54 = icmp eq ptr %27, %53
-  br i1 %54, label %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit6.i, label %55
+  %48 = load ptr, ptr %24, align 8
+  %49 = load i64, ptr %26, align 8
+  %50 = shl i64 %49, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %48, i8 0, i64 %50, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
+  %51 = load ptr, ptr %24, align 8
+  %52 = icmp eq ptr %25, %51
+  br i1 %52, label %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit6.i, label %53
 
-55:                                               ; preds = %_ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i5.i
-  %56 = load i64, ptr %28, align 8
-  %57 = shl i64 %56, 3
-  call void @_ZdlPvm(ptr noundef %53, i64 noundef %57) #11
+53:                                               ; preds = %_ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i5.i
+  %54 = load i64, ptr %26, align 8
+  %55 = shl i64 %54, 3
+  call void @_ZdlPvm(ptr noundef %51, i64 noundef %55) #11
   br label %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit6.i
 
-_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit6.i: ; preds = %55, %_ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i5.i
-  %58 = load ptr, ptr %23, align 8
-  %.not5.i.i.i.i7.i = icmp eq ptr %58, null
+_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit6.i: ; preds = %53, %_ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i5.i
+  %56 = load ptr, ptr %21, align 8
+  %.not5.i.i.i.i7.i = icmp eq ptr %56, null
   br i1 %.not5.i.i.i.i7.i, label %_ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i11.i, label %.lr.ph.i.i.i.i8.i
 
 .lr.ph.i.i.i.i8.i:                                ; preds = %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit6.i, %.lr.ph.i.i.i.i8.i
-  %.06.i.i.i.i9.i = phi ptr [ %59, %.lr.ph.i.i.i.i8.i ], [ %58, %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit6.i ]
-  %59 = load ptr, ptr %.06.i.i.i.i9.i, align 8
+  %.06.i.i.i.i9.i = phi ptr [ %57, %.lr.ph.i.i.i.i8.i ], [ %56, %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit6.i ]
+  %57 = load ptr, ptr %.06.i.i.i.i9.i, align 8
   call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i9.i, i64 noundef 16) #11
-  %.not.i.i.i.i10.i = icmp eq ptr %59, null
+  %.not.i.i.i.i10.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i10.i, label %_ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i11.i, label %.lr.ph.i.i.i.i8.i, !llvm.loop !4
 
 _ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i11.i: ; preds = %.lr.ph.i.i.i.i8.i, %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit6.i
-  %60 = load ptr, ptr %20, align 8
-  %61 = load i64, ptr %22, align 8
-  %62 = shl i64 %61, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %60, i8 0, i64 %62, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  %63 = load ptr, ptr %20, align 8
-  %64 = icmp eq ptr %21, %63
-  br i1 %64, label %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit12.i, label %65
+  %58 = load ptr, ptr %18, align 8
+  %59 = load i64, ptr %20, align 8
+  %60 = shl i64 %59, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %58, i8 0, i64 %60, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
+  %61 = load ptr, ptr %18, align 8
+  %62 = icmp eq ptr %19, %61
+  br i1 %62, label %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit12.i, label %63
 
-65:                                               ; preds = %_ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i11.i
-  %66 = load i64, ptr %22, align 8
-  %67 = shl i64 %66, 3
-  call void @_ZdlPvm(ptr noundef %63, i64 noundef %67) #11
+63:                                               ; preds = %_ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i11.i
+  %64 = load i64, ptr %20, align 8
+  %65 = shl i64 %64, 3
+  call void @_ZdlPvm(ptr noundef %61, i64 noundef %65) #11
   br label %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit12.i
 
-_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit12.i: ; preds = %65, %_ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i11.i
-  %68 = getelementptr inbounds i8, ptr %3, i64 16
-  %69 = load ptr, ptr %68, align 8
-  %.not.i.i.i = icmp eq ptr %69, null
-  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122ReadableOrderTraverserD2Ev.exit, label %70
+_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit12.i: ; preds = %63, %_ZNSt10_HashtableIPN3spv5BlockES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i11.i
+  %66 = getelementptr inbounds i8, ptr %3, i64 16
+  %67 = load ptr, ptr %66, align 8
+  %.not.i.i.i = icmp eq ptr %67, null
+  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_122ReadableOrderTraverserD2Ev.exit, label %68
 
-70:                                               ; preds = %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit12.i
-  %71 = call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3) #10
+68:                                               ; preds = %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit12.i
+  %69 = call noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3) #10
   br label %_ZN12_GLOBAL__N_122ReadableOrderTraverserD2Ev.exit
 
-_ZN12_GLOBAL__N_122ReadableOrderTraverserD2Ev.exit: ; preds = %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit12.i, %70
-  %72 = load ptr, ptr %19, align 8
-  %.not.i.i = icmp eq ptr %72, null
-  br i1 %.not.i.i, label %_ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EED2Ev.exit, label %73
+_ZN12_GLOBAL__N_122ReadableOrderTraverserD2Ev.exit: ; preds = %_ZNSt13unordered_setIPN3spv5BlockESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit12.i, %68
+  %70 = load ptr, ptr %17, align 8
+  %.not.i.i = icmp eq ptr %70, null
+  br i1 %.not.i.i, label %_ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EED2Ev.exit, label %71
 
-73:                                               ; preds = %_ZN12_GLOBAL__N_122ReadableOrderTraverserD2Ev.exit
-  %74 = call noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3) #10
+71:                                               ; preds = %_ZN12_GLOBAL__N_122ReadableOrderTraverserD2Ev.exit
+  %72 = call noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3) #10
   br label %_ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EED2Ev.exit
 
-_ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_122ReadableOrderTraverserD2Ev.exit, %73
+_ZNSt8functionIFvPN3spv5BlockENS0_11ReachReasonES2_EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_122ReadableOrderTraverserD2Ev.exit, %71
   ret void
 }
 

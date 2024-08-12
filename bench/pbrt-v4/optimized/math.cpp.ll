@@ -2778,15 +2778,15 @@ for.end:                                          ; preds = %cond.end42, %do.end
 ; Function Attrs: mustprogress uwtable
 define dso_local { <2 x float>, float } @_ZN4pbrt23EqualAreaSquareToSphereENS_6Point2IfEE(<2 x float> %p.coerce) local_unnamed_addr #9 {
 entry:
-  %0 = extractelement <2 x float> %p.coerce, i64 1
-  %1 = extractelement <2 x float> %p.coerce, i64 0
-  %cmp = fcmp oge float %1, 0.000000e+00
-  %cmp2 = fcmp ole float %1, 1.000000e+00
+  %p.sroa.0.0.vec.extract = extractelement <2 x float> %p.coerce, i64 0
+  %cmp = fcmp oge float %p.sroa.0.0.vec.extract, 0.000000e+00
+  %cmp2 = fcmp ole float %p.sroa.0.0.vec.extract, 1.000000e+00
   %or.cond = and i1 %cmp, %cmp2
-  %cmp4 = fcmp oge float %0, 0.000000e+00
-  %cmp7 = fcmp ole float %0, 1.000000e+00
-  %2 = and i1 %cmp4, %cmp7
-  %or.cond2 = select i1 %or.cond, i1 %2, i1 false
+  %p.sroa.0.4.vec.extract20 = extractelement <2 x float> %p.coerce, i64 1
+  %cmp4 = fcmp oge float %p.sroa.0.4.vec.extract20, 0.000000e+00
+  %cmp7 = fcmp ole float %p.sroa.0.4.vec.extract20, 1.000000e+00
+  %0 = and i1 %cmp4, %cmp7
+  %or.cond2 = select i1 %or.cond, i1 %0, i1 false
   br i1 %or.cond2, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
@@ -2794,48 +2794,48 @@ land.rhs:                                         ; preds = %entry
   unreachable
 
 land.end:                                         ; preds = %entry
-  %3 = fmul <2 x float> %p.coerce, <float 2.000000e+00, float 2.000000e+00>
-  %4 = fadd <2 x float> %3, <float -1.000000e+00, float -1.000000e+00>
-  %5 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %4)
-  %6 = extractelement <2 x float> %5, i64 0
-  %7 = extractelement <2 x float> %5, i64 1
-  %add = fadd float %6, %7
+  %1 = fmul <2 x float> %p.coerce, <float 2.000000e+00, float 2.000000e+00>
+  %2 = fadd <2 x float> %1, <float -1.000000e+00, float -1.000000e+00>
+  %3 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %2)
+  %4 = extractelement <2 x float> %3, i64 0
+  %5 = extractelement <2 x float> %3, i64 1
+  %add = fadd float %4, %5
   %sub13 = fsub float 1.000000e+00, %add
-  %8 = tail call noundef float @llvm.fabs.f32(float %sub13)
-  %sub15 = fsub float 1.000000e+00, %8
+  %6 = tail call noundef float @llvm.fabs.f32(float %sub13)
+  %sub15 = fsub float 1.000000e+00, %6
   %cmp16 = fcmp oeq float %sub15, 0.000000e+00
   br i1 %cmp16, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %land.end
-  %sub17 = fsub float %7, %6
+  %sub17 = fsub float %5, %4
   %div = fdiv float %sub17, %sub15
   %add18 = fadd float %div, 1.000000e+00
-  %9 = fmul float %add18, 0x400921FB60000000
-  %10 = fmul float %9, 2.500000e-01
+  %7 = fmul float %add18, 0x400921FB60000000
+  %8 = fmul float %7, 2.500000e-01
   br label %cond.end
 
 cond.end:                                         ; preds = %land.end, %cond.false
-  %cond = phi float [ %10, %cond.false ], [ 0x3FE921FB60000000, %land.end ]
+  %cond = phi float [ %8, %cond.false ], [ 0x3FE921FB60000000, %land.end ]
   %mul.i = fmul float %sub15, %sub15
   %sub22 = fsub float 1.000000e+00, %mul.i
-  %11 = tail call noundef float @llvm.copysign.f32(float %sub22, float %sub13)
+  %9 = tail call noundef float @llvm.copysign.f32(float %sub22, float %sub13)
   %call.i = tail call noundef float @cosf(float noundef %cond) #21
   %call.i23 = tail call noundef float @sinf(float noundef %cond) #21
   %sub30 = fsub float 2.000000e+00, %mul.i
   %cmp.i.i = fcmp ogt float %sub30, 0.000000e+00
   %.sroa.speculated.i = select i1 %cmp.i.i, float %sub30, float 0.000000e+00
   %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i)
-  %12 = insertelement <2 x float> poison, float %call.i, i64 0
-  %13 = insertelement <2 x float> %12, float %call.i23, i64 1
-  %14 = tail call <2 x float> @llvm.copysign.v2f32(<2 x float> %13, <2 x float> %4)
-  %15 = insertelement <2 x float> poison, float %sub15, i64 0
-  %16 = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> zeroinitializer
-  %17 = fmul <2 x float> %16, %14
-  %18 = insertelement <2 x float> poison, float %sqrt.i, i64 0
-  %19 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> zeroinitializer
-  %20 = fmul <2 x float> %19, %17
-  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %20, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %11, 1
+  %10 = insertelement <2 x float> poison, float %call.i, i64 0
+  %11 = insertelement <2 x float> %10, float %call.i23, i64 1
+  %12 = tail call <2 x float> @llvm.copysign.v2f32(<2 x float> %11, <2 x float> %2)
+  %13 = insertelement <2 x float> poison, float %sub15, i64 0
+  %14 = shufflevector <2 x float> %13, <2 x float> poison, <2 x i32> zeroinitializer
+  %15 = fmul <2 x float> %14, %12
+  %16 = insertelement <2 x float> poison, float %sqrt.i, i64 0
+  %17 = shufflevector <2 x float> %16, <2 x float> poison, <2 x i32> zeroinitializer
+  %18 = fmul <2 x float> %17, %15
+  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %18, 0
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %9, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
 
@@ -2916,12 +2916,12 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local <2 x float> @_ZN4pbrt19WrapEqualAreaSquareENS_6Point2IfEE(<2 x float> %uv.coerce) local_unnamed_addr #10 {
 entry:
-  %0 = extractelement <2 x float> %uv.coerce, i64 0
-  %cmp = fcmp olt float %0, 0.000000e+00
+  %uv.sroa.0.0.vec.extract = extractelement <2 x float> %uv.coerce, i64 0
+  %cmp = fcmp olt float %uv.sroa.0.0.vec.extract, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %fneg = fneg float %0
+  %fneg = fneg float %uv.sroa.0.0.vec.extract
   %uv.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %fneg, i64 0
   %uv.sroa.0.4.vec.extract = extractelement <2 x float> %uv.coerce, i64 1
   %sub = fsub float 1.000000e+00, %uv.sroa.0.4.vec.extract
@@ -2929,36 +2929,36 @@ if.then:                                          ; preds = %entry
   br label %if.end14
 
 if.else:                                          ; preds = %entry
-  %cmp6 = fcmp ogt float %0, 1.000000e+00
+  %cmp6 = fcmp ogt float %uv.sroa.0.0.vec.extract, 1.000000e+00
   br i1 %cmp6, label %if.then7, label %if.end14
 
 if.then7:                                         ; preds = %if.else
-  %1 = fsub <2 x float> <float 2.000000e+00, float 1.000000e+00>, %uv.coerce
+  %0 = fsub <2 x float> <float 2.000000e+00, float 1.000000e+00>, %uv.coerce
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else, %if.then7, %if.then
-  %uv.sroa.0.0 = phi <2 x float> [ %uv.sroa.0.4.vec.insert, %if.then ], [ %1, %if.then7 ], [ %uv.coerce, %if.else ]
-  %2 = extractelement <2 x float> %uv.sroa.0.0, i64 1
-  %cmp16 = fcmp olt float %2, 0.000000e+00
+  %uv.sroa.0.0 = phi <2 x float> [ %uv.sroa.0.4.vec.insert, %if.then ], [ %0, %if.then7 ], [ %uv.coerce, %if.else ]
+  %uv.sroa.0.4.vec.extract41 = extractelement <2 x float> %uv.sroa.0.0, i64 1
+  %cmp16 = fcmp olt float %uv.sroa.0.4.vec.extract41, 0.000000e+00
   br i1 %cmp16, label %if.then17, label %if.else24
 
 if.then17:                                        ; preds = %if.end14
   %uv.sroa.0.0.vec.extract28 = extractelement <2 x float> %uv.sroa.0.0, i64 0
   %sub19 = fsub float 1.000000e+00, %uv.sroa.0.0.vec.extract28
-  %3 = fneg <2 x float> %uv.sroa.0.0
-  %uv.sroa.0.4.vec.insert45 = insertelement <2 x float> %3, float %sub19, i64 0
+  %1 = fneg <2 x float> %uv.sroa.0.0
+  %uv.sroa.0.4.vec.insert45 = insertelement <2 x float> %1, float %sub19, i64 0
   br label %if.end35
 
 if.else24:                                        ; preds = %if.end14
-  %cmp26 = fcmp ogt float %2, 1.000000e+00
+  %cmp26 = fcmp ogt float %uv.sroa.0.4.vec.extract41, 1.000000e+00
   br i1 %cmp26, label %if.then27, label %if.end35
 
 if.then27:                                        ; preds = %if.else24
-  %4 = fsub <2 x float> <float 1.000000e+00, float 2.000000e+00>, %uv.sroa.0.0
+  %2 = fsub <2 x float> <float 1.000000e+00, float 2.000000e+00>, %uv.sroa.0.0
   br label %if.end35
 
 if.end35:                                         ; preds = %if.else24, %if.then27, %if.then17
-  %uv.sroa.0.1 = phi <2 x float> [ %uv.sroa.0.4.vec.insert45, %if.then17 ], [ %4, %if.then27 ], [ %uv.sroa.0.0, %if.else24 ]
+  %uv.sroa.0.1 = phi <2 x float> [ %uv.sroa.0.4.vec.insert45, %if.then17 ], [ %2, %if.then27 ], [ %uv.sroa.0.0, %if.else24 ]
   ret <2 x float> %uv.sroa.0.1
 }
 

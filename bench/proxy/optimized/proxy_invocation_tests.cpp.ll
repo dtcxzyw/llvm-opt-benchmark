@@ -12258,9 +12258,7 @@ define linkonce_odr dso_local void @_ZN3pro7details25invocation_dispatcher_refIS
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
 define internal void @_ZN3pro7details25invocation_dispatcher_ptrISt10shared_ptrIiEN12_GLOBAL__N_14spec7GetWeakINS5_16SharedStringableEE4__FTENS_5proxyINS5_4WeakIS7_EEEEJEEET1_PKSt4byteDpT2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pro::proxy.85") align 8 %0, ptr nocapture noundef readonly %1) #18 personality ptr @__gxx_personality_v0 {
-  %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %1, i64 8
-  %.val1 = load ptr, ptr %3, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !421)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !424)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !427)
@@ -12268,9 +12266,9 @@ define internal void @_ZN3pro7details25invocation_dispatcher_ptrISt10shared_ptrI
   tail call void @llvm.experimental.noalias.scope.decl(metadata !433)
   store ptr null, ptr %0, align 8, !alias.scope !436
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.val, ptr %4, align 8, !alias.scope !436
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.val1, ptr %5, align 8, !alias.scope !436
+  %.val1 = load ptr, ptr %3, align 8
+  %5 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %5, ptr %4, align 8, !alias.scope !436
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val1, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3pro7details15invoke_dispatchIN12_GLOBAL__N_14spec7GetWeakINS3_16SharedStringableEE4__FTENS_5proxyINS3_4WeakIS5_EEEEJRKSt10shared_ptrIiEEEET0_DpOT1_.exit, label %6
 

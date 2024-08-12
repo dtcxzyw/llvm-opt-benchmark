@@ -1005,7 +1005,7 @@ _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i: ; preds = 
   br label %.lr.ph55.i.preheader.us.i
 
 .lr.ph55.i.preheader.us.i:                        ; preds = %.lr.ph55.i.preheader.us.i.preheader, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i
-  %44 = phi i32 [ %98, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ 31, %.lr.ph55.i.preheader.us.i.preheader ]
+  %44 = phi i32 [ %97, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ 31, %.lr.ph55.i.preheader.us.i.preheader ]
   %45 = phi <2 x double> [ %90, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ zeroinitializer, %.lr.ph55.i.preheader.us.i.preheader ]
   %46 = shufflevector <2 x double> %45, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   br label %.lr.ph55.i.us.i
@@ -1094,70 +1094,69 @@ _ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i: ; preds = %.lr.ph.i68.u
   %89 = shufflevector <2 x double> %88, <2 x double> poison, <2 x i32> zeroinitializer
   %90 = fmul <2 x double> %87, %89
   %91 = fsub <2 x double> %90, %45
-  %92 = shufflevector <2 x double> %91, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %93 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %92)
-  %94 = fcmp olt <2 x double> %93, %43
-  %95 = extractelement <2 x i1> %94, i64 0
-  %96 = extractelement <2 x i1> %94, i64 1
-  %97 = select i1 %96, i1 %95, i1 false
-  %98 = add nsw i32 %44, -1
-  %99 = icmp eq i32 %44, 0
-  %.not63.us.i = select i1 %99, i1 true, i1 %97
+  %92 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %91)
+  %93 = fcmp olt <2 x double> %92, %43
+  %94 = extractelement <2 x i1> %93, i64 0
+  %95 = extractelement <2 x i1> %93, i64 1
+  %96 = select i1 %94, i1 %95, i1 false
+  %97 = add nsw i32 %44, -1
+  %98 = icmp eq i32 %44, 0
+  %.not63.us.i = select i1 %98, i1 true, i1 %96
   br i1 %.not63.us.i, label %.split.us.i, label %.lr.ph55.i.preheader.us.i, !llvm.loop !10
 
 _ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i: ; preds = %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.i
-  %100 = insertelement <2 x double> poison, double %34, i64 0
-  %101 = insertelement <2 x double> %100, double %33, i64 1
-  %102 = fneg <2 x double> %101
-  %103 = extractelement <2 x double> %102, i64 0
-  %104 = fmul double %33, %103
-  %105 = tail call double @llvm.fmuladd.f64(double %37, double %38, double %104)
-  %106 = fdiv double 1.000000e+00, %105
-  %107 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %108 = fmul <2 x double> %107, %102
-  %109 = insertelement <2 x double> poison, double %38, i64 0
-  %110 = insertelement <2 x double> %109, double %37, i64 1
-  %111 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %110, <2 x double> %27, <2 x double> %108)
-  %112 = insertelement <2 x double> poison, double %106, i64 0
-  %113 = shufflevector <2 x double> %112, <2 x double> poison, <2 x i32> zeroinitializer
-  %114 = fmul <2 x double> %111, %113
-  %115 = insertelement <2 x double> poison, double %18, i64 0
-  %116 = shufflevector <2 x double> %115, <2 x double> poison, <2 x i32> zeroinitializer
+  %99 = insertelement <2 x double> poison, double %34, i64 0
+  %100 = insertelement <2 x double> %99, double %33, i64 1
+  %101 = fneg <2 x double> %100
+  %102 = extractelement <2 x double> %101, i64 0
+  %103 = fmul double %33, %102
+  %104 = tail call double @llvm.fmuladd.f64(double %37, double %38, double %103)
+  %105 = fdiv double 1.000000e+00, %104
+  %106 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %107 = fmul <2 x double> %106, %101
+  %108 = insertelement <2 x double> poison, double %38, i64 0
+  %109 = insertelement <2 x double> %108, double %37, i64 1
+  %110 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %109, <2 x double> %27, <2 x double> %107)
+  %111 = insertelement <2 x double> poison, double %105, i64 0
+  %112 = shufflevector <2 x double> %111, <2 x double> poison, <2 x i32> zeroinitializer
+  %113 = fmul <2 x double> %110, %112
+  %114 = insertelement <2 x double> poison, double %18, i64 0
+  %115 = shufflevector <2 x double> %114, <2 x double> poison, <2 x i32> zeroinitializer
   br label %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i
 
 _ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i: ; preds = %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i
-  %117 = phi i32 [ 31, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i ], [ %125, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
-  %118 = phi <2 x double> [ zeroinitializer, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i ], [ %114, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
-  %119 = fsub <2 x double> %114, %118
-  %120 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %119)
-  %121 = fcmp olt <2 x double> %120, %116
-  %122 = extractelement <2 x i1> %121, i64 0
-  %123 = extractelement <2 x i1> %121, i64 1
-  %124 = select i1 %122, i1 %123, i1 false
-  %125 = add nsw i32 %117, -1
-  %126 = icmp eq i32 %117, 0
-  %.not63.i = select i1 %126, i1 true, i1 %124
+  %116 = phi i32 [ 31, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i ], [ %124, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
+  %117 = phi <2 x double> [ zeroinitializer, %_ZL19coords_out_of_rangeP8PJconstsPKN12_GLOBAL__N_16hornerEdd.exit.split.i ], [ %113, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
+  %118 = fsub <2 x double> %113, %117
+  %119 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %118)
+  %120 = fcmp olt <2 x double> %119, %115
+  %121 = extractelement <2 x i1> %120, i64 0
+  %122 = extractelement <2 x i1> %120, i64 1
+  %123 = select i1 %121, i1 %122, i1 false
+  %124 = add nsw i32 %116, -1
+  %125 = icmp eq i32 %116, 0
+  %.not63.i = select i1 %125, i1 true, i1 %123
   br i1 %.not63.i, label %.split.us.i, label %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i, !llvm.loop !10
 
 .split.us.i:                                      ; preds = %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i
-  %.us-phi.i = phi i1 [ %97, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ %124, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
-  %127 = phi <2 x double> [ %90, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ %114, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
-  br i1 %.us-phi.i, label %130, label %128
+  %.us-phi.i = phi i1 [ %96, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ %123, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
+  %126 = phi <2 x double> [ %90, %_ZL23single_real_horner_evaljPKddj.exit72.loopexit.us.i ], [ %113, %_ZL23double_real_horner_evaljPKdS0_5PJ_UVj.exit.thread.i ]
+  br i1 %.us-phi.i, label %129, label %127
 
-128:                                              ; preds = %.split.us.i
-  %129 = tail call i32 @proj_errno_set(ptr noundef %1, i32 noundef 2048)
+127:                                              ; preds = %.split.us.i
+  %128 = tail call i32 @proj_errno_set(ptr noundef %1, i32 noundef 2048)
   br label %_ZL27real_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit
 
-130:                                              ; preds = %.split.us.i
-  %131 = getelementptr inbounds i8, ptr %4, i64 88
-  %132 = load ptr, ptr %131, align 8
-  %133 = load <2 x double>, ptr %132, align 8
-  %134 = fadd <2 x double> %127, %133
+129:                                              ; preds = %.split.us.i
+  %130 = getelementptr inbounds i8, ptr %4, i64 88
+  %131 = load ptr, ptr %130, align 8
+  %132 = load <2 x double>, ptr %131, align 8
+  %133 = fadd <2 x double> %126, %132
   br label %_ZL27real_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit
 
-_ZL27real_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit: ; preds = %13, %128, %130
-  %135 = phi <2 x double> [ <double 0x7FF0000000000000, double 0x7FF0000000000000>, %13 ], [ %134, %130 ], [ <double 0x7FF0000000000000, double 0x7FF0000000000000>, %128 ]
-  store <2 x double> %135, ptr %0, align 8
+_ZL27real_iterative_inverse_implP8PJconstsPKN12_GLOBAL__N_16hornerE5PJ_UV.exit: ; preds = %13, %127, %129
+  %134 = phi <2 x double> [ <double 0x7FF0000000000000, double 0x7FF0000000000000>, %13 ], [ %133, %129 ], [ <double 0x7FF0000000000000, double 0x7FF0000000000000>, %127 ]
+  store <2 x double> %134, ptr %0, align 8
   ret void
 }
 

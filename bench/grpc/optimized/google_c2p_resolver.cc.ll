@@ -546,7 +546,7 @@ entry:
   %ref.tmp41.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp42.i = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp44.i = alloca %"class.absl::lts_20230802::AlphaNum", align 8
-  %agg.tmp51.i = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp51.i = alloca %"class.std::shared_ptr", align 16
   %agg.tmp53.i = alloca %"class.std::unique_ptr.77", align 8
   %test_only_metadata_server_override.i = alloca %"class.std::optional", align 8
   %xds_uri.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -557,7 +557,7 @@ entry:
   %ref.tmp87.i = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp89.i = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp93.i = alloca %"class.std::unique_ptr.59", align 8
-  %agg.tmp103.i = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp103.i = alloca %"class.std::shared_ptr", align 16
   %agg.tmp105.i = alloca %"class.std::unique_ptr.77", align 8
   %agg.tmp = alloca %"struct.grpc_core::ResolverArgs", align 8
   %call = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #17
@@ -803,16 +803,15 @@ invoke.cont47.i:                                  ; preds = %invoke.cont43.i
   %23 = extractvalue { i64, ptr } %call48.i, 0
   %24 = extractvalue { i64, ptr } %call48.i, 1
   %25 = load ptr, ptr %pollset_set.i, align 8
-  %26 = load ptr, ptr %work_serializer_.i, align 8
-  store ptr %26, ptr %agg.tmp51.i, align 8
   %_M_refcount.i.i20.i = getelementptr inbounds i8, ptr %agg.tmp51.i, i64 8
-  %27 = load ptr, ptr %_M_refcount.i.i.i2, align 8
-  store ptr %27, ptr %_M_refcount.i.i20.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %27, null
+  %26 = load ptr, ptr %_M_refcount.i.i.i2, align 8
+  %27 = load <2 x ptr>, ptr %work_serializer_.i, align 8
+  store <2 x ptr> %27, ptr %agg.tmp51.i, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %26, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEEC2ERKS2_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont47.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %28, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i21.i
@@ -1087,16 +1086,15 @@ invoke.cont95.i:                                  ; preds = %if.end.i60.i, %cond
   %67 = extractvalue { i64, ptr } %call100.i, 0
   %68 = extractvalue { i64, ptr } %call100.i, 1
   %69 = load ptr, ptr %pollset_set.i, align 8
-  %70 = load ptr, ptr %work_serializer_.i, align 8
-  store ptr %70, ptr %agg.tmp103.i, align 8
   %_M_refcount.i.i65.i = getelementptr inbounds i8, ptr %agg.tmp103.i, i64 8
-  %71 = load ptr, ptr %_M_refcount.i.i.i2, align 8
-  store ptr %71, ptr %_M_refcount.i.i65.i, align 8
-  %cmp.not.i.i.i67.i = icmp eq ptr %71, null
+  %70 = load ptr, ptr %_M_refcount.i.i.i2, align 8
+  %71 = load <2 x ptr>, ptr %work_serializer_.i, align 8
+  store <2 x ptr> %71, ptr %agg.tmp103.i, align 16
+  %cmp.not.i.i.i67.i = icmp eq ptr %70, null
   br i1 %cmp.not.i.i.i67.i, label %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEEC2ERKS2_.exit74.i, label %if.then.i.i.i68.i
 
 if.then.i.i.i68.i:                                ; preds = %invoke.cont95.i
-  %_M_use_count.i.i.i.i69.i = getelementptr inbounds i8, ptr %71, i64 8
+  %_M_use_count.i.i.i.i69.i = getelementptr inbounds i8, ptr %70, i64 8
   %72 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i70.i = icmp eq i8 %72, 0
   br i1 %tobool.i.not.i.i.i.i70.i, label %if.else.i.i.i.i.i73.i, label %if.then.i.i.i.i.i71.i

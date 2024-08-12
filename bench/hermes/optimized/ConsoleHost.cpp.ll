@@ -1012,14 +1012,11 @@ _ZNK6hermes2vm13RuntimeConfig11getGCConfigEv.exit.thread.i.i.i: ; preds = %_ZNSt
 
 _ZNK6hermes2vm13RuntimeConfig11getGCConfigEv.exit.i.i.i: ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEEC2ERKS6_.exit.i.i.i.i.i
   %Callback_7.i.i.i.i.i = getelementptr inbounds i8, ptr %options, i64 168
-  %_M_invoker.i10.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 192
   %_M_manager.i.i11.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 184
   %call3.i12.i.i.i.i.i = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Callback_7.i.i.i.i.i, i32 noundef 2) #16
-  %_M_invoker4.i13.i.i.i.i.i = getelementptr inbounds i8, ptr %options, i64 192
-  %8 = load ptr, ptr %_M_invoker4.i13.i.i.i.i.i, align 8, !noalias !29
-  store ptr %8, ptr %_M_invoker.i10.i.i.i.i.i, align 8, !alias.scope !29
+  %8 = load <2 x ptr>, ptr %_M_manager.i.i.i7.i.i.i.i.i, align 8, !noalias !29
   %9 = load ptr, ptr %_M_manager.i.i.i7.i.i.i.i.i, align 8, !noalias !29
-  store ptr %9, ptr %_M_manager.i.i11.i.i.i.i.i, align 8, !alias.scope !29
+  store <2 x ptr> %8, ptr %_M_manager.i.i11.i.i.i.i.i, align 8, !alias.scope !29
   %ShouldRecordStats_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 48
   %10 = load i8, ptr %ShouldRecordStats_.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %9, null

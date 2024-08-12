@@ -8055,17 +8055,16 @@ for.end:                                          ; preds = %for.body, %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9, ptr noundef nonnull align 8 dereferenceable(16) %color, i64 16, i1 false)
   %data.i6 = getelementptr inbounds i8, ptr %agg.tmp9, i64 16
   %data3.i = getelementptr inbounds i8, ptr %color, i64 16
-  %5 = load ptr, ptr %data3.i, align 8
-  store ptr %5, ptr %data.i6, align 8
   %pn.i.i = getelementptr inbounds i8, ptr %agg.tmp9, i64 24
   %pn3.i.i = getelementptr inbounds i8, ptr %color, i64 24
-  %6 = load ptr, ptr %pn3.i.i, align 8
-  store ptr %6, ptr %pn.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %pn3.i.i, align 8
+  %6 = load <2 x ptr>, ptr %data3.i, align 8
+  store <2 x ptr> %6, ptr %data.i6, align 8
+  %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZN5boost17two_bit_color_mapIN3ue29ue2_graphINS1_7LitTrieENS1_18LitTrieVertexPropsENS1_16LitTrieEdgePropsEE8prop_mapIRKmS4_EEEC2ERKSB_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.end
-  %use_count_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %use_count_.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = atomicrmw add ptr %use_count_.i.i.i.i, i32 1 monotonic, align 4
   br label %_ZN5boost17two_bit_color_mapIN3ue29ue2_graphINS1_7LitTrieENS1_18LitTrieVertexPropsENS1_16LitTrieEdgePropsEE8prop_mapIRKmS4_EEEC2ERKSB_.exit
 

@@ -3590,15 +3590,15 @@ define hidden void @_ZN3syn3lit5value15parse_lit_float17h8473f019ae83b75bE(ptr n
 94:                                               ; preds = %88
   %95 = getelementptr inbounds i8, ptr %7, i64 8
   %96 = load <2 x i64>, ptr %95, align 8, !noalias !390
+  %97 = load i64, ptr %95, align 8, !noalias !390
   %.sroa.0.0.copyload = load i64, ptr %12, align 8, !noalias !385
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6177.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false), !noalias !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !390
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !393)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !396)
-  %97 = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775808
-  %98 = extractelement <2 x i64> %96, i64 0
-  br i1 %97, label %105, label %99
+  %98 = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775808
+  br i1 %98, label %105, label %99
 
 99:                                               ; preds = %94
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !398
@@ -3626,7 +3626,7 @@ define hidden void @_ZN3syn3lit5value15parse_lit_float17h8473f019ae83b75bE(ptr n
   unreachable
 
 105:                                              ; preds = %94, %.thread201
-  %.sroa.6177.sroa.6.0 = phi i64 [ %98, %94 ], [ %85, %.thread201 ]
+  %.sroa.6177.sroa.6.0 = phi i64 [ %97, %94 ], [ %85, %.thread201 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6177.sroa.0, i64 16, i1 false), !alias.scope !398
   %.sroa.6177.sroa.6.0..sroa_idx492 = getelementptr inbounds i8, ptr %13, i64 16
   store i64 %.sroa.6177.sroa.6.0, ptr %.sroa.6177.sroa.6.0..sroa_idx492, align 8, !alias.scope !398

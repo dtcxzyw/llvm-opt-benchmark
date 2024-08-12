@@ -13245,7 +13245,7 @@ if.end:                                           ; preds = %for.inc24, %if.then
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl9heap_sortINS_13DequeIteratorIiPiRiLj64EEERNS_8Internal15StatefulCompareEEEvT_S8_T0_(ptr noundef %first, ptr noundef %last, ptr noundef nonnull align 1 dereferenceable(1) %compare) local_unnamed_addr #0 comdat {
 entry:
-  %agg.tmp.i.i.i = alloca %"struct.eastl::DequeIterator", align 8
+  %agg.tmp.i.i.i = alloca %"struct.eastl::DequeIterator", align 16
   %tempBottom.i.i = alloca i32, align 4
   %agg.tmp.i.i = alloca %"struct.eastl::DequeIterator", align 8
   %temp.i = alloca i32, align 4
@@ -13360,19 +13360,18 @@ _ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit42.i: ; preds = %if.else.i.i23.i, 
 
 _ZN5eastl9make_heapINS_13DequeIteratorIiPiRiLj64EEERNS_8Internal15StatefulCompareEEEvT_S8_T0_.exit: ; preds = %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit42.i, %_ZNK5eastl13DequeIteratorIiPiRiLj64EEplEl.exit.i, %entry
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %temp.i)
-  %12 = load ptr, ptr %first, align 8
-  %13 = load ptr, ptr %mpBegin3.i, align 8
+  %12 = load <2 x ptr>, ptr %first, align 8
+  %13 = load ptr, ptr %first, align 8
   %14 = load ptr, ptr %mpEnd4.i, align 8
   %15 = load ptr, ptr %mpCurrentArrayPtr5.i, align 8
   %16 = load ptr, ptr %last, align 8
   %17 = load ptr, ptr %mpBegin3.i3, align 8
   %18 = load ptr, ptr %mpCurrentArrayPtr5.i7, align 8
-  %mpBegin.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
   %mpEnd.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
   %mpCurrentArrayPtr.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
   %sub.ptr.rhs.cast.i.i26 = ptrtoint ptr %15 to i64
   %sub.ptr.lhs.cast7.i.i33 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast8.i.i34 = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast8.i.i34 = ptrtoint ptr %13 to i64
   %sub.ptr.sub9.i.i35 = sub i64 %sub.ptr.lhs.cast7.i.i33, %sub.ptr.rhs.cast8.i.i34
   %sub.ptr.div10.i.i36 = ashr exact i64 %sub.ptr.sub9.i.i35, 2
   %invariant.op = add nsw i64 %sub.ptr.div10.i.i36, -64
@@ -13419,13 +13418,12 @@ _ZN5eastl8pop_heapINS_13DequeIteratorIiPiRiLj64EEERNS_8Internal15StatefulCompare
   %storemerge.i.i21.i.i = phi ptr [ %add.ptr.i.i.i.i, %if.then.i.i25.i.i ], [ %add.ptr7.i.i.i.i, %if.else.i.i9.i.i ]
   %.sink.i.i = load i32, ptr %storemerge.i.i21.i.i, align 4
   store i32 %.sink.i.i, ptr %tempBottom.i.i, align 4
-  %20 = load i32, ptr %12, align 4
+  %20 = load i32, ptr %13, align 4
   store i32 %20, ptr %storemerge.i.i21.i.i, align 4
   %sub.i10.i.reass = add i64 %mul.i.i3761, %invariant.op46
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
-  store ptr %12, ptr %agg.tmp.i.i.i, align 8
-  store ptr %13, ptr %mpBegin.i.i.i.i, align 8
-  store ptr %14, ptr %mpEnd.i.i.i.i, align 8
+  store <2 x ptr> %12, ptr %agg.tmp.i.i.i, align 16
+  store ptr %14, ptr %mpEnd.i.i.i.i, align 16
   store ptr %15, ptr %mpCurrentArrayPtr.i.i.i.i, align 8
   call void @_ZN5eastl16adjust_heap_implINS_13DequeIteratorIiPiRiLj64EEElOiRNS_8Internal15StatefulCompareEiEEvT_T0_SA_SA_T1_T2_(ptr noundef nonnull %agg.tmp.i.i.i, i64 noundef 0, i64 noundef %sub.i10.i.reass, i64 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %tempBottom.i.i, ptr noundef nonnull align 1 dereferenceable(1) %compare)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
@@ -13463,7 +13461,7 @@ _ZN5eastl9sort_heapINS_13DequeIteratorIiPiRiLj64EEERNS_8Internal15StatefulCompar
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl10merge_sortINS_13DequeIteratorIiPiRiLj64EEENS_9allocatorERNS_8Internal15StatefulCompareEEEvT_S9_RT0_T1_(ptr noundef %first, ptr noundef %last, ptr noundef nonnull align 1 dereferenceable(1) %allocator, ptr noundef nonnull align 1 dereferenceable(1) %compare) local_unnamed_addr #0 comdat {
 entry:
-  %agg.tmp.i.i = alloca %"struct.eastl::DequeIterator", align 8
+  %agg.tmp.i.i = alloca %"struct.eastl::DequeIterator", align 16
   %agg.tmp1.i.i = alloca %"struct.eastl::DequeIterator", align 8
   %first.addr.i.i.i = alloca ptr, align 8
   %mpCurrentArrayPtr.i = getelementptr inbounds i8, ptr %last, i64 24
@@ -13501,46 +13499,40 @@ if.then:                                          ; preds = %entry
   store ptr %call.i.i, ptr %first.addr.i.i.i, align 8
   %6 = call { i64, ptr } asm sideeffect "cld\0A\09rep stosl\0A\09", "={cx},={di},=*m,{ax},0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %first.addr.i.i.i, i32 0, i64 %add11.i, ptr %call.i.i) #13, !srcloc !123
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %first.addr.i.i.i)
-  %7 = load ptr, ptr %first, align 8
-  %mpBegin3.i = getelementptr inbounds i8, ptr %first, i64 8
-  %8 = load ptr, ptr %mpBegin3.i, align 8
-  %9 = load ptr, ptr %mpEnd.i, align 8
-  %10 = load ptr, ptr %mpCurrentArrayPtr1.i, align 8
-  %11 = load ptr, ptr %last, align 8
-  %12 = load ptr, ptr %mpBegin.i, align 8
-  %mpEnd4.i17 = getelementptr inbounds i8, ptr %last, i64 16
-  %13 = load ptr, ptr %mpEnd4.i17, align 8
-  %14 = load ptr, ptr %mpCurrentArrayPtr.i, align 8
+  %7 = load ptr, ptr %mpEnd.i, align 8
+  %8 = load ptr, ptr %mpCurrentArrayPtr1.i, align 8
+  %9 = load ptr, ptr %last, align 8
+  %10 = load ptr, ptr %mpCurrentArrayPtr.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  store ptr %7, ptr %agg.tmp.i.i, align 8
-  %mpBegin.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
-  store ptr %8, ptr %mpBegin.i.i.i, align 8
+  %11 = load <2 x ptr>, ptr %first, align 8
+  %12 = load ptr, ptr %first, align 8
+  store <2 x ptr> %11, ptr %agg.tmp.i.i, align 16
   %mpEnd.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
-  store ptr %9, ptr %mpEnd.i.i.i, align 8
+  store ptr %7, ptr %mpEnd.i.i.i, align 16
   %mpCurrentArrayPtr.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 24
-  store ptr %10, ptr %mpCurrentArrayPtr.i.i.i, align 8
-  store ptr %11, ptr %agg.tmp1.i.i, align 8
+  store ptr %8, ptr %mpCurrentArrayPtr.i.i.i, align 8
+  store ptr %9, ptr %agg.tmp1.i.i, align 8
   %mpBegin.i3.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 8
-  store ptr %12, ptr %mpBegin.i3.i.i, align 8
-  %mpEnd.i5.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 16
-  store ptr %13, ptr %mpEnd.i5.i.i, align 8
+  %13 = load <2 x ptr>, ptr %mpBegin.i, align 8
+  %14 = load ptr, ptr %mpBegin.i, align 8
+  store <2 x ptr> %13, ptr %mpBegin.i3.i.i, align 8
   %mpCurrentArrayPtr.i7.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 24
-  store ptr %14, ptr %mpCurrentArrayPtr.i7.i.i, align 8
+  store ptr %10, ptr %mpCurrentArrayPtr.i7.i.i, align 8
   %call.i.i20 = call noundef i32 @_ZN5eastl11MergeSorterINS_13DequeIteratorIiPiRiLj64EEEiRNS_8Internal15StatefulCompareElLi16EE9sort_implES4_S4_S2_lS7_(ptr noundef nonnull %agg.tmp.i.i, ptr noundef nonnull %agg.tmp1.i.i, ptr noundef %call.i.i, i64 noundef 0, ptr noundef nonnull align 1 dereferenceable(1) %compare)
   %cmp.i.i = icmp eq i32 %call.i.i20, 1
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN5eastl17merge_sort_bufferINS_13DequeIteratorIiPiRiLj64EEEiRNS_8Internal15StatefulCompareEEEvT_S8_PT0_T1_.exit
 
 if.then.i.i:                                      ; preds = %if.then
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %call.i.i to i64
-  %sub.ptr.lhs.cast.i.i.i21 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i.i.i22 = ptrtoint ptr %10 to i64
+  %sub.ptr.lhs.cast.i.i.i21 = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i.i22 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i.i21, %sub.ptr.rhs.cast.i.i.i22
-  %sub.ptr.lhs.cast2.i.i.i = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast3.i.i.i = ptrtoint ptr %12 to i64
+  %sub.ptr.lhs.cast2.i.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.rhs.cast3.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub4.i.i.i = sub i64 %sub.ptr.lhs.cast2.i.i.i, %sub.ptr.rhs.cast3.i.i.i
-  %sub.ptr.lhs.cast7.i.i.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast8.i.i.i = ptrtoint ptr %7 to i64
+  %sub.ptr.lhs.cast7.i.i.i = ptrtoint ptr %7 to i64
+  %sub.ptr.rhs.cast8.i.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub9.i.i.i = sub i64 %sub.ptr.lhs.cast7.i.i.i, %sub.ptr.rhs.cast8.i.i.i
   %.idx.i.i = shl i64 %sub.ptr.sub.i.i.i23, 5
   %15 = getelementptr i8, ptr %call.i.i, i64 %.idx.i.i
@@ -13554,9 +13546,9 @@ if.then.i.i:                                      ; preds = %if.then
   br i1 %cmp7.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZN5eastl17merge_sort_bufferINS_13DequeIteratorIiPiRiLj64EEEiRNS_8Internal15StatefulCompareEEEvT_S8_PT0_T1_.exit
 
 for.body.i.i.i.i.i.i:                             ; preds = %if.then.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i.i
-  %agg.tmp.sroa.12.0.i.i.i.i.i = phi ptr [ %agg.tmp.sroa.12.1.i.i.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i.i ], [ %10, %if.then.i.i ]
-  %agg.tmp.sroa.8.0.i.i.i.i.i = phi ptr [ %agg.tmp.sroa.8.1.i.i.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i.i ], [ %9, %if.then.i.i ]
-  %agg.tmp.sroa.0.0.i.i.i.i.i = phi ptr [ %agg.tmp.sroa.0.1.i.i.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i.i ], [ %7, %if.then.i.i ]
+  %agg.tmp.sroa.12.0.i.i.i.i.i = phi ptr [ %agg.tmp.sroa.12.1.i.i.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i.i ], [ %8, %if.then.i.i ]
+  %agg.tmp.sroa.8.0.i.i.i.i.i = phi ptr [ %agg.tmp.sroa.8.1.i.i.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i.i ], [ %7, %if.then.i.i ]
+  %agg.tmp.sroa.0.0.i.i.i.i.i = phi ptr [ %agg.tmp.sroa.0.1.i.i.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i.i ], [ %12, %if.then.i.i ]
   %n.09.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i, %if.then.i.i ]
   %first.addr.08.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i.i ], [ %call.i.i, %if.then.i.i ]
   %18 = load i32, ptr %first.addr.08.i.i.i.i.i.i, align 4, !noalias !311
@@ -13606,15 +13598,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   %mpBegin3.i = getelementptr inbounds i8, ptr %first, i64 8
-  %2 = load ptr, ptr %mpBegin3.i, align 8
   %mpEnd4.i = getelementptr inbounds i8, ptr %first, i64 16
-  %3 = load ptr, ptr %mpEnd4.i, align 8
+  %2 = load ptr, ptr %mpEnd4.i, align 8
+  %3 = load <2 x ptr>, ptr %mpBegin3.i, align 8
   %mpCurrentArrayPtr5.i = getelementptr inbounds i8, ptr %first, i64 24
   %4 = load ptr, ptr %mpCurrentArrayPtr5.i, align 8
   %mpBegin3.i5 = getelementptr inbounds i8, ptr %last, i64 8
-  %5 = load ptr, ptr %mpBegin3.i5, align 8
-  %mpEnd4.i7 = getelementptr inbounds i8, ptr %last, i64 16
-  %6 = load ptr, ptr %mpEnd4.i7, align 8
+  %5 = load <2 x ptr>, ptr %mpBegin3.i5, align 8
+  %6 = load ptr, ptr %mpBegin3.i5, align 8
   %mpCurrentArrayPtr5.i9 = getelementptr inbounds i8, ptr %last, i64 24
   %7 = load ptr, ptr %mpCurrentArrayPtr5.i9, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %7 to i64
@@ -13622,10 +13613,10 @@ if.then:                                          ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.i = shl i64 %sub.ptr.sub.i, 3
   %sub.ptr.lhs.cast2.i = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast3.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast3.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub4.i = sub i64 %sub.ptr.lhs.cast2.i, %sub.ptr.rhs.cast3.i
   %sub.ptr.div5.i = ashr exact i64 %sub.ptr.sub4.i, 2
-  %sub.ptr.lhs.cast7.i = ptrtoint ptr %3 to i64
+  %sub.ptr.lhs.cast7.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast8.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub9.i = sub i64 %sub.ptr.lhs.cast7.i, %sub.ptr.rhs.cast8.i
   %sub.ptr.div10.i = ashr exact i64 %sub.ptr.sub9.i, 2
@@ -13654,16 +13645,12 @@ _ZN5eastl8Internal4Log2IlEET_S2_.exit:            ; preds = %if.then, %for.end.l
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i)
   store ptr %0, ptr %agg.tmp.i, align 8
   %mpBegin.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  store ptr %2, ptr %mpBegin.i.i, align 8
-  %mpEnd.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
-  store ptr %3, ptr %mpEnd.i.i, align 8
+  store <2 x ptr> %3, ptr %mpBegin.i.i, align 8
   %mpCurrentArrayPtr.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   store ptr %4, ptr %mpCurrentArrayPtr.i.i, align 8
   store ptr %1, ptr %agg.tmp1.i, align 8
   %mpBegin.i1.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
-  store ptr %5, ptr %mpBegin.i1.i, align 8
-  %mpEnd.i3.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 16
-  store ptr %6, ptr %mpEnd.i3.i, align 8
+  store <2 x ptr> %5, ptr %mpBegin.i1.i, align 8
   %mpCurrentArrayPtr.i5.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 24
   store ptr %7, ptr %mpCurrentArrayPtr.i5.i, align 8
   call void @_ZN5eastl8Internal22quick_sort_impl_helperINS_13DequeIteratorIiPiRiLj64EEElRNS0_15StatefulCompareEKiEEvT_S9_T0_T1_(ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp1.i, i64 noundef %i.0.lcssa.i, ptr noundef nonnull align 1 dereferenceable(1) %compare)
@@ -22846,12 +22833,9 @@ if.else:                                          ; preds = %entry
 
 if.then13:                                        ; preds = %if.else
   call void @_ZN5eastl9DequeBaseIiNS_9allocatorELj64EE17DoReallocSubarrayEmNS2_4SideE(ptr nonnull sret(%"struct.eastl::DequeIterator") align 8 %itNewEnd, ptr noundef nonnull align 8 dereferenceable(81) %this, i64 noundef %add11.i.i.i, i32 noundef 1)
-  %13 = load ptr, ptr %mItEnd, align 8
-  store ptr %13, ptr %agg.result, align 8
-  %mpBegin.i48 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %mpBegin3.i49 = getelementptr inbounds i8, ptr %this, i64 56
-  %14 = load ptr, ptr %mpBegin3.i49, align 8
-  store ptr %14, ptr %mpBegin.i48, align 8
+  %13 = load <2 x ptr>, ptr %mItEnd, align 8
+  %14 = load ptr, ptr %mItEnd, align 8
+  store <2 x ptr> %13, ptr %agg.result, align 8
   %mpEnd.i50 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %mpEnd4.i51 = getelementptr inbounds i8, ptr %this, i64 64
   %15 = load ptr, ptr %mpEnd4.i51, align 8
@@ -22873,7 +22857,7 @@ for.body.i.i72.preheader:                         ; preds = %if.then13
 for.body.i.i72:                                   ; preds = %for.body.i.i72.preheader, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i86
   %agg.tmp2.sroa.12.0.i73 = phi ptr [ %agg.tmp2.sroa.12.1.i87, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i86 ], [ %16, %for.body.i.i72.preheader ]
   %agg.tmp2.sroa.8.0.i74 = phi ptr [ %agg.tmp2.sroa.8.1.i88, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i86 ], [ %15, %for.body.i.i72.preheader ]
-  %agg.tmp2.sroa.0.0.i76 = phi ptr [ %agg.tmp2.sroa.0.1.i90, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i86 ], [ %13, %for.body.i.i72.preheader ]
+  %agg.tmp2.sroa.0.0.i76 = phi ptr [ %agg.tmp2.sroa.0.1.i90, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i86 ], [ %14, %for.body.i.i72.preheader ]
   %incdec.ptr3.i17.i.i77 = phi ptr [ %incdec.ptr3.i16.i.i82, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i86 ], [ %agg.tmp15.sroa.4.0.copyload, %for.body.i.i72.preheader ]
   %add.ptr.i15.i.i78 = phi ptr [ %add.ptr.i14.i.i83, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i86 ], [ %agg.tmp15.sroa.3.0.copyload, %for.body.i.i72.preheader ]
   %17 = phi ptr [ %20, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i86 ], [ %agg.tmp15.sroa.0.0.copyload, %for.body.i.i72.preheader ]
@@ -25902,9 +25886,9 @@ if.end:                                           ; preds = %if.then, %while.end
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl12partial_sortINS_13DequeIteratorIiPiRiLj64EEERNS_8Internal15StatefulCompareEEEvT_S8_S8_T0_(ptr noundef %first, ptr noundef %middle, ptr noundef %last, ptr noundef nonnull align 1 dereferenceable(1) %compare) local_unnamed_addr #0 comdat {
 entry:
-  %agg.tmp.i.i.i = alloca %"struct.eastl::DequeIterator", align 8
+  %agg.tmp.i.i.i = alloca %"struct.eastl::DequeIterator", align 16
   %tempBottom.i.i = alloca i32, align 4
-  %agg.tmp.i = alloca %"struct.eastl::DequeIterator", align 8
+  %agg.tmp.i = alloca %"struct.eastl::DequeIterator", align 16
   %agg.tmp.i.i = alloca %"struct.eastl::DequeIterator", align 8
   %temp.i = alloca i32, align 4
   %temp = alloca i32, align 4
@@ -26033,7 +26017,6 @@ _ZN5eastl9make_heapINS_13DequeIteratorIiPiRiLj64EEERNS_8Internal15StatefulCompar
 
 for.body.lr.ph:                                   ; preds = %_ZN5eastl9make_heapINS_13DequeIteratorIiPiRiLj64EEERNS_8Internal15StatefulCompareEEEvT_S8_T0_.exit
   %16 = load ptr, ptr %mpEnd4.i7, align 8
-  %mpBegin.i.i30 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %mpEnd.i.i31 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   %mpCurrentArrayPtr.i.i32 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   br label %for.body
@@ -26052,33 +26035,32 @@ if.then:                                          ; preds = %for.body
   store i32 %17, ptr %temp, align 4
   %20 = load i32, ptr %18, align 4
   store i32 %20, ptr %i.sroa.0.085, align 4
-  %21 = load ptr, ptr %first, align 8
-  %22 = load ptr, ptr %mpBegin3.i, align 8
-  %23 = load ptr, ptr %mpEnd4.i, align 8
-  %24 = load ptr, ptr %mpCurrentArrayPtr5.i, align 8
-  %25 = load ptr, ptr %mpCurrentArrayPtr5.i9, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %25 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %24 to i64
+  %21 = load ptr, ptr %mpEnd4.i, align 8
+  %22 = load ptr, ptr %mpCurrentArrayPtr5.i, align 8
+  %23 = load ptr, ptr %mpCurrentArrayPtr5.i9, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %23 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.i27 = shl i64 %sub.ptr.sub.i, 3
-  %26 = load ptr, ptr %middle, align 8
-  %27 = load ptr, ptr %mpBegin3.i5, align 8
-  %sub.ptr.lhs.cast2.i = ptrtoint ptr %26 to i64
-  %sub.ptr.rhs.cast3.i = ptrtoint ptr %27 to i64
+  %24 = load ptr, ptr %middle, align 8
+  %25 = load ptr, ptr %mpBegin3.i5, align 8
+  %sub.ptr.lhs.cast2.i = ptrtoint ptr %24 to i64
+  %sub.ptr.rhs.cast3.i = ptrtoint ptr %25 to i64
   %sub.ptr.sub4.i = sub i64 %sub.ptr.lhs.cast2.i, %sub.ptr.rhs.cast3.i
   %sub.ptr.div5.i = ashr exact i64 %sub.ptr.sub4.i, 2
-  %sub.ptr.lhs.cast7.i = ptrtoint ptr %23 to i64
-  %sub.ptr.rhs.cast8.i = ptrtoint ptr %21 to i64
+  %sub.ptr.lhs.cast7.i = ptrtoint ptr %21 to i64
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
+  %26 = load <2 x ptr>, ptr %first, align 8
+  %27 = load ptr, ptr %first, align 8
+  %sub.ptr.rhs.cast8.i = ptrtoint ptr %27 to i64
   %sub.ptr.sub9.i = sub i64 %sub.ptr.lhs.cast7.i, %sub.ptr.rhs.cast8.i
   %sub.ptr.div10.i = ashr exact i64 %sub.ptr.sub9.i, 2
   %mul.i = add nsw i64 %sub.ptr.div10.i, -64
   %add.i = add i64 %mul.i, %sub.i27
   %add11.i = add i64 %add.i, %sub.ptr.div5.i
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  store ptr %21, ptr %agg.tmp.i, align 8
-  store ptr %22, ptr %mpBegin.i.i30, align 8
-  store ptr %23, ptr %mpEnd.i.i31, align 8
-  store ptr %24, ptr %mpCurrentArrayPtr.i.i32, align 8
+  store <2 x ptr> %26, ptr %agg.tmp.i, align 16
+  store ptr %21, ptr %mpEnd.i.i31, align 16
+  store ptr %22, ptr %mpCurrentArrayPtr.i.i32, align 8
   call void @_ZN5eastl16adjust_heap_implINS_13DequeIteratorIiPiRiLj64EEElOiRNS_8Internal15StatefulCompareEiEEvT_T0_SA_SA_T1_T2_(ptr noundef nonnull %agg.tmp.i, i64 noundef 0, i64 noundef %add11.i, i64 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %temp, ptr noundef nonnull align 1 dereferenceable(1) %compare)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   br label %for.inc
@@ -26114,17 +26096,16 @@ for.end.loopexit:                                 ; preds = %_ZN5eastl13DequeIte
 for.end:                                          ; preds = %for.end.loopexit, %_ZN5eastl9make_heapINS_13DequeIteratorIiPiRiLj64EEERNS_8Internal15StatefulCompareEEEvT_S8_T0_.exit
   %31 = phi ptr [ %.pre104, %for.end.loopexit ], [ %13, %_ZN5eastl9make_heapINS_13DequeIteratorIiPiRiLj64EEERNS_8Internal15StatefulCompareEEEvT_S8_T0_.exit ]
   %32 = phi ptr [ %.pre, %for.end.loopexit ], [ %12, %_ZN5eastl9make_heapINS_13DequeIteratorIiPiRiLj64EEERNS_8Internal15StatefulCompareEEEvT_S8_T0_.exit ]
-  %33 = load ptr, ptr %first, align 8
-  %34 = load ptr, ptr %mpBegin3.i, align 8
+  %33 = load <2 x ptr>, ptr %first, align 8
+  %34 = load ptr, ptr %first, align 8
   %35 = load ptr, ptr %mpEnd4.i, align 8
   %36 = load ptr, ptr %mpCurrentArrayPtr5.i, align 8
   %37 = load ptr, ptr %mpBegin3.i5, align 8
-  %mpBegin.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
   %mpEnd.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
   %mpCurrentArrayPtr.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
   %sub.ptr.rhs.cast.i.i56 = ptrtoint ptr %36 to i64
   %sub.ptr.lhs.cast7.i.i63 = ptrtoint ptr %35 to i64
-  %sub.ptr.rhs.cast8.i.i64 = ptrtoint ptr %33 to i64
+  %sub.ptr.rhs.cast8.i.i64 = ptrtoint ptr %34 to i64
   %sub.ptr.sub9.i.i65 = sub i64 %sub.ptr.lhs.cast7.i.i63, %sub.ptr.rhs.cast8.i.i64
   %sub.ptr.div10.i.i66 = ashr exact i64 %sub.ptr.sub9.i.i65, 2
   %invariant.op = add nsw i64 %sub.ptr.div10.i.i66, -64
@@ -26171,13 +26152,12 @@ _ZN5eastl8pop_heapINS_13DequeIteratorIiPiRiLj64EEERNS_8Internal15StatefulCompare
   %storemerge.i.i21.i.i = phi ptr [ %add.ptr.i.i.i.i, %if.then.i.i25.i.i ], [ %add.ptr7.i.i.i.i, %if.else.i.i9.i.i ]
   %.sink.i.i = load i32, ptr %storemerge.i.i21.i.i, align 4
   store i32 %.sink.i.i, ptr %tempBottom.i.i, align 4
-  %39 = load i32, ptr %33, align 4
+  %39 = load i32, ptr %34, align 4
   store i32 %39, ptr %storemerge.i.i21.i.i, align 4
   %sub.i10.i.reass = add i64 %mul.i.i67103, %invariant.op88
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
-  store ptr %33, ptr %agg.tmp.i.i.i, align 8
-  store ptr %34, ptr %mpBegin.i.i.i.i, align 8
-  store ptr %35, ptr %mpEnd.i.i.i.i, align 8
+  store <2 x ptr> %33, ptr %agg.tmp.i.i.i, align 16
+  store ptr %35, ptr %mpEnd.i.i.i.i, align 16
   store ptr %36, ptr %mpCurrentArrayPtr.i.i.i.i, align 8
   call void @_ZN5eastl16adjust_heap_implINS_13DequeIteratorIiPiRiLj64EEElOiRNS_8Internal15StatefulCompareEiEEvT_T0_SA_SA_T1_T2_(ptr noundef nonnull %agg.tmp.i.i.i, i64 noundef 0, i64 noundef %sub.i10.i.reass, i64 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %tempBottom.i.i, ptr noundef nonnull align 1 dereferenceable(1) %compare)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
@@ -27689,7 +27669,7 @@ if.end99:                                         ; preds = %for.inc96, %for.inc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl10merge_sortINS_13DequeIteratorIiPiRiLj64EEENS_9allocatorENS_4lessIiEEEEvT_S8_RT0_T1_(ptr noundef %first, ptr noundef %last, ptr noundef nonnull align 1 dereferenceable(1) %allocator) local_unnamed_addr #0 comdat {
 entry:
-  %agg.tmp.i.i = alloca %"struct.eastl::DequeIterator", align 8
+  %agg.tmp.i.i = alloca %"struct.eastl::DequeIterator", align 16
   %agg.tmp1.i.i = alloca %"struct.eastl::DequeIterator", align 8
   %first.addr.i.i.i = alloca ptr, align 8
   %mpCurrentArrayPtr.i = getelementptr inbounds i8, ptr %last, i64 24
@@ -27727,46 +27707,40 @@ if.then:                                          ; preds = %entry
   store ptr %call.i.i, ptr %first.addr.i.i.i, align 8
   %6 = call { i64, ptr } asm sideeffect "cld\0A\09rep stosl\0A\09", "={cx},={di},=*m,{ax},0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %first.addr.i.i.i, i32 0, i64 %add11.i, ptr %call.i.i) #13, !srcloc !123
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %first.addr.i.i.i)
-  %7 = load ptr, ptr %first, align 8
-  %mpBegin3.i = getelementptr inbounds i8, ptr %first, i64 8
-  %8 = load ptr, ptr %mpBegin3.i, align 8
-  %9 = load ptr, ptr %mpEnd.i, align 8
-  %10 = load ptr, ptr %mpCurrentArrayPtr1.i, align 8
-  %11 = load ptr, ptr %last, align 8
-  %12 = load ptr, ptr %mpBegin.i, align 8
-  %mpEnd4.i17 = getelementptr inbounds i8, ptr %last, i64 16
-  %13 = load ptr, ptr %mpEnd4.i17, align 8
-  %14 = load ptr, ptr %mpCurrentArrayPtr.i, align 8
+  %7 = load ptr, ptr %mpEnd.i, align 8
+  %8 = load ptr, ptr %mpCurrentArrayPtr1.i, align 8
+  %9 = load ptr, ptr %last, align 8
+  %10 = load ptr, ptr %mpCurrentArrayPtr.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp1.i.i)
-  store ptr %7, ptr %agg.tmp.i.i, align 8
-  %mpBegin.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
-  store ptr %8, ptr %mpBegin.i.i.i, align 8
+  %11 = load <2 x ptr>, ptr %first, align 8
+  %12 = load ptr, ptr %first, align 8
+  store <2 x ptr> %11, ptr %agg.tmp.i.i, align 16
   %mpEnd.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
-  store ptr %9, ptr %mpEnd.i.i.i, align 8
+  store ptr %7, ptr %mpEnd.i.i.i, align 16
   %mpCurrentArrayPtr.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 24
-  store ptr %10, ptr %mpCurrentArrayPtr.i.i.i, align 8
-  store ptr %11, ptr %agg.tmp1.i.i, align 8
+  store ptr %8, ptr %mpCurrentArrayPtr.i.i.i, align 8
+  store ptr %9, ptr %agg.tmp1.i.i, align 8
   %mpBegin.i3.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 8
-  store ptr %12, ptr %mpBegin.i3.i.i, align 8
-  %mpEnd.i5.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 16
-  store ptr %13, ptr %mpEnd.i5.i.i, align 8
+  %13 = load <2 x ptr>, ptr %mpBegin.i, align 8
+  %14 = load ptr, ptr %mpBegin.i, align 8
+  store <2 x ptr> %13, ptr %mpBegin.i3.i.i, align 8
   %mpCurrentArrayPtr.i7.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 24
-  store ptr %14, ptr %mpCurrentArrayPtr.i7.i.i, align 8
+  store ptr %10, ptr %mpCurrentArrayPtr.i7.i.i, align 8
   %call.i.i20 = call noundef i32 @_ZN5eastl11MergeSorterINS_13DequeIteratorIiPiRiLj64EEEiNS_4lessIiEElLi16EE9sort_implES4_S4_S2_lS6_(ptr noundef nonnull %agg.tmp.i.i, ptr noundef nonnull %agg.tmp1.i.i, ptr noundef %call.i.i, i64 noundef 0)
   %cmp.i.i = icmp eq i32 %call.i.i20, 1
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN5eastl17merge_sort_bufferINS_13DequeIteratorIiPiRiLj64EEEiNS_4lessIiEEEEvT_S7_PT0_T1_.exit
 
 if.then.i.i:                                      ; preds = %if.then
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %call.i.i to i64
-  %sub.ptr.lhs.cast.i.i.i21 = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i.i.i22 = ptrtoint ptr %10 to i64
+  %sub.ptr.lhs.cast.i.i.i21 = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i.i22 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i23 = sub i64 %sub.ptr.lhs.cast.i.i.i21, %sub.ptr.rhs.cast.i.i.i22
-  %sub.ptr.lhs.cast2.i.i.i = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast3.i.i.i = ptrtoint ptr %12 to i64
+  %sub.ptr.lhs.cast2.i.i.i = ptrtoint ptr %9 to i64
+  %sub.ptr.rhs.cast3.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub4.i.i.i = sub i64 %sub.ptr.lhs.cast2.i.i.i, %sub.ptr.rhs.cast3.i.i.i
-  %sub.ptr.lhs.cast7.i.i.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast8.i.i.i = ptrtoint ptr %7 to i64
+  %sub.ptr.lhs.cast7.i.i.i = ptrtoint ptr %7 to i64
+  %sub.ptr.rhs.cast8.i.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub9.i.i.i = sub i64 %sub.ptr.lhs.cast7.i.i.i, %sub.ptr.rhs.cast8.i.i.i
   %.idx.i.i = shl i64 %sub.ptr.sub.i.i.i23, 5
   %15 = getelementptr i8, ptr %call.i.i, i64 %.idx.i.i
@@ -27780,9 +27754,9 @@ if.then.i.i:                                      ; preds = %if.then
   br i1 %cmp7.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZN5eastl17merge_sort_bufferINS_13DequeIteratorIiPiRiLj64EEEiNS_4lessIiEEEEvT_S7_PT0_T1_.exit
 
 for.body.i.i.i.i.i.i:                             ; preds = %if.then.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i.i
-  %agg.tmp.sroa.12.0.i.i.i.i.i = phi ptr [ %agg.tmp.sroa.12.1.i.i.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i.i ], [ %10, %if.then.i.i ]
-  %agg.tmp.sroa.8.0.i.i.i.i.i = phi ptr [ %agg.tmp.sroa.8.1.i.i.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i.i ], [ %9, %if.then.i.i ]
-  %agg.tmp.sroa.0.0.i.i.i.i.i = phi ptr [ %agg.tmp.sroa.0.1.i.i.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i.i ], [ %7, %if.then.i.i ]
+  %agg.tmp.sroa.12.0.i.i.i.i.i = phi ptr [ %agg.tmp.sroa.12.1.i.i.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i.i ], [ %8, %if.then.i.i ]
+  %agg.tmp.sroa.8.0.i.i.i.i.i = phi ptr [ %agg.tmp.sroa.8.1.i.i.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i.i ], [ %7, %if.then.i.i ]
+  %agg.tmp.sroa.0.0.i.i.i.i.i = phi ptr [ %agg.tmp.sroa.0.1.i.i.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i.i ], [ %12, %if.then.i.i ]
   %n.09.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i, %if.then.i.i ]
   %first.addr.08.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit.i.i.i.i.i.i ], [ %call.i.i, %if.then.i.i ]
   %18 = load i32, ptr %first.addr.08.i.i.i.i.i.i, align 4, !noalias !875

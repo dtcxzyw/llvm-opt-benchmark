@@ -67185,8 +67185,8 @@ _ZN8pybind113strD2Ev.exit:                        ; preds = %21, %23, %26
 define internal noundef ptr @"_ZZN8pybind1112cpp_function10initializeIZNOS_6detail8initimpl7factoryIZ35test_submodule_factory_constructorsRNS_7module_EE4$_11PFNS2_9void_typeEvEFSt10shared_ptrI12TestFactory4EZ35test_submodule_factory_constructorsS6_E14shared_ptr_tagZ35test_submodule_factory_constructorsS6_E7TF4_tagiES9_E7executeINS_6class_I12TestFactory3JSB_ISK_EEEEJEEEvRT_DpRKT0_EUlRNS2_16value_and_holderESE_SF_iE_vJSU_SE_SF_iEJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSN_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES1B_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator.272", align 1
   %3 = alloca i32, align 4
-  %4 = alloca %"class.std::shared_ptr.1054", align 8
-  %5 = alloca %"class.std::shared_ptr.1129", align 8
+  %4 = alloca %"class.std::shared_ptr.1054", align 16
+  %5 = alloca %"class.std::shared_ptr.1129", align 16
   %6 = alloca %"struct.std::type_index", align 8
   %7 = alloca %"struct.std::type_index", align 8
   %8 = alloca %"class.pybind11::detail::argument_loader.1125", align 8
@@ -67334,19 +67334,18 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %66, ptr %3, align 4, !noalias !1917
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !1917
-  store ptr null, ptr %5, align 8, !alias.scope !1920
+  store ptr null, ptr %5, align 16, !alias.scope !1920
   %67 = getelementptr inbounds i8, ptr %5, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2I12TestFactory4SaIvEJRiEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr nonnull %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2), !noalias !1917
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %68 = load ptr, ptr %5, align 8
-  store ptr %68, ptr %4, align 8
-  %69 = getelementptr inbounds i8, ptr %4, i64 8
-  %70 = load ptr, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %4, i64 8
+  %69 = load <2 x ptr>, ptr %5, align 16
+  %70 = load ptr, ptr %5, align 16
   store ptr null, ptr %67, align 8
-  store ptr %70, ptr %69, align 8
-  store ptr null, ptr %5, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %68, null
+  store <2 x ptr> %69, ptr %4, align 16
+  store ptr null, ptr %5, align 16
+  %.not.i.i.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i.i.i.i, label %71, label %_ZN8pybind116detail8initimpl10no_nullptrEPv.exit.i.i.i.i
 
 71:                                               ; preds = %_ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE7TF4_tagEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS7_E4typeEEEOSA_.exit.i.i
@@ -67372,7 +67371,7 @@ _ZN8pybind116detail8initimpl10no_nullptrEPv.exit.i.i.i.i: ; preds = %_ZN8pybind1
   %76 = getelementptr inbounds i8, ptr %55, i64 16
   %77 = getelementptr inbounds i8, ptr %55, i64 24
   %78 = load ptr, ptr %77, align 8
-  store ptr %68, ptr %78, align 8
+  store ptr %70, ptr %78, align 8
   %79 = load ptr, ptr %76, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 48
   %81 = load ptr, ptr %80, align 8
@@ -67381,7 +67380,7 @@ _ZN8pybind116detail8initimpl10no_nullptrEPv.exit.i.i.i.i: ; preds = %_ZN8pybind1
           to label %_ZN8pybind116detail8initimpl9constructINS_6class_I12TestFactory3JSt10shared_ptrIS4_EEEEEEvRNS0_16value_and_holderENT_11holder_typeEb.exit.i.i.i unwind label %153
 
 _ZN8pybind116detail8initimpl9constructINS_6class_I12TestFactory3JSt10shared_ptrIS4_EEEEEEvRNS0_16value_and_holderENT_11holder_typeEb.exit.i.i.i: ; preds = %_ZN8pybind116detail8initimpl10no_nullptrEPv.exit.i.i.i.i
-  %83 = load ptr, ptr %69, align 8
+  %83 = load ptr, ptr %68, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %83, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt10shared_ptrI12TestFactory3ED2Ev.exit.i.i.i, label %84
 
@@ -67741,8 +67740,8 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 define internal noundef ptr @"_ZZN8pybind1112cpp_function10initializeIZNOS_6detail8initimpl7factoryIZ35test_submodule_factory_constructorsRNS_7module_EE4$_12PFNS2_9void_typeEvEFSt10shared_ptrI12TestFactory5EZ35test_submodule_factory_constructorsS6_E14shared_ptr_tagZ35test_submodule_factory_constructorsS6_E7TF5_tagiES9_E7executeINS_6class_I12TestFactory3JSB_ISK_EEEEJEEEvRT_DpRKT0_EUlRNS2_16value_and_holderESE_SF_iE_vJSU_SE_SF_iEJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSN_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES1B_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator.272", align 1
   %3 = alloca i32, align 4
-  %4 = alloca %"class.std::shared_ptr.1054", align 8
-  %5 = alloca %"class.std::shared_ptr.1147", align 8
+  %4 = alloca %"class.std::shared_ptr.1054", align 16
+  %5 = alloca %"class.std::shared_ptr.1147", align 16
   %6 = alloca %"struct.std::type_index", align 8
   %7 = alloca %"struct.std::type_index", align 8
   %8 = alloca %"class.pybind11::detail::argument_loader.1143", align 8
@@ -67890,19 +67889,18 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %66, ptr %3, align 4, !noalias !1923
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !1923
-  store ptr null, ptr %5, align 8, !alias.scope !1926
+  store ptr null, ptr %5, align 16, !alias.scope !1926
   %67 = getelementptr inbounds i8, ptr %5, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2I12TestFactory5SaIvEJRiEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr nonnull %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2), !noalias !1923
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %68 = load ptr, ptr %5, align 8
-  store ptr %68, ptr %4, align 8
-  %69 = getelementptr inbounds i8, ptr %4, i64 8
-  %70 = load ptr, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %4, i64 8
+  %69 = load <2 x ptr>, ptr %5, align 16
+  %70 = load ptr, ptr %5, align 16
   store ptr null, ptr %67, align 8
-  store ptr %70, ptr %69, align 8
-  store ptr null, ptr %5, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %68, null
+  store <2 x ptr> %69, ptr %4, align 16
+  store ptr null, ptr %5, align 16
+  %.not.i.i.i.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i.i.i.i, label %71, label %_ZN8pybind116detail8initimpl10no_nullptrEPv.exit.i.i.i.i
 
 71:                                               ; preds = %_ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE7TF5_tagEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS7_E4typeEEEOSA_.exit.i.i
@@ -67928,7 +67926,7 @@ _ZN8pybind116detail8initimpl10no_nullptrEPv.exit.i.i.i.i: ; preds = %_ZN8pybind1
   %76 = getelementptr inbounds i8, ptr %55, i64 16
   %77 = getelementptr inbounds i8, ptr %55, i64 24
   %78 = load ptr, ptr %77, align 8
-  store ptr %68, ptr %78, align 8
+  store ptr %70, ptr %78, align 8
   %79 = load ptr, ptr %76, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 48
   %81 = load ptr, ptr %80, align 8
@@ -67937,7 +67935,7 @@ _ZN8pybind116detail8initimpl10no_nullptrEPv.exit.i.i.i.i: ; preds = %_ZN8pybind1
           to label %_ZN8pybind116detail8initimpl9constructINS_6class_I12TestFactory3JSt10shared_ptrIS4_EEEEEEvRNS0_16value_and_holderENT_11holder_typeEb.exit.i.i.i unwind label %153
 
 _ZN8pybind116detail8initimpl9constructINS_6class_I12TestFactory3JSt10shared_ptrIS4_EEEEEEvRNS0_16value_and_holderENT_11holder_typeEb.exit.i.i.i: ; preds = %_ZN8pybind116detail8initimpl10no_nullptrEPv.exit.i.i.i.i
-  %83 = load ptr, ptr %69, align 8
+  %83 = load ptr, ptr %68, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %83, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt10shared_ptrI12TestFactory3ED2Ev.exit.i.i.i, label %84
 

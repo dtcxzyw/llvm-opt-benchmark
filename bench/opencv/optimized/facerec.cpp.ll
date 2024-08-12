@@ -642,24 +642,23 @@ define noundef i32 @_ZNK2cv4face14FaceRecognizer7predictERKNS_11_InputArrayE(ptr
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK2cv4face14FaceRecognizer7predictERKNS_11_InputArrayERiRd(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca %"struct.cv::Ptr.6", align 8
-  %6 = alloca %"struct.cv::Ptr.10", align 8
+  %5 = alloca %"struct.cv::Ptr.6", align 16
+  %6 = alloca %"struct.cv::Ptr.10", align 16
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef double %9(ptr noundef nonnull align 8 dereferenceable(56) %0)
   call void @_ZN2cv4face17StandardCollector6createEd(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.6") align 8 %5, double noundef %10)
-  %11 = load ptr, ptr %5, align 8
-  store ptr %11, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %12, align 8
-  %.not.i.i.i.i = icmp eq ptr %14, null
+  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %14 = load <2 x ptr>, ptr %5, align 16
+  store <2 x ptr> %14, ptr %6, align 16
+  %.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_4face16PredictCollectorEEC2INS1_17StandardCollectorEEERKNS0_IT_EE.exit, label %15
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds i8, ptr %13, i64 8
   %17 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %17, 0
   br i1 %.not.i.i.i.i.i, label %21, label %18
@@ -682,7 +681,7 @@ _ZN2cv3PtrINS_4face16PredictCollectorEEC2INS1_17StandardCollectorEEERKNS0_IT_EE.
           to label %26 unwind label %103
 
 26:                                               ; preds = %_ZN2cv3PtrINS_4face16PredictCollectorEEC2INS1_17StandardCollectorEEERKNS0_IT_EE.exit
-  %27 = load ptr, ptr %12, align 8
+  %27 = load ptr, ptr %11, align 8
   %.not.i.i.i.i7 = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i7, label %_ZN2cv3PtrINS_4face16PredictCollectorEED2Ev.exit, label %28
 
@@ -755,19 +754,19 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_4face16PredictCollectorEED2Ev.exit
 
 _ZN2cv3PtrINS_4face16PredictCollectorEED2Ev.exit: ; preds = %26, %44, %57, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %62 = load ptr, ptr %5, align 8
+  %62 = load ptr, ptr %5, align 16
   %63 = invoke noundef i32 @_ZNK2cv4face17StandardCollector11getMinLabelEv(ptr noundef nonnull align 8 dereferenceable(56) %62)
           to label %64 unwind label %105
 
 64:                                               ; preds = %_ZN2cv3PtrINS_4face16PredictCollectorEED2Ev.exit
   store i32 %63, ptr %2, align 4
-  %65 = load ptr, ptr %5, align 8
+  %65 = load ptr, ptr %5, align 16
   %66 = invoke noundef double @_ZNK2cv4face17StandardCollector10getMinDistEv(ptr noundef nonnull align 8 dereferenceable(56) %65)
           to label %67 unwind label %105
 
 67:                                               ; preds = %64
   store double %66, ptr %3, align 8
-  %68 = load ptr, ptr %13, align 8
+  %68 = load ptr, ptr %12, align 8
   %.not.i.i.i.i9 = icmp eq ptr %68, null
   br i1 %.not.i.i.i.i9, label %_ZN2cv3PtrINS_4face17StandardCollectorEED2Ev.exit, label %69
 

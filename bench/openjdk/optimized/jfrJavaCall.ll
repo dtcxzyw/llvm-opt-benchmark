@@ -117,7 +117,7 @@ define hidden noundef zeroext i1 @_ZNK16JfrJavaArguments10Parameters12has_receiv
 define hidden void @_ZN16JfrJavaArguments10Parameters8push_oopEP7oopDesc(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load <2 x i32>, ptr %3, align 8
-  %5 = extractelement <2 x i32> %4, i64 0
+  %5 = load i32, ptr %3, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
   %8 = add nsw <2 x i32> %4, <i32 1, i32 1>
@@ -141,7 +141,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %2, %4
   %6 = phi ptr [ %5, %4 ], [ null, %2 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 256
   %8 = load <2 x i32>, ptr %7, align 8
-  %9 = extractelement <2 x i32> %8, i64 0
+  %9 = load i32, ptr %7, align 8
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %10
   %12 = add nsw <2 x i32> %8, <i32 1, i32 1>
@@ -156,7 +156,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %2, %4
 define hidden void @_ZN16JfrJavaArguments10Parameters12push_jobjectEP8_jobject(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load <2 x i32>, ptr %3, align 8
-  %5 = extractelement <2 x i32> %4, i64 0
+  %5 = load i32, ptr %3, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
   %8 = add nsw <2 x i32> %4, <i32 1, i32 1>
@@ -171,7 +171,7 @@ define hidden void @_ZN16JfrJavaArguments10Parameters12push_jobjectEP8_jobject(p
 define hidden void @_ZN16JfrJavaArguments10Parameters9push_jintEi(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load <2 x i32>, ptr %3, align 8
-  %5 = extractelement <2 x i32> %4, i64 0
+  %5 = load i32, ptr %3, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
   %8 = add nsw <2 x i32> %4, <i32 1, i32 1>
@@ -186,7 +186,7 @@ define hidden void @_ZN16JfrJavaArguments10Parameters9push_jintEi(ptr nocapture 
 define hidden void @_ZN16JfrJavaArguments10Parameters11push_jfloatEf(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, float noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load <2 x i32>, ptr %3, align 8
-  %5 = extractelement <2 x i32> %4, i64 0
+  %5 = load i32, ptr %3, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
   %8 = add nsw <2 x i32> %4, <i32 1, i32 1>
@@ -201,7 +201,7 @@ define hidden void @_ZN16JfrJavaArguments10Parameters11push_jfloatEf(ptr nocaptu
 define hidden void @_ZN16JfrJavaArguments10Parameters12push_jdoubleEd(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, double noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load <2 x i32>, ptr %3, align 8
-  %5 = extractelement <2 x i32> %4, i64 0
+  %5 = load i32, ptr %3, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
   %8 = add nsw <2 x i32> %4, <i32 1, i32 2>
@@ -216,7 +216,7 @@ define hidden void @_ZN16JfrJavaArguments10Parameters12push_jdoubleEd(ptr nocapt
 define hidden void @_ZN16JfrJavaArguments10Parameters10push_jlongEl(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load <2 x i32>, ptr %3, align 8
-  %5 = extractelement <2 x i32> %4, i64 0
+  %5 = load i32, ptr %3, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
   %8 = add nsw <2 x i32> %4, <i32 1, i32 2>
@@ -800,7 +800,7 @@ _ZN16JfrJavaArguments10Parameters12set_receiverE6Handle.exit: ; preds = %2, %4
 define hidden void @_ZN16JfrJavaArguments8push_oopEP7oopDesc(ptr nocapture noundef nonnull align 8 dereferenceable(300) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load <2 x i32>, ptr %3, align 8
-  %5 = extractelement <2 x i32> %4, i64 0
+  %5 = load i32, ptr %3, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
   %8 = add nsw <2 x i32> %4, <i32 1, i32 1>
@@ -824,7 +824,7 @@ _ZN16JfrJavaArguments10Parameters8push_oopE6Handle.exit: ; preds = %2, %4
   %6 = phi ptr [ %5, %4 ], [ null, %2 ]
   %7 = getelementptr inbounds i8, ptr %0, i64 256
   %8 = load <2 x i32>, ptr %7, align 8
-  %9 = extractelement <2 x i32> %8, i64 0
+  %9 = load i32, ptr %7, align 8
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %10
   %12 = add nsw <2 x i32> %8, <i32 1, i32 1>
@@ -839,7 +839,7 @@ _ZN16JfrJavaArguments10Parameters8push_oopE6Handle.exit: ; preds = %2, %4
 define hidden void @_ZN16JfrJavaArguments12push_jobjectEP8_jobject(ptr nocapture noundef nonnull align 8 dereferenceable(300) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load <2 x i32>, ptr %3, align 8
-  %5 = extractelement <2 x i32> %4, i64 0
+  %5 = load i32, ptr %3, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
   %8 = add nsw <2 x i32> %4, <i32 1, i32 1>
@@ -854,7 +854,7 @@ define hidden void @_ZN16JfrJavaArguments12push_jobjectEP8_jobject(ptr nocapture
 define hidden void @_ZN16JfrJavaArguments8push_intEi(ptr nocapture noundef nonnull align 8 dereferenceable(300) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load <2 x i32>, ptr %3, align 8
-  %5 = extractelement <2 x i32> %4, i64 0
+  %5 = load i32, ptr %3, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
   %8 = add nsw <2 x i32> %4, <i32 1, i32 1>
@@ -869,7 +869,7 @@ define hidden void @_ZN16JfrJavaArguments8push_intEi(ptr nocapture noundef nonnu
 define hidden void @_ZN16JfrJavaArguments10push_floatEf(ptr nocapture noundef nonnull align 8 dereferenceable(300) %0, float noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load <2 x i32>, ptr %3, align 8
-  %5 = extractelement <2 x i32> %4, i64 0
+  %5 = load i32, ptr %3, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
   %8 = add nsw <2 x i32> %4, <i32 1, i32 1>
@@ -884,7 +884,7 @@ define hidden void @_ZN16JfrJavaArguments10push_floatEf(ptr nocapture noundef no
 define hidden void @_ZN16JfrJavaArguments11push_doubleEd(ptr nocapture noundef nonnull align 8 dereferenceable(300) %0, double noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load <2 x i32>, ptr %3, align 8
-  %5 = extractelement <2 x i32> %4, i64 0
+  %5 = load i32, ptr %3, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
   %8 = add nsw <2 x i32> %4, <i32 1, i32 2>
@@ -899,7 +899,7 @@ define hidden void @_ZN16JfrJavaArguments11push_doubleEd(ptr nocapture noundef n
 define hidden void @_ZN16JfrJavaArguments9push_longEl(ptr nocapture noundef nonnull align 8 dereferenceable(300) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load <2 x i32>, ptr %3, align 8
-  %5 = extractelement <2 x i32> %4, i64 0
+  %5 = load i32, ptr %3, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr inbounds [16 x %class.JavaValue], ptr %0, i64 0, i64 %6
   %8 = add nsw <2 x i32> %4, <i32 1, i32 2>
@@ -939,92 +939,90 @@ define hidden void @_ZN11JfrJavaCall11call_staticEP16JfrJavaArgumentsP10JavaThre
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 32
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
-  %14 = load i64, ptr %13, align 8
+  %10 = load <2 x ptr>, ptr %9, align 8
+  %11 = load ptr, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = load i64, ptr %12, align 8
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %1) #12
-  %15 = getelementptr inbounds i8, ptr %0, i64 260
-  %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %4, i64 120
-  store ptr null, ptr %17, align 8
-  %18 = icmp sgt i32 %16, 8
-  br i1 %18, label %19, label %29
+  %14 = getelementptr inbounds i8, ptr %0, i64 260
+  %15 = load i32, ptr %14, align 4
+  %16 = getelementptr inbounds i8, ptr %4, i64 120
+  store ptr null, ptr %16, align 8
+  %17 = icmp sgt i32 %15, 8
+  br i1 %17, label %18, label %28
 
-19:                                               ; preds = %2
-  %20 = add nuw nsw i32 %16, 1
-  %21 = zext nneg i32 %20 to i64
-  %22 = shl nuw nsw i64 %21, 3
-  %23 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %22, i32 noundef 0) #12
-  %24 = getelementptr inbounds i8, ptr %4, i64 88
-  store ptr %23, ptr %24, align 8
-  %25 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %21, i32 noundef 0) #12
-  %26 = load ptr, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
-  store ptr %27, ptr %24, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 1
+18:                                               ; preds = %2
+  %19 = add nuw nsw i32 %15, 1
+  %20 = zext nneg i32 %19 to i64
+  %21 = shl nuw nsw i64 %20, 3
+  %22 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %21, i32 noundef 0) #12
+  %23 = getelementptr inbounds i8, ptr %4, i64 88
+  store ptr %22, ptr %23, align 8
+  %24 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %20, i32 noundef 0) #12
+  %25 = load ptr, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  store ptr %26, ptr %23, align 8
+  %27 = getelementptr inbounds i8, ptr %24, i64 1
   br label %_ZN17JavaCallArgumentsC2Ei.exit
 
-29:                                               ; preds = %2
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 88
-  store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 73
+28:                                               ; preds = %2
+  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %30 = getelementptr inbounds i8, ptr %4, i64 88
+  store ptr %29, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %4, i64 73
   br label %_ZN17JavaCallArgumentsC2Ei.exit
 
-_ZN17JavaCallArgumentsC2Ei.exit:                  ; preds = %19, %29
-  %.sink = phi ptr [ %28, %19 ], [ %32, %29 ]
-  %.sink.i = phi i32 [ %16, %19 ], [ 8, %29 ]
-  %33 = getelementptr inbounds i8, ptr %4, i64 96
-  store ptr %.sink, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 108
-  store i32 %.sink.i, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %4, i64 104
-  store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 112
-  store i8 0, ptr %36, align 8
+_ZN17JavaCallArgumentsC2Ei.exit:                  ; preds = %18, %28
+  %.sink = phi ptr [ %27, %18 ], [ %31, %28 ]
+  %.sink.i = phi i32 [ %15, %18 ], [ 8, %28 ]
+  %32 = getelementptr inbounds i8, ptr %4, i64 96
+  store ptr %.sink, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %4, i64 108
+  store i32 %.sink.i, ptr %33, align 4
+  %34 = getelementptr inbounds i8, ptr %4, i64 104
+  store i32 0, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %4, i64 112
+  store i8 0, ptr %35, align 8
   call void @_ZNK16JfrJavaArguments10Parameters4copyER17JavaCallArgumentsP10JavaThread(ptr noundef nonnull readonly align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull readonly %1)
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %.not = icmp eq ptr %38, null
-  br i1 %.not, label %39, label %48
+  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %.not = icmp eq ptr %37, null
+  br i1 %.not, label %38, label %47
 
-39:                                               ; preds = %_ZN17JavaCallArgumentsC2Ei.exit
-  %40 = getelementptr inbounds i8, ptr %0, i64 264
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 272
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 280
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 288
-  %47 = load ptr, ptr %46, align 8
-  call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef %41, ptr noundef %43, ptr noundef %45, ptr noundef %47, ptr noundef nonnull %4, ptr noundef nonnull %1) #12
-  br label %48
+38:                                               ; preds = %_ZN17JavaCallArgumentsC2Ei.exit
+  %39 = getelementptr inbounds i8, ptr %0, i64 264
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 272
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 280
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 288
+  %46 = load ptr, ptr %45, align 8
+  call void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef %40, ptr noundef %42, ptr noundef %44, ptr noundef %46, ptr noundef nonnull %4, ptr noundef nonnull %1) #12
+  br label %47
 
-48:                                               ; preds = %_ZN17JavaCallArgumentsC2Ei.exit, %39
+47:                                               ; preds = %_ZN17JavaCallArgumentsC2Ei.exit, %38
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #12
-  %49 = load ptr, ptr %8, align 8
-  %.not.i.i.i.i = icmp eq ptr %49, null
-  br i1 %.not.i.i.i.i, label %51, label %50
+  %48 = load ptr, ptr %8, align 8
+  %.not.i.i.i.i = icmp eq ptr %48, null
+  br i1 %.not.i.i.i.i, label %50, label %49
 
-50:                                               ; preds = %48
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %14) #12
+49:                                               ; preds = %47
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %13) #12
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %8) #12
-  br label %51
+  br label %50
 
-51:                                               ; preds = %50, %48
-  %52 = load ptr, ptr %9, align 8
-  %.not8.i.i.i.i = icmp eq ptr %52, %10
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %53
+50:                                               ; preds = %49, %47
+  %51 = load ptr, ptr %9, align 8
+  %.not8.i.i.i.i = icmp eq ptr %51, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %52
 
-53:                                               ; preds = %51
+52:                                               ; preds = %50
   store ptr %8, ptr %7, align 8
-  store ptr %10, ptr %9, align 8
-  store ptr %12, ptr %11, align 8
+  store <2 x ptr> %10, ptr %9, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %51, %53
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %50, %52
   ret void
 }
 
@@ -1042,92 +1040,90 @@ define hidden void @_ZN11JfrJavaCall12call_specialEP16JfrJavaArgumentsP10JavaThr
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 32
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
-  %14 = load i64, ptr %13, align 8
+  %10 = load <2 x ptr>, ptr %9, align 8
+  %11 = load ptr, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = load i64, ptr %12, align 8
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %1) #12
-  %15 = getelementptr inbounds i8, ptr %0, i64 260
-  %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %4, i64 120
-  store ptr null, ptr %17, align 8
-  %18 = icmp sgt i32 %16, 8
-  br i1 %18, label %19, label %29
+  %14 = getelementptr inbounds i8, ptr %0, i64 260
+  %15 = load i32, ptr %14, align 4
+  %16 = getelementptr inbounds i8, ptr %4, i64 120
+  store ptr null, ptr %16, align 8
+  %17 = icmp sgt i32 %15, 8
+  br i1 %17, label %18, label %28
 
-19:                                               ; preds = %2
-  %20 = add nuw nsw i32 %16, 1
-  %21 = zext nneg i32 %20 to i64
-  %22 = shl nuw nsw i64 %21, 3
-  %23 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %22, i32 noundef 0) #12
-  %24 = getelementptr inbounds i8, ptr %4, i64 88
-  store ptr %23, ptr %24, align 8
-  %25 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %21, i32 noundef 0) #12
-  %26 = load ptr, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
-  store ptr %27, ptr %24, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 1
+18:                                               ; preds = %2
+  %19 = add nuw nsw i32 %15, 1
+  %20 = zext nneg i32 %19 to i64
+  %21 = shl nuw nsw i64 %20, 3
+  %22 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %21, i32 noundef 0) #12
+  %23 = getelementptr inbounds i8, ptr %4, i64 88
+  store ptr %22, ptr %23, align 8
+  %24 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %20, i32 noundef 0) #12
+  %25 = load ptr, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  store ptr %26, ptr %23, align 8
+  %27 = getelementptr inbounds i8, ptr %24, i64 1
   br label %_ZN17JavaCallArgumentsC2Ei.exit
 
-29:                                               ; preds = %2
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 88
-  store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 73
+28:                                               ; preds = %2
+  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %30 = getelementptr inbounds i8, ptr %4, i64 88
+  store ptr %29, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %4, i64 73
   br label %_ZN17JavaCallArgumentsC2Ei.exit
 
-_ZN17JavaCallArgumentsC2Ei.exit:                  ; preds = %19, %29
-  %.sink = phi ptr [ %28, %19 ], [ %32, %29 ]
-  %.sink.i = phi i32 [ %16, %19 ], [ 8, %29 ]
-  %33 = getelementptr inbounds i8, ptr %4, i64 96
-  store ptr %.sink, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 108
-  store i32 %.sink.i, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %4, i64 104
-  store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 112
-  store i8 0, ptr %36, align 8
+_ZN17JavaCallArgumentsC2Ei.exit:                  ; preds = %18, %28
+  %.sink = phi ptr [ %27, %18 ], [ %31, %28 ]
+  %.sink.i = phi i32 [ %15, %18 ], [ 8, %28 ]
+  %32 = getelementptr inbounds i8, ptr %4, i64 96
+  store ptr %.sink, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %4, i64 108
+  store i32 %.sink.i, ptr %33, align 4
+  %34 = getelementptr inbounds i8, ptr %4, i64 104
+  store i32 0, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %4, i64 112
+  store i8 0, ptr %35, align 8
   call void @_ZNK16JfrJavaArguments10Parameters4copyER17JavaCallArgumentsP10JavaThread(ptr noundef nonnull readonly align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull readonly %1)
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %.not = icmp eq ptr %38, null
-  br i1 %.not, label %39, label %48
+  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %.not = icmp eq ptr %37, null
+  br i1 %.not, label %38, label %47
 
-39:                                               ; preds = %_ZN17JavaCallArgumentsC2Ei.exit
-  %40 = getelementptr inbounds i8, ptr %0, i64 264
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 272
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 280
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 288
-  %47 = load ptr, ptr %46, align 8
-  call void @_ZN9JavaCalls12call_specialEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef %41, ptr noundef %43, ptr noundef %45, ptr noundef %47, ptr noundef nonnull %4, ptr noundef nonnull %1) #12
-  br label %48
+38:                                               ; preds = %_ZN17JavaCallArgumentsC2Ei.exit
+  %39 = getelementptr inbounds i8, ptr %0, i64 264
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 272
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 280
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 288
+  %46 = load ptr, ptr %45, align 8
+  call void @_ZN9JavaCalls12call_specialEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef %40, ptr noundef %42, ptr noundef %44, ptr noundef %46, ptr noundef nonnull %4, ptr noundef nonnull %1) #12
+  br label %47
 
-48:                                               ; preds = %_ZN17JavaCallArgumentsC2Ei.exit, %39
+47:                                               ; preds = %_ZN17JavaCallArgumentsC2Ei.exit, %38
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #12
-  %49 = load ptr, ptr %8, align 8
-  %.not.i.i.i.i = icmp eq ptr %49, null
-  br i1 %.not.i.i.i.i, label %51, label %50
+  %48 = load ptr, ptr %8, align 8
+  %.not.i.i.i.i = icmp eq ptr %48, null
+  br i1 %.not.i.i.i.i, label %50, label %49
 
-50:                                               ; preds = %48
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %14) #12
+49:                                               ; preds = %47
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %13) #12
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %8) #12
-  br label %51
+  br label %50
 
-51:                                               ; preds = %50, %48
-  %52 = load ptr, ptr %9, align 8
-  %.not8.i.i.i.i = icmp eq ptr %52, %10
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %53
+50:                                               ; preds = %49, %47
+  %51 = load ptr, ptr %9, align 8
+  %.not8.i.i.i.i = icmp eq ptr %51, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %52
 
-53:                                               ; preds = %51
+52:                                               ; preds = %50
   store ptr %8, ptr %7, align 8
-  store ptr %10, ptr %9, align 8
-  store ptr %12, ptr %11, align 8
+  store <2 x ptr> %10, ptr %9, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %51, %53
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %50, %52
   ret void
 }
 
@@ -1142,92 +1138,90 @@ define hidden void @_ZN11JfrJavaCall12call_virtualEP16JfrJavaArgumentsP10JavaThr
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 32
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
-  %14 = load i64, ptr %13, align 8
+  %10 = load <2 x ptr>, ptr %9, align 8
+  %11 = load ptr, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = load i64, ptr %12, align 8
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %1) #12
-  %15 = getelementptr inbounds i8, ptr %0, i64 260
-  %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %4, i64 120
-  store ptr null, ptr %17, align 8
-  %18 = icmp sgt i32 %16, 8
-  br i1 %18, label %19, label %29
+  %14 = getelementptr inbounds i8, ptr %0, i64 260
+  %15 = load i32, ptr %14, align 4
+  %16 = getelementptr inbounds i8, ptr %4, i64 120
+  store ptr null, ptr %16, align 8
+  %17 = icmp sgt i32 %15, 8
+  br i1 %17, label %18, label %28
 
-19:                                               ; preds = %2
-  %20 = add nuw nsw i32 %16, 1
-  %21 = zext nneg i32 %20 to i64
-  %22 = shl nuw nsw i64 %21, 3
-  %23 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %22, i32 noundef 0) #12
-  %24 = getelementptr inbounds i8, ptr %4, i64 88
-  store ptr %23, ptr %24, align 8
-  %25 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %21, i32 noundef 0) #12
-  %26 = load ptr, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
-  store ptr %27, ptr %24, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 1
+18:                                               ; preds = %2
+  %19 = add nuw nsw i32 %15, 1
+  %20 = zext nneg i32 %19 to i64
+  %21 = shl nuw nsw i64 %20, 3
+  %22 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %21, i32 noundef 0) #12
+  %23 = getelementptr inbounds i8, ptr %4, i64 88
+  store ptr %22, ptr %23, align 8
+  %24 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %20, i32 noundef 0) #12
+  %25 = load ptr, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  store ptr %26, ptr %23, align 8
+  %27 = getelementptr inbounds i8, ptr %24, i64 1
   br label %_ZN17JavaCallArgumentsC2Ei.exit
 
-29:                                               ; preds = %2
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 88
-  store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 73
+28:                                               ; preds = %2
+  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  %30 = getelementptr inbounds i8, ptr %4, i64 88
+  store ptr %29, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %4, i64 73
   br label %_ZN17JavaCallArgumentsC2Ei.exit
 
-_ZN17JavaCallArgumentsC2Ei.exit:                  ; preds = %19, %29
-  %.sink = phi ptr [ %28, %19 ], [ %32, %29 ]
-  %.sink.i = phi i32 [ %16, %19 ], [ 8, %29 ]
-  %33 = getelementptr inbounds i8, ptr %4, i64 96
-  store ptr %.sink, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 108
-  store i32 %.sink.i, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %4, i64 104
-  store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 112
-  store i8 0, ptr %36, align 8
+_ZN17JavaCallArgumentsC2Ei.exit:                  ; preds = %18, %28
+  %.sink = phi ptr [ %27, %18 ], [ %31, %28 ]
+  %.sink.i = phi i32 [ %15, %18 ], [ 8, %28 ]
+  %32 = getelementptr inbounds i8, ptr %4, i64 96
+  store ptr %.sink, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %4, i64 108
+  store i32 %.sink.i, ptr %33, align 4
+  %34 = getelementptr inbounds i8, ptr %4, i64 104
+  store i32 0, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %4, i64 112
+  store i8 0, ptr %35, align 8
   call void @_ZNK16JfrJavaArguments10Parameters4copyER17JavaCallArgumentsP10JavaThread(ptr noundef nonnull readonly align 8 dereferenceable(264) %0, ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull readonly %1)
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %.not = icmp eq ptr %38, null
-  br i1 %.not, label %39, label %48
+  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %.not = icmp eq ptr %37, null
+  br i1 %.not, label %38, label %47
 
-39:                                               ; preds = %_ZN17JavaCallArgumentsC2Ei.exit
-  %40 = getelementptr inbounds i8, ptr %0, i64 264
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 272
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 280
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 288
-  %47 = load ptr, ptr %46, align 8
-  call void @_ZN9JavaCalls12call_virtualEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef %41, ptr noundef %43, ptr noundef %45, ptr noundef %47, ptr noundef nonnull %4, ptr noundef nonnull %1) #12
-  br label %48
+38:                                               ; preds = %_ZN17JavaCallArgumentsC2Ei.exit
+  %39 = getelementptr inbounds i8, ptr %0, i64 264
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds i8, ptr %0, i64 272
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 280
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 288
+  %46 = load ptr, ptr %45, align 8
+  call void @_ZN9JavaCalls12call_virtualEP9JavaValueP5KlassP6SymbolS5_P17JavaCallArgumentsP10JavaThread(ptr noundef %40, ptr noundef %42, ptr noundef %44, ptr noundef %46, ptr noundef nonnull %4, ptr noundef nonnull %1) #12
+  br label %47
 
-48:                                               ; preds = %_ZN17JavaCallArgumentsC2Ei.exit, %39
+47:                                               ; preds = %_ZN17JavaCallArgumentsC2Ei.exit, %38
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #12
-  %49 = load ptr, ptr %8, align 8
-  %.not.i.i.i.i = icmp eq ptr %49, null
-  br i1 %.not.i.i.i.i, label %51, label %50
+  %48 = load ptr, ptr %8, align 8
+  %.not.i.i.i.i = icmp eq ptr %48, null
+  br i1 %.not.i.i.i.i, label %50, label %49
 
-50:                                               ; preds = %48
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %14) #12
+49:                                               ; preds = %47
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %13) #12
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %8) #12
-  br label %51
+  br label %50
 
-51:                                               ; preds = %50, %48
-  %52 = load ptr, ptr %9, align 8
-  %.not8.i.i.i.i = icmp eq ptr %52, %10
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %53
+50:                                               ; preds = %49, %47
+  %51 = load ptr, ptr %9, align 8
+  %.not8.i.i.i.i = icmp eq ptr %51, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %52
 
-53:                                               ; preds = %51
+52:                                               ; preds = %50
   store ptr %8, ptr %7, align 8
-  store ptr %10, ptr %9, align 8
-  store ptr %12, ptr %11, align 8
+  store <2 x ptr> %10, ptr %9, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %51, %53
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %50, %52
   ret void
 }
 

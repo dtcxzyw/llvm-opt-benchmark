@@ -3574,9 +3574,9 @@ invoke.cont5:                                     ; preds = %entry
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %inputs, i64 8
   %_M_finish3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %2 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i.i.i, align 8, !noalias !49
+  %3 = load ptr, ptr %_M_finish3.i.i.i.i.i.i, align 8, !noalias !49
   store <2 x ptr> %2, ptr %_M_finish.i.i.i.i.i.i, align 8, !alias.scope !49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %storage_.i.i, i8 0, i64 24, i1 false), !noalias !49
-  %3 = extractelement <2 x ptr> %2, i64 0
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -4656,14 +4656,15 @@ _ZNK5arrow6Status6detailEv.exit:                  ; preds = %_ZN5arrow6Status8Fr
   %detail.i = getelementptr inbounds i8, ptr %6, i64 40
   %spec.select.i = select i1 %tobool2.not.i, ptr @_ZZNK5arrow6Status6detailEvE9no_detail, ptr %detail.i
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %7 = load <2 x ptr>, ptr %spec.select.i, align 8
-  store <2 x ptr> %7, ptr %agg.tmp, align 16
-  %8 = extractelement <2 x ptr> %7, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %8, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %spec.select.i, i64 8
+  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %8 = load <2 x ptr>, ptr %spec.select.i, align 8
+  store <2 x ptr> %8, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow12StatusDetailEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNK5arrow6Status6detailEv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -5330,9 +5331,9 @@ _ZNSt8functionIFN5arrow6ResultINS0_10TypeHolderEEEPNS0_7compute13KernelContextER
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %20 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %21 = load ptr, ptr %_M_manager3.i.i, align 8
   store <2 x ptr> %20, ptr %_M_manager.i.i.i, align 8
   store <2 x ptr> %19, ptr %_M_manager3.i.i, align 8
-  %21 = extractelement <2 x ptr> %20, i64 0
   %tobool.not.i.i4.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i4.i, label %invoke.cont, label %if.then.i.i5.i
 
@@ -13616,8 +13617,8 @@ if.then.i:                                        ; preds = %entry
 
 invoke.cont.i:                                    ; preds = %if.then.i
   %4 = load <2 x ptr>, ptr %_M_manager.i.i.i, align 8
+  %5 = load ptr, ptr %_M_manager.i.i.i, align 8
   store <2 x ptr> %4, ptr %_M_manager.i.i, align 8
-  %5 = extractelement <2 x ptr> %4, i64 0
   br label %invoke.cont
 
 lpad.i:                                           ; preds = %if.then.i

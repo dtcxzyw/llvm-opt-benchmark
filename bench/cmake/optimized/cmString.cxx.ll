@@ -763,42 +763,40 @@ define dso_local void @_ZNK2cm6String6substrEmm(ptr dead_on_unwind noalias nocap
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr %1, align 8
-  store ptr %14, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %15, align 8
-  %.not.i.i.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i.i.i, label %_ZN2cm6StringC2ERKS0_mm.exit, label %18
+  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %16, ptr %0, align 8
+  %.not.i.i.i.i = icmp eq ptr %15, null
+  br i1 %.not.i.i.i.i, label %_ZN2cm6StringC2ERKS0_mm.exit, label %17
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
-  %20 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i = icmp eq i8 %20, 0
-  br i1 %.not.i.i.i.i.i, label %24, label %21
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i = icmp eq i8 %19, 0
+  br i1 %.not.i.i.i.i.i, label %23, label %20
 
-21:                                               ; preds = %18
-  %22 = load i32, ptr %19, align 4
-  %23 = add nsw i32 %22, 1
-  store i32 %23, ptr %19, align 4
+20:                                               ; preds = %17
+  %21 = load i32, ptr %18, align 4
+  %22 = add nsw i32 %21, 1
+  store i32 %22, ptr %18, align 4
   br label %_ZN2cm6StringC2ERKS0_mm.exit
 
-24:                                               ; preds = %18
-  %25 = atomicrmw volatile add ptr %19, i32 1 acq_rel, align 4
+23:                                               ; preds = %17
+  %24 = atomicrmw volatile add ptr %18, i32 1 acq_rel, align 4
   br label %_ZN2cm6StringC2ERKS0_mm.exit
 
-_ZN2cm6StringC2ERKS0_mm.exit:                     ; preds = %13, %21, %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 %2
-  %30 = load i64, ptr %5, align 8
-  %31 = sub i64 %30, %2
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %31, i64 %3)
-  store i64 %.sroa.speculated.i, ptr %26, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %29, ptr %32, align 8
+_ZN2cm6StringC2ERKS0_mm.exit:                     ; preds = %13, %20, %23
+  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 %2
+  %29 = load i64, ptr %5, align 8
+  %30 = sub i64 %29, %2
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %30, i64 %3)
+  store i64 %.sroa.speculated.i, ptr %25, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %28, ptr %31, align 8
   ret void
 }
 

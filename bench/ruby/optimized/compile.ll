@@ -847,10 +847,8 @@ iseq_specialized_instruction.exit.us.us87.i:      ; preds = %.lr.ph.split.us.spl
 
 .sink.split.i.us.us.i:                            ; preds = %139, %136, %135, %132, %131, %129
   %.sink22.i.us.us.i = phi i32 [ 104, %131 ], [ 102, %135 ], [ 100, %139 ], [ 99, %136 ], [ 101, %132 ], [ 103, %129 ]
-  %.sink.i.us.us.i = phi i32 [ 0, %131 ], [ 1, %135 ], [ 1, %139 ], [ 1, %136 ], [ 1, %132 ], [ 0, %129 ]
-  store i32 %.sink22.i.us.us.i, ptr %127, align 8
-  %140 = getelementptr inbounds i8, ptr %.081.us.us83.i, i64 28
-  store i32 %.sink.i.us.us.i, ptr %140, align 4
+  %140 = phi <2 x i32> [ <i32 104, i32 0>, %131 ], [ <i32 102, i32 1>, %135 ], [ <i32 100, i32 1>, %139 ], [ <i32 99, i32 1>, %136 ], [ <i32 101, i32 1>, %132 ], [ <i32 103, i32 0>, %129 ]
+  store <2 x i32> %140, ptr %127, align 8
   br label %insn_operands_unification.exit.us.us88.i
 
 insn_operands_unification.exit.us.us88.i:         ; preds = %.sink.split.i.us.us.i, %136, %132, %129, %iseq_specialized_instruction.exit.us.us87.i
@@ -925,10 +923,8 @@ iseq_specialized_instruction.exit.us.i:           ; preds = %.lr.ph.split.us.spl
 
 .sink.split.i.us.i:                               ; preds = %162, %159, %158, %155, %154, %152
   %.sink22.i.us.i = phi i32 [ 104, %154 ], [ 102, %158 ], [ 100, %162 ], [ 99, %159 ], [ 101, %155 ], [ 103, %152 ]
-  %.sink.i.us.i = phi i32 [ 0, %154 ], [ 1, %158 ], [ 1, %162 ], [ 1, %159 ], [ 1, %155 ], [ 0, %152 ]
-  store i32 %.sink22.i.us.i, ptr %150, align 8
-  %163 = getelementptr inbounds i8, ptr %.081.us.i, i64 28
-  store i32 %.sink.i.us.i, ptr %163, align 4
+  %163 = phi <2 x i32> [ <i32 104, i32 0>, %154 ], [ <i32 102, i32 1>, %158 ], [ <i32 100, i32 1>, %162 ], [ <i32 99, i32 1>, %159 ], [ <i32 101, i32 1>, %155 ], [ <i32 103, i32 0>, %152 ]
+  store <2 x i32> %163, ptr %150, align 8
   br label %insn_operands_unification.exit.us.i
 
 insn_operands_unification.exit.us.i:              ; preds = %.sink.split.i.us.i, %159, %155, %152, %iseq_specialized_instruction.exit.us.i

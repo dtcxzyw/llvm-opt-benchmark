@@ -2844,15 +2844,15 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeISt4pairIffES0_IKS1_S1_ESt10_Sele
   %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load <2 x i64>, ptr %1, align 4
+  %6 = load i64, ptr %1, align 4
   store <2 x i64> %5, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %.02124.i = load ptr, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %.02124.i = load ptr, ptr %7, align 8
   %.not25.i = icmp eq ptr %.02124.i, null
-  %8 = extractelement <2 x i64> %5, i64 0
-  %9 = trunc i64 %8 to i32
+  %9 = trunc i64 %6 to i32
   %10 = bitcast i32 %9 to float
-  %11 = lshr i64 %8, 32
+  %11 = lshr i64 %6, 32
   %12 = trunc nuw i64 %11 to i32
   %13 = bitcast i32 %12 to float
   br i1 %.not25.i, label %._crit_edge.thread.i, label %.lr.ph.i
@@ -2891,7 +2891,7 @@ _ZNKSt4lessISt4pairIffEEclERKS1_S4_.exit.thread.i.thread: ; preds = %17, %_ZNKSt
   br i1 %.not.i16, label %._crit_edge.i.thread, label %.lr.ph.i.backedge
 
 ._crit_edge.thread.i:                             ; preds = %_ZNKSt4lessISt4pairIffEEclERKS1_S4_.exit.thread.i, %2
-  %.020.lcssa31.i = phi ptr [ %7, %2 ], [ %.02126.i, %_ZNKSt4lessISt4pairIffEEclERKS1_S4_.exit.thread.i ]
+  %.020.lcssa31.i = phi ptr [ %8, %2 ], [ %.02126.i, %_ZNKSt4lessISt4pairIffEEclERKS1_S4_.exit.thread.i ]
   %24 = getelementptr inbounds i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %.020.lcssa31.i, %25
@@ -2922,7 +2922,7 @@ _ZNKSt4lessISt4pairIffEEclERKS1_S4_.exit5.i:      ; preds = %31
 
 36:                                               ; preds = %._crit_edge.thread.i, %_ZNKSt4lessISt4pairIffEEclERKS1_S4_.exit5.i, %._crit_edge.i.thread
   %.sroa.4.0.i.ph = phi ptr [ %.020.lcssa30.i, %._crit_edge.i.thread ], [ %.020.lcssa30.i, %_ZNKSt4lessISt4pairIffEEclERKS1_S4_.exit5.i ], [ %.020.lcssa31.i, %._crit_edge.thread.i ]
-  %37 = icmp eq ptr %7, %.sroa.4.0.i.ph
+  %37 = icmp eq ptr %8, %.sroa.4.0.i.ph
   br i1 %37, label %.thread24, label %38
 
 38:                                               ; preds = %36
@@ -2943,7 +2943,7 @@ _ZNKSt4lessISt4pairIffEEclERKS1_S4_.exit5.i:      ; preds = %31
 
 .thread24:                                        ; preds = %36, %38, %42, %44
   %48 = phi i1 [ true, %36 ], [ true, %38 ], [ false, %42 ], [ %47, %44 ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %48, ptr noundef nonnull %3, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %7) #21
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %48, ptr noundef nonnull %3, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   %49 = getelementptr inbounds i8, ptr %0, i64 40
   %50 = load i64, ptr %49, align 8
   %51 = add i64 %50, 1

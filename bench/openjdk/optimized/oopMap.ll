@@ -4761,47 +4761,45 @@ define hidden noundef ptr @_ZN18ImmutableOopMapSet10build_fromEPK9OopMapSet(ptr 
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 32
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
-  %14 = load i64, ptr %13, align 8
+  %10 = load <2 x ptr>, ptr %9, align 8
+  %11 = load ptr, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = load i64, ptr %12, align 8
   store ptr %0, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  store <4 x i32> <i32 -1, i32 -1, i32 0, i32 -1>, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 48
-  store ptr null, ptr %17, align 8
-  %18 = load i32, ptr %0, align 4
-  %19 = sext i32 %18 to i64
-  %20 = shl nsw i64 %19, 5
-  %21 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %20, i32 noundef 0) #19
-  %22 = getelementptr inbounds i8, ptr %2, i64 40
-  store ptr %21, ptr %22, align 8
-  %23 = call noundef ptr @_ZN22ImmutableOopMapBuilder5buildEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
-  %24 = load ptr, ptr %8, align 8
-  %.not.i.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i.i, label %26, label %25
+  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds i8, ptr %2, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  store <4 x i32> <i32 -1, i32 -1, i32 0, i32 -1>, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  store ptr null, ptr %16, align 8
+  %17 = load i32, ptr %0, align 4
+  %18 = sext i32 %17 to i64
+  %19 = shl nsw i64 %18, 5
+  %20 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %19, i32 noundef 0) #19
+  %21 = getelementptr inbounds i8, ptr %2, i64 40
+  store ptr %20, ptr %21, align 8
+  %22 = call noundef ptr @_ZN22ImmutableOopMapBuilder5buildEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
+  %23 = load ptr, ptr %8, align 8
+  %.not.i.i.i.i = icmp eq ptr %23, null
+  br i1 %.not.i.i.i.i, label %25, label %24
 
-25:                                               ; preds = %1
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %14) #19
+24:                                               ; preds = %1
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %13) #19
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %8) #19
-  br label %26
+  br label %25
 
-26:                                               ; preds = %25, %1
-  %27 = load ptr, ptr %9, align 8
-  %.not8.i.i.i.i = icmp eq ptr %27, %10
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %28
+25:                                               ; preds = %24, %1
+  %26 = load ptr, ptr %9, align 8
+  %.not8.i.i.i.i = icmp eq ptr %26, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %27
 
-28:                                               ; preds = %26
+27:                                               ; preds = %25
   store ptr %8, ptr %7, align 8
-  store ptr %10, ptr %9, align 8
-  store ptr %12, ptr %11, align 8
+  store <2 x ptr> %10, ptr %9, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %26, %28
-  ret ptr %23
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %25, %27
+  ret ptr %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

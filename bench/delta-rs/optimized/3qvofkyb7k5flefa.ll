@@ -61634,7 +61634,6 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %.sroa.10110.i.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 16
   %.sroa.29.24..sroa.5101.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.5101.i, i64 8
   %.sroa.412.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %22, i64 32
-  %.sroa.513.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %22, i64 40
   %.sroa.0.i6.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %19, i64 8
   %.sroa.0.i6.sroa.5.i.i.sroa.5.0..sroa.0.i6.sroa.5.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds i8, ptr %19, i64 16
   %.sroa.0.i6.sroa.5.i.i.sroa.7.0..sroa.0.i6.sroa.5.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds i8, ptr %19, i64 24
@@ -61653,7 +61652,6 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %.sroa.19.i.sroa.7.3..sroa_idx = getelementptr inbounds i8, ptr %30, i64 24
   %.sroa.20.i.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 24
   %.sroa.425.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %44, i64 32
-  %.sroa.5.0..sroa_idx.i9.i = getelementptr inbounds i8, ptr %44, i64 40
   %.sroa.07.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %42, i64 32
   %.sroa.430.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %41, i64 24
   %.sroa.531.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %41, i64 28
@@ -62329,9 +62327,9 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %251 = getelementptr inbounds i8, ptr %.sroa.020.0257, i64 176
   call void @llvm.experimental.noalias.scope.decl(metadata !15754)
   %252 = getelementptr inbounds i8, ptr %.sroa.020.0257, i64 208
-  %253 = load i64, ptr %252, align 8, !alias.scope !15757, !noalias !15760, !noundef !5
-  %254 = getelementptr inbounds i8, ptr %.sroa.020.0257, i64 216
-  %255 = load i64, ptr %254, align 8, !alias.scope !15757, !noalias !15760, !noundef !5
+  %253 = getelementptr inbounds i8, ptr %.sroa.020.0257, i64 216
+  %254 = load i64, ptr %253, align 8, !alias.scope !15757, !noalias !15760, !noundef !5
+  %255 = load <2 x i64>, ptr %252, align 8, !alias.scope !15757, !noalias !15760
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i4.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !15762)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35), !noalias !15765
@@ -62389,8 +62387,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35), !noalias !15765
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i4.i, i64 32, i1 false), !noalias !15752
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i4.i)
-  store i64 %253, ptr %.sroa.425.0..sroa_idx.i.i, align 8, !noalias !15752
-  store i64 %255, ptr %.sroa.5.0..sroa_idx.i9.i, align 8, !noalias !15752
+  store <2 x i64> %255, ptr %.sroa.425.0..sroa_idx.i.i, align 8, !noalias !15752
   %271 = getelementptr inbounds i8, ptr %.sroa.020.0257, i64 224
   %272 = load i64, ptr %271, align 8, !alias.scope !15773, !noalias !15774, !noundef !5
   %273 = getelementptr inbounds i8, ptr %.sroa.020.0257, i64 232
@@ -62401,7 +62398,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %277 = getelementptr inbounds i8, ptr %.sroa.020.0257, i64 56
   %278 = load i64, ptr %277, align 8, !range !4, !alias.scope !15773, !noalias !15774, !noundef !5
   %279 = icmp eq i64 %278, -9223372036854775808
-  %280 = inttoptr i64 %255 to ptr
+  %280 = inttoptr i64 %254 to ptr
   br i1 %279, label %281, label %282
 
 281:                                              ; preds = %270
@@ -62957,75 +62954,74 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %467 = getelementptr inbounds i8, ptr %.sroa.020.0257, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !15862)
   %468 = getelementptr inbounds i8, ptr %.sroa.020.0257, i64 64
-  %469 = load i64, ptr %468, align 8, !alias.scope !15865, !noalias !15868, !noundef !5
-  %470 = getelementptr inbounds i8, ptr %.sroa.020.0257, i64 72
-  %471 = load <2 x i64>, ptr %470, align 8, !alias.scope !15870, !noalias !15871
+  %469 = getelementptr inbounds i8, ptr %.sroa.020.0257, i64 72
+  %470 = load <2 x i64>, ptr %469, align 8, !alias.scope !15865, !noalias !15866
+  %471 = load <2 x i64>, ptr %468, align 8, !alias.scope !15867, !noalias !15870
+  %472 = load i64, ptr %468, align 8, !alias.scope !15867, !noalias !15870, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !15872)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20), !noalias !15875
-  %472 = getelementptr inbounds i8, ptr %.sroa.020.0257, i64 40
-  %473 = load i64, ptr %472, align 8, !alias.scope !15876, !noalias !15877, !noundef !5
-  %474 = icmp eq i64 %473, 0
-  br i1 %474, label %475, label %476
-
-475:                                              ; preds = %.noexc16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i28.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.e68c98984d05f4ab0d2a6f8791335996.964.llvm.240573438051967091, i64 32, i1 false), !noalias !15860
-  br label %486
+  %473 = getelementptr inbounds i8, ptr %.sroa.020.0257, i64 40
+  %474 = load i64, ptr %473, align 8, !alias.scope !15876, !noalias !15877, !noundef !5
+  %475 = icmp eq i64 %474, 0
+  br i1 %475, label %476, label %477
 
 476:                                              ; preds = %.noexc16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21), !noalias !15879
-  %477 = add i64 %473, 1
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized17ha49c6e9e5579554bE.llvm.240573438051967091"(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %20, i64 noundef %477, i1 noundef zeroext true)
-          to label %.noexc.i31.i unwind label %484, !noalias !15880
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i28.i, ptr noundef nonnull align 8 dereferenceable(32) @anon.e68c98984d05f4ab0d2a6f8791335996.964.llvm.240573438051967091, i64 32, i1 false), !noalias !15860
+  br label %487
 
-.noexc.i31.i:                                     ; preds = %476
-  %478 = load ptr, ptr %20, align 8, !noalias !15879, !noundef !5
-  %479 = icmp ne ptr %478, null
-  call void @llvm.assume(i1 %479)
+477:                                              ; preds = %.noexc16
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21), !noalias !15879
+  %478 = add i64 %474, 1
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$17new_uninitialized17ha49c6e9e5579554bE.llvm.240573438051967091"(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %20, i64 noundef %478, i1 noundef zeroext true)
+          to label %.noexc.i31.i unwind label %485, !noalias !15880
+
+.noexc.i31.i:                                     ; preds = %477
+  %479 = load ptr, ptr %20, align 8, !noalias !15879, !noundef !5
+  %480 = icmp ne ptr %479, null
+  call void @llvm.assume(i1 %480)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false), !noalias !15879
   invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17h0978186f119498eaE.llvm.240573438051967091"(ptr noalias noundef nonnull align 8 dereferenceable(32) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %467)
-          to label %"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17h488af7034a5b42dbE.llvm.240573438051967091.exit.i.i.i32.i" unwind label %480, !noalias !15881
+          to label %"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17h488af7034a5b42dbE.llvm.240573438051967091.exit.i.i.i32.i" unwind label %481, !noalias !15881
 
-480:                                              ; preds = %.noexc.i31.i
-  %481 = landingpad { ptr, i32 }
+481:                                              ; preds = %.noexc.i31.i
+  %482 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr134drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$alloc..string..String$C$core..option..Option$LT$alloc..string..String$GT$$RP$$GT$$GT$17h51dad9876319d19aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %21) #26
-          to label %.body.i29.i unwind label %482, !noalias !15881
+          to label %.body.i29.i unwind label %483, !noalias !15881
 
 "_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17h488af7034a5b42dbE.llvm.240573438051967091.exit.i.i.i32.i": ; preds = %.noexc.i31.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i28.i, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false), !noalias !15860
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21), !noalias !15879
-  br label %486
+  br label %487
 
-482:                                              ; preds = %480
-  %483 = landingpad { ptr, i32 }
+483:                                              ; preds = %481
+  %484 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #27, !noalias !15881
   unreachable
 
-.body.i29.i:                                      ; preds = %.body9.i33.i, %484, %480
-  %.pn.i30.i = phi { ptr, i32 } [ %eh.lpad-body10.i.i, %.body9.i33.i ], [ %485, %484 ], [ %481, %480 ]
+.body.i29.i:                                      ; preds = %.body9.i33.i, %485, %481
+  %.pn.i30.i = phi { ptr, i32 } [ %eh.lpad-body10.i.i, %.body9.i33.i ], [ %486, %485 ], [ %482, %481 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06f7a3c3528303c7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23) #26
           to label %649 unwind label %514, !noalias !15880
 
-484:                                              ; preds = %476
-  %485 = landingpad { ptr, i32 }
+485:                                              ; preds = %477
+  %486 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i29.i
 
-486:                                              ; preds = %"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17h488af7034a5b42dbE.llvm.240573438051967091.exit.i.i.i32.i", %475
+487:                                              ; preds = %"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17h488af7034a5b42dbE.llvm.240573438051967091.exit.i.i.i32.i", %476
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20), !noalias !15875
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i28.i, i64 32, i1 false), !noalias !15860
-  store i64 %469, ptr %.sroa.412.0..sroa_idx.i.i, align 16, !noalias !15860
-  %487 = extractelement <2 x i64> %471, i64 0
-  store i64 %487, ptr %.sroa.513.0..sroa_idx.i.i, align 8, !noalias !15860
+  store <2 x i64> %471, ptr %.sroa.412.0..sroa_idx.i.i, align 16, !noalias !15860
   %488 = getelementptr inbounds i8, ptr %.sroa.020.0257, i64 136
-  %489 = load i8, ptr %488, align 8, !range !140, !alias.scope !15870, !noalias !15871, !noundef !5
+  %489 = load i8, ptr %488, align 8, !range !140, !alias.scope !15865, !noalias !15866, !noundef !5
   %490 = getelementptr inbounds i8, ptr %.sroa.020.0257, i64 88
-  %491 = load ptr, ptr %490, align 8, !alias.scope !15870, !noalias !15871, !noundef !5
+  %491 = load ptr, ptr %490, align 8, !alias.scope !15865, !noalias !15866, !noundef !5
   %492 = icmp eq ptr %491, null
   br i1 %492, label %"_ZN90_$LT$deltalake_core..kernel..models..actions..AddCDCFile$u20$as$u20$core..clone..Clone$GT$5clone17h96c9e9f053c24de4E.exit.i", label %493
 
-493:                                              ; preds = %486
+493:                                              ; preds = %487
   call void @llvm.experimental.noalias.scope.decl(metadata !15882)
   %494 = getelementptr inbounds i8, ptr %.sroa.020.0257, i64 120
   %495 = load i64, ptr %494, align 8, !alias.scope !15885, !noalias !15888, !noundef !5
@@ -63096,13 +63092,13 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #27, !noalias !15880
   unreachable
 
-"_ZN90_$LT$deltalake_core..kernel..models..actions..AddCDCFile$u20$as$u20$core..clone..Clone$GT$5clone17h96c9e9f053c24de4E.exit.i": ; preds = %512, %486
-  %.sroa.0.i6.sroa.5.i.i.sroa.0.2 = phi i64 [ %.sroa.0.i6.sroa.5.i.i.sroa.0.0219, %486 ], [ %.sroa.0.i6.sroa.5.i.i.sroa.0.1, %512 ]
-  %.sroa.0.i6.sroa.5.i.i.sroa.7.2 = phi i64 [ %.sroa.0.i6.sroa.5.i.i.sroa.7.0222, %486 ], [ %.sroa.0.i6.sroa.5.i.i.sroa.7.1, %512 ]
-  %.sroa.5.sroa.4.0.i35.i = phi i64 [ undef, %486 ], [ %495, %512 ]
-  %.sroa.5.sroa.5.0.i36.i = phi i64 [ undef, %486 ], [ %497, %512 ]
-  %.sroa.0.0.i37.i = phi ptr [ null, %486 ], [ %.sroa.0.i6.sroa.0.0.i.i, %512 ]
-  %516 = phi <2 x i32> [ %79, %486 ], [ %513, %512 ]
+"_ZN90_$LT$deltalake_core..kernel..models..actions..AddCDCFile$u20$as$u20$core..clone..Clone$GT$5clone17h96c9e9f053c24de4E.exit.i": ; preds = %512, %487
+  %.sroa.0.i6.sroa.5.i.i.sroa.0.2 = phi i64 [ %.sroa.0.i6.sroa.5.i.i.sroa.0.0219, %487 ], [ %.sroa.0.i6.sroa.5.i.i.sroa.0.1, %512 ]
+  %.sroa.0.i6.sroa.5.i.i.sroa.7.2 = phi i64 [ %.sroa.0.i6.sroa.5.i.i.sroa.7.0222, %487 ], [ %.sroa.0.i6.sroa.5.i.i.sroa.7.1, %512 ]
+  %.sroa.5.sroa.4.0.i35.i = phi i64 [ undef, %487 ], [ %495, %512 ]
+  %.sroa.5.sroa.5.0.i36.i = phi i64 [ undef, %487 ], [ %497, %512 ]
+  %.sroa.0.0.i37.i = phi ptr [ null, %487 ], [ %.sroa.0.i6.sroa.0.0.i.i, %512 ]
+  %516 = phi <2 x i32> [ %79, %487 ], [ %513, %512 ]
   %.sroa.091.i.sroa.0.0.copyload = load i64, ptr %23, align 8, !noalias !15900
   %.sroa.091.i.sroa.4.0.copyload = load i64, ptr %.sroa.091.i.sroa.4.0..sroa_idx, align 8, !noalias !15900
   %.sroa.091.i.sroa.5.0.copyload = load i64, ptr %.sroa.091.i.sroa.5.0..sroa_idx, align 8, !noalias !15900
@@ -63511,7 +63507,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %.sroa.56.1 = phi i64 [ %.sroa.56.0244, %"_ZN94_$LT$deltalake_core..kernel..models..actions..DomainMetadata$u20$as$u20$core..clone..Clone$GT$5clone17h8672a8d6a6e8a4b6E.exit.i" ], [ %.sroa.10110.i.sroa.0.0.copyload, %"_ZN90_$LT$deltalake_core..kernel..models..actions..CommitInfo$u20$as$u20$core..clone..Clone$GT$5clone17h2ae9ad6c257e2265E.exit.i" ], [ %.sroa.56.0244, %.noexc17 ], [ %.sroa.0.i6.sroa.5.i.i.sroa.7.2, %"_ZN90_$LT$deltalake_core..kernel..models..actions..AddCDCFile$u20$as$u20$core..clone..Clone$GT$5clone17h96c9e9f053c24de4E.exit.i" ], [ %.sroa.55.sroa.0.i.i.sroa.5.1, %"_ZN86_$LT$deltalake_core..kernel..models..actions..Remove$u20$as$u20$core..clone..Clone$GT$5clone17h57afce9c257ffd7dE.exit.i" ], [ %.sroa.970.i.sroa.8.0.copyload, %"_ZN83_$LT$deltalake_core..kernel..models..actions..Add$u20$as$u20$core..clone..Clone$GT$5clone17h289e71edc93e99cdE.exit.i" ], [ %.sroa.56.0244, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Protocol$u20$as$u20$core..clone..Clone$GT$5clone17h2f0878b0f92d98cdE.exit.i" ], [ %.sroa.6.i.sroa.12.0.copyload, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h5a541bb3e8818a0eE.exit.i" ]
   %.sroa.50.1 = phi i64 [ %.sroa.50.0247, %"_ZN94_$LT$deltalake_core..kernel..models..actions..DomainMetadata$u20$as$u20$core..clone..Clone$GT$5clone17h8672a8d6a6e8a4b6E.exit.i" ], [ %.sroa.9109.i.sroa.4.0.copyload, %"_ZN90_$LT$deltalake_core..kernel..models..actions..CommitInfo$u20$as$u20$core..clone..Clone$GT$5clone17h2ae9ad6c257e2265E.exit.i" ], [ %.sroa.50.0247, %.noexc17 ], [ %.sroa.0.i6.sroa.5.i.i.sroa.0.2, %"_ZN90_$LT$deltalake_core..kernel..models..actions..AddCDCFile$u20$as$u20$core..clone..Clone$GT$5clone17h96c9e9f053c24de4E.exit.i" ], [ %.sroa.03.0.i24.i, %"_ZN86_$LT$deltalake_core..kernel..models..actions..Remove$u20$as$u20$core..clone..Clone$GT$5clone17h57afce9c257ffd7dE.exit.i" ], [ %.sroa.970.i.sroa.5.0.copyload, %"_ZN83_$LT$deltalake_core..kernel..models..actions..Add$u20$as$u20$core..clone..Clone$GT$5clone17h289e71edc93e99cdE.exit.i" ], [ %.sroa.5.sroa.5.0.i.i, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Protocol$u20$as$u20$core..clone..Clone$GT$5clone17h2f0878b0f92d98cdE.exit.i" ], [ %.sroa.6.i.sroa.9.0.copyload, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h5a541bb3e8818a0eE.exit.i" ]
   %.sroa.47.1 = phi i64 [ %.sroa.47.0248, %"_ZN94_$LT$deltalake_core..kernel..models..actions..DomainMetadata$u20$as$u20$core..clone..Clone$GT$5clone17h8672a8d6a6e8a4b6E.exit.i" ], [ %.sroa.9109.i.sroa.0.0.copyload, %"_ZN90_$LT$deltalake_core..kernel..models..actions..CommitInfo$u20$as$u20$core..clone..Clone$GT$5clone17h2ae9ad6c257e2265E.exit.i" ], [ %.sroa.47.0248, %.noexc17 ], [ %518, %"_ZN90_$LT$deltalake_core..kernel..models..actions..AddCDCFile$u20$as$u20$core..clone..Clone$GT$5clone17h96c9e9f053c24de4E.exit.i" ], [ %.sroa.1183.i.sroa.5.0.copyload, %"_ZN86_$LT$deltalake_core..kernel..models..actions..Remove$u20$as$u20$core..clone..Clone$GT$5clone17h57afce9c257ffd7dE.exit.i" ], [ %.sroa.970.i.sroa.4.0.copyload, %"_ZN83_$LT$deltalake_core..kernel..models..actions..Add$u20$as$u20$core..clone..Clone$GT$5clone17h289e71edc93e99cdE.exit.i" ], [ %.sroa.5.sroa.4.0.i.i, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Protocol$u20$as$u20$core..clone..Clone$GT$5clone17h2f0878b0f92d98cdE.exit.i" ], [ %.sroa.6.i.sroa.8.0.copyload, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h5a541bb3e8818a0eE.exit.i" ]
-  %.sroa.41.1 = phi i64 [ %.sroa.41.0251, %"_ZN94_$LT$deltalake_core..kernel..models..actions..DomainMetadata$u20$as$u20$core..clone..Clone$GT$5clone17h8672a8d6a6e8a4b6E.exit.i" ], [ %.sroa.8108.i.sroa.0.0.copyload, %"_ZN90_$LT$deltalake_core..kernel..models..actions..CommitInfo$u20$as$u20$core..clone..Clone$GT$5clone17h2ae9ad6c257e2265E.exit.i" ], [ %.sroa.41.0251, %.noexc17 ], [ %469, %"_ZN90_$LT$deltalake_core..kernel..models..actions..AddCDCFile$u20$as$u20$core..clone..Clone$GT$5clone17h96c9e9f053c24de4E.exit.i" ], [ %.sroa.510.0.i.i, %"_ZN86_$LT$deltalake_core..kernel..models..actions..Remove$u20$as$u20$core..clone..Clone$GT$5clone17h57afce9c257ffd7dE.exit.i" ], [ %.sroa.869.i.sroa.4.0.copyload, %"_ZN83_$LT$deltalake_core..kernel..models..actions..Add$u20$as$u20$core..clone..Clone$GT$5clone17h289e71edc93e99cdE.exit.i" ], [ %.sroa.0.i10.sroa.5.i.i.sroa.0.2, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Protocol$u20$as$u20$core..clone..Clone$GT$5clone17h2f0878b0f92d98cdE.exit.i" ], [ %.sroa.6.i.sroa.5.0.copyload, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h5a541bb3e8818a0eE.exit.i" ]
+  %.sroa.41.1 = phi i64 [ %.sroa.41.0251, %"_ZN94_$LT$deltalake_core..kernel..models..actions..DomainMetadata$u20$as$u20$core..clone..Clone$GT$5clone17h8672a8d6a6e8a4b6E.exit.i" ], [ %.sroa.8108.i.sroa.0.0.copyload, %"_ZN90_$LT$deltalake_core..kernel..models..actions..CommitInfo$u20$as$u20$core..clone..Clone$GT$5clone17h2ae9ad6c257e2265E.exit.i" ], [ %.sroa.41.0251, %.noexc17 ], [ %472, %"_ZN90_$LT$deltalake_core..kernel..models..actions..AddCDCFile$u20$as$u20$core..clone..Clone$GT$5clone17h96c9e9f053c24de4E.exit.i" ], [ %.sroa.510.0.i.i, %"_ZN86_$LT$deltalake_core..kernel..models..actions..Remove$u20$as$u20$core..clone..Clone$GT$5clone17h57afce9c257ffd7dE.exit.i" ], [ %.sroa.869.i.sroa.4.0.copyload, %"_ZN83_$LT$deltalake_core..kernel..models..actions..Add$u20$as$u20$core..clone..Clone$GT$5clone17h289e71edc93e99cdE.exit.i" ], [ %.sroa.0.i10.sroa.5.i.i.sroa.0.2, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Protocol$u20$as$u20$core..clone..Clone$GT$5clone17h2f0878b0f92d98cdE.exit.i" ], [ %.sroa.6.i.sroa.5.0.copyload, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h5a541bb3e8818a0eE.exit.i" ]
   %.sroa.34.0 = phi i64 [ %.sroa.0118.i.sroa.9.24.copyload, %"_ZN94_$LT$deltalake_core..kernel..models..actions..DomainMetadata$u20$as$u20$core..clone..Clone$GT$5clone17h8672a8d6a6e8a4b6E.exit.i" ], [ %.sroa.7107.i.sroa.4.0.copyload, %"_ZN90_$LT$deltalake_core..kernel..models..actions..CommitInfo$u20$as$u20$core..clone..Clone$GT$5clone17h2ae9ad6c257e2265E.exit.i" ], [ %523, %.noexc17 ], [ %.sroa.091.i.sroa.9.24.copyload, %"_ZN90_$LT$deltalake_core..kernel..models..actions..AddCDCFile$u20$as$u20$core..clone..Clone$GT$5clone17h96c9e9f053c24de4E.exit.i" ], [ %.sroa.58.0.i.i, %"_ZN86_$LT$deltalake_core..kernel..models..actions..Remove$u20$as$u20$core..clone..Clone$GT$5clone17h57afce9c257ffd7dE.exit.i" ], [ %.sroa.768.i.sroa.5.0.copyload, %"_ZN83_$LT$deltalake_core..kernel..models..actions..Add$u20$as$u20$core..clone..Clone$GT$5clone17h289e71edc93e99cdE.exit.i" ], [ %.sroa.057.i.sroa.8.0.copyload, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Protocol$u20$as$u20$core..clone..Clone$GT$5clone17h2f0878b0f92d98cdE.exit.i" ], [ %.sroa.6.i.sroa.0.0.copyload, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h5a541bb3e8818a0eE.exit.i" ]
   %.sroa.24.0 = phi i64 [ %.sroa.0118.i.sroa.5.0.copyload, %"_ZN94_$LT$deltalake_core..kernel..models..actions..DomainMetadata$u20$as$u20$core..clone..Clone$GT$5clone17h8672a8d6a6e8a4b6E.exit.i" ], [ %579, %"_ZN90_$LT$deltalake_core..kernel..models..actions..CommitInfo$u20$as$u20$core..clone..Clone$GT$5clone17h2ae9ad6c257e2265E.exit.i" ], [ %.sroa.24.24.copyload, %.noexc17 ], [ %.sroa.091.i.sroa.5.0.copyload, %"_ZN90_$LT$deltalake_core..kernel..models..actions..AddCDCFile$u20$as$u20$core..clone..Clone$GT$5clone17h96c9e9f053c24de4E.exit.i" ], [ %402, %"_ZN86_$LT$deltalake_core..kernel..models..actions..Remove$u20$as$u20$core..clone..Clone$GT$5clone17h57afce9c257ffd7dE.exit.i" ], [ %.sroa.52.0.i.i, %"_ZN83_$LT$deltalake_core..kernel..models..actions..Add$u20$as$u20$core..clone..Clone$GT$5clone17h289e71edc93e99cdE.exit.i" ], [ %.sroa.057.i.sroa.5.0.copyload, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Protocol$u20$as$u20$core..clone..Clone$GT$5clone17h2f0878b0f92d98cdE.exit.i" ], [ %.sroa.5.i.sroa.0.0.copyload, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h5a541bb3e8818a0eE.exit.i" ]
   %.sroa.19.0 = phi i64 [ %.sroa.0118.i.sroa.4.0.copyload, %"_ZN94_$LT$deltalake_core..kernel..models..actions..DomainMetadata$u20$as$u20$core..clone..Clone$GT$5clone17h8672a8d6a6e8a4b6E.exit.i" ], [ %.sroa.5.0.i56.i, %"_ZN90_$LT$deltalake_core..kernel..models..actions..CommitInfo$u20$as$u20$core..clone..Clone$GT$5clone17h2ae9ad6c257e2265E.exit.i" ], [ %.sroa.5.0.i42.i, %.noexc17 ], [ %.sroa.091.i.sroa.4.0.copyload, %"_ZN90_$LT$deltalake_core..kernel..models..actions..AddCDCFile$u20$as$u20$core..clone..Clone$GT$5clone17h96c9e9f053c24de4E.exit.i" ], [ %.sroa.5.0.i27.i, %"_ZN86_$LT$deltalake_core..kernel..models..actions..Remove$u20$as$u20$core..clone..Clone$GT$5clone17h57afce9c257ffd7dE.exit.i" ], [ %322, %"_ZN83_$LT$deltalake_core..kernel..models..actions..Add$u20$as$u20$core..clone..Clone$GT$5clone17h289e71edc93e99cdE.exit.i" ], [ %.sroa.057.i.sroa.4.0.copyload, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Protocol$u20$as$u20$core..clone..Clone$GT$5clone17h2f0878b0f92d98cdE.exit.i" ], [ %.sroa.5.0.i.i, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h5a541bb3e8818a0eE.exit.i" ]
@@ -63521,7 +63517,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %636 = phi <2 x i32> [ %79, %"_ZN94_$LT$deltalake_core..kernel..models..actions..DomainMetadata$u20$as$u20$core..clone..Clone$GT$5clone17h8672a8d6a6e8a4b6E.exit.i" ], [ %79, %"_ZN90_$LT$deltalake_core..kernel..models..actions..CommitInfo$u20$as$u20$core..clone..Clone$GT$5clone17h2ae9ad6c257e2265E.exit.i" ], [ %79, %.noexc17 ], [ %516, %"_ZN90_$LT$deltalake_core..kernel..models..actions..AddCDCFile$u20$as$u20$core..clone..Clone$GT$5clone17h96c9e9f053c24de4E.exit.i" ], [ %79, %"_ZN86_$LT$deltalake_core..kernel..models..actions..Remove$u20$as$u20$core..clone..Clone$GT$5clone17h57afce9c257ffd7dE.exit.i" ], [ %79, %"_ZN83_$LT$deltalake_core..kernel..models..actions..Add$u20$as$u20$core..clone..Clone$GT$5clone17h289e71edc93e99cdE.exit.i" ], [ %79, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Protocol$u20$as$u20$core..clone..Clone$GT$5clone17h2f0878b0f92d98cdE.exit.i" ], [ %79, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h5a541bb3e8818a0eE.exit.i" ]
   %637 = phi <2 x i32> [ %80, %"_ZN94_$LT$deltalake_core..kernel..models..actions..DomainMetadata$u20$as$u20$core..clone..Clone$GT$5clone17h8672a8d6a6e8a4b6E.exit.i" ], [ %80, %"_ZN90_$LT$deltalake_core..kernel..models..actions..CommitInfo$u20$as$u20$core..clone..Clone$GT$5clone17h2ae9ad6c257e2265E.exit.i" ], [ %80, %.noexc17 ], [ %80, %"_ZN90_$LT$deltalake_core..kernel..models..actions..AddCDCFile$u20$as$u20$core..clone..Clone$GT$5clone17h96c9e9f053c24de4E.exit.i" ], [ %451, %"_ZN86_$LT$deltalake_core..kernel..models..actions..Remove$u20$as$u20$core..clone..Clone$GT$5clone17h57afce9c257ffd7dE.exit.i" ], [ %80, %"_ZN83_$LT$deltalake_core..kernel..models..actions..Add$u20$as$u20$core..clone..Clone$GT$5clone17h289e71edc93e99cdE.exit.i" ], [ %80, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Protocol$u20$as$u20$core..clone..Clone$GT$5clone17h2f0878b0f92d98cdE.exit.i" ], [ %80, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h5a541bb3e8818a0eE.exit.i" ]
   %638 = phi <2 x i64> [ %633, %"_ZN94_$LT$deltalake_core..kernel..models..actions..DomainMetadata$u20$as$u20$core..clone..Clone$GT$5clone17h8672a8d6a6e8a4b6E.exit.i" ], [ %623, %"_ZN90_$LT$deltalake_core..kernel..models..actions..CommitInfo$u20$as$u20$core..clone..Clone$GT$5clone17h2ae9ad6c257e2265E.exit.i" ], [ %527, %.noexc17 ], [ %517, %"_ZN90_$LT$deltalake_core..kernel..models..actions..AddCDCFile$u20$as$u20$core..clone..Clone$GT$5clone17h96c9e9f053c24de4E.exit.i" ], [ %464, %"_ZN86_$LT$deltalake_core..kernel..models..actions..Remove$u20$as$u20$core..clone..Clone$GT$5clone17h57afce9c257ffd7dE.exit.i" ], [ %361, %"_ZN83_$LT$deltalake_core..kernel..models..actions..Add$u20$as$u20$core..clone..Clone$GT$5clone17h289e71edc93e99cdE.exit.i" ], [ %247, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Protocol$u20$as$u20$core..clone..Clone$GT$5clone17h2f0878b0f92d98cdE.exit.i" ], [ %192, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h5a541bb3e8818a0eE.exit.i" ]
-  %639 = phi <2 x i64> [ %81, %"_ZN94_$LT$deltalake_core..kernel..models..actions..DomainMetadata$u20$as$u20$core..clone..Clone$GT$5clone17h8672a8d6a6e8a4b6E.exit.i" ], [ %620, %"_ZN90_$LT$deltalake_core..kernel..models..actions..CommitInfo$u20$as$u20$core..clone..Clone$GT$5clone17h2ae9ad6c257e2265E.exit.i" ], [ %81, %.noexc17 ], [ %471, %"_ZN90_$LT$deltalake_core..kernel..models..actions..AddCDCFile$u20$as$u20$core..clone..Clone$GT$5clone17h96c9e9f053c24de4E.exit.i" ], [ %460, %"_ZN86_$LT$deltalake_core..kernel..models..actions..Remove$u20$as$u20$core..clone..Clone$GT$5clone17h57afce9c257ffd7dE.exit.i" ], [ %365, %"_ZN83_$LT$deltalake_core..kernel..models..actions..Add$u20$as$u20$core..clone..Clone$GT$5clone17h289e71edc93e99cdE.exit.i" ], [ %246, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Protocol$u20$as$u20$core..clone..Clone$GT$5clone17h2f0878b0f92d98cdE.exit.i" ], [ %194, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h5a541bb3e8818a0eE.exit.i" ]
+  %639 = phi <2 x i64> [ %81, %"_ZN94_$LT$deltalake_core..kernel..models..actions..DomainMetadata$u20$as$u20$core..clone..Clone$GT$5clone17h8672a8d6a6e8a4b6E.exit.i" ], [ %620, %"_ZN90_$LT$deltalake_core..kernel..models..actions..CommitInfo$u20$as$u20$core..clone..Clone$GT$5clone17h2ae9ad6c257e2265E.exit.i" ], [ %81, %.noexc17 ], [ %470, %"_ZN90_$LT$deltalake_core..kernel..models..actions..AddCDCFile$u20$as$u20$core..clone..Clone$GT$5clone17h96c9e9f053c24de4E.exit.i" ], [ %460, %"_ZN86_$LT$deltalake_core..kernel..models..actions..Remove$u20$as$u20$core..clone..Clone$GT$5clone17h57afce9c257ffd7dE.exit.i" ], [ %365, %"_ZN83_$LT$deltalake_core..kernel..models..actions..Add$u20$as$u20$core..clone..Clone$GT$5clone17h289e71edc93e99cdE.exit.i" ], [ %246, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Protocol$u20$as$u20$core..clone..Clone$GT$5clone17h2f0878b0f92d98cdE.exit.i" ], [ %194, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h5a541bb3e8818a0eE.exit.i" ]
   %640 = phi <2 x i64> [ %82, %"_ZN94_$LT$deltalake_core..kernel..models..actions..DomainMetadata$u20$as$u20$core..clone..Clone$GT$5clone17h8672a8d6a6e8a4b6E.exit.i" ], [ %82, %"_ZN90_$LT$deltalake_core..kernel..models..actions..CommitInfo$u20$as$u20$core..clone..Clone$GT$5clone17h2ae9ad6c257e2265E.exit.i" ], [ %82, %.noexc17 ], [ %82, %"_ZN90_$LT$deltalake_core..kernel..models..actions..AddCDCFile$u20$as$u20$core..clone..Clone$GT$5clone17h96c9e9f053c24de4E.exit.i" ], [ %82, %"_ZN86_$LT$deltalake_core..kernel..models..actions..Remove$u20$as$u20$core..clone..Clone$GT$5clone17h57afce9c257ffd7dE.exit.i" ], [ %82, %"_ZN83_$LT$deltalake_core..kernel..models..actions..Add$u20$as$u20$core..clone..Clone$GT$5clone17h289e71edc93e99cdE.exit.i" ], [ %246, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Protocol$u20$as$u20$core..clone..Clone$GT$5clone17h2f0878b0f92d98cdE.exit.i" ], [ %82, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h5a541bb3e8818a0eE.exit.i" ]
   %641 = phi <2 x i64> [ %83, %"_ZN94_$LT$deltalake_core..kernel..models..actions..DomainMetadata$u20$as$u20$core..clone..Clone$GT$5clone17h8672a8d6a6e8a4b6E.exit.i" ], [ %619, %"_ZN90_$LT$deltalake_core..kernel..models..actions..CommitInfo$u20$as$u20$core..clone..Clone$GT$5clone17h2ae9ad6c257e2265E.exit.i" ], [ %83, %.noexc17 ], [ %83, %"_ZN90_$LT$deltalake_core..kernel..models..actions..AddCDCFile$u20$as$u20$core..clone..Clone$GT$5clone17h96c9e9f053c24de4E.exit.i" ], [ %461, %"_ZN86_$LT$deltalake_core..kernel..models..actions..Remove$u20$as$u20$core..clone..Clone$GT$5clone17h57afce9c257ffd7dE.exit.i" ], [ %367, %"_ZN83_$LT$deltalake_core..kernel..models..actions..Add$u20$as$u20$core..clone..Clone$GT$5clone17h289e71edc93e99cdE.exit.i" ], [ %83, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Protocol$u20$as$u20$core..clone..Clone$GT$5clone17h2f0878b0f92d98cdE.exit.i" ], [ %196, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h5a541bb3e8818a0eE.exit.i" ]
   %642 = phi <2 x i64> [ %84, %"_ZN94_$LT$deltalake_core..kernel..models..actions..DomainMetadata$u20$as$u20$core..clone..Clone$GT$5clone17h8672a8d6a6e8a4b6E.exit.i" ], [ %597, %"_ZN90_$LT$deltalake_core..kernel..models..actions..CommitInfo$u20$as$u20$core..clone..Clone$GT$5clone17h2ae9ad6c257e2265E.exit.i" ], [ %84, %.noexc17 ], [ %84, %"_ZN90_$LT$deltalake_core..kernel..models..actions..AddCDCFile$u20$as$u20$core..clone..Clone$GT$5clone17h96c9e9f053c24de4E.exit.i" ], [ %462, %"_ZN86_$LT$deltalake_core..kernel..models..actions..Remove$u20$as$u20$core..clone..Clone$GT$5clone17h57afce9c257ffd7dE.exit.i" ], [ %369, %"_ZN83_$LT$deltalake_core..kernel..models..actions..Add$u20$as$u20$core..clone..Clone$GT$5clone17h289e71edc93e99cdE.exit.i" ], [ %84, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Protocol$u20$as$u20$core..clone..Clone$GT$5clone17h2f0878b0f92d98cdE.exit.i" ], [ %193, %"_ZN88_$LT$deltalake_core..kernel..models..actions..Metadata$u20$as$u20$core..clone..Clone$GT$5clone17h5a541bb3e8818a0eE.exit.i" ]
@@ -152894,23 +152890,23 @@ attributes #30 = { "function-inline-cost-multiplier"="2" }
 !15862 = !{!15863}
 !15863 = distinct !{!15863, !15864, !"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9d116978fc9446b2E: argument 1"}
 !15864 = distinct !{!15864, !"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9d116978fc9446b2E"}
-!15865 = !{!15866, !15863, !15858, !15636}
-!15866 = distinct !{!15866, !15867, !"_ZN69_$LT$std..hash..random..RandomState$u20$as$u20$core..clone..Clone$GT$5clone17h16facb62d40b7389E.llvm.18123795597341512700: argument 0"}
-!15867 = distinct !{!15867, !"_ZN69_$LT$std..hash..random..RandomState$u20$as$u20$core..clone..Clone$GT$5clone17h16facb62d40b7389E.llvm.18123795597341512700"}
-!15868 = !{!15869, !15861, !15639}
-!15869 = distinct !{!15869, !15864, !"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9d116978fc9446b2E: argument 0"}
-!15870 = !{!15858, !15636}
-!15871 = !{!15861, !15639}
+!15865 = !{!15858, !15636}
+!15866 = !{!15861, !15639}
+!15867 = !{!15868, !15863, !15858, !15636}
+!15868 = distinct !{!15868, !15869, !"_ZN69_$LT$std..hash..random..RandomState$u20$as$u20$core..clone..Clone$GT$5clone17h16facb62d40b7389E.llvm.18123795597341512700: argument 0"}
+!15869 = distinct !{!15869, !"_ZN69_$LT$std..hash..random..RandomState$u20$as$u20$core..clone..Clone$GT$5clone17h16facb62d40b7389E.llvm.18123795597341512700"}
+!15870 = !{!15871, !15861, !15639}
+!15871 = distinct !{!15871, !15864, !"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9d116978fc9446b2E: argument 0"}
 !15872 = !{!15873}
 !15873 = distinct !{!15873, !15874, !"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3a52f1b2d3f1c785E: argument 1"}
 !15874 = distinct !{!15874, !"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3a52f1b2d3f1c785E"}
-!15875 = !{!15869, !15863, !15861, !15858, !15639, !15636}
+!15875 = !{!15871, !15863, !15861, !15858, !15639, !15636}
 !15876 = !{!15873, !15863, !15858, !15636}
-!15877 = !{!15878, !15869, !15861, !15639}
+!15877 = !{!15878, !15871, !15861, !15639}
 !15878 = distinct !{!15878, !15874, !"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3a52f1b2d3f1c785E: argument 0"}
-!15879 = !{!15878, !15873, !15869, !15863, !15861, !15858, !15639, !15636}
+!15879 = !{!15878, !15873, !15871, !15863, !15861, !15858, !15639, !15636}
 !15880 = !{!15861}
-!15881 = !{!15878, !15869, !15861}
+!15881 = !{!15878, !15871, !15861}
 !15882 = !{!15883}
 !15883 = distinct !{!15883, !15884, !"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9d116978fc9446b2E: argument 1"}
 !15884 = distinct !{!15884, !"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9d116978fc9446b2E"}

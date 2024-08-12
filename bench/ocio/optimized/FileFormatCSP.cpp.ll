@@ -4030,10 +4030,10 @@ entry:
   %shaperInImg = alloca %"class.OpenColorIO_v2_4dev::PackedImageDesc", align 8
   %shaperToTarget = alloca %"class.std::shared_ptr.67", align 8
   %inputColorSpace = alloca %"class.std::shared_ptr.70", align 8
-  %allocationTransform = alloca %"class.std::shared_ptr.73", align 8
+  %allocationTransform = alloca %"class.std::shared_ptr.73", align 16
   %shaperToInput109 = alloca %"class.std::shared_ptr.67", align 8
   %ref.tmp110 = alloca %"class.std::shared_ptr.76", align 8
-  %ref.tmp112 = alloca %"class.std::shared_ptr.79", align 8
+  %ref.tmp112 = alloca %"class.std::shared_ptr.79", align 16
   %shaperInImg120 = alloca %"class.OpenColorIO_v2_4dev::PackedImageDesc", align 8
   %inputToTarget = alloca %"class.std::shared_ptr.67", align 8
   call void @_ZNK19OpenColorIO_v2_4dev5Baker9getConfigEv(ptr nonnull sret(%"class.std::shared_ptr.64") align 8 %config, ptr noundef nonnull align 8 dereferenceable(8) %baker)
@@ -4359,7 +4359,7 @@ invoke.cont55:                                    ; preds = %invoke.cont53
           to label %invoke.cont57 unwind label %lpad56
 
 invoke.cont57:                                    ; preds = %invoke.cont55
-  %33 = load ptr, ptr %allocationTransform, align 8
+  %33 = load ptr, ptr %allocationTransform, align 16
   %34 = load ptr, ptr %inputColorSpace, align 8
   %call60 = call noundef i32 @_ZNK19OpenColorIO_v2_4dev10ColorSpace13getAllocationEv(ptr noundef nonnull align 8 dereferenceable(8) %34) #26
   invoke void @_ZN19OpenColorIO_v2_4dev19AllocationTransform13setAllocationENS_10AllocationE(ptr noundef nonnull align 8 dereferenceable(16) %33, i32 noundef %call60)
@@ -4397,7 +4397,7 @@ invoke.cont71:                                    ; preds = %if.end.i.i.i.i.i.i.
           to label %invoke.cont76 unwind label %_ZNSt6vectorIfSaIfEED2Ev.exit145
 
 invoke.cont76:                                    ; preds = %invoke.cont71
-  %38 = load ptr, ptr %allocationTransform, align 8
+  %38 = load ptr, ptr %allocationTransform, align 16
   invoke void @_ZN19OpenColorIO_v2_4dev19AllocationTransform7setVarsEiPKf(ptr noundef nonnull align 8 dereferenceable(16) %38, i32 noundef %call65, ptr noundef nonnull %call5.i.i.i.i2.i.i139)
           to label %_ZNSt6vectorIfSaIfEED2Ev.exit unwind label %_ZNSt6vectorIfSaIfEED2Ev.exit145
 
@@ -4429,7 +4429,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit145:                 ; preds = %invoke.cont76, %inv
   br label %ehcleanup137
 
 if.else81:                                        ; preds = %invoke.cont64
-  %43 = load ptr, ptr %allocationTransform, align 8
+  %43 = load ptr, ptr %allocationTransform, align 16
   invoke void @_ZN19OpenColorIO_v2_4dev19AllocationTransform7setVarsEiPKf(ptr noundef nonnull align 8 dereferenceable(16) %43, i32 noundef 0, ptr noundef null)
           to label %if.end84 unwind label %lpad61
 
@@ -4474,17 +4474,16 @@ invoke.cont106:                                   ; preds = %invoke.cont104
 
 invoke.cont108:                                   ; preds = %invoke.cont106
   %47 = load ptr, ptr %config, align 8
-  %48 = load ptr, ptr %allocationTransform, align 8
-  store ptr %48, ptr %ref.tmp112, align 8
   %_M_refcount.i.i182 = getelementptr inbounds i8, ptr %ref.tmp112, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %allocationTransform, i64 8
-  %49 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %49, ptr %_M_refcount.i.i182, align 8
-  %cmp.not.i.i.i183 = icmp eq ptr %49, null
+  %48 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %49 = load <2 x ptr>, ptr %allocationTransform, align 16
+  store <2 x ptr> %49, ptr %ref.tmp112, align 16
+  %cmp.not.i.i.i183 = icmp eq ptr %48, null
   br i1 %cmp.not.i.i.i183, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEEC2INS0_19AllocationTransformEvEERKS_IT_E.exit, label %if.then.i.i.i184
 
 if.then.i.i.i184:                                 ; preds = %invoke.cont108
-  %_M_use_count.i.i.i.i185 = getelementptr inbounds i8, ptr %49, i64 8
+  %_M_use_count.i.i.i.i185 = getelementptr inbounds i8, ptr %48, i64 8
   %50 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %50, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i188, label %if.then.i.i.i.i.i186

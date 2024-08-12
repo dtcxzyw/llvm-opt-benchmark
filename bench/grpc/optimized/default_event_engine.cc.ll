@@ -1065,17 +1065,15 @@ define linkonce_odr void @_ZNK9grpc_core11ChannelArgs3SetIN17grpc_event_engine12
 entry:
   %agg.tmp2 = alloca %"class.grpc_core::ChannelArgs::Pointer", align 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
-  %0 = load ptr, ptr %value, align 8
-  store ptr %0, ptr %call, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %value, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %value, align 8
+  store <2 x ptr> %1, ptr %call, align 8
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -1144,17 +1142,15 @@ declare void @_ZN9grpc_core11ChannelArgs7PointerC1EPvPK23grpc_arg_pointer_vtable
 define linkonce_odr noundef ptr @_ZZN9grpc_core20ChannelArgTypeTraitsISt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEvE6VTableEvENUlPvE_8__invokeES7_(ptr noundef %p) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
-  %0 = load ptr, ptr %p, align 8
-  store ptr %0, ptr %call.i, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %p, align 8
+  store <2 x ptr> %1, ptr %call.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZZN9grpc_core20ChannelArgTypeTraitsISt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEvE6VTableEvENKUlPvE_clES7_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

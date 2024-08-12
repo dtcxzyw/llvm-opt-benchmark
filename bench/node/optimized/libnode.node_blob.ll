@@ -455,7 +455,7 @@ entry:
   %ref.tmp52 = alloca %"class.std::unique_ptr.349", align 8
   %ref.tmp68 = alloca %"class.std::unique_ptr.349", align 8
   %ref.tmp101 = alloca %"class.std::unique_ptr.349", align 8
-  %agg.tmp102 = alloca %"class.std::shared_ptr.333", align 8
+  %agg.tmp102 = alloca %"class.std::shared_ptr.333", align 16
   %blob112 = alloca %"class.node::BaseObjectPtrImpl.331", align 8
   %agg.tmp113 = alloca %"class.std::shared_ptr.333", align 8
   %agg.tmp114 = alloca %"class.std::vector.341", align 8
@@ -692,16 +692,15 @@ _ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit: ; preds = %if.
 
 do.end100:                                        ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
   %data_queue_ = getelementptr inbounds i8, ptr %retval.i15.0.i, i64 32
-  %43 = load ptr, ptr %data_queue_, align 8
-  store ptr %43, ptr %agg.tmp102, align 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %retval.i15.0.i, i64 40
-  %44 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %44, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %44, null
+  %43 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %44 = load <2 x ptr>, ptr %data_queue_, align 8
+  store <2 x ptr> %44, ptr %agg.tmp102, align 16
+  %cmp.not.i.i.i = icmp eq ptr %43, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node9DataQueueEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.end100
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %44, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 8
   %45 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %45, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -3992,28 +3991,27 @@ declare noundef zeroext i1 @_ZNK2v85Value13IsArrayBufferEv(ptr noundef nonnull a
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZZN4node4Blob3NewERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clENS1_5LocalINS1_11ArrayBufferEEEmm"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nonnull %buf.coerce, i64 noundef %byte_length, i64 noundef %byte_offset) unnamed_addr #3 align 2 {
 entry:
-  %store = alloca %"class.std::shared_ptr.451", align 8
-  %agg.tmp11 = alloca %"class.std::shared_ptr.451", align 8
-  %store12 = alloca %"class.std::shared_ptr.451", align 8
+  %store = alloca %"class.std::shared_ptr.451", align 16
+  %agg.tmp11 = alloca %"class.std::shared_ptr.451", align 16
+  %store12 = alloca %"class.std::shared_ptr.451", align 16
   %ref.tmp13 = alloca %"class.std::unique_ptr.454", align 8
-  %agg.tmp21 = alloca %"class.std::shared_ptr.451", align 8
+  %agg.tmp21 = alloca %"class.std::shared_ptr.451", align 16
   %call4 = tail call noundef zeroext i1 @_ZNK2v811ArrayBuffer12IsDetachableEv(ptr noundef nonnull align 1 dereferenceable(1) %buf.coerce) #22
   br i1 %call4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   call void @_ZN2v811ArrayBuffer15GetBackingStoreEv(ptr nonnull sret(%"class.std::shared_ptr.451") align 8 %store, ptr noundef nonnull align 1 dereferenceable(1) %buf.coerce) #22
   %call10 = call i16 @_ZN2v811ArrayBuffer6DetachENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %buf.coerce, ptr null) #22
-  %0 = load ptr, ptr %store, align 8
-  store ptr %0, ptr %agg.tmp11, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp11, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %store, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %store, align 16
+  store <2 x ptr> %1, ptr %agg.tmp11, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -4176,7 +4174,7 @@ _ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i: ; preds = %if.end
 _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.end, %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i
   store ptr null, ptr %ref.tmp13, align 8
   %call16 = call noundef ptr @_ZNK2v811ArrayBuffer4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %buf.coerce) #22
-  %28 = load ptr, ptr %store12, align 8
+  %28 = load ptr, ptr %store12, align 16
   %call19 = call noundef ptr @_ZNK2v812BackingStore4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %28) #22
   %tobool.not.i.i.i.i.i = icmp eq i64 %byte_length, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit, label %if.then.i.i.i.i.i48
@@ -4187,17 +4185,16 @@ if.then.i.i.i.i.i48:                              ; preds = %_ZNSt10unique_ptrIN
   br label %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyIPhS0_ET0_T_S2_S1_.exit:                 ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit, %if.then.i.i.i.i.i48
-  %29 = load ptr, ptr %store12, align 8
-  store ptr %29, ptr %agg.tmp21, align 8
   %_M_refcount.i.i49 = getelementptr inbounds i8, ptr %agg.tmp21, i64 8
   %_M_refcount3.i.i50 = getelementptr inbounds i8, ptr %store12, i64 8
-  %30 = load ptr, ptr %_M_refcount3.i.i50, align 8
-  store ptr %30, ptr %_M_refcount.i.i49, align 8
-  %cmp.not.i.i.i51 = icmp eq ptr %30, null
+  %29 = load ptr, ptr %_M_refcount3.i.i50, align 8
+  %30 = load <2 x ptr>, ptr %store12, align 16
+  store <2 x ptr> %30, ptr %agg.tmp21, align 16
+  %cmp.not.i.i.i51 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i.i51, label %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit58, label %if.then.i.i.i52
 
 if.then.i.i.i52:                                  ; preds = %_ZSt4copyIPhS0_ET0_T_S2_S1_.exit
-  %_M_use_count.i.i.i.i53 = getelementptr inbounds i8, ptr %30, i64 8
+  %_M_use_count.i.i.i.i53 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i54 = icmp eq i8 %31, 0
   br i1 %tobool.i.not.i.i.i.i54, label %if.else.i.i.i.i.i57, label %if.then.i.i.i.i.i55
@@ -4990,7 +4987,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 define dso_local void @_ZN4node4Blob16BlobTransferData11DeserializeEPNS_11EnvironmentEN2v85LocalINS4_7ContextEEESt10unique_ptrINS_6worker12TransferDataESt14default_deleteISA_EE(ptr noalias nocapture writeonly sret(%"class.node::BaseObjectPtrImpl.402") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %env, ptr readonly %context.coerce, ptr nocapture readnone %self) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp8 = alloca %"class.node::BaseObjectPtrImpl.331", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.333", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.333", align 16
   %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728
   %0 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
@@ -5023,17 +5020,16 @@ if.then:                                          ; preds = %if.then.i, %if.end.
 
 if.end:                                           ; preds = %if.then.i, %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
   %data_queue = getelementptr inbounds i8, ptr %this, i64 8
-  %5 = load ptr, ptr %data_queue, align 8
-  store ptr %5, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %6, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %6 = load <2 x ptr>, ptr %data_queue, align 8
+  store <2 x ptr> %6, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node9DataQueueEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -9060,10 +9056,10 @@ define internal void @"_ZNSt17_Function_handlerIFviPKN4node9DataQueue3VecEmSt8fu
 entry:
   %__args.addr.i.i.i.i = alloca i64, align 8
   %handleScope.i.i.i = alloca %"class.v8::HandleScope", align 8
-  %store.i.i.i = alloca %"class.std::shared_ptr.451", align 8
+  %store.i.i.i = alloca %"class.std::shared_ptr.451", align 16
   %ref.tmp.i.i.i = alloca %"class.std::unique_ptr.454", align 8
   %argv.i.i.i = alloca [2 x %"class.v8::Local.27"], align 16
-  %agg.tmp40.i.i.i = alloca %"class.std::shared_ptr.451", align 8
+  %agg.tmp40.i.i.i = alloca %"class.std::shared_ptr.451", align 16
   %argv61.i.i.i = alloca [2 x %"class.v8::Local.27"], align 16
   %agg.tmp.i.i = alloca %"class.std::function.522", align 8
   %__args.val = load i32, ptr %__args, align 4
@@ -9153,7 +9149,7 @@ _ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i.i.i.i: ; preds = %for.
 
 _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i.i.i.i, %for.end.i.i.i
   store ptr null, ptr %ref.tmp.i.i.i, align 8
-  %14 = load ptr, ptr %store.i.i.i, align 8
+  %14 = load ptr, ptr %store.i.i.i, align 16
   %call13.i.i.i = call noundef ptr @_ZNK2v812BackingStore4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %14) #22
   br label %for.body17.i.i.i
 
@@ -9200,17 +9196,16 @@ _ZNKSt8functionIFvmEEclEm.exit.i.i.i:             ; preds = %for.end29.i.i.i
   store ptr %call31.i.i.i, ptr %argv.i.i.i, align 16
   %arrayinit.element.i.i.i = getelementptr inbounds i8, ptr %argv.i.i.i, i64 8
   %21 = load ptr, ptr %isolate_.i.i.i.i, align 8
-  %22 = load ptr, ptr %store.i.i.i, align 8
-  store ptr %22, ptr %agg.tmp40.i.i.i, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp40.i.i.i, i64 8
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %store.i.i.i, i64 8
-  %23 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
-  store ptr %23, ptr %_M_refcount.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %23, null
+  %22 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
+  %23 = load <2 x ptr>, ptr %store.i.i.i, align 16
+  store <2 x ptr> %23, ptr %agg.tmp40.i.i.i, align 16
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt8functionIFvmEEclEm.exit.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %24, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i32.i.i.i

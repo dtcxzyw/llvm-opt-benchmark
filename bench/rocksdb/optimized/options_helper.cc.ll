@@ -14366,14 +14366,15 @@ if.then11:                                        ; preds = %if.else
   %registry.i = getelementptr inbounds i8, ptr %copy, i64 64
   %registry5.i = getelementptr inbounds i8, ptr %config_options, i64 64
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %copy, i64 72
-  %5 = load <2 x ptr>, ptr %registry5.i, align 8
-  store <2 x ptr> %5, ptr %registry.i, align 8
-  %6 = extractelement <2 x ptr> %5, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %6, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %config_options, i64 72
+  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %6 = load <2 x ptr>, ptr %registry5.i, align 8
+  store <2 x ptr> %6, ptr %registry.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont12, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -16897,14 +16898,15 @@ if.then:                                          ; preds = %invoke.cont
   %registry.i = getelementptr inbounds i8, ptr %embedded, i64 64
   %registry5.i = getelementptr inbounds i8, ptr %config_options, i64 64
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %embedded, i64 72
-  %0 = load <2 x ptr>, ptr %registry5.i, align 8
-  store <2 x ptr> %0, ptr %registry.i, align 8
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %config_options, i64 72
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %registry5.i, align 8
+  store <2 x ptr> %1, ptr %registry.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont1, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

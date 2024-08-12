@@ -318,9 +318,9 @@ define void @_ZN2cv14findHomographyERKNS_11_InputArrayES2_idRKNS_12_OutputArrayE
   %17 = alloca %"class.cv::Mat", align 8
   %18 = alloca %"class.cv::Mat", align 8
   %19 = alloca %"class.cv::Mat", align 8
-  %20 = alloca %"struct.cv::Ptr.50", align 8
-  %21 = alloca %"struct.cv::Ptr.50", align 8
-  %22 = alloca %"struct.cv::Ptr.50", align 8
+  %20 = alloca %"struct.cv::Ptr.50", align 16
+  %21 = alloca %"struct.cv::Ptr.50", align 16
+  %22 = alloca %"struct.cv::Ptr.50", align 16
   %23 = alloca %"class.cv::utils::trace::details::Region", align 8
   %24 = alloca %"class.cv::Mat", align 8
   %25 = alloca %"class.cv::Mat", align 8
@@ -1029,17 +1029,16 @@ _ZNK2cv11_InputArray6getMatEi.exit31.i:           ; preds = %326, %324
           to label %331 unwind label %447
 
 331:                                              ; preds = %330
-  %332 = load ptr, ptr %20, align 8
-  store ptr %332, ptr %21, align 8
-  %333 = getelementptr inbounds i8, ptr %21, i64 8
-  %334 = getelementptr inbounds i8, ptr %20, i64 8
-  %335 = load ptr, ptr %334, align 8
-  store ptr %335, ptr %333, align 8
-  %.not.i.i.i.i.i178 = icmp eq ptr %335, null
+  %332 = getelementptr inbounds i8, ptr %21, i64 8
+  %333 = getelementptr inbounds i8, ptr %20, i64 8
+  %334 = load ptr, ptr %333, align 8
+  %335 = load <2 x ptr>, ptr %20, align 16
+  store <2 x ptr> %335, ptr %21, align 16
+  %.not.i.i.i.i.i178 = icmp eq ptr %334, null
   br i1 %.not.i.i.i.i.i178, label %_ZN2cv3PtrINS_8RHO_HESTEEC2ERKS2_.exit.i, label %336
 
 336:                                              ; preds = %331
-  %337 = getelementptr inbounds i8, ptr %335, i64 8
+  %337 = getelementptr inbounds i8, ptr %334, i64 8
   %338 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %338, 0
   br i1 %.not.i.i.i.i.i.i, label %342, label %339
@@ -1059,7 +1058,7 @@ _ZN2cv3PtrINS_8RHO_HESTEEC2ERKS2_.exit.i:         ; preds = %342, %339, %331
           to label %345 unwind label %451
 
 345:                                              ; preds = %_ZN2cv3PtrINS_8RHO_HESTEEC2ERKS2_.exit.i
-  %346 = load ptr, ptr %333, align 8
+  %346 = load ptr, ptr %332, align 8
   %.not.i.i.i.i32.i = icmp eq ptr %346, null
   br i1 %.not.i.i.i.i32.i, label %_ZN2cv3PtrINS_8RHO_HESTEED2Ev.exit.i, label %347
 
@@ -1132,16 +1131,15 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_8RHO_HESTEED2Ev.exit.i
 
 _ZN2cv3PtrINS_8RHO_HESTEED2Ev.exit.i:             ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %376, %363, %345
-  %381 = load ptr, ptr %20, align 8
-  store ptr %381, ptr %22, align 8
-  %382 = getelementptr inbounds i8, ptr %22, i64 8
-  %383 = load ptr, ptr %334, align 8
-  store ptr %383, ptr %382, align 8
-  %.not.i.i.i.i34.i = icmp eq ptr %383, null
+  %381 = getelementptr inbounds i8, ptr %22, i64 8
+  %382 = load ptr, ptr %333, align 8
+  %383 = load <2 x ptr>, ptr %20, align 16
+  store <2 x ptr> %383, ptr %22, align 16
+  %.not.i.i.i.i34.i = icmp eq ptr %382, null
   br i1 %.not.i.i.i.i34.i, label %_ZN2cv3PtrINS_8RHO_HESTEEC2ERKS2_.exit36.i, label %384
 
 384:                                              ; preds = %_ZN2cv3PtrINS_8RHO_HESTEED2Ev.exit.i
-  %385 = getelementptr inbounds i8, ptr %383, i64 8
+  %385 = getelementptr inbounds i8, ptr %382, i64 8
   %386 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i35.i = icmp eq i8 %386, 0
   br i1 %.not.i.i.i.i.i35.i, label %390, label %387
@@ -1170,7 +1168,7 @@ _ZN2cv3PtrINS_8RHO_HESTEEC2ERKS2_.exit36.i:       ; preds = %390, %387, %_ZN2cv3
           to label %402 unwind label %453
 
 402:                                              ; preds = %_ZN2cv3PtrINS_8RHO_HESTEEC2ERKS2_.exit36.i
-  %403 = load ptr, ptr %382, align 8
+  %403 = load ptr, ptr %381, align 8
   %.not.i.i.i.i37.i = icmp eq ptr %403, null
   br i1 %.not.i.i.i.i37.i, label %_ZN2cv3PtrINS_8RHO_HESTEED2Ev.exit43.i, label %404
 
@@ -1305,7 +1303,7 @@ _ZN2cv3PtrINS_8RHO_HESTEED2Ev.exit43.i:           ; preds = %_ZNSt16_Sp_counted_
           to label %457 unwind label %455
 
 457:                                              ; preds = %._crit_edge.i
-  %458 = load ptr, ptr %334, align 8
+  %458 = load ptr, ptr %333, align 8
   %.not.i.i.i.i44.i = icmp eq ptr %458, null
   br i1 %.not.i.i.i.i44.i, label %497, label %459
 
@@ -3137,11 +3135,11 @@ define void @_ZN2cv14findHomographyERKNS_11_InputArrayES2_RKNS_12_OutputArrayEid
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv14findHomographyERKNS_11_InputArrayES2_RKNS_12_OutputArrayERKNS_10UsacParamsE(ptr dead_on_unwind noalias writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(64) %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %6 = alloca %"struct.cv::Ptr.20", align 8
+  %6 = alloca %"struct.cv::Ptr.20", align 16
   %7 = alloca %"struct.cv::Ptr.24", align 8
-  %8 = alloca %"struct.cv::Ptr.28", align 8
+  %8 = alloca %"struct.cv::Ptr.28", align 16
   %9 = alloca %"class.cv::MatExpr", align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %10 = invoke noundef zeroext i1 @_ZNK2cv12_OutputArray6neededEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %11 unwind label %108
 
@@ -3151,17 +3149,16 @@ define void @_ZN2cv14findHomographyERKNS_11_InputArrayES2_RKNS_12_OutputArrayERK
 
 12:                                               ; preds = %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %13 = load ptr, ptr %6, align 8
-  store ptr %13, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %14, align 8
-  %.not.i.i.i.i = icmp eq ptr %16, null
+  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = load <2 x ptr>, ptr %6, align 16
+  store <2 x ptr> %16, ptr %8, align 16
+  %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrIKNS_4usac5ModelEEC2IS2_EERKNS0_IT_EE.exit, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds i8, ptr %15, i64 8
   %19 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %19, 0
   br i1 %.not.i.i.i.i.i, label %23, label %20
@@ -3197,7 +3194,7 @@ _ZN2cv3PtrIKNS_4usac5ModelEEC2IS2_EERKNS0_IT_EE.exit: ; preds = %12, %20, %23
           to label %34 unwind label %110
 
 34:                                               ; preds = %32
-  %35 = load ptr, ptr %14, align 8
+  %35 = load ptr, ptr %13, align 8
   %.not.i.i.i.i10 = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i10, label %_ZN2cv3PtrIKNS_4usac5ModelEED2Ev.exit, label %36
 
@@ -3433,7 +3430,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_4usac12RansacOutputEED2Ev.exit
 
 _ZN2cv3PtrINS_4usac12RansacOutputEED2Ev.exit:     ; preds = %115, %134, %147, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i17
-  %152 = load ptr, ptr %15, align 8
+  %152 = load ptr, ptr %14, align 8
   %.not.i.i.i.i18 = icmp eq ptr %152, null
   br i1 %.not.i.i.i.i18, label %_ZN2cv3PtrINS_4usac5ModelEED2Ev.exit, label %153
 
@@ -8614,10 +8611,10 @@ _ZNK2cv11_InputArray6getMatEi.exit19:             ; preds = %79, %82
   %260 = load double, ptr %259, align 8
   %261 = getelementptr inbounds i8, ptr %45, i64 16
   %262 = fneg double %233
-  %263 = insertelement <2 x double> poison, double %251, i64 0
-  %264 = insertelement <2 x double> %263, double %244, i64 1
-  %265 = fneg <2 x double> %264
-  %266 = extractelement <2 x double> %265, i64 1
+  %263 = fneg double %244
+  %264 = insertelement <2 x double> poison, double %251, i64 0
+  %265 = insertelement <2 x double> %264, double %244, i64 1
+  %266 = fneg <2 x double> %265
   %267 = insertelement <2 x double> poison, double %253, i64 0
   %268 = insertelement <2 x double> %267, double %246, i64 1
   %269 = fneg <2 x double> %268
@@ -8657,7 +8654,7 @@ _ZNK2cv11_InputArray6getMatEi.exit19:             ; preds = %79, %82
   %303 = insertelement <2 x double> %298, double %233, i64 1
   %304 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %272, <2 x double> %303, <2 x double> %302)
   %305 = fneg double %278
-  %306 = fmul double %279, %266
+  %306 = fmul double %279, %263
   %307 = extractelement <2 x double> %300, i64 1
   %308 = call double @llvm.fmuladd.f64(double %242, double %307, double %306)
   %309 = extractelement <2 x double> %304, i64 1
@@ -8681,14 +8678,14 @@ _ZNK2cv11_InputArray6getMatEi.exit19:             ; preds = %79, %82
   %326 = insertelement <2 x double> poison, double %257, i64 0
   %327 = insertelement <2 x double> %326, double %248, i64 1
   %328 = fmul <2 x double> %327, %269
-  %329 = insertelement <2 x double> %263, double %242, i64 1
+  %329 = insertelement <2 x double> %264, double %242, i64 1
   %330 = insertelement <2 x double> %320, double %253, i64 1
   %331 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %329, <2 x double> %330, <2 x double> %328)
   %332 = extractelement <2 x double> %331, i64 0
   %333 = call double @llvm.fmuladd.f64(double %237, double %332, double %325)
   %334 = insertelement <2 x double> poison, double %255, i64 0
   %335 = insertelement <2 x double> %334, double %248, i64 1
-  %336 = fmul <2 x double> %335, %265
+  %336 = fmul <2 x double> %335, %266
   %337 = insertelement <2 x double> poison, double %248, i64 0
   %338 = insertelement <2 x double> %337, double %242, i64 1
   %339 = insertelement <2 x double> %326, double %251, i64 1
@@ -8702,13 +8699,13 @@ _ZNK2cv11_InputArray6getMatEi.exit19:             ; preds = %79, %82
   %347 = fmul double %255, %343
   %348 = call double @llvm.fmuladd.f64(double %242, double %260, double %347)
   %349 = call double @llvm.fmuladd.f64(double %291, double %348, double %346)
-  %350 = fmul double %255, %266
+  %350 = fmul double %255, %263
   %351 = call double @llvm.fmuladd.f64(double %242, double %257, double %350)
   %352 = call double @llvm.fmuladd.f64(double %276, double %351, double %349)
   %353 = fmul double %251, %343
   %354 = call double @llvm.fmuladd.f64(double %244, double %253, double %353)
   %355 = call double @llvm.fmuladd.f64(double %236, double %354, double %352)
-  %356 = fmul double %324, %266
+  %356 = fmul double %324, %263
   %357 = insertelement <2 x double> poison, double %242, i64 0
   %358 = insertelement <2 x double> %357, double %262, i64 1
   %359 = insertelement <2 x double> poison, double %356, i64 0

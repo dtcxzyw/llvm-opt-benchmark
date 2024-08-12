@@ -4732,7 +4732,7 @@ entry:
 _ZNK6vectorIN3sat7literalELb0EjE8capacityEv.exit.i.i.i: ; preds = %entry
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   %3 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
-  %4 = extractelement <2 x i32> %3, i64 0
+  %4 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %4 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 2
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 8
@@ -4773,7 +4773,7 @@ _ZN7svectorIN3sat7literalEjEC2ERKS2_.exit:        ; preds = %for.body.i.i.i.i.i.
 _ZNK6vectorIN3sat7literalELb0EjE8capacityEv.exit.i.i.i6: ; preds = %_ZN7svectorIN3sat7literalEjEC2ERKS2_.exit
   %arrayidx.i11.i.i.i8 = getelementptr inbounds i8, ptr %9, i64 -8
   %10 = load <2 x i32>, ptr %arrayidx.i11.i.i.i8, align 4
-  %11 = extractelement <2 x i32> %10, i64 0
+  %11 = load i32, ptr %arrayidx.i11.i.i.i8, align 4
   %conv.i.i.i9 = zext i32 %11 to i64
   %mul.i.i.i10 = shl nuw nsw i64 %conv.i.i.i9, 2
   %add.i.i.i11 = add nuw nsw i64 %mul.i.i.i10, 8

@@ -1026,16 +1026,15 @@ invoke.cont:                                      ; preds = %if.then.i.i.i26.i, 
   call void @llvm.memset.p0.i64(ptr align 1 %31, i8 0, i64 %sub.ptr.sub.i.i.i18, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3.i13, ptr noundef nonnull readonly align 8 dereferenceable(16) %colors, i64 16, i1 false)
   %data.i8.i19 = getelementptr inbounds i8, ptr %agg.tmp3.i13, i64 16
-  %33 = load ptr, ptr %data.i.i, align 8
-  store ptr %33, ptr %data.i8.i19, align 8
   %_M_refcount.i.i.i.i20 = getelementptr inbounds i8, ptr %agg.tmp3.i13, i64 24
-  %34 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
-  store ptr %34, ptr %_M_refcount.i.i.i.i20, align 8
-  %cmp.not.i.i.i.i.i22 = icmp eq ptr %34, null
+  %33 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
+  %34 = load <2 x ptr>, ptr %data.i.i, align 8
+  store <2 x ptr> %34, ptr %data.i8.i19, align 8
+  %cmp.not.i.i.i.i.i22 = icmp eq ptr %33, null
   br i1 %cmp.not.i.i.i.i.i22, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit.i28, label %if.then.i.i.i.i.i23
 
 if.then.i.i.i.i.i23:                              ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %34, i64 8
+  %_M_use_count.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i25 = icmp eq i8 %35, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i25, label %if.else.i.i.i.i.i.i.i147, label %if.then.i.i.i.i.i.i.i26
@@ -6519,17 +6518,16 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %color, i64 16, i1 false)
   %data.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 16
   %data3.i = getelementptr inbounds i8, ptr %color, i64 16
-  %0 = load ptr, ptr %data3.i, align 8
-  store ptr %0, ptr %data.i, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %color, i64 24
-  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %data3.i, align 8
+  store <2 x ptr> %1, ptr %data.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -7211,17 +7209,16 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %color, i64 16, i1 false)
   %data.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 16
   %data3.i = getelementptr inbounds i8, ptr %color, i64 16
-  %0 = load ptr, ptr %data3.i, align 8
-  store ptr %0, ptr %data.i, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %color, i64 24
-  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %data3.i, align 8
+  store <2 x ptr> %1, ptr %data.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE8prop_mapIRKmS3_EEEC2ERKSA_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

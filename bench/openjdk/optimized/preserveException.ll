@@ -82,46 +82,44 @@ define hidden void @_ZN21PreserveExceptionMarkD2Ev(ptr nocapture noundef nonnull
   %9 = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 32
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 40
-  %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %16
+  %12 = load <2 x ptr>, ptr %11, align 8
+  %13 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i = icmp eq ptr %13, null
+  br i1 %.not.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %14
 
-16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %8, i64 8
-  %18 = load i64, ptr %17, align 8
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %18) #2
+14:                                               ; preds = %5
+  %15 = load ptr, ptr %11, align 8
+  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %17 = load i64, ptr %16, align 8
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %17) #2
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %10) #2
   %.pre = load ptr, ptr %11, align 8
-  %.not8.i.i.i.i = icmp eq ptr %.pre, %12
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %19
+  %.not8.i.i.i.i = icmp eq ptr %.pre, %15
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %18
 
-19:                                               ; preds = %16
+18:                                               ; preds = %14
   store ptr %10, ptr %9, align 8
-  store ptr %12, ptr %11, align 8
-  store ptr %14, ptr %13, align 8
+  store <2 x ptr> %12, ptr %11, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %5, %19, %16, %1
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %_ZNK6HandleclEv.exit.thread, label %_ZNK6HandleclEv.exit
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %5, %18, %14, %1
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %_ZNK6HandleclEv.exit.thread, label %_ZNK6HandleclEv.exit
 
 _ZNK6HandleclEv.exit:                             ; preds = %_ZN12ResourceMarkD2Ev.exit
-  %23 = load ptr, ptr %21, align 8
-  %.not = icmp eq ptr %23, null
+  %22 = load ptr, ptr %20, align 8
+  %.not = icmp eq ptr %22, null
   br i1 %.not, label %_ZNK6HandleclEv.exit.thread, label %_ZNK6HandleclEv.exit1
 
 _ZNK6HandleclEv.exit1:                            ; preds = %_ZNK6HandleclEv.exit
-  %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
-  %28 = load i32, ptr %27, align 8
-  tail call void @_ZN12ThreadShadow21set_pending_exceptionEP7oopDescPKci(ptr noundef nonnull align 8 dereferenceable(28) %24, ptr noundef nonnull %23, ptr noundef %26, i32 noundef %28) #2
+  %23 = load ptr, ptr %0, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = load i32, ptr %26, align 8
+  tail call void @_ZN12ThreadShadow21set_pending_exceptionEP7oopDescPKci(ptr noundef nonnull align 8 dereferenceable(28) %23, ptr noundef nonnull %22, ptr noundef %25, i32 noundef %27) #2
   br label %_ZNK6HandleclEv.exit.thread
 
 _ZNK6HandleclEv.exit.thread:                      ; preds = %_ZN12ResourceMarkD2Ev.exit, %_ZNK6HandleclEv.exit1, %_ZNK6HandleclEv.exit

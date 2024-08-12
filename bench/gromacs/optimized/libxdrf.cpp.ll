@@ -1597,7 +1597,7 @@ _ZL11receivebitsP10DataBufferi.exit543:           ; preds = %830, %832
   br label %856
 
 856:                                              ; preds = %850, %876
-  %.sroa.28.2634 = phi i32 [ %813, %850 ], [ %866, %876 ]
+  %.sroa.28.2634 = phi i32 [ %813, %850 ], [ %867, %876 ]
   %.2388633 = phi ptr [ %.1387640, %850 ], [ %888, %876 ]
   %.1416632 = phi i32 [ 0, %850 ], [ %889, %876 ]
   %857 = phi <2 x i32> [ %810, %850 ], [ %863, %876 ]
@@ -1609,14 +1609,14 @@ _ZL11receivebitsP10DataBufferi.exit543:           ; preds = %830, %832
   %861 = sub nsw <2 x i32> %857, %855
   %862 = load <2 x i32>, ptr %851, align 4
   %863 = add nsw <2 x i32> %862, %861
+  %864 = extractelement <2 x i32> %863, i64 0
   store <2 x i32> %863, ptr %851, align 4
-  %864 = sub nsw i32 %.sroa.28.2634, %.3413637
-  %865 = load i32, ptr %853, align 4
-  %866 = add nsw i32 %865, %864
-  store i32 %866, ptr %853, align 4
-  %867 = icmp eq i32 %.1416632, 0
-  %868 = extractelement <2 x i32> %863, i64 0
-  br i1 %867, label %869, label %876
+  %865 = sub nsw i32 %.sroa.28.2634, %.3413637
+  %866 = load i32, ptr %853, align 4
+  %867 = add nsw i32 %866, %865
+  store i32 %867, ptr %853, align 4
+  %868 = icmp eq i32 %.1416632, 0
+  br i1 %868, label %869, label %876
 
 869:                                              ; preds = %856
   store <2 x i32> %857, ptr %851, align 4
@@ -1625,7 +1625,7 @@ _ZL11receivebitsP10DataBufferi.exit543:           ; preds = %830, %832
   %871 = sitofp <2 x i32> %863 to <2 x float>
   %872 = fmul <2 x float> %792, %871
   store <2 x float> %872, ptr %.2388633, align 4
-  %873 = sitofp i32 %866 to float
+  %873 = sitofp i32 %867 to float
   %874 = fmul float %787, %873
   %875 = getelementptr inbounds i8, ptr %.2388633, i64 12
   store float %874, ptr %870, align 4
@@ -1633,7 +1633,7 @@ _ZL11receivebitsP10DataBufferi.exit543:           ; preds = %830, %832
   br label %876
 
 876:                                              ; preds = %856, %869
-  %877 = phi i32 [ %.pre690, %869 ], [ %868, %856 ]
+  %877 = phi i32 [ %.pre690, %869 ], [ %864, %856 ]
   %.3389 = phi ptr [ %875, %869 ], [ %.2388633, %856 ]
   %878 = sitofp i32 %877 to float
   %879 = fmul float %787, %878

@@ -84,7 +84,7 @@ define void @_ZN3gmx16settleParametersEffffff(ptr dead_on_unwind noalias writabl
   %18 = insertelement <2 x float> poison, float %4, i64 0
   %19 = insertelement <2 x float> %18, float %6, i64 1
   %20 = fpext <2 x float> %19 to <2 x double>
-  %21 = extractelement <2 x double> %20, i64 1
+  %21 = fpext float %6 to double
   %22 = fmul double %21, 5.000000e-01
   %23 = fmul double %11, 2.000000e+00
   %24 = fmul float %5, %5

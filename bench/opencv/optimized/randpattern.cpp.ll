@@ -550,8 +550,8 @@ define void @_ZN2cv11randpattern25RandomPatternCornerFinder24computeObjectImageP
   %4 = alloca %"class.std::allocator.9", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.9", align 1
-  %7 = alloca %"class.std::vector", align 8
-  %8 = alloca %"class.std::vector", align 8
+  %7 = alloca %"class.std::vector", align 16
+  %8 = alloca %"class.std::vector", align 16
   %9 = alloca %"class.cv::Mat", align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 248
   %11 = tail call noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %10)
@@ -626,7 +626,7 @@ define void @_ZN2cv11randpattern25RandomPatternCornerFinder24computeObjectImageP
   %35 = sub i64 %33, %34
   %36 = sdiv exact i64 %35, 96
   %37 = trunc i64 %36 to i32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.lr.ph, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit30
 
@@ -658,14 +658,13 @@ define void @_ZN2cv11randpattern25RandomPatternCornerFinder24computeObjectImageP
 
 54:                                               ; preds = %53
   %55 = load ptr, ptr %39, align 8
-  %56 = load ptr, ptr %8, align 8
-  store ptr %56, ptr %7, align 8
-  %57 = load ptr, ptr %41, align 8
-  store ptr %57, ptr %39, align 8
-  %58 = load ptr, ptr %42, align 8
-  store ptr %58, ptr %40, align 8
+  %56 = load ptr, ptr %41, align 8
+  %57 = load <2 x ptr>, ptr %8, align 16
+  store <2 x ptr> %57, ptr %7, align 16
+  %58 = load ptr, ptr %42, align 16
+  store ptr %58, ptr %40, align 16
   %.not4.i.i.i.i.i.i = icmp eq ptr %50, %55
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %54, %.lr.ph.i.i.i.i.i.i
@@ -684,7 +683,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EEaSEOS3_.exit
 
 _ZNSt6vectorIN2cv3MatESaIS1_EEaSEOS3_.exit:       ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i.i, %60
-  %61 = load ptr, ptr %8, align 8
+  %61 = load ptr, ptr %8, align 16
   %62 = load ptr, ptr %41, align 8
   %.not4.i.i.i.i = icmp eq ptr %61, %62
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -697,7 +696,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EEaSEOS3_.exit:       ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !4
 
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
-  %.pr.i = load ptr, ptr %8, align 8
+  %.pr.i = load ptr, ptr %8, align 16
   br label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %_ZNSt6vectorIN2cv3MatESaIS1_EEaSEOS3_.exit
@@ -711,7 +710,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2c
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, %65
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #16
-  %66 = load ptr, ptr %7, align 8
+  %66 = load ptr, ptr %7, align 16
   %67 = invoke noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %66)
           to label %68 unwind label %86
 
@@ -779,14 +778,14 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit21: ; preds = %.noexc19, %85,
   br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit21
-  %.not4.i.i.i.i22 = icmp eq ptr %66, %57
+  %.not4.i.i.i.i22 = icmp eq ptr %66, %56
   br i1 %.not4.i.i.i.i22, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i28, label %.lr.ph.i.i.i.i23
 
 .lr.ph.i.i.i.i23:                                 ; preds = %._crit_edge, %.lr.ph.i.i.i.i23
   %.05.i.i.i.i24 = phi ptr [ %90, %.lr.ph.i.i.i.i23 ], [ %66, %._crit_edge ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i24) #16
   %90 = getelementptr inbounds i8, ptr %.05.i.i.i.i24, i64 96
-  %.not.i.i.i.i25 = icmp eq ptr %90, %57
+  %.not.i.i.i.i25 = icmp eq ptr %90, %56
   br i1 %.not.i.i.i.i25, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i28, label %.lr.ph.i.i.i.i23, !llvm.loop !4
 
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i28: ; preds = %.lr.ph.i.i.i.i23, %._crit_edge

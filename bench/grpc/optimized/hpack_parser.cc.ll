@@ -2469,24 +2469,21 @@ _ZN9grpc_core11HPackParser6StringD2Ev.exit121:    ; preds = %if.end23
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %if.end23
   %_M_finish.i = getelementptr inbounds i8, ptr %decompressed, i64 8
-  %42 = load ptr, ptr %_M_finish.i, align 8
-  %43 = load ptr, ptr %decompressed, align 16
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %42 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %43 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds i8, ptr %decompressed, i64 16
-  %44 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %decompressed, i8 0, i64 24, i1 false)
-  store i8 0, ptr %agg.result, align 8
+  %42 = load ptr, ptr %decompressed, align 16
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %42 to i64
   %wire_size3.i123 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i64 %sub.ptr.sub.i, ptr %wire_size3.i123, align 8
   %value4.i124 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_index.i.i.i.i.i.i.i.i264 = getelementptr inbounds i8, ptr %agg.result, i64 48
-  store ptr %43, ptr %value4.i124, align 8
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i269 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store ptr %42, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i269, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i271 = getelementptr inbounds i8, ptr %agg.result, i64 32
-  store ptr %44, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i271, align 8
+  %43 = load <2 x ptr>, ptr %_M_finish.i, align 8
+  %44 = load ptr, ptr %_M_finish.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %44 to i64
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %decompressed, i8 0, i64 24, i1 false)
+  store i8 0, ptr %agg.result, align 8
+  store i64 %sub.ptr.sub.i, ptr %wire_size3.i123, align 8
+  store ptr %42, ptr %value4.i124, align 8
+  store <2 x ptr> %43, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i269, align 8
   store i8 2, ptr %_M_index.i.i.i.i.i.i.i.i264, align 8
   br label %cleanup47
 

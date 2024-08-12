@@ -144,8 +144,6 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %argTypes, i8 0, i64 24, i1 false)
   %ref.tmp4.sink213.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %ref.tmp4.sink213.sroa.gep214 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
-  %ref.tmp4.sink213.sroa.gep216 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %ref.tmp4.sink213.sroa.gep217 = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   %call = invoke noundef zeroext i1 @_ZNK4cvc58internal8TypeNode14isInstantiatedEv(ptr noundef nonnull align 8 dereferenceable(8) %dt)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
@@ -181,22 +179,19 @@ invoke.cont5:                                     ; preds = %if.else
 
 if.end:                                           ; preds = %invoke.cont5, %if.then
   %ref.tmp4.sink213.sroa.phi = phi ptr [ %ref.tmp4.sink213.sroa.gep, %if.then ], [ %ref.tmp4.sink213.sroa.gep214, %invoke.cont5 ]
-  %ref.tmp4.sink213.sroa.phi215 = phi ptr [ %ref.tmp4.sink213.sroa.gep216, %if.then ], [ %ref.tmp4.sink213.sroa.gep217, %invoke.cont5 ]
   %ref.tmp4.sink213 = phi ptr [ %ref.tmp, %if.then ], [ %ref.tmp4, %invoke.cont5 ]
   %_M_finish.i.i.i.i1 = getelementptr inbounds i8, ptr %argTypes, i64 8
-  %_M_end_of_storage.i.i.i.i2 = getelementptr inbounds i8, ptr %argTypes, i64 16
   %.pr.i194 = load ptr, ptr %ref.tmp4.sink213, align 8
   store ptr %.pr.i194, ptr %argTypes, align 8
-  %0 = load ptr, ptr %ref.tmp4.sink213.sroa.phi, align 8
-  store ptr %0, ptr %_M_finish.i.i.i.i1, align 8
-  %1 = load ptr, ptr %ref.tmp4.sink213.sroa.phi215, align 8
-  store ptr %1, ptr %_M_end_of_storage.i.i.i.i2, align 8
+  %0 = load <2 x ptr>, ptr %ref.tmp4.sink213.sroa.phi, align 8
+  %1 = load ptr, ptr %ref.tmp4.sink213.sroa.phi, align 8
+  store <2 x ptr> %0, ptr %_M_finish.i.i.i.i1, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.sink213, i8 0, i64 24, i1 false)
   invoke void @_ZN4cvc58internal11TypeMatcher8addTypesERKSt6vectorINS0_8TypeNodeESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(24) %argTypes)
           to label %cond.true unwind label %lpad.loopexit.split-lp
 
 cond.true:                                        ; preds = %if.end
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %.pr.i194 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %2 = and i64 %sub.ptr.sub.i, 34359738360
@@ -280,7 +275,7 @@ for.inc:                                          ; preds = %if.else.i.i, %if.th
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %cond.true
-  %cmp.not3.i.i.i.i179 = icmp eq ptr %.pr.i194, %0
+  %cmp.not3.i.i.i.i179 = icmp eq ptr %.pr.i194, %1
   br i1 %cmp.not3.i.i.i.i179, label %invoke.cont.i195, label %for.body.i.i.i.i180
 
 for.body.i.i.i.i180:                              ; preds = %for.end, %_ZSt8_DestroyIN4cvc58internal8TypeNodeEEvPT_.exit.i.i.i.i190
@@ -313,7 +308,7 @@ terminate.lpad.i.i.i.i.i.i199:                    ; preds = %if.then13.i.i.i.i.i
 
 _ZSt8_DestroyIN4cvc58internal8TypeNodeEEvPT_.exit.i.i.i.i190: ; preds = %if.then13.i.i.i.i.i.i.i198, %if.then.i.i.i.i.i.i.i184, %for.body.i.i.i.i180
   %incdec.ptr.i.i.i.i191 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i181, i64 8
-  %cmp.not.i.i.i.i192 = icmp eq ptr %incdec.ptr.i.i.i.i191, %0
+  %cmp.not.i.i.i.i192 = icmp eq ptr %incdec.ptr.i.i.i.i191, %1
   br i1 %cmp.not.i.i.i.i192, label %invoke.cont.i195, label %for.body.i.i.i.i180, !llvm.loop !6
 
 invoke.cont.i195:                                 ; preds = %_ZSt8_DestroyIN4cvc58internal8TypeNodeEEvPT_.exit.i.i.i.i190, %for.end

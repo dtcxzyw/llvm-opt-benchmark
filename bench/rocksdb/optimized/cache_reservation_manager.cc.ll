@@ -764,13 +764,14 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE9EEE, i64 16), ptr %this, align 8
-  %1 = load <2 x ptr>, ptr %cache, align 8
-  %2 = extractelement <2 x ptr> %1, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %cache, i64 8
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %cache, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -787,7 +788,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 
 _ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit:     ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   %cache_ = getelementptr inbounds i8, ptr %this, i64 24
-  store <2 x ptr> %1, ptr %cache_, align 8
+  store <2 x ptr> %2, ptr %cache_, align 8
   %frombool = zext i1 %delayed_decrease to i8
   %delayed_decrease_ = getelementptr inbounds i8, ptr %this, i64 40
   store i8 %frombool, ptr %delayed_decrease_, align 8
@@ -1957,13 +1958,14 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE7EEE, i64 16), ptr %this, align 8
-  %1 = load <2 x ptr>, ptr %cache, align 8
-  %2 = extractelement <2 x ptr> %1, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %cache, i64 8
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %cache, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -1981,7 +1983,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 _ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit:     ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
   %cache_ = getelementptr inbounds i8, ptr %this, i64 24
   %frombool = zext i1 %delayed_decrease to i8
-  store <2 x ptr> %1, ptr %cache_, align 8
+  store <2 x ptr> %2, ptr %cache_, align 8
   %delayed_decrease_ = getelementptr inbounds i8, ptr %this, i64 40
   store i8 %frombool, ptr %delayed_decrease_, align 8
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -3145,13 +3147,14 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE8EEE, i64 16), ptr %this, align 8
-  %1 = load <2 x ptr>, ptr %cache, align 8
-  %2 = extractelement <2 x ptr> %1, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %cache, i64 8
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %cache, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -3169,7 +3172,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 _ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit:     ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
   %cache_ = getelementptr inbounds i8, ptr %this, i64 24
   %frombool = zext i1 %delayed_decrease to i8
-  store <2 x ptr> %1, ptr %cache_, align 8
+  store <2 x ptr> %2, ptr %cache_, align 8
   %delayed_decrease_ = getelementptr inbounds i8, ptr %this, i64 40
   store i8 %frombool, ptr %delayed_decrease_, align 8
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -4333,13 +4336,14 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE13EEE, i64 16), ptr %this, align 8
-  %1 = load <2 x ptr>, ptr %cache, align 8
-  %2 = extractelement <2 x ptr> %1, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %cache, i64 8
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %cache, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -4357,7 +4361,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 _ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit:     ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
   %cache_ = getelementptr inbounds i8, ptr %this, i64 24
   %frombool = zext i1 %delayed_decrease to i8
-  store <2 x ptr> %1, ptr %cache_, align 8
+  store <2 x ptr> %2, ptr %cache_, align 8
   %delayed_decrease_ = getelementptr inbounds i8, ptr %this, i64 40
   store i8 %frombool, ptr %delayed_decrease_, align 8
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -5521,13 +5525,14 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE6EEE, i64 16), ptr %this, align 8
-  %1 = load <2 x ptr>, ptr %cache, align 8
-  %2 = extractelement <2 x ptr> %1, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %cache, i64 8
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %cache, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -5545,7 +5550,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 _ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit:     ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
   %cache_ = getelementptr inbounds i8, ptr %this, i64 24
   %frombool = zext i1 %delayed_decrease to i8
-  store <2 x ptr> %1, ptr %cache_, align 8
+  store <2 x ptr> %2, ptr %cache_, align 8
   %delayed_decrease_ = getelementptr inbounds i8, ptr %this, i64 40
   store i8 %frombool, ptr %delayed_decrease_, align 8
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -6709,13 +6714,14 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE10EEE, i64 16), ptr %this, align 8
-  %1 = load <2 x ptr>, ptr %cache, align 8
-  %2 = extractelement <2 x ptr> %1, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %cache, i64 8
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %cache, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -6733,7 +6739,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 _ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit:     ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
   %cache_ = getelementptr inbounds i8, ptr %this, i64 24
   %frombool = zext i1 %delayed_decrease to i8
-  store <2 x ptr> %1, ptr %cache_, align 8
+  store <2 x ptr> %2, ptr %cache_, align 8
   %delayed_decrease_ = getelementptr inbounds i8, ptr %this, i64 40
   store i8 %frombool, ptr %delayed_decrease_, align 8
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -7897,13 +7903,14 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb27CacheReservationManagerImplILNS_14CacheEntryRoleE12EEE, i64 16), ptr %this, align 8
-  %1 = load <2 x ptr>, ptr %cache, align 8
-  %2 = extractelement <2 x ptr> %1, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %cache, i64 8
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %cache, align 8
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -7921,7 +7928,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 _ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit:     ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
   %cache_ = getelementptr inbounds i8, ptr %this, i64 24
   %frombool = zext i1 %delayed_decrease to i8
-  store <2 x ptr> %1, ptr %cache_, align 8
+  store <2 x ptr> %2, ptr %cache_, align 8
   %delayed_decrease_ = getelementptr inbounds i8, ptr %this, i64 40
   store i8 %frombool, ptr %delayed_decrease_, align 8
   %cache_allocated_size_ = getelementptr inbounds i8, ptr %this, i64 48

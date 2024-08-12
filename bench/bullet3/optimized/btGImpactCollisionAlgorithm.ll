@@ -526,16 +526,13 @@ entry:
   %7 = load ptr, ptr %vfn4, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(52) %4, i32 noundef %5, i32 noundef %6)
   %m_collisionObject.i = getelementptr inbounds i8, ptr %body0Wrap, i64 16
-  %8 = load ptr, ptr %m_collisionObject.i, align 8
-  %m_worldTransform.i = getelementptr inbounds i8, ptr %body0Wrap, i64 24
-  %9 = load ptr, ptr %m_worldTransform.i, align 8
   store ptr %body0Wrap, ptr %ob0, align 8
   %m_shape.i = getelementptr inbounds i8, ptr %ob0, i64 8
   store ptr %shape0, ptr %m_shape.i, align 8
   %m_collisionObject.i5 = getelementptr inbounds i8, ptr %ob0, i64 16
-  store ptr %8, ptr %m_collisionObject.i5, align 8
-  %m_worldTransform.i6 = getelementptr inbounds i8, ptr %ob0, i64 24
-  store ptr %9, ptr %m_worldTransform.i6, align 8
+  %8 = load <2 x ptr>, ptr %m_collisionObject.i, align 8
+  %9 = load ptr, ptr %m_collisionObject.i, align 8
+  store <2 x ptr> %8, ptr %m_collisionObject.i5, align 8
   %m_preTransform.i = getelementptr inbounds i8, ptr %ob0, i64 32
   store ptr null, ptr %m_preTransform.i, align 8
   %m_partId.i = getelementptr inbounds i8, ptr %ob0, i64 40
@@ -543,16 +540,13 @@ entry:
   %11 = shufflevector <2 x i32> %10, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i32> %11, ptr %m_partId.i, align 8
   %m_collisionObject.i7 = getelementptr inbounds i8, ptr %body1Wrap, i64 16
-  %12 = load ptr, ptr %m_collisionObject.i7, align 8
-  %m_worldTransform.i8 = getelementptr inbounds i8, ptr %body1Wrap, i64 24
-  %13 = load ptr, ptr %m_worldTransform.i8, align 8
   store ptr %body1Wrap, ptr %ob1, align 8
   %m_shape.i9 = getelementptr inbounds i8, ptr %ob1, i64 8
   store ptr %shape1, ptr %m_shape.i9, align 8
   %m_collisionObject.i10 = getelementptr inbounds i8, ptr %ob1, i64 16
-  store ptr %12, ptr %m_collisionObject.i10, align 8
-  %m_worldTransform.i11 = getelementptr inbounds i8, ptr %ob1, i64 24
-  store ptr %13, ptr %m_worldTransform.i11, align 8
+  %12 = load <2 x ptr>, ptr %m_collisionObject.i7, align 8
+  %13 = load ptr, ptr %m_collisionObject.i7, align 8
+  store <2 x ptr> %12, ptr %m_collisionObject.i10, align 8
   %m_preTransform.i12 = getelementptr inbounds i8, ptr %ob1, i64 32
   store ptr null, ptr %m_preTransform.i12, align 8
   %m_partId.i13 = getelementptr inbounds i8, ptr %ob1, i64 40
@@ -576,7 +570,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   %vtable.i.i.i.i = load ptr, ptr %18, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
   %19 = load ptr, ptr %vfn.i.i.i.i, align 8
-  %call.i.i.i.i = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %8, ptr noundef %12)
+  %call.i.i.i.i = tail call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %9, ptr noundef %13)
   store ptr %call.i.i.i.i, ptr %m_manifoldPtr.i.i.i.i, align 8
   br label %_ZN27btGImpactCollisionAlgorithm12newAlgorithmEPK24btCollisionObjectWrapperS2_.exit.i
 
@@ -2786,7 +2780,6 @@ while.body45.lr.ph:                               ; preds = %invoke.cont37
   %m_collisionObject.i = getelementptr inbounds i8, ptr %body0Wrap, i64 16
   %m_shape.i = getelementptr inbounds i8, ptr %ob0, i64 8
   %m_collisionObject.i80 = getelementptr inbounds i8, ptr %ob0, i64 16
-  %m_worldTransform.i81 = getelementptr inbounds i8, ptr %ob0, i64 24
   %m_preTransform.i = getelementptr inbounds i8, ptr %ob0, i64 32
   %m_partId.i = getelementptr inbounds i8, ptr %ob0, i64 40
   %m_resultOut = getelementptr inbounds i8, ptr %this, i64 32
@@ -2834,12 +2827,11 @@ if.then58:                                        ; preds = %invoke.cont56
           to label %if.end66 unwind label %lpad36.loopexit
 
 if.end66:                                         ; preds = %if.then58, %invoke.cont56
-  %27 = load ptr, ptr %m_collisionObject.i, align 8
-  %28 = load ptr, ptr %m_worldTransform.i, align 8
   store ptr %body0Wrap, ptr %ob0, align 8
   store ptr %call.i6768, ptr %m_shape.i, align 8
-  store ptr %27, ptr %m_collisionObject.i80, align 8
-  store ptr %28, ptr %m_worldTransform.i81, align 8
+  %27 = load <2 x ptr>, ptr %m_collisionObject.i, align 8
+  %28 = load ptr, ptr %m_collisionObject.i, align 8
+  store <2 x ptr> %27, ptr %m_collisionObject.i80, align 8
   store ptr null, ptr %m_preTransform.i, align 8
   %29 = load <2 x i32>, ptr %m_triface0, align 8
   %30 = shufflevector <2 x i32> %29, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
@@ -2849,7 +2841,7 @@ if.end66:                                         ; preds = %if.then58, %invoke.
   %32 = load ptr, ptr %m_body0Wrap.i, align 8
   %m_collisionObject.i82 = getelementptr inbounds i8, ptr %32, i64 16
   %33 = load ptr, ptr %m_collisionObject.i82, align 8
-  %cmp80 = icmp eq ptr %33, %27
+  %cmp80 = icmp eq ptr %33, %28
   br i1 %cmp80, label %if.end93, label %if.else87
 
 if.else87:                                        ; preds = %if.end66
@@ -5072,16 +5064,13 @@ entry:
   %body1Wrap = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %body1Wrap, align 8
   %m_collisionObject.i = getelementptr inbounds i8, ptr %4, i64 16
-  %5 = load ptr, ptr %m_collisionObject.i, align 8
-  %m_worldTransform.i = getelementptr inbounds i8, ptr %4, i64 24
-  %6 = load ptr, ptr %m_worldTransform.i, align 8
   store ptr %4, ptr %ob1Wrap, align 8
   %m_shape.i = getelementptr inbounds i8, ptr %ob1Wrap, i64 8
   store ptr %tri1, ptr %m_shape.i, align 8
   %m_collisionObject.i8 = getelementptr inbounds i8, ptr %ob1Wrap, i64 16
-  store ptr %5, ptr %m_collisionObject.i8, align 8
-  %m_worldTransform.i9 = getelementptr inbounds i8, ptr %ob1Wrap, i64 24
-  store ptr %6, ptr %m_worldTransform.i9, align 8
+  %5 = load <2 x ptr>, ptr %m_collisionObject.i, align 8
+  %6 = load ptr, ptr %m_collisionObject.i, align 8
+  store <2 x ptr> %5, ptr %m_collisionObject.i8, align 8
   %m_preTransform.i = getelementptr inbounds i8, ptr %ob1Wrap, i64 32
   store ptr null, ptr %m_preTransform.i, align 8
   %m_partId.i = getelementptr inbounds i8, ptr %ob1Wrap, i64 40
@@ -5096,7 +5085,7 @@ entry:
   %9 = load ptr, ptr %m_body0Wrap.i, align 8
   %m_collisionObject.i10 = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %m_collisionObject.i10, align 8
-  %cmp = icmp eq ptr %10, %5
+  %cmp = icmp eq ptr %10, %6
   br i1 %cmp, label %if.end36, label %if.else28
 
 lpad:                                             ; preds = %if.end36

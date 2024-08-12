@@ -6342,7 +6342,7 @@ define hidden void @_ZN3std6thread7Builder15spawn_unchecked17hfc134929fbe398d9E(
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN3std6thread7Builder16spawn_unchecked_17h820b3397d7d6371eE.llvm.12936710431969675094(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %2, ptr noundef null)
   %5 = load <2 x ptr>, ptr %4, align 16
-  %6 = extractelement <2 x ptr> %5, i64 0
+  %6 = load ptr, ptr %4, align 16, !noundef !4
   %7 = icmp eq ptr %6, null
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 16

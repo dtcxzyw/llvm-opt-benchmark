@@ -2288,11 +2288,11 @@ lpad:                                             ; preds = %entry
 define linkonce_odr dso_local void @_ZN6spdlog18async_factory_implILNS_21async_overflow_policyE0EE6createINS_5sinks11stdout_sinkINS_7details13console_mutexEEEJEEESt10shared_ptrINS_12async_loggerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT0_(ptr noalias sret(%"class.std::shared_ptr.23") align 8 %agg.result, ptr noundef %logger_name) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__a.i = alloca %"class.std::allocator.99", align 1
-  %tp = alloca %"class.std::shared_ptr.88", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.88", align 8
+  %tp = alloca %"class.std::shared_ptr.88", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.88", align 16
   %sink = alloca %"class.std::shared_ptr.51", align 8
   %ref.tmp10 = alloca i32, align 4
-  %agg.tmp13 = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp13 = alloca %"class.std::shared_ptr", align 16
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6spdlog7details8registry8instanceEv()
   %call1 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN6spdlog7details8registry8tp_mutexEv(ptr noundef nonnull align 8 dereferenceable(336) %call)
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %call1) #16
@@ -2308,7 +2308,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
-  %0 = load ptr, ptr %tp, align 8
+  %0 = load ptr, ptr %tp, align 16
   %cmp.i.not.i = icmp eq ptr %0, null
   br i1 %cmp.i.not.i, label %if.then, label %if.end
 
@@ -2333,7 +2333,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6spdlog7details11thread_p
   br label %ehcleanup16
 
 invoke.cont5:                                     ; preds = %call5.i.i.i3.i.i.i.i.noexc
-  store ptr %_M_impl.i.i.i.i.i.i, ptr %tp, align 8
+  store ptr %_M_impl.i.i.i.i.i.i, ptr %tp, align 16
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %tp, i64 8
   %2 = load ptr, ptr %_M_refcount3.i.i.i, align 8
   store ptr %call5.i.i.i3.i.i.i.i7, ptr %_M_refcount3.i.i.i, align 8
@@ -2341,7 +2341,7 @@ invoke.cont5:                                     ; preds = %call5.i.i.i3.i.i.i.
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit.thread, label %if.then.i.i.i.i
 
 _ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit.thread: ; preds = %invoke.cont5
-  store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.tmp, align 8
+  store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.tmp, align 16
   %_M_refcount.i.i11165 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %call5.i.i.i3.i.i.i.i7, ptr %_M_refcount.i.i11165, align 8
   br label %if.then.i.i.i13
@@ -2415,11 +2415,10 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit
 
 _ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit: ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  %.pr = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  %13 = load ptr, ptr %tp, align 8
-  store ptr %13, ptr %agg.tmp, align 8
   %_M_refcount.i.i11 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store ptr %.pr, ptr %_M_refcount.i.i11, align 8
+  %.pr = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %13 = load <2 x ptr>, ptr %tp, align 16
+  store <2 x ptr> %13, ptr %agg.tmp, align 16
   %cmp.not.i.i.i12 = icmp eq ptr %.pr, null
   br i1 %cmp.not.i.i.i12, label %_ZNSt10shared_ptrIN6spdlog7details11thread_poolEEC2ERKS3_.exit, label %if.then.i.i.i13
 
@@ -2568,17 +2567,16 @@ invoke.cont9:                                     ; preds = %call5.i.i.i3.i.i.i.
 
 invoke.cont12:                                    ; preds = %invoke.cont9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i)
-  %33 = load ptr, ptr %agg.result, align 8
-  store ptr %33, ptr %agg.tmp13, align 8
   %_M_refcount.i.i58 = getelementptr inbounds i8, ptr %agg.tmp13, i64 8
   %_M_refcount3.i.i59 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %34 = load ptr, ptr %_M_refcount3.i.i59, align 8
-  store ptr %34, ptr %_M_refcount.i.i58, align 8
-  %cmp.not.i.i.i60 = icmp eq ptr %34, null
+  %33 = load ptr, ptr %_M_refcount3.i.i59, align 8
+  %34 = load <2 x ptr>, ptr %agg.result, align 8
+  store <2 x ptr> %34, ptr %agg.tmp13, align 16
+  %cmp.not.i.i.i60 = icmp eq ptr %33, null
   br i1 %cmp.not.i.i.i60, label %_ZNSt10shared_ptrIN6spdlog6loggerEEC2INS0_12async_loggerEvEERKS_IT_E.exit, label %if.then.i.i.i61
 
 if.then.i.i.i61:                                  ; preds = %invoke.cont12
-  %_M_use_count.i.i.i.i62 = getelementptr inbounds i8, ptr %34, i64 8
+  %_M_use_count.i.i.i.i62 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i63 = icmp eq i8 %35, 0
   br i1 %tobool.i.i.not.i.i.i.i63, label %if.else.i.i.i.i.i66, label %if.then.i.i.i.i.i64
@@ -2958,11 +2956,11 @@ lpad:                                             ; preds = %entry
 define linkonce_odr dso_local void @_ZN6spdlog18async_factory_implILNS_21async_overflow_policyE0EE6createINS_5sinks11stdout_sinkINS_7details17console_nullmutexEEEJEEESt10shared_ptrINS_12async_loggerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT0_(ptr noalias sret(%"class.std::shared_ptr.23") align 8 %agg.result, ptr noundef %logger_name) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__a.i = alloca %"class.std::allocator.99", align 1
-  %tp = alloca %"class.std::shared_ptr.88", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.88", align 8
+  %tp = alloca %"class.std::shared_ptr.88", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.88", align 16
   %sink = alloca %"class.std::shared_ptr.129", align 8
   %ref.tmp10 = alloca i32, align 4
-  %agg.tmp13 = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp13 = alloca %"class.std::shared_ptr", align 16
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6spdlog7details8registry8instanceEv()
   %call1 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN6spdlog7details8registry8tp_mutexEv(ptr noundef nonnull align 8 dereferenceable(336) %call)
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %call1) #16
@@ -2978,7 +2976,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
-  %0 = load ptr, ptr %tp, align 8
+  %0 = load ptr, ptr %tp, align 16
   %cmp.i.not.i = icmp eq ptr %0, null
   br i1 %cmp.i.not.i, label %if.then, label %if.end
 
@@ -3003,7 +3001,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6spdlog7details11thread_p
   br label %ehcleanup16
 
 invoke.cont5:                                     ; preds = %call5.i.i.i3.i.i.i.i.noexc
-  store ptr %_M_impl.i.i.i.i.i.i, ptr %tp, align 8
+  store ptr %_M_impl.i.i.i.i.i.i, ptr %tp, align 16
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %tp, i64 8
   %2 = load ptr, ptr %_M_refcount3.i.i.i, align 8
   store ptr %call5.i.i.i3.i.i.i.i7, ptr %_M_refcount3.i.i.i, align 8
@@ -3011,7 +3009,7 @@ invoke.cont5:                                     ; preds = %call5.i.i.i3.i.i.i.
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit.thread, label %if.then.i.i.i.i
 
 _ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit.thread: ; preds = %invoke.cont5
-  store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.tmp, align 8
+  store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.tmp, align 16
   %_M_refcount.i.i11165 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %call5.i.i.i3.i.i.i.i7, ptr %_M_refcount.i.i11165, align 8
   br label %if.then.i.i.i13
@@ -3085,11 +3083,10 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit
 
 _ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit: ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  %.pr = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  %13 = load ptr, ptr %tp, align 8
-  store ptr %13, ptr %agg.tmp, align 8
   %_M_refcount.i.i11 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store ptr %.pr, ptr %_M_refcount.i.i11, align 8
+  %.pr = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %13 = load <2 x ptr>, ptr %tp, align 16
+  store <2 x ptr> %13, ptr %agg.tmp, align 16
   %cmp.not.i.i.i12 = icmp eq ptr %.pr, null
   br i1 %cmp.not.i.i.i12, label %_ZNSt10shared_ptrIN6spdlog7details11thread_poolEEC2ERKS3_.exit, label %if.then.i.i.i13
 
@@ -3238,17 +3235,16 @@ invoke.cont9:                                     ; preds = %call5.i.i.i3.i.i.i.
 
 invoke.cont12:                                    ; preds = %invoke.cont9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i)
-  %33 = load ptr, ptr %agg.result, align 8
-  store ptr %33, ptr %agg.tmp13, align 8
   %_M_refcount.i.i58 = getelementptr inbounds i8, ptr %agg.tmp13, i64 8
   %_M_refcount3.i.i59 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %34 = load ptr, ptr %_M_refcount3.i.i59, align 8
-  store ptr %34, ptr %_M_refcount.i.i58, align 8
-  %cmp.not.i.i.i60 = icmp eq ptr %34, null
+  %33 = load ptr, ptr %_M_refcount3.i.i59, align 8
+  %34 = load <2 x ptr>, ptr %agg.result, align 8
+  store <2 x ptr> %34, ptr %agg.tmp13, align 16
+  %cmp.not.i.i.i60 = icmp eq ptr %33, null
   br i1 %cmp.not.i.i.i60, label %_ZNSt10shared_ptrIN6spdlog6loggerEEC2INS0_12async_loggerEvEERKS_IT_E.exit, label %if.then.i.i.i61
 
 if.then.i.i.i61:                                  ; preds = %invoke.cont12
-  %_M_use_count.i.i.i.i62 = getelementptr inbounds i8, ptr %34, i64 8
+  %_M_use_count.i.i.i.i62 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i63 = icmp eq i8 %35, 0
   br i1 %tobool.i.i.not.i.i.i.i63, label %if.else.i.i.i.i.i66, label %if.then.i.i.i.i.i64
@@ -3548,11 +3544,11 @@ lpad:                                             ; preds = %entry
 define linkonce_odr dso_local void @_ZN6spdlog18async_factory_implILNS_21async_overflow_policyE0EE6createINS_5sinks11stderr_sinkINS_7details13console_mutexEEEJEEESt10shared_ptrINS_12async_loggerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT0_(ptr noalias sret(%"class.std::shared_ptr.23") align 8 %agg.result, ptr noundef %logger_name) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__a.i = alloca %"class.std::allocator.99", align 1
-  %tp = alloca %"class.std::shared_ptr.88", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.88", align 8
+  %tp = alloca %"class.std::shared_ptr.88", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.88", align 16
   %sink = alloca %"class.std::shared_ptr.138", align 8
   %ref.tmp10 = alloca i32, align 4
-  %agg.tmp13 = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp13 = alloca %"class.std::shared_ptr", align 16
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6spdlog7details8registry8instanceEv()
   %call1 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN6spdlog7details8registry8tp_mutexEv(ptr noundef nonnull align 8 dereferenceable(336) %call)
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %call1) #16
@@ -3568,7 +3564,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
-  %0 = load ptr, ptr %tp, align 8
+  %0 = load ptr, ptr %tp, align 16
   %cmp.i.not.i = icmp eq ptr %0, null
   br i1 %cmp.i.not.i, label %if.then, label %if.end
 
@@ -3593,7 +3589,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6spdlog7details11thread_p
   br label %ehcleanup16
 
 invoke.cont5:                                     ; preds = %call5.i.i.i3.i.i.i.i.noexc
-  store ptr %_M_impl.i.i.i.i.i.i, ptr %tp, align 8
+  store ptr %_M_impl.i.i.i.i.i.i, ptr %tp, align 16
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %tp, i64 8
   %2 = load ptr, ptr %_M_refcount3.i.i.i, align 8
   store ptr %call5.i.i.i3.i.i.i.i7, ptr %_M_refcount3.i.i.i, align 8
@@ -3601,7 +3597,7 @@ invoke.cont5:                                     ; preds = %call5.i.i.i3.i.i.i.
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit.thread, label %if.then.i.i.i.i
 
 _ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit.thread: ; preds = %invoke.cont5
-  store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.tmp, align 8
+  store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.tmp, align 16
   %_M_refcount.i.i11165 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %call5.i.i.i3.i.i.i.i7, ptr %_M_refcount.i.i11165, align 8
   br label %if.then.i.i.i13
@@ -3675,11 +3671,10 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit
 
 _ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit: ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  %.pr = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  %13 = load ptr, ptr %tp, align 8
-  store ptr %13, ptr %agg.tmp, align 8
   %_M_refcount.i.i11 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store ptr %.pr, ptr %_M_refcount.i.i11, align 8
+  %.pr = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %13 = load <2 x ptr>, ptr %tp, align 16
+  store <2 x ptr> %13, ptr %agg.tmp, align 16
   %cmp.not.i.i.i12 = icmp eq ptr %.pr, null
   br i1 %cmp.not.i.i.i12, label %_ZNSt10shared_ptrIN6spdlog7details11thread_poolEEC2ERKS3_.exit, label %if.then.i.i.i13
 
@@ -3828,17 +3823,16 @@ invoke.cont9:                                     ; preds = %call5.i.i.i3.i.i.i.
 
 invoke.cont12:                                    ; preds = %invoke.cont9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i)
-  %33 = load ptr, ptr %agg.result, align 8
-  store ptr %33, ptr %agg.tmp13, align 8
   %_M_refcount.i.i58 = getelementptr inbounds i8, ptr %agg.tmp13, i64 8
   %_M_refcount3.i.i59 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %34 = load ptr, ptr %_M_refcount3.i.i59, align 8
-  store ptr %34, ptr %_M_refcount.i.i58, align 8
-  %cmp.not.i.i.i60 = icmp eq ptr %34, null
+  %33 = load ptr, ptr %_M_refcount3.i.i59, align 8
+  %34 = load <2 x ptr>, ptr %agg.result, align 8
+  store <2 x ptr> %34, ptr %agg.tmp13, align 16
+  %cmp.not.i.i.i60 = icmp eq ptr %33, null
   br i1 %cmp.not.i.i.i60, label %_ZNSt10shared_ptrIN6spdlog6loggerEEC2INS0_12async_loggerEvEERKS_IT_E.exit, label %if.then.i.i.i61
 
 if.then.i.i.i61:                                  ; preds = %invoke.cont12
-  %_M_use_count.i.i.i.i62 = getelementptr inbounds i8, ptr %34, i64 8
+  %_M_use_count.i.i.i.i62 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i63 = icmp eq i8 %35, 0
   br i1 %tobool.i.i.not.i.i.i.i63, label %if.else.i.i.i.i.i66, label %if.then.i.i.i.i.i64
@@ -4138,11 +4132,11 @@ lpad:                                             ; preds = %entry
 define linkonce_odr dso_local void @_ZN6spdlog18async_factory_implILNS_21async_overflow_policyE0EE6createINS_5sinks11stderr_sinkINS_7details17console_nullmutexEEEJEEESt10shared_ptrINS_12async_loggerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT0_(ptr noalias sret(%"class.std::shared_ptr.23") align 8 %agg.result, ptr noundef %logger_name) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__a.i = alloca %"class.std::allocator.99", align 1
-  %tp = alloca %"class.std::shared_ptr.88", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.88", align 8
+  %tp = alloca %"class.std::shared_ptr.88", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.88", align 16
   %sink = alloca %"class.std::shared_ptr.147", align 8
   %ref.tmp10 = alloca i32, align 4
-  %agg.tmp13 = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp13 = alloca %"class.std::shared_ptr", align 16
   %call = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6spdlog7details8registry8instanceEv()
   %call1 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN6spdlog7details8registry8tp_mutexEv(ptr noundef nonnull align 8 dereferenceable(336) %call)
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %call1) #16
@@ -4158,7 +4152,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit
-  %0 = load ptr, ptr %tp, align 8
+  %0 = load ptr, ptr %tp, align 16
   %cmp.i.not.i = icmp eq ptr %0, null
   br i1 %cmp.i.not.i, label %if.then, label %if.end
 
@@ -4183,7 +4177,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6spdlog7details11thread_p
   br label %ehcleanup16
 
 invoke.cont5:                                     ; preds = %call5.i.i.i3.i.i.i.i.noexc
-  store ptr %_M_impl.i.i.i.i.i.i, ptr %tp, align 8
+  store ptr %_M_impl.i.i.i.i.i.i, ptr %tp, align 16
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %tp, i64 8
   %2 = load ptr, ptr %_M_refcount3.i.i.i, align 8
   store ptr %call5.i.i.i3.i.i.i.i7, ptr %_M_refcount3.i.i.i, align 8
@@ -4191,7 +4185,7 @@ invoke.cont5:                                     ; preds = %call5.i.i.i3.i.i.i.
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit.thread, label %if.then.i.i.i.i
 
 _ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit.thread: ; preds = %invoke.cont5
-  store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.tmp, align 8
+  store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.tmp, align 16
   %_M_refcount.i.i11165 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %call5.i.i.i3.i.i.i.i7, ptr %_M_refcount.i.i11165, align 8
   br label %if.then.i.i.i13
@@ -4265,11 +4259,10 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit
 
 _ZNSt10shared_ptrIN6spdlog7details11thread_poolEED2Ev.exit: ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
-  %.pr = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  %13 = load ptr, ptr %tp, align 8
-  store ptr %13, ptr %agg.tmp, align 8
   %_M_refcount.i.i11 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store ptr %.pr, ptr %_M_refcount.i.i11, align 8
+  %.pr = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %13 = load <2 x ptr>, ptr %tp, align 16
+  store <2 x ptr> %13, ptr %agg.tmp, align 16
   %cmp.not.i.i.i12 = icmp eq ptr %.pr, null
   br i1 %cmp.not.i.i.i12, label %_ZNSt10shared_ptrIN6spdlog7details11thread_poolEEC2ERKS3_.exit, label %if.then.i.i.i13
 
@@ -4418,17 +4411,16 @@ invoke.cont9:                                     ; preds = %call5.i.i.i3.i.i.i.
 
 invoke.cont12:                                    ; preds = %invoke.cont9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i)
-  %33 = load ptr, ptr %agg.result, align 8
-  store ptr %33, ptr %agg.tmp13, align 8
   %_M_refcount.i.i58 = getelementptr inbounds i8, ptr %agg.tmp13, i64 8
   %_M_refcount3.i.i59 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %34 = load ptr, ptr %_M_refcount3.i.i59, align 8
-  store ptr %34, ptr %_M_refcount.i.i58, align 8
-  %cmp.not.i.i.i60 = icmp eq ptr %34, null
+  %33 = load ptr, ptr %_M_refcount3.i.i59, align 8
+  %34 = load <2 x ptr>, ptr %agg.result, align 8
+  store <2 x ptr> %34, ptr %agg.tmp13, align 16
+  %cmp.not.i.i.i60 = icmp eq ptr %33, null
   br i1 %cmp.not.i.i.i60, label %_ZNSt10shared_ptrIN6spdlog6loggerEEC2INS0_12async_loggerEvEERKS_IT_E.exit, label %if.then.i.i.i61
 
 if.then.i.i.i61:                                  ; preds = %invoke.cont12
-  %_M_use_count.i.i.i.i62 = getelementptr inbounds i8, ptr %34, i64 8
+  %_M_use_count.i.i.i.i62 = getelementptr inbounds i8, ptr %33, i64 8
   %35 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i63 = icmp eq i8 %35, 0
   br i1 %tobool.i.i.not.i.i.i.i63, label %if.else.i.i.i.i.i66, label %if.then.i.i.i.i.i64
@@ -6768,7 +6760,7 @@ define linkonce_odr dso_local void @_ZSt10_ConstructIN6spdlog12async_loggerEJNSt
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp7 = alloca %"class.std::shared_ptr.126", align 16
-  %agg.tmp8 = alloca %"class.std::weak_ptr.187", align 8
+  %agg.tmp8 = alloca %"class.std::weak_ptr.187", align 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %__args) #16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   %_M_refcount4.i.i = getelementptr inbounds i8, ptr %__args1, i64 8
@@ -6776,17 +6768,16 @@ entry:
   store ptr null, ptr %_M_refcount4.i.i, align 8
   store <2 x ptr> %0, ptr %agg.tmp7, align 16
   store ptr null, ptr %__args1, align 8
-  %1 = load ptr, ptr %__args3, align 8
-  store ptr %1, ptr %agg.tmp8, align 8
   %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %agg.tmp8, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %__args3, i64 8
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i1, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %__args3, align 8
+  store <2 x ptr> %2, ptr %agg.tmp8, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8weak_ptrIN6spdlog7details11thread_poolEEC2IS2_vEERKSt10shared_ptrIT_E.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -7226,7 +7217,7 @@ define linkonce_odr dso_local void @_ZSt10_ConstructIN6spdlog12async_loggerEJNSt
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp7 = alloca %"class.std::shared_ptr.126", align 16
-  %agg.tmp8 = alloca %"class.std::weak_ptr.187", align 8
+  %agg.tmp8 = alloca %"class.std::weak_ptr.187", align 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %__args) #16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   %_M_refcount4.i.i = getelementptr inbounds i8, ptr %__args1, i64 8
@@ -7234,17 +7225,16 @@ entry:
   store ptr null, ptr %_M_refcount4.i.i, align 8
   store <2 x ptr> %0, ptr %agg.tmp7, align 16
   store ptr null, ptr %__args1, align 8
-  %1 = load ptr, ptr %__args3, align 8
-  store ptr %1, ptr %agg.tmp8, align 8
   %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %agg.tmp8, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %__args3, i64 8
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i1, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %__args3, align 8
+  store <2 x ptr> %2, ptr %agg.tmp8, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8weak_ptrIN6spdlog7details11thread_poolEEC2IS2_vEERKSt10shared_ptrIT_E.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -7514,7 +7504,7 @@ define linkonce_odr dso_local void @_ZSt10_ConstructIN6spdlog12async_loggerEJNSt
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp7 = alloca %"class.std::shared_ptr.126", align 16
-  %agg.tmp8 = alloca %"class.std::weak_ptr.187", align 8
+  %agg.tmp8 = alloca %"class.std::weak_ptr.187", align 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %__args) #16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   %_M_refcount4.i.i = getelementptr inbounds i8, ptr %__args1, i64 8
@@ -7522,17 +7512,16 @@ entry:
   store ptr null, ptr %_M_refcount4.i.i, align 8
   store <2 x ptr> %0, ptr %agg.tmp7, align 16
   store ptr null, ptr %__args1, align 8
-  %1 = load ptr, ptr %__args3, align 8
-  store ptr %1, ptr %agg.tmp8, align 8
   %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %agg.tmp8, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %__args3, i64 8
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i1, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %__args3, align 8
+  store <2 x ptr> %2, ptr %agg.tmp8, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8weak_ptrIN6spdlog7details11thread_poolEEC2IS2_vEERKSt10shared_ptrIT_E.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -7802,7 +7791,7 @@ define linkonce_odr dso_local void @_ZSt10_ConstructIN6spdlog12async_loggerEJNSt
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp7 = alloca %"class.std::shared_ptr.126", align 16
-  %agg.tmp8 = alloca %"class.std::weak_ptr.187", align 8
+  %agg.tmp8 = alloca %"class.std::weak_ptr.187", align 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %__args) #16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   %_M_refcount4.i.i = getelementptr inbounds i8, ptr %__args1, i64 8
@@ -7810,17 +7799,16 @@ entry:
   store ptr null, ptr %_M_refcount4.i.i, align 8
   store <2 x ptr> %0, ptr %agg.tmp7, align 16
   store ptr null, ptr %__args1, align 8
-  %1 = load ptr, ptr %__args3, align 8
-  store ptr %1, ptr %agg.tmp8, align 8
   %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %agg.tmp8, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %__args3, i64 8
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i1, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %__args3, align 8
+  store <2 x ptr> %2, ptr %agg.tmp8, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8weak_ptrIN6spdlog7details11thread_poolEEC2IS2_vEERKSt10shared_ptrIT_E.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

@@ -750,14 +750,15 @@ if.then:                                          ; preds = %entry
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %dict_id, align 8
   %mutex_factory = getelementptr inbounds i8, ptr %this, i64 112
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 8
-  %1 = load <2 x ptr>, ptr %mutex_factory, align 8
-  store <2 x ptr> %1, ptr %agg.tmp4, align 16
-  %2 = extractelement <2 x ptr> %1, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 120
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %mutex_factory, align 8
+  store <2 x ptr> %2, ptr %agg.tmp4, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

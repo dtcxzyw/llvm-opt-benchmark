@@ -6564,7 +6564,7 @@ entry:
   %agg.tmp.i78.i.i = alloca %"class.grpc_core::RefCountedPtr.194", align 8
   %agg.tmp.i.i.i = alloca %"class.grpc_core::RefCountedPtr.197", align 8
   %health_data_watcher.i.i = alloca %"class.std::unique_ptr.237", align 8
-  %agg.tmp46.i.i = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp46.i.i = alloca %"class.std::shared_ptr", align 16
   %agg.tmp50.i.i = alloca %"class.std::unique_ptr.218", align 8
   %agg.tmp58.i.i = alloca %"class.std::unique_ptr.237", align 8
   %ref.tmp64.i.i = alloca %"class.absl::lts_20230802::Status", align 8
@@ -7756,17 +7756,16 @@ _ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicyEED2Ev.exit.i.i: ; preds = 
   store ptr %call.i32.i.i, ptr %health_watcher_.i.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !117)
   %work_serializer_.i.i.i = getelementptr inbounds i8, ptr %policy_.val.i.i, i64 16
-  %183 = load ptr, ptr %work_serializer_.i.i.i, align 8, !noalias !117
-  store ptr %183, ptr %agg.tmp46.i.i, align 8, !alias.scope !117
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp46.i.i, i64 8
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %policy_.val.i.i, i64 24
-  %184 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !noalias !117
-  store ptr %184, ptr %_M_refcount.i.i.i.i.i, align 8, !alias.scope !117
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %184, null
+  %183 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !noalias !117
+  %184 = load <2 x ptr>, ptr %work_serializer_.i.i.i, align 8, !noalias !117
+  store <2 x ptr> %184, ptr %agg.tmp46.i.i, align 16, !alias.scope !117
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %183, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit.i.i, label %if.then.i.i.i.i34.i.i
 
 if.then.i.i.i.i34.i.i:                            ; preds = %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicyEED2Ev.exit.i.i
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %184, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %183, i64 8
   %185 = load i8, ptr @__libc_single_threaded, align 1, !noalias !117
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %185, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i

@@ -2365,7 +2365,7 @@ gv_alloc.exit:                                    ; preds = %is_cycle_unique.exi
   %48 = load ptr, ptr %2, align 8, !noalias !7
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %40, i64 8
   %49 = load <2 x i64>, ptr %6, align 8, !noalias !7
-  %50 = extractelement <2 x i64> %49, i64 0
+  %50 = load i64, ptr %6, align 8, !noalias !7
   %51 = shl i64 %50, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %47, ptr align 8 %48, i64 %51, i1 false), !noalias !7
   store ptr %47, ptr %40, align 8

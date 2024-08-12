@@ -3803,19 +3803,19 @@ af_face_globals_get_metrics.exit.i:               ; preds = %92
   %295 = add nsw <2 x i64> %294, <i64 63, i64 63>
   %296 = and <2 x i64> %295, <i64 -64, i64 -64>
   store <2 x i64> %296, ptr %293, align 16
-  %297 = load <2 x i64>, ptr %9, align 16
-  %298 = and <2 x i64> %297, <i64 -64, i64 -64>
-  %299 = extractelement <2 x i64> %298, i64 0
-  store i64 %299, ptr %9, align 16
-  %300 = extractelement <2 x i64> %298, i64 1
-  store i64 %300, ptr %292, align 8
-  %301 = sub nsw <2 x i64> %296, %298
-  store <2 x i64> %301, ptr %260, align 8
-  store i64 %299, ptr %262, align 8
-  %302 = extractelement <2 x i64> %296, i64 1
-  store i64 %302, ptr %263, align 8
+  %297 = extractelement <2 x i64> %296, i64 1
+  %298 = load <2 x i64>, ptr %9, align 16
+  %299 = and <2 x i64> %298, <i64 -64, i64 -64>
+  %300 = extractelement <2 x i64> %299, i64 0
+  store i64 %300, ptr %9, align 16
+  %301 = extractelement <2 x i64> %299, i64 1
+  store i64 %301, ptr %292, align 8
+  %302 = sub nsw <2 x i64> %296, %299
+  store <2 x i64> %302, ptr %260, align 8
+  store i64 %300, ptr %262, align 8
+  store i64 %297, ptr %263, align 8
   %303 = load <2 x i64>, ptr %10, align 16
-  %304 = shufflevector <2 x i64> %298, <2 x i64> %296, <2 x i32> <i32 0, i32 3>
+  %304 = shufflevector <2 x i64> %299, <2 x i64> %296, <2 x i32> <i32 0, i32 3>
   %305 = add nsw <2 x i64> %303, %304
   %306 = and <2 x i64> %305, <i64 -64, i64 -64>
   store <2 x i64> %306, ptr %261, align 8

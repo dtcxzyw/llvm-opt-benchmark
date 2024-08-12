@@ -480,10 +480,10 @@ if.then:                                          ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds [10 x %"class.std::shared_ptr"], ptr %vectors, i64 0, i64 %conv
   %_M_refcount4.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %1 = load <2 x ptr>, ptr %arrayidx.i.i, align 8
+  %2 = load ptr, ptr %arrayidx.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i, align 8
   store <2 x ptr> %1, ptr %agg.result, align 8
   store ptr null, ptr %arrayidx.i.i, align 8
-  %2 = extractelement <2 x ptr> %1, i64 0
   %rawNulls_.i = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load ptr, ptr %rawNulls_.i, align 8
   %cmp.not = icmp eq ptr %3, null
@@ -719,14 +719,14 @@ entry:
   call void @_ZN8facebook5velox10BaseVector14createInternalERKSt10shared_ptrIKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr nonnull sret(%"class.std::shared_ptr") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %type, i32 noundef %size, ptr noundef %pool)
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %_M_refcount2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %0 = load <2 x ptr>, ptr %ref.tmp, align 16
-  store <2 x ptr> %0, ptr %agg.result, align 8, !alias.scope !8
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount2.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %ref.tmp, align 16
+  store <2 x ptr> %1, ptr %agg.result, align 8, !alias.scope !8
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !8
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

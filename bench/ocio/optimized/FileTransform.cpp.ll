@@ -1676,23 +1676,23 @@ declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev23CollectContextVariablesERKNS_6ConfigERKNS_7ContextERKNS_13FileTransformERSt10shared_ptrIS3_E(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %context, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %tr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %usedContextVars) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %ctxFilename = alloca %"class.std::shared_ptr.47", align 8
+  %ctxFilename = alloca %"class.std::shared_ptr.47", align 16
   %agg.tmp = alloca %"class.std::shared_ptr.22", align 8
   %resolvedString = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %ref.tmp20 = alloca %"class.std::shared_ptr.50", align 8
+  %ref.tmp20 = alloca %"class.std::shared_ptr.50", align 16
   %emptyContext = alloca %"class.std::shared_ptr.47", align 8
   %agg.tmp34 = alloca %"class.std::shared_ptr.22", align 8
-  %ctxFilepath = alloca %"class.std::shared_ptr.47", align 8
+  %ctxFilepath = alloca %"class.std::shared_ptr.47", align 16
   %agg.tmp49 = alloca %"class.std::shared_ptr.22", align 8
   %resolvedFilename = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp57 = alloca %"class.std::allocator", align 1
-  %ref.tmp70 = alloca %"class.std::shared_ptr.50", align 8
-  %ref.tmp73 = alloca %"class.std::shared_ptr.50", align 8
-  %ctxCCCID = alloca %"class.std::shared_ptr.47", align 8
+  %ref.tmp70 = alloca %"class.std::shared_ptr.50", align 16
+  %ref.tmp73 = alloca %"class.std::shared_ptr.50", align 16
+  %ctxCCCID = alloca %"class.std::shared_ptr.47", align 16
   %resolvedCCCID = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp80 = alloca %"class.std::allocator", align 1
-  %ref.tmp88 = alloca %"class.std::shared_ptr.50", align 8
+  %ref.tmp88 = alloca %"class.std::shared_ptr.50", align 16
   %m_impl.i.i = getelementptr inbounds i8, ptr %tr, i64 8
   %1 = load ptr, ptr %m_impl.i.i, align 8
   %m_src.i = getelementptr inbounds i8, ptr %1, i64 8
@@ -1707,7 +1707,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   call void @_ZN19OpenColorIO_v2_4dev7Context6CreateEv(ptr nonnull sret(%"class.std::shared_ptr.47") align 8 %ctxFilename)
-  %3 = load ptr, ptr %ctxFilename, align 8
+  %3 = load ptr, ptr %ctxFilename, align 16
   %call3 = invoke noundef ptr @_ZNK19OpenColorIO_v2_4dev7Context13getSearchPathEv(ptr noundef nonnull align 8 dereferenceable(8) %context)
           to label %invoke.cont unwind label %lpad
 
@@ -1716,7 +1716,7 @@ invoke.cont:                                      ; preds = %if.end
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %4 = load ptr, ptr %ctxFilename, align 8
+  %4 = load ptr, ptr %ctxFilename, align 16
   %call7 = invoke noundef ptr @_ZNK19OpenColorIO_v2_4dev7Context13getWorkingDirEv(ptr noundef nonnull align 8 dereferenceable(8) %context)
           to label %invoke.cont6 unwind label %lpad
 
@@ -1725,7 +1725,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
-  %5 = load ptr, ptr %ctxFilename, align 8
+  %5 = load ptr, ptr %ctxFilename, align 16
   invoke void @_ZNK19OpenColorIO_v2_4dev7Context16getConfigIOProxyEv(ptr nonnull sret(%"class.std::shared_ptr.22") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %context)
           to label %invoke.cont10 unwind label %lpad
 
@@ -1822,17 +1822,16 @@ invoke.cont15:                                    ; preds = %_ZNSt10shared_ptrIN
 
 if.then18:                                        ; preds = %invoke.cont15
   %17 = load ptr, ptr %usedContextVars, align 8
-  %18 = load ptr, ptr %ctxFilename, align 8
-  store ptr %18, ptr %ref.tmp20, align 8
   %_M_refcount.i.i24 = getelementptr inbounds i8, ptr %ref.tmp20, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %ctxFilename, i64 8
-  %19 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %19, ptr %_M_refcount.i.i24, align 8
-  %cmp.not.i.i.i25 = icmp eq ptr %19, null
+  %18 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %19 = load <2 x ptr>, ptr %ctxFilename, align 16
+  store <2 x ptr> %19, ptr %ref.tmp20, align 16
+  %cmp.not.i.i.i25 = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i25, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev7ContextEEC2IS1_vEERKS_IT_E.exit, label %if.then.i.i.i26
 
 if.then.i.i.i26:                                  ; preds = %if.then18
-  %_M_use_count.i.i.i.i27 = getelementptr inbounds i8, ptr %19, i64 8
+  %_M_use_count.i.i.i.i27 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %20, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i30, label %if.then.i.i.i.i.i28
@@ -2054,7 +2053,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev13ConfigIOProxyEED2Ev.exit93: ; preds = 
           to label %invoke.cont38 unwind label %lpad25
 
 invoke.cont38:                                    ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev13ConfigIOProxyEED2Ev.exit93
-  %57 = load ptr, ptr %ctxFilepath, align 8
+  %57 = load ptr, ptr %ctxFilepath, align 16
   %call42 = invoke noundef ptr @_ZNK19OpenColorIO_v2_4dev7Context13getSearchPathEv(ptr noundef nonnull align 8 dereferenceable(8) %context)
           to label %invoke.cont41 unwind label %lpad40
 
@@ -2063,7 +2062,7 @@ invoke.cont41:                                    ; preds = %invoke.cont38
           to label %invoke.cont43 unwind label %lpad40
 
 invoke.cont43:                                    ; preds = %invoke.cont41
-  %58 = load ptr, ptr %ctxFilepath, align 8
+  %58 = load ptr, ptr %ctxFilepath, align 16
   %call46 = invoke noundef ptr @_ZNK19OpenColorIO_v2_4dev7Context13getWorkingDirEv(ptr noundef nonnull align 8 dereferenceable(8) %context)
           to label %invoke.cont45 unwind label %lpad40
 
@@ -2072,7 +2071,7 @@ invoke.cont45:                                    ; preds = %invoke.cont43
           to label %invoke.cont47 unwind label %lpad40
 
 invoke.cont47:                                    ; preds = %invoke.cont45
-  %59 = load ptr, ptr %ctxFilepath, align 8
+  %59 = load ptr, ptr %ctxFilepath, align 16
   invoke void @_ZNK19OpenColorIO_v2_4dev7Context16getConfigIOProxyEv(ptr nonnull sret(%"class.std::shared_ptr.22") align 8 %agg.tmp49, ptr noundef nonnull align 8 dereferenceable(8) %context)
           to label %invoke.cont50 unwind label %lpad40
 
@@ -2179,17 +2178,16 @@ invoke.cont64:                                    ; preds = %invoke.cont59
 
 if.then68:                                        ; preds = %invoke.cont64
   %72 = load ptr, ptr %usedContextVars, align 8
-  %73 = load ptr, ptr %ctxFilepath, align 8
-  store ptr %73, ptr %ref.tmp70, align 8
   %_M_refcount.i.i126 = getelementptr inbounds i8, ptr %ref.tmp70, i64 8
   %_M_refcount3.i.i127 = getelementptr inbounds i8, ptr %ctxFilepath, i64 8
-  %74 = load ptr, ptr %_M_refcount3.i.i127, align 8
-  store ptr %74, ptr %_M_refcount.i.i126, align 8
-  %cmp.not.i.i.i128 = icmp eq ptr %74, null
+  %73 = load ptr, ptr %_M_refcount3.i.i127, align 8
+  %74 = load <2 x ptr>, ptr %ctxFilepath, align 16
+  store <2 x ptr> %74, ptr %ref.tmp70, align 16
+  %cmp.not.i.i.i128 = icmp eq ptr %73, null
   br i1 %cmp.not.i.i.i128, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev7ContextEEC2IS1_vEERKS_IT_E.exit135, label %if.then.i.i.i129
 
 if.then.i.i.i129:                                 ; preds = %if.then68
-  %_M_use_count.i.i.i.i130 = getelementptr inbounds i8, ptr %74, i64 8
+  %_M_use_count.i.i.i.i130 = getelementptr inbounds i8, ptr %73, i64 8
   %75 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i131 = icmp eq i8 %75, 0
   br i1 %tobool.i.i.not.i.i.i.i131, label %if.else.i.i.i.i.i134, label %if.then.i.i.i.i.i132
@@ -2346,17 +2344,15 @@ catch.dispatch:                                   ; preds = %lpad63, %lpad58, %l
 catch:                                            ; preds = %catch.dispatch
   %108 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #28
   %109 = load ptr, ptr %usedContextVars, align 8
-  %110 = load ptr, ptr %ctxFilepath, align 8
-  store ptr %110, ptr %ref.tmp73, align 8
-  %_M_refcount.i.i168 = getelementptr inbounds i8, ptr %ref.tmp73, i64 8
   %_M_refcount3.i.i169 = getelementptr inbounds i8, ptr %ctxFilepath, i64 8
-  %111 = load ptr, ptr %_M_refcount3.i.i169, align 8
-  store ptr %111, ptr %_M_refcount.i.i168, align 8
-  %cmp.not.i.i.i170 = icmp eq ptr %111, null
+  %110 = load ptr, ptr %_M_refcount3.i.i169, align 8
+  %111 = load <2 x ptr>, ptr %ctxFilepath, align 16
+  store <2 x ptr> %111, ptr %ref.tmp73, align 16
+  %cmp.not.i.i.i170 = icmp eq ptr %110, null
   br i1 %cmp.not.i.i.i170, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev7ContextEEC2IS1_vEERKS_IT_E.exit177, label %if.then.i.i.i171
 
 if.then.i.i.i171:                                 ; preds = %catch
-  %_M_use_count.i.i.i.i172 = getelementptr inbounds i8, ptr %111, i64 8
+  %_M_use_count.i.i.i.i172 = getelementptr inbounds i8, ptr %110, i64 8
   %112 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i173 = icmp eq i8 %112, 0
   br i1 %tobool.i.i.not.i.i.i.i173, label %if.else.i.i.i.i.i176, label %if.then.i.i.i.i.i174
@@ -2400,17 +2396,16 @@ invoke.cont82:                                    ; preds = %invoke.cont77
 
 if.then86:                                        ; preds = %invoke.cont82
   %116 = load ptr, ptr %usedContextVars, align 8
-  %117 = load ptr, ptr %ctxCCCID, align 8
-  store ptr %117, ptr %ref.tmp88, align 8
   %_M_refcount.i.i180 = getelementptr inbounds i8, ptr %ref.tmp88, i64 8
   %_M_refcount3.i.i181 = getelementptr inbounds i8, ptr %ctxCCCID, i64 8
-  %118 = load ptr, ptr %_M_refcount3.i.i181, align 8
-  store ptr %118, ptr %_M_refcount.i.i180, align 8
-  %cmp.not.i.i.i182 = icmp eq ptr %118, null
+  %117 = load ptr, ptr %_M_refcount3.i.i181, align 8
+  %118 = load <2 x ptr>, ptr %ctxCCCID, align 16
+  store <2 x ptr> %118, ptr %ref.tmp88, align 16
+  %cmp.not.i.i.i182 = icmp eq ptr %117, null
   br i1 %cmp.not.i.i.i182, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev7ContextEEC2IS1_vEERKS_IT_E.exit189, label %if.then.i.i.i183
 
 if.then.i.i.i183:                                 ; preds = %if.then86
-  %_M_use_count.i.i.i.i184 = getelementptr inbounds i8, ptr %118, i64 8
+  %_M_use_count.i.i.i.i184 = getelementptr inbounds i8, ptr %117, i64 8
   %119 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i185 = icmp eq i8 %119, 0
   br i1 %tobool.i.i.not.i.i.i.i185, label %if.else.i.i.i.i.i188, label %if.then.i.i.i.i.i186
@@ -8311,10 +8306,10 @@ entry:
   %os46 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp56 = alloca %"class.std::__cxx11::basic_string", align 8
   %format = alloca ptr, align 8
-  %cachedFile = alloca %"class.std::shared_ptr.69", align 8
-  %fileNoOpConst = alloca %"class.std::shared_ptr.90", align 8
-  %fileNoOp = alloca %"class.std::shared_ptr.87", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.69", align 8
+  %cachedFile = alloca %"class.std::shared_ptr.69", align 16
+  %fileNoOpConst = alloca %"class.std::shared_ptr.90", align 16
+  %fileNoOp = alloca %"class.std::shared_ptr.87", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.69", align 16
   %err = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp121 = alloca %"class.std::__cxx11::basic_string", align 8
   %m_impl.i.i = getelementptr inbounds i8, ptr %fileTransform, i64 8
@@ -8857,7 +8852,7 @@ ehcleanup71:                                      ; preds = %lpad35.loopexit, %l
 
 invoke.cont76:                                    ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev2OpEED2Ev.exit, %invoke.cont20
   store ptr null, ptr %format, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cachedFile, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %cachedFile, i8 0, i64 16, i1 false)
   %74 = load ptr, ptr %m_impl.i.i, align 8
   %m_interp.i = getelementptr inbounds i8, ptr %74, i64 4
   %75 = load i32, ptr %m_interp.i, align 4
@@ -8873,17 +8868,16 @@ invoke.cont80:                                    ; preds = %invoke.cont78
           to label %invoke.cont81 unwind label %lpad79
 
 invoke.cont81:                                    ; preds = %invoke.cont80
-  %76 = load ptr, ptr %call82, align 8
-  store ptr %76, ptr %fileNoOpConst, align 8
   %_M_refcount.i.i108 = getelementptr inbounds i8, ptr %fileNoOpConst, i64 8
   %_M_refcount3.i.i109 = getelementptr inbounds i8, ptr %call82, i64 8
-  %77 = load ptr, ptr %_M_refcount3.i.i109, align 8
-  store ptr %77, ptr %_M_refcount.i.i108, align 8
-  %cmp.not.i.i.i110 = icmp eq ptr %77, null
+  %76 = load ptr, ptr %_M_refcount3.i.i109, align 8
+  %77 = load <2 x ptr>, ptr %call82, align 8
+  store <2 x ptr> %77, ptr %fileNoOpConst, align 16
+  %cmp.not.i.i.i110 = icmp eq ptr %76, null
   br i1 %cmp.not.i.i.i110, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev2OpEEC2IS1_vEERKS_IT_E.exit117, label %if.then.i.i.i111
 
 if.then.i.i.i111:                                 ; preds = %invoke.cont81
-  %_M_use_count.i.i.i.i112 = getelementptr inbounds i8, ptr %77, i64 8
+  %_M_use_count.i.i.i.i112 = getelementptr inbounds i8, ptr %76, i64 8
   %78 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i113 = icmp eq i8 %78, 0
   br i1 %tobool.i.i.not.i.i.i.i113, label %if.else.i.i.i.i.i116, label %if.then.i.i.i.i.i114
@@ -8903,17 +8897,16 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev2OpEEC2IS1_vEERKS_IT_E.exit117: ; preds
           to label %invoke.cont84 unwind label %lpad83
 
 invoke.cont84:                                    ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev2OpEEC2IS1_vEERKS_IT_E.exit117
-  %81 = load ptr, ptr %call85, align 8
-  store ptr %81, ptr %fileNoOp, align 8
   %_M_refcount.i.i118 = getelementptr inbounds i8, ptr %fileNoOp, i64 8
   %_M_refcount3.i.i119 = getelementptr inbounds i8, ptr %call85, i64 8
-  %82 = load ptr, ptr %_M_refcount3.i.i119, align 8
-  store ptr %82, ptr %_M_refcount.i.i118, align 8
-  %cmp.not.i.i.i120 = icmp eq ptr %82, null
+  %81 = load ptr, ptr %_M_refcount3.i.i119, align 8
+  %82 = load <2 x ptr>, ptr %call85, align 8
+  store <2 x ptr> %82, ptr %fileNoOp, align 16
+  %cmp.not.i.i.i120 = icmp eq ptr %81, null
   br i1 %cmp.not.i.i.i120, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEEC2ERKS2_.exit, label %if.then.i.i.i121
 
 if.then.i.i.i121:                                 ; preds = %invoke.cont84
-  %_M_use_count.i.i.i.i122 = getelementptr inbounds i8, ptr %82, i64 8
+  %_M_use_count.i.i.i.i122 = getelementptr inbounds i8, ptr %81, i64 8
   %83 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i123 = icmp eq i8 %83, 0
   br i1 %tobool.i.i.not.i.i.i.i123, label %if.else.i.i.i.i.i126, label %if.then.i.i.i.i.i124
@@ -8930,17 +8923,16 @@ if.else.i.i.i.i.i126:                             ; preds = %if.then.i.i.i121
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEEC2ERKS2_.exit: ; preds = %invoke.cont84, %if.then.i.i.i.i.i124, %if.else.i.i.i.i.i126
   %86 = load ptr, ptr %format, align 8
-  %87 = load ptr, ptr %cachedFile, align 8
-  store ptr %87, ptr %agg.tmp, align 8
   %_M_refcount.i.i127 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i128 = getelementptr inbounds i8, ptr %cachedFile, i64 8
-  %88 = load ptr, ptr %_M_refcount3.i.i128, align 8
-  store ptr %88, ptr %_M_refcount.i.i127, align 8
-  %cmp.not.i.i.i129 = icmp eq ptr %88, null
+  %87 = load ptr, ptr %_M_refcount3.i.i128, align 8
+  %88 = load <2 x ptr>, ptr %cachedFile, align 16
+  store <2 x ptr> %88, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i129 = icmp eq ptr %87, null
   br i1 %cmp.not.i.i.i129, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev10CachedFileEEC2ERKS2_.exit, label %if.then.i.i.i130
 
 if.then.i.i.i130:                                 ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev2OpEEC2ERKS2_.exit
-  %_M_use_count.i.i.i.i131 = getelementptr inbounds i8, ptr %88, i64 8
+  %_M_use_count.i.i.i.i131 = getelementptr inbounds i8, ptr %87, i64 8
   %89 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i132 = icmp eq i8 %89, 0
   br i1 %tobool.i.i.not.i.i.i.i132, label %if.else.i.i.i.i.i135, label %if.then.i.i.i.i.i133
@@ -9036,7 +9028,7 @@ if.end8.sink.split.i.i.i.i158:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev10CachedFileEED2Ev.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev10CachedFileEED2Ev.exit: ; preds = %invoke.cont87, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i145, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i155, %if.end8.sink.split.i.i.i.i158
-  %104 = load ptr, ptr %fileNoOpConst, align 8
+  %104 = load ptr, ptr %fileNoOpConst, align 16
   %m_data.i167 = getelementptr inbounds i8, ptr %104, i64 8
   %105 = load ptr, ptr %m_data.i167, align 8, !noalias !51
   %_M_refcount2.i.i.i.i169 = getelementptr inbounds i8, ptr %104, i64 16

@@ -4867,15 +4867,15 @@ define dso_local void @_ZN4Luau26TypeFamilyReductionGuesser4stepEv(ptr noundef n
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load <2 x i64>, ptr %4, align 8
-  %6 = extractelement <2 x i64> %5, i64 0
+  %6 = load i64, ptr %4, align 8
   %7 = getelementptr inbounds ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = add <2 x i64> %5, <i64 1, i64 -1>
+  %10 = add i64 %6, 1
   store <2 x i64> %9, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
-  %11 = load i64, ptr %10, align 8
-  %12 = extractelement <2 x i64> %9, i64 0
-  %13 = icmp eq i64 %12, %11
+  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %12 = load i64, ptr %11, align 8
+  %13 = icmp eq i64 %10, %12
   br i1 %13, label %14, label %_ZN4Luau8VecDequeIPKNS_4TypeESaIS3_EE9pop_frontEv.exit
 
 14:                                               ; preds = %1

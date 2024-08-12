@@ -1539,14 +1539,15 @@ entry:
   %agg.tmp3 = alloca %"class.std::shared_ptr", align 16
   %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #15
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %0 = load <2 x ptr>, ptr %table_factory_to_write, align 8
-  store <2 x ptr> %0, ptr %agg.tmp, align 16
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %table_factory_to_write, i64 8
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %table_factory_to_write, align 8
+  store <2 x ptr> %1, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb12TableFactoryEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -1563,14 +1564,15 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 
 _ZNSt10shared_ptrIN7rocksdb12TableFactoryEEC2ERKS2_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
-  %5 = load <2 x ptr>, ptr %block_based_table_factory, align 8
-  store <2 x ptr> %5, ptr %agg.tmp1, align 16
-  %6 = extractelement <2 x ptr> %5, i64 1
-  %cmp.not.i.i.i3 = icmp eq ptr %6, null
+  %_M_refcount3.i.i2 = getelementptr inbounds i8, ptr %block_based_table_factory, i64 8
+  %5 = load ptr, ptr %_M_refcount3.i.i2, align 8
+  %6 = load <2 x ptr>, ptr %block_based_table_factory, align 8
+  store <2 x ptr> %6, ptr %agg.tmp1, align 16
+  %cmp.not.i.i.i3 = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i3, label %_ZNSt10shared_ptrIN7rocksdb12TableFactoryEEC2ERKS2_.exit10, label %if.then.i.i.i4
 
 if.then.i.i.i4:                                   ; preds = %_ZNSt10shared_ptrIN7rocksdb12TableFactoryEEC2ERKS2_.exit
-  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i5 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i6 = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i6, label %if.else.i.i.i.i.i9, label %if.then.i.i.i.i.i7
@@ -1587,14 +1589,15 @@ if.else.i.i.i.i.i9:                               ; preds = %if.then.i.i.i4
 
 _ZNSt10shared_ptrIN7rocksdb12TableFactoryEEC2ERKS2_.exit10: ; preds = %_ZNSt10shared_ptrIN7rocksdb12TableFactoryEEC2ERKS2_.exit, %if.then.i.i.i.i.i7, %if.else.i.i.i.i.i9
   %_M_refcount.i.i11 = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
-  %10 = load <2 x ptr>, ptr %plain_table_factory, align 8
-  store <2 x ptr> %10, ptr %agg.tmp2, align 16
-  %11 = extractelement <2 x ptr> %10, i64 1
-  %cmp.not.i.i.i13 = icmp eq ptr %11, null
+  %_M_refcount3.i.i12 = getelementptr inbounds i8, ptr %plain_table_factory, i64 8
+  %10 = load ptr, ptr %_M_refcount3.i.i12, align 8
+  %11 = load <2 x ptr>, ptr %plain_table_factory, align 8
+  store <2 x ptr> %11, ptr %agg.tmp2, align 16
+  %cmp.not.i.i.i13 = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i13, label %_ZNSt10shared_ptrIN7rocksdb12TableFactoryEEC2ERKS2_.exit20, label %if.then.i.i.i14
 
 if.then.i.i.i14:                                  ; preds = %_ZNSt10shared_ptrIN7rocksdb12TableFactoryEEC2ERKS2_.exit10
-  %_M_use_count.i.i.i.i15 = getelementptr inbounds i8, ptr %11, i64 8
+  %_M_use_count.i.i.i.i15 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i16 = icmp eq i8 %12, 0
   br i1 %tobool.i.not.i.i.i.i16, label %if.else.i.i.i.i.i19, label %if.then.i.i.i.i.i17
@@ -1611,14 +1614,15 @@ if.else.i.i.i.i.i19:                              ; preds = %if.then.i.i.i14
 
 _ZNSt10shared_ptrIN7rocksdb12TableFactoryEEC2ERKS2_.exit20: ; preds = %_ZNSt10shared_ptrIN7rocksdb12TableFactoryEEC2ERKS2_.exit10, %if.then.i.i.i.i.i17, %if.else.i.i.i.i.i19
   %_M_refcount.i.i21 = getelementptr inbounds i8, ptr %agg.tmp3, i64 8
-  %15 = load <2 x ptr>, ptr %cuckoo_table_factory, align 8
-  store <2 x ptr> %15, ptr %agg.tmp3, align 16
-  %16 = extractelement <2 x ptr> %15, i64 1
-  %cmp.not.i.i.i23 = icmp eq ptr %16, null
+  %_M_refcount3.i.i22 = getelementptr inbounds i8, ptr %cuckoo_table_factory, i64 8
+  %15 = load ptr, ptr %_M_refcount3.i.i22, align 8
+  %16 = load <2 x ptr>, ptr %cuckoo_table_factory, align 8
+  store <2 x ptr> %16, ptr %agg.tmp3, align 16
+  %cmp.not.i.i.i23 = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i23, label %_ZNSt10shared_ptrIN7rocksdb12TableFactoryEEC2ERKS2_.exit30, label %if.then.i.i.i24
 
 if.then.i.i.i24:                                  ; preds = %_ZNSt10shared_ptrIN7rocksdb12TableFactoryEEC2ERKS2_.exit20
-  %_M_use_count.i.i.i.i25 = getelementptr inbounds i8, ptr %16, i64 8
+  %_M_use_count.i.i.i.i25 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i26 = icmp eq i8 %17, 0
   br i1 %tobool.i.not.i.i.i.i26, label %if.else.i.i.i.i.i29, label %if.then.i.i.i.i.i27

@@ -1167,14 +1167,15 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %type_.i = getelementptr inbounds i8, ptr %0, i64 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
-  %1 = load <2 x ptr>, ptr %type_.i, align 8, !noalias !56
-  store <2 x ptr> %1, ptr %ref.tmp1, align 16, !alias.scope !56
-  %2 = extractelement <2 x ptr> %1, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %2, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !56
+  %2 = load <2 x ptr>, ptr %type_.i, align 8, !noalias !56
+  store <2 x ptr> %2, ptr %ref.tmp1, align 16, !alias.scope !56
+  %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK5arrow6Tensor4typeEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1, !noalias !56
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -1781,14 +1782,15 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
   %type_.i = getelementptr inbounds i8, ptr %0, i64 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
-  %1 = load <2 x ptr>, ptr %type_.i, align 8, !noalias !74
-  store <2 x ptr> %1, ptr %ref.tmp1, align 16, !alias.scope !74
-  %2 = extractelement <2 x ptr> %1, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %2, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !74
+  %2 = load <2 x ptr>, ptr %type_.i, align 8, !noalias !74
+  store <2 x ptr> %2, ptr %ref.tmp1, align 16, !alias.scope !74
+  %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK5arrow6Tensor4typeEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1, !noalias !74
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -2129,12 +2131,13 @@ while.cond14.preheader:                           ; preds = %for.body
   %12 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
   store ptr %12, ptr %_M_end_of_storage.i.i.i.i, align 16
   %13 = load <2 x ptr>, ptr %last_index, align 16
+  %14 = load ptr, ptr %last_index, align 16
   store <2 x ptr> %11, ptr %last_index, align 16
   store <2 x ptr> %13, ptr %index, align 16
   store ptr %10, ptr %_M_end_of_storage.i4.i.i.i, align 16
   %inc31 = add nuw nsw i64 %i.039, 1
   %exitcond = icmp eq i64 %inc31, %2
-  br i1 %exitcond, label %cleanup.loopexit, label %for.body, !llvm.loop !84
+  br i1 %exitcond, label %cleanup, label %for.body, !llvm.loop !84
 
 lpad.loopexit.split.split:                        ; preds = %for.body
   %lpad.loopexit28 = landingpad { ptr, i32 }
@@ -2148,32 +2151,28 @@ lpad.loopexit.split-lp:                           ; preds = %if.end
 
 lpad:                                             ; preds = %lpad.loopexit.split.us, %lpad.loopexit.split.split.us, %lpad.loopexit.split.split, %lpad.loopexit.split-lp
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp29, %lpad.loopexit.split-lp ], [ %lpad.loopexit28.us, %lpad.loopexit.split.us ], [ %lpad.loopexit28, %lpad.loopexit.split.split ], [ %lpad.loopexit28.us51, %lpad.loopexit.split.split.us ]
-  %14 = load ptr, ptr %index, align 16
-  %tobool.not.i.i.i = icmp eq ptr %14, null
+  %15 = load ptr, ptr %index, align 16
+  %tobool.not.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %14) #20
+  call void @_ZdlPv(ptr noundef nonnull %15) #20
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %lpad, %if.then.i.i.i
-  %15 = load ptr, ptr %last_index, align 16
-  %tobool.not.i.i.i16 = icmp eq ptr %15, null
+  %16 = load ptr, ptr %last_index, align 16
+  %tobool.not.i.i.i16 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i16, label %_ZNSt6vectorIlSaIlEED2Ev.exit18, label %if.then.i.i.i17
 
 if.then.i.i.i17:                                  ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %15) #20
+  call void @_ZdlPv(ptr noundef nonnull %16) #20
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit18
 
 _ZNSt6vectorIlSaIlEED2Ev.exit18:                  ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit, %if.then.i.i.i17
   resume { ptr, i32 } %lpad.phi
 
-cleanup.loopexit:                                 ; preds = %while.cond14.preheader
-  %16 = extractelement <2 x ptr> %13, i64 0
-  br label %cleanup
-
-cleanup:                                          ; preds = %cleanup.loopexit, %for.body.us47.cleanup_crit_edge
-  %.pr = phi ptr [ %.pr.pre, %for.body.us47.cleanup_crit_edge ], [ %16, %cleanup.loopexit ]
+cleanup:                                          ; preds = %while.cond14.preheader, %for.body.us47.cleanup_crit_edge
+  %.pr = phi ptr [ %.pr.pre, %for.body.us47.cleanup_crit_edge ], [ %14, %while.cond14.preheader ]
   %tobool.not.i.i.i21 = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i21, label %_ZNSt6vectorIlSaIlEED2Ev.exit23, label %if.then.i.i.i22
 
@@ -2901,14 +2900,15 @@ invoke.cont18:                                    ; preds = %if.end
   %_M_finish.i.i17 = getelementptr inbounds i8, ptr %indices_strides, i64 8
   store ptr %add.ptr.i1.i14, ptr %_M_finish.i.i17, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp19, i64 8
-  %18 = load <2 x ptr>, ptr %indices_data, align 8
-  store <2 x ptr> %18, ptr %agg.tmp19, align 16
-  %19 = extractelement <2 x ptr> %18, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %19, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %indices_data, i64 8
+  %18 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %19 = load <2 x ptr>, ptr %indices_data, align 8
+  store <2 x ptr> %19, ptr %agg.tmp19, align 16
+  %cmp.not.i.i.i = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont18
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %20, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -3272,14 +3272,15 @@ invoke.cont17:                                    ; preds = %if.end
   %_M_finish.i.i17 = getelementptr inbounds i8, ptr %indices_strides, i64 8
   store ptr %add.ptr.i1.i14, ptr %_M_finish.i.i17, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp18, i64 8
-  %18 = load <2 x ptr>, ptr %indices_data, align 8
-  store <2 x ptr> %18, ptr %agg.tmp18, align 16
-  %19 = extractelement <2 x ptr> %18, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %19, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %indices_data, i64 8
+  %18 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %19 = load <2 x ptr>, ptr %indices_data, align 8
+  store <2 x ptr> %19, ptr %agg.tmp18, align 16
+  %cmp.not.i.i.i = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5arrow6BufferEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont17
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %20, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -3463,14 +3464,15 @@ _ZNSt10shared_ptrIN5arrow6TensorEEC2ERKS2_.exit:  ; preds = %entry, %if.then.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %type_.i = getelementptr inbounds i8, ptr %5, i64 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %6 = load <2 x ptr>, ptr %type_.i, align 8, !noalias !103
-  store <2 x ptr> %6, ptr %ref.tmp, align 16, !alias.scope !103
-  %7 = extractelement <2 x ptr> %6, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %7, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !103
+  %7 = load <2 x ptr>, ptr %type_.i, align 8, !noalias !103
+  store <2 x ptr> %7, ptr %ref.tmp, align 16, !alias.scope !103
+  %cmp.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK5arrow6Tensor4typeEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt10shared_ptrIN5arrow6TensorEEC2ERKS2_.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1, !noalias !103
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -6154,14 +6156,15 @@ do.body:                                          ; preds = %if.then.i.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
   %type_.i = getelementptr inbounds i8, ptr %23, i64 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %24 = load <2 x ptr>, ptr %type_.i, align 8, !noalias !145
-  store <2 x ptr> %24, ptr %ref.tmp, align 16, !alias.scope !145
-  %25 = extractelement <2 x ptr> %24, i64 1
-  %cmp.not.i.i.i.i63 = icmp eq ptr %25, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !145
+  %25 = load <2 x ptr>, ptr %type_.i, align 8, !noalias !145
+  store <2 x ptr> %25, ptr %ref.tmp, align 16, !alias.scope !145
+  %cmp.not.i.i.i.i63 = icmp eq ptr %24, null
   br i1 %cmp.not.i.i.i.i63, label %_ZNK5arrow6Tensor4typeEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load i8, ptr @__libc_single_threaded, align 1, !noalias !145
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %26, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

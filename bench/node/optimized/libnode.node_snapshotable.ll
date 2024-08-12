@@ -2158,14 +2158,11 @@ if.then.i.i.i.i:                                  ; preds = %entry, %if.then.i
   store ptr %9, ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !48
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 24
   %_M_finish3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %10 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !48
-  store ptr %10, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !48
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 32
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !48
-  store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !48
+  %10 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !48
+  %11 = load ptr, ptr %_M_finish3.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !48
+  store <2 x ptr> %10, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false), !noalias !48
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %10 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %12 = load i8, ptr @__libc_single_threaded, align 1
@@ -5143,21 +5140,21 @@ if.then.i13:                                      ; preds = %_ZNK4node26BlobSeri
   br label %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit
 
 _ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit: ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJEEEvPKcDpOT_.exit11, %if.then.i13
-  %13 = load ptr, ptr %agg.result, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %13 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %14 = load <2 x ptr>, ptr %sink.i.i, align 8
   %15 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
-  store ptr %13, ptr %sink.i.i, align 8
-  %16 = load <2 x ptr>, ptr %_M_finish.i.i.i.i, align 8
-  store <2 x ptr> %14, ptr %agg.result, align 8
   store ptr %15, ptr %_M_end_of_storage.i.i.i.i, align 8
-  store <2 x ptr> %16, ptr %_M_finish.i.i.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %13, null
+  %16 = load <2 x ptr>, ptr %agg.result, align 8
+  %17 = load ptr, ptr %agg.result, align 8
+  store <2 x ptr> %14, ptr %agg.result, align 8
+  store <2 x ptr> %16, ptr %sink.i.i, align 8
+  store ptr %13, ptr %_M_end_of_storage.i.i.i, align 8
+  %tobool.not.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4node18SnapshotSerializerD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit
-  call void @_ZdlPv(ptr noundef nonnull %13) #27
+  call void @_ZdlPv(ptr noundef nonnull %17) #27
   br label %_ZN4node18SnapshotSerializerD2Ev.exit
 
 _ZN4node18SnapshotSerializerD2Ev.exit:            ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit, %if.then.i.i.i.i.i

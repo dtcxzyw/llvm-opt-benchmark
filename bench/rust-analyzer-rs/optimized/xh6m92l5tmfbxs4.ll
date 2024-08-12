@@ -112,9 +112,9 @@ define hidden void @_ZN3std2io16append_to_string17h25680f64bc238fe0E.llvm.130099
 27:                                               ; preds = %.noexc
   store i64 0, ptr %9, align 8, !alias.scope !21, !noalias !22
   %28 = load <2 x i64>, ptr %14, align 8, !noalias !28
+  %29 = load i64, ptr %14, align 8, !noalias !28, !noundef !4
   store <2 x i64> %28, ptr %10, align 8, !alias.scope !21, !noalias !22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !28
-  %29 = extractelement <2 x i64> %28, i64 0
   br label %"_ZN85_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17he75f32b09d7a48f0E.exit.i.i"
 
 "_ZN85_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..BufRead$GT$8fill_buf17he75f32b09d7a48f0E.exit.thread.i.i": ; preds = %.noexc

@@ -2021,14 +2021,14 @@ if.end.i60:                                       ; preds = %if.end.i60.lr.ph, %
   %data.i = getelementptr inbounds i8, ptr %14, i64 8
   %sub.i = add i64 %deque.val4176, -1
   %15 = load <2 x i64>, ptr %rightindex.i, align 8
-  %16 = extractelement <2 x i64> %15, i64 0
+  %16 = load i64, ptr %rightindex.i, align 8
   %arrayidx.i61 = getelementptr [64 x ptr], ptr %data.i, i64 0, i64 %16
   %17 = load ptr, ptr %arrayidx.i61, align 8
   store i64 %sub.i, ptr %0, align 8
   %18 = add <2 x i64> %15, <i64 -1, i64 1>
+  %dec.i62 = add i64 %16, -1
   store <2 x i64> %18, ptr %rightindex.i, align 8
-  %19 = extractelement <2 x i64> %18, i64 0
-  %cmp4.i = icmp slt i64 %19, 0
+  %cmp4.i = icmp slt i64 %dec.i62, 0
   br i1 %cmp4.i, label %if.then5.i, label %deque_pop.exit
 
 if.then5.i:                                       ; preds = %if.end.i60
@@ -2036,16 +2036,16 @@ if.then5.i:                                       ; preds = %if.end.i60
   br i1 %tobool.not.i65, label %if.else.i66, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.then5.i
-  %20 = load ptr, ptr %14, align 8
-  %21 = load i64, ptr %numfreeblocks.i, align 8
-  %cmp.i.i = icmp slt i64 %21, 16
+  %19 = load ptr, ptr %14, align 8
+  %20 = load i64, ptr %numfreeblocks.i, align 8
+  %cmp.i.i = icmp slt i64 %20, 16
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then7.i
-  %arrayidx.i.i = getelementptr [16 x ptr], ptr %freeblocks.i.i, i64 0, i64 %21
+  %arrayidx.i.i = getelementptr [16 x ptr], ptr %freeblocks.i.i, i64 0, i64 %20
   store ptr %14, ptr %arrayidx.i.i, align 8
-  %22 = load i64, ptr %numfreeblocks.i, align 8
-  %inc.i.i = add i64 %22, 1
+  %21 = load i64, ptr %numfreeblocks.i, align 8
+  %inc.i.i = add i64 %21, 1
   store i64 %inc.i.i, ptr %numfreeblocks.i, align 8
   br label %freeblock.exit.i
 
@@ -2054,7 +2054,7 @@ if.else.i.i:                                      ; preds = %if.then7.i
   br label %freeblock.exit.i
 
 freeblock.exit.i:                                 ; preds = %if.else.i.i, %if.then.i.i
-  store ptr %20, ptr %rightblock.i, align 8
+  store ptr %19, ptr %rightblock.i, align 8
   br label %deque_pop.exit.sink.split
 
 if.else.i66:                                      ; preds = %if.then5.i
@@ -2067,13 +2067,13 @@ deque_pop.exit.sink.split:                        ; preds = %if.else.i66, %freeb
   br label %deque_pop.exit
 
 deque_pop.exit:                                   ; preds = %deque_pop.exit.sink.split, %if.end.i60
-  %23 = load i64, ptr %17, align 8
-  %24 = and i64 %23, 2147483648
-  %cmp.i44.not = icmp eq i64 %24, 0
+  %22 = load i64, ptr %17, align 8
+  %23 = and i64 %22, 2147483648
+  %cmp.i44.not = icmp eq i64 %23, 0
   br i1 %cmp.i44.not, label %if.end.i, label %Py_DECREF.exit
 
 if.end.i:                                         ; preds = %deque_pop.exit
-  %dec.i = add i64 %23, -1
+  %dec.i = add i64 %22, -1
   store i64 %dec.i, ptr %17, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
@@ -3361,14 +3361,14 @@ if.end:                                           ; preds = %entry
   %rightindex = getelementptr inbounds i8, ptr %deque, i64 48
   %sub = add i64 %deque.val17, -1
   %3 = load <2 x i64>, ptr %rightindex, align 8
-  %4 = extractelement <2 x i64> %3, i64 0
+  %4 = load i64, ptr %rightindex, align 8
   %arrayidx = getelementptr [64 x ptr], ptr %data, i64 0, i64 %4
   %5 = load ptr, ptr %arrayidx, align 8
   store i64 %sub, ptr %0, align 8
   %6 = add <2 x i64> %3, <i64 -1, i64 1>
+  %dec = add i64 %4, -1
   store <2 x i64> %6, ptr %rightindex, align 8
-  %7 = extractelement <2 x i64> %6, i64 0
-  %cmp4 = icmp slt i64 %7, 0
+  %cmp4 = icmp slt i64 %dec, 0
   br i1 %cmp4, label %if.then5, label %return
 
 if.then5:                                         ; preds = %if.end
@@ -3376,18 +3376,18 @@ if.then5:                                         ; preds = %if.end
   br i1 %tobool.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %if.then5
-  %8 = load ptr, ptr %2, align 8
+  %7 = load ptr, ptr %2, align 8
   %numfreeblocks.i = getelementptr inbounds i8, ptr %deque, i64 72
-  %9 = load i64, ptr %numfreeblocks.i, align 8
-  %cmp.i = icmp slt i64 %9, 16
+  %8 = load i64, ptr %numfreeblocks.i, align 8
+  %cmp.i = icmp slt i64 %8, 16
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then7
   %freeblocks.i = getelementptr inbounds i8, ptr %deque, i64 80
-  %arrayidx.i = getelementptr [16 x ptr], ptr %freeblocks.i, i64 0, i64 %9
+  %arrayidx.i = getelementptr [16 x ptr], ptr %freeblocks.i, i64 0, i64 %8
   store ptr %2, ptr %arrayidx.i, align 8
-  %10 = load i64, ptr %numfreeblocks.i, align 8
-  %inc.i = add i64 %10, 1
+  %9 = load i64, ptr %numfreeblocks.i, align 8
+  %inc.i = add i64 %9, 1
   store i64 %inc.i, ptr %numfreeblocks.i, align 8
   br label %freeblock.exit
 
@@ -3396,7 +3396,7 @@ if.else.i:                                        ; preds = %if.then7
   br label %freeblock.exit
 
 freeblock.exit:                                   ; preds = %if.then.i, %if.else.i
-  store ptr %8, ptr %rightblock, align 8
+  store ptr %7, ptr %rightblock, align 8
   store i64 63, ptr %rightindex, align 8
   br label %return
 
@@ -5134,14 +5134,14 @@ if.end.i24:                                       ; preds = %if.end6
   %rightindex.i = getelementptr inbounds i8, ptr %deque, i64 48
   %sub.i = add i64 %deque.val, -1
   %9 = load <2 x i64>, ptr %rightindex.i, align 8
-  %10 = extractelement <2 x i64> %9, i64 0
+  %10 = load i64, ptr %rightindex.i, align 8
   %arrayidx.i25 = getelementptr [64 x ptr], ptr %data.i, i64 0, i64 %10
   %11 = load ptr, ptr %arrayidx.i25, align 8
   store i64 %sub.i, ptr %6, align 8
   %12 = add <2 x i64> %9, <i64 -1, i64 1>
+  %dec.i26 = add i64 %10, -1
   store <2 x i64> %12, ptr %rightindex.i, align 8
-  %13 = extractelement <2 x i64> %12, i64 0
-  %cmp4.i = icmp slt i64 %13, 0
+  %cmp4.i = icmp slt i64 %dec.i26, 0
   br i1 %cmp4.i, label %if.then5.i, label %deque_pop.exit
 
 if.then5.i:                                       ; preds = %if.end.i24
@@ -5149,18 +5149,18 @@ if.then5.i:                                       ; preds = %if.end.i24
   br i1 %tobool.not.i28, label %if.else.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.then5.i
-  %14 = load ptr, ptr %8, align 8
+  %13 = load ptr, ptr %8, align 8
   %numfreeblocks.i.i = getelementptr inbounds i8, ptr %deque, i64 72
-  %15 = load i64, ptr %numfreeblocks.i.i, align 8
-  %cmp.i.i = icmp slt i64 %15, 16
+  %14 = load i64, ptr %numfreeblocks.i.i, align 8
+  %cmp.i.i = icmp slt i64 %14, 16
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then7.i
   %freeblocks.i.i = getelementptr inbounds i8, ptr %deque, i64 80
-  %arrayidx.i.i = getelementptr [16 x ptr], ptr %freeblocks.i.i, i64 0, i64 %15
+  %arrayidx.i.i = getelementptr [16 x ptr], ptr %freeblocks.i.i, i64 0, i64 %14
   store ptr %8, ptr %arrayidx.i.i, align 8
-  %16 = load i64, ptr %numfreeblocks.i.i, align 8
-  %inc.i.i = add i64 %16, 1
+  %15 = load i64, ptr %numfreeblocks.i.i, align 8
+  %inc.i.i = add i64 %15, 1
   store i64 %inc.i.i, ptr %numfreeblocks.i.i, align 8
   br label %freeblock.exit.i
 
@@ -5169,7 +5169,7 @@ if.else.i.i:                                      ; preds = %if.then7.i
   br label %freeblock.exit.i
 
 freeblock.exit.i:                                 ; preds = %if.else.i.i, %if.then.i.i
-  store ptr %14, ptr %rightblock.i, align 8
+  store ptr %13, ptr %rightblock.i, align 8
   br label %deque_pop.exit.sink.split
 
 if.else.i:                                        ; preds = %if.then5.i
@@ -5182,13 +5182,13 @@ deque_pop.exit.sink.split:                        ; preds = %if.else.i, %freeblo
   br label %deque_pop.exit
 
 deque_pop.exit:                                   ; preds = %deque_pop.exit.sink.split, %if.end.i24
-  %17 = load i64, ptr %11, align 8
-  %18 = and i64 %17, 2147483648
-  %cmp.i18.not = icmp eq i64 %18, 0
+  %16 = load i64, ptr %11, align 8
+  %17 = and i64 %16, 2147483648
+  %cmp.i18.not = icmp eq i64 %17, 0
   br i1 %cmp.i18.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %deque_pop.exit
-  %dec.i = add i64 %17, -1
+  %dec.i = add i64 %16, -1
   store i64 %dec.i, ptr %11, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return
@@ -5199,8 +5199,8 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.else:                                          ; preds = %if.end6
   %state = getelementptr inbounds i8, ptr %deque, i64 56
-  %19 = load i64, ptr %state, align 8
-  %inc = add i64 %19, 1
+  %18 = load i64, ptr %state, align 8
+  %inc = add i64 %18, 1
   store i64 %inc, ptr %state, align 8
   br label %return
 

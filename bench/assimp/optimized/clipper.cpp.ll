@@ -11911,14 +11911,11 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %e.08 = phi ptr [ %2, %while.body ], [ %0, %entry ]
-  %PrevInAEL = getelementptr inbounds i8, ptr %e.08, i64 112
-  %1 = load ptr, ptr %PrevInAEL, align 8
-  %PrevInSEL = getelementptr inbounds i8, ptr %e.08, i64 128
-  store ptr %1, ptr %PrevInSEL, align 8
   %NextInAEL = getelementptr inbounds i8, ptr %e.08, i64 104
-  %2 = load ptr, ptr %NextInAEL, align 8
   %NextInSEL = getelementptr inbounds i8, ptr %e.08, i64 120
-  store ptr %2, ptr %NextInSEL, align 8
+  %1 = load <2 x ptr>, ptr %NextInAEL, align 8
+  %2 = load ptr, ptr %NextInAEL, align 8
+  store <2 x ptr> %1, ptr %NextInSEL, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !109
 
@@ -14680,14 +14677,11 @@ do.body.preheader:                                ; preds = %_ZN10ClipperLib4Top
 
 while.body:                                       ; preds = %if.end, %_ZN10ClipperLib4TopXERNS_5TEdgeEx.exit
   %e.050 = phi ptr [ %0, %if.end ], [ %2, %_ZN10ClipperLib4TopXERNS_5TEdgeEx.exit ]
-  %PrevInAEL = getelementptr inbounds i8, ptr %e.050, i64 112
-  %1 = load ptr, ptr %PrevInAEL, align 8
-  %PrevInSEL = getelementptr inbounds i8, ptr %e.050, i64 128
-  store ptr %1, ptr %PrevInSEL, align 8
   %NextInAEL = getelementptr inbounds i8, ptr %e.050, i64 104
-  %2 = load ptr, ptr %NextInAEL, align 8
   %NextInSEL = getelementptr inbounds i8, ptr %e.050, i64 120
-  store ptr %2, ptr %NextInSEL, align 8
+  %1 = load <2 x ptr>, ptr %NextInAEL, align 8
+  %2 = load ptr, ptr %NextInAEL, align 8
+  store <2 x ptr> %1, ptr %NextInSEL, align 8
   %Y.i = getelementptr inbounds i8, ptr %e.050, i64 40
   %3 = load i64, ptr %Y.i, align 8
   %cmp.i = icmp eq i64 %3, %topY
@@ -15058,14 +15052,11 @@ entry:
 
 while.body.i:                                     ; preds = %entry, %while.body.i
   %e.08.i = phi ptr [ %2, %while.body.i ], [ %0, %entry ]
-  %PrevInAEL.i = getelementptr inbounds i8, ptr %e.08.i, i64 112
-  %1 = load ptr, ptr %PrevInAEL.i, align 8
-  %PrevInSEL.i = getelementptr inbounds i8, ptr %e.08.i, i64 128
-  store ptr %1, ptr %PrevInSEL.i, align 8
   %NextInAEL.i = getelementptr inbounds i8, ptr %e.08.i, i64 104
-  %2 = load ptr, ptr %NextInAEL.i, align 8
   %NextInSEL.i = getelementptr inbounds i8, ptr %e.08.i, i64 120
-  store ptr %2, ptr %NextInSEL.i, align 8
+  %1 = load <2 x ptr>, ptr %NextInAEL.i, align 8
+  %2 = load ptr, ptr %NextInAEL.i, align 8
+  store <2 x ptr> %1, ptr %NextInSEL.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %_ZN10ClipperLib7Clipper12CopyAELToSELEv.exit, label %while.body.i, !llvm.loop !109
 
@@ -22899,15 +22890,15 @@ _ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_
 
 _ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE9push_backEOS1_.exit: ; preds = %if.then.i.i, %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
   %25 = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ]
-  %26 = load <2 x double>, ptr %m_sin, align 8
-  %27 = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %28 = extractelement <2 x double> %26, i64 0
-  %29 = fneg double %28
+  %26 = load double, ptr %m_sin, align 8
+  %27 = load <2 x double>, ptr %m_sin, align 8
+  %28 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %29 = fneg double %26
   %30 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %31 = insertelement <2 x double> %26, double %29, i64 0
+  %31 = insertelement <2 x double> %27, double %29, i64 0
   %32 = fmul <2 x double> %30, %31
   %33 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> zeroinitializer
-  %34 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %33, <2 x double> %27, <2 x double> %32)
+  %34 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %33, <2 x double> %28, <2 x double> %32)
   %inc = add nuw nsw i32 %i.092, 1
   %exitcond.not = icmp eq i32 %inc, %smax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !266

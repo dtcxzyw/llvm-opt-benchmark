@@ -2884,7 +2884,7 @@ invoke.cont:
   %agg.tmp.i = alloca %"class.std::shared_ptr.54", align 16
   %ref.tmp.i.i = alloca %struct.grpc_slice, align 8
   %ref.tmp = alloca %"class.std::shared_ptr.245", align 8
-  %agg.tmp23 = alloca %"class.std::shared_ptr.60", align 8
+  %agg.tmp23 = alloca %"class.std::shared_ptr.60", align 16
   %agg.tmp91 = alloca %struct.grpc_slice, align 8
   %exec_ctx = alloca %"class.grpc_core::ExecCtx", align 8
   %agg.tmp129 = alloca %"class.absl::lts_20230802::Status", align 8
@@ -3030,17 +3030,15 @@ _ZNSt10shared_ptrIN9grpc_core11MemoryQuotaEED2Ev.exit: ; preds = %invoke.cont13,
   %self_reservation = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %22 = load ptr, ptr %memory_owner, align 8, !noalias !19
-  store ptr %22, ptr %agg.tmp.i, align 16, !noalias !19
-  %_M_refcount.i.i.i41 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %_M_refcount3.i.i.i42 = getelementptr inbounds i8, ptr %this, i64 72
-  %23 = load ptr, ptr %_M_refcount3.i.i.i42, align 8, !noalias !19
-  store ptr %23, ptr %_M_refcount.i.i.i41, align 8, !noalias !19
-  %cmp.not.i.i.i.i43 = icmp eq ptr %23, null
+  %22 = load ptr, ptr %_M_refcount3.i.i.i42, align 8, !noalias !19
+  %23 = load <2 x ptr>, ptr %memory_owner, align 8, !noalias !19
+  store <2 x ptr> %23, ptr %agg.tmp.i, align 16, !noalias !19
+  %cmp.not.i.i.i.i43 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i.i43, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplEEC2ERKS4_.exit.i, label %if.then.i.i.i.i44
 
 if.then.i.i.i.i44:                                ; preds = %_ZNSt10shared_ptrIN9grpc_core11MemoryQuotaEED2Ev.exit
-  %_M_use_count.i.i.i.i.i45 = getelementptr inbounds i8, ptr %23, i64 8
+  %_M_use_count.i.i.i.i.i45 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i8, ptr @__libc_single_threaded, align 1, !noalias !19
   %tobool.i.i.not.i.i.i.i.i46 = icmp eq i8 %24, 0
   br i1 %tobool.i.i.not.i.i.i.i.i46, label %if.else.i.i.i.i.i.i49, label %if.then.i.i.i.i.i.i47
@@ -3096,17 +3094,15 @@ if.then.i.i:                                      ; preds = %call.i.i.noexc
   br label %invoke.cont22
 
 if.end.i.i:                                       ; preds = %call.i.i.noexc
-  %31 = load ptr, ptr %call.i.i55, align 8, !noalias !28
-  store ptr %31, ptr %event_engine, align 8, !alias.scope !28
-  %_M_refcount.i.i.i.i50 = getelementptr inbounds i8, ptr %this, i64 152
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i55, i64 8
-  %32 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !28
-  store ptr %32, ptr %_M_refcount.i.i.i.i50, align 8, !alias.scope !28
-  %cmp.not.i.i.i.i.i = icmp eq ptr %32, null
+  %31 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !28
+  %32 = load <2 x ptr>, ptr %call.i.i55, align 8, !noalias !28
+  store <2 x ptr> %32, ptr %event_engine, align 8, !alias.scope !28
+  %cmp.not.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont22, label %if.then.i.i.i.i.i51
 
 if.then.i.i.i.i.i51:                              ; preds = %if.end.i.i
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %32, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load i8, ptr @__libc_single_threaded, align 1, !noalias !28
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %33, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i54, label %if.then.i.i.i.i.i.i.i52
@@ -3123,17 +3119,16 @@ if.else.i.i.i.i.i.i.i54:                          ; preds = %if.then.i.i.i.i.i51
 
 invoke.cont22:                                    ; preds = %if.else.i.i.i.i.i.i.i54, %if.then.i.i.i.i.i.i.i52, %if.end.i.i, %if.then.i.i
   %combiner = getelementptr inbounds i8, ptr %this, i64 160
-  %36 = load ptr, ptr %event_engine, align 8
-  store ptr %36, ptr %agg.tmp23, align 8
   %_M_refcount.i.i56 = getelementptr inbounds i8, ptr %agg.tmp23, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 152
-  %37 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %37, ptr %_M_refcount.i.i56, align 8
-  %cmp.not.i.i.i57 = icmp eq ptr %37, null
+  %36 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %37 = load <2 x ptr>, ptr %event_engine, align 8
+  store <2 x ptr> %37, ptr %agg.tmp23, align 16
+  %cmp.not.i.i.i57 = icmp eq ptr %36, null
   br i1 %cmp.not.i.i.i57, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEC2ERKS3_.exit, label %if.then.i.i.i58
 
 if.then.i.i.i58:                                  ; preds = %invoke.cont22
-  %_M_use_count.i.i.i.i59 = getelementptr inbounds i8, ptr %37, i64 8
+  %_M_use_count.i.i.i.i59 = getelementptr inbounds i8, ptr %36, i64 8
   %38 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %38, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i62, label %if.then.i.i.i.i.i60
@@ -5219,17 +5214,15 @@ do.end.i.i:                                       ; preds = %.noexc.i
           to label %call.i.i.noexc.i.i.i unwind label %if.then.i.i9.i.i.i
 
 call.i.i.noexc.i.i.i:                             ; preds = %do.end.i.i
-  %5 = load ptr, ptr %reclaimers_.i.i.i.i, align 8, !noalias !66
-  store ptr %5, ptr %agg.tmp3.i.i.i.i.i, align 16, !noalias !66
-  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i.i, i64 8
   %_M_refcount3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 40
-  %6 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !noalias !66
-  store ptr %6, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !noalias !66
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !noalias !66
+  %6 = load <2 x ptr>, ptr %reclaimers_.i.i.i.i, align 8, !noalias !66
+  store <2 x ptr> %6, ptr %agg.tmp3.i.i.i.i.i, align 16, !noalias !66
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core14ReclaimerQueue5StateEEC2ERKS3_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %call.i.i.noexc.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1, !noalias !66
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -6031,17 +6024,15 @@ do.end.i.i:                                       ; preds = %.noexc.i
           to label %call.i.i.noexc.i.i.i unwind label %if.then.i.i9.i.i.i
 
 call.i.i.noexc.i.i.i:                             ; preds = %do.end.i.i
-  %5 = load ptr, ptr %arrayidx.i.i.i.i, align 8, !noalias !97
-  store ptr %5, ptr %agg.tmp3.i.i.i.i.i, align 16, !noalias !97
-  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i.i, i64 8
   %_M_refcount3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 72
-  %6 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !noalias !97
-  store ptr %6, ptr %_M_refcount.i.i.i.i.i.i.i, align 8, !noalias !97
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8, !noalias !97
+  %6 = load <2 x ptr>, ptr %arrayidx.i.i.i.i, align 8, !noalias !97
+  store <2 x ptr> %6, ptr %agg.tmp3.i.i.i.i.i, align 16, !noalias !97
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core14ReclaimerQueue5StateEEC2ERKS3_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %call.i.i.noexc.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1, !noalias !97
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i

@@ -45864,9 +45864,9 @@ define linkonce_odr dso_local void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal
   %6 = ptrtoint ptr %0 to i64
   br label %7
 
-7:                                                ; preds = %.lr.ph, %140
-  %.sroa.0.091 = phi ptr [ %.sroa.0.088, %.lr.ph ], [ %.sroa.0.0, %140 ]
-  %.pn90 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.091, %140 ]
+7:                                                ; preds = %.lr.ph, %141
+  %.sroa.0.091 = phi ptr [ %.sroa.0.088, %.lr.ph ], [ %.sroa.0.0, %141 ]
+  %.pn90 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.091, %141 ]
   %8 = getelementptr inbounds i8, ptr %.pn90, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr %5, align 8
@@ -45897,274 +45897,271 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt
   %20 = getelementptr inbounds %"struct.AstToDfgVisitor::Driver", ptr %17, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %20, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %19, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %3, i64 20, i1 false)
-  br label %140
+  br label %141
 
 21:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15AstToDfgVisitor18canonicalizePackedEvEUlRKNS2_6DriverES5_E_EclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEESE_EEbT_T0_.exit._crit_edge, %11
   %.sroa.37.0.copyload.i = phi i32 [ %.sroa.37.0.copyload.i.pre, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15AstToDfgVisitor18canonicalizePackedEvEUlRKNS2_6DriverES5_E_EclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEESE_EEbT_T0_.exit._crit_edge ], [ %9, %11 ]
+  %22 = load <2 x ptr>, ptr %.sroa.0.091, align 8
   %.sroa.03.0.copyload.i = load ptr, ptr %.sroa.0.091, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %.pn90, i64 32
-  %.sroa.3.0.copyload.i = load ptr, ptr %.sroa.3.0..sroa_idx.i, align 8
-  %22 = getelementptr inbounds i8, ptr %.sroa.03.0.copyload.i, i64 2
-  %23 = getelementptr inbounds i8, ptr %.sroa.03.0.copyload.i, i64 8
-  %24 = getelementptr inbounds i8, ptr %.sroa.03.0.copyload.i, i64 12
-  %25 = getelementptr inbounds i8, ptr %.sroa.03.0.copyload.i, i64 16
-  %26 = getelementptr inbounds i8, ptr %.sroa.03.0.copyload.i, i64 20
-  br label %27
+  %23 = getelementptr inbounds i8, ptr %.sroa.03.0.copyload.i, i64 2
+  %24 = getelementptr inbounds i8, ptr %.sroa.03.0.copyload.i, i64 8
+  %25 = getelementptr inbounds i8, ptr %.sroa.03.0.copyload.i, i64 12
+  %26 = getelementptr inbounds i8, ptr %.sroa.03.0.copyload.i, i64 16
+  %27 = getelementptr inbounds i8, ptr %.sroa.03.0.copyload.i, i64 20
+  br label %28
 
-27:                                               ; preds = %_ZNK8FileLine15operatorCompareERKS_.exit, %21
+28:                                               ; preds = %_ZNK8FileLine15operatorCompareERKS_.exit, %21
   %.sroa.010.0.i = phi ptr [ %.sroa.0.091, %21 ], [ %.sroa.0.0.i, %_ZNK8FileLine15operatorCompareERKS_.exit ]
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %.sroa.010.0.i, i64 -24
-  %28 = getelementptr inbounds i8, ptr %.sroa.010.0.i, i64 -8
-  %29 = load i32, ptr %28, align 8
-  %.not.i.i.i = icmp eq i32 %.sroa.37.0.copyload.i, %29
-  br i1 %.not.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN15AstToDfgVisitor18canonicalizePackedEvEUlRKNS2_6DriverES5_E_EclIS3_NS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_.exit.i, label %30
+  %29 = getelementptr inbounds i8, ptr %.sroa.010.0.i, i64 -8
+  %30 = load i32, ptr %29, align 8
+  %.not.i.i.i = icmp eq i32 %.sroa.37.0.copyload.i, %30
+  br i1 %.not.i.i.i, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN15AstToDfgVisitor18canonicalizePackedEvEUlRKNS2_6DriverES5_E_EclIS3_NS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_.exit.i, label %31
 
-30:                                               ; preds = %27
-  %31 = icmp ult i32 %.sroa.37.0.copyload.i, %29
-  br i1 %31, label %_ZNK8FileLine15operatorCompareERKS_.exit, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_T0_.exit
+31:                                               ; preds = %28
+  %32 = icmp ult i32 %.sroa.37.0.copyload.i, %30
+  br i1 %32, label %_ZNK8FileLine15operatorCompareERKS_.exit, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_T0_.exit
 
-_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN15AstToDfgVisitor18canonicalizePackedEvEUlRKNS2_6DriverES5_E_EclIS3_NS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_.exit.i: ; preds = %27
-  %32 = load ptr, ptr %.sroa.0.0.i, align 8
-  %33 = load i16, ptr %22, align 2
-  %34 = getelementptr inbounds i8, ptr %32, i64 2
-  %35 = load i16, ptr %34, align 2
-  %.not.i = icmp eq i16 %33, %35
-  br i1 %.not.i, label %38, label %36
+_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN15AstToDfgVisitor18canonicalizePackedEvEUlRKNS2_6DriverES5_E_EclIS3_NS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_.exit.i: ; preds = %28
+  %33 = load ptr, ptr %.sroa.0.0.i, align 8
+  %34 = load i16, ptr %23, align 2
+  %35 = getelementptr inbounds i8, ptr %33, i64 2
+  %36 = load i16, ptr %35, align 2
+  %.not.i = icmp eq i16 %34, %36
+  br i1 %.not.i, label %39, label %37
 
-36:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN15AstToDfgVisitor18canonicalizePackedEvEUlRKNS2_6DriverES5_E_EclIS3_NS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_.exit.i
-  %37 = icmp ult i16 %33, %35
-  br i1 %37, label %_ZNK8FileLine15operatorCompareERKS_.exit, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_T0_.exit
+37:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN15AstToDfgVisitor18canonicalizePackedEvEUlRKNS2_6DriverES5_E_EclIS3_NS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_.exit.i
+  %38 = icmp ult i16 %34, %36
+  br i1 %38, label %_ZNK8FileLine15operatorCompareERKS_.exit, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_T0_.exit
 
-38:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN15AstToDfgVisitor18canonicalizePackedEvEUlRKNS2_6DriverES5_E_EclIS3_NS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_.exit.i
-  %39 = load i32, ptr %23, align 8
-  %40 = getelementptr inbounds i8, ptr %32, i64 8
-  %41 = load i32, ptr %40, align 8
-  %.not29.i = icmp eq i32 %39, %41
-  br i1 %.not29.i, label %44, label %42
+39:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN15AstToDfgVisitor18canonicalizePackedEvEUlRKNS2_6DriverES5_E_EclIS3_NS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_.exit.i
+  %40 = load i32, ptr %24, align 8
+  %41 = getelementptr inbounds i8, ptr %33, i64 8
+  %42 = load i32, ptr %41, align 8
+  %.not29.i = icmp eq i32 %40, %42
+  br i1 %.not29.i, label %45, label %43
 
-42:                                               ; preds = %38
-  %43 = icmp slt i32 %39, %41
-  br i1 %43, label %_ZNK8FileLine15operatorCompareERKS_.exit, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_T0_.exit
+43:                                               ; preds = %39
+  %44 = icmp slt i32 %40, %42
+  br i1 %44, label %_ZNK8FileLine15operatorCompareERKS_.exit, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_T0_.exit
 
-44:                                               ; preds = %38
-  %45 = load i32, ptr %24, align 4
-  %46 = getelementptr inbounds i8, ptr %32, i64 12
-  %47 = load i32, ptr %46, align 4
-  %.not30.i = icmp eq i32 %45, %47
-  br i1 %.not30.i, label %50, label %48
+45:                                               ; preds = %39
+  %46 = load i32, ptr %25, align 4
+  %47 = getelementptr inbounds i8, ptr %33, i64 12
+  %48 = load i32, ptr %47, align 4
+  %.not30.i = icmp eq i32 %46, %48
+  br i1 %.not30.i, label %51, label %49
 
-48:                                               ; preds = %44
-  %49 = icmp slt i32 %45, %47
-  br i1 %49, label %_ZNK8FileLine15operatorCompareERKS_.exit, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_T0_.exit
+49:                                               ; preds = %45
+  %50 = icmp slt i32 %46, %48
+  br i1 %50, label %_ZNK8FileLine15operatorCompareERKS_.exit, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_T0_.exit
 
-50:                                               ; preds = %44
-  %51 = load i32, ptr %25, align 8
-  %52 = getelementptr inbounds i8, ptr %32, i64 16
-  %53 = load i32, ptr %52, align 8
-  %.not31.i = icmp eq i32 %51, %53
-  br i1 %.not31.i, label %56, label %54
+51:                                               ; preds = %45
+  %52 = load i32, ptr %26, align 8
+  %53 = getelementptr inbounds i8, ptr %33, i64 16
+  %54 = load i32, ptr %53, align 8
+  %.not31.i = icmp eq i32 %52, %54
+  br i1 %.not31.i, label %57, label %55
 
-54:                                               ; preds = %50
-  %55 = icmp slt i32 %51, %53
-  br i1 %55, label %_ZNK8FileLine15operatorCompareERKS_.exit, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_T0_.exit
+55:                                               ; preds = %51
+  %56 = icmp slt i32 %52, %54
+  br i1 %56, label %_ZNK8FileLine15operatorCompareERKS_.exit, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_T0_.exit
 
-56:                                               ; preds = %50
-  %57 = load i32, ptr %26, align 4
-  %58 = getelementptr inbounds i8, ptr %32, i64 20
-  %59 = load i32, ptr %58, align 4
-  %.not32.i = icmp eq i32 %57, %59
-  br i1 %.not32.i, label %.preheader.i, label %61
+57:                                               ; preds = %51
+  %58 = load i32, ptr %27, align 4
+  %59 = getelementptr inbounds i8, ptr %33, i64 20
+  %60 = load i32, ptr %59, align 4
+  %.not32.i = icmp eq i32 %58, %60
+  br i1 %.not32.i, label %.preheader.i, label %62
 
-.preheader.i:                                     ; preds = %56
-  %60 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8FileLine5msgEnEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.03.0.copyload.i)
+.preheader.i:                                     ; preds = %57
+  %61 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8FileLine5msgEnEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.03.0.copyload.i)
   br label %_ZNKSt6bitsetILm119EE4testEm.exit34.i
 
-61:                                               ; preds = %56
-  %62 = icmp slt i32 %57, %59
-  br i1 %62, label %_ZNK8FileLine15operatorCompareERKS_.exit, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_T0_.exit
+62:                                               ; preds = %57
+  %63 = icmp slt i32 %58, %60
+  br i1 %63, label %_ZNK8FileLine15operatorCompareERKS_.exit, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_T0_.exit
 
 _ZNKSt6bitsetILm119EE4testEm.exit34.i:            ; preds = %_ZNK8FileLine5msgEnEv.exit, %.preheader.i
-  %.036.i = phi i64 [ 0, %.preheader.i ], [ %121, %_ZNK8FileLine5msgEnEv.exit ]
-  %63 = load atomic i8, ptr @_ZGVZN8FileLine9singletonEvE1s acquire, align 8
-  %64 = icmp eq i8 %63, 0
-  br i1 %64, label %65, label %_ZN8FileLine9singletonEv.exit.i13, !prof !13
+  %.036.i = phi i64 [ 0, %.preheader.i ], [ %122, %_ZNK8FileLine5msgEnEv.exit ]
+  %64 = load atomic i8, ptr @_ZGVZN8FileLine9singletonEvE1s acquire, align 8
+  %65 = icmp eq i8 %64, 0
+  br i1 %65, label %66, label %_ZN8FileLine9singletonEv.exit.i13, !prof !13
 
-65:                                               ; preds = %_ZNKSt6bitsetILm119EE4testEm.exit34.i
-  %66 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8FileLine9singletonEvE1s) #22
-  %.not.i.i15 = icmp eq i32 %66, 0
-  br i1 %.not.i.i15, label %_ZN8FileLine9singletonEv.exit.i13, label %67
+66:                                               ; preds = %_ZNKSt6bitsetILm119EE4testEm.exit34.i
+  %67 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8FileLine9singletonEvE1s) #22
+  %.not.i.i15 = icmp eq i32 %67, 0
+  br i1 %.not.i.i15, label %_ZN8FileLine9singletonEv.exit.i13, label %68
 
-67:                                               ; preds = %65
+68:                                               ; preds = %66
   invoke void @_ZN17FileLineSingletonC2Ev(ptr noundef nonnull align 8 dereferenceable(328) @_ZZN8FileLine9singletonEvE1s)
-          to label %68 unwind label %70
+          to label %69 unwind label %71
 
-68:                                               ; preds = %67
-  %69 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN17FileLineSingletonD2Ev, ptr nonnull @_ZZN8FileLine9singletonEvE1s, ptr nonnull @__dso_handle) #22
+69:                                               ; preds = %68
+  %70 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN17FileLineSingletonD2Ev, ptr nonnull @_ZZN8FileLine9singletonEvE1s, ptr nonnull @__dso_handle) #22
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8FileLine9singletonEvE1s) #22
   br label %_ZN8FileLine9singletonEv.exit.i13
 
-common.resume:                                    ; preds = %129, %96, %70
-  %common.resume.op = phi { ptr, i32 } [ %71, %70 ], [ %97, %96 ], [ %130, %129 ]
+common.resume:                                    ; preds = %130, %97, %71
+  %common.resume.op = phi { ptr, i32 } [ %72, %71 ], [ %98, %97 ], [ %131, %130 ]
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8FileLine9singletonEvE1s) #22
   resume { ptr, i32 } %common.resume.op
 
-70:                                               ; preds = %67
-  %71 = landingpad { ptr, i32 }
+71:                                               ; preds = %68
+  %72 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN8FileLine9singletonEv.exit.i13:                ; preds = %68, %65, %_ZNKSt6bitsetILm119EE4testEm.exit34.i
-  %72 = load i16, ptr %.sroa.03.0.copyload.i, align 8
-  %73 = zext i16 %72 to i64
-  %74 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 312), align 8
-  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 304), align 8
-  %76 = ptrtoint ptr %74 to i64
+_ZN8FileLine9singletonEv.exit.i13:                ; preds = %69, %66, %_ZNKSt6bitsetILm119EE4testEm.exit34.i
+  %73 = load i16, ptr %.sroa.03.0.copyload.i, align 8
+  %74 = zext i16 %73 to i64
+  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 312), align 8
+  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 304), align 8
   %77 = ptrtoint ptr %75 to i64
-  %78 = sub i64 %76, %77
-  %79 = ashr exact i64 %78, 4
-  %.not.i.i.i.i14 = icmp ugt i64 %79, %73
-  br i1 %.not.i.i.i.i14, label %_ZNK8FileLine5msgEnEv.exit16, label %80
+  %78 = ptrtoint ptr %76 to i64
+  %79 = sub i64 %77, %78
+  %80 = ashr exact i64 %79, 4
+  %.not.i.i.i.i14 = icmp ugt i64 %80, %74
+  br i1 %.not.i.i.i.i14, label %_ZNK8FileLine5msgEnEv.exit16, label %81
 
-80:                                               ; preds = %_ZN8FileLine9singletonEv.exit.i13
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.22, i64 noundef %73, i64 noundef %79) #24
+81:                                               ; preds = %_ZN8FileLine9singletonEv.exit.i13
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.22, i64 noundef %74, i64 noundef %80) #24
   unreachable
 
 _ZNK8FileLine5msgEnEv.exit16:                     ; preds = %_ZN8FileLine9singletonEv.exit.i13
-  %81 = getelementptr inbounds %"class.std::bitset", ptr %75, i64 %73
-  %82 = lshr i64 %.036.i, 6
-  %83 = getelementptr inbounds [2 x i64], ptr %81, i64 0, i64 %82
-  %84 = load i64, ptr %83, align 8
-  %85 = and i64 %.036.i, 63
-  %86 = shl nuw i64 1, %85
-  %87 = and i64 %84, %86
-  %88 = icmp ne i64 %87, 0
-  %89 = load atomic i8, ptr @_ZGVZN8FileLine9singletonEvE1s acquire, align 8
-  %90 = icmp eq i8 %89, 0
-  br i1 %90, label %91, label %_ZN8FileLine9singletonEv.exit.i9, !prof !13
+  %82 = getelementptr inbounds %"class.std::bitset", ptr %76, i64 %74
+  %83 = lshr i64 %.036.i, 6
+  %84 = getelementptr inbounds [2 x i64], ptr %82, i64 0, i64 %83
+  %85 = load i64, ptr %84, align 8
+  %86 = and i64 %.036.i, 63
+  %87 = shl nuw i64 1, %86
+  %88 = and i64 %85, %87
+  %89 = icmp ne i64 %88, 0
+  %90 = load atomic i8, ptr @_ZGVZN8FileLine9singletonEvE1s acquire, align 8
+  %91 = icmp eq i8 %90, 0
+  br i1 %91, label %92, label %_ZN8FileLine9singletonEv.exit.i9, !prof !13
 
-91:                                               ; preds = %_ZNK8FileLine5msgEnEv.exit16
-  %92 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8FileLine9singletonEvE1s) #22
-  %.not.i.i11 = icmp eq i32 %92, 0
-  br i1 %.not.i.i11, label %_ZN8FileLine9singletonEv.exit.i9, label %93
+92:                                               ; preds = %_ZNK8FileLine5msgEnEv.exit16
+  %93 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8FileLine9singletonEvE1s) #22
+  %.not.i.i11 = icmp eq i32 %93, 0
+  br i1 %.not.i.i11, label %_ZN8FileLine9singletonEv.exit.i9, label %94
 
-93:                                               ; preds = %91
+94:                                               ; preds = %92
   invoke void @_ZN17FileLineSingletonC2Ev(ptr noundef nonnull align 8 dereferenceable(328) @_ZZN8FileLine9singletonEvE1s)
-          to label %94 unwind label %96
+          to label %95 unwind label %97
 
-94:                                               ; preds = %93
-  %95 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN17FileLineSingletonD2Ev, ptr nonnull @_ZZN8FileLine9singletonEvE1s, ptr nonnull @__dso_handle) #22
+95:                                               ; preds = %94
+  %96 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN17FileLineSingletonD2Ev, ptr nonnull @_ZZN8FileLine9singletonEvE1s, ptr nonnull @__dso_handle) #22
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8FileLine9singletonEvE1s) #22
   br label %_ZN8FileLine9singletonEv.exit.i9
 
-96:                                               ; preds = %93
-  %97 = landingpad { ptr, i32 }
+97:                                               ; preds = %94
+  %98 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN8FileLine9singletonEv.exit.i9:                 ; preds = %94, %91, %_ZNK8FileLine5msgEnEv.exit16
-  %98 = load i16, ptr %32, align 8
-  %99 = zext i16 %98 to i64
-  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 312), align 8
-  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 304), align 8
-  %102 = ptrtoint ptr %100 to i64
+_ZN8FileLine9singletonEv.exit.i9:                 ; preds = %95, %92, %_ZNK8FileLine5msgEnEv.exit16
+  %99 = load i16, ptr %33, align 8
+  %100 = zext i16 %99 to i64
+  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 312), align 8
+  %102 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 304), align 8
   %103 = ptrtoint ptr %101 to i64
-  %104 = sub i64 %102, %103
-  %105 = ashr exact i64 %104, 4
-  %.not.i.i.i.i10 = icmp ugt i64 %105, %99
-  br i1 %.not.i.i.i.i10, label %_ZNK8FileLine5msgEnEv.exit12, label %106
+  %104 = ptrtoint ptr %102 to i64
+  %105 = sub i64 %103, %104
+  %106 = ashr exact i64 %105, 4
+  %.not.i.i.i.i10 = icmp ugt i64 %106, %100
+  br i1 %.not.i.i.i.i10, label %_ZNK8FileLine5msgEnEv.exit12, label %107
 
-106:                                              ; preds = %_ZN8FileLine9singletonEv.exit.i9
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.22, i64 noundef %99, i64 noundef %105) #24
+107:                                              ; preds = %_ZN8FileLine9singletonEv.exit.i9
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.22, i64 noundef %100, i64 noundef %106) #24
   unreachable
 
 _ZNK8FileLine5msgEnEv.exit12:                     ; preds = %_ZN8FileLine9singletonEv.exit.i9
-  %107 = getelementptr inbounds %"class.std::bitset", ptr %101, i64 %99
-  %108 = getelementptr inbounds [2 x i64], ptr %107, i64 0, i64 %82
-  %109 = load i64, ptr %108, align 8
-  %110 = and i64 %109, %86
-  %111 = icmp ne i64 %110, 0
-  %112 = xor i1 %88, %111
-  br i1 %112, label %113, label %120
+  %108 = getelementptr inbounds %"class.std::bitset", ptr %102, i64 %100
+  %109 = getelementptr inbounds [2 x i64], ptr %108, i64 0, i64 %83
+  %110 = load i64, ptr %109, align 8
+  %111 = and i64 %110, %87
+  %112 = icmp ne i64 %111, 0
+  %113 = xor i1 %89, %112
+  br i1 %113, label %114, label %121
 
-113:                                              ; preds = %_ZNK8FileLine5msgEnEv.exit12
-  %114 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8FileLine5msgEnEv(ptr noundef nonnull align 8 dereferenceable(40) %32)
-  %115 = icmp ugt i64 %.036.i, 118
-  br i1 %115, label %116, label %_ZNKSt6bitsetILm119EE4testEm.exit
+114:                                              ; preds = %_ZNK8FileLine5msgEnEv.exit12
+  %115 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8FileLine5msgEnEv(ptr noundef nonnull align 8 dereferenceable(40) %33)
+  %116 = icmp ugt i64 %.036.i, 118
+  br i1 %116, label %117, label %_ZNKSt6bitsetILm119EE4testEm.exit
 
-116:                                              ; preds = %113
+117:                                              ; preds = %114
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.23, i64 noundef %.036.i, i64 noundef 119) #24
   unreachable
 
-_ZNKSt6bitsetILm119EE4testEm.exit:                ; preds = %113
-  %117 = getelementptr inbounds [2 x i64], ptr %114, i64 0, i64 %82
-  %118 = load i64, ptr %117, align 8
-  %119 = and i64 %118, %86
-  %.not31 = icmp eq i64 %119, 0
+_ZNKSt6bitsetILm119EE4testEm.exit:                ; preds = %114
+  %118 = getelementptr inbounds [2 x i64], ptr %115, i64 0, i64 %83
+  %119 = load i64, ptr %118, align 8
+  %120 = and i64 %119, %87
+  %.not31 = icmp eq i64 %120, 0
   br i1 %.not31, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_T0_.exit, label %_ZNK8FileLine15operatorCompareERKS_.exit
 
-120:                                              ; preds = %_ZNK8FileLine5msgEnEv.exit12
-  %121 = add nuw nsw i64 %.036.i, 1
-  %122 = load atomic i8, ptr @_ZGVZN8FileLine9singletonEvE1s acquire, align 8
-  %123 = icmp eq i8 %122, 0
-  br i1 %123, label %124, label %_ZN8FileLine9singletonEv.exit.i, !prof !13
+121:                                              ; preds = %_ZNK8FileLine5msgEnEv.exit12
+  %122 = add nuw nsw i64 %.036.i, 1
+  %123 = load atomic i8, ptr @_ZGVZN8FileLine9singletonEvE1s acquire, align 8
+  %124 = icmp eq i8 %123, 0
+  br i1 %124, label %125, label %_ZN8FileLine9singletonEv.exit.i, !prof !13
 
-124:                                              ; preds = %120
-  %125 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8FileLine9singletonEvE1s) #22
-  %.not.i.i8 = icmp eq i32 %125, 0
-  br i1 %.not.i.i8, label %_ZN8FileLine9singletonEv.exit.i, label %126
+125:                                              ; preds = %121
+  %126 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8FileLine9singletonEvE1s) #22
+  %.not.i.i8 = icmp eq i32 %126, 0
+  br i1 %.not.i.i8, label %_ZN8FileLine9singletonEv.exit.i, label %127
 
-126:                                              ; preds = %124
+127:                                              ; preds = %125
   invoke void @_ZN17FileLineSingletonC2Ev(ptr noundef nonnull align 8 dereferenceable(328) @_ZZN8FileLine9singletonEvE1s)
-          to label %127 unwind label %129
+          to label %128 unwind label %130
 
-127:                                              ; preds = %126
-  %128 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN17FileLineSingletonD2Ev, ptr nonnull @_ZZN8FileLine9singletonEvE1s, ptr nonnull @__dso_handle) #22
+128:                                              ; preds = %127
+  %129 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN17FileLineSingletonD2Ev, ptr nonnull @_ZZN8FileLine9singletonEvE1s, ptr nonnull @__dso_handle) #22
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8FileLine9singletonEvE1s) #22
   br label %_ZN8FileLine9singletonEv.exit.i
 
-129:                                              ; preds = %126
-  %130 = landingpad { ptr, i32 }
+130:                                              ; preds = %127
+  %131 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN8FileLine9singletonEv.exit.i:                  ; preds = %127, %124, %120
-  %131 = load i16, ptr %.sroa.03.0.copyload.i, align 8
-  %132 = zext i16 %131 to i64
-  %133 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 312), align 8
-  %134 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 304), align 8
-  %135 = ptrtoint ptr %133 to i64
+_ZN8FileLine9singletonEv.exit.i:                  ; preds = %128, %125, %121
+  %132 = load i16, ptr %.sroa.03.0.copyload.i, align 8
+  %133 = zext i16 %132 to i64
+  %134 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 312), align 8
+  %135 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN8FileLine9singletonEvE1s, i64 304), align 8
   %136 = ptrtoint ptr %134 to i64
-  %137 = sub i64 %135, %136
-  %138 = ashr exact i64 %137, 4
-  %.not.i.i.i.i = icmp ugt i64 %138, %132
-  br i1 %.not.i.i.i.i, label %_ZNK8FileLine5msgEnEv.exit, label %139
+  %137 = ptrtoint ptr %135 to i64
+  %138 = sub i64 %136, %137
+  %139 = ashr exact i64 %138, 4
+  %.not.i.i.i.i = icmp ugt i64 %139, %133
+  br i1 %.not.i.i.i.i, label %_ZNK8FileLine5msgEnEv.exit, label %140
 
-139:                                              ; preds = %_ZN8FileLine9singletonEv.exit.i
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.22, i64 noundef %132, i64 noundef %138) #24
+140:                                              ; preds = %_ZN8FileLine9singletonEv.exit.i
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.22, i64 noundef %133, i64 noundef %139) #24
   unreachable
 
 _ZNK8FileLine5msgEnEv.exit:                       ; preds = %_ZN8FileLine9singletonEv.exit.i
-  %exitcond.not.i = icmp eq i64 %121, 119
+  %exitcond.not.i = icmp eq i64 %122, 119
   br i1 %exitcond.not.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_T0_.exit, label %_ZNKSt6bitsetILm119EE4testEm.exit34.i, !llvm.loop !14
 
-_ZNK8FileLine15operatorCompareERKS_.exit:         ; preds = %_ZNKSt6bitsetILm119EE4testEm.exit, %61, %54, %48, %42, %36, %30
+_ZNK8FileLine15operatorCompareERKS_.exit:         ; preds = %_ZNKSt6bitsetILm119EE4testEm.exit, %62, %55, %49, %43, %37, %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.010.0.i, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.0.i, i64 20, i1 false)
-  br label %27, !llvm.loop !56
+  br label %28, !llvm.loop !56
 
-_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_T0_.exit: ; preds = %_ZNKSt6bitsetILm119EE4testEm.exit, %61, %54, %48, %42, %36, %30, %_ZNK8FileLine5msgEnEv.exit
-  store ptr %.sroa.03.0.copyload.i, ptr %.sroa.010.0.i, align 8
-  %.sroa.3.0..sroa_idx5.i = getelementptr inbounds i8, ptr %.sroa.010.0.i, i64 8
-  store ptr %.sroa.3.0.copyload.i, ptr %.sroa.3.0..sroa_idx5.i, align 8
+_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_T0_.exit: ; preds = %_ZNKSt6bitsetILm119EE4testEm.exit, %62, %55, %49, %43, %37, %31, %_ZNK8FileLine5msgEnEv.exit
+  store <2 x ptr> %22, ptr %.sroa.010.0.i, align 8
   %.sroa.37.0..sroa_idx8.i = getelementptr inbounds i8, ptr %.sroa.010.0.i, i64 16
   store i32 %.sroa.37.0.copyload.i, ptr %.sroa.37.0..sroa_idx8.i, align 8
-  br label %140
+  br label %141
 
-140:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_T0_.exit
+141:                                              ; preds = %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_T0_.exit
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.091, i64 24
   %.not = icmp eq ptr %.sroa.0.0, %1
   br i1 %.not, label %.loopexit, label %7, !llvm.loop !57
 
-.loopexit:                                        ; preds = %140, %.preheader, %2
+.loopexit:                                        ; preds = %141, %.preheader, %2
   ret void
 }
 

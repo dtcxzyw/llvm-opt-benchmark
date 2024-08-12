@@ -70281,19 +70281,16 @@ invoke.cont:
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load <2 x i32>, ptr %__args, align 4
+  %1 = load i32, ptr %__args, align 4
   store <2 x i32> %0, ptr %_M_storage.i.i.i.i, align 4
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %__x.019.i = load ptr, ptr %_M_parent.i.i.i, align 8
   %cmp.not20.i = icmp eq ptr %__x.019.i, null
-  br i1 %cmp.not20.i, label %if.then.i, label %while.body.i.preheader
+  br i1 %cmp.not20.i, label %if.then.i, label %while.body.i
 
-while.body.i.preheader:                           ; preds = %invoke.cont
-  %1 = extractelement <2 x i32> %0, i64 0
-  br label %while.body.i
-
-while.body.i:                                     ; preds = %while.body.i.preheader, %while.body.i
-  %__x.021.i = phi ptr [ %__x.0.i, %while.body.i ], [ %__x.019.i, %while.body.i.preheader ]
+while.body.i:                                     ; preds = %invoke.cont, %while.body.i
+  %__x.021.i = phi ptr [ %__x.0.i, %while.body.i ], [ %__x.019.i, %invoke.cont ]
   %_M_storage.i.i.i2 = getelementptr inbounds i8, ptr %__x.021.i, i64 32
   %2 = load i32, ptr %_M_storage.i.i.i2, align 4
   %cmp.i.i = icmp slt i32 %1, %2
@@ -70323,8 +70320,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
   %4 = phi i32 [ %.pre, %if.else.i ], [ %2, %while.end.i ]
   %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
-  %5 = extractelement <2 x i32> %0, i64 0
-  %cmp.i5.i = icmp slt i32 %4, %5
+  %cmp.i5.i = icmp slt i32 %4, %1
   br i1 %cmp.i5.i, label %if.then, label %if.then.i12
 
 if.then:                                          ; preds = %if.end12.i, %if.then.i
@@ -70334,17 +70330,16 @@ if.then:                                          ; preds = %if.end12.i, %if.the
 
 lor.rhs.i.i:                                      ; preds = %if.then
   %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph, i64 32
-  %6 = load i32, ptr %_M_storage.i.i.i.i.i, align 4
-  %7 = extractelement <2 x i32> %0, i64 0
-  %cmp.i.i.i = icmp slt i32 %7, %6
+  %5 = load i32, ptr %_M_storage.i.i.i.i.i, align 4
+  %cmp.i.i.i = icmp slt i32 %1, %5
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %if.then, %lor.rhs.i.i
-  %8 = phi i1 [ true, %if.then ], [ %cmp.i.i.i, %lor.rhs.i.i ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %8, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #14
+  %6 = phi i1 [ true, %if.then ], [ %cmp.i.i.i, %lor.rhs.i.i ]
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %6, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #14
   %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %9 = load i64, ptr %_M_node_count.i.i, align 8
-  %inc.i.i = add i64 %9, 1
+  %7 = load i64, ptr %_M_node_count.i.i, align 8
+  %inc.i.i = add i64 %7, 1
   store i64 %inc.i.i, ptr %_M_node_count.i.i, align 8
   br label %_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE10_Auto_nodeD2Ev.exit13
 

@@ -736,31 +736,32 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx10TextReaderC2ERKSt10shared_ptrINS_15TextInputStreamEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #13
-  %4 = load <2 x ptr>, ptr %1, align 8
-  store <2 x ptr> %4, ptr %3, align 8
-  %5 = extractelement <2 x ptr> %4, i64 1
+  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %6, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i.i, label %_ZN3gmx10TextReader4ImplC2ERKSt10shared_ptrINS_15TextInputStreamEE.exit, label %6
+  br i1 %.not.i.i.i.i, label %_ZN3gmx10TextReader4ImplC2ERKSt10shared_ptrINS_15TextInputStreamEE.exit, label %7
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
-  %8 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i = icmp eq i8 %8, 0
-  br i1 %.not.i.i.i.i.i, label %12, label %9
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i = icmp eq i8 %9, 0
+  br i1 %.not.i.i.i.i.i, label %13, label %10
 
-9:                                                ; preds = %6
-  %10 = load i32, ptr %7, align 4
-  %11 = add nsw i32 %10, 1
-  store i32 %11, ptr %7, align 4
+10:                                               ; preds = %7
+  %11 = load i32, ptr %8, align 4
+  %12 = add nsw i32 %11, 1
+  store i32 %12, ptr %8, align 4
   br label %_ZN3gmx10TextReader4ImplC2ERKSt10shared_ptrINS_15TextInputStreamEE.exit
 
-12:                                               ; preds = %6
-  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4
+13:                                               ; preds = %7
+  %14 = atomicrmw volatile add ptr %8, i32 1 acq_rel, align 4
   br label %_ZN3gmx10TextReader4ImplC2ERKSt10shared_ptrINS_15TextInputStreamEE.exit
 
-_ZN3gmx10TextReader4ImplC2ERKSt10shared_ptrINS_15TextInputStreamEE.exit: ; preds = %2, %9, %12
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 0, ptr %14, align 8
+_ZN3gmx10TextReader4ImplC2ERKSt10shared_ptrINS_15TextInputStreamEE.exit: ; preds = %2, %10, %13
+  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  store i32 0, ptr %15, align 8
   store ptr %3, ptr %0, align 8
   ret void
 }

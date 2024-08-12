@@ -1277,8 +1277,8 @@ define hidden noundef i32 @mlib_ImageAffine_s16_4ch_nn(ptr nocapture noundef rea
   %71 = and i32 %70, -4
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i16, ptr %69, i64 %72
-  store <4 x i16> %66, ptr %.093119, align 2
   %74 = getelementptr inbounds i8, ptr %.093119, i64 8
+  store <4 x i16> %66, ptr %.093119, align 2
   %75 = load <4 x i16>, ptr %73, align 2
   %76 = icmp ult ptr %74, %54
   br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !21

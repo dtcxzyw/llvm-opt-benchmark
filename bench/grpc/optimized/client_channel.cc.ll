@@ -12184,7 +12184,7 @@ declare void @_ZN9grpc_core14DynamicFilters6CreateERKNS_11ChannelArgsESt6vectorI
 define void @_ZN9grpc_core13ClientChannel20CreateResolverLockedEv(ptr noundef nonnull align 8 dereferenceable(616) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.33", align 8
-  %agg.tmp7 = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp7 = alloca %"class.std::shared_ptr", align 16
   %agg.tmp8 = alloca %"class.std::unique_ptr.308", align 8
   %ref.tmp18 = alloca %"class.absl::lts_20230802::Status", align 8
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core25grpc_client_channel_traceE, i64 16) monotonic, align 8
@@ -12215,17 +12215,16 @@ _ZN9grpc_core17CoreConfiguration3GetEv.exit:      ; preds = %if.end, %if.end.i
   %interested_parties_ = getelementptr inbounds i8, ptr %this, i64 112
   %2 = load ptr, ptr %interested_parties_, align 8
   %work_serializer_ = getelementptr inbounds i8, ptr %this, i64 256
-  %3 = load ptr, ptr %work_serializer_, align 8
-  store ptr %3, ptr %agg.tmp7, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp7, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 264
-  %4 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %4, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %4 = load <2 x ptr>, ptr %work_serializer_, align 8
+  store <2 x ptr> %4, ptr %agg.tmp7, align 16
+  %cmp.not.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN9grpc_core17CoreConfiguration3GetEv.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -18143,7 +18142,6 @@ while.cond.preheader:                             ; preds = %_ZN9grpc_core13RefC
   %manager_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %manager_5.i.i.i.i = getelementptr inbounds i8, ptr %on_commit.i, i64 16
   %invoker_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
-  %invoker_6.i.i.i.i = getelementptr inbounds i8, ptr %on_commit.i, i64 24
   br label %while.cond
 
 terminate.lpad.i22:                               ; preds = %_ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEED2Ev.exit
@@ -18453,13 +18451,12 @@ if.end107:                                        ; preds = %if.end92
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %on_commit.i)
   %77 = load ptr, ptr %manager_.i.i.i.i, align 16
   call void %77(i1 noundef zeroext false, ptr noundef nonnull %on_commit_.i, ptr noundef nonnull %on_commit.i) #37
-  %78 = load ptr, ptr %manager_.i.i.i.i, align 16
-  store ptr %78, ptr %manager_5.i.i.i.i, align 16
-  %79 = load ptr, ptr %invoker_.i.i.i.i, align 8
-  store ptr %79, ptr %invoker_6.i.i.i.i, align 8
+  %78 = load ptr, ptr %invoker_.i.i.i.i, align 8
+  %79 = load <2 x ptr>, ptr %manager_.i.i.i.i, align 16
+  store <2 x ptr> %79, ptr %manager_5.i.i.i.i, align 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i.i, align 8
-  invoke void %79(ptr noundef nonnull %on_commit.i)
+  invoke void %78(ptr noundef nonnull %on_commit.i)
           to label %_ZN4absl12lts_202308026StatusD2Ev.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.end107
@@ -22120,16 +22117,14 @@ if.then.i.i:                                      ; preds = %if.then.i
   %manager_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 48
   %5 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
   call void %5(i1 noundef zeroext false, ptr noundef nonnull %on_commit_.i.i.i, ptr noundef nonnull %on_commit.i.i.i) #37
-  %6 = load ptr, ptr %manager_.i.i.i.i.i.i, align 16
   %manager_5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %on_commit.i.i.i, i64 16
-  store ptr %6, ptr %manager_5.i.i.i.i.i.i, align 16
   %invoker_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 56
-  %7 = load ptr, ptr %invoker_.i.i.i.i.i.i, align 8
-  %invoker_6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %on_commit.i.i.i, i64 24
-  store ptr %7, ptr %invoker_6.i.i.i.i.i.i, align 8
+  %6 = load ptr, ptr %invoker_.i.i.i.i.i.i, align 8
+  %7 = load <2 x ptr>, ptr %manager_.i.i.i.i.i.i, align 16
+  store <2 x ptr> %7, ptr %manager_5.i.i.i.i.i.i, align 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i.i.i.i, align 8
-  invoke void %7(ptr noundef nonnull %on_commit.i.i.i)
+  invoke void %6(ptr noundef nonnull %on_commit.i.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %.noexc.i
@@ -35780,16 +35775,14 @@ if.then8:                                         ; preds = %land.lhs.true
   %manager_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load ptr, ptr %manager_.i.i.i.i, align 16
   call void %8(i1 noundef zeroext false, ptr noundef nonnull %on_commit_.i, ptr noundef nonnull %on_commit.i) #37
-  %9 = load ptr, ptr %manager_.i.i.i.i, align 16
   %manager_5.i.i.i.i = getelementptr inbounds i8, ptr %on_commit.i, i64 16
-  store ptr %9, ptr %manager_5.i.i.i.i, align 16
   %invoker_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
-  %10 = load ptr, ptr %invoker_.i.i.i.i, align 8
-  %invoker_6.i.i.i.i = getelementptr inbounds i8, ptr %on_commit.i, i64 24
-  store ptr %10, ptr %invoker_6.i.i.i.i, align 8
+  %9 = load ptr, ptr %invoker_.i.i.i.i, align 8
+  %10 = load <2 x ptr>, ptr %manager_.i.i.i.i, align 16
+  store <2 x ptr> %10, ptr %manager_5.i.i.i.i, align 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i.i, align 8
-  invoke void %10(ptr noundef nonnull %on_commit.i)
+  invoke void %9(ptr noundef nonnull %on_commit.i)
           to label %invoke.cont9 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.then8
@@ -37433,18 +37426,17 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt10_ConstructIN9grpc_core14WorkSerializerEJRSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEEEvPT_DpOT0_(ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(16) %__args) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.111", align 8
-  %0 = load ptr, ptr %__args, align 8
-  store ptr %0, ptr %agg.tmp, align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.111", align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %__args, align 8
+  store <2 x ptr> %1, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

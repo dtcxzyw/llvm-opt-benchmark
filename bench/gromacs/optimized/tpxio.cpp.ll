@@ -18488,18 +18488,18 @@ define void @_Z14read_tpx_stateRKNSt10filesystem7__cxx114pathEP10t_inputrecP7t_s
   %23 = getelementptr inbounds i8, ptr %6, i64 16
   %24 = load ptr, ptr %23, align 16
   %25 = load <2 x ptr>, ptr %12, align 8
+  %26 = load ptr, ptr %12, align 8
   store <2 x ptr> %20, ptr %12, align 8
   store ptr %19, ptr %23, align 16
-  %26 = load <2 x ptr>, ptr %6, align 16
+  %27 = load <2 x ptr>, ptr %6, align 16
   store <2 x ptr> %25, ptr %6, align 16
-  store <2 x ptr> %26, ptr %17, align 8
+  store <2 x ptr> %27, ptr %17, align 8
   store ptr %24, ptr %21, align 8
-  %27 = extractelement <2 x ptr> %25, i64 0
-  %.not.i.i.i.i11 = icmp eq ptr %27, null
+  %.not.i.i.i.i11 = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i11, label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, label %28
 
 28:                                               ; preds = %16
-  call void @_ZdlPv(ptr noundef nonnull %27) #27
+  call void @_ZdlPv(ptr noundef nonnull %26) #27
   br label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit
 
 _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; preds = %16, %28
@@ -18691,18 +18691,18 @@ _ZL11do_tpx_bodyPN3gmx11ISerializerEP13TpxFileHeaderP10t_inputrecP10gmx_mtop_t.e
   %82 = getelementptr inbounds i8, ptr %9, i64 16
   %83 = load ptr, ptr %82, align 16
   %84 = load <2 x ptr>, ptr %15, align 8
+  %85 = load ptr, ptr %15, align 8
   store <2 x ptr> %79, ptr %15, align 8
   store ptr %78, ptr %82, align 16
-  %85 = load <2 x ptr>, ptr %9, align 16
+  %86 = load <2 x ptr>, ptr %9, align 16
   store <2 x ptr> %84, ptr %9, align 16
-  store <2 x ptr> %85, ptr %13, align 16
+  store <2 x ptr> %86, ptr %13, align 16
   store ptr %83, ptr %80, align 16
-  %86 = extractelement <2 x ptr> %84, i64 0
-  %.not.i.i.i.i = icmp eq ptr %86, null
+  %.not.i.i.i.i = icmp eq ptr %85, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, label %87
 
 87:                                               ; preds = %76
-  call void @_ZdlPv(ptr noundef nonnull %86) #27
+  call void @_ZdlPv(ptr noundef nonnull %85) #27
   br label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit
 
 _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; preds = %76, %87

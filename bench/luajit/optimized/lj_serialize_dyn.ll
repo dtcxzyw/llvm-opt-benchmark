@@ -1738,16 +1738,15 @@ entry:
   %5 = getelementptr inbounds i8, ptr %sbx, i64 32
   store i64 %4, ptr %5, align 8
   %b.i = getelementptr inbounds i8, ptr %2, i64 216
-  %6 = load ptr, ptr %b.i, align 8
   %b3.i = getelementptr inbounds i8, ptr %sbx, i64 16
-  store ptr %6, ptr %b3.i, align 8
-  store ptr %6, ptr %sbx, align 8
   %r.i = getelementptr inbounds i8, ptr %sbx, i64 40
-  store ptr %6, ptr %r.i, align 8
   %e.i = getelementptr inbounds i8, ptr %2, i64 208
-  %7 = load ptr, ptr %e.i, align 8
   %e4.i = getelementptr inbounds i8, ptr %sbx, i64 8
-  store ptr %7, ptr %e4.i, align 8
+  %6 = load ptr, ptr %b.i, align 8
+  %7 = load <2 x ptr>, ptr %e.i, align 8
+  store ptr %6, ptr %sbx, align 8
+  store ptr %6, ptr %r.i, align 8
+  store <2 x ptr> %7, ptr %e4.i, align 8
   %depth = getelementptr inbounds i8, ptr %sbx, i64 64
   store i32 100, ptr %depth, align 8
   %call = call fastcc ptr @serialize_put(ptr noundef %6, ptr noundef nonnull %sbx, ptr noundef %o)

@@ -830,14 +830,15 @@ if.then:                                          ; preds = %entry
   %registry.i = getelementptr inbounds i8, ptr %copy, i64 64
   %registry5.i = getelementptr inbounds i8, ptr %config_options, i64 64
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %copy, i64 72
-  %1 = load <2 x ptr>, ptr %registry5.i, align 8
-  store <2 x ptr> %1, ptr %registry.i, align 8
-  %2 = extractelement <2 x ptr> %1, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %2, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %config_options, i64 72
+  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %2 = load <2 x ptr>, ptr %registry5.i, align 8
+  store <2 x ptr> %2, ptr %registry.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont3, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -1132,14 +1133,15 @@ if.then28:                                        ; preds = %land.lhs.true26
   %registry.i49 = getelementptr inbounds i8, ptr %reset, i64 64
   %registry5.i50 = getelementptr inbounds i8, ptr %config_options, i64 64
   %_M_refcount.i.i.i51 = getelementptr inbounds i8, ptr %reset, i64 72
-  %42 = load <2 x ptr>, ptr %registry5.i50, align 8
-  store <2 x ptr> %42, ptr %registry.i49, align 8
-  %43 = extractelement <2 x ptr> %42, i64 1
-  %cmp.not.i.i.i.i53 = icmp eq ptr %43, null
+  %_M_refcount3.i.i.i52 = getelementptr inbounds i8, ptr %config_options, i64 72
+  %42 = load ptr, ptr %_M_refcount3.i.i.i52, align 8
+  %43 = load <2 x ptr>, ptr %registry5.i50, align 8
+  store <2 x ptr> %43, ptr %registry.i49, align 8
+  %cmp.not.i.i.i.i53 = icmp eq ptr %42, null
   br i1 %cmp.not.i.i.i.i53, label %invoke.cont29, label %if.then.i.i.i.i54
 
 if.then.i.i.i.i54:                                ; preds = %.noexc60
-  %_M_use_count.i.i.i.i.i55 = getelementptr inbounds i8, ptr %43, i64 8
+  %_M_use_count.i.i.i.i.i55 = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i56 = icmp eq i8 %44, 0
   br i1 %tobool.i.not.i.i.i.i.i56, label %if.else.i.i.i.i.i.i59, label %if.then.i.i.i.i.i.i57
@@ -2293,14 +2295,15 @@ if.then2:                                         ; preds = %if.then
   %registry.i = getelementptr inbounds i8, ptr %copy, i64 64
   %registry5.i = getelementptr inbounds i8, ptr %config_options, i64 64
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %copy, i64 72
-  %2 = load <2 x ptr>, ptr %registry5.i, align 8
-  store <2 x ptr> %2, ptr %registry.i, align 8
-  %3 = extractelement <2 x ptr> %2, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %3, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %config_options, i64 72
+  %2 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %3 = load <2 x ptr>, ptr %registry5.i, align 8
+  store <2 x ptr> %3, ptr %registry.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7rocksdb13ConfigOptionsC2ERKS0_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then2
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -3371,14 +3374,15 @@ _ZNK7rocksdb14OptionTypeInfo12AsRawPointerINS_12CustomizableEEEPT_Pv.exit: ; pre
   %registry.i = getelementptr inbounds i8, ptr %copy, i64 64
   %registry5.i = getelementptr inbounds i8, ptr %config_options, i64 64
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %copy, i64 72
-  %5 = load <2 x ptr>, ptr %registry5.i, align 8
-  store <2 x ptr> %5, ptr %registry.i, align 8
-  %6 = extractelement <2 x ptr> %5, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %6, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %config_options, i64 72
+  %5 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %6 = load <2 x ptr>, ptr %registry5.i, align 8
+  store <2 x ptr> %6, ptr %registry.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNK7rocksdb14OptionTypeInfo12AsRawPointerINS_12CustomizableEEEPT_Pv.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -4412,6 +4416,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %registry.i = getelementptr inbounds i8, ptr %copy, i64 64
   %registry5.i = getelementptr inbounds i8, ptr %config_options, i64 64
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %copy, i64 72
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %config_options, i64 72
   %mutable_options_only29 = getelementptr inbounds i8, ptr %copy, i64 4
   %cmp.not.i42 = icmp eq ptr %ref.tmp30, %agg.result
   %subcode_.i44 = getelementptr inbounds i8, ptr %ref.tmp30, i64 1
@@ -4558,14 +4563,14 @@ if.then27:                                        ; preds = %invoke.cont25
 
 .noexc36:                                         ; preds = %if.then27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %depth.i, ptr noundef nonnull align 8 dereferenceable(24) %depth4.i, i64 24, i1 false)
-  %20 = load <2 x ptr>, ptr %registry5.i, align 8
-  store <2 x ptr> %20, ptr %registry.i, align 8
-  %21 = extractelement <2 x ptr> %20, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %21, null
+  %20 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %21 = load <2 x ptr>, ptr %registry5.i, align 8
+  store <2 x ptr> %21, ptr %registry.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont28, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc36
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %22, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -5122,14 +5127,15 @@ if.then:                                          ; preds = %call6.i.noexc
   %registry.i = getelementptr inbounds i8, ptr %embedded, i64 64
   %registry5.i = getelementptr inbounds i8, ptr %config_options, i64 64
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %embedded, i64 72
-  %4 = load <2 x ptr>, ptr %registry5.i, align 8
-  store <2 x ptr> %4, ptr %registry.i, align 8
-  %5 = extractelement <2 x ptr> %4, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %config_options, i64 72
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %5 = load <2 x ptr>, ptr %registry5.i, align 8
+  store <2 x ptr> %5, ptr %registry.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont1, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -5650,6 +5656,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %registry.i = getelementptr inbounds i8, ptr %copy, i64 64
   %registry5.i = getelementptr inbounds i8, ptr %config_options, i64 64
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %copy, i64 72
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %config_options, i64 72
   %mutable_options_only37 = getelementptr inbounds i8, ptr %copy, i64 4
   br label %for.body
 
@@ -5726,14 +5733,14 @@ if.then36:                                        ; preds = %if.else34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %copy, ptr noundef nonnull align 8 dereferenceable(5) %config_options, i64 5, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %delimiter.i, ptr noundef nonnull align 8 dereferenceable(32) %delimiter3.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %depth.i, ptr noundef nonnull align 8 dereferenceable(24) %depth4.i, i64 24, i1 false)
-  %12 = load <2 x ptr>, ptr %registry5.i, align 8
-  store <2 x ptr> %12, ptr %registry.i, align 8
-  %13 = extractelement <2 x ptr> %12, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %13, null
+  %12 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %13 = load <2 x ptr>, ptr %registry5.i, align 8
+  store <2 x ptr> %13, ptr %registry.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7rocksdb13ConfigOptionsC2ERKS0_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then36
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %14, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

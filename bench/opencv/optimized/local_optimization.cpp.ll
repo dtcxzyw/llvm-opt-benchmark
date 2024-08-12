@@ -724,21 +724,20 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt10_ConstructIN2cv4usac12GraphCutImplEJRKNS0_3PtrINS1_9EstimatorEEERKNS3_INS1_7QualityEEERKNS3_INS1_17NeighborhoodGraphEEERKNS3_INS1_15RandomGeneratorEEERKdSL_RKiRKNS3_INS1_11TerminationEEEEEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(16) %8) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %10 = alloca %"struct.cv::Ptr.0", align 8
+  %10 = alloca %"struct.cv::Ptr.0", align 16
   %11 = load double, ptr %5, align 8
   %12 = load double, ptr %6, align 8
   %13 = load i32, ptr %7, align 4
-  %14 = load ptr, ptr %8, align 8
-  store ptr %14, ptr %10, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %15, align 8
-  %.not.i.i.i.i = icmp eq ptr %17, null
+  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = load <2 x ptr>, ptr %8, align 8
+  store <2 x ptr> %17, ptr %10, align 16
+  %.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_4usac11TerminationEEC2ERKS3_.exit, label %18
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds i8, ptr %16, i64 8
   %20 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %20, 0
   br i1 %.not.i.i.i.i.i, label %24, label %21
@@ -758,7 +757,7 @@ _ZN2cv3PtrINS_4usac11TerminationEEC2ERKS3_.exit:  ; preds = %9, %21, %24
           to label %26 unwind label %62
 
 26:                                               ; preds = %_ZN2cv3PtrINS_4usac11TerminationEEC2ERKS3_.exit
-  %27 = load ptr, ptr %15, align 8
+  %27 = load ptr, ptr %14, align 8
   %.not.i.i.i.i10 = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i10, label %_ZN2cv3PtrINS_4usac11TerminationEED2Ev.exit, label %28
 
@@ -6398,19 +6397,18 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt10_ConstructIN2cv4usac27SimpleLocalOptimizationImplEJRKNS0_3PtrINS1_7QualityEEERKNS3_INS1_16NonMinimalSolverEEERKNS3_INS1_11TerminationEEERKNS3_INS1_15RandomGeneratorEEERKNS3_INS1_14WeightFunctionEEERKiRKdRKbEEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %8) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %10 = alloca %"struct.cv::Ptr.0", align 8
-  %11 = alloca %"struct.cv::Ptr.36", align 8
-  %12 = load ptr, ptr %3, align 8
-  store ptr %12, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %13, align 8
-  %.not.i.i.i.i = icmp eq ptr %15, null
+  %10 = alloca %"struct.cv::Ptr.0", align 16
+  %11 = alloca %"struct.cv::Ptr.36", align 16
+  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %15, ptr %10, align 16
+  %.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_4usac11TerminationEEC2ERKS3_.exit, label %16
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds i8, ptr %14, i64 8
   %18 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %18, 0
   br i1 %.not.i.i.i.i.i, label %22, label %19
@@ -6426,17 +6424,16 @@ define linkonce_odr hidden void @_ZSt10_ConstructIN2cv4usac27SimpleLocalOptimiza
   br label %_ZN2cv3PtrINS_4usac11TerminationEEC2ERKS3_.exit
 
 _ZN2cv3PtrINS_4usac11TerminationEEC2ERKS3_.exit:  ; preds = %9, %19, %22
-  %24 = load ptr, ptr %5, align 8
-  store ptr %24, ptr %11, align 8
-  %25 = getelementptr inbounds i8, ptr %11, i64 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %25, align 8
-  %.not.i.i.i.i10 = icmp eq ptr %27, null
+  %24 = getelementptr inbounds i8, ptr %11, i64 8
+  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = load <2 x ptr>, ptr %5, align 8
+  store <2 x ptr> %27, ptr %11, align 16
+  %.not.i.i.i.i10 = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i10, label %_ZN2cv3PtrINS_4usac14WeightFunctionEEC2ERKS3_.exit, label %28
 
 28:                                               ; preds = %_ZN2cv3PtrINS_4usac11TerminationEEC2ERKS3_.exit
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = getelementptr inbounds i8, ptr %26, i64 8
   %30 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i11 = icmp eq i8 %30, 0
   br i1 %.not.i.i.i.i.i11, label %34, label %31
@@ -6460,7 +6457,7 @@ _ZN2cv3PtrINS_4usac14WeightFunctionEEC2ERKS3_.exit: ; preds = %_ZN2cv3PtrINS_4us
           to label %40 unwind label %111
 
 40:                                               ; preds = %_ZN2cv3PtrINS_4usac14WeightFunctionEEC2ERKS3_.exit
-  %41 = load ptr, ptr %25, align 8
+  %41 = load ptr, ptr %24, align 8
   %.not.i.i.i.i12 = icmp eq ptr %41, null
   br i1 %.not.i.i.i.i12, label %_ZN2cv3PtrINS_4usac14WeightFunctionEED2Ev.exit, label %42
 
@@ -6533,7 +6530,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_4usac14WeightFunctionEED2Ev.exit
 
 _ZN2cv3PtrINS_4usac14WeightFunctionEED2Ev.exit:   ; preds = %40, %58, %71, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %76 = load ptr, ptr %13, align 8
+  %76 = load ptr, ptr %12, align 8
   %.not.i.i.i.i14 = icmp eq ptr %76, null
   br i1 %.not.i.i.i.i14, label %_ZN2cv3PtrINS_4usac11TerminationEED2Ev.exit, label %77
 
@@ -8635,18 +8632,17 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt10_ConstructIN2cv4usac22NonMinimalPolisherImplEJRKNS0_3PtrINS1_7QualityEEERKNS3_INS1_16NonMinimalSolverEEERKNS3_INS1_14WeightFunctionEEERKiRKdEEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %7 = alloca %"struct.cv::Ptr.36", align 8
-  %8 = load ptr, ptr %3, align 8
-  store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %9, align 8
-  %.not.i.i.i.i = icmp eq ptr %11, null
+  %7 = alloca %"struct.cv::Ptr.36", align 16
+  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %11, ptr %7, align 16
+  %.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_4usac14WeightFunctionEEC2ERKS3_.exit, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds i8, ptr %10, i64 8
   %14 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %14, 0
   br i1 %.not.i.i.i.i.i, label %18, label %15
@@ -8668,7 +8664,7 @@ _ZN2cv3PtrINS_4usac14WeightFunctionEEC2ERKS3_.exit: ; preds = %6, %15, %18
           to label %22 unwind label %58
 
 22:                                               ; preds = %_ZN2cv3PtrINS_4usac14WeightFunctionEEC2ERKS3_.exit
-  %23 = load ptr, ptr %9, align 8
+  %23 = load ptr, ptr %8, align 8
   %.not.i.i.i.i7 = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i7, label %_ZN2cv3PtrINS_4usac14WeightFunctionEED2Ev.exit, label %24
 

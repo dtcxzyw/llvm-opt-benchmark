@@ -1004,27 +1004,24 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN3std6thread7Builder15spawn_unchecked17h84704bb89f27a714E(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef align 8 dereferenceable(120) %2) unnamed_addr #1 {
-  %4 = alloca { ptr, [2 x i64] }, align 8
+  %4 = alloca { ptr, [2 x i64] }, align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN3std6thread7Builder16spawn_unchecked_17h8414e534c13a75a0E.llvm.14569406818774748290(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(120) %2, ptr noundef null)
-  %5 = load ptr, ptr %4, align 8, !noundef !4
-  %6 = icmp eq ptr %5, null
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
-  %8 = load ptr, ptr %7, align 8
+  %5 = load <2 x ptr>, ptr %4, align 16
+  %6 = load ptr, ptr %4, align 16, !noundef !4
+  %7 = icmp eq ptr %6, null
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  br i1 %6, label %10, label %9
+  br i1 %7, label %9, label %8
 
-9:                                                ; preds = %3
+8:                                                ; preds = %3
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.5.0.copyload, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
-  br label %10
+  br label %9
 
-10:                                               ; preds = %3, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %8, ptr %11, align 8
-  store ptr %5, ptr %0, align 8
+9:                                                ; preds = %3, %8
+  store <2 x ptr> %5, ptr %0, align 8
   ret void
 }
 

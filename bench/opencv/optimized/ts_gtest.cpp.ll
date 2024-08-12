@@ -6245,24 +6245,23 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #48
   %20 = load ptr, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %2, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 16
-  %24 = load ptr, ptr %23, align 8
-  %25 = load <2 x ptr>, ptr %4, align 16
-  store <2 x ptr> %25, ptr %2, align 8
-  %26 = load ptr, ptr %14, align 16
-  store ptr %26, ptr %23, align 8
+  %22 = getelementptr inbounds i8, ptr %2, i64 16
+  %23 = load <2 x ptr>, ptr %4, align 16
+  %24 = load ptr, ptr %14, align 16
   store ptr %20, ptr %4, align 16
-  store ptr %22, ptr %12, align 8
-  store ptr %24, ptr %14, align 16
-  %.not4.i.i.i.i = icmp eq ptr %20, %22
+  %25 = load <2 x ptr>, ptr %21, align 8
+  %26 = load ptr, ptr %21, align 8
+  store <2 x ptr> %23, ptr %2, align 8
+  store ptr %24, ptr %22, align 8
+  store <2 x ptr> %25, ptr %12, align 8
+  %.not4.i.i.i.i = icmp eq ptr %20, %26
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit, %.lr.ph.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i ], [ %20, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #48
   %27 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %27, %22
+  %.not.i.i.i.i = icmp eq ptr %27, %26
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !20
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i

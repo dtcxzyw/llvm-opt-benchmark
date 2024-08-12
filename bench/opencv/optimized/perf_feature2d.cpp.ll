@@ -3110,8 +3110,8 @@ define internal void @_ZN11opencv_testL41gtest_feature2d_extract_EvalGenerateNam
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN11opencv_test17feature2d_extract12PerfTestBodyEv(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_5AKAZEEED2Ev.exit:
-  %1 = alloca %"struct.cv::Ptr", align 8
-  %2 = alloca %"struct.cv::Ptr.43", align 8
+  %1 = alloca %"struct.cv::Ptr", align 16
+  %2 = alloca %"struct.cv::Ptr.43", align 16
   %3 = alloca %"struct.cv::Ptr", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.cv::Mat", align 8
@@ -3142,14 +3142,13 @@ _ZN2cv3PtrINS_5AKAZEEED2Ev.exit:
   %30 = alloca %"class.testing::Message", align 8
   %31 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @_ZN2cv5AKAZE6createENS0_14DescriptorTypeEiifiiNS_4KAZE15DiffusivityTypeEi(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.43") align 8 %2, i32 noundef 5, i32 noundef 0, i32 noundef 3, float noundef 0x3F50624DE0000000, i32 noundef 4, i32 noundef 4, i32 noundef 1, i32 noundef -1)
-  %32 = load ptr, ptr %2, align 8
-  store ptr %32, ptr %1, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 8
-  %35 = load ptr, ptr %34, align 8
-  store ptr null, ptr %34, align 8
-  store ptr %35, ptr %33, align 8
-  store ptr null, ptr %2, align 8
+  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds i8, ptr %2, i64 8
+  %34 = load <2 x ptr>, ptr %2, align 16
+  %35 = load ptr, ptr %2, align 16
+  store ptr null, ptr %33, align 8
+  store <2 x ptr> %34, ptr %1, align 16
+  store ptr null, ptr %2, align 16
   %36 = invoke fastcc noundef nonnull align 8 dereferenceable(36) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN11opencv_test12_GLOBAL__N_113Feature2DTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE8GetParamEv()
           to label %37 unwind label %49
 
@@ -3480,10 +3479,10 @@ _ZN7testing7MessageD2Ev.exit61:                   ; preds = %111, %122
   store i32 16842752, ptr %18, align 8
   %156 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %15, ptr %156, align 8
-  %157 = load ptr, ptr %32, align 8
+  %157 = load ptr, ptr %35, align 8
   %158 = getelementptr inbounds i8, ptr %157, i64 64
   %159 = load ptr, ptr %158, align 8
-  invoke void %159(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %18)
+  invoke void %159(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %18)
           to label %160 unwind label %178
 
 160:                                              ; preds = %150
@@ -3942,7 +3941,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_9Feature2DEED2Ev.exit
 
 _ZN2cv3PtrINS_9Feature2DEED2Ev.exit:              ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %318, %331, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i91
-  %336 = load ptr, ptr %33, align 8
+  %336 = load ptr, ptr %32, align 8
   %.not.i.i.i.i92 = icmp eq ptr %336, null
   br i1 %.not.i.i.i.i92, label %_ZN2cv3PtrINS_9Feature2DEED2Ev.exit98, label %337
 

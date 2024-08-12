@@ -1889,7 +1889,7 @@ entry:
 _ZNK6vectorIP4exprLb0EjE8capacityEv.exit.i.i.i:   ; preds = %entry
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   %3 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
-  %4 = extractelement <2 x i32> %3, i64 0
+  %4 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %4 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 3
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 8

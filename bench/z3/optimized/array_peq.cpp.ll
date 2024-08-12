@@ -1302,12 +1302,9 @@ ehcleanup58:                                      ; preds = %ehcleanup, %lpad7
   resume { ptr, i32 } %.pn.pn
 
 if.end60:                                         ; preds = %if.then2.i.i.i112, %if.then.i.i.i107, %_ZN7obj_refI4expr11ast_managerED2Ev.exit
+  %87 = load <2 x ptr>, ptr %m_eq, align 8
   %.pr = load ptr, ptr %m_eq, align 8
-  store ptr %.pr, ptr %agg.result, align 8
-  %m_manager.i115 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %m_manager3.i = getelementptr inbounds i8, ptr %this, i64 88
-  %87 = load ptr, ptr %m_manager3.i, align 8
-  store ptr %87, ptr %m_manager.i115, align 8
+  store <2 x ptr> %87, ptr %agg.result, align 8
   %tobool.not.i.i116 = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i116, label %_ZN7obj_refI3app11ast_managerEC2ERKS2_.exit, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i117
 
@@ -1461,7 +1458,7 @@ invoke.cont:                                      ; preds = %_ZN11ast_manager7in
 _ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE8capacityEv.exit.i.i: ; preds = %invoke.cont
   %arrayidx.i11.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   %3 = load <2 x i32>, ptr %arrayidx.i11.i.i, align 4
-  %4 = extractelement <2 x i32> %3, i64 0
+  %4 = load i32, ptr %arrayidx.i11.i.i, align 4
   %conv.i.i = zext i32 %4 to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i, 4
   %add.i.i = or disjoint i64 %mul.i.i, 8

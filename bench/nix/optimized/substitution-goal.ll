@@ -3409,7 +3409,7 @@ define void @_ZN3nix20PathSubstitutionGoal7tryNextEv(ptr noundef nonnull align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator.10", align 1
   %12 = alloca %"struct.nix::ContentAddressWithReferences", align 8
-  %13 = alloca %"class.nix::ref.264", align 8
+  %13 = alloca %"class.nix::ref.264", align 16
   %14 = alloca %"struct.nix::ErrorInfo", align 8
   %15 = alloca %"class.std::shared_ptr.270", align 8
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3665,14 +3665,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %_ZN
 117:                                              ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit66.thread175
   %118 = load ptr, ptr %30, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 16
-  %120 = load ptr, ptr %119, align 8, !noalias !19
-  %121 = getelementptr inbounds i8, ptr %118, i64 24
-  %122 = load ptr, ptr %121, align 8, !noalias !19
-  %.not.i.i.i.i = icmp eq ptr %122, null
+  %120 = getelementptr inbounds i8, ptr %118, i64 24
+  %121 = load ptr, ptr %120, align 8, !noalias !19
+  %122 = load <2 x ptr>, ptr %119, align 8, !noalias !19
+  %.not.i.i.i.i = icmp eq ptr %121, null
   br i1 %.not.i.i.i.i, label %_ZNK3nix3refINS_5StoreEEcvSt10shared_ptrIS1_EEv.exit, label %123
 
 123:                                              ; preds = %117
-  %124 = getelementptr inbounds i8, ptr %122, i64 8
+  %124 = getelementptr inbounds i8, ptr %121, i64 8
   %125 = load i8, ptr @__libc_single_threaded, align 1, !noalias !19
   %.not.i.i.i.i.i = icmp eq i8 %125, 0
   br i1 %.not.i.i.i.i.i, label %129, label %126
@@ -3688,9 +3688,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %_ZN
   br label %_ZNK3nix3refINS_5StoreEEcvSt10shared_ptrIS1_EEv.exit
 
 _ZNK3nix3refINS_5StoreEEcvSt10shared_ptrIS1_EEv.exit: ; preds = %117, %126, %129
-  store ptr %120, ptr %34, align 8
   %131 = load ptr, ptr %35, align 8
-  store ptr %122, ptr %35, align 8
+  store <2 x ptr> %122, ptr %34, align 8
   %.not.i.i.i.i58 = icmp eq ptr %131, null
   br i1 %.not.i.i.i.i58, label %_ZNSt10shared_ptrIN3nix5StoreEED2Ev.exit, label %132
 
@@ -4030,14 +4029,14 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %291 unwind label %387
 
 291:                                              ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %292 = load ptr, ptr %13, align 8, !noalias !22
-  %293 = getelementptr inbounds i8, ptr %13, i64 8
-  %294 = load ptr, ptr %293, align 8, !noalias !22
-  %.not.i.i.i.i67 = icmp eq ptr %294, null
+  %292 = getelementptr inbounds i8, ptr %13, i64 8
+  %293 = load ptr, ptr %292, align 8, !noalias !22
+  %294 = load <2 x ptr>, ptr %13, align 16, !noalias !22
+  %.not.i.i.i.i67 = icmp eq ptr %293, null
   br i1 %.not.i.i.i.i67, label %_ZNK3nix3refIKNS_13ValidPathInfoEEcvSt10shared_ptrIS2_EEv.exit, label %295
 
 295:                                              ; preds = %291
-  %296 = getelementptr inbounds i8, ptr %294, i64 8
+  %296 = getelementptr inbounds i8, ptr %293, i64 8
   %297 = load i8, ptr @__libc_single_threaded, align 1, !noalias !22
   %.not.i.i.i.i.i68 = icmp eq i8 %297, 0
   br i1 %.not.i.i.i.i.i68, label %301, label %298
@@ -4054,10 +4053,9 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 _ZNK3nix3refIKNS_13ValidPathInfoEEcvSt10shared_ptrIS2_EEv.exit: ; preds = %291, %298, %301
   %303 = getelementptr inbounds i8, ptr %0, i64 840
-  store ptr %292, ptr %303, align 8
   %304 = getelementptr inbounds i8, ptr %0, i64 848
   %305 = load ptr, ptr %304, align 8
-  store ptr %294, ptr %304, align 8
+  store <2 x ptr> %294, ptr %303, align 8
   %.not.i.i.i.i69 = icmp eq ptr %305, null
   br i1 %.not.i.i.i.i69, label %_ZNSt10shared_ptrIKN3nix13ValidPathInfoEED2Ev.exit, label %306
 
@@ -4130,7 +4128,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIKN3nix13ValidPathInfoEED2Ev.exit
 
 _ZNSt10shared_ptrIKN3nix13ValidPathInfoEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i74, %335, %322, %_ZNK3nix3refIKNS_13ValidPathInfoEEcvSt10shared_ptrIS2_EEv.exit
-  %340 = load ptr, ptr %293, align 8
+  %340 = load ptr, ptr %292, align 8
   %.not.i.i.i.i81 = icmp eq ptr %340, null
   br i1 %.not.i.i.i.i81, label %_ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit, label %341
 

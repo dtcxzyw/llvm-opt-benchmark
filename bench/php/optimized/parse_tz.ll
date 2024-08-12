@@ -2026,90 +2026,88 @@ define hidden noalias noundef ptr @timelib_tzinfo_clone(ptr nocapture noundef re
   %13 = load <2 x i64>, ptr %11, align 8
   store <2 x i64> %13, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 48
-  %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 48
-  store i64 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
-  %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 56
-  store i64 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
-  %21 = getelementptr inbounds i8, ptr %3, i64 64
-  %22 = getelementptr inbounds i8, ptr %0, i64 72
-  %23 = load <2 x i64>, ptr %20, align 8
-  store <2 x i64> %23, ptr %21, align 8
-  %.not = icmp eq i64 %18, 0
-  %24 = extractelement <2 x i64> %23, i64 0
-  br i1 %.not, label %38, label %25
+  %15 = getelementptr inbounds i8, ptr %3, i64 48
+  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = load i64, ptr %16, align 8
+  %18 = load <2 x i64>, ptr %14, align 8
+  store <2 x i64> %18, ptr %15, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %20 = getelementptr inbounds i8, ptr %3, i64 64
+  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  %22 = load <2 x i64>, ptr %19, align 8
+  %23 = load i64, ptr %19, align 8
+  store <2 x i64> %22, ptr %20, align 8
+  %.not = icmp eq i64 %17, 0
+  br i1 %.not, label %37, label %24
 
-25:                                               ; preds = %1
-  %26 = shl i64 %18, 3
-  %27 = tail call noalias ptr @_emalloc(i64 noundef %26) #18
-  %28 = getelementptr inbounds i8, ptr %3, i64 80
-  store ptr %27, ptr %28, align 8
-  %29 = load i64, ptr %17, align 8
-  %30 = tail call noalias ptr @_emalloc(i64 noundef %29) #18
-  %31 = getelementptr inbounds i8, ptr %3, i64 88
-  store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 80
-  %33 = load ptr, ptr %32, align 8
-  %34 = load i64, ptr %17, align 8
-  %35 = shl i64 %34, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %27, ptr align 8 %33, i64 %35, i1 false)
-  %36 = getelementptr inbounds i8, ptr %0, i64 88
-  %37 = load ptr, ptr %36, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %37, i64 %34, i1 false)
-  %.pre = load i64, ptr %20, align 8
-  br label %38
+24:                                               ; preds = %1
+  %25 = shl i64 %17, 3
+  %26 = tail call noalias ptr @_emalloc(i64 noundef %25) #18
+  %27 = getelementptr inbounds i8, ptr %3, i64 80
+  store ptr %26, ptr %27, align 8
+  %28 = load i64, ptr %16, align 8
+  %29 = tail call noalias ptr @_emalloc(i64 noundef %28) #18
+  %30 = getelementptr inbounds i8, ptr %3, i64 88
+  store ptr %29, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %0, i64 80
+  %32 = load ptr, ptr %31, align 8
+  %33 = load i64, ptr %16, align 8
+  %34 = shl i64 %33, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 %32, i64 %34, i1 false)
+  %35 = getelementptr inbounds i8, ptr %0, i64 88
+  %36 = load ptr, ptr %35, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %36, i64 %33, i1 false)
+  %.pre = load i64, ptr %19, align 8
+  br label %37
 
-38:                                               ; preds = %1, %25
-  %39 = phi i64 [ %.pre, %25 ], [ %24, %1 ]
-  %40 = mul i64 %39, 20
-  %41 = tail call noalias ptr @_emalloc(i64 noundef %40) #18
-  %42 = getelementptr inbounds i8, ptr %3, i64 96
-  store ptr %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 96
-  %44 = load ptr, ptr %43, align 8
-  %45 = load i64, ptr %20, align 8
-  %46 = mul i64 %45, 20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %41, ptr align 4 %44, i64 %46, i1 false)
-  %47 = load i64, ptr %22, align 8
-  %48 = tail call noalias ptr @_emalloc(i64 noundef %47) #18
-  %49 = getelementptr inbounds i8, ptr %3, i64 104
-  store ptr %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 104
-  %51 = load ptr, ptr %50, align 8
-  %52 = load i64, ptr %22, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr align 1 %51, i64 %52, i1 false)
-  %53 = load i64, ptr %14, align 8
-  %.not233 = icmp eq i64 %53, 0
-  br i1 %.not233, label %62, label %54
+37:                                               ; preds = %1, %24
+  %38 = phi i64 [ %.pre, %24 ], [ %23, %1 ]
+  %39 = mul i64 %38, 20
+  %40 = tail call noalias ptr @_emalloc(i64 noundef %39) #18
+  %41 = getelementptr inbounds i8, ptr %3, i64 96
+  store ptr %40, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 96
+  %43 = load ptr, ptr %42, align 8
+  %44 = load i64, ptr %19, align 8
+  %45 = mul i64 %44, 20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %40, ptr align 4 %43, i64 %45, i1 false)
+  %46 = load i64, ptr %21, align 8
+  %47 = tail call noalias ptr @_emalloc(i64 noundef %46) #18
+  %48 = getelementptr inbounds i8, ptr %3, i64 104
+  store ptr %47, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 104
+  %50 = load ptr, ptr %49, align 8
+  %51 = load i64, ptr %21, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr align 1 %50, i64 %51, i1 false)
+  %52 = load i64, ptr %14, align 8
+  %.not233 = icmp eq i64 %52, 0
+  br i1 %.not233, label %61, label %53
 
-54:                                               ; preds = %38
-  %55 = shl i64 %53, 4
-  %56 = tail call noalias ptr @_emalloc(i64 noundef %55) #18
-  %57 = getelementptr inbounds i8, ptr %3, i64 112
-  store ptr %56, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 112
-  %59 = load ptr, ptr %58, align 8
-  %60 = load i64, ptr %14, align 8
-  %61 = shl i64 %60, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %56, ptr align 8 %59, i64 %61, i1 false)
-  br label %62
+53:                                               ; preds = %37
+  %54 = shl i64 %52, 4
+  %55 = tail call noalias ptr @_emalloc(i64 noundef %54) #18
+  %56 = getelementptr inbounds i8, ptr %3, i64 112
+  store ptr %55, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 112
+  %58 = load ptr, ptr %57, align 8
+  %59 = load i64, ptr %14, align 8
+  %60 = shl i64 %59, 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %55, ptr align 8 %58, i64 %60, i1 false)
+  br label %61
 
-62:                                               ; preds = %54, %38
-  %63 = getelementptr inbounds i8, ptr %0, i64 160
-  %64 = load ptr, ptr %63, align 8
-  %.not234 = icmp eq ptr %64, null
-  br i1 %.not234, label %68, label %65
+61:                                               ; preds = %53, %37
+  %62 = getelementptr inbounds i8, ptr %0, i64 160
+  %63 = load ptr, ptr %62, align 8
+  %.not234 = icmp eq ptr %63, null
+  br i1 %.not234, label %67, label %64
 
-65:                                               ; preds = %62
-  %66 = tail call noalias ptr @_estrdup(ptr noundef nonnull %64) #17
-  %67 = getelementptr inbounds i8, ptr %3, i64 160
-  store ptr %66, ptr %67, align 8
-  br label %68
+64:                                               ; preds = %61
+  %65 = tail call noalias ptr @_estrdup(ptr noundef nonnull %63) #17
+  %66 = getelementptr inbounds i8, ptr %3, i64 160
+  store ptr %65, ptr %66, align 8
+  br label %67
 
-68:                                               ; preds = %65, %62
+67:                                               ; preds = %64, %61
   ret ptr %3
 }
 

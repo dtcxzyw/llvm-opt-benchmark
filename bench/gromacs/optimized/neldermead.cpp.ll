@@ -1465,8 +1465,8 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i15: ; preds = %15
 
 41:                                               ; preds = %39
   %42 = load <2 x ptr>, ptr %37, align 8
+  %43 = load ptr, ptr %37, align 8
   store <2 x ptr> %42, ptr %35, align 8
-  %43 = extractelement <2 x ptr> %42, i64 0
   br label %_ZNSt8functionIFfN3gmx8ArrayRefIKfEEEEC2ERKS5_.exit
 
 44:                                               ; preds = %39

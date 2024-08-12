@@ -395,19 +395,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   store ptr null, ptr %6, align 16, !tbaa !35
   %call_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 80
   %call_2.i = getelementptr inbounds i8, ptr %fn, i64 48
-  %7 = load ptr, ptr %call_2.i, align 16, !tbaa !36
-  store ptr %7, ptr %call_.i, align 16, !tbaa !36
   %exec_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 88
   %exec_3.i = getelementptr inbounds i8, ptr %fn, i64 56
-  %8 = load ptr, ptr %exec_3.i, align 8, !tbaa !38
-  store ptr %8, ptr %exec_.i, align 8, !tbaa !38
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEE10uninitCallERNS1_4DataE, ptr %call_2.i, align 16, !tbaa !36
-  store ptr null, ptr %exec_3.i, align 8, !tbaa !38
-  %tobool.not.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %exec_3.i, align 8, !tbaa !36
+  %8 = load <2 x ptr>, ptr %call_2.i, align 16, !tbaa !23
+  store <2 x ptr> %8, ptr %call_.i, align 16, !tbaa !23
+  store ptr @_ZN5folly6detail8function14FunctionTraitsIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEE10uninitCallERNS1_4DataE, ptr %call_2.i, align 16, !tbaa !38
+  store ptr null, ptr %exec_3.i, align 8, !tbaa !36
+  %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %_ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEC2EOS7_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
-  %call.i.i = call noundef i64 %8(i32 noundef 0, ptr noundef nonnull %fn, ptr noundef nonnull %6) #19
+  %call.i.i = call noundef i64 %7(i32 noundef 0, ptr noundef nonnull %fn, ptr noundef nonnull %6) #19
   br label %_ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEC2EOS7_.exit
 
 _ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEC2EOS7_.exit: ; preds = %if.end.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
@@ -602,7 +601,7 @@ unreachable.i.i:                                  ; preds = %invoke.cont19.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %"_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESH_E3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i", %.noexc
-  %35 = load ptr, ptr %exec_.i, align 8, !tbaa !38
+  %35 = load ptr, ptr %exec_.i, align 8, !tbaa !36
   %tobool.not.i.i.i8 = icmp eq ptr %35, null
   br i1 %tobool.not.i.i.i8, label %_ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEED2Ev.exit.i, label %if.end.i.i.i
 
@@ -645,7 +644,7 @@ lpad.body:                                        ; preds = %lpad, %lpad17.i.i
 define internal fastcc void @"_ZZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESC_EN3$_0D2Ev"(ptr noundef nonnull align 16 dereferenceable(112) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %exec_.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %0 = load ptr, ptr %exec_.i.i, align 8, !tbaa !38
+  %0 = load ptr, ptr %exec_.i.i, align 8, !tbaa !36
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEED2Ev.exit, label %if.end.i.i
 
@@ -720,20 +719,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.
   store ptr null, ptr %6, align 16, !tbaa !35
   %call_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 96
   %call_2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 80
-  %7 = load ptr, ptr %call_2.i.i.i.i.i.i.i.i.i, align 16, !tbaa !36
-  store ptr %7, ptr %call_.i.i.i.i.i.i.i.i.i, align 16, !tbaa !36
-  %exec_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 104
   %exec_3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 88
-  %8 = load ptr, ptr %exec_3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !38
-  store ptr %8, ptr %exec_.i.i.i.i.i.i.i.i.i, align 8, !tbaa !38
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEE10uninitCallERNS1_4DataE, ptr %call_2.i.i.i.i.i.i.i.i.i, align 16, !tbaa !36
-  store ptr null, ptr %exec_3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !38
-  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %exec_3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !36
+  %8 = load <2 x ptr>, ptr %call_2.i.i.i.i.i.i.i.i.i, align 16, !tbaa !23
+  store <2 x ptr> %8, ptr %call_.i.i.i.i.i.i.i.i.i, align 16, !tbaa !23
+  store ptr @_ZN5folly6detail8function14FunctionTraitsIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEE10uninitCallERNS1_4DataE, ptr %call_2.i.i.i.i.i.i.i.i.i, align 16, !tbaa !38
+  store ptr null, ptr %exec_3.i.i.i.i.i.i.i.i.i, align 8, !tbaa !36
+  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i
   %9 = getelementptr inbounds i8, ptr %__args, i64 32
-  %call.i.i.i.i.i.i.i.i.i.i = tail call noundef i64 %8(i32 noundef 0, ptr noundef nonnull %9, ptr noundef nonnull %6) #19
+  %call.i.i.i.i.i.i.i.i.i.i = tail call noundef i64 %7(i32 noundef 0, ptr noundef nonnull %9, ptr noundef nonnull %6) #19
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.end.i.i.i.i.i.i.i.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i
@@ -792,7 +789,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESG_E3$_0EEEEEE", i64 16), ptr %this, align 16, !tbaa !59
   %_M_func = getelementptr inbounds i8, ptr %this, i64 16
   %exec_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %0 = load ptr, ptr %exec_.i.i.i.i.i, align 8, !tbaa !38
+  %0 = load ptr, ptr %exec_.i.i.i.i.i, align 8, !tbaa !36
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEED2Ev.exit.i.i.i, label %if.end.i.i.i.i.i
 
@@ -829,7 +826,7 @@ entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESG_E3$_0EEEEEE", i64 16), ptr %this, align 16, !tbaa !59
   %_M_func.i = getelementptr inbounds i8, ptr %this, i64 16
   %exec_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %0 = load ptr, ptr %exec_.i.i.i.i.i.i, align 8, !tbaa !38
+  %0 = load ptr, ptr %exec_.i.i.i.i.i.i, align 8, !tbaa !36
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEED2Ev.exit.i.i.i.i, label %if.end.i.i.i.i.i.i
 
@@ -877,20 +874,19 @@ entry:
   store ptr null, ptr %agg.tmp2.i.i.i.i.i, align 16, !tbaa !35
   %call_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i.i.i, i64 48
   %call_2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  %4 = load ptr, ptr %call_2.i.i.i.i.i.i, align 16, !tbaa !36
-  store ptr %4, ptr %call_.i.i.i.i.i.i, align 16, !tbaa !36
   %exec_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.i.i.i.i.i, i64 56
   %exec_3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  %5 = load ptr, ptr %exec_3.i.i.i.i.i.i, align 8, !tbaa !38
-  store ptr %5, ptr %exec_.i.i.i.i.i.i, align 8, !tbaa !38
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEE10uninitCallERNS1_4DataE, ptr %call_2.i.i.i.i.i.i, align 16, !tbaa !36
-  store ptr null, ptr %exec_3.i.i.i.i.i.i, align 8, !tbaa !38
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %exec_3.i.i.i.i.i.i, align 8, !tbaa !36
+  %5 = load <2 x ptr>, ptr %call_2.i.i.i.i.i.i, align 16, !tbaa !23
+  store <2 x ptr> %5, ptr %call_.i.i.i.i.i.i, align 16, !tbaa !23
+  store ptr @_ZN5folly6detail8function14FunctionTraitsIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEE10uninitCallERNS1_4DataE, ptr %call_2.i.i.i.i.i.i, align 16, !tbaa !38
+  store ptr null, ptr %exec_3.i.i.i.i.i.i, align 8, !tbaa !36
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEC2EOS7_.exit.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %entry
   %6 = getelementptr inbounds i8, ptr %this, i64 48
-  %call.i.i.i.i.i.i.i = call noundef i64 %5(i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %agg.tmp2.i.i.i.i.i) #19
+  %call.i.i.i.i.i.i.i = call noundef i64 %4(i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %agg.tmp2.i.i.i.i.i) #19
   br label %_ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEC2EOS7_.exit.i.i.i.i.i
 
 _ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEC2EOS7_.exit.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i, %entry
@@ -900,13 +896,13 @@ _ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEC2EOS7_.exi
   br i1 %call5.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN5folly31ThreadedRepeatingFunctionRunner13executeInLoopENS_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEES6_.exit.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %_ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEC2EOS7_.exit.i.i.i.i.i, %while.body.i.i.i.i.i.i
-  %8 = load ptr, ptr %call_.i.i.i.i.i.i, align 16, !tbaa !36
+  %8 = load ptr, ptr %call_.i.i.i.i.i.i, align 16, !tbaa !38
   %call.i.i4.i.i.i.i.i = call i64 %8(ptr noundef nonnull align 16 dereferenceable(48) %agg.tmp2.i.i.i.i.i) #19
   %call.i.i.i.i.i.i = call noundef zeroext i1 @_ZN5folly31ThreadedRepeatingFunctionRunner7waitForENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(120) %1, i64 %call.i.i4.i.i.i.i.i) #19
   br i1 %call.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZN5folly31ThreadedRepeatingFunctionRunner13executeInLoopENS_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEES6_.exit.i.i.i.i.i, !llvm.loop !61
 
 _ZN5folly31ThreadedRepeatingFunctionRunner13executeInLoopENS_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEES6_.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %_ZN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEC2EOS7_.exit.i.i.i.i.i
-  %9 = load ptr, ptr %exec_.i.i.i.i.i.i, align 8, !tbaa !38
+  %9 = load ptr, ptr %exec_.i.i.i.i.i.i, align 8, !tbaa !36
   %tobool.not.i.i5.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i5.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESF_E3$_0EEEclEv.exit", label %if.end.i.i6.i.i.i.i.i
 
@@ -932,7 +928,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body, %while.body.lr.ph
-  %0 = load ptr, ptr %call_.i, align 16, !tbaa !36
+  %0 = load ptr, ptr %call_.i, align 16, !tbaa !38
   %call.i = tail call i64 %0(ptr noundef nonnull align 16 dereferenceable(48) %fn) #19
   %call = tail call noundef zeroext i1 @_ZN5folly31ThreadedRepeatingFunctionRunner7waitForENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 %call.i) #19
   br i1 %call, label %while.body, label %while.end, !llvm.loop !62
@@ -1163,9 +1159,9 @@ attributes #25 = { cold noreturn }
 !33 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !31, i64 0, !29, i64 8, !11, i64 16}
 !34 = !{!33, !29, i64 8}
 !35 = !{!11, !11, i64 0}
-!36 = !{!37, !20, i64 48}
+!36 = !{!37, !20, i64 56}
 !37 = !{!"_ZTSN5folly8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEE", !11, i64 0, !20, i64 48, !20, i64 56}
-!38 = !{!37, !20, i64 56}
+!38 = !{!37, !20, i64 48}
 !39 = !{!40, !20, i64 104}
 !40 = !{!"_ZTSZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESC_E3$_0", !33, i64 0, !37, i64 32, !41, i64 96, !20, i64 104}
 !41 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE", !29, i64 0}

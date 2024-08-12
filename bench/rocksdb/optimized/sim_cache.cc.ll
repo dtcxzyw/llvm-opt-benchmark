@@ -222,14 +222,15 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
-  %1 = load <2 x ptr>, ptr %cache, align 8
-  store <2 x ptr> %1, ptr %agg.tmp2, align 16
-  %2 = extractelement <2 x ptr> %1, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %cache, i64 8
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %cache, align 8
+  store <2 x ptr> %2, ptr %agg.tmp2, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb5CacheEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -430,6 +431,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
+  %0 = getelementptr i8, ptr %sim_cache, i64 8
   %call5.i.i.i5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #17, !noalias !4
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !4
@@ -440,14 +442,14 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp3.i.i.i.i.i.i.i), !noalias !4
   %_M_refcount.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i.i.i, i64 8
-  %0 = load <2 x ptr>, ptr %sim_cache, align 8
-  store <2 x ptr> %0, ptr %agg.tmp.i.i.i.i.i.i.i, align 16, !noalias !4
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %1, null
+  %sim_cache.val1 = load ptr, ptr %0, align 8
+  %1 = load <2 x ptr>, ptr %sim_cache, align 8
+  store <2 x ptr> %1, ptr %agg.tmp.i.i.i.i.i.i.i, align 16, !noalias !4
+  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %sim_cache.val1, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb5CacheEEC2ERKS2_.exit.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %sim_cache.val1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !4
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
@@ -525,14 +527,14 @@ _ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %if.else
   store ptr %agg.tmp3.val14.i.i.i.i.i.i.i, ptr %_M_refcount.i.i1.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_112SimCacheImplE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !4
   %key_only_cache_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 88
-  %12 = load <2 x ptr>, ptr %agg.tmp.i.i.i.i.i.i.i, align 16, !noalias !4
-  store <2 x ptr> %12, ptr %key_only_cache_.i.i.i.i.i.i.i.i, align 8, !noalias !4
-  %13 = extractelement <2 x ptr> %12, i64 1
-  %cmp.not.i.i.i11.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
+  %12 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8, !noalias !4
+  %13 = load <2 x ptr>, ptr %agg.tmp.i.i.i.i.i.i.i, align 16, !noalias !4
+  store <2 x ptr> %13, ptr %key_only_cache_.i.i.i.i.i.i.i.i, align 8, !noalias !4
+  %cmp.not.i.i.i11.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.not.i.i.i11.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb5CacheEEC2ERKS2_.exit18.i.i.i.i.i.i.i.i, label %if.then.i.i.i12.i.i.i.i.i.i.i.i
 
 if.then.i.i.i12.i.i.i.i.i.i.i.i:                  ; preds = %_ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit.i.i.i.i.i.i.i.i
-  %_M_use_count.i.i.i.i13.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %_M_use_count.i.i.i.i13.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i8, ptr @__libc_single_threaded, align 1, !noalias !4
   %tobool.i.i.not.i.i.i.i14.i.i.i.i.i.i.i.i = icmp eq i8 %14, 0
   br i1 %tobool.i.i.not.i.i.i.i14.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i17.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i15.i.i.i.i.i.i.i.i

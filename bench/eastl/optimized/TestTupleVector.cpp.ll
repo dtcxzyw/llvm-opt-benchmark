@@ -14598,22 +14598,22 @@ invoke.cont4214:                                  ; preds = %_ZN10TestObjectD2Ev
   store <2 x ptr> %2408, ptr %2406, align 16
   store ptr null, ptr %mpData13.i.i.i9831, align 8
   %2409 = load <2 x i64>, ptr %mNumElements.i9779, align 16
+  %2410 = load i64, ptr %mNumElements.i9779, align 16
   store i64 0, ptr %mNumElements.i9779, align 16
   store <2 x i64> %2409, ptr %mNumElements.i.i9821, align 16
   store i64 0, ptr %mNumCapacity.i9781, align 8
   %mSecond.i.i.i8.i.i.i = getelementptr inbounds i8, ptr %srcMoveVec4192, i64 56
-  %2410 = load <2 x i32>, ptr %mSecond.i.i.i8.i.i.i, align 8
-  store <2 x i32> %2410, ptr %mSecond.i.i.i.i9824, align 8
+  %2411 = load <2 x i32>, ptr %mSecond.i.i.i8.i.i.i, align 8
+  store <2 x i32> %2411, ptr %mSecond.i.i.i.i9824, align 8
   %mAllocVolume.i5.i.i.i.i = getelementptr inbounds i8, ptr %srcMoveVec4192, i64 64
-  %2411 = load i64, ptr %mAllocVolume.i5.i.i.i.i, align 16
-  store i64 %2411, ptr %mAllocVolume.i.i.i.i.i9827, align 16
+  %2412 = load i64, ptr %mAllocVolume.i5.i.i.i.i, align 16
+  store i64 %2412, ptr %mAllocVolume.i.i.i.i.i9827, align 16
   %mDataSizeAndAllocator.i9.i.i.i = getelementptr inbounds i8, ptr %srcMoveVec4192, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mSecond.i.i.i8.i.i.i, i8 0, i64 16, i1 false)
-  %2412 = load i64, ptr %mDataSizeAndAllocator.i9.i.i.i, align 16
-  store i64 %2412, ptr %mDataSizeAndAllocator.i.i9823, align 16
+  %2413 = load i64, ptr %mDataSizeAndAllocator.i9.i.i.i, align 16
+  store i64 %2413, ptr %mDataSizeAndAllocator.i.i9823, align 16
   store i64 0, ptr %mDataSizeAndAllocator.i9.i.i.i, align 16
-  %2413 = extractelement <2 x i64> %2409, i64 0
-  %cmp4216 = icmp eq i64 %2413, 10
+  %cmp4216 = icmp eq i64 %2410, 10
   %call4219 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4216, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1154, ptr noundef nonnull @.str.145)
           to label %invoke.cont4218 unwind label %lpad4217.loopexit.split-lp
 
@@ -14769,19 +14769,19 @@ invoke.cont4267:                                  ; preds = %_ZNK5eastl16TupleVe
   store <2 x ptr> %2451, ptr %2449, align 16
   store ptr null, ptr %mpData.i.i9820, align 8
   %2452 = load <2 x i64>, ptr %mNumElements.i.i9821, align 16
+  %2453 = load i64, ptr %mNumElements.i.i9821, align 16
   store i64 0, ptr %mNumElements.i.i9821, align 16
   store <2 x i64> %2452, ptr %mNumElements.i.i9896, align 16
   store i64 0, ptr %mNumCapacity.i.i9822, align 8
-  %2453 = load <2 x i32>, ptr %mSecond.i.i.i.i9824, align 8
-  store <2 x i32> %2453, ptr %mSecond.i.i.i.i9899, align 8
-  %2454 = load i64, ptr %mAllocVolume.i.i.i.i.i9827, align 16
-  store i64 %2454, ptr %mAllocVolume.i.i.i.i.i9902, align 16
+  %2454 = load <2 x i32>, ptr %mSecond.i.i.i.i9824, align 8
+  store <2 x i32> %2454, ptr %mSecond.i.i.i.i9899, align 8
+  %2455 = load i64, ptr %mAllocVolume.i.i.i.i.i9827, align 16
+  store i64 %2455, ptr %mAllocVolume.i.i.i.i.i9902, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mSecond.i.i.i.i9824, i8 0, i64 16, i1 false)
-  %2455 = load i64, ptr %mDataSizeAndAllocator.i.i9823, align 16
-  store i64 %2455, ptr %mDataSizeAndAllocator.i.i9898, align 16
+  %2456 = load i64, ptr %mDataSizeAndAllocator.i.i9823, align 16
+  store i64 %2456, ptr %mDataSizeAndAllocator.i.i9898, align 16
   store i64 0, ptr %mDataSizeAndAllocator.i.i9823, align 16
-  %2456 = extractelement <2 x i64> %2452, i64 0
-  %cmp4269 = icmp eq i64 %2456, 10
+  %cmp4269 = icmp eq i64 %2453, 10
   %call4272 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4269, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1167, ptr noundef nonnull @.str.152)
           to label %invoke.cont4271 unwind label %lpad4270.loopexit.split-lp
 
@@ -24523,39 +24523,36 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %temp, i8 0, i64 56, i1 false)
   call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJb10TestObjectfEE20DoInitFromTupleArrayEPKNS_5tupleIJbS5_fEEESA_(ptr noundef nonnull align 8 dereferenceable(56) %temp, ptr noundef %first, ptr noundef %last)
-  %1 = load ptr, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %add.ptr4.i = getelementptr inbounds i8, ptr %temp, i64 8
+  %1 = load <2 x ptr>, ptr %temp, align 16
   %2 = load ptr, ptr %add.ptr.i, align 8
-  %3 = load <2 x ptr>, ptr %temp, align 16
-  store ptr %1, ptr %temp, align 16
-  store <2 x ptr> %3, ptr %this, align 8
-  store ptr %2, ptr %add.ptr4.i, align 8
+  %3 = load <2 x ptr>, ptr %this, align 8
+  store <2 x ptr> %1, ptr %this, align 8
+  store <2 x ptr> %3, ptr %temp, align 16
   %add.ptr7.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr9.i = getelementptr inbounds i8, ptr %temp, i64 16
-  %4 = load ptr, ptr %add.ptr7.i, align 8
   %mpData12.i = getelementptr inbounds i8, ptr %this, i64 24
   %mpData13.i = getelementptr inbounds i8, ptr %temp, i64 24
+  %4 = load <2 x ptr>, ptr %add.ptr9.i, align 16
   %5 = load ptr, ptr %mpData12.i, align 8
-  %6 = load <2 x ptr>, ptr %add.ptr9.i, align 16
-  store ptr %4, ptr %add.ptr9.i, align 16
-  store <2 x ptr> %6, ptr %add.ptr7.i, align 8
-  store ptr %5, ptr %mpData13.i, align 8
+  %6 = load <2 x ptr>, ptr %add.ptr7.i, align 8
+  store <2 x ptr> %4, ptr %add.ptr7.i, align 8
+  store <2 x ptr> %6, ptr %add.ptr9.i, align 16
   %mNumElements.i = getelementptr inbounds i8, ptr %this, i64 32
   %mNumElements14.i = getelementptr inbounds i8, ptr %temp, i64 32
   %7 = load <2 x i64>, ptr %mNumElements14.i, align 16
   %8 = load <2 x i64>, ptr %mNumElements.i, align 8
+  %9 = load i64, ptr %mNumElements.i, align 8
   store <2 x i64> %7, ptr %mNumElements.i, align 8
   store <2 x i64> %8, ptr %mNumElements14.i, align 16
   %mDataSizeAndAllocator.i9.i = getelementptr inbounds i8, ptr %this, i64 48
   %mDataSizeAndAllocator.i10.i = getelementptr inbounds i8, ptr %temp, i64 48
-  %9 = load i64, ptr %mDataSizeAndAllocator.i9.i, align 8
-  %10 = load i64, ptr %mDataSizeAndAllocator.i10.i, align 16
-  store i64 %10, ptr %mDataSizeAndAllocator.i9.i, align 8
-  store i64 %9, ptr %mDataSizeAndAllocator.i10.i, align 16
-  %11 = extractelement <2 x i64> %8, i64 0
-  %add.ptr8.i = getelementptr inbounds %struct.TestObject, ptr %2, i64 %11
-  %cmp.not7.i.i.i = icmp eq i64 %11, 0
+  %10 = load i64, ptr %mDataSizeAndAllocator.i9.i, align 8
+  %11 = load i64, ptr %mDataSizeAndAllocator.i10.i, align 16
+  store i64 %11, ptr %mDataSizeAndAllocator.i9.i, align 8
+  store i64 %10, ptr %mDataSizeAndAllocator.i10.i, align 16
+  %add.ptr8.i = getelementptr inbounds %struct.TestObject, ptr %2, i64 %9
+  %cmp.not7.i.i.i = icmp eq i64 %9, 0
   br i1 %cmp.not7.i.i.i, label %invoke.cont17.i, label %for.body.preheader.i.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %invoke.cont

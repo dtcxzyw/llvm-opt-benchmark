@@ -2737,24 +2737,23 @@ _ZN17CmdShowDerivationD1Ev.exit:                  ; preds = %1, %22, %35, %_ZNSt
 define linkonce_odr void @_ZN17CmdShowDerivation3runEN3nix3refINS0_5StoreEEEOSt6vectorINS1_INS0_11InstallableEEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(473) %0, ptr noundef %1, ptr noundef nonnull align 1 %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::set.147", align 8
-  %6 = alloca %"class.nix::ref.103", align 8
+  %6 = alloca %"class.nix::ref.103", align 16
   %7 = alloca %"class.std::set.147", align 8
   %8 = alloca %"class.nlohmann::basic_json", align 8
   %9 = alloca %"class.nlohmann::basic_json", align 8
   %10 = alloca %"struct.nix::Derivation", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
-  %13 = load ptr, ptr %1, align 8
-  store ptr %13, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %14, align 8
-  %.not.i.i.i.i = icmp eq ptr %16, null
+  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %16, ptr %6, align 16
+  %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %_ZN3nix3refINS_5StoreEEC2ERKS2_.exit, label %17
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds i8, ptr %15, i64 8
   %19 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %19, 0
   br i1 %.not.i.i.i.i.i, label %23, label %20
@@ -2774,7 +2773,7 @@ _ZN3nix3refINS_5StoreEEC2ERKS2_.exit:             ; preds = %3, %20, %23
           to label %25 unwind label %93
 
 25:                                               ; preds = %_ZN3nix3refINS_5StoreEEC2ERKS2_.exit
-  %26 = load ptr, ptr %14, align 8
+  %26 = load ptr, ptr %13, align 8
   %.not.i.i.i.i18 = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i18, label %_ZN3nix3refINS_5StoreEED2Ev.exit, label %27
 

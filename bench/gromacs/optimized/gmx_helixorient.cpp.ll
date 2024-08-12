@@ -1943,53 +1943,53 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit329:       ; preds = %413, %410, %350, %3
   %889 = load <2 x float>, ptr %878, align 4
   %890 = load <2 x float>, ptr %879, align 4
   %891 = fsub <2 x float> %889, %890
-  %892 = fmul <2 x float> %891, %891
-  %893 = extractelement <2 x float> %892, i64 1
+  %892 = extractelement <2 x float> %891, i64 1
+  %893 = fmul float %892, %892
   %894 = extractelement <2 x float> %891, i64 0
   %895 = call float @llvm.fmuladd.f32(float %894, float %894, float %893)
   %896 = call noundef float @llvm.fmuladd.f32(float %886, float %886, float %895)
   %sqrt.i369 = call noundef float @llvm.sqrt.f32(float %896)
   %897 = fdiv float 1.000000e+00, %sqrt.i369
-  %898 = insertelement <2 x float> poison, float %897, i64 0
-  %899 = shufflevector <2 x float> %898, <2 x float> poison, <2 x i32> zeroinitializer
-  %900 = fmul <2 x float> %891, %899
-  store <2 x float> %900, ptr %880, align 4
-  %901 = fmul float %886, %897
-  store float %901, ptr %888, align 4
-  %902 = getelementptr inbounds [3 x float], ptr %196, i64 %indvars.iv594
-  %903 = getelementptr inbounds [3 x float], ptr %226, i64 %indvars.iv594
-  %904 = getelementptr inbounds i8, ptr %902, i64 4
-  %905 = load float, ptr %904, align 4
-  %906 = getelementptr inbounds i8, ptr %902, i64 8
-  %907 = load float, ptr %906, align 4
-  %908 = fneg float %907
-  %909 = extractelement <2 x float> %900, i64 1
-  %910 = fmul float %909, %908
-  %911 = call float @llvm.fmuladd.f32(float %905, float %901, float %910)
-  store float %911, ptr %903, align 4
-  %912 = load float, ptr %906, align 4
+  %898 = fmul float %892, %897
+  %899 = insertelement <2 x float> poison, float %897, i64 0
+  %900 = shufflevector <2 x float> %899, <2 x float> poison, <2 x i32> zeroinitializer
+  %901 = fmul <2 x float> %891, %900
+  store <2 x float> %901, ptr %880, align 4
+  %902 = fmul float %886, %897
+  store float %902, ptr %888, align 4
+  %903 = getelementptr inbounds [3 x float], ptr %196, i64 %indvars.iv594
+  %904 = getelementptr inbounds [3 x float], ptr %226, i64 %indvars.iv594
+  %905 = getelementptr inbounds i8, ptr %903, i64 4
+  %906 = load float, ptr %905, align 4
+  %907 = getelementptr inbounds i8, ptr %903, i64 8
+  %908 = load float, ptr %907, align 4
+  %909 = fneg float %908
+  %910 = fmul float %898, %909
+  %911 = call float @llvm.fmuladd.f32(float %906, float %902, float %910)
+  store float %911, ptr %904, align 4
+  %912 = load float, ptr %907, align 4
   %913 = load float, ptr %880, align 4
-  %914 = load float, ptr %902, align 4
+  %914 = load float, ptr %903, align 4
   %915 = load float, ptr %888, align 4
   %916 = fneg float %914
   %917 = fmul float %915, %916
   %918 = call float @llvm.fmuladd.f32(float %912, float %913, float %917)
-  %919 = getelementptr inbounds i8, ptr %903, i64 4
+  %919 = getelementptr inbounds i8, ptr %904, i64 4
   store float %918, ptr %919, align 4
-  %920 = load float, ptr %902, align 4
+  %920 = load float, ptr %903, align 4
   %921 = load float, ptr %887, align 4
-  %922 = load float, ptr %904, align 4
+  %922 = load float, ptr %905, align 4
   %923 = load float, ptr %880, align 4
   %924 = fneg float %922
   %925 = fmul float %923, %924
   %926 = call float @llvm.fmuladd.f32(float %920, float %921, float %925)
-  %927 = getelementptr inbounds i8, ptr %903, i64 8
+  %927 = getelementptr inbounds i8, ptr %904, i64 8
   store float %926, ptr %927, align 4
-  %928 = load float, ptr %902, align 4
+  %928 = load float, ptr %903, align 4
   %929 = fpext float %928 to double
-  %930 = load float, ptr %904, align 4
+  %930 = load float, ptr %905, align 4
   %931 = fpext float %930 to double
-  %932 = load float, ptr %906, align 4
+  %932 = load float, ptr %907, align 4
   %933 = fpext float %932 to double
   %934 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %255, ptr noundef nonnull @.str.76, double noundef %929, double noundef %931, double noundef %933) #16
   %935 = load float, ptr %879, align 4

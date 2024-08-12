@@ -3820,7 +3820,7 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
 
 _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit21.thread: ; preds = %50, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit21
   store ptr null, ptr %0, align 8
-  br label %79
+  br label %78
 
 55:                                               ; preds = %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit21
   %56 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
@@ -3831,36 +3831,34 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %58, align 8
   %61 = getelementptr inbounds i8, ptr %56, i64 16
-  %62 = load i32, ptr %3, align 4
-  store i32 %62, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %56, i64 20
-  %64 = load i32, ptr %5, align 4
-  store i32 %64, ptr %63, align 4
+  %62 = load i32, ptr %5, align 4
+  %63 = load <2 x i32>, ptr %3, align 4
+  store <2 x i32> %63, ptr %61, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw14BoundTexture2DE, i64 16), ptr %56, align 8
-  %65 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
-  store ptr %56, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
-  store i32 1, ptr %66, align 8
-  %67 = load ptr, ptr @__glewActiveTexture, align 8
-  %68 = add nsw i32 %64, 33984
-  tail call void %67(i32 noundef %68)
-  %69 = load i32, ptr %61, align 8
-  %70 = load ptr, ptr %57, align 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %64 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
+  store ptr %56, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  store i32 1, ptr %65, align 8
+  %66 = load ptr, ptr @__glewActiveTexture, align 8
+  %67 = add nsw i32 %62, 33984
+  tail call void %66(i32 noundef %67)
+  %68 = load i32, ptr %61, align 8
+  %69 = load ptr, ptr %57, align 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr %72, align 8
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
-  %76 = load i32, ptr %75, align 8
-  tail call void @glBindTexture(i32 noundef %69, i32 noundef %76)
-  store ptr %65, ptr %30, align 8
-  store ptr %65, ptr %0, align 8
-  %77 = load i32, ptr %66, align 8
-  %78 = add nsw i32 %77, 1
-  store i32 %78, ptr %66, align 8
-  br label %79
+  %74 = getelementptr inbounds i8, ptr %73, i64 8
+  %75 = load i32, ptr %74, align 8
+  tail call void @glBindTexture(i32 noundef %68, i32 noundef %75)
+  store ptr %64, ptr %30, align 8
+  store ptr %64, ptr %0, align 8
+  %76 = load i32, ptr %65, align 8
+  %77 = add nsw i32 %76, 1
+  store i32 %77, ptr %65, align 8
+  br label %78
 
-79:                                               ; preds = %55, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit21.thread
+78:                                               ; preds = %55, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit21.thread
   ret void
 }
 
@@ -12817,25 +12815,25 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   store i32 %60, ptr %58, align 8
   %61 = getelementptr inbounds i8, ptr %56, i64 16
   %62 = load <2 x i32>, ptr %3, align 4
+  %63 = load i32, ptr %3, align 4
   store <2 x i32> %62, ptr %61, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw20BoundReadFramebufferE, i64 16), ptr %56, align 8
-  %63 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
-  store ptr %56, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
-  store i32 1, ptr %64, align 8
-  %65 = load ptr, ptr @__glewBindFramebuffer, align 8
-  %66 = getelementptr inbounds i8, ptr %53, i64 8
-  %67 = load ptr, ptr %66, align 8
+  %64 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
+  store ptr %56, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  store i32 1, ptr %65, align 8
+  %66 = load ptr, ptr @__glewBindFramebuffer, align 8
+  %67 = getelementptr inbounds i8, ptr %53, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
-  %70 = load i32, ptr %69, align 8
-  %71 = extractelement <2 x i32> %62, i64 0
-  tail call void %65(i32 noundef %71, i32 noundef %70)
-  store ptr %63, ptr %30, align 8
-  store ptr %63, ptr %0, align 8
-  %72 = load i32, ptr %64, align 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  %71 = load i32, ptr %70, align 8
+  tail call void %66(i32 noundef %63, i32 noundef %71)
+  store ptr %64, ptr %30, align 8
+  store ptr %64, ptr %0, align 8
+  %72 = load i32, ptr %65, align 8
   %73 = add nsw i32 %72, 1
-  store i32 %73, ptr %64, align 8
+  store i32 %73, ptr %65, align 8
   br label %74
 
 74:                                               ; preds = %55, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit21.thread
@@ -12983,25 +12981,25 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   store i32 %60, ptr %58, align 8
   %61 = getelementptr inbounds i8, ptr %56, i64 16
   %62 = load <2 x i32>, ptr %3, align 4
+  %63 = load i32, ptr %3, align 4
   store <2 x i32> %62, ptr %61, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw20BoundDrawFramebufferE, i64 16), ptr %56, align 8
-  %63 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
-  store ptr %56, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
-  store i32 1, ptr %64, align 8
-  %65 = load ptr, ptr @__glewBindFramebuffer, align 8
-  %66 = getelementptr inbounds i8, ptr %53, i64 8
-  %67 = load ptr, ptr %66, align 8
+  %64 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
+  store ptr %56, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  store i32 1, ptr %65, align 8
+  %66 = load ptr, ptr @__glewBindFramebuffer, align 8
+  %67 = getelementptr inbounds i8, ptr %53, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
-  %70 = load i32, ptr %69, align 8
-  %71 = extractelement <2 x i32> %62, i64 0
-  tail call void %65(i32 noundef %71, i32 noundef %70)
-  store ptr %63, ptr %30, align 8
-  store ptr %63, ptr %0, align 8
-  %72 = load i32, ptr %64, align 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  %71 = load i32, ptr %70, align 8
+  tail call void %66(i32 noundef %63, i32 noundef %71)
+  store ptr %64, ptr %30, align 8
+  store ptr %64, ptr %0, align 8
+  %72 = load i32, ptr %65, align 8
   %73 = add nsw i32 %72, 1
-  store i32 %73, ptr %64, align 8
+  store i32 %73, ptr %65, align 8
   br label %74
 
 74:                                               ; preds = %55, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit18.thread
@@ -13149,25 +13147,25 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
   store i32 %60, ptr %58, align 8
   %61 = getelementptr inbounds i8, ptr %56, i64 16
   %62 = load <2 x i32>, ptr %3, align 4
+  %63 = load i32, ptr %3, align 4
   store <2 x i32> %62, ptr %61, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3glw24BoundReadDrawFramebufferE, i64 16), ptr %56, align 8
-  %63 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
-  store ptr %56, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
-  store i32 1, ptr %64, align 8
-  %65 = load ptr, ptr @__glewBindFramebuffer, align 8
-  %66 = getelementptr inbounds i8, ptr %53, i64 8
-  %67 = load ptr, ptr %66, align 8
+  %64 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
+  store ptr %56, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  store i32 1, ptr %65, align 8
+  %66 = load ptr, ptr @__glewBindFramebuffer, align 8
+  %67 = getelementptr inbounds i8, ptr %53, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
-  %70 = load i32, ptr %69, align 8
-  %71 = extractelement <2 x i32> %62, i64 0
-  tail call void %65(i32 noundef %71, i32 noundef %70)
-  store ptr %63, ptr %30, align 8
-  store ptr %63, ptr %0, align 8
-  %72 = load i32, ptr %64, align 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  %71 = load i32, ptr %70, align 8
+  tail call void %66(i32 noundef %63, i32 noundef %71)
+  store ptr %64, ptr %30, align 8
+  store ptr %64, ptr %0, align 8
+  %72 = load i32, ptr %65, align 8
   %73 = add nsw i32 %72, 1
-  store i32 %73, ptr %64, align 8
+  store i32 %73, ptr %65, align 8
   br label %74
 
 74:                                               ; preds = %55, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEE6isNullEv.exit18.thread

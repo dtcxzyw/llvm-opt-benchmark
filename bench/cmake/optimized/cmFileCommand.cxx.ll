@@ -30713,35 +30713,33 @@ _ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_tra
   %1 = alloca %"class.std::function.230", align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1)
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   store i64 320, ptr %2, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
-  %6 = load ptr, ptr %5, align 8
-  store ptr %6, ptr %4, align 8
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEZN16cmArgumentParserIZN12_GLOBAL__N_121HandleGenerateCommandERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISE_EER17cmExecutionStatusE9ArgumentsE18BindParsedKeywordsEMSL_SA_IS6_SaIS6_EEEUlS2_S6_E_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %3, align 8
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEZN16cmArgumentParserIZN12_GLOBAL__N_121HandleGenerateCommandERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISE_EER17cmExecutionStatusE9ArgumentsE18BindParsedKeywordsEMSL_SA_IS6_SaIS6_EEEUlS2_S6_E_E9_M_invokeERKSt9_Any_dataS2_OS6_, ptr %7, align 8
-  %.not.i.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i.i, label %_ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit, label %9
+  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = load <2 x ptr>, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEZN16cmArgumentParserIZN12_GLOBAL__N_121HandleGenerateCommandERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISE_EER17cmExecutionStatusE9ArgumentsE18BindParsedKeywordsEMSL_SA_IS6_SaIS6_EEEUlS2_S6_E_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr %4, align 8
+  store <2 x ptr> %6, ptr %3, align 8
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEZN16cmArgumentParserIZN12_GLOBAL__N_121HandleGenerateCommandERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISE_EER17cmExecutionStatusE9ArgumentsE18BindParsedKeywordsEMSL_SA_IS6_SaIS6_EEEUlS2_S6_E_E9_M_invokeERKSt9_Any_dataS2_OS6_, ptr %5, align 8
+  %.not.i.i.i.i = icmp eq ptr %7, null
+  br i1 %.not.i.i.i.i, label %_ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit, label %8
 
-9:                                                ; preds = %_ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS8_.exit.i.i
-  %10 = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3)
-          to label %_ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit unwind label %11
+8:                                                ; preds = %_ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS8_.exit.i.i
+  %9 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3)
+          to label %_ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit unwind label %10
 
-11:                                               ; preds = %9
-  %12 = landingpad { ptr, i32 }
+10:                                               ; preds = %8
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #27
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #27
   unreachable
 
-_ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit: ; preds = %9, %_ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS8_.exit.i.i
+_ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEED2Ev.exit: ; preds = %8, %_ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS8_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   ret ptr %0
 }
@@ -30792,13 +30790,13 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_117AddEvaluationFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_bS7_jR17cmExecutionStatus(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %9 = alloca %class.cmListFileBacktrace, align 8
+  %9 = alloca %class.cmListFileBacktrace, align 16
   %10 = alloca %class.cmGeneratorExpression, align 8
-  %11 = alloca %class.cmListFileBacktrace, align 8
+  %11 = alloca %class.cmListFileBacktrace, align 16
   %12 = alloca %"class.std::unique_ptr.538", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = alloca %class.cmGeneratorExpression, align 8
-  %15 = alloca %class.cmListFileBacktrace, align 8
+  %15 = alloca %class.cmListFileBacktrace, align 16
   %16 = alloca %"class.std::unique_ptr.538", align 8
   %17 = alloca %"class.std::__cxx11::basic_string", align 8
   %18 = alloca %"class.std::unique_ptr.538", align 8
@@ -30810,17 +30808,16 @@ define internal fastcc void @_ZN12_GLOBAL__N_117AddEvaluationFileERKNSt7__cxx111
           to label %23 unwind label %169
 
 23:                                               ; preds = %8
-  %24 = load ptr, ptr %9, align 8
-  store ptr %24, ptr %11, align 8
-  %25 = getelementptr inbounds i8, ptr %11, i64 8
-  %26 = getelementptr inbounds i8, ptr %9, i64 8
-  %27 = load ptr, ptr %26, align 8
-  store ptr %27, ptr %25, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %27, null
+  %24 = getelementptr inbounds i8, ptr %11, i64 8
+  %25 = getelementptr inbounds i8, ptr %9, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = load <2 x ptr>, ptr %9, align 16
+  store <2 x ptr> %27, ptr %11, align 16
+  %.not.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i.i, label %_ZN19cmListFileBacktraceC2ERKS_.exit, label %28
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %29 = getelementptr inbounds i8, ptr %26, i64 8
   %30 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %30, 0
   br i1 %.not.i.i.i.i.i.i, label %34, label %31
@@ -30840,7 +30837,7 @@ _ZN19cmListFileBacktraceC2ERKS_.exit:             ; preds = %23, %31, %34
           to label %36 unwind label %171
 
 36:                                               ; preds = %_ZN19cmListFileBacktraceC2ERKS_.exit
-  %37 = load ptr, ptr %25, align 8
+  %37 = load ptr, ptr %24, align 8
   %.not.i.i.i.i.i20 = icmp eq ptr %37, null
   br i1 %.not.i.i.i.i.i20, label %_ZN19cmListFileBacktraceD2Ev.exit, label %38
 
@@ -30927,16 +30924,15 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %36, %54, %67, %_ZNS
           to label %76 unwind label %177
 
 76:                                               ; preds = %73
-  %77 = load ptr, ptr %9, align 8
-  store ptr %77, ptr %15, align 8
-  %78 = getelementptr inbounds i8, ptr %15, i64 8
-  %79 = load ptr, ptr %26, align 8
-  store ptr %79, ptr %78, align 8
-  %.not.i.i.i.i.i22 = icmp eq ptr %79, null
+  %77 = getelementptr inbounds i8, ptr %15, i64 8
+  %78 = load ptr, ptr %25, align 8
+  %79 = load <2 x ptr>, ptr %9, align 16
+  store <2 x ptr> %79, ptr %15, align 16
+  %.not.i.i.i.i.i22 = icmp eq ptr %78, null
   br i1 %.not.i.i.i.i.i22, label %_ZN19cmListFileBacktraceC2ERKS_.exit24, label %80
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %79, i64 8
+  %81 = getelementptr inbounds i8, ptr %78, i64 8
   %82 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i23 = icmp eq i8 %82, 0
   br i1 %.not.i.i.i.i.i.i23, label %86, label %83
@@ -30956,7 +30952,7 @@ _ZN19cmListFileBacktraceC2ERKS_.exit24:           ; preds = %76, %83, %86
           to label %88 unwind label %179
 
 88:                                               ; preds = %_ZN19cmListFileBacktraceC2ERKS_.exit24
-  %89 = load ptr, ptr %78, align 8
+  %89 = load ptr, ptr %77, align 8
   %.not.i.i.i.i.i25 = icmp eq ptr %89, null
   br i1 %.not.i.i.i.i.i25, label %_ZN19cmListFileBacktraceD2Ev.exit31, label %90
 
@@ -31095,7 +31091,7 @@ _ZNKSt14default_deleteI29cmCompiledGeneratorExpressionEclEPS0_.exit.i39: ; preds
 _ZNSt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS0_EED2Ev.exit40: ; preds = %_ZNSt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS0_EED2Ev.exit37, %_ZNKSt14default_deleteI29cmCompiledGeneratorExpressionEclEPS0_.exit.i39
   store ptr null, ptr %12, align 8
   call void @_ZN21cmGeneratorExpressionD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #23
-  %134 = load ptr, ptr %26, align 8
+  %134 = load ptr, ptr %25, align 8
   %.not.i.i.i.i.i41 = icmp eq ptr %134, null
   br i1 %.not.i.i.i.i.i41, label %_ZN19cmListFileBacktraceD2Ev.exit47, label %135
 

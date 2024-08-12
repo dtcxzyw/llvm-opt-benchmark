@@ -39404,15 +39404,15 @@ define hidden void @_ZN3ide16view_crate_graph16view_crate_graph17h3842be40483fd3
 53:                                               ; preds = %49
   %54 = getelementptr inbounds i8, ptr %4, i64 8
   %55 = load <2 x i64>, ptr %54, align 8, !noalias !9144
+  %56 = load i64, ptr %54, align 8, !noalias !9144
   %.sroa.028.0.copyload = load i64, ptr %12, align 8, !noalias !9139
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.624.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false), !noalias !9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !9144
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !9146)
   call void @llvm.experimental.noalias.scope.decl(metadata !9149)
-  %56 = icmp eq i64 %.sroa.028.0.copyload, -9223372036854775808
-  %57 = extractelement <2 x i64> %55, i64 0
-  br i1 %56, label %64, label %58
+  %57 = icmp eq i64 %.sroa.028.0.copyload, -9223372036854775808
+  br i1 %57, label %64, label %58
 
 58:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11), !noalias !9151
@@ -39440,7 +39440,7 @@ define hidden void @_ZN3ide16view_crate_graph16view_crate_graph17h3842be40483fd3
   unreachable
 
 64:                                               ; preds = %53, %.thread48
-  %.sroa.624.sroa.6.0 = phi i64 [ %57, %53 ], [ %46, %.thread48 ]
+  %.sroa.624.sroa.6.0 = phi i64 [ %56, %53 ], [ %46, %.thread48 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.021.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.624.sroa.0, i64 16, i1 false), !alias.scope !9151
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.624.sroa.0)
   %65 = getelementptr inbounds i8, ptr %0, i64 8

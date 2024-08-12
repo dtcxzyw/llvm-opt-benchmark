@@ -912,9 +912,9 @@ define void @_ZN15SequenceDiagram7setDataEP18_seq_analysis_info(ptr nocapture no
   %17 = alloca %class.QString, align 8
   %18 = alloca %class.QString, align 16
   %19 = alloca %class.QString, align 16
-  %20 = alloca %class.QSharedPointer.22, align 8
-  %21 = alloca %class.QSharedPointer.22, align 8
-  %22 = alloca %class.QSharedPointer.22, align 8
+  %20 = alloca %class.QSharedPointer.22, align 16
+  %21 = alloca %class.QSharedPointer.22, align 16
+  %22 = alloca %class.QSharedPointer.22, align 16
   %23 = getelementptr inbounds i8, ptr %0, i64 208
   %24 = load ptr, ptr %23, align 8
   tail call void @_ZN9QMultiMapId11WSCPSeqDataE5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
@@ -1359,19 +1359,19 @@ _ZNK20QCPAbstractPlottable7keyAxisEv.exit:        ; preds = %162, %.preheader
   %173 = getelementptr inbounds i8, ptr %0, i64 120
   %174 = load ptr, ptr %173, align 8
   %175 = getelementptr inbounds i8, ptr %174, i64 344
-  %176 = load ptr, ptr %175, align 8, !noalias !15
-  %177 = getelementptr inbounds i8, ptr %174, i64 352
-  %178 = load ptr, ptr %177, align 8, !noalias !15
-  %.not.i.i94 = icmp eq ptr %178, null
+  %176 = getelementptr inbounds i8, ptr %174, i64 352
+  %177 = load ptr, ptr %176, align 8, !noalias !15
+  %178 = load <2 x ptr>, ptr %175, align 8, !noalias !15
+  %.not.i.i94 = icmp eq ptr %177, null
   br i1 %.not.i.i94, label %.critedge.thread.i.i.i, label %179
 
 179:                                              ; preds = %_ZNK20QCPAbstractPlottable7keyAxisEv.exit
-  %180 = atomicrmw add ptr %178, i32 1 seq_cst, align 4, !noalias !15
-  %181 = getelementptr inbounds i8, ptr %178, i64 4
+  %180 = atomicrmw add ptr %177, i32 1 seq_cst, align 4, !noalias !15
+  %181 = getelementptr inbounds i8, ptr %177, i64 4
   %182 = atomicrmw add ptr %181, i32 1 seq_cst, align 4, !noalias !15
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false), !alias.scope !24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %20, i8 0, i64 16, i1 false), !alias.scope !24
   %183 = load atomic i32, ptr %181 monotonic, align 4, !noalias !24
   %184 = icmp sgt i32 %183, 0
   br i1 %184, label %.lr.ph.i.i.i, label %.critedge.thread.i.i.i
@@ -1394,18 +1394,17 @@ _ZNK20QCPAbstractPlottable7keyAxisEv.exit:        ; preds = %162, %.preheader
   br label %198
 
 192:                                              ; preds = %.lr.ph.i.i.i
-  %193 = atomicrmw add ptr %178, i32 1 seq_cst, align 4, !noalias !24
+  %193 = atomicrmw add ptr %177, i32 1 seq_cst, align 4, !noalias !24
   %194 = getelementptr inbounds i8, ptr %20, i64 8
   %195 = load ptr, ptr %194, align 8, !alias.scope !24
-  store ptr %178, ptr %194, align 8, !alias.scope !24
-  store ptr %176, ptr %20, align 8, !alias.scope !24
+  store <2 x ptr> %178, ptr %20, align 16, !alias.scope !24
   %196 = load atomic i32, ptr %181 monotonic, align 4, !noalias !24
   %197 = icmp eq i32 %196, 0
   br i1 %197, label %198, label %200
 
 198:                                              ; preds = %192, %.critedge.thread.i.i.i
   %199 = phi ptr [ null, %.critedge.thread.i.i.i ], [ %195, %192 ]
-  store ptr null, ptr %20, align 8, !alias.scope !24
+  store ptr null, ptr %20, align 16, !alias.scope !24
   br label %200
 
 200:                                              ; preds = %198, %192
@@ -1445,24 +1444,24 @@ _Z18qSharedPointerCastI17QCPAxisTickerText13QCPAxisTickerE14QSharedPointerIT_ERK
   br i1 %.not.i.i94, label %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit, label %213
 
 213:                                              ; preds = %_Z18qSharedPointerCastI17QCPAxisTickerText13QCPAxisTickerE14QSharedPointerIT_ERKS2_IT0_E.exit
-  %214 = getelementptr inbounds i8, ptr %178, i64 4
+  %214 = getelementptr inbounds i8, ptr %177, i64 4
   %215 = atomicrmw sub ptr %214, i32 1 seq_cst, align 4
   %.not5.i.i.i = icmp eq i32 %215, 1
   br i1 %.not5.i.i.i, label %216, label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i
 
 216:                                              ; preds = %213
-  %217 = getelementptr inbounds i8, ptr %178, i64 8
+  %217 = getelementptr inbounds i8, ptr %177, i64 8
   %218 = load ptr, ptr %217, align 8
-  invoke void %218(ptr noundef nonnull %178)
+  invoke void %218(ptr noundef nonnull %177)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i unwind label %221
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %216, %213
-  %219 = atomicrmw sub ptr %178, i32 1 seq_cst, align 4
+  %219 = atomicrmw sub ptr %177, i32 1 seq_cst, align 4
   %.not6.i.i.i = icmp eq i32 %219, 1
   br i1 %.not6.i.i.i, label %220, label %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit
 
 220:                                              ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %178) #21
+  call void @_ZdlPv(ptr noundef nonnull %177) #21
   br label %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit
 
 221:                                              ; preds = %216
@@ -1473,7 +1472,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i: ; preds = %216,
   unreachable
 
 _ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit:    ; preds = %_Z18qSharedPointerCastI17QCPAxisTickerText13QCPAxisTickerE14QSharedPointerIT_ERKS2_IT0_E.exit, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i, %220
-  %224 = load ptr, ptr %20, align 8
+  %224 = load ptr, ptr %20, align 16
   invoke void @_ZN17QCPAxisTickerText8setTicksERK5QListIdERKS0_I7QStringE(ptr noundef nonnull align 8 dereferenceable(36) %224, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %_ZNK20QCPAbstractPlottable9valueAxisEv.exit unwind label %425
 
@@ -1487,19 +1486,19 @@ _ZNK20QCPAbstractPlottable9valueAxisEv.exit:      ; preds = %_ZN14QSharedPointer
   %230 = getelementptr inbounds i8, ptr %0, i64 136
   %231 = load ptr, ptr %230, align 8
   %232 = getelementptr inbounds i8, ptr %231, i64 344
-  %233 = load ptr, ptr %232, align 8, !noalias !26
-  %234 = getelementptr inbounds i8, ptr %231, i64 352
-  %235 = load ptr, ptr %234, align 8, !noalias !26
-  %.not.i.i98 = icmp eq ptr %235, null
+  %233 = getelementptr inbounds i8, ptr %231, i64 352
+  %234 = load ptr, ptr %233, align 8, !noalias !26
+  %235 = load <2 x ptr>, ptr %232, align 8, !noalias !26
+  %.not.i.i98 = icmp eq ptr %234, null
   br i1 %.not.i.i98, label %.critedge.thread.i.i.i101, label %236
 
 236:                                              ; preds = %_ZNK20QCPAbstractPlottable9valueAxisEv.exit
-  %237 = atomicrmw add ptr %235, i32 1 seq_cst, align 4, !noalias !26
-  %238 = getelementptr inbounds i8, ptr %235, i64 4
+  %237 = atomicrmw add ptr %234, i32 1 seq_cst, align 4, !noalias !26
+  %238 = getelementptr inbounds i8, ptr %234, i64 4
   %239 = atomicrmw add ptr %238, i32 1 seq_cst, align 4, !noalias !26
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false), !alias.scope !35
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %21, i8 0, i64 16, i1 false), !alias.scope !35
   %240 = load atomic i32, ptr %238 monotonic, align 4, !noalias !35
   %241 = icmp sgt i32 %240, 0
   br i1 %241, label %.lr.ph.i.i.i106, label %.critedge.thread.i.i.i101
@@ -1522,18 +1521,17 @@ _ZNK20QCPAbstractPlottable9valueAxisEv.exit:      ; preds = %_ZN14QSharedPointer
   br label %255
 
 249:                                              ; preds = %.lr.ph.i.i.i106
-  %250 = atomicrmw add ptr %235, i32 1 seq_cst, align 4, !noalias !35
+  %250 = atomicrmw add ptr %234, i32 1 seq_cst, align 4, !noalias !35
   %251 = getelementptr inbounds i8, ptr %21, i64 8
   %252 = load ptr, ptr %251, align 8, !alias.scope !35
-  store ptr %235, ptr %251, align 8, !alias.scope !35
-  store ptr %233, ptr %21, align 8, !alias.scope !35
+  store <2 x ptr> %235, ptr %21, align 16, !alias.scope !35
   %253 = load atomic i32, ptr %238 monotonic, align 4, !noalias !35
   %254 = icmp eq i32 %253, 0
   br i1 %254, label %255, label %257
 
 255:                                              ; preds = %249, %.critedge.thread.i.i.i101
   %256 = phi ptr [ null, %.critedge.thread.i.i.i101 ], [ %252, %249 ]
-  store ptr null, ptr %21, align 8, !alias.scope !35
+  store ptr null, ptr %21, align 16, !alias.scope !35
   br label %257
 
 257:                                              ; preds = %255, %249
@@ -1573,24 +1571,24 @@ _Z18qSharedPointerCastI17QCPAxisTickerText13QCPAxisTickerE14QSharedPointerIT_ERK
   br i1 %.not.i.i98, label %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit113, label %270
 
 270:                                              ; preds = %_Z18qSharedPointerCastI17QCPAxisTickerText13QCPAxisTickerE14QSharedPointerIT_ERKS2_IT0_E.exit108
-  %271 = getelementptr inbounds i8, ptr %235, i64 4
+  %271 = getelementptr inbounds i8, ptr %234, i64 4
   %272 = atomicrmw sub ptr %271, i32 1 seq_cst, align 4
   %.not5.i.i.i110 = icmp eq i32 %272, 1
   br i1 %.not5.i.i.i110, label %273, label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i111
 
 273:                                              ; preds = %270
-  %274 = getelementptr inbounds i8, ptr %235, i64 8
+  %274 = getelementptr inbounds i8, ptr %234, i64 8
   %275 = load ptr, ptr %274, align 8
-  invoke void %275(ptr noundef nonnull %235)
+  invoke void %275(ptr noundef nonnull %234)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i111 unwind label %278
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i111: ; preds = %273, %270
-  %276 = atomicrmw sub ptr %235, i32 1 seq_cst, align 4
+  %276 = atomicrmw sub ptr %234, i32 1 seq_cst, align 4
   %.not6.i.i.i112 = icmp eq i32 %276, 1
   br i1 %.not6.i.i.i112, label %277, label %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit113
 
 277:                                              ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i111
-  call void @_ZdlPv(ptr noundef nonnull %235) #21
+  call void @_ZdlPv(ptr noundef nonnull %234) #21
   br label %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit113
 
 278:                                              ; preds = %273
@@ -1601,7 +1599,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i111: ; preds = %2
   unreachable
 
 _ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit113: ; preds = %_Z18qSharedPointerCastI17QCPAxisTickerText13QCPAxisTickerE14QSharedPointerIT_ERKS2_IT0_E.exit108, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i111, %277
-  %281 = load ptr, ptr %21, align 8
+  %281 = load ptr, ptr %21, align 16
   invoke void @_ZN17QCPAxisTickerText8setTicksERK5QListIdERKS0_I7QStringE(ptr noundef nonnull align 8 dereferenceable(36) %281, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %13)
           to label %282 unwind label %427
 
@@ -1609,19 +1607,19 @@ _ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit113: ; preds = %_Z18qSharedPointerC
   %283 = getelementptr inbounds i8, ptr %0, i64 200
   %284 = load ptr, ptr %283, align 8
   %285 = getelementptr inbounds i8, ptr %284, i64 344
-  %286 = load ptr, ptr %285, align 8, !noalias !36
-  %287 = getelementptr inbounds i8, ptr %284, i64 352
-  %288 = load ptr, ptr %287, align 8, !noalias !36
-  %.not.i.i114 = icmp eq ptr %288, null
+  %286 = getelementptr inbounds i8, ptr %284, i64 352
+  %287 = load ptr, ptr %286, align 8, !noalias !36
+  %288 = load <2 x ptr>, ptr %285, align 8, !noalias !36
+  %.not.i.i114 = icmp eq ptr %287, null
   br i1 %.not.i.i114, label %.critedge.thread.i.i.i117, label %289
 
 289:                                              ; preds = %282
-  %290 = atomicrmw add ptr %288, i32 1 seq_cst, align 4, !noalias !36
-  %291 = getelementptr inbounds i8, ptr %288, i64 4
+  %290 = atomicrmw add ptr %287, i32 1 seq_cst, align 4, !noalias !36
+  %291 = getelementptr inbounds i8, ptr %287, i64 4
   %292 = atomicrmw add ptr %291, i32 1 seq_cst, align 4, !noalias !36
   call void @llvm.experimental.noalias.scope.decl(metadata !39)
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false), !alias.scope !45
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %22, i8 0, i64 16, i1 false), !alias.scope !45
   %293 = load atomic i32, ptr %291 monotonic, align 4, !noalias !45
   %294 = icmp sgt i32 %293, 0
   br i1 %294, label %.lr.ph.i.i.i122, label %.critedge.thread.i.i.i117
@@ -1644,18 +1642,17 @@ _ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit113: ; preds = %_Z18qSharedPointerC
   br label %308
 
 302:                                              ; preds = %.lr.ph.i.i.i122
-  %303 = atomicrmw add ptr %288, i32 1 seq_cst, align 4, !noalias !45
+  %303 = atomicrmw add ptr %287, i32 1 seq_cst, align 4, !noalias !45
   %304 = getelementptr inbounds i8, ptr %22, i64 8
   %305 = load ptr, ptr %304, align 8, !alias.scope !45
-  store ptr %288, ptr %304, align 8, !alias.scope !45
-  store ptr %286, ptr %22, align 8, !alias.scope !45
+  store <2 x ptr> %288, ptr %22, align 16, !alias.scope !45
   %306 = load atomic i32, ptr %291 monotonic, align 4, !noalias !45
   %307 = icmp eq i32 %306, 0
   br i1 %307, label %308, label %310
 
 308:                                              ; preds = %302, %.critedge.thread.i.i.i117
   %309 = phi ptr [ null, %.critedge.thread.i.i.i117 ], [ %305, %302 ]
-  store ptr null, ptr %22, align 8, !alias.scope !45
+  store ptr null, ptr %22, align 16, !alias.scope !45
   br label %310
 
 310:                                              ; preds = %308, %302
@@ -1695,24 +1692,24 @@ _Z18qSharedPointerCastI17QCPAxisTickerText13QCPAxisTickerE14QSharedPointerIT_ERK
   br i1 %.not.i.i114, label %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit129, label %323
 
 323:                                              ; preds = %_Z18qSharedPointerCastI17QCPAxisTickerText13QCPAxisTickerE14QSharedPointerIT_ERKS2_IT0_E.exit124
-  %324 = getelementptr inbounds i8, ptr %288, i64 4
+  %324 = getelementptr inbounds i8, ptr %287, i64 4
   %325 = atomicrmw sub ptr %324, i32 1 seq_cst, align 4
   %.not5.i.i.i126 = icmp eq i32 %325, 1
   br i1 %.not5.i.i.i126, label %326, label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i127
 
 326:                                              ; preds = %323
-  %327 = getelementptr inbounds i8, ptr %288, i64 8
+  %327 = getelementptr inbounds i8, ptr %287, i64 8
   %328 = load ptr, ptr %327, align 8
-  invoke void %328(ptr noundef nonnull %288)
+  invoke void %328(ptr noundef nonnull %287)
           to label %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i127 unwind label %331
 
 _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i127: ; preds = %326, %323
-  %329 = atomicrmw sub ptr %288, i32 1 seq_cst, align 4
+  %329 = atomicrmw sub ptr %287, i32 1 seq_cst, align 4
   %.not6.i.i.i128 = icmp eq i32 %329, 1
   br i1 %.not6.i.i.i128, label %330, label %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit129
 
 330:                                              ; preds = %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i127
-  call void @_ZdlPv(ptr noundef nonnull %288) #21
+  call void @_ZdlPv(ptr noundef nonnull %287) #21
   br label %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit129
 
 331:                                              ; preds = %326
@@ -1723,7 +1720,7 @@ _ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i127: ; preds = %3
   unreachable
 
 _ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit129: ; preds = %_Z18qSharedPointerCastI17QCPAxisTickerText13QCPAxisTickerE14QSharedPointerIT_ERKS2_IT0_E.exit124, %_ZN15QtSharedPointer20ExternalRefCountData7destroyEv.exit.i.i.i127, %330
-  %334 = load ptr, ptr %22, align 8
+  %334 = load ptr, ptr %22, align 16
   invoke void @_ZN17QCPAxisTickerText8setTicksERK5QListIdERKS0_I7QStringE(ptr noundef nonnull align 8 dereferenceable(36) %334, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %14)
           to label %335 unwind label %429
 
@@ -4337,13 +4334,12 @@ _ZN9QtPrivate12QPodArrayOpsIP7QCPAxisE10copyAppendEPKS2_S5_.exit: ; preds = %_ZN
   br i1 %7, label %66, label %72
 
 66:                                               ; preds = %_ZN9QtPrivate12QPodArrayOpsIP7QCPAxisE10copyAppendEPKS2_S5_.exit
-  %67 = load ptr, ptr %3, align 8
+  %67 = getelementptr inbounds i8, ptr %3, i64 8
+  %68 = load <2 x ptr>, ptr %3, align 8
+  %69 = load ptr, ptr %3, align 8
   store ptr %59, ptr %3, align 8
-  store ptr %67, ptr %5, align 16
-  %68 = getelementptr inbounds i8, ptr %3, i64 8
-  %69 = load ptr, ptr %68, align 8
-  store ptr %61, ptr %68, align 8
-  store ptr %69, ptr %30, align 8
+  store ptr %61, ptr %67, align 8
+  store <2 x ptr> %68, ptr %5, align 16
   %70 = getelementptr inbounds i8, ptr %3, i64 16
   %71 = load i64, ptr %70, align 8
   store i64 %64, ptr %70, align 8
@@ -4351,7 +4347,7 @@ _ZN9QtPrivate12QPodArrayOpsIP7QCPAxisE10copyAppendEPKS2_S5_.exit: ; preds = %_ZN
   br label %72
 
 72:                                               ; preds = %66, %_ZN9QtPrivate12QPodArrayOpsIP7QCPAxisE10copyAppendEPKS2_S5_.exit
-  %73 = phi ptr [ %67, %66 ], [ %59, %_ZN9QtPrivate12QPodArrayOpsIP7QCPAxisE10copyAppendEPKS2_S5_.exit ]
+  %73 = phi ptr [ %69, %66 ], [ %59, %_ZN9QtPrivate12QPodArrayOpsIP7QCPAxisE10copyAppendEPKS2_S5_.exit ]
   %.not.i.i32 = icmp eq ptr %73, null
   br i1 %.not.i.i32, label %_ZN17QArrayDataPointerIP7QCPAxisED2Ev.exit35, label %_ZN17QArrayDataPointerIP7QCPAxisE5derefEv.exit.i33
 
@@ -5405,13 +5401,12 @@ _ZN9QtPrivate12QPodArrayOpsIdE10copyAppendEPKdS3_.exit: ; preds = %_ZN9QtPrivate
   br i1 %7, label %66, label %72
 
 66:                                               ; preds = %_ZN9QtPrivate12QPodArrayOpsIdE10copyAppendEPKdS3_.exit
-  %67 = load ptr, ptr %3, align 8
+  %67 = getelementptr inbounds i8, ptr %3, i64 8
+  %68 = load <2 x ptr>, ptr %3, align 8
+  %69 = load ptr, ptr %3, align 8
   store ptr %59, ptr %3, align 8
-  store ptr %67, ptr %5, align 16
-  %68 = getelementptr inbounds i8, ptr %3, i64 8
-  %69 = load ptr, ptr %68, align 8
-  store ptr %61, ptr %68, align 8
-  store ptr %69, ptr %30, align 8
+  store ptr %61, ptr %67, align 8
+  store <2 x ptr> %68, ptr %5, align 16
   %70 = getelementptr inbounds i8, ptr %3, i64 16
   %71 = load i64, ptr %70, align 8
   store i64 %64, ptr %70, align 8
@@ -5419,7 +5414,7 @@ _ZN9QtPrivate12QPodArrayOpsIdE10copyAppendEPKdS3_.exit: ; preds = %_ZN9QtPrivate
   br label %72
 
 72:                                               ; preds = %66, %_ZN9QtPrivate12QPodArrayOpsIdE10copyAppendEPKdS3_.exit
-  %73 = phi ptr [ %67, %66 ], [ %59, %_ZN9QtPrivate12QPodArrayOpsIdE10copyAppendEPKdS3_.exit ]
+  %73 = phi ptr [ %69, %66 ], [ %59, %_ZN9QtPrivate12QPodArrayOpsIdE10copyAppendEPKdS3_.exit ]
   %.not.i.i32 = icmp eq ptr %73, null
   br i1 %.not.i.i32, label %_ZN17QArrayDataPointerIdED2Ev.exit35, label %_ZN17QArrayDataPointerIdE5derefEv.exit.i33
 
@@ -6137,13 +6132,12 @@ _ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit: ; preds = %
   br i1 %7, label %95, label %101
 
 95:                                               ; preds = %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit
-  %96 = load ptr, ptr %3, align 8
+  %96 = getelementptr inbounds i8, ptr %3, i64 8
+  %97 = load <2 x ptr>, ptr %3, align 8
+  %98 = load ptr, ptr %3, align 8
   store ptr %88, ptr %3, align 8
-  store ptr %96, ptr %5, align 16
-  %97 = getelementptr inbounds i8, ptr %3, i64 8
-  %98 = load ptr, ptr %97, align 8
-  store ptr %90, ptr %97, align 8
-  store ptr %98, ptr %29, align 8
+  store ptr %90, ptr %96, align 8
+  store <2 x ptr> %97, ptr %5, align 16
   %99 = getelementptr inbounds i8, ptr %3, i64 16
   %100 = load i64, ptr %99, align 8
   store i64 %93, ptr %99, align 8
@@ -6151,7 +6145,7 @@ _ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit: ; preds = %
   br label %101
 
 101:                                              ; preds = %95, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit
-  %102 = phi ptr [ %96, %95 ], [ %88, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit ]
+  %102 = phi ptr [ %98, %95 ], [ %88, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit ]
   %.not.i.i = icmp eq ptr %102, null
   br i1 %.not.i.i, label %_ZN17QArrayDataPointerI7QStringED2Ev.exit, label %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i
 
@@ -6765,13 +6759,12 @@ _ZN9QtPrivate12QPodArrayOpsI6QPointE10copyAppendEPKS1_S4_.exit: ; preds = %_ZN9Q
   br i1 %7, label %66, label %72
 
 66:                                               ; preds = %_ZN9QtPrivate12QPodArrayOpsI6QPointE10copyAppendEPKS1_S4_.exit
-  %67 = load ptr, ptr %3, align 8
+  %67 = getelementptr inbounds i8, ptr %3, i64 8
+  %68 = load <2 x ptr>, ptr %3, align 8
+  %69 = load ptr, ptr %3, align 8
   store ptr %59, ptr %3, align 8
-  store ptr %67, ptr %5, align 16
-  %68 = getelementptr inbounds i8, ptr %3, i64 8
-  %69 = load ptr, ptr %68, align 8
-  store ptr %61, ptr %68, align 8
-  store ptr %69, ptr %30, align 8
+  store ptr %61, ptr %67, align 8
+  store <2 x ptr> %68, ptr %5, align 16
   %70 = getelementptr inbounds i8, ptr %3, i64 16
   %71 = load i64, ptr %70, align 8
   store i64 %64, ptr %70, align 8
@@ -6779,7 +6772,7 @@ _ZN9QtPrivate12QPodArrayOpsI6QPointE10copyAppendEPKS1_S4_.exit: ; preds = %_ZN9Q
   br label %72
 
 72:                                               ; preds = %66, %_ZN9QtPrivate12QPodArrayOpsI6QPointE10copyAppendEPKS1_S4_.exit
-  %73 = phi ptr [ %67, %66 ], [ %59, %_ZN9QtPrivate12QPodArrayOpsI6QPointE10copyAppendEPKS1_S4_.exit ]
+  %73 = phi ptr [ %69, %66 ], [ %59, %_ZN9QtPrivate12QPodArrayOpsI6QPointE10copyAppendEPKS1_S4_.exit ]
   %.not.i.i32 = icmp eq ptr %73, null
   br i1 %.not.i.i32, label %_ZN17QArrayDataPointerI6QPointED2Ev.exit35, label %_ZN17QArrayDataPointerI6QPointE5derefEv.exit.i33
 

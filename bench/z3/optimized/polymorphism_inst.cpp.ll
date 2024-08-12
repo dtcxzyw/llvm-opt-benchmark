@@ -6883,7 +6883,7 @@ entry:
 _ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i:   ; preds = %entry
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %2 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
-  %3 = extractelement <2 x i32> %2, i64 0
+  %3 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %3 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 3
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 8
@@ -6918,7 +6918,7 @@ _ZN10ptr_vectorI4sortEC2ERKS1_.exit:              ; preds = %entry, %_ZNK6vector
 _ZNK6vectorIP9func_declLb0EjE8capacityEv.exit.i.i.i: ; preds = %_ZN10ptr_vectorI4sortEC2ERKS1_.exit
   %arrayidx.i11.i.i.i5 = getelementptr inbounds i8, ptr %8, i64 -8
   %9 = load <2 x i32>, ptr %arrayidx.i11.i.i.i5, align 4
-  %10 = extractelement <2 x i32> %9, i64 0
+  %10 = load i32, ptr %arrayidx.i11.i.i.i5, align 4
   %conv.i.i.i6 = zext i32 %10 to i64
   %mul.i.i.i7 = shl nuw nsw i64 %conv.i.i.i6, 3
   %add.i.i.i8 = add nuw nsw i64 %mul.i.i.i7, 8

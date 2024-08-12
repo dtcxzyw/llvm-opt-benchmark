@@ -99,30 +99,29 @@ _ZN5folly14InlineExecutor8instanceEv.exit:        ; preds = %cond.false.i, %invo
   store ptr null, ptr %agg.tmp, align 16, !tbaa !7
   %call_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
   %call_2.i = getelementptr inbounds i8, ptr %func, i64 48
-  %1 = load ptr, ptr %call_2.i, align 16, !tbaa !10
-  store ptr %1, ptr %call_.i, align 16, !tbaa !10
   %exec_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 56
   %exec_3.i = getelementptr inbounds i8, ptr %func, i64 56
-  %2 = load ptr, ptr %exec_3.i, align 8, !tbaa !13
-  store ptr %2, ptr %exec_.i, align 8, !tbaa !13
-  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i, align 16, !tbaa !10
-  store ptr null, ptr %exec_3.i, align 8, !tbaa !13
-  %tobool.not.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %exec_3.i, align 8, !tbaa !10
+  %2 = load <2 x ptr>, ptr %call_2.i, align 16, !tbaa !13
+  store <2 x ptr> %2, ptr %call_.i, align 16, !tbaa !13
+  store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i, align 16, !tbaa !14
+  store ptr null, ptr %exec_3.i, align 8, !tbaa !10
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN5folly14InlineExecutor8instanceEv.exit
-  %call.i.i11 = call noundef i64 %2(i32 noundef 0, ptr noundef nonnull %func, ptr noundef nonnull %agg.tmp) #13
+  %call.i.i11 = call noundef i64 %1(i32 noundef 0, ptr noundef nonnull %func, ptr noundef nonnull %agg.tmp) #13
   br label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
 
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %if.end.i.i, %_ZN5folly14InlineExecutor8instanceEv.exit
-  %vtable = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !14
+  %vtable = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !15
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
-  %4 = load ptr, ptr %exec_.i, align 8, !tbaa !13
+  %4 = load ptr, ptr %exec_.i, align 8, !tbaa !10
   %tobool.not.i.i12 = icmp eq ptr %4, null
   br i1 %tobool.not.i.i12, label %_ZN5folly8FunctionIFvvEED2Ev.exit, label %if.end.i.i13
 
@@ -143,7 +142,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 lpad5:                                            ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
   %6 = landingpad { ptr, i32 }
           cleanup
-  %7 = load ptr, ptr %exec_.i, align 8, !tbaa !13
+  %7 = load ptr, ptr %exec_.i, align 8, !tbaa !10
   %tobool.not.i.i16 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i16, label %eh.resume, label %if.end.i.i17
 
@@ -199,7 +198,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_ca
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %ref.tmp, align 8, !tbaa !15
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #15
           to label %invoke.cont unwind label %lpad
 
@@ -218,7 +217,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #10 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !14
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8, !tbaa !15
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #16
   unreachable
 }
@@ -235,15 +234,15 @@ define internal void @_GLOBAL__sub_I_AtomicReadMostlyMainPtr.cpp() #11 section "
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5folly6detail18atomicReadMostlyMuE, i8 0, i64 40, i1 false)
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #17
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly6detail12_GLOBAL__N_115FailingExecutorE, i64 16), ptr %call.i, align 8, !tbaa !14
-  store i64 0, ptr @_ZN5folly6detail22atomicReadMostlyDomainE, align 8, !tbaa !16
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 8), align 8, !tbaa !19
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 12), align 4, !tbaa !19
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly6detail12_GLOBAL__N_115FailingExecutorE, i64 16), ptr %call.i, align 8, !tbaa !15
+  store i64 0, ptr @_ZN5folly6detail22atomicReadMostlyDomainE, align 8, !tbaa !17
+  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 8), align 8, !tbaa !20
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 12), align 4, !tbaa !20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 16), i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) getelementptr inbounds (i8, ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 40), i8 0, i64 68, i1 false)
-  store i32 -1, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 112), align 8, !tbaa !19
-  store ptr %call.i, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 120), align 8, !tbaa !22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 128), i8 0, i64 32, i1 false), !tbaa !40
+  store i32 -1, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 112), align 8, !tbaa !20
+  store ptr %call.i, ptr getelementptr inbounds (i8, ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 120), align 8, !tbaa !23
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN5folly6detail22atomicReadMostlyDomainE, i64 128), i8 0, i64 32, i1 false), !tbaa !13
   ret void
 }
 
@@ -278,34 +277,34 @@ attributes #17 = { builtin allocsize(0) }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C++ TBAA"}
-!10 = !{!11, !12, i64 48}
+!10 = !{!11, !12, i64 56}
 !11 = !{!"_ZTSN5folly8FunctionIFvvEEE", !8, i64 0, !12, i64 48, !12, i64 56}
 !12 = !{!"any pointer", !8, i64 0}
-!13 = !{!11, !12, i64 56}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"vtable pointer", !9, i64 0}
-!16 = !{!17, !18, i64 0}
-!17 = !{!"_ZTSSt13__atomic_baseImE", !18, i64 0}
-!18 = !{!"long", !8, i64 0}
-!19 = !{!20, !21, i64 0}
-!20 = !{!"_ZTSSt13__atomic_baseIjE", !21, i64 0}
-!21 = !{!"int", !8, i64 0}
-!22 = !{!23, !12, i64 120}
-!23 = !{!"_ZTSN5folly10rcu_domainE", !24, i64 0, !28, i64 16, !28, i64 24, !32, i64 32, !33, i64 40, !28, i64 80, !35, i64 88, !12, i64 120, !8, i64 128}
-!24 = !{!"_ZTSN5folly6detail19ThreadCachedReadersE", !25, i64 0, !29, i64 8, !30, i64 12}
-!25 = !{!"_ZTSN5folly14relaxed_atomicImEE", !26, i64 0}
-!26 = !{!"_ZTSN5folly6detail28relaxed_atomic_integral_baseImEE", !27, i64 0}
-!27 = !{!"_ZTSN5folly6detail19relaxed_atomic_baseImEE", !28, i64 0}
-!28 = !{!"_ZTSSt6atomicImE", !17, i64 0}
-!29 = !{!"_ZTSSt6atomicIjE", !20, i64 0}
-!30 = !{!"_ZTSN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvEE", !31, i64 0}
-!31 = !{!"_ZTSN5folly18threadlocal_detail14StaticMetaBase7EntryIDE", !29, i64 0}
-!32 = !{!"_ZTSN5folly6detail13TurnSequencerISt6atomicEE", !29, i64 0}
-!33 = !{!"_ZTSSt5mutex", !34, i64 0}
-!34 = !{!"_ZTSSt12__mutex_base", !8, i64 0}
-!35 = !{!"_ZTSN5folly6detail17ThreadCachedListsE", !36, i64 0, !39, i64 24}
-!36 = !{!"_ZTSN5folly12SynchronizedINS_6detail17ThreadCachedLists8ListHeadENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEE", !37, i64 0, !38, i64 16}
-!37 = !{!"_ZTSN5folly6detail17ThreadCachedLists8ListHeadE", !12, i64 0, !12, i64 8}
-!38 = !{!"_ZTSN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEE", !29, i64 0}
-!39 = !{!"_ZTSN5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvEE", !31, i64 0}
-!40 = !{!12, !12, i64 0}
+!13 = !{!12, !12, i64 0}
+!14 = !{!11, !12, i64 48}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"vtable pointer", !9, i64 0}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"_ZTSSt13__atomic_baseImE", !19, i64 0}
+!19 = !{!"long", !8, i64 0}
+!20 = !{!21, !22, i64 0}
+!21 = !{!"_ZTSSt13__atomic_baseIjE", !22, i64 0}
+!22 = !{!"int", !8, i64 0}
+!23 = !{!24, !12, i64 120}
+!24 = !{!"_ZTSN5folly10rcu_domainE", !25, i64 0, !29, i64 16, !29, i64 24, !33, i64 32, !34, i64 40, !29, i64 80, !36, i64 88, !12, i64 120, !8, i64 128}
+!25 = !{!"_ZTSN5folly6detail19ThreadCachedReadersE", !26, i64 0, !30, i64 8, !31, i64 12}
+!26 = !{!"_ZTSN5folly14relaxed_atomicImEE", !27, i64 0}
+!27 = !{!"_ZTSN5folly6detail28relaxed_atomic_integral_baseImEE", !28, i64 0}
+!28 = !{!"_ZTSN5folly6detail19relaxed_atomic_baseImEE", !29, i64 0}
+!29 = !{!"_ZTSSt6atomicImE", !18, i64 0}
+!30 = !{!"_ZTSSt6atomicIjE", !21, i64 0}
+!31 = !{!"_ZTSN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvEE", !32, i64 0}
+!32 = !{!"_ZTSN5folly18threadlocal_detail14StaticMetaBase7EntryIDE", !30, i64 0}
+!33 = !{!"_ZTSN5folly6detail13TurnSequencerISt6atomicEE", !30, i64 0}
+!34 = !{!"_ZTSSt5mutex", !35, i64 0}
+!35 = !{!"_ZTSSt12__mutex_base", !8, i64 0}
+!36 = !{!"_ZTSN5folly6detail17ThreadCachedListsE", !37, i64 0, !40, i64 24}
+!37 = !{!"_ZTSN5folly12SynchronizedINS_6detail17ThreadCachedLists8ListHeadENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEE", !38, i64 0, !39, i64 16}
+!38 = !{!"_ZTSN5folly6detail17ThreadCachedLists8ListHeadE", !12, i64 0, !12, i64 8}
+!39 = !{!"_ZTSN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEE", !30, i64 0}
+!40 = !{!"_ZTSN5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvEE", !32, i64 0}

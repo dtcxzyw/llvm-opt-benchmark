@@ -2416,7 +2416,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   %.0.i.i2.i = phi ptr [ %20, %.noexc ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, i64 8), %2 ]
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 32
   %29 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !393
-  %30 = extractelement <2 x i64> %29, i64 0
+  %30 = load i64, ptr %.0.i.i2.i, align 8, !noalias !393, !noundef !5
   %31 = add i64 %30, 1
   store i64 %31, ptr %.0.i.i2.i, align 8, !noalias !393
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) @anon.227420ea47fcf415024a4301e123f38b.42, i64 32, i1 false)

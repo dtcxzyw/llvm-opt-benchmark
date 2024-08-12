@@ -10230,10 +10230,10 @@ while.body.i92:                                   ; preds = %if.then.i86, %if.en
   br i1 %cmp15.i94, label %while.end.i, label %if.end.i95
 
 if.end.i95:                                       ; preds = %while.body.i92
+  %21 = load i16, ptr %in.addr.075.i, align 2
   %arrayidx10.i = getelementptr i8, ptr %in.addr.075.i, i64 6
   %arrayidx6.i93 = getelementptr i8, ptr %in.addr.075.i, i64 4
   %arrayidx2.i = getelementptr i8, ptr %in.addr.075.i, i64 2
-  %21 = extractelement <4 x i16> %18, i64 0
   store i16 %21, ptr %out.074.i, align 2
   %22 = load i16, ptr %arrayidx2.i, align 2
   %arrayidx21.i = getelementptr i8, ptr %out.074.i, i64 2
@@ -10283,10 +10283,10 @@ while.body54.i:                                   ; preds = %if.else47.i, %if.en
   br i1 %cmp71.i, label %while.end110.i, label %if.end74.i
 
 if.end74.i:                                       ; preds = %while.body54.i
+  %30 = load i16, ptr %in.addr.385.i, align 2
   %arrayidx66.i = getelementptr i8, ptr %in.addr.385.i, i64 6
   %arrayidx62.i = getelementptr i8, ptr %in.addr.385.i, i64 4
   %arrayidx58.i = getelementptr i8, ptr %in.addr.385.i, i64 2
-  %30 = extractelement <4 x i16> %27, i64 0
   %or.i = call i16 @llvm.bswap.i16(i16 %30)
   store i16 %or.i, ptr %out.584.i, align 2
   %31 = load i16, ptr %arrayidx58.i, align 2
@@ -11159,10 +11159,10 @@ while.body48.i:                                   ; preds = %if.else.i93, %if.en
   br i1 %cmp65.i, label %while.end83.i, label %if.end68.i
 
 if.end68.i:                                       ; preds = %while.body48.i
+  %32 = load i16, ptr %in.addr.380.i, align 2
   %arrayidx60.i = getelementptr i8, ptr %in.addr.380.i, i64 6
   %arrayidx56.i = getelementptr i8, ptr %in.addr.380.i, i64 4
   %arrayidx52.i = getelementptr i8, ptr %in.addr.380.i, i64 2
-  %32 = extractelement <4 x i16> %29, i64 0
   %trunc.i.i = zext i16 %32 to i32
   %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %trunc.i.i)
   store i32 %rev.i.i, ptr %out.479.i, align 4

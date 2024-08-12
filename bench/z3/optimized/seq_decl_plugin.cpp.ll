@@ -5280,12 +5280,9 @@ sw.bb390:                                         ; preds = %entry
   br i1 %cmp391, label %if.then392, label %sw.bb540.invoke
 
 if.then392:                                       ; preds = %sw.bb390
-  %114 = load ptr, ptr %domain, align 8
-  store ptr %114, ptr %dom, align 16
-  %arrayinit.element = getelementptr inbounds i8, ptr %dom, i64 8
-  %arrayidx394 = getelementptr inbounds i8, ptr %domain, i64 8
-  %115 = load ptr, ptr %arrayidx394, align 8
-  store ptr %115, ptr %arrayinit.element, align 8
+  %114 = load <2 x ptr>, ptr %domain, align 8
+  %115 = load ptr, ptr %domain, align 8
+  store <2 x ptr> %114, ptr %dom, align 16
   %arrayinit.element395 = getelementptr inbounds i8, ptr %dom, i64 16
   invoke void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp396, ptr noundef nonnull align 8 dereferenceable(976) %0)
           to label %invoke.cont397 unwind label %lpad
@@ -5310,7 +5307,7 @@ invoke.cont398:                                   ; preds = %invoke.cont397
 invoke.cont406:                                   ; preds = %invoke.cont398
   %m_string409 = getelementptr inbounds i8, ptr %this, i64 56
   %119 = load ptr, ptr %m_string409, align 8
-  %cmp410 = icmp eq ptr %114, %119
+  %cmp410 = icmp eq ptr %115, %119
   %120 = load ptr, ptr %m_sigs402, align 8
   %idxprom.i366 = select i1 %cmp410, i64 62, i64 13
   %arrayidx.i367 = getelementptr inbounds ptr, ptr %120, i64 %idxprom.i366

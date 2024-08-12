@@ -5238,19 +5238,19 @@ entry:
   %agg.tmp.i.i1430 = alloca %"class.std::function.195", align 8
   %promise.i1431 = alloca %"class.std::promise", align 8
   %ref.tmp.i1432 = alloca %"class.std::future", align 16
-  %t.i1433 = alloca %"class.std::shared_ptr.184", align 8
+  %t.i1433 = alloca %"class.std::shared_ptr.184", align 16
   %ref.tmp7.i1434 = alloca %"class.std::future", align 16
   %ref.tmp.i.i1104 = alloca %"class.std::thread::id", align 8
   %agg.tmp.i.i1105 = alloca %"class.std::function.195", align 8
   %promise.i1106 = alloca %"class.std::promise", align 8
   %ref.tmp.i1107 = alloca %"class.std::future", align 16
-  %t.i1108 = alloca %"class.std::shared_ptr.184", align 8
+  %t.i1108 = alloca %"class.std::shared_ptr.184", align 16
   %ref.tmp7.i1109 = alloca %"class.std::future", align 16
   %ref.tmp.i.i = alloca %"class.std::thread::id", align 8
   %agg.tmp.i.i = alloca %"class.std::function.195", align 8
   %promise.i = alloca %"class.std::promise", align 8
   %ref.tmp.i1073 = alloca %"class.std::future", align 16
-  %t.i = alloca %"class.std::shared_ptr.184", align 8
+  %t.i = alloca %"class.std::shared_ptr.184", align 16
   %ref.tmp7.i = alloca %"class.std::future", align 16
   %ref.tmp.i1046 = alloca i32, align 4
   %ref.tmp2.i1047 = alloca ptr, align 8
@@ -8219,7 +8219,7 @@ lpad.body.i:                                      ; preds = %lpad.i1085, %lpad.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   call void @llvm.experimental.noalias.scope.decl(metadata !100)
-  store ptr null, ptr %t.i, align 8, !alias.scope !100, !noalias !89
+  store ptr null, ptr %t.i, align 16, !alias.scope !100, !noalias !89
   %call5.i.i.i3.i.i.i.i.i1092 = invoke noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #29
           to label %call5.i.i.i3.i.i.i.i.i.noexc unwind label %lpad127
 
@@ -8321,7 +8321,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2tf8TopologyESaIvELN9__gn
   %_exception.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1092, i64 168
   store ptr null, ptr %_exception.i.i.i.i.i.i.i.i.i, align 8, !noalias !103
   store ptr %call5.i.i.i3.i.i.i.i.i1092, ptr %_M_refcount.i.i.i40.i, align 8, !alias.scope !100, !noalias !89
-  store ptr %_M_impl.i.i.i.i.i.i.i, ptr %t.i, align 8, !alias.scope !100, !noalias !89
+  store ptr %_M_impl.i.i.i.i.i.i.i, ptr %t.i, align 16, !alias.scope !100, !noalias !89
   call void @llvm.experimental.noalias.scope.decl(metadata !108)
   %283 = load ptr, ptr %_promise.i.i.i.i.i.i.i.i.i, align 8, !noalias !111
   store ptr %283, ptr %ref.tmp7.i, align 16, !alias.scope !108, !noalias !89
@@ -8374,13 +8374,13 @@ lpad.i.i.i55.i:                                   ; preds = %if.then.i1.invoke.i
   br label %ehcleanup32.i
 
 invoke.cont10.i:                                  ; preds = %invoke.cont.i.i.i51.i
-  %292 = load ptr, ptr %t.i, align 8, !noalias !89
-  %293 = load ptr, ptr %_M_refcount.i.i.i40.i, align 8, !noalias !89
-  %cmp.not.i.i.i62.i = icmp eq ptr %293, null
+  %292 = load ptr, ptr %_M_refcount.i.i.i40.i, align 8, !noalias !89
+  %293 = load <2 x ptr>, ptr %t.i, align 16, !noalias !89
+  %cmp.not.i.i.i62.i = icmp eq ptr %292, null
   br i1 %cmp.not.i.i.i62.i, label %_ZNSt6futureIvED2Ev.exit119.i, label %if.then.i.i.i63.i
 
 if.then.i.i.i63.i:                                ; preds = %invoke.cont10.i
-  %_M_weak_count.i.i.i.i64.i = getelementptr inbounds i8, ptr %293, i64 12
+  %_M_weak_count.i.i.i.i64.i = getelementptr inbounds i8, ptr %292, i64 12
   %294 = load i8, ptr @__libc_single_threaded, align 1, !noalias !89
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %294, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i67.i, label %if.then.i.i.i.i.i65.i
@@ -8401,9 +8401,7 @@ _ZNSt6futureIvED2Ev.exit119.i:                    ; preds = %if.else.i.i.i.i.i67
   store <2 x ptr> %297, ptr %ref.tmp154, align 16, !alias.scope !89
   store ptr null, ptr %ref.tmp7.i, align 16, !noalias !89
   %_topology.i70.i = getelementptr inbounds i8, ptr %ref.tmp154, i64 16
-  store ptr %292, ptr %_topology.i70.i, align 16, !alias.scope !89
-  %_M_refcount.i.i.i71.i = getelementptr inbounds i8, ptr %ref.tmp154, i64 24
-  store ptr %293, ptr %_M_refcount.i.i.i71.i, align 8, !alias.scope !89
+  store <2 x ptr> %293, ptr %_topology.i70.i, align 16, !alias.scope !89
   %call1.i.i.i120.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %_mutex.i1008) #28, !noalias !89
   %tobool.not.i.i121.i = icmp eq i32 %call1.i.i.i120.i, 0
   br i1 %tobool.not.i.i121.i, label %invoke.cont19.i, label %if.then.i.i122.i
@@ -8425,7 +8423,7 @@ invoke.cont19.i:                                  ; preds = %_ZNSt6futureIvED2Ev
   br i1 %cmp.not.i.i.i1079, label %if.else.i.i.i1081, label %if.then.i.i125.i
 
 if.then.i.i125.i:                                 ; preds = %invoke.cont19.i
-  %300 = load ptr, ptr %t.i, align 8, !noalias !89
+  %300 = load ptr, ptr %t.i, align 16, !noalias !89
   store ptr %300, ptr %298, align 8, !noalias !89
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %298, i64 8
   %301 = load ptr, ptr %_M_refcount.i.i.i40.i, align 8, !noalias !89
@@ -8518,7 +8516,7 @@ cond.false.i.i:                                   ; preds = %call.i1.i.noexc.i
 invoke.cont25.i:                                  ; preds = %cond.false.i.i, %call.i1.i.noexc.i
   %cond.i.i = phi ptr [ %add.ptr.i2.i.i, %cond.false.i.i ], [ null, %call.i1.i.noexc.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i), !noalias !89
-  %314 = load ptr, ptr %t.i, align 8, !noalias !89
+  %314 = load ptr, ptr %t.i, align 16, !noalias !89
   invoke void @_ZN2tf8Executor16_set_up_topologyEPNS_6WorkerEPNS_8TopologyE(ptr noundef nonnull align 128 dereferenceable(1344) %executor, ptr noundef %cond.i.i, ptr noundef %314)
           to label %if.end29.i unwind label %lpad20.i, !noalias !89
 
@@ -8975,7 +8973,7 @@ lpad.body.i1328:                                  ; preds = %lpad.i1339, %lpad.i
 
 if.end.i1131:                                     ; preds = %lor.lhs.false.i1127
   call void @llvm.experimental.noalias.scope.decl(metadata !123)
-  store ptr null, ptr %t.i1108, align 8, !alias.scope !123, !noalias !112
+  store ptr null, ptr %t.i1108, align 16, !alias.scope !123, !noalias !112
   %call5.i.i.i3.i.i.i.i.i1380 = invoke noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #29
           to label %call5.i.i.i3.i.i.i.i.i.noexc1379 unwind label %lpad127
 
@@ -9078,7 +9076,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2tf8TopologyESaIvELN9__gn
   %_exception.i.i.i.i.i.i.i.i.i1172 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1380, i64 168
   store ptr null, ptr %_exception.i.i.i.i.i.i.i.i.i1172, align 8, !noalias !126
   store ptr %call5.i.i.i3.i.i.i.i.i1380, ptr %_M_refcount.i.i.i40.i1157, align 8, !alias.scope !123, !noalias !112
-  store ptr %_M_impl.i.i.i.i.i.i.i1134, ptr %t.i1108, align 8, !alias.scope !123, !noalias !112
+  store ptr %_M_impl.i.i.i.i.i.i.i1134, ptr %t.i1108, align 16, !alias.scope !123, !noalias !112
   call void @llvm.experimental.noalias.scope.decl(metadata !131)
   %374 = load ptr, ptr %_promise.i.i.i.i.i.i.i.i.i1135, align 8, !noalias !134
   store ptr %374, ptr %ref.tmp7.i1109, align 16, !alias.scope !131, !noalias !112
@@ -9131,13 +9129,13 @@ lpad.i.i.i55.i1186:                               ; preds = %if.then.i1.invoke.i
   br label %ehcleanup32.i1187
 
 invoke.cont10.i1190:                              ; preds = %invoke.cont.i.i.i51.i1182
-  %383 = load ptr, ptr %t.i1108, align 8, !noalias !112
-  %384 = load ptr, ptr %_M_refcount.i.i.i40.i1157, align 8, !noalias !112
-  %cmp.not.i.i.i62.i1191 = icmp eq ptr %384, null
+  %383 = load ptr, ptr %_M_refcount.i.i.i40.i1157, align 8, !noalias !112
+  %384 = load <2 x ptr>, ptr %t.i1108, align 16, !noalias !112
+  %cmp.not.i.i.i62.i1191 = icmp eq ptr %383, null
   br i1 %cmp.not.i.i.i62.i1191, label %_ZNSt6futureIvED2Ev.exit119.i1197, label %if.then.i.i.i63.i1192
 
 if.then.i.i.i63.i1192:                            ; preds = %invoke.cont10.i1190
-  %_M_weak_count.i.i.i.i64.i1193 = getelementptr inbounds i8, ptr %384, i64 12
+  %_M_weak_count.i.i.i.i64.i1193 = getelementptr inbounds i8, ptr %383, i64 12
   %385 = load i8, ptr @__libc_single_threaded, align 1, !noalias !112
   %tobool.i.i.not.i.i.i.i.i1194 = icmp eq i8 %385, 0
   br i1 %tobool.i.i.not.i.i.i.i.i1194, label %if.else.i.i.i.i.i67.i1299, label %if.then.i.i.i.i.i65.i1195
@@ -9158,9 +9156,7 @@ _ZNSt6futureIvED2Ev.exit119.i1197:                ; preds = %if.else.i.i.i.i.i67
   store <2 x ptr> %388, ptr %agg.tmp.ensured, align 16, !alias.scope !112
   store ptr null, ptr %ref.tmp7.i1109, align 16, !noalias !112
   %_topology.i70.i1199 = getelementptr inbounds i8, ptr %agg.tmp.ensured, i64 16
-  store ptr %383, ptr %_topology.i70.i1199, align 16, !alias.scope !112
-  %_M_refcount.i.i.i71.i1200 = getelementptr inbounds i8, ptr %agg.tmp.ensured, i64 24
-  store ptr %384, ptr %_M_refcount.i.i.i71.i1200, align 8, !alias.scope !112
+  store <2 x ptr> %384, ptr %_topology.i70.i1199, align 16, !alias.scope !112
   %call1.i.i.i120.i1201 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %_mutex.i1008) #28, !noalias !112
   %tobool.not.i.i121.i1202 = icmp eq i32 %call1.i.i.i120.i1201, 0
   br i1 %tobool.not.i.i121.i1202, label %invoke.cont19.i1208, label %if.then.i.i122.i1203
@@ -9182,7 +9178,7 @@ invoke.cont19.i1208:                              ; preds = %_ZNSt6futureIvED2Ev
   br i1 %cmp.not.i.i.i1212, label %if.else.i.i.i1295, label %if.then.i.i125.i1213
 
 if.then.i.i125.i1213:                             ; preds = %invoke.cont19.i1208
-  %391 = load ptr, ptr %t.i1108, align 8, !noalias !112
+  %391 = load ptr, ptr %t.i1108, align 16, !noalias !112
   store ptr %391, ptr %389, align 8, !noalias !112
   %_M_refcount.i.i.i.i.i.i.i1214 = getelementptr inbounds i8, ptr %389, i64 8
   %392 = load ptr, ptr %_M_refcount.i.i.i40.i1157, align 8, !noalias !112
@@ -9275,7 +9271,7 @@ cond.false.i.i1288:                               ; preds = %call.i1.i.noexc.i12
 invoke.cont25.i1292:                              ; preds = %cond.false.i.i1288, %call.i1.i.noexc.i1286
   %cond.i.i1293 = phi ptr [ %add.ptr.i2.i.i1291, %cond.false.i.i1288 ], [ null, %call.i1.i.noexc.i1286 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i1104), !noalias !112
-  %405 = load ptr, ptr %t.i1108, align 8, !noalias !112
+  %405 = load ptr, ptr %t.i1108, align 16, !noalias !112
   invoke void @_ZN2tf8Executor16_set_up_topologyEPNS_6WorkerEPNS_8TopologyE(ptr noundef nonnull align 128 dereferenceable(1344) %executor, ptr noundef %cond.i.i1293, ptr noundef %405)
           to label %if.end29.i1248 unwind label %lpad20.i1284, !noalias !112
 
@@ -9736,7 +9732,7 @@ lpad.body.i1653:                                  ; preds = %lpad.i1664, %lpad.i
 
 if.end.i1456:                                     ; preds = %lor.lhs.false.i1452
   call void @llvm.experimental.noalias.scope.decl(metadata !146)
-  store ptr null, ptr %t.i1433, align 8, !alias.scope !146, !noalias !135
+  store ptr null, ptr %t.i1433, align 16, !alias.scope !146, !noalias !135
   %call5.i.i.i3.i.i.i.i.i1705 = invoke noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #29
           to label %call5.i.i.i3.i.i.i.i.i.noexc1704 unwind label %lpad127
 
@@ -9839,7 +9835,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2tf8TopologyESaIvELN9__gn
   %_exception.i.i.i.i.i.i.i.i.i1497 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i1705, i64 168
   store ptr null, ptr %_exception.i.i.i.i.i.i.i.i.i1497, align 8, !noalias !149
   store ptr %call5.i.i.i3.i.i.i.i.i1705, ptr %_M_refcount.i.i.i40.i1482, align 8, !alias.scope !146, !noalias !135
-  store ptr %_M_impl.i.i.i.i.i.i.i1459, ptr %t.i1433, align 8, !alias.scope !146, !noalias !135
+  store ptr %_M_impl.i.i.i.i.i.i.i1459, ptr %t.i1433, align 16, !alias.scope !146, !noalias !135
   call void @llvm.experimental.noalias.scope.decl(metadata !154)
   %466 = load ptr, ptr %_promise.i.i.i.i.i.i.i.i.i1460, align 8, !noalias !157
   store ptr %466, ptr %ref.tmp7.i1434, align 16, !alias.scope !154, !noalias !135
@@ -9892,13 +9888,13 @@ lpad.i.i.i55.i1511:                               ; preds = %if.then.i1.invoke.i
   br label %ehcleanup32.i1512
 
 invoke.cont10.i1515:                              ; preds = %invoke.cont.i.i.i51.i1507
-  %475 = load ptr, ptr %t.i1433, align 8, !noalias !135
-  %476 = load ptr, ptr %_M_refcount.i.i.i40.i1482, align 8, !noalias !135
-  %cmp.not.i.i.i62.i1516 = icmp eq ptr %476, null
+  %475 = load ptr, ptr %_M_refcount.i.i.i40.i1482, align 8, !noalias !135
+  %476 = load <2 x ptr>, ptr %t.i1433, align 16, !noalias !135
+  %cmp.not.i.i.i62.i1516 = icmp eq ptr %475, null
   br i1 %cmp.not.i.i.i62.i1516, label %_ZNSt6futureIvED2Ev.exit119.i1522, label %if.then.i.i.i63.i1517
 
 if.then.i.i.i63.i1517:                            ; preds = %invoke.cont10.i1515
-  %_M_weak_count.i.i.i.i64.i1518 = getelementptr inbounds i8, ptr %476, i64 12
+  %_M_weak_count.i.i.i.i64.i1518 = getelementptr inbounds i8, ptr %475, i64 12
   %477 = load i8, ptr @__libc_single_threaded, align 1, !noalias !135
   %tobool.i.i.not.i.i.i.i.i1519 = icmp eq i8 %477, 0
   br i1 %tobool.i.i.not.i.i.i.i.i1519, label %if.else.i.i.i.i.i67.i1624, label %if.then.i.i.i.i.i65.i1520
@@ -9919,9 +9915,7 @@ _ZNSt6futureIvED2Ev.exit119.i1522:                ; preds = %if.else.i.i.i.i.i67
   store <2 x ptr> %480, ptr %ref.tmp164, align 16, !alias.scope !135
   store ptr null, ptr %ref.tmp7.i1434, align 16, !noalias !135
   %_topology.i70.i1524 = getelementptr inbounds i8, ptr %ref.tmp164, i64 16
-  store ptr %475, ptr %_topology.i70.i1524, align 16, !alias.scope !135
-  %_M_refcount.i.i.i71.i1525 = getelementptr inbounds i8, ptr %ref.tmp164, i64 24
-  store ptr %476, ptr %_M_refcount.i.i.i71.i1525, align 8, !alias.scope !135
+  store <2 x ptr> %476, ptr %_topology.i70.i1524, align 16, !alias.scope !135
   %call1.i.i.i120.i1526 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %_mutex.i1008) #28, !noalias !135
   %tobool.not.i.i121.i1527 = icmp eq i32 %call1.i.i.i120.i1526, 0
   br i1 %tobool.not.i.i121.i1527, label %invoke.cont19.i1533, label %if.then.i.i122.i1528
@@ -9943,7 +9937,7 @@ invoke.cont19.i1533:                              ; preds = %_ZNSt6futureIvED2Ev
   br i1 %cmp.not.i.i.i1537, label %if.else.i.i.i1620, label %if.then.i.i125.i1538
 
 if.then.i.i125.i1538:                             ; preds = %invoke.cont19.i1533
-  %483 = load ptr, ptr %t.i1433, align 8, !noalias !135
+  %483 = load ptr, ptr %t.i1433, align 16, !noalias !135
   store ptr %483, ptr %481, align 8, !noalias !135
   %_M_refcount.i.i.i.i.i.i.i1539 = getelementptr inbounds i8, ptr %481, i64 8
   %484 = load ptr, ptr %_M_refcount.i.i.i40.i1482, align 8, !noalias !135
@@ -10036,7 +10030,7 @@ cond.false.i.i1613:                               ; preds = %call.i1.i.noexc.i16
 invoke.cont25.i1617:                              ; preds = %cond.false.i.i1613, %call.i1.i.noexc.i1611
   %cond.i.i1618 = phi ptr [ %add.ptr.i2.i.i1616, %cond.false.i.i1613 ], [ null, %call.i1.i.noexc.i1611 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i1429), !noalias !135
-  %497 = load ptr, ptr %t.i1433, align 8, !noalias !135
+  %497 = load ptr, ptr %t.i1433, align 16, !noalias !135
   invoke void @_ZN2tf8Executor16_set_up_topologyEPNS_6WorkerEPNS_8TopologyE(ptr noundef nonnull align 128 dereferenceable(1344) %executor, ptr noundef %cond.i.i1618, ptr noundef %497)
           to label %if.end29.i1573 unwind label %lpad20.i1609, !noalias !135
 
@@ -27759,7 +27753,7 @@ entry:
   %agg.tmp.i = alloca %"class.std::function.195", align 8
   %promise = alloca %"class.std::promise", align 8
   %ref.tmp = alloca %"class.std::future", align 16
-  %t = alloca %"class.std::shared_ptr.184", align 8
+  %t = alloca %"class.std::shared_ptr.184", align 16
   %ref.tmp9 = alloca %"class.std::future", align 16
   %_topology_mutex.i = getelementptr inbounds i8, ptr %this, i64 136
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %_topology_mutex.i) #28
@@ -28029,7 +28023,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2tf8TopologyESaIvELN9__gn
 _ZSt11make_sharedIN2tf8TopologyEJRNS0_8TaskflowEZNS0_8Executor5run_nIZNS4_5run_nES3_mEUlvE_EENS0_6FutureIvEES3_mOT_EUlvE_S6_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIS9_EE5valueES9_E4typeEEDpOT0_.exit: ; preds = %if.end
   %_M_refcount.i.i.i38 = getelementptr inbounds i8, ptr %t, i64 8
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i.i38, align 8, !alias.scope !377
-  store ptr %_M_impl.i.i.i.i.i.i, ptr %t, align 8, !alias.scope !377
+  store ptr %_M_impl.i.i.i.i.i.i, ptr %t, align 16, !alias.scope !377
   %_promise = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !380)
   %29 = load ptr, ptr %_promise, align 8, !noalias !380
@@ -28084,13 +28078,13 @@ lpad.i.i.i53:                                     ; preds = %if.then.i1.invoke.i
   br label %ehcleanup34
 
 invoke.cont12:                                    ; preds = %invoke.cont.i.i.i49
-  %38 = load ptr, ptr %t, align 8
-  %39 = load ptr, ptr %_M_refcount.i.i.i38, align 8
-  %cmp.not.i.i.i60 = icmp eq ptr %39, null
+  %38 = load ptr, ptr %_M_refcount.i.i.i38, align 8
+  %39 = load <2 x ptr>, ptr %t, align 16
+  %cmp.not.i.i.i60 = icmp eq ptr %38, null
   br i1 %cmp.not.i.i.i60, label %_ZNSt6futureIvED2Ev.exit117, label %if.then.i.i.i61
 
 if.then.i.i.i61:                                  ; preds = %invoke.cont12
-  %_M_weak_count.i.i.i.i62 = getelementptr inbounds i8, ptr %39, i64 12
+  %_M_weak_count.i.i.i.i62 = getelementptr inbounds i8, ptr %38, i64 12
   %40 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %40, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i65, label %if.then.i.i.i.i.i63
@@ -28111,9 +28105,7 @@ _ZNSt6futureIvED2Ev.exit117:                      ; preds = %invoke.cont12, %if.
   store <2 x ptr> %43, ptr %agg.result, align 8
   store ptr null, ptr %ref.tmp9, align 16
   %_topology.i68 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %38, ptr %_topology.i68, align 8
-  %_M_refcount.i.i.i69 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store ptr %39, ptr %_M_refcount.i.i.i69, align 8
+  store <2 x ptr> %39, ptr %_topology.i68, align 8
   %call1.i.i.i118 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %_mutex) #28
   %tobool.not.i.i119 = icmp eq i32 %call1.i.i.i118, 0
   br i1 %tobool.not.i.i119, label %invoke.cont21, label %if.then.i.i120
@@ -28135,7 +28127,7 @@ invoke.cont21:                                    ; preds = %_ZNSt6futureIvED2Ev
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i123
 
 if.then.i.i123:                                   ; preds = %invoke.cont21
-  %46 = load ptr, ptr %t, align 8
+  %46 = load ptr, ptr %t, align 16
   store ptr %46, ptr %44, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %44, i64 8
   %47 = load ptr, ptr %_M_refcount.i.i.i38, align 8
@@ -28230,7 +28222,7 @@ cond.false.i:                                     ; preds = %call.i1.i.noexc
 invoke.cont27:                                    ; preds = %cond.false.i, %call.i1.i.noexc
   %cond.i = phi ptr [ %add.ptr.i2.i, %cond.false.i ], [ null, %call.i1.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %60 = load ptr, ptr %t, align 8
+  %60 = load ptr, ptr %t, align 16
   invoke void @_ZN2tf8Executor16_set_up_topologyEPNS_6WorkerEPNS_8TopologyE(ptr noundef nonnull align 128 dereferenceable(1344) %this, ptr noundef %cond.i, ptr noundef %60)
           to label %if.end31 unwind label %lpad22
 

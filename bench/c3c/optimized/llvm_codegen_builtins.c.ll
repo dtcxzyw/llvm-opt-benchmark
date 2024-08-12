@@ -2852,14 +2852,14 @@ define internal fastcc void @llvm_emit_gather(ptr noundef %0, ptr noundef %1, pt
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %5, i64 16
-  %17 = load ptr, ptr %16, align 16
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
-  %19 = load ptr, ptr %18, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = load ptr, ptr %16, align 16
+  %19 = load <2 x ptr>, ptr %17, align 8
   %20 = getelementptr inbounds i8, ptr %8, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load i64, ptr %22, align 8
-  %24 = call ptr @LLVMTypeOf(ptr noundef %17) #8
+  %24 = call ptr @LLVMTypeOf(ptr noundef %18) #8
   store ptr %24, ptr %6, align 16
   %25 = getelementptr inbounds i8, ptr %6, i64 8
   %26 = load ptr, ptr %5, align 16
@@ -2895,14 +2895,12 @@ define internal fastcc void @llvm_emit_gather(ptr noundef %0, ptr noundef %1, pt
   %45 = icmp ult i32 %44, 5
   %46 = zext i1 %45 to i32
   %47 = call ptr @LLVMConstInt(ptr noundef %36, i64 noundef %34, i32 noundef %46) #8
-  store ptr %47, ptr %18, align 8
-  store ptr %19, ptr %16, align 16
-  %48 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %17, ptr %48, align 8
-  %49 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 92), align 4
-  %50 = call ptr @llvm_emit_call_intrinsic(ptr noundef %0, i32 noundef %49, ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %5, i32 noundef 4) #8
-  %51 = load ptr, ptr %2, align 8
-  call void @llvm_value_set(ptr noundef %1, ptr noundef %50, ptr noundef %51) #8
+  store ptr %47, ptr %17, align 8
+  store <2 x ptr> %19, ptr %16, align 16
+  %48 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 92), align 4
+  %49 = call ptr @llvm_emit_call_intrinsic(ptr noundef %0, i32 noundef %48, ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %5, i32 noundef 4) #8
+  %50 = load ptr, ptr %2, align 8
+  call void @llvm_value_set(ptr noundef %1, ptr noundef %49, ptr noundef %50) #8
   ret void
 }
 
@@ -3091,14 +3089,14 @@ define internal fastcc void @llvm_emit_masked_load(ptr noundef %0, ptr noundef %
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds i8, ptr %5, i64 16
-  %17 = load ptr, ptr %16, align 16
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
-  %19 = load ptr, ptr %18, align 8
+  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = load ptr, ptr %16, align 16
+  %19 = load <2 x ptr>, ptr %17, align 8
   %20 = getelementptr inbounds i8, ptr %8, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load i64, ptr %22, align 8
-  %24 = call ptr @LLVMTypeOf(ptr noundef %17) #8
+  %24 = call ptr @LLVMTypeOf(ptr noundef %18) #8
   store ptr %24, ptr %6, align 16
   %25 = getelementptr inbounds i8, ptr %6, i64 8
   %26 = getelementptr inbounds i8, ptr %0, i64 216
@@ -3133,14 +3131,12 @@ define internal fastcc void @llvm_emit_masked_load(ptr noundef %0, ptr noundef %
   %44 = icmp ult i32 %43, 5
   %45 = zext i1 %44 to i32
   %46 = call ptr @LLVMConstInt(ptr noundef %35, i64 noundef %33, i32 noundef %45) #8
-  store ptr %46, ptr %18, align 8
-  store ptr %19, ptr %16, align 16
-  %47 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr %17, ptr %47, align 8
-  %48 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 144), align 4
-  %49 = call ptr @llvm_emit_call_intrinsic(ptr noundef nonnull %0, i32 noundef %48, ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %5, i32 noundef 4) #8
-  %50 = load ptr, ptr %2, align 8
-  call void @llvm_value_set(ptr noundef %1, ptr noundef %49, ptr noundef %50) #8
+  store ptr %46, ptr %17, align 8
+  store <2 x ptr> %19, ptr %16, align 16
+  %47 = load i32, ptr getelementptr inbounds (i8, ptr @intrinsic_id, i64 144), align 4
+  %48 = call ptr @llvm_emit_call_intrinsic(ptr noundef nonnull %0, i32 noundef %47, ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %5, i32 noundef 4) #8
+  %49 = load ptr, ptr %2, align 8
+  call void @llvm_value_set(ptr noundef %1, ptr noundef %48, ptr noundef %49) #8
   ret void
 }
 

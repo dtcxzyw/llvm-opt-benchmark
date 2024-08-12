@@ -290,81 +290,79 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 define noalias noundef ptr @Cnf_DataDup(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
-  %8 = load i32, ptr %7, align 4
-  %9 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #18
-  store ptr %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
-  store i32 %4, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
-  store i32 %6, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 12
-  store i32 %8, ptr %12, align 4
-  %13 = add nsw i32 %6, 1
-  %14 = sext i32 %13 to i64
-  %15 = shl nsw i64 %14, 3
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #16
-  %17 = getelementptr inbounds i8, ptr %9, i64 24
-  store ptr %16, ptr %17, align 8
-  %18 = sext i32 %8 to i64
-  %19 = shl nsw i64 %18, 2
-  %20 = tail call noalias ptr @malloc(i64 noundef %19) #16
-  store ptr %20, ptr %16, align 8
-  %21 = getelementptr inbounds i32, ptr %20, i64 %18
-  %22 = sext i32 %6 to i64
-  %23 = getelementptr inbounds ptr, ptr %16, i64 %22
-  store ptr %21, ptr %23, align 8
-  %24 = load ptr, ptr %16, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = load i32, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #18
+  store ptr %2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 %5, ptr %9, align 8
+  %10 = load i32, ptr %6, align 4
+  %11 = load <2 x i32>, ptr %3, align 8
+  store <2 x i32> %11, ptr %8, align 8
+  %12 = add nsw i32 %5, 1
+  %13 = sext i32 %12 to i64
+  %14 = shl nsw i64 %13, 3
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #16
+  %16 = getelementptr inbounds i8, ptr %7, i64 24
+  store ptr %15, ptr %16, align 8
+  %17 = sext i32 %10 to i64
+  %18 = shl nsw i64 %17, 2
+  %19 = tail call noalias ptr @malloc(i64 noundef %18) #16
+  store ptr %19, ptr %15, align 8
+  %20 = getelementptr inbounds i32, ptr %19, i64 %17
+  %21 = sext i32 %5 to i64
+  %22 = getelementptr inbounds ptr, ptr %15, i64 %21
+  store ptr %20, ptr %22, align 8
+  %23 = load ptr, ptr %15, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %26, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %24, ptr align 4 %27, i64 %19, i1 false)
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
-  %29 = load ptr, ptr %28, align 8
-  %.not = icmp eq ptr %29, null
-  br i1 %.not, label %35, label %30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %23, ptr align 4 %26, i64 %18, i1 false)
+  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = load ptr, ptr %27, align 8
+  %.not = icmp eq ptr %28, null
+  br i1 %.not, label %34, label %29
 
-30:                                               ; preds = %1
-  %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr i8, ptr %31, i64 32
-  %.val = load ptr, ptr %32, align 8
-  %33 = getelementptr i8, ptr %.val, i64 4
-  %.val.val = load i32, ptr %33, align 4
-  %34 = icmp eq i32 %.val.val, 0
-  tail call void @llvm.assume(i1 %34)
-  br label %35
+29:                                               ; preds = %1
+  %30 = load ptr, ptr %0, align 8
+  %31 = getelementptr i8, ptr %30, i64 32
+  %.val = load ptr, ptr %31, align 8
+  %32 = getelementptr i8, ptr %.val, i64 4
+  %.val.val = load i32, ptr %32, align 4
+  %33 = icmp eq i32 %.val.val, 0
+  tail call void @llvm.assume(i1 %33)
+  br label %34
 
-35:                                               ; preds = %30, %1
-  %36 = load i32, ptr %5, align 8
-  %37 = icmp sgt i32 %36, 1
-  br i1 %37, label %.lr.ph, label %._crit_edge
+34:                                               ; preds = %29, %1
+  %35 = load i32, ptr %4, align 8
+  %36 = icmp sgt i32 %35, 1
+  br i1 %36, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %35
-  %38 = load ptr, ptr %16, align 8
-  %39 = load ptr, ptr %25, align 8
-  %wide.trip.count = zext nneg i32 %36 to i64
-  br label %40
+.lr.ph:                                           ; preds = %34
+  %37 = load ptr, ptr %15, align 8
+  %38 = load ptr, ptr %24, align 8
+  %wide.trip.count = zext nneg i32 %35 to i64
+  br label %39
 
-40:                                               ; preds = %.lr.ph, %40
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv
-  %42 = load ptr, ptr %41, align 8
-  %43 = load ptr, ptr %39, align 8
+39:                                               ; preds = %.lr.ph, %39
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %39 ]
+  %40 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %38, align 8
+  %43 = ptrtoint ptr %41 to i64
   %44 = ptrtoint ptr %42 to i64
-  %45 = ptrtoint ptr %43 to i64
-  %46 = sub i64 %44, %45
-  %47 = getelementptr inbounds i8, ptr %38, i64 %46
-  %48 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
-  store ptr %47, ptr %48, align 8
+  %45 = sub i64 %43, %44
+  %46 = getelementptr inbounds i8, ptr %37, i64 %45
+  %47 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  store ptr %46, ptr %47, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %40, %35
-  ret ptr %9
+._crit_edge:                                      ; preds = %39, %34
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

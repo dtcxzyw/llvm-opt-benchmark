@@ -7603,21 +7603,21 @@ define hidden noundef align 8 ptr @"_ZN10wasmparser9validator4func22FuncValidato
   %106 = getelementptr inbounds i8, ptr %98, i64 16
   %107 = getelementptr inbounds i8, ptr %98, i64 24
   %108 = load <2 x i64>, ptr %102, align 8
+  %109 = load i64, ptr %102, align 8, !noundef !5
   store <2 x i64> %108, ptr %106, align 8
-  %109 = getelementptr inbounds i8, ptr %98, i64 32
-  store i8 %104, ptr %109, align 8
+  %110 = getelementptr inbounds i8, ptr %98, i64 32
+  store i8 %104, ptr %110, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !648)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %96), !noalias !651
   tail call void @llvm.experimental.noalias.scope.decl(metadata !653)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !656)
-  %110 = extractelement <2 x i64> %108, i64 0
-  %.not.i.i.i = icmp ult i64 %110, %101
+  %.not.i.i.i = icmp ult i64 %109, %101
   br i1 %.not.i.i.i, label %111, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.thread.i
 
 111:                                              ; preds = %2
-  %112 = getelementptr inbounds i8, ptr %99, i64 %110
+  %112 = getelementptr inbounds i8, ptr %99, i64 %109
   %113 = load i8, ptr %112, align 1, !noalias !659, !noundef !5
-  %114 = add nuw i64 %110, 1
+  %114 = add nuw i64 %109, 1
   store i64 %114, ptr %106, align 8, !alias.scope !662, !noalias !663
   %115 = icmp sgt i8 %113, -1
   br i1 %115, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.thread53.i, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.exit.i
@@ -7696,7 +7696,7 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h327c6ae1c93244d3E.e
   %143 = lshr i32 %142, 14
   %144 = trunc i32 %143 to i8
   %145 = and i8 %144, 1
-  store i8 %145, ptr %109, align 8
+  store i8 %145, ptr %110, align 8
   %146 = load i64, ptr %106, align 8, !noundef !5
   %147 = load i64, ptr %105, align 8, !noundef !5
   %.not73 = icmp ult i64 %146, %147

@@ -5649,9 +5649,9 @@ _ZN3ue28flat_setItSt4lessItESaItEEaSEOS4_.exit.thread.i: ; preds = %if.then.i.i.
   %312 = phi ptr [ %.pre60.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %310, %if.then.i.i.i.i.i.i.i.i78.i ]
   store ptr %312, ptr %hinted.i, align 8
   %313 = load <2 x i64>, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %314 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i, align 8
   store <2 x i64> %313, ptr %m_size.i.i.i.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp75.i, i8 0, i64 24, i1 false)
-  %314 = extractelement <2 x i64> %313, i64 0
   br label %invoke.cont79.i
 
 if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont76.i

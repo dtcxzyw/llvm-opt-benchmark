@@ -1054,7 +1054,7 @@ _ZN9itertools11kmerge_impl9sift_down17hcba67777f647d541E.exit: ; preds = %.noexc
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN104_$LT$itertools..kmerge_impl..KMergeBy$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5c7e683285ab6d17E"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, { i64, [1 x i64] } } }, align 8
-  %4 = alloca { i64, { i64, [1 x i64] } }, align 8
+  %4 = alloca { i64, { i64, [1 x i64] } }, align 16
   %5 = alloca { { ptr, ptr, {} }, {} }, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !8, !noundef !8
@@ -1076,7 +1076,7 @@ _ZN9itertools9Itertools5fold117h6480118e01fcf653E.exit.thread: ; preds = %2
   store i64 1, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %15, align 8
-  br label %32
+  br label %31
 
 _ZN9itertools9Itertools5fold117h6480118e01fcf653E.exit: ; preds = %2
   %16 = getelementptr inbounds i8, ptr %12, i64 40
@@ -1101,9 +1101,11 @@ _ZN9itertools9Itertools5fold117h6480118e01fcf653E.exit: ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !179
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h395ab51cdc07ae4eE.llvm.17934416572435023626"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %4, ptr noundef nonnull %25, ptr noundef %26, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3), !noalias !179
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !179
-  %.sroa.0.0.copyload8 = load i64, ptr %4, align 8, !noalias !184
   %.sroa.4.0..sroa_idx9 = getelementptr inbounds i8, ptr %4, i64 8
-  %27 = load <2 x i64>, ptr %.sroa.4.0..sroa_idx9, align 8, !noalias !184
+  %.sroa.4.0.copyload10 = load i64, ptr %.sroa.4.0..sroa_idx9, align 8, !noalias !184
+  %27 = load <2 x i64>, ptr %4, align 16, !noalias !184
+  %.sroa.6.0..sroa_idx11 = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.6.0.copyload12 = load i64, ptr %.sroa.6.0..sroa_idx11, align 16, !noalias !184
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !179
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   store i64 0, ptr %0, align 8
@@ -1111,17 +1113,16 @@ _ZN9itertools9Itertools5fold117h6480118e01fcf653E.exit: ; preds = %2
   store i64 1, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %29, align 8
-  %30 = extractelement <2 x i64> %27, i64 0
-  %31 = icmp eq i64 %30, 2
-  br i1 %31, label %32, label %33
+  %30 = icmp eq i64 %.sroa.4.0.copyload10, 2
+  br i1 %30, label %31, label %32
 
-32:                                               ; preds = %_ZN9itertools9Itertools5fold117h6480118e01fcf653E.exit.thread, %_ZN9itertools9Itertools5fold117h6480118e01fcf653E.exit, %33
+31:                                               ; preds = %_ZN9itertools9Itertools5fold117h6480118e01fcf653E.exit.thread, %_ZN9itertools9Itertools5fold117h6480118e01fcf653E.exit, %32
   ret void
 
-33:                                               ; preds = %_ZN9itertools9Itertools5fold117h6480118e01fcf653E.exit
-  store i64 %.sroa.0.0.copyload8, ptr %0, align 8
-  store <2 x i64> %27, ptr %28, align 8
-  br label %32
+32:                                               ; preds = %_ZN9itertools9Itertools5fold117h6480118e01fcf653E.exit
+  store <2 x i64> %27, ptr %0, align 8
+  store i64 %.sroa.6.0.copyload12, ptr %29, align 8
+  br label %31
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

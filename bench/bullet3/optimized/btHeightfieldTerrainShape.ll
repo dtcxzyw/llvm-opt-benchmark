@@ -177,13 +177,13 @@ sw.bb23:                                          ; preds = %entry
   %arrayidx7.i17 = getelementptr inbounds i8, ptr %this, i64 48
   store float 0.000000e+00, ptr %arrayidx7.i17, align 8
   %m_localAabbMax28 = getelementptr inbounds i8, ptr %this, i64 52
+  %9 = extractelement <2 x float> %3, i64 0
+  %10 = extractelement <2 x float> %3, i64 1
   store <2 x float> %3, ptr %m_localAabbMax28, align 4
   %arrayidx5.i19 = getelementptr inbounds i8, ptr %this, i64 60
   store float %maxHeight, ptr %arrayidx5.i19, align 4
   %arrayidx7.i20 = getelementptr inbounds i8, ptr %this, i64 64
   store float 0.000000e+00, ptr %arrayidx7.i20, align 8
-  %9 = extractelement <2 x float> %3, i64 0
-  %10 = extractelement <2 x float> %3, i64 1
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry.sw.epilog_crit_edge, %sw.bb23, %sw.bb14, %sw.bb

@@ -1950,7 +1950,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i: ; 
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   %21 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !414
-  %22 = extractelement <2 x i64> %21, i64 0
+  %22 = load i64, ptr %.0.i.i2.i, align 8, !noalias !414, !noundef !18
   %23 = add i64 %22, 1
   store i64 %23, ptr %.0.i.i2.i, align 8, !noalias !414
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)

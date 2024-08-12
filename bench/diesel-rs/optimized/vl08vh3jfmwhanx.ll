@@ -1674,8 +1674,8 @@ define hidden { ptr, ptr } @"_ZN6diesel10type_impls6tuples109_$LT$impl$u20$diese
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN6diesel10type_impls6tuples115_$LT$impl$u20$diesel..deserialize..FromStaticSqlRow$LT$$LP$ST1$C$ST0$RP$$C$__DB$GT$$u20$for$u20$$LP$T1$C$T0$RP$$GT$14build_from_row17hf8ee4486216235b9E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = alloca { ptr, [1 x i64] }, align 8
-  %4 = alloca { ptr, [1 x i64] }, align 8
+  %3 = alloca { ptr, [1 x i64] }, align 16
+  %4 = alloca { ptr, [1 x i64] }, align 16
   %5 = alloca { ptr, { i64, i64 } }, align 8
   %6 = alloca { ptr, { i64, i64 } }, align 8
   %7 = tail call noundef i64 @"_ZN102_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..Row$LT$diesel..pg..backend..Pg$GT$$GT$11field_count17h465ef7ecaaab58b5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
@@ -1683,53 +1683,49 @@ define hidden void @"_ZN6diesel10type_impls6tuples115_$LT$impl$u20$diesel..deser
   call void @"_ZN102_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..Row$LT$diesel..pg..backend..Pg$GT$$GT$11partial_row17h7651d499cef034fdE"(ptr noalias nocapture noundef nonnull sret({ ptr, { i64, i64 } }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, i64 noundef 0, i64 noundef 1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !393
   call void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromStaticSqlRow$LT$ST$C$DB$GT$$GT$14build_from_row17h82e7f3f28c3013ecE"(ptr noalias nocapture noundef nonnull sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %6), !noalias !397
-  %8 = load ptr, ptr %3, align 8, !noalias !393, !noundef !4
-  %9 = icmp eq ptr %8, null
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = load i32, ptr %10, align 8, !noalias !393
-  %12 = load ptr, ptr %10, align 8, !noalias !393, !nonnull !4, !align !338
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = load i32, ptr %8, align 8, !noalias !393
+  %10 = load <2 x ptr>, ptr %3, align 16, !noalias !393
+  %11 = load ptr, ptr %3, align 16, !noalias !393, !noundef !4
+  %12 = icmp eq ptr %11, null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !393
-  br i1 %9, label %13, label %19
+  br i1 %12, label %13, label %19
 
 13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN102_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..Row$LT$diesel..pg..backend..Pg$GT$$GT$11partial_row17h7651d499cef034fdE"(ptr noalias nocapture noundef nonnull sret({ ptr, { i64, i64 } }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, i64 noundef 1, i64 noundef %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !398
   call void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromStaticSqlRow$LT$ST$C$DB$GT$$GT$14build_from_row17h82e7f3f28c3013ecE"(ptr noalias nocapture noundef nonnull sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5), !noalias !402
-  %14 = load ptr, ptr %4, align 8, !noalias !398, !noundef !4
-  %15 = icmp eq ptr %14, null
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
-  %17 = load i32, ptr %16, align 8, !noalias !398
-  %18 = load ptr, ptr %16, align 8, !noalias !398, !nonnull !4, !align !338
+  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = load i32, ptr %14, align 8, !noalias !398
+  %16 = load <2 x ptr>, ptr %4, align 16, !noalias !398
+  %17 = load ptr, ptr %4, align 16, !noalias !398, !noundef !4
+  %18 = icmp eq ptr %17, null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !398
-  br i1 %15, label %21, label %24
+  br i1 %18, label %20, label %23
 
 19:                                               ; preds = %2
-  store ptr %8, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %12, ptr %20, align 8
+  store <2 x ptr> %10, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %26
+  br label %24
 
-21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %11, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %17, ptr %23, align 4
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %9, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %15, ptr %22, align 4
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %26
+  br label %24
 
-24:                                               ; preds = %13
-  store ptr %14, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %18, ptr %25, align 8
+23:                                               ; preds = %13
+  store <2 x ptr> %16, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %26
+  br label %24
 
-26:                                               ; preds = %24, %21, %19
+24:                                               ; preds = %23, %20, %19
   ret void
 }
 

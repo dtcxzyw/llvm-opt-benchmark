@@ -505,27 +505,24 @@ define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @"_ZN3std3s
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN3std6thread7Builder15spawn_unchecked17h387cb1360947e6d4E(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #1 {
-  %3 = alloca { ptr, [2 x i64] }, align 8
+  %3 = alloca { ptr, [2 x i64] }, align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @_ZN3std6thread7Builder16spawn_unchecked_17hb183e1650dbcc51cE.llvm.5593464411486612011(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %1, ptr noundef null)
-  %4 = load ptr, ptr %3, align 8, !noundef !4
-  %5 = icmp eq ptr %4, null
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = load ptr, ptr %6, align 8
+  %4 = load <2 x ptr>, ptr %3, align 16
+  %5 = load ptr, ptr %3, align 16, !noundef !4
+  %6 = icmp eq ptr %5, null
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br i1 %5, label %9, label %8
+  br i1 %6, label %8, label %7
 
-8:                                                ; preds = %2
+7:                                                ; preds = %2
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.5.0.copyload, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
-  br label %9
+  br label %8
 
-9:                                                ; preds = %2, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %7, ptr %10, align 8
-  store ptr %4, ptr %0, align 8
+8:                                                ; preds = %2, %7
+  store <2 x ptr> %4, ptr %0, align 8
   ret void
 }
 

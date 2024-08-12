@@ -28,7 +28,7 @@ entry:
   %arrayidx31.i.i = getelementptr inbounds i8, ptr %keys, i64 4
   %0 = load i8, ptr %arrayidx31.i.i, align 1
   %1 = load <4 x i8>, ptr %keys, align 1
-  %2 = extractelement <4 x i8> %1, i64 0
+  %2 = load i8, ptr %keys, align 1
   store i8 %2, ptr %key.i, align 1
   %3 = shufflevector <4 x i8> %1, <4 x i8> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
   %4 = insertelement <4 x i8> %3, i8 %0, i64 3
@@ -57,7 +57,7 @@ entry:
   %arrayidx31.i.i17 = getelementptr inbounds i8, ptr %keys, i64 11
   %8 = load i8, ptr %arrayidx31.i.i17, align 1
   %9 = load <4 x i8>, ptr %add.ptr, align 1
-  %10 = extractelement <4 x i8> %9, i64 0
+  %10 = load i8, ptr %add.ptr, align 1
   store i8 %10, ptr %key.i7, align 1
   %11 = shufflevector <4 x i8> %9, <4 x i8> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
   %12 = insertelement <4 x i8> %11, i8 %8, i64 3
@@ -87,7 +87,7 @@ entry:
   %arrayidx31.i.i38 = getelementptr inbounds i8, ptr %keys, i64 18
   %16 = load i8, ptr %arrayidx31.i.i38, align 1
   %17 = load <4 x i8>, ptr %add.ptr2, align 1
-  %18 = extractelement <4 x i8> %17, i64 0
+  %18 = load i8, ptr %add.ptr2, align 1
   store i8 %18, ptr %key.i28, align 1
   %19 = shufflevector <4 x i8> %17, <4 x i8> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
   %20 = insertelement <4 x i8> %19, i8 %16, i64 3
@@ -134,7 +134,7 @@ entry:
   %arrayidx31.i.i = getelementptr inbounds i8, ptr %pw, i64 4
   %0 = load i8, ptr %arrayidx31.i.i, align 4
   %1 = load <4 x i8>, ptr %pw, align 4
-  %2 = extractelement <4 x i8> %1, i64 0
+  %2 = load i8, ptr %pw, align 4
   store i8 %2, ptr %key.i, align 1
   %3 = shufflevector <4 x i8> %1, <4 x i8> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
   %4 = insertelement <4 x i8> %3, i8 %0, i64 3
@@ -163,7 +163,7 @@ entry:
   %arrayidx31.i.i17 = getelementptr inbounds i8, ptr %pw, i64 11
   %8 = load i8, ptr %arrayidx31.i.i17, align 1
   %9 = load <4 x i8>, ptr %add.ptr, align 1
-  %10 = extractelement <4 x i8> %9, i64 0
+  %10 = load i8, ptr %add.ptr, align 1
   store i8 %10, ptr %key.i7, align 1
   %11 = shufflevector <4 x i8> %9, <4 x i8> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
   %12 = insertelement <4 x i8> %11, i8 %8, i64 3

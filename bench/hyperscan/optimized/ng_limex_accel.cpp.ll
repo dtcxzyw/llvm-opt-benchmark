@@ -10415,11 +10415,10 @@ define linkonce_odr hidden void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__
 entry:
   %0 = load ptr, ptr %__last.coerce, align 8
   %_M_finish3.i.i.i.i = getelementptr inbounds i8, ptr %__last.coerce, i64 8
-  %1 = load ptr, ptr %_M_finish3.i.i.i.i, align 8
-  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds i8, ptr %__last.coerce, i64 16
-  %2 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %_M_finish3.i.i.i.i, align 8
+  %2 = load ptr, ptr %_M_finish3.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__last.coerce, i8 0, i64 24, i1 false)
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %1 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
   br label %while.cond
@@ -10435,7 +10434,7 @@ while.cond:                                       ; preds = %while.cond.backedge
   %sub.ptr.sub3.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast1.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast2.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i = icmp slt i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i, %sub.ptr.sub.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i
-  %cond.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %1
+  %cond.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %2
   %cmp.not29.i.i.i.i.i.i.i = icmp eq ptr %cond.i.i.i.i.i.i.i.i, %0
   br i1 %cmp.not29.i.i.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i.i.i.i.preheader.i.i.i.i.i.i.i
 
@@ -10510,10 +10509,8 @@ if.then.i.i.i.i.i:                                ; preds = %while.body
 while.end:                                        ; preds = %invoke.cont, %for.body.i.i.i.i.i.i.i.i.i15.i.i.i.i.i.i.i
   %11 = load ptr, ptr %__last.sroa.0.0, align 8
   %_M_finish.i.i.i.i4 = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 8
-  %_M_end_of_storage.i.i.i.i5 = getelementptr inbounds i8, ptr %__last.sroa.0.0, i64 16
   store ptr %0, ptr %__last.sroa.0.0, align 8
-  store ptr %1, ptr %_M_finish.i.i.i.i4, align 8
-  store ptr %2, ptr %_M_end_of_storage.i.i.i.i5, align 8
+  store <2 x ptr> %1, ptr %_M_finish.i.i.i.i4, align 8
   %tobool.not.i.i.i.i.i8 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i.i8, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit13, label %if.then.i.i.i.i.i9
 

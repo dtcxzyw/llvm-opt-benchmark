@@ -3495,19 +3495,18 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %if.end.i ]
   %arrayidx.i = getelementptr [8 x %struct.VhostUserMemoryRegion], ptr %regions.i, i64 0, i64 %indvars.iv.i
   %arrayidx5.i = getelementptr [32 x %struct.VuDevRegion], ptr %regions3.i, i64 0, i64 %indvars.iv.i
-  %11 = load i64, ptr %arrayidx.i, align 8
-  store i64 %11, ptr %arrayidx5.i, align 8
   %memory_size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %size.i = getelementptr inbounds i8, ptr %arrayidx5.i, i64 8
+  %11 = load i64, ptr %memory_size.i, align 8
+  %12 = load <2 x i64>, ptr %arrayidx.i, align 8
+  store <2 x i64> %12, ptr %arrayidx5.i, align 8
   %userspace_addr.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
-  %12 = load <2 x i64>, ptr %memory_size.i, align 8
-  store <2 x i64> %12, ptr %size.i, align 8
+  %qva.i = getelementptr inbounds i8, ptr %arrayidx5.i, i64 16
   %mmap_offset.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
-  %13 = load i64, ptr %mmap_offset.i, align 8
   %mmap_offset16.i = getelementptr inbounds i8, ptr %arrayidx5.i, i64 24
-  store i64 %13, ptr %mmap_offset16.i, align 8
-  %14 = extractelement <2 x i64> %12, i64 0
-  %add.i = add i64 %13, %14
+  %13 = load i64, ptr %mmap_offset.i, align 8
+  %14 = load <2 x i64>, ptr %userspace_addr.i, align 8
+  store <2 x i64> %14, ptr %qva.i, align 8
+  %add.i = add i64 %13, %11
   %arrayidx20.i = getelementptr [8 x i32], ptr %fds.i, i64 0, i64 %indvars.iv.i
   %15 = load i32, ptr %arrayidx20.i, align 1
   %call.i = tail call ptr @mmap64(ptr noundef null, i64 noundef %add.i, i32 noundef 0, i32 noundef 16385, i32 noundef %15, i64 noundef 0) #21
@@ -3718,18 +3717,17 @@ for.body10:                                       ; preds = %for.body10.lr.ph, %
   %indvars.iv75 = phi i64 [ 0, %for.body10.lr.ph ], [ %indvars.iv.next76, %if.end44 ]
   %arrayidx14 = getelementptr [8 x %struct.VhostUserMemoryRegion], ptr %regions12, i64 0, i64 %indvars.iv75
   %arrayidx17 = getelementptr [32 x %struct.VuDevRegion], ptr %regions15, i64 0, i64 %indvars.iv75
-  %65 = load i64, ptr %arrayidx14, align 8
-  store i64 %65, ptr %arrayidx17, align 8
   %memory_size = getelementptr inbounds i8, ptr %arrayidx14, i64 8
-  %size28 = getelementptr inbounds i8, ptr %arrayidx17, i64 8
-  %66 = load <2 x i64>, ptr %memory_size, align 8
-  store <2 x i64> %66, ptr %size28, align 8
+  %65 = load i64, ptr %memory_size, align 8
+  %66 = load <2 x i64>, ptr %arrayidx14, align 8
+  store <2 x i64> %66, ptr %arrayidx17, align 8
+  %userspace_addr = getelementptr inbounds i8, ptr %arrayidx14, i64 16
+  %qva = getelementptr inbounds i8, ptr %arrayidx17, i64 16
   %mmap_offset29 = getelementptr inbounds i8, ptr %arrayidx14, i64 24
   %67 = load i64, ptr %mmap_offset29, align 8
-  %mmap_offset30 = getelementptr inbounds i8, ptr %arrayidx17, i64 24
-  store i64 %67, ptr %mmap_offset30, align 8
-  %68 = extractelement <2 x i64> %66, i64 0
-  %add33 = add i64 %67, %68
+  %68 = load <2 x i64>, ptr %userspace_addr, align 8
+  store <2 x i64> %68, ptr %qva, align 8
+  %add33 = add i64 %67, %65
   %arrayidx35 = getelementptr [8 x i32], ptr %fds, i64 0, i64 %indvars.iv75
   %69 = load i32, ptr %arrayidx35, align 1
   %call36 = tail call ptr @mmap64(ptr noundef null, i64 noundef %add33, i32 noundef 3, i32 noundef 16385, i32 noundef %69, i64 noundef 0) #21
@@ -4743,23 +4741,25 @@ entry:
   %0 = load i8, ptr %postcopy_listening, align 4
   %tobool = trunc i8 %0 to i1
   %region = getelementptr inbounds i8, ptr %vmsg, i64 20
-  %m.sroa.0.0.copyload = load i64, ptr %region, align 1
   %m.sroa.2.0.region.sroa_idx = getelementptr inbounds i8, ptr %vmsg, i64 28
-  %1 = load <2 x i64>, ptr %m.sroa.2.0.region.sroa_idx, align 1
+  %m.sroa.2.0.copyload = load i64, ptr %m.sroa.2.0.region.sroa_idx, align 1
+  %1 = load <2 x i64>, ptr %region, align 1
+  %m.sroa.3.0.region.sroa_idx = getelementptr inbounds i8, ptr %vmsg, i64 36
   %m.sroa.5.0.region.sroa_idx = getelementptr inbounds i8, ptr %vmsg, i64 44
   %m.sroa.5.0.copyload = load i64, ptr %m.sroa.5.0.region.sroa_idx, align 1
+  %2 = load <2 x i64>, ptr %m.sroa.3.0.region.sroa_idx, align 1
   %regions = getelementptr inbounds i8, ptr %dev, i64 8
   %nregions = getelementptr inbounds i8, ptr %dev, i64 4
-  %2 = load i32, ptr %nregions, align 4
-  %idxprom = zext i32 %2 to i64
+  %3 = load i32, ptr %nregions, align 4
+  %idxprom = zext i32 %3 to i64
   %arrayidx = getelementptr [32 x %struct.VuDevRegion], ptr %regions, i64 0, i64 %idxprom
   %fd_num = getelementptr inbounds i8, ptr %vmsg, i64 316
-  %3 = load i32, ptr %fd_num, align 1
-  %cmp.not = icmp eq i32 %3, 1
+  %4 = load i32, ptr %fd_num, align 1
+  %cmp.not = icmp eq i32 %4, 1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmp4.i = icmp sgt i32 %3, 0
+  %cmp4.i = icmp sgt i32 %4, 0
   br i1 %cmp4.i, label %for.body.lr.ph.i, label %vmsg_close_fds.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.then
@@ -4769,52 +4769,49 @@ for.body.lr.ph.i:                                 ; preds = %if.then
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr [8 x i32], ptr %fds.i, i64 0, i64 %indvars.iv.i
-  %4 = load i32, ptr %arrayidx.i, align 1
-  %call.i = tail call i32 @close(i32 noundef %4) #21
+  %5 = load i32, ptr %arrayidx.i, align 1
+  %call.i = tail call i32 @close(i32 noundef %5) #21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %5 = load i32, ptr %fd_num, align 1
-  %6 = sext i32 %5 to i64
-  %cmp.i = icmp slt i64 %indvars.iv.next.i, %6
+  %6 = load i32, ptr %fd_num, align 1
+  %7 = sext i32 %6 to i64
+  %cmp.i = icmp slt i64 %indvars.iv.next.i, %7
   br i1 %cmp.i, label %for.body.i, label %vmsg_close_fds.exit
 
 vmsg_close_fds.exit:                              ; preds = %for.body.i, %if.then
-  %7 = phi i32 [ %3, %if.then ], [ %5, %for.body.i ]
-  tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %dev, ptr noundef nonnull @.str.90, i32 noundef %7)
+  %8 = phi i32 [ %4, %if.then ], [ %6, %for.body.i ]
+  tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %dev, ptr noundef nonnull @.str.90, i32 noundef %8)
   br label %return
 
 if.end:                                           ; preds = %entry
   %size = getelementptr inbounds i8, ptr %vmsg, i64 8
-  %8 = load i32, ptr %size, align 1
-  %cmp2 = icmp ult i32 %8, 32
+  %9 = load i32, ptr %size, align 1
+  %cmp2 = icmp ult i32 %9, 32
   br i1 %cmp2, label %if.then4, label %if.end7
 
 if.then4:                                         ; preds = %if.end
   %fds = getelementptr inbounds i8, ptr %vmsg, i64 284
-  %9 = load i32, ptr %fds, align 1
-  %call = tail call i32 @close(i32 noundef %9) #21
-  %10 = load i32, ptr %size, align 1
-  tail call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %dev, ptr noundef nonnull @.str.91, i64 noundef 32, i32 noundef %10)
+  %10 = load i32, ptr %fds, align 1
+  %call = tail call i32 @close(i32 noundef %10) #21
+  %11 = load i32, ptr %size, align 1
+  tail call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %dev, ptr noundef nonnull @.str.91, i64 noundef 32, i32 noundef %11)
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %cmp9 = icmp eq i32 %2, 32
+  %cmp9 = icmp eq i32 %3, 32
   br i1 %cmp9, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end7
   %fds12 = getelementptr inbounds i8, ptr %vmsg, i64 284
-  %11 = load i32, ptr %fds12, align 1
-  %call14 = tail call i32 @close(i32 noundef %11) #21
+  %12 = load i32, ptr %fds12, align 1
+  %call14 = tail call i32 @close(i32 noundef %12) #21
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %dev, ptr noundef nonnull @.str.92)
   br label %return
 
 if.end15:                                         ; preds = %if.end7
-  store i64 %m.sroa.0.0.copyload, ptr %arrayidx, align 8
-  %size37 = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  store <2 x i64> %1, ptr %size37, align 8
-  %mmap_offset38 = getelementptr inbounds i8, ptr %arrayidx, i64 24
-  store i64 %m.sroa.5.0.copyload, ptr %mmap_offset38, align 8
-  %12 = extractelement <2 x i64> %1, i64 0
-  %add = add i64 %m.sroa.5.0.copyload, %12
+  store <2 x i64> %1, ptr %arrayidx, align 8
+  %qva = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  store <2 x i64> %2, ptr %qva, align 8
+  %add = add i64 %m.sroa.5.0.copyload, %m.sroa.2.0.copyload
   %fds43 = getelementptr inbounds i8, ptr %vmsg, i64 284
   %13 = load i32, ptr %fds43, align 1
   %. = select i1 %tobool, i32 0, i32 3

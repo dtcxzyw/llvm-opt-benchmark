@@ -333,14 +333,14 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_grgbcurve, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %grgbc, align 8
   %m_value.i = getelementptr inbounds i8, ptr %0, i64 176
-  %1 = load ptr, ptr %m_value.i, align 8, !noalias !17
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %0, i64 184
-  %2 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !17
-  %cmp.not.i.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !17
+  %2 = load <2 x ptr>, ptr %m_value.i, align 8, !noalias !17
+  %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev21GradingRGBCurveOpData26getDynamicPropertyInternalEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1, !noalias !17
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -356,10 +356,9 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   br label %_ZNK19OpenColorIO_v2_4dev21GradingRGBCurveOpData26getDynamicPropertyInternalEv.exit
 
 _ZNK19OpenColorIO_v2_4dev21GradingRGBCurveOpData26getDynamicPropertyInternalEv.exit: ; preds = %entry, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
-  store ptr %1, ptr %m_grgbcurve, align 8
   %_M_refcount3.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %_M_refcount3.i.i.i1, align 8
-  store ptr %2, ptr %_M_refcount3.i.i.i1, align 8
+  store <2 x ptr> %2, ptr %m_grgbcurve, align 8
   %cmp.not.i.i.i.i2 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i2, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplEED2Ev.exit, label %if.then.i.i.i.i3
 

@@ -2483,7 +2483,7 @@ entry:
   %pem_root_certs = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::allocator", align 1
-  %agg.tmp = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr", align 16
   %options_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %options_, align 8
   %verify_server_cert_.i = getelementptr inbounds i8, ptr %0, i64 20
@@ -2593,17 +2593,16 @@ invoke.cont41:                                    ; preds = %invoke.cont34
   %21 = load ptr, ptr %options_, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %crl_provider_.i = getelementptr inbounds i8, ptr %21, i64 200
-  %22 = load ptr, ptr %crl_provider_.i, align 8, !noalias !16
-  store ptr %22, ptr %agg.tmp, align 8, !alias.scope !16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %21, i64 208
-  %23 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !16
-  store ptr %23, ptr %_M_refcount.i.i.i, align 8, !alias.scope !16
-  %cmp.not.i.i.i.i = icmp eq ptr %23, null
+  %22 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !16
+  %23 = load <2 x ptr>, ptr %crl_provider_.i, align 8, !noalias !16
+  store <2 x ptr> %23, ptr %agg.tmp, align 16, !alias.scope !16
+  %cmp.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK28grpc_tls_credentials_options12crl_providerEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont41
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i8, ptr @__libc_single_threaded, align 1, !noalias !16
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %24, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -6028,7 +6027,7 @@ entry:
   %pem_root_certs = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18 = alloca %"class.std::allocator", align 1
-  %agg.tmp = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr", align 16
   %server_handshaker_factory_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %server_handshaker_factory_, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -6145,17 +6144,16 @@ invoke.cont47:                                    ; preds = %invoke.cont40
   %tobool.i = trunc i8 %21 to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
   %crl_provider_.i = getelementptr inbounds i8, ptr %20, i64 200
-  %22 = load ptr, ptr %crl_provider_.i, align 8, !noalias !38
-  store ptr %22, ptr %agg.tmp, align 8, !alias.scope !38
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %20, i64 208
-  %23 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !38
-  store ptr %23, ptr %_M_refcount.i.i.i, align 8, !alias.scope !38
-  %cmp.not.i.i.i.i = icmp eq ptr %23, null
+  %22 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !38
+  %23 = load <2 x ptr>, ptr %crl_provider_.i, align 8, !noalias !38
+  store <2 x ptr> %23, ptr %agg.tmp, align 16, !alias.scope !38
+  %cmp.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK28grpc_tls_credentials_options12crl_providerEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont47
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i8, ptr @__libc_single_threaded, align 1, !noalias !38
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %24, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

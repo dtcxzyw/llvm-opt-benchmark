@@ -5599,7 +5599,6 @@ for.end:                                          ; preds = %for.inc, %invoke.co
 for.body137.lr.ph:                                ; preds = %for.end
   %element.i.i = getelementptr inbounds i8, ptr %vector_type, i64 4
   %struct_def.i.i = getelementptr inbounds i8, ptr %vector_type, i64 8
-  %enum_def.i.i = getelementptr inbounds i8, ptr %vector_type, i64 16
   %fixed_length.i.i = getelementptr inbounds i8, ptr %vector_type, i64 24
   %add.ptr.i266 = getelementptr inbounds i8, ptr %ss.i265, i64 16
   %add.ptr.i275 = getelementptr inbounds i8, ptr %ss.i274, i64 16
@@ -5720,16 +5719,14 @@ invoke.cont168:                                   ; preds = %invoke.cont166
   %element.i = getelementptr inbounds i8, ptr %46, i64 204
   %51 = load i32, ptr %element.i, align 4, !noalias !144
   %struct_def.i = getelementptr inbounds i8, ptr %46, i64 208
-  %52 = load ptr, ptr %struct_def.i, align 8, !noalias !144
-  %enum_def.i = getelementptr inbounds i8, ptr %46, i64 216
-  %53 = load ptr, ptr %enum_def.i, align 8, !noalias !144
   %fixed_length.i = getelementptr inbounds i8, ptr %46, i64 224
-  %54 = load i16, ptr %fixed_length.i, align 8, !noalias !144
+  %52 = load i16, ptr %fixed_length.i, align 8, !noalias !144
   store i32 %51, ptr %vector_type, align 8, !alias.scope !144
   store i32 0, ptr %element.i.i, align 4, !alias.scope !144
-  store ptr %52, ptr %struct_def.i.i, align 8, !alias.scope !144
-  store ptr %53, ptr %enum_def.i.i, align 8, !alias.scope !144
-  store i16 %54, ptr %fixed_length.i.i, align 8, !alias.scope !144
+  %53 = load <2 x ptr>, ptr %struct_def.i, align 8, !noalias !144
+  %54 = load ptr, ptr %struct_def.i, align 8, !noalias !144
+  store <2 x ptr> %53, ptr %struct_def.i.i, align 8, !alias.scope !144
+  store i16 %52, ptr %fixed_length.i.i, align 8, !alias.scope !144
   switch i32 %51, label %sw.epilog.i30.i [
     i32 15, label %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i
     i32 17, label %_ZN11flatbuffers15InlineAlignmentERKNS_4TypeE.exit
@@ -5753,13 +5750,13 @@ invoke.cont168:                                   ; preds = %invoke.cont166
   ]
 
 _ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i:     ; preds = %invoke.cont168
-  %fixed.i.i = getelementptr inbounds i8, ptr %52, i64 272
+  %fixed.i.i = getelementptr inbounds i8, ptr %54, i64 272
   %55 = load i8, ptr %fixed.i.i, align 8
   %tobool.i.i = trunc i8 %55 to i1
   br i1 %tobool.i.i, label %if.then.i, label %_ZN11flatbuffers15InlineAlignmentERKNS_4TypeE.exit
 
 if.then.i:                                        ; preds = %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i
-  %minalign.i = getelementptr inbounds i8, ptr %52, i64 280
+  %minalign.i = getelementptr inbounds i8, ptr %54, i64 280
   %56 = load i64, ptr %minalign.i, align 8
   br label %_ZN11flatbuffers15InlineAlignmentERKNS_4TypeE.exit
 

@@ -2893,15 +2893,16 @@ entry:
   %mLevel4.i = getelementptr inbounds i8, ptr %this, i64 240
   %mMinLevel.i = getelementptr inbounds i8, ptr %it, i64 244
   %0 = load <2 x i32>, ptr %mLevel4.i, align 8
+  %1 = load i32, ptr %mLevel4.i, align 8
   store <2 x i32> %0, ptr %mLevel.i, align 8
   %mMaxLevel.i = getelementptr inbounds i8, ptr %it, i64 248
   %mMaxLevel6.i = getelementptr inbounds i8, ptr %this, i64 248
-  %1 = load i32, ptr %mMaxLevel6.i, align 8
-  store i32 %1, ptr %mMaxLevel.i, align 8
+  %2 = load i32, ptr %mMaxLevel6.i, align 8
+  store i32 %2, ptr %mMaxLevel.i, align 8
   %mTree.i = getelementptr inbounds i8, ptr %it, i64 256
   %mTree7.i = getelementptr inbounds i8, ptr %this, i64 256
-  %2 = load ptr, ptr %mTree7.i, align 8
-  store ptr %2, ptr %mTree.i, align 8
+  %3 = load ptr, ptr %mTree7.i, align 8
+  store ptr %3, ptr %mTree.i, align 8
   %mPrev.i.i = getelementptr inbounds i8, ptr %it, i64 112
   store ptr null, ptr %mPrev.i.i, align 8
   %mPrev.i.i.i = getelementptr inbounds i8, ptr %it, i64 104
@@ -2920,11 +2921,10 @@ entry:
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 152
   %mMaskIter.i.i.i = getelementptr inbounds i8, ptr %it, i64 128
   %mIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 200
-  %3 = extractelement <2 x i32> %0, i64 0
   br label %for.cond
 
 for.cond:                                         ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit, %entry
-  %4 = phi i32 [ %3, %entry ], [ %.pre.pre, %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit ]
+  %4 = phi i32 [ %1, %entry ], [ %.pre.pre, %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit ]
   %n.0 = phi i64 [ 0, %entry ], [ %inc, %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit ]
   switch i32 %4, label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE4testEv.exit [
     i32 0, label %cond.true.i.i
@@ -7424,17 +7424,15 @@ if.then13.critedge:                               ; preds = %land.rhs.i
 if.then13:                                        ; preds = %if.then13.critedge, %if.end.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !95)
   call void @llvm.experimental.noalias.scope.decl(metadata !98)
-  %8 = load ptr, ptr %second, align 8, !noalias !101
-  store ptr %8, ptr %agg.result, align 8, !alias.scope !101
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 72
-  %9 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !101
-  store ptr %9, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !101
-  %cmp.not.i.i.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !101
+  %9 = load <2 x ptr>, ptr %second, align 8, !noalias !101
+  store <2 x ptr> %9, ptr %agg.result, align 8, !alias.scope !101
+  %cmp.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i.i, label %return, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then13
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !101
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -11267,15 +11265,16 @@ entry:
   %mLevel4.i = getelementptr inbounds i8, ptr %this, i64 240
   %mMinLevel.i = getelementptr inbounds i8, ptr %it, i64 244
   %0 = load <2 x i32>, ptr %mLevel4.i, align 8
+  %1 = load i32, ptr %mLevel4.i, align 8
   store <2 x i32> %0, ptr %mLevel.i, align 8
   %mMaxLevel.i = getelementptr inbounds i8, ptr %it, i64 248
   %mMaxLevel6.i = getelementptr inbounds i8, ptr %this, i64 248
-  %1 = load i32, ptr %mMaxLevel6.i, align 8
-  store i32 %1, ptr %mMaxLevel.i, align 8
+  %2 = load i32, ptr %mMaxLevel6.i, align 8
+  store i32 %2, ptr %mMaxLevel.i, align 8
   %mTree.i = getelementptr inbounds i8, ptr %it, i64 256
   %mTree7.i = getelementptr inbounds i8, ptr %this, i64 256
-  %2 = load ptr, ptr %mTree7.i, align 8
-  store ptr %2, ptr %mTree.i, align 8
+  %3 = load ptr, ptr %mTree7.i, align 8
+  store ptr %3, ptr %mTree.i, align 8
   %mPrev.i.i = getelementptr inbounds i8, ptr %it, i64 112
   store ptr null, ptr %mPrev.i.i, align 8
   %mPrev.i.i.i = getelementptr inbounds i8, ptr %it, i64 104
@@ -11294,11 +11293,10 @@ entry:
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 152
   %mMaskIter.i.i.i = getelementptr inbounds i8, ptr %it, i64 128
   %mIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 200
-  %3 = extractelement <2 x i32> %0, i64 0
   br label %for.cond
 
 for.cond:                                         ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit, %entry
-  %4 = phi i32 [ %3, %entry ], [ %.pre.pre, %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit ]
+  %4 = phi i32 [ %1, %entry ], [ %.pre.pre, %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit ]
   %n.0 = phi i64 [ 0, %entry ], [ %inc, %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit ]
   switch i32 %4, label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE4testEv.exit [
     i32 0, label %cond.true.i.i
@@ -19067,15 +19065,16 @@ entry:
   %mLevel4.i = getelementptr inbounds i8, ptr %this, i64 240
   %mMinLevel.i = getelementptr inbounds i8, ptr %it, i64 244
   %0 = load <2 x i32>, ptr %mLevel4.i, align 8
+  %1 = load i32, ptr %mLevel4.i, align 8
   store <2 x i32> %0, ptr %mLevel.i, align 8
   %mMaxLevel.i = getelementptr inbounds i8, ptr %it, i64 248
   %mMaxLevel6.i = getelementptr inbounds i8, ptr %this, i64 248
-  %1 = load i32, ptr %mMaxLevel6.i, align 8
-  store i32 %1, ptr %mMaxLevel.i, align 8
+  %2 = load i32, ptr %mMaxLevel6.i, align 8
+  store i32 %2, ptr %mMaxLevel.i, align 8
   %mTree.i = getelementptr inbounds i8, ptr %it, i64 256
   %mTree7.i = getelementptr inbounds i8, ptr %this, i64 256
-  %2 = load ptr, ptr %mTree7.i, align 8
-  store ptr %2, ptr %mTree.i, align 8
+  %3 = load ptr, ptr %mTree7.i, align 8
+  store ptr %3, ptr %mTree.i, align 8
   %mPrev.i.i = getelementptr inbounds i8, ptr %it, i64 112
   store ptr null, ptr %mPrev.i.i, align 8
   %mPrev.i.i.i = getelementptr inbounds i8, ptr %it, i64 104
@@ -19094,11 +19093,10 @@ entry:
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 152
   %mMaskIter.i.i.i = getelementptr inbounds i8, ptr %it, i64 128
   %mIter.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 200
-  %3 = extractelement <2 x i32> %0, i64 0
   br label %for.cond
 
 for.cond:                                         ; preds = %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit, %entry
-  %4 = phi i32 [ %3, %entry ], [ %.pre.pre, %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit ]
+  %4 = phi i32 [ %1, %entry ], [ %.pre.pre, %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit ]
   %n.0 = phi i64 [ 0, %entry ], [ %inc, %_ZN7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEEppEv.exit ]
   switch i32 %4, label %_ZNK7openvdb5v11_04tree21TreeValueIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEENSD_9ValueIterISD_St17_Rb_tree_iteratorISt4pairIKNS7_5CoordENSD_10NodeStructEEENSD_12ValueAllPredES9_EEE4testEv.exit [
     i32 0, label %cond.true.i.i

@@ -4144,31 +4144,30 @@ switch.lookup:                                    ; preds = %74
   %.sroa.22.0.copyload.i.i = load float, ptr %.sroa.22.0..sroa_idx.i.i, align 4, !noalias !31
   %91 = load float, ptr %9, align 4, !noalias !34
   %92 = getelementptr inbounds i8, ptr %9, i64 4
-  %93 = load i32, ptr %92, align 4, !noalias !34
-  %94 = getelementptr inbounds i8, ptr %9, i64 8
-  %95 = load i32, ptr %94, align 4, !noalias !34
-  %96 = getelementptr inbounds i8, ptr %9, i64 28
-  %97 = getelementptr inbounds i8, ptr %9, i64 52
-  %98 = load i32, ptr %97, align 4, !noalias !34
-  %99 = getelementptr inbounds i8, ptr %9, i64 44
-  %100 = getelementptr inbounds i8, ptr %0, i64 120
+  %93 = getelementptr inbounds i8, ptr %9, i64 8
+  %94 = getelementptr inbounds i8, ptr %9, i64 28
+  %95 = getelementptr inbounds i8, ptr %9, i64 52
+  %96 = load i32, ptr %95, align 4, !noalias !34
+  %97 = getelementptr inbounds i8, ptr %9, i64 44
+  %98 = getelementptr inbounds i8, ptr %0, i64 120
   %.sroa.280.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 124
   %.sroa.381.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 128
   %.sroa.482.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 132
   %.sroa.684.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 140
-  %101 = load <4 x float>, ptr %22, align 4, !noalias !34
+  %99 = load <4 x float>, ptr %22, align 4, !noalias !34
   %.sroa.886.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 148
-  %102 = load <4 x float>, ptr %96, align 4, !noalias !34
+  %100 = load <4 x float>, ptr %94, align 4, !noalias !34
   %.sroa.1290.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 164
-  %103 = load <2 x float>, ptr %99, align 4, !noalias !34
-  store float %91, ptr %100, align 8
-  store i32 %93, ptr %.sroa.280.0..sroa_idx, align 4
-  store i32 %95, ptr %.sroa.381.0..sroa_idx, align 8
-  store <4 x float> %101, ptr %.sroa.482.0..sroa_idx, align 4
-  store <4 x float> %102, ptr %.sroa.886.0..sroa_idx, align 4
-  store <2 x float> %103, ptr %.sroa.1290.0..sroa_idx, align 4
+  %101 = load <2 x float>, ptr %97, align 4, !noalias !34
+  %102 = load i32, ptr %93, align 4, !noalias !34
+  %103 = load <2 x i32>, ptr %92, align 4, !noalias !34
+  store float %91, ptr %98, align 8
+  store <2 x i32> %103, ptr %.sroa.280.0..sroa_idx, align 4
+  store <4 x float> %99, ptr %.sroa.482.0..sroa_idx, align 4
+  store <4 x float> %100, ptr %.sroa.886.0..sroa_idx, align 4
+  store <2 x float> %101, ptr %.sroa.1290.0..sroa_idx, align 4
   %.sroa.1492.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 172
-  store i32 %98, ptr %.sroa.1492.0..sroa_idx, align 4
+  store i32 %96, ptr %.sroa.1492.0..sroa_idx, align 4
   %.sroa.1593.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.1593.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(64) %.sroa.1593, i64 64, i1 false)
   %.sroa.1694.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 240
@@ -4185,7 +4184,7 @@ switch.lookup:                                    ; preds = %74
           to label %109 unwind label %.loopexit.split-lp
 
 109:                                              ; preds = %106
-  %110 = sitofp i32 %95 to double
+  %110 = sitofp i32 %102 to double
   %111 = sitofp i32 %105 to double
   %112 = fmul double %110, %111
   %113 = sitofp i32 %108 to double
@@ -4310,18 +4309,18 @@ _ZNK19MeshLabPluginLogger3logIJiRiEEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogStream
   br i1 %162, label %163, label %165
 
 163:                                              ; preds = %_ZNK19MeshLabPluginLogger3logIJiRiEEEvPKcDpOT_.exit
-  %164 = invoke noundef i32 @_ZN6Solver8optimizeEP8AlignSetP10MutualInfoRN3vcg4ShotIfNS4_8Matrix44IfEEEE(ptr noundef nonnull align 8 dereferenceable(1000) %12, ptr noundef nonnull %71, ptr noundef nonnull %13, ptr noundef nonnull align 4 dereferenceable(132) %100)
+  %164 = invoke noundef i32 @_ZN6Solver8optimizeEP8AlignSetP10MutualInfoRN3vcg4ShotIfNS4_8Matrix44IfEEEE(ptr noundef nonnull align 8 dereferenceable(1000) %12, ptr noundef nonnull %71, ptr noundef nonnull %13, ptr noundef nonnull align 4 dereferenceable(132) %98)
           to label %167 unwind label %.loopexit
 
 165:                                              ; preds = %_ZNK19MeshLabPluginLogger3logIJiRiEEEvPKcDpOT_.exit
-  %166 = invoke noundef i32 @_ZN6Solver9iterativeEP8AlignSetP10MutualInfoRN3vcg4ShotIfNS4_8Matrix44IfEEEE(ptr noundef nonnull align 8 dereferenceable(1000) %12, ptr noundef nonnull %71, ptr noundef nonnull %13, ptr noundef nonnull align 4 dereferenceable(132) %100)
+  %166 = invoke noundef i32 @_ZN6Solver9iterativeEP8AlignSetP10MutualInfoRN3vcg4ShotIfNS4_8Matrix44IfEEEE(ptr noundef nonnull align 8 dereferenceable(1000) %12, ptr noundef nonnull %71, ptr noundef nonnull %13, ptr noundef nonnull align 4 dereferenceable(132) %98)
           to label %167 unwind label %.loopexit
 
 167:                                              ; preds = %163, %165
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %.sroa.15, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.1593.0..sroa_idx, i64 64, i1 false)
   %.sroa.01.0.copyload.i.i57 = load <2 x float>, ptr %.sroa.1694.0..sroa_idx, align 8, !noalias !37
   %.sroa.22.0.copyload.i.i59 = load float, ptr %.sroa.1795.0..sroa_idx, align 8, !noalias !37
-  %168 = load float, ptr %100, align 8, !noalias !40
+  %168 = load float, ptr %98, align 8, !noalias !40
   %169 = load <2 x i32>, ptr %.sroa.280.0..sroa_idx, align 4, !noalias !40
   %170 = load <4 x float>, ptr %.sroa.482.0..sroa_idx, align 4, !noalias !40
   %171 = load i32, ptr %.sroa.1492.0..sroa_idx, align 4, !noalias !40

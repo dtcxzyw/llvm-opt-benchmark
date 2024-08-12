@@ -4216,7 +4216,7 @@ declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN14CombineVisitor7processEP10AstNetlist(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca %"class.std::__cxx11::list", align 8
+  %3 = alloca %"class.std::__cxx11::list", align 16
   %4 = alloca %class.V3DupFinder, align 8
   %5 = alloca %class.VNUser2InUse, align 1
   %6 = getelementptr inbounds i8, ptr %1, i64 24
@@ -4480,29 +4480,28 @@ _ZN20AstUserAllocatorBaseI13AstNodeModuleN14CombineVisitor6CFuncsELi1EEclIJEEERS
   %138 = phi i64 [ %111, %_ZN7AstNode9privateAsI13AstNodeModulePS_EEPT_S2_.exit55 ], [ %136, %_ZNSt5dequeIN14CombineVisitor6CFuncsESaIS1_EE4backEv.exit.i36 ]
   %139 = phi i32 [ %107, %_ZN7AstNode9privateAsI13AstNodeModulePS_EEPT_S2_.exit55 ], [ %137, %_ZNSt5dequeIN14CombineVisitor6CFuncsESaIS1_EE4backEv.exit.i36 ]
   %.0.i33 = phi ptr [ %112, %_ZN7AstNode9privateAsI13AstNodeModulePS_EEPT_S2_.exit55 ], [ %135, %_ZNSt5dequeIN14CombineVisitor6CFuncsESaIS1_EE4backEv.exit.i36 ]
-  %140 = load ptr, ptr %.0.i33, align 8
-  store ptr %140, ptr %3, align 8
-  %141 = getelementptr inbounds i8, ptr %.0.i33, i64 8
-  %142 = load ptr, ptr %141, align 8
-  store ptr %142, ptr %96, align 8
+  %140 = getelementptr inbounds i8, ptr %.0.i33, i64 8
+  %141 = load ptr, ptr %140, align 8
+  %142 = load <2 x ptr>, ptr %.0.i33, align 8
+  store <2 x ptr> %142, ptr %3, align 16
   %143 = getelementptr inbounds i8, ptr %.0.i33, i64 16
   %144 = load i64, ptr %143, align 8
-  store i64 %144, ptr %97, align 8
+  store i64 %144, ptr %97, align 16
   %145 = load ptr, ptr %.0.i33, align 8
   %146 = icmp eq ptr %145, %.0.i33
   br i1 %146, label %147, label %148
 
 147:                                              ; preds = %_ZN20AstUserAllocatorBaseI13AstNodeModuleN14CombineVisitor6CFuncsELi1EEclIJEEERS2_PS0_DpOT_.exit38
   store ptr %3, ptr %96, align 8
-  store ptr %3, ptr %3, align 8
+  store ptr %3, ptr %3, align 16
   br label %_ZNSt7__cxx114listIP8AstCFuncSaIS2_EEC2EOS4_.exit
 
 148:                                              ; preds = %_ZN20AstUserAllocatorBaseI13AstNodeModuleN14CombineVisitor6CFuncsELi1EEclIJEEERS2_PS0_DpOT_.exit38
-  store ptr %3, ptr %142, align 8
-  %149 = load ptr, ptr %3, align 8
+  store ptr %3, ptr %141, align 8
+  %149 = load ptr, ptr %3, align 16
   %150 = getelementptr inbounds i8, ptr %149, i64 8
   store ptr %3, ptr %150, align 8
-  store ptr %.0.i33, ptr %141, align 8
+  store ptr %.0.i33, ptr %140, align 8
   store ptr %.0.i33, ptr %.0.i33, align 8
   store i64 0, ptr %143, align 8
   %.pre91 = load i32, ptr %106, align 8
@@ -4585,9 +4584,9 @@ _ZN20AstUserAllocatorBaseI13AstNodeModuleN14CombineVisitor6CFuncsELi1EEclIJEEERS
   call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %182, ptr noundef nonnull %181) #16
   %185 = getelementptr inbounds i8, ptr %.0.i41, i64 40
   %186 = load i64, ptr %185, align 8
-  %187 = load i64, ptr %97, align 8
+  %187 = load i64, ptr %97, align 16
   %188 = add i64 %187, %186
-  store i64 %188, ptr %97, align 8
+  store i64 %188, ptr %97, align 16
   store i64 0, ptr %185, align 8
   br label %_ZNSt7__cxx114listIP8AstCFuncSaIS2_EE6spliceESt20_List_const_iteratorIS2_ERS4_.exit
 
@@ -4598,7 +4597,7 @@ _ZNSt7__cxx114listIP8AstCFuncSaIS2_EE6spliceESt20_List_const_iteratorIS2_ERS4_.e
   store ptr %99, ptr %102, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, i8 0, i64 16, i1 false)
   store ptr %98, ptr %104, align 8
-  %.sroa.061.074 = load ptr, ptr %3, align 8
+  %.sroa.061.074 = load ptr, ptr %3, align 16
   %.not6675 = icmp eq ptr %.sroa.061.074, %3
   br i1 %.not6675, label %._crit_edge78, label %.lr.ph77
 
@@ -4726,7 +4725,7 @@ _ZN8V3HasherD2Ev.exit.i:                          ; preds = %216
   unreachable
 
 _ZN11V3DupFinderD2Ev.exit:                        ; preds = %220
-  %225 = load ptr, ptr %3, align 8
+  %225 = load ptr, ptr %3, align 16
   %.not8.i.i.i = icmp eq ptr %225, %3
   br i1 %.not8.i.i.i, label %_ZNSt7__cxx114listIP8AstCFuncSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i
 
@@ -4771,7 +4770,7 @@ _ZNSt7__cxx114listIP8AstCFuncSaIS2_EED2Ev.exit:   ; preds = %.lr.ph.i.i.i, %_ZN1
 
 243:                                              ; preds = %242, %205
   %.pn.pn = phi { ptr, i32 } [ %.pn, %242 ], [ %206, %205 ]
-  %244 = load ptr, ptr %3, align 8
+  %244 = load ptr, ptr %3, align 16
   %.not8.i.i.i56 = icmp eq ptr %244, %3
   br i1 %.not8.i.i.i56, label %_ZNSt7__cxx114listIP8AstCFuncSaIS2_EED2Ev.exit60, label %.lr.ph.i.i.i57
 

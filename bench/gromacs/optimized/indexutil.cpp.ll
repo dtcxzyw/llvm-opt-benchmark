@@ -1128,9 +1128,9 @@ _ZSt8_DestroyIP10IndexGroupS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %8
   store ptr %10, ptr %4, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   %12 = load <2 x ptr>, ptr %11, align 8
+  %13 = load ptr, ptr %11, align 8
   store <2 x ptr> %12, ptr %9, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %13 = extractelement <2 x ptr> %12, i64 0
   br label %_ZNSt6vectorI10IndexGroupSaIS0_EED2Ev.exit
 
 .loopexit70:                                      ; preds = %.lr.ph74, %70, %73
@@ -1161,9 +1161,9 @@ _ZNSt6vectorI10IndexGroupSaIS0_EED2Ev.exit53:     ; preds = %16
   store ptr %18, ptr %4, align 8
   %19 = getelementptr inbounds i8, ptr %7, i64 8
   %20 = load <2 x ptr>, ptr %19, align 8
+  %21 = load ptr, ptr %19, align 8
   store <2 x ptr> %20, ptr %17, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %21 = extractelement <2 x ptr> %20, i64 0
   invoke void @_Z9done_atomP7t_atoms(ptr noundef nonnull %6)
           to label %_ZNSt6vectorI10IndexGroupSaIS0_EED2Ev.exit unwind label %.loopexit.split-lp
 

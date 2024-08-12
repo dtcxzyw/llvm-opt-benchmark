@@ -990,30 +990,27 @@ _ZSt16__insertion_sortIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__o
 
 for.body.i7:                                      ; preds = %_ZSt16__insertion_sortIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit, %_ZSt25__unguarded_linear_insertIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i10
   %__i.04.i = phi ptr [ %incdec.ptr.i, %_ZSt25__unguarded_linear_insertIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i10 ], [ %add.ptr, %_ZSt16__insertion_sortIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_.exit ]
-  %7 = load i32, ptr %__i.04.i, align 4
   %__last.sroa_idx.i.i = getelementptr inbounds i8, ptr %__i.04.i, i64 4
-  %8 = load i32, ptr %__last.sroa_idx.i.i, align 4
-  %9 = bitcast i32 %8 to float
+  %7 = load float, ptr %__last.sroa_idx.i.i, align 4
+  %8 = load <2 x i32>, ptr %__i.04.i, align 4
   %mWeight2.i.i9.i.i8 = getelementptr inbounds i8, ptr %__i.04.i, i64 -4
-  %10 = load float, ptr %mWeight2.i.i9.i.i8, align 4
-  %cmp.i.i10.i.i9 = fcmp olt float %10, %9
+  %9 = load float, ptr %mWeight2.i.i9.i.i8, align 4
+  %cmp.i.i10.i.i9 = fcmp olt float %9, %7
   br i1 %cmp.i.i10.i.i9, label %while.body.i.i13, label %_ZSt25__unguarded_linear_insertIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i10
 
 while.body.i.i13:                                 ; preds = %for.body.i7, %while.body.i.i13
   %__last.addr.011.i.i14 = phi ptr [ %__next.0.i.i15, %while.body.i.i13 ], [ %__i.04.i, %for.body.i7 ]
   %__next.0.i.i15 = getelementptr inbounds i8, ptr %__last.addr.011.i.i14, i64 -8
-  %11 = load i64, ptr %__next.0.i.i15, align 4
-  store i64 %11, ptr %__last.addr.011.i.i14, align 4
+  %10 = load i64, ptr %__next.0.i.i15, align 4
+  store i64 %10, ptr %__last.addr.011.i.i14, align 4
   %mWeight2.i.i.i.i16 = getelementptr inbounds i8, ptr %__last.addr.011.i.i14, i64 -12
-  %12 = load float, ptr %mWeight2.i.i.i.i16, align 4
-  %cmp.i.i.i.i17 = fcmp olt float %12, %9
+  %11 = load float, ptr %mWeight2.i.i.i.i16, align 4
+  %cmp.i.i.i.i17 = fcmp olt float %11, %7
   br i1 %cmp.i.i.i.i17, label %while.body.i.i13, label %_ZSt25__unguarded_linear_insertIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i10, !llvm.loop !21
 
 _ZSt25__unguarded_linear_insertIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i10: ; preds = %while.body.i.i13, %for.body.i7
   %__last.addr.0.lcssa.i.i11 = phi ptr [ %__i.04.i, %for.body.i7 ], [ %__next.0.i.i15, %while.body.i.i13 ]
-  store i32 %7, ptr %__last.addr.0.lcssa.i.i11, align 4
-  %__last.addr.0.sroa_idx.i.i12 = getelementptr inbounds i8, ptr %__last.addr.0.lcssa.i.i11, i64 4
-  store i32 %8, ptr %__last.addr.0.sroa_idx.i.i12, align 4
+  store <2 x i32> %8, ptr %__last.addr.0.lcssa.i.i11, align 4
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__i.04.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__last
   br i1 %cmp.not.i, label %if.end, label %for.body.i7, !llvm.loop !23
@@ -1035,13 +1032,13 @@ for.body.i21:                                     ; preds = %for.inc.i32, %for.b
   %__i.015.i22 = phi ptr [ %__i.012.i18, %for.body.lr.ph.i ], [ %__i.0.i33, %for.inc.i32 ]
   %__first.pn14.i23 = phi ptr [ %__first, %for.body.lr.ph.i ], [ %__i.015.i22, %for.inc.i32 ]
   %mWeight.i.i.i24 = getelementptr inbounds i8, ptr %__first.pn14.i23, i64 12
-  %13 = load float, ptr %mWeight.i.i.i24, align 4
-  %14 = load float, ptr %mWeight2.i.i.i19, align 4
-  %cmp.i.i.i25 = fcmp ogt float %13, %14
+  %12 = load float, ptr %mWeight.i.i.i24, align 4
+  %13 = load float, ptr %mWeight2.i.i.i19, align 4
+  %cmp.i.i.i25 = fcmp ogt float %12, %13
   br i1 %cmp.i.i.i25, label %if.then2.i40, label %if.else.i26
 
 if.then2.i40:                                     ; preds = %for.body.i21
-  %15 = load i64, ptr %__i.015.i22, align 4
+  %14 = load i64, ptr %__i.015.i22, align 4
   %add.ptr3.i41 = getelementptr inbounds i8, ptr %__first.pn14.i23, i64 16
   %sub.ptr.lhs.cast.i.i.i.i.i.i42 = ptrtoint ptr %__i.015.i22 to i64
   %sub.ptr.sub.i.i.i.i.i.i43 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i42, %sub.ptr.rhs.cast
@@ -1049,31 +1046,31 @@ if.then2.i40:                                     ; preds = %for.body.i21
   %.pre.i.i.i.i.i.i45 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i44
   %add.ptr.i.i.i.i.i.i46 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %add.ptr3.i41, i64 %.pre.i.i.i.i.i.i45
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr.i.i.i.i.i.i46, ptr noundef nonnull align 4 dereferenceable(1) %__first, i64 %sub.ptr.sub.i.i.i.i.i.i43, i1 false)
-  store i64 %15, ptr %__first, align 4
+  store i64 %14, ptr %__first, align 4
   br label %for.inc.i32
 
 if.else.i26:                                      ; preds = %for.body.i21
-  %16 = load i32, ptr %__i.015.i22, align 4
+  %15 = load i32, ptr %__i.015.i22, align 4
   %mWeight2.i.i9.i.i27 = getelementptr inbounds i8, ptr %__first.pn14.i23, i64 4
-  %17 = load float, ptr %mWeight2.i.i9.i.i27, align 4
-  %cmp.i.i10.i.i28 = fcmp olt float %17, %13
+  %16 = load float, ptr %mWeight2.i.i9.i.i27, align 4
+  %cmp.i.i10.i.i28 = fcmp olt float %16, %12
   br i1 %cmp.i.i10.i.i28, label %while.body.i.i35, label %_ZSt25__unguarded_linear_insertIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i29
 
 while.body.i.i35:                                 ; preds = %if.else.i26, %while.body.i.i35
   %__last.addr.011.i.i36 = phi ptr [ %__next.0.i.i37, %while.body.i.i35 ], [ %__i.015.i22, %if.else.i26 ]
   %__next.0.i.i37 = getelementptr inbounds i8, ptr %__last.addr.011.i.i36, i64 -8
-  %18 = load i64, ptr %__next.0.i.i37, align 4
-  store i64 %18, ptr %__last.addr.011.i.i36, align 4
+  %17 = load i64, ptr %__next.0.i.i37, align 4
+  store i64 %17, ptr %__last.addr.011.i.i36, align 4
   %mWeight2.i.i.i.i38 = getelementptr inbounds i8, ptr %__last.addr.011.i.i36, i64 -12
-  %19 = load float, ptr %mWeight2.i.i.i.i38, align 4
-  %cmp.i.i.i.i39 = fcmp olt float %19, %13
+  %18 = load float, ptr %mWeight2.i.i.i.i38, align 4
+  %cmp.i.i.i.i39 = fcmp olt float %18, %12
   br i1 %cmp.i.i.i.i39, label %while.body.i.i35, label %_ZSt25__unguarded_linear_insertIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i29, !llvm.loop !21
 
 _ZSt25__unguarded_linear_insertIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i29: ; preds = %while.body.i.i35, %if.else.i26
   %__last.addr.0.lcssa.i.i30 = phi ptr [ %__i.015.i22, %if.else.i26 ], [ %__next.0.i.i37, %while.body.i.i35 ]
-  store i32 %16, ptr %__last.addr.0.lcssa.i.i30, align 4
+  store i32 %15, ptr %__last.addr.0.lcssa.i.i30, align 4
   %__last.addr.0.sroa_idx.i.i31 = getelementptr inbounds i8, ptr %__last.addr.0.lcssa.i.i30, i64 4
-  store float %13, ptr %__last.addr.0.sroa_idx.i.i31, align 4
+  store float %12, ptr %__last.addr.0.sroa_idx.i.i31, align 4
   br label %for.inc.i32
 
 for.inc.i32:                                      ; preds = %_ZSt25__unguarded_linear_insertIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i29, %if.then2.i40

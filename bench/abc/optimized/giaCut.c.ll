@@ -7157,26 +7157,25 @@ define void @Gia_ManConsiderCuts(ptr noundef %0, ptr nocapture noundef readonly 
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %17)
   %19 = getelementptr inbounds i8, ptr %13, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = add nsw i32 %20, -1
-  store i32 %21, ptr %19, align 4
-  %22 = load i32, ptr %13, align 8
-  %23 = add nsw i32 %22, -1
-  store i32 %23, ptr %13, align 8
-  %24 = load ptr, ptr %16, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
-  store ptr %25, ptr %16, align 8
-  %26 = icmp sgt i32 %20, 1
-  br i1 %26, label %.lr.ph.i, label %Gia_ManCountRefs.exit
+  %21 = load <2 x i32>, ptr %13, align 8
+  %22 = add nsw <2 x i32> %21, <i32 -1, i32 -1>
+  store <2 x i32> %22, ptr %13, align 8
+  %23 = load ptr, ptr %16, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  store ptr %24, ptr %16, align 8
+  %25 = icmp sgt i32 %20, 1
+  br i1 %25, label %.lr.ph.i, label %Gia_ManCountRefs.exit
 
 .lr.ph.i:                                         ; preds = %12
+  %26 = add nsw i32 %20, -1
   %.val10.i = load ptr, ptr %8, align 8
-  %wide.trip.count.i = zext nneg i32 %21 to i64
+  %wide.trip.count.i = zext nneg i32 %26 to i64
   br label %27
 
 27:                                               ; preds = %27, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %27 ]
   %.012.i = phi i32 [ 0, %.lr.ph.i ], [ %33, %27 ]
-  %28 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv.i
+  %28 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv.i
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i32, ptr %.val10.i, i64 %30

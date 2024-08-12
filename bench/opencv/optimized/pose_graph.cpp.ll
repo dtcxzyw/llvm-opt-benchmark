@@ -1429,25 +1429,25 @@ _ZNK2cv4MatxIfLi6ELi6EEcvNS0_IT_Li6ELi6EEEIdEEv.exit: ; preds = %62
   br i1 %exitcond.not.i.i.i.i, label %_ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit.i, label %67, !llvm.loop !65
 
 _ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit.i: ; preds = %67
-  %74 = fneg double %.sroa.683.24.copyload
-  %75 = extractelement <2 x double> %43, i64 0
-  %76 = fmul double %75, %.sroa.4.24.copyload
-  %77 = tail call double @llvm.fmuladd.f64(double %.sroa.280.24.copyload, double %.sroa.2.24.copyload, double %76)
-  %78 = fmul double %75, %.sroa.6.24.copyload
-  %79 = tail call double @llvm.fmuladd.f64(double %.sroa.280.24.copyload, double %.sroa.5.24.copyload, double %78)
-  %80 = fmul double %.sroa.683.24.copyload, %.sroa.683.24.copyload
-  %81 = extractelement <2 x double> %43, i64 1
-  %82 = tail call double @llvm.fmuladd.f64(double %81, double %81, double %80)
+  %74 = extractelement <2 x double> %43, i64 0
+  %75 = extractelement <2 x double> %43, i64 1
+  %76 = fneg double %.sroa.683.24.copyload
+  %77 = fmul double %74, %.sroa.4.24.copyload
+  %78 = tail call double @llvm.fmuladd.f64(double %.sroa.280.24.copyload, double %.sroa.2.24.copyload, double %77)
+  %79 = fmul double %74, %.sroa.6.24.copyload
+  %80 = tail call double @llvm.fmuladd.f64(double %.sroa.280.24.copyload, double %.sroa.5.24.copyload, double %79)
+  %81 = fmul double %.sroa.683.24.copyload, %.sroa.683.24.copyload
+  %82 = tail call double @llvm.fmuladd.f64(double %75, double %75, double %81)
   %83 = tail call double @llvm.fmuladd.f64(double %82, double -2.000000e+00, double 1.000000e+00)
-  %84 = fmul double %.sroa.280.24.copyload, %74
+  %84 = fmul double %.sroa.280.24.copyload, %76
   %85 = fneg double %84
-  %86 = tail call double @llvm.fmuladd.f64(double %75, double %81, double %84)
+  %86 = tail call double @llvm.fmuladd.f64(double %74, double %75, double %84)
   %87 = fmul double %86, 2.000000e+00
-  %88 = tail call double @llvm.fmuladd.f64(double %75, double %75, double %80)
+  %88 = tail call double @llvm.fmuladd.f64(double %74, double %74, double %81)
   %89 = tail call double @llvm.fmuladd.f64(double %88, double -2.000000e+00, double 1.000000e+00)
   %90 = fmul <2 x double> %43, %43
   %91 = extractelement <2 x double> %90, i64 1
-  %92 = tail call double @llvm.fmuladd.f64(double %75, double %75, double %91)
+  %92 = tail call double @llvm.fmuladd.f64(double %74, double %74, double %91)
   %93 = tail call double @llvm.fmuladd.f64(double %92, double -2.000000e+00, double 1.000000e+00)
   store double %83, ptr %6, align 8, !alias.scope !66
   %94 = insertelement <2 x double> %43, double %.sroa.683.24.copyload, i64 1
@@ -1470,7 +1470,7 @@ _ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit.i: ; preds = %67
   %109 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %44, <2 x double> %108, <2 x double> %106)
   %110 = fmul <2 x double> %109, <double 2.000000e+00, double 2.000000e+00>
   %111 = extractelement <2 x double> %104, i64 1
-  %112 = tail call double @llvm.fmuladd.f64(double %81, double %.sroa.683.24.copyload, double %111)
+  %112 = tail call double @llvm.fmuladd.f64(double %75, double %.sroa.683.24.copyload, double %111)
   %113 = fmul double %112, 2.000000e+00
   %114 = shufflevector <2 x double> %95, <2 x double> %104, <2 x i32> <i32 0, i32 2>
   %115 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %44, <2 x double> %94, <2 x double> %114)
@@ -1507,10 +1507,10 @@ _ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit.i: ; preds = %67
   br i1 %exitcond26.not.i.i.i, label %_ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE.exit.i, label %.preheader.i.i.i, !llvm.loop !73
 
 _ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE.exit.i: ; preds = %.critedge.i.i.i
-  %126 = tail call double @llvm.fmuladd.f64(double %81, double %.sroa.5.24.copyload, double %77)
+  %126 = tail call double @llvm.fmuladd.f64(double %75, double %.sroa.5.24.copyload, double %78)
   %127 = extractelement <2 x double> %96, i64 0
   %128 = tail call double @llvm.fmuladd.f64(double %127, double %.sroa.6.24.copyload, double %99)
-  %129 = tail call double @llvm.fmuladd.f64(double %127, double %.sroa.2.24.copyload, double %79)
+  %129 = tail call double @llvm.fmuladd.f64(double %127, double %.sroa.2.24.copyload, double %80)
   %130 = tail call double @llvm.fmuladd.f64(double %.sroa.683.24.copyload, double %.sroa.6.24.copyload, double %126)
   %131 = tail call double @llvm.fmuladd.f64(double %.sroa.683.24.copyload, double %.sroa.5.24.copyload, double %128)
   %132 = fneg double %131
@@ -1542,12 +1542,12 @@ _ZN2cvmlIdLi3ELi3EEENS_3VecIT_XT0_EEERKNS_4MatxIS2_XT0_EXT1_EEERKNS1_IS2_XT1_EEE
   br i1 %exitcond.not.i.i.i17.i, label %_ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit18.i, label %144, !llvm.loop !65
 
 _ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit18.i: ; preds = %144
-  %151 = tail call double @llvm.fmuladd.f64(double %81, double %.sroa.4.24.copyload, double %101)
-  %152 = tail call double @llvm.fmuladd.f64(double %74, double %.sroa.4.24.copyload, double %129)
+  %151 = tail call double @llvm.fmuladd.f64(double %75, double %.sroa.4.24.copyload, double %101)
+  %152 = tail call double @llvm.fmuladd.f64(double %76, double %.sroa.4.24.copyload, double %129)
   %153 = fneg double %152
   %154 = extractelement <2 x double> %59, i64 0
   %155 = tail call double @llvm.fmuladd.f64(double %152, double %154, double %143)
-  %156 = tail call double @llvm.fmuladd.f64(double %74, double %.sroa.2.24.copyload, double %151)
+  %156 = tail call double @llvm.fmuladd.f64(double %76, double %.sroa.2.24.copyload, double %151)
   %157 = fneg double %156
   %158 = tail call double @llvm.fmuladd.f64(double %157, double %.sroa.065.0.copyload, double %155)
   %159 = insertelement <2 x double> poison, double %153, i64 0

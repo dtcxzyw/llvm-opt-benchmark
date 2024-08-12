@@ -490,11 +490,9 @@ entry:
   store i8 %2, ptr %ebOpts_, align 8, !tbaa !7
   %backendFactory.i = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i) #13
-  %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
-  %_M_invoker2.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i, i8 0, i64 24, i1 false)
-  %3 = load ptr, ptr %_M_invoker2.i.i.i, align 8, !tbaa !32
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = load <2 x ptr>, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !36
   %4 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !21
   %tobool.not.i.i.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.not.i.i.i, label %_ZNSt8functionIFSt10unique_ptrIN5folly20EventBaseBackendBaseESt14default_deleteIS2_EEvEEC2EOS7_.exit.i.i, label %if.then.i.i.i
@@ -513,18 +511,15 @@ _ZNSt8functionIFSt10unique_ptrIN5folly20EventBaseBackendBaseESt14default_deleteI
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %5 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !36
-  store ptr %5, ptr %_M_manager.i.i.i, align 8, !tbaa !36
-  store ptr %4, ptr %_M_manager3.i.i.i, align 8, !tbaa !36
-  %_M_invoker4.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %6 = load ptr, ptr %_M_invoker4.i.i.i, align 8, !tbaa !36
-  store ptr %6, ptr %_M_invoker.i.i.i, align 8, !tbaa !36
-  store ptr %3, ptr %_M_invoker4.i.i.i, align 8, !tbaa !36
-  %tobool.not.i.i.i = icmp eq ptr %5, null
+  %5 = load <2 x ptr>, ptr %_M_manager3.i.i.i, align 8, !tbaa !36
+  %6 = load ptr, ptr %_M_manager3.i.i.i, align 8, !tbaa !36
+  store <2 x ptr> %5, ptr %_M_manager.i.i.i, align 8, !tbaa !36
+  store <2 x ptr> %3, ptr %_M_manager3.i.i.i, align 8, !tbaa !36
+  %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %_ZN5folly9EventBase7OptionsaSEOS1_.exit, label %if.then.i4.i.i
 
 if.then.i4.i.i:                                   ; preds = %_ZNSt8functionIFSt10unique_ptrIN5folly20EventBaseBackendBaseESt14default_deleteIS2_EEvEEC2EOS7_.exit.i.i
-  %call.i.i.i = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
+  %call.i.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, i32 noundef 3)
           to label %_ZN5folly9EventBase7OptionsaSEOS1_.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i4.i.i

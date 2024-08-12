@@ -6571,269 +6571,267 @@ define hidden noundef float @_ZN5Parse25dynamic_branch_predictionERfN8BoolTest4m
   %10 = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 32
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 40
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 8
-  %17 = load i64, ptr %16, align 8
+  %13 = load <2 x ptr>, ptr %12, align 8
+  %14 = load ptr, ptr %12, align 8
+  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %16 = load i64, ptr %15, align 8
   store float -1.000000e+00, ptr %1, align 4
-  %18 = and i32 %2, -5
-  %or.cond.not.i = icmp eq i32 %18, 0
-  br i1 %or.cond.not.i, label %19, label %44
+  %17 = and i32 %2, -5
+  %or.cond.not.i = icmp eq i32 %17, 0
+  br i1 %or.cond.not.i, label %18, label %43
 
-19:                                               ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %3, i64 44
-  %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, 255
-  %23 = icmp eq i32 %22, 192
-  br i1 %23, label %24, label %44
+18:                                               ; preds = %4
+  %19 = getelementptr inbounds i8, ptr %3, i64 44
+  %20 = load i32, ptr %19, align 4
+  %21 = and i32 %20, 255
+  %22 = icmp eq i32 %21, 192
+  br i1 %22, label %23, label %43
 
-24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(52) %28) #15
-  %32 = icmp eq i32 %31, 261
-  br i1 %32, label %_ZL20has_injected_profileN8BoolTest4maskEP4NodeRiS3_.exit, label %44
+  %30 = tail call noundef i32 %29(ptr noundef nonnull align 8 dereferenceable(52) %27) #15
+  %31 = icmp eq i32 %30, 261
+  br i1 %31, label %_ZL20has_injected_profileN8BoolTest4maskEP4NodeRiS3_.exit, label %43
 
-_ZL20has_injected_profileN8BoolTest4maskEP4NodeRiS3_.exit: ; preds = %24
-  %33 = load ptr, ptr %25, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 52
-  %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %35, i64 56
-  %39 = load i32, ptr %38, align 8
-  %40 = icmp eq i32 %2, 0
-  %41 = select i1 %40, i32 %37, i32 %39
-  %42 = select i1 %40, i32 %39, i32 %37
-  %43 = getelementptr inbounds i8, ptr %35, i64 60
-  store i8 1, ptr %43, align 4
-  br label %90
+_ZL20has_injected_profileN8BoolTest4maskEP4NodeRiS3_.exit: ; preds = %23
+  %32 = load ptr, ptr %24, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 52
+  %36 = load i32, ptr %35, align 4
+  %37 = getelementptr inbounds i8, ptr %34, i64 56
+  %38 = load i32, ptr %37, align 8
+  %39 = icmp eq i32 %2, 0
+  %40 = select i1 %39, i32 %36, i32 %38
+  %41 = select i1 %39, i32 %38, i32 %36
+  %42 = getelementptr inbounds i8, ptr %34, i64 60
+  store i8 1, ptr %42, align 4
+  br label %89
 
-44:                                               ; preds = %4, %24, %19
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
-  %46 = load ptr, ptr %45, align 8
-  %47 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %46) #15
-  %48 = getelementptr inbounds i8, ptr %47, i64 52
-  %49 = load i8, ptr %48, align 4
-  %50 = icmp eq i8 %49, 2
-  br i1 %50, label %51, label %167
+43:                                               ; preds = %4, %23, %18
+  %44 = getelementptr inbounds i8, ptr %0, i64 64
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call noundef ptr @_ZN8ciMethod11method_dataEv(ptr noundef nonnull align 8 dereferenceable(160) %45) #15
+  %47 = getelementptr inbounds i8, ptr %46, i64 52
+  %48 = load i8, ptr %47, align 4
+  %49 = icmp eq i8 %48, 2
+  br i1 %49, label %50, label %166
 
-51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %0, i64 56
-  %53 = load i32, ptr %52, align 8
-  %54 = tail call noundef ptr @_ZN12ciMethodData11bci_to_dataEiP8ciMethod(ptr noundef nonnull align 8 dereferenceable(176) %47, i32 noundef %53, ptr noundef null) #15
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %167, label %56
+50:                                               ; preds = %43
+  %51 = getelementptr inbounds i8, ptr %0, i64 56
+  %52 = load i32, ptr %51, align 8
+  %53 = tail call noundef ptr @_ZN12ciMethodData11bci_to_dataEiP8ciMethod(ptr noundef nonnull align 8 dereferenceable(176) %46, i32 noundef %52, ptr noundef null) #15
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %166, label %55
 
-56:                                               ; preds = %51
-  %57 = load ptr, ptr %54, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
-  %59 = load ptr, ptr %58, align 8
-  %60 = tail call noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(16) %54) #15
-  br i1 %60, label %61, label %167
+55:                                               ; preds = %50
+  %56 = load ptr, ptr %53, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 24
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %53) #15
+  br i1 %59, label %60, label %166
 
-61:                                               ; preds = %56
-  %62 = load ptr, ptr %54, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
-  %64 = load ptr, ptr %63, align 8
-  %65 = tail call noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(16) %54) #15
-  %..i = select i1 %65, ptr %54, ptr null
-  %66 = getelementptr inbounds i8, ptr %..i, i64 8
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 8
-  %69 = load i64, ptr %68, align 8
-  %70 = trunc i64 %69 to i32
-  %71 = load ptr, ptr %54, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 56
-  %73 = load ptr, ptr %72, align 8
-  %74 = tail call noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(16) %54) #15
-  br i1 %74, label %75, label %85
+60:                                               ; preds = %55
+  %61 = load ptr, ptr %53, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 24
+  %63 = load ptr, ptr %62, align 8
+  %64 = tail call noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(16) %53) #15
+  %..i = select i1 %64, ptr %53, ptr null
+  %65 = getelementptr inbounds i8, ptr %..i, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %68 = load i64, ptr %67, align 8
+  %69 = trunc i64 %68 to i32
+  %70 = load ptr, ptr %53, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 56
+  %72 = load ptr, ptr %71, align 8
+  %73 = tail call noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(16) %53) #15
+  br i1 %73, label %74, label %84
 
-75:                                               ; preds = %61
-  %76 = load ptr, ptr %54, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 56
-  %78 = load ptr, ptr %77, align 8
-  %79 = tail call noundef zeroext i1 %78(ptr noundef nonnull align 8 dereferenceable(16) %54) #15
-  %..i37 = select i1 %79, ptr %54, ptr null
-  %80 = getelementptr inbounds i8, ptr %..i37, i64 8
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 24
-  %83 = load i64, ptr %82, align 8
-  %84 = trunc i64 %83 to i32
-  br label %85
+74:                                               ; preds = %60
+  %75 = load ptr, ptr %53, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 56
+  %77 = load ptr, ptr %76, align 8
+  %78 = tail call noundef zeroext i1 %77(ptr noundef nonnull align 8 dereferenceable(16) %53) #15
+  %..i37 = select i1 %78, ptr %53, ptr null
+  %79 = getelementptr inbounds i8, ptr %..i37, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 24
+  %82 = load i64, ptr %81, align 8
+  %83 = trunc i64 %82 to i32
+  br label %84
 
-85:                                               ; preds = %75, %61
-  %.159 = phi i32 [ %84, %75 ], [ 0, %61 ]
-  %86 = load ptr, ptr %45, align 8
-  %87 = tail call noundef i32 @_ZN8ciMethod11scale_countEif(ptr noundef nonnull align 8 dereferenceable(160) %86, i32 noundef %70, float noundef 1.000000e+00) #15
-  %88 = load ptr, ptr %45, align 8
-  %89 = tail call noundef i32 @_ZN8ciMethod11scale_countEif(ptr noundef nonnull align 8 dereferenceable(160) %88, i32 noundef %.159, float noundef 1.000000e+00) #15
-  br label %90
+84:                                               ; preds = %74, %60
+  %.159 = phi i32 [ %83, %74 ], [ 0, %60 ]
+  %85 = load ptr, ptr %44, align 8
+  %86 = tail call noundef i32 @_ZN8ciMethod11scale_countEif(ptr noundef nonnull align 8 dereferenceable(160) %85, i32 noundef %69, float noundef 1.000000e+00) #15
+  %87 = load ptr, ptr %44, align 8
+  %88 = tail call noundef i32 @_ZN8ciMethod11scale_countEif(ptr noundef nonnull align 8 dereferenceable(160) %87, i32 noundef %.159, float noundef 1.000000e+00) #15
+  br label %89
 
-90:                                               ; preds = %_ZL20has_injected_profileN8BoolTest4maskEP4NodeRiS3_.exit, %85
-  %.061 = phi i32 [ %41, %_ZL20has_injected_profileN8BoolTest4maskEP4NodeRiS3_.exit ], [ %87, %85 ]
-  %.058 = phi i32 [ %42, %_ZL20has_injected_profileN8BoolTest4maskEP4NodeRiS3_.exit ], [ %89, %85 ]
-  %91 = or i32 %.058, %.061
-  %or.cond.not.i38 = icmp sgt i32 %91, -1
-  %92 = zext nneg i32 %.061 to i64
-  %93 = zext nneg i32 %.058 to i64
-  %94 = add nuw nsw i64 %93, %92
-  %95 = icmp ult i64 %94, 2147483648
-  %or.cond.i.not69 = select i1 %or.cond.not.i38, i1 %95, i1 false
-  %96 = add nsw i32 %.058, %.061
-  %97 = icmp sgt i32 %96, 39
-  %or.cond = select i1 %or.cond.i.not69, i1 %97, i1 false
-  br i1 %or.cond, label %118, label %_ZL23counters_are_meaningfuliii.exit.thread
+89:                                               ; preds = %_ZL20has_injected_profileN8BoolTest4maskEP4NodeRiS3_.exit, %84
+  %.061 = phi i32 [ %40, %_ZL20has_injected_profileN8BoolTest4maskEP4NodeRiS3_.exit ], [ %86, %84 ]
+  %.058 = phi i32 [ %41, %_ZL20has_injected_profileN8BoolTest4maskEP4NodeRiS3_.exit ], [ %88, %84 ]
+  %90 = or i32 %.058, %.061
+  %or.cond.not.i38 = icmp sgt i32 %90, -1
+  %91 = zext nneg i32 %.061 to i64
+  %92 = zext nneg i32 %.058 to i64
+  %93 = add nuw nsw i64 %92, %91
+  %94 = icmp ult i64 %93, 2147483648
+  %or.cond.i.not69 = select i1 %or.cond.not.i38, i1 %94, i1 false
+  %95 = add nsw i32 %.058, %.061
+  %96 = icmp sgt i32 %95, 39
+  %or.cond = select i1 %or.cond.i.not69, i1 %96, i1 false
+  br i1 %or.cond, label %117, label %_ZL23counters_are_meaningfuliii.exit.thread
 
-_ZL23counters_are_meaningfuliii.exit.thread:      ; preds = %90
-  %98 = getelementptr inbounds i8, ptr %0, i64 16
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 368
-  %101 = load ptr, ptr %100, align 8
-  %.not = icmp eq ptr %101, null
-  br i1 %.not, label %167, label %102
+_ZL23counters_are_meaningfuliii.exit.thread:      ; preds = %89
+  %97 = getelementptr inbounds i8, ptr %0, i64 16
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 368
+  %100 = load ptr, ptr %99, align 8
+  %.not = icmp eq ptr %100, null
+  br i1 %.not, label %166, label %101
 
-102:                                              ; preds = %_ZL23counters_are_meaningfuliii.exit.thread
-  %103 = getelementptr inbounds i8, ptr %0, i64 280
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 304
-  %106 = load ptr, ptr %105, align 8
-  %107 = load i8, ptr %104, align 1
-  %.not.i.i.i.i = icmp eq i8 %107, -54
-  br i1 %.not.i.i.i.i, label %108, label %_ZNK16ciBytecodeStream8get_destEv.exit
+101:                                              ; preds = %_ZL23counters_are_meaningfuliii.exit.thread
+  %102 = getelementptr inbounds i8, ptr %0, i64 280
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds i8, ptr %0, i64 304
+  %105 = load ptr, ptr %104, align 8
+  %106 = load i8, ptr %103, align 1
+  %.not.i.i.i.i = icmp eq i8 %106, -54
+  br i1 %.not.i.i.i.i, label %107, label %_ZNK16ciBytecodeStream8get_destEv.exit
 
-108:                                              ; preds = %102
-  %109 = tail call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %104) #15
+107:                                              ; preds = %101
+  %108 = tail call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %103) #15
   br label %_ZNK16ciBytecodeStream8get_destEv.exit
 
-_ZNK16ciBytecodeStream8get_destEv.exit:           ; preds = %102, %108
-  %110 = ptrtoint ptr %104 to i64
-  %111 = ptrtoint ptr %106 to i64
-  %112 = sub i64 %110, %111
-  %113 = trunc i64 %112 to i32
-  %114 = getelementptr inbounds i8, ptr %104, i64 1
-  %.0.i.i.i.i.i = load i16, ptr %114, align 1
-  %115 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i)
-  %116 = sext i16 %115 to i32
-  %117 = add nsw i32 %116, %113
-  tail call void (ptr, ptr, ...) @_ZN9xmlStream4elemEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %101, ptr noundef nonnull @.str.11, i32 noundef %117, i32 noundef %.061, i32 noundef %.058) #15
-  br label %167
+_ZNK16ciBytecodeStream8get_destEv.exit:           ; preds = %101, %107
+  %109 = ptrtoint ptr %103 to i64
+  %110 = ptrtoint ptr %105 to i64
+  %111 = sub i64 %109, %110
+  %112 = trunc i64 %111 to i32
+  %113 = getelementptr inbounds i8, ptr %103, i64 1
+  %.0.i.i.i.i.i = load i16, ptr %113, align 1
+  %114 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i)
+  %115 = sext i16 %114 to i32
+  %116 = add nsw i32 %115, %112
+  tail call void (ptr, ptr, ...) @_ZN9xmlStream4elemEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %100, ptr noundef nonnull @.str.11, i32 noundef %116, i32 noundef %.061, i32 noundef %.058) #15
+  br label %166
 
-118:                                              ; preds = %90
-  %119 = uitofp nneg i32 %96 to float
-  %120 = getelementptr inbounds i8, ptr %0, i64 256
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 16
-  %123 = load i32, ptr %122, align 8
-  %.not33 = icmp eq i32 %123, 0
-  %124 = uitofp i32 %123 to float
-  %.027 = select i1 %.not33, float %119, float %124
+117:                                              ; preds = %89
+  %118 = uitofp nneg i32 %95 to float
+  %119 = getelementptr inbounds i8, ptr %0, i64 256
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 16
+  %122 = load i32, ptr %121, align 8
+  %.not33 = icmp eq i32 %122, 0
+  %123 = uitofp i32 %122 to float
+  %.027 = select i1 %.not33, float %118, float %123
   store float %.027, ptr %1, align 4
   %.not34 = icmp eq i32 %.061, 0
-  br i1 %.not34, label %132, label %125
+  br i1 %.not34, label %131, label %124
 
-125:                                              ; preds = %118
+124:                                              ; preds = %117
   %.not35 = icmp eq i32 %.058, 0
-  br i1 %.not35, label %132, label %126
+  br i1 %.not35, label %131, label %125
 
-126:                                              ; preds = %125
-  %127 = sitofp i32 %.061 to float
-  %128 = fdiv float %127, %119
-  %129 = fcmp ogt float %128, 0x3FEFFFFDE0000000
-  %.126 = select i1 %129, float 0x3FEFFFFDE0000000, float %128
-  %130 = fcmp olt float %.126, 0x3EB0C6F7A0000000
-  br i1 %130, label %131, label %132
+125:                                              ; preds = %124
+  %126 = sitofp i32 %.061 to float
+  %127 = fdiv float %126, %118
+  %128 = fcmp ogt float %127, 0x3FEFFFFDE0000000
+  %.126 = select i1 %128, float 0x3FEFFFFDE0000000, float %127
+  %129 = fcmp olt float %.126, 0x3EB0C6F7A0000000
+  br i1 %129, label %130, label %131
 
-131:                                              ; preds = %126
-  br label %132
+130:                                              ; preds = %125
+  br label %131
 
-132:                                              ; preds = %125, %118, %131, %126
-  %.025 = phi float [ 0x3EB0C6F7A0000000, %131 ], [ %.126, %126 ], [ 0x3EA0C6F7A0000000, %118 ], [ 0x3FEFFFFF00000000, %125 ]
-  %133 = getelementptr inbounds i8, ptr %0, i64 16
-  %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 368
-  %136 = load ptr, ptr %135, align 8
-  %.not36 = icmp eq ptr %136, null
-  br i1 %.not36, label %167, label %137
+131:                                              ; preds = %124, %117, %130, %125
+  %.025 = phi float [ 0x3EB0C6F7A0000000, %130 ], [ %.126, %125 ], [ 0x3EA0C6F7A0000000, %117 ], [ 0x3FEFFFFF00000000, %124 ]
+  %132 = getelementptr inbounds i8, ptr %0, i64 16
+  %133 = load ptr, ptr %132, align 8
+  %134 = getelementptr inbounds i8, ptr %133, i64 368
+  %135 = load ptr, ptr %134, align 8
+  %.not36 = icmp eq ptr %135, null
+  br i1 %.not36, label %166, label %136
 
-137:                                              ; preds = %132
-  %138 = fcmp ult float %.025, 0x3FEFFFFDE0000000
-  %139 = fcmp oeq float %.025, 0x3FEFFFFDE0000000
-  %140 = select i1 %139, ptr @.str.12, ptr @.str.13
-  %.0 = select i1 %138, ptr null, ptr %140
-  %141 = fcmp ugt float %.025, 0x3EB0C6F7A0000000
-  %142 = fcmp oeq float %.025, 0x3EB0C6F7A0000000
-  %143 = select i1 %142, ptr @.str.14, ptr @.str.15
-  %.1 = select i1 %141, ptr %.0, ptr %143
-  %144 = and i1 %141, %138
-  br i1 %144, label %145, label %148
+136:                                              ; preds = %131
+  %137 = fcmp ult float %.025, 0x3FEFFFFDE0000000
+  %138 = fcmp oeq float %.025, 0x3FEFFFFDE0000000
+  %139 = select i1 %138, ptr @.str.12, ptr @.str.13
+  %.0 = select i1 %137, ptr null, ptr %139
+  %140 = fcmp ugt float %.025, 0x3EB0C6F7A0000000
+  %141 = fcmp oeq float %.025, 0x3EB0C6F7A0000000
+  %142 = select i1 %141, ptr @.str.14, ptr @.str.15
+  %.1 = select i1 %140, ptr %.0, ptr %142
+  %143 = and i1 %140, %137
+  br i1 %143, label %144, label %147
 
-145:                                              ; preds = %137
-  %146 = fpext float %.025 to double
-  %147 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 30, ptr noundef nonnull @.str.16, double noundef %146) #15
-  %.pre = load ptr, ptr %133, align 8
+144:                                              ; preds = %136
+  %145 = fpext float %.025 to double
+  %146 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 30, ptr noundef nonnull @.str.16, double noundef %145) #15
+  %.pre = load ptr, ptr %132, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 368
   %.pre70 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %148
+  br label %147
 
-148:                                              ; preds = %145, %137
-  %149 = phi ptr [ %.pre70, %145 ], [ %136, %137 ]
-  %.2 = phi ptr [ %5, %145 ], [ %.1, %137 ]
-  %150 = getelementptr inbounds i8, ptr %0, i64 280
-  %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %0, i64 304
-  %153 = load ptr, ptr %152, align 8
-  %154 = load i8, ptr %151, align 1
-  %.not.i.i.i.i40 = icmp eq i8 %154, -54
-  br i1 %.not.i.i.i.i40, label %155, label %_ZNK16ciBytecodeStream8get_destEv.exit42
+147:                                              ; preds = %144, %136
+  %148 = phi ptr [ %.pre70, %144 ], [ %135, %136 ]
+  %.2 = phi ptr [ %5, %144 ], [ %.1, %136 ]
+  %149 = getelementptr inbounds i8, ptr %0, i64 280
+  %150 = load ptr, ptr %149, align 8
+  %151 = getelementptr inbounds i8, ptr %0, i64 304
+  %152 = load ptr, ptr %151, align 8
+  %153 = load i8, ptr %150, align 1
+  %.not.i.i.i.i40 = icmp eq i8 %153, -54
+  br i1 %.not.i.i.i.i40, label %154, label %_ZNK16ciBytecodeStream8get_destEv.exit42
 
-155:                                              ; preds = %148
-  %156 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %151) #15
+154:                                              ; preds = %147
+  %155 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef null, ptr noundef nonnull %150) #15
   br label %_ZNK16ciBytecodeStream8get_destEv.exit42
 
-_ZNK16ciBytecodeStream8get_destEv.exit42:         ; preds = %148, %155
-  %157 = ptrtoint ptr %151 to i64
-  %158 = ptrtoint ptr %153 to i64
-  %159 = sub i64 %157, %158
-  %160 = trunc i64 %159 to i32
-  %161 = getelementptr inbounds i8, ptr %151, i64 1
-  %.0.i.i.i.i.i41 = load i16, ptr %161, align 1
-  %162 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i41)
-  %163 = sext i16 %162 to i32
-  %164 = add nsw i32 %163, %160
-  %165 = load float, ptr %1, align 4
-  %166 = fpext float %165 to double
-  call void (ptr, ptr, ...) @_ZN9xmlStream4elemEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %149, ptr noundef nonnull @.str.17, i32 noundef %164, i32 noundef %.061, i32 noundef %.058, double noundef %166, ptr noundef nonnull %.2) #15
-  br label %167
+_ZNK16ciBytecodeStream8get_destEv.exit42:         ; preds = %147, %154
+  %156 = ptrtoint ptr %150 to i64
+  %157 = ptrtoint ptr %152 to i64
+  %158 = sub i64 %156, %157
+  %159 = trunc i64 %158 to i32
+  %160 = getelementptr inbounds i8, ptr %150, i64 1
+  %.0.i.i.i.i.i41 = load i16, ptr %160, align 1
+  %161 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i41)
+  %162 = sext i16 %161 to i32
+  %163 = add nsw i32 %162, %159
+  %164 = load float, ptr %1, align 4
+  %165 = fpext float %164 to double
+  call void (ptr, ptr, ...) @_ZN9xmlStream4elemEPKcz(ptr noundef nonnull align 8 dereferenceable(152) %148, ptr noundef nonnull @.str.17, i32 noundef %163, i32 noundef %.061, i32 noundef %.058, double noundef %165, ptr noundef nonnull %.2) #15
+  br label %166
 
-167:                                              ; preds = %132, %_ZNK16ciBytecodeStream8get_destEv.exit42, %_ZL23counters_are_meaningfuliii.exit.thread, %_ZNK16ciBytecodeStream8get_destEv.exit, %56, %51, %44
-  %.028 = phi float [ -1.000000e+00, %44 ], [ -1.000000e+00, %51 ], [ -1.000000e+00, %56 ], [ -1.000000e+00, %_ZNK16ciBytecodeStream8get_destEv.exit ], [ -1.000000e+00, %_ZL23counters_are_meaningfuliii.exit.thread ], [ %.025, %_ZNK16ciBytecodeStream8get_destEv.exit42 ], [ %.025, %132 ]
-  %168 = load ptr, ptr %11, align 8
-  %.not.i.i.i.i43 = icmp eq ptr %168, null
-  br i1 %.not.i.i.i.i43, label %170, label %169
+166:                                              ; preds = %131, %_ZNK16ciBytecodeStream8get_destEv.exit42, %_ZL23counters_are_meaningfuliii.exit.thread, %_ZNK16ciBytecodeStream8get_destEv.exit, %55, %50, %43
+  %.028 = phi float [ -1.000000e+00, %43 ], [ -1.000000e+00, %50 ], [ -1.000000e+00, %55 ], [ -1.000000e+00, %_ZNK16ciBytecodeStream8get_destEv.exit ], [ -1.000000e+00, %_ZL23counters_are_meaningfuliii.exit.thread ], [ %.025, %_ZNK16ciBytecodeStream8get_destEv.exit42 ], [ %.025, %131 ]
+  %167 = load ptr, ptr %11, align 8
+  %.not.i.i.i.i43 = icmp eq ptr %167, null
+  br i1 %.not.i.i.i.i43, label %169, label %168
 
-169:                                              ; preds = %167
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %17) #15
+168:                                              ; preds = %166
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %16) #15
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %11) #15
-  br label %170
+  br label %169
 
-170:                                              ; preds = %169, %167
-  %171 = load ptr, ptr %12, align 8
-  %.not8.i.i.i.i = icmp eq ptr %171, %13
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %172
+169:                                              ; preds = %168, %166
+  %170 = load ptr, ptr %12, align 8
+  %.not8.i.i.i.i = icmp eq ptr %170, %14
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %171
 
-172:                                              ; preds = %170
+171:                                              ; preds = %169
   store ptr %11, ptr %10, align 8
-  store ptr %13, ptr %12, align 8
-  store ptr %15, ptr %14, align 8
+  store <2 x ptr> %13, ptr %12, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %170, %172
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %169, %171
   ret float %.028
 }
 

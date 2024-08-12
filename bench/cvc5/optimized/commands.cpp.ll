@@ -3063,17 +3063,15 @@ _ZNSt10shared_ptrIN4cvc58internal6ResultEED2Ev.exit: ; preds = %entry, %_ZN9__gn
 define void @_ZNK4cvc56parser15CheckSatCommand9getResultEv(ptr noalias nocapture writeonly sret(%"class.cvc5::Result") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_result = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load ptr, ptr %d_result, align 8
-  store ptr %0, ptr %agg.result, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %d_result, align 8
+  store <2 x ptr> %1, ptr %agg.result, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN4cvc56ResultC2ERKS0_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -3681,17 +3679,15 @@ declare void @_ZNK4cvc56Solver16checkSatAssumingERKSt6vectorINS_4TermESaIS2_EE(p
 define void @_ZNK4cvc56parser23CheckSatAssumingCommand9getResultEv(ptr noalias nocapture writeonly sret(%"class.cvc5::Result") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %d_result7 = getelementptr inbounds i8, ptr %this, i64 40
-  %0 = load ptr, ptr %d_result7, align 8
-  store ptr %0, ptr %agg.result, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %d_result7, align 8
+  store <2 x ptr> %1, ptr %agg.result, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN4cvc56ResultC2ERKS0_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %cond.end
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -7973,17 +7969,15 @@ declare void @_ZN4cvc58internal7options7ioutils5ScopeD1Ev(ptr noundef nonnull al
 define void @_ZNK4cvc56parser17CheckSynthCommand9getResultEv(ptr noalias nocapture writeonly sret(%"class.cvc5::SynthResult") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %this) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_result = getelementptr inbounds i8, ptr %this, i64 24
-  %0 = load ptr, ptr %d_result, align 8
-  store ptr %0, ptr %agg.result, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %d_result, align 8
+  store <2 x ptr> %1, ptr %agg.result, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN4cvc511SynthResultC2ERKS0_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -17478,9 +17472,9 @@ define void @_ZN4cvc56parser15GetProofCommand6invokeEPNS_6SolverEPNS0_10SymManag
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ps = alloca %"class.std::vector.286", align 8
-  %p = alloca %"class.cvc5::Proof", align 8
+  %p = alloca %"class.cvc5::Proof", align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %agg.tmp = alloca %"class.cvc5::Proof", align 8
+  %agg.tmp = alloca %"class.cvc5::Proof", align 16
   %ref.tmp40 = alloca %"class.cvc5::Term", align 8
   %ref.tmp61 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp72 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17541,21 +17535,19 @@ if.end15:                                         ; preds = %invoke.cont12, %inv
 for.body.lr.ph:                                   ; preds = %if.end15
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
   %add.ptr22 = getelementptr inbounds i8, ptr %ss, i64 16
-  %_M_refcount.i.i.i19 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end50
   %__begin2.sroa.0.035 = phi ptr [ %5, %for.body.lr.ph ], [ %incdec.ptr.i, %if.end50 ]
-  %7 = load ptr, ptr %__begin2.sroa.0.035, align 8
-  store ptr %7, ptr %p, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.035, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %__begin2.sroa.0.035, align 8
+  store <2 x ptr> %8, ptr %p, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZN4cvc55ProofC2ERKS0_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -17592,15 +17584,14 @@ lpad23:                                           ; preds = %invoke.cont38, %if.
   br label %ehcleanup51
 
 if.end28:                                         ; preds = %_ZN4cvc55ProofC2ERKS0_.exit, %_ZN4cvc55ProofC2ERKS0_.exit, %invoke.cont24
-  %13 = load ptr, ptr %p, align 8
-  store ptr %13, ptr %agg.tmp, align 8
-  %14 = load ptr, ptr %_M_refcount.i.i.i, align 8
-  store ptr %14, ptr %_M_refcount.i.i.i19, align 8
-  %cmp.not.i.i.i.i21 = icmp eq ptr %14, null
+  %13 = load ptr, ptr %_M_refcount.i.i.i, align 8
+  %14 = load <2 x ptr>, ptr %p, align 16
+  store <2 x ptr> %14, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i.i21 = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i.i21, label %_ZN4cvc55ProofC2ERKS0_.exit28, label %if.then.i.i.i.i22
 
 if.then.i.i.i.i22:                                ; preds = %if.end28
-  %_M_use_count.i.i.i.i.i23 = getelementptr inbounds i8, ptr %14, i64 8
+  %_M_use_count.i.i.i.i.i23 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i24 = icmp eq i8 %15, 0
   br i1 %tobool.i.i.not.i.i.i.i.i24, label %if.else.i.i.i.i.i.i27, label %if.then.i.i.i.i.i.i25
@@ -23581,7 +23572,7 @@ declare void @_ZNK4cvc56Solver14getTimeoutCoreEv(ptr sret(%"struct.std::pair.302
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4cvc56parser21GetTimeoutCoreCommand11printResultEPNS_6SolverERSo(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture readnone %solver, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %res = alloca %"class.cvc5::Result", align 8
+  %res = alloca %"class.cvc5::Result", align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp11 = alloca %"class.std::allocator", align 1
@@ -23590,17 +23581,16 @@ entry:
   %names = alloca %"class.std::vector.250", align 8
   %ucr34 = alloca %"class.cvc5::internal::UnsatCore", align 8
   %d_result = getelementptr inbounds i8, ptr %this, i64 56
-  %0 = load ptr, ptr %d_result, align 8
-  store ptr %0, ptr %res, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %res, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %d_result, align 8
+  store <2 x ptr> %1, ptr %res, align 16
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN4cvc56ResultC2ERKS0_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -23927,17 +23917,15 @@ ehcleanup41:                                      ; preds = %ehcleanup39, %lpad2
 define void @_ZNK4cvc56parser21GetTimeoutCoreCommand9getResultEv(ptr noalias nocapture writeonly sret(%"class.cvc5::Result") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_result = getelementptr inbounds i8, ptr %this, i64 56
-  %0 = load ptr, ptr %d_result, align 8
-  store ptr %0, ptr %agg.result, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %d_result, align 8
+  store <2 x ptr> %1, ptr %agg.result, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN4cvc56ResultC2ERKS0_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

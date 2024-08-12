@@ -3784,30 +3784,24 @@ invoke.cont12:                                    ; preds = %if.then10
 
 _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev.exit: ; preds = %invoke.cont12
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %paramTypes, i64 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %paramTypes, i64 16
   %4 = load ptr, ptr %ref.tmp11, align 8
   store ptr %4, ptr %paramTypes, align 8
   %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
-  %5 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
-  store ptr %5, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp11, i64 16
-  %6 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
-  store ptr %6, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %5 = load <2 x ptr>, ptr %_M_finish.i2.i.i.i, align 8
+  %6 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store <2 x ptr> %5, ptr %_M_finish.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp11, i8 0, i64 24, i1 false)
   invoke void @_ZNK4cvc58internal8TypeNode25getInstantiatedParamTypesEv(ptr nonnull sret(%"class.std::vector.118") align 8 %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(8) %t)
           to label %invoke.cont.i48 unwind label %lpad.loopexit.split-lp
 
 invoke.cont.i48:                                  ; preds = %_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev.exit
   %_M_finish.i.i.i.i7 = getelementptr inbounds i8, ptr %instTypes, i64 8
-  %_M_end_of_storage.i.i.i.i8 = getelementptr inbounds i8, ptr %instTypes, i64 16
   %7 = load ptr, ptr %ref.tmp16, align 8
   store ptr %7, ptr %instTypes, align 8
   %_M_finish.i2.i.i.i9 = getelementptr inbounds i8, ptr %ref.tmp16, i64 8
-  %8 = load ptr, ptr %_M_finish.i2.i.i.i9, align 8
-  store ptr %8, ptr %_M_finish.i.i.i.i7, align 8
-  %_M_end_of_storage.i4.i.i.i10 = getelementptr inbounds i8, ptr %ref.tmp16, i64 16
-  %9 = load ptr, ptr %_M_end_of_storage.i4.i.i.i10, align 8
-  store ptr %9, ptr %_M_end_of_storage.i.i.i.i8, align 8
+  %8 = load <2 x ptr>, ptr %_M_finish.i2.i.i.i9, align 8
+  %9 = load ptr, ptr %_M_finish.i2.i.i.i9, align 8
+  store <2 x ptr> %8, ptr %_M_finish.i.i.i.i7, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp16, i8 0, i64 24, i1 false)
   br label %if.end19
 
@@ -3822,9 +3816,9 @@ lpad.loopexit.split-lp:                           ; preds = %if.end, %if.then10,
   br label %ehcleanup66
 
 if.end19:                                         ; preds = %invoke.cont.i48, %invoke.cont
-  %10 = phi ptr [ %8, %invoke.cont.i48 ], [ null, %invoke.cont ]
+  %10 = phi ptr [ %9, %invoke.cont.i48 ], [ null, %invoke.cont ]
   %.pr.i126 = phi ptr [ %7, %invoke.cont.i48 ], [ null, %invoke.cont ]
-  %11 = phi ptr [ %5, %invoke.cont.i48 ], [ null, %invoke.cont ]
+  %11 = phi ptr [ %6, %invoke.cont.i48 ], [ null, %invoke.cont ]
   %.pr.i103 = phi ptr [ %4, %invoke.cont.i48 ], [ null, %invoke.cont ]
   %d_args.i = getelementptr inbounds i8, ptr %this, i64 80
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -6450,30 +6444,24 @@ invoke.cont2:                                     ; preds = %if.then
 
 _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev.exit: ; preds = %invoke.cont2
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %paramTypes, i64 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %paramTypes, i64 16
   %0 = load ptr, ptr %ref.tmp, align 8
   store ptr %0, ptr %paramTypes, align 8
   %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %1 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
-  store ptr %1, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %2 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
-  store ptr %2, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %_M_finish.i2.i.i.i, align 8
+  %2 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store <2 x ptr> %1, ptr %_M_finish.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   invoke void @_ZNK4cvc58internal8TypeNode25getInstantiatedParamTypesEv(ptr nonnull sret(%"class.std::vector.118") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(8) %t)
           to label %invoke.cont.i48 unwind label %lpad.loopexit.split-lp
 
 invoke.cont.i48:                                  ; preds = %_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev.exit
   %_M_finish.i.i.i.i7 = getelementptr inbounds i8, ptr %instTypes, i64 8
-  %_M_end_of_storage.i.i.i.i8 = getelementptr inbounds i8, ptr %instTypes, i64 16
   %3 = load ptr, ptr %ref.tmp6, align 8
   store ptr %3, ptr %instTypes, align 8
   %_M_finish.i2.i.i.i9 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
-  %4 = load ptr, ptr %_M_finish.i2.i.i.i9, align 8
-  store ptr %4, ptr %_M_finish.i.i.i.i7, align 8
-  %_M_end_of_storage.i4.i.i.i10 = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
-  %5 = load ptr, ptr %_M_end_of_storage.i4.i.i.i10, align 8
-  store ptr %5, ptr %_M_end_of_storage.i.i.i.i8, align 8
+  %4 = load <2 x ptr>, ptr %_M_finish.i2.i.i.i9, align 8
+  %5 = load ptr, ptr %_M_finish.i2.i.i.i9, align 8
+  store <2 x ptr> %4, ptr %_M_finish.i.i.i.i7, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp6, i8 0, i64 24, i1 false)
   br label %if.end
 
@@ -6488,9 +6476,9 @@ lpad.loopexit.split-lp:                           ; preds = %entry, %if.then, %i
   br label %ehcleanup55
 
 if.end:                                           ; preds = %invoke.cont.i48, %invoke.cont
-  %6 = phi ptr [ %4, %invoke.cont.i48 ], [ null, %invoke.cont ]
+  %6 = phi ptr [ %5, %invoke.cont.i48 ], [ null, %invoke.cont ]
   %.pr.i151 = phi ptr [ %3, %invoke.cont.i48 ], [ null, %invoke.cont ]
-  %7 = phi ptr [ %1, %invoke.cont.i48 ], [ null, %invoke.cont ]
+  %7 = phi ptr [ %2, %invoke.cont.i48 ], [ null, %invoke.cont ]
   %.pr.i128 = phi ptr [ %0, %invoke.cont.i48 ], [ null, %invoke.cont ]
   %d_args = getelementptr inbounds i8, ptr %this, i64 80
   %_M_finish.i54 = getelementptr inbounds i8, ptr %this, i64 88
@@ -12769,17 +12757,15 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10s
 _ZNSt12_Vector_baseISt10shared_ptrIN4cvc58internal13DTypeSelectorEESaIS4_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIN4cvc58internal13DTypeSelectorEESaIS4_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10shared_ptrIN4cvc58internal13DTypeSelectorEESaIS4_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::shared_ptr", ptr %cond.i10, i64 %sub.ptr.div.i
-  %3 = load ptr, ptr %__args, align 8
-  store ptr %3, ptr %add.ptr, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %4 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
-  store ptr %4, ptr %_M_refcount.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  %4 = load <2 x ptr>, ptr %__args, align 8
+  store <2 x ptr> %4, ptr %add.ptr, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN4cvc58internal13DTypeSelectorEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN4cvc58internal13DTypeSelectorEESaIS4_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i

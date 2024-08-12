@@ -4162,12 +4162,12 @@ _ZNSt6vectorIN3vcg4ShotIfNS0_8Matrix44IfEEEESaIS4_EE6resizeEm.exit: ; preds = %.
   %179 = load ptr, ptr %1, align 8
   %180 = fneg float %178
   %181 = getelementptr inbounds %"class.vcg::Shot", ptr %179, i64 %indvars.iv, i32 1, i32 1
-  %182 = load <2 x float>, ptr %22, align 8
-  %183 = load <2 x float>, ptr %132, align 4
-  %184 = extractelement <2 x float> %183, i64 0
-  store float %184, ptr %131, align 4
-  %185 = extractelement <2 x float> %182, i64 1
-  store float %185, ptr %132, align 4
+  %182 = load float, ptr %131, align 4
+  %183 = load <2 x float>, ptr %22, align 8
+  %184 = load <2 x float>, ptr %132, align 4
+  %185 = extractelement <2 x float> %184, i64 0
+  store float %185, ptr %131, align 4
+  store float %182, ptr %132, align 4
   %186 = load <2 x float>, ptr %134, align 8
   %187 = extractelement <2 x float> %186, i64 0
   store float %187, ptr %133, align 8
@@ -4177,10 +4177,10 @@ _ZNSt6vectorIN3vcg4ShotIfNS0_8Matrix44IfEEEESaIS4_EE6resizeEm.exit: ; preds = %.
   store float %171, ptr %136, align 4
   %189 = insertelement <2 x float> poison, float %173, i64 0
   %190 = shufflevector <2 x float> %189, <2 x float> poison, <2 x i32> zeroinitializer
-  %191 = fmul <2 x float> %190, %183
+  %191 = fmul <2 x float> %190, %184
   %192 = insertelement <2 x float> poison, float %172, i64 0
   %193 = shufflevector <2 x float> %192, <2 x float> poison, <2 x i32> zeroinitializer
-  %194 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %182, <2 x float> %193, <2 x float> %191)
+  %194 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %183, <2 x float> %193, <2 x float> %191)
   %195 = insertelement <2 x float> poison, float %174, i64 0
   %196 = shufflevector <2 x float> %195, <2 x float> poison, <2 x i32> zeroinitializer
   %197 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %186, <2 x float> %196, <2 x float> %194)

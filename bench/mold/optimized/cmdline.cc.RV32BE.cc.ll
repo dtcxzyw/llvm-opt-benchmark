@@ -40019,18 +40019,16 @@ _ZNSt6vectorINSt7__cxx119sub_matchIPKcEESaIS4_EEC2ERKS6_.exit: ; preds = %for.bo
   %_M_current = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_current, align 8
   %_M_end = getelementptr inbounds i8, ptr %this, i64 40
-  %3 = load ptr, ptr %_M_end, align 8
   %_M_re = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load ptr, ptr %_M_re, align 8
   %_M_flags = getelementptr inbounds i8, ptr %this, i64 136
-  %5 = load i32, ptr %_M_flags, align 8
+  %3 = load i32, ptr %_M_flags, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__sub, i8 0, i64 24, i1 false)
   %_M_begin.i = getelementptr inbounds i8, ptr %__sub, i64 32
   store ptr %2, ptr %_M_begin.i, align 8
   %_M_end.i = getelementptr inbounds i8, ptr %__sub, i64 40
-  store ptr %3, ptr %_M_end.i, align 8
-  %_M_re.i = getelementptr inbounds i8, ptr %__sub, i64 48
-  store ptr %4, ptr %_M_re.i, align 8
+  %4 = load ptr, ptr %_M_re, align 8
+  %5 = load <2 x ptr>, ptr %_M_end, align 8
+  store <2 x ptr> %5, ptr %_M_end.i, align 8
   %_M_nfa.i = getelementptr inbounds i8, ptr %__sub, i64 56
   %_M_automaton.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %_M_automaton.i, align 8
@@ -40093,10 +40091,10 @@ _ZNSt6vectorISt4pairIPKciESaIS3_EEC2EmRKS4_.exit.i: ; preds = %for.body.i.i.i.i.
   store ptr %call.i.i, ptr %_M_visited_states.i.i, align 8
   %_M_start.i.i = getelementptr inbounds i8, ptr %__sub, i64 128
   %_M_flags.i = getelementptr inbounds i8, ptr %__sub, i64 136
-  %and.i.i = and i32 %5, 128
+  %and.i.i = and i32 %3, 128
   %tobool.not.i = icmp eq i32 %and.i.i, 0
-  %and.i.i.i = and i32 %5, -6
-  %spec.select = select i1 %tobool.not.i, i32 %5, i32 %and.i.i.i
+  %and.i.i.i = and i32 %3, -6
+  %spec.select = select i1 %tobool.not.i, i32 %3, i32 %and.i.i.i
   store i32 %spec.select, ptr %_M_flags.i, align 8
   store i64 %__next, ptr %_M_start.i.i, align 8
   %_M_current.i = getelementptr inbounds i8, ptr %__sub, i64 24
@@ -41337,18 +41335,16 @@ _ZNSt6vectorINSt7__cxx119sub_matchIPKcEESaIS4_EEC2ERKS6_.exit: ; preds = %for.bo
   %_M_current = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_current, align 8
   %_M_end = getelementptr inbounds i8, ptr %this, i64 40
-  %3 = load ptr, ptr %_M_end, align 8
   %_M_re = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load ptr, ptr %_M_re, align 8
   %_M_flags = getelementptr inbounds i8, ptr %this, i64 112
-  %5 = load i32, ptr %_M_flags, align 8
+  %3 = load i32, ptr %_M_flags, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__sub, i8 0, i64 24, i1 false)
   %_M_begin.i = getelementptr inbounds i8, ptr %__sub, i64 32
   store ptr %2, ptr %_M_begin.i, align 8
   %_M_end.i = getelementptr inbounds i8, ptr %__sub, i64 40
-  store ptr %3, ptr %_M_end.i, align 8
-  %_M_re.i = getelementptr inbounds i8, ptr %__sub, i64 48
-  store ptr %4, ptr %_M_re.i, align 8
+  %4 = load ptr, ptr %_M_re, align 8
+  %5 = load <2 x ptr>, ptr %_M_end, align 8
+  store <2 x ptr> %5, ptr %_M_end.i, align 8
   %_M_nfa.i = getelementptr inbounds i8, ptr %__sub, i64 56
   %_M_automaton.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %_M_automaton.i, align 8
@@ -41405,10 +41401,10 @@ _ZNSt6vectorISt4pairIPKciESaIS3_EEC2EmRKS4_.exit.i: ; preds = %for.body.i.i.i.i.
   store ptr %__cur.0.lcssa.i.i.i.i.i.i, ptr %9, align 8
   %_M_states.i = getelementptr inbounds i8, ptr %__sub, i64 96
   %_M_flags.i = getelementptr inbounds i8, ptr %__sub, i64 112
-  %and.i.i = and i32 %5, 128
+  %and.i.i = and i32 %3, 128
   %tobool.not.i = icmp eq i32 %and.i.i, 0
-  %and.i.i.i = and i32 %5, -6
-  %spec.select = select i1 %tobool.not.i, i32 %5, i32 %and.i.i.i
+  %and.i.i.i = and i32 %3, -6
+  %spec.select = select i1 %tobool.not.i, i32 %3, i32 %and.i.i.i
   store i32 %spec.select, ptr %_M_flags.i, align 8
   store i64 %__next, ptr %_M_states.i, align 8
   %_M_current.i = getelementptr inbounds i8, ptr %__sub, i64 24

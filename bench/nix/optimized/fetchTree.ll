@@ -2627,13 +2627,13 @@ define internal fastcc void @_ZN3nixL9fetchTreeERNS_9EvalStateENS_6PosIdxEPPNS_5
   %54 = alloca %"struct.nix::fetchers::Input", align 8
   %55 = alloca i32, align 4
   %56 = alloca %"struct.std::pair.237", align 8
-  %57 = alloca %"class.nix::ref.24", align 8
+  %57 = alloca %"class.nix::ref.24", align 16
   %58 = alloca ptr, align 8
   %59 = alloca %"class.std::__cxx11::basic_string", align 8
   %60 = alloca %"class.std::__cxx11::basic_string", align 8
   %61 = alloca %"class.std::map.192", align 8
   %62 = alloca %"struct.std::pair.239", align 8
-  %63 = alloca %"class.nix::ref.24", align 8
+  %63 = alloca %"class.nix::ref.24", align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %64 = getelementptr inbounds i8, ptr %11, i64 24
   store i32 0, ptr %64, align 8
@@ -4332,17 +4332,16 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS5_mN3
 
 647:                                              ; preds = %646
   %648 = getelementptr inbounds i8, ptr %0, i64 528
-  %649 = load ptr, ptr %648, align 8
-  store ptr %649, ptr %57, align 8
-  %650 = getelementptr inbounds i8, ptr %57, i64 8
-  %651 = getelementptr inbounds i8, ptr %0, i64 536
-  %652 = load ptr, ptr %651, align 8
-  store ptr %652, ptr %650, align 8
-  %.not.i.i.i.i = icmp eq ptr %652, null
+  %649 = getelementptr inbounds i8, ptr %57, i64 8
+  %650 = getelementptr inbounds i8, ptr %0, i64 536
+  %651 = load ptr, ptr %650, align 8
+  %652 = load <2 x ptr>, ptr %648, align 8
+  store <2 x ptr> %652, ptr %57, align 16
+  %.not.i.i.i.i = icmp eq ptr %651, null
   br i1 %.not.i.i.i.i, label %_ZN3nix3refINS_5StoreEEC2ERKS2_.exit, label %653
 
 653:                                              ; preds = %647
-  %654 = getelementptr inbounds i8, ptr %652, i64 8
+  %654 = getelementptr inbounds i8, ptr %651, i64 8
   %655 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i463 = icmp eq i8 %655, 0
   br i1 %.not.i.i.i.i.i463, label %659, label %656
@@ -4378,7 +4377,7 @@ _ZN3nix3refINS_5StoreEEC2ERKS2_.exit:             ; preds = %647, %656, %659
 
 _ZNSt4pairIN3nix8fetchers5InputESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS9_mNS0_8ExplicitIbEEEESt4lessIS9_ESaIS_IKS9_SD_EEEED2Ev.exit: ; preds = %661
   call void @_ZN3nix8fetchers5InputD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %56) #26
-  %669 = load ptr, ptr %650, align 8
+  %669 = load ptr, ptr %649, align 8
   %.not.i.i.i.i464 = icmp eq ptr %669, null
   br i1 %.not.i.i.i.i464, label %.critedge, label %670
 
@@ -4546,17 +4545,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit469: ; preds = %_Z
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit469
   %740 = getelementptr inbounds i8, ptr %0, i64 528
-  %741 = load ptr, ptr %740, align 8
-  store ptr %741, ptr %63, align 8
-  %742 = getelementptr inbounds i8, ptr %63, i64 8
-  %743 = getelementptr inbounds i8, ptr %0, i64 536
-  %744 = load ptr, ptr %743, align 8
-  store ptr %744, ptr %742, align 8
-  %.not.i.i.i.i470 = icmp eq ptr %744, null
+  %741 = getelementptr inbounds i8, ptr %63, i64 8
+  %742 = getelementptr inbounds i8, ptr %0, i64 536
+  %743 = load ptr, ptr %742, align 8
+  %744 = load <2 x ptr>, ptr %740, align 8
+  store <2 x ptr> %744, ptr %63, align 16
+  %.not.i.i.i.i470 = icmp eq ptr %743, null
   br i1 %.not.i.i.i.i470, label %_ZN3nix3refINS_5StoreEEC2ERKS2_.exit472, label %745
 
 745:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit
-  %746 = getelementptr inbounds i8, ptr %744, i64 8
+  %746 = getelementptr inbounds i8, ptr %743, i64 8
   %747 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i471 = icmp eq i8 %747, 0
   br i1 %.not.i.i.i.i.i471, label %751, label %748
@@ -4576,7 +4574,7 @@ _ZN3nix3refINS_5StoreEEC2ERKS2_.exit472:          ; preds = %_ZNSt3mapINSt7__cxx
           to label %753 unwind label %818
 
 753:                                              ; preds = %_ZN3nix3refINS_5StoreEEC2ERKS2_.exit472
-  %754 = load ptr, ptr %742, align 8
+  %754 = load ptr, ptr %741, align 8
   %.not.i.i.i.i473 = icmp eq ptr %754, null
   br i1 %.not.i.i.i.i473, label %_ZN3nix3refINS_5StoreEED2Ev.exit479, label %755
 
@@ -23015,8 +23013,8 @@ define internal fastcc void @_ZN3nixL5fetchERNS_9EvalStateENS_6PosIdxEPPNS_5Valu
   %17 = alloca %"class.nix::StorePath", align 8
   %18 = alloca %"struct.nix::FixedOutputInfo", align 8
   %19 = alloca %"class.nix::StorePath", align 8
-  %20 = alloca %"struct.nix::SourcePath", align 8
-  %21 = alloca %"class.nix::ref", align 8
+  %20 = alloca %"struct.nix::SourcePath", align 16
+  %21 = alloca %"class.nix::ref", align 16
   %22 = alloca %"struct.nix::fetchers::DownloadTarballResult", align 8
   %23 = alloca %"class.std::vector.485", align 8
   %24 = alloca %"class.nix::CanonPath", align 8
@@ -23550,17 +23548,16 @@ _ZN3nix9StorePathD2Ev.exit214:                    ; preds = %_ZNKSt7__cxx1112bas
 
 238:                                              ; preds = %237
   %239 = getelementptr inbounds i8, ptr %22, i64 128
-  %240 = load ptr, ptr %239, align 8
-  store ptr %240, ptr %21, align 8
-  %241 = getelementptr inbounds i8, ptr %21, i64 8
-  %242 = getelementptr inbounds i8, ptr %22, i64 136
-  %243 = load ptr, ptr %242, align 8
-  store ptr %243, ptr %241, align 8
-  %.not.i.i.i.i = icmp eq ptr %243, null
+  %240 = getelementptr inbounds i8, ptr %21, i64 8
+  %241 = getelementptr inbounds i8, ptr %22, i64 136
+  %242 = load ptr, ptr %241, align 8
+  %243 = load <2 x ptr>, ptr %239, align 8
+  store <2 x ptr> %243, ptr %21, align 16
+  %.not.i.i.i.i = icmp eq ptr %242, null
   br i1 %.not.i.i.i.i, label %_ZN3nix3refINS_13InputAccessorEEC2ERKS2_.exit, label %244
 
 244:                                              ; preds = %238
-  %245 = getelementptr inbounds i8, ptr %243, i64 8
+  %245 = getelementptr inbounds i8, ptr %242, i64 8
   %246 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %246, 0
   br i1 %.not.i.i.i.i.i, label %250, label %247
@@ -23580,16 +23577,15 @@ _ZN3nix3refINS_13InputAccessorEEC2ERKS2_.exit:    ; preds = %238, %247, %250
           to label %_ZN3nix9CanonPathC2ERKS0_.exit unwind label %538
 
 _ZN3nix9CanonPathC2ERKS0_.exit:                   ; preds = %_ZN3nix3refINS_13InputAccessorEEC2ERKS2_.exit
-  %252 = load ptr, ptr %21, align 8
-  store ptr %252, ptr %20, align 8
-  %253 = getelementptr inbounds i8, ptr %20, i64 8
-  %254 = load ptr, ptr %241, align 8
-  store ptr %254, ptr %253, align 8
-  %.not.i.i.i.i.i216 = icmp eq ptr %254, null
+  %252 = getelementptr inbounds i8, ptr %20, i64 8
+  %253 = load ptr, ptr %240, align 8
+  %254 = load <2 x ptr>, ptr %21, align 16
+  store <2 x ptr> %254, ptr %20, align 16
+  %.not.i.i.i.i.i216 = icmp eq ptr %253, null
   br i1 %.not.i.i.i.i.i216, label %_ZN3nix3refINS_13InputAccessorEEC2ERKS2_.exit.i, label %255
 
 255:                                              ; preds = %_ZN3nix9CanonPathC2ERKS0_.exit
-  %256 = getelementptr inbounds i8, ptr %254, i64 8
+  %256 = getelementptr inbounds i8, ptr %253, i64 8
   %257 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %257, 0
   br i1 %.not.i.i.i.i.i.i, label %261, label %258
@@ -23608,7 +23604,7 @@ _ZN3nix3refINS_13InputAccessorEEC2ERKS2_.exit.i:  ; preds = %261, %258, %_ZN3nix
   %263 = getelementptr inbounds i8, ptr %20, i64 16
   %264 = getelementptr inbounds i8, ptr %20, i64 32
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %263, ptr noundef nonnull align 1 dereferenceable(1) %24) #26
-  store ptr %264, ptr %263, align 8
+  store ptr %264, ptr %263, align 16
   %265 = load ptr, ptr %24, align 8
   %266 = getelementptr inbounds i8, ptr %24, i64 16
   %267 = icmp eq ptr %265, %266
@@ -23620,13 +23616,13 @@ _ZN3nix3refINS_13InputAccessorEEC2ERKS2_.exit.i:  ; preds = %261, %258, %_ZN3nix
   %271 = icmp ult i64 %270, 16
   call void @llvm.assume(i1 %271)
   %272 = add nuw nsw i64 %270, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %264, ptr noundef nonnull align 8 dereferenceable(1) %266, i64 %272, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %264, ptr noundef nonnull align 8 dereferenceable(1) %266, i64 %272, i1 false)
   br label %274
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i217: ; preds = %_ZN3nix3refINS_13InputAccessorEEC2ERKS2_.exit.i
-  store ptr %265, ptr %263, align 8
+  store ptr %265, ptr %263, align 16
   %273 = load i64, ptr %266, align 8
-  store i64 %273, ptr %264, align 8
+  store i64 %273, ptr %264, align 16
   %.phi.trans.insert327 = getelementptr inbounds i8, ptr %24, i64 8
   %.pre328 = load i64, ptr %.phi.trans.insert327, align 8
   br label %274
@@ -23848,7 +23844,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %.critedge168
 
 .critedge165.critedge:                            ; preds = %274
-  %360 = load ptr, ptr %263, align 8
+  %360 = load ptr, ptr %263, align 16
   %361 = icmp eq ptr %360, %264
   br i1 %361, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
@@ -23864,7 +23860,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN3nix9CanonPathD2Ev.exit.i:                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %263) #26
-  %364 = load ptr, ptr %253, align 8
+  %364 = load ptr, ptr %252, align 8
   %.not.i.i.i.i.i226 = icmp eq ptr %364, null
   br i1 %.not.i.i.i.i.i226, label %_ZN3nix10SourcePathD2Ev.exit, label %365
 
@@ -23953,7 +23949,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN3nix9CanonPathD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i229, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i228
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #26
-  %403 = load ptr, ptr %241, align 8
+  %403 = load ptr, ptr %240, align 8
   %.not.i.i.i.i230 = icmp eq ptr %403, null
   br i1 %.not.i.i.i.i230, label %_ZN3nix3refINS_13InputAccessorEED2Ev.exit, label %404
 

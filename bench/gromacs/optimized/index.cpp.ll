@@ -7431,9 +7431,9 @@ _ZNSt6vectorI10IndexGroupSaIS0_EED2Ev.exit:       ; preds = %17, %13
   %storemerge = load ptr, ptr %.sink57, align 8
   store ptr %storemerge, ptr %7, align 8
   %31 = load <2 x ptr>, ptr %.sink57.sroa.phi, align 8
+  %32 = load ptr, ptr %.sink57.sroa.phi, align 8
   store <2 x ptr> %31, ptr %30, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sink57, i8 0, i64 24, i1 false)
-  %32 = extractelement <2 x ptr> %31, i64 0
   %33 = ptrtoint ptr %32 to i64
   %34 = ptrtoint ptr %storemerge to i64
   %35 = sub i64 %33, %34
@@ -7500,10 +7500,10 @@ _ZNSt6vectorI10IndexGroupSaIS0_EED2Ev.exit:       ; preds = %3
   store ptr %10, ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 8
   %12 = load <2 x ptr>, ptr %11, align 8
+  %13 = load ptr, ptr %11, align 8
   store <2 x ptr> %12, ptr %9, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i32 -1, ptr %0, align 8
-  %13 = extractelement <2 x ptr> %12, i64 0
   %.not6072 = icmp eq ptr %10, %13
   br i1 %.not6072, label %._crit_edge77, label %.lr.ph76
 

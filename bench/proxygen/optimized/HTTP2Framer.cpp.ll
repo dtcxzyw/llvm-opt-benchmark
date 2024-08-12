@@ -4768,12 +4768,9 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %en
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly2io13QueueAppenderC2EPNS_10IOBufQueueEm.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %appender, align 16
-  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = load ptr, ptr %second.i.i.i.i.i.i, align 8
-  %second3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %appender, i64 8
-  store ptr %9, ptr %second3.i.i.i.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %7, align 8
+  %9 = load ptr, ptr %7, align 8
+  store <2 x ptr> %8, ptr %appender, align 16
   %attached.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %10 = load i8, ptr %attached.i.i.i.i.i, align 8
   %attached3.i.i.i.i.i = getelementptr inbounds i8, ptr %appender, i64 16
@@ -4785,7 +4782,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt10unique_ptrIN
 
 _ZN5folly2io13QueueAppenderC2EPNS_10IOBufQueueEm.exit: ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, %if.then.i.i.i.i
   %11 = phi i8 [ 0, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %frombool.i.i.i.i.i, %if.then.i.i.i.i ]
-  %12 = phi ptr [ null, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %8, %if.then.i.i.i.i ]
+  %12 = phi ptr [ null, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %9, %if.then.i.i.i.i ]
   %growth_.i = getelementptr inbounds i8, ptr %appender, i64 32
   store i64 %mul, ptr %growth_.i, align 16
   %13 = load ptr, ptr %_M_start.i, align 8, !noalias !45

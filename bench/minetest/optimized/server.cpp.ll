@@ -29207,74 +29207,69 @@ sw.bb2:                                           ; preds = %entry
   br i1 %cmp.i.not156, label %return.loopexit, label %for.body
 
 for.body:                                         ; preds = %sw.bb2, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit118
-  %10 = phi i16 [ %24, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit118 ], [ 0, %sw.bb2 ]
-  %11 = phi i16 [ %25, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit118 ], [ 0, %sw.bb2 ]
+  %10 = phi i16 [ %31, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit118 ], [ 0, %sw.bb2 ]
+  %11 = phi i16 [ %36, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit118 ], [ 0, %sw.bb2 ]
   %__begin3.sroa.0.0160 = phi ptr [ %incdec.ptr.i, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit118 ], [ %8, %sw.bb2 ]
-  %12 = phi i16 [ %26, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit118 ], [ 0, %sw.bb2 ]
-  %mul.i142159 = phi i16 [ %mul.i143, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit118 ], [ 1, %sw.bb2 ]
-  %sub8.i147158 = phi i16 [ %sub8.i148, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit118 ], [ 1, %sw.bb2 ]
+  %12 = phi i16 [ %37, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit118 ], [ 0, %sw.bb2 ]
+  %mul.i142159 = phi i16 [ %35, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit118 ], [ 1, %sw.bb2 ]
+  %sub8.i147158 = phi i16 [ %34, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit118 ], [ 1, %sw.bb2 ]
   %sub13.i152157 = phi i16 [ %sub13.i153, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit118 ], [ 1, %sw.bb2 ]
-  %p6.sroa.0.0.copyload = load i16, ptr %__begin3.sroa.0.0160, align 2, !tbaa !361
-  %p6.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %__begin3.sroa.0.0160, i64 2
-  %p6.sroa.4.0.copyload = load i16, ptr %p6.sroa.4.0..sroa_idx, align 2, !tbaa !361
+  %13 = phi <2 x i16> [ %32, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit118 ], [ zeroinitializer, %sw.bb2 ]
+  %14 = phi <2 x i16> [ %33, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit118 ], [ <i16 1, i16 1>, %sw.bb2 ]
   %p6.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %__begin3.sroa.0.0160, i64 4
   %p6.sroa.5.0.copyload = load i16, ptr %p6.sroa.5.0..sroa_idx, align 2, !tbaa !361
-  %mul.i = shl i16 %p6.sroa.0.0.copyload, 4
-  %mul6.i = shl i16 %p6.sroa.4.0.copyload, 4
+  %15 = load <2 x i16>, ptr %__begin3.sroa.0.0160, align 2, !tbaa !361
+  %16 = shl <2 x i16> %15, <i16 4, i16 4>
   %mul10.i = shl i16 %p6.sroa.5.0.copyload, 4
-  %sub.i = or disjoint i16 %mul.i, 15
-  %sub8.i = or disjoint i16 %mul6.i, 15
+  %17 = or disjoint <2 x i16> %16, <i16 15, i16 15>
   %sub13.i = or disjoint i16 %mul10.i, 15
   %sub.i.i.i57 = sub i16 %12, %mul.i142159
   %sub8.i.i.i60 = sub i16 %11, %sub8.i147158
-  %13 = and i16 %sub8.i.i.i60, %sub.i.i.i57
-  %or.cond.i.i = icmp eq i16 %13, -1
+  %18 = and i16 %sub8.i.i.i60, %sub.i.i.i57
+  %or.cond.i.i = icmp eq i16 %18, -1
   %sub13.i.i.i63 = sub i16 %10, %sub13.i152157
   %cmp11.i.i.i = icmp eq i16 %sub13.i.i.i63, -1
-  %14 = select i1 %or.cond.i.i, i1 %cmp11.i.i.i, i1 false
-  br i1 %14, label %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit, label %if.end.i
+  %19 = select i1 %or.cond.i.i, i1 %cmp11.i.i.i, i1 false
+  br i1 %19, label %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  %spec.select = tail call i16 @llvm.smin.i16(i16 %mul.i, i16 %mul.i142159)
-  %sub8.i146 = tail call i16 @llvm.smin.i16(i16 %mul6.i, i16 %sub8.i147158)
+  %20 = tail call <2 x i16> @llvm.smin.v2i16(<2 x i16> %16, <2 x i16> %14)
   %sub13.i151 = tail call i16 @llvm.smin.i16(i16 %mul10.i, i16 %sub13.i152157)
-  %15 = tail call i16 @llvm.smax.i16(i16 %mul.i, i16 %12)
-  %16 = tail call i16 @llvm.smax.i16(i16 %mul6.i, i16 %11)
+  %21 = tail call <2 x i16> @llvm.smax.v2i16(<2 x i16> %16, <2 x i16> %13)
   %spec.select169 = tail call i16 @llvm.smax.i16(i16 %mul10.i, i16 %10)
   br label %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit
 
 _ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit: ; preds = %if.end.i, %for.body
-  %17 = phi i16 [ %mul10.i, %for.body ], [ %spec.select169, %if.end.i ]
-  %18 = phi i16 [ %mul6.i, %for.body ], [ %16, %if.end.i ]
+  %22 = phi i16 [ %mul10.i, %for.body ], [ %spec.select169, %if.end.i ]
   %sub13.i155 = phi i16 [ %mul10.i, %for.body ], [ %sub13.i151, %if.end.i ]
-  %sub8.i150 = phi i16 [ %mul6.i, %for.body ], [ %sub8.i146, %if.end.i ]
-  %mul.i145 = phi i16 [ %mul.i, %for.body ], [ %spec.select, %if.end.i ]
-  %19 = phi i16 [ %mul.i, %for.body ], [ %15, %if.end.i ]
-  %sub.i.i.i68 = sub i16 %19, %mul.i145
-  %sub8.i.i.i71 = sub i16 %18, %sub8.i150
-  %20 = and i16 %sub.i.i.i68, %sub8.i.i.i71
-  %or.cond.i.i72 = icmp eq i16 %20, -1
-  %sub13.i.i.i75 = sub i16 %17, %sub13.i155
+  %23 = phi <2 x i16> [ %16, %for.body ], [ %21, %if.end.i ]
+  %24 = phi <2 x i16> [ %16, %for.body ], [ %20, %if.end.i ]
+  %25 = sub <2 x i16> %23, %24
+  %shift = shufflevector <2 x i16> %25, <2 x i16> poison, <2 x i32> <i32 1, i32 poison>
+  %26 = and <2 x i16> %25, %shift
+  %27 = extractelement <2 x i16> %26, i64 0
+  %or.cond.i.i72 = icmp eq i16 %27, -1
+  %sub13.i.i.i75 = sub i16 %22, %sub13.i155
   %cmp11.i.i.i76 = icmp eq i16 %sub13.i.i.i75, -1
-  %21 = select i1 %or.cond.i.i72, i1 %cmp11.i.i.i76, i1 false
-  br i1 %21, label %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit118, label %if.end.i77
+  %28 = select i1 %or.cond.i.i72, i1 %cmp11.i.i.i76, i1 false
+  br i1 %28, label %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit118, label %if.end.i77
 
 if.end.i77:                                       ; preds = %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit
-  %spec.select167 = tail call i16 @llvm.smin.i16(i16 %sub.i, i16 %mul.i145)
-  %sub8.i149 = tail call i16 @llvm.smin.i16(i16 %sub8.i, i16 %sub8.i150)
+  %29 = tail call <2 x i16> @llvm.smin.v2i16(<2 x i16> %17, <2 x i16> %24)
   %sub13.i154 = tail call i16 @llvm.smin.i16(i16 %sub13.i, i16 %sub13.i155)
-  %22 = tail call i16 @llvm.smax.i16(i16 %sub.i, i16 %19)
-  %23 = tail call i16 @llvm.smax.i16(i16 %sub8.i, i16 %18)
-  %spec.select170 = tail call i16 @llvm.smax.i16(i16 %sub13.i, i16 %17)
+  %30 = tail call <2 x i16> @llvm.smax.v2i16(<2 x i16> %17, <2 x i16> %23)
+  %spec.select170 = tail call i16 @llvm.smax.i16(i16 %sub13.i, i16 %22)
   br label %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit118
 
 _ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit118: ; preds = %if.end.i77, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit
-  %24 = phi i16 [ %sub13.i, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit ], [ %spec.select170, %if.end.i77 ]
-  %25 = phi i16 [ %sub8.i, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit ], [ %23, %if.end.i77 ]
+  %31 = phi i16 [ %sub13.i, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit ], [ %spec.select170, %if.end.i77 ]
   %sub13.i153 = phi i16 [ %sub13.i, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit ], [ %sub13.i154, %if.end.i77 ]
-  %sub8.i148 = phi i16 [ %sub8.i, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit ], [ %sub8.i149, %if.end.i77 ]
-  %mul.i143 = phi i16 [ %sub.i, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit ], [ %spec.select167, %if.end.i77 ]
-  %26 = phi i16 [ %sub.i, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit ], [ %22, %if.end.i77 ]
+  %32 = phi <2 x i16> [ %17, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit ], [ %30, %if.end.i77 ]
+  %33 = phi <2 x i16> [ %17, %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit ], [ %29, %if.end.i77 ]
+  %34 = extractelement <2 x i16> %33, i64 1
+  %35 = extractelement <2 x i16> %33, i64 0
+  %36 = extractelement <2 x i16> %32, i64 1
+  %37 = extractelement <2 x i16> %32, i64 0
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0160, i64 6
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %9
   br i1 %cmp.i.not, label %for.cond.return.loopexit_crit_edge, label %for.body
@@ -29292,29 +29287,29 @@ sw.epilog:                                        ; preds = %entry
 for.cond.return.loopexit_crit_edge:               ; preds = %_ZN9VoxelArea8addPointERKN3irr4core8vector3dIsEE.exit118
   %Z.i.i.i61 = getelementptr inbounds i8, ptr %agg.result, i64 10
   %m_cache_extent.i102.i = getelementptr inbounds i8, ptr %agg.result, i64 12
-  %sub13.i.i93.i101 = add i16 %24, 1
+  %sub13.i.i93.i101 = add i16 %31, 1
   %add13.i.i94.i102 = sub i16 %sub13.i.i93.i101, %sub13.i153
   %retval.sroa.3.0.insert.ext.i12.i95.i103 = zext i16 %add13.i.i94.i102 to i48
   %retval.sroa.3.0.insert.shift.i13.i96.i104 = shl nuw i48 %retval.sroa.3.0.insert.ext.i12.i95.i103, 32
-  %sub8.i.i91.i99 = add i16 %25, 1
-  %add8.i.i92.i100 = sub i16 %sub8.i.i91.i99, %sub8.i148
+  %sub8.i.i91.i99 = add i16 %36, 1
+  %add8.i.i92.i100 = sub i16 %sub8.i.i91.i99, %34
   %retval.sroa.2.0.insert.ext.i14.i97.i105 = zext i16 %add8.i.i92.i100 to i48
   %retval.sroa.2.0.insert.shift.i15.i98.i106 = shl nuw nsw i48 %retval.sroa.2.0.insert.ext.i14.i97.i105, 16
   %retval.sroa.2.0.insert.insert.i16.i99.i107 = or disjoint i48 %retval.sroa.2.0.insert.shift.i15.i98.i106, %retval.sroa.3.0.insert.shift.i13.i96.i104
-  %reass.sub = sub i16 %26, %mul.i143
+  %reass.sub = sub i16 %37, %35
   %add.i.i90.i98 = add i16 %reass.sub, 1
   %retval.sroa.0.0.insert.ext.i17.i100.i108 = zext i16 %add.i.i90.i98 to i48
   %retval.sroa.0.0.insert.insert.i18.i101.i109 = or disjoint i48 %retval.sroa.2.0.insert.insert.i16.i99.i107, %retval.sroa.0.0.insert.ext.i17.i100.i108
-  store i16 %25, ptr %7, align 2, !tbaa !361
-  store i16 %24, ptr %Z.i.i.i61, align 2
+  store i16 %36, ptr %7, align 2, !tbaa !361
+  store i16 %31, ptr %Z.i.i.i61, align 2
   store i48 %retval.sroa.0.0.insert.insert.i18.i101.i109, ptr %m_cache_extent.i102.i, align 2
   br label %return.loopexit
 
 return.loopexit:                                  ; preds = %for.cond.return.loopexit_crit_edge, %sw.bb2
   %sub13.i152.lcssa = phi i16 [ %sub13.i153, %for.cond.return.loopexit_crit_edge ], [ 1, %sw.bb2 ]
-  %sub8.i147.lcssa = phi i16 [ %sub8.i148, %for.cond.return.loopexit_crit_edge ], [ 1, %sw.bb2 ]
-  %mul.i142.lcssa = phi i16 [ %mul.i143, %for.cond.return.loopexit_crit_edge ], [ 1, %sw.bb2 ]
-  %.lcssa = phi i16 [ %26, %for.cond.return.loopexit_crit_edge ], [ 0, %sw.bb2 ]
+  %sub8.i147.lcssa = phi i16 [ %34, %for.cond.return.loopexit_crit_edge ], [ 1, %sw.bb2 ]
+  %mul.i142.lcssa = phi i16 [ %35, %for.cond.return.loopexit_crit_edge ], [ 1, %sw.bb2 ]
+  %.lcssa = phi i16 [ %37, %for.cond.return.loopexit_crit_edge ], [ 0, %sw.bb2 ]
   store i16 %.lcssa, ptr %MaxEdge.i20, align 2, !tbaa !361
   store i16 %mul.i142.lcssa, ptr %agg.result, align 2, !tbaa !361
   store i16 %sub8.i147.lcssa, ptr %Y.i.i, align 2, !tbaa !361
@@ -72769,6 +72764,12 @@ declare i16 @llvm.smax.i16(i16, i16) #9
 
 ; Function Attrs: nofree nosync nounwind memory(none)
 declare i32 @llvm.eh.typeid.for.p0(ptr) #30
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <2 x i16> @llvm.smax.v2i16(<2 x i16>, <2 x i16>) #31
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <2 x i16> @llvm.smin.v2i16(<2 x i16>, <2 x i16>) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x float> @llvm.fabs.v2f32(<2 x float>) #31

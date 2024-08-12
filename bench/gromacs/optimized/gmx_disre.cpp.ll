@@ -4829,12 +4829,12 @@ _ZL4add5if.exit:                                  ; preds = %163, %._crit_edge.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %"_ZSt25__unguarded_linear_insertIP8t_toppopN9__gnu_cxx5__ops14_Val_comp_iterIZL6print5P8_IO_FILEE3$_0EEEvT_T0_.exit.i14.i.i.i.i", %"_ZSt16__insertion_sortIP8t_toppopN9__gnu_cxx5__ops15_Iter_comp_iterIZL6print5P8_IO_FILEE3$_0EEEvT_S9_T0_.exit.i.i.i.i"
   %.07.i.i.i.i.i = phi ptr [ %244, %"_ZSt25__unguarded_linear_insertIP8t_toppopN9__gnu_cxx5__ops14_Val_comp_iterIZL6print5P8_IO_FILEE3$_0EEEvT_T0_.exit.i14.i.i.i.i" ], [ %236, %"_ZSt16__insertion_sortIP8t_toppopN9__gnu_cxx5__ops15_Iter_comp_iterIZL6print5P8_IO_FILEE3$_0EEEvT_S9_T0_.exit.i.i.i.i" ]
-  %237 = load <2 x i32>, ptr %.07.i.i.i.i.i, align 4
-  %bc = bitcast <2 x i32> %237 to <2 x float>
-  %238 = extractelement <2 x float> %bc, i64 1
+  %.sroa_idx10.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.07.i.i.i.i.i, i64 4
+  %237 = load float, ptr %.sroa_idx10.i.i.i.i.i.i, align 4
+  %238 = load <2 x i32>, ptr %.07.i.i.i.i.i, align 4
   %239 = getelementptr i8, ptr %.07.i.i.i.i.i, i64 -4
   %.0.val12.i.i13.i.i.i.i = load float, ptr %239, align 4
-  %240 = fcmp olt float %.0.val12.i.i13.i.i.i.i, %238
+  %240 = fcmp olt float %.0.val12.i.i13.i.i.i.i, %237
   br i1 %240, label %.lr.ph.i.i18.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIP8t_toppopN9__gnu_cxx5__ops14_Val_comp_iterIZL6print5P8_IO_FILEE3$_0EEEvT_T0_.exit.i14.i.i.i.i"
 
 .lr.ph.i.i18.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i18.i.i.i.i
@@ -4844,12 +4844,12 @@ _ZL4add5if.exit:                                  ; preds = %163, %._crit_edge.i
   store i64 %241, ptr %.0913.i.i19.i.i.i.i, align 4
   %242 = getelementptr i8, ptr %.0913.i.i19.i.i.i.i, i64 -12
   %.0.val.i.i21.i.i.i.i = load float, ptr %242, align 4
-  %243 = fcmp olt float %.0.val.i.i21.i.i.i.i, %238
+  %243 = fcmp olt float %.0.val.i.i21.i.i.i.i, %237
   br i1 %243, label %.lr.ph.i.i18.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIP8t_toppopN9__gnu_cxx5__ops14_Val_comp_iterIZL6print5P8_IO_FILEE3$_0EEEvT_T0_.exit.i14.i.i.i.i", !llvm.loop !41
 
 "_ZSt25__unguarded_linear_insertIP8t_toppopN9__gnu_cxx5__ops14_Val_comp_iterIZL6print5P8_IO_FILEE3$_0EEEvT_T0_.exit.i14.i.i.i.i": ; preds = %.lr.ph.i.i18.i.i.i.i, %.lr.ph.i.i.i.i.i
   %.09.lcssa.i.i15.i.i.i.i = phi ptr [ %.07.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0.i.i20.i.i.i.i, %.lr.ph.i.i18.i.i.i.i ]
-  store <2 x i32> %237, ptr %.09.lcssa.i.i15.i.i.i.i, align 4
+  store <2 x i32> %238, ptr %.09.lcssa.i.i15.i.i.i.i, align 4
   %244 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i, i64 8
   %.not.i17.i.i.i.i = icmp eq ptr %244, %215
   br i1 %.not.i17.i.i.i.i, label %"_ZSt4sortIP8t_toppopZL6print5P8_IO_FILEE3$_0EvT_S5_T0_.exit.i", label %.lr.ph.i.i.i.i.i, !llvm.loop !43

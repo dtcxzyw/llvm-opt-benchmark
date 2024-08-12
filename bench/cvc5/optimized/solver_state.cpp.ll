@@ -4401,17 +4401,15 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS0_9CDHashSetIS4_St4hashIS4_EEEES8_EixERKS4_(ptr noundef nonnull align 8 dereferenceable(112) %d_partElementSkolems, ptr noundef nonnull align 8 dereferenceable(8) %n)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   %second.i.i = getelementptr inbounds i8, ptr %call, i64 48
-  %0 = load ptr, ptr %second.i.i, align 8, !noalias !35
-  store ptr %0, ptr %agg.result, align 8, !alias.scope !35
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %call, i64 56
-  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !35
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8, !alias.scope !35
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !35
+  %1 = load <2 x ptr>, ptr %second.i.i, align 8, !noalias !35
+  store <2 x ptr> %1, ptr %agg.result, align 8, !alias.scope !35
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS0_9CDHashSetIS4_St4hashIS4_EEEES8_EcvSA_Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !35
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

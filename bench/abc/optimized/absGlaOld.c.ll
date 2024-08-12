@@ -10770,25 +10770,24 @@ Abc_Clock.exit:                                   ; preds = %3, %38
   br i1 %.not279, label %Vec_IntAlloc.exit.i, label %73
 
 73:                                               ; preds = %72
-  %74 = load i32, ptr %1, align 8
-  %75 = getelementptr inbounds i8, ptr %1, i64 4
-  %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %1, i64 32
-  %78 = load i32, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %1, i64 84
-  %80 = load i32, ptr %79, align 4
-  store i32 %76, ptr %1, align 8
-  %81 = sdiv i32 %76, 2
+  %74 = getelementptr inbounds i8, ptr %1, i64 4
+  %75 = getelementptr inbounds i8, ptr %1, i64 32
+  %76 = load i32, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %1, i64 84
+  %78 = load i32, ptr %77, align 4
+  store i32 20, ptr %75, align 8
+  store i32 0, ptr %77, align 4
+  %79 = load i32, ptr %74, align 4
+  %80 = load <2 x i32>, ptr %1, align 8
+  store i32 %79, ptr %1, align 8
+  %81 = sdiv i32 %79, 2
   %82 = call i32 @llvm.smin.i32(i32 %81, i32 2)
   %83 = add nsw i32 %82, 1
-  store i32 %83, ptr %75, align 4
-  store i32 20, ptr %77, align 8
-  store i32 0, ptr %79, align 4
+  store i32 %83, ptr %74, align 4
   %84 = call i32 @Gia_VtaPerformInt(ptr noundef nonnull %0, ptr noundef nonnull %1) #26
-  store i32 %74, ptr %1, align 8
-  store i32 %76, ptr %75, align 4
-  store i32 %78, ptr %77, align 8
-  store i32 %80, ptr %79, align 4
+  store <2 x i32> %80, ptr %1, align 8
+  store i32 %76, ptr %75, align 8
+  store i32 %78, ptr %77, align 4
   %85 = load ptr, ptr %69, align 8
   %86 = icmp eq ptr %85, null
   br i1 %86, label %Vec_IntFreeP.exit, label %87

@@ -1239,8 +1239,8 @@ declare double @llvm.fmuladd.f64(double, double, double) #9
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev11RangeOpData15convertToMatrixEv(ptr noalias sret(%"class.std::shared_ptr.17") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(228) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %tempFwd = alloca %"class.std::shared_ptr.14", align 8
-  %ref.tmp = alloca %"class.std::shared_ptr", align 8
+  %tempFwd = alloca %"class.std::shared_ptr.14", align 16
+  %ref.tmp = alloca %"class.std::shared_ptr", align 16
   %m_minInValue.i = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load double, ptr %m_minInValue.i, align 8
   %conv.i = fptrunc double %0 to float
@@ -1270,7 +1270,7 @@ lpad:                                             ; preds = %if.then
   br label %eh.resume
 
 if.end:                                           ; preds = %lor.lhs.false
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tempFwd, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tempFwd, i8 0, i64 16, i1 false)
   %m_direction.i = getelementptr inbounds i8, ptr %this, i64 224
   %5 = load i32, ptr %m_direction.i, align 8
   %cmp = icmp eq i32 %5, 1
@@ -1281,13 +1281,10 @@ if.then4:                                         ; preds = %if.end
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev11RangeOpDataEED2Ev.exit unwind label %lpad5
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev11RangeOpDataEED2Ev.exit: ; preds = %if.then4
-  %6 = load ptr, ptr %ref.tmp, align 8
-  %_M_refcount4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %7 = load ptr, ptr %_M_refcount4.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
-  store ptr %6, ptr %tempFwd, align 8
-  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %tempFwd, i64 8
-  store ptr %7, ptr %_M_refcount3.i.i.i, align 8
+  %6 = load <2 x ptr>, ptr %ref.tmp, align 16
+  %7 = load ptr, ptr %ref.tmp, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
+  store <2 x ptr> %6, ptr %tempFwd, align 16
   br label %if.end9
 
 lpad5:                                            ; preds = %if.end9, %if.then4
@@ -1296,7 +1293,7 @@ lpad5:                                            ; preds = %if.end9, %if.then4
   br label %ehcleanup
 
 if.end9:                                          ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev11RangeOpDataEED2Ev.exit, %if.end
-  %fwdThis.0 = phi ptr [ %6, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev11RangeOpDataEED2Ev.exit ], [ %this, %if.end ]
+  %fwdThis.0 = phi ptr [ %7, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev11RangeOpDataEED2Ev.exit ], [ %this, %if.end ]
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   store ptr null, ptr %agg.result, align 8, !alias.scope !17
   %call5.i.i.i3.i.i.i.i16 = invoke noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #20

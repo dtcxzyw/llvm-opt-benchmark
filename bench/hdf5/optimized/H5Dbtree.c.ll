@@ -122,28 +122,26 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_init(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5D__btree_idx_create(ptr nocapture noundef readonly %0) #0 {
-  %2 = alloca %struct.H5D_chunk_common_ud_t, align 8
+  %2 = alloca %struct.H5D_chunk_common_ud_t, align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8
-  store ptr %4, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr %6, ptr %7, align 8
-  %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
-  %10 = call i32 @H5B_create(ptr noundef %8, ptr noundef nonnull @H5B_BTREE, ptr noundef nonnull %2, ptr noundef nonnull %9) #15
-  %11 = icmp slt i32 %10, 0
-  br i1 %11, label %12, label %16
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = load ptr, ptr %4, align 8
+  %6 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %6, ptr %2, align 16
+  %7 = load ptr, ptr %0, align 8
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = call i32 @H5B_create(ptr noundef %7, ptr noundef nonnull @H5B_BTREE, ptr noundef nonnull %2, ptr noundef nonnull %8) #15
+  %10 = icmp slt i32 %9, 0
+  br i1 %10, label %11, label %15
 
-12:                                               ; preds = %1
-  %13 = load i64, ptr @H5E_DATASET_g, align 8
-  %14 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %15 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_create, i32 noundef 873, i64 noundef %13, i64 noundef %14, ptr noundef nonnull @.str.4) #15
-  br label %16
+11:                                               ; preds = %1
+  %12 = load i64, ptr @H5E_DATASET_g, align 8
+  %13 = load i64, ptr @H5E_CANTINIT_g, align 8
+  %14 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_create, i32 noundef 873, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.4) #15
+  br label %15
 
-16:                                               ; preds = %1, %12
-  %.0 = phi i32 [ -1, %12 ], [ 0, %1 ]
+15:                                               ; preds = %1, %11
+  %.0 = phi i32 [ -1, %11 ], [ 0, %1 ]
   ret i32 %.0
 }
 
@@ -230,35 +228,33 @@ define internal noundef i32 @H5D__btree_idx_load_metadata(ptr nocapture readnone
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5D__btree_idx_iterate(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = alloca %struct.H5D_btree_it_ud_t, align 8
+  %4 = alloca %struct.H5D_btree_it_ud_t, align 16
   %5 = getelementptr inbounds i8, ptr %4, i64 16
-  store i64 0, ptr %5, align 8
+  store i64 0, ptr %5, align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %2, ptr %12, align 8
-  %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
-  %15 = load i64, ptr %14, align 8
-  %16 = call i32 @H5B_iterate(ptr noundef %13, ptr noundef nonnull @H5B_BTREE, i64 noundef %15, ptr noundef nonnull @H5D__btree_idx_iterate_cb, ptr noundef nonnull %4) #15
-  %17 = icmp slt i32 %16, 0
-  br i1 %17, label %18, label %22
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8
+  %9 = load <2 x ptr>, ptr %6, align 8
+  store <2 x ptr> %9, ptr %4, align 16
+  %10 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr %1, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %2, ptr %11, align 16
+  %12 = load ptr, ptr %0, align 8
+  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = load i64, ptr %13, align 8
+  %15 = call i32 @H5B_iterate(ptr noundef %12, ptr noundef nonnull @H5B_BTREE, i64 noundef %14, ptr noundef nonnull @H5D__btree_idx_iterate_cb, ptr noundef nonnull %4) #15
+  %16 = icmp slt i32 %15, 0
+  br i1 %16, label %17, label %21
 
-18:                                               ; preds = %3
-  %19 = load i64, ptr @H5E_DATASET_g, align 8
-  %20 = load i64, ptr @H5E_BADITER_g, align 8
-  %21 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_iterate, i32 noundef 1133, i64 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.7) #15
-  br label %22
+17:                                               ; preds = %3
+  %18 = load i64, ptr @H5E_DATASET_g, align 8
+  %19 = load i64, ptr @H5E_BADITER_g, align 8
+  %20 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_iterate, i32 noundef 1133, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.7) #15
+  br label %21
 
-22:                                               ; preds = %18, %3
-  ret i32 %16
+21:                                               ; preds = %17, %3
+  ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -359,7 +355,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_delete(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5D__btree_idx_copy_setup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = alloca %struct.H5D_chunk_common_ud_t, align 8
+  %3 = alloca %struct.H5D_chunk_common_ud_t, align 16
   %4 = alloca i64, align 8
   store i64 -1, ptr %4, align 8
   call void @H5AC_tag(i64 noundef 2, ptr noundef nonnull %4) #15
@@ -376,7 +372,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_copy_setup(ptr nocapture no
   %13 = load i64, ptr @H5E_RESOURCE_g, align 8
   %14 = load i64, ptr @H5E_CANTINIT_g, align 8
   %15 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_copy_setup, i32 noundef 1259, i64 noundef %13, i64 noundef %14, ptr noundef nonnull @.str.13) #15
-  br label %43
+  br label %42
 
 16:                                               ; preds = %2
   %17 = load ptr, ptr %1, align 8
@@ -392,39 +388,37 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_copy_setup(ptr nocapture no
   %25 = load i64, ptr @H5E_RESOURCE_g, align 8
   %26 = load i64, ptr @H5E_CANTINIT_g, align 8
   %27 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_copy_setup, i32 noundef 1262, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.14) #15
-  br label %43
+  br label %42
 
 28:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %29 = load ptr, ptr %20, align 8
-  store ptr %29, ptr %3, align 8
-  %30 = load ptr, ptr %18, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %30, ptr %31, align 8
-  %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds i8, ptr %30, i64 8
-  %34 = call i32 @H5B_create(ptr noundef %32, ptr noundef nonnull @H5B_BTREE, ptr noundef nonnull %3, ptr noundef nonnull %33) #15
-  %35 = icmp slt i32 %34, 0
-  br i1 %35, label %36, label %H5D__btree_idx_create.exit
+  %29 = load ptr, ptr %18, align 8
+  %30 = load <2 x ptr>, ptr %20, align 8
+  store <2 x ptr> %30, ptr %3, align 16
+  %31 = load ptr, ptr %1, align 8
+  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = call i32 @H5B_create(ptr noundef %31, ptr noundef nonnull @H5B_BTREE, ptr noundef nonnull %3, ptr noundef nonnull %32) #15
+  %34 = icmp slt i32 %33, 0
+  br i1 %34, label %35, label %H5D__btree_idx_create.exit
 
 H5D__btree_idx_create.exit:                       ; preds = %28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %43
+  br label %42
 
-36:                                               ; preds = %28
-  %37 = load i64, ptr @H5E_DATASET_g, align 8
-  %38 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_create, i32 noundef 873, i64 noundef %37, i64 noundef %38, ptr noundef nonnull @.str.4) #15
+35:                                               ; preds = %28
+  %36 = load i64, ptr @H5E_DATASET_g, align 8
+  %37 = load i64, ptr @H5E_CANTINIT_g, align 8
+  %38 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_create, i32 noundef 873, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.4) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %40 = load i64, ptr @H5E_IO_g, align 8
-  %41 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %42 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_copy_setup, i32 noundef 1266, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.15) #15
-  br label %43
+  %39 = load i64, ptr @H5E_IO_g, align 8
+  %40 = load i64, ptr @H5E_CANTINIT_g, align 8
+  %41 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_copy_setup, i32 noundef 1266, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.15) #15
+  br label %42
 
-43:                                               ; preds = %H5D__btree_idx_create.exit, %36, %24, %12
-  %.0 = phi i32 [ -1, %12 ], [ -1, %24 ], [ -1, %36 ], [ 0, %H5D__btree_idx_create.exit ]
-  %44 = load i64, ptr %4, align 8
-  call void @H5AC_tag(i64 noundef %44, ptr noundef null) #15
+42:                                               ; preds = %H5D__btree_idx_create.exit, %35, %24, %12
+  %.0 = phi i32 [ -1, %12 ], [ -1, %24 ], [ -1, %35 ], [ 0, %H5D__btree_idx_create.exit ]
+  %43 = load i64, ptr %4, align 8
+  call void @H5AC_tag(i64 noundef %43, ptr noundef null) #15
   ret i32 %.0
 }
 
@@ -457,37 +451,35 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_copy_shutdown(ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5D__btree_idx_size(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = alloca %struct.H5D_chunk_common_ud_t, align 8
+  %3 = alloca %struct.H5D_chunk_common_ud_t, align 16
   %4 = alloca %struct.H5B_info_t, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 0, ptr %5, align 8
+  store i64 0, ptr %5, align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %9, ptr %10, align 8
-  %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
-  %13 = load i64, ptr %12, align 8
-  %14 = call i32 @H5B_get_info(ptr noundef %11, ptr noundef nonnull @H5B_BTREE, i64 noundef %13, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %3) #15
-  %15 = icmp slt i32 %14, 0
-  br i1 %15, label %16, label %20
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8
+  %9 = load <2 x ptr>, ptr %6, align 8
+  store <2 x ptr> %9, ptr %3, align 16
+  %10 = load ptr, ptr %0, align 8
+  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = load i64, ptr %11, align 8
+  %13 = call i32 @H5B_get_info(ptr noundef %10, ptr noundef nonnull @H5B_BTREE, i64 noundef %12, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %3) #15
+  %14 = icmp slt i32 %13, 0
+  br i1 %14, label %15, label %19
 
-16:                                               ; preds = %2
-  %17 = load i64, ptr @H5E_BTREE_g, align 8
-  %18 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %19 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_size, i32 noundef 1336, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.7) #15
-  br label %22
+15:                                               ; preds = %2
+  %16 = load i64, ptr @H5E_BTREE_g, align 8
+  %17 = load i64, ptr @H5E_CANTINIT_g, align 8
+  %18 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__btree_idx_size, i32 noundef 1336, i64 noundef %16, i64 noundef %17, ptr noundef nonnull @.str.7) #15
+  br label %21
 
-20:                                               ; preds = %2
-  %21 = load i64, ptr %4, align 8
-  store i64 %21, ptr %1, align 8
-  br label %22
+19:                                               ; preds = %2
+  %20 = load i64, ptr %4, align 8
+  store i64 %20, ptr %1, align 8
+  br label %21
 
-22:                                               ; preds = %20, %16
-  %.0 = phi i32 [ -1, %16 ], [ 0, %20 ]
+21:                                               ; preds = %19, %15
+  %.0 = phi i32 [ -1, %15 ], [ 0, %19 ]
   ret i32 %.0
 }
 

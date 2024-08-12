@@ -17067,19 +17067,17 @@ define void @_ZNK6casadi8SparsitycvNS_14SparsityStructEEv(ptr dead_on_unwind noa
   %3 = tail call noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
-  %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
-  %10 = getelementptr inbounds i64, ptr %9, i64 %8
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = load i64, ptr %6, align 8
+  %9 = load <2 x i64>, ptr %5, align 8
+  %10 = getelementptr inbounds i64, ptr %7, i64 %8
   %11 = getelementptr inbounds i8, ptr %10, i64 8
-  store i64 %6, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %8, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %9, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %11, ptr %14, align 8
+  store <2 x i64> %9, ptr %0, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %7, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %11, ptr %13, align 8
   ret void
 }
 

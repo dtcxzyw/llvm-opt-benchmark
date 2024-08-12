@@ -4103,9 +4103,9 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE9do_assignEPKcS7_j(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %p1, ptr noundef %p2, i32 noundef %f) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parser.i = alloca %"class.boost::re_detail_500::basic_regex_parser", align 8
-  %temp = alloca %"class.std::shared_ptr", align 8
+  %temp = alloca %"class.std::shared_ptr", align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp) #30
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %temp, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %this, align 8, !tbaa !160
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.else
@@ -4156,7 +4156,7 @@ invoke.cont5:                                     ; preds = %invoke.cont4
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5boost13re_detail_50026basic_regex_implementationIcNS0_12regex_traitsIcNS0_16cpp_regex_traitsIcEEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i, align 8, !tbaa !48
   %_M_ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call2, ptr %_M_ptr.i.i, align 8, !tbaa !162
-  store ptr %call2, ptr %temp, align 8, !tbaa !57
+  store ptr %call2, ptr %temp, align 16, !tbaa !57
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %temp, i64 8
   store ptr %call.i, ptr %_M_refcount3.i.i.i, align 8, !tbaa !44
   br label %if.end
@@ -4180,17 +4180,15 @@ invoke.cont9:                                     ; preds = %if.else
   %m_ptraits = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call10, i8 0, i64 24, i1 false)
   %m_ptraits.i.i = getelementptr inbounds i8, ptr %call10, i64 24
-  %9 = load ptr, ptr %m_ptraits, align 8, !tbaa !164
-  store ptr %9, ptr %m_ptraits.i.i, align 8, !tbaa !164
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call10, i64 32
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
-  %10 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !44
-  store ptr %10, ptr %_M_refcount.i.i.i.i, align 8, !tbaa !44
-  %cmp.not.i.i.i.i.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !44
+  %10 = load <2 x ptr>, ptr %m_ptraits, align 8, !tbaa !57
+  store <2 x ptr> %10, ptr %m_ptraits.i.i, align 8, !tbaa !57
+  %cmp.not.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont14, label %if.then.i.i.i.i.i32
 
 if.then.i.i.i.i.i32:                              ; preds = %invoke.cont9
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !16
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -4247,7 +4245,7 @@ invoke.cont16:                                    ; preds = %invoke.cont14
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN5boost13re_detail_50026basic_regex_implementationIcNS0_12regex_traitsIcNS0_16cpp_regex_traitsIcEEEEEELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call.i107, align 8, !tbaa !48
   %_M_ptr.i.i116 = getelementptr inbounds i8, ptr %call.i107, i64 16
   store ptr %call10, ptr %_M_ptr.i.i116, align 8, !tbaa !162
-  store ptr %call10, ptr %temp, align 8, !tbaa !57
+  store ptr %call10, ptr %temp, align 16, !tbaa !57
   %_M_refcount3.i.i.i36 = getelementptr inbounds i8, ptr %temp, i64 8
   %20 = load ptr, ptr %_M_refcount3.i.i.i36, align 8, !tbaa !44
   store ptr %call.i107, ptr %_M_refcount3.i.i.i36, align 8, !tbaa !44
@@ -4304,7 +4302,7 @@ lpad8:                                            ; preds = %if.else
   br label %ehcleanup23
 
 if.end:                                           ; preds = %if.then7.i.i.i.i.i48, %invoke.cont.i.i.i.i.i45, %if.then.i.i.i.i.i50, %invoke.cont16, %invoke.cont5
-  %28 = load ptr, ptr %temp, align 8, !tbaa !57
+  %28 = load ptr, ptr %temp, align 16, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %parser.i) #30
   invoke void @_ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC2EPNS0_10regex_dataIcS5_EE(ptr noundef nonnull align 8 dereferenceable(100) %parser.i, ptr noundef nonnull %28)
           to label %.noexc unwind label %lpad20
@@ -4313,14 +4311,14 @@ if.end:                                           ; preds = %if.then7.i.i.i.i.i4
   %m_parser_proc.i.i = getelementptr inbounds i8, ptr %parser.i, i64 104
   %m_mark_reset.i.i = getelementptr inbounds i8, ptr %parser.i, i64 148
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %m_parser_proc.i.i, i8 0, i64 44, i1 false)
-  store i32 -1, ptr %m_mark_reset.i.i, align 4, !tbaa !166
+  store i32 -1, ptr %m_mark_reset.i.i, align 4, !tbaa !164
   %m_max_mark.i.i = getelementptr inbounds i8, ptr %parser.i, i64 152
-  store i32 0, ptr %m_max_mark.i.i, align 8, !tbaa !177
+  store i32 0, ptr %m_max_mark.i.i, align 8, !tbaa !175
   %m_paren_start.i.i = getelementptr inbounds i8, ptr %parser.i, i64 160
   %m_recursion_count.i.i = getelementptr inbounds i8, ptr %parser.i, i64 180
-  store i32 0, ptr %m_recursion_count.i.i, align 4, !tbaa !178
+  store i32 0, ptr %m_recursion_count.i.i, align 4, !tbaa !176
   %m_max_backref.i.i = getelementptr inbounds i8, ptr %parser.i, i64 184
-  store i32 0, ptr %m_max_backref.i.i, align 8, !tbaa !179
+  store i32 0, ptr %m_max_backref.i.i, align 8, !tbaa !177
   %m_alt_jumps.i.i = getelementptr inbounds i8, ptr %parser.i, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_alt_jumps.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %m_paren_start.i.i, i8 0, i64 17, i1 false)
@@ -4328,7 +4326,7 @@ if.end:                                           ; preds = %if.then7.i.i.i.i.i4
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
-  %29 = load ptr, ptr %m_alt_jumps.i.i, align 8, !tbaa !180
+  %29 = load ptr, ptr %m_alt_jumps.i.i, align 8, !tbaa !178
   %tobool.not.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i.i, label %if.then.i.i.i.i.i78
 
@@ -4338,7 +4336,7 @@ if.then.i.i.i.i.i78:                              ; preds = %invoke.cont.i
 
 _ZNSt6vectorIlSaIlEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i78, %invoke.cont.i
   %m_recursion_checks.i.i.i = getelementptr inbounds i8, ptr %parser.i, i64 56
-  %30 = load ptr, ptr %m_recursion_checks.i.i.i, align 8, !tbaa !181
+  %30 = load ptr, ptr %m_recursion_checks.i.i.i, align 8, !tbaa !179
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %30, null
   br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont21, label %if.then.i.i.i.i.i.i79
 
@@ -4355,15 +4353,14 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont21:                                    ; preds = %if.then.i.i.i.i.i.i79, %_ZNSt6vectorIlSaIlEED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %parser.i) #30
-  %32 = load ptr, ptr %this, align 8, !tbaa !57
-  store ptr %32, ptr %temp, align 8, !tbaa !57
-  store ptr %28, ptr %this, align 8, !tbaa !57
   %_M_refcount.i80 = getelementptr inbounds i8, ptr %temp, i64 8
   %_M_refcount3.i = getelementptr inbounds i8, ptr %this, i64 8
+  %32 = load ptr, ptr %_M_refcount.i80, align 8, !tbaa !44
   %33 = load ptr, ptr %_M_refcount3.i, align 8, !tbaa !44
-  %34 = load ptr, ptr %_M_refcount.i80, align 8, !tbaa !44
-  store ptr %34, ptr %_M_refcount3.i, align 8, !tbaa !44
-  store ptr %33, ptr %_M_refcount.i80, align 8, !tbaa !44
+  %34 = load <2 x ptr>, ptr %this, align 8, !tbaa !57
+  store ptr %28, ptr %this, align 8, !tbaa !57
+  store ptr %32, ptr %_M_refcount3.i, align 8, !tbaa !44
+  store <2 x ptr> %34, ptr %temp, align 16, !tbaa !57
   %cmp.not.i.i82 = icmp eq ptr %33, null
   br i1 %cmp.not.i.i82, label %_ZNSt12__shared_ptrIN5boost13re_detail_50026basic_regex_implementationIcNS0_12regex_traitsIcNS0_16cpp_regex_traitsIcEEEEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit101, label %if.then.i.i83
 
@@ -4440,7 +4437,7 @@ entry:
 
 invoke.cont3.i:                                   ; preds = %entry
   %m_ptraits.i = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr %call.i, ptr %m_ptraits.i, align 8, !tbaa !164
+  store ptr %call.i, ptr %m_ptraits.i, align 8, !tbaa !180
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %_M_refcount.i.i.i, align 8, !tbaa !44
   %call.i2 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
@@ -4875,17 +4872,15 @@ _ZNSt7__cxx1110_List_baseISt4pairISt10shared_ptrIKN5boost13re_detail_50031cpp_re
 if.end:                                           ; preds = %_ZNSt7__cxx1110_List_baseISt4pairISt10shared_ptrIKN5boost13re_detail_50031cpp_regex_traits_implementationIcEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EED2Ev.exit, %if.then
   %33 = phi ptr [ %.pre238, %_ZNSt7__cxx1110_List_baseISt4pairISt10shared_ptrIKN5boost13re_detail_50031cpp_regex_traits_implementationIcEEEPKNS4_21cpp_regex_traits_baseIcEEESaISD_EED2Ev.exit ], [ %13, %if.then ]
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %33, i64 16
-  %34 = load ptr, ptr %_M_storage.i.i.i, align 8, !tbaa !220
-  store ptr %34, ptr %agg.result, align 8, !tbaa !220
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %33, i64 24
-  %35 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !44
-  store ptr %35, ptr %_M_refcount.i.i, align 8, !tbaa !44
-  %cmp.not.i.i.i124 = icmp eq ptr %35, null
+  %34 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !44
+  %35 = load <2 x ptr>, ptr %_M_storage.i.i.i, align 8, !tbaa !57
+  store <2 x ptr> %35, ptr %agg.result, align 8, !tbaa !57
+  %cmp.not.i.i.i124 = icmp eq ptr %34, null
   br i1 %cmp.not.i.i.i124, label %cleanup, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 8
   %36 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !16
   %tobool.i.not.i.i.i.i = icmp eq i8 %36, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i125
@@ -10801,7 +10796,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i) #30
   %m_ptraits.i = getelementptr inbounds i8, ptr %0, i64 24
-  %3 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !164
+  %3 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !180
   %4 = load ptr, ptr %3, align 8, !tbaa !220, !noalias !347
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i, ptr noundef nonnull align 8 dereferenceable(437) %4, i32 noundef 17)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 17, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %message.i)
@@ -11158,7 +11153,7 @@ if.end38:                                         ; preds = %if.end35
   %m_mark_count40 = getelementptr inbounds i8, ptr %33, i64 64
   store i64 %add, ptr %m_mark_count40, align 8, !tbaa !363
   %m_max_backref = getelementptr inbounds i8, ptr %this, i64 184
-  %47 = load i32, ptr %m_max_backref, align 8, !tbaa !179
+  %47 = load i32, ptr %m_max_backref, align 8, !tbaa !177
   %cmp42 = icmp ugt i32 %47, %46
   br i1 %cmp42, label %if.then43, label %if.end57
 
@@ -11247,7 +11242,7 @@ cleanup.cont:                                     ; preds = %if.end57, %if.end35
 define linkonce_odr void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_alt_jumps = getelementptr inbounds i8, ptr %this, i64 192
-  %0 = load ptr, ptr %m_alt_jumps, align 8, !tbaa !180
+  %0 = load ptr, ptr %m_alt_jumps, align 8, !tbaa !178
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %if.then.i.i.i
 
@@ -11257,7 +11252,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %if.then.i.i.i, %entry
   %m_recursion_checks.i = getelementptr inbounds i8, ptr %this, i64 56
-  %1 = load ptr, ptr %m_recursion_checks.i, align 8, !tbaa !181
+  %1 = load ptr, ptr %m_recursion_checks.i, align 8, !tbaa !179
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEED2Ev.exit, label %if.then.i.i.i.i
 
@@ -11275,7 +11270,7 @@ entry:
   store ptr %data, ptr %this, align 8, !tbaa !332
   %m_traits = getelementptr inbounds i8, ptr %this, i64 8
   %m_ptraits = getelementptr inbounds i8, ptr %data, i64 24
-  %0 = load ptr, ptr %m_ptraits, align 8, !tbaa !164
+  %0 = load ptr, ptr %m_ptraits, align 8, !tbaa !180
   store ptr %0, ptr %m_traits, align 8, !tbaa !57
   %m_last_state = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %m_last_state, align 8, !tbaa !352
@@ -11345,7 +11340,7 @@ invoke.cont21:                                    ; preds = %invoke.cont17
 lpad:                                             ; preds = %invoke.cont17, %invoke.cont13, %invoke.cont9, %invoke.cont5, %entry
   %13 = landingpad { ptr, i32 }
           cleanup
-  %14 = load ptr, ptr %m_recursion_checks, align 8, !tbaa !181
+  %14 = load ptr, ptr %m_recursion_checks, align 8, !tbaa !179
   %tobool.not.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
 
@@ -11758,7 +11753,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message) #30
   %0 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits = getelementptr inbounds i8, ptr %0, i64 24
-  %1 = load ptr, ptr %m_ptraits, align 8, !tbaa !164
+  %1 = load ptr, ptr %m_ptraits, align 8, !tbaa !180
   %2 = load ptr, ptr %1, align 8, !tbaa !220, !noalias !381
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message, ptr noundef nonnull align 8 dereferenceable(437) %2, i32 noundef %error_code)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef %error_code, i64 noundef %position, ptr noundef nonnull align 8 dereferenceable(32) %message)
@@ -13084,9 +13079,9 @@ entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %m_recursion_count = getelementptr inbounds i8, ptr %this, i64 180
-  %0 = load i32, ptr %m_recursion_count, align 4, !tbaa !178
+  %0 = load i32, ptr %m_recursion_count, align 4, !tbaa !176
   %inc = add i32 %0, 1
-  store i32 %inc, ptr %m_recursion_count, align 4, !tbaa !178
+  store i32 %inc, ptr %m_recursion_count, align 4, !tbaa !176
   %cmp = icmp ugt i32 %inc, 400
   br i1 %cmp, label %if.then, label %if.end
 
@@ -13195,9 +13190,9 @@ memptr.end:                                       ; preds = %memptr.nonvirtual, 
   br i1 %call, label %land.rhs, label %while.end, !llvm.loop !390
 
 while.end:                                        ; preds = %memptr.end, %land.rhs
-  %18 = load i32, ptr %m_recursion_count, align 4, !tbaa !178
+  %18 = load i32, ptr %m_recursion_count, align 4, !tbaa !176
   %dec = add i32 %18, -1
-  store i32 %dec, ptr %m_recursion_count, align 4, !tbaa !178
+  store i32 %dec, ptr %m_recursion_count, align 4, !tbaa !176
   ret i1 %cmp8.not
 }
 
@@ -13749,7 +13744,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit.i:          ; preds = %if.then.i93
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i.i, i64 %add43
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call5.i.i.i.i3.i.i.i, i8 0, i64 %add43, i1 false)
   %_M_finish.i3.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr %call5.i.i.i.i3.i.i.i, ptr %m_recursion_checks, align 8, !tbaa !181
+  store ptr %call5.i.i.i.i3.i.i.i, ptr %m_recursion_checks, align 8, !tbaa !179
   store ptr %add.ptr.i.i.i.i, ptr %_M_finish.i3.i.i, align 8, !tbaa !406
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !405
   %tobool.not.i.i.i.i = icmp eq ptr %38, null
@@ -13774,7 +13769,7 @@ if.then6.i89:                                     ; preds = %if.else.i
 if.then.i.i.i.i.i91:                              ; preds = %if.then6.i89
   tail call void @llvm.memset.p0.i64(ptr align 1 %38, i8 0, i64 %sub.ptr.sub.i32.i, i1 false)
   %.pre45.i = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !406
-  %.pre46.i = load ptr, ptr %m_recursion_checks, align 8, !tbaa !181
+  %.pre46.i = load ptr, ptr %m_recursion_checks, align 8, !tbaa !179
   %.pre47.i = ptrtoint ptr %.pre45.i to i64
   %.pre48.i = ptrtoint ptr %.pre46.i to i64
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i
@@ -14157,7 +14152,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i) #30
   %3 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i = getelementptr inbounds i8, ptr %3, i64 24
-  %4 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !164
+  %4 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !180
   %5 = load ptr, ptr %4, align 8, !tbaa !220, !noalias !412
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i, ptr noundef nonnull align 8 dereferenceable(437) %5, i32 noundef 8)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 8, i64 noundef %sub.ptr.sub, ptr noundef nonnull align 8 dereferenceable(32) %message.i)
@@ -14462,8 +14457,8 @@ _ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex
   %44 = load i8, ptr %m_has_case_change, align 8, !tbaa !423, !range !53, !noundef !54
   store i8 0, ptr %m_has_case_change, align 8, !tbaa !423
   %m_mark_reset = getelementptr inbounds i8, ptr %this, i64 148
-  %45 = load i32, ptr %m_mark_reset, align 4, !tbaa !166
-  store i32 -1, ptr %m_mark_reset, align 4, !tbaa !166
+  %45 = load i32, ptr %m_mark_reset, align 4, !tbaa !164
+  store i32 -1, ptr %m_mark_reset, align 4, !tbaa !164
   %call52 = tail call noundef zeroext i1 @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE9parse_allEv(ptr noundef nonnull align 8 dereferenceable(216) %this)
   %call53 = tail call noundef zeroext i1 @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE11unwind_altsEl(ptr noundef nonnull align 8 dereferenceable(216) %this, i64 noundef %sub.ptr.sub.i.i142)
   br i1 %call53, label %if.end57, label %return
@@ -14581,7 +14576,7 @@ if.then.i:                                        ; preds = %if.end66
 
 _ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE5flagsEj.exit: ; preds = %if.then.i, %if.end66
   store i8 %44, ptr %m_has_case_change, align 8, !tbaa !423
-  store i32 %45, ptr %m_mark_reset, align 4, !tbaa !166
+  store i32 %45, ptr %m_mark_reset, align 4, !tbaa !164
   %60 = load ptr, ptr %m_position, align 8, !tbaa !345
   %61 = load ptr, ptr %m_end, align 8, !tbaa !346
   %cmp73 = icmp eq ptr %60, %61
@@ -14595,7 +14590,7 @@ if.then74:                                        ; preds = %_ZN5boost13re_detai
   %sub.ptr.sub.i.i203 = sub i64 %sub.ptr.lhs.cast.i.i201, %sub.ptr.rhs.cast.i.i202
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i204) #30
   %m_ptraits.i205 = getelementptr inbounds i8, ptr %58, i64 24
-  %63 = load ptr, ptr %m_ptraits.i205, align 8, !tbaa !164
+  %63 = load ptr, ptr %m_ptraits.i205, align 8, !tbaa !180
   %64 = load ptr, ptr %63, align 8, !tbaa !220, !noalias !427
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i204, ptr noundef nonnull align 8 dereferenceable(437) %64, i32 noundef 8)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 8, i64 noundef %sub.ptr.sub.i.i203, ptr noundef nonnull align 8 dereferenceable(32) %message.i204)
@@ -15010,7 +15005,7 @@ if.then25:                                        ; preds = %invoke.cont22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i) #30
   %20 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i = getelementptr inbounds i8, ptr %20, i64 24
-  %21 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !164
+  %21 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !180
   %22 = load ptr, ptr %21, align 8, !tbaa !220, !noalias !449
   invoke void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i, ptr noundef nonnull align 8 dereferenceable(437) %22, i32 noundef 4)
           to label %.noexc unwind label %lpad18
@@ -16743,14 +16738,14 @@ if.then377:                                       ; preds = %land.lhs.true372, %
   %frombool387 = and i8 %243, 1
   store i8 %frombool387, ptr %icase386, align 4, !tbaa !360
   %m_max_backref = getelementptr inbounds i8, ptr %this, i64 184
-  %244 = load i32, ptr %m_max_backref, align 8, !tbaa !179
+  %244 = load i32, ptr %m_max_backref, align 8, !tbaa !177
   %conv388 = zext i32 %244 to i64
   %cmp389 = icmp ugt i64 %i.1, %conv388
   %or.cond466 = and i1 %cmp367, %cmp389
   br i1 %or.cond466, label %if.then392, label %if.end395
 
 if.then392:                                       ; preds = %if.then377
-  store i32 %conv381.pre-phi, ptr %m_max_backref, align 8, !tbaa !179
+  store i32 %conv381.pre-phi, ptr %m_max_backref, align 8, !tbaa !177
   br label %if.end395
 
 if.end395:                                        ; preds = %if.then392, %if.then377
@@ -17394,7 +17389,7 @@ sw.bb:                                            ; preds = %if.end55, %if.end55
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i) #30
   %56 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i = getelementptr inbounds i8, ptr %56, i64 24
-  %57 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !164
+  %57 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !180
   %58 = load ptr, ptr %57, align 8, !tbaa !220, !noalias !472
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i, ptr noundef nonnull align 8 dereferenceable(437) %58, i32 noundef 13)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 13, i64 noundef %sub.ptr.sub, ptr noundef nonnull align 8 dereferenceable(32) %message.i)
@@ -17726,7 +17721,7 @@ sw.bb130:                                         ; preds = %if.then125, %if.the
   %sub.ptr.sub135 = sub i64 %sub.ptr.lhs.cast133, %sub.ptr.rhs.cast134
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i385) #30
   %m_ptraits.i386 = getelementptr inbounds i8, ptr %87, i64 24
-  %109 = load ptr, ptr %m_ptraits.i386, align 8, !tbaa !164
+  %109 = load ptr, ptr %m_ptraits.i386, align 8, !tbaa !180
   %110 = load ptr, ptr %109, align 8, !tbaa !220, !noalias !480
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i385, ptr noundef nonnull align 8 dereferenceable(437) %110, i32 noundef 13)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 13, i64 noundef %sub.ptr.sub135, ptr noundef nonnull align 8 dereferenceable(32) %message.i385)
@@ -19274,19 +19269,19 @@ ehcleanup:                                        ; preds = %if.then.i.i49, %_ZN
 
 if.end:                                           ; preds = %land.lhs.true, %lor.lhs.false
   %m_max_mark = getelementptr inbounds i8, ptr %this, i64 152
-  %14 = load i32, ptr %m_max_mark, align 8, !tbaa !177
+  %14 = load i32, ptr %m_max_mark, align 8, !tbaa !175
   %m_mark_count = getelementptr inbounds i8, ptr %this, i64 144
   %15 = load i32, ptr %m_mark_count, align 8, !tbaa !362
   %cmp14 = icmp ult i32 %14, %15
   br i1 %cmp14, label %if.then15, label %if.end18
 
 if.then15:                                        ; preds = %if.end
-  store i32 %15, ptr %m_max_mark, align 8, !tbaa !177
+  store i32 %15, ptr %m_max_mark, align 8, !tbaa !175
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then15, %if.end
   %m_mark_reset = getelementptr inbounds i8, ptr %this, i64 148
-  %16 = load i32, ptr %m_mark_reset, align 4, !tbaa !166
+  %16 = load i32, ptr %m_mark_reset, align 4, !tbaa !164
   %cmp19 = icmp sgt i32 %16, -1
   br i1 %cmp19, label %if.then20, label %if.end23
 
@@ -19571,7 +19566,7 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIlSaIlE
   br label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit38.i.i
-  store ptr %cond.i31.i.i, ptr %m_alt_jumps, align 8, !tbaa !180
+  store ptr %cond.i31.i.i, ptr %m_alt_jumps, align 8, !tbaa !178
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !392
   %add.ptr19.i.i = getelementptr inbounds i64, ptr %cond.i31.i.i, i64 %cond.i.i.i125
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !498
@@ -19781,7 +19776,7 @@ if.then36:                                        ; preds = %invoke.cont33
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i) #30
   %21 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i = getelementptr inbounds i8, ptr %21, i64 24
-  %22 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !164
+  %22 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !180
   %23 = load ptr, ptr %22, align 8, !tbaa !220, !noalias !499
   invoke void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i, ptr noundef nonnull align 8 dereferenceable(437) %23, i32 noundef 4)
           to label %.noexc unwind label %lpad15.loopexit.split-lp
@@ -20039,7 +20034,7 @@ while.end:                                        ; preds = %while.cond
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i) #30
   %7 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i = getelementptr inbounds i8, ptr %7, i64 24
-  %8 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !164
+  %8 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !180
   %9 = load ptr, ptr %8, align 8, !tbaa !220, !noalias !504
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i, ptr noundef nonnull align 8 dereferenceable(437) %9, i32 noundef 20)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 20, i64 noundef %sub.ptr.sub, ptr noundef nonnull align 8 dereferenceable(32) %message.i)
@@ -20235,10 +20230,10 @@ _ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex
   %m_mark_reset = getelementptr inbounds i8, ptr %this, i64 148
   %m_max_mark = getelementptr inbounds i8, ptr %this, i64 152
   %41 = load <2 x i32>, ptr %m_mark_reset, align 4, !tbaa !50
-  store i32 -1, ptr %m_mark_reset, align 4, !tbaa !166
+  store i32 -1, ptr %m_mark_reset, align 4, !tbaa !164
   %m_mark_count = getelementptr inbounds i8, ptr %this, i64 144
   %42 = load i32, ptr %m_mark_count, align 8, !tbaa !362
-  store i32 %42, ptr %m_max_mark, align 8, !tbaa !177
+  store i32 %42, ptr %m_max_mark, align 8, !tbaa !175
   %43 = load ptr, ptr %m_traits, align 8, !tbaa !369
   %44 = load ptr, ptr %m_position, align 8, !tbaa !345
   %45 = ptrtoint ptr %44 to i64
@@ -20264,7 +20259,7 @@ _ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex
   ]
 
 sw.bb:                                            ; preds = %_ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit
-  store i32 %42, ptr %m_mark_reset, align 4, !tbaa !166
+  store i32 %42, ptr %m_mark_reset, align 4, !tbaa !164
   br label %sw.bb48
 
 sw.bb48:                                          ; preds = %sw.bb, %_ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit
@@ -22173,7 +22168,7 @@ while.end948:                                     ; preds = %while.cond939
   %sub.ptr.sub953 = sub i64 %sub.ptr.lhs.cast951, %sub.ptr.rhs.cast952
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i2343) #30
   %m_ptraits.i2344 = getelementptr inbounds i8, ptr %34, i64 24
-  %314 = load ptr, ptr %m_ptraits.i2344, align 8, !tbaa !164
+  %314 = load ptr, ptr %m_ptraits.i2344, align 8, !tbaa !180
   %315 = load ptr, ptr %314, align 8, !tbaa !220, !noalias !545
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i2343, ptr noundef nonnull align 8 dereferenceable(437) %315, i32 noundef 20)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 20, i64 noundef %sub.ptr.sub953, ptr noundef nonnull align 8 dereferenceable(32) %message.i2343)
@@ -22922,7 +22917,7 @@ while.end1337:                                    ; preds = %while.cond1328
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i2477) #30
   %424 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i2478 = getelementptr inbounds i8, ptr %424, i64 24
-  %425 = load ptr, ptr %m_ptraits.i2478, align 8, !tbaa !164
+  %425 = load ptr, ptr %m_ptraits.i2478, align 8, !tbaa !180
   %426 = load ptr, ptr %425, align 8, !tbaa !220, !noalias !564
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i2477, ptr noundef nonnull align 8 dereferenceable(437) %426, i32 noundef 8)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 8, i64 noundef %sub.ptr.sub.i.i2476, ptr noundef nonnull align 8 dereferenceable(32) %message.i2477)
@@ -23555,7 +23550,7 @@ _ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex
   store i64 %38, ptr %m_alt_insert_point, align 8, !tbaa !391
   %519 = and i8 %old_case_change.2, 1
   store i8 %519, ptr %m_has_case_change, align 8, !tbaa !423
-  %520 = load i32, ptr %m_max_mark, align 8, !tbaa !177
+  %520 = load i32, ptr %m_max_mark, align 8, !tbaa !175
   %521 = load i32, ptr %m_mark_count, align 8, !tbaa !362
   %cmp1554 = icmp ugt i32 %520, %521
   br i1 %cmp1554, label %if.then1555, label %if.end1558
@@ -23655,7 +23650,7 @@ while.end:                                        ; preds = %while.cond
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i) #30
   %7 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i = getelementptr inbounds i8, ptr %7, i64 24
-  %8 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !164
+  %8 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !180
   %9 = load ptr, ptr %8, align 8, !tbaa !220, !noalias !573
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i, ptr noundef nonnull align 8 dereferenceable(437) %9, i32 noundef 20)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 20, i64 noundef %sub.ptr.sub, ptr noundef nonnull align 8 dereferenceable(32) %message.i)
@@ -23753,7 +23748,7 @@ while.end27:                                      ; preds = %while.cond18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i415) #30
   %23 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i416 = getelementptr inbounds i8, ptr %23, i64 24
-  %24 = load ptr, ptr %m_ptraits.i416, align 8, !tbaa !164
+  %24 = load ptr, ptr %m_ptraits.i416, align 8, !tbaa !180
   %25 = load ptr, ptr %24, align 8, !tbaa !220, !noalias !577
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i415, ptr noundef nonnull align 8 dereferenceable(437) %25, i32 noundef 20)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 20, i64 noundef %sub.ptr.sub32, ptr noundef nonnull align 8 dereferenceable(32) %message.i415)
@@ -23864,7 +23859,7 @@ while.end62:                                      ; preds = %while.cond53
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i440) #30
   %42 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i441 = getelementptr inbounds i8, ptr %42, i64 24
-  %43 = load ptr, ptr %m_ptraits.i441, align 8, !tbaa !164
+  %43 = load ptr, ptr %m_ptraits.i441, align 8, !tbaa !180
   %44 = load ptr, ptr %43, align 8, !tbaa !220, !noalias !581
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i440, ptr noundef nonnull align 8 dereferenceable(437) %44, i32 noundef 20)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 20, i64 noundef %sub.ptr.sub67, ptr noundef nonnull align 8 dereferenceable(32) %message.i440)
@@ -23953,7 +23948,7 @@ while.end90:                                      ; preds = %while.cond81
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i459) #30
   %57 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i460 = getelementptr inbounds i8, ptr %57, i64 24
-  %58 = load ptr, ptr %m_ptraits.i460, align 8, !tbaa !164
+  %58 = load ptr, ptr %m_ptraits.i460, align 8, !tbaa !180
   %59 = load ptr, ptr %58, align 8, !tbaa !220, !noalias !585
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i459, ptr noundef nonnull align 8 dereferenceable(437) %59, i32 noundef 20)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 20, i64 noundef %sub.ptr.sub95, ptr noundef nonnull align 8 dereferenceable(32) %message.i459)
@@ -24093,7 +24088,7 @@ while.end148:                                     ; preds = %while.cond139
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i484) #30
   %80 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i485 = getelementptr inbounds i8, ptr %80, i64 24
-  %81 = load ptr, ptr %m_ptraits.i485, align 8, !tbaa !164
+  %81 = load ptr, ptr %m_ptraits.i485, align 8, !tbaa !180
   %82 = load ptr, ptr %81, align 8, !tbaa !220, !noalias !590
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i484, ptr noundef nonnull align 8 dereferenceable(437) %82, i32 noundef 20)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 20, i64 noundef %sub.ptr.sub153, ptr noundef nonnull align 8 dereferenceable(32) %message.i484)
@@ -24238,7 +24233,7 @@ while.end206:                                     ; preds = %while.cond197
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i509) #30
   %104 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i510 = getelementptr inbounds i8, ptr %104, i64 24
-  %105 = load ptr, ptr %m_ptraits.i510, align 8, !tbaa !164
+  %105 = load ptr, ptr %m_ptraits.i510, align 8, !tbaa !180
   %106 = load ptr, ptr %105, align 8, !tbaa !220, !noalias !599
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i509, ptr noundef nonnull align 8 dereferenceable(437) %106, i32 noundef 20)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 20, i64 noundef %sub.ptr.sub211, ptr noundef nonnull align 8 dereferenceable(32) %message.i509)
@@ -24383,7 +24378,7 @@ while.end267:                                     ; preds = %while.cond258
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i534) #30
   %128 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i535 = getelementptr inbounds i8, ptr %128, i64 24
-  %129 = load ptr, ptr %m_ptraits.i535, align 8, !tbaa !164
+  %129 = load ptr, ptr %m_ptraits.i535, align 8, !tbaa !180
   %130 = load ptr, ptr %129, align 8, !tbaa !220, !noalias !604
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i534, ptr noundef nonnull align 8 dereferenceable(437) %130, i32 noundef 20)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 20, i64 noundef %sub.ptr.sub272, ptr noundef nonnull align 8 dereferenceable(32) %message.i534)
@@ -24528,7 +24523,7 @@ while.end328:                                     ; preds = %while.cond319
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i559) #30
   %152 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i560 = getelementptr inbounds i8, ptr %152, i64 24
-  %153 = load ptr, ptr %m_ptraits.i560, align 8, !tbaa !164
+  %153 = load ptr, ptr %m_ptraits.i560, align 8, !tbaa !180
   %154 = load ptr, ptr %153, align 8, !tbaa !220, !noalias !609
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i559, ptr noundef nonnull align 8 dereferenceable(437) %154, i32 noundef 20)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 20, i64 noundef %sub.ptr.sub333, ptr noundef nonnull align 8 dereferenceable(32) %message.i559)
@@ -24666,7 +24661,7 @@ while.end382:                                     ; preds = %while.cond373
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i584) #30
   %176 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i585 = getelementptr inbounds i8, ptr %176, i64 24
-  %177 = load ptr, ptr %m_ptraits.i585, align 8, !tbaa !164
+  %177 = load ptr, ptr %m_ptraits.i585, align 8, !tbaa !180
   %178 = load ptr, ptr %177, align 8, !tbaa !220, !noalias !614
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i584, ptr noundef nonnull align 8 dereferenceable(437) %178, i32 noundef 20)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 20, i64 noundef %sub.ptr.sub387, ptr noundef nonnull align 8 dereferenceable(32) %message.i584)
@@ -25413,7 +25408,7 @@ while.end:                                        ; preds = %while.cond
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i) #30
   %m_ptraits.i = getelementptr inbounds i8, ptr %0, i64 24
-  %10 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !164
+  %10 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !180
   %11 = load ptr, ptr %10, align 8, !tbaa !220, !noalias !652
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i, ptr noundef nonnull align 8 dereferenceable(437) %11, i32 noundef 8)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 8, i64 noundef %sub.ptr.sub, ptr noundef nonnull align 8 dereferenceable(32) %message.i)
@@ -25499,7 +25494,7 @@ while.end38:                                      ; preds = %while.cond29
   %sub.ptr.sub43 = sub i64 %sub.ptr.lhs.cast41, %sub.ptr.rhs.cast42
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i104) #30
   %m_ptraits.i105 = getelementptr inbounds i8, ptr %0, i64 24
-  %24 = load ptr, ptr %m_ptraits.i105, align 8, !tbaa !164
+  %24 = load ptr, ptr %m_ptraits.i105, align 8, !tbaa !180
   %25 = load ptr, ptr %24, align 8, !tbaa !220, !noalias !656
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i104, ptr noundef nonnull align 8 dereferenceable(437) %25, i32 noundef 8)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 8, i64 noundef %sub.ptr.sub43, ptr noundef nonnull align 8 dereferenceable(32) %message.i104)
@@ -25610,7 +25605,7 @@ while.end75:                                      ; preds = %while.cond66
   %sub.ptr.sub80 = sub i64 %sub.ptr.lhs.cast78, %sub.ptr.rhs.cast79
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i123) #30
   %m_ptraits.i124 = getelementptr inbounds i8, ptr %0, i64 24
-  %39 = load ptr, ptr %m_ptraits.i124, align 8, !tbaa !164
+  %39 = load ptr, ptr %m_ptraits.i124, align 8, !tbaa !180
   %40 = load ptr, ptr %39, align 8, !tbaa !220, !noalias !661
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i123, ptr noundef nonnull align 8 dereferenceable(437) %40, i32 noundef 8)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 8, i64 noundef %sub.ptr.sub80, ptr noundef nonnull align 8 dereferenceable(32) %message.i123)
@@ -26025,7 +26020,7 @@ while.end:                                        ; preds = %while.body7, %while
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i) #30
   %11 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i = getelementptr inbounds i8, ptr %11, i64 24
-  %12 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !164
+  %12 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !180
   %13 = load ptr, ptr %12, align 8, !tbaa !220, !noalias !668
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i, ptr noundef nonnull align 8 dereferenceable(437) %13, i32 noundef 20)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 20, i64 noundef %sub.ptr.sub, ptr noundef nonnull align 8 dereferenceable(32) %message.i)
@@ -26112,7 +26107,7 @@ while.end25:                                      ; preds = %while.cond16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i39) #30
   %26 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i40 = getelementptr inbounds i8, ptr %26, i64 24
-  %27 = load ptr, ptr %m_ptraits.i40, align 8, !tbaa !164
+  %27 = load ptr, ptr %m_ptraits.i40, align 8, !tbaa !180
   %28 = load ptr, ptr %27, align 8, !tbaa !220, !noalias !672
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i39, ptr noundef nonnull align 8 dereferenceable(437) %28, i32 noundef 20)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 20, i64 noundef %sub.ptr.sub30, ptr noundef nonnull align 8 dereferenceable(32) %message.i39)
@@ -27466,7 +27461,7 @@ while.end436:                                     ; preds = %while.cond427
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i) #30
   %141 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i = getelementptr inbounds i8, ptr %141, i64 24
-  %142 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !164
+  %142 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !180
   %143 = load ptr, ptr %142, align 8, !tbaa !220, !noalias !692
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i, ptr noundef nonnull align 8 dereferenceable(437) %143, i32 noundef 5)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 5, i64 noundef %sub.ptr.sub441, ptr noundef nonnull align 8 dereferenceable(32) %message.i)
@@ -27677,13 +27672,13 @@ _ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex
   %frombool = and i8 %20, 1
   store i8 %frombool, ptr %icase, align 4, !tbaa !360
   %m_max_backref = getelementptr inbounds i8, ptr %this, i64 184
-  %21 = load i32, ptr %m_max_backref, align 8, !tbaa !179
+  %21 = load i32, ptr %m_max_backref, align 8, !tbaa !177
   %conv15 = zext i32 %21 to i64
   %cmp16 = icmp sgt i64 %call, %conv15
   br i1 %cmp16, label %if.then17, label %cleanup
 
 if.then17:                                        ; preds = %_ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE12append_stateENS0_19syntax_element_typeEm.exit
-  store i32 %conv, ptr %m_max_backref, align 8, !tbaa !179
+  store i32 %conv, ptr %m_max_backref, align 8, !tbaa !177
   br label %cleanup
 
 while.cond:                                       ; preds = %while.cond, %while.cond.preheader
@@ -27705,7 +27700,7 @@ while.end:                                        ; preds = %while.cond
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i) #30
   %m_ptraits.i = getelementptr inbounds i8, ptr %2, i64 24
-  %25 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !164
+  %25 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !180
   %26 = load ptr, ptr %25, align 8, !tbaa !220, !noalias !697
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i, ptr noundef nonnull align 8 dereferenceable(437) %26, i32 noundef 6)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 6, i64 noundef %sub.ptr.sub, ptr noundef nonnull align 8 dereferenceable(32) %message.i)
@@ -32061,7 +32056,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i) #30
   %3 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i = getelementptr inbounds i8, ptr %3, i64 24
-  %4 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !164
+  %4 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !180
   %5 = load ptr, ptr %4, align 8, !tbaa !220, !noalias !777
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i, ptr noundef nonnull align 8 dereferenceable(437) %5, i32 noundef 7)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 7, i64 noundef %sub.ptr.sub, ptr noundef nonnull align 8 dereferenceable(32) %message.i)
@@ -32142,7 +32137,7 @@ if.then9:                                         ; preds = %if.then5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i62) #30
   %18 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i63 = getelementptr inbounds i8, ptr %18, i64 24
-  %19 = load ptr, ptr %m_ptraits.i63, align 8, !tbaa !164
+  %19 = load ptr, ptr %m_ptraits.i63, align 8, !tbaa !180
   %20 = load ptr, ptr %19, align 8, !tbaa !220, !noalias !780
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i62, ptr noundef nonnull align 8 dereferenceable(437) %20, i32 noundef 7)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 7, i64 noundef %sub.ptr.sub14, ptr noundef nonnull align 8 dereferenceable(32) %message.i62)
@@ -33332,7 +33327,7 @@ if.then9:                                         ; preds = %lor.lhs.false, %if.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i) #30
   %10 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i = getelementptr inbounds i8, ptr %10, i64 24
-  %11 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !164
+  %11 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !180
   %12 = load ptr, ptr %11, align 8, !tbaa !220, !noalias !788
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i, ptr noundef nonnull align 8 dereferenceable(437) %12, i32 noundef 11)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 11, i64 noundef %sub.ptr.sub, ptr noundef nonnull align 8 dereferenceable(32) %message.i)
@@ -33435,7 +33430,7 @@ if.then33:                                        ; preds = %sw.bb28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i154) #30
   %26 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i155 = getelementptr inbounds i8, ptr %26, i64 24
-  %27 = load ptr, ptr %m_ptraits.i155, align 8, !tbaa !164
+  %27 = load ptr, ptr %m_ptraits.i155, align 8, !tbaa !180
   %28 = load ptr, ptr %27, align 8, !tbaa !220, !noalias !791
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i154, ptr noundef nonnull align 8 dereferenceable(437) %28, i32 noundef 3)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 3, i64 noundef %sub.ptr.sub38, ptr noundef nonnull align 8 dereferenceable(32) %message.i154)
@@ -33515,7 +33510,7 @@ if.then57:                                        ; preds = %if.end52
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i173) #30
   %40 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i174 = getelementptr inbounds i8, ptr %40, i64 24
-  %41 = load ptr, ptr %m_ptraits.i174, align 8, !tbaa !164
+  %41 = load ptr, ptr %m_ptraits.i174, align 8, !tbaa !180
   %42 = load ptr, ptr %41, align 8, !tbaa !220, !noalias !794
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i173, ptr noundef nonnull align 8 dereferenceable(437) %42, i32 noundef 3)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 3, i64 noundef %sub.ptr.sub62, ptr noundef nonnull align 8 dereferenceable(32) %message.i173)
@@ -34095,7 +34090,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i) #30
   %3 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i = getelementptr inbounds i8, ptr %3, i64 24
-  %4 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !164
+  %4 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !180
   %5 = load ptr, ptr %4, align 8, !tbaa !220, !noalias !803
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i, ptr noundef nonnull align 8 dereferenceable(437) %5, i32 noundef 8)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 8, i64 noundef %sub.ptr.sub, ptr noundef nonnull align 8 dereferenceable(32) %message.i)
@@ -35222,7 +35217,7 @@ while.end:                                        ; preds = %while.cond
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i) #30
   %7 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i = getelementptr inbounds i8, ptr %7, i64 24
-  %8 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !164
+  %8 = load ptr, ptr %m_ptraits.i, align 8, !tbaa !180
   %9 = load ptr, ptr %8, align 8, !tbaa !220, !noalias !813
   call void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i, ptr noundef nonnull align 8 dereferenceable(437) %9, i32 noundef 5)
   invoke void @_ZN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE4failENS_15regex_constants10error_typeElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef 5, i64 noundef %sub.ptr.sub, ptr noundef nonnull align 8 dereferenceable(32) %message.i)
@@ -35965,7 +35960,7 @@ sw.default:                                       ; preds = %if.end10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i349) #30
   %73 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i350 = getelementptr inbounds i8, ptr %73, i64 24
-  %74 = load ptr, ptr %m_ptraits.i350, align 8, !tbaa !164
+  %74 = load ptr, ptr %m_ptraits.i350, align 8, !tbaa !180
   %75 = load ptr, ptr %74, align 8, !tbaa !220, !noalias !816
   invoke void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i349, ptr noundef nonnull align 8 dereferenceable(437) %75, i32 noundef 4)
           to label %.noexc unwind label %lpad46
@@ -36046,7 +36041,7 @@ if.then124:                                       ; preds = %invoke.cont121
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %message.i367) #30
   %86 = load ptr, ptr %this, align 8, !tbaa !332
   %m_ptraits.i368 = getelementptr inbounds i8, ptr %86, i64 24
-  %87 = load ptr, ptr %m_ptraits.i368, align 8, !tbaa !164
+  %87 = load ptr, ptr %m_ptraits.i368, align 8, !tbaa !180
   %88 = load ptr, ptr %87, align 8, !tbaa !220, !noalias !819
   invoke void @_ZNK5boost13re_detail_50031cpp_regex_traits_implementationIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %message.i367, ptr noundef nonnull align 8 dereferenceable(437) %88, i32 noundef 4)
           to label %.noexc382 unwind label %lpad46
@@ -37623,7 +37618,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit.i:          ; preds = %if.then.i116
 call5.i.i.i.i3.i.i.i.noexc:                       ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit.i
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i.i122, i64 %add
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call5.i.i.i.i3.i.i.i122, i8 0, i64 %add, i1 false)
-  store ptr %call5.i.i.i.i3.i.i.i122, ptr %m_recursion_checks, align 8, !tbaa !181
+  store ptr %call5.i.i.i.i3.i.i.i122, ptr %m_recursion_checks, align 8, !tbaa !179
   store ptr %add.ptr.i.i.i.i, ptr %_M_finish.i.i114, align 8, !tbaa !406
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i112, align 8, !tbaa !405
   %tobool.not.i.i.i.i118 = icmp eq ptr %22, null
@@ -37647,7 +37642,7 @@ if.then6.i:                                       ; preds = %if.else.i
 if.then.i.i.i.i.i:                                ; preds = %if.then6.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %22, i8 0, i64 %sub.ptr.sub.i32.i, i1 false)
   %.pre45.i = load ptr, ptr %_M_finish.i.i114, align 8, !tbaa !406
-  %.pre46.i = load ptr, ptr %m_recursion_checks, align 8, !tbaa !181
+  %.pre46.i = load ptr, ptr %m_recursion_checks, align 8, !tbaa !179
   %.pre47.i = ptrtoint ptr %.pre45.i to i64
   %.pre48.i = ptrtoint ptr %.pre46.i to i64
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i
@@ -37752,7 +37747,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit.i161:       ; preds = %if.then.i159
 call5.i.i.i.i3.i.i.i.noexc168:                    ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit.i161
   %add.ptr.i.i.i.i162 = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i.i169, i64 %add61
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call5.i.i.i.i3.i.i.i169, i8 0, i64 %add61, i1 false)
-  store ptr %call5.i.i.i.i3.i.i.i169, ptr %m_recursion_checks, align 8, !tbaa !181
+  store ptr %call5.i.i.i.i3.i.i.i169, ptr %m_recursion_checks, align 8, !tbaa !179
   store ptr %add.ptr.i.i.i.i162, ptr %_M_finish.i.i114, align 8, !tbaa !406
   store ptr %add.ptr.i.i.i.i162, ptr %_M_end_of_storage.i.i112, align 8, !tbaa !405
   %tobool.not.i.i.i.i164 = icmp eq ptr %33, null
@@ -37776,7 +37771,7 @@ if.then6.i142:                                    ; preds = %if.else.i128
 if.then.i.i.i.i.i144:                             ; preds = %if.then6.i142
   tail call void @llvm.memset.p0.i64(ptr align 1 %33, i8 0, i64 %sub.ptr.sub.i32.i131, i1 false)
   %.pre45.i145 = load ptr, ptr %_M_finish.i.i114, align 8, !tbaa !406
-  %.pre46.i146 = load ptr, ptr %m_recursion_checks, align 8, !tbaa !181
+  %.pre46.i146 = load ptr, ptr %m_recursion_checks, align 8, !tbaa !179
   %.pre47.i147 = ptrtoint ptr %.pre45.i145 to i64
   %.pre48.i148 = ptrtoint ptr %.pre46.i146 to i64
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEhEvT_S7_RKT0_.exit.i149
@@ -38129,7 +38124,7 @@ sw.bb54:                                          ; preds = %while.body
   %index = getelementptr inbounds i8, ptr %42, i64 16
   %43 = load i32, ptr %index, align 8, !tbaa !358
   %conv56 = sext i32 %43 to i64
-  %44 = load ptr, ptr %m_recursion_checks, align 8, !tbaa !181
+  %44 = load ptr, ptr %m_recursion_checks, align 8, !tbaa !179
   %add.ptr.i = getelementptr inbounds i8, ptr %44, i64 %conv56
   %45 = load i8, ptr %add.ptr.i, align 1, !tbaa !16
   %46 = and i8 %45, 1
@@ -39208,7 +39203,7 @@ if.end403:                                        ; preds = %land.lhs.true394, %
 
 land.lhs.true406:                                 ; preds = %land.lhs.true394
   %conv409 = zext nneg i32 %225 to i64
-  %254 = load ptr, ptr %m_recursion_checks, align 8, !tbaa !181
+  %254 = load ptr, ptr %m_recursion_checks, align 8, !tbaa !179
   %add.ptr.i766 = getelementptr inbounds i8, ptr %254, i64 %conv409
   %255 = load i8, ptr %add.ptr.i766, align 1, !tbaa !16
   %256 = and i8 %255, 2
@@ -39338,9 +39333,9 @@ sw.epilog:                                        ; preds = %sw.default, %if.the
   br i1 %tobool2.not, label %cleanup443, label %while.body, !llvm.loop !853
 
 cleanup443:                                       ; preds = %sw.epilog, %for.inc258, %for.inc258.us, %if.end219, %for.inc179, %for.inc143, %for.inc, %for.inc.us, %if.then365, %_ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13set_all_masksEPhh.exit765, %if.then355, %if.end353, %if.then330, %lor.lhs.false, %if.then317, %_ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13set_all_masksEPhh.exit744, %if.then305, %if.then302, %if.end300, %sw.bb229, %_ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13set_all_masksEPhh.exit718, %sw.bb190, %if.then186, %sw.bb184, %invoke.cont150, %invoke.cont116, %if.then110, %_ZN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE13set_all_masksEPhh.exit655, %if.end.i, %sw.bb105, %if.then49, %if.end47, %sw.bb5, %_ZN5boost13re_detail_50015recursion_saverC2EPSt6vectorIhSaIhEE.exit
-  %286 = load ptr, ptr %m_recursion_checks, align 8, !tbaa !181
+  %286 = load ptr, ptr %m_recursion_checks, align 8, !tbaa !179
   %_M_end_of_storage.i.i.i.i784 = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr %cond.i.i.i.i.i803, ptr %m_recursion_checks, align 8, !tbaa !181
+  store ptr %cond.i.i.i.i.i803, ptr %m_recursion_checks, align 8, !tbaa !179
   store ptr %add.ptr.i.i.i.i809, ptr %_M_finish.i.i.i, align 8, !tbaa !406
   store ptr %add.ptr.i.i.i.i809, ptr %_M_end_of_storage.i.i.i.i784, align 8, !tbaa !405
   %tobool.not.i.i.i.i = icmp eq ptr %286, null
@@ -39355,9 +39350,9 @@ _ZN5boost13re_detail_50015recursion_saverD2Ev.exit: ; preds = %if.then.i.i.i.i, 
 
 ehcleanup444:                                     ; preds = %lpad423, %lpad311, %lpad244, %lpad208, %ehcleanup79, %lpad51, %lpad
   %.pn629 = phi { ptr, i32 } [ %259, %lpad423 ], [ %215, %lpad311 ], [ %178, %lpad244 ], [ %147, %lpad208 ], [ %41, %lpad51 ], [ %.pn.pn, %ehcleanup79 ], [ %33, %lpad ]
-  %287 = load ptr, ptr %m_recursion_checks, align 8, !tbaa !181
+  %287 = load ptr, ptr %m_recursion_checks, align 8, !tbaa !179
   %_M_end_of_storage.i.i.i.i787 = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr %cond.i.i.i.i.i803, ptr %m_recursion_checks, align 8, !tbaa !181
+  store ptr %cond.i.i.i.i.i803, ptr %m_recursion_checks, align 8, !tbaa !179
   store ptr %add.ptr.i.i.i.i809, ptr %_M_finish.i.i.i, align 8, !tbaa !406
   store ptr %add.ptr.i.i.i.i809, ptr %_M_end_of_storage.i.i.i.i787, align 8, !tbaa !405
   %tobool.not.i.i.i.i790 = icmp eq ptr %287, null
@@ -39589,7 +39584,7 @@ entry:
 if.end:                                           ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %set_, i64 40
   %m_ptraits = getelementptr inbounds i8, ptr %e, i64 24
-  %0 = load ptr, ptr %m_ptraits, align 8, !tbaa !164
+  %0 = load ptr, ptr %m_ptraits, align 8, !tbaa !180
   %csingles = getelementptr inbounds i8, ptr %set_, i64 16
   %1 = load i32, ptr %csingles, align 8, !tbaa !709
   %cmp1453.not = icmp eq i32 %1, 0
@@ -40496,7 +40491,7 @@ entry:
   store ptr %e, ptr %re.i, align 8, !tbaa !57
   %0 = load ptr, ptr %e, align 8, !tbaa !160
   %m_ptraits.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
-  %1 = load ptr, ptr %m_ptraits.i.i.i, align 8, !tbaa !164
+  %1 = load ptr, ptr %m_ptraits.i.i.i, align 8, !tbaa !180
   %traits_inst.i = getelementptr inbounds i8, ptr %matcher, i64 80
   store ptr %1, ptr %traits_inst.i, align 8, !tbaa !57
   %m_independent.i = getelementptr inbounds i8, ptr %matcher, i64 123
@@ -50010,17 +50005,15 @@ invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i, 
   %m_named_subs = getelementptr inbounds i8, ptr %this, i64 56
   %m_named_subs3 = getelementptr inbounds i8, ptr %m, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %m_base, i8 0, i64 25, i1 false)
-  %5 = load ptr, ptr %m_named_subs3, align 8, !tbaa !916
-  store ptr %5, ptr %m_named_subs, align 8, !tbaa !916
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %m, i64 64
-  %6 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !44
-  store ptr %6, ptr %_M_refcount.i.i, align 8, !tbaa !44
-  %cmp.not.i.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !44
+  %6 = load <2 x ptr>, ptr %m_named_subs3, align 8, !tbaa !57
+  store <2 x ptr> %6, ptr %m_named_subs, align 8, !tbaa !57
+  %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5boost13re_detail_50020named_subexpressionsEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !16
   %tobool.i.not.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -50198,7 +50191,7 @@ entry:
 if.end:                                           ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %set_, i64 40
   %m_ptraits = getelementptr inbounds i8, ptr %e, i64 24
-  %0 = load ptr, ptr %m_ptraits, align 8, !tbaa !164
+  %0 = load ptr, ptr %m_ptraits, align 8, !tbaa !180
   %csingles = getelementptr inbounds i8, ptr %set_, i64 16
   %1 = load i32, ptr %csingles, align 8, !tbaa !709
   %cmp468.not = icmp eq i32 %1, 0
@@ -57739,7 +57732,7 @@ entry:
   store ptr %e, ptr %re.i, align 8, !tbaa !57
   %0 = load ptr, ptr %e, align 8, !tbaa !160
   %m_ptraits.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
-  %1 = load ptr, ptr %m_ptraits.i.i.i, align 8, !tbaa !164
+  %1 = load ptr, ptr %m_ptraits.i.i.i, align 8, !tbaa !180
   %traits_inst.i = getelementptr inbounds i8, ptr %matcher, i64 80
   store ptr %1, ptr %traits_inst.i, align 8, !tbaa !57
   %m_independent.i = getelementptr inbounds i8, ptr %matcher, i64 123
@@ -65868,17 +65861,15 @@ invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i, 
   %m_named_subs = getelementptr inbounds i8, ptr %this, i64 56
   %m_named_subs3 = getelementptr inbounds i8, ptr %m, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %m_base, i8 0, i64 25, i1 false)
-  %5 = load ptr, ptr %m_named_subs3, align 8, !tbaa !916
-  store ptr %5, ptr %m_named_subs, align 8, !tbaa !916
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %m, i64 64
-  %6 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !44
-  store ptr %6, ptr %_M_refcount.i.i, align 8, !tbaa !44
-  %cmp.not.i.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %_M_refcount3.i.i, align 8, !tbaa !44
+  %6 = load <2 x ptr>, ptr %m_named_subs3, align 8, !tbaa !57
+  store <2 x ptr> %6, ptr %m_named_subs, align 8, !tbaa !57
+  %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN5boost13re_detail_50020named_subexpressionsEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !16
   %tobool.i.not.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -66053,7 +66044,7 @@ entry:
 if.end:                                           ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %set_, i64 40
   %m_ptraits = getelementptr inbounds i8, ptr %e, i64 24
-  %0 = load ptr, ptr %m_ptraits, align 8, !tbaa !164
+  %0 = load ptr, ptr %m_ptraits, align 8, !tbaa !180
   %csingles = getelementptr inbounds i8, ptr %set_, i64 16
   %1 = load i32, ptr %csingles, align 8, !tbaa !709
   %cmp1448.not = icmp eq i32 %1, 0
@@ -72390,24 +72381,24 @@ attributes #37 = { allocsize(0) }
 !161 = !{!"_ZTSSt12__shared_ptrIN5boost13re_detail_50026basic_regex_implementationIcNS0_12regex_traitsIcNS0_16cpp_regex_traitsIcEEEEEELN9__gnu_cxx12_Lock_policyE2EE", !9, i64 0, !31, i64 8}
 !162 = !{!163, !9, i64 16}
 !163 = !{!"_ZTSSt15_Sp_counted_ptrIPN5boost13re_detail_50026basic_regex_implementationIcNS0_12regex_traitsIcNS0_16cpp_regex_traitsIcEEEEEELN9__gnu_cxx12_Lock_policyE2EE", !46, i64 0, !9, i64 16}
-!164 = !{!165, !9, i64 0}
-!165 = !{!"_ZTSSt12__shared_ptrIN5boost20regex_traits_wrapperINS0_12regex_traitsIcNS0_16cpp_regex_traitsIcEEEEEELN9__gnu_cxx12_Lock_policyE2EE", !9, i64 0, !31, i64 8}
-!166 = !{!167, !32, i64 148}
-!167 = !{!"_ZTSN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEE", !168, i64 0, !10, i64 104, !9, i64 120, !9, i64 128, !9, i64 136, !32, i64 144, !32, i64 148, !32, i64 152, !13, i64 160, !13, i64 168, !28, i64 176, !32, i64 180, !32, i64 184, !173, i64 192}
-!168 = !{!"_ZTSN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEE", !9, i64 0, !9, i64 8, !9, i64 16, !28, i64 24, !32, i64 28, !28, i64 32, !13, i64 40, !28, i64 48, !169, i64 56, !32, i64 80, !32, i64 84, !32, i64 88, !32, i64 92, !32, i64 96}
-!169 = !{!"_ZTSSt6vectorIhSaIhEE", !170, i64 0}
-!170 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !171, i64 0}
-!171 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !172, i64 0}
-!172 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !9, i64 0, !9, i64 8, !9, i64 16}
-!173 = !{!"_ZTSSt6vectorIlSaIlEE", !174, i64 0}
-!174 = !{!"_ZTSSt12_Vector_baseIlSaIlEE", !175, i64 0}
-!175 = !{!"_ZTSNSt12_Vector_baseIlSaIlEE12_Vector_implE", !176, i64 0}
-!176 = !{!"_ZTSNSt12_Vector_baseIlSaIlEE17_Vector_impl_dataE", !9, i64 0, !9, i64 8, !9, i64 16}
-!177 = !{!167, !32, i64 152}
-!178 = !{!167, !32, i64 180}
-!179 = !{!167, !32, i64 184}
-!180 = !{!176, !9, i64 0}
-!181 = !{!172, !9, i64 0}
+!164 = !{!165, !32, i64 148}
+!165 = !{!"_ZTSN5boost13re_detail_50018basic_regex_parserIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEE", !166, i64 0, !10, i64 104, !9, i64 120, !9, i64 128, !9, i64 136, !32, i64 144, !32, i64 148, !32, i64 152, !13, i64 160, !13, i64 168, !28, i64 176, !32, i64 180, !32, i64 184, !171, i64 192}
+!166 = !{!"_ZTSN5boost13re_detail_50019basic_regex_creatorIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEE", !9, i64 0, !9, i64 8, !9, i64 16, !28, i64 24, !32, i64 28, !28, i64 32, !13, i64 40, !28, i64 48, !167, i64 56, !32, i64 80, !32, i64 84, !32, i64 88, !32, i64 92, !32, i64 96}
+!167 = !{!"_ZTSSt6vectorIhSaIhEE", !168, i64 0}
+!168 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !169, i64 0}
+!169 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !170, i64 0}
+!170 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !9, i64 0, !9, i64 8, !9, i64 16}
+!171 = !{!"_ZTSSt6vectorIlSaIlEE", !172, i64 0}
+!172 = !{!"_ZTSSt12_Vector_baseIlSaIlEE", !173, i64 0}
+!173 = !{!"_ZTSNSt12_Vector_baseIlSaIlEE12_Vector_implE", !174, i64 0}
+!174 = !{!"_ZTSNSt12_Vector_baseIlSaIlEE17_Vector_impl_dataE", !9, i64 0, !9, i64 8, !9, i64 16}
+!175 = !{!165, !32, i64 152}
+!176 = !{!165, !32, i64 180}
+!177 = !{!165, !32, i64 184}
+!178 = !{!174, !9, i64 0}
+!179 = !{!170, !9, i64 0}
+!180 = !{!181, !9, i64 0}
+!181 = !{!"_ZTSSt12__shared_ptrIN5boost20regex_traits_wrapperINS0_12regex_traitsIcNS0_16cpp_regex_traitsIcEEEEEELN9__gnu_cxx12_Lock_policyE2EE", !9, i64 0, !31, i64 8}
 !182 = !{!183, !9, i64 0}
 !183 = !{!"_ZTSNSt12_Vector_baseIN5boost13re_detail_50020named_subexpressions4nameESaIS3_EE17_Vector_impl_dataE", !9, i64 0, !9, i64 8, !9, i64 16}
 !184 = !{!185, !9, i64 16}
@@ -72558,27 +72549,27 @@ attributes #37 = { allocsize(0) }
 !329 = !{!"_ZTSNSt12_Vector_baseISt4pairImmESaIS1_EE17_Vector_impl_dataE", !9, i64 0, !9, i64 8, !9, i64 16}
 !330 = !{!331, !9, i64 8}
 !331 = !{!"_ZTSN5boost13re_detail_50011raw_storageE", !9, i64 0, !9, i64 8, !9, i64 16}
-!332 = !{!168, !9, i64 0}
+!332 = !{!166, !9, i64 0}
 !333 = !{!334, !32, i64 40}
 !334 = !{!"_ZTSN5boost13re_detail_50010regex_dataIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEE", !335, i64 0, !339, i64 24, !32, i64 40, !32, i64 44, !9, i64 48, !13, i64 56, !13, i64 64, !9, i64 72, !32, i64 80, !10, i64 84, !32, i64 340, !331, i64 344, !32, i64 368, !340, i64 376, !28, i64 400, !28, i64 401}
 !335 = !{!"_ZTSN5boost13re_detail_50020named_subexpressionsE", !336, i64 0}
 !336 = !{!"_ZTSSt6vectorIN5boost13re_detail_50020named_subexpressions4nameESaIS3_EE", !337, i64 0}
 !337 = !{!"_ZTSSt12_Vector_baseIN5boost13re_detail_50020named_subexpressions4nameESaIS3_EE", !338, i64 0}
 !338 = !{!"_ZTSNSt12_Vector_baseIN5boost13re_detail_50020named_subexpressions4nameESaIS3_EE12_Vector_implE", !183, i64 0}
-!339 = !{!"_ZTSSt10shared_ptrIN5boost20regex_traits_wrapperINS0_12regex_traitsIcNS0_16cpp_regex_traitsIcEEEEEEE", !165, i64 0}
+!339 = !{!"_ZTSSt10shared_ptrIN5boost20regex_traits_wrapperINS0_12regex_traitsIcNS0_16cpp_regex_traitsIcEEEEEEE", !181, i64 0}
 !340 = !{!"_ZTSSt6vectorISt4pairImmESaIS1_EE", !341, i64 0}
 !341 = !{!"_ZTSSt12_Vector_baseISt4pairImmESaIS1_EE", !342, i64 0}
 !342 = !{!"_ZTSNSt12_Vector_baseISt4pairImmESaIS1_EE12_Vector_implE", !329, i64 0}
-!343 = !{!168, !28, i64 24}
-!344 = !{!167, !9, i64 120}
-!345 = !{!167, !9, i64 136}
-!346 = !{!167, !9, i64 128}
+!343 = !{!166, !28, i64 24}
+!344 = !{!165, !9, i64 120}
+!345 = !{!165, !9, i64 136}
+!346 = !{!165, !9, i64 128}
 !347 = !{!348}
 !348 = distinct !{!348, !349, !"_ZNK5boost16cpp_regex_traitsIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE: %agg.result"}
 !349 = distinct !{!349, !"_ZNK5boost16cpp_regex_traitsIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE"}
-!350 = !{!167, !10, i64 104}
+!350 = !{!165, !10, i64 104}
 !351 = !{!331, !9, i64 16}
-!352 = !{!168, !9, i64 16}
+!352 = !{!166, !9, i64 16}
 !353 = distinct !{!353, !81}
 !354 = !{!331, !9, i64 0}
 !355 = !{!356, !357, i64 0}
@@ -72588,18 +72579,18 @@ attributes #37 = { allocsize(0) }
 !359 = !{!"_ZTSN5boost13re_detail_5008re_braceE", !356, i64 0, !32, i64 16, !28, i64 20}
 !360 = !{!359, !28, i64 20}
 !361 = !{!334, !32, i64 44}
-!362 = !{!167, !32, i64 144}
+!362 = !{!165, !32, i64 144}
 !363 = !{!334, !13, i64 64}
-!364 = !{!168, !32, i64 28}
-!365 = !{!168, !28, i64 32}
-!366 = !{!168, !13, i64 40}
-!367 = !{!168, !28, i64 48}
-!368 = !{!168, !32, i64 80}
-!369 = !{!168, !9, i64 8}
-!370 = !{!168, !32, i64 84}
-!371 = !{!168, !32, i64 88}
-!372 = !{!168, !32, i64 92}
-!373 = !{!168, !32, i64 96}
+!364 = !{!166, !32, i64 28}
+!365 = !{!166, !28, i64 32}
+!366 = !{!166, !13, i64 40}
+!367 = !{!166, !28, i64 48}
+!368 = !{!166, !32, i64 80}
+!369 = !{!166, !9, i64 8}
+!370 = !{!166, !32, i64 84}
+!371 = !{!166, !32, i64 88}
+!372 = !{!166, !32, i64 92}
+!373 = !{!166, !32, i64 96}
 !374 = !{!334, !32, i64 368}
 !375 = distinct !{!375, !81}
 !376 = !{!377, !9, i64 0}
@@ -72617,8 +72608,8 @@ attributes #37 = { allocsize(0) }
 !388 = distinct !{!388, !81}
 !389 = distinct !{!389, !81}
 !390 = distinct !{!390, !81}
-!391 = !{!167, !13, i64 168}
-!392 = !{!176, !9, i64 8}
+!391 = !{!165, !13, i64 168}
+!392 = !{!174, !9, i64 8}
 !393 = distinct !{!393, !81}
 !394 = !{!334, !13, i64 56}
 !395 = distinct !{!395, !81}
@@ -72631,8 +72622,8 @@ attributes #37 = { allocsize(0) }
 !402 = distinct !{!402, !81}
 !403 = !{!334, !28, i64 400}
 !404 = !{!334, !32, i64 340}
-!405 = !{!172, !9, i64 16}
-!406 = !{!172, !9, i64 8}
+!405 = !{!170, !9, i64 16}
+!406 = !{!170, !9, i64 8}
 !407 = distinct !{!407, !81}
 !408 = !{!334, !32, i64 80}
 !409 = !{!399, !28, i64 308}
@@ -72649,7 +72640,7 @@ attributes #37 = { allocsize(0) }
 !420 = distinct !{!420, !419, !"_ZSt19__relocate_object_aISt4pairImmES1_SaIS1_EEvPT_PT0_RT1_: %__orig"}
 !421 = distinct !{!421, !81}
 !422 = distinct !{!422, !81}
-!423 = !{!167, !28, i64 176}
+!423 = !{!165, !28, i64 176}
 !424 = distinct !{!424, !81}
 !425 = !{!426, !28, i64 16}
 !426 = !{!"_ZTSN5boost13re_detail_5007re_caseE", !356, i64 0, !28, i64 16}
@@ -72659,7 +72650,7 @@ attributes #37 = { allocsize(0) }
 !430 = !{!431, !13, i64 8}
 !431 = !{!"_ZTSSt4pairImmE", !13, i64 0, !13, i64 8}
 !432 = distinct !{!432, !81}
-!433 = !{!167, !13, i64 160}
+!433 = !{!165, !13, i64 160}
 !434 = !{!435, !28, i64 72}
 !435 = !{!"_ZTSN5boost13re_detail_50014basic_char_setIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEE", !436, i64 0, !441, i64 48, !28, i64 72, !28, i64 73, !32, i64 76, !32, i64 80, !28, i64 84, !436, i64 88}
 !436 = !{!"_ZTSSt3setIN5boost13re_detail_5007digraphIcEESt4lessIS3_ESaIS3_EE", !437, i64 0}
@@ -72724,7 +72715,7 @@ attributes #37 = { allocsize(0) }
 !495 = distinct !{!495, !81}
 !496 = distinct !{!496, !81}
 !497 = distinct !{!497, !81}
-!498 = !{!176, !9, i64 16}
+!498 = !{!174, !9, i64 16}
 !499 = !{!500}
 !500 = distinct !{!500, !501, !"_ZNK5boost16cpp_regex_traitsIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE: %agg.result"}
 !501 = distinct !{!501, !"_ZNK5boost16cpp_regex_traitsIcE12error_stringB5cxx11ENS_15regex_constants10error_typeE"}

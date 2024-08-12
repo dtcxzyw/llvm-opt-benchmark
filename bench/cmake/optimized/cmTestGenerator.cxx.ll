@@ -918,7 +918,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15cmTestGenerator23GenerateScriptForConfigERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE23cmScriptGeneratorIndent(ptr noundef nonnull align 8 dereferenceable(129) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.cmGeneratorExpression, align 8
-  %6 = alloca %class.cmListFileBacktrace, align 8
+  %6 = alloca %class.cmListFileBacktrace, align 16
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -954,17 +954,16 @@ define dso_local void @_ZN15cmTestGenerator23GenerateScriptForConfigERSoRKNSt7__
   %38 = tail call noundef ptr @_ZNK10cmMakefile16GetCMakeInstanceEv(ptr noundef nonnull align 8 dereferenceable(3520) %37)
   %39 = load ptr, ptr %34, align 8
   %40 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6cmTest12GetBacktraceEv(ptr noundef nonnull align 8 dereferenceable(148) %39)
-  %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %6, align 8
-  %42 = getelementptr inbounds i8, ptr %6, i64 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 8
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %42, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %44, null
+  %41 = getelementptr inbounds i8, ptr %6, i64 8
+  %42 = getelementptr inbounds i8, ptr %40, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = load <2 x ptr>, ptr %40, align 8
+  store <2 x ptr> %44, ptr %6, align 16
+  %.not.i.i.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i.i.i, label %_ZN19cmListFileBacktraceC2ERKS_.exit, label %45
 
 45:                                               ; preds = %4
-  %46 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = getelementptr inbounds i8, ptr %43, i64 8
   %47 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %47, 0
   br i1 %.not.i.i.i.i.i.i, label %51, label %48
@@ -984,7 +983,7 @@ _ZN19cmListFileBacktraceC2ERKS_.exit:             ; preds = %4, %48, %51
           to label %53 unwind label %121
 
 53:                                               ; preds = %_ZN19cmListFileBacktraceC2ERKS_.exit
-  %54 = load ptr, ptr %42, align 8
+  %54 = load ptr, ptr %41, align 8
   %.not.i.i.i.i.i78 = icmp eq ptr %54, null
   br i1 %.not.i.i.i.i.i78, label %_ZN19cmListFileBacktraceD2Ev.exit, label %55
 
@@ -2912,17 +2911,16 @@ define dso_local void @_ZN15cmTestGenerator26GenerateInternalPropertiesERSo(ptr 
   %5 = getelementptr inbounds i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6cmTest12GetBacktraceEv(ptr noundef nonnull align 8 dereferenceable(148) %6)
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %3, align 16
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %9, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %11, null
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = load <2 x ptr>, ptr %7, align 8
+  store <2 x ptr> %11, ptr %3, align 16
+  %.not.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i, label %_ZN19cmListFileBacktraceC2ERKS_.exit, label %12
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds i8, ptr %10, i64 8
   %14 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %14, 0
   br i1 %.not.i.i.i.i.i.i, label %18, label %15
@@ -3024,7 +3022,7 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %_ZN19cmListFileBack
 51:                                               ; preds = %50
   %52 = load <2 x ptr>, ptr %4, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %53 = load ptr, ptr %9, align 8
+  %53 = load ptr, ptr %8, align 8
   store <2 x ptr> %52, ptr %3, align 16
   %.not.i.i.i.i.i.i10 = icmp eq ptr %53, null
   br i1 %.not.i.i.i.i.i.i10, label %_ZN19cmListFileBacktraceaSEOS_.exit, label %54
@@ -3178,7 +3176,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
           to label %125 unwind label %.loopexit.split-lp
 
 125:                                              ; preds = %123, %21
-  %126 = load ptr, ptr %9, align 8
+  %126 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i13 = icmp eq ptr %126, null
   br i1 %.not.i.i.i.i.i13, label %_ZN19cmListFileBacktraceD2Ev.exit19, label %127
 

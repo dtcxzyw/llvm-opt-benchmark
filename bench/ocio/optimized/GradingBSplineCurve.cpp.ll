@@ -184,23 +184,21 @@ define void @_ZN19OpenColorIO_v2_4dev19GradingBSplineCurve6CreateEm(ptr noalias 
 entry:
   %__a.i = alloca %"class.std::allocator.22", align 1
   %size.addr = alloca i64, align 8
-  %newSpline = alloca %"class.std::shared_ptr.0", align 8
+  %newSpline = alloca %"class.std::shared_ptr.0", align 16
   store i64 %size, ptr %size.addr, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__a.i)
-  store ptr null, ptr %newSpline, align 8, !alias.scope !4
+  store ptr null, ptr %newSpline, align 16, !alias.scope !4
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %newSpline, i64 8
   call void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN19OpenColorIO_v2_4dev23GradingBSplineCurveImplESaIvEJRmEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %newSpline, ptr nonnull %__a.i, ptr noundef nonnull align 8 dereferenceable(8) %size.addr)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__a.i)
-  %0 = load ptr, ptr %newSpline, align 8
-  store ptr %0, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %1 = load ptr, ptr %_M_refcount.i.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %newSpline, align 16
+  store <2 x ptr> %1, ptr %agg.result, align 8
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

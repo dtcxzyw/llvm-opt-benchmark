@@ -5329,7 +5329,7 @@ entry:
   %ref.tmp.i.i = alloca %"class.std::__shared_ptr", align 16
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.std::unique_ptr.22", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr", align 16
   %ref.tmp10 = alloca %"class.v8::Global.15", align 8
   store ptr %isolate, ptr %this, align 8
   %store_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -5340,14 +5340,12 @@ entry:
   call void @_ZN2v811ArrayBuffer15NewBackingStoreEPNS_7IsolateEm(ptr nonnull sret(%"class.std::unique_ptr.22") align 8 %ref.tmp, ptr noundef %isolate, i64 noundef 12) #28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   call void @_ZNSt12__shared_ptrIN2v812BackingStoreELN9__gnu_cxx12_Lock_policyE2EEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  %0 = load ptr, ptr %store_, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16
   %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  %2 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16
-  store ptr %0, ptr %ref.tmp.i.i, align 16
-  store <2 x ptr> %2, ptr %store_, align 8
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8
+  %2 = load <2 x ptr>, ptr %store_, align 8
+  store <2 x ptr> %0, ptr %store_, align 8
+  store <2 x ptr> %2, ptr %ref.tmp.i.i, align 16
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN2v812BackingStoreEEaSIS1_St14default_deleteIS1_EEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EESt10unique_ptrIT_T0_EEE5valueERS2_E4typeEOSF_.exit, label %if.then.i.i.i.i
 
@@ -5441,16 +5439,15 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit: ; preds 
   store i32 100, ptr %max_rejected_streams.i, align 4
   %ptr_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %call5, ptr %ptr_, align 8
-  %15 = load ptr, ptr %store_, align 8
-  store ptr %15, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %16 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %16, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %16, null
+  %15 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %16 = load <2 x ptr>, ptr %store_, align 8
+  store <2 x ptr> %16, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %17, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i13

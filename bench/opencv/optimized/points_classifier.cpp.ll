@@ -232,24 +232,24 @@ define hidden noundef i32 @main() local_unnamed_addr #4 personality ptr @__gxx_p
   %19 = alloca %"struct.cv::Ptr.16", align 8
   %20 = alloca %"class.cv::_InputArray", align 8
   %21 = alloca %"class.cv::_InputArray", align 8
-  %22 = alloca %"struct.cv::Ptr.46", align 8
+  %22 = alloca %"struct.cv::Ptr.46", align 16
   %23 = alloca %"class.cv::_InputArray", align 8
-  %24 = alloca %"struct.cv::Ptr.20", align 8
-  %25 = alloca %"struct.cv::Ptr.42", align 8
+  %24 = alloca %"struct.cv::Ptr.20", align 16
+  %25 = alloca %"struct.cv::Ptr.42", align 16
   %26 = alloca %"class.cv::Mat", align 8
   %27 = alloca %"class.cv::TermCriteria", align 8
   %28 = alloca %"struct.cv::Ptr.16", align 8
-  %29 = alloca %"struct.cv::Ptr.20", align 8
-  %30 = alloca %"struct.cv::Ptr.38", align 8
+  %29 = alloca %"struct.cv::Ptr.20", align 16
+  %30 = alloca %"struct.cv::Ptr.38", align 16
   %31 = alloca %"class.cv::Mat", align 8
   %32 = alloca %"struct.cv::Ptr.16", align 8
-  %33 = alloca %"struct.cv::Ptr.20", align 8
-  %34 = alloca %"struct.cv::Ptr.34", align 8
+  %33 = alloca %"struct.cv::Ptr.20", align 16
+  %34 = alloca %"struct.cv::Ptr.34", align 16
   %35 = alloca %"struct.cv::Ptr.16", align 8
-  %36 = alloca %"struct.cv::Ptr.20", align 8
-  %37 = alloca %"struct.cv::Ptr", align 8
+  %36 = alloca %"struct.cv::Ptr.20", align 16
+  %37 = alloca %"struct.cv::Ptr", align 16
   %38 = alloca %"struct.cv::Ptr.16", align 8
-  %39 = alloca %"struct.cv::Ptr.20", align 8
+  %39 = alloca %"struct.cv::Ptr.20", align 16
   %40 = alloca %"class.std::__cxx11::basic_string", align 8
   %41 = alloca %"class.std::allocator", align 1
   %42 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -741,15 +741,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_2ml9TrainDataEED2Ev.exit.i
 
 _ZN2cv3PtrINS_2ml9TrainDataEED2Ev.exit.i:         ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i, %300, %287, %269
-  %305 = load ptr, ptr %37, align 8
-  store ptr %305, ptr %39, align 8
-  %306 = load ptr, ptr %116, align 8
-  store ptr %306, ptr %115, align 8
-  %.not.i.i.i.i3.i = icmp eq ptr %306, null
+  %305 = load ptr, ptr %116, align 8
+  %306 = load <2 x ptr>, ptr %37, align 16
+  store <2 x ptr> %306, ptr %39, align 16
+  %.not.i.i.i.i3.i = icmp eq ptr %305, null
   br i1 %.not.i.i.i.i3.i, label %_ZN2cv3PtrINS_2ml9StatModelEEC2INS1_21NormalBayesClassifierEEERKNS0_IT_EE.exit.i, label %307
 
 307:                                              ; preds = %_ZN2cv3PtrINS_2ml9TrainDataEED2Ev.exit.i
-  %308 = getelementptr inbounds i8, ptr %306, i64 8
+  %308 = getelementptr inbounds i8, ptr %305, i64 8
   %309 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i4.i = icmp eq i8 %309, 0
   br i1 %.not.i.i.i.i.i4.i, label %313, label %310
@@ -1018,7 +1017,7 @@ _ZL26find_decision_boundary_NBCv.exit:            ; preds = %_ZN2cv3PtrINS_2ml9S
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36)
   call void @_ZN2cv2ml6DTrees6createEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.34") align 8 %34)
-  %400 = load ptr, ptr %34, align 8
+  %400 = load ptr, ptr %34, align 16
   %401 = load ptr, ptr %400, align 8
   %402 = getelementptr inbounds i8, ptr %401, i64 144
   %403 = load ptr, ptr %402, align 8
@@ -1026,7 +1025,7 @@ _ZL26find_decision_boundary_NBCv.exit:            ; preds = %_ZN2cv3PtrINS_2ml9S
           to label %404 unwind label %553
 
 404:                                              ; preds = %399
-  %405 = load ptr, ptr %34, align 8
+  %405 = load ptr, ptr %34, align 16
   %406 = load ptr, ptr %405, align 8
   %407 = getelementptr inbounds i8, ptr %406, i64 160
   %408 = load ptr, ptr %407, align 8
@@ -1034,7 +1033,7 @@ _ZL26find_decision_boundary_NBCv.exit:            ; preds = %_ZN2cv3PtrINS_2ml9S
           to label %409 unwind label %553
 
 409:                                              ; preds = %404
-  %410 = load ptr, ptr %34, align 8
+  %410 = load ptr, ptr %34, align 16
   %411 = load ptr, ptr %410, align 8
   %412 = getelementptr inbounds i8, ptr %411, i64 192
   %413 = load ptr, ptr %412, align 8
@@ -1042,7 +1041,7 @@ _ZL26find_decision_boundary_NBCv.exit:            ; preds = %_ZN2cv3PtrINS_2ml9S
           to label %414 unwind label %553
 
 414:                                              ; preds = %409
-  %415 = load ptr, ptr %34, align 8
+  %415 = load ptr, ptr %34, align 16
   %416 = load ptr, ptr %415, align 8
   %417 = getelementptr inbounds i8, ptr %416, i64 176
   %418 = load ptr, ptr %417, align 8
@@ -1050,7 +1049,7 @@ _ZL26find_decision_boundary_NBCv.exit:            ; preds = %_ZN2cv3PtrINS_2ml9S
           to label %419 unwind label %553
 
 419:                                              ; preds = %414
-  %420 = load ptr, ptr %34, align 8
+  %420 = load ptr, ptr %34, align 16
   %421 = load ptr, ptr %420, align 8
   %422 = getelementptr inbounds i8, ptr %421, i64 208
   %423 = load ptr, ptr %422, align 8
@@ -1058,7 +1057,7 @@ _ZL26find_decision_boundary_NBCv.exit:            ; preds = %_ZN2cv3PtrINS_2ml9S
           to label %424 unwind label %553
 
 424:                                              ; preds = %419
-  %425 = load ptr, ptr %34, align 8
+  %425 = load ptr, ptr %34, align 16
   %426 = load ptr, ptr %425, align 8
   %427 = getelementptr inbounds i8, ptr %426, i64 224
   %428 = load ptr, ptr %427, align 8
@@ -1066,7 +1065,7 @@ _ZL26find_decision_boundary_NBCv.exit:            ; preds = %_ZN2cv3PtrINS_2ml9S
           to label %429 unwind label %553
 
 429:                                              ; preds = %424
-  %430 = load ptr, ptr %34, align 8
+  %430 = load ptr, ptr %34, align 16
   invoke fastcc void @_ZL18prepare_train_datav(ptr dead_on_unwind noalias nonnull writable align 8 %35)
           to label %431 unwind label %553
 
@@ -1151,15 +1150,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_2ml9TrainDataEED2Ev.exit.i79
 
 _ZN2cv3PtrINS_2ml9TrainDataEED2Ev.exit.i79:       ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i97, %467, %454, %436
-  %472 = load ptr, ptr %34, align 8
-  store ptr %472, ptr %36, align 8
-  %473 = load ptr, ptr %134, align 8
-  store ptr %473, ptr %133, align 8
-  %.not.i.i.i.i3.i80 = icmp eq ptr %473, null
+  %472 = load ptr, ptr %134, align 8
+  %473 = load <2 x ptr>, ptr %34, align 16
+  store <2 x ptr> %473, ptr %36, align 16
+  %.not.i.i.i.i3.i80 = icmp eq ptr %472, null
   br i1 %.not.i.i.i.i3.i80, label %_ZN2cv3PtrINS_2ml9StatModelEEC2INS1_6DTreesEEERKNS0_IT_EE.exit.i, label %474
 
 474:                                              ; preds = %_ZN2cv3PtrINS_2ml9TrainDataEED2Ev.exit.i79
-  %475 = getelementptr inbounds i8, ptr %473, i64 8
+  %475 = getelementptr inbounds i8, ptr %472, i64 8
   %476 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i4.i81 = icmp eq i8 %476, 0
   br i1 %.not.i.i.i.i.i4.i81, label %480, label %477
@@ -1370,7 +1368,7 @@ _ZL25find_decision_boundary_DTv.exit:             ; preds = %_ZN2cv3PtrINS_2ml9S
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33)
   call void @_ZN2cv2ml5Boost6createEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.38") align 8 %30)
-  %562 = load ptr, ptr %30, align 8
+  %562 = load ptr, ptr %30, align 16
   %563 = load ptr, ptr %562, align 8
   %564 = getelementptr inbounds i8, ptr %563, i64 304
   %565 = load ptr, ptr %564, align 8
@@ -1378,7 +1376,7 @@ _ZL25find_decision_boundary_DTv.exit:             ; preds = %_ZN2cv3PtrINS_2ml9S
           to label %566 unwind label %715
 
 566:                                              ; preds = %561
-  %567 = load ptr, ptr %30, align 8
+  %567 = load ptr, ptr %30, align 16
   %568 = load ptr, ptr %567, align 8
   %569 = getelementptr inbounds i8, ptr %568, i64 320
   %570 = load ptr, ptr %569, align 8
@@ -1386,7 +1384,7 @@ _ZL25find_decision_boundary_DTv.exit:             ; preds = %_ZN2cv3PtrINS_2ml9S
           to label %571 unwind label %715
 
 571:                                              ; preds = %566
-  %572 = load ptr, ptr %30, align 8
+  %572 = load ptr, ptr %30, align 16
   %573 = load ptr, ptr %572, align 8
   %574 = getelementptr inbounds i8, ptr %573, i64 336
   %575 = load ptr, ptr %574, align 8
@@ -1394,7 +1392,7 @@ _ZL25find_decision_boundary_DTv.exit:             ; preds = %_ZN2cv3PtrINS_2ml9S
           to label %576 unwind label %715
 
 576:                                              ; preds = %571
-  %577 = load ptr, ptr %30, align 8
+  %577 = load ptr, ptr %30, align 16
   %578 = load ptr, ptr %577, align 8
   %579 = getelementptr inbounds i8, ptr %578, i64 144
   %580 = load ptr, ptr %579, align 8
@@ -1402,7 +1400,7 @@ _ZL25find_decision_boundary_DTv.exit:             ; preds = %_ZN2cv3PtrINS_2ml9S
           to label %581 unwind label %715
 
 581:                                              ; preds = %576
-  %582 = load ptr, ptr %30, align 8
+  %582 = load ptr, ptr %30, align 16
   %583 = load ptr, ptr %582, align 8
   %584 = getelementptr inbounds i8, ptr %583, i64 192
   %585 = load ptr, ptr %584, align 8
@@ -1410,7 +1408,7 @@ _ZL25find_decision_boundary_DTv.exit:             ; preds = %_ZN2cv3PtrINS_2ml9S
           to label %586 unwind label %715
 
 586:                                              ; preds = %581
-  %587 = load ptr, ptr %30, align 8
+  %587 = load ptr, ptr %30, align 16
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #18
   %588 = load ptr, ptr %587, align 8
   %589 = getelementptr inbounds i8, ptr %588, i64 256
@@ -1420,7 +1418,7 @@ _ZL25find_decision_boundary_DTv.exit:             ; preds = %_ZN2cv3PtrINS_2ml9S
 
 591:                                              ; preds = %586
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #18
-  %592 = load ptr, ptr %30, align 8
+  %592 = load ptr, ptr %30, align 16
   invoke fastcc void @_ZL18prepare_train_datav(ptr dead_on_unwind noalias nonnull writable align 8 %32)
           to label %593 unwind label %715
 
@@ -1505,15 +1503,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_2ml9TrainDataEED2Ev.exit.i102
 
 _ZN2cv3PtrINS_2ml9TrainDataEED2Ev.exit.i102:      ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i120, %629, %616, %598
-  %634 = load ptr, ptr %30, align 8
-  store ptr %634, ptr %33, align 8
-  %635 = load ptr, ptr %140, align 8
-  store ptr %635, ptr %139, align 8
-  %.not.i.i.i.i3.i103 = icmp eq ptr %635, null
+  %634 = load ptr, ptr %140, align 8
+  %635 = load <2 x ptr>, ptr %30, align 16
+  store <2 x ptr> %635, ptr %33, align 16
+  %.not.i.i.i.i3.i103 = icmp eq ptr %634, null
   br i1 %.not.i.i.i.i3.i103, label %_ZN2cv3PtrINS_2ml9StatModelEEC2INS1_5BoostEEERKNS0_IT_EE.exit.i, label %636
 
 636:                                              ; preds = %_ZN2cv3PtrINS_2ml9TrainDataEED2Ev.exit.i102
-  %637 = getelementptr inbounds i8, ptr %635, i64 8
+  %637 = getelementptr inbounds i8, ptr %634, i64 8
   %638 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i4.i104 = icmp eq i8 %638, 0
   br i1 %.not.i.i.i.i.i4.i104, label %642, label %639
@@ -1732,7 +1729,7 @@ _ZL25find_decision_boundary_BTv.exit:             ; preds = %_ZN2cv3PtrINS_2ml9S
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29)
   call void @_ZN2cv2ml6RTrees6createEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.42") align 8 %25)
-  %726 = load ptr, ptr %25, align 8
+  %726 = load ptr, ptr %25, align 16
   %727 = load ptr, ptr %726, align 8
   %728 = getelementptr inbounds i8, ptr %727, i64 144
   %729 = load ptr, ptr %728, align 8
@@ -1740,7 +1737,7 @@ _ZL25find_decision_boundary_BTv.exit:             ; preds = %_ZN2cv3PtrINS_2ml9S
           to label %730 unwind label %894
 
 730:                                              ; preds = %725
-  %731 = load ptr, ptr %25, align 8
+  %731 = load ptr, ptr %25, align 16
   %732 = load ptr, ptr %731, align 8
   %733 = getelementptr inbounds i8, ptr %732, i64 160
   %734 = load ptr, ptr %733, align 8
@@ -1748,7 +1745,7 @@ _ZL25find_decision_boundary_BTv.exit:             ; preds = %_ZN2cv3PtrINS_2ml9S
           to label %735 unwind label %894
 
 735:                                              ; preds = %730
-  %736 = load ptr, ptr %25, align 8
+  %736 = load ptr, ptr %25, align 16
   %737 = load ptr, ptr %736, align 8
   %738 = getelementptr inbounds i8, ptr %737, i64 240
   %739 = load ptr, ptr %738, align 8
@@ -1756,7 +1753,7 @@ _ZL25find_decision_boundary_BTv.exit:             ; preds = %_ZN2cv3PtrINS_2ml9S
           to label %740 unwind label %894
 
 740:                                              ; preds = %735
-  %741 = load ptr, ptr %25, align 8
+  %741 = load ptr, ptr %25, align 16
   %742 = load ptr, ptr %741, align 8
   %743 = getelementptr inbounds i8, ptr %742, i64 192
   %744 = load ptr, ptr %743, align 8
@@ -1764,7 +1761,7 @@ _ZL25find_decision_boundary_BTv.exit:             ; preds = %_ZN2cv3PtrINS_2ml9S
           to label %745 unwind label %894
 
 745:                                              ; preds = %740
-  %746 = load ptr, ptr %25, align 8
+  %746 = load ptr, ptr %25, align 16
   %747 = load ptr, ptr %746, align 8
   %748 = getelementptr inbounds i8, ptr %747, i64 128
   %749 = load ptr, ptr %748, align 8
@@ -1772,7 +1769,7 @@ _ZL25find_decision_boundary_BTv.exit:             ; preds = %_ZN2cv3PtrINS_2ml9S
           to label %750 unwind label %894
 
 750:                                              ; preds = %745
-  %751 = load ptr, ptr %25, align 8
+  %751 = load ptr, ptr %25, align 16
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %26) #18
   %752 = load ptr, ptr %751, align 8
   %753 = getelementptr inbounds i8, ptr %752, i64 256
@@ -1782,7 +1779,7 @@ _ZL25find_decision_boundary_BTv.exit:             ; preds = %_ZN2cv3PtrINS_2ml9S
 
 755:                                              ; preds = %750
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %26) #18
-  %756 = load ptr, ptr %25, align 8
+  %756 = load ptr, ptr %25, align 16
   %757 = load ptr, ptr %756, align 8
   %758 = getelementptr inbounds i8, ptr %757, i64 304
   %759 = load ptr, ptr %758, align 8
@@ -1790,7 +1787,7 @@ _ZL25find_decision_boundary_BTv.exit:             ; preds = %_ZN2cv3PtrINS_2ml9S
           to label %760 unwind label %894
 
 760:                                              ; preds = %755
-  %761 = load ptr, ptr %25, align 8
+  %761 = load ptr, ptr %25, align 16
   %762 = load ptr, ptr %761, align 8
   %763 = getelementptr inbounds i8, ptr %762, i64 320
   %764 = load ptr, ptr %763, align 8
@@ -1798,7 +1795,7 @@ _ZL25find_decision_boundary_BTv.exit:             ; preds = %_ZN2cv3PtrINS_2ml9S
           to label %765 unwind label %894
 
 765:                                              ; preds = %760
-  %766 = load ptr, ptr %25, align 8
+  %766 = load ptr, ptr %25, align 16
   store i32 1, ptr %27, align 8
   store i32 5, ptr %144, align 4
   store double 0.000000e+00, ptr %145, align 8
@@ -1809,7 +1806,7 @@ _ZL25find_decision_boundary_BTv.exit:             ; preds = %_ZN2cv3PtrINS_2ml9S
           to label %770 unwind label %894
 
 770:                                              ; preds = %765
-  %771 = load ptr, ptr %25, align 8
+  %771 = load ptr, ptr %25, align 16
   invoke fastcc void @_ZL18prepare_train_datav(ptr dead_on_unwind noalias nonnull writable align 8 %28)
           to label %772 unwind label %894
 
@@ -1894,15 +1891,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_2ml9TrainDataEED2Ev.exit.i125
 
 _ZN2cv3PtrINS_2ml9TrainDataEED2Ev.exit.i125:      ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i143, %808, %795, %777
-  %813 = load ptr, ptr %25, align 8
-  store ptr %813, ptr %29, align 8
-  %814 = load ptr, ptr %148, align 8
-  store ptr %814, ptr %147, align 8
-  %.not.i.i.i.i3.i126 = icmp eq ptr %814, null
+  %813 = load ptr, ptr %148, align 8
+  %814 = load <2 x ptr>, ptr %25, align 16
+  store <2 x ptr> %814, ptr %29, align 16
+  %.not.i.i.i.i3.i126 = icmp eq ptr %813, null
   br i1 %.not.i.i.i.i3.i126, label %_ZN2cv3PtrINS_2ml9StatModelEEC2INS1_6RTreesEEERKNS0_IT_EE.exit.i, label %815
 
 815:                                              ; preds = %_ZN2cv3PtrINS_2ml9TrainDataEED2Ev.exit.i125
-  %816 = getelementptr inbounds i8, ptr %814, i64 8
+  %816 = getelementptr inbounds i8, ptr %813, i64 8
   %817 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i4.i127 = icmp eq i8 %817, 0
   br i1 %.not.i.i.i.i.i4.i127, label %821, label %818
@@ -2335,7 +2331,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %.noexc
           to label %1022 unwind label %1167
 
 1022:                                             ; preds = %1021
-  %1023 = load ptr, ptr %22, align 8
+  %1023 = load ptr, ptr %22, align 16
   store i32 0, ptr %168, align 8
   store i32 0, ptr %169, align 4
   store i32 16842752, ptr %23, align 8
@@ -2347,7 +2343,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %.noexc
           to label %1027 unwind label %1171
 
 1027:                                             ; preds = %1022
-  %1028 = load ptr, ptr %22, align 8
+  %1028 = load ptr, ptr %22, align 16
   %1029 = load ptr, ptr %1028, align 8
   %1030 = getelementptr inbounds i8, ptr %1029, i64 136
   %1031 = load ptr, ptr %1030, align 8
@@ -2355,7 +2351,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %.noexc
           to label %1032 unwind label %1169
 
 1032:                                             ; preds = %1027
-  %1033 = load ptr, ptr %22, align 8
+  %1033 = load ptr, ptr %22, align 16
   %1034 = load ptr, ptr %1033, align 8
   %1035 = getelementptr inbounds i8, ptr %1034, i64 168
   %1036 = load ptr, ptr %1035, align 8
@@ -2363,7 +2359,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %.noexc
           to label %1037 unwind label %1169
 
 1037:                                             ; preds = %1032
-  %1038 = load ptr, ptr %22, align 8
+  %1038 = load ptr, ptr %22, align 16
   %1039 = load ptr, ptr %1038, align 8
   %1040 = getelementptr inbounds i8, ptr %1039, i64 120
   %1041 = load ptr, ptr %1040, align 8
@@ -2371,7 +2367,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %.noexc
           to label %1042 unwind label %1169
 
 1042:                                             ; preds = %1037
-  %1043 = load ptr, ptr %22, align 8
+  %1043 = load ptr, ptr %22, align 16
   %1044 = load ptr, ptr %1043, align 8
   %1045 = getelementptr inbounds i8, ptr %1044, i64 88
   %1046 = load ptr, ptr %1045, align 8
@@ -2379,15 +2375,14 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %.noexc
           to label %1048 unwind label %1169
 
 1048:                                             ; preds = %1042
-  %1049 = load ptr, ptr %22, align 8
-  store ptr %1049, ptr %24, align 8
-  %1050 = load ptr, ptr %172, align 8
-  store ptr %1050, ptr %171, align 8
-  %.not.i.i.i.i.i150 = icmp eq ptr %1050, null
+  %1049 = load ptr, ptr %172, align 8
+  %1050 = load <2 x ptr>, ptr %22, align 16
+  store <2 x ptr> %1050, ptr %24, align 16
+  %.not.i.i.i.i.i150 = icmp eq ptr %1049, null
   br i1 %.not.i.i.i.i.i150, label %_ZN2cv3PtrINS_2ml9StatModelEEC2INS1_7ANN_MLPEEERKNS0_IT_EE.exit.i, label %1051
 
 1051:                                             ; preds = %1048
-  %1052 = getelementptr inbounds i8, ptr %1050, i64 8
+  %1052 = getelementptr inbounds i8, ptr %1049, i64 8
   %1053 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i151 = icmp eq i8 %1053, 0
   br i1 %.not.i.i.i.i.i.i151, label %1057, label %1054
@@ -4031,11 +4026,11 @@ declare void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc void @_ZL26find_decision_boundary_KNNi(i32 noundef %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
-  %2 = alloca %"struct.cv::Ptr.26", align 8
+  %2 = alloca %"struct.cv::Ptr.26", align 16
   %3 = alloca %"struct.cv::Ptr.16", align 8
-  %4 = alloca %"struct.cv::Ptr.20", align 8
+  %4 = alloca %"struct.cv::Ptr.20", align 16
   call void @_ZN2cv2ml8KNearest6createEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.26") align 8 %2)
-  %5 = load ptr, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 128
   %8 = load ptr, ptr %7, align 8
@@ -4043,7 +4038,7 @@ define internal fastcc void @_ZL26find_decision_boundary_KNNi(i32 noundef %0) un
           to label %9 unwind label %141
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %2, align 8
+  %10 = load ptr, ptr %2, align 16
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 144
   %13 = load ptr, ptr %12, align 8
@@ -4051,7 +4046,7 @@ define internal fastcc void @_ZL26find_decision_boundary_KNNi(i32 noundef %0) un
           to label %14 unwind label %141
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr %2, align 8
+  %15 = load ptr, ptr %2, align 16
   invoke fastcc void @_ZL18prepare_train_datav(ptr dead_on_unwind noalias nonnull writable align 8 %3)
           to label %16 unwind label %141
 
@@ -4137,17 +4132,16 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_2ml9TrainDataEED2Ev.exit
 
 _ZN2cv3PtrINS_2ml9TrainDataEED2Ev.exit:           ; preds = %21, %40, %53, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %58 = load ptr, ptr %2, align 8
-  store ptr %58, ptr %4, align 8
-  %59 = getelementptr inbounds i8, ptr %4, i64 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 8
-  %61 = load ptr, ptr %60, align 8
-  store ptr %61, ptr %59, align 8
-  %.not.i.i.i.i4 = icmp eq ptr %61, null
+  %58 = getelementptr inbounds i8, ptr %4, i64 8
+  %59 = getelementptr inbounds i8, ptr %2, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %61 = load <2 x ptr>, ptr %2, align 16
+  store <2 x ptr> %61, ptr %4, align 16
+  %.not.i.i.i.i4 = icmp eq ptr %60, null
   br i1 %.not.i.i.i.i4, label %_ZN2cv3PtrINS_2ml9StatModelEEC2INS1_8KNearestEEERKNS0_IT_EE.exit, label %62
 
 62:                                               ; preds = %_ZN2cv3PtrINS_2ml9TrainDataEED2Ev.exit
-  %63 = getelementptr inbounds i8, ptr %61, i64 8
+  %63 = getelementptr inbounds i8, ptr %60, i64 8
   %64 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i5 = icmp eq i8 %64, 0
   br i1 %.not.i.i.i.i.i5, label %68, label %65
@@ -4167,7 +4161,7 @@ _ZN2cv3PtrINS_2ml9StatModelEEC2INS1_8KNearestEEERKNS0_IT_EE.exit: ; preds = %_ZN
           to label %70 unwind label %145
 
 70:                                               ; preds = %_ZN2cv3PtrINS_2ml9StatModelEEC2INS1_8KNearestEEERKNS0_IT_EE.exit
-  %71 = load ptr, ptr %59, align 8
+  %71 = load ptr, ptr %58, align 8
   %.not.i.i.i.i6 = icmp eq ptr %71, null
   br i1 %.not.i.i.i.i6, label %_ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit, label %72
 
@@ -4240,7 +4234,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit
 
 _ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit:           ; preds = %70, %88, %101, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i11
-  %106 = load ptr, ptr %60, align 8
+  %106 = load ptr, ptr %59, align 8
   %.not.i.i.i.i12 = icmp eq ptr %106, null
   br i1 %.not.i.i.i.i12, label %_ZN2cv3PtrINS_2ml8KNearestEED2Ev.exit, label %107
 
@@ -4340,15 +4334,15 @@ _ZN2cv3PtrINS_2ml8KNearestEED2Ev.exit:            ; preds = %_ZN2cv3PtrINS_2ml9S
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc void @_ZL26find_decision_boundary_SVMd(double noundef %0) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
-  %2 = alloca %"struct.cv::Ptr.30", align 8
+  %2 = alloca %"struct.cv::Ptr.30", align 16
   %3 = alloca %"class.cv::TermCriteria", align 8
   %4 = alloca %"struct.cv::Ptr.16", align 8
-  %5 = alloca %"struct.cv::Ptr.20", align 8
+  %5 = alloca %"struct.cv::Ptr.20", align 16
   %6 = alloca %"class.cv::Mat", align 8
   %7 = alloca %"class.cv::_InputOutputArray", align 8
   %8 = alloca %"class.cv::Scalar_", align 16
   call void @_ZN2cv2ml3SVM6createEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.30") align 8 %2)
-  %9 = load ptr, ptr %2, align 8
+  %9 = load ptr, ptr %2, align 16
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 128
   %12 = load ptr, ptr %11, align 8
@@ -4356,7 +4350,7 @@ define internal fastcc void @_ZL26find_decision_boundary_SVMd(double noundef %0)
           to label %13 unwind label %176
 
 13:                                               ; preds = %1
-  %14 = load ptr, ptr %2, align 8
+  %14 = load ptr, ptr %2, align 16
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 272
   %17 = load ptr, ptr %16, align 8
@@ -4364,7 +4358,7 @@ define internal fastcc void @_ZL26find_decision_boundary_SVMd(double noundef %0)
           to label %18 unwind label %176
 
 18:                                               ; preds = %13
-  %19 = load ptr, ptr %2, align 8
+  %19 = load ptr, ptr %2, align 16
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 176
   %22 = load ptr, ptr %21, align 8
@@ -4372,7 +4366,7 @@ define internal fastcc void @_ZL26find_decision_boundary_SVMd(double noundef %0)
           to label %23 unwind label %176
 
 23:                                               ; preds = %18
-  %24 = load ptr, ptr %2, align 8
+  %24 = load ptr, ptr %2, align 16
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 144
   %27 = load ptr, ptr %26, align 8
@@ -4380,7 +4374,7 @@ define internal fastcc void @_ZL26find_decision_boundary_SVMd(double noundef %0)
           to label %28 unwind label %176
 
 28:                                               ; preds = %23
-  %29 = load ptr, ptr %2, align 8
+  %29 = load ptr, ptr %2, align 16
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 160
   %32 = load ptr, ptr %31, align 8
@@ -4388,7 +4382,7 @@ define internal fastcc void @_ZL26find_decision_boundary_SVMd(double noundef %0)
           to label %33 unwind label %176
 
 33:                                               ; preds = %28
-  %34 = load ptr, ptr %2, align 8
+  %34 = load ptr, ptr %2, align 16
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 208
   %37 = load ptr, ptr %36, align 8
@@ -4396,7 +4390,7 @@ define internal fastcc void @_ZL26find_decision_boundary_SVMd(double noundef %0)
           to label %38 unwind label %176
 
 38:                                               ; preds = %33
-  %39 = load ptr, ptr %2, align 8
+  %39 = load ptr, ptr %2, align 16
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 224
   %42 = load ptr, ptr %41, align 8
@@ -4404,7 +4398,7 @@ define internal fastcc void @_ZL26find_decision_boundary_SVMd(double noundef %0)
           to label %43 unwind label %176
 
 43:                                               ; preds = %38
-  %44 = load ptr, ptr %2, align 8
+  %44 = load ptr, ptr %2, align 16
   store i32 3, ptr %3, align 8
   %45 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 1000, ptr %45, align 4
@@ -4417,7 +4411,7 @@ define internal fastcc void @_ZL26find_decision_boundary_SVMd(double noundef %0)
           to label %50 unwind label %176
 
 50:                                               ; preds = %43
-  %51 = load ptr, ptr %2, align 8
+  %51 = load ptr, ptr %2, align 16
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 192
   %54 = load ptr, ptr %53, align 8
@@ -4425,7 +4419,7 @@ define internal fastcc void @_ZL26find_decision_boundary_SVMd(double noundef %0)
           to label %55 unwind label %176
 
 55:                                               ; preds = %50
-  %56 = load ptr, ptr %2, align 8
+  %56 = load ptr, ptr %2, align 16
   invoke fastcc void @_ZL18prepare_train_datav(ptr dead_on_unwind noalias nonnull writable align 8 %4)
           to label %57 unwind label %176
 
@@ -4511,17 +4505,16 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_2ml9TrainDataEED2Ev.exit
 
 _ZN2cv3PtrINS_2ml9TrainDataEED2Ev.exit:           ; preds = %62, %81, %94, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %99 = load ptr, ptr %2, align 8
-  store ptr %99, ptr %5, align 8
-  %100 = getelementptr inbounds i8, ptr %5, i64 8
-  %101 = getelementptr inbounds i8, ptr %2, i64 8
-  %102 = load ptr, ptr %101, align 8
-  store ptr %102, ptr %100, align 8
-  %.not.i.i.i.i12 = icmp eq ptr %102, null
+  %99 = getelementptr inbounds i8, ptr %5, i64 8
+  %100 = getelementptr inbounds i8, ptr %2, i64 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = load <2 x ptr>, ptr %2, align 16
+  store <2 x ptr> %102, ptr %5, align 16
+  %.not.i.i.i.i12 = icmp eq ptr %101, null
   br i1 %.not.i.i.i.i12, label %_ZN2cv3PtrINS_2ml9StatModelEEC2INS1_3SVMEEERKNS0_IT_EE.exit, label %103
 
 103:                                              ; preds = %_ZN2cv3PtrINS_2ml9TrainDataEED2Ev.exit
-  %104 = getelementptr inbounds i8, ptr %102, i64 8
+  %104 = getelementptr inbounds i8, ptr %101, i64 8
   %105 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i13 = icmp eq i8 %105, 0
   br i1 %.not.i.i.i.i.i13, label %109, label %106
@@ -4541,7 +4534,7 @@ _ZN2cv3PtrINS_2ml9StatModelEEC2INS1_3SVMEEERKNS0_IT_EE.exit: ; preds = %_ZN2cv3P
           to label %111 unwind label %180
 
 111:                                              ; preds = %_ZN2cv3PtrINS_2ml9StatModelEEC2INS1_3SVMEEERKNS0_IT_EE.exit
-  %112 = load ptr, ptr %100, align 8
+  %112 = load ptr, ptr %99, align 8
   %.not.i.i.i.i14 = icmp eq ptr %112, null
   br i1 %.not.i.i.i.i14, label %_ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit, label %113
 
@@ -4614,7 +4607,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit
 
 _ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit:           ; preds = %111, %129, %142, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i19
-  %147 = load ptr, ptr %2, align 8
+  %147 = load ptr, ptr %2, align 16
   %148 = load ptr, ptr %147, align 8
   %149 = getelementptr inbounds i8, ptr %148, i64 304
   %150 = load ptr, ptr %149, align 8
@@ -4693,7 +4686,7 @@ _ZN2cv3PtrINS_2ml9StatModelEED2Ev.exit:           ; preds = %111, %129, %142, %_
 
 ._crit_edge:                                      ; preds = %172, %.preheader
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #18
-  %184 = load ptr, ptr %101, align 8
+  %184 = load ptr, ptr %100, align 8
   %.not.i.i.i.i20 = icmp eq ptr %184, null
   br i1 %.not.i.i.i.i20, label %_ZN2cv3PtrINS_2ml3SVMEED2Ev.exit, label %185
 
@@ -4794,134 +4787,132 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN2cv2ml9StatModel5trainINS0_21NormalBayesClassifierEEENS_3PtrIT_EERKNS4_INS0_9TrainDataEEEi(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"struct.cv::Ptr", align 8
+  %4 = alloca %"struct.cv::Ptr", align 16
   call void @_ZN2cv2ml21NormalBayesClassifier6createEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 %4)
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 16
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %26, label %7
+  br i1 %6, label %25, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 88
   %10 = load ptr, ptr %9, align 8
   %11 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2)
-          to label %12 unwind label %63
+          to label %12 unwind label %62
 
 12:                                               ; preds = %7
-  br i1 %11, label %13, label %26
+  br i1 %11, label %13, label %25
 
 13:                                               ; preds = %12
-  %14 = load ptr, ptr %4, align 8
-  store ptr %14, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
-  %17 = load ptr, ptr %16, align 8
-  store ptr %17, ptr %15, align 8
-  %.not.i.i.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEEC2ERKS3_.exit, label %18
+  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = load <2 x ptr>, ptr %4, align 16
+  store <2 x ptr> %16, ptr %0, align 8
+  %.not.i.i.i.i = icmp eq ptr %15, null
+  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEEC2ERKS3_.exit, label %17
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
-  %20 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i = icmp eq i8 %20, 0
-  br i1 %.not.i.i.i.i.i, label %24, label %21
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i = icmp eq i8 %19, 0
+  br i1 %.not.i.i.i.i.i, label %23, label %20
 
-21:                                               ; preds = %18
-  %22 = load i32, ptr %19, align 4
-  %23 = add nsw i32 %22, 1
-  store i32 %23, ptr %19, align 4
+20:                                               ; preds = %17
+  %21 = load i32, ptr %18, align 4
+  %22 = add nsw i32 %21, 1
+  store i32 %22, ptr %18, align 4
   br label %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEEC2ERKS3_.exit
 
-24:                                               ; preds = %18
-  %25 = atomicrmw volatile add ptr %19, i32 1 acq_rel, align 4
+23:                                               ; preds = %17
+  %24 = atomicrmw volatile add ptr %18, i32 1 acq_rel, align 4
   br label %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEEC2ERKS3_.exit
 
-26:                                               ; preds = %12, %3
+25:                                               ; preds = %12, %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEEC2ERKS3_.exit
 
-_ZN2cv3PtrINS_2ml21NormalBayesClassifierEEC2ERKS3_.exit: ; preds = %24, %21, %13, %26
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %.not.i.i.i.i3 = icmp eq ptr %28, null
-  br i1 %.not.i.i.i.i3, label %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEED2Ev.exit, label %29
+_ZN2cv3PtrINS_2ml21NormalBayesClassifierEEC2ERKS3_.exit: ; preds = %23, %20, %13, %25
+  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %.not.i.i.i.i3 = icmp eq ptr %27, null
+  br i1 %.not.i.i.i.i3, label %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEED2Ev.exit, label %28
 
-29:                                               ; preds = %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEEC2ERKS3_.exit
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
-  %31 = load atomic i64, ptr %30 acquire, align 8
-  %32 = icmp eq i64 %31, 4294967297
-  %33 = trunc i64 %31 to i32
-  br i1 %32, label %34, label %39
+28:                                               ; preds = %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEEC2ERKS3_.exit
+  %29 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = load atomic i64, ptr %29 acquire, align 8
+  %31 = icmp eq i64 %30, 4294967297
+  %32 = trunc i64 %30 to i32
+  br i1 %31, label %33, label %38
 
-34:                                               ; preds = %29
-  store i32 0, ptr %30, align 8
-  %35 = getelementptr inbounds i8, ptr %28, i64 12
-  store i32 0, ptr %35, align 4
-  %36 = load ptr, ptr %28, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
-  %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(16) %28) #18
+33:                                               ; preds = %28
+  store i32 0, ptr %29, align 8
+  %34 = getelementptr inbounds i8, ptr %27, i64 12
+  store i32 0, ptr %34, align 4
+  %35 = load ptr, ptr %27, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %37 = load ptr, ptr %36, align 8
+  call void %37(ptr noundef nonnull align 8 dereferenceable(16) %27) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
 
-39:                                               ; preds = %29
-  %40 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i4 = icmp eq i8 %40, 0
-  br i1 %.not.i.i.i.i.i4, label %43, label %41
+38:                                               ; preds = %28
+  %39 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i4 = icmp eq i8 %39, 0
+  br i1 %.not.i.i.i.i.i4, label %42, label %40
 
-41:                                               ; preds = %39
-  %42 = add nsw i32 %33, -1
-  store i32 %42, ptr %30, align 4
-  br label %45
+40:                                               ; preds = %38
+  %41 = add nsw i32 %32, -1
+  store i32 %41, ptr %29, align 4
+  br label %44
 
-43:                                               ; preds = %39
-  %44 = atomicrmw volatile add ptr %30, i32 -1 acq_rel, align 4
-  br label %45
+42:                                               ; preds = %38
+  %43 = atomicrmw volatile add ptr %29, i32 -1 acq_rel, align 4
+  br label %44
 
-45:                                               ; preds = %43, %41
-  %.0.i.i.i.i.i = phi i32 [ %33, %41 ], [ %44, %43 ]
-  %46 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %46, label %47, label %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEED2Ev.exit
+44:                                               ; preds = %42, %40
+  %.0.i.i.i.i.i = phi i32 [ %32, %40 ], [ %43, %42 ]
+  %45 = icmp eq i32 %.0.i.i.i.i.i, 1
+  br i1 %45, label %46, label %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEED2Ev.exit
 
-47:                                               ; preds = %45
-  %48 = load ptr, ptr %28, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
-  %50 = load ptr, ptr %49, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(16) %28) #18
-  %51 = getelementptr inbounds i8, ptr %28, i64 12
-  %52 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i = icmp eq i8 %52, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %56, label %53
+46:                                               ; preds = %44
+  %47 = load ptr, ptr %27, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 16
+  %49 = load ptr, ptr %48, align 8
+  call void %49(ptr noundef nonnull align 8 dereferenceable(16) %27) #18
+  %50 = getelementptr inbounds i8, ptr %27, i64 12
+  %51 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %51, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %55, label %52
 
-53:                                               ; preds = %47
-  %54 = load i32, ptr %51, align 4
-  %55 = add nsw i32 %54, -1
-  store i32 %55, ptr %51, align 4
-  br label %58
+52:                                               ; preds = %46
+  %53 = load i32, ptr %50, align 4
+  %54 = add nsw i32 %53, -1
+  store i32 %54, ptr %50, align 4
+  br label %57
 
-56:                                               ; preds = %47
-  %57 = atomicrmw volatile add ptr %51, i32 -1 acq_rel, align 4
-  br label %58
+55:                                               ; preds = %46
+  %56 = atomicrmw volatile add ptr %50, i32 -1 acq_rel, align 4
+  br label %57
 
-58:                                               ; preds = %56, %53
-  %.0.i.i.i.i.i.i.i = phi i32 [ %54, %53 ], [ %57, %56 ]
-  %59 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %59, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEED2Ev.exit
+57:                                               ; preds = %55, %52
+  %.0.i.i.i.i.i.i.i = phi i32 [ %53, %52 ], [ %56, %55 ]
+  %58 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
+  br i1 %58, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, label %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEED2Ev.exit
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %58, %34
-  %60 = load ptr, ptr %28, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
-  %62 = load ptr, ptr %61, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(16) %28) #18
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %57, %33
+  %59 = load ptr, ptr %27, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 24
+  %61 = load ptr, ptr %60, align 8
+  call void %61(ptr noundef nonnull align 8 dereferenceable(16) %27) #18
   br label %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEED2Ev.exit
 
-_ZN2cv3PtrINS_2ml21NormalBayesClassifierEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEEC2ERKS3_.exit, %45, %58, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
+_ZN2cv3PtrINS_2ml21NormalBayesClassifierEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_2ml21NormalBayesClassifierEEC2ERKS3_.exit, %44, %57, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
   ret void
 
-63:                                               ; preds = %7
-  %64 = landingpad { ptr, i32 }
+62:                                               ; preds = %7
+  %63 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3PtrINS_2ml21NormalBayesClassifierEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #18
-  resume { ptr, i32 } %64
+  resume { ptr, i32 } %63
 }
 
 ; Function Attrs: mustprogress norecurse uwtable

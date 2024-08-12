@@ -136,63 +136,61 @@ define hidden void @_ZN12EventEmitter4emitEP13ObjectSamplerlbb(ptr noundef %0, i
   %13 = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %12, i64 32
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 40
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 8
-  %20 = load i64, ptr %19, align 8
+  %16 = load <2 x ptr>, ptr %15, align 8
+  %17 = load ptr, ptr %15, align 8
+  %18 = getelementptr inbounds i8, ptr %12, i64 8
+  %19 = load i64, ptr %18, align 8
   call void @_ZN9EdgeStoreC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
-  %21 = icmp slt i64 %1, 1
-  br i1 %21, label %22, label %32
+  %20 = icmp slt i64 %1, 1
+  br i1 %20, label %21, label %31
 
-22:                                               ; preds = %4
-  %23 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #10
-  store i64 %23, ptr %6, align 8
+21:                                               ; preds = %4
+  %22 = call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #10
+  store i64 %22, ptr %6, align 8
   store ptr %6, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %6, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 16
-  %26 = load ptr, ptr %9, align 8
-  store ptr %26, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 24
-  %28 = getelementptr inbounds i8, ptr %26, i64 584
-  store ptr %28, ptr %27, align 8
-  %29 = call noundef i64 @_ZN12EventEmitter12write_eventsEP13ObjectSamplerP9EdgeStoreb(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %0, ptr noundef nonnull %5, i1 noundef zeroext %2)
-  %30 = getelementptr inbounds i8, ptr %26, i64 704
-  store i64 -1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %26, i64 712
-  store i64 0, ptr %31, align 8
-  call void @_ZN14JfrThreadLocal18stop_impersonatingEPK6Thread(ptr noundef %26) #10
-  br label %33
+  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr %6, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %7, i64 16
+  %25 = load ptr, ptr %9, align 8
+  store ptr %25, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %7, i64 24
+  %27 = getelementptr inbounds i8, ptr %25, i64 584
+  store ptr %27, ptr %26, align 8
+  %28 = call noundef i64 @_ZN12EventEmitter12write_eventsEP13ObjectSamplerP9EdgeStoreb(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %0, ptr noundef nonnull %5, i1 noundef zeroext %2)
+  %29 = getelementptr inbounds i8, ptr %25, i64 704
+  store i64 -1, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %25, i64 712
+  store i64 0, ptr %30, align 8
+  call void @_ZN14JfrThreadLocal18stop_impersonatingEPK6Thread(ptr noundef %25) #10
+  br label %32
 
-32:                                               ; preds = %4
+31:                                               ; preds = %4
   call void @_ZN22PathToGcRootsOperationC1EP13ObjectSamplerP9EdgeStorelbb(ptr noundef nonnull align 8 dereferenceable(42) %8, ptr noundef %0, ptr noundef nonnull %5, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) #10
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %8) #10
-  br label %33
+  br label %32
 
-33:                                               ; preds = %32, %22
+32:                                               ; preds = %31, %21
   call void @_ZN9EdgeStoreD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
-  %34 = load ptr, ptr %14, align 8
-  %.not.i.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i.i, label %36, label %35
+  %33 = load ptr, ptr %14, align 8
+  %.not.i.i.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i.i.i, label %35, label %34
 
-35:                                               ; preds = %33
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef %20) #10
+34:                                               ; preds = %32
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef %19) #10
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %14) #10
-  br label %36
+  br label %35
 
-36:                                               ; preds = %35, %33
-  %37 = load ptr, ptr %15, align 8
-  %.not8.i.i.i.i = icmp eq ptr %37, %16
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %38
+35:                                               ; preds = %34, %32
+  %36 = load ptr, ptr %15, align 8
+  %.not8.i.i.i.i = icmp eq ptr %36, %17
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %37
 
-38:                                               ; preds = %36
+37:                                               ; preds = %35
   store ptr %14, ptr %13, align 8
-  store ptr %16, ptr %15, align 8
-  store ptr %18, ptr %17, align 8
+  store <2 x ptr> %16, ptr %15, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %36, %38
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %35, %37
   ret void
 }
 

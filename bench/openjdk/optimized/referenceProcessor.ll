@@ -2901,96 +2901,94 @@ define hidden noundef zeroext i1 @_ZN18ReferenceProcessor18discover_referenceEP7
   %46 = getelementptr inbounds i8, ptr %45, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %45, i64 32
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %45, i64 40
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %45, i64 8
-  %53 = load i64, ptr %52, align 8
-  %54 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
-  %55 = ptrtoint ptr %1 to i64
-  %56 = sext i32 %54 to i64
-  %57 = add nsw i64 %56, %55
-  %58 = inttoptr i64 %57 to ptr
-  %59 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
-  %60 = tail call noundef ptr %59(ptr noundef nonnull %1, i64 noundef %56) #17
-  %.not18 = icmp eq ptr %60, null
-  br i1 %.not18, label %61, label %91
+  %49 = load <2 x ptr>, ptr %48, align 8
+  %50 = load ptr, ptr %48, align 8
+  %51 = getelementptr inbounds i8, ptr %45, i64 8
+  %52 = load i64, ptr %51, align 8
+  %53 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4
+  %54 = ptrtoint ptr %1 to i64
+  %55 = sext i32 %53 to i64
+  %56 = add nsw i64 %55, %54
+  %57 = inttoptr i64 %56 to ptr
+  %58 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
+  %59 = tail call noundef ptr %58(ptr noundef nonnull %1, i64 noundef %55) #17
+  %.not18 = icmp eq ptr %59, null
+  br i1 %.not18, label %60, label %90
 
-61:                                               ; preds = %41
-  %62 = getelementptr inbounds i8, ptr %0, i64 18
-  %63 = load i8, ptr %62, align 2
-  %64 = trunc i8 %63 to i1
-  br i1 %64, label %65, label %68
+60:                                               ; preds = %41
+  %61 = getelementptr inbounds i8, ptr %0, i64 18
+  %62 = load i8, ptr %61, align 2
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %64, label %67
 
-65:                                               ; preds = %61
-  %66 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN12WorkerThread10_worker_idE)
-  %67 = load i32, ptr %66, align 4
-  br label %80
+64:                                               ; preds = %60
+  %65 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN12WorkerThread10_worker_idE)
+  %66 = load i32, ptr %65, align 4
+  br label %79
 
-68:                                               ; preds = %61
-  %69 = load i8, ptr @ParallelRefProcEnabled, align 1
-  %70 = trunc i8 %69 to i1
-  %71 = getelementptr inbounds i8, ptr %0, i64 40
-  %72 = load i32, ptr %71, align 8
-  %73 = icmp ugt i32 %72, 1
-  %74 = select i1 %70, i1 %73, i1 false
-  br i1 %74, label %75, label %80
+67:                                               ; preds = %60
+  %68 = load i8, ptr @ParallelRefProcEnabled, align 1
+  %69 = trunc i8 %68 to i1
+  %70 = getelementptr inbounds i8, ptr %0, i64 40
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp ugt i32 %71, 1
+  %73 = select i1 %69, i1 %72, i1 false
+  br i1 %73, label %74, label %79
 
-75:                                               ; preds = %68
-  %76 = getelementptr inbounds i8, ptr %0, i64 20
-  %77 = load i32, ptr %76, align 4
-  %78 = add i32 %77, 1
-  %79 = icmp eq i32 %78, %72
-  %spec.store.select.i.i = select i1 %79, i32 0, i32 %78
-  store i32 %spec.store.select.i.i, ptr %76, align 4
-  br label %80
+74:                                               ; preds = %67
+  %75 = getelementptr inbounds i8, ptr %0, i64 20
+  %76 = load i32, ptr %75, align 4
+  %77 = add i32 %76, 1
+  %78 = icmp eq i32 %77, %71
+  %spec.store.select.i.i = select i1 %78, i32 0, i32 %77
+  store i32 %spec.store.select.i.i, ptr %75, align 4
+  br label %79
 
-80:                                               ; preds = %75, %68, %65
-  %.06.i = phi i32 [ %67, %65 ], [ %77, %75 ], [ 0, %68 ]
+79:                                               ; preds = %74, %67, %64
+  %.06.i = phi i32 [ %66, %64 ], [ %76, %74 ], [ 0, %67 ]
   %switch.tableidx = add i32 %2, -1
-  %81 = icmp ult i32 %switch.tableidx, 4
-  br i1 %81, label %switch.lookup, label %82
+  %80 = icmp ult i32 %switch.tableidx, 4
+  br i1 %80, label %switch.lookup, label %81
 
-82:                                               ; preds = %80
-  %83 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %83, align 1
+81:                                               ; preds = %79
+  %82 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %82, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.6, i32 noundef 841) #18
   unreachable
 
-switch.lookup:                                    ; preds = %80
-  %84 = shl nuw nsw i32 %switch.tableidx, 3
-  %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds i8, ptr %0, i64 %85
-  %87 = getelementptr inbounds i8, ptr %86, i64 56
-  %88 = load ptr, ptr %87, align 8
-  %89 = zext i32 %.06.i to i64
-  %90 = getelementptr inbounds %class.DiscoveredList, ptr %88, i64 %89
-  tail call void @_ZN18ReferenceProcessor22add_to_discovered_listER14DiscoveredListP7oopDescPP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef %1, ptr noundef %58)
-  br label %91
+switch.lookup:                                    ; preds = %79
+  %83 = shl nuw nsw i32 %switch.tableidx, 3
+  %84 = zext nneg i32 %83 to i64
+  %85 = getelementptr inbounds i8, ptr %0, i64 %84
+  %86 = getelementptr inbounds i8, ptr %85, i64 56
+  %87 = load ptr, ptr %86, align 8
+  %88 = zext i32 %.06.i to i64
+  %89 = getelementptr inbounds %class.DiscoveredList, ptr %87, i64 %88
+  tail call void @_ZN18ReferenceProcessor22add_to_discovered_listER14DiscoveredListP7oopDescPP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(24) %89, ptr noundef %1, ptr noundef %57)
+  br label %90
 
-91:                                               ; preds = %41, %switch.lookup
-  %92 = load ptr, ptr %47, align 8
-  %.not.i.i.i.i = icmp eq ptr %92, null
-  br i1 %.not.i.i.i.i, label %94, label %93
+90:                                               ; preds = %41, %switch.lookup
+  %91 = load ptr, ptr %47, align 8
+  %.not.i.i.i.i = icmp eq ptr %91, null
+  br i1 %.not.i.i.i.i, label %93, label %92
 
-93:                                               ; preds = %91
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %45, i64 noundef %53) #17
+92:                                               ; preds = %90
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %45, i64 noundef %52) #17
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %47) #17
-  br label %94
+  br label %93
 
-94:                                               ; preds = %93, %91
-  %95 = load ptr, ptr %48, align 8
-  %.not8.i.i.i.i = icmp eq ptr %95, %49
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %96
+93:                                               ; preds = %92, %90
+  %94 = load ptr, ptr %48, align 8
+  %.not8.i.i.i.i = icmp eq ptr %94, %50
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %95
 
-96:                                               ; preds = %94
+95:                                               ; preds = %93
   store ptr %47, ptr %46, align 8
-  store ptr %49, ptr %48, align 8
-  store ptr %51, ptr %50, align 8
+  store <2 x ptr> %49, ptr %48, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %96, %94, %34, %23, %14, %9, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %9 ], [ false, %14 ], [ false, %23 ], [ false, %34 ], [ true, %94 ], [ true, %96 ]
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %95, %93, %34, %23, %14, %9, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %9 ], [ false, %14 ], [ false, %23 ], [ false, %34 ], [ true, %93 ], [ true, %95 ]
   ret i1 %.0
 }
 

@@ -16189,7 +16189,7 @@ define hidden void @_ZN3exr4meta6header6Header9write_all17habc56088bc3922ceE(ptr
   %721 = getelementptr inbounds i8, ptr %.sroa.0.0937, i64 432
   %722 = load ptr, ptr %721, align 8, !alias.scope !1143, !noalias !1144, !nonnull !4, !noundef !4
   %723 = load <2 x i64>, ptr %720, align 8, !alias.scope !1072, !noalias !1075
-  %724 = extractelement <2 x i64> %723, i64 0
+  %724 = load i64, ptr %720, align 8, !alias.scope !1143, !noalias !1144, !noundef !4
   %725 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hba305445c20faf91E"(i64 noundef %724, i1 noundef zeroext false), !noalias !1146
   %726 = extractvalue { i64, ptr } %725, 0
   %727 = extractvalue { i64, ptr } %725, 1
@@ -30429,7 +30429,7 @@ common.resume:                                    ; preds = %.body, %44
   %316 = getelementptr inbounds i8, ptr %1, i64 64
   %317 = load ptr, ptr %316, align 8, !alias.scope !3710, !noalias !3713, !nonnull !4, !noundef !4
   %318 = load <2 x i64>, ptr %315, align 8
-  %319 = extractelement <2 x i64> %318, i64 0
+  %319 = load i64, ptr %315, align 8, !alias.scope !3710, !noalias !3713, !noundef !4
   %320 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hba305445c20faf91E"(i64 noundef %319, i1 noundef zeroext false)
           to label %321 unwind label %310
 
@@ -36018,7 +36018,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %103 = getelementptr inbounds i8, ptr %45, i64 -336
   %104 = load ptr, ptr %103, align 8, !alias.scope !4467, !noalias !4470, !nonnull !4, !noundef !4
   %105 = load <2 x i64>, ptr %102, align 8, !alias.scope !4459, !noalias !4460
-  %106 = extractelement <2 x i64> %105, i64 0
+  %106 = load i64, ptr %102, align 8, !alias.scope !4467, !noalias !4470, !noundef !4
   %107 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hba305445c20faf91E"(i64 noundef %106, i1 noundef zeroext false)
           to label %.noexc4.i unwind label %202, !noalias !4427
 

@@ -1222,33 +1222,30 @@ common.resume:                                    ; preds = %90, %.body
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN228_$LT$ockam_core..routing..message..opentelemetry.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17hd6e9a5bb67d99741E.llvm.11261308198095498743"(ptr noalias nocapture noundef writeonly sret({ ptr, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(16) %1) unnamed_addr #2 {
   %.sroa.5 = alloca [32 x i8], align 8
-  %3 = alloca { ptr, [5 x i64] }, align 8
+  %3 = alloca { ptr, [5 x i64] }, align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_map17h386bf0d7d5b14510E.llvm.11261308198095498743"(ptr noalias nocapture noundef nonnull sret({ ptr, [5 x i64] }) align 8 dereferenceable(48) %3, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
-  %4 = load ptr, ptr %3, align 8, !noundef !28
-  %5 = icmp eq ptr %4, null
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = load ptr, ptr %6, align 8
-  br i1 %5, label %9, label %8
+  %4 = load <2 x ptr>, ptr %3, align 16
+  %5 = load ptr, ptr %3, align 16, !noundef !28
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %8, label %7
 
-8:                                                ; preds = %2
+7:                                                ; preds = %2
   %.sroa.59.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59.0..sroa_idx, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.59.0..sroa_idx, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.5)
-  br label %10
+  br label %9
 
-9:                                                ; preds = %2
+8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  br label %10
+  br label %9
 
-10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %7, ptr %11, align 8
-  store ptr %4, ptr %0, align 8
+9:                                                ; preds = %8, %7
+  store <2 x ptr> %4, ptr %0, align 8
   ret void
 }
 
@@ -1741,7 +1738,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
 "_ZN83_$LT$std..collections..hash..map..RandomState$u20$as$u20$core..default..Default$GT$7default17he78768643dcb53d6E.exit.i": ; preds = %_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.exit.i.i.i, %41
   %.0.i.i2.i.i.i = phi ptr [ %47, %_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.exit.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h218b265774f30ad5E, i64 8), %41 ]
   %50 = load <2 x i64>, ptr %.0.i.i2.i.i.i, align 8, !noalias !404
-  %51 = extractelement <2 x i64> %50, i64 0
+  %51 = load i64, ptr %.0.i.i2.i.i.i, align 8, !noalias !404, !noundef !28
   %52 = add i64 %51, 1
   store i64 %52, ptr %.0.i.i2.i.i.i, align 8, !noalias !404
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15), !noalias !408
@@ -2855,34 +2852,31 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$26deserialize_newtype_struct17h89b9bd52ecf31f57E"(ptr noalias nocapture noundef writeonly sret({ ptr, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
   %.sroa.5.i = alloca [32 x i8], align 8
-  %5 = alloca { ptr, [5 x i64] }, align 8
+  %5 = alloca { ptr, [5 x i64] }, align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !743)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !746
   call void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_map17h386bf0d7d5b14510E.llvm.11261308198095498743"(ptr noalias nocapture noundef nonnull sret({ ptr, [5 x i64] }) align 8 dereferenceable(48) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1), !noalias !743
-  %6 = load ptr, ptr %5, align 8, !noalias !746, !noundef !28
-  %7 = icmp eq ptr %6, null
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = load ptr, ptr %8, align 8, !noalias !746
-  br i1 %7, label %11, label %10
+  %6 = load <2 x ptr>, ptr %5, align 16, !noalias !746
+  %7 = load ptr, ptr %5, align 16, !noalias !746, !noundef !28
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %10, label %9
 
-10:                                               ; preds = %4
+9:                                                ; preds = %4
   %.sroa.59.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.5.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.59.0..sroa_idx.i, i64 32, i1 false), !noalias !746
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.i, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.59.0..sroa_idx.i, i64 32, i1 false), !noalias !746
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !746
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.i, i64 32, i1 false), !noalias !748
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.5.i)
   br label %"_ZN228_$LT$ockam_core..routing..message..opentelemetry.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17hd6e9a5bb67d99741E.llvm.11261308198095498743.exit"
 
-11:                                               ; preds = %4
+10:                                               ; preds = %4
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !746
   br label %"_ZN228_$LT$ockam_core..routing..message..opentelemetry.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17hd6e9a5bb67d99741E.llvm.11261308198095498743.exit"
 
-"_ZN228_$LT$ockam_core..routing..message..opentelemetry.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17hd6e9a5bb67d99741E.llvm.11261308198095498743.exit": ; preds = %10, %11
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %9, ptr %12, align 8, !alias.scope !743, !noalias !748
-  store ptr %6, ptr %0, align 8, !alias.scope !743, !noalias !748
+"_ZN228_$LT$ockam_core..routing..message..opentelemetry.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17hd6e9a5bb67d99741E.llvm.11261308198095498743.exit": ; preds = %9, %10
+  store <2 x ptr> %6, ptr %0, align 8, !alias.scope !743, !noalias !748
   ret void
 }
 

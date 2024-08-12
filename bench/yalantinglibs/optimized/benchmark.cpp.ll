@@ -2776,16 +2776,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %23 = load i32, ptr %_M_storage.i.i, align 8
   store i32 %23, ptr %0, align 8
   %second3.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0149, i64 40
-  %24 = load ptr, ptr %second3.i, align 8
-  store ptr %24, ptr %second.i, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0149, i64 48
-  %25 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %25, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i85 = icmp eq ptr %25, null
+  %24 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %25 = load <2 x ptr>, ptr %second3.i, align 8
+  store <2 x ptr> %25, ptr %second.i, align 8
+  %cmp.not.i.i.i.i85 = icmp eq ptr %24, null
   br i1 %cmp.not.i.i.i.i85, label %_ZNSt4pairIK7LibTypeSt10shared_ptrI11base_sampleEEC2ERKS5_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %26, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -22450,16 +22449,15 @@ invoke.cont21:                                    ; preds = %invoke.cont11
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i.i.i, align 16
   %3 = load ptr, ptr %__c, align 8
-  %4 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %__c, i64 16
-  %5 = load ptr, ptr %_M_end_of_storage.i4.i.i, align 8
-  store ptr %5, ptr %_M_end_of_storage.i.i.i, align 16
+  %4 = load <2 x ptr>, ptr %_M_finish.i, align 8
+  %5 = load ptr, ptr %_M_finish.i, align 8
   %6 = load <2 x ptr>, ptr %ref.tmp, align 16
   store ptr %3, ptr %ref.tmp, align 16
-  store ptr %4, ptr %_M_finish.i.i.i, align 8
+  store <2 x ptr> %4, ptr %_M_finish.i.i.i, align 8
   store <2 x ptr> %6, ptr %__c, align 8
   store ptr %2, ptr %_M_end_of_storage.i4.i.i, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %3, %4
+  %cmp.not3.i.i.i.i = icmp eq ptr %3, %5
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %invoke.cont21, %_ZSt8_DestroyI6personEvPT_.exit.i.i.i.i
@@ -22484,7 +22482,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i
 _ZSt8_DestroyI6personEvPT_.exit.i.i.i.i:          ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %name.i.i.i.i.i.i.i) #22
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 56
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %4
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %5
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !11
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyI6personEvPT_.exit.i.i.i.i
@@ -50834,16 +50832,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %41 = load i32, ptr %_M_storage.i.i61, align 8
   store i32 %41, ptr %0, align 8
   %second3.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.0343, i64 40
-  %42 = load ptr, ptr %second3.i, align 8
-  store ptr %42, ptr %second.i, align 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.0343, i64 48
-  %43 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %43, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i62 = icmp eq ptr %43, null
+  %42 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %43 = load <2 x ptr>, ptr %second3.i, align 8
+  store <2 x ptr> %43, ptr %second.i, align 8
+  %cmp.not.i.i.i.i62 = icmp eq ptr %42, null
   br i1 %cmp.not.i.i.i.i62, label %_ZNSt4pairIK7LibTypeSt10shared_ptrI11base_sampleEEC2ERKS5_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %44, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

@@ -93,7 +93,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114globalRegistryE = internal global { ptr, %"class.std::__shared_count" } zeroinitializer, align 8
+@_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114globalRegistryE = internal global { ptr, %"class.std::__shared_count" } zeroinitializer, align 16
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.2 = private unnamed_addr constant [15 x i8] c"Invalid index.\00", align 1
 @_ZTIN19OpenColorIO_v2_4dev9ExceptionE = external constant ptr
@@ -225,7 +225,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 invoke.cont:                                      ; preds = %entry
-  %0 = load ptr, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114globalRegistryE, align 8
+  %0 = load ptr, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114globalRegistryE, align 16
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.then, label %if.end
 
@@ -243,7 +243,7 @@ invoke.cont1:                                     ; preds = %if.then
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImplE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !4
   %m_builtins.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i2.i.i.i.i1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_builtins.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !4
-  store ptr %_M_impl.i.i.i.i.i.i, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114globalRegistryE, align 8
+  store ptr %_M_impl.i.i.i.i.i.i, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114globalRegistryE, align 16
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114globalRegistryE, i64 8), align 8
   store ptr %call5.i.i.i2.i.i.i.i1, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114globalRegistryE, i64 8), align 8
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -324,7 +324,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %dynamic_cast.end.i.i
 
 dynamic_cast.end.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %.pr = load ptr, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114globalRegistryE, align 8, !noalias !7, !nonnull !12, !noundef !12
+  %.pr = load ptr, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114globalRegistryE, align 16, !noalias !7, !nonnull !12, !noundef !12
   %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114globalRegistryE, i64 8), align 8, !noalias !7
   %13 = tail call ptr @__dynamic_cast(ptr nonnull %.pr, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev24BuiltinTransformRegistryE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev28BuiltinTransformRegistryImplE, i64 0) #20, !noalias !7
   %tobool.not.i.i5 = icmp ne ptr %13, null
@@ -423,16 +423,14 @@ if.end8.sink.split.i.i.i.i34:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %if.end
 
 if.end:                                           ; preds = %if.end8.sink.split.i.i.i.i34, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i31, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i21, %_ZN19OpenColorIO_v2_4dev14DynamicPtrCastINS_28BuiltinTransformRegistryImplENS_24BuiltinTransformRegistryEEESt10shared_ptrIT_ERKS3_IT0_E.exit.thread, %invoke.cont
-  %29 = load ptr, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114globalRegistryE, align 8
-  store ptr %29, ptr %agg.result, align 8
-  %_M_refcount.i.i44 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114globalRegistryE, i64 8), align 8
-  store ptr %30, ptr %_M_refcount.i.i44, align 8
-  %cmp.not.i.i.i45 = icmp eq ptr %30, null
+  %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114globalRegistryE, i64 8), align 8
+  %30 = load <2 x ptr>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114globalRegistryE, align 16
+  store <2 x ptr> %30, ptr %agg.result, align 8
+  %cmp.not.i.i.i45 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i.i45, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev24BuiltinTransformRegistryEEC2IS1_vEERKS_IT_E.exit, label %if.then.i.i.i46
 
 if.then.i.i.i46:                                  ; preds = %if.end
-  %_M_use_count.i.i.i.i47 = getelementptr inbounds i8, ptr %30, i64 8
+  %_M_use_count.i.i.i.i47 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %31, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i50, label %if.then.i.i.i.i.i48
@@ -904,7 +902,6 @@ entry:
   %m_creator5 = getelementptr inbounds i8, ptr %this, i64 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %o, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
@@ -949,17 +946,15 @@ _ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEEC2ERKS4_.exit.i: ; preds 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_creator5, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %7 = load ptr, ptr %_M_manager3.i.i, align 8
-  store ptr %7, ptr %_M_manager.i.i.i, align 8
-  %_M_invoker4.i2.i = getelementptr inbounds i8, ptr %this, i64 88
-  %8 = load ptr, ptr %_M_invoker4.i2.i, align 8
-  store ptr %8, ptr %_M_invoker.i.i, align 8
+  %7 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %8 = load ptr, ptr %_M_manager3.i.i, align 8
+  store <2 x ptr> %7, ptr %_M_manager.i.i.i, align 8
   store <2 x ptr> %6, ptr %_M_manager3.i.i, align 8
-  %tobool.not.i.i4.i = icmp eq ptr %7, null
+  %tobool.not.i.i4.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i4.i, label %_ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEEaSERKS4_.exit, label %if.then.i.i5.i
 
 if.then.i.i5.i:                                   ; preds = %_ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEEC2ERKS4_.exit.i
-  %call.i.i6.i = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i6.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %_ZNSt8functionIFvRN19OpenColorIO_v2_4dev10OpRcPtrVecEEEaSERKS4_.exit unwind label %terminate.lpad.i.i7.i
 
 terminate.lpad.i.i7.i:                            ; preds = %if.then.i.i5.i

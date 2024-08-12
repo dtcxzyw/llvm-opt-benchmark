@@ -1012,23 +1012,23 @@ _ZN2cvdVIdLi3EEERNS_3VecIT_XT0_EEES4_d.exit:      ; preds = %98
   %102 = getelementptr inbounds i8, ptr %1, i64 88
   %103 = getelementptr inbounds i8, ptr %8, i64 8
   %104 = load <2 x double>, ptr %103, align 8
-  %105 = load double, ptr %8, align 8
-  %106 = load double, ptr %31, align 8, !noalias !63
-  %107 = getelementptr inbounds i8, ptr %9, i64 8
-  %108 = load <2 x double>, ptr %32, align 8, !noalias !63
-  %109 = shufflevector <2 x double> %108, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %110 = insertelement <2 x double> %109, double %106, i64 1
-  %111 = fneg <2 x double> %110
-  %112 = fmul <2 x double> %104, %111
-  %113 = shufflevector <2 x double> %104, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %114 = insertelement <2 x double> %113, double %105, i64 1
-  %115 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %108, <2 x double> %114, <2 x double> %112)
-  %116 = extractelement <2 x double> %108, i64 0
-  %117 = fneg double %116
-  %118 = fmul double %105, %117
-  %119 = extractelement <2 x double> %104, i64 0
-  %120 = tail call double @llvm.fmuladd.f64(double %106, double %119, double %118)
-  store <2 x double> %115, ptr %9, align 16, !alias.scope !63
+  %105 = extractelement <2 x double> %104, i64 0
+  %106 = load double, ptr %8, align 8
+  %107 = load double, ptr %31, align 8, !noalias !63
+  %108 = getelementptr inbounds i8, ptr %9, i64 8
+  %109 = load <2 x double>, ptr %32, align 8, !noalias !63
+  %110 = shufflevector <2 x double> %109, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %111 = insertelement <2 x double> %110, double %107, i64 1
+  %112 = fneg <2 x double> %111
+  %113 = fmul <2 x double> %104, %112
+  %114 = shufflevector <2 x double> %104, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %115 = insertelement <2 x double> %114, double %106, i64 1
+  %116 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %109, <2 x double> %115, <2 x double> %113)
+  %117 = extractelement <2 x double> %109, i64 0
+  %118 = fneg double %117
+  %119 = fmul double %106, %118
+  %120 = tail call double @llvm.fmuladd.f64(double %107, double %105, double %119)
+  store <2 x double> %116, ptr %9, align 16, !alias.scope !63
   %121 = getelementptr inbounds i8, ptr %9, i64 16
   store double %120, ptr %121, align 16, !alias.scope !63
   br label %.lr.ph.i.i111
@@ -1219,7 +1219,7 @@ _ZNK2cv4usac31RelativePoseJacobianAccumulator21essential_from_motionERKNS0_10Cam
   %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 208
   store double 0.000000e+00, ptr %.sroa.27.0..sroa_idx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %12, i8 0, i64 144, i1 false)
-  %194 = load <2 x double>, ptr %107, align 8
+  %194 = load <2 x double>, ptr %108, align 8
   %.val245 = load double, ptr %9, align 16
   %195 = getelementptr inbounds i8, ptr %13, i64 16
   br label %220
@@ -1280,7 +1280,7 @@ _ZNK2cv4usac31RelativePoseJacobianAccumulator21essential_from_motionERKNS0_10Cam
   %236 = insertelement <2 x i1> poison, i1 %235, i64 0
   %237 = shufflevector <2 x i1> %236, <2 x i1> poison, <2 x i32> zeroinitializer
   %238 = select <2 x i1> %237, <2 x double> %104, <2 x double> %194
-  %239 = select i1 %235, double %105, double %.val245
+  %239 = select i1 %235, double %106, double %.val245
   %240 = extractelement <2 x double> %238, i64 0
   %241 = fneg double %240
   %242 = fmul double %222, %241

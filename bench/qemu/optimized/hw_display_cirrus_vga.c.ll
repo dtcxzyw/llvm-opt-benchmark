@@ -542,13 +542,11 @@ invalidate_cursor1.exit:                          ; preds = %if.then18, %if.then
   %9 = phi i8 [ %0, %if.then18 ], [ %.pre, %if.then.i ]
   store i32 %size.0, ptr %last_hw_cursor_size, align 4
   %hw_cursor_x21 = getelementptr inbounds i8, ptr %s1, i64 2992
-  %10 = load i32, ptr %hw_cursor_x21, align 16
   %last_hw_cursor_x22 = getelementptr inbounds i8, ptr %s1, i64 78920
-  store i32 %10, ptr %last_hw_cursor_x22, align 8
   %hw_cursor_y24 = getelementptr inbounds i8, ptr %s1, i64 2996
-  %11 = load i32, ptr %hw_cursor_y24, align 4
-  %last_hw_cursor_y25 = getelementptr inbounds i8, ptr %s1, i64 78924
-  store i32 %11, ptr %last_hw_cursor_y25, align 4
+  %10 = load i32, ptr %hw_cursor_y24, align 4
+  %11 = load <2 x i32>, ptr %hw_cursor_x21, align 16
+  store <2 x i32> %11, ptr %last_hw_cursor_x22, align 8
   %vram_ptr.i = getelementptr inbounds i8, ptr %s1, i64 8
   %12 = load ptr, ptr %vram_ptr.i, align 8
   %real_vram_size.i = getelementptr inbounds i8, ptr %s1, i64 78936
@@ -626,8 +624,8 @@ cirrus_cursor_compute_yrange.exit:                ; preds = %for.body.i, %for.bo
   br i1 %tobool.not, label %if.end26, label %if.then.i21
 
 if.then.i21:                                      ; preds = %cirrus_cursor_compute_yrange.exit
-  %add.i24 = add i32 %spec.select51.i, %11
-  %add2.i26 = add i32 %spec.select52.i, %11
+  %add.i24 = add i32 %spec.select51.i, %10
+  %add2.i26 = add i32 %spec.select52.i, %10
   tail call void @vga_invalidate_scanlines(ptr noundef nonnull %s1, i32 noundef %add.i24, i32 noundef %add2.i26) #13
   br label %if.end26
 

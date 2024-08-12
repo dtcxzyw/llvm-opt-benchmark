@@ -870,13 +870,11 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @Hacl_Streaming_MD5_legacy_init(ptr nocapture noundef %s) local_unnamed_addr #8 {
 entry:
-  %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 8
-  %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
   %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
+  %0 = load <2 x ptr>, ptr %s, align 8
+  %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %scrut.sroa.0.0.copyload, align 4
-  store ptr %scrut.sroa.0.0.copyload, ptr %s, align 8
-  store ptr %scrut.sroa.2.0.copyload, ptr %scrut.sroa.2.0..sroa_idx, align 8
+  store <2 x ptr> %0, ptr %s, align 8
   store i64 0, ptr %scrut.sroa.3.0..sroa_idx, align 8
   ret void
 }
@@ -903,15 +901,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp12.not, label %if.else34, label %if.then14
 
 if.then14:                                        ; preds = %if.end
-  %s1.sroa.0.0.copyload = load ptr, ptr %p, align 8
   %s1.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
-  %s1.sroa.2.0.copyload = load ptr, ptr %s1.sroa.2.0..sroa_idx, align 8
   %.rem18 = select i1 %or.cond, i64 64, i64 %rem
+  %add = add i64 %s.sroa.1.0.copyload, %conv
+  %s1.sroa.2.0.copyload = load ptr, ptr %s1.sroa.2.0..sroa_idx, align 8
+  %0 = load <2 x ptr>, ptr %p, align 8
   %add.ptr = getelementptr i8, ptr %s1.sroa.2.0.copyload, i64 %.rem18
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %data, i64 %conv, i1 false)
-  %add = add i64 %s.sroa.1.0.copyload, %conv
-  store ptr %s1.sroa.0.0.copyload, ptr %p, align 8
-  store ptr %s1.sroa.2.0.copyload, ptr %s1.sroa.2.0..sroa_idx, align 8
+  store <2 x ptr> %0, ptr %p, align 8
   br label %return.sink.split
 
 if.else34:                                        ; preds = %if.end

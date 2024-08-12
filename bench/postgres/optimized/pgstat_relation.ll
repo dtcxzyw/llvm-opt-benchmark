@@ -1002,16 +1002,16 @@ restore_truncdrop_counters.exit.us._crit_edge:    ; preds = %restore_truncdrop_c
 56:                                               ; preds = %.lr.ph.split
   %57 = getelementptr inbounds i8, ptr %.033, i64 32
   %58 = load <2 x i64>, ptr %57, align 8
+  %59 = load i64, ptr %57, align 8
   store <2 x i64> %58, ptr %.033, align 8
-  %59 = getelementptr inbounds i8, ptr %.033, i64 48
-  %60 = load i64, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %.033, i64 16
-  store i64 %60, ptr %61, align 8
-  %62 = extractelement <2 x i64> %58, i64 0
+  %60 = getelementptr inbounds i8, ptr %.033, i64 48
+  %61 = load i64, ptr %60, align 8
+  %62 = getelementptr inbounds i8, ptr %.033, i64 16
+  store i64 %61, ptr %62, align 8
   br label %restore_truncdrop_counters.exit
 
 restore_truncdrop_counters.exit:                  ; preds = %.lr.ph.split.restore_truncdrop_counters.exit_crit_edge, %56
-  %63 = phi i64 [ %.pre, %.lr.ph.split.restore_truncdrop_counters.exit_crit_edge ], [ %62, %56 ]
+  %63 = phi i64 [ %.pre, %.lr.ph.split.restore_truncdrop_counters.exit_crit_edge ], [ %59, %56 ]
   %64 = getelementptr inbounds i8, ptr %52, i64 40
   %65 = load i64, ptr %64, align 8
   %66 = add i64 %65, %63
@@ -1174,16 +1174,16 @@ save_truncdrop_counters.exit.us:                  ; preds = %41, %37
 73:                                               ; preds = %.lr.ph.split
   %74 = getelementptr inbounds i8, ptr %.048, i64 32
   %75 = load <2 x i64>, ptr %74, align 8
+  %76 = load i64, ptr %74, align 8
   store <2 x i64> %75, ptr %.048, align 8
-  %76 = getelementptr inbounds i8, ptr %.048, i64 48
-  %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %.048, i64 16
-  store i64 %77, ptr %78, align 8
-  %79 = extractelement <2 x i64> %75, i64 0
+  %77 = getelementptr inbounds i8, ptr %.048, i64 48
+  %78 = load i64, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %.048, i64 16
+  store i64 %78, ptr %79, align 8
   br label %restore_truncdrop_counters.exit
 
 restore_truncdrop_counters.exit:                  ; preds = %.lr.ph.split.restore_truncdrop_counters.exit_crit_edge, %73
-  %80 = phi i64 [ %.pre, %.lr.ph.split.restore_truncdrop_counters.exit_crit_edge ], [ %79, %73 ]
+  %80 = phi i64 [ %.pre, %.lr.ph.split.restore_truncdrop_counters.exit_crit_edge ], [ %76, %73 ]
   %81 = getelementptr inbounds i8, ptr %69, i64 40
   %82 = load i64, ptr %81, align 8
   %83 = add i64 %82, %80
@@ -1407,16 +1407,16 @@ define dso_local void @pgstat_twophase_postabort(i32 noundef %0, i16 noundef zer
 20:                                               ; preds = %4
   %21 = getelementptr inbounds i8, ptr %2, i64 24
   %22 = load <2 x i64>, ptr %21, align 8
+  %23 = load i64, ptr %21, align 8
   store <2 x i64> %22, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 40
-  %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 16
-  store i64 %24, ptr %25, align 8
-  %26 = extractelement <2 x i64> %22, i64 0
+  %24 = getelementptr inbounds i8, ptr %2, i64 40
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %2, i64 16
+  store i64 %25, ptr %26, align 8
   br label %27
 
 27:                                               ; preds = %._crit_edge, %20
-  %28 = phi i64 [ %.pre, %._crit_edge ], [ %26, %20 ]
+  %28 = phi i64 [ %.pre, %._crit_edge ], [ %23, %20 ]
   %29 = getelementptr inbounds i8, ptr %15, i64 40
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, %28

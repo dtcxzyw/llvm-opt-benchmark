@@ -404,13 +404,12 @@ entry:
   %manager_.i.i.i = getelementptr inbounds i8, ptr %predicate, i64 16
   %0 = load ptr, ptr %manager_.i.i.i, align 16
   call void %0(i1 noundef zeroext false, ptr noundef nonnull %predicate, ptr noundef nonnull %ref.tmp) #20
-  %1 = load ptr, ptr %manager_.i.i.i, align 16
   %manager_5.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store ptr %1, ptr %manager_5.i.i.i, align 16
   %invoker_.i.i.i = getelementptr inbounds i8, ptr %predicate, i64 24
-  %2 = load ptr, ptr %invoker_.i.i.i, align 8
   %invoker_6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  store ptr %2, ptr %invoker_6.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %manager_.i.i.i, align 16
+  %2 = load ptr, ptr %manager_.i.i.i, align 16
+  store <2 x ptr> %1, ptr %manager_5.i.i.i, align 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -425,7 +424,7 @@ if.then.i:                                        ; preds = %entry
           to label %call.i.i.i.i.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.i.i.i.i.noexc:                     ; preds = %if.then.i
-  call void %1(i1 noundef zeroext false, ptr noundef nonnull %ref.tmp, ptr noundef nonnull %call.i.i.i.i.i.i.i.i.i1) #20
+  call void %2(i1 noundef zeroext false, ptr noundef nonnull %ref.tmp, ptr noundef nonnull %call.i.i.i.i.i.i.i.i.i1) #20
   %manager_5.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i1, i64 16
   %5 = load <2 x ptr>, ptr %manager_5.i.i.i, align 16
   store <2 x ptr> %5, ptr %manager_5.i.i.i.i.i.i.i.i.i.i.i.i.i, align 16
@@ -478,7 +477,7 @@ _ZNSt12_Vector_baseIN4absl12lts_2023080212AnyInvocableIKFbRKN9grpc_core11Channel
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %_ZNSt12_Vector_baseIN4absl12lts_2023080212AnyInvocableIKFbRKN9grpc_core11ChannelArgsEEEESaIS8_EE11_M_allocateEm.exit.i.i
-  call void %1(i1 noundef zeroext false, ptr noundef nonnull %ref.tmp, ptr noundef nonnull %call.i.i.i.i.i.i.i.i18.i.i) #20
+  call void %2(i1 noundef zeroext false, ptr noundef nonnull %ref.tmp, ptr noundef nonnull %call.i.i.i.i.i.i.i.i18.i.i) #20
   %manager_5.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i18.i.i, i64 16
   %9 = load <2 x ptr>, ptr %manager_5.i.i.i, align 16
   store <2 x ptr> %9, ptr %manager_5.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 16

@@ -76866,8 +76866,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE5eraseERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %key) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %i.sroa.0.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::ForeignEnum>::InnerMap::iterator_base.319", align 8
-  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::ForeignEnum>::iterator", align 8
-  %ref.tmp.i.i = alloca %"struct.std::pair.321", align 8
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::ForeignEnum>::iterator", align 16
+  %ref.tmp.i.i = alloca %"struct.std::pair.321", align 16
   %ref.tmp2.i = alloca %"class.google::protobuf::internal::KeyView", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %elements_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -76875,27 +76875,24 @@ entry:
   store ptr %key, ptr %ref.tmp2.i, align 8, !noalias !941
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !941
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSF_E(ptr nonnull sret(%"struct.std::pair.321") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i, ptr noundef null), !noalias !944
-  %1 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !944
-  %m_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %2 = load ptr, ptr %m_3.i.i.i, align 8, !noalias !944
+  %1 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16, !noalias !944
+  %2 = load ptr, ptr %ref.tmp.i.i, align 16, !noalias !944
   %bucket_index_4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %3 = load i64, ptr %bucket_index_4.i.i.i, align 8, !noalias !944
+  %3 = load i64, ptr %bucket_index_4.i.i.i, align 16, !noalias !944
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !941
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
-  %cmp.i.i = icmp eq ptr %1, null
+  %cmp.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %i.sroa.0.i)
-  store ptr %1, ptr %agg.tmp1, align 8
-  %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
-  store ptr %2, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx, align 8
+  store <2 x ptr> %1, ptr %agg.tmp1, align 16
   %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
-  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 8
-  %v_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 16
+  %v_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %v_.i.i.i.i, align 8, !noalias !947
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !947
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !947
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap13iterator_baseINSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1), !noalias !950
   %5 = load ptr, ptr %elements_.i, align 8, !noalias !947
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEE8InnerMap5eraseENSC_13iterator_baseINSB_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::ForeignEnum>::InnerMap::iterator_base.319") align 8 %i.sroa.0.i), !noalias !947
@@ -80383,8 +80380,8 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22p
 define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE5eraseERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %key) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %i.sroa.0.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::TestAllTypesProto3_NestedEnum>::InnerMap::iterator_base.351", align 8
-  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::TestAllTypesProto3_NestedEnum>::iterator", align 8
-  %ref.tmp.i.i = alloca %"struct.std::pair.352", align 8
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::TestAllTypesProto3_NestedEnum>::iterator", align 16
+  %ref.tmp.i.i = alloca %"struct.std::pair.352", align 16
   %ref.tmp2.i = alloca %"class.google::protobuf::internal::KeyView", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %elements_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -80392,27 +80389,24 @@ entry:
   store ptr %key, ptr %ref.tmp2.i, align 8, !noalias !1070
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1070
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSF_E(ptr nonnull sret(%"struct.std::pair.352") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i, ptr noundef null), !noalias !1073
-  %1 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !1073
-  %m_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %2 = load ptr, ptr %m_3.i.i.i, align 8, !noalias !1073
+  %1 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16, !noalias !1073
+  %2 = load ptr, ptr %ref.tmp.i.i, align 16, !noalias !1073
   %bucket_index_4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %3 = load i64, ptr %bucket_index_4.i.i.i, align 8, !noalias !1073
+  %3 = load i64, ptr %bucket_index_4.i.i.i, align 16, !noalias !1073
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1070
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
-  %cmp.i.i = icmp eq ptr %1, null
+  %cmp.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %i.sroa.0.i)
-  store ptr %1, ptr %agg.tmp1, align 8
-  %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
-  store ptr %2, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx, align 8
+  store <2 x ptr> %1, ptr %agg.tmp1, align 16
   %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
-  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 8
-  %v_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 16
+  %v_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %v_.i.i.i.i, align 8, !noalias !1076
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !1076
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !1076
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap13iterator_baseINSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1), !noalias !1079
   %5 = load ptr, ptr %elements_.i, align 8, !noalias !1076
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEE8InnerMap5eraseENSC_13iterator_baseINSB_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::TestAllTypesProto3_NestedEnum>::InnerMap::iterator_base.351") align 8 %i.sroa.0.i), !noalias !1076
@@ -83646,8 +83640,8 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22p
 define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE5eraseERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %key) local_unnamed_addr #3 comdat align 2 {
 entry:
   %i.sroa.0.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::ForeignMessage>::InnerMap::iterator_base.362", align 8
-  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::ForeignMessage>::iterator", align 8
-  %ref.tmp.i.i = alloca %"struct.std::pair.363", align 8
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::ForeignMessage>::iterator", align 16
+  %ref.tmp.i.i = alloca %"struct.std::pair.363", align 16
   %ref.tmp2.i = alloca %"class.google::protobuf::internal::KeyView", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %elements_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -83655,27 +83649,24 @@ entry:
   store ptr %key, ptr %ref.tmp2.i, align 8, !noalias !1198
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1198
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSF_E(ptr nonnull sret(%"struct.std::pair.363") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i, ptr noundef null), !noalias !1201
-  %1 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !1201
-  %m_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %2 = load ptr, ptr %m_3.i.i.i, align 8, !noalias !1201
+  %1 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16, !noalias !1201
+  %2 = load ptr, ptr %ref.tmp.i.i, align 16, !noalias !1201
   %bucket_index_4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %3 = load i64, ptr %bucket_index_4.i.i.i, align 8, !noalias !1201
+  %3 = load i64, ptr %bucket_index_4.i.i.i, align 16, !noalias !1201
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1198
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
-  %cmp.i.i = icmp eq ptr %1, null
+  %cmp.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %i.sroa.0.i)
-  store ptr %1, ptr %agg.tmp1, align 8
-  %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
-  store ptr %2, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx, align 8
+  store <2 x ptr> %1, ptr %agg.tmp1, align 16
   %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
-  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 8
-  %v_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 16
+  %v_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %v_.i.i.i.i, align 8, !noalias !1204
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !1204
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !1204
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap13iterator_baseINSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1), !noalias !1207
   %5 = load ptr, ptr %elements_.i, align 8, !noalias !1204
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEE8InnerMap5eraseENSC_13iterator_baseINSB_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::ForeignMessage>::InnerMap::iterator_base.362") align 8 %i.sroa.0.i), !noalias !1204
@@ -87119,8 +87110,8 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22p
 define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE5eraseERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %key) local_unnamed_addr #3 comdat align 2 {
 entry:
   %i.sroa.0.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::TestAllTypesProto3_NestedMessage>::InnerMap::iterator_base.373", align 8
-  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::TestAllTypesProto3_NestedMessage>::iterator", align 8
-  %ref.tmp.i.i = alloca %"struct.std::pair.374", align 8
+  %agg.tmp1 = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::TestAllTypesProto3_NestedMessage>::iterator", align 16
+  %ref.tmp.i.i = alloca %"struct.std::pair.374", align 16
   %ref.tmp2.i = alloca %"class.google::protobuf::internal::KeyView", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %elements_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -87128,27 +87119,24 @@ entry:
   store ptr %key, ptr %ref.tmp2.i, align 8, !noalias !1338
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1338
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSF_E(ptr nonnull sret(%"struct.std::pair.374") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i, ptr noundef null), !noalias !1341
-  %1 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !1341
-  %m_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %2 = load ptr, ptr %m_3.i.i.i, align 8, !noalias !1341
+  %1 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16, !noalias !1341
+  %2 = load ptr, ptr %ref.tmp.i.i, align 16, !noalias !1341
   %bucket_index_4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %3 = load i64, ptr %bucket_index_4.i.i.i, align 8, !noalias !1341
+  %3 = load i64, ptr %bucket_index_4.i.i.i, align 16, !noalias !1341
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1338
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
-  %cmp.i.i = icmp eq ptr %1, null
+  %cmp.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp1)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %i.sroa.0.i)
-  store ptr %1, ptr %agg.tmp1, align 8
-  %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
-  store ptr %2, ptr %agg.tmp.sroa.0.sroa.2.0.agg.tmp1.sroa_idx, align 8
+  store <2 x ptr> %1, ptr %agg.tmp1, align 16
   %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp1, i64 16
-  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 8
-  %v_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 %3, ptr %agg.tmp.sroa.0.sroa.3.0.agg.tmp1.sroa_idx, align 16
+  %v_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %v_.i.i.i.i, align 8, !noalias !1344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !1344
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %i.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(24) %agg.tmp1, i64 24, i1 false), !noalias !1344
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap13iterator_baseINSB_12KeyValuePairEEppEv(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp1), !noalias !1347
   %5 = load ptr, ptr %elements_.i, align 8, !noalias !1344
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEE8InnerMap5eraseENSC_13iterator_baseINSB_12KeyValuePairEEE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, protobuf_test_messages::proto3::TestAllTypesProto3_NestedMessage>::InnerMap::iterator_base.373") align 8 %i.sroa.0.i), !noalias !1344
@@ -87521,9 +87509,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EE14DeleteMapValueERKNS0_6MapKeyE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(36) %map_key) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i.i = alloca %"struct.std::pair.385", align 8
+  %ref.tmp.i.i.i = alloca %"struct.std::pair.385", align 16
   %ref.tmp2.i.i = alloca %"class.google::protobuf::internal::KeyView", align 8
-  %agg.tmp.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 8
+  %agg.tmp.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 16
   %tmp.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf6MapKey14GetStringValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(36) %map_key), !noalias !1373
@@ -87546,22 +87534,19 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont
-  %2 = load ptr, ptr %ref.tmp.i.i.i, align 8, !noalias !1379
-  %m_3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
-  %3 = load ptr, ptr %m_3.i.i.i.i, align 8, !noalias !1379
+  %2 = load <2 x ptr>, ptr %ref.tmp.i.i.i, align 16, !noalias !1379
+  %3 = load ptr, ptr %ref.tmp.i.i.i, align 16, !noalias !1379
   %bucket_index_4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
-  %4 = load i64, ptr %bucket_index_4.i.i.i.i, align 8, !noalias !1379
+  %4 = load i64, ptr %bucket_index_4.i.i.i.i, align 16, !noalias !1379
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i), !noalias !1376
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i.i)
-  %cmp.i.i.i = icmp ne ptr %2, null
+  %cmp.i.i.i = icmp ne ptr %3, null
   br i1 %cmp.i.i.i, label %if.else.i, label %invoke.cont2
 
 if.else.i:                                        ; preds = %.noexc
-  store ptr %2, ptr %agg.tmp.i, align 8
-  %it.sroa.3.0.agg.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  store ptr %3, ptr %it.sroa.3.0.agg.tmp.sroa_idx.i, align 8
+  store <2 x ptr> %2, ptr %agg.tmp.i, align 16
   %it.sroa.4.0.agg.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
-  store i64 %4, ptr %it.sroa.4.0.agg.tmp.sroa_idx.i, align 8
+  store i64 %4, ptr %it.sroa.4.0.agg.tmp.sroa_idx.i, align 16
   invoke void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5eraseENS8_8iteratorE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %call, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator") align 8 %agg.tmp.i)
           to label %invoke.cont2 unwind label %lpad
 
@@ -90375,9 +90360,9 @@ _ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i64 @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5eraseERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %key) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %ref.tmp.i.i = alloca %"struct.std::pair.385", align 8
+  %ref.tmp.i.i = alloca %"struct.std::pair.385", align 16
   %ref.tmp2.i = alloca %"class.google::protobuf::internal::KeyView", align 8
-  %agg.tmp = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 8
+  %agg.tmp = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 16
   %tmp = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   %elements_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -90385,22 +90370,19 @@ entry:
   store ptr %key, ptr %ref.tmp2.i, align 8, !noalias !1474
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1474
   call void @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8InnerMap10FindHelperERKNS0_8internal7KeyViewIS7_EEPSt23_Rb_tree_const_iteratorIPSC_E(ptr nonnull sret(%"struct.std::pair.385") align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2.i, ptr noundef null), !noalias !1477
-  %1 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !1477
-  %m_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  %2 = load ptr, ptr %m_3.i.i.i, align 8, !noalias !1477
+  %1 = load <2 x ptr>, ptr %ref.tmp.i.i, align 16, !noalias !1477
+  %2 = load ptr, ptr %ref.tmp.i.i, align 16, !noalias !1477
   %bucket_index_4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
-  %3 = load i64, ptr %bucket_index_4.i.i.i, align 8, !noalias !1477
+  %3 = load i64, ptr %bucket_index_4.i.i.i, align 16, !noalias !1477
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !1474
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
-  %cmp.i.i = icmp eq ptr %1, null
+  %cmp.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  store ptr %1, ptr %agg.tmp, align 8
-  %it.sroa.3.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  store ptr %2, ptr %it.sroa.3.0.agg.tmp.sroa_idx, align 8
+  store <2 x ptr> %1, ptr %agg.tmp, align 16
   %it.sroa.4.0.agg.tmp.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  store i64 %3, ptr %it.sroa.4.0.agg.tmp.sroa_idx, align 8
+  store i64 %3, ptr %it.sroa.4.0.agg.tmp.sroa_idx, align 16
   call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5eraseENS8_8iteratorE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator") align 8 %agg.tmp)
   br label %return
 
@@ -90747,9 +90729,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EE14DeleteMapValueERKNS0_6MapKeyE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(36) %map_key) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i.i.i = alloca %"struct.std::pair.385", align 8
+  %ref.tmp.i.i.i = alloca %"struct.std::pair.385", align 16
   %ref.tmp2.i.i = alloca %"class.google::protobuf::internal::KeyView", align 8
-  %agg.tmp.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 8
+  %agg.tmp.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 16
   %tmp.i = alloca %"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf6MapKey14GetStringValueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(36) %map_key), !noalias !1501
@@ -90772,22 +90754,19 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont
-  %2 = load ptr, ptr %ref.tmp.i.i.i, align 8, !noalias !1507
-  %m_3.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
-  %3 = load ptr, ptr %m_3.i.i.i.i, align 8, !noalias !1507
+  %2 = load <2 x ptr>, ptr %ref.tmp.i.i.i, align 16, !noalias !1507
+  %3 = load ptr, ptr %ref.tmp.i.i.i, align 16, !noalias !1507
   %bucket_index_4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
-  %4 = load i64, ptr %bucket_index_4.i.i.i.i, align 8, !noalias !1507
+  %4 = load i64, ptr %bucket_index_4.i.i.i.i, align 16, !noalias !1507
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i), !noalias !1504
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i.i)
-  %cmp.i.i.i = icmp ne ptr %2, null
+  %cmp.i.i.i = icmp ne ptr %3, null
   br i1 %cmp.i.i.i, label %if.else.i, label %invoke.cont2
 
 if.else.i:                                        ; preds = %.noexc
-  store ptr %2, ptr %agg.tmp.i, align 8
-  %it.sroa.3.0.agg.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  store ptr %3, ptr %it.sroa.3.0.agg.tmp.sroa_idx.i, align 8
+  store <2 x ptr> %2, ptr %agg.tmp.i, align 16
   %it.sroa.4.0.agg.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
-  store i64 %4, ptr %it.sroa.4.0.agg.tmp.sroa_idx.i, align 8
+  store i64 %4, ptr %it.sroa.4.0.agg.tmp.sroa_idx.i, align 16
   invoke void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E5eraseENS8_8iteratorE(ptr nonnull sret(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %call, ptr noundef nonnull byval(%"class.google::protobuf::Map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>::iterator") align 8 %agg.tmp.i)
           to label %invoke.cont2 unwind label %lpad
 

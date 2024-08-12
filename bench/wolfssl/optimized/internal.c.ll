@@ -12783,32 +12783,32 @@ WriteSEQ.exit:                                    ; preds = %entry, %if.then.i, 
   %seq.sroa.4.0.i = phi i32 [ 0, %entry ], [ -1, %if.end24.sink.split.i.i ], [ %4, %if.then.i ]
   %seq.sroa.0.0.i = phi i32 [ 0, %entry ], [ %3, %if.end24.sink.split.i.i ], [ %3, %if.then.i ]
   %shr.i.i = lshr i32 %seq.sroa.0.0.i, 24
-  %conv.i.i = trunc nuw i32 %shr.i.i to i8
-  store i8 %conv.i.i, ptr %add, align 8
   %shr1.i.i = lshr i32 %seq.sroa.0.0.i, 16
-  %conv3.i.i = trunc i32 %shr1.i.i to i8
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %add, i64 1
-  store i8 %conv3.i.i, ptr %arrayidx4.i.i, align 1
   %shr5.i.i = lshr i32 %seq.sroa.0.0.i, 8
-  %conv7.i.i = trunc i32 %shr5.i.i to i8
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %add, i64 2
-  store i8 %conv7.i.i, ptr %arrayidx8.i.i, align 2
-  %conv10.i.i = trunc i32 %seq.sroa.0.0.i to i8
   %arrayidx11.i.i = getelementptr inbounds i8, ptr %add, i64 3
-  store i8 %conv10.i.i, ptr %arrayidx11.i.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %add, i64 4
   %shr.i4.i = lshr i32 %seq.sroa.4.0.i, 24
-  %conv.i5.i = trunc nuw i32 %shr.i4.i to i8
-  store i8 %conv.i5.i, ptr %add.ptr.i, align 4
   %shr1.i6.i = lshr i32 %seq.sroa.4.0.i, 16
-  %conv3.i7.i = trunc i32 %shr1.i6.i to i8
   %arrayidx4.i8.i = getelementptr inbounds i8, ptr %add, i64 5
-  store i8 %conv3.i7.i, ptr %arrayidx4.i8.i, align 1
   %shr5.i9.i = lshr i32 %seq.sroa.4.0.i, 8
-  %conv7.i10.i = trunc i32 %shr5.i9.i to i8
   %arrayidx8.i11.i = getelementptr inbounds i8, ptr %add, i64 6
-  store i8 %conv7.i10.i, ptr %arrayidx8.i11.i, align 2
   %conv10.i12.i = trunc i32 %seq.sroa.4.0.i to i8
+  %conv7.i10.i = trunc i32 %shr5.i9.i to i8
+  %conv3.i7.i = trunc i32 %shr1.i6.i to i8
+  %conv.i5.i = trunc nuw i32 %shr.i4.i to i8
+  %conv10.i.i = trunc i32 %seq.sroa.0.0.i to i8
+  %conv7.i.i = trunc i32 %shr5.i.i to i8
+  %conv3.i.i = trunc i32 %shr1.i.i to i8
+  %conv.i.i = trunc nuw i32 %shr.i.i to i8
+  store i8 %conv.i.i, ptr %add, align 8
+  store i8 %conv3.i.i, ptr %arrayidx4.i.i, align 1
+  store i8 %conv7.i.i, ptr %arrayidx8.i.i, align 2
+  store i8 %conv10.i.i, ptr %arrayidx11.i.i, align 1
+  store i8 %conv.i5.i, ptr %add.ptr.i, align 4
+  store i8 %conv3.i7.i, ptr %arrayidx4.i8.i, align 1
+  store i8 %conv7.i10.i, ptr %arrayidx8.i11.i, align 2
   %arrayidx11.i13.i = getelementptr inbounds i8, ptr %add, i64 7
   store i8 %conv10.i12.i, ptr %arrayidx11.i13.i, align 1
   %5 = and i64 %bf.load.i, 17592186044416
@@ -12824,63 +12824,49 @@ if.end:                                           ; preds = %WriteSEQ.exit
   br label %if.end77
 
 if.then27:                                        ; preds = %WriteSEQ.exit
+  %7 = insertelement <4 x i32> poison, i32 %shr.i.i, i64 0
+  %8 = insertelement <4 x i32> %7, i32 %shr1.i.i, i64 1
+  %9 = insertelement <4 x i32> %8, i32 %shr5.i.i, i64 2
+  %10 = insertelement <4 x i32> %9, i32 %seq.sroa.0.0.i, i64 3
+  %11 = trunc <4 x i32> %10 to <4 x i8>
+  %12 = shufflevector <4 x i8> %11, <4 x i8> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
+  %13 = trunc nuw i32 %shr.i4.i to i8
+  %14 = insertelement <8 x i8> %12, i8 %13, i64 4
+  %15 = trunc i32 %shr1.i6.i to i8
+  %16 = insertelement <8 x i8> %14, i8 %15, i64 5
+  %17 = trunc i32 %shr5.i9.i to i8
+  %18 = insertelement <8 x i8> %16, i8 %17, i64 6
+  %19 = trunc i32 %seq.sroa.4.0.i to i8
+  %20 = insertelement <8 x i8> %18, i8 %19, i64 7
   %add.ptr17195 = getelementptr inbounds i8, ptr %add, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %add.ptr17195, ptr noundef nonnull align 1 dereferenceable(3) %add.ptr, i64 3, i1 false)
   %aead_enc_imp_IV = getelementptr inbounds i8, ptr %ssl, i64 948
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %nonce, ptr noundef nonnull align 4 dereferenceable(12) %aead_enc_imp_IV, i64 12, i1 false)
   %arrayidx32 = getelementptr inbounds i8, ptr %nonce, i64 4
-  %7 = load i8, ptr %arrayidx32, align 4
-  %xor32 = xor i8 %7, %conv.i.i
-  store i8 %xor32, ptr %arrayidx32, align 4
-  %arrayidx37 = getelementptr inbounds i8, ptr %nonce, i64 5
-  %8 = load i8, ptr %arrayidx37, align 1
-  %xor3933 = xor i8 %8, %conv3.i.i
-  store i8 %xor3933, ptr %arrayidx37, align 1
-  %arrayidx43 = getelementptr inbounds i8, ptr %nonce, i64 6
-  %9 = load i8, ptr %arrayidx43, align 2
-  %xor4534 = xor i8 %9, %conv7.i.i
-  store i8 %xor4534, ptr %arrayidx43, align 2
-  %arrayidx49 = getelementptr inbounds i8, ptr %nonce, i64 7
-  %10 = load i8, ptr %arrayidx49, align 1
-  %xor5135 = xor i8 %10, %conv10.i.i
-  store i8 %xor5135, ptr %arrayidx49, align 1
-  %arrayidx55 = getelementptr inbounds i8, ptr %nonce, i64 8
-  %11 = load i8, ptr %arrayidx55, align 4
-  %xor5736 = xor i8 %11, %conv.i5.i
-  store i8 %xor5736, ptr %arrayidx55, align 4
-  %arrayidx61 = getelementptr inbounds i8, ptr %nonce, i64 9
-  %12 = load i8, ptr %arrayidx61, align 1
-  %xor6337 = xor i8 %12, %conv3.i7.i
-  store i8 %xor6337, ptr %arrayidx61, align 1
-  %arrayidx67 = getelementptr inbounds i8, ptr %nonce, i64 10
-  %13 = load i8, ptr %arrayidx67, align 2
-  %xor6938 = xor i8 %13, %conv7.i10.i
-  store i8 %xor6938, ptr %arrayidx67, align 2
-  %arrayidx73 = getelementptr inbounds i8, ptr %nonce, i64 11
-  %14 = load i8, ptr %arrayidx73, align 1
-  %xor7539 = xor i8 %14, %conv10.i12.i
-  store i8 %xor7539, ptr %arrayidx73, align 1
+  %21 = load <8 x i8>, ptr %arrayidx32, align 4
+  %22 = xor <8 x i8> %21, %20
+  store <8 x i8> %22, ptr %arrayidx32, align 4
   br label %if.end77
 
 if.end77:                                         ; preds = %if.end, %if.then27
   %conv14.sink = trunc i32 %sub to i8
   %conv12.sink.in = lshr i32 %sub, 8
   %conv12.sink = trunc i32 %conv12.sink.in to i8
-  %15 = getelementptr inbounds i8, ptr %add, i64 11
-  store i8 %conv12.sink, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %add, i64 12
-  store i8 %conv14.sink, ptr %16, align 4
+  %23 = getelementptr inbounds i8, ptr %add, i64 11
+  store i8 %conv12.sink, ptr %23, align 1
+  %24 = getelementptr inbounds i8, ptr %add, i64 12
+  store i8 %conv14.sink, ptr %24, align 4
   %chacha = getelementptr inbounds i8, ptr %ssl, i64 280
-  %17 = load ptr, ptr %chacha, align 8
-  %call = call i32 @wc_Chacha_SetIV(ptr noundef %17, ptr noundef nonnull %nonce, i32 noundef 0) #26
+  %25 = load ptr, ptr %chacha, align 8
+  %call = call i32 @wc_Chacha_SetIV(ptr noundef %25, ptr noundef nonnull %nonce, i32 noundef 0) #26
   %cmp79.not = icmp eq i32 %call, 0
   br i1 %cmp79.not, label %if.end83, label %if.then81
 
 if.then81:                                        ; preds = %if.end77
-  %18 = ptrtoint ptr %nonce to i64
-  %19 = trunc i64 %18 to i32
-  %20 = sub i32 0, %19
-  %conv.i = and i32 %20, 4
+  %26 = ptrtoint ptr %nonce to i64
+  %27 = trunc i64 %26 to i32
+  %28 = sub i32 0, %27
+  %conv.i = and i32 %28, 4
   %sub3.i = sub nuw nsw i32 12, %conv.i
   %tobool.not12.i = icmp eq i32 %conv.i, 0
   br i1 %tobool.not12.i, label %for.body.i.preheader, label %while.body.i
@@ -12921,16 +12907,16 @@ while.body12.i:                                   ; preds = %while.cond9.prehead
   br i1 %tobool11.not.i, label %return, label %while.body12.i, !llvm.loop !7
 
 if.end83:                                         ; preds = %if.end77
-  %21 = load ptr, ptr %chacha, align 8
-  %call88 = call i32 @wc_Chacha_Process(ptr noundef %21, ptr noundef nonnull %poly, ptr noundef nonnull %poly, i32 noundef 32) #26
+  %29 = load ptr, ptr %chacha, align 8
+  %call88 = call i32 @wc_Chacha_Process(ptr noundef %29, ptr noundef nonnull %poly, ptr noundef nonnull %poly, i32 noundef 32) #26
   %cmp89.not = icmp eq i32 %call88, 0
   br i1 %cmp89.not, label %if.end93, label %if.then91
 
 if.then91:                                        ; preds = %if.end83
-  %22 = ptrtoint ptr %nonce to i64
-  %23 = trunc i64 %22 to i32
-  %24 = sub i32 0, %23
-  %conv.i42 = and i32 %24, 4
+  %30 = ptrtoint ptr %nonce to i64
+  %31 = trunc i64 %30 to i32
+  %32 = sub i32 0, %31
+  %conv.i42 = and i32 %32, 4
   %sub3.i43 = sub nuw nsw i32 12, %conv.i42
   %tobool.not12.i44 = icmp eq i32 %conv.i42, 0
   br i1 %tobool.not12.i44, label %for.body.i64.preheader, label %while.body.i45
@@ -12971,13 +12957,13 @@ while.body12.i58:                                 ; preds = %while.cond9.prehead
   br i1 %tobool11.not.i63, label %return, label %while.body12.i58, !llvm.loop !7
 
 if.end93:                                         ; preds = %if.end83
-  %25 = load ptr, ptr %chacha, align 8
-  %call97 = call i32 @wc_Chacha_SetIV(ptr noundef %25, ptr noundef nonnull %nonce, i32 noundef 1) #26
+  %33 = load ptr, ptr %chacha, align 8
+  %call97 = call i32 @wc_Chacha_SetIV(ptr noundef %33, ptr noundef nonnull %nonce, i32 noundef 1) #26
   %cmp98.not = icmp eq i32 %call97, 0
-  %26 = ptrtoint ptr %nonce to i64
-  %27 = trunc i64 %26 to i32
-  %28 = sub i32 0, %27
-  %conv.i129 = and i32 %28, 4
+  %34 = ptrtoint ptr %nonce to i64
+  %35 = trunc i64 %34 to i32
+  %36 = sub i32 0, %35
+  %conv.i129 = and i32 %36, 4
   %sub3.i130 = sub nuw nsw i32 12, %conv.i129
   %tobool.not12.i131 = icmp eq i32 %conv.i129, 0
   br i1 %cmp98.not, label %if.end103, label %if.then100
@@ -13071,8 +13057,8 @@ while.body12.i145:                                ; preds = %while.cond9.prehead
   br i1 %tobool11.not.i150, label %ForceZero.exit157, label %while.body12.i145, !llvm.loop !7
 
 ForceZero.exit157:                                ; preds = %while.body12.i145, %while.cond9.preheader.i141
-  %29 = load ptr, ptr %chacha, align 8
-  %call107 = call i32 @wc_Chacha_Process(ptr noundef %29, ptr noundef %out, ptr noundef %input, i32 noundef %sub) #26
+  %37 = load ptr, ptr %chacha, align 8
+  %call107 = call i32 @wc_Chacha_Process(ptr noundef %37, ptr noundef %out, ptr noundef %input, i32 noundef %sub) #26
   %cmp108.not = icmp eq i32 %call107, 0
   br i1 %cmp108.not, label %if.end112, label %for.body.i180
 
@@ -13087,8 +13073,8 @@ for.body.i180:                                    ; preds = %ForceZero.exit157, 
 
 if.end112:                                        ; preds = %ForceZero.exit157
   %bf.load115 = load i64, ptr %dtls.i, align 8
-  %30 = and i64 %bf.load115, 17592186044416
-  %cmp120.not = icmp eq i64 %30, 0
+  %38 = and i64 %bf.load115, 17592186044416
+  %cmp120.not = icmp eq i64 %38, 0
   br i1 %cmp120.not, label %if.else, label %if.then122
 
 if.then122:                                       ; preds = %if.end112
@@ -13098,14 +13084,14 @@ if.then122:                                       ; preds = %if.end112
 
 if.else:                                          ; preds = %if.end112
   %auth = getelementptr inbounds i8, ptr %ssl, i64 1184
-  %31 = load ptr, ptr %auth, align 16
-  %call133 = call i32 @wc_Poly1305SetKey(ptr noundef %31, ptr noundef nonnull %poly, i32 noundef 32) #26
+  %39 = load ptr, ptr %auth, align 16
+  %call133 = call i32 @wc_Poly1305SetKey(ptr noundef %39, ptr noundef nonnull %poly, i32 noundef 32) #26
   %cmp134.not = icmp eq i32 %call133, 0
   br i1 %cmp134.not, label %if.end138, label %return.sink.split
 
 if.end138:                                        ; preds = %if.else
-  %32 = load ptr, ptr %auth, align 16
-  %call143 = call i32 @wc_Poly1305_MAC(ptr noundef %32, ptr noundef nonnull %add, i32 noundef 13, ptr noundef %out, i32 noundef %sub, ptr noundef nonnull %tag, i32 noundef 16) #26
+  %40 = load ptr, ptr %auth, align 16
+  %call143 = call i32 @wc_Poly1305_MAC(ptr noundef %40, ptr noundef nonnull %add, i32 noundef 13, ptr noundef %out, i32 noundef %sub, ptr noundef nonnull %tag, i32 noundef 16) #26
   %cmp144.not = icmp eq i32 %call143, 0
   br i1 %cmp144.not, label %if.end149, label %return.sink.split
 
@@ -13121,8 +13107,8 @@ for.body.i187:                                    ; preds = %for.body.i187, %if.
   %i.03.i = phi i32 [ 7, %if.end149 ], [ %dec.i189, %for.body.i187 ]
   %idxprom.i = zext nneg i32 %i.03.i to i64
   %arrayidx.i = getelementptr inbounds [8 x i8], ptr %aead_exp_IV.i, i64 0, i64 %idxprom.i
-  %33 = load i8, ptr %arrayidx.i, align 1
-  %inc.i = add i8 %33, 1
+  %41 = load i8, ptr %arrayidx.i, align 1
+  %inc.i = add i8 %41, 1
   store i8 %inc.i, ptr %arrayidx.i, align 1
   %tobool.not.i188 = icmp ne i8 %inc.i, 0
   %dec.i189 = add nsw i32 %i.03.i, -1
@@ -13255,57 +13241,71 @@ WriteSEQ.exit:                                    ; preds = %entry, %if.then.i, 
   %seq.sroa.4.0.i = phi i32 [ 0, %entry ], [ -1, %if.end24.sink.split.i.i ], [ %4, %if.then.i ]
   %seq.sroa.0.0.i = phi i32 [ 0, %entry ], [ %3, %if.end24.sink.split.i.i ], [ %3, %if.then.i ]
   %shr.i.i = lshr i32 %seq.sroa.0.0.i, 24
-  %conv.i.i = trunc nuw i32 %shr.i.i to i8
-  store i8 %conv.i.i, ptr %add, align 8
   %shr1.i.i = lshr i32 %seq.sroa.0.0.i, 16
-  %conv3.i.i = trunc i32 %shr1.i.i to i8
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %add, i64 1
-  store i8 %conv3.i.i, ptr %arrayidx4.i.i, align 1
   %shr5.i.i = lshr i32 %seq.sroa.0.0.i, 8
-  %conv7.i.i = trunc i32 %shr5.i.i to i8
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %add, i64 2
-  store i8 %conv7.i.i, ptr %arrayidx8.i.i, align 2
-  %conv10.i.i = trunc i32 %seq.sroa.0.0.i to i8
   %arrayidx11.i.i = getelementptr inbounds i8, ptr %add, i64 3
-  store i8 %conv10.i.i, ptr %arrayidx11.i.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %add, i64 4
   %shr.i4.i = lshr i32 %seq.sroa.4.0.i, 24
-  %conv.i5.i = trunc nuw i32 %shr.i4.i to i8
-  store i8 %conv.i5.i, ptr %add.ptr.i, align 4
   %shr1.i6.i = lshr i32 %seq.sroa.4.0.i, 16
-  %conv3.i7.i = trunc i32 %shr1.i6.i to i8
   %arrayidx4.i8.i = getelementptr inbounds i8, ptr %add, i64 5
-  store i8 %conv3.i7.i, ptr %arrayidx4.i8.i, align 1
   %shr5.i9.i = lshr i32 %seq.sroa.4.0.i, 8
-  %conv7.i10.i = trunc i32 %shr5.i9.i to i8
   %arrayidx8.i11.i = getelementptr inbounds i8, ptr %add, i64 6
-  store i8 %conv7.i10.i, ptr %arrayidx8.i11.i, align 2
   %conv10.i12.i = trunc i32 %seq.sroa.4.0.i to i8
+  %5 = insertelement <4 x i32> poison, i32 %shr.i.i, i64 0
+  %6 = insertelement <4 x i32> %5, i32 %shr1.i.i, i64 1
+  %7 = insertelement <4 x i32> %6, i32 %shr5.i.i, i64 2
+  %8 = insertelement <4 x i32> %7, i32 %seq.sroa.0.0.i, i64 3
+  %9 = trunc <4 x i32> %8 to <4 x i8>
+  %10 = shufflevector <4 x i8> %9, <4 x i8> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
+  %11 = trunc nuw i32 %shr.i4.i to i8
+  %12 = insertelement <8 x i8> %10, i8 %11, i64 4
+  %13 = trunc i32 %shr1.i6.i to i8
+  %14 = insertelement <8 x i8> %12, i8 %13, i64 5
+  %15 = trunc i32 %shr5.i9.i to i8
+  %16 = insertelement <8 x i8> %14, i8 %15, i64 6
+  %17 = trunc i32 %seq.sroa.4.0.i to i8
+  %18 = insertelement <8 x i8> %16, i8 %17, i64 7
+  %conv7.i10.i = trunc i32 %shr5.i9.i to i8
+  %conv3.i7.i = trunc i32 %shr1.i6.i to i8
+  %conv.i5.i = trunc nuw i32 %shr.i4.i to i8
+  %conv10.i.i = trunc i32 %seq.sroa.0.0.i to i8
+  %conv7.i.i = trunc i32 %shr5.i.i to i8
+  %conv3.i.i = trunc i32 %shr1.i.i to i8
+  %conv.i.i = trunc nuw i32 %shr.i.i to i8
+  store i8 %conv.i.i, ptr %add, align 8
+  store i8 %conv3.i.i, ptr %arrayidx4.i.i, align 1
+  store i8 %conv7.i.i, ptr %arrayidx8.i.i, align 2
+  store i8 %conv10.i.i, ptr %arrayidx11.i.i, align 1
+  store i8 %conv.i5.i, ptr %add.ptr.i, align 4
+  store i8 %conv3.i7.i, ptr %arrayidx4.i8.i, align 1
+  store i8 %conv7.i10.i, ptr %arrayidx8.i11.i, align 2
   %arrayidx11.i13.i = getelementptr inbounds i8, ptr %add, i64 7
   store i8 %conv10.i12.i, ptr %arrayidx11.i13.i, align 1
-  %5 = and i64 %bf.load.i, 17592186044416
-  %cmp.not = icmp eq i64 %5, 0
+  %19 = and i64 %bf.load.i, 17592186044416
+  %cmp.not = icmp eq i64 %19, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %WriteSEQ.exit
   %add.ptr = getelementptr inbounds i8, ptr %nonce, i64 4
-  %6 = load i64, ptr %add, align 8
-  store i64 %6, ptr %add.ptr, align 1
+  %20 = load i64, ptr %add, align 8
+  store i64 %20, ptr %add.ptr, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %WriteSEQ.exit
   %curRL = getelementptr inbounds i8, ptr %ssl, i64 685
-  %7 = load i8, ptr %curRL, align 1
+  %21 = load i8, ptr %curRL, align 1
   %arrayidx = getelementptr inbounds i8, ptr %add, i64 8
-  store i8 %7, ptr %arrayidx, align 8
+  store i8 %21, ptr %arrayidx, align 8
   %pvMajor = getelementptr inbounds i8, ptr %ssl, i64 686
-  %8 = load i8, ptr %pvMajor, align 1
+  %22 = load i8, ptr %pvMajor, align 1
   %arrayidx12 = getelementptr inbounds i8, ptr %add, i64 9
-  store i8 %8, ptr %arrayidx12, align 1
+  store i8 %22, ptr %arrayidx12, align 1
   %pvMinor = getelementptr inbounds i8, ptr %ssl, i64 687
-  %9 = load i8, ptr %pvMinor, align 1
+  %23 = load i8, ptr %pvMinor, align 1
   %arrayidx14 = getelementptr inbounds i8, ptr %add, i64 10
-  store i8 %9, ptr %arrayidx14, align 2
+  store i8 %23, ptr %arrayidx14, align 2
   %shr = lshr i32 %sub, 8
   %conv15 = trunc i32 %shr to i8
   %arrayidx16 = getelementptr inbounds i8, ptr %add, i64 11
@@ -13319,51 +13319,23 @@ if.then29:                                        ; preds = %if.end
   %aead_dec_imp_IV = getelementptr inbounds i8, ptr %ssl, i64 960
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %nonce, ptr noundef nonnull align 4 dereferenceable(12) %aead_dec_imp_IV, i64 12, i1 false)
   %arrayidx34 = getelementptr inbounds i8, ptr %nonce, i64 4
-  %10 = load i8, ptr %arrayidx34, align 1
-  %xor36 = xor i8 %10, %conv.i.i
-  store i8 %xor36, ptr %arrayidx34, align 1
-  %arrayidx39 = getelementptr inbounds i8, ptr %nonce, i64 5
-  %11 = load i8, ptr %arrayidx39, align 1
-  %xor4137 = xor i8 %11, %conv3.i.i
-  store i8 %xor4137, ptr %arrayidx39, align 1
-  %arrayidx45 = getelementptr inbounds i8, ptr %nonce, i64 6
-  %12 = load i8, ptr %arrayidx45, align 1
-  %xor4738 = xor i8 %12, %conv7.i.i
-  store i8 %xor4738, ptr %arrayidx45, align 1
-  %arrayidx51 = getelementptr inbounds i8, ptr %nonce, i64 7
-  %13 = load i8, ptr %arrayidx51, align 1
-  %xor5339 = xor i8 %13, %conv10.i.i
-  store i8 %xor5339, ptr %arrayidx51, align 1
-  %arrayidx57 = getelementptr inbounds i8, ptr %nonce, i64 8
-  %14 = load i8, ptr %arrayidx57, align 1
-  %xor5940 = xor i8 %14, %conv.i5.i
-  store i8 %xor5940, ptr %arrayidx57, align 1
-  %arrayidx63 = getelementptr inbounds i8, ptr %nonce, i64 9
-  %15 = load i8, ptr %arrayidx63, align 1
-  %xor6541 = xor i8 %15, %conv3.i7.i
-  store i8 %xor6541, ptr %arrayidx63, align 1
-  %arrayidx69 = getelementptr inbounds i8, ptr %nonce, i64 10
-  %16 = load i8, ptr %arrayidx69, align 1
-  %xor7142 = xor i8 %16, %conv7.i10.i
-  store i8 %xor7142, ptr %arrayidx69, align 1
-  %arrayidx75 = getelementptr inbounds i8, ptr %nonce, i64 11
-  %17 = load i8, ptr %arrayidx75, align 1
-  %xor7743 = xor i8 %17, %conv10.i12.i
-  store i8 %xor7743, ptr %arrayidx75, align 1
+  %24 = load <8 x i8>, ptr %arrayidx34, align 1
+  %25 = xor <8 x i8> %24, %18
+  store <8 x i8> %25, ptr %arrayidx34, align 1
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then29, %if.end
   %chacha = getelementptr inbounds i8, ptr %ssl, i64 320
-  %18 = load ptr, ptr %chacha, align 8
-  %call = call i32 @wc_Chacha_SetIV(ptr noundef %18, ptr noundef nonnull %nonce, i32 noundef 0) #26
+  %26 = load ptr, ptr %chacha, align 8
+  %call = call i32 @wc_Chacha_SetIV(ptr noundef %26, ptr noundef nonnull %nonce, i32 noundef 0) #26
   %cmp81.not = icmp eq i32 %call, 0
   br i1 %cmp81.not, label %if.end85, label %if.then83
 
 if.then83:                                        ; preds = %if.end79
-  %19 = ptrtoint ptr %nonce to i64
-  %20 = trunc i64 %19 to i32
-  %21 = sub i32 0, %20
-  %conv.i = and i32 %21, 7
+  %27 = ptrtoint ptr %nonce to i64
+  %28 = trunc i64 %27 to i32
+  %29 = sub i32 0, %28
+  %conv.i = and i32 %29, 7
   %sub3.i = sub nuw nsw i32 12, %conv.i
   %tobool.not12.i = icmp eq i32 %conv.i, 0
   br i1 %tobool.not12.i, label %for.body.i.preheader, label %while.body.i
@@ -13413,16 +13385,16 @@ while.body12.i:                                   ; preds = %while.body12.i.preh
   br i1 %tobool11.not.i, label %return, label %while.body12.i, !llvm.loop !7
 
 if.end85:                                         ; preds = %if.end79
-  %22 = load ptr, ptr %chacha, align 8
-  %call90 = call i32 @wc_Chacha_Process(ptr noundef %22, ptr noundef nonnull %poly, ptr noundef nonnull %poly, i32 noundef 32) #26
+  %30 = load ptr, ptr %chacha, align 8
+  %call90 = call i32 @wc_Chacha_Process(ptr noundef %30, ptr noundef nonnull %poly, ptr noundef nonnull %poly, i32 noundef 32) #26
   %cmp91.not = icmp eq i32 %call90, 0
   br i1 %cmp91.not, label %if.end95, label %if.then93
 
 if.then93:                                        ; preds = %if.end85
-  %23 = ptrtoint ptr %nonce to i64
-  %24 = trunc i64 %23 to i32
-  %25 = sub i32 0, %24
-  %conv.i47 = and i32 %25, 7
+  %31 = ptrtoint ptr %nonce to i64
+  %32 = trunc i64 %31 to i32
+  %33 = sub i32 0, %32
+  %conv.i47 = and i32 %33, 7
   %sub3.i48 = sub nuw nsw i32 12, %conv.i47
   %tobool.not12.i49 = icmp eq i32 %conv.i47, 0
   br i1 %tobool.not12.i49, label %for.body.i69.preheader, label %while.body.i50
@@ -13472,13 +13444,13 @@ while.body12.i63:                                 ; preds = %while.body12.i63.pr
   br i1 %tobool11.not.i68, label %return, label %while.body12.i63, !llvm.loop !7
 
 if.end95:                                         ; preds = %if.end85
-  %26 = load ptr, ptr %chacha, align 8
-  %call99 = call i32 @wc_Chacha_SetIV(ptr noundef %26, ptr noundef nonnull %nonce, i32 noundef 1) #26
+  %34 = load ptr, ptr %chacha, align 8
+  %call99 = call i32 @wc_Chacha_SetIV(ptr noundef %34, ptr noundef nonnull %nonce, i32 noundef 1) #26
   %cmp100.not = icmp eq i32 %call99, 0
-  %27 = ptrtoint ptr %nonce to i64
-  %28 = trunc i64 %27 to i32
-  %29 = sub i32 0, %28
-  %conv.i134 = and i32 %29, 7
+  %35 = ptrtoint ptr %nonce to i64
+  %36 = trunc i64 %35 to i32
+  %37 = sub i32 0, %36
+  %conv.i134 = and i32 %37, 7
   %sub3.i135 = sub nuw nsw i32 12, %conv.i134
   %tobool.not12.i136 = icmp eq i32 %conv.i134, 0
   br i1 %cmp100.not, label %if.end105, label %if.then102
@@ -13591,8 +13563,8 @@ while.body12.i150:                                ; preds = %while.body12.i150.p
 
 ForceZero.exit162:                                ; preds = %while.body12.i150, %while.cond9.preheader.i146
   %bf.load109 = load i64, ptr %dtls.i, align 8
-  %30 = and i64 %bf.load109, 17592186044416
-  %cmp114.not = icmp eq i64 %30, 0
+  %38 = and i64 %bf.load109, 17592186044416
+  %cmp114.not = icmp eq i64 %38, 0
   br i1 %cmp114.not, label %if.else, label %if.then116
 
 if.then116:                                       ; preds = %ForceZero.exit162
@@ -13606,8 +13578,8 @@ if.then123:                                       ; preds = %if.then116
 
 if.else:                                          ; preds = %ForceZero.exit162
   %auth = getelementptr inbounds i8, ptr %ssl, i64 1184
-  %31 = load ptr, ptr %auth, align 16
-  %call127 = call i32 @wc_Poly1305SetKey(ptr noundef %31, ptr noundef nonnull %poly, i32 noundef 32) #26
+  %39 = load ptr, ptr %auth, align 16
+  %call127 = call i32 @wc_Poly1305SetKey(ptr noundef %39, ptr noundef nonnull %poly, i32 noundef 32) #26
   %cmp128.not = icmp eq i32 %call127, 0
   br i1 %cmp128.not, label %if.end132, label %if.then130
 
@@ -13616,8 +13588,8 @@ if.then130:                                       ; preds = %if.else
   br label %return
 
 if.end132:                                        ; preds = %if.else
-  %32 = load ptr, ptr %auth, align 16
-  %call137 = call i32 @wc_Poly1305_MAC(ptr noundef %32, ptr noundef nonnull %add, i32 noundef 13, ptr noundef %input, i32 noundef %sub, ptr noundef nonnull %tag, i32 noundef 16) #26
+  %40 = load ptr, ptr %auth, align 16
+  %call137 = call i32 @wc_Poly1305_MAC(ptr noundef %40, ptr noundef nonnull %add, i32 noundef 13, ptr noundef %input, i32 noundef %sub, ptr noundef nonnull %tag, i32 noundef 16) #26
   %cmp138.not = icmp eq i32 %call137, 0
   br i1 %cmp138.not, label %if.end143, label %if.then140
 
@@ -13629,22 +13601,22 @@ if.end143:                                        ; preds = %if.end132, %if.then
   call fastcc void @ForceZero(ptr noundef nonnull %poly, i32 noundef 32)
   %idx.ext = sext i32 %sub to i64
   %add.ptr145 = getelementptr inbounds i8, ptr %input, i64 %idx.ext
-  %33 = load i16, ptr %aead_mac_size, align 2
-  %cmp6.i.not = icmp eq i16 %33, 0
+  %41 = load i16, ptr %aead_mac_size, align 2
+  %cmp6.i.not = icmp eq i16 %41, 0
   br i1 %cmp6.i.not, label %if.end162, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end143
-  %wide.trip.count.i = zext i16 %33 to i64
+  %wide.trip.count.i = zext i16 %41 to i64
   br label %for.body.i163
 
 for.body.i163:                                    ; preds = %for.body.i163, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i163 ]
   %compareSum.08.i = phi i32 [ 0, %for.body.preheader.i ], [ %or.i, %for.body.i163 ]
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr145, i64 %indvars.iv.i
-  %34 = load i8, ptr %arrayidx.i, align 1
+  %42 = load i8, ptr %arrayidx.i, align 1
   %arrayidx2.i = getelementptr inbounds i8, ptr %tag, i64 %indvars.iv.i
-  %35 = load i8, ptr %arrayidx2.i, align 1
-  %xor5.i = xor i8 %35, %34
+  %43 = load i8, ptr %arrayidx2.i, align 1
+  %xor5.i = xor i8 %43, %42
   %xor.i = zext i8 %xor5.i to i32
   %or.i = or i32 %compareSum.08.i, %xor.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -13657,8 +13629,8 @@ ConstantCompare.exit:                             ; preds = %for.body.i163
 
 do.end:                                           ; preds = %ConstantCompare.exit
   %bf.load155 = load i64, ptr %dtls.i, align 8
-  %36 = and i64 %bf.load155, 262144
-  %tobool.not = icmp eq i64 %36, 0
+  %44 = and i64 %bf.load155, 262144
+  %tobool.not = icmp eq i64 %44, 0
   br i1 %tobool.not, label %if.then159, label %return
 
 if.then159:                                       ; preds = %do.end
@@ -13666,8 +13638,8 @@ if.then159:                                       ; preds = %do.end
   br label %return
 
 if.end162:                                        ; preds = %if.end143, %ConstantCompare.exit
-  %37 = load ptr, ptr %chacha, align 8
-  %call165 = call i32 @wc_Chacha_Process(ptr noundef %37, ptr noundef %plain, ptr noundef %input, i32 noundef %sub) #26
+  %45 = load ptr, ptr %chacha, align 8
+  %call165 = call i32 @wc_Chacha_Process(ptr noundef %45, ptr noundef %plain, ptr noundef %input, i32 noundef %sub) #26
   br label %return
 
 return:                                           ; preds = %while.body12.i, %while.body12.i63, %for.body.i127, %while.cond9.preheader.i59, %while.cond9.preheader.i, %if.end162, %do.end, %if.then159, %if.then140, %if.then130, %if.then123

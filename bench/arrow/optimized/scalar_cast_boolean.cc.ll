@@ -2898,14 +2898,15 @@ ehcleanup136:                                     ; preds = %lpad.i363, %ehclean
   br label %ehcleanup192
 
 for.end167:                                       ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit610, %invoke.cont84
-  %379 = load <2 x ptr>, ptr %func, align 16
-  store <2 x ptr> %379, ptr %ref.tmp169, align 16
-  %380 = extractelement <2 x ptr> %379, i64 1
-  %cmp.not.i.i.i614 = icmp eq ptr %380, null
+  %_M_refcount.i.i612 = getelementptr inbounds i8, ptr %ref.tmp169, i64 8
+  %379 = load ptr, ptr %_M_refcount.i.i.i, align 8
+  %380 = load <2 x ptr>, ptr %func, align 16
+  store <2 x ptr> %380, ptr %ref.tmp169, align 16
+  %cmp.not.i.i.i614 = icmp eq ptr %379, null
   br i1 %cmp.not.i.i.i614, label %_ZNSt10shared_ptrIN5arrow7compute8internal12CastFunctionEEC2ERKS4_.exit, label %if.then.i.i.i615
 
 if.then.i.i.i615:                                 ; preds = %for.end167
-  %_M_use_count.i.i.i.i616 = getelementptr inbounds i8, ptr %380, i64 8
+  %_M_use_count.i.i.i.i616 = getelementptr inbounds i8, ptr %379, i64 8
   %381 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i617 = icmp eq i8 %381, 0
   br i1 %tobool.i.not.i.i.i.i617, label %if.else.i.i.i.i.i620, label %if.then.i.i.i.i.i618
@@ -2930,10 +2931,10 @@ call5.i.i.i.i.noexc.i626:                         ; preds = %_ZNSt10shared_ptrIN
   %add.ptr.i1.i627 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i622, i64 16
   %_M_end_of_storage.i.i628 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i627, ptr %_M_end_of_storage.i.i628, align 8
-  %384 = load <2 x ptr>, ptr %ref.tmp169, align 16
-  store <2 x ptr> %384, ptr %call5.i.i.i.i2.i622, align 8
-  %385 = extractelement <2 x ptr> %384, i64 1
-  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %385, null
+  %384 = load ptr, ptr %_M_refcount.i.i612, align 8
+  %385 = load <2 x ptr>, ptr %ref.tmp169, align 16
+  store <2 x ptr> %385, ptr %call5.i.i.i.i2.i622, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %384, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread, label %if.then.i.i.i.i.i.i.i.i.i.i629
 
 _ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread: ; preds = %call5.i.i.i.i.noexc.i626
@@ -2942,7 +2943,7 @@ _ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EE
   br label %_ZNSt10shared_ptrIN5arrow7compute8internal12CastFunctionEED2Ev.exit
 
 if.then.i.i.i.i.i.i.i.i.i.i629:                   ; preds = %call5.i.i.i.i.noexc.i626
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %385, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %384, i64 8
   %386 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %386, 0
   %_M_finish.i.i634 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2964,7 +2965,7 @@ _ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EE
   br i1 %cmp.not.i.i.i637, label %_ZNSt10shared_ptrIN5arrow7compute8internal12CastFunctionEED2Ev.exit, label %if.then.i.i.i638
 
 if.then.i.i.i638:                                 ; preds = %_ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread1005, %_ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i
-  %389 = phi ptr [ %385, %_ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread1005 ], [ %.pre996, %_ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
+  %389 = phi ptr [ %384, %_ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread1005 ], [ %.pre996, %_ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
   %_M_use_count.i.i.i.i639 = getelementptr inbounds i8, ptr %389, i64 8
   %390 = load atomic i64, ptr %_M_use_count.i.i.i.i639 acquire, align 8
   %cmp.i.i.i.i640 = icmp eq i64 %390, 4294967297

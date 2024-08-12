@@ -1266,11 +1266,9 @@ if.end37:                                         ; preds = %if.then21, %_ZNSt7_
 if.then39:                                        ; preds = %if.end37
   call void @_ZN4mold3elf10fork_childEv(ptr nonnull sret(%"class.std::function") align 8 %ref.tmp40) #17
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i46)
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i46, i64 24
-  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %ref.tmp40, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i46, i8 0, i64 24, i1 false)
-  %29 = load ptr, ptr %_M_invoker2.i.i, align 8
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp40, i64 16
+  %29 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8
   %30 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %30, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvvEEC2EOS1_.exit.i, label %if.then.i.i47
@@ -1288,14 +1286,11 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.i:               ; preds = %if.then.i.i47, %if.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp.i46, i64 16
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %on_complete, i64 16
-  %31 = load ptr, ptr %_M_manager3.i.i, align 8
-  store ptr %31, ptr %_M_manager.i.i, align 8
-  store ptr %30, ptr %_M_manager3.i.i, align 8
-  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %on_complete, i64 24
-  %32 = load ptr, ptr %_M_invoker4.i.i, align 8
-  store ptr %32, ptr %_M_invoker.i.i, align 8
-  store ptr %29, ptr %_M_invoker4.i.i, align 8
-  %tobool.not.i.i.i48 = icmp eq ptr %31, null
+  %31 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %32 = load ptr, ptr %_M_manager3.i.i, align 8
+  store <2 x ptr> %31, ptr %_M_manager.i.i, align 8
+  store <2 x ptr> %29, ptr %_M_manager3.i.i, align 8
+  %tobool.not.i.i.i48 = icmp eq ptr %32, null
   br i1 %tobool.not.i.i.i48, label %_ZNSt8functionIFvvEEaSEOS1_.exit.thread, label %_ZNSt8functionIFvvEEaSEOS1_.exit
 
 _ZNSt8functionIFvvEEaSEOS1_.exit.thread:          ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit.i
@@ -1303,7 +1298,7 @@ _ZNSt8functionIFvvEEaSEOS1_.exit.thread:          ; preds = %_ZNSt8functionIFvvE
   br label %if.end42
 
 _ZNSt8functionIFvvEEaSEOS1_.exit:                 ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit.i
-  %call.i.i.i = call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i46, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i46, i32 noundef 3) #17
+  %call.i.i.i = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i46, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i46, i32 noundef 3) #17
   %.pre = load ptr, ptr %_M_manager.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i46)
   %tobool.not.i.i = icmp eq ptr %.pre, null

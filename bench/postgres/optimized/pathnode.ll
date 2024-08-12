@@ -5161,10 +5161,10 @@ define dso_local noundef ptr @reparameterize_path(ptr noundef %0, ptr nocapture 
     i32 326, label %50
     i32 328, label %54
     i32 331, label %73
-    i32 315, label %106
-    i32 318, label %125
-    i32 344, label %157
-    i32 345, label %199
+    i32 315, label %105
+    i32 318, label %124
+    i32 344, label %156
+    i32 345, label %198
   ]
 
 18:                                               ; preds = %15
@@ -5267,14 +5267,14 @@ define dso_local noundef ptr @reparameterize_path(ptr noundef %0, ptr nocapture 
 
 73:                                               ; preds = %15
   %74 = getelementptr inbounds i8, ptr %1, i64 72
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 56
-  %77 = load double, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %1, i64 56
-  %79 = load double, ptr %78, align 8
-  %80 = fcmp oeq double %77, %79
-  %81 = getelementptr inbounds i8, ptr %1, i64 64
-  %82 = load ptr, ptr %81, align 8
+  %75 = getelementptr inbounds i8, ptr %1, i64 56
+  %76 = load double, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %1, i64 64
+  %78 = load ptr, ptr %74, align 8
+  %79 = load <2 x ptr>, ptr %77, align 8
+  %80 = getelementptr inbounds i8, ptr %78, i64 56
+  %81 = load double, ptr %80, align 8
+  %82 = fcmp oeq double %81, %76
   %83 = tail call noundef ptr @palloc0(i64 noundef 80) #10
   store i32 271, ptr %83, align 4
   %84 = getelementptr inbounds i8, ptr %83, i64 4
@@ -5296,7 +5296,7 @@ define dso_local noundef ptr @reparameterize_path(ptr noundef %0, ptr nocapture 
   br i1 %94, label %95, label %create_subqueryscan_path.exit
 
 95:                                               ; preds = %73
-  %96 = getelementptr inbounds i8, ptr %75, i64 33
+  %96 = getelementptr inbounds i8, ptr %78, i64 33
   %97 = load i8, ptr %96, align 1
   %98 = and i8 %97, 1
   br label %create_subqueryscan_path.exit
@@ -5305,261 +5305,259 @@ create_subqueryscan_path.exit:                    ; preds = %73, %95
   %99 = phi i8 [ 0, %73 ], [ %98, %95 ]
   %100 = getelementptr inbounds i8, ptr %83, i64 33
   store i8 %99, ptr %100, align 1
-  %101 = getelementptr inbounds i8, ptr %75, i64 36
+  %101 = getelementptr inbounds i8, ptr %78, i64 36
   %102 = load i32, ptr %101, align 4
   %103 = getelementptr inbounds i8, ptr %83, i64 36
   store i32 %102, ptr %103, align 4
   %104 = getelementptr inbounds i8, ptr %83, i64 64
-  store ptr %82, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %83, i64 72
-  store ptr %75, ptr %105, align 8
-  tail call void @cost_subqueryscan(ptr noundef nonnull %83, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %89, i1 noundef zeroext %80) #10
+  store <2 x ptr> %79, ptr %104, align 8
+  tail call void @cost_subqueryscan(ptr noundef nonnull %83, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %89, i1 noundef zeroext %82) #10
   br label %.loopexit
 
-106:                                              ; preds = %15
-  %107 = load i32, ptr %1, align 4
-  %108 = icmp eq i32 %107, 263
-  br i1 %108, label %109, label %.loopexit
+105:                                              ; preds = %15
+  %106 = load i32, ptr %1, align 4
+  %107 = icmp eq i32 %106, 263
+  br i1 %107, label %108, label %.loopexit
 
-109:                                              ; preds = %106
-  %110 = tail call noundef ptr @palloc0(i64 noundef 72) #10
-  store i32 263, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %110, i64 4
-  store i32 315, ptr %111, align 4
-  %112 = getelementptr inbounds i8, ptr %110, i64 8
-  store ptr %6, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %6, i64 32
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %110, i64 16
-  store ptr %114, ptr %115, align 8
-  %116 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %6, ptr noundef %2) #10
-  %117 = getelementptr inbounds i8, ptr %110, i64 24
-  store ptr %116, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %110, i64 32
-  store i8 0, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %6, i64 26
-  %120 = load i8, ptr %119, align 2
-  %121 = getelementptr inbounds i8, ptr %110, i64 33
-  %122 = and i8 %120, 1
-  store i8 %122, ptr %121, align 1
-  %123 = getelementptr inbounds i8, ptr %110, i64 36
-  store i32 0, ptr %123, align 4
-  %124 = getelementptr inbounds i8, ptr %110, i64 64
-  store ptr null, ptr %124, align 8
-  tail call void @cost_resultscan(ptr noundef nonnull %110, ptr noundef %0, ptr noundef %6, ptr noundef %116) #10
+108:                                              ; preds = %105
+  %109 = tail call noundef ptr @palloc0(i64 noundef 72) #10
+  store i32 263, ptr %109, align 4
+  %110 = getelementptr inbounds i8, ptr %109, i64 4
+  store i32 315, ptr %110, align 4
+  %111 = getelementptr inbounds i8, ptr %109, i64 8
+  store ptr %6, ptr %111, align 8
+  %112 = getelementptr inbounds i8, ptr %6, i64 32
+  %113 = load ptr, ptr %112, align 8
+  %114 = getelementptr inbounds i8, ptr %109, i64 16
+  store ptr %113, ptr %114, align 8
+  %115 = tail call ptr @get_baserel_parampathinfo(ptr noundef %0, ptr noundef %6, ptr noundef %2) #10
+  %116 = getelementptr inbounds i8, ptr %109, i64 24
+  store ptr %115, ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %109, i64 32
+  store i8 0, ptr %117, align 8
+  %118 = getelementptr inbounds i8, ptr %6, i64 26
+  %119 = load i8, ptr %118, align 2
+  %120 = getelementptr inbounds i8, ptr %109, i64 33
+  %121 = and i8 %119, 1
+  store i8 %121, ptr %120, align 1
+  %122 = getelementptr inbounds i8, ptr %109, i64 36
+  store i32 0, ptr %122, align 4
+  %123 = getelementptr inbounds i8, ptr %109, i64 64
+  store ptr null, ptr %123, align 8
+  tail call void @cost_resultscan(ptr noundef nonnull %109, ptr noundef %0, ptr noundef %6, ptr noundef %115) #10
   br label %.loopexit
 
-125:                                              ; preds = %15
-  %126 = getelementptr inbounds i8, ptr %1, i64 72
-  %127 = load ptr, ptr %126, align 8
-  %.not103 = icmp eq ptr %127, null
+124:                                              ; preds = %15
+  %125 = getelementptr inbounds i8, ptr %1, i64 72
+  %126 = load ptr, ptr %125, align 8
+  %.not103 = icmp eq ptr %126, null
   br i1 %.not103, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %125
-  %128 = getelementptr inbounds i8, ptr %127, i64 4
-  %129 = getelementptr inbounds i8, ptr %127, i64 16
-  %130 = getelementptr inbounds i8, ptr %1, i64 80
-  %131 = load i32, ptr %128, align 4
-  %132 = icmp sgt i32 %131, 0
-  br i1 %132, label %.lr.ph124, label %._crit_edge
+.lr.ph:                                           ; preds = %124
+  %127 = getelementptr inbounds i8, ptr %126, i64 4
+  %128 = getelementptr inbounds i8, ptr %126, i64 16
+  %129 = getelementptr inbounds i8, ptr %1, i64 80
+  %130 = load i32, ptr %127, align 4
+  %131 = icmp sgt i32 %130, 0
+  br i1 %131, label %.lr.ph124, label %._crit_edge
 
-.lr.ph124:                                        ; preds = %.lr.ph, %145
-  %indvars.iv = phi i64 [ %indvars.iv.next, %145 ], [ 0, %.lr.ph ]
-  %.094111121 = phi ptr [ %.195, %145 ], [ null, %.lr.ph ]
-  %.093112120 = phi ptr [ %.1, %145 ], [ null, %.lr.ph ]
-  %133 = load ptr, ptr %129, align 8
-  %134 = getelementptr %union.ListCell, ptr %133, i64 %indvars.iv
-  %135 = load ptr, ptr %134, align 8
-  %136 = tail call ptr @reparameterize_path(ptr noundef %0, ptr noundef %135, ptr noundef %2, double noundef %3)
-  %137 = icmp eq ptr %136, null
-  br i1 %137, label %.loopexit, label %138
+.lr.ph124:                                        ; preds = %.lr.ph, %144
+  %indvars.iv = phi i64 [ %indvars.iv.next, %144 ], [ 0, %.lr.ph ]
+  %.094111121 = phi ptr [ %.195, %144 ], [ null, %.lr.ph ]
+  %.093112120 = phi ptr [ %.1, %144 ], [ null, %.lr.ph ]
+  %132 = load ptr, ptr %128, align 8
+  %133 = getelementptr %union.ListCell, ptr %132, i64 %indvars.iv
+  %134 = load ptr, ptr %133, align 8
+  %135 = tail call ptr @reparameterize_path(ptr noundef %0, ptr noundef %134, ptr noundef %2, double noundef %3)
+  %136 = icmp eq ptr %135, null
+  br i1 %136, label %.loopexit, label %137
 
-138:                                              ; preds = %.lr.ph124
+137:                                              ; preds = %.lr.ph124
   %indvars127 = trunc i64 %indvars.iv to i32
-  %139 = load i32, ptr %130, align 8
-  %140 = icmp sgt i32 %139, %indvars127
-  br i1 %140, label %141, label %143
+  %138 = load i32, ptr %129, align 8
+  %139 = icmp sgt i32 %138, %indvars127
+  br i1 %139, label %140, label %142
 
-141:                                              ; preds = %138
-  %142 = tail call ptr @lappend(ptr noundef %.093112120, ptr noundef nonnull %136) #10
-  br label %145
+140:                                              ; preds = %137
+  %141 = tail call ptr @lappend(ptr noundef %.093112120, ptr noundef nonnull %135) #10
+  br label %144
 
-143:                                              ; preds = %138
-  %144 = tail call ptr @lappend(ptr noundef %.094111121, ptr noundef nonnull %136) #10
-  br label %145
+142:                                              ; preds = %137
+  %143 = tail call ptr @lappend(ptr noundef %.094111121, ptr noundef nonnull %135) #10
+  br label %144
 
-145:                                              ; preds = %143, %141
-  %.195 = phi ptr [ %.094111121, %141 ], [ %144, %143 ]
-  %.1 = phi ptr [ %142, %141 ], [ %.093112120, %143 ]
+144:                                              ; preds = %142, %140
+  %.195 = phi ptr [ %.094111121, %140 ], [ %143, %142 ]
+  %.1 = phi ptr [ %141, %140 ], [ %.093112120, %142 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %146 = load i32, ptr %128, align 4
-  %147 = sext i32 %146 to i64
-  %148 = icmp slt i64 %indvars.iv.next, %147
-  br i1 %148, label %.lr.ph124, label %._crit_edge
+  %145 = load i32, ptr %127, align 4
+  %146 = sext i32 %145 to i64
+  %147 = icmp slt i64 %indvars.iv.next, %146
+  br i1 %147, label %.lr.ph124, label %._crit_edge
 
-._crit_edge:                                      ; preds = %145, %.lr.ph, %125
-  %.094.lcssa = phi ptr [ null, %125 ], [ null, %.lr.ph ], [ %.195, %145 ]
-  %.093.lcssa = phi ptr [ null, %125 ], [ null, %.lr.ph ], [ %.1, %145 ]
-  %149 = getelementptr inbounds i8, ptr %1, i64 64
-  %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %1, i64 36
-  %152 = load i32, ptr %151, align 4
-  %153 = getelementptr inbounds i8, ptr %1, i64 32
-  %154 = load i8, ptr %153, align 8
-  %155 = trunc i8 %154 to i1
-  %156 = tail call ptr @create_append_path(ptr noundef %0, ptr noundef %6, ptr noundef %.093.lcssa, ptr noundef %.094.lcssa, ptr noundef %150, ptr noundef %2, i32 noundef %152, i1 noundef zeroext %155, double noundef -1.000000e+00)
+._crit_edge:                                      ; preds = %144, %.lr.ph, %124
+  %.094.lcssa = phi ptr [ null, %124 ], [ null, %.lr.ph ], [ %.195, %144 ]
+  %.093.lcssa = phi ptr [ null, %124 ], [ null, %.lr.ph ], [ %.1, %144 ]
+  %148 = getelementptr inbounds i8, ptr %1, i64 64
+  %149 = load ptr, ptr %148, align 8
+  %150 = getelementptr inbounds i8, ptr %1, i64 36
+  %151 = load i32, ptr %150, align 4
+  %152 = getelementptr inbounds i8, ptr %1, i64 32
+  %153 = load i8, ptr %152, align 8
+  %154 = trunc i8 %153 to i1
+  %155 = tail call ptr @create_append_path(ptr noundef %0, ptr noundef %6, ptr noundef %.093.lcssa, ptr noundef %.094.lcssa, ptr noundef %149, ptr noundef %2, i32 noundef %151, i1 noundef zeroext %154, double noundef -1.000000e+00)
   br label %.loopexit
 
-157:                                              ; preds = %15
-  %158 = getelementptr inbounds i8, ptr %1, i64 72
-  %159 = load ptr, ptr %158, align 8
-  %160 = tail call ptr @reparameterize_path(ptr noundef %0, ptr noundef %159, ptr noundef %2, double noundef %3)
-  %161 = icmp eq ptr %160, null
-  br i1 %161, label %.loopexit, label %162
+156:                                              ; preds = %15
+  %157 = getelementptr inbounds i8, ptr %1, i64 72
+  %158 = load ptr, ptr %157, align 8
+  %159 = tail call ptr @reparameterize_path(ptr noundef %0, ptr noundef %158, ptr noundef %2, double noundef %3)
+  %160 = icmp eq ptr %159, null
+  br i1 %160, label %.loopexit, label %161
 
-162:                                              ; preds = %157
-  %163 = tail call noundef ptr @palloc0(i64 noundef 80) #10
-  store i32 277, ptr %163, align 4
-  %164 = getelementptr inbounds i8, ptr %163, i64 4
-  store i32 344, ptr %164, align 4
-  %165 = getelementptr inbounds i8, ptr %163, i64 8
-  store ptr %6, ptr %165, align 8
-  %166 = getelementptr inbounds i8, ptr %6, i64 32
-  %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %163, i64 16
-  store ptr %167, ptr %168, align 8
-  %169 = getelementptr inbounds i8, ptr %160, i64 24
-  %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %163, i64 24
-  store ptr %170, ptr %171, align 8
-  %172 = getelementptr inbounds i8, ptr %163, i64 32
-  store i8 0, ptr %172, align 8
-  %173 = getelementptr inbounds i8, ptr %6, i64 26
-  %174 = load i8, ptr %173, align 2
-  %175 = trunc i8 %174 to i1
-  br i1 %175, label %176, label %create_material_path.exit
+161:                                              ; preds = %156
+  %162 = tail call noundef ptr @palloc0(i64 noundef 80) #10
+  store i32 277, ptr %162, align 4
+  %163 = getelementptr inbounds i8, ptr %162, i64 4
+  store i32 344, ptr %163, align 4
+  %164 = getelementptr inbounds i8, ptr %162, i64 8
+  store ptr %6, ptr %164, align 8
+  %165 = getelementptr inbounds i8, ptr %6, i64 32
+  %166 = load ptr, ptr %165, align 8
+  %167 = getelementptr inbounds i8, ptr %162, i64 16
+  store ptr %166, ptr %167, align 8
+  %168 = getelementptr inbounds i8, ptr %159, i64 24
+  %169 = load ptr, ptr %168, align 8
+  %170 = getelementptr inbounds i8, ptr %162, i64 24
+  store ptr %169, ptr %170, align 8
+  %171 = getelementptr inbounds i8, ptr %162, i64 32
+  store i8 0, ptr %171, align 8
+  %172 = getelementptr inbounds i8, ptr %6, i64 26
+  %173 = load i8, ptr %172, align 2
+  %174 = trunc i8 %173 to i1
+  br i1 %174, label %175, label %create_material_path.exit
 
-176:                                              ; preds = %162
-  %177 = getelementptr inbounds i8, ptr %160, i64 33
-  %178 = load i8, ptr %177, align 1
-  %179 = and i8 %178, 1
+175:                                              ; preds = %161
+  %176 = getelementptr inbounds i8, ptr %159, i64 33
+  %177 = load i8, ptr %176, align 1
+  %178 = and i8 %177, 1
   br label %create_material_path.exit
 
-create_material_path.exit:                        ; preds = %162, %176
-  %180 = phi i8 [ 0, %162 ], [ %179, %176 ]
-  %181 = getelementptr inbounds i8, ptr %163, i64 33
-  store i8 %180, ptr %181, align 1
-  %182 = getelementptr inbounds i8, ptr %160, i64 36
-  %183 = load i32, ptr %182, align 4
-  %184 = getelementptr inbounds i8, ptr %163, i64 36
-  store i32 %183, ptr %184, align 4
-  %185 = getelementptr inbounds i8, ptr %160, i64 64
-  %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %163, i64 64
-  store ptr %186, ptr %187, align 8
-  %188 = getelementptr inbounds i8, ptr %163, i64 72
-  store ptr %160, ptr %188, align 8
-  %189 = getelementptr inbounds i8, ptr %160, i64 48
-  %190 = load double, ptr %189, align 8
-  %191 = getelementptr inbounds i8, ptr %160, i64 56
-  %192 = load double, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %160, i64 40
-  %194 = load double, ptr %193, align 8
-  %195 = getelementptr inbounds i8, ptr %160, i64 16
-  %196 = load ptr, ptr %195, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 40
-  %198 = load i32, ptr %197, align 8
-  tail call void @cost_material(ptr noundef nonnull %163, double noundef %190, double noundef %192, double noundef %194, i32 noundef %198) #10
+create_material_path.exit:                        ; preds = %161, %175
+  %179 = phi i8 [ 0, %161 ], [ %178, %175 ]
+  %180 = getelementptr inbounds i8, ptr %162, i64 33
+  store i8 %179, ptr %180, align 1
+  %181 = getelementptr inbounds i8, ptr %159, i64 36
+  %182 = load i32, ptr %181, align 4
+  %183 = getelementptr inbounds i8, ptr %162, i64 36
+  store i32 %182, ptr %183, align 4
+  %184 = getelementptr inbounds i8, ptr %159, i64 64
+  %185 = load ptr, ptr %184, align 8
+  %186 = getelementptr inbounds i8, ptr %162, i64 64
+  store ptr %185, ptr %186, align 8
+  %187 = getelementptr inbounds i8, ptr %162, i64 72
+  store ptr %159, ptr %187, align 8
+  %188 = getelementptr inbounds i8, ptr %159, i64 48
+  %189 = load double, ptr %188, align 8
+  %190 = getelementptr inbounds i8, ptr %159, i64 56
+  %191 = load double, ptr %190, align 8
+  %192 = getelementptr inbounds i8, ptr %159, i64 40
+  %193 = load double, ptr %192, align 8
+  %194 = getelementptr inbounds i8, ptr %159, i64 16
+  %195 = load ptr, ptr %194, align 8
+  %196 = getelementptr inbounds i8, ptr %195, i64 40
+  %197 = load i32, ptr %196, align 8
+  tail call void @cost_material(ptr noundef nonnull %162, double noundef %189, double noundef %191, double noundef %193, i32 noundef %197) #10
   br label %.loopexit
 
-199:                                              ; preds = %15
-  %200 = getelementptr inbounds i8, ptr %1, i64 72
-  %201 = load ptr, ptr %200, align 8
-  %202 = tail call ptr @reparameterize_path(ptr noundef %0, ptr noundef %201, ptr noundef %2, double noundef %3)
-  %203 = icmp eq ptr %202, null
-  br i1 %203, label %.loopexit, label %204
+198:                                              ; preds = %15
+  %199 = getelementptr inbounds i8, ptr %1, i64 72
+  %200 = load ptr, ptr %199, align 8
+  %201 = tail call ptr @reparameterize_path(ptr noundef %0, ptr noundef %200, ptr noundef %2, double noundef %3)
+  %202 = icmp eq ptr %201, null
+  br i1 %202, label %.loopexit, label %203
 
-204:                                              ; preds = %199
-  %205 = getelementptr inbounds i8, ptr %1, i64 80
-  %206 = load <2 x ptr>, ptr %205, align 8
-  %207 = getelementptr inbounds i8, ptr %1, i64 96
-  %208 = load i8, ptr %207, align 8
-  %209 = getelementptr inbounds i8, ptr %1, i64 97
-  %210 = load i8, ptr %209, align 1
-  %211 = getelementptr inbounds i8, ptr %1, i64 104
-  %212 = load double, ptr %211, align 8
-  %213 = tail call noundef ptr @palloc0(i64 noundef 120) #10
-  store i32 278, ptr %213, align 4
-  %214 = getelementptr inbounds i8, ptr %213, i64 4
-  store i32 345, ptr %214, align 4
-  %215 = getelementptr inbounds i8, ptr %213, i64 8
-  store ptr %6, ptr %215, align 8
-  %216 = getelementptr inbounds i8, ptr %6, i64 32
-  %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds i8, ptr %213, i64 16
-  store ptr %217, ptr %218, align 8
-  %219 = getelementptr inbounds i8, ptr %202, i64 24
-  %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds i8, ptr %213, i64 24
-  store ptr %220, ptr %221, align 8
-  %222 = getelementptr inbounds i8, ptr %213, i64 32
-  store i8 0, ptr %222, align 8
-  %223 = getelementptr inbounds i8, ptr %6, i64 26
-  %224 = load i8, ptr %223, align 2
-  %225 = trunc i8 %224 to i1
-  br i1 %225, label %226, label %create_memoize_path.exit
+203:                                              ; preds = %198
+  %204 = getelementptr inbounds i8, ptr %1, i64 80
+  %205 = load <2 x ptr>, ptr %204, align 8
+  %206 = getelementptr inbounds i8, ptr %1, i64 96
+  %207 = load i8, ptr %206, align 8
+  %208 = getelementptr inbounds i8, ptr %1, i64 97
+  %209 = load i8, ptr %208, align 1
+  %210 = getelementptr inbounds i8, ptr %1, i64 104
+  %211 = load double, ptr %210, align 8
+  %212 = tail call noundef ptr @palloc0(i64 noundef 120) #10
+  store i32 278, ptr %212, align 4
+  %213 = getelementptr inbounds i8, ptr %212, i64 4
+  store i32 345, ptr %213, align 4
+  %214 = getelementptr inbounds i8, ptr %212, i64 8
+  store ptr %6, ptr %214, align 8
+  %215 = getelementptr inbounds i8, ptr %6, i64 32
+  %216 = load ptr, ptr %215, align 8
+  %217 = getelementptr inbounds i8, ptr %212, i64 16
+  store ptr %216, ptr %217, align 8
+  %218 = getelementptr inbounds i8, ptr %201, i64 24
+  %219 = load ptr, ptr %218, align 8
+  %220 = getelementptr inbounds i8, ptr %212, i64 24
+  store ptr %219, ptr %220, align 8
+  %221 = getelementptr inbounds i8, ptr %212, i64 32
+  store i8 0, ptr %221, align 8
+  %222 = getelementptr inbounds i8, ptr %6, i64 26
+  %223 = load i8, ptr %222, align 2
+  %224 = trunc i8 %223 to i1
+  br i1 %224, label %225, label %create_memoize_path.exit
 
-226:                                              ; preds = %204
-  %227 = getelementptr inbounds i8, ptr %202, i64 33
-  %228 = load i8, ptr %227, align 1
-  %229 = and i8 %228, 1
+225:                                              ; preds = %203
+  %226 = getelementptr inbounds i8, ptr %201, i64 33
+  %227 = load i8, ptr %226, align 1
+  %228 = and i8 %227, 1
   br label %create_memoize_path.exit
 
-create_memoize_path.exit:                         ; preds = %204, %226
-  %230 = phi i8 [ 0, %204 ], [ %229, %226 ]
-  %231 = and i8 %210, 1
-  %232 = and i8 %208, 1
-  %233 = getelementptr inbounds i8, ptr %213, i64 33
-  store i8 %230, ptr %233, align 1
-  %234 = getelementptr inbounds i8, ptr %202, i64 36
-  %235 = load i32, ptr %234, align 4
-  %236 = getelementptr inbounds i8, ptr %213, i64 36
-  store i32 %235, ptr %236, align 4
-  %237 = getelementptr inbounds i8, ptr %202, i64 64
-  %238 = load ptr, ptr %237, align 8
-  %239 = getelementptr inbounds i8, ptr %213, i64 64
-  store ptr %238, ptr %239, align 8
-  %240 = getelementptr inbounds i8, ptr %213, i64 72
-  store ptr %202, ptr %240, align 8
-  %241 = getelementptr inbounds i8, ptr %213, i64 80
-  store <2 x ptr> %206, ptr %241, align 8
-  %242 = getelementptr inbounds i8, ptr %213, i64 96
-  store i8 %232, ptr %242, align 8
-  %243 = getelementptr inbounds i8, ptr %213, i64 97
-  store i8 %231, ptr %243, align 1
-  %244 = getelementptr inbounds i8, ptr %213, i64 104
-  store double %212, ptr %244, align 8
-  %245 = getelementptr inbounds i8, ptr %213, i64 112
-  store i32 0, ptr %245, align 8
-  %246 = getelementptr inbounds i8, ptr %202, i64 48
-  %247 = load double, ptr %246, align 8
-  %248 = load double, ptr @cpu_tuple_cost, align 8
-  %249 = fadd double %247, %248
-  %250 = getelementptr inbounds i8, ptr %213, i64 48
-  store double %249, ptr %250, align 8
-  %251 = getelementptr inbounds i8, ptr %202, i64 56
-  %252 = load double, ptr %251, align 8
-  %253 = fadd double %248, %252
-  %254 = getelementptr inbounds i8, ptr %213, i64 56
-  store double %253, ptr %254, align 8
-  %255 = getelementptr inbounds i8, ptr %202, i64 40
-  %256 = load double, ptr %255, align 8
-  %257 = getelementptr inbounds i8, ptr %213, i64 40
-  store double %256, ptr %257, align 8
+create_memoize_path.exit:                         ; preds = %203, %225
+  %229 = phi i8 [ 0, %203 ], [ %228, %225 ]
+  %230 = and i8 %209, 1
+  %231 = and i8 %207, 1
+  %232 = getelementptr inbounds i8, ptr %212, i64 33
+  store i8 %229, ptr %232, align 1
+  %233 = getelementptr inbounds i8, ptr %201, i64 36
+  %234 = load i32, ptr %233, align 4
+  %235 = getelementptr inbounds i8, ptr %212, i64 36
+  store i32 %234, ptr %235, align 4
+  %236 = getelementptr inbounds i8, ptr %201, i64 64
+  %237 = load ptr, ptr %236, align 8
+  %238 = getelementptr inbounds i8, ptr %212, i64 64
+  store ptr %237, ptr %238, align 8
+  %239 = getelementptr inbounds i8, ptr %212, i64 72
+  store ptr %201, ptr %239, align 8
+  %240 = getelementptr inbounds i8, ptr %212, i64 80
+  store <2 x ptr> %205, ptr %240, align 8
+  %241 = getelementptr inbounds i8, ptr %212, i64 96
+  store i8 %231, ptr %241, align 8
+  %242 = getelementptr inbounds i8, ptr %212, i64 97
+  store i8 %230, ptr %242, align 1
+  %243 = getelementptr inbounds i8, ptr %212, i64 104
+  store double %211, ptr %243, align 8
+  %244 = getelementptr inbounds i8, ptr %212, i64 112
+  store i32 0, ptr %244, align 8
+  %245 = getelementptr inbounds i8, ptr %201, i64 48
+  %246 = load double, ptr %245, align 8
+  %247 = load double, ptr @cpu_tuple_cost, align 8
+  %248 = fadd double %246, %247
+  %249 = getelementptr inbounds i8, ptr %212, i64 48
+  store double %248, ptr %249, align 8
+  %250 = getelementptr inbounds i8, ptr %201, i64 56
+  %251 = load double, ptr %250, align 8
+  %252 = fadd double %247, %251
+  %253 = getelementptr inbounds i8, ptr %212, i64 56
+  store double %252, ptr %253, align 8
+  %254 = getelementptr inbounds i8, ptr %201, i64 40
+  %255 = load double, ptr %254, align 8
+  %256 = getelementptr inbounds i8, ptr %212, i64 40
+  store double %255, ptr %256, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph124, %106, %15, %199, %157, %12, %create_memoize_path.exit, %create_material_path.exit, %._crit_edge, %109, %create_subqueryscan_path.exit, %54, %50, %34, %18
-  %.0 = phi ptr [ %213, %create_memoize_path.exit ], [ %163, %create_material_path.exit ], [ %156, %._crit_edge ], [ %110, %109 ], [ %83, %create_subqueryscan_path.exit ], [ %57, %54 ], [ %51, %50 ], [ %35, %34 ], [ %19, %18 ], [ null, %12 ], [ null, %157 ], [ null, %199 ], [ null, %15 ], [ null, %106 ], [ null, %.lr.ph124 ]
+.loopexit:                                        ; preds = %.lr.ph124, %105, %15, %198, %156, %12, %create_memoize_path.exit, %create_material_path.exit, %._crit_edge, %108, %create_subqueryscan_path.exit, %54, %50, %34, %18
+  %.0 = phi ptr [ %212, %create_memoize_path.exit ], [ %162, %create_material_path.exit ], [ %155, %._crit_edge ], [ %109, %108 ], [ %83, %create_subqueryscan_path.exit ], [ %57, %54 ], [ %51, %50 ], [ %35, %34 ], [ %19, %18 ], [ null, %12 ], [ null, %156 ], [ null, %198 ], [ null, %15 ], [ null, %105 ], [ null, %.lr.ph124 ]
   ret ptr %.0
 }
 

@@ -5654,15 +5654,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @python_hashlib_Hacl_Streaming_SHA2_init_256(ptr nocapture noundef %s) local_unnamed_addr #9 {
 entry:
-  %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 8
-  %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
   %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
+  %0 = load <2 x ptr>, ptr %s, align 8
+  %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
   store <4 x i32> <i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534>, ptr %scrut.sroa.0.0.copyload, align 4
   %arrayidx29.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 16
   store <4 x i32> <i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225>, ptr %arrayidx29.i, align 4
-  store ptr %scrut.sroa.0.0.copyload, ptr %s, align 8
-  store ptr %scrut.sroa.2.0.copyload, ptr %scrut.sroa.2.0..sroa_idx, align 8
+  store <2 x ptr> %0, ptr %s, align 8
   store i64 0, ptr %scrut.sroa.3.0..sroa_idx, align 8
   ret void
 }
@@ -5696,15 +5694,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp12.not, label %if.else34, label %if.then14
 
 if.then14:                                        ; preds = %if.end
-  %s1.sroa.0.0.copyload = load ptr, ptr %p, align 8
   %s1.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
-  %s1.sroa.2.0.copyload = load ptr, ptr %s1.sroa.2.0..sroa_idx, align 8
   %.rem18 = select i1 %or.cond, i64 64, i64 %rem
+  %add = add i64 %s.sroa.1.0.copyload, %conv
+  %s1.sroa.2.0.copyload = load ptr, ptr %s1.sroa.2.0..sroa_idx, align 8
+  %0 = load <2 x ptr>, ptr %p, align 8
   %add.ptr = getelementptr i8, ptr %s1.sroa.2.0.copyload, i64 %.rem18
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %data, i64 %conv, i1 false)
-  %add = add i64 %s.sroa.1.0.copyload, %conv
-  store ptr %s1.sroa.0.0.copyload, ptr %p, align 8
-  store ptr %s1.sroa.2.0.copyload, ptr %s1.sroa.2.0..sroa_idx, align 8
+  store <2 x ptr> %0, ptr %p, align 8
   br label %return.sink.split
 
 if.else34:                                        ; preds = %if.end
@@ -5742,8 +5739,8 @@ for.body.preheader.i:                             ; preds = %if.end60
 
 for.body.i78:                                     ; preds = %for.body.i78, %for.body.preheader.i
   %indvars.iv.i79 = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i81, %for.body.i78 ]
-  %0 = shl nuw i64 %indvars.iv.i79, 6
-  %add.ptr.i80 = getelementptr i8, ptr %data, i64 %0
+  %1 = shl nuw i64 %indvars.iv.i79, 6
+  %add.ptr.i80 = getelementptr i8, ptr %data, i64 %1
   tail call fastcc void @sha256_update(ptr noundef readonly %add.ptr.i80, ptr noundef %s138.sroa.0.0.copyload)
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i79, 1
   %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, %wide.trip.count.i
@@ -5799,8 +5796,8 @@ for.body.preheader.i92:                           ; preds = %if.end144
 
 for.body.i95:                                     ; preds = %for.body.i95, %for.body.preheader.i92
   %indvars.iv.i96 = phi i64 [ 0, %for.body.preheader.i92 ], [ %indvars.iv.next.i98, %for.body.i95 ]
-  %1 = shl nuw i64 %indvars.iv.i96, 6
-  %add.ptr.i97 = getelementptr i8, ptr %add.ptr95, i64 %1
+  %2 = shl nuw i64 %indvars.iv.i96, 6
+  %add.ptr.i97 = getelementptr i8, ptr %add.ptr95, i64 %2
   tail call fastcc void @sha256_update(ptr noundef readonly %add.ptr.i97, ptr noundef %s196.sroa.0.0.copyload)
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i96, 1
   %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, %wide.trip.count.i94
@@ -5983,15 +5980,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @python_hashlib_Hacl_Streaming_SHA2_init_224(ptr nocapture noundef %s) local_unnamed_addr #9 {
 entry:
-  %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 8
-  %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
   %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
+  %0 = load <2 x ptr>, ptr %s, align 8
+  %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
   store <4 x i32> <i32 -1056596264, i32 914150663, i32 812702999, i32 -150054599>, ptr %scrut.sroa.0.0.copyload, align 4
   %arrayidx29.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 16
   store <4 x i32> <i32 -4191439, i32 1750603025, i32 1694076839, i32 -1090891868>, ptr %arrayidx29.i, align 4
-  store ptr %scrut.sroa.0.0.copyload, ptr %s, align 8
-  store ptr %scrut.sroa.2.0.copyload, ptr %scrut.sroa.2.0..sroa_idx, align 8
+  store <2 x ptr> %0, ptr %s, align 8
   store i64 0, ptr %scrut.sroa.3.0..sroa_idx, align 8
   ret void
 }
@@ -6212,10 +6207,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @python_hashlib_Hacl_Streaming_SHA2_init_512(ptr nocapture noundef %s) local_unnamed_addr #9 {
 entry:
-  %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 8
-  %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
   %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
+  %0 = load <2 x ptr>, ptr %s, align 8
+  %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
   store i64 7640891576956012808, ptr %scrut.sroa.0.0.copyload, align 8
   %arrayidx8.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 8
   store i64 -4942790177534073029, ptr %arrayidx8.i, align 8
@@ -6231,8 +6225,7 @@ entry:
   store i64 2270897969802886507, ptr %arrayidx43.i, align 8
   %arrayidx50.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 56
   store i64 6620516959819538809, ptr %arrayidx50.i, align 8
-  store ptr %scrut.sroa.0.0.copyload, ptr %s, align 8
-  store ptr %scrut.sroa.2.0.copyload, ptr %scrut.sroa.2.0..sroa_idx, align 8
+  store <2 x ptr> %0, ptr %s, align 8
   store i64 0, ptr %scrut.sroa.3.0..sroa_idx, align 8
   ret void
 }
@@ -6266,15 +6259,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp12.not, label %if.else34, label %if.then14
 
 if.then14:                                        ; preds = %if.end
-  %s1.sroa.0.0.copyload = load ptr, ptr %p, align 8
   %s1.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
-  %s1.sroa.2.0.copyload = load ptr, ptr %s1.sroa.2.0..sroa_idx, align 8
   %.rem18 = select i1 %or.cond, i64 128, i64 %rem
+  %add = add i64 %s.sroa.1.0.copyload, %conv
+  %s1.sroa.2.0.copyload = load ptr, ptr %s1.sroa.2.0..sroa_idx, align 8
+  %0 = load <2 x ptr>, ptr %p, align 8
   %add.ptr = getelementptr i8, ptr %s1.sroa.2.0.copyload, i64 %.rem18
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %data, i64 %conv, i1 false)
-  %add = add i64 %s.sroa.1.0.copyload, %conv
-  store ptr %s1.sroa.0.0.copyload, ptr %p, align 8
-  store ptr %s1.sroa.2.0.copyload, ptr %s1.sroa.2.0..sroa_idx, align 8
+  store <2 x ptr> %0, ptr %p, align 8
   br label %return.sink.split
 
 if.else34:                                        ; preds = %if.end
@@ -6312,8 +6304,8 @@ for.body.preheader.i:                             ; preds = %if.end60
 
 for.body.i78:                                     ; preds = %for.body.i78, %for.body.preheader.i
   %indvars.iv.i79 = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i81, %for.body.i78 ]
-  %0 = shl nuw i64 %indvars.iv.i79, 7
-  %add.ptr.i80 = getelementptr i8, ptr %data, i64 %0
+  %1 = shl nuw i64 %indvars.iv.i79, 7
+  %add.ptr.i80 = getelementptr i8, ptr %data, i64 %1
   tail call fastcc void @sha512_update(ptr noundef readonly %add.ptr.i80, ptr noundef %s138.sroa.0.0.copyload)
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i79, 1
   %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, %wide.trip.count.i
@@ -6369,8 +6361,8 @@ for.body.preheader.i92:                           ; preds = %if.end144
 
 for.body.i95:                                     ; preds = %for.body.i95, %for.body.preheader.i92
   %indvars.iv.i96 = phi i64 [ 0, %for.body.preheader.i92 ], [ %indvars.iv.next.i98, %for.body.i95 ]
-  %1 = shl nuw i64 %indvars.iv.i96, 7
-  %add.ptr.i97 = getelementptr i8, ptr %add.ptr95, i64 %1
+  %2 = shl nuw i64 %indvars.iv.i96, 7
+  %add.ptr.i97 = getelementptr i8, ptr %add.ptr95, i64 %2
   tail call fastcc void @sha512_update(ptr noundef readonly %add.ptr.i97, ptr noundef %s196.sroa.0.0.copyload)
   %indvars.iv.next.i98 = add nuw nsw i64 %indvars.iv.i96, 1
   %exitcond.not.i99 = icmp eq i64 %indvars.iv.next.i98, %wide.trip.count.i94
@@ -6640,10 +6632,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @python_hashlib_Hacl_Streaming_SHA2_init_384(ptr nocapture noundef %s) local_unnamed_addr #9 {
 entry:
-  %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 8
-  %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
   %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
+  %0 = load <2 x ptr>, ptr %s, align 8
+  %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
   store i64 -3766243637369397544, ptr %scrut.sroa.0.0.copyload, align 8
   %arrayidx8.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 8
   store i64 7105036623409894663, ptr %arrayidx8.i, align 8
@@ -6659,8 +6650,7 @@ entry:
   store i64 -2662702644619276377, ptr %arrayidx43.i, align 8
   %arrayidx50.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 56
   store i64 5167115440072839076, ptr %arrayidx50.i, align 8
-  store ptr %scrut.sroa.0.0.copyload, ptr %s, align 8
-  store ptr %scrut.sroa.2.0.copyload, ptr %scrut.sroa.2.0..sroa_idx, align 8
+  store <2 x ptr> %0, ptr %s, align 8
   store i64 0, ptr %scrut.sroa.3.0..sroa_idx, align 8
   ret void
 }

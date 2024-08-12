@@ -19610,20 +19610,17 @@ invoke.cont28:                                    ; preds = %invoke.cont24
   %element.i = getelementptr inbounds i8, ptr %field, i64 204
   %15 = load i32, ptr %element.i, align 4, !noalias !427
   %struct_def.i = getelementptr inbounds i8, ptr %field, i64 208
-  %16 = load ptr, ptr %struct_def.i, align 8, !noalias !427
-  %enum_def.i = getelementptr inbounds i8, ptr %field, i64 216
-  %17 = load ptr, ptr %enum_def.i, align 8, !noalias !427
   %fixed_length.i = getelementptr inbounds i8, ptr %field, i64 224
-  %18 = load i16, ptr %fixed_length.i, align 8, !noalias !427
+  %16 = load i16, ptr %fixed_length.i, align 8, !noalias !427
   store i32 %15, ptr %vector_type, align 8, !alias.scope !427
   %element.i.i = getelementptr inbounds i8, ptr %vector_type, i64 4
   store i32 0, ptr %element.i.i, align 4, !alias.scope !427
   %struct_def.i.i = getelementptr inbounds i8, ptr %vector_type, i64 8
-  store ptr %16, ptr %struct_def.i.i, align 8, !alias.scope !427
-  %enum_def.i.i = getelementptr inbounds i8, ptr %vector_type, i64 16
-  store ptr %17, ptr %enum_def.i.i, align 8, !alias.scope !427
+  %17 = load <2 x ptr>, ptr %struct_def.i, align 8, !noalias !427
+  %18 = load ptr, ptr %struct_def.i, align 8, !noalias !427
+  store <2 x ptr> %17, ptr %struct_def.i.i, align 8, !alias.scope !427
   %fixed_length.i.i = getelementptr inbounds i8, ptr %vector_type, i64 24
-  store i16 %18, ptr %fixed_length.i.i, align 8, !alias.scope !427
+  store i16 %16, ptr %fixed_length.i.i, align 8, !alias.scope !427
   switch i32 %15, label %sw.epilog.i30.i [
     i32 15, label %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i
     i32 17, label %invoke.cont29
@@ -19647,13 +19644,13 @@ invoke.cont28:                                    ; preds = %invoke.cont24
   ]
 
 _ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i:     ; preds = %invoke.cont28
-  %fixed.i.i = getelementptr inbounds i8, ptr %16, i64 272
+  %fixed.i.i = getelementptr inbounds i8, ptr %18, i64 272
   %19 = load i8, ptr %fixed.i.i, align 8
   %tobool.i.i = trunc i8 %19 to i1
   br i1 %tobool.i.i, label %if.then.i, label %invoke.cont29
 
 if.then.i:                                        ; preds = %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i
-  %minalign.i = getelementptr inbounds i8, ptr %16, i64 280
+  %minalign.i = getelementptr inbounds i8, ptr %18, i64 280
   %20 = load i64, ptr %minalign.i, align 8
   br label %invoke.cont29
 
@@ -20159,20 +20156,17 @@ invoke.cont31:                                    ; preds = %invoke.cont26
   %element.i = getelementptr inbounds i8, ptr %field, i64 204
   %11 = load i32, ptr %element.i, align 4, !noalias !442
   %struct_def.i = getelementptr inbounds i8, ptr %field, i64 208
-  %12 = load ptr, ptr %struct_def.i, align 8, !noalias !442
-  %enum_def.i = getelementptr inbounds i8, ptr %field, i64 216
-  %13 = load ptr, ptr %enum_def.i, align 8, !noalias !442
   %fixed_length.i = getelementptr inbounds i8, ptr %field, i64 224
-  %14 = load i16, ptr %fixed_length.i, align 8, !noalias !442
+  %12 = load i16, ptr %fixed_length.i, align 8, !noalias !442
   store i32 %11, ptr %vector_type, align 8, !alias.scope !442
   %element.i.i = getelementptr inbounds i8, ptr %vector_type, i64 4
   store i32 0, ptr %element.i.i, align 4, !alias.scope !442
   %struct_def.i.i = getelementptr inbounds i8, ptr %vector_type, i64 8
-  store ptr %12, ptr %struct_def.i.i, align 8, !alias.scope !442
-  %enum_def.i.i = getelementptr inbounds i8, ptr %vector_type, i64 16
-  store ptr %13, ptr %enum_def.i.i, align 8, !alias.scope !442
+  %13 = load <2 x ptr>, ptr %struct_def.i, align 8, !noalias !442
+  %14 = load ptr, ptr %struct_def.i, align 8, !noalias !442
+  store <2 x ptr> %13, ptr %struct_def.i.i, align 8, !alias.scope !442
   %fixed_length.i.i = getelementptr inbounds i8, ptr %vector_type, i64 24
-  store i16 %14, ptr %fixed_length.i.i, align 8, !alias.scope !442
+  store i16 %12, ptr %fixed_length.i.i, align 8, !alias.scope !442
   switch i32 %11, label %sw.epilog.i30.i [
     i32 15, label %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i
     i32 17, label %invoke.cont32
@@ -20196,13 +20190,13 @@ invoke.cont31:                                    ; preds = %invoke.cont26
   ]
 
 _ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i:     ; preds = %invoke.cont31
-  %fixed.i.i = getelementptr inbounds i8, ptr %12, i64 272
+  %fixed.i.i = getelementptr inbounds i8, ptr %14, i64 272
   %15 = load i8, ptr %fixed.i.i, align 8
   %tobool.i.i = trunc i8 %15 to i1
   br i1 %tobool.i.i, label %if.then.i, label %invoke.cont32
 
 if.then.i:                                        ; preds = %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i
-  %minalign.i = getelementptr inbounds i8, ptr %12, i64 280
+  %minalign.i = getelementptr inbounds i8, ptr %14, i64 280
   %16 = load i64, ptr %minalign.i, align 8
   br label %invoke.cont32
 
@@ -24831,20 +24825,17 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %element.i = getelementptr inbounds i8, ptr %field, i64 204
   %1 = load i32, ptr %element.i, align 4, !noalias !532
   %struct_def.i = getelementptr inbounds i8, ptr %field, i64 208
-  %2 = load ptr, ptr %struct_def.i, align 8, !noalias !532
-  %enum_def.i = getelementptr inbounds i8, ptr %field, i64 216
-  %3 = load ptr, ptr %enum_def.i, align 8, !noalias !532
   %fixed_length.i = getelementptr inbounds i8, ptr %field, i64 224
-  %4 = load i16, ptr %fixed_length.i, align 8, !noalias !532
+  %2 = load i16, ptr %fixed_length.i, align 8, !noalias !532
   store i32 %1, ptr %ref.tmp5, align 8, !alias.scope !532
   %element.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 4
   store i32 0, ptr %element.i.i, align 4, !alias.scope !532
   %struct_def.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
-  store ptr %2, ptr %struct_def.i.i, align 8, !alias.scope !532
-  %enum_def.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
-  store ptr %3, ptr %enum_def.i.i, align 8, !alias.scope !532
+  %3 = load <2 x ptr>, ptr %struct_def.i, align 8, !noalias !532
+  %4 = load ptr, ptr %struct_def.i, align 8, !noalias !532
+  store <2 x ptr> %3, ptr %struct_def.i.i, align 8, !alias.scope !532
   %fixed_length.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 24
-  store i16 %4, ptr %fixed_length.i.i, align 8, !alias.scope !532
+  store i16 %2, ptr %fixed_length.i.i, align 8, !alias.scope !532
   store i32 %1, ptr %base_type, align 4
   %cmp = icmp eq i32 %1, 15
   br i1 %cmp, label %if.then, label %if.else
@@ -24854,7 +24845,7 @@ if.then:                                          ; preds = %invoke.cont4
   %vtable.i = load ptr, ptr %namer_, align 8, !noalias !535
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 136
   %5 = load ptr, ptr %vfn.i, align 8, !noalias !535
-  call void %5(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %object_type, ptr noundef nonnull align 8 dereferenceable(392) %namer_, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  call void %5(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %object_type, ptr noundef nonnull align 8 dereferenceable(392) %namer_, ptr noundef nonnull align 8 dereferenceable(32) %4)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(32) %object_type)
           to label %.noexc21 unwind label %lpad8
 

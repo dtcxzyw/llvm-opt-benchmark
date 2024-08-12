@@ -3344,7 +3344,7 @@ invoke.cont:                                      ; preds = %_ZN5folly3f146detai
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i8 0, i64 24, i1 false)
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %creator, i64 16
   %3 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8
-  %4 = extractelement <2 x ptr> %3, i64 0
+  %4 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteIS3_EERKN5folly7dynamicEEEC2EOSC_.exit.i, label %if.then.i.i2
 
@@ -3362,9 +3362,9 @@ _ZNSt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_delet
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %2, i64 48
   %5 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %6 = load ptr, ptr %_M_manager3.i.i, align 8
   store <2 x ptr> %5, ptr %_M_manager.i.i, align 8
   store <2 x ptr> %3, ptr %_M_manager3.i.i, align 8
-  %6 = extractelement <2 x ptr> %5, i64 0
   %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFSt10unique_ptrIN8facebook5velox13ISerializableESt14default_deleteIS3_EERKN5folly7dynamicEEEaSEOSC_.exit, label %if.then.i.i.i
 
@@ -18991,12 +18991,12 @@ dynamic_cast.end89:                               ; preds = %if.end81
   call void @_ZNK8facebook5velox6common24BigintValuesUsingBitmask6valuesEv(ptr nonnull sret(%"class.std::vector.87") align 8 %ref.tmp90, ptr noundef nonnull align 8 dereferenceable(72) %53)
   %_M_end_of_storage.i.i.i.i98 = getelementptr inbounds i8, ptr %vals, i64 16
   %54 = load <2 x ptr>, ptr %ref.tmp90, align 16
+  %55 = load ptr, ptr %ref.tmp90, align 16
   store <2 x ptr> %54, ptr %vals, align 16
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp90, i64 16
-  %55 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %55, ptr %_M_end_of_storage.i.i.i.i98, align 16
+  %56 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
+  store ptr %56, ptr %_M_end_of_storage.i.i.i.i98, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ref.tmp90, i8 0, i64 24, i1 false)
-  %56 = extractelement <2 x ptr> %54, i64 0
   br label %if.end102
 
 dynamic_cast.end97:                               ; preds = %if.end81
@@ -19045,7 +19045,7 @@ if.end69.i:                                       ; preds = %dynamic_cast.end97,
   br label %if.end102
 
 if.end102:                                        ; preds = %dynamic_cast.end89, %if.end69.i
-  %62 = phi ptr [ %56, %dynamic_cast.end89 ], [ %61, %if.end69.i ]
+  %62 = phi ptr [ %55, %dynamic_cast.end89 ], [ %61, %if.end69.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rangeList, i8 0, i64 24, i1 false)
   %call.i110132 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #37
           to label %cond.true.i.i199 unwind label %lpad107
@@ -20624,10 +20624,10 @@ invoke.cont151:                                   ; preds = %if.else
   store ptr %71, ptr %rejectedValues, align 8
   %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp150, i64 8
   %72 = load <2 x ptr>, ptr %_M_finish.i2.i.i.i, align 8
+  %73 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
   store <2 x ptr> %72, ptr %_M_finish.i.i.i.i137, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %70, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp150, i8 0, i64 24, i1 false)
-  %73 = extractelement <2 x ptr> %72, i64 0
   br i1 %tobool.not.i.i.i.i.i, label %if.end153, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont151
@@ -24555,11 +24555,11 @@ dynamic_cast.end131:                              ; preds = %sw.bb122
 invoke.cont133:                                   ; preds = %dynamic_cast.end131
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %rejects, i64 16
   %70 = load <2 x ptr>, ptr %ref.tmp132, align 16
+  %71 = load ptr, ptr %ref.tmp132, align 16
   store <2 x ptr> %70, ptr %rejects, align 16
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp132, i64 16
-  %71 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
-  store ptr %71, ptr %_M_end_of_storage.i.i.i.i, align 16
-  %72 = extractelement <2 x ptr> %70, i64 0
+  %72 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 16
+  store ptr %72, ptr %_M_end_of_storage.i.i.i.i, align 16
   br label %if.end144
 
 dynamic_cast.end139:                              ; preds = %sw.bb122
@@ -24614,7 +24614,7 @@ if.end69.i:                                       ; preds = %dynamic_cast.end139
   br label %if.end144
 
 if.end144:                                        ; preds = %invoke.cont133, %if.end69.i
-  %78 = phi ptr [ %72, %invoke.cont133 ], [ %77, %if.end69.i ]
+  %78 = phi ptr [ %71, %invoke.cont133 ], [ %77, %if.end69.i ]
   %nullAllowed_146 = getelementptr inbounds i8, ptr %this, i64 8
   %79 = load i8, ptr %nullAllowed_146, align 8
   %tobool147 = trunc i8 %79 to i1

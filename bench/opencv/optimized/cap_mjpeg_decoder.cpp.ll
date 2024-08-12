@@ -612,62 +612,59 @@ define hidden noundef zeroext i1 @_ZN2cv17MotionJpegCapture9grabFrameEv(ptr noun
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %18
+  br i1 %9, label %10, label %17
 
 10:                                               ; preds = %6
   store i8 0, ptr %7, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !noalias !19
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
-  %14 = getelementptr inbounds i8, ptr %0, i64 72
-  %15 = load ptr, ptr %14, align 8, !noalias !19
-  %16 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr %12, ptr %16, align 8
-  %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 120
-  %17 = load <2 x ptr>, ptr %13, align 8, !noalias !19
-  store <2 x ptr> %17, ptr %.sroa.27.0..sroa_idx, align 8
-  %.sroa.49.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 136
-  store ptr %15, ptr %.sroa.49.0..sroa_idx, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %14 = load <2 x ptr>, ptr %11, align 8, !noalias !19
+  %15 = load ptr, ptr %11, align 8, !noalias !19
+  store <2 x ptr> %14, ptr %13, align 8
+  %.sroa.38.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 128
+  %16 = load <2 x ptr>, ptr %12, align 8, !noalias !19
+  store <2 x ptr> %16, ptr %.sroa.38.0..sroa_idx, align 8
   br label %_ZNSt15_Deque_iteratorISt4pairImjERS1_PS1_EppEv.exit
 
-18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %0, i64 112
-  %20 = getelementptr inbounds i8, ptr %0, i64 80
-  %21 = load ptr, ptr %20, align 8, !noalias !22
-  %22 = load ptr, ptr %19, align 8
-  %23 = icmp eq ptr %22, %21
-  br i1 %23, label %40, label %24
+17:                                               ; preds = %6
+  %18 = getelementptr inbounds i8, ptr %0, i64 112
+  %19 = getelementptr inbounds i8, ptr %0, i64 80
+  %20 = load ptr, ptr %19, align 8, !noalias !22
+  %21 = load ptr, ptr %18, align 8
+  %22 = icmp eq ptr %21, %20
+  br i1 %22, label %39, label %23
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %22, i64 16
-  store ptr %25, ptr %19, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 128
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %25, %27
-  br i1 %28, label %29, label %_ZNSt15_Deque_iteratorISt4pairImjERS1_PS1_EppEv.exit
+23:                                               ; preds = %17
+  %24 = getelementptr inbounds i8, ptr %21, i64 16
+  store ptr %24, ptr %18, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 128
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %24, %26
+  br i1 %27, label %28, label %_ZNSt15_Deque_iteratorISt4pairImjERS1_PS1_EppEv.exit
 
-29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 136
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
-  store ptr %32, ptr %30, align 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %33, i64 512
-  store ptr %35, ptr %26, align 8
-  store ptr %33, ptr %19, align 8
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds i8, ptr %0, i64 136
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  store ptr %31, ptr %29, align 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr %32, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %32, i64 512
+  store ptr %34, ptr %25, align 8
+  store ptr %32, ptr %18, align 8
   br label %_ZNSt15_Deque_iteratorISt4pairImjERS1_PS1_EppEv.exit
 
-_ZNSt15_Deque_iteratorISt4pairImjERS1_PS1_EppEv.exit: ; preds = %._ZNSt15_Deque_iteratorISt4pairImjERS1_PS1_EppEv.exit_crit_edge, %29, %24, %10
-  %36 = phi ptr [ %.pre, %._ZNSt15_Deque_iteratorISt4pairImjERS1_PS1_EppEv.exit_crit_edge ], [ %33, %29 ], [ %25, %24 ], [ %12, %10 ]
-  %37 = getelementptr inbounds i8, ptr %0, i64 80
-  %38 = load ptr, ptr %37, align 8, !noalias !25
-  %39 = icmp ne ptr %36, %38
-  br label %40
+_ZNSt15_Deque_iteratorISt4pairImjERS1_PS1_EppEv.exit: ; preds = %._ZNSt15_Deque_iteratorISt4pairImjERS1_PS1_EppEv.exit_crit_edge, %28, %23, %10
+  %35 = phi ptr [ %.pre, %._ZNSt15_Deque_iteratorISt4pairImjERS1_PS1_EppEv.exit_crit_edge ], [ %32, %28 ], [ %24, %23 ], [ %15, %10 ]
+  %36 = getelementptr inbounds i8, ptr %0, i64 80
+  %37 = load ptr, ptr %36, align 8, !noalias !25
+  %38 = icmp ne ptr %35, %37
+  br label %39
 
-40:                                               ; preds = %18, %_ZNSt15_Deque_iteratorISt4pairImjERS1_PS1_EppEv.exit
-  %.0 = phi i1 [ %39, %_ZNSt15_Deque_iteratorISt4pairImjERS1_PS1_EppEv.exit ], [ false, %18 ]
+39:                                               ; preds = %17, %_ZNSt15_Deque_iteratorISt4pairImjERS1_PS1_EppEv.exit
+  %.0 = phi i1 [ %38, %_ZNSt15_Deque_iteratorISt4pairImjERS1_PS1_EppEv.exit ], [ false, %17 ]
   ret i1 %.0
 }
 

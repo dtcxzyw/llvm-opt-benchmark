@@ -18279,7 +18279,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN12_GLOBAL__N_121DOCTEST_ANON_FUNC_109Ev() #5 personality ptr @__gxx_personality_v0 {
-  %1 = alloca %"class.std::shared_ptr.133", align 8
+  %1 = alloca %"class.std::shared_ptr.133", align 16
   %2 = alloca %"class.std::shared_ptr.133", align 8
   %3 = alloca ptr, align 8
   %4 = alloca %"struct.doctest::detail::Subcase", align 8
@@ -18386,17 +18386,16 @@ define internal void @_ZN12_GLOBAL__N_121DOCTEST_ANON_FUNC_109Ev() #5 personalit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %52)
   %54 = getelementptr inbounds i8, ptr %53, i64 2336
-  %55 = load ptr, ptr %54, align 8
-  store ptr %55, ptr %1, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
-  %57 = getelementptr inbounds i8, ptr %53, i64 2344
-  %58 = load ptr, ptr %57, align 8
-  store ptr %58, ptr %56, align 8
-  %.not.i.i.i.i = icmp eq ptr %58, null
+  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = getelementptr inbounds i8, ptr %53, i64 2344
+  %57 = load ptr, ptr %56, align 8
+  %58 = load <2 x ptr>, ptr %54, align 8
+  store <2 x ptr> %58, ptr %1, align 16
+  %.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit.i, label %59
 
 59:                                               ; preds = %0
-  %60 = getelementptr inbounds i8, ptr %58, i64 8
+  %60 = getelementptr inbounds i8, ptr %57, i64 8
   %61 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %61, 0
   br i1 %.not.i.i.i.i.i, label %65, label %62
@@ -18438,13 +18437,13 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4Luau5ScopeESaIvELN9__gnu
   store ptr %67, ptr %73, align 8, !alias.scope !109
   store ptr %70, ptr %2, align 8, !alias.scope !109
   %74 = getelementptr inbounds i8, ptr %53, i64 2248
-  %75 = load ptr, ptr %1, align 8
+  %75 = load ptr, ptr %1, align 16
   %76 = invoke noundef ptr @_ZN4Luau9TypeArena9freshTypeEPNS_5ScopeE(ptr noundef nonnull align 8 dereferenceable(88) %74, ptr noundef %75)
           to label %77 unwind label %137
 
 77:                                               ; preds = %72
   store ptr %76, ptr %3, align 8
-  %78 = load ptr, ptr %1, align 8
+  %78 = load ptr, ptr %1, align 16
   %79 = invoke noundef ptr @_ZN4Luau9TypeArena9freshTypeEPNS_5ScopeE(ptr noundef nonnull align 8 dereferenceable(88) %74, ptr noundef %78)
           to label %80 unwind label %137
 
@@ -18479,14 +18478,14 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4Luau5ScopeESaIvELN9__gnu
 91:                                               ; preds = %90
   %92 = getelementptr inbounds i8, ptr %53, i64 2224
   %.sroa.011.0.copyload.i = load ptr, ptr %92, align 8
-  %93 = load ptr, ptr %1, align 8
+  %93 = load ptr, ptr %1, align 16
   %94 = load ptr, ptr %3, align 8
   %95 = invoke fastcc noundef ptr @_ZL13createTheTypeRN4Luau9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_5ScopeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(88) %74, ptr %.sroa.011.0.copyload.i, ptr noundef %93, ptr noundef %94)
           to label %96 unwind label %143
 
 96:                                               ; preds = %91
   %.sroa.09.0.copyload.i = load ptr, ptr %92, align 8
-  %97 = load ptr, ptr %1, align 8
+  %97 = load ptr, ptr %1, align 16
   %98 = invoke fastcc noundef ptr @_ZL13createTheTypeRN4Luau9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_5ScopeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(88) %74, ptr %.sroa.09.0.copyload.i, ptr noundef %97, ptr noundef %79)
           to label %99 unwind label %143
 
@@ -18698,14 +18697,14 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4Luau5ScopeESaIvELN9__gnu
 177:                                              ; preds = %176
   %178 = getelementptr inbounds i8, ptr %53, i64 2224
   %.sroa.06.0.copyload.i = load ptr, ptr %178, align 8
-  %179 = load ptr, ptr %1, align 8
+  %179 = load ptr, ptr %1, align 16
   %180 = load ptr, ptr %3, align 8
   %181 = invoke fastcc noundef ptr @_ZL13createTheTypeRN4Luau9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_5ScopeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(88) %74, ptr %.sroa.06.0.copyload.i, ptr noundef %179, ptr noundef %180)
           to label %182 unwind label %224
 
 182:                                              ; preds = %177
   %.sroa.04.0.copyload.i = load ptr, ptr %178, align 8
-  %183 = load ptr, ptr %1, align 8
+  %183 = load ptr, ptr %1, align 16
   %184 = invoke fastcc noundef ptr @_ZL13createTheTypeRN4Luau9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_5ScopeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(88) %74, ptr %.sroa.04.0.copyload.i, ptr noundef %183, ptr noundef %81)
           to label %185 unwind label %224
 
@@ -19113,13 +19112,13 @@ _ZN4Luau6get_ifINS_9Unifiable5BoundIPKNS_4TypeEEEJS6_NS1_5ErrorENS_8FreeTypeENS_
 329:                                              ; preds = %328
   %330 = getelementptr inbounds i8, ptr %53, i64 2224
   %.sroa.01.0.copyload.i = load ptr, ptr %330, align 8
-  %331 = load ptr, ptr %1, align 8
+  %331 = load ptr, ptr %1, align 16
   %332 = invoke fastcc noundef ptr @_ZL13createTheTypeRN4Luau9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_5ScopeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(88) %74, ptr %.sroa.01.0.copyload.i, ptr noundef %331, ptr noundef %81)
           to label %333 unwind label %376
 
 333:                                              ; preds = %329
   %.sroa.0.0.copyload.i = load ptr, ptr %330, align 8
-  %334 = load ptr, ptr %1, align 8
+  %334 = load ptr, ptr %1, align 16
   %335 = load ptr, ptr %3, align 8
   %336 = invoke fastcc noundef ptr @_ZL13createTheTypeRN4Luau9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPNS_5ScopeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(88) %74, ptr %.sroa.0.0.copyload.i, ptr noundef %334, ptr noundef %335)
           to label %337 unwind label %376
@@ -19584,7 +19583,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit.i
 
 _ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit.i:      ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %506, %493, %_ZN12ScopedFValueIbED2Ev.exit.i
-  %511 = load ptr, ptr %56, align 8
+  %511 = load ptr, ptr %55, align 8
   %.not.i.i.i93.i = icmp eq ptr %511, null
   br i1 %.not.i.i.i93.i, label %550, label %512
 

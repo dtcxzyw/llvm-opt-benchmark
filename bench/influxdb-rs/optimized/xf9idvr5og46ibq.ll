@@ -12479,7 +12479,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.
   %.0.i.i2.i.i.i = phi ptr [ %175, %.noexc.i ], [ getelementptr inbounds (i8, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, i64 8), %145 ]
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 248
   %199 = load <2 x i64>, ptr %.0.i.i2.i.i.i, align 8, !noalias !2410
-  %200 = extractelement <2 x i64> %199, i64 0
+  %200 = load i64, ptr %.0.i.i2.i.i.i, align 8, !noalias !2410, !noundef !4
   %201 = add i64 %200, 1
   store i64 %201, ptr %.0.i.i2.i.i.i, align 8, !noalias !2410
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %173, ptr noundef nonnull align 8 dereferenceable(32) @anon.ac300e8587a3771c06c4fe0a0665760c.287, i64 32, i1 false), !noalias !2393

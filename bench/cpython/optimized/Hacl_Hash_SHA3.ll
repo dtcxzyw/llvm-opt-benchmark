@@ -769,14 +769,12 @@ define hidden void @Hacl_Streaming_Keccak_reset(ptr nocapture noundef %s) local_
 entry:
   %scrut.sroa.0.0.copyload = load i64, ptr %s, align 8
   %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 8
-  %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
-  %scrut.sroa.3.0.copyload = load ptr, ptr %scrut.sroa.3.0..sroa_idx, align 8
   %scrut.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 24
+  %0 = load <2 x ptr>, ptr %scrut.sroa.2.0..sroa_idx, align 8
+  %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %scrut.sroa.2.0.copyload, i8 0, i64 200, i1 false)
   store i64 %scrut.sroa.0.0.copyload, ptr %s, align 8
-  store ptr %scrut.sroa.2.0.copyload, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  store ptr %scrut.sroa.3.0.copyload, ptr %scrut.sroa.3.0..sroa_idx, align 8
+  store <2 x ptr> %0, ptr %scrut.sroa.2.0..sroa_idx, align 8
   store i64 0, ptr %scrut.sroa.4.0..sroa_idx, align 8
   ret void
 }

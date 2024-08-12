@@ -382,29 +382,30 @@ _ZN6gmxapi10MDWorkSpec4ImplD2Ev.exit:             ; preds = %_ZSt8_DestroyIPSt10
 define void @_ZN6gmxapi8MDHolder7getSpecEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.2") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = load <2 x ptr>, ptr %4, align 8
-  store <2 x ptr> %5, ptr %0, align 8
-  %6 = extractelement <2 x ptr> %5, i64 1
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = load <2 x ptr>, ptr %4, align 8
+  store <2 x ptr> %7, ptr %0, align 8
   %.not.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN6gmxapi10MDWorkSpecEEC2ERKS2_.exit, label %7
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN6gmxapi10MDWorkSpecEEC2ERKS2_.exit, label %8
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i = icmp eq i8 %9, 0
-  br i1 %.not.i.i.i.i, label %13, label %10
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i = icmp eq i8 %10, 0
+  br i1 %.not.i.i.i.i, label %14, label %11
 
-10:                                               ; preds = %7
-  %11 = load i32, ptr %8, align 4
-  %12 = add nsw i32 %11, 1
-  store i32 %12, ptr %8, align 4
+11:                                               ; preds = %8
+  %12 = load i32, ptr %9, align 4
+  %13 = add nsw i32 %12, 1
+  store i32 %13, ptr %9, align 4
   br label %_ZNSt10shared_ptrIN6gmxapi10MDWorkSpecEEC2ERKS2_.exit
 
-13:                                               ; preds = %7
-  %14 = atomicrmw volatile add ptr %8, i32 1 acq_rel, align 4
+14:                                               ; preds = %8
+  %15 = atomicrmw volatile add ptr %9, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN6gmxapi10MDWorkSpecEEC2ERKS2_.exit
 
-_ZNSt10shared_ptrIN6gmxapi10MDWorkSpecEEC2ERKS2_.exit: ; preds = %2, %10, %13
+_ZNSt10shared_ptrIN6gmxapi10MDWorkSpecEEC2ERKS2_.exit: ; preds = %2, %11, %14
   ret void
 }
 
@@ -412,29 +413,30 @@ _ZNSt10shared_ptrIN6gmxapi10MDWorkSpecEEC2ERKS2_.exit: ; preds = %2, %10, %13
 define void @_ZNK6gmxapi8MDHolder7getSpecEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.11") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = load <2 x ptr>, ptr %4, align 8
-  store <2 x ptr> %5, ptr %0, align 8
-  %6 = extractelement <2 x ptr> %5, i64 1
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = load <2 x ptr>, ptr %4, align 8
+  store <2 x ptr> %7, ptr %0, align 8
   %.not.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIKN6gmxapi10MDWorkSpecEEC2IS1_vEERKS_IT_E.exit, label %7
+  br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIKN6gmxapi10MDWorkSpecEEC2IS1_vEERKS_IT_E.exit, label %8
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i = icmp eq i8 %9, 0
-  br i1 %.not.i.i.i.i, label %13, label %10
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i = icmp eq i8 %10, 0
+  br i1 %.not.i.i.i.i, label %14, label %11
 
-10:                                               ; preds = %7
-  %11 = load i32, ptr %8, align 4
-  %12 = add nsw i32 %11, 1
-  store i32 %12, ptr %8, align 4
+11:                                               ; preds = %8
+  %12 = load i32, ptr %9, align 4
+  %13 = add nsw i32 %12, 1
+  store i32 %13, ptr %9, align 4
   br label %_ZNSt10shared_ptrIKN6gmxapi10MDWorkSpecEEC2IS1_vEERKS_IT_E.exit
 
-13:                                               ; preds = %7
-  %14 = atomicrmw volatile add ptr %8, i32 1 acq_rel, align 4
+14:                                               ; preds = %8
+  %15 = atomicrmw volatile add ptr %9, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIKN6gmxapi10MDWorkSpecEEC2IS1_vEERKS_IT_E.exit
 
-_ZNSt10shared_ptrIKN6gmxapi10MDWorkSpecEEC2IS1_vEERKS_IT_E.exit: ; preds = %2, %10, %13
+_ZNSt10shared_ptrIKN6gmxapi10MDWorkSpecEEC2IS1_vEERKS_IT_E.exit: ; preds = %2, %11, %14
   ret void
 }
 

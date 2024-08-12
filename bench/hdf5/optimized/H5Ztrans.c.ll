@@ -8136,242 +8136,240 @@ define internal fastcc noundef ptr @H5Z__get_token(ptr noundef returned %0) unna
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %3, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %9, ptr %10, align 8
-  store ptr %9, ptr %5, align 8
-  %11 = load i8, ptr %9, align 1
-  %.not88 = icmp eq i8 %11, 0
+  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8
+  %9 = load <2 x ptr>, ptr %5, align 8
+  store <2 x ptr> %9, ptr %6, align 8
+  store ptr %8, ptr %5, align 8
+  %10 = load i8, ptr %8, align 1
+  %.not88 = icmp eq i8 %10, 0
   br i1 %.not88, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %12 = tail call ptr @__ctype_b_loc() #16
-  br label %13
+  %11 = tail call ptr @__ctype_b_loc() #16
+  br label %12
 
-13:                                               ; preds = %.lr.ph, %109
-  %14 = phi i8 [ %11, %.lr.ph ], [ %111, %109 ]
-  %15 = phi ptr [ %9, %.lr.ph ], [ %110, %109 ]
-  %16 = load ptr, ptr %12, align 8
-  %17 = sext i8 %14 to i64
-  %18 = getelementptr inbounds i16, ptr %16, i64 %17
-  %19 = load i16, ptr %18, align 2
-  %20 = zext i16 %19 to i32
-  %21 = and i32 %20, 8192
-  %.not68 = icmp eq i32 %21, 0
-  br i1 %.not68, label %22, label %109
+12:                                               ; preds = %.lr.ph, %108
+  %13 = phi i8 [ %10, %.lr.ph ], [ %110, %108 ]
+  %14 = phi ptr [ %8, %.lr.ph ], [ %109, %108 ]
+  %15 = load ptr, ptr %11, align 8
+  %16 = sext i8 %13 to i64
+  %17 = getelementptr inbounds i16, ptr %15, i64 %16
+  %18 = load i16, ptr %17, align 2
+  %19 = zext i16 %18 to i32
+  %20 = and i32 %19, 8192
+  %.not68 = icmp eq i32 %20, 0
+  br i1 %.not68, label %21, label %108
 
-22:                                               ; preds = %13
-  %23 = and i32 %20, 2048
-  %.not69 = icmp ne i32 %23, 0
-  %24 = icmp eq i8 %14, 46
-  %or.cond = or i1 %24, %.not69
-  br i1 %or.cond, label %25, label %90
+21:                                               ; preds = %12
+  %22 = and i32 %19, 2048
+  %.not69 = icmp ne i32 %22, 0
+  %23 = icmp eq i8 %13, 46
+  %or.cond = or i1 %23, %.not69
+  br i1 %or.cond, label %24, label %89
 
-25:                                               ; preds = %22
-  store ptr %15, ptr %8, align 8
-  %26 = load i8, ptr %15, align 1
-  %.not73 = icmp eq i8 %26, 46
-  br i1 %.not73, label %.loopexit82.thread, label %27
+24:                                               ; preds = %21
+  store ptr %14, ptr %7, align 8
+  %25 = load i8, ptr %14, align 1
+  %.not73 = icmp eq i8 %25, 46
+  br i1 %.not73, label %.loopexit82.thread, label %26
 
-27:                                               ; preds = %25
+26:                                               ; preds = %24
   store i32 1, ptr %2, align 8
-  %28 = load ptr, ptr %12, align 8
-  %29 = load i8, ptr %15, align 1
-  %30 = sext i8 %29 to i64
-  %31 = getelementptr inbounds i16, ptr %28, i64 %30
-  %32 = load i16, ptr %31, align 2
-  %33 = and i16 %32, 2048
-  %.not7490 = icmp eq i16 %33, 0
+  %27 = load ptr, ptr %11, align 8
+  %28 = load i8, ptr %14, align 1
+  %29 = sext i8 %28 to i64
+  %30 = getelementptr inbounds i16, ptr %27, i64 %29
+  %31 = load i16, ptr %30, align 2
+  %32 = and i16 %31, 2048
+  %.not7490 = icmp eq i16 %32, 0
   br i1 %.not7490, label %.loopexit82, label %.lr.ph91
 
-.lr.ph91:                                         ; preds = %27, %.lr.ph91
-  %34 = phi ptr [ %35, %.lr.ph91 ], [ %15, %27 ]
-  %35 = getelementptr inbounds i8, ptr %34, i64 1
-  store ptr %35, ptr %8, align 8
-  %36 = load ptr, ptr %12, align 8
-  %37 = load i8, ptr %35, align 1
-  %38 = sext i8 %37 to i64
-  %39 = getelementptr inbounds i16, ptr %36, i64 %38
-  %40 = load i16, ptr %39, align 2
-  %41 = and i16 %40, 2048
-  %.not74 = icmp eq i16 %41, 0
+.lr.ph91:                                         ; preds = %26, %.lr.ph91
+  %33 = phi ptr [ %34, %.lr.ph91 ], [ %14, %26 ]
+  %34 = getelementptr inbounds i8, ptr %33, i64 1
+  store ptr %34, ptr %7, align 8
+  %35 = load ptr, ptr %11, align 8
+  %36 = load i8, ptr %34, align 1
+  %37 = sext i8 %36 to i64
+  %38 = getelementptr inbounds i16, ptr %35, i64 %37
+  %39 = load i16, ptr %38, align 2
+  %40 = and i16 %39, 2048
+  %.not74 = icmp eq i16 %40, 0
   br i1 %.not74, label %.loopexit82, label %.lr.ph91
 
-.loopexit82:                                      ; preds = %.lr.ph91, %27
-  %42 = phi i8 [ %29, %27 ], [ %37, %.lr.ph91 ]
-  %43 = phi ptr [ %15, %27 ], [ %35, %.lr.ph91 ]
-  switch i8 %42, label %.loopexit83 [
+.loopexit82:                                      ; preds = %.lr.ph91, %26
+  %41 = phi i8 [ %28, %26 ], [ %36, %.lr.ph91 ]
+  %42 = phi ptr [ %14, %26 ], [ %34, %.lr.ph91 ]
+  switch i8 %41, label %.loopexit83 [
     i8 46, label %.loopexit82.thread
     i8 101, label %.loopexit82.thread
     i8 69, label %.loopexit82.thread
   ]
 
-.loopexit82.thread:                               ; preds = %25, %.loopexit82, %.loopexit82, %.loopexit82
-  %44 = phi ptr [ %43, %.loopexit82 ], [ %43, %.loopexit82 ], [ %43, %.loopexit82 ], [ %15, %25 ]
+.loopexit82.thread:                               ; preds = %24, %.loopexit82, %.loopexit82, %.loopexit82
+  %43 = phi ptr [ %42, %.loopexit82 ], [ %42, %.loopexit82 ], [ %42, %.loopexit82 ], [ %14, %24 ]
   store i32 2, ptr %2, align 8
-  %45 = load i8, ptr %44, align 1
-  %46 = icmp eq i8 %45, 46
-  br i1 %46, label %.preheader80, label %.loopexit81
+  %44 = load i8, ptr %43, align 1
+  %45 = icmp eq i8 %44, 46
+  br i1 %45, label %.preheader80, label %.loopexit81
 
 .preheader80:                                     ; preds = %.loopexit82.thread, %.preheader80
-  %47 = phi ptr [ %48, %.preheader80 ], [ %44, %.loopexit82.thread ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 1
-  store ptr %48, ptr %8, align 8
-  %49 = load ptr, ptr %12, align 8
-  %50 = load i8, ptr %48, align 1
-  %51 = sext i8 %50 to i64
-  %52 = getelementptr inbounds i16, ptr %49, i64 %51
-  %53 = load i16, ptr %52, align 2
-  %54 = and i16 %53, 2048
-  %.not75 = icmp eq i16 %54, 0
+  %46 = phi ptr [ %47, %.preheader80 ], [ %43, %.loopexit82.thread ]
+  %47 = getelementptr inbounds i8, ptr %46, i64 1
+  store ptr %47, ptr %7, align 8
+  %48 = load ptr, ptr %11, align 8
+  %49 = load i8, ptr %47, align 1
+  %50 = sext i8 %49 to i64
+  %51 = getelementptr inbounds i16, ptr %48, i64 %50
+  %52 = load i16, ptr %51, align 2
+  %53 = and i16 %52, 2048
+  %.not75 = icmp eq i16 %53, 0
   br i1 %.not75, label %.loopexit81, label %.preheader80
 
 .loopexit81:                                      ; preds = %.preheader80, %.loopexit82.thread
-  %55 = phi i8 [ %45, %.loopexit82.thread ], [ %50, %.preheader80 ]
-  %56 = phi ptr [ %44, %.loopexit82.thread ], [ %48, %.preheader80 ]
-  switch i8 %55, label %.loopexit81..loopexit_crit_edge [
-    i8 101, label %57
-    i8 69, label %57
+  %54 = phi i8 [ %44, %.loopexit82.thread ], [ %49, %.preheader80 ]
+  %55 = phi ptr [ %43, %.loopexit82.thread ], [ %47, %.preheader80 ]
+  switch i8 %54, label %.loopexit81..loopexit_crit_edge [
+    i8 101, label %56
+    i8 69, label %56
   ]
 
 .loopexit81..loopexit_crit_edge:                  ; preds = %.loopexit81
-  %.pre98 = load ptr, ptr %12, align 8
-  %.phi.trans.insert = sext i8 %55 to i64
+  %.pre98 = load ptr, ptr %11, align 8
+  %.phi.trans.insert = sext i8 %54 to i64
   %.phi.trans.insert99 = getelementptr inbounds i16, ptr %.pre98, i64 %.phi.trans.insert
   %.pre100 = load i16, ptr %.phi.trans.insert99, align 2
   br label %.loopexit
 
-57:                                               ; preds = %.loopexit81, %.loopexit81
-  %58 = getelementptr inbounds i8, ptr %56, i64 1
-  store ptr %58, ptr %8, align 8
-  %59 = load i8, ptr %58, align 1
-  switch i8 %59, label %62 [
-    i8 45, label %60
-    i8 43, label %60
+56:                                               ; preds = %.loopexit81, %.loopexit81
+  %57 = getelementptr inbounds i8, ptr %55, i64 1
+  store ptr %57, ptr %7, align 8
+  %58 = load i8, ptr %57, align 1
+  switch i8 %58, label %61 [
+    i8 45, label %59
+    i8 43, label %59
   ]
 
-60:                                               ; preds = %57, %57
-  %61 = getelementptr inbounds i8, ptr %56, i64 2
-  store ptr %61, ptr %8, align 8
-  %.pre = load i8, ptr %61, align 1
-  br label %62
+59:                                               ; preds = %56, %56
+  %60 = getelementptr inbounds i8, ptr %55, i64 2
+  store ptr %60, ptr %7, align 8
+  %.pre = load i8, ptr %60, align 1
+  br label %61
 
-62:                                               ; preds = %57, %60
-  %63 = phi i8 [ %59, %57 ], [ %.pre, %60 ]
-  %64 = phi ptr [ %58, %57 ], [ %61, %60 ]
-  %65 = load ptr, ptr %12, align 8
-  %66 = sext i8 %63 to i64
-  %67 = getelementptr inbounds i16, ptr %65, i64 %66
-  %68 = load i16, ptr %67, align 2
-  %69 = and i16 %68, 2048
-  %.not76 = icmp eq i16 %69, 0
-  br i1 %.not76, label %70, label %.lr.ph93
+61:                                               ; preds = %56, %59
+  %62 = phi i8 [ %58, %56 ], [ %.pre, %59 ]
+  %63 = phi ptr [ %57, %56 ], [ %60, %59 ]
+  %64 = load ptr, ptr %11, align 8
+  %65 = sext i8 %62 to i64
+  %66 = getelementptr inbounds i16, ptr %64, i64 %65
+  %67 = load i16, ptr %66, align 2
+  %68 = and i16 %67, 2048
+  %.not76 = icmp eq i16 %68, 0
+  br i1 %.not76, label %69, label %.lr.ph93
 
-70:                                               ; preds = %62
+69:                                               ; preds = %61
   store i32 0, ptr %2, align 8
-  %71 = load i64, ptr @H5E_ARGS_g, align 8
-  %72 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %73 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__get_token, i32 noundef 425, i64 noundef %71, i64 noundef %72, ptr noundef nonnull @.str.24) #12
-  br label %113
+  %70 = load i64, ptr @H5E_ARGS_g, align 8
+  %71 = load i64, ptr @H5E_BADVALUE_g, align 8
+  %72 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__get_token, i32 noundef 425, i64 noundef %70, i64 noundef %71, ptr noundef nonnull @.str.24) #12
+  br label %112
 
-.lr.ph93:                                         ; preds = %62, %.lr.ph93
-  %74 = phi ptr [ %75, %.lr.ph93 ], [ %64, %62 ]
-  %75 = getelementptr inbounds i8, ptr %74, i64 1
-  store ptr %75, ptr %8, align 8
-  %76 = load ptr, ptr %12, align 8
-  %77 = load i8, ptr %75, align 1
-  %78 = sext i8 %77 to i64
-  %79 = getelementptr inbounds i16, ptr %76, i64 %78
-  %80 = load i16, ptr %79, align 2
-  %81 = and i16 %80, 2048
-  %.not77 = icmp eq i16 %81, 0
+.lr.ph93:                                         ; preds = %61, %.lr.ph93
+  %73 = phi ptr [ %74, %.lr.ph93 ], [ %63, %61 ]
+  %74 = getelementptr inbounds i8, ptr %73, i64 1
+  store ptr %74, ptr %7, align 8
+  %75 = load ptr, ptr %11, align 8
+  %76 = load i8, ptr %74, align 1
+  %77 = sext i8 %76 to i64
+  %78 = getelementptr inbounds i16, ptr %75, i64 %77
+  %79 = load i16, ptr %78, align 2
+  %80 = and i16 %79, 2048
+  %.not77 = icmp eq i16 %80, 0
   br i1 %.not77, label %.loopexit, label %.lr.ph93
 
 .loopexit:                                        ; preds = %.lr.ph93, %.loopexit81..loopexit_crit_edge
-  %82 = phi i16 [ %.pre100, %.loopexit81..loopexit_crit_edge ], [ %80, %.lr.ph93 ]
-  %83 = phi i8 [ %55, %.loopexit81..loopexit_crit_edge ], [ %77, %.lr.ph93 ]
-  %84 = and i16 %82, 1024
-  %.not78 = icmp ne i16 %84, 0
-  %85 = icmp eq i8 %83, 46
-  %or.cond79 = or i1 %85, %.not78
-  br i1 %or.cond79, label %86, label %.loopexit83
+  %81 = phi i16 [ %.pre100, %.loopexit81..loopexit_crit_edge ], [ %79, %.lr.ph93 ]
+  %82 = phi i8 [ %54, %.loopexit81..loopexit_crit_edge ], [ %76, %.lr.ph93 ]
+  %83 = and i16 %81, 1024
+  %.not78 = icmp ne i16 %83, 0
+  %84 = icmp eq i8 %82, 46
+  %or.cond79 = or i1 %84, %.not78
+  br i1 %or.cond79, label %85, label %.loopexit83
 
-86:                                               ; preds = %.loopexit
+85:                                               ; preds = %.loopexit
   store i32 0, ptr %2, align 8
-  %87 = load i64, ptr @H5E_ARGS_g, align 8
-  %88 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %89 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__get_token, i32 noundef 435, i64 noundef %87, i64 noundef %88, ptr noundef nonnull @.str.24) #12
-  br label %113
+  %86 = load i64, ptr @H5E_ARGS_g, align 8
+  %87 = load i64, ptr @H5E_BADVALUE_g, align 8
+  %88 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__get_token, i32 noundef 435, i64 noundef %86, i64 noundef %87, ptr noundef nonnull @.str.24) #12
+  br label %112
 
-90:                                               ; preds = %22
-  %91 = and i32 %20, 1024
-  %.not70 = icmp eq i32 %91, 0
-  br i1 %.not70, label %101, label %92
+89:                                               ; preds = %21
+  %90 = and i32 %19, 1024
+  %.not70 = icmp eq i32 %90, 0
+  br i1 %.not70, label %100, label %91
 
-92:                                               ; preds = %90
+91:                                               ; preds = %89
   store i32 3, ptr %2, align 8
-  br label %93
+  br label %92
 
-93:                                               ; preds = %93, %92
-  %storemerge71 = phi ptr [ %15, %92 ], [ %100, %93 ]
-  store ptr %storemerge71, ptr %8, align 8
-  %94 = load ptr, ptr %12, align 8
-  %95 = load i8, ptr %storemerge71, align 1
-  %96 = sext i8 %95 to i64
-  %97 = getelementptr inbounds i16, ptr %94, i64 %96
-  %98 = load i16, ptr %97, align 2
-  %99 = and i16 %98, 8
-  %.not72 = icmp eq i16 %99, 0
-  %100 = getelementptr inbounds i8, ptr %storemerge71, i64 1
-  br i1 %.not72, label %.loopexit83, label %93
+92:                                               ; preds = %92, %91
+  %storemerge71 = phi ptr [ %14, %91 ], [ %99, %92 ]
+  store ptr %storemerge71, ptr %7, align 8
+  %93 = load ptr, ptr %11, align 8
+  %94 = load i8, ptr %storemerge71, align 1
+  %95 = sext i8 %94 to i64
+  %96 = getelementptr inbounds i16, ptr %93, i64 %95
+  %97 = load i16, ptr %96, align 2
+  %98 = and i16 %97, 8
+  %.not72 = icmp eq i16 %98, 0
+  %99 = getelementptr inbounds i8, ptr %storemerge71, i64 1
+  br i1 %.not72, label %.loopexit83, label %92
 
-101:                                              ; preds = %90
-  %switch.tableidx = add i8 %14, -40
-  %102 = icmp ult i8 %switch.tableidx, 8
-  br i1 %102, label %switch.hole_check, label %103
+100:                                              ; preds = %89
+  %switch.tableidx = add i8 %13, -40
+  %101 = icmp ult i8 %switch.tableidx, 8
+  br i1 %101, label %switch.hole_check, label %102
 
-103:                                              ; preds = %switch.hole_check, %101
+102:                                              ; preds = %switch.hole_check, %100
   store i32 0, ptr %2, align 8
-  %104 = load i64, ptr @H5E_ARGS_g, align 8
-  %105 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %106 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__get_token, i32 noundef 475, i64 noundef %104, i64 noundef %105, ptr noundef nonnull @.str.25) #12
-  br label %113
+  %103 = load i64, ptr @H5E_ARGS_g, align 8
+  %104 = load i64, ptr @H5E_BADVALUE_g, align 8
+  %105 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5Z__get_token, i32 noundef 475, i64 noundef %103, i64 noundef %104, ptr noundef nonnull @.str.25) #12
+  br label %112
 
-switch.hole_check:                                ; preds = %101
+switch.hole_check:                                ; preds = %100
   %switch.shifted = lshr i8 -81, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %103
+  br i1 %switch.lobit, label %switch.lookup, label %102
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %107 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table.H5Z__get_token, i64 0, i64 %107
+  %106 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [8 x i32], ptr @switch.table.H5Z__get_token, i64 0, i64 %106
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %2, align 8
-  %108 = getelementptr inbounds i8, ptr %15, i64 1
-  store ptr %108, ptr %8, align 8
+  %107 = getelementptr inbounds i8, ptr %14, i64 1
+  store ptr %107, ptr %7, align 8
   br label %.loopexit83
 
-109:                                              ; preds = %13
-  %110 = getelementptr inbounds i8, ptr %15, i64 1
-  store ptr %110, ptr %5, align 8
-  %111 = load i8, ptr %110, align 1
-  %.not = icmp eq i8 %111, 0
-  br i1 %.not, label %.thread, label %13
+108:                                              ; preds = %12
+  %109 = getelementptr inbounds i8, ptr %14, i64 1
+  store ptr %109, ptr %5, align 8
+  %110 = load i8, ptr %109, align 1
+  %.not = icmp eq i8 %110, 0
+  br i1 %.not, label %.thread, label %12
 
-.loopexit83:                                      ; preds = %93, %.loopexit, %.loopexit82, %switch.lookup
-  %.pr = load i8, ptr %15, align 1
-  %112 = icmp eq i8 %.pr, 0
-  br i1 %112, label %.thread, label %113
+.loopexit83:                                      ; preds = %92, %.loopexit, %.loopexit82, %switch.lookup
+  %.pr = load i8, ptr %14, align 1
+  %111 = icmp eq i8 %.pr, 0
+  br i1 %111, label %.thread, label %112
 
-.thread:                                          ; preds = %109, %1, %.loopexit83
+.thread:                                          ; preds = %108, %1, %.loopexit83
   store i32 10, ptr %2, align 8
-  br label %113
+  br label %112
 
-113:                                              ; preds = %.loopexit83, %.thread, %103, %86, %70
+112:                                              ; preds = %.loopexit83, %.thread, %102, %85, %69
   ret ptr %0
 }
 

@@ -23437,16 +23437,14 @@ _ZNSt10shared_ptrIN6duckdb9CSVBufferEEaSEOS2_.exit: ; preds = %if.then7.i.i.i.i.
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt10shared_ptrIN6duckdb9CSVBufferEEaSEOS2_.exit
-  %16 = load ptr, ptr %last_buffer, align 8, !tbaa !600
-  store ptr %16, ptr %14, align 8, !tbaa !600
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
-  %17 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !204
-  store ptr %17, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !204
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %17, null
+  %16 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !204
+  %17 = load <2 x ptr>, ptr %last_buffer, align 8, !tbaa !24
+  store <2 x ptr> %17, ptr %14, align 8, !tbaa !24
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN6duckdb9CSVBufferEEEE9constructIS3_JRS3_EEEvRS4_PT_DpOT0_.exit.i, label %if.then.i.i.i.i.i.i17
 
 if.then.i.i.i.i.i.i17:                            ; preds = %if.then.i
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !3
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %18, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -38142,18 +38140,15 @@ _ZNSt12__shared_ptrIN6duckdb16CSVBufferManagerELN9__gnu_cxx12_Lock_policyE2EED2E
   %options = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %options_p, ptr %options, align 8, !tbaa !24
   %csv_buffer_iterator = getelementptr inbounds i8, ptr %this, i64 16
-  %0 = load ptr, ptr %buffer_manager_p, align 8, !tbaa !408
-  %_M_refcount4.i.i = getelementptr inbounds i8, ptr %buffer_manager_p, i64 8
-  %1 = load ptr, ptr %_M_refcount4.i.i, align 8, !tbaa !204
   %buffer_manager.i = getelementptr inbounds i8, ptr %this, i64 32
+  %0 = load <2 x ptr>, ptr %buffer_manager_p, align 8, !tbaa !24
+  %1 = load ptr, ptr %buffer_manager_p, align 8, !tbaa !408
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buffer_manager_p, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %csv_buffer_iterator, i8 0, i64 16, i1 false)
-  store ptr %0, ptr %buffer_manager.i, align 8, !tbaa !408
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8, !tbaa !204
+  store <2 x ptr> %0, ptr %buffer_manager.i, align 8, !tbaa !24
   %cur_buffer_handle.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %cur_buffer_handle.i, align 8, !tbaa !635
-  %start_pos.i.i = getelementptr inbounds i8, ptr %0, i64 96
+  %start_pos.i.i = getelementptr inbounds i8, ptr %1, i64 96
   %2 = load i64, ptr %start_pos.i.i, align 8, !tbaa !623
   store i64 %2, ptr %csv_buffer_iterator, align 8, !tbaa !647
   %start_row = getelementptr inbounds i8, ptr %this, i64 56
@@ -65768,17 +65763,15 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10s
 _ZNSt12_Vector_baseISt10shared_ptrIN6duckdb9CSVBufferEESaIS3_EE11_M_allocateEm.exit: ; preds = %cond.true.i, %_ZNKSt6vectorISt10shared_ptrIN6duckdb9CSVBufferEESaIS3_EE12_M_check_lenEmPKc.exit
   %cond.i31 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10shared_ptrIN6duckdb9CSVBufferEESaIS3_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::shared_ptr.464", ptr %cond.i31, i64 %sub.ptr.div.i
-  %3 = load ptr, ptr %__args, align 8, !tbaa !600
-  store ptr %3, ptr %add.ptr, align 8, !tbaa !600
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %4 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !204
-  store ptr %4, ptr %_M_refcount.i.i.i.i, align 8, !tbaa !204
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !204
+  %4 = load <2 x ptr>, ptr %__args, align 8, !tbaa !24
+  store <2 x ptr> %4, ptr %add.ptr, align 8, !tbaa !24
+  %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN6duckdb9CSVBufferEEEE9constructIS3_JRS3_EEEvRS4_PT_DpOT0_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN6duckdb9CSVBufferEESaIS3_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !3
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i

@@ -1184,7 +1184,7 @@ $_ZTIPFiiPPcE = comdat any
 @_ZGVN3nix17IndirectRootStore13operationNameB5cxx11E = linkonce_odr global i64 0, comdat($_ZN3nix17IndirectRootStore13operationNameB5cxx11E), align 8
 @.str.10 = private unnamed_addr constant [31 x i8] c"Indirect GC roots registration\00", align 1
 @_ZN9nix_storeL6gcRootB5cxx11E = internal global { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, { [16 x i8] } } { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" { ptr getelementptr (i8, ptr @_ZN9nix_storeL6gcRootB5cxx11E, i64 16) }, i64 0, { [16 x i8] } zeroinitializer }, align 8
-@_ZN9nix_storeL5storeE = internal global { ptr, %"class.std::__shared_count" } zeroinitializer, align 8
+@_ZN9nix_storeL5storeE = internal global { ptr, %"class.std::__shared_count" } zeroinitializer, align 16
 @.str.14 = private unnamed_addr constant [53 x i8] c"you don't have sufficient rights to use this command\00", align 1
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN3nix5ErrorE = linkonce_odr constant [13 x i8] c"N3nix5ErrorE\00", comdat, align 1
@@ -2261,7 +2261,7 @@ define internal noundef i32 @_ZN9nix_storeL14main_nix_storeEiPPc(i32 noundef %0,
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator", align 1
-  %14 = alloca %"class.nix::ref.45", align 8
+  %14 = alloca %"class.nix::ref.45", align 16
   %15 = alloca %"class.std::map", align 8
   %16 = alloca %"class.std::__cxx11::list.37", align 8
   %17 = alloca %"class.std::__cxx11::list.37", align 8
@@ -2450,14 +2450,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %78 unwind label %164
 
 78:                                               ; preds = %72
-  %79 = load ptr, ptr %14, align 8, !noalias !7
-  %80 = getelementptr inbounds i8, ptr %14, i64 8
-  %81 = load ptr, ptr %80, align 8, !noalias !7
-  %.not.i.i.i.i = icmp eq ptr %81, null
+  %79 = getelementptr inbounds i8, ptr %14, i64 8
+  %80 = load ptr, ptr %79, align 8, !noalias !7
+  %81 = load <2 x ptr>, ptr %14, align 16, !noalias !7
+  %.not.i.i.i.i = icmp eq ptr %80, null
   br i1 %.not.i.i.i.i, label %_ZNK3nix3refINS_5StoreEEcvSt10shared_ptrIS1_EEv.exit, label %82
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %81, i64 8
+  %83 = getelementptr inbounds i8, ptr %80, i64 8
   %84 = load i8, ptr @__libc_single_threaded, align 1, !noalias !7
   %.not.i.i.i.i.i = icmp eq i8 %84, 0
   br i1 %.not.i.i.i.i.i, label %88, label %85
@@ -2473,9 +2473,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %_ZNK3nix3refINS_5StoreEEcvSt10shared_ptrIS1_EEv.exit
 
 _ZNK3nix3refINS_5StoreEEcvSt10shared_ptrIS1_EEv.exit: ; preds = %78, %85, %88
-  store ptr %79, ptr @_ZN9nix_storeL5storeE, align 8
   %90 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9nix_storeL5storeE, i64 8), align 8
-  store ptr %81, ptr getelementptr inbounds (i8, ptr @_ZN9nix_storeL5storeE, i64 8), align 8
+  store <2 x ptr> %81, ptr @_ZN9nix_storeL5storeE, align 16
   %.not.i.i.i.i15 = icmp eq ptr %90, null
   br i1 %.not.i.i.i.i15, label %_ZNSt10shared_ptrIN3nix5StoreEED2Ev.exit, label %91
 
@@ -2548,7 +2547,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN3nix5StoreEED2Ev.exit
 
 _ZNSt10shared_ptrIN3nix5StoreEED2Ev.exit:         ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %120, %107, %_ZNK3nix3refINS_5StoreEEcvSt10shared_ptrIS1_EEv.exit
-  %125 = load ptr, ptr %80, align 8
+  %125 = load ptr, ptr %79, align 8
   %.not.i.i.i.i18 = icmp eq ptr %125, null
   br i1 %.not.i.i.i.i18, label %_ZN3nix3refINS_5StoreEED2Ev.exit, label %126
 
@@ -14575,7 +14574,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
 52:                                               ; preds = %.lr.ph282, %_ZN3nix20StorePathWithOutputsD2Ev.exit
   %.sroa.0224.0280 = phi ptr [ %.sroa.0224.0279, %.lr.ph282 ], [ %.sroa.0224.0, %_ZN3nix20StorePathWithOutputsD2Ev.exit ]
   %53 = getelementptr inbounds i8, ptr %.sroa.0224.0280, i64 16
-  %54 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %54 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %55 = load ptr, ptr %53, align 8
   %56 = getelementptr inbounds i8, ptr %.sroa.0224.0280, i64 24
   %57 = load i64, ptr %56, align 8
@@ -14669,7 +14668,7 @@ _ZN3nix20StorePathWithOutputsD2Ev.exit:           ; preds = %_ZNKSt7__cxx1112bas
   store ptr %85, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %15, i64 40
   store i64 0, ptr %89, align 8
-  %90 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %90 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %91 = getelementptr inbounds i8, ptr %9, i64 8
   %92 = ptrtoint ptr %74 to i64
   %93 = ptrtoint ptr %73 to i64
@@ -15163,7 +15162,7 @@ _ZNSt6vectorIN3nix20StorePathWithOutputsESaIS1_EED2Ev.exit103: ; preds = %237, %
   br i1 %239, label %240, label %_ZN3nix3refINS_5StoreEED2Ev.exit
 
 240:                                              ; preds = %_ZNSt6vectorIN3nix20StorePathWithOutputsESaIS1_EED2Ev.exit103
-  %241 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %241 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   store ptr %241, ptr %20, align 8
   %242 = getelementptr inbounds i8, ptr %20, i64 8
   %243 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9nix_storeL5storeE, i64 8), align 8
@@ -15185,7 +15184,7 @@ _ZNSt6vectorIN3nix20StorePathWithOutputsESaIS1_EED2Ev.exit103: ; preds = %237, %
 
 250:                                              ; preds = %244
   %251 = atomicrmw volatile add ptr %245, i32 1 acq_rel, align 4
-  %.pre307 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %.pre307 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   br label %_ZNSt10shared_ptrIN3nix5StoreEEC2ERKS2_.exit.i
 
 _ZNSt10shared_ptrIN3nix5StoreEEC2ERKS2_.exit.i:   ; preds = %250, %247, %240
@@ -15310,7 +15309,7 @@ _ZN3nix3refINS_5StoreEED2Ev.exit:                 ; preds = %_ZNSt16_Sp_counted_
   br i1 %.0.lcssa, label %.loopexit252, label %302
 
 302:                                              ; preds = %_ZN3nix3refINS_5StoreEED2Ev.exit
-  %303 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %303 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %304 = load ptr, ptr %91, align 8
   %305 = load ptr, ptr %9, align 16
   %306 = ptrtoint ptr %304 to i64
@@ -16324,7 +16323,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
           to label %61 unwind label %123
 
 61:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
-  %62 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %62 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr i8, ptr %63, i64 -24
   %65 = load i64, ptr %64, align 8
@@ -16811,7 +16810,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
           to label %93 unwind label %142
 
 93:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
-  %94 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %94 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr i8, ptr %95, i64 -24
   %97 = load i64, ptr %96, align 8
@@ -17203,7 +17202,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
           to label %60 unwind label %133
 
 60:                                               ; preds = %59
-  %61 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %61 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr i8, ptr %62, i64 -24
   %64 = load i64, ptr %63, align 8
@@ -17571,7 +17570,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
 37:                                               ; preds = %.lr.ph35, %_ZN3nix9StorePathD2Ev.exit
   %.sroa.020.034 = phi ptr [ %.sroa.020.033, %.lr.ph35 ], [ %.sroa.020.0, %_ZN3nix9StorePathD2Ev.exit ]
   %38 = getelementptr inbounds i8, ptr %.sroa.020.034, i64 16
-  %39 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %39 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %40 = load ptr, ptr %38, align 8
   %41 = getelementptr inbounds i8, ptr %.sroa.020.034, i64 24
   %42 = load i64, ptr %41, align 8
@@ -17633,7 +17632,7 @@ _ZN3nix9StorePathD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112bas
   br label %81
 
 ._crit_edge:                                      ; preds = %_ZN3nix9StorePathD2Ev.exit, %.preheader
-  %57 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %57 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3nix7requireINS_7GcStoreEEERT_RNS_5StoreE(ptr noundef nonnull align 8 dereferenceable(264) %57)
           to label %59 unwind label %.loopexit.split-lp
 
@@ -18278,7 +18277,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit: ; preds = %_ZNSt3setIN3
 
 278:                                              ; preds = %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit
   %279 = getelementptr inbounds i8, ptr %.sroa.01129.0, i64 16
-  %280 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %280 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %281 = load ptr, ptr %279, align 8
   %282 = getelementptr inbounds i8, ptr %.sroa.01129.0, i64 24
   %283 = load i64, ptr %282, align 8
@@ -18319,7 +18318,7 @@ _ZN3nix9StorePathD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112bas
   store i32 170209573, ptr %251, align 8
   store i64 4, ptr %252, align 8
   store i8 0, ptr %253, align 4
-  %293 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %293 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %294 = load ptr, ptr %293, align 8
   %295 = getelementptr i8, ptr %294, i64 -24
   %296 = load i64, ptr %295, align 8
@@ -18762,7 +18761,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit428: ; preds = %._crit_ed
 
 429:                                              ; preds = %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit428
   %430 = getelementptr inbounds i8, ptr %.sroa.01121.0, i64 16
-  %431 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %431 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %432 = load ptr, ptr %430, align 8
   %433 = getelementptr inbounds i8, ptr %.sroa.01121.0, i64 24
   %434 = load i64, ptr %433, align 8
@@ -18800,7 +18799,7 @@ _ZN3nix9StorePathD2Ev.exit410:                    ; preds = %_ZNKSt7__cxx1112bas
 .lr.ph1640.split.us:                              ; preds = %.lr.ph1640, %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit426.us
   %.sroa.01117.01639.us = phi ptr [ %445, %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit426.us ], [ %441, %.lr.ph1640 ]
   %443 = getelementptr inbounds i8, ptr %.sroa.01117.01639.us, i64 32
-  %444 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %444 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   invoke void @_ZN3nix5Store16computeFSClosureERKNS_9StorePathERSt3setIS1_St4lessIS1_ESaIS1_EEbbb(ptr noundef nonnull align 8 dereferenceable(264) %444, ptr noundef nonnull align 8 dereferenceable(32) %443, ptr noundef nonnull align 8 dereferenceable(48) %47, i1 noundef zeroext false, i1 noundef zeroext %.0155.lcssa, i1 noundef zeroext false)
           to label %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit426.us unwind label %.loopexit.split-lp1457.split.us
 
@@ -18820,7 +18819,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit426.us: ; preds = %.lr.ph
 .lr.ph1640.split.split.us:                        ; preds = %.lr.ph1640.split, %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit426.loopexit.us
   %.sroa.01117.01639.us1642 = phi ptr [ %538, %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit426.loopexit.us ], [ %441, %.lr.ph1640.split ]
   %447 = getelementptr inbounds i8, ptr %.sroa.01117.01639.us1642, i64 32
-  %448 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %448 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   invoke void @_ZN3nix5Store13queryPathInfoERKNS_9StorePathE(ptr dead_on_unwind nonnull writable sret(%"class.nix::ref.364") align 8 %50, ptr noundef nonnull align 8 dereferenceable(264) %448, ptr noundef nonnull align 8 dereferenceable(32) %447)
           to label %449 unwind label %.loopexit.split-lp1457.split.split.us
 
@@ -19087,7 +19086,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit426.loopexit.us: ; preds 
   store ptr %421, ptr %423, align 8
   store ptr %421, ptr %424, align 8
   store i64 0, ptr %425, align 8
-  %544 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %544 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %545 = load ptr, ptr %544, align 8
   %546 = getelementptr inbounds i8, ptr %545, i64 88
   %547 = load ptr, ptr %546, align 8
@@ -19288,7 +19287,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit426.us1650: ; preds = %._
 .lr.ph1640.split.split.split.split.us:            ; preds = %.lr.ph1640.split.split.split, %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit426.us1660
   %.sroa.01117.01639.us1659 = phi ptr [ %609, %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit426.us1660 ], [ %441, %.lr.ph1640.split.split.split ]
   %607 = getelementptr inbounds i8, ptr %.sroa.01117.01639.us1659, i64 32
-  %608 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %608 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   invoke void @_ZN3nix5Store16computeFSClosureERKNS_9StorePathERSt3setIS1_St4lessIS1_ESaIS1_EEbbb(ptr noundef nonnull align 8 dereferenceable(264) %608, ptr noundef nonnull align 8 dereferenceable(32) %607, ptr noundef nonnull align 8 dereferenceable(48) %47, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit426.us1660 unwind label %.loopexit.split-lp1457.split.split.split.us
 
@@ -19373,7 +19372,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit426.us1660: ; preds = %.l
   br label %699
 
 629:                                              ; preds = %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit428
-  %630 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %630 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   invoke void @_ZN3nix5Store13topoSortPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.368") align 8 %52, ptr noundef nonnull align 8 dereferenceable(264) %630, ptr noundef nonnull align 8 dereferenceable(48) %47)
           to label %631 unwind label %.loopexit.split-lp1467
 
@@ -19403,7 +19402,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit426.us1660: ; preds = %.l
           to label %646 unwind label %675
 
 646:                                              ; preds = %645
-  %647 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %647 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %648 = load ptr, ptr %647, align 8
   %649 = getelementptr i8, ptr %648, i64 -24
   %650 = load i64, ptr %649, align 8
@@ -19601,7 +19600,7 @@ _ZNSt6vectorIN3nix9StorePathESaIS1_EED2Ev.exit:   ; preds = %_ZSt8_DestroyIPN3ni
 700:                                              ; preds = %.lr.ph1630, %_ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit468
   %.sroa.01099.01629 = phi ptr [ %.sroa.01099.01628, %.lr.ph1630 ], [ %.sroa.01099.0, %_ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit468 ]
   %701 = getelementptr inbounds i8, ptr %.sroa.01099.01629, i64 16
-  %702 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %702 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %703 = load ptr, ptr %701, align 8
   %704 = getelementptr inbounds i8, ptr %.sroa.01099.01629, i64 24
   %705 = load i64, ptr %704, align 8
@@ -19642,7 +19641,7 @@ _ZN3nix9StorePathD2Ev.exit448:                    ; preds = %_ZNKSt7__cxx1112bas
 
 717:                                              ; preds = %712
   %718 = getelementptr inbounds i8, ptr %713, i64 8
-  %719 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %719 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %720 = load ptr, ptr %719, align 8
   %721 = getelementptr i8, ptr %720, i64 -24
   %722 = load i64, ptr %721, align 8
@@ -19899,7 +19898,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit482: ; preds = %._crit_ed
 
 810:                                              ; preds = %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit482
   %811 = getelementptr inbounds i8, ptr %.sroa.01095.0, i64 16
-  %812 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %812 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %813 = load ptr, ptr %811, align 8
   %814 = getelementptr inbounds i8, ptr %.sroa.01095.0, i64 24
   %815 = load i64, ptr %814, align 8
@@ -20073,7 +20072,7 @@ select.unfold1380:                                ; preds = %_ZNKSt4lessIN3nix9S
   unreachable
 
 865:                                              ; preds = %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit482
-  %866 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %866 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   invoke void @_ZN3nix5Store13topoSortPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.368") align 8 %67, ptr noundef nonnull align 8 dereferenceable(264) %866, ptr noundef nonnull align 8 dereferenceable(48) %64)
           to label %867 unwind label %.loopexit.split-lp1476
 
@@ -20103,7 +20102,7 @@ select.unfold1380:                                ; preds = %_ZNKSt4lessIN3nix9S
           to label %882 unwind label %911
 
 882:                                              ; preds = %881
-  %883 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %883 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %884 = load ptr, ptr %883, align 8
   %885 = getelementptr i8, ptr %884, i64 -24
   %886 = load i64, ptr %885, align 8
@@ -20301,7 +20300,7 @@ _ZNSt6vectorIN3nix9StorePathESaIS1_EED2Ev.exit509: ; preds = %_ZSt8_DestroyIPN3n
 936:                                              ; preds = %.lr.ph1618, %_ZN3nix9StorePathD2Ev.exit539
   %.sroa.01085.01617 = phi ptr [ %.sroa.01085.01616, %.lr.ph1618 ], [ %.sroa.01085.0, %_ZN3nix9StorePathD2Ev.exit539 ]
   %937 = getelementptr inbounds i8, ptr %.sroa.01085.01617, i64 16
-  %938 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %938 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %939 = load ptr, ptr %937, align 8
   %940 = getelementptr inbounds i8, ptr %.sroa.01085.01617, i64 24
   %941 = load i64, ptr %940, align 8
@@ -20324,7 +20323,7 @@ _ZNSt6vectorIN3nix9StorePathESaIS1_EED2Ev.exit509: ; preds = %_ZSt8_DestroyIPN3n
           to label %1009 unwind label %1045
 
 945:                                              ; preds = %.noexc514
-  %946 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8, !noalias !90
+  %946 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16, !noalias !90
   invoke void @_ZN3nix5Store13queryPathInfoERKNS_9StorePathE(ptr dead_on_unwind nonnull writable sret(%"class.nix::ref.364") align 8 %19, ptr noundef nonnull align 8 dereferenceable(264) %946, ptr noundef nonnull align 8 dereferenceable(32) %73)
           to label %.noexc516 unwind label %1045
 
@@ -20342,7 +20341,7 @@ _ZNSt6vectorIN3nix9StorePathESaIS1_EED2Ev.exit509: ; preds = %_ZSt8_DestroyIPN3n
           to label %953 unwind label %.thread.i, !noalias !90
 
 953:                                              ; preds = %951
-  %954 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8, !noalias !90
+  %954 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16, !noalias !90
   %955 = load ptr, ptr %954, align 8, !noalias !90
   %956 = getelementptr i8, ptr %955, i64 -24
   %957 = load i64, ptr %956, align 8, !noalias !90
@@ -20501,7 +20500,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN3nix9StorePathD2Ev.exit521:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i520, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i519
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #26
-  %1014 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1014 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   invoke void @_ZN3nix5Store18derivationFromPathERKNS_9StorePathE(ptr dead_on_unwind nonnull writable sret(%"struct.nix::Derivation") align 8 %74, ptr noundef nonnull align 8 dereferenceable(264) %1014, ptr noundef nonnull align 8 dereferenceable(32) %72)
           to label %1015 unwind label %1047
 
@@ -20587,7 +20586,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
           to label %1037 unwind label %.thread1389
 
 1037:                                             ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit.thread
-  %1038 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1038 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %1039 = load ptr, ptr %1038, align 8
   %1040 = getelementptr i8, ptr %1039, i64 -24
   %1041 = load i64, ptr %1040, align 8
@@ -20846,7 +20845,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit545: ; preds = %._crit_ed
 
 1137:                                             ; preds = %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit545
   %1138 = getelementptr inbounds i8, ptr %.sroa.01075.0, i64 16
-  %1139 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1139 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %1140 = load ptr, ptr %1138, align 8
   %1141 = getelementptr inbounds i8, ptr %.sroa.01075.0, i64 24
   %1142 = load i64, ptr %1141, align 8
@@ -20899,7 +20898,7 @@ _ZN3nix9StorePathD2Ev.exit544:                    ; preds = %_ZNKSt7__cxx1112bas
 .lr.ph1613:                                       ; preds = %_ZN3nix9StorePathD2Ev.exit544, %_ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit584
   %.sroa.01071.01612 = phi ptr [ %1324, %_ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit584 ], [ %1149, %_ZN3nix9StorePathD2Ev.exit544 ]
   %1157 = getelementptr inbounds i8, ptr %.sroa.01071.01612, i64 32
-  %1158 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1158 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   invoke void @_ZN3nix5Store13queryPathInfoERKNS_9StorePathE(ptr dead_on_unwind nonnull writable sret(%"class.nix::ref.364") align 8 %83, ptr noundef nonnull align 8 dereferenceable(264) %1158, ptr noundef nonnull align 8 dereferenceable(32) %1157)
           to label %1159 unwind label %1256
 
@@ -21485,7 +21484,7 @@ _ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit584:    ; preds = %1288, %1306, %1319,
 1341:                                             ; preds = %.lr.ph1610, %_ZN3nix9StorePathD2Ev.exit595
   %.sroa.01066.01608 = phi ptr [ %.sroa.01066.01607, %.lr.ph1610 ], [ %.sroa.01066.0, %_ZN3nix9StorePathD2Ev.exit595 ]
   %1342 = getelementptr inbounds i8, ptr %.sroa.01066.01608, i64 16
-  %1343 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1343 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %1344 = load ptr, ptr %1342, align 8
   %1345 = getelementptr inbounds i8, ptr %.sroa.01066.01608, i64 24
   %1346 = load i64, ptr %1345, align 8
@@ -21643,7 +21642,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit602: ; preds = %._crit_ed
 
 1393:                                             ; preds = %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit602
   %1394 = getelementptr inbounds i8, ptr %.sroa.01062.0, i64 16
-  %1395 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1395 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %1396 = load ptr, ptr %1394, align 8
   %1397 = getelementptr inbounds i8, ptr %.sroa.01062.0, i64 24
   %1398 = load i64, ptr %1397, align 8
@@ -21809,7 +21808,7 @@ select.unfold1393:                                ; preds = %_ZNKSt4lessIN3nix9S
   br label %.body614
 
 1447:                                             ; preds = %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit602
-  %1448 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1448 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   store ptr %1448, ptr %100, align 8
   %1449 = getelementptr inbounds i8, ptr %100, i64 8
   %1450 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9nix_storeL5storeE, i64 8), align 8
@@ -21831,7 +21830,7 @@ select.unfold1393:                                ; preds = %_ZNKSt4lessIN3nix9S
 
 1457:                                             ; preds = %1451
   %1458 = atomicrmw volatile add ptr %1452, i32 1 acq_rel, align 4
-  %.pre1722 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %.pre1722 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   br label %_ZNSt10shared_ptrIN3nix5StoreEEC2ERKS2_.exit.i
 
 _ZNSt10shared_ptrIN3nix5StoreEEC2ERKS2_.exit.i:   ; preds = %1457, %1454, %1447
@@ -21995,7 +21994,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit628: ; preds = %._crit_ed
 
 1525:                                             ; preds = %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit628
   %1526 = getelementptr inbounds i8, ptr %.sroa.01054.0, i64 16
-  %1527 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1527 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %1528 = load ptr, ptr %1526, align 8
   %1529 = getelementptr inbounds i8, ptr %.sroa.01054.0, i64 24
   %1530 = load i64, ptr %1529, align 8
@@ -22161,7 +22160,7 @@ select.unfold1401:                                ; preds = %_ZNKSt4lessIN3nix9S
   br label %.body642
 
 1579:                                             ; preds = %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit628
-  %1580 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1580 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   store ptr %1580, ptr %104, align 8
   %1581 = getelementptr inbounds i8, ptr %104, i64 8
   %1582 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9nix_storeL5storeE, i64 8), align 8
@@ -22183,7 +22182,7 @@ select.unfold1401:                                ; preds = %_ZNKSt4lessIN3nix9S
 
 1589:                                             ; preds = %1583
   %1590 = atomicrmw volatile add ptr %1584, i32 1 acq_rel, align 4
-  %.pre1717 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %.pre1717 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   br label %_ZNSt10shared_ptrIN3nix5StoreEEC2ERKS2_.exit.i639
 
 _ZNSt10shared_ptrIN3nix5StoreEEC2ERKS2_.exit.i639: ; preds = %1589, %1586, %1579
@@ -22327,7 +22326,7 @@ _ZN3nix3refINS_5StoreEED2Ev.exit651:              ; preds = %1601, %1619, %1632,
 
 1644:                                             ; preds = %1643
   %1645 = getelementptr inbounds i8, ptr %.sroa.01046.01597, i64 16
-  %1646 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1646 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %1647 = load ptr, ptr %1646, align 8
   %1648 = getelementptr i8, ptr %1647, i64 -24
   %1649 = load i64, ptr %1648, align 8
@@ -22517,7 +22516,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit676: ; preds = %._crit_ed
 
 1707:                                             ; preds = %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit676
   %1708 = getelementptr inbounds i8, ptr %.sroa.01042.0, i64 16
-  %1709 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1709 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %1710 = load ptr, ptr %1708, align 8
   %1711 = getelementptr inbounds i8, ptr %.sroa.01042.0, i64 24
   %1712 = load i64, ptr %1711, align 8
@@ -22693,7 +22692,7 @@ select.unfold1409:                                ; preds = %_ZNKSt4lessIN3nix9S
   store ptr %1762, ptr %1765, align 8
   %1766 = getelementptr inbounds i8, ptr %113, i64 40
   store i64 0, ptr %1766, align 8
-  %1767 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1767 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %1768 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN3nix8settingsE, i64 5320), align 8
   %1769 = trunc i8 %1768 to i1
   %1770 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN3nix8settingsE, i64 5464), align 8
@@ -22705,7 +22704,7 @@ select.unfold1409:                                ; preds = %_ZNKSt4lessIN3nix9S
           to label %1775 unwind label %1850
 
 1775:                                             ; preds = %1761
-  %1776 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1776 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %1777 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3nix7requireINS_7GcStoreEEERT_RNS_5StoreE(ptr noundef nonnull align 8 dereferenceable(264) %1776)
           to label %1778 unwind label %1850
 
@@ -23168,7 +23167,7 @@ define internal void @_ZN9nix_storeL10opPrintEnvENSt7__cxx114listINS0_12basic_st
   %34 = load ptr, ptr %1, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %35)
-  %36 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %36 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr i8, ptr %37, i64 -24
   %39 = load i64, ptr %38, align 8
@@ -23450,7 +23449,7 @@ define internal void @_ZN9nix_storeL9opReadLogENSt7__cxx114listINS0_12basic_stri
   br label %83
 
 21:                                               ; preds = %2
-  %22 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %22 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3nix7requireINS_8LogStoreEEERT_RNS_5StoreE(ptr noundef nonnull align 8 dereferenceable(264) %22)
   call void @_ZN3nix8RunPagerC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %5)
   %.sroa.030.040 = load ptr, ptr %1, align 8
@@ -23700,7 +23699,7 @@ define internal void @_ZN9nix_storeL8opDumpDBENSt7__cxx114listINS0_12basic_strin
 34:                                               ; preds = %.preheader, %_ZN3nix9StorePathD2Ev.exit
   %.sroa.044.051 = phi ptr [ %27, %.preheader ], [ %56, %_ZN3nix9StorePathD2Ev.exit ]
   %35 = getelementptr inbounds i8, ptr %.sroa.044.051, i64 16
-  %36 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %36 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %37 = load ptr, ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %.sroa.044.051, i64 24
   %39 = load i64, ptr %38, align 8
@@ -23792,7 +23791,7 @@ _ZN3nix9StorePathD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112bas
   br label %.loopexit50
 
 65:                                               ; preds = %26
-  %66 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %66 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 48
   %69 = load ptr, ptr %68, align 8
@@ -23827,7 +23826,7 @@ _ZN3nix9StorePathD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112bas
 84:                                               ; preds = %.lr.ph, %_ZN3nix9StorePathD2Ev.exit39
   %.sroa.040.052 = phi ptr [ %71, %.lr.ph ], [ %103, %_ZN3nix9StorePathD2Ev.exit39 ]
   %85 = getelementptr inbounds i8, ptr %.sroa.040.052, i64 32
-  %86 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %86 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %85)
           to label %_ZN3nix9StorePathC2ERKS0_.exit unwind label %105
 
@@ -24223,12 +24222,12 @@ define internal void @_ZN9nix_storeL15opCheckValidityENSt7__cxx114listINS0_12bas
 .lr.ph62.split.us:                                ; preds = %.lr.ph62, %_ZN3nix9StorePathD2Ev.exit.us
   %.sroa.042.061.us = phi ptr [ %.sroa.042.0.us, %_ZN3nix9StorePathD2Ev.exit.us ], [ %.sroa.042.060, %.lr.ph62 ]
   %34 = getelementptr inbounds i8, ptr %.sroa.042.061.us, i64 16
-  %35 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %35 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %36 = load ptr, ptr %34, align 8
   %37 = getelementptr inbounds i8, ptr %.sroa.042.061.us, i64 24
   %38 = load i64, ptr %37, align 8
   call void @_ZNK3nix5Store22followLinksToStorePathESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.nix::StorePath") align 8 %7, ptr noundef nonnull align 8 dereferenceable(264) %35, i64 %38, ptr %36)
-  %39 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %39 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %40 = invoke noundef zeroext i1 @_ZN3nix5Store11isValidPathERKNS_9StorePathE(ptr noundef nonnull align 8 dereferenceable(264) %39, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %41 unwind label %.split.us
 
@@ -24241,7 +24240,7 @@ define internal void @_ZN9nix_storeL15opCheckValidityENSt7__cxx114listINS0_12bas
           to label %43 unwind label %.split64.us
 
 43:                                               ; preds = %42
-  %44 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %44 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr i8, ptr %45, i64 -24
   %47 = load i64, ptr %46, align 8
@@ -24433,12 +24432,12 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
 .lr.ph62.split:                                   ; preds = %.lr.ph62.split.preheader, %_ZN3nix9StorePathD2Ev.exit
   %.sroa.042.061 = phi ptr [ %.sroa.042.0, %_ZN3nix9StorePathD2Ev.exit ], [ %.sroa.042.0608183, %.lr.ph62.split.preheader ]
   %92 = getelementptr inbounds i8, ptr %.sroa.042.061, i64 16
-  %93 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %93 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %94 = load ptr, ptr %92, align 8
   %95 = getelementptr inbounds i8, ptr %.sroa.042.061, i64 24
   %96 = load i64, ptr %95, align 8
   call void @_ZNK3nix5Store22followLinksToStorePathESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.nix::StorePath") align 8 %7, ptr noundef nonnull align 8 dereferenceable(264) %93, i64 %96, ptr %94)
-  %97 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %97 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %98 = invoke noundef zeroext i1 @_ZN3nix5Store11isValidPathERKNS_9StorePathE(ptr noundef nonnull align 8 dereferenceable(264) %97, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %99 unwind label %.split
 
@@ -24472,7 +24471,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
           to label %105 unwind label %.thread53
 
 105:                                              ; preds = %103
-  %106 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %106 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr i8, ptr %107, i64 -24
   %109 = load i64, ptr %108, align 8
@@ -24753,7 +24752,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   br label %160
 
 62:                                               ; preds = %._crit_edge
-  %63 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %63 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3nix7requireINS_7GcStoreEEERT_RNS_5StoreE(ptr noundef nonnull align 8 dereferenceable(264) %63)
           to label %65 unwind label %.loopexit.split-lp108
 
@@ -25089,7 +25088,7 @@ define internal void @_ZN9nix_storeL8opExportENSt7__cxx114listINS0_12basic_strin
 29:                                               ; preds = %.lr.ph, %_ZN3nix9StorePathD2Ev.exit
   %.sroa.020.030 = phi ptr [ %.sroa.020.029, %.lr.ph ], [ %.sroa.020.0, %_ZN3nix9StorePathD2Ev.exit ]
   %30 = getelementptr inbounds i8, ptr %.sroa.020.030, i64 16
-  %31 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %31 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %32 = load ptr, ptr %30, align 8
   %33 = getelementptr inbounds i8, ptr %.sroa.020.030, i64 24
   %34 = load i64, ptr %33, align 8
@@ -25163,7 +25162,7 @@ _ZN3nix9StorePathD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112bas
   store i64 0, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %8, i64 48
   store i8 1, ptr %60, align 8
-  %61 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %61 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %62 = load i64, ptr @_ZTVN3nix6FdSinkE, align 8
   %63 = getelementptr inbounds i8, ptr %8, i64 %62
   invoke void @_ZN3nix5Store11exportPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EERNS_4SinkE(ptr noundef nonnull align 8 dereferenceable(264) %61, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(8) %63)
@@ -25317,7 +25316,7 @@ define internal void @_ZN9nix_storeL8opImportENSt7__cxx114listINS0_12basic_strin
   store i8 1, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %9, i64 96
   store i8 1, ptr %44, align 8
-  %45 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %45 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   invoke void @_ZN3nix5Store11importPathsERNS_6SourceENS_13CheckSigsFlagE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.368") align 8 %10, ptr noundef nonnull align 8 dereferenceable(264) %45, ptr noundef nonnull align 8 dereferenceable(8) %9, i1 noundef zeroext false)
           to label %46 unwind label %91
 
@@ -25347,7 +25346,7 @@ define internal void @_ZN9nix_storeL8opImportENSt7__cxx114listINS0_12basic_strin
           to label %61 unwind label %93
 
 61:                                               ; preds = %60
-  %62 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %62 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr i8, ptr %63, i64 -24
   %65 = load i64, ptr %64, align 8
@@ -25797,7 +25796,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
 ._crit_edge:                                      ; preds = %33, %.preheader
   %.018.lcssa = phi i1 [ false, %.preheader ], [ %.119, %33 ]
   %.016.lcssa = phi i1 [ false, %.preheader ], [ %.117, %33 ]
-  %35 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %35 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 264
   %38 = load ptr, ptr %37, align 8
@@ -26024,7 +26023,7 @@ define internal void @_ZN9nix_storeL12opVerifyPathENSt7__cxx114listINS0_12basic_
   %.sroa.0250.0382 = phi ptr [ %.sroa.0250.0380, %.lr.ph ], [ %.sroa.0250.0, %_ZN3nix9StorePathD2Ev.exit ]
   %.029381 = phi i32 [ 0, %.lr.ph ], [ %.130, %_ZN3nix9StorePathD2Ev.exit ]
   %116 = getelementptr inbounds i8, ptr %.sroa.0250.0382, i64 16
-  %117 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %117 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %118 = load ptr, ptr %116, align 8
   %119 = getelementptr inbounds i8, ptr %.sroa.0250.0382, i64 24
   %120 = load i64, ptr %119, align 8
@@ -26053,7 +26052,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i: ; 
   store i64 21, ptr %33, align 8
   %127 = getelementptr inbounds i8, ptr %124, i64 21
   store i8 0, ptr %127, align 1
-  %128 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %128 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr i8, ptr %129, i64 -24
   %131 = load i64, ptr %130, align 8
@@ -26492,7 +26491,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64
   br label %_ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit114
 
 255:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57, %115
-  %256 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %256 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   invoke void @_ZN3nix5Store13queryPathInfoERKNS_9StorePathE(ptr dead_on_unwind nonnull writable sret(%"class.nix::ref.364") align 8 %20, ptr noundef nonnull align 8 dereferenceable(264) %256, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %257 unwind label %675
 
@@ -26504,7 +26503,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64
           to label %261 unwind label %677
 
 261:                                              ; preds = %257
-  %262 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %262 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %263 = load ptr, ptr %21, align 8
   %264 = getelementptr i8, ptr %263, i64 -48
   %265 = load i64, ptr %264, align 8
@@ -26553,7 +26552,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i68: 
   store i64 52, ptr %57, align 8
   %283 = getelementptr inbounds i8, ptr %280, i64 52
   store i8 0, ptr %283, align 1
-  %284 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %284 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %285 = load ptr, ptr %284, align 8
   %286 = getelementptr i8, ptr %285, i64 -24
   %287 = load i64, ptr %286, align 8
@@ -27922,7 +27921,7 @@ define internal void @_ZN9nix_storeL12opRepairPathENSt7__cxx114listINS0_12basic_
 19:                                               ; preds = %.lr.ph, %_ZN3nix9StorePathD2Ev.exit
   %.sroa.012.019 = phi ptr [ %.sroa.012.018, %.lr.ph ], [ %.sroa.012.0, %_ZN3nix9StorePathD2Ev.exit ]
   %20 = getelementptr inbounds i8, ptr %.sroa.012.019, i64 16
-  %21 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %21 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %22 = load ptr, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %.sroa.012.019, i64 24
   %24 = load i64, ptr %23, align 8
@@ -28018,7 +28017,7 @@ define internal void @_ZN9nix_storeL10opOptimiseENSt7__cxx114listINS0_12basic_st
   br label %23
 
 18:                                               ; preds = %7
-  %19 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %19 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 256
   %22 = load ptr, ptr %21, align 8
@@ -28839,7 +28838,7 @@ _ZN3nix16readLittleEndianImEET_Ph.exit.i431:      ; preds = %.noexc437
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39)
   %.not172 = icmp ne i64 %446, 0
-  %464 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %464 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %465 = load ptr, ptr %464, align 8
   %466 = getelementptr i8, ptr %465, i64 -24
   %467 = load i64, ptr %466, align 8
@@ -29118,7 +29117,7 @@ _ZN3nix9StorePathD2Ev.exit639:                    ; preds = %_ZNKSt7__cxx1112bas
 .lr.ph1221:                                       ; preds = %.loopexit1035, %552
   %.sroa.0920.01219 = phi ptr [ %553, %552 ], [ %545, %.loopexit1035 ]
   %547 = getelementptr inbounds i8, ptr %.sroa.0920.01219, i64 32
-  %548 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %548 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %549 = load ptr, ptr %548, align 8
   %550 = getelementptr inbounds i8, ptr %549, i64 248
   %551 = load ptr, ptr %550, align 8
@@ -29145,12 +29144,12 @@ _ZN3nix9StorePathD2Ev.exit639:                    ; preds = %_ZNKSt7__cxx1112bas
   br i1 %brmerge180.not, label %555, label %557
 
 555:                                              ; preds = %.loopexit1029
-  %556 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %556 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   invoke void @_ZN3nix5Store15substitutePathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(264) %556, ptr noundef nonnull align 8 dereferenceable(48) %77)
           to label %557 unwind label %.loopexit.split-lp1031
 
 557:                                              ; preds = %.loopexit1029, %555
-  %558 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %558 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %559 = load ptr, ptr %558, align 8
   %560 = getelementptr i8, ptr %559, i64 -24
   %561 = load i64, ptr %560, align 8
@@ -29264,7 +29263,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit: ; preds = %_ZN3nix10Ser
   unreachable
 
 604:                                              ; preds = %407
-  %605 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %605 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %606 = load ptr, ptr %605, align 8
   %607 = getelementptr i8, ptr %606, i64 -24
   %608 = load i64, ptr %607, align 8
@@ -29541,7 +29540,7 @@ _ZN3nix9StorePathD2Ev.exit663:                    ; preds = %_ZNKSt7__cxx1112bas
 .lr.ph1217:                                       ; preds = %.loopexit1042, %_ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit
   %.sroa.0916.01215 = phi ptr [ %802, %_ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit ], [ %686, %.loopexit1042 ]
   %688 = getelementptr inbounds i8, ptr %.sroa.0916.01215, i64 32
-  %689 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %689 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   invoke void @_ZN3nix5Store13queryPathInfoERKNS_9StorePathE(ptr dead_on_unwind nonnull writable sret(%"class.nix::ref.364") align 8 %80, ptr noundef nonnull align 8 dereferenceable(264) %689, ptr noundef nonnull align 8 dereferenceable(32) %688)
           to label %690 unwind label %752
 
@@ -29549,7 +29548,7 @@ _ZN3nix9StorePathD2Ev.exit663:                    ; preds = %_ZNKSt7__cxx1112bas
   %691 = load ptr, ptr %72, align 8
   %692 = getelementptr i8, ptr %691, i64 -48
   %693 = load i64, ptr %692, align 8
-  %694 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %694 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %695 = load ptr, ptr %694, align 8
   %696 = getelementptr i8, ptr %695, i64 -24
   %697 = load i64, ptr %696, align 8
@@ -29583,7 +29582,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %81) #26
-  %711 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %711 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %712 = load ptr, ptr %711, align 8
   %713 = getelementptr i8, ptr %712, i64 -24
   %714 = load i64, ptr %713, align 8
@@ -29842,7 +29841,7 @@ _ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit:       ; preds = %_ZNSt16_Sp_counted_
   unreachable
 
 821:                                              ; preds = %407
-  %822 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %822 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %823 = load ptr, ptr %822, align 8
   %824 = getelementptr i8, ptr %823, i64 -24
   %825 = load i64, ptr %824, align 8
@@ -29962,7 +29961,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit205: ; preds = %_Z
   br label %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit185
 
 861:                                              ; preds = %852
-  %862 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %862 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   invoke void @_ZN3nix5Store11importPathsERNS_6SourceENS_13CheckSigsFlagE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.368") align 8 %86, ptr noundef nonnull align 8 dereferenceable(264) %862, ptr noundef nonnull align 8 dereferenceable(8) %71, i1 noundef zeroext false)
           to label %863 unwind label %.loopexit1057
 
@@ -30103,7 +30102,7 @@ _ZN3nix16readLittleEndianImEET_Ph.exit.i484:      ; preds = %.noexc490
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
-  %905 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %905 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %906 = load ptr, ptr %905, align 8
   %907 = getelementptr i8, ptr %906, i64 -24
   %908 = load i64, ptr %907, align 8
@@ -30500,7 +30499,7 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 .lr.ph1212:                                       ; preds = %.preheader, %_ZN3nix20StorePathWithOutputsD2Ev.exit
   %.sroa.0910.01211 = phi ptr [ %.sroa.0910.0, %_ZN3nix20StorePathWithOutputsD2Ev.exit ], [ %.sroa.0910.01210, %.preheader ]
   %1023 = getelementptr inbounds i8, ptr %.sroa.0910.01211, i64 16
-  %1024 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1024 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %1025 = load ptr, ptr %1024, align 8
   %1026 = getelementptr i8, ptr %1025, i64 -24
   %1027 = load i64, ptr %1026, align 8
@@ -30769,7 +30768,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i: ; preds = %1107
   %1117 = load i64, ptr %64, align 8
   store i64 %1117, ptr %93, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64)
-  %1118 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1118 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %1119 = load ptr, ptr %305, align 8
   %1120 = load ptr, ptr %90, align 8
   %1121 = ptrtoint ptr %1119 to i64
@@ -31656,7 +31655,7 @@ _ZSt8_DestroyIPN3nix20StorePathWithOutputsES1_EvT_S3_RSaIT0_E.exit.i289: ; preds
   br label %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit185
 
 1426:                                             ; preds = %1417
-  %1427 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1427 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %1428 = load ptr, ptr %1427, align 8
   %1429 = getelementptr i8, ptr %1428, i64 -24
   %1430 = load i64, ptr %1429, align 8
@@ -31733,7 +31732,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit298: ; preds = %_Z
   %1442 = load ptr, ptr %295, align 8
   store i8 0, ptr %1442, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %58)
-  %1443 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1443 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %1444 = load ptr, ptr %1443, align 8
   %1445 = getelementptr i8, ptr %1444, i64 -24
   %1446 = load i64, ptr %1445, align 8
@@ -31817,7 +31816,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i300: ; preds = %146
   %1473 = load i64, ptr %57, align 8
   store i64 %1473, ptr %102, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57)
-  %1474 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1474 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %1475 = load ptr, ptr %1474, align 8
   %1476 = getelementptr inbounds i8, ptr %1475, i64 232
   %1477 = load ptr, ptr %1476, align 8
@@ -31825,7 +31824,7 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i300: ; preds = %146
           to label %1478 unwind label %1510
 
 1478:                                             ; preds = %1472
-  %1479 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1479 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %1480 = load ptr, ptr %1479, align 8
   %1481 = getelementptr i8, ptr %1480, i64 -24
   %1482 = load i64, ptr %1481, align 8
@@ -32039,7 +32038,7 @@ _ZN3nix16readLittleEndianImEET_Ph.exit.i537:      ; preds = %.noexc543
   store ptr %250, ptr %252, align 8
   store ptr %250, ptr %253, align 8
   store i64 0, ptr %254, align 8
-  %1542 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1542 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %1543 = load ptr, ptr %1542, align 8
   %1544 = getelementptr i8, ptr %1543, i64 -24
   %1545 = load i64, ptr %1544, align 8
@@ -32329,7 +32328,7 @@ _ZN3nix9StorePathD2Ev.exit787:                    ; preds = %_ZNKSt7__cxx1112bas
   unreachable
 
 _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit329: ; preds = %1627
-  %1632 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1632 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %1633 = load ptr, ptr %1632, align 8
   %1634 = getelementptr i8, ptr %1633, i64 -24
   %1635 = load i64, ptr %1634, align 8
@@ -32467,7 +32466,7 @@ _ZN3nix10ServeProto5writeISt3setINS_9StorePathESt4lessIS3_ESaIS3_EEEEvRKNS_14Sto
           to label %1678 unwind label %1769
 
 1678:                                             ; preds = %1677
-  %1679 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1679 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %1680 = load ptr, ptr %1679, align 8
   %1681 = getelementptr i8, ptr %1680, i64 -24
   %1682 = load i64, ptr %1681, align 8
@@ -32631,7 +32630,7 @@ _ZN3nix9StorePathD2Ev.exit350:                    ; preds = %_ZNKSt7__cxx1112bas
   br i1 %.old1027, label %1780, label %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit357.thread
 
 _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit357.thread: ; preds = %_ZN3nix9StorePathD2Ev.exit350
-  %1723 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1723 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %1724 = load ptr, ptr %1723, align 8
   %1725 = getelementptr i8, ptr %1724, i64 -24
   %1726 = load i64, ptr %1725, align 8
@@ -32799,7 +32798,7 @@ _ZN3nix9StorePathD2Ev.exit364:                    ; preds = %_ZNKSt7__cxx1112bas
   br label %.body601
 
 1780:                                             ; preds = %_ZN3nix9StorePathD2Ev.exit364, %_ZN3nix9StorePathD2Ev.exit350
-  %1781 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1781 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %1782 = load ptr, ptr %1781, align 8
   %1783 = getelementptr i8, ptr %1782, i64 -24
   %1784 = load i64, ptr %1783, align 8
@@ -33417,7 +33416,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit377: ; preds = %_Z
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix11SizedSourceE, i64 16), ptr %122, align 8
   store ptr %71, ptr %243, align 8
   store i64 %1950, ptr %244, align 8
-  %1963 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %1963 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %1964 = load ptr, ptr %1963, align 8
   %1965 = getelementptr inbounds i8, ptr %1964, i64 152
   %1966 = load ptr, ptr %1965, align 8
@@ -34575,7 +34574,7 @@ define internal fastcc void @_ZN9nix_storeL11realisePathB5cxx11EN3nix20StorePath
   %32 = alloca %"struct.std::less.51", align 1
   %33 = alloca %"class.std::allocator.60", align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
-  %34 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8, !noalias !144
+  %34 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16, !noalias !144
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.thread.i, label %36
 
@@ -34623,7 +34622,7 @@ _ZSt20dynamic_pointer_castIN3nix12LocalFSStoreENS0_5StoreEESt10shared_ptrIT_ERKS
   br i1 %2, label %52, label %.loopexit205
 
 52:                                               ; preds = %51
-  %53 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %53 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   invoke void @_ZNK3nix20StorePathWithOutputs13toDerivedPathEv(ptr dead_on_unwind nonnull writable sret(%"struct.nix::DerivedPath") align 8 %8, ptr noundef nonnull align 8 dereferenceable(80) %1)
           to label %54 unwind label %133
 
@@ -34858,12 +34857,12 @@ _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN3nix17DerivedP
   br label %.loopexit206
 
 .loopexit205:                                     ; preds = %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN3nix17DerivedPathOpaqueENS3_16DerivedPathBuiltEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S5_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIN3nix11DerivedPathESaIS1_EED2Ev.exit, %51
-  %137 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %137 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   invoke void @_ZN3nix5Store24queryDerivationOutputMapB5cxx11ERKNS_9StorePathEPS0_(ptr dead_on_unwind nonnull writable sret(%"class.std::map.205") align 8 %10, ptr noundef nonnull align 8 dereferenceable(264) %137, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef null)
           to label %138 unwind label %131
 
 138:                                              ; preds = %.loopexit205
-  %139 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %139 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   invoke void @_ZN3nix5Store18derivationFromPathERKNS_9StorePathE(ptr dead_on_unwind nonnull writable sret(%"struct.nix::Derivation") align 8 %11, ptr noundef nonnull align 8 dereferenceable(264) %139, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %140 unwind label %161
 
@@ -35100,7 +35099,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix16DerivationO
           to label %_ZN3nix9StorePathC2ERKS0_.exit unwind label %222
 
 _ZN3nix9StorePathC2ERKS0_.exit:                   ; preds = %234
-  %235 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %235 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %236 = load ptr, ptr %235, align 8
   %237 = getelementptr i8, ptr %236, i64 -24
   %238 = load i64, ptr %237, align 8
@@ -35641,7 +35640,7 @@ _ZN3nix10DerivationD2Ev.exit:                     ; preds = %._crit_edge
   br label %.loopexit206
 
 409:                                              ; preds = %50
-  %410 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %410 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   br i1 %2, label %411, label %415
 
 411:                                              ; preds = %409
@@ -35665,7 +35664,7 @@ _ZN3nix10DerivationD2Ev.exit:                     ; preds = %._crit_edge
           to label %420 unwind label %.thread189
 
 420:                                              ; preds = %418
-  %421 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %421 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %422 = load ptr, ptr %421, align 8
   %423 = getelementptr i8, ptr %422, i64 -24
   %424 = load i64, ptr %423, align 8
@@ -35951,7 +35950,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   br label %.loopexit206
 
 520:                                              ; preds = %438, %435
-  %521 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %521 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %522 = load ptr, ptr %521, align 8
   %523 = getelementptr i8, ptr %522, i64 -24
   %524 = load i64, ptr %523, align 8
@@ -40890,7 +40889,7 @@ _ZN3nix20StorePathWithOutputsD2Ev.exit:           ; preds = %_ZNKSt7__cxx1112bas
   br i1 %43, label %44, label %123
 
 44:                                               ; preds = %42
-  %45 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %45 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   call void @_ZN3nix5Store18derivationFromPathERKNS_9StorePathE(ptr dead_on_unwind nonnull writable sret(%"struct.nix::Derivation") align 8 %8, ptr noundef nonnull align 8 dereferenceable(264) %45, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %46 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 0, ptr %46, align 8
@@ -40902,7 +40901,7 @@ _ZN3nix20StorePathWithOutputsD2Ev.exit:           ; preds = %_ZNKSt7__cxx1112bas
   store ptr %46, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %9, i64 40
   store i64 0, ptr %50, align 8
-  %51 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %51 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %52 = load ptr, ptr %51, align 8
   br i1 %3, label %53, label %58
 
@@ -41311,7 +41310,7 @@ define internal fastcc void @_ZN9nix_storeL9printTreeERKN3nix9StorePathERKNSt7__
           to label %27 unwind label %65
 
 27:                                               ; preds = %26
-  %28 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %28 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 -24
   %31 = load i64, ptr %30, align 8
@@ -41468,7 +41467,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit48: ; preds = %_ZN
           to label %78 unwind label %155
 
 78:                                               ; preds = %75
-  %79 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %79 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr i8, ptr %80, i64 -24
   %82 = load i64, ptr %81, align 8
@@ -41577,9 +41576,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i61, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #26
-  %116 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %116 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   call void @_ZN3nix5Store13queryPathInfoERKNS_9StorePathE(ptr dead_on_unwind nonnull writable sret(%"class.nix::ref.364") align 8 %20, ptr noundef nonnull align 8 dereferenceable(264) %116, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %117 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %117 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %118 = load ptr, ptr %20, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 128
   invoke void @_ZN3nix5Store13topoSortPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.368") align 8 %21, ptr noundef nonnull align 8 dereferenceable(264) %117, ptr noundef nonnull align 8 dereferenceable(48) %119)
@@ -42821,7 +42820,7 @@ define internal fastcc void @_ZN9nix_storeL16registerValidityEbbb(i1 noundef zer
 
 32:                                               ; preds = %30, %31
   %.sroa.3.0 = phi i8 [ 1, %31 ], [ 0, %30 ]
-  %33 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %33 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.031, i64 80, i1 false)
   store i64 -1, ptr %.sroa.232.0..sroa_idx, align 8
   store i8 %.sroa.3.0, ptr %.sroa.3.0..sroa_idx, align 8
@@ -42844,7 +42843,7 @@ define internal fastcc void @_ZN9nix_storeL16registerValidityEbbb(i1 noundef zer
   br label %_ZNSt8optionalIN3nix13ValidPathInfoEED2Ev.exit23
 
 37:                                               ; preds = %34
-  %38 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %38 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %39 = invoke noundef zeroext i1 @_ZN3nix5Store11isValidPathERKNS_9StorePathE(ptr noundef nonnull align 8 dereferenceable(264) %38, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %40 unwind label %54
 
@@ -42857,7 +42856,7 @@ define internal fastcc void @_ZN9nix_storeL16registerValidityEbbb(i1 noundef zer
   br i1 %2, label %42, label %58
 
 42:                                               ; preds = %41
-  %43 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %43 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr i8, ptr %44, i64 -24
   %46 = load i64, ptr %45, align 8
@@ -42903,7 +42902,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %1, label %128, label %59
 
 59:                                               ; preds = %58
-  %60 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %60 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 272
   %63 = load ptr, ptr %62, align 8
@@ -42912,7 +42911,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 64:                                               ; preds = %59
   %65 = load ptr, ptr %9, align 8
-  %66 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %66 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr i8, ptr %67, i64 -24
   %69 = load i64, ptr %68, align 8
@@ -47117,7 +47116,7 @@ define internal fastcc void @"_ZZN9nix_storeL7opServeENSt7__cxx114listINS0_12bas
   %12 = getelementptr inbounds i8, ptr %11, i64 72
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(139) getelementptr inbounds (i8, ptr @_ZN3nix8settingsE, i64 3496), ptr noundef nonnull align 1 dereferenceable(1) %3)
-  %14 = load ptr, ptr @_ZN9nix_storeL5storeE, align 8
+  %14 = load ptr, ptr @_ZN9nix_storeL5storeE, align 16
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %15, i64 -24
   %17 = load i64, ptr %16, align 8

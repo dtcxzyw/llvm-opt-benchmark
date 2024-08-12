@@ -1806,7 +1806,7 @@ define internal i32 @cff_glyph_load(ptr noundef %0, ptr noundef %1, i32 noundef 
   %22 = alloca i16, align 2
   %23 = alloca i16, align 2
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %624, label %24
+  br i1 %.not, label %626, label %24
 
 24:                                               ; preds = %4
   %.not17 = icmp eq ptr %1, null
@@ -1827,7 +1827,7 @@ define internal i32 @cff_glyph_load(ptr noundef %0, ptr noundef %1, i32 noundef 
   %29 = getelementptr inbounds i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not20 = icmp eq ptr %28, %30
-  br i1 %.not20, label %31, label %624
+  br i1 %.not20, label %31, label %626
 
 31:                                               ; preds = %._crit_edge, %27
   %32 = phi ptr [ %.pre, %._crit_edge ], [ %30, %27 ]
@@ -2790,50 +2790,53 @@ cff_free_glyph_data.exit.i:                       ; preds = %377, %372, %363
 597:                                              ; preds = %.loopexit.i, %542
   call void @FT_Outline_Get_CBox(ptr noundef nonnull %301, ptr noundef nonnull %19) #19
   %598 = getelementptr inbounds i8, ptr %19, i64 16
-  %599 = load <2 x i64>, ptr %598, align 16
-  %600 = load <2 x i64>, ptr %19, align 16
-  %601 = sub nsw <2 x i64> %599, %600
-  store <2 x i64> %601, ptr %433, align 8
-  %602 = getelementptr inbounds i8, ptr %0, i64 64
-  %603 = shufflevector <2 x i64> %600, <2 x i64> %599, <2 x i32> <i32 0, i32 3>
-  store <2 x i64> %603, ptr %602, align 8
-  br i1 %.not354392.i, label %620, label %604
+  %599 = getelementptr inbounds i8, ptr %19, i64 24
+  %600 = load i64, ptr %599, align 8
+  %601 = load <2 x i64>, ptr %598, align 16
+  %602 = load <2 x i64>, ptr %19, align 16
+  %603 = load i64, ptr %19, align 16
+  %604 = sub nsw <2 x i64> %601, %602
+  store <2 x i64> %604, ptr %433, align 8
+  %605 = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %603, ptr %605, align 8
+  %606 = getelementptr inbounds i8, ptr %0, i64 72
+  store i64 %600, ptr %606, align 8
+  br i1 %.not354392.i, label %622, label %607
 
-604:                                              ; preds = %597
-  %605 = load i64, ptr %450, align 8
-  %.neg.i = sdiv i64 %605, -2
-  %606 = extractelement <2 x i64> %600, i64 0
-  %607 = add i64 %.neg.i, %606
-  %608 = getelementptr inbounds i8, ptr %0, i64 88
-  store i64 %607, ptr %608, align 8
-  %609 = getelementptr inbounds i8, ptr %0, i64 96
-  %610 = load i64, ptr %609, align 8
-  %611 = load i64, ptr %59, align 8
-  %sext415.i = shl i64 %610, 32
-  %612 = ashr exact i64 %sext415.i, 32
-  %sext416.i = shl i64 %611, 32
-  %613 = ashr exact i64 %sext416.i, 32
-  %614 = mul nsw i64 %613, %612
-  %615 = ashr i64 %614, 63
-  %616 = add nsw i64 %614, 32768
-  %617 = add nsw i64 %616, %615
-  %618 = shl i64 %617, 16
-  %619 = ashr i64 %618, 32
-  store i64 %619, ptr %609, align 8
+607:                                              ; preds = %597
+  %608 = load i64, ptr %450, align 8
+  %.neg.i = sdiv i64 %608, -2
+  %609 = add i64 %.neg.i, %603
+  %610 = getelementptr inbounds i8, ptr %0, i64 88
+  store i64 %609, ptr %610, align 8
+  %611 = getelementptr inbounds i8, ptr %0, i64 96
+  %612 = load i64, ptr %611, align 8
+  %613 = load i64, ptr %59, align 8
+  %sext415.i = shl i64 %612, 32
+  %614 = ashr exact i64 %sext415.i, 32
+  %sext416.i = shl i64 %613, 32
+  %615 = ashr exact i64 %sext416.i, 32
+  %616 = mul nsw i64 %615, %614
+  %617 = ashr i64 %616, 63
+  %618 = add nsw i64 %616, 32768
+  %619 = add nsw i64 %618, %617
+  %620 = shl i64 %619, 16
+  %621 = ashr i64 %620, 32
+  store i64 %621, ptr %611, align 8
   br label %cff_slot_load.exit
 
-620:                                              ; preds = %597
-  %621 = and i64 %173, 16
-  %.not357.i = icmp eq i64 %621, 0
-  br i1 %.not357.i, label %cff_slot_load.exit, label %622
+622:                                              ; preds = %597
+  %623 = and i64 %173, 16
+  %.not357.i = icmp eq i64 %623, 0
+  br i1 %.not357.i, label %cff_slot_load.exit, label %624
 
-622:                                              ; preds = %620
-  %623 = load i64, ptr %492, align 8
-  call void @ft_synthesize_vertical_metrics(ptr noundef nonnull %433, i64 noundef %623) #19
+624:                                              ; preds = %622
+  %625 = load i64, ptr %492, align 8
+  call void @ft_synthesize_vertical_metrics(ptr noundef nonnull %433, i64 noundef %625) #19
   br label %cff_slot_load.exit
 
-cff_slot_load.exit:                               ; preds = %45, %cff_charset_cid_to_gindex.exit.i, %53, %147, %157, %165, %.critedge.i, %183, %187, %195, %319, %cff_get_glyph_data.exit.i, %cff_free_glyph_data.exit.i, %.critedge362.i, %420, %604, %620, %622
-  %.0.i = phi i32 [ 0, %195 ], [ 6, %cff_charset_cid_to_gindex.exit.i ], [ 6, %53 ], [ 0, %157 ], [ 0, %165 ], [ 0, %147 ], [ 6, %.critedge.i ], [ 36, %187 ], [ 36, %183 ], [ 0, %420 ], [ 0, %620 ], [ 0, %622 ], [ 0, %604 ], [ %417, %.critedge362.i ], [ 6, %45 ], [ %.1.i, %cff_free_glyph_data.exit.i ], [ %.0.i366.i, %cff_get_glyph_data.exit.i ], [ %325, %319 ]
+cff_slot_load.exit:                               ; preds = %45, %cff_charset_cid_to_gindex.exit.i, %53, %147, %157, %165, %.critedge.i, %183, %187, %195, %319, %cff_get_glyph_data.exit.i, %cff_free_glyph_data.exit.i, %.critedge362.i, %420, %607, %622, %624
+  %.0.i = phi i32 [ 0, %195 ], [ 6, %cff_charset_cid_to_gindex.exit.i ], [ 6, %53 ], [ 0, %157 ], [ 0, %165 ], [ 0, %147 ], [ 6, %.critedge.i ], [ 36, %187 ], [ 36, %183 ], [ 0, %420 ], [ 0, %622 ], [ 0, %624 ], [ 0, %607 ], [ %417, %.critedge362.i ], [ 6, %45 ], [ %.1.i, %cff_free_glyph_data.exit.i ], [ %.0.i366.i, %cff_get_glyph_data.exit.i ], [ %325, %319 ]
   call void @llvm.lifetime.end.p0(i64 1520, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1264, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
@@ -2851,9 +2854,9 @@ cff_slot_load.exit:                               ; preds = %45, %cff_charset_ci
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %23)
-  br label %624
+  br label %626
 
-624:                                              ; preds = %27, %4, %cff_slot_load.exit
+626:                                              ; preds = %27, %4, %cff_slot_load.exit
   %.0 = phi i32 [ %.0.i, %cff_slot_load.exit ], [ 37, %4 ], [ 35, %27 ]
   ret i32 %.0
 }

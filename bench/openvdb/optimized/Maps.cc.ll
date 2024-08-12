@@ -6480,30 +6480,29 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_8ScaleMapEvEEPT_.exit: ; 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math8ScaleMap9preRotateEdNS1_4AxisE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, double noundef %radians, i32 noundef %axis) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(128) %this)
-  %1 = load ptr, ptr %affineMap, align 8
+  %1 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %1, i64 8
   call void @_ZN7openvdb5v11_04math4Mat4IdE9preRotateENS1_4AxisEd(ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, i32 noundef %axis, double noundef %radians)
   invoke void @_ZN7openvdb5v11_04math9AffineMap18updateAccelerationEv(ptr noundef nonnull align 8 dereferenceable(376) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %2 = load ptr, ptr %affineMap, align 8
-  store ptr %2, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %3 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %3, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %3 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %3, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -6854,13 +6853,13 @@ return:                                           ; preds = %_ZNSt10shared_ptrIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math8ScaleMap8preShearEdNS1_4AxisES3_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(128) %this)
-  %1 = load ptr, ptr %affineMap, align 8
+  %1 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %1, i64 8
   %mul.i.i = shl nsw i32 %axis0, 2
   %idxprom.i.i = sext i32 %mul.i.i to i64
@@ -6888,17 +6887,16 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %10 = load ptr, ptr %affineMap, align 8
-  store ptr %10, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %11 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %11, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %11 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %11, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -7086,30 +7084,29 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math8ScaleMap10postRotateEdNS1_4AxisE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, double noundef %radians, i32 noundef %axis) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(128) %this)
-  %1 = load ptr, ptr %affineMap, align 8
+  %1 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %1, i64 8
   call void @_ZN7openvdb5v11_04math4Mat4IdE10postRotateENS1_4AxisEd(ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, i32 noundef %axis, double noundef %radians)
   invoke void @_ZN7openvdb5v11_04math9AffineMap18updateAccelerationEv(ptr noundef nonnull align 8 dereferenceable(376) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %2 = load ptr, ptr %affineMap, align 8
-  store ptr %2, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %3 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %3, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %3 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %3, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -7372,13 +7369,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math8ScaleMap9postShearEdNS1_4AxisES3_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(128) %this)
-  %1 = load ptr, ptr %affineMap, align 8
+  %1 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %1, i64 8
   %idxprom.i.i = sext i32 %axis1 to i64
   %arrayidx.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom.i.i
@@ -7422,17 +7419,16 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %14 = load ptr, ptr %affineMap, align 8
-  store ptr %14, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %15 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %15, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %15 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %15, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %16, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -8508,27 +8504,26 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_14TranslationMapEvEEPT_.e
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math14TranslationMap9preRotateEdNS1_4AxisE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, double noundef %radians, i32 noundef %axis) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   call void @_ZNK7openvdb5v11_04math14TranslationMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(32) %this)
-  %0 = load ptr, ptr %affineMap, align 8
+  %0 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZN7openvdb5v11_04math4Mat4IdE9preRotateENS1_4AxisEd(ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, i32 noundef %axis, double noundef %radians)
   invoke void @_ZN7openvdb5v11_04math9AffineMap18updateAccelerationEv(ptr noundef nonnull align 8 dereferenceable(376) %0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %affineMap, align 8
-  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %2, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -8780,10 +8775,10 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_14TranslationMapEvEEPT_.e
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math14TranslationMap8preShearEdNS1_4AxisES3_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   call void @_ZNK7openvdb5v11_04math14TranslationMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(32) %this)
-  %0 = load ptr, ptr %affineMap, align 8
+  %0 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   %mul.i.i = shl nsw i32 %axis0, 2
   %idxprom.i.i = sext i32 %mul.i.i to i64
@@ -8811,17 +8806,16 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %9 = load ptr, ptr %affineMap, align 8
-  store ptr %9, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %10 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %10, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %10 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %10, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -9009,27 +9003,26 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math14TranslationMap10postRotateEdNS1_4AxisE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, double noundef %radians, i32 noundef %axis) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   call void @_ZNK7openvdb5v11_04math14TranslationMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(32) %this)
-  %0 = load ptr, ptr %affineMap, align 8
+  %0 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZN7openvdb5v11_04math4Mat4IdE10postRotateENS1_4AxisEd(ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, i32 noundef %axis, double noundef %radians)
   invoke void @_ZN7openvdb5v11_04math9AffineMap18updateAccelerationEv(ptr noundef nonnull align 8 dereferenceable(376) %0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %affineMap, align 8
-  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %2, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -9454,10 +9447,10 @@ return:                                           ; preds = %_ZNSt10shared_ptrIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math14TranslationMap9postShearEdNS1_4AxisES3_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   call void @_ZNK7openvdb5v11_04math14TranslationMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(32) %this)
-  %0 = load ptr, ptr %affineMap, align 8
+  %0 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   %idxprom.i.i = sext i32 %axis1 to i64
   %arrayidx.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom.i.i
@@ -9501,17 +9494,16 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %13 = load ptr, ptr %affineMap, align 8
-  store ptr %13, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %14 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %14, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %14, null
+  %13 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %14 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %14, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -10469,30 +10461,29 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_17ScaleTranslateMapEvEEPT
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math17ScaleTranslateMap9preRotateEdNS1_4AxisE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, double noundef %radians, i32 noundef %axis) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(152) %this)
-  %1 = load ptr, ptr %affineMap, align 8
+  %1 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %1, i64 8
   call void @_ZN7openvdb5v11_04math4Mat4IdE9preRotateENS1_4AxisEd(ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, i32 noundef %axis, double noundef %radians)
   invoke void @_ZN7openvdb5v11_04math9AffineMap18updateAccelerationEv(ptr noundef nonnull align 8 dereferenceable(376) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %2 = load ptr, ptr %affineMap, align 8
-  store ptr %2, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %3 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %3, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %3 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %3, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -10763,13 +10754,13 @@ lpad:                                             ; preds = %invoke.cont
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math17ScaleTranslateMap8preShearEdNS1_4AxisES3_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(152) %this)
-  %1 = load ptr, ptr %affineMap, align 8
+  %1 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %1, i64 8
   %mul.i.i = shl nsw i32 %axis0, 2
   %idxprom.i.i = sext i32 %mul.i.i to i64
@@ -10797,17 +10788,16 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %10 = load ptr, ptr %affineMap, align 8
-  store ptr %10, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %11 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %11, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %11, null
+  %10 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %11 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %11, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -10995,30 +10985,29 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math17ScaleTranslateMap10postRotateEdNS1_4AxisE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, double noundef %radians, i32 noundef %axis) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(152) %this)
-  %1 = load ptr, ptr %affineMap, align 8
+  %1 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %1, i64 8
   call void @_ZN7openvdb5v11_04math4Mat4IdE10postRotateENS1_4AxisEd(ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, i32 noundef %axis, double noundef %radians)
   invoke void @_ZN7openvdb5v11_04math9AffineMap18updateAccelerationEv(ptr noundef nonnull align 8 dereferenceable(376) %1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %2 = load ptr, ptr %affineMap, align 8
-  store ptr %2, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %3 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %3, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %3, null
+  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %3 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %3, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -11458,13 +11447,13 @@ return:                                           ; preds = %_ZNSt10shared_ptrIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math17ScaleTranslateMap9postShearEdNS1_4AxisES3_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(152) %this)
-  %1 = load ptr, ptr %affineMap, align 8
+  %1 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %1, i64 8
   %idxprom.i.i = sext i32 %axis1 to i64
   %arrayidx.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom.i.i
@@ -11508,17 +11497,16 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %14 = load ptr, ptr %affineMap, align 8
-  store ptr %14, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %15 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %15, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %15 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %15, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %16, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -14081,10 +14069,10 @@ ehcleanup:                                        ; preds = %lpad3.i.i.i.i, %lpa
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math10UnitaryMap12preTranslateERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(24) %t) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   call void @_ZNK7openvdb5v11_04math10UnitaryMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(384) %this)
-  %0 = load ptr, ptr %affineMap, align 8
+  %0 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZN7openvdb5v11_04math4Mat4IdE12preTranslateIdEEvRKNS1_4Vec3IT_EE(ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, ptr noundef nonnull align 8 dereferenceable(24) %t)
           to label %.noexc unwind label %lpad
@@ -14094,17 +14082,16 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %.noexc
-  %1 = load ptr, ptr %affineMap, align 8
-  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %2, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -14292,10 +14279,10 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math10UnitaryMap8preScaleERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(24) %v) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   call void @_ZNK7openvdb5v11_04math10UnitaryMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(384) %this)
-  %0 = load ptr, ptr %affineMap, align 8
+  %0 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load double, ptr %v, align 8
   %2 = load double, ptr %mMatrix.i, align 8
@@ -14362,17 +14349,16 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %25 = load ptr, ptr %affineMap, align 8
-  store ptr %25, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %26 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %26, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %26, null
+  %25 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %26 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %26, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %27, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -14560,10 +14546,10 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math10UnitaryMap8preShearEdNS1_4AxisES3_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   call void @_ZNK7openvdb5v11_04math10UnitaryMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(384) %this)
-  %0 = load ptr, ptr %affineMap, align 8
+  %0 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   %mul.i.i = shl nsw i32 %axis0, 2
   %idxprom.i.i = sext i32 %mul.i.i to i64
@@ -14591,17 +14577,16 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %9 = load ptr, ptr %affineMap, align 8
-  store ptr %9, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %10 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %10, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %10 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %10, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -14969,10 +14954,10 @@ define linkonce_odr void @_ZNK7openvdb5v11_04math10UnitaryMap13postTranslateERKN
 entry:
   %m0.i.i.i.i = alloca %"class.openvdb::v11_0::math::Mat4", align 8
   %ref.tmp.i.i = alloca %"class.openvdb::v11_0::math::Mat4", align 8
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   call void @_ZNK7openvdb5v11_04math10UnitaryMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(384) %this)
-  %0 = load ptr, ptr %affineMap, align 8
+  %0 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i.i)
   %1 = load <2 x double>, ptr %t, align 8
@@ -15032,17 +15017,16 @@ _ZN7openvdb5v11_04math4Mat4IdE13postTranslateIdEEvRKNS1_4Vec3IT_EE.exit.i: ; pre
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN7openvdb5v11_04math4Mat4IdE13postTranslateIdEEvRKNS1_4Vec3IT_EE.exit.i
-  %26 = load ptr, ptr %affineMap, align 8
-  store ptr %26, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %27 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %27, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %27, null
+  %26 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %27 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %27, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %26, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %28, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -15230,10 +15214,10 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math10UnitaryMap9postScaleERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(24) %v) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   call void @_ZNK7openvdb5v11_04math10UnitaryMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(384) %this)
-  %0 = load ptr, ptr %affineMap, align 8
+  %0 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load double, ptr %v, align 8
   %2 = load double, ptr %mMatrix.i, align 8
@@ -15300,17 +15284,16 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %25 = load ptr, ptr %affineMap, align 8
-  store ptr %25, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %26 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %26, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %26, null
+  %25 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %26 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %26, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %27, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -15498,10 +15481,10 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math10UnitaryMap9postShearEdNS1_4AxisES3_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(384) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   call void @_ZNK7openvdb5v11_04math10UnitaryMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(384) %this)
-  %0 = load ptr, ptr %affineMap, align 8
+  %0 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   %idxprom.i.i = sext i32 %axis1 to i64
   %arrayidx.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom.i.i
@@ -15545,17 +15528,16 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %13 = load ptr, ptr %affineMap, align 8
-  store ptr %13, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %14 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %14, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %14, null
+  %13 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %14 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %14, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -16870,27 +16852,26 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math7MapBaseEEC2INS2_9AffineMapEvEEPT_.exit: ;
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math9AffineMap9preRotateEdNS1_4AxisE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this, double noundef %radians, i32 noundef %axis) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   call void @_ZNK7openvdb5v11_04math9AffineMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(376) %this)
-  %0 = load ptr, ptr %affineMap, align 8
+  %0 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZN7openvdb5v11_04math4Mat4IdE9preRotateENS1_4AxisEd(ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, i32 noundef %axis, double noundef %radians)
   invoke void @_ZN7openvdb5v11_04math9AffineMap18updateAccelerationEv(ptr noundef nonnull align 8 dereferenceable(376) %0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %affineMap, align 8
-  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %2, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -17078,9 +17059,9 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math9AffineMap12preTranslateERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this, ptr noundef nonnull align 8 dereferenceable(24) %t) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
   call void @_ZNK7openvdb5v11_04math9AffineMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(376) %this)
-  %0 = load ptr, ptr %affineMap, align 8
+  %0 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZN7openvdb5v11_04math4Mat4IdE12preTranslateIdEEvRKNS1_4Vec3IT_EE(ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, ptr noundef nonnull align 8 dereferenceable(24) %t)
           to label %.noexc unwind label %lpad
@@ -17092,17 +17073,15 @@ entry:
 invoke.cont:                                      ; preds = %.noexc
   call void @llvm.experimental.noalias.scope.decl(metadata !441)
   call void @llvm.experimental.noalias.scope.decl(metadata !444)
-  %1 = load ptr, ptr %affineMap, align 8, !noalias !447
-  store ptr %1, ptr %agg.result, align 8, !alias.scope !447
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %2 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !447
-  %cmp.not.i.i.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8
+  %2 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %2, ptr %agg.result, align 8, !alias.scope !447
+  %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1, !noalias !447
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -17203,9 +17182,9 @@ lpad:                                             ; preds = %.noexc, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math9AffineMap8preScaleERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this, ptr noundef nonnull align 8 dereferenceable(24) %s) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
   call void @_ZNK7openvdb5v11_04math9AffineMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(376) %this)
-  %0 = load ptr, ptr %affineMap, align 8
+  %0 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load double, ptr %s, align 8
   %2 = load double, ptr %mMatrix.i, align 8
@@ -17274,17 +17253,15 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @llvm.experimental.noalias.scope.decl(metadata !448)
   call void @llvm.experimental.noalias.scope.decl(metadata !451)
-  %25 = load ptr, ptr %affineMap, align 8, !noalias !454
-  store ptr %25, ptr %agg.result, align 8, !alias.scope !454
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %26 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8
-  store ptr %26, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !454
-  %cmp.not.i.i.i.i.i = icmp eq ptr %26, null
+  %25 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8
+  %26 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %26, ptr %agg.result, align 8, !alias.scope !454
+  %cmp.not.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load i8, ptr @__libc_single_threaded, align 1, !noalias !454
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -17385,10 +17362,10 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math9AffineMap8preShearEdNS1_4AxisES3_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   call void @_ZNK7openvdb5v11_04math9AffineMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(376) %this)
-  %0 = load ptr, ptr %affineMap, align 8
+  %0 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   %mul.i.i = shl nsw i32 %axis0, 2
   %idxprom.i.i = sext i32 %mul.i.i to i64
@@ -17416,17 +17393,16 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %9 = load ptr, ptr %affineMap, align 8
-  store ptr %9, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %10 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %10, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %10 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %10, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -17614,27 +17590,26 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math9AffineMap10postRotateEdNS1_4AxisE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this, double noundef %radians, i32 noundef %axis) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   call void @_ZNK7openvdb5v11_04math9AffineMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(376) %this)
-  %0 = load ptr, ptr %affineMap, align 8
+  %0 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZN7openvdb5v11_04math4Mat4IdE10postRotateENS1_4AxisEd(ptr noundef nonnull align 8 dereferenceable(128) %mMatrix.i, i32 noundef %axis, double noundef %radians)
   invoke void @_ZN7openvdb5v11_04math9AffineMap18updateAccelerationEv(ptr noundef nonnull align 8 dereferenceable(376) %0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %1 = load ptr, ptr %affineMap, align 8
-  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %2, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -17824,9 +17799,9 @@ define linkonce_odr void @_ZNK7openvdb5v11_04math9AffineMap13postTranslateERKNS1
 entry:
   %m0.i.i.i.i = alloca %"class.openvdb::v11_0::math::Mat4", align 8
   %ref.tmp.i.i = alloca %"class.openvdb::v11_0::math::Mat4", align 8
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
   call void @_ZNK7openvdb5v11_04math9AffineMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(376) %this)
-  %0 = load ptr, ptr %affineMap, align 8
+  %0 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %ref.tmp.i.i)
   %1 = load <2 x double>, ptr %t, align 8
@@ -17888,17 +17863,15 @@ _ZN7openvdb5v11_04math4Mat4IdE13postTranslateIdEEvRKNS1_4Vec3IT_EE.exit.i: ; pre
 invoke.cont:                                      ; preds = %_ZN7openvdb5v11_04math4Mat4IdE13postTranslateIdEEvRKNS1_4Vec3IT_EE.exit.i
   call void @llvm.experimental.noalias.scope.decl(metadata !458)
   call void @llvm.experimental.noalias.scope.decl(metadata !461)
-  %26 = load ptr, ptr %affineMap, align 8, !noalias !464
-  store ptr %26, ptr %agg.result, align 8, !alias.scope !464
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %27 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8
-  store ptr %27, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !464
-  %cmp.not.i.i.i.i.i = icmp eq ptr %27, null
+  %26 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8
+  %27 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %27, ptr %agg.result, align 8, !alias.scope !464
+  %cmp.not.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load i8, ptr @__libc_single_threaded, align 1, !noalias !464
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %28, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -17999,9 +17972,9 @@ lpad:                                             ; preds = %_ZN7openvdb5v11_04m
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math9AffineMap9postScaleERKNS1_4Vec3IdEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this, ptr noundef nonnull align 8 dereferenceable(24) %s) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
   call void @_ZNK7openvdb5v11_04math9AffineMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(376) %this)
-  %0 = load ptr, ptr %affineMap, align 8
+  %0 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load double, ptr %s, align 8
   %2 = load double, ptr %mMatrix.i, align 8
@@ -18070,17 +18043,15 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @llvm.experimental.noalias.scope.decl(metadata !465)
   call void @llvm.experimental.noalias.scope.decl(metadata !468)
-  %25 = load ptr, ptr %affineMap, align 8, !noalias !471
-  store ptr %25, ptr %agg.result, align 8, !alias.scope !471
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %26 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8
-  store ptr %26, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !471
-  %cmp.not.i.i.i.i.i = icmp eq ptr %26, null
+  %25 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8
+  %26 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %26, ptr %agg.result, align 8, !alias.scope !471
+  %cmp.not.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load i8, ptr @__libc_single_threaded, align 1, !noalias !471
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -18181,10 +18152,10 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7openvdb5v11_04math9AffineMap9postShearEdNS1_4AxisES3_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(376) %this, double noundef %shear, i32 noundef %axis0, i32 noundef %axis1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %affineMap = alloca %"class.std::shared_ptr.17", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr.17", align 8
+  %affineMap = alloca %"class.std::shared_ptr.17", align 16
+  %agg.tmp = alloca %"class.std::shared_ptr.17", align 16
   call void @_ZNK7openvdb5v11_04math9AffineMap12getAffineMapEv(ptr nonnull sret(%"class.std::shared_ptr.17") align 8 %affineMap, ptr noundef nonnull align 8 dereferenceable(376) %this)
-  %0 = load ptr, ptr %affineMap, align 8
+  %0 = load ptr, ptr %affineMap, align 16
   %mMatrix.i = getelementptr inbounds i8, ptr %0, i64 8
   %idxprom.i.i = sext i32 %axis1 to i64
   %arrayidx.i.i = getelementptr inbounds [16 x double], ptr %mMatrix.i, i64 0, i64 %idxprom.i.i
@@ -18228,17 +18199,16 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %13 = load ptr, ptr %affineMap, align 8
-  store ptr %13, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %affineMap, i64 8
-  %14 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %14, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %14, null
+  %13 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %14 = load <2 x ptr>, ptr %affineMap, align 16
+  store <2 x ptr> %14, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9AffineMapEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -19302,7 +19272,7 @@ lpad19:                                           ; preds = %try.cont, %catch
   resume { ptr, i32 } %26
 
 if.end:                                           ; preds = %entry
-  %27 = extractelement <2 x double> %10, i64 1
+  %27 = fneg double %2
   %neg88.i = fmul double %15, %27
   %28 = tail call double @llvm.fmuladd.f64(double %16, double %0, double %neg88.i)
   %29 = insertelement <2 x double> %5, double %16, i64 1

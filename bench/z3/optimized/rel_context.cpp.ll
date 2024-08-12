@@ -6730,17 +6730,14 @@ declare void @_ZNK7datalog16relation_manager22display_relation_sizesERSo(ptr nou
 define linkonce_odr hidden void @_ZN7datalog11rel_context10get_answerEv(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(432) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %m_answer = getelementptr inbounds i8, ptr %this, i64 264
-  %0 = load ptr, ptr %m_answer, align 8
-  store ptr %0, ptr %agg.result, align 8
-  %m_manager.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %m_manager3.i = getelementptr inbounds i8, ptr %this, i64 272
-  %1 = load ptr, ptr %m_manager3.i, align 8
-  store ptr %1, ptr %m_manager.i, align 8
-  %tobool.not.i.i = icmp eq ptr %0, null
+  %0 = load <2 x ptr>, ptr %m_answer, align 8
+  %1 = load ptr, ptr %m_answer, align 8
+  store <2 x ptr> %0, ptr %agg.result, align 8
+  %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %_ZN7obj_refI4expr11ast_managerEC2ERKS2_.exit, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %entry
-  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %m_ref_count.i.i.i.i, align 4
   %inc.i.i.i.i = add i32 %2, 1
   store i32 %inc.i.i.i.i, ptr %m_ref_count.i.i.i.i, align 4

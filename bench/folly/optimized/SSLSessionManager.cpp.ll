@@ -1354,17 +1354,16 @@ if.end9.i.i.i.i.i.i.i.i:                          ; preds = %if.then7.i.i.i.i.i.
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp) #14
   %storage_.i.i5 = getelementptr inbounds i8, ptr %temp, i64 8
-  %14 = load ptr, ptr %rhs, align 8, !tbaa !34
-  store ptr %14, ptr %storage_.i.i5, align 8, !tbaa !34
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %temp, i64 16
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %rhs, i64 8
-  %15 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !tbaa !25
-  store ptr %15, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !25
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %15, null
+  %14 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !tbaa !25
+  %15 = load <2 x ptr>, ptr %rhs, align 8, !tbaa !27
+  store <2 x ptr> %15, ptr %storage_.i.i5, align 8, !tbaa !27
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5boost7variantISt10unique_ptrI14ssl_session_stN5folly23static_function_deleterIS2_XadL_Z16SSL_SESSION_freeEEEEEJSt10shared_ptrINS3_3ssl6detail14OpenSSLSessionEEEEC2ISB_EERKT_NS_9enable_ifINS_3mpl3or_INSI_4and_INSI_4not_INS_7is_sameISE_SC_EEEENS_6detail7variant29is_variant_constructible_fromISG_NSI_6l_itemIN4mpl_5long_ILl2EEES6_NSS_INSU_ILl1EEESB_NSI_5l_endEEEEEEENST_5bool_ILb1EEES12_S12_EENSM_ISE_NS_18recursive_variant_EEENS11_ILb0EEES16_S16_EEbE4typeE.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i6

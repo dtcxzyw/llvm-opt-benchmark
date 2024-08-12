@@ -799,7 +799,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN8proxygen21HTTPConnectorWithFizz11connectFizzEPN5folly9EventBaseERKNS1_13SocketAddressESt10shared_ptrIKN4fizz6client17FizzClientContextEES7_IKNS8_19CertificateVerifierEENSt6chrono8durationIlSt5ratioILl1ELl1000EEEESK_RKSt3mapINS1_15SocketOptionKeyEiSt4lessISM_ESaISt4pairIKSM_iEEES6_NS1_8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES13_(ptr noundef nonnull align 8 dereferenceable(832) %this, ptr noundef %eventBase, ptr noundef nonnull align 8 dereferenceable(27) %connectAddr, ptr nocapture noundef readonly %context, ptr nocapture noundef %verifier, i64 %totalTimeout.coerce, i64 %tcpConnectTimeout.coerce, ptr noundef nonnull align 8 dereferenceable(48) %socketOptions, ptr noundef nonnull align 8 dereferenceable(27) %bindAddr, ptr noundef %sni, ptr noundef %pskIdentity) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp12 = alloca %"struct.wangle::TransportInfo", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr", align 16
   %ref.tmp16 = alloca %"class.std::shared_ptr.64", align 8
   %agg.tmp17 = alloca %"struct.fizz::AsyncFizzBase::TransportOptions", align 8
   %agg.tmp27 = alloca %"class.std::shared_ptr.0", align 16
@@ -848,17 +848,16 @@ entry:
   %secure = getelementptr inbounds i8, ptr %this, i64 657
   store i8 1, ptr %secure, align 1
   %call15 = call noalias noundef nonnull dereferenceable(2272) ptr @_Znwm(i64 noundef 2272) #29
-  %0 = load ptr, ptr %context, align 8
-  store ptr %0, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %context, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %1 = load <2 x ptr>, ptr %context, align 8
+  store <2 x ptr> %1, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN4fizz6client17FizzClientContextEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -9863,7 +9862,7 @@ entry:
   %ref.tmp22 = alloca %"class.std::allocator", align 1
   %cachedPsk = alloca %"class.folly::Optional.188", align 8
   %ref.tmp50 = alloca %"class.folly::Optional.188", align 8
-  %agg.tmp58 = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp58 = alloca %"class.std::shared_ptr", align 16
   %agg.tmp60 = alloca %"class.std::shared_ptr.0", align 16
   %agg.tmp61 = alloca %"class.folly::Optional", align 8
   %agg.tmp62 = alloca %"class.folly::Optional.188", align 8
@@ -10170,17 +10169,16 @@ lpad52:                                           ; preds = %if.then.i
 if.end57:                                         ; preds = %_ZN5folly8OptionalIN4fizz6client9CachedPskEEaSEOS4_.exit.thread, %if.then.i.i.i41, %_ZN5folly8OptionalIN4fizz6client9CachedPskEEaSEOS4_.exit, %invoke.cont47
   %fizzClient_ = getelementptr inbounds i8, ptr %this, i64 1824
   %fizzContext_59 = getelementptr inbounds i8, ptr %this, i64 608
-  %24 = load ptr, ptr %fizzContext_59, align 8
-  store ptr %24, ptr %agg.tmp58, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp58, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 616
-  %25 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %25, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %25, null
+  %24 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %25 = load <2 x ptr>, ptr %fizzContext_59, align 8
+  store <2 x ptr> %25, ptr %agg.tmp58, align 16
+  %cmp.not.i.i.i = icmp eq ptr %24, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN4fizz6client17FizzClientContextEEC2ERKS4_.exit, label %if.then.i.i.i42
 
 if.then.i.i.i42:                                  ; preds = %if.end57
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %26, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -11384,7 +11382,7 @@ define linkonce_odr void @_ZN4fizz6client16AsyncFizzClientTINS0_18ClientStateMac
 entry:
   %cachedPsk = alloca %"class.folly::Optional.188", align 8
   %ref.tmp = alloca %"class.folly::Optional.188", align 8
-  %agg.tmp = alloca %"class.std::shared_ptr", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr", align 16
   %agg.tmp9 = alloca %"class.std::shared_ptr.0", align 16
   %agg.tmp10 = alloca %"class.folly::Optional", align 8
   %agg.tmp12 = alloca %"class.folly::Optional.188", align 8
@@ -11474,17 +11472,16 @@ if.then.i.i.i7:                                   ; preds = %_ZN5folly8OptionalI
 
 if.end:                                           ; preds = %_ZN5folly8OptionalIN4fizz6client9CachedPskEEaSEOS4_.exit.thread, %if.then.i.i.i7, %_ZN5folly8OptionalIN4fizz6client9CachedPskEEaSEOS4_.exit, %invoke.cont
   %fizzContext_8 = getelementptr inbounds i8, ptr %this, i64 608
-  %7 = load ptr, ptr %fizzContext_8, align 8
-  store ptr %7, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 616
-  %8 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %8, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %8 = load <2 x ptr>, ptr %fizzContext_8, align 8
+  store <2 x ptr> %8, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN4fizz6client17FizzClientContextEEC2ERKS4_.exit, label %if.then.i.i.i8
 
 if.then.i.i.i8:                                   ; preds = %if.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

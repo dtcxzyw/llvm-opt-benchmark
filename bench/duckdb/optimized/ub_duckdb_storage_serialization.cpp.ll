@@ -82134,14 +82134,14 @@ entry:
   %str.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %alias = alloca %"class.std::__cxx11::basic_string", align 8
   %result = alloca %"class.std::shared_ptr", align 16
-  %ref.tmp = alloca %"class.std::shared_ptr", align 8
-  %ref.tmp3 = alloca %"class.std::shared_ptr", align 8
-  %ref.tmp8 = alloca %"class.std::shared_ptr", align 8
-  %ref.tmp13 = alloca %"class.std::shared_ptr", align 8
-  %ref.tmp24 = alloca %"class.std::shared_ptr", align 8
-  %ref.tmp29 = alloca %"class.std::shared_ptr", align 8
-  %ref.tmp34 = alloca %"class.std::shared_ptr", align 8
-  %ref.tmp39 = alloca %"class.std::shared_ptr", align 8
+  %ref.tmp = alloca %"class.std::shared_ptr", align 16
+  %ref.tmp3 = alloca %"class.std::shared_ptr", align 16
+  %ref.tmp8 = alloca %"class.std::shared_ptr", align 16
+  %ref.tmp13 = alloca %"class.std::shared_ptr", align 16
+  %ref.tmp24 = alloca %"class.std::shared_ptr", align 16
+  %ref.tmp29 = alloca %"class.std::shared_ptr", align 16
+  %ref.tmp34 = alloca %"class.std::shared_ptr", align 16
+  %ref.tmp39 = alloca %"class.std::shared_ptr", align 16
   %ref.tmp43 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp44 = alloca %"class.std::allocator.30", align 1
   %vtable.i = load ptr, ptr %deserializer, align 8, !tbaa !3
@@ -82295,12 +82295,9 @@ sw.bb:                                            ; preds = %_ZN6duckdb12Deseria
           to label %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %lpad
 
 _ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %sw.bb
-  %22 = load ptr, ptr %ref.tmp, align 8, !tbaa !896
-  %_M_refcount4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %23 = load ptr, ptr %_M_refcount4.i.i.i, align 8, !tbaa !317
-  store ptr %22, ptr %result, align 16, !tbaa !53
-  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %result, i64 8
-  store ptr %23, ptr %_M_refcount3.i.i.i, align 8, !tbaa !317
+  %22 = load <2 x ptr>, ptr %ref.tmp, align 16, !tbaa !53
+  %23 = load ptr, ptr %ref.tmp, align 16, !tbaa !896
+  store <2 x ptr> %22, ptr %result, align 16, !tbaa !53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #22
   br label %sw.epilog
 
@@ -82316,12 +82313,9 @@ sw.bb2:                                           ; preds = %_ZN6duckdb12Deseria
           to label %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit129 unwind label %lpad4
 
 _ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit129: ; preds = %sw.bb2
-  %25 = load ptr, ptr %ref.tmp3, align 8, !tbaa !896
-  %_M_refcount4.i.i.i87 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
-  %26 = load ptr, ptr %_M_refcount4.i.i.i87, align 8, !tbaa !317
-  store ptr %25, ptr %result, align 16, !tbaa !53
-  %_M_refcount3.i.i.i88 = getelementptr inbounds i8, ptr %result, i64 8
-  store ptr %26, ptr %_M_refcount3.i.i.i88, align 8, !tbaa !317
+  %25 = load <2 x ptr>, ptr %ref.tmp3, align 16, !tbaa !53
+  %26 = load ptr, ptr %ref.tmp3, align 16, !tbaa !896
+  store <2 x ptr> %25, ptr %result, align 16, !tbaa !53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3) #22
   br label %sw.epilog
 
@@ -82337,12 +82331,9 @@ sw.bb7:                                           ; preds = %_ZN6duckdb12Deseria
           to label %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit172 unwind label %lpad9
 
 _ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit172: ; preds = %sw.bb7
-  %28 = load ptr, ptr %ref.tmp8, align 8, !tbaa !896
-  %_M_refcount4.i.i.i130 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
-  %29 = load ptr, ptr %_M_refcount4.i.i.i130, align 8, !tbaa !317
-  store ptr %28, ptr %result, align 16, !tbaa !53
-  %_M_refcount3.i.i.i131 = getelementptr inbounds i8, ptr %result, i64 8
-  store ptr %29, ptr %_M_refcount3.i.i.i131, align 8, !tbaa !317
+  %28 = load <2 x ptr>, ptr %ref.tmp8, align 16, !tbaa !53
+  %29 = load ptr, ptr %ref.tmp8, align 16, !tbaa !896
+  store <2 x ptr> %28, ptr %result, align 16, !tbaa !53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp8) #22
   br label %sw.epilog
 
@@ -82358,12 +82349,9 @@ sw.bb12:                                          ; preds = %_ZN6duckdb12Deseria
           to label %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit215 unwind label %lpad14
 
 _ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit215: ; preds = %sw.bb12
-  %31 = load ptr, ptr %ref.tmp13, align 8, !tbaa !896
-  %_M_refcount4.i.i.i173 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
-  %32 = load ptr, ptr %_M_refcount4.i.i.i173, align 8, !tbaa !317
-  store ptr %31, ptr %result, align 16, !tbaa !53
-  %_M_refcount3.i.i.i174 = getelementptr inbounds i8, ptr %result, i64 8
-  store ptr %32, ptr %_M_refcount3.i.i.i174, align 8, !tbaa !317
+  %31 = load <2 x ptr>, ptr %ref.tmp13, align 16, !tbaa !53
+  %32 = load ptr, ptr %ref.tmp13, align 16, !tbaa !896
+  store <2 x ptr> %31, ptr %result, align 16, !tbaa !53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp13) #22
   br label %sw.epilog
 
@@ -82414,12 +82402,9 @@ sw.bb23:                                          ; preds = %_ZN6duckdb12Deseria
           to label %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit302 unwind label %lpad25
 
 _ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit302: ; preds = %sw.bb23
-  %36 = load ptr, ptr %ref.tmp24, align 8, !tbaa !896
-  %_M_refcount4.i.i.i260 = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
-  %37 = load ptr, ptr %_M_refcount4.i.i.i260, align 8, !tbaa !317
-  store ptr %36, ptr %result, align 16, !tbaa !53
-  %_M_refcount3.i.i.i261 = getelementptr inbounds i8, ptr %result, i64 8
-  store ptr %37, ptr %_M_refcount3.i.i.i261, align 8, !tbaa !317
+  %36 = load <2 x ptr>, ptr %ref.tmp24, align 16, !tbaa !53
+  %37 = load ptr, ptr %ref.tmp24, align 16, !tbaa !896
+  store <2 x ptr> %36, ptr %result, align 16, !tbaa !53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp24) #22
   br label %sw.epilog
 
@@ -82435,12 +82420,9 @@ sw.bb28:                                          ; preds = %_ZN6duckdb12Deseria
           to label %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit345 unwind label %lpad30
 
 _ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit345: ; preds = %sw.bb28
-  %39 = load ptr, ptr %ref.tmp29, align 8, !tbaa !896
-  %_M_refcount4.i.i.i303 = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
-  %40 = load ptr, ptr %_M_refcount4.i.i.i303, align 8, !tbaa !317
-  store ptr %39, ptr %result, align 16, !tbaa !53
-  %_M_refcount3.i.i.i304 = getelementptr inbounds i8, ptr %result, i64 8
-  store ptr %40, ptr %_M_refcount3.i.i.i304, align 8, !tbaa !317
+  %39 = load <2 x ptr>, ptr %ref.tmp29, align 16, !tbaa !53
+  %40 = load ptr, ptr %ref.tmp29, align 16, !tbaa !896
+  store <2 x ptr> %39, ptr %result, align 16, !tbaa !53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp29) #22
   br label %sw.epilog
 
@@ -82456,12 +82438,9 @@ sw.bb33:                                          ; preds = %_ZN6duckdb12Deseria
           to label %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit388 unwind label %lpad35
 
 _ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit388: ; preds = %sw.bb33
-  %42 = load ptr, ptr %ref.tmp34, align 8, !tbaa !896
-  %_M_refcount4.i.i.i346 = getelementptr inbounds i8, ptr %ref.tmp34, i64 8
-  %43 = load ptr, ptr %_M_refcount4.i.i.i346, align 8, !tbaa !317
-  store ptr %42, ptr %result, align 16, !tbaa !53
-  %_M_refcount3.i.i.i347 = getelementptr inbounds i8, ptr %result, i64 8
-  store ptr %43, ptr %_M_refcount3.i.i.i347, align 8, !tbaa !317
+  %42 = load <2 x ptr>, ptr %ref.tmp34, align 16, !tbaa !53
+  %43 = load ptr, ptr %ref.tmp34, align 16, !tbaa !896
+  store <2 x ptr> %42, ptr %result, align 16, !tbaa !53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp34) #22
   br label %sw.epilog
 
@@ -82477,12 +82456,9 @@ sw.bb38:                                          ; preds = %_ZN6duckdb12Deseria
           to label %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit431 unwind label %lpad40
 
 _ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit431: ; preds = %sw.bb38
-  %45 = load ptr, ptr %ref.tmp39, align 8, !tbaa !896
-  %_M_refcount4.i.i.i389 = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
-  %46 = load ptr, ptr %_M_refcount4.i.i.i389, align 8, !tbaa !317
-  store ptr %45, ptr %result, align 16, !tbaa !53
-  %_M_refcount3.i.i.i390 = getelementptr inbounds i8, ptr %result, i64 8
-  store ptr %46, ptr %_M_refcount3.i.i.i390, align 8, !tbaa !317
+  %45 = load <2 x ptr>, ptr %ref.tmp39, align 16, !tbaa !53
+  %46 = load ptr, ptr %ref.tmp39, align 16, !tbaa !896
+  store <2 x ptr> %45, ptr %result, align 16, !tbaa !53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp39) #22
   br label %sw.epilog
 
@@ -82544,7 +82520,7 @@ cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7
   br label %ehcleanup55
 
 sw.epilog:                                        ; preds = %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit431, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit388, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit345, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit302, %invoke.cont20, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit215, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit172, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit129, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %53 = phi ptr [ %_M_impl.i.i.i.i.i.i, %invoke.cont20 ], [ %45, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit431 ], [ %42, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit388 ], [ %39, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit345 ], [ %36, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit302 ], [ %31, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit215 ], [ %28, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit172 ], [ %25, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit129 ], [ %22, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %53 = phi ptr [ %_M_impl.i.i.i.i.i.i, %invoke.cont20 ], [ %46, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit431 ], [ %43, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit388 ], [ %40, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit345 ], [ %37, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit302 ], [ %32, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit215 ], [ %29, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit172 ], [ %26, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit129 ], [ %23, %_ZNSt12__shared_ptrIN6duckdb13ExtraTypeInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   %alias53 = getelementptr inbounds i8, ptr %53, i64 16
   %54 = load ptr, ptr %alias53, align 8, !tbaa !49
   %55 = getelementptr inbounds i8, ptr %53, i64 32

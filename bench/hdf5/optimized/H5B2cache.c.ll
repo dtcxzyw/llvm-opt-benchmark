@@ -843,8 +843,8 @@ define internal ptr @H5B2__cache_int_deserialize(ptr noundef %0, i64 %1, ptr noc
   %84 = getelementptr inbounds i8, ptr %2, i64 24
   %85 = getelementptr inbounds i8, ptr %6, i64 272
   %86 = load <2 x i16>, ptr %84, align 8
+  %87 = load i16, ptr %84, align 8
   store <2 x i16> %86, ptr %85, align 8
-  %87 = extractelement <2 x i16> %86, i64 0
   %.not111 = icmp eq i16 %87, 0
   br i1 %.not111, label %._crit_edge, label %.lr.ph.preheader
 

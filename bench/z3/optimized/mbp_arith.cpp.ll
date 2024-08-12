@@ -18859,7 +18859,7 @@ entry:
 _ZNK6vectorIN3opt15model_based_opt3varELb1EjE8capacityEv.exit.i.i: ; preds = %entry
   %arrayidx.i11.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %2 = load <2 x i32>, ptr %arrayidx.i11.i.i, align 4
-  %3 = extractelement <2 x i32> %2, i64 0
+  %3 = load i32, ptr %arrayidx.i11.i.i, align 4
   %conv.i.i = zext i32 %3 to i64
   %mul.i.i = mul nuw nsw i64 %conv.i.i, 40
   %add.i.i = add nuw nsw i64 %mul.i.i, 8
@@ -21024,7 +21024,7 @@ _ZN6vectorIN3opt15model_based_opt3varELb1EjE7destroyEv.exit: ; preds = %if.end, 
 _ZNK6vectorIN3opt15model_based_opt3varELb1EjE8capacityEv.exit.i: ; preds = %_ZN6vectorIN3opt15model_based_opt3varELb1EjE7destroyEv.exit
   %arrayidx.i11.i = getelementptr inbounds i8, ptr %6, i64 -8
   %7 = load <2 x i32>, ptr %arrayidx.i11.i, align 4
-  %8 = extractelement <2 x i32> %7, i64 0
+  %8 = load i32, ptr %arrayidx.i11.i, align 4
   %conv.i = zext i32 %8 to i64
   %mul.i = mul nuw nsw i64 %conv.i, 40
   %add.i = add nuw nsw i64 %mul.i, 8

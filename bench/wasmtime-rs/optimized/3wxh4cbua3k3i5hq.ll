@@ -14947,7 +14947,7 @@ define hidden void @_ZN9regalloc26Output21block_insts_and_edits17h4be65f7d78a4d3
   br i1 %.not27.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hfa4508b51b8b9c87E.llvm.10043242345734795027.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN90_$LT$cranelift_codegen..machinst..vcode..VCode$LT$I$GT$$u20$as$u20$regalloc2..Function$GT$11block_insns17h31ead18a4914b982E.exit"
-  %18 = extractelement <2 x i32> %13, i64 0
+  %18 = load i32, ptr %12, align 4, !noalias !2974, !noundef !4
   %19 = shl i32 %18, 1
   br label %20
 

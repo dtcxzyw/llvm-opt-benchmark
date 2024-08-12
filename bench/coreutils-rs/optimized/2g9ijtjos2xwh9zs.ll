@@ -7569,34 +7569,32 @@ define hidden void @"_ZN93_$LT$rayon..iter..len..MaxLenProducer$LT$P$GT$$u20$as$
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8, !nonnull !18, !noundef !18
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
-  %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
+  %4 = load <2 x i64>, ptr %.sroa.4.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1768)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1771)
-  %4 = icmp eq i64 %.sroa.5.0.copyload, 0
-  br i1 %4, label %5, label %"_ZN100_$LT$rayon..slice..chunks..ChunksMutProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$9into_iter17h371f54c3daa542d2E.exit"
+  %5 = icmp eq i64 %.sroa.5.0.copyload, 0
+  br i1 %5, label %6, label %"_ZN100_$LT$rayon..slice..chunks..ChunksMutProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$9into_iter17h371f54c3daa542d2E.exit"
 
-5:                                                ; preds = %2
+6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !1774
   store ptr @anon.8bc848f7dd0dfb57e1f6a25012cf8bbb.23.llvm.687266931824691263, ptr %3, align 8, !noalias !1774
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 1, ptr %6, align 8, !noalias !1774
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr null, ptr %7, align 8, !noalias !1774
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr @anon.8bc848f7dd0dfb57e1f6a25012cf8bbb.13.llvm.687266931824691263, ptr %8, align 8, !noalias !1774
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 0, ptr %9, align 8, !noalias !1774
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 1, ptr %7, align 8, !noalias !1774
+  %8 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr null, ptr %8, align 8, !noalias !1774
+  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr @anon.8bc848f7dd0dfb57e1f6a25012cf8bbb.13.llvm.687266931824691263, ptr %9, align 8, !noalias !1774
+  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 0, ptr %10, align 8, !noalias !1774
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8bc848f7dd0dfb57e1f6a25012cf8bbb.3.llvm.687266931824691263) #40, !noalias !1778
   unreachable
 
 "_ZN100_$LT$rayon..slice..chunks..ChunksMutProducer$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Producer$GT$9into_iter17h371f54c3daa542d2E.exit": ; preds = %2
   store ptr %.sroa.0.0.copyload, ptr %0, align 8, !alias.scope !1779, !noalias !1780
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.4.0.copyload, ptr %10, align 8, !alias.scope !1779, !noalias !1780
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.5.0.copyload, ptr %11, align 8, !alias.scope !1779, !noalias !1780
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  store <2 x i64> %4, ptr %11, align 8, !alias.scope !1779, !noalias !1780
   ret void
 }
 

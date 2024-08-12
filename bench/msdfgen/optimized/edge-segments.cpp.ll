@@ -3042,9 +3042,9 @@ entry:
   %arrayidx8 = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load <2 x double>, ptr %arrayidx8, align 8
-  %2 = extractelement <2 x double> %1, i64 0
-  %3 = extractelement <2 x double> %0, i64 0
-  %cmp.i = fcmp oeq double %3, %2
+  %2 = extractelement <2 x double> %0, i64 0
+  %3 = extractelement <2 x double> %1, i64 0
+  %cmp.i = fcmp oeq double %2, %3
   %4 = fcmp oeq <2 x double> %0, %1
   %cmp3.i = extractelement <2 x i1> %4, i64 1
   %5 = select i1 %cmp.i, i1 %cmp3.i, i1 false
@@ -3203,6 +3203,7 @@ invoke.cont175:                                   ; preds = %invoke.cont148
   store double %82, ptr %p0.sroa.2.0.arrayidx.sroa_idx.i183, align 8
   %arrayidx6.i184 = getelementptr inbounds i8, ptr %call149, i64 32
   %84 = load <2 x double>, ptr %agg.tmp6.sroa.2.0.arrayidx8.sroa_idx, align 8
+  %agg.tmp161.sroa.0.0.copyload = load double, ptr %arrayidx36, align 8
   %85 = load <2 x double>, ptr %agg.tmp34.sroa.2.0.arrayidx36.sroa_idx, align 8
   %86 = fmul <2 x double> %84, <double 0x3FD5555555555556, double 0x3FD5555555555556>
   %87 = shufflevector <2 x double> %85, <2 x double> %84, <2 x i32> <i32 0, i32 3>
@@ -3216,47 +3217,46 @@ invoke.cont175:                                   ; preds = %invoke.cont148
   %95 = fmul <2 x double> %93, <double 0x3FD5555555555556, double 0x3FE5555555555555>
   %96 = fmul <2 x double> %94, <double 0x3FE5555555555555, double 0x3FD5555555555556>
   %97 = fadd <2 x double> %95, %96
-  %98 = extractelement <2 x double> %84, i64 1
-  %99 = extractelement <2 x double> %85, i64 1
-  %cmp.i171 = fcmp oeq double %98, %99
-  %100 = extractelement <2 x double> %85, i64 0
-  %cmp3.i172 = fcmp oeq double %100, %agg.tmp170.sroa.2.0.copyload
-  %101 = select i1 %cmp.i171, i1 %cmp3.i172, i1 false
-  %102 = extractelement <2 x double> %93, i64 1
-  %agg.tmp177.sroa.0.0 = select i1 %101, double %99, double %102
-  %103 = extractelement <2 x double> %94, i64 0
-  %agg.tmp177.sroa.3.0 = select i1 %101, double %agg.tmp170.sroa.2.0.copyload, double %103
-  %104 = shufflevector <2 x double> %97, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %104, ptr %arrayidx6.i184, align 8
+  %98 = extractelement <2 x double> %85, i64 1
+  %cmp.i171 = fcmp oeq double %agg.tmp161.sroa.0.0.copyload, %98
+  %99 = extractelement <2 x double> %85, i64 0
+  %cmp3.i172 = fcmp oeq double %99, %agg.tmp170.sroa.2.0.copyload
+  %100 = select i1 %cmp.i171, i1 %cmp3.i172, i1 false
+  %101 = extractelement <2 x double> %93, i64 1
+  %agg.tmp177.sroa.0.0 = select i1 %100, double %98, double %101
+  %102 = extractelement <2 x double> %94, i64 0
+  %agg.tmp177.sroa.3.0 = select i1 %100, double %agg.tmp170.sroa.2.0.copyload, double %102
+  %103 = shufflevector <2 x double> %97, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x double> %103, ptr %arrayidx6.i184, align 8
   %arrayidx8.i186 = getelementptr inbounds i8, ptr %call149, i64 48
   store double %agg.tmp177.sroa.0.0, ptr %arrayidx8.i186, align 8
   %p2.sroa.2.0.arrayidx8.sroa_idx.i187 = getelementptr inbounds i8, ptr %call149, i64 56
   store double %agg.tmp177.sroa.3.0, ptr %p2.sroa.2.0.arrayidx8.sroa_idx.i187, align 8
   %arrayidx10.i188 = getelementptr inbounds i8, ptr %call149, i64 64
-  store double %99, ptr %arrayidx10.i188, align 8
+  store double %98, ptr %arrayidx10.i188, align 8
   %p3.sroa.2.0.arrayidx10.sroa_idx.i189 = getelementptr inbounds i8, ptr %call149, i64 72
   store double %agg.tmp170.sroa.2.0.copyload, ptr %p3.sroa.2.0.arrayidx10.sroa_idx.i189, align 8
   store ptr %call149, ptr %part2, align 8
   ret void
 
 lpad:                                             ; preds = %entry
-  %105 = landingpad { ptr, i32 }
+  %104 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad49:                                           ; preds = %invoke.cont140, %invoke.cont44
-  %106 = landingpad { ptr, i32 }
+  %105 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad153:                                          ; preds = %invoke.cont148
-  %107 = landingpad { ptr, i32 }
+  %106 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad153, %lpad49, %lpad
   %call149.sink = phi ptr [ %call149, %lpad153 ], [ %call45, %lpad49 ], [ %call, %lpad ]
-  %.pn = phi { ptr, i32 } [ %107, %lpad153 ], [ %106, %lpad49 ], [ %105, %lpad ]
+  %.pn = phi { ptr, i32 } [ %106, %lpad153 ], [ %105, %lpad49 ], [ %104, %lpad ]
   tail call void @_ZdlPv(ptr noundef nonnull %call149.sink) #17
   resume { ptr, i32 } %.pn
 }

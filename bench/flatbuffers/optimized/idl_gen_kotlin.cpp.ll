@@ -16610,7 +16610,7 @@ entry:
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::allocator", align 1
   %ref.tmp17 = alloca %"class.std::function", align 8
-  %ref.tmp19 = alloca %"class.std::function", align 8
+  %ref.tmp19 = alloca %"class.std::function", align 16
   %0 = load ptr, ptr %this, align 8
   %struct_def = getelementptr inbounds i8, ptr %0, i64 208
   %1 = load ptr, ptr %struct_def, align 8
@@ -16698,30 +16698,28 @@ invoke.cont13:                                    ; preds = %call.i.noexc19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #18
-  %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %this, i64 16
-  %10 = load ptr, ptr %9, align 8
+  %8 = getelementptr inbounds i8, ptr %this, i64 16
+  %9 = load ptr, ptr %8, align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp17, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp17, i64 24
-  %11 = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
-  store i64 0, ptr %11, align 8
-  %12 = ptrtoint ptr %8 to i64
-  store i64 %12, ptr %ref.tmp17, align 8
+  %10 = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
+  store i64 0, ptr %10, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZZNK11flatbuffers6kotlin15KotlinGenerator21GenerateStructGettersERNS1_9StructDefERNS1_10CodeWriterEENKUlvE4_clEvEUlvE_E9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvvEZZNK11flatbuffers6kotlin15KotlinGenerator21GenerateStructGettersERNS1_9StructDefERNS1_10CodeWriterEENKUlvE4_clEvEUlvE_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i, align 8
-  %13 = load ptr, ptr %this, align 8
   %_M_manager.i.i24 = getelementptr inbounds i8, ptr %ref.tmp19, i64 16
   %_M_invoker.i25 = getelementptr inbounds i8, ptr %ref.tmp19, i64 24
-  store ptr %13, ptr %ref.tmp19, align 8
-  %ref.tmp20.sroa.2.0.ref.tmp19.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
-  store ptr %8, ptr %ref.tmp20.sroa.2.0.ref.tmp19.sroa_idx, align 8
+  %11 = load ptr, ptr %3, align 8
+  %12 = load <2 x ptr>, ptr %this, align 8
+  %13 = ptrtoint ptr %11 to i64
+  store i64 %13, ptr %ref.tmp17, align 8
+  store <2 x ptr> %12, ptr %ref.tmp19, align 16
   store ptr @_ZNSt17_Function_handlerIFvvEZZNK11flatbuffers6kotlin15KotlinGenerator21GenerateStructGettersERNS1_9StructDefERNS1_10CodeWriterEENKUlvE4_clEvEUlvE0_E9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i25, align 8
-  store ptr @_ZNSt17_Function_handlerIFvvEZZNK11flatbuffers6kotlin15KotlinGenerator21GenerateStructGettersERNS1_9StructDefERNS1_10CodeWriterEENKUlvE4_clEvEUlvE0_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i24, align 8
-  invoke void @_ZN11flatbuffers6kotlin15KotlinGenerator13OffsetWrapperERNS_10CodeWriterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8functionIFvvEESG_(ptr noundef nonnull align 8 dereferenceable(477) %8, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19)
+  store ptr @_ZNSt17_Function_handlerIFvvEZZNK11flatbuffers6kotlin15KotlinGenerator21GenerateStructGettersERNS1_9StructDefERNS1_10CodeWriterEENKUlvE4_clEvEUlvE0_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %_M_manager.i.i24, align 16
+  invoke void @_ZN11flatbuffers6kotlin15KotlinGenerator13OffsetWrapperERNS_10CodeWriterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8functionIFvvEESG_(ptr noundef nonnull align 8 dereferenceable(477) %11, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont13
-  %14 = load ptr, ptr %_M_manager.i.i24, align 8
+  %14 = load ptr, ptr %_M_manager.i.i24, align 16
   %tobool.not.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %if.then.i.i
 
@@ -16795,7 +16793,7 @@ ehcleanup16:                                      ; preds = %lpad, %lpad.i, %ehc
 lpad21:                                           ; preds = %invoke.cont13
   %24 = landingpad { ptr, i32 }
           cleanup
-  %25 = load ptr, ptr %_M_manager.i.i24, align 8
+  %25 = load ptr, ptr %_M_manager.i.i24, align 16
   %tobool.not.i.i35 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i35, label %_ZNSt8functionIFvvEED2Ev.exit39, label %if.then.i.i36
 

@@ -1417,6 +1417,7 @@ define hidden void @"_ZN4slab13Slab$LT$T$GT$10try_remove17h1ce2ea7434399165E.llv
   %.sroa.0.0.copyload = load i64, ptr %7, align 8
   %.sroa.4.0..0.1.sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
   %11 = load <2 x ptr>, ptr %.sroa.4.0..0.1.sroa_idx, align 8
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..0.1.sroa_idx, align 8
   store i64 0, ptr %7, align 8
   store i64 %10, ptr %.sroa.4.0..0.1.sroa_idx, align 8
   %12 = icmp eq i64 %.sroa.0.0.copyload, 1
@@ -1439,8 +1440,7 @@ define hidden void @"_ZN4slab13Slab$LT$T$GT$10try_remove17h1ce2ea7434399165E.llv
 
 19:                                               ; preds = %8
   store i64 %.sroa.0.0.copyload, ptr %7, align 8
-  %20 = extractelement <2 x ptr> %11, i64 0
-  store ptr %20, ptr %.sroa.4.0..0.1.sroa_idx, align 8
+  store ptr %.sroa.4.0.copyload, ptr %.sroa.4.0..0.1.sroa_idx, align 8
   br label %18
 }
 

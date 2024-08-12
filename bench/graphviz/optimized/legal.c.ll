@@ -1520,21 +1520,21 @@ define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly %0, pt
   %67 = shufflevector <2 x double> %33, <2 x double> %66, <2 x i32> <i32 0, i32 3>
   %68 = fsub <2 x double> %65, %67
   %69 = fdiv <2 x double> %63, %68
-  %70 = fneg <2 x double> %69
-  %71 = shufflevector <2 x double> %21, <2 x double> %8, <2 x i32> <i32 0, i32 2>
-  %72 = shufflevector <2 x double> %21, <2 x double> %8, <2 x i32> <i32 1, i32 3>
-  %73 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %70, <2 x double> %71, <2 x double> %72)
-  %74 = extractelement <2 x double> %73, i64 0
-  %75 = extractelement <2 x double> %73, i64 1
-  %76 = fsub double %75, %74
-  %77 = extractelement <2 x double> %69, i64 0
-  %78 = extractelement <2 x double> %69, i64 1
-  %79 = fsub double %77, %78
-  %80 = fdiv double %76, %79
+  %70 = extractelement <2 x double> %69, i64 0
+  %71 = extractelement <2 x double> %69, i64 1
+  %72 = fneg <2 x double> %69
+  %73 = shufflevector <2 x double> %21, <2 x double> %8, <2 x i32> <i32 0, i32 2>
+  %74 = shufflevector <2 x double> %21, <2 x double> %8, <2 x i32> <i32 1, i32 3>
+  %75 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %72, <2 x double> %73, <2 x double> %74)
+  %76 = extractelement <2 x double> %75, i64 0
+  %77 = extractelement <2 x double> %75, i64 1
+  %78 = fsub double %77, %76
+  %79 = fsub double %70, %71
+  %80 = fdiv double %78, %79
   store double %80, ptr %2, align 8
-  %81 = fneg double %74
-  %82 = fmul double %78, %81
-  %83 = tail call double @llvm.fmuladd.f64(double %77, double %75, double %82)
+  %81 = fneg double %76
+  %82 = fmul double %71, %81
+  %83 = tail call double @llvm.fmuladd.f64(double %70, double %77, double %82)
   %84 = fdiv double %83, %79
   br label %online.exit204.thread.sink.split
 

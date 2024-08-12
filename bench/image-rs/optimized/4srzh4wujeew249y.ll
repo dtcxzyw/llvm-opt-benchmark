@@ -3183,7 +3183,7 @@ _ZN12jpeg_decoder7read_u817hd469f45e710aaef4E.exit44.i: ; preds = %.noexc565
   br i1 %948, label %954, label %952
 
 .invoke:                                          ; preds = %85, %118, %150, %954, %187
-  %949 = phi i64 [ 4, %187 ], [ %964, %954 ], [ %.val3.i452, %150 ], [ %.val3.i441, %118 ], [ %.val3.i, %85 ]
+  %949 = phi i64 [ 4, %187 ], [ %962, %954 ], [ %.val3.i452, %150 ], [ %.val3.i441, %118 ], [ %.val3.i, %85 ]
   %950 = phi i64 [ 4, %187 ], [ 4, %954 ], [ %.val1.i.i449, %150 ], [ %.val1.i.i, %118 ], [ 4, %85 ]
   %951 = phi ptr [ @anon.60689fdbfa59ae5f463a599edb886518.60, %187 ], [ @anon.60689fdbfa59ae5f463a599edb886518.61, %954 ], [ @anon.60689fdbfa59ae5f463a599edb886518.65, %150 ], [ @anon.60689fdbfa59ae5f463a599edb886518.67, %118 ], [ @anon.60689fdbfa59ae5f463a599edb886518.66, %85 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %949, i64 noundef %950, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %951) #23
@@ -3204,14 +3204,14 @@ _ZN12jpeg_decoder7read_u817hd469f45e710aaef4E.exit44.i: ; preds = %.noexc565
   %959 = getelementptr inbounds i8, ptr %.sroa.0583.02746, i64 26
   %960 = load i8, ptr %959, align 2, !noundef !9
   %961 = load <2 x i64>, ptr %.sroa.0583.02746, align 8
-  %962 = getelementptr inbounds i8, ptr %.sroa.0583.02746, i64 16
-  %963 = load <4 x i16>, ptr %962, align 8
-  %964 = extractelement <2 x i64> %961, i64 0
-  %965 = icmp ult i64 %964, 4
+  %962 = load i64, ptr %.sroa.0583.02746, align 8, !noundef !9
+  %963 = getelementptr inbounds i8, ptr %.sroa.0583.02746, i64 16
+  %964 = load <4 x i16>, ptr %963, align 8
+  %965 = icmp ult i64 %962, 4
   br i1 %965, label %966, label %.invoke, !prof !27
 
 966:                                              ; preds = %954
-  %967 = getelementptr inbounds [4 x ptr], ptr %82, i64 0, i64 %964
+  %967 = getelementptr inbounds [4 x ptr], ptr %82, i64 0, i64 %962
   %968 = load ptr, ptr %967, align 8, !noundef !9
   %969 = icmp eq ptr %968, null
   br i1 %969, label %974, label %970
@@ -3232,7 +3232,7 @@ _ZN12jpeg_decoder7read_u817hd469f45e710aaef4E.exit44.i: ; preds = %.noexc565
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h68bcf565b3dfe473E.exit": ; preds = %970
   store i64 %.sroa.8.02745, ptr %159, align 8
   store <2 x i64> %961, ptr %160, align 8
-  store <4 x i16> %963, ptr %.sroa.5.0..sroa_idx, align 8
+  store <4 x i16> %964, ptr %.sroa.5.0..sroa_idx, align 8
   store i8 %956, ptr %.sroa.9.0..sroa_idx, align 8
   store i8 %958, ptr %.sroa.10.0..sroa_idx, align 1
   store i8 %960, ptr %.sroa.11.0..sroa_idx, align 2
@@ -5711,7 +5711,7 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h0d0f82918c1cb
   br i1 %929, label %935, label %933
 
 .invoke:                                          ; preds = %82, %115, %147, %935, %184
-  %930 = phi i64 [ 4, %184 ], [ %945, %935 ], [ %.val3.i450, %147 ], [ %.val3.i439, %115 ], [ %.val3.i, %82 ]
+  %930 = phi i64 [ 4, %184 ], [ %943, %935 ], [ %.val3.i450, %147 ], [ %.val3.i439, %115 ], [ %.val3.i, %82 ]
   %931 = phi i64 [ 4, %184 ], [ 4, %935 ], [ %.val1.i.i447, %147 ], [ %.val1.i.i, %115 ], [ 4, %82 ]
   %932 = phi ptr [ @anon.60689fdbfa59ae5f463a599edb886518.60, %184 ], [ @anon.60689fdbfa59ae5f463a599edb886518.61, %935 ], [ @anon.60689fdbfa59ae5f463a599edb886518.65, %147 ], [ @anon.60689fdbfa59ae5f463a599edb886518.67, %115 ], [ @anon.60689fdbfa59ae5f463a599edb886518.66, %82 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %930, i64 noundef %931, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %932) #23
@@ -5732,14 +5732,14 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h0d0f82918c1cb
   %940 = getelementptr inbounds i8, ptr %.sroa.0574.02704, i64 26
   %941 = load i8, ptr %940, align 2, !noundef !9
   %942 = load <2 x i64>, ptr %.sroa.0574.02704, align 8
-  %943 = getelementptr inbounds i8, ptr %.sroa.0574.02704, i64 16
-  %944 = load <4 x i16>, ptr %943, align 8
-  %945 = extractelement <2 x i64> %942, i64 0
-  %946 = icmp ult i64 %945, 4
+  %943 = load i64, ptr %.sroa.0574.02704, align 8, !noundef !9
+  %944 = getelementptr inbounds i8, ptr %.sroa.0574.02704, i64 16
+  %945 = load <4 x i16>, ptr %944, align 8
+  %946 = icmp ult i64 %943, 4
   br i1 %946, label %947, label %.invoke, !prof !27
 
 947:                                              ; preds = %935
-  %948 = getelementptr inbounds [4 x ptr], ptr %79, i64 0, i64 %945
+  %948 = getelementptr inbounds [4 x ptr], ptr %79, i64 0, i64 %943
   %949 = load ptr, ptr %948, align 8, !noundef !9
   %950 = icmp eq ptr %949, null
   br i1 %950, label %955, label %951
@@ -5760,7 +5760,7 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h0d0f82918c1cb
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h68bcf565b3dfe473E.exit": ; preds = %951
   store i64 %.sroa.8.02703, ptr %156, align 8
   store <2 x i64> %942, ptr %157, align 8
-  store <4 x i16> %944, ptr %.sroa.5.0..sroa_idx, align 8
+  store <4 x i16> %945, ptr %.sroa.5.0..sroa_idx, align 8
   store i8 %937, ptr %.sroa.9.0..sroa_idx, align 8
   store i8 %939, ptr %.sroa.10.0..sroa_idx, align 1
   store i8 %941, ptr %.sroa.11.0..sroa_idx, align 2
@@ -8239,7 +8239,7 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h3c40084dfd2bc
   br i1 %929, label %935, label %933
 
 .invoke:                                          ; preds = %82, %115, %147, %935, %184
-  %930 = phi i64 [ 4, %184 ], [ %945, %935 ], [ %.val3.i450, %147 ], [ %.val3.i439, %115 ], [ %.val3.i, %82 ]
+  %930 = phi i64 [ 4, %184 ], [ %943, %935 ], [ %.val3.i450, %147 ], [ %.val3.i439, %115 ], [ %.val3.i, %82 ]
   %931 = phi i64 [ 4, %184 ], [ 4, %935 ], [ %.val1.i.i447, %147 ], [ %.val1.i.i, %115 ], [ 4, %82 ]
   %932 = phi ptr [ @anon.60689fdbfa59ae5f463a599edb886518.60, %184 ], [ @anon.60689fdbfa59ae5f463a599edb886518.61, %935 ], [ @anon.60689fdbfa59ae5f463a599edb886518.65, %147 ], [ @anon.60689fdbfa59ae5f463a599edb886518.67, %115 ], [ @anon.60689fdbfa59ae5f463a599edb886518.66, %82 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %930, i64 noundef %931, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %932) #23
@@ -8260,14 +8260,14 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h3c40084dfd2bc
   %940 = getelementptr inbounds i8, ptr %.sroa.0574.02704, i64 26
   %941 = load i8, ptr %940, align 2, !noundef !9
   %942 = load <2 x i64>, ptr %.sroa.0574.02704, align 8
-  %943 = getelementptr inbounds i8, ptr %.sroa.0574.02704, i64 16
-  %944 = load <4 x i16>, ptr %943, align 8
-  %945 = extractelement <2 x i64> %942, i64 0
-  %946 = icmp ult i64 %945, 4
+  %943 = load i64, ptr %.sroa.0574.02704, align 8, !noundef !9
+  %944 = getelementptr inbounds i8, ptr %.sroa.0574.02704, i64 16
+  %945 = load <4 x i16>, ptr %944, align 8
+  %946 = icmp ult i64 %943, 4
   br i1 %946, label %947, label %.invoke, !prof !27
 
 947:                                              ; preds = %935
-  %948 = getelementptr inbounds [4 x ptr], ptr %79, i64 0, i64 %945
+  %948 = getelementptr inbounds [4 x ptr], ptr %79, i64 0, i64 %943
   %949 = load ptr, ptr %948, align 8, !noundef !9
   %950 = icmp eq ptr %949, null
   br i1 %950, label %955, label %951
@@ -8288,7 +8288,7 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h3c40084dfd2bc
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h68bcf565b3dfe473E.exit": ; preds = %951
   store i64 %.sroa.8.02703, ptr %156, align 8
   store <2 x i64> %942, ptr %157, align 8
-  store <4 x i16> %944, ptr %.sroa.5.0..sroa_idx, align 8
+  store <4 x i16> %945, ptr %.sroa.5.0..sroa_idx, align 8
   store i8 %937, ptr %.sroa.9.0..sroa_idx, align 8
   store i8 %939, ptr %.sroa.10.0..sroa_idx, align 1
   store i8 %941, ptr %.sroa.11.0..sroa_idx, align 2

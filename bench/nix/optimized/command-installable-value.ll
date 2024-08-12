@@ -296,21 +296,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; pred
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3nix23InstallableValueCommand3runENS_3refINS_5StoreEEENS1_INS_11InstallableEEE(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.nix::ref.4", align 8
-  %5 = alloca %"class.nix::ref.0", align 8
-  %6 = alloca %"class.nix::ref", align 8
-  %7 = alloca %"class.nix::ref.4", align 8
-  %8 = load ptr, ptr %2, align 8
-  store ptr %8, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %9, align 8
-  %.not.i.i.i.i = icmp eq ptr %11, null
+  %4 = alloca %"class.nix::ref.4", align 16
+  %5 = alloca %"class.nix::ref.0", align 16
+  %6 = alloca %"class.nix::ref", align 16
+  %7 = alloca %"class.nix::ref.4", align 16
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = load ptr, ptr %9, align 8
+  %11 = load <2 x ptr>, ptr %2, align 8
+  store <2 x ptr> %11, ptr %5, align 16
+  %.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i, label %_ZN3nix3refINS_11InstallableEEC2ERKS2_.exit, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds i8, ptr %10, i64 8
   %14 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %14, 0
   br i1 %.not.i.i.i.i.i, label %18, label %15
@@ -330,7 +329,7 @@ _ZN3nix3refINS_11InstallableEEC2ERKS2_.exit:      ; preds = %3, %15, %18
           to label %20 unwind label %189
 
 20:                                               ; preds = %_ZN3nix3refINS_11InstallableEEC2ERKS2_.exit
-  %21 = load ptr, ptr %9, align 8
+  %21 = load ptr, ptr %8, align 8
   %.not.i.i.i.i4 = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i4, label %_ZN3nix3refINS_11InstallableEED2Ev.exit, label %22
 
@@ -403,17 +402,16 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3nix3refINS_11InstallableEED2Ev.exit
 
 _ZN3nix3refINS_11InstallableEED2Ev.exit:          ; preds = %20, %38, %51, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %56 = load ptr, ptr %1, align 8
-  store ptr %56, ptr %6, align 8
-  %57 = getelementptr inbounds i8, ptr %6, i64 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 8
-  %59 = load ptr, ptr %58, align 8
-  store ptr %59, ptr %57, align 8
-  %.not.i.i.i.i6 = icmp eq ptr %59, null
+  %56 = getelementptr inbounds i8, ptr %6, i64 8
+  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %59, ptr %6, align 16
+  %.not.i.i.i.i6 = icmp eq ptr %58, null
   br i1 %.not.i.i.i.i6, label %_ZN3nix3refINS_5StoreEEC2ERKS2_.exit, label %60
 
 60:                                               ; preds = %_ZN3nix3refINS_11InstallableEED2Ev.exit
-  %61 = getelementptr inbounds i8, ptr %59, i64 8
+  %61 = getelementptr inbounds i8, ptr %58, i64 8
   %62 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i7 = icmp eq i8 %62, 0
   br i1 %.not.i.i.i.i.i7, label %66, label %63
@@ -429,17 +427,16 @@ _ZN3nix3refINS_11InstallableEED2Ev.exit:          ; preds = %20, %38, %51, %_ZNS
   br label %_ZN3nix3refINS_5StoreEEC2ERKS2_.exit
 
 _ZN3nix3refINS_5StoreEEC2ERKS2_.exit:             ; preds = %_ZN3nix3refINS_11InstallableEED2Ev.exit, %63, %66
-  %68 = load ptr, ptr %4, align 8
-  store ptr %68, ptr %7, align 8
-  %69 = getelementptr inbounds i8, ptr %7, i64 8
-  %70 = getelementptr inbounds i8, ptr %4, i64 8
-  %71 = load ptr, ptr %70, align 8
-  store ptr %71, ptr %69, align 8
-  %.not.i.i.i.i8 = icmp eq ptr %71, null
+  %68 = getelementptr inbounds i8, ptr %7, i64 8
+  %69 = getelementptr inbounds i8, ptr %4, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = load <2 x ptr>, ptr %4, align 16
+  store <2 x ptr> %71, ptr %7, align 16
+  %.not.i.i.i.i8 = icmp eq ptr %70, null
   br i1 %.not.i.i.i.i8, label %_ZN3nix3refINS_16InstallableValueEEC2ERKS2_.exit, label %72
 
 72:                                               ; preds = %_ZN3nix3refINS_5StoreEEC2ERKS2_.exit
-  %73 = getelementptr inbounds i8, ptr %71, i64 8
+  %73 = getelementptr inbounds i8, ptr %70, i64 8
   %74 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i9 = icmp eq i8 %74, 0
   br i1 %.not.i.i.i.i.i9, label %78, label %75
@@ -462,7 +459,7 @@ _ZN3nix3refINS_16InstallableValueEEC2ERKS2_.exit: ; preds = %_ZN3nix3refINS_5Sto
           to label %83 unwind label %191
 
 83:                                               ; preds = %_ZN3nix3refINS_16InstallableValueEEC2ERKS2_.exit
-  %84 = load ptr, ptr %69, align 8
+  %84 = load ptr, ptr %68, align 8
   %.not.i.i.i.i10 = icmp eq ptr %84, null
   br i1 %.not.i.i.i.i10, label %_ZN3nix3refINS_16InstallableValueEED2Ev.exit, label %85
 
@@ -535,7 +532,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3nix3refINS_16InstallableValueEED2Ev.exit
 
 _ZN3nix3refINS_16InstallableValueEED2Ev.exit:     ; preds = %83, %101, %114, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i15
-  %119 = load ptr, ptr %57, align 8
+  %119 = load ptr, ptr %56, align 8
   %.not.i.i.i.i16 = icmp eq ptr %119, null
   br i1 %.not.i.i.i.i16, label %_ZN3nix3refINS_5StoreEED2Ev.exit, label %120
 
@@ -608,7 +605,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3nix3refINS_5StoreEED2Ev.exit
 
 _ZN3nix3refINS_5StoreEED2Ev.exit:                 ; preds = %_ZN3nix3refINS_16InstallableValueEED2Ev.exit, %136, %149, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i21
-  %154 = load ptr, ptr %70, align 8
+  %154 = load ptr, ptr %69, align 8
   %.not.i.i.i.i22 = icmp eq ptr %154, null
   br i1 %.not.i.i.i.i22, label %_ZN3nix3refINS_16InstallableValueEED2Ev.exit28, label %155
 

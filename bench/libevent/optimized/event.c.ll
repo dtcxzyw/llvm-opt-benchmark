@@ -670,14 +670,14 @@ if.then12.i.i:                                    ; preds = %if.end9.i.i
   %tv_clock_diff.i.i = getelementptr inbounds i8, ptr %base.addr.0, i64 920
   %7 = load <2 x i64>, ptr %tv.i.i, align 16
   %8 = load <2 x i64>, ptr %tv_cache.i, align 8
-  %9 = sub nsw <2 x i64> %7, %8
-  %10 = extractelement <2 x i64> %9, i64 1
-  %cmp24.i.i = icmp slt i64 %10, 0
-  %11 = add nsw <2 x i64> %9, <i64 -1, i64 1000000>
-  %storemerge = select i1 %cmp24.i.i, <2 x i64> %11, <2 x i64> %9
+  %9 = load i64, ptr %tv_cache.i, align 8
+  %10 = sub nsw <2 x i64> %7, %8
+  %11 = extractelement <2 x i64> %10, i64 1
+  %cmp24.i.i = icmp slt i64 %11, 0
+  %12 = add nsw <2 x i64> %10, <i64 -1, i64 1000000>
+  %storemerge = select i1 %cmp24.i.i, <2 x i64> %12, <2 x i64> %10
   store <2 x i64> %storemerge, ptr %tv_clock_diff.i.i, align 8
-  %12 = extractelement <2 x i64> %8, i64 0
-  store i64 %12, ptr %last_updated_clock_diff.i.i, align 8
+  store i64 %9, ptr %last_updated_clock_diff.i.i, align 8
   br label %gettime.exit.i
 
 gettime.exit.i:                                   ; preds = %if.then12.i.i, %if.end9.i.i, %if.end7.i.i
@@ -816,14 +816,14 @@ if.then12.i:                                      ; preds = %if.end9.i
   %tv_clock_diff.i = getelementptr inbounds i8, ptr %retval.0.i94, i64 920
   %8 = load <2 x i64>, ptr %tv.i, align 16
   %9 = load <2 x i64>, ptr %tmp, align 16
-  %10 = sub nsw <2 x i64> %8, %9
-  %11 = extractelement <2 x i64> %10, i64 1
-  %cmp24.i = icmp slt i64 %11, 0
-  %12 = add nsw <2 x i64> %10, <i64 -1, i64 1000000>
-  %storemerge = select i1 %cmp24.i, <2 x i64> %12, <2 x i64> %10
+  %10 = load i64, ptr %tmp, align 16
+  %11 = sub nsw <2 x i64> %8, %9
+  %12 = extractelement <2 x i64> %11, i64 1
+  %cmp24.i = icmp slt i64 %12, 0
+  %13 = add nsw <2 x i64> %11, <i64 -1, i64 1000000>
+  %storemerge = select i1 %cmp24.i, <2 x i64> %13, <2 x i64> %11
   store <2 x i64> %storemerge, ptr %tv_clock_diff.i, align 8
-  %13 = extractelement <2 x i64> %9, i64 0
-  store i64 %13, ptr %last_updated_clock_diff.i, align 8
+  store i64 %10, ptr %last_updated_clock_diff.i, align 8
   br label %gettime.exit
 
 gettime.exit:                                     ; preds = %if.then5.i, %if.end7.i, %if.end9.i, %if.then12.i
@@ -4013,14 +4013,14 @@ if.then12.i:                                      ; preds = %if.end9.i
   %tv_clock_diff.i = getelementptr inbounds i8, ptr %0, i64 920
   %69 = load <2 x i64>, ptr %tv.i, align 16
   %70 = load <2 x i64>, ptr %now, align 16
-  %71 = sub nsw <2 x i64> %69, %70
-  %72 = extractelement <2 x i64> %71, i64 1
-  %cmp24.i = icmp slt i64 %72, 0
-  %73 = add nsw <2 x i64> %71, <i64 -1, i64 1000000>
-  %storemerge = select i1 %cmp24.i, <2 x i64> %73, <2 x i64> %71
+  %71 = load i64, ptr %now, align 16
+  %72 = sub nsw <2 x i64> %69, %70
+  %73 = extractelement <2 x i64> %72, i64 1
+  %cmp24.i = icmp slt i64 %73, 0
+  %74 = add nsw <2 x i64> %72, <i64 -1, i64 1000000>
+  %storemerge = select i1 %cmp24.i, <2 x i64> %74, <2 x i64> %72
   store <2 x i64> %storemerge, ptr %tv_clock_diff.i, align 8
-  %74 = extractelement <2 x i64> %70, i64 0
-  store i64 %74, ptr %last_updated_clock_diff.i, align 8
+  store i64 %71, ptr %last_updated_clock_diff.i, align 8
   br label %gettime.exit
 
 gettime.exit:                                     ; preds = %if.then5.i, %if.end7.i, %if.end9.i, %if.then12.i
@@ -5769,14 +5769,14 @@ if.then12.i:                                      ; preds = %if.end9.i
   %tv_clock_diff.i = getelementptr inbounds i8, ptr %0, i64 920
   %6 = load <2 x i64>, ptr %tv.i, align 16
   %7 = load <2 x i64>, ptr %now, align 16
-  %8 = sub nsw <2 x i64> %6, %7
-  %9 = extractelement <2 x i64> %8, i64 1
-  %cmp24.i = icmp slt i64 %9, 0
-  %10 = add nsw <2 x i64> %8, <i64 -1, i64 1000000>
-  %storemerge = select i1 %cmp24.i, <2 x i64> %10, <2 x i64> %8
+  %8 = load i64, ptr %now, align 16
+  %9 = sub nsw <2 x i64> %6, %7
+  %10 = extractelement <2 x i64> %9, i64 1
+  %cmp24.i = icmp slt i64 %10, 0
+  %11 = add nsw <2 x i64> %9, <i64 -1, i64 1000000>
+  %storemerge = select i1 %cmp24.i, <2 x i64> %11, <2 x i64> %9
   store <2 x i64> %storemerge, ptr %tv_clock_diff.i, align 8
-  %11 = extractelement <2 x i64> %7, i64 0
-  store i64 %11, ptr %last_updated_clock_diff.i, align 8
+  store i64 %8, ptr %last_updated_clock_diff.i, align 8
   br label %gettime.exit
 
 gettime.exit:                                     ; preds = %if.then5.i, %if.end7.i, %if.end9.i, %if.then12.i
@@ -6129,14 +6129,14 @@ if.then12.i.i:                                    ; preds = %if.end9.i.i
   %call13.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #26
   %19 = load <2 x i64>, ptr %tv.i.i, align 16
   %20 = load <2 x i64>, ptr %now.i, align 16
-  %21 = sub nsw <2 x i64> %19, %20
-  %22 = extractelement <2 x i64> %21, i64 1
-  %cmp24.i.i = icmp slt i64 %22, 0
-  %23 = add nsw <2 x i64> %21, <i64 -1, i64 1000000>
-  %storemerge = select i1 %cmp24.i.i, <2 x i64> %23, <2 x i64> %21
+  %21 = load i64, ptr %now.i, align 16
+  %22 = sub nsw <2 x i64> %19, %20
+  %23 = extractelement <2 x i64> %22, i64 1
+  %cmp24.i.i = icmp slt i64 %23, 0
+  %24 = add nsw <2 x i64> %22, <i64 -1, i64 1000000>
+  %storemerge = select i1 %cmp24.i.i, <2 x i64> %24, <2 x i64> %22
   store <2 x i64> %storemerge, ptr %tv_clock_diff.i.i, align 8
-  %24 = extractelement <2 x i64> %20, i64 0
-  store i64 %24, ptr %last_updated_clock_diff.i.i, align 8
+  store i64 %21, ptr %last_updated_clock_diff.i.i, align 8
   br label %if.end4.i
 
 gettime.exit.i:                                   ; preds = %if.end7.i.i
@@ -6144,7 +6144,7 @@ gettime.exit.i:                                   ; preds = %if.end7.i.i
   br label %timeout_next.exit
 
 if.end4.i:                                        ; preds = %if.then12.i.i, %if.end9.i.i, %if.then5.i.i
-  %25 = phi i64 [ %.pre.i, %if.then5.i.i ], [ %24, %if.then12.i.i ], [ %18, %if.end9.i.i ]
+  %25 = phi i64 [ %.pre.i, %if.then5.i.i ], [ %21, %if.then12.i.i ], [ %18, %if.end9.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i)
   %ev_timeout.i = getelementptr inbounds i8, ptr %15, i64 104
   %26 = load i64, ptr %ev_timeout.i, align 8
@@ -6356,14 +6356,14 @@ if.then12.i.i79:                                  ; preds = %if.end9.i.i76
   %call13.i.i80 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i68, ptr noundef null) #26
   %67 = load <2 x i64>, ptr %tv.i.i68, align 16
   %68 = load <2 x i64>, ptr %tv_cache.i, align 8
-  %69 = sub nsw <2 x i64> %67, %68
-  %70 = extractelement <2 x i64> %69, i64 1
-  %cmp24.i.i87 = icmp slt i64 %70, 0
-  %71 = add nsw <2 x i64> %69, <i64 -1, i64 1000000>
-  %storemerge175 = select i1 %cmp24.i.i87, <2 x i64> %71, <2 x i64> %69
+  %69 = load i64, ptr %tv_cache.i, align 8
+  %70 = sub nsw <2 x i64> %67, %68
+  %71 = extractelement <2 x i64> %70, i64 1
+  %cmp24.i.i87 = icmp slt i64 %71, 0
+  %72 = add nsw <2 x i64> %70, <i64 -1, i64 1000000>
+  %storemerge175 = select i1 %cmp24.i.i87, <2 x i64> %72, <2 x i64> %70
   store <2 x i64> %storemerge175, ptr %tv_clock_diff.i.i, align 8
-  %72 = extractelement <2 x i64> %68, i64 0
-  store i64 %72, ptr %last_updated_clock_diff.i.i, align 8
+  store i64 %69, ptr %last_updated_clock_diff.i.i, align 8
   br label %gettime.exit.i89
 
 gettime.exit.i89:                                 ; preds = %if.then12.i.i79, %if.end9.i.i76, %if.end7.i.i72
@@ -6437,14 +6437,14 @@ if.then12.i.i115:                                 ; preds = %if.end9.i.i112
   %call13.i.i116 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i93, ptr noundef null) #26
   %82 = load <2 x i64>, ptr %tv.i.i93, align 16
   %83 = load <2 x i64>, ptr %now.i94, align 16
-  %84 = sub nsw <2 x i64> %82, %83
-  %85 = extractelement <2 x i64> %84, i64 1
-  %cmp24.i.i123 = icmp slt i64 %85, 0
-  %86 = add nsw <2 x i64> %84, <i64 -1, i64 1000000>
-  %storemerge176 = select i1 %cmp24.i.i123, <2 x i64> %86, <2 x i64> %84
+  %84 = load i64, ptr %now.i94, align 16
+  %85 = sub nsw <2 x i64> %82, %83
+  %86 = extractelement <2 x i64> %85, i64 1
+  %cmp24.i.i123 = icmp slt i64 %86, 0
+  %87 = add nsw <2 x i64> %85, <i64 -1, i64 1000000>
+  %storemerge176 = select i1 %cmp24.i.i123, <2 x i64> %87, <2 x i64> %85
   store <2 x i64> %storemerge176, ptr %tv_clock_diff.i.i, align 8
-  %87 = extractelement <2 x i64> %83, i64 0
-  store i64 %87, ptr %last_updated_clock_diff.i.i, align 8
+  store i64 %84, ptr %last_updated_clock_diff.i.i, align 8
   br label %gettime.exit.i100
 
 gettime.exit.i100:                                ; preds = %if.then12.i.i115, %if.end9.i.i112, %if.end7.i.i109, %if.then5.i.i99
@@ -6536,18 +6536,18 @@ if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
   %call13.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i.i, ptr noundef null) #26
   %104 = load <2 x i64>, ptr %tv.i.i.i, align 16
   %105 = load <2 x i64>, ptr %tv_cache.i, align 8
-  %106 = sub nsw <2 x i64> %104, %105
-  %107 = extractelement <2 x i64> %106, i64 1
-  %cmp24.i.i.i = icmp slt i64 %107, 0
-  %108 = add nsw <2 x i64> %106, <i64 -1, i64 1000000>
-  %storemerge177 = select i1 %cmp24.i.i.i, <2 x i64> %108, <2 x i64> %106
+  %106 = load i64, ptr %tv_cache.i, align 8
+  %107 = sub nsw <2 x i64> %104, %105
+  %108 = extractelement <2 x i64> %107, i64 1
+  %cmp24.i.i.i = icmp slt i64 %108, 0
+  %109 = add nsw <2 x i64> %107, <i64 -1, i64 1000000>
+  %storemerge177 = select i1 %cmp24.i.i.i, <2 x i64> %109, <2 x i64> %107
   store <2 x i64> %storemerge177, ptr %tv_clock_diff.i.i, align 8
-  %109 = extractelement <2 x i64> %105, i64 0
-  store i64 %109, ptr %last_updated_clock_diff.i.i, align 8
+  store i64 %106, ptr %last_updated_clock_diff.i.i, align 8
   br label %update_time_cache.exit.i
 
 update_time_cache.exit.i:                         ; preds = %if.then12.i.i.i, %if.end9.i.i.i, %if.end7.i.i.i
-  %.pr.i = phi i64 [ %.pr.pr.pre.i, %if.end9.i.i.i ], [ %109, %if.then12.i.i.i ], [ %.pr.pr.pre.i, %if.end7.i.i.i ]
+  %.pr.i = phi i64 [ %.pr.pr.pre.i, %if.end9.i.i.i ], [ %106, %if.then12.i.i.i ], [ %.pr.pr.pre.i, %if.end7.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i128)
   %tobool4.not.i.i160 = icmp eq i64 %.pr.i, 0
@@ -6573,18 +6573,18 @@ if.then12.i.i143:                                 ; preds = %if.end9.i.i140
   %call13.i.i144 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i128, ptr noundef null) #26
   %111 = load <2 x i64>, ptr %tv.i.i128, align 16
   %112 = load <2 x i64>, ptr %tv.i, align 16
-  %113 = sub nsw <2 x i64> %111, %112
-  %114 = extractelement <2 x i64> %113, i64 1
-  %cmp24.i.i151 = icmp slt i64 %114, 0
-  %115 = add nsw <2 x i64> %113, <i64 -1, i64 1000000>
-  %storemerge178 = select i1 %cmp24.i.i151, <2 x i64> %115, <2 x i64> %113
+  %113 = load i64, ptr %tv.i, align 16
+  %114 = sub nsw <2 x i64> %111, %112
+  %115 = extractelement <2 x i64> %114, i64 1
+  %cmp24.i.i151 = icmp slt i64 %115, 0
+  %116 = add nsw <2 x i64> %114, <i64 -1, i64 1000000>
+  %storemerge178 = select i1 %cmp24.i.i151, <2 x i64> %116, <2 x i64> %114
   store <2 x i64> %storemerge178, ptr %tv_clock_diff.i.i, align 8
-  %116 = extractelement <2 x i64> %112, i64 0
-  store i64 %116, ptr %last_updated_clock_diff.i.i, align 8
+  store i64 %113, ptr %last_updated_clock_diff.i.i, align 8
   br label %gettime.exit.i153
 
 gettime.exit.i153:                                ; preds = %if.then12.i.i143, %if.end9.i.i140, %if.end7.i.i136, %if.then5.i.i161
-  %117 = phi i64 [ %.pre.i162, %if.then5.i.i161 ], [ %.pre29.i, %if.end7.i.i136 ], [ %.pre29.i, %if.end9.i.i140 ], [ %116, %if.then12.i.i143 ]
+  %117 = phi i64 [ %.pre.i162, %if.then5.i.i161 ], [ %.pre29.i, %if.end7.i.i136 ], [ %.pre29.i, %if.end9.i.i140 ], [ %113, %if.then12.i.i143 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i128)
   %118 = load i64, ptr %max_dispatch_time.i, align 8
   %add.i154 = add nsw i64 %118, %117
@@ -11431,14 +11431,14 @@ if.then12.i.i:                                    ; preds = %if.end9.i.i
   %call13.i.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i, ptr noundef null) #26
   %57 = load <2 x i64>, ptr %tv.i.i, align 16
   %58 = load <2 x i64>, ptr %now.i, align 16
-  %59 = sub nsw <2 x i64> %57, %58
-  %60 = extractelement <2 x i64> %59, i64 1
-  %cmp24.i.i = icmp slt i64 %60, 0
-  %61 = add nsw <2 x i64> %59, <i64 -1, i64 1000000>
-  %storemerge = select i1 %cmp24.i.i, <2 x i64> %61, <2 x i64> %59
+  %59 = load i64, ptr %now.i, align 16
+  %60 = sub nsw <2 x i64> %57, %58
+  %61 = extractelement <2 x i64> %60, i64 1
+  %cmp24.i.i = icmp slt i64 %61, 0
+  %62 = add nsw <2 x i64> %60, <i64 -1, i64 1000000>
+  %storemerge = select i1 %cmp24.i.i, <2 x i64> %62, <2 x i64> %60
   store <2 x i64> %storemerge, ptr %tv_clock_diff.i.i, align 8
-  %62 = extractelement <2 x i64> %58, i64 0
-  store i64 %62, ptr %last_updated_clock_diff.i.i, align 8
+  store i64 %59, ptr %last_updated_clock_diff.i.i, align 8
   br label %gettime.exit.i
 
 gettime.exit.i:                                   ; preds = %if.then12.i.i, %if.end9.i.i, %if.end7.i.i, %if.then5.i.i
@@ -11813,18 +11813,18 @@ if.then12.i.i123:                                 ; preds = %if.end9.i.i120
   %call13.i.i124 = call i32 @gettimeofday(ptr noundef nonnull %tv.i.i113, ptr noundef null) #26
   %124 = load <2 x i64>, ptr %tv.i.i113, align 16
   %125 = load <2 x i64>, ptr %tv_cache.i.i, align 8
-  %126 = sub nsw <2 x i64> %124, %125
-  %127 = extractelement <2 x i64> %126, i64 1
-  %cmp24.i.i131 = icmp slt i64 %127, 0
-  %128 = add nsw <2 x i64> %126, <i64 -1, i64 1000000>
-  %storemerge158 = select i1 %cmp24.i.i131, <2 x i64> %128, <2 x i64> %126
+  %126 = load i64, ptr %tv_cache.i.i, align 8
+  %127 = sub nsw <2 x i64> %124, %125
+  %128 = extractelement <2 x i64> %127, i64 1
+  %cmp24.i.i131 = icmp slt i64 %128, 0
+  %129 = add nsw <2 x i64> %127, <i64 -1, i64 1000000>
+  %storemerge158 = select i1 %cmp24.i.i131, <2 x i64> %129, <2 x i64> %127
   store <2 x i64> %storemerge158, ptr %tv_clock_diff.i.i, align 8
-  %129 = extractelement <2 x i64> %125, i64 0
-  store i64 %129, ptr %last_updated_clock_diff.i.i, align 8
+  store i64 %126, ptr %last_updated_clock_diff.i.i, align 8
   br label %update_time_cache.exit
 
 update_time_cache.exit:                           ; preds = %if.end7.i.i116, %if.then12.i.i123, %if.end9.i.i120
-  %.pr = phi i64 [ %.pr.pr.pre, %if.end9.i.i120 ], [ %129, %if.then12.i.i123 ], [ %.pr.pr.pre, %if.end7.i.i116 ]
+  %.pr = phi i64 [ %.pr.pr.pre, %if.end9.i.i120 ], [ %126, %if.then12.i.i123 ], [ %.pr.pr.pre, %if.end7.i.i116 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i113)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i)
   %tobool4.not.i = icmp eq i64 %.pr, 0
@@ -11850,18 +11850,18 @@ if.then12.i:                                      ; preds = %if.end9.i
   %call13.i = call i32 @gettimeofday(ptr noundef nonnull %tv.i, ptr noundef null) #26
   %131 = load <2 x i64>, ptr %tv.i, align 16
   %132 = load <2 x i64>, ptr %now, align 16
-  %133 = sub nsw <2 x i64> %131, %132
-  %134 = extractelement <2 x i64> %133, i64 1
-  %cmp24.i = icmp slt i64 %134, 0
-  %135 = add nsw <2 x i64> %133, <i64 -1, i64 1000000>
-  %storemerge159 = select i1 %cmp24.i, <2 x i64> %135, <2 x i64> %133
+  %133 = load i64, ptr %now, align 16
+  %134 = sub nsw <2 x i64> %131, %132
+  %135 = extractelement <2 x i64> %134, i64 1
+  %cmp24.i = icmp slt i64 %135, 0
+  %136 = add nsw <2 x i64> %134, <i64 -1, i64 1000000>
+  %storemerge159 = select i1 %cmp24.i, <2 x i64> %136, <2 x i64> %134
   store <2 x i64> %storemerge159, ptr %tv_clock_diff.i.i, align 8
-  %136 = extractelement <2 x i64> %132, i64 0
-  store i64 %136, ptr %last_updated_clock_diff.i.i, align 8
+  store i64 %133, ptr %last_updated_clock_diff.i.i, align 8
   br label %gettime.exit
 
 gettime.exit:                                     ; preds = %if.then5.i, %if.end7.i, %if.end9.i, %if.then12.i
-  %137 = phi i64 [ %.pre, %if.then5.i ], [ %.pre152, %if.end7.i ], [ %.pre152, %if.end9.i ], [ %136, %if.then12.i ]
+  %137 = phi i64 [ %.pre, %if.then5.i ], [ %.pre152, %if.end7.i ], [ %.pre152, %if.end9.i ], [ %133, %if.then12.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i)
   %138 = load i64, ptr %endtime, align 8
   %cmp157 = icmp eq i64 %137, %138

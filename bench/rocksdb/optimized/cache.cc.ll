@@ -605,15 +605,15 @@ invoke.cont25:                                    ; preds = %if.then21
 
 if.then27:                                        ; preds = %invoke.cont25
   %_M_refcount.i = getelementptr inbounds i8, ptr %result, i64 8
-  %20 = load <2 x ptr>, ptr %result, align 8
+  %20 = load ptr, ptr %_M_refcount.i, align 8
+  %21 = load <2 x ptr>, ptr %result, align 8
   store ptr %18, ptr %result, align 8
-  store <2 x ptr> %20, ptr %sec_cache, align 16
+  store <2 x ptr> %21, ptr %sec_cache, align 16
   store ptr %19, ptr %_M_refcount.i, align 8
-  %21 = extractelement <2 x ptr> %20, i64 1
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then27, %invoke.cont25
-  %22 = phi ptr [ %21, %if.then27 ], [ %19, %invoke.cont25 ]
+  %22 = phi ptr [ %20, %if.then27 ], [ %19, %invoke.cont25 ]
   call void @_ZN7rocksdb19ShardedCacheOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %sec_cache_opts) #21
   %cmp.not.i.i.i27 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i27, label %_ZNSt10shared_ptrIN7rocksdb14SecondaryCacheEED2Ev.exit57, label %if.then.i.i.i28
@@ -1502,15 +1502,15 @@ invoke.cont29:                                    ; preds = %_ZNSt10shared_ptrIN
 
 if.then31:                                        ; preds = %invoke.cont29
   %_M_refcount.i = getelementptr inbounds i8, ptr %result, i64 8
-  %29 = load <2 x ptr>, ptr %result, align 8
+  %29 = load ptr, ptr %_M_refcount.i, align 8
+  %30 = load <2 x ptr>, ptr %result, align 8
   store ptr %27, ptr %result, align 8
-  store <2 x ptr> %29, ptr %cache, align 16
+  store <2 x ptr> %30, ptr %cache, align 16
   store ptr %26, ptr %_M_refcount.i, align 8
-  %30 = extractelement <2 x ptr> %29, i64 1
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then31, %invoke.cont29
-  %31 = phi ptr [ %30, %if.then31 ], [ %26, %invoke.cont29 ]
+  %31 = phi ptr [ %29, %if.then31 ], [ %26, %invoke.cont29 ]
   %cmp.not.i.i.i130 = icmp eq ptr %31, null
   br i1 %cmp.not.i.i.i130, label %_ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit160, label %if.then.i.i.i131
 
@@ -1860,7 +1860,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, i8 0, i64 24, i1 false)
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %fn, i64 16
   %0 = load <2 x ptr>, ptr %_M_manager.i.i.i.i, align 8
-  %1 = extractelement <2 x ptr> %0, i64 0
+  %1 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFbRKN7rocksdb5SliceEPNS0_5Cache6HandleEbEEC2EOS8_.exit.i, label %if.then.i.i
 
@@ -1878,9 +1878,9 @@ _ZNSt8functionIFbRKN7rocksdb5SliceEPNS0_5Cache6HandleEbEEC2EOS8_.exit.i: ; preds
   %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %3 = load ptr, ptr %_M_manager3.i.i, align 8
   store <2 x ptr> %2, ptr %_M_manager.i.i, align 8
   store <2 x ptr> %0, ptr %_M_manager3.i.i, align 8
-  %3 = extractelement <2 x ptr> %2, i64 0
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFbRKN7rocksdb5SliceEPNS0_5Cache6HandleEbEEaSEOS8_.exit, label %if.then.i.i.i
 

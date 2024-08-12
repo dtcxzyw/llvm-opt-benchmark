@@ -21749,9 +21749,8 @@ invoke.cont5:
   %element.i = getelementptr inbounds i8, ptr %array, i64 4
   %0 = load i32, ptr %element.i, align 4, !noalias !433
   %struct_def.i = getelementptr inbounds i8, ptr %array, i64 8
-  %1 = load ptr, ptr %struct_def.i, align 8, !noalias !433
-  %enum_def.i = getelementptr inbounds i8, ptr %array, i64 16
-  %2 = load ptr, ptr %enum_def.i, align 8, !noalias !433
+  %1 = load <2 x ptr>, ptr %struct_def.i, align 8, !noalias !433
+  %2 = load ptr, ptr %struct_def.i, align 8, !noalias !433
   %fixed_length.i = getelementptr inbounds i8, ptr %array, i64 24
   %3 = load i16, ptr %fixed_length.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !436)
@@ -21773,7 +21772,7 @@ for.cond.i.preheader:                             ; preds = %.noexc
   %constant3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i755, i64 32
   %offset4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i755, i64 64
   %cmp.i.i = icmp eq i32 %0, 15
-  %fixed.i.i = getelementptr inbounds i8, ptr %1, i64 272
+  %fixed.i.i = getelementptr inbounds i8, ptr %2, i64 272
   %protobuf_ascii_alike.i = getelementptr inbounds i8, ptr %this, i64 1352
   br label %for.cond.i
 
@@ -21825,9 +21824,7 @@ _ZNSt6vectorIN11flatbuffers5ValueESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit.i
   %ref.tmp.sroa.3.0.add.ptr.i.i.i760.sroa_idx = getelementptr inbounds i8, ptr %11, i64 -68
   store i32 0, ptr %ref.tmp.sroa.3.0.add.ptr.i.i.i760.sroa_idx, align 4, !noalias !439
   %ref.tmp.sroa.4.0.add.ptr.i.i.i760.sroa_idx = getelementptr inbounds i8, ptr %11, i64 -64
-  store ptr %1, ptr %ref.tmp.sroa.4.0.add.ptr.i.i.i760.sroa_idx, align 8, !noalias !439
-  %ref.tmp.sroa.6.0.add.ptr.i.i.i760.sroa_idx = getelementptr inbounds i8, ptr %11, i64 -56
-  store ptr %2, ptr %ref.tmp.sroa.6.0.add.ptr.i.i.i760.sroa_idx, align 8, !noalias !439
+  store <2 x ptr> %1, ptr %ref.tmp.sroa.4.0.add.ptr.i.i.i760.sroa_idx, align 8, !noalias !439
   %ref.tmp.sroa.7.0.add.ptr.i.i.i760.sroa_idx = getelementptr inbounds i8, ptr %11, i64 -48
   store i16 %3, ptr %ref.tmp.sroa.7.0.add.ptr.i.i.i760.sroa_idx, align 8, !noalias !439
   br i1 %cmp.i.i, label %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i, label %if.else.i
@@ -21839,7 +21836,7 @@ _ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i:     ; preds = %_ZNSt6vectorIN11fla
 
 if.then.i762:                                     ; preds = %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit.i
   %constant.i = getelementptr inbounds i8, ptr %11, i64 -40
-  invoke void @_ZN11flatbuffers6Parser10ParseTableERKNS_9StructDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPj(ptr nonnull sret(%"class.flatbuffers::CheckedError") align 1 %err, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull %constant.i, ptr noundef null)
+  invoke void @_ZN11flatbuffers6Parser10ParseTableERKNS_9StructDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPj(ptr nonnull sret(%"class.flatbuffers::CheckedError") align 1 %err, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull align 8 dereferenceable(328) %2, ptr noundef nonnull %constant.i, ptr noundef null)
           to label %.noexc773 unwind label %lpad4.loopexit
 
 .noexc773:                                        ; preds = %if.then.i762

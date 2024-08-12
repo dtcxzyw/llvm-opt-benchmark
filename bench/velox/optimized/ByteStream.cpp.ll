@@ -2443,9 +2443,9 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i:            ; preds = %invoke.cont.i.i.i, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %call.i7, i64 32
   %32 = load <2 x ptr>, ptr %_M_manager3.i.i.i, align 8
+  %33 = load ptr, ptr %_M_manager3.i.i.i, align 8
   store <2 x ptr> %32, ptr %_M_manager.i.i.i.i, align 8
   store <2 x ptr> %31, ptr %_M_manager3.i.i.i, align 8
-  %33 = extractelement <2 x ptr> %32, i64 0
   %tobool.not.i.i4.i.i = icmp eq ptr %33, null
   br i1 %tobool.not.i.i4.i.i, label %invoke.cont13, label %if.then.i.i5.i.i
 

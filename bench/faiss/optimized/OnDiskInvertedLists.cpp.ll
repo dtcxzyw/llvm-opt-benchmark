@@ -5790,7 +5790,7 @@ define void @_ZN5faiss19OnDiskInvertedLists13crop_invlistsEmm(ptr nocapture noun
 
 20:                                               ; preds = %16
   invoke void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #25
-          to label %42 unwind label %21
+          to label %41 unwind label %21
 
 21:                                               ; preds = %20, %14, %10
   %22 = landingpad { ptr, i32 }
@@ -5817,30 +5817,29 @@ define void @_ZN5faiss19OnDiskInvertedLists13crop_invlistsEmm(ptr nocapture noun
   %31 = getelementptr inbounds %"struct.faiss::OnDiskOneList", ptr %30, i64 %1
   %32 = mul i64 %27, 24
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr nonnull align 8 %31, i64 %32, i1 false)
-  %33 = load ptr, ptr %29, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
-  %37 = load <2 x ptr>, ptr %5, align 16
-  %38 = getelementptr inbounds i8, ptr %5, i64 16
-  %39 = load ptr, ptr %38, align 16
-  store ptr %33, ptr %5, align 16
-  %40 = load <2 x ptr>, ptr %34, align 8
-  store <2 x ptr> %37, ptr %29, align 8
-  store ptr %39, ptr %35, align 8
-  store <2 x ptr> %40, ptr %36, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %34 = load ptr, ptr %33, align 8
+  %35 = load <2 x ptr>, ptr %5, align 16
+  %36 = getelementptr inbounds i8, ptr %5, i64 16
+  %37 = load ptr, ptr %36, align 16
+  store ptr %37, ptr %33, align 8
+  %38 = load <2 x ptr>, ptr %29, align 8
+  %39 = load ptr, ptr %29, align 8
+  store <2 x ptr> %35, ptr %29, align 8
+  store <2 x ptr> %38, ptr %5, align 16
+  store ptr %34, ptr %36, align 16
   store i64 %27, ptr %8, align 8
-  %.not.i.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5faiss13OnDiskOneListESaIS1_EED2Ev.exit, label %41
+  %.not.i.i.i = icmp eq ptr %39, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5faiss13OnDiskOneListESaIS1_EED2Ev.exit, label %40
 
-41:                                               ; preds = %26
-  call void @_ZdlPv(ptr noundef nonnull %33) #24
+40:                                               ; preds = %26
+  call void @_ZdlPv(ptr noundef nonnull %39) #24
   br label %_ZNSt6vectorIN5faiss13OnDiskOneListESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN5faiss13OnDiskOneListESaIS1_EED2Ev.exit: ; preds = %26, %41
+_ZNSt6vectorIN5faiss13OnDiskOneListESaIS1_EED2Ev.exit: ; preds = %26, %40
   ret void
 
-42:                                               ; preds = %20
+41:                                               ; preds = %20
   unreachable
 }
 

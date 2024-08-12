@@ -22356,12 +22356,9 @@ entry:
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   store ptr null, ptr %call5.i.i.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 8
-  %0 = load ptr, ptr %__args, align 8
-  store ptr %0, ptr %add.ptr.i.i, align 8
-  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 16
-  %second3.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %1 = load ptr, ptr %second3.i.i.i.i.i, align 8
-  store ptr %1, ptr %second.i.i.i.i.i, align 8
+  %0 = load <2 x ptr>, ptr %__args, align 8
+  %1 = load ptr, ptr %__args, align 8
+  store <2 x ptr> %0, ptr %add.ptr.i.i, align 8
   %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %2, 0
@@ -22380,7 +22377,7 @@ for.cond:                                         ; preds = %invoke.cont, %if.th
 invoke.cont:                                      ; preds = %for.cond
   %add.ptr12 = getelementptr inbounds i8, ptr %__it.sroa.0.0, i64 8
   %3 = load ptr, ptr %add.ptr12, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %3
+  %cmp.i.i.i = icmp eq ptr %1, %3
   br i1 %cmp.i.i.i, label %if.then.i17, label %for.cond, !llvm.loop !695
 
 _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_PNS0_7context11CDOhash_mapIS3_NS1_6theory8booleans17CircuitPropagator16AssignmentStatusESt4hashIS3_EEEESaISG_ENSt8__detail10_Select1stESt8equal_toIS3_ESD_NSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %if.end18, %if.end34

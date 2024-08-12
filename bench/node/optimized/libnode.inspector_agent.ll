@@ -675,17 +675,15 @@ _ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit: ; preds = %_ZN4node11En
   %host_port_ = getelementptr inbounds i8, ptr %this, i64 168
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %inspector_host_port_.i = getelementptr inbounds i8, ptr %env, i64 1712
-  %17 = load ptr, ptr %inspector_host_port_.i, align 8, !noalias !8
-  store ptr %17, ptr %host_port_, align 8, !alias.scope !8
-  %_M_refcount.i.i.i4 = getelementptr inbounds i8, ptr %this, i64 176
   %_M_refcount3.i.i.i5 = getelementptr inbounds i8, ptr %env, i64 1720
-  %18 = load ptr, ptr %_M_refcount3.i.i.i5, align 8, !noalias !8
-  store ptr %18, ptr %_M_refcount.i.i.i4, align 8, !alias.scope !8
-  %cmp.not.i.i.i.i6 = icmp eq ptr %18, null
+  %17 = load ptr, ptr %_M_refcount3.i.i.i5, align 8, !noalias !8
+  %18 = load <2 x ptr>, ptr %inspector_host_port_.i, align 8, !noalias !8
+  store <2 x ptr> %18, ptr %host_port_, align 8, !alias.scope !8
+  %cmp.not.i.i.i.i6 = icmp eq ptr %17, null
   br i1 %cmp.not.i.i.i.i6, label %_ZN4node11Environment19inspector_host_portEv.exit, label %if.then.i.i.i.i7
 
 if.then.i.i.i.i7:                                 ; preds = %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit
-  %_M_use_count.i.i.i.i.i8 = getelementptr inbounds i8, ptr %18, i64 8
+  %_M_use_count.i.i.i.i.i8 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load i8, ptr @__libc_single_threaded, align 1, !noalias !8
   %tobool.i.not.i.i.i.i.i9 = icmp eq i8 %19, 0
   br i1 %tobool.i.not.i.i.i.i.i9, label %if.else.i.i.i.i.i.i12, label %if.then.i.i.i.i.i.i10
@@ -1818,7 +1816,7 @@ entry:
   %ref.tmp8 = alloca %"class.std::basic_string_view", align 8
   %ref.tmp27 = alloca %"class.std::unique_ptr", align 8
   %agg.tmp = alloca %"class.std::shared_ptr.272", align 8
-  %agg.tmp30 = alloca %"class.std::shared_ptr.10", align 8
+  %agg.tmp30 = alloca %"class.std::shared_ptr.10", align 16
   %io_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %io_, align 8
   %cmp.i.i.not = icmp eq ptr %0, null
@@ -1914,17 +1912,16 @@ do.end26:                                         ; preds = %land.lhs.true, %do.
   call void @_ZN4node9inspector19NodeInspectorClient15getThreadHandleEv(ptr nonnull sret(%"class.std::shared_ptr.272") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(184) %12)
   %path_ = getelementptr inbounds i8, ptr %this, i64 40
   %host_port_ = getelementptr inbounds i8, ptr %this, i64 168
-  %13 = load ptr, ptr %host_port_, align 8
-  store ptr %13, ptr %agg.tmp30, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp30, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 176
-  %14 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %14, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %14, null
+  %13 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %14 = load <2 x ptr>, ptr %host_port_, align 8
+  store <2 x ptr> %14, ptr %agg.tmp30, align 16
+  %cmp.not.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node15ExclusiveAccessINS0_8HostPortENS0_9MutexBaseINS0_16LibuvMutexTraitsEEEEEEC2ERKS7_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.end26
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -4933,17 +4930,15 @@ if.end8.sink.split.i.i.i.i29:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end8.sink.split.i.i.i.i29, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i26, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i16, %_ZNSt10shared_ptrIN4node9inspector13WorkerManagerEED2Ev.exit, %if.end
-  %34 = load ptr, ptr %worker_manager_, align 8
-  store ptr %34, ptr %agg.result, align 8
-  %_M_refcount.i.i38 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 176
-  %35 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %35, ptr %_M_refcount.i.i38, align 8
-  %cmp.not.i.i.i39 = icmp eq ptr %35, null
+  %34 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %35 = load <2 x ptr>, ptr %worker_manager_, align 8
+  store <2 x ptr> %35, ptr %agg.result, align 8
+  %cmp.not.i.i.i39 = icmp eq ptr %34, null
   br i1 %cmp.not.i.i.i39, label %return, label %if.then.i.i.i40
 
 if.then.i.i.i40:                                  ; preds = %if.end6
-  %_M_use_count.i.i.i.i41 = getelementptr inbounds i8, ptr %35, i64 8
+  %_M_use_count.i.i.i.i41 = getelementptr inbounds i8, ptr %34, i64 8
   %36 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %36, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i44, label %if.then.i.i.i.i.i42
@@ -6176,20 +6171,19 @@ _ZNSt8__detail9_Map_baseIiSt4pairIKiSt10unique_ptrIN4node9inspector12_GLOBAL__N_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZSt11make_uniqueIN4node9inspector8protocol12TracingAgentEJRPNS0_11EnvironmentERSt10shared_ptrINS1_16MainThreadHandleEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr noalias sret(%"class.std::unique_ptr.533") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(16) %__args1) local_unnamed_addr #3 comdat {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.272", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.272", align 16
   %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #25
   %0 = load ptr, ptr %__args, align 8
-  %1 = load ptr, ptr %__args1, align 8
-  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %__args1, i64 8
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %__args1, align 8
+  store <2 x ptr> %2, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -7772,20 +7766,18 @@ return:                                           ; preds = %lor.lhs.false, %ent
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZSt10_ConstructIN4node9inspector13WorkerManagerEJSt10shared_ptrINS1_16MainThreadHandleEEEEvPT_DpOT0_(ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(16) %__args) local_unnamed_addr #3 comdat {
 entry:
-  %0 = load ptr, ptr %__args, align 8
   %_M_refcount4.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %1 = load ptr, ptr %_M_refcount4.i.i, align 8
+  %thread_.i = getelementptr inbounds i8, ptr %__p, i64 16
+  %0 = load ptr, ptr %_M_refcount4.i.i, align 8
+  %1 = load <2 x ptr>, ptr %__args, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__args, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__p, i8 0, i64 16, i1 false)
-  %thread_.i = getelementptr inbounds i8, ptr %__p, i64 16
-  store ptr %0, ptr %thread_.i, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %__p, i64 24
-  store ptr %1, ptr %_M_refcount.i.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %1, null
+  store <2 x ptr> %1, ptr %thread_.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN4node9inspector13WorkerManagerC2ESt10shared_ptrINS0_16MainThreadHandleEE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -7837,7 +7829,7 @@ _ZN4node9inspector13WorkerManagerC2ESt10shared_ptrINS0_16MainThreadHandleEE.exit
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN4node9inspector13WorkerManagerC2ESt10shared_ptrINS0_16MainThreadHandleEE.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %5, 4294967297
   %6 = trunc i64 %5 to i32
@@ -7845,12 +7837,12 @@ if.then.i.i.i:                                    ; preds = %_ZN4node9inspector1
 
 if.then.i.i.i.i2:                                 ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
-  %vtable.i.i.i.i = load ptr, ptr %1, align 8
+  %vtable.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %1) #22
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
   br label %if.end8.sink.split.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
@@ -7873,11 +7865,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
   br i1 %cmp6.i.i.i.i, label %if.then7.i.i.i.i, label %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  %vtable.i.i.i.i.i.i = load ptr, ptr %1, align 8
+  %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %1) #22
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %11 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -7898,10 +7890,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
   br i1 %cmp.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i, label %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i2
-  %vtable2.i.i.i.i.i.i = load ptr, ptr %1, align 8
+  %vtable2.i.i.i.i.i.i = load ptr, ptr %0, align 8
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %14 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %1) #22
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
   br label %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit
 
 _ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit: ; preds = %_ZN4node9inspector13WorkerManagerC2ESt10shared_ptrINS0_16MainThreadHandleEE.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
@@ -8213,20 +8205,19 @@ _ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKmN4node9inspector10
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZSt11make_uniqueIN4node9inspector21ParentInspectorHandleEJRmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt10shared_ptrINS1_16MainThreadHandleEERbSB_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr noalias sret(%"class.std::unique_ptr.2") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(32) %__args1, ptr noundef nonnull align 8 dereferenceable(16) %__args3, ptr noundef nonnull align 1 dereferenceable(1) %__args5, ptr noundef nonnull align 8 dereferenceable(32) %__args7) local_unnamed_addr #3 comdat {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.272", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.272", align 16
   %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #25
   %0 = load i64, ptr %__args, align 8
-  %1 = load ptr, ptr %__args3, align 8
-  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %__args3, i64 8
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %__args3, align 8
+  store <2 x ptr> %2, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

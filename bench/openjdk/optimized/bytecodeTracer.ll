@@ -192,60 +192,58 @@ define hidden void @_ZN14BytecodeTracer18print_method_codesERK12methodHandleiiP1
   %19 = getelementptr inbounds i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %18, i64 32
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %18, i64 40
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %18, i64 8
-  %26 = load i64, ptr %25, align 8
+  %22 = load <2 x ptr>, ptr %21, align 8
+  %23 = load ptr, ptr %21, align 8
+  %24 = getelementptr inbounds i8, ptr %18, i64 8
+  %25 = load i64, ptr %24, align 8
   call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %8, i64 noundef 0) #7
-  %27 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %7)
-  %28 = icmp sgt i32 %27, -1
-  br i1 %28, label %.lr.ph, label %._crit_edge
+  %26 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %7)
+  %27 = icmp sgt i32 %26, -1
+  br i1 %27, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %29 = getelementptr inbounds i8, ptr %7, i64 8
-  br label %30
+  %28 = getelementptr inbounds i8, ptr %7, i64 8
+  br label %29
 
-30:                                               ; preds = %.lr.ph, %30
-  %31 = load ptr, ptr %29, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 56
-  %35 = load i32, ptr %12, align 8
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %34, i64 %36
-  call void @_ZN15BytecodePrinter5traceERK12methodHandlePhP12outputStream(ptr noundef nonnull align 8 dereferenceable(29) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %37, ptr noundef nonnull %8)
-  %38 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %7)
-  %39 = icmp sgt i32 %38, -1
-  br i1 %39, label %30, label %._crit_edge, !llvm.loop !6
+29:                                               ; preds = %.lr.ph, %29
+  %30 = load ptr, ptr %28, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 56
+  %34 = load i32, ptr %12, align 8
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds i8, ptr %33, i64 %35
+  call void @_ZN15BytecodePrinter5traceERK12methodHandlePhP12outputStream(ptr noundef nonnull align 8 dereferenceable(29) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %36, ptr noundef nonnull %8)
+  %37 = call noundef i32 @_ZN14BytecodeStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %7)
+  %38 = icmp sgt i32 %37, -1
+  br i1 %38, label %29, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %30, %5
-  %40 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %8, i1 noundef zeroext false) #7
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str, ptr noundef %40) #7
+._crit_edge:                                      ; preds = %29, %5
+  %39 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %8, i1 noundef zeroext false) #7
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str, ptr noundef %39) #7
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %8) #7
-  %41 = load ptr, ptr %20, align 8
-  %.not.i.i.i.i = icmp eq ptr %41, null
-  br i1 %.not.i.i.i.i, label %43, label %42
+  %40 = load ptr, ptr %20, align 8
+  %.not.i.i.i.i = icmp eq ptr %40, null
+  br i1 %.not.i.i.i.i, label %42, label %41
 
-42:                                               ; preds = %._crit_edge
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %18, i64 noundef %26) #7
+41:                                               ; preds = %._crit_edge
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %18, i64 noundef %25) #7
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %20) #7
-  br label %43
+  br label %42
 
-43:                                               ; preds = %42, %._crit_edge
-  %44 = load ptr, ptr %21, align 8
-  %.not8.i.i.i.i = icmp eq ptr %44, %22
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %45
+42:                                               ; preds = %41, %._crit_edge
+  %43 = load ptr, ptr %21, align 8
+  %.not8.i.i.i.i = icmp eq ptr %43, %23
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %44
 
-45:                                               ; preds = %43
+44:                                               ; preds = %42
   store ptr %20, ptr %19, align 8
-  store ptr %22, ptr %21, align 8
-  store ptr %24, ptr %23, align 8
+  store <2 x ptr> %22, ptr %21, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %43, %45
-  %46 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %46) #7
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %42, %44
+  %45 = getelementptr inbounds i8, ptr %7, i64 8
+  call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %45) #7
   ret void
 }
 
@@ -392,130 +390,128 @@ define linkonce_odr hidden void @_ZN15BytecodePrinter5traceERK12methodHandlePhP1
   %21 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %20, i64 32
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %20, i64 40
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %20, i64 8
-  %28 = load i64, ptr %27, align 8
-  %29 = load i8, ptr %2, align 1
-  %30 = zext i8 %29 to i32
-  %.not.i = icmp eq i8 %29, -54
-  br i1 %.not.i, label %31, label %_ZN9Bytecodes7code_atEPK6MethodPh.exit
+  %24 = load <2 x ptr>, ptr %23, align 8
+  %25 = load ptr, ptr %23, align 8
+  %26 = getelementptr inbounds i8, ptr %20, i64 8
+  %27 = load i64, ptr %26, align 8
+  %28 = load i8, ptr %2, align 1
+  %29 = zext i8 %28 to i32
+  %.not.i = icmp eq i8 %28, -54
+  br i1 %.not.i, label %30, label %_ZN9Bytecodes7code_atEPK6MethodPh.exit
 
-31:                                               ; preds = %4
-  %32 = load ptr, ptr %1, align 8
-  %33 = tail call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef %32, ptr noundef nonnull %2) #7
+30:                                               ; preds = %4
+  %31 = load ptr, ptr %1, align 8
+  %32 = tail call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef %31, ptr noundef nonnull %2) #7
   br label %_ZN9Bytecodes7code_atEPK6MethodPh.exit
 
-_ZN9Bytecodes7code_atEPK6MethodPh.exit:           ; preds = %4, %31
-  %34 = phi i32 [ %33, %31 ], [ %30, %4 ]
-  %35 = icmp eq i32 %34, 196
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %37 = zext i1 %35 to i8
-  store i8 %37, ptr %36, align 8
-  br i1 %35, label %38, label %_ZN9Bytecodes7code_atEPK6MethodPh.exit25
+_ZN9Bytecodes7code_atEPK6MethodPh.exit:           ; preds = %4, %30
+  %33 = phi i32 [ %32, %30 ], [ %29, %4 ]
+  %34 = icmp eq i32 %33, 196
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = zext i1 %34 to i8
+  store i8 %36, ptr %35, align 8
+  br i1 %34, label %37, label %_ZN9Bytecodes7code_atEPK6MethodPh.exit25
 
-38:                                               ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit
-  %39 = getelementptr inbounds i8, ptr %2, i64 1
-  %40 = load i8, ptr %39, align 1
-  %41 = zext i8 %40 to i32
-  %.not.i24 = icmp eq i8 %40, -54
-  br i1 %.not.i24, label %42, label %_ZN9Bytecodes7code_atEPK6MethodPh.exit25
+37:                                               ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit
+  %38 = getelementptr inbounds i8, ptr %2, i64 1
+  %39 = load i8, ptr %38, align 1
+  %40 = zext i8 %39 to i32
+  %.not.i24 = icmp eq i8 %39, -54
+  br i1 %.not.i24, label %41, label %_ZN9Bytecodes7code_atEPK6MethodPh.exit25
 
-42:                                               ; preds = %38
-  %43 = load ptr, ptr %1, align 8
-  %44 = tail call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef %43, ptr noundef nonnull %39) #7
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %1, align 8
+  %43 = tail call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef %42, ptr noundef nonnull %38) #7
   br label %_ZN9Bytecodes7code_atEPK6MethodPh.exit25
 
-_ZN9Bytecodes7code_atEPK6MethodPh.exit25:         ; preds = %42, %38, %_ZN9Bytecodes7code_atEPK6MethodPh.exit
-  %.0 = phi i32 [ %34, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ], [ %44, %42 ], [ %41, %38 ]
-  %45 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %.0, ptr %45, align 4
-  %46 = load ptr, ptr %1, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 56
-  %50 = ptrtoint ptr %2 to i64
-  %51 = ptrtoint ptr %49 to i64
-  %52 = sub i64 %50, %51
-  %53 = trunc i64 %52 to i32
-  %54 = getelementptr inbounds i8, ptr %0, i64 24
-  %55 = load i32, ptr %54, align 8
-  %56 = and i32 %55, 4
-  %.not = icmp eq i32 %56, 0
-  br i1 %.not, label %58, label %57
+_ZN9Bytecodes7code_atEPK6MethodPh.exit25:         ; preds = %41, %37, %_ZN9Bytecodes7code_atEPK6MethodPh.exit
+  %.0 = phi i32 [ %33, %_ZN9Bytecodes7code_atEPK6MethodPh.exit ], [ %43, %41 ], [ %40, %37 ]
+  %44 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %.0, ptr %44, align 4
+  %45 = load ptr, ptr %1, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 56
+  %49 = ptrtoint ptr %2 to i64
+  %50 = ptrtoint ptr %48 to i64
+  %51 = sub i64 %49, %50
+  %52 = trunc i64 %51 to i32
+  %53 = getelementptr inbounds i8, ptr %0, i64 24
+  %54 = load i32, ptr %53, align 8
+  %55 = and i32 %54, 4
+  %.not = icmp eq i32 %55, 0
+  br i1 %.not, label %57, label %56
 
-57:                                               ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit25
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.49, i64 noundef %50) #7
-  br label %58
+56:                                               ; preds = %_ZN9Bytecodes7code_atEPK6MethodPh.exit25
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.49, i64 noundef %49) #7
+  br label %57
 
-58:                                               ; preds = %57, %_ZN9Bytecodes7code_atEPK6MethodPh.exit25
-  %59 = load i8, ptr %36, align 8
-  %60 = trunc i8 %59 to i1
-  %61 = sext i32 %.0 to i64
-  %62 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %61
-  %63 = load ptr, ptr %62, align 8
-  %.str.50..str.51 = select i1 %60, ptr @.str.50, ptr @.str.51
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %.str.50..str.51, i32 noundef %53, ptr noundef %63) #7
-  %64 = load i8, ptr %36, align 8
-  %65 = trunc i8 %64 to i1
-  %.v = select i1 %65, i64 2, i64 1
-  %66 = getelementptr inbounds i8, ptr %2, i64 %.v
-  %67 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %66, ptr %67, align 8
-  tail call void @_ZN15BytecodePrinter16print_attributesEiP12outputStream(ptr noundef nonnull align 8 dereferenceable(29) %0, i32 noundef %53, ptr noundef nonnull %3)
-  %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
-  %70 = load ptr, ptr %69, align 8
-  %.not.i26 = icmp eq ptr %70, null
-  br i1 %.not.i26, label %_ZN15BytecodePrinter15bytecode_epilogEiP12outputStream.exit, label %71
+57:                                               ; preds = %56, %_ZN9Bytecodes7code_atEPK6MethodPh.exit25
+  %58 = load i8, ptr %35, align 8
+  %59 = trunc i8 %58 to i1
+  %60 = sext i32 %.0 to i64
+  %61 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %60
+  %62 = load ptr, ptr %61, align 8
+  %.str.50..str.51 = select i1 %59, ptr @.str.50, ptr @.str.51
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %.str.50..str.51, i32 noundef %52, ptr noundef %62) #7
+  %63 = load i8, ptr %35, align 8
+  %64 = trunc i8 %63 to i1
+  %.v = select i1 %64, i64 2, i64 1
+  %65 = getelementptr inbounds i8, ptr %2, i64 %.v
+  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %65, ptr %66, align 8
+  tail call void @_ZN15BytecodePrinter16print_attributesEiP12outputStream(ptr noundef nonnull align 8 dereferenceable(29) %0, i32 noundef %52, ptr noundef nonnull %3)
+  %67 = load ptr, ptr %0, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %69 = load ptr, ptr %68, align 8
+  %.not.i26 = icmp eq ptr %69, null
+  br i1 %.not.i26, label %_ZN15BytecodePrinter15bytecode_epilogEiP12outputStream.exit, label %70
 
-71:                                               ; preds = %58
-  %72 = getelementptr inbounds i8, ptr %70, i64 24
-  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %72) #7
-  %73 = tail call noundef ptr @_ZN10MethodData11bci_to_dataEi(ptr noundef nonnull align 8 dereferenceable(312) %70, i32 noundef %53) #7
-  %.not13.i = icmp eq ptr %73, null
-  br i1 %.not13.i, label %_ZN11MutexLockerD2Ev.exit.i, label %74
+70:                                               ; preds = %57
+  %71 = getelementptr inbounds i8, ptr %69, i64 24
+  tail call void @_ZN5Mutex28lock_without_safepoint_checkEv(ptr noundef nonnull align 8 dereferenceable(104) %71) #7
+  %72 = tail call noundef ptr @_ZN10MethodData11bci_to_dataEi(ptr noundef nonnull align 8 dereferenceable(312) %69, i32 noundef %52) #7
+  %.not13.i = icmp eq ptr %72, null
+  br i1 %.not13.i, label %_ZN11MutexLockerD2Ev.exit.i, label %73
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %73, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %70, i64 304
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds i8, ptr %72, i64 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %69, i64 304
+  %77 = ptrtoint ptr %75 to i64
   %78 = ptrtoint ptr %76 to i64
-  %79 = ptrtoint ptr %77 to i64
-  %80 = sub i64 %78, %79
-  %81 = trunc i64 %80 to i32
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.44, i32 noundef %81) #7
-  %82 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef 7) #7
-  tail call void @_ZNK11ProfileData13print_data_onEP12outputStreamPK10MethodData(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull %3, ptr noundef nonnull %70) #7
+  %79 = sub i64 %77, %78
+  %80 = trunc i64 %79 to i32
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.44, i32 noundef %80) #7
+  %81 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef 7) #7
+  tail call void @_ZNK11ProfileData13print_data_onEP12outputStreamPK10MethodData(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull %3, ptr noundef nonnull %69) #7
   br label %_ZN11MutexLockerD2Ev.exit.i
 
-_ZN11MutexLockerD2Ev.exit.i:                      ; preds = %74, %71
-  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %72) #7
+_ZN11MutexLockerD2Ev.exit.i:                      ; preds = %73, %70
+  tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %71) #7
   br label %_ZN15BytecodePrinter15bytecode_epilogEiP12outputStream.exit
 
-_ZN15BytecodePrinter15bytecode_epilogEiP12outputStream.exit: ; preds = %58, %_ZN11MutexLockerD2Ev.exit.i
-  %83 = load ptr, ptr %22, align 8
-  %.not.i.i.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i, label %85, label %84
+_ZN15BytecodePrinter15bytecode_epilogEiP12outputStream.exit: ; preds = %57, %_ZN11MutexLockerD2Ev.exit.i
+  %82 = load ptr, ptr %22, align 8
+  %.not.i.i.i.i = icmp eq ptr %82, null
+  br i1 %.not.i.i.i.i, label %84, label %83
 
-84:                                               ; preds = %_ZN15BytecodePrinter15bytecode_epilogEiP12outputStream.exit
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %20, i64 noundef %28) #7
+83:                                               ; preds = %_ZN15BytecodePrinter15bytecode_epilogEiP12outputStream.exit
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %20, i64 noundef %27) #7
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %22) #7
-  br label %85
+  br label %84
 
-85:                                               ; preds = %84, %_ZN15BytecodePrinter15bytecode_epilogEiP12outputStream.exit
-  %86 = load ptr, ptr %23, align 8
-  %.not8.i.i.i.i = icmp eq ptr %86, %24
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %87
+84:                                               ; preds = %83, %_ZN15BytecodePrinter15bytecode_epilogEiP12outputStream.exit
+  %85 = load ptr, ptr %23, align 8
+  %.not8.i.i.i.i = icmp eq ptr %85, %25
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %86
 
-87:                                               ; preds = %85
+86:                                               ; preds = %84
   store ptr %22, ptr %21, align 8
-  store ptr %24, ptr %23, align 8
-  store ptr %26, ptr %25, align 8
+  store <2 x ptr> %24, ptr %23, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %85, %87
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %84, %86
   ret void
 }
 

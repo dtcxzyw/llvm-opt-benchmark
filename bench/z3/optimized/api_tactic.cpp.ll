@@ -7123,7 +7123,6 @@ if.end:                                           ; preds = %if.then, %entry
   %m_simplifier.i = getelementptr inbounds i8, ptr %t1, i64 24
   %spec.select.i = select i1 %cmp.i, ptr null, ptr %m_simplifier.i
   %_M_manager.i.i = getelementptr inbounds i8, ptr %fac1, i64 16
-  %_M_invoker.i = getelementptr inbounds i8, ptr %fac1, i64 24
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %spec.select.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fac1, i8 0, i64 32, i1 false)
   %2 = load ptr, ptr %_M_manager.i.i.i, align 8
@@ -7135,11 +7134,9 @@ if.then.i:                                        ; preds = %if.end
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %spec.select.i, i64 24
-  %3 = load ptr, ptr %_M_invoker4.i, align 8
-  store ptr %3, ptr %_M_invoker.i, align 8
+  %3 = load <2 x ptr>, ptr %_M_manager.i.i.i, align 8
   %4 = load ptr, ptr %_M_manager.i.i.i, align 8
-  store ptr %4, ptr %_M_manager.i.i, align 8
+  store <2 x ptr> %3, ptr %_M_manager.i.i, align 8
   br label %invoke.cont9
 
 lpad.i:                                           ; preds = %if.then.i
@@ -7167,7 +7164,6 @@ invoke.cont9:                                     ; preds = %invoke.cont.i, %if.
   %m_simplifier.i15 = getelementptr inbounds i8, ptr %t2, i64 24
   %spec.select.i16 = select i1 %cmp.i14, ptr null, ptr %m_simplifier.i15
   %_M_manager.i.i17 = getelementptr inbounds i8, ptr %fac2, i64 16
-  %_M_invoker.i18 = getelementptr inbounds i8, ptr %fac2, i64 24
   %_M_manager.i.i.i19 = getelementptr inbounds i8, ptr %spec.select.i16, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fac2, i8 0, i64 32, i1 false)
   %10 = load ptr, ptr %_M_manager.i.i.i19, align 8
@@ -7179,11 +7175,9 @@ if.then.i21:                                      ; preds = %invoke.cont9
           to label %invoke.cont.i29 unwind label %lpad.i23
 
 invoke.cont.i29:                                  ; preds = %if.then.i21
-  %_M_invoker4.i30 = getelementptr inbounds i8, ptr %spec.select.i16, i64 24
-  %11 = load ptr, ptr %_M_invoker4.i30, align 8
-  store ptr %11, ptr %_M_invoker.i18, align 8
+  %11 = load <2 x ptr>, ptr %_M_manager.i.i.i19, align 8
   %12 = load ptr, ptr %_M_manager.i.i.i19, align 8
-  store ptr %12, ptr %_M_manager.i.i17, align 8
+  store <2 x ptr> %11, ptr %_M_manager.i.i17, align 8
   %.pre = load ptr, ptr %_M_manager.i.i, align 8
   br label %invoke.cont13
 
@@ -7310,7 +7304,6 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %call.i.i2.i.i.noexc
 
 "_ZNSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEEC2IRZ22Z3_simplifier_and_thenE3$_0vEEOT_.exit.i": ; preds = %call.i.i2.i.i.noexc
   %_M_manager.i.i.i66 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr %call.i.i2.i.i67, ptr %ref.tmp.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 16, i1 false)
@@ -7318,18 +7311,17 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %call.i.i2.i.i.noexc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_simplifier.i65, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %call20, i64 40
-  %33 = load ptr, ptr %_M_manager3.i.i, align 8
-  store ptr %33, ptr %_M_manager.i.i.i66, align 8
-  store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ22Z3_simplifier_and_thenE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager3.i.i, align 8
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %call20, i64 48
-  %34 = load ptr, ptr %_M_invoker4.i.i, align 8
-  store ptr %34, ptr %_M_invoker.i.i, align 8
+  %33 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %34 = load ptr, ptr %_M_manager3.i.i, align 8
+  store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ22Z3_simplifier_and_thenE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager3.i.i, align 8
+  store <2 x ptr> %33, ptr %_M_manager.i.i.i66, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ22Z3_simplifier_and_thenE3$_0E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker4.i.i, align 8
-  %tobool.not.i.i3.i = icmp eq ptr %33, null
+  %tobool.not.i.i3.i = icmp eq ptr %34, null
   br i1 %tobool.not.i.i3.i, label %invoke.cont24, label %if.then.i.i4.i
 
 if.then.i.i4.i:                                   ; preds = %"_ZNSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEEC2IRZ22Z3_simplifier_and_thenE3$_0vEEOT_.exit.i"
-  %call.i.i5.i = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i5.i = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %invoke.cont24 unwind label %terminate.lpad.i.i6.i
 
 terminate.lpad.i.i6.i:                            ; preds = %if.then.i.i4.i
@@ -7849,7 +7841,6 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 "_ZNSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEEC2IRZ26Z3_simplifier_using_paramsE3$_0vEEOT_.exit.i": ; preds = %invoke.cont.i.i.i.i.i.i, %.noexc.i.i.i.i
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr %call.i.i2.i.i47, ptr %ref.tmp.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i64 16, i1 false)
@@ -7857,18 +7848,17 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_simplifier.i44, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %call38, i64 40
-  %30 = load ptr, ptr %_M_manager3.i.i, align 8
-  store ptr %30, ptr %_M_manager.i.i.i46, align 8
-  store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ26Z3_simplifier_using_paramsE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager3.i.i, align 8
   %_M_invoker4.i.i = getelementptr inbounds i8, ptr %call38, i64 48
-  %31 = load ptr, ptr %_M_invoker4.i.i, align 8
-  store ptr %31, ptr %_M_invoker.i.i, align 8
+  %30 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %31 = load ptr, ptr %_M_manager3.i.i, align 8
+  store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ26Z3_simplifier_using_paramsE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %_M_manager3.i.i, align 8
+  store <2 x ptr> %30, ptr %_M_manager.i.i.i46, align 8
   store ptr @"_ZNSt17_Function_handlerIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEZ26Z3_simplifier_using_paramsE3$_0E9_M_invokeERKSt9_Any_dataS3_S6_S8_", ptr %_M_invoker4.i.i, align 8
-  %tobool.not.i.i3.i = icmp eq ptr %30, null
+  %tobool.not.i.i3.i = icmp eq ptr %31, null
   br i1 %tobool.not.i.i3.i, label %invoke.cont42, label %if.then.i.i4.i
 
 if.then.i.i4.i:                                   ; preds = %"_ZNSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEEC2IRZ26Z3_simplifier_using_paramsE3$_0vEEOT_.exit.i"
-  %call.i.i5.i = invoke noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i5.i = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %invoke.cont42 unwind label %terminate.lpad.i.i6.i
 
 terminate.lpad.i.i6.i:                            ; preds = %if.then.i.i4.i

@@ -2514,9 +2514,9 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %233, %231, %388
   %433 = call double @llvm.fmuladd.f64(double %405, double %432, double %431)
   %434 = fsub double %433, %409
   %435 = extractelement <2 x double> %421, i64 0
-  %436 = call double @llvm.fmuladd.f64(double %435, double %404, double %407)
-  %437 = extractelement <2 x double> %421, i64 1
-  %438 = call double @llvm.fmuladd.f64(double %437, double %405, double %436)
+  %436 = extractelement <2 x double> %421, i64 1
+  %437 = call double @llvm.fmuladd.f64(double %435, double %404, double %407)
+  %438 = call double @llvm.fmuladd.f64(double %436, double %405, double %437)
   store <2 x double> %429, ptr %27, align 16
   %439 = getelementptr inbounds i8, ptr %27, i64 16
   store double %434, ptr %439, align 16
@@ -3447,9 +3447,9 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac30CovarianceHomographySolverI
   %172 = call double @llvm.fmuladd.f64(double %143, double %171, double %170)
   %173 = fsub double %172, %147
   %174 = extractelement <2 x double> %160, i64 0
-  %175 = call double @llvm.fmuladd.f64(double %174, double %141, double %145)
-  %176 = extractelement <2 x double> %160, i64 1
-  %177 = call double @llvm.fmuladd.f64(double %176, double %143, double %175)
+  %175 = extractelement <2 x double> %160, i64 1
+  %176 = call double @llvm.fmuladd.f64(double %174, double %141, double %145)
+  %177 = call double @llvm.fmuladd.f64(double %175, double %143, double %176)
   store <2 x double> %168, ptr %18, align 16
   %178 = getelementptr inbounds i8, ptr %18, i64 16
   store double %173, ptr %178, align 16

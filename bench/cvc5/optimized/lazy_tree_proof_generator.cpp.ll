@@ -1284,16 +1284,14 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEED2Ev.exit
 
 _ZNSt10shared_ptrIN4cvc58internal9ProofNodeEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEaSEOS3_.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %28 = load ptr, ptr %d_cached, align 8
-  store ptr %28, ptr %agg.result, align 8
-  %_M_refcount.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %29 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %29, ptr %_M_refcount.i.i10, align 8
-  %cmp.not.i.i.i12 = icmp eq ptr %29, null
+  %28 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %29 = load <2 x ptr>, ptr %d_cached, align 8
+  store <2 x ptr> %29, ptr %agg.result, align 8
+  %cmp.not.i.i.i12 = icmp eq ptr %28, null
   br i1 %cmp.not.i.i.i12, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit19, label %if.then.i.i.i13
 
 if.then.i.i.i13:                                  ; preds = %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEED2Ev.exit
-  %_M_use_count.i.i.i.i14 = getelementptr inbounds i8, ptr %29, i64 8
+  %_M_use_count.i.i.i.i14 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i15 = icmp eq i8 %30, 0
   br i1 %tobool.i.i.not.i.i.i.i15, label %if.else.i.i.i.i.i18, label %if.then.i.i.i.i.i16

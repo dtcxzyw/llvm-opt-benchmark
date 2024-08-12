@@ -41237,17 +41237,16 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(140) %bind.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(140) %bind2.i.i.i.i, i64 140, i1 false)
   %function_info.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 344
   %function_info3.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 344
-  %6 = load ptr, ptr %function_info3.i.i.i.i, align 8, !tbaa !585
-  store ptr %6, ptr %function_info.i.i.i.i, align 8, !tbaa !585
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 352
   %_M_refcount3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 352
-  %7 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !tbaa !132
-  store ptr %7, ptr %_M_refcount.i.i.i.i.i.i, align 8, !tbaa !132
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !tbaa !132
+  %7 = load <2 x ptr>, ptr %function_info3.i.i.i.i, align 8, !tbaa !3
+  store <2 x ptr> %7, ptr %function_info.i.i.i.i, align 8, !tbaa !3
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN6duckdb13TableFunctionC2ERKS0_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15
   %tobool.i.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i

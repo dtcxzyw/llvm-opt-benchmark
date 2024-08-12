@@ -28,6 +28,7 @@ define hidden void @"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$
   store ptr %.sroa.01.sroa.0.0.copyload.i, ptr %4, align 8, !noalias !27
   %.sroa.54.0..sroa_idx5.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load <2 x i64>, ptr %.sroa.01.sroa.4.0..sroa_idx.i, align 8, !alias.scope !4, !noalias !9
+  %.sroa.01.sroa.4.0.copyload.i = load i64, ptr %.sroa.01.sroa.4.0..sroa_idx.i, align 8, !alias.scope !4, !noalias !9
   store <2 x i64> %6, ptr %.sroa.54.0..sroa_idx5.i.i, align 8, !noalias !27
   %.sroa.610.0..sroa_idx11.i.i = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %.sroa.01.sroa.6.0.copyload.i, ptr %.sroa.610.0..sroa_idx11.i.i, align 8, !noalias !27
@@ -84,9 +85,8 @@ define hidden void @"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$
   %26 = icmp slt <16 x i8> %5, zeroinitializer
   %27 = bitcast <16 x i1> %26 to i16
   %28 = xor i16 %27, -1
-  %29 = extractelement <2 x i64> %6, i64 0
-  %30 = getelementptr i8, ptr %.sroa.01.sroa.0.0.copyload.i, i64 %29
-  %31 = getelementptr i8, ptr %30, i64 1
+  %29 = getelementptr i8, ptr %.sroa.01.sroa.0.0.copyload.i, i64 %.sroa.01.sroa.4.0.copyload.i
+  %30 = getelementptr i8, ptr %29, i64 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !51
   store i64 %.sroa.01.0.copyload, ptr %3, align 8, !noalias !51
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -98,7 +98,7 @@ define hidden void @"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$
   %.sroa.6.sroa.4.0..sroa.7.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %25, ptr %.sroa.6.sroa.4.0..sroa.7.0..sroa_idx.i.sroa_idx, align 8, !noalias !28
   %.sroa.6.sroa.5.0..sroa.7.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr %31, ptr %.sroa.6.sroa.5.0..sroa.7.0..sroa_idx.i.sroa_idx, align 8, !noalias !28
+  store ptr %30, ptr %.sroa.6.sroa.5.0..sroa.7.0..sroa_idx.i.sroa_idx, align 8, !noalias !28
   %.sroa.6.sroa.6.0..sroa.7.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
   store i16 %28, ptr %.sroa.6.sroa.6.0..sroa.7.0..sroa_idx.i.sroa_idx, align 8, !noalias !28
   %.sroa.711.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 56
@@ -213,9 +213,9 @@ define hidden void @"_ZN111_$LT$std..collections..hash..set..HashSet$LT$T$C$S$GT
   store ptr %.sroa.01.sroa.0.0.copyload, ptr %3, align 8, !noalias !84
   %.sroa.54.0..sroa_idx5.i = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load <2 x i64>, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
-  %10 = extractelement <2 x i64> %9, i64 0
-  %11 = getelementptr i8, ptr %.sroa.01.sroa.0.0.copyload, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 1
+  %.sroa.01.sroa.4.0.copyload = load i64, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
+  %10 = getelementptr i8, ptr %.sroa.01.sroa.0.0.copyload, i64 %.sroa.01.sroa.4.0.copyload
+  %11 = getelementptr i8, ptr %10, i64 1
   store <2 x i64> %9, ptr %.sroa.54.0..sroa_idx5.i, align 8, !noalias !84
   %.sroa.610.0..sroa_idx11.i = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %.sroa.01.sroa.6.0.copyload, ptr %.sroa.610.0..sroa_idx11.i, align 8, !noalias !84
@@ -227,7 +227,7 @@ define hidden void @"_ZN111_$LT$std..collections..hash..set..HashSet$LT$T$C$S$GT
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %8, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %12, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
+  store ptr %11, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
   %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   store i16 %7, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
   %.sroa.0.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56

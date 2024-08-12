@@ -340,7 +340,7 @@ entry:
   %__tmp.sroa.0.i.i.i.i.i3.i.i.i = alloca { ptr, i64 }, align 8
   %__tmp.sroa.0.i.i.i.i.i.i.i.i274 = alloca { ptr, i64 }, align 8
   %__value.i.i.i275 = alloca %"struct.ue2::(anonymous namespace)::RegionInfo", align 8
-  %agg.tmp.i.i.i276 = alloca %"struct.std::_Deque_iterator", align 8
+  %agg.tmp.i.i.i276 = alloca %"struct.std::_Deque_iterator", align 16
   %agg.tmp5.i.i.i = alloca %"struct.ue2::(anonymous namespace)::RegionInfo", align 8
   %agg.tmp.i.i = alloca %"struct.std::_Deque_iterator.165", align 16
   %agg.tmp1.i.i131 = alloca %"struct.std::_Deque_iterator.165", align 16
@@ -354,7 +354,7 @@ entry:
   %__tmp.sroa.0.i.i.i.i.i6.i.i = alloca { ptr, i64 }, align 8
   %__tmp.sroa.0.i.i.i.i.i.i.i = alloca { ptr, i64 }, align 8
   %__value.i.i = alloca %"struct.ue2::(anonymous namespace)::RegionInfo", align 8
-  %agg.tmp1.i.i = alloca %"struct.std::_Deque_iterator", align 8
+  %agg.tmp1.i.i = alloca %"struct.std::_Deque_iterator", align 16
   %agg.tmp3.i.i = alloca %"struct.ue2::(anonymous namespace)::RegionInfo", align 8
   %__tmp.sroa.0.i.i.i.i.i31.i.i.i = alloca { ptr, i64 }, align 8
   %__tmp.sroa.0.i.i.i.i.i.i.i.i = alloca { ptr, i64 }, align 8
@@ -2408,7 +2408,6 @@ invoke.cont19.lr.ph:                              ; preds = %invoke.cont8
   %_M_last4.i6.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__value.i.i, i64 72
   %_M_node5.i8.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__value.i.i, i64 80
   %reach.i.i.i = getelementptr inbounds i8, ptr %__value.i.i, i64 88
-  %_M_first.i.i14.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 8
   %_M_last.i.i16.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 16
   %_M_node.i.i18.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i, i64 24
   %vertices.i7.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i, i64 8
@@ -2451,7 +2450,6 @@ land.rhs.lr.ph:                                   ; preds = %while.cond.preheade
   %_M_last4.i6.i.i.i.i.i.i.i.i.i.i330 = getelementptr inbounds i8, ptr %__value.i.i.i275, i64 72
   %_M_node5.i8.i.i.i.i.i.i.i.i.i.i331 = getelementptr inbounds i8, ptr %__value.i.i.i275, i64 80
   %reach.i.i.i.i341 = getelementptr inbounds i8, ptr %__value.i.i.i275, i64 88
-  %_M_first.i.i.i.i343 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i276, i64 8
   %_M_last.i.i18.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i276, i64 16
   %_M_node.i.i.i.i344 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i276, i64 24
   %vertices.i28.i.i.i = getelementptr inbounds i8, ptr %agg.tmp5.i.i.i, i64 8
@@ -2896,8 +2894,8 @@ _ZNSt5dequeIN3ue212_GLOBAL__N_110RegionInfoESaIS2_EE9push_backERKS2_.exit.i: ; p
   %332 = phi ptr [ %.pre.i49, %_ZNSt16allocator_traitsISaIN3ue212_GLOBAL__N_110RegionInfoEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i ], [ %330, %_ZNSt5dequeIN3ue212_GLOBAL__N_110RegionInfoESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit.i.i ]
   %storemerge.i.i = phi ptr [ %incdec.ptr.i.i48, %_ZNSt16allocator_traitsISaIN3ue212_GLOBAL__N_110RegionInfoEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i ], [ %330, %_ZNSt5dequeIN3ue212_GLOBAL__N_110RegionInfoESaIS2_EE16_M_push_back_auxIJRKS2_EEEvDpOT_.exit.i.i ]
   store ptr %storemerge.i.i, ptr %_M_finish.i.i25, align 8
-  %333 = load ptr, ptr %_M_start.i.i24, align 8
-  %334 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !130
+  %333 = load <2 x ptr>, ptr %_M_start.i.i24, align 8
+  %334 = load ptr, ptr %_M_start.i.i24, align 8
   %335 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !130
   %336 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !130
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %__value.i.i)
@@ -2975,9 +2973,8 @@ if.then.i.i.i2.i.i:                               ; preds = %.noexc129
 _ZN3ue212_GLOBAL__N_110RegionInfoC2EOS1_.exit.i.i: ; preds = %if.then.i.i.i2.i.i, %.noexc129
   %reach4.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i63, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %reach.i.i.i, ptr noundef nonnull align 8 dereferenceable(41) %reach4.i.i.i, i64 41, i1 false)
-  store ptr %333, ptr %agg.tmp1.i.i, align 8
-  store ptr %334, ptr %_M_first.i.i14.i, align 8
-  store ptr %335, ptr %_M_last.i.i16.i, align 8
+  store <2 x ptr> %333, ptr %agg.tmp1.i.i, align 16
+  store ptr %335, ptr %_M_last.i.i16.i, align 16
   store ptr %336, ptr %_M_node.i.i18.i, align 8
   %sub.ptr.lhs.cast.i.i.i65 = ptrtoint ptr %331 to i64
   %sub.ptr.rhs.cast.i.i.i66 = ptrtoint ptr %336 to i64
@@ -2988,7 +2985,7 @@ _ZN3ue212_GLOBAL__N_110RegionInfoC2EOS1_.exit.i.i: ; preds = %if.then.i.i.i2.i.i
   %sub.i.i.i71 = add nsw i64 %sub.ptr.div.i.i.i68, %conv.neg.i.i.i70
   %mul.i.i.i72 = mul nsw i64 %sub.i.i.i71, 3
   %sub.ptr.lhs.cast8.i.i.i73 = ptrtoint ptr %335 to i64
-  %sub.ptr.rhs.cast9.i.i.i74 = ptrtoint ptr %333 to i64
+  %sub.ptr.rhs.cast9.i.i.i74 = ptrtoint ptr %334 to i64
   %sub.ptr.sub10.i.i.i75 = sub i64 %sub.ptr.lhs.cast8.i.i.i73, %sub.ptr.rhs.cast9.i.i.i74
   %sub.ptr.div11.i.i.i76 = sdiv exact i64 %sub.ptr.sub10.i.i.i75, 136
   %345 = load i32, ptr %__value.i.i, align 8
@@ -3134,7 +3131,7 @@ lpad7.body:                                       ; preds = %lpad7.loopexit, %lp
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %_ZNSt14priority_queueIN3ue212_GLOBAL__N_110RegionInfoESt5dequeIS2_SaIS2_EENS1_19RegionInfoQueueCompEE3popEv.exit
   %pq.val16 = phi ptr [ %pq.val16.pre, %land.rhs.lr.ph ], [ %pq.val16637, %_ZNSt14priority_queueIN3ue212_GLOBAL__N_110RegionInfoESt5dequeIS2_SaIS2_EENS1_19RegionInfoQueueCompEE3popEv.exit ]
-  %pq.val = phi ptr [ %pq.val.pre, %land.rhs.lr.ph ], [ %516, %_ZNSt14priority_queueIN3ue212_GLOBAL__N_110RegionInfoESt5dequeIS2_SaIS2_EENS1_19RegionInfoQueueCompEE3popEv.exit ]
+  %pq.val = phi ptr [ %pq.val.pre, %land.rhs.lr.ph ], [ %517, %_ZNSt14priority_queueIN3ue212_GLOBAL__N_110RegionInfoESt5dequeIS2_SaIS2_EENS1_19RegionInfoQueueCompEE3popEv.exit ]
   %numVertices.1548 = phi i64 [ %add, %land.rhs.lr.ph ], [ %add35, %_ZNSt14priority_queueIN3ue212_GLOBAL__N_110RegionInfoESt5dequeIS2_SaIS2_EENS1_19RegionInfoQueueCompEE3popEv.exit ]
   %cmp.i.i.i130 = icmp eq ptr %pq.val16, %pq.val
   br i1 %cmp.i.i.i130, label %while.end, label %while.body
@@ -4530,8 +4527,8 @@ do.end34:                                         ; preds = %if.then.i.i.i170.i,
   %514 = add i64 %add.i.i.i189.neg, %mul.i.i.i184.neg
   %515 = add nsw i64 %sub.ptr.div6.i.i.i188, %sub.ptr.div11.i.i.i193
   %add35 = sub i64 %514, %515
-  %516 = load ptr, ptr %_M_start.i.i24, align 8
-  %517 = load ptr, ptr %_M_first3.i.i.i, align 8, !noalias !249
+  %516 = load <2 x ptr>, ptr %_M_start.i.i24, align 8
+  %517 = load ptr, ptr %_M_start.i.i24, align 8
   %518 = load ptr, ptr %_M_last4.i.i.i, align 8, !noalias !249
   %519 = load ptr, ptr %_M_node5.i.i.i, align 8, !noalias !249
   %520 = load ptr, ptr %_M_finish.i.i25, align 8
@@ -4550,7 +4547,7 @@ do.end34:                                         ; preds = %if.then.i.i.i170.i,
   %sub.ptr.sub5.i.i.i294 = sub i64 %sub.ptr.lhs.cast3.i.i.i292, %sub.ptr.rhs.cast4.i.i.i293
   %sub.ptr.div6.i.i.i295 = sdiv exact i64 %sub.ptr.sub5.i.i.i294, 136
   %sub.ptr.lhs.cast8.i.i.i296 = ptrtoint ptr %518 to i64
-  %sub.ptr.rhs.cast9.i.i.i297 = ptrtoint ptr %516 to i64
+  %sub.ptr.rhs.cast9.i.i.i297 = ptrtoint ptr %517 to i64
   %sub.ptr.sub10.i.i.i298 = sub i64 %sub.ptr.lhs.cast8.i.i.i296, %sub.ptr.rhs.cast9.i.i.i297
   %sub.ptr.div11.i.i.i299 = sdiv exact i64 %sub.ptr.sub10.i.i.i298, 136
   %add.i.i.i300 = add nsw i64 %sub.ptr.div6.i.i.i295, %sub.ptr.div11.i.i.i299
@@ -4650,29 +4647,29 @@ _ZN3ue212_GLOBAL__N_110RegionInfoC2EOS1_.exit.i.i.i340: ; preds = %if.then.i.i.i
   %544 = phi ptr [ %.pre.i.i376, %_ZNSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_EmmEv.exit._ZN3ue212_GLOBAL__N_110RegionInfoC2EOS1_.exit.i_crit_edge.i.i ], [ %529, %if.then.i.i.i.i.i.i323 ]
   %reach4.i.i.i.i342 = getelementptr inbounds i8, ptr %526, i64 -48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %reach.i.i.i.i341, ptr noundef nonnull align 8 dereferenceable(41) %reach4.i.i.i.i342, i64 41, i1 false)
-  %545 = load i32, ptr %516, align 8
+  %545 = load i32, ptr %517, align 8
   store i32 %545, ptr %incdec.ptr.i.i.i319, align 8
-  %vertices3.i5.i.i.i = getelementptr inbounds i8, ptr %516, i64 8
+  %vertices3.i5.i.i.i = getelementptr inbounds i8, ptr %517, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i3.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i3.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %vertices3.i.i.i.i321, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i.i.i.i321, i8 0, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i.i.i.i321, ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i5.i.i.i, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vertices3.i5.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i3.i.i.i, i64 16, i1 false)
-  %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i14.i.i.i = getelementptr inbounds i8, ptr %516, i64 24
+  %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i14.i.i.i = getelementptr inbounds i8, ptr %517, i64 24
   store ptr %544, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i14.i.i.i, align 8
-  %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i15.i.i.i = getelementptr inbounds i8, ptr %516, i64 32
+  %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i15.i.i.i = getelementptr inbounds i8, ptr %517, i64 32
   store ptr %543, ptr %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i15.i.i.i, align 8
-  %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i16.i.i.i = getelementptr inbounds i8, ptr %516, i64 40
+  %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i16.i.i.i = getelementptr inbounds i8, ptr %517, i64 40
   store ptr %542, ptr %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i16.i.i.i, align 8
-  %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i17.i.i.i = getelementptr inbounds i8, ptr %516, i64 48
+  %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i17.i.i.i = getelementptr inbounds i8, ptr %517, i64 48
   store ptr %541, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i17.i.i.i, align 8
-  %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i18.i.i.i = getelementptr inbounds i8, ptr %516, i64 56
+  %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i18.i.i.i = getelementptr inbounds i8, ptr %517, i64 56
   store ptr %540, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i18.i.i.i, align 8
-  %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i19.i.i.i = getelementptr inbounds i8, ptr %516, i64 64
+  %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i19.i.i.i = getelementptr inbounds i8, ptr %517, i64 64
   store ptr %539, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i19.i.i.i, align 8
-  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i20.i.i.i = getelementptr inbounds i8, ptr %516, i64 72
+  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i20.i.i.i = getelementptr inbounds i8, ptr %517, i64 72
   store ptr %538, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i20.i.i.i, align 8
-  %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i21.i.i.i = getelementptr inbounds i8, ptr %516, i64 80
+  %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i21.i.i.i = getelementptr inbounds i8, ptr %517, i64 80
   store ptr %537, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i21.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i3.i.i.i)
   %cmp3.i.i.i.i.i.i.i.i.i = icmp ult ptr %541, %537
@@ -4691,11 +4688,10 @@ _ZN3ue212_GLOBAL__N_110RegionInfoaSEOS1_.exit.i.i.i: ; preds = %for.body.i.i.i.i
   store ptr %543, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i19.i.i.i, align 8
   store ptr %542, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i20.i.i.i, align 8
   store ptr %541, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i21.i.i.i, align 8
-  %reach4.i23.i.i.i = getelementptr inbounds i8, ptr %516, i64 88
+  %reach4.i23.i.i.i = getelementptr inbounds i8, ptr %517, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %reach4.i.i.i.i342, ptr noundef nonnull align 8 dereferenceable(41) %reach4.i23.i.i.i, i64 41, i1 false)
-  store ptr %516, ptr %agg.tmp.i.i.i276, align 8
-  store ptr %517, ptr %_M_first.i.i.i.i343, align 8
-  store ptr %518, ptr %_M_last.i.i18.i.i, align 8
+  store <2 x ptr> %516, ptr %agg.tmp.i.i.i276, align 16
+  store ptr %518, ptr %_M_last.i.i18.i.i, align 16
   store ptr %519, ptr %_M_node.i.i.i.i344, align 8
   %sub.ptr.lhs.cast.i.i.i.i345 = ptrtoint ptr %524 to i64
   %sub.ptr.sub.i.i.i.i346 = sub i64 %sub.ptr.lhs.cast.i.i.i.i345, %sub.ptr.rhs.cast.i.i.i285
@@ -6241,48 +6237,46 @@ _ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit106: 
   %_M_last4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i99, i64 40
   %14 = load ptr, ptr %_M_last4.i.i.i.i.i.i.i.i, align 8
   %_M_node5.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i99, i64 48
-  %15 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i, align 8
-  %_M_finish4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i99, i64 56
-  %_M_last4.i6.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i99, i64 72
-  %16 = load ptr, ptr %_M_last4.i6.i.i.i.i.i.i.i, align 8
+  %_M_first3.i4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i99, i64 64
   %_M_node5.i8.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i99, i64 80
-  %17 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i, align 8
+  %15 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i, align 8
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i69, i64 24
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i69, i64 32
   %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i69, i64 40
   %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i69, i64 48
   %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i69, i64 56
+  %16 = load <2 x ptr>, ptr %_M_node5.i.i.i.i.i.i.i.i, align 8
+  %17 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i, align 8
   %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i69, i64 64
-  %18 = load <2 x ptr>, ptr %_M_finish4.i.i.i.i.i.i.i, align 8
+  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i69, i64 72
+  %18 = load <2 x ptr>, ptr %_M_first3.i4.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i, i8 0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i, ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vertices3.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, i64 16, i1 false)
   store ptr %12, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i, align 8
   store ptr %13, ptr %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i, align 8
   store ptr %14, ptr %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i, align 8
-  store ptr %15, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i, align 8
-  store <2 x ptr> %18, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i, align 8
-  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i69, i64 72
-  store ptr %16, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i, align 8
+  store <2 x ptr> %16, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i, align 8
+  store <2 x ptr> %18, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i, align 8
   %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i69, i64 80
-  store ptr %17, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i, align 8
+  store ptr %15, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i)
-  %cmp3.i.i.i.i.i.i = icmp ult ptr %15, %17
+  %cmp3.i.i.i.i.i.i = icmp ult ptr %17, %15
   br i1 %cmp3.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZN3ue212_GLOBAL__N_110RegionInfoaSEOS1_.exit
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit106, %for.body.i.i.i.i.i.i
-  %__n.04.i.pn.i.i.i.i.i = phi ptr [ %__n.04.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %15, %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit106 ]
+  %__n.04.i.pn.i.i.i.i.i = phi ptr [ %__n.04.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %17, %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit106 ]
   %__n.04.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.pn.i.i.i.i.i, i64 8
   %19 = load ptr, ptr %__n.04.i.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %19) #21
-  %cmp.i.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i.i, %17
+  %cmp.i.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i.i, %15
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZN3ue212_GLOBAL__N_110RegionInfoaSEOS1_.exit, !llvm.loop !47
 
 _ZN3ue212_GLOBAL__N_110RegionInfoaSEOS1_.exit:    ; preds = %for.body.i.i.i.i.i.i, %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit106
   store ptr %12, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i, align 8
   store ptr %13, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i, align 8
   store ptr %14, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i, align 8
-  store ptr %15, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i, align 8
+  store ptr %17, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i, align 8
   %reach.i = getelementptr inbounds i8, ptr %storemerge.i.i99, i64 88
   %reach4.i = getelementptr inbounds i8, ptr %storemerge.i.i69, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %reach.i, ptr noundef nonnull align 8 dereferenceable(41) %reach4.i, i64 41, i1 false)
@@ -6392,48 +6386,46 @@ _ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit166: 
   %_M_last4.i.i.i.i.i.i.i.i172 = getelementptr inbounds i8, ptr %storemerge.i.i159, i64 40
   %30 = load ptr, ptr %_M_last4.i.i.i.i.i.i.i.i172, align 8
   %_M_node5.i.i.i.i.i.i.i.i173 = getelementptr inbounds i8, ptr %storemerge.i.i159, i64 48
-  %31 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i173, align 8
-  %_M_finish4.i.i.i.i.i.i.i174 = getelementptr inbounds i8, ptr %storemerge.i.i159, i64 56
-  %_M_last4.i6.i.i.i.i.i.i.i176 = getelementptr inbounds i8, ptr %storemerge.i.i159, i64 72
-  %32 = load ptr, ptr %_M_last4.i6.i.i.i.i.i.i.i176, align 8
+  %_M_first3.i4.i.i.i.i.i.i.i175 = getelementptr inbounds i8, ptr %storemerge.i.i159, i64 64
   %_M_node5.i8.i.i.i.i.i.i.i177 = getelementptr inbounds i8, ptr %storemerge.i.i159, i64 80
-  %33 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i177, align 8
+  %31 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i177, align 8
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i178 = getelementptr inbounds i8, ptr %storemerge.i.i129, i64 24
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i179 = getelementptr inbounds i8, ptr %storemerge.i.i129, i64 32
   %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i180 = getelementptr inbounds i8, ptr %storemerge.i.i129, i64 40
   %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i181 = getelementptr inbounds i8, ptr %storemerge.i.i129, i64 48
   %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i182 = getelementptr inbounds i8, ptr %storemerge.i.i129, i64 56
+  %32 = load <2 x ptr>, ptr %_M_node5.i.i.i.i.i.i.i.i173, align 8
+  %33 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i173, align 8
   %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i183 = getelementptr inbounds i8, ptr %storemerge.i.i129, i64 64
-  %34 = load <2 x ptr>, ptr %_M_finish4.i.i.i.i.i.i.i174, align 8
+  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i184 = getelementptr inbounds i8, ptr %storemerge.i.i129, i64 72
+  %34 = load <2 x ptr>, ptr %_M_first3.i4.i.i.i.i.i.i.i175, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i168, i8 0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i168, ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i169, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vertices3.i169, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i167, i64 16, i1 false)
   store ptr %28, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i178, align 8
   store ptr %29, ptr %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i179, align 8
   store ptr %30, ptr %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i180, align 8
-  store ptr %31, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i181, align 8
-  store <2 x ptr> %34, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i182, align 8
-  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i184 = getelementptr inbounds i8, ptr %storemerge.i.i129, i64 72
-  store ptr %32, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i184, align 8
+  store <2 x ptr> %32, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i181, align 8
+  store <2 x ptr> %34, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i183, align 8
   %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i185 = getelementptr inbounds i8, ptr %storemerge.i.i129, i64 80
-  store ptr %33, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i185, align 8
+  store ptr %31, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i185, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i167)
-  %cmp3.i.i.i.i.i.i186 = icmp ult ptr %31, %33
+  %cmp3.i.i.i.i.i.i186 = icmp ult ptr %33, %31
   br i1 %cmp3.i.i.i.i.i.i186, label %for.body.i.i.i.i.i.i189, label %_ZN3ue212_GLOBAL__N_110RegionInfoaSEOS1_.exit193
 
 for.body.i.i.i.i.i.i189:                          ; preds = %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit166, %for.body.i.i.i.i.i.i189
-  %__n.04.i.pn.i.i.i.i.i190 = phi ptr [ %__n.04.i.i.i.i.i.i191, %for.body.i.i.i.i.i.i189 ], [ %31, %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit166 ]
+  %__n.04.i.pn.i.i.i.i.i190 = phi ptr [ %__n.04.i.i.i.i.i.i191, %for.body.i.i.i.i.i.i189 ], [ %33, %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit166 ]
   %__n.04.i.i.i.i.i.i191 = getelementptr inbounds i8, ptr %__n.04.i.pn.i.i.i.i.i190, i64 8
   %35 = load ptr, ptr %__n.04.i.i.i.i.i.i191, align 8
   tail call void @_ZdlPv(ptr noundef %35) #21
-  %cmp.i.i.i.i.i.i192 = icmp ult ptr %__n.04.i.i.i.i.i.i191, %33
+  %cmp.i.i.i.i.i.i192 = icmp ult ptr %__n.04.i.i.i.i.i.i191, %31
   br i1 %cmp.i.i.i.i.i.i192, label %for.body.i.i.i.i.i.i189, label %_ZN3ue212_GLOBAL__N_110RegionInfoaSEOS1_.exit193, !llvm.loop !47
 
 _ZN3ue212_GLOBAL__N_110RegionInfoaSEOS1_.exit193: ; preds = %for.body.i.i.i.i.i.i189, %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit166
   store ptr %28, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i182, align 8
   store ptr %29, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i183, align 8
   store ptr %30, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i184, align 8
-  store ptr %31, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i185, align 8
+  store ptr %33, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i185, align 8
   %reach.i187 = getelementptr inbounds i8, ptr %storemerge.i.i159, i64 88
   %reach4.i188 = getelementptr inbounds i8, ptr %storemerge.i.i129, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %reach.i187, ptr noundef nonnull align 8 dereferenceable(41) %reach4.i188, i64 41, i1 false)
@@ -6655,48 +6647,46 @@ _ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit66: ;
   %_M_last4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i59, i64 40
   %12 = load ptr, ptr %_M_last4.i.i.i.i.i.i.i.i, align 8
   %_M_node5.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i59, i64 48
-  %13 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i, align 8
-  %_M_finish4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i59, i64 56
-  %_M_last4.i6.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i59, i64 72
-  %14 = load ptr, ptr %_M_last4.i6.i.i.i.i.i.i.i, align 8
+  %_M_first3.i4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i59, i64 64
   %_M_node5.i8.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i59, i64 80
-  %15 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i, align 8
+  %13 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i, align 8
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i29, i64 24
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i29, i64 32
   %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i29, i64 40
   %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i29, i64 48
   %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i29, i64 56
+  %14 = load <2 x ptr>, ptr %_M_node5.i.i.i.i.i.i.i.i, align 8
+  %15 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i, align 8
   %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i29, i64 64
-  %16 = load <2 x ptr>, ptr %_M_finish4.i.i.i.i.i.i.i, align 8
+  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i29, i64 72
+  %16 = load <2 x ptr>, ptr %_M_first3.i4.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i, i8 0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i, ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vertices3.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i, i64 16, i1 false)
   store ptr %10, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i, align 8
   store ptr %11, ptr %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i, align 8
   store ptr %12, ptr %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i, align 8
-  store ptr %13, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i, align 8
-  store <2 x ptr> %16, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i, align 8
-  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i29, i64 72
-  store ptr %14, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i, align 8
+  store <2 x ptr> %14, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i, align 8
+  store <2 x ptr> %16, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i, align 8
   %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i29, i64 80
-  store ptr %15, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i, align 8
+  store ptr %13, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i)
-  %cmp3.i.i.i.i.i.i = icmp ult ptr %13, %15
+  %cmp3.i.i.i.i.i.i = icmp ult ptr %15, %13
   br i1 %cmp3.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZN3ue212_GLOBAL__N_110RegionInfoaSEOS1_.exit
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit66, %for.body.i.i.i.i.i.i
-  %__n.04.i.pn.i.i.i.i.i = phi ptr [ %__n.04.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %13, %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit66 ]
+  %__n.04.i.pn.i.i.i.i.i = phi ptr [ %__n.04.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %15, %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit66 ]
   %__n.04.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__n.04.i.pn.i.i.i.i.i, i64 8
   %17 = load ptr, ptr %__n.04.i.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %17) #21
-  %cmp.i.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i.i, %15
+  %cmp.i.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i.i, %13
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZN3ue212_GLOBAL__N_110RegionInfoaSEOS1_.exit, !llvm.loop !47
 
 _ZN3ue212_GLOBAL__N_110RegionInfoaSEOS1_.exit:    ; preds = %for.body.i.i.i.i.i.i, %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit66
   store ptr %10, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i, align 8
   store ptr %11, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i, align 8
   store ptr %12, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i, align 8
-  store ptr %13, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i, align 8
+  store ptr %15, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i, align 8
   %reach.i = getelementptr inbounds i8, ptr %storemerge.i.i59, i64 88
   %reach4.i = getelementptr inbounds i8, ptr %storemerge.i.i29, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %reach.i, ptr noundef nonnull align 8 dereferenceable(41) %reach4.i, i64 41, i1 false)
@@ -6760,48 +6750,46 @@ _ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit96: ;
   %_M_last4.i.i.i.i.i.i.i.i102 = getelementptr inbounds i8, ptr %storemerge.i.i89, i64 40
   %26 = load ptr, ptr %_M_last4.i.i.i.i.i.i.i.i102, align 8
   %_M_node5.i.i.i.i.i.i.i.i103 = getelementptr inbounds i8, ptr %storemerge.i.i89, i64 48
-  %27 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i103, align 8
-  %_M_finish4.i.i.i.i.i.i.i104 = getelementptr inbounds i8, ptr %storemerge.i.i89, i64 56
-  %_M_last4.i6.i.i.i.i.i.i.i106 = getelementptr inbounds i8, ptr %storemerge.i.i89, i64 72
-  %28 = load ptr, ptr %_M_last4.i6.i.i.i.i.i.i.i106, align 8
+  %_M_first3.i4.i.i.i.i.i.i.i105 = getelementptr inbounds i8, ptr %storemerge.i.i89, i64 64
   %_M_node5.i8.i.i.i.i.i.i.i107 = getelementptr inbounds i8, ptr %storemerge.i.i89, i64 80
-  %29 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i107, align 8
+  %27 = load ptr, ptr %_M_node5.i8.i.i.i.i.i.i.i107, align 8
   %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i108 = getelementptr inbounds i8, ptr %__value, i64 24
   %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i109 = getelementptr inbounds i8, ptr %__value, i64 32
   %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i110 = getelementptr inbounds i8, ptr %__value, i64 40
   %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i111 = getelementptr inbounds i8, ptr %__value, i64 48
-  %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i112 = getelementptr inbounds i8, ptr %__value, i64 56
-  %30 = load <2 x ptr>, ptr %_M_finish4.i.i.i.i.i.i.i104, align 8
+  %28 = load <2 x ptr>, ptr %_M_node5.i.i.i.i.i.i.i.i103, align 8
+  %29 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i.i103, align 8
+  %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i113 = getelementptr inbounds i8, ptr %__value, i64 64
+  %30 = load <2 x ptr>, ptr %_M_first3.i4.i.i.i.i.i.i.i105, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i98, i8 0, i64 80, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %vertices.i98, ptr noundef nonnull align 8 dereferenceable(80) %vertices3.i99, i64 80, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %vertices3.i99, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i.i.i97, i64 16, i1 false)
   store ptr %24, ptr %__tmp.sroa.2.0.__b.sroa_idx.i.i.i.i.i108, align 8
   store ptr %25, ptr %__tmp.sroa.3.0.__b.sroa_idx.i.i.i.i.i109, align 8
   store ptr %26, ptr %__tmp.sroa.4.0.__b.sroa_idx.i.i.i.i.i110, align 8
-  store ptr %27, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i111, align 8
-  store <2 x ptr> %30, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i112, align 8
-  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i114 = getelementptr inbounds i8, ptr %__value, i64 72
-  store ptr %28, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i114, align 8
+  store <2 x ptr> %28, ptr %__tmp.sroa.5.0.__b.sroa_idx.i.i.i.i.i111, align 8
+  store <2 x ptr> %30, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i113, align 8
   %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i115 = getelementptr inbounds i8, ptr %__value, i64 80
-  store ptr %29, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i115, align 8
+  store ptr %27, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i115, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i.i97)
-  %cmp3.i.i.i.i.i.i116 = icmp ult ptr %27, %29
+  %cmp3.i.i.i.i.i.i116 = icmp ult ptr %29, %27
   br i1 %cmp3.i.i.i.i.i.i116, label %for.body.i.i.i.i.i.i119, label %_ZN3ue212_GLOBAL__N_110RegionInfoaSEOS1_.exit123
 
 for.body.i.i.i.i.i.i119:                          ; preds = %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit96, %for.body.i.i.i.i.i.i119
-  %__n.04.i.pn.i.i.i.i.i120 = phi ptr [ %__n.04.i.i.i.i.i.i121, %for.body.i.i.i.i.i.i119 ], [ %27, %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit96 ]
+  %__n.04.i.pn.i.i.i.i.i120 = phi ptr [ %__n.04.i.i.i.i.i.i121, %for.body.i.i.i.i.i.i119 ], [ %29, %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit96 ]
   %__n.04.i.i.i.i.i.i121 = getelementptr inbounds i8, ptr %__n.04.i.pn.i.i.i.i.i120, i64 8
   %31 = load ptr, ptr %__n.04.i.i.i.i.i.i121, align 8
   tail call void @_ZdlPv(ptr noundef %31) #21
-  %cmp.i.i.i.i.i.i122 = icmp ult ptr %__n.04.i.i.i.i.i.i121, %29
+  %cmp.i.i.i.i.i.i122 = icmp ult ptr %__n.04.i.i.i.i.i.i121, %27
   br i1 %cmp.i.i.i.i.i.i122, label %for.body.i.i.i.i.i.i119, label %_ZN3ue212_GLOBAL__N_110RegionInfoaSEOS1_.exit123, !llvm.loop !47
 
 _ZN3ue212_GLOBAL__N_110RegionInfoaSEOS1_.exit123: ; preds = %for.body.i.i.i.i.i.i119, %_ZStplRKSt15_Deque_iteratorIN3ue212_GLOBAL__N_110RegionInfoERS2_PS2_El.exit96
-  %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i113 = getelementptr inbounds i8, ptr %__value, i64 64
+  %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i114 = getelementptr inbounds i8, ptr %__value, i64 72
+  %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i112 = getelementptr inbounds i8, ptr %__value, i64 56
   store ptr %24, ptr %__tmp.sroa.6.0.__b.sroa_idx.i.i.i.i.i112, align 8
   store ptr %25, ptr %__tmp.sroa.7.0.__b.sroa_idx.i.i.i.i.i113, align 8
   store ptr %26, ptr %__tmp.sroa.8.0.__b.sroa_idx.i.i.i.i.i114, align 8
-  store ptr %27, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i115, align 8
+  store ptr %29, ptr %__tmp.sroa.9.0.__b.sroa_idx.i.i.i.i.i115, align 8
   %reach.i117 = getelementptr inbounds i8, ptr %storemerge.i.i89, i64 88
   %reach4.i118 = getelementptr inbounds i8, ptr %__value, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %reach.i117, ptr noundef nonnull align 8 dereferenceable(41) %reach4.i118, i64 41, i1 false)

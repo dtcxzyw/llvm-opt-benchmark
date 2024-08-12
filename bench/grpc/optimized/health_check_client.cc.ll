@@ -417,7 +417,7 @@ declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core14HealthProducer13HealthCheckerC2ENS_17WeakRefCountedPtrIS0_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef %producer, i64 %health_check_service_name.coerce0, ptr %health_check_service_name.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.std::shared_ptr.4", align 8
+  %ref.tmp = alloca %"class.std::shared_ptr.4", align 16
   %refs_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14HealthProducer13HealthCheckerE, i64 16), ptr %this, align 8
@@ -436,17 +436,16 @@ entry:
   %2 = load ptr, ptr %subchannel_, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %event_engine_.i = getelementptr inbounds i8, ptr %2, i64 912
-  %3 = load ptr, ptr %event_engine_.i, align 8, !noalias !4
-  store ptr %3, ptr %ref.tmp, align 8, !alias.scope !4
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %2, i64 920
-  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !4
-  store ptr %4, ptr %_M_refcount.i.i.i, align 8, !alias.scope !4
-  %cmp.not.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !4
+  %4 = load <2 x ptr>, ptr %event_engine_.i, align 8, !noalias !4
+  store <2 x ptr> %4, ptr %ref.tmp, align 16, !alias.scope !4
+  %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN9grpc_core10Subchannel12event_engineEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1, !noalias !4
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -1249,17 +1248,16 @@ entry:
   %work_serializer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %work_serializer_, align 8
   %watcher_ = getelementptr inbounds i8, ptr %this, i64 64
-  %1 = load ptr, ptr %watcher_, align 8
-  store ptr %1, ptr %ref.tmp, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %watcher_, align 8
+  store <2 x ptr> %2, ptr %ref.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

@@ -282,68 +282,66 @@ define hidden noundef zeroext i1 @_ZNK13MethodMatcher5matchEP6SymbolS1_NS_4ModeE
   %12 = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 32
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 40
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 8
-  %19 = load i64, ptr %18, align 8
-  %20 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1) #14
-  %21 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2) #14
-  switch i32 %3, label %35 [
-    i32 1, label %22
-    i32 2, label %23
-    i32 3, label %32
+  %15 = load <2 x ptr>, ptr %14, align 8
+  %16 = load ptr, ptr %14, align 8
+  %17 = getelementptr inbounds i8, ptr %11, i64 8
+  %18 = load i64, ptr %17, align 8
+  %19 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %1) #14
+  %20 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %2) #14
+  switch i32 %3, label %34 [
+    i32 1, label %21
+    i32 2, label %22
+    i32 3, label %31
   ]
 
-22:                                               ; preds = %7
-  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %21)
-  %strncmp = tail call i32 @strncmp(ptr %20, ptr %21, i64 %strlen)
+21:                                               ; preds = %7
+  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %20)
+  %strncmp = tail call i32 @strncmp(ptr %19, ptr %20, i64 %strlen)
   %cmp = icmp eq i32 %strncmp, 0
-  br label %35
+  br label %34
 
-23:                                               ; preds = %7
+22:                                               ; preds = %7
+  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #15
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #15
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #15
-  %.not = icmp ult i64 %24, %25
-  br i1 %.not, label %35, label %26
+  %.not = icmp ult i64 %23, %24
+  br i1 %.not, label %34, label %25
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %20, i64 %24
-  %28 = sub i64 0, %25
-  %29 = getelementptr inbounds i8, ptr %27, i64 %28
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %21) #15
-  %31 = icmp eq i32 %30, 0
-  br label %35
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds i8, ptr %19, i64 %23
+  %27 = sub i64 0, %24
+  %28 = getelementptr inbounds i8, ptr %26, i64 %27
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %20) #15
+  %30 = icmp eq i32 %29, 0
+  br label %34
 
-32:                                               ; preds = %7
-  %33 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %21) #15
-  %34 = icmp ne ptr %33, null
-  br label %35
+31:                                               ; preds = %7
+  %32 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %20) #15
+  %33 = icmp ne ptr %32, null
+  br label %34
 
-35:                                               ; preds = %7, %23, %26, %32, %22
-  %.1 = phi i1 [ %34, %32 ], [ %cmp, %22 ], [ false, %23 ], [ %31, %26 ], [ false, %7 ]
-  %36 = load ptr, ptr %13, align 8
-  %.not.i.i.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i.i.i, label %38, label %37
+34:                                               ; preds = %7, %22, %25, %31, %21
+  %.1 = phi i1 [ %33, %31 ], [ %cmp, %21 ], [ false, %22 ], [ %30, %25 ], [ false, %7 ]
+  %35 = load ptr, ptr %13, align 8
+  %.not.i.i.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i.i.i, label %37, label %36
 
-37:                                               ; preds = %35
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %11, i64 noundef %19) #14
+36:                                               ; preds = %34
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %11, i64 noundef %18) #14
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %13) #14
-  br label %38
+  br label %37
 
-38:                                               ; preds = %37, %35
-  %39 = load ptr, ptr %14, align 8
-  %.not8.i.i.i.i = icmp eq ptr %39, %15
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %40
+37:                                               ; preds = %36, %34
+  %38 = load ptr, ptr %14, align 8
+  %.not8.i.i.i.i = icmp eq ptr %38, %16
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %39
 
-40:                                               ; preds = %38
+39:                                               ; preds = %37
   store ptr %13, ptr %12, align 8
-  store ptr %15, ptr %14, align 8
-  store ptr %17, ptr %16, align 8
+  store <2 x ptr> %15, ptr %14, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %40, %38, %4, %5
-  %.0 = phi i1 [ %6, %5 ], [ true, %4 ], [ %.1, %38 ], [ %.1, %40 ]
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %39, %37, %4, %5
+  %.0 = phi i1 [ %6, %5 ], [ true, %4 ], [ %.1, %37 ], [ %.1, %39 ]
   ret i1 %.0
 }
 
@@ -814,90 +812,88 @@ define hidden void @_ZN13MethodMatcher10print_baseEP12outputStream(ptr nocapture
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 32
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
-  %14 = load i64, ptr %13, align 8
-  %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
-  %17 = load i32, ptr %16, align 8
-  %.off.i = add i32 %17, -2
+  %10 = load <2 x ptr>, ptr %9, align 8
+  %11 = load ptr, ptr %9, align 8
+  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = load i64, ptr %12, align 8
+  %14 = load ptr, ptr %0, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = load i32, ptr %15, align 8
+  %.off.i = add i32 %16, -2
   %switch.i = icmp ult i32 %.off.i, 3
-  br i1 %switch.i, label %18, label %19
+  br i1 %switch.i, label %17, label %18
 
-18:                                               ; preds = %2
+17:                                               ; preds = %2
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.16) #14
-  %.not.i = icmp eq i32 %17, 4
-  br i1 %.not.i, label %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit, label %19
+  %.not.i = icmp eq i32 %16, 4
+  br i1 %.not.i, label %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit, label %18
 
-19:                                               ; preds = %18, %2
-  tail call void @_ZNK6Symbol13print_utf8_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef %1) #14
-  %20 = and i32 %17, -3
-  %or.cond5.i = icmp eq i32 %20, 1
-  br i1 %or.cond5.i, label %21, label %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit
+18:                                               ; preds = %17, %2
+  tail call void @_ZNK6Symbol13print_utf8_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %14, ptr noundef %1) #14
+  %19 = and i32 %16, -3
+  %or.cond5.i = icmp eq i32 %19, 1
+  br i1 %or.cond5.i, label %20, label %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit
 
-21:                                               ; preds = %19
+20:                                               ; preds = %18
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.16) #14
   br label %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit
 
-_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit: ; preds = %18, %19, %21
+_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit: ; preds = %17, %18, %20
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.17) #14
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 28
-  %25 = load i32, ptr %24, align 4
-  %.off.i5 = add i32 %25, -2
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 28
+  %24 = load i32, ptr %23, align 4
+  %.off.i5 = add i32 %24, -2
   %switch.i6 = icmp ult i32 %.off.i5, 3
-  br i1 %switch.i6, label %26, label %27
+  br i1 %switch.i6, label %25, label %26
 
-26:                                               ; preds = %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit
+25:                                               ; preds = %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.16) #14
-  %.not.i8 = icmp eq i32 %25, 4
-  br i1 %.not.i8, label %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit9, label %27
+  %.not.i8 = icmp eq i32 %24, 4
+  br i1 %.not.i8, label %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit9, label %26
 
-27:                                               ; preds = %26, %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit
-  tail call void @_ZNK6Symbol13print_utf8_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %23, ptr noundef nonnull %1) #14
-  %28 = and i32 %25, -3
-  %or.cond5.i7 = icmp eq i32 %28, 1
-  br i1 %or.cond5.i7, label %29, label %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit9
+26:                                               ; preds = %25, %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit
+  tail call void @_ZNK6Symbol13print_utf8_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %22, ptr noundef nonnull %1) #14
+  %27 = and i32 %24, -3
+  %or.cond5.i7 = icmp eq i32 %27, 1
+  br i1 %or.cond5.i7, label %28, label %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit9
 
-29:                                               ; preds = %27
+28:                                               ; preds = %26
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.16) #14
   br label %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit9
 
-_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit9: ; preds = %26, %27, %29
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %.not = icmp eq ptr %31, null
-  br i1 %.not, label %33, label %32
+_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit9: ; preds = %25, %26, %28
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %.not = icmp eq ptr %30, null
+  br i1 %.not, label %32, label %31
 
-32:                                               ; preds = %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit9
-  tail call void @_ZNK6Symbol13print_utf8_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %31, ptr noundef nonnull %1) #14
-  br label %33
+31:                                               ; preds = %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit9
+  tail call void @_ZNK6Symbol13print_utf8_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8) %30, ptr noundef nonnull %1) #14
+  br label %32
 
-33:                                               ; preds = %32, %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit9
-  %34 = load ptr, ptr %8, align 8
-  %.not.i.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i.i, label %36, label %35
+32:                                               ; preds = %31, %_ZN13MethodMatcher12print_symbolEP12outputStreamP6SymbolNS_4ModeE.exit9
+  %33 = load ptr, ptr %8, align 8
+  %.not.i.i.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i.i.i, label %35, label %34
 
-35:                                               ; preds = %33
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %14) #14
+34:                                               ; preds = %32
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %13) #14
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %8) #14
-  br label %36
+  br label %35
 
-36:                                               ; preds = %35, %33
-  %37 = load ptr, ptr %9, align 8
-  %.not8.i.i.i.i = icmp eq ptr %37, %10
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %38
+35:                                               ; preds = %34, %32
+  %36 = load ptr, ptr %9, align 8
+  %.not8.i.i.i.i = icmp eq ptr %36, %11
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %37
 
-38:                                               ; preds = %36
+37:                                               ; preds = %35
   store ptr %8, ptr %7, align 8
-  store ptr %10, ptr %9, align 8
-  store ptr %12, ptr %11, align 8
+  store <2 x ptr> %10, ptr %9, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %36, %38
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %35, %37
   ret void
 }
 

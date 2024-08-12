@@ -3328,17 +3328,17 @@ _ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EE17_S_check
   %29 = shl nuw nsw i64 %28, 1
   %30 = xor i64 %29, 126
   invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SE_E_EEEvT_SH_T0_T1_(ptr nonnull %17, ptr %.0.i.i.i.i.i176, i64 noundef %30)
-          to label %.noexc108 unwind label %52
+          to label %.noexc108 unwind label %53
 
 .noexc108:                                        ; preds = %._crit_edge
   invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SE_E_EEEvT_SH_T0_(ptr nonnull %17, ptr %.0.i.i.i.i.i176)
-          to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEEZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SC_E_EvT_SE_T0_.exit unwind label %52
+          to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEEZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SC_E_EvT_SE_T0_.exit unwind label %53
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEEZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SC_E_EvT_SE_T0_.exit: ; preds = %_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EE17_S_check_init_lenEmRKS4_.exit.i, %.noexc108
   %.sroa.0119.0167183 = phi ptr [ %17, %.noexc108 ], [ null, %_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
   %.0.i.i.i.i.i169182 = phi ptr [ %.0.i.i.i.i.i176, %.noexc108 ], [ null, %_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9)
-          to label %.preheader unwind label %52
+          to label %.preheader unwind label %53
 
 .preheader:                                       ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEEZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SC_E_EvT_SE_T0_.exit
   br i1 %.not.i.i.i.i, label %._crit_edge155, label %.lr.ph154
@@ -3348,349 +3348,355 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
   %32 = fmul double %31, 1.000000e-05
   br label %33
 
-33:                                               ; preds = %.lr.ph154, %100
-  %.085153 = phi double [ 0.000000e+00, %.lr.ph154 ], [ %.186, %100 ]
-  %.087152 = phi double [ 0.000000e+00, %.lr.ph154 ], [ %.188, %100 ]
-  %.089151 = phi double [ 0.000000e+00, %.lr.ph154 ], [ %.190, %100 ]
-  %.092150 = phi i32 [ 0, %.lr.ph154 ], [ %.193, %100 ]
-  %.095149 = phi i32 [ 0, %.lr.ph154 ], [ %.196, %100 ]
-  %.sroa.0116.0148 = phi ptr [ %.sroa.0119.0167183, %.lr.ph154 ], [ %101, %100 ]
-  %34 = getelementptr inbounds i8, ptr %.sroa.0116.0148, i64 8
-  %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds double, ptr %3, i64 %35
-  %37 = load double, ptr %36, align 8
-  %38 = fcmp olt double %37, 0.000000e+00
-  br i1 %38, label %39, label %56
+33:                                               ; preds = %.lr.ph154, %103
+  %.087152 = phi double [ 0.000000e+00, %.lr.ph154 ], [ %105, %103 ]
+  %.089151 = phi double [ 0.000000e+00, %.lr.ph154 ], [ %.190, %103 ]
+  %.092150 = phi i32 [ 0, %.lr.ph154 ], [ %.193, %103 ]
+  %.095149 = phi i32 [ 0, %.lr.ph154 ], [ %.196, %103 ]
+  %.sroa.0116.0148 = phi ptr [ %.sroa.0119.0167183, %.lr.ph154 ], [ %106, %103 ]
+  %34 = phi <2 x double> [ zeroinitializer, %.lr.ph154 ], [ %104, %103 ]
+  %35 = getelementptr inbounds i8, ptr %.sroa.0116.0148, i64 8
+  %36 = load i64, ptr %35, align 8
+  %37 = getelementptr inbounds double, ptr %3, i64 %36
+  %38 = load double, ptr %37, align 8
+  %39 = fcmp olt double %38, 0.000000e+00
+  br i1 %39, label %40, label %57
 
-39:                                               ; preds = %33
-  %40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.44)
-          to label %41 unwind label %54
+40:                                               ; preds = %33
+  %41 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.44)
+          to label %42 unwind label %55
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %.sroa.0116.0148, i64 8
-  %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds double, ptr %3, i64 %43
-  %45 = load double, ptr %44, align 8
-  %46 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %40, double noundef %45)
-          to label %47 unwind label %54
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds i8, ptr %.sroa.0116.0148, i64 8
+  %44 = load i64, ptr %43, align 8
+  %45 = getelementptr inbounds double, ptr %3, i64 %44
+  %46 = load double, ptr %45, align 8
+  %47 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %41, double noundef %46)
+          to label %48 unwind label %55
 
-47:                                               ; preds = %41
-  %48 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull @.str.45)
-          to label %49 unwind label %54
+48:                                               ; preds = %42
+  %49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull @.str.45)
+          to label %50 unwind label %55
 
-49:                                               ; preds = %47
-  %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %51 unwind label %54
+50:                                               ; preds = %48
+  %51 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %52 unwind label %55
 
-51:                                               ; preds = %49
+52:                                               ; preds = %50
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(112) %9)
-          to label %193 unwind label %54
+          to label %199 unwind label %55
 
-52:                                               ; preds = %.noexc108, %._crit_edge, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEEZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SC_E_EvT_SE_T0_.exit
+53:                                               ; preds = %.noexc108, %._crit_edge, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEEZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SC_E_EvT_SE_T0_.exit
   %.sroa.0119.0167184 = phi ptr [ %17, %.noexc108 ], [ %17, %._crit_edge ], [ %.sroa.0119.0167183, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4_iddiE4CellSt6vectorIS5_SaIS5_EEEEZNS2_9chi2_testB5cxx11EiS4_S4_iddiEUlRKS5_SC_E_EvT_SE_T0_.exit ]
-  %53 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
-  br label %196
+  br label %202
 
-54:                                               ; preds = %154, %192, %190, %188, %186, %184, %182, %180, %178, %176, %174, %172, %170, %168, %144, %142, %140, %138, %136, %134, %133, %131, %129, %127, %125, %114, %112, %110, %108, %106, %104, %76, %74, %72, %70, %64, %62, %51, %49, %47, %41, %39
-  %55 = landingpad { ptr, i32 }
+55:                                               ; preds = %160, %198, %196, %194, %192, %190, %188, %186, %184, %182, %180, %178, %176, %174, %150, %148, %146, %144, %142, %140, %139, %137, %135, %133, %131, %120, %118, %116, %114, %112, %110, %77, %75, %73, %71, %65, %63, %52, %50, %48, %42, %40
+  %56 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
-  br label %196
+  br label %202
 
-56:                                               ; preds = %33
-  %57 = fcmp oeq double %37, 0.000000e+00
-  br i1 %57, label %58, label %77
+57:                                               ; preds = %33
+  %58 = fcmp oeq double %38, 0.000000e+00
+  br i1 %58, label %59, label %78
 
-58:                                               ; preds = %56
-  %59 = getelementptr inbounds double, ptr %2, i64 %35
-  %60 = load double, ptr %59, align 8
-  %61 = fcmp ogt double %60, %32
-  br i1 %61, label %62, label %100
+59:                                               ; preds = %57
+  %60 = getelementptr inbounds double, ptr %2, i64 %36
+  %61 = load double, ptr %60, align 8
+  %62 = fcmp ogt double %61, %32
+  br i1 %62, label %63, label %103
 
-62:                                               ; preds = %58
-  %63 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.46)
-          to label %64 unwind label %54
+63:                                               ; preds = %59
+  %64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.46)
+          to label %65 unwind label %55
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %.sroa.0116.0148, i64 8
-  %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds double, ptr %2, i64 %66
-  %68 = load double, ptr %67, align 8
-  %69 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %63, double noundef %68)
-          to label %70 unwind label %54
+65:                                               ; preds = %63
+  %66 = getelementptr inbounds i8, ptr %.sroa.0116.0148, i64 8
+  %67 = load i64, ptr %66, align 8
+  %68 = getelementptr inbounds double, ptr %2, i64 %67
+  %69 = load double, ptr %68, align 8
+  %70 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %64, double noundef %69)
+          to label %71 unwind label %55
 
-70:                                               ; preds = %64
-  %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull @.str.47)
-          to label %72 unwind label %54
+71:                                               ; preds = %65
+  %72 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull @.str.47)
+          to label %73 unwind label %55
 
-72:                                               ; preds = %70
-  %73 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull @.str.48)
-          to label %74 unwind label %54
+73:                                               ; preds = %71
+  %74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull @.str.48)
+          to label %75 unwind label %55
 
-74:                                               ; preds = %72
-  %75 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %76 unwind label %54
+75:                                               ; preds = %73
+  %76 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %77 unwind label %55
 
-76:                                               ; preds = %74
+77:                                               ; preds = %75
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(112) %9)
-          to label %193 unwind label %54
+          to label %199 unwind label %55
 
-77:                                               ; preds = %56
-  %78 = fcmp olt double %37, %5
-  br i1 %78, label %79, label %85
+78:                                               ; preds = %57
+  %79 = fcmp olt double %38, %5
+  br i1 %79, label %80, label %87
 
-79:                                               ; preds = %77
-  %80 = getelementptr inbounds double, ptr %2, i64 %35
-  %81 = load double, ptr %80, align 8
-  %82 = fadd double %.085153, %81
-  %83 = fadd double %.087152, %37
-  %84 = add nsw i32 %.095149, 1
-  br label %100
+80:                                               ; preds = %78
+  %81 = getelementptr inbounds double, ptr %2, i64 %36
+  %82 = load double, ptr %81, align 8
+  %83 = insertelement <2 x double> poison, double %82, i64 0
+  %84 = insertelement <2 x double> %83, double %38, i64 1
+  %85 = fadd <2 x double> %34, %84
+  %86 = add nsw i32 %.095149, 1
+  br label %103
 
-85:                                               ; preds = %77
-  %86 = fcmp ogt double %.087152, 0.000000e+00
-  %87 = fcmp olt double %.087152, %5
-  %or.cond106 = and i1 %86, %87
-  %88 = getelementptr inbounds double, ptr %2, i64 %35
-  %89 = load double, ptr %88, align 8
-  br i1 %or.cond106, label %90, label %94
+87:                                               ; preds = %78
+  %88 = fcmp ogt double %.087152, 0.000000e+00
+  %89 = fcmp olt double %.087152, %5
+  %or.cond106 = and i1 %88, %89
+  %90 = getelementptr inbounds double, ptr %2, i64 %36
+  %91 = load double, ptr %90, align 8
+  br i1 %or.cond106, label %92, label %97
 
-90:                                               ; preds = %85
-  %91 = fadd double %.085153, %89
-  %92 = fadd double %.087152, %37
-  %93 = add nsw i32 %.095149, 1
-  br label %100
+92:                                               ; preds = %87
+  %93 = insertelement <2 x double> poison, double %91, i64 0
+  %94 = insertelement <2 x double> %93, double %38, i64 1
+  %95 = fadd <2 x double> %34, %94
+  %96 = add nsw i32 %.095149, 1
+  br label %103
 
-94:                                               ; preds = %85
-  %95 = fsub double %89, %37
-  %96 = fmul double %95, %95
-  %97 = fdiv double %96, %37
-  %98 = fadd double %.089151, %97
-  %99 = add nsw i32 %.092150, 1
-  br label %100
+97:                                               ; preds = %87
+  %98 = fsub double %91, %38
+  %99 = fmul double %98, %98
+  %100 = fdiv double %99, %38
+  %101 = fadd double %.089151, %100
+  %102 = add nsw i32 %.092150, 1
+  br label %103
 
-100:                                              ; preds = %79, %94, %90, %58
-  %.196 = phi i32 [ %.095149, %58 ], [ %84, %79 ], [ %93, %90 ], [ %.095149, %94 ]
-  %.193 = phi i32 [ %.092150, %58 ], [ %.092150, %79 ], [ %.092150, %90 ], [ %99, %94 ]
-  %.190 = phi double [ %.089151, %58 ], [ %.089151, %79 ], [ %.089151, %90 ], [ %98, %94 ]
-  %.188 = phi double [ %.087152, %58 ], [ %83, %79 ], [ %92, %90 ], [ %.087152, %94 ]
-  %.186 = phi double [ %.085153, %58 ], [ %82, %79 ], [ %91, %90 ], [ %.085153, %94 ]
-  %101 = getelementptr inbounds i8, ptr %.sroa.0116.0148, i64 16
-  %.not = icmp eq ptr %101, %.0.i.i.i.i.i169182
-  br i1 %.not, label %._crit_edge155, label %33
+103:                                              ; preds = %80, %97, %92, %59
+  %.196 = phi i32 [ %.095149, %59 ], [ %86, %80 ], [ %96, %92 ], [ %.095149, %97 ]
+  %.193 = phi i32 [ %.092150, %59 ], [ %.092150, %80 ], [ %.092150, %92 ], [ %102, %97 ]
+  %.190 = phi double [ %.089151, %59 ], [ %.089151, %80 ], [ %.089151, %92 ], [ %101, %97 ]
+  %104 = phi <2 x double> [ %34, %59 ], [ %85, %80 ], [ %95, %92 ], [ %34, %97 ]
+  %105 = extractelement <2 x double> %104, i64 1
+  %106 = getelementptr inbounds i8, ptr %.sroa.0116.0148, i64 16
+  %.not = icmp eq ptr %106, %.0.i.i.i.i.i169182
+  br i1 %.not, label %._crit_edge155.loopexit, label %33
 
-._crit_edge155:                                   ; preds = %100, %.preheader
-  %.095.lcssa = phi i32 [ 0, %.preheader ], [ %.196, %100 ]
-  %.092.lcssa = phi i32 [ 0, %.preheader ], [ %.193, %100 ]
-  %.089.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.190, %100 ]
-  %.087.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.188, %100 ]
-  %.085.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.186, %100 ]
-  %102 = fcmp ogt double %.087.lcssa, 0.000000e+00
-  %103 = fcmp ogt double %.085.lcssa, 0.000000e+00
-  %or.cond = select i1 %102, i1 true, i1 %103
-  br i1 %or.cond, label %104, label %122
+._crit_edge155.loopexit:                          ; preds = %103
+  %107 = extractelement <2 x double> %104, i64 0
+  br label %._crit_edge155
 
-104:                                              ; preds = %._crit_edge155
-  %105 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.49)
-          to label %106 unwind label %54
+._crit_edge155:                                   ; preds = %._crit_edge155.loopexit, %.preheader
+  %.095.lcssa = phi i32 [ 0, %.preheader ], [ %.196, %._crit_edge155.loopexit ]
+  %.092.lcssa = phi i32 [ 0, %.preheader ], [ %.193, %._crit_edge155.loopexit ]
+  %.089.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.190, %._crit_edge155.loopexit ]
+  %.087.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %105, %._crit_edge155.loopexit ]
+  %.085.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %107, %._crit_edge155.loopexit ]
+  %108 = fcmp ogt double %.087.lcssa, 0.000000e+00
+  %109 = fcmp ogt double %.085.lcssa, 0.000000e+00
+  %or.cond = select i1 %108, i1 true, i1 %109
+  br i1 %or.cond, label %110, label %128
 
-106:                                              ; preds = %104
-  %107 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %105, i32 noundef %.095.lcssa)
-          to label %108 unwind label %54
-
-108:                                              ; preds = %106
-  %109 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %107, ptr noundef nonnull @.str.50)
-          to label %110 unwind label %54
-
-110:                                              ; preds = %108
-  %111 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %109, double noundef %5)
-          to label %112 unwind label %54
+110:                                              ; preds = %._crit_edge155
+  %111 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.49)
+          to label %112 unwind label %55
 
 112:                                              ; preds = %110
-  %113 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %111, ptr noundef nonnull @.str.51)
-          to label %114 unwind label %54
+  %113 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %111, i32 noundef %.095.lcssa)
+          to label %114 unwind label %55
 
 114:                                              ; preds = %112
-  %115 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %113, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %116 unwind label %54
+  %115 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %113, ptr noundef nonnull @.str.50)
+          to label %116 unwind label %55
 
 116:                                              ; preds = %114
-  %117 = fsub double %.085.lcssa, %.087.lcssa
-  %118 = fmul double %117, %117
-  %119 = fdiv double %118, %.087.lcssa
-  %120 = fadd double %.089.lcssa, %119
-  %121 = add nsw i32 %.092.lcssa, 1
-  br label %122
+  %117 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %115, double noundef %5)
+          to label %118 unwind label %55
 
-122:                                              ; preds = %._crit_edge155, %116
-  %.294 = phi i32 [ %121, %116 ], [ %.092.lcssa, %._crit_edge155 ]
-  %.291 = phi double [ %120, %116 ], [ %.089.lcssa, %._crit_edge155 ]
-  %123 = add nsw i32 %.294, -1
-  %124 = icmp slt i32 %.294, 2
-  br i1 %124, label %125, label %134
+118:                                              ; preds = %116
+  %119 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %117, ptr noundef nonnull @.str.51)
+          to label %120 unwind label %55
 
-125:                                              ; preds = %122
-  %126 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.52)
-          to label %127 unwind label %54
+120:                                              ; preds = %118
+  %121 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %119, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %122 unwind label %55
 
-127:                                              ; preds = %125
-  %128 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %126, i32 noundef %123)
-          to label %129 unwind label %54
+122:                                              ; preds = %120
+  %123 = fsub double %.085.lcssa, %.087.lcssa
+  %124 = fmul double %123, %123
+  %125 = fdiv double %124, %.087.lcssa
+  %126 = fadd double %.089.lcssa, %125
+  %127 = add nsw i32 %.092.lcssa, 1
+  br label %128
 
-129:                                              ; preds = %127
-  %130 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %128, ptr noundef nonnull @.str.53)
-          to label %131 unwind label %54
+128:                                              ; preds = %._crit_edge155, %122
+  %.294 = phi i32 [ %127, %122 ], [ %.092.lcssa, %._crit_edge155 ]
+  %.291 = phi double [ %126, %122 ], [ %.089.lcssa, %._crit_edge155 ]
+  %129 = add nsw i32 %.294, -1
+  %130 = icmp slt i32 %.294, 2
+  br i1 %130, label %131, label %140
 
-131:                                              ; preds = %129
-  %132 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %130, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %133 unwind label %54
+131:                                              ; preds = %128
+  %132 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.52)
+          to label %133 unwind label %55
 
 133:                                              ; preds = %131
+  %134 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %132, i32 noundef %129)
+          to label %135 unwind label %55
+
+135:                                              ; preds = %133
+  %136 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %134, ptr noundef nonnull @.str.53)
+          to label %137 unwind label %55
+
+137:                                              ; preds = %135
+  %138 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %136, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %139 unwind label %55
+
+139:                                              ; preds = %137
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(112) %9)
-          to label %193 unwind label %54
+          to label %199 unwind label %55
 
-134:                                              ; preds = %122
-  %135 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.54)
-          to label %136 unwind label %54
-
-136:                                              ; preds = %134
-  %137 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %135, double noundef %.291)
-          to label %138 unwind label %54
-
-138:                                              ; preds = %136
-  %139 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %137, ptr noundef nonnull @.str.55)
-          to label %140 unwind label %54
-
-140:                                              ; preds = %138
-  %141 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %139, i32 noundef %123)
-          to label %142 unwind label %54
+140:                                              ; preds = %128
+  %141 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.54)
+          to label %142 unwind label %55
 
 142:                                              ; preds = %140
-  %143 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %141, ptr noundef nonnull @.str.51)
-          to label %144 unwind label %54
+  %143 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %141, double noundef %.291)
+          to label %144 unwind label %55
 
 144:                                              ; preds = %142
-  %145 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %143, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %146 unwind label %54
+  %145 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %143, ptr noundef nonnull @.str.55)
+          to label %146 unwind label %55
 
 146:                                              ; preds = %144
-  %147 = fcmp olt double %.291, 0.000000e+00
-  br i1 %147, label %_ZN10hypothesis8chi2_cdfEdi.exit, label %148
+  %147 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %145, i32 noundef %129)
+          to label %148 unwind label %55
 
 148:                                              ; preds = %146
-  %149 = icmp eq i32 %123, 2
-  br i1 %149, label %150, label %154
+  %149 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.51)
+          to label %150 unwind label %55
 
 150:                                              ; preds = %148
-  %151 = fmul double %.291, -5.000000e-01
-  %152 = call double @exp(double noundef %151) #19
-  %153 = fsub double 1.000000e+00, %152
+  %151 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %149, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %152 unwind label %55
+
+152:                                              ; preds = %150
+  %153 = fcmp olt double %.291, 0.000000e+00
+  br i1 %153, label %_ZN10hypothesis8chi2_cdfEdi.exit, label %154
+
+154:                                              ; preds = %152
+  %155 = icmp eq i32 %129, 2
+  br i1 %155, label %156, label %160
+
+156:                                              ; preds = %154
+  %157 = fmul double %.291, -5.000000e-01
+  %158 = call double @exp(double noundef %157) #19
+  %159 = fsub double 1.000000e+00, %158
   br label %_ZN10hypothesis8chi2_cdfEdi.exit
 
-154:                                              ; preds = %148
-  %155 = uitofp nneg i32 %123 to double
-  %156 = fmul double %155, 5.000000e-01
-  %157 = fmul double %.291, 5.000000e-01
-  %158 = invoke noundef double @_ZN6cephes7rlgammaEdd(double noundef %156, double noundef %157)
-          to label %_ZN10hypothesis8chi2_cdfEdi.exit unwind label %54
+160:                                              ; preds = %154
+  %161 = uitofp nneg i32 %129 to double
+  %162 = fmul double %161, 5.000000e-01
+  %163 = fmul double %.291, 5.000000e-01
+  %164 = invoke noundef double @_ZN6cephes7rlgammaEdd(double noundef %162, double noundef %163)
+          to label %_ZN10hypothesis8chi2_cdfEdi.exit unwind label %55
 
-_ZN10hypothesis8chi2_cdfEdi.exit:                 ; preds = %150, %146, %154
-  %.0.i = phi double [ %153, %150 ], [ 0.000000e+00, %146 ], [ %158, %154 ]
-  %159 = fsub double 1.000000e+00, %.0.i
-  %160 = fsub double 1.000000e+00, %6
-  %161 = sitofp i32 %7 to double
-  %162 = fdiv double 1.000000e+00, %161
-  %163 = call double @pow(double noundef %160, double noundef %162) #19
-  %164 = fsub double 1.000000e+00, %163
-  %165 = fcmp uge double %159, %164
-  %166 = call double @llvm.fabs.f64(double %159)
-  %167 = fcmp one double %166, 0x7FF0000000000000
-  %or.cond132 = and i1 %165, %167
-  br i1 %or.cond132, label %180, label %168
+_ZN10hypothesis8chi2_cdfEdi.exit:                 ; preds = %156, %152, %160
+  %.0.i = phi double [ %159, %156 ], [ 0.000000e+00, %152 ], [ %164, %160 ]
+  %165 = fsub double 1.000000e+00, %.0.i
+  %166 = fsub double 1.000000e+00, %6
+  %167 = sitofp i32 %7 to double
+  %168 = fdiv double 1.000000e+00, %167
+  %169 = call double @pow(double noundef %166, double noundef %168) #19
+  %170 = fsub double 1.000000e+00, %169
+  %171 = fcmp uge double %165, %170
+  %172 = call double @llvm.fabs.f64(double %165)
+  %173 = fcmp one double %172, 0x7FF0000000000000
+  %or.cond132 = and i1 %171, %173
+  br i1 %or.cond132, label %186, label %174
 
-168:                                              ; preds = %_ZN10hypothesis8chi2_cdfEdi.exit
-  %169 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.56)
-          to label %170 unwind label %54
-
-170:                                              ; preds = %168
-  %171 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %169, double noundef %159)
-          to label %172 unwind label %54
-
-172:                                              ; preds = %170
-  %173 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %171, ptr noundef nonnull @.str.57)
-          to label %174 unwind label %54
-
-174:                                              ; preds = %172
-  %175 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %173, double noundef %164)
-          to label %176 unwind label %54
+174:                                              ; preds = %_ZN10hypothesis8chi2_cdfEdi.exit
+  %175 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.56)
+          to label %176 unwind label %55
 
 176:                                              ; preds = %174
-  %177 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %175, ptr noundef nonnull @.str.51)
-          to label %178 unwind label %54
+  %177 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %175, double noundef %165)
+          to label %178 unwind label %55
 
 178:                                              ; preds = %176
-  %179 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %177, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %192 unwind label %54
+  %179 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %177, ptr noundef nonnull @.str.57)
+          to label %180 unwind label %55
 
-180:                                              ; preds = %_ZN10hypothesis8chi2_cdfEdi.exit
-  %181 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.58)
-          to label %182 unwind label %54
+180:                                              ; preds = %178
+  %181 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %179, double noundef %170)
+          to label %182 unwind label %55
 
 182:                                              ; preds = %180
-  %183 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %181, double noundef %159)
-          to label %184 unwind label %54
+  %183 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %181, ptr noundef nonnull @.str.51)
+          to label %184 unwind label %55
 
 184:                                              ; preds = %182
-  %185 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %183, ptr noundef nonnull @.str.57)
-          to label %186 unwind label %54
+  %185 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %183, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %198 unwind label %55
 
-186:                                              ; preds = %184
-  %187 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %185, double noundef %164)
-          to label %188 unwind label %54
+186:                                              ; preds = %_ZN10hypothesis8chi2_cdfEdi.exit
+  %187 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.58)
+          to label %188 unwind label %55
 
 188:                                              ; preds = %186
-  %189 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %187, ptr noundef nonnull @.str.51)
-          to label %190 unwind label %54
+  %189 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %187, double noundef %165)
+          to label %190 unwind label %55
 
 190:                                              ; preds = %188
-  %191 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %189, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %192 unwind label %54
+  %191 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %189, ptr noundef nonnull @.str.57)
+          to label %192 unwind label %55
 
-192:                                              ; preds = %190, %178
-  %.0 = phi i8 [ 0, %178 ], [ 1, %190 ]
+192:                                              ; preds = %190
+  %193 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %191, double noundef %170)
+          to label %194 unwind label %55
+
+194:                                              ; preds = %192
+  %195 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %193, ptr noundef nonnull @.str.51)
+          to label %196 unwind label %55
+
+196:                                              ; preds = %194
+  %197 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %195, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %198 unwind label %55
+
+198:                                              ; preds = %196, %184
+  %.0 = phi i8 [ 0, %184 ], [ 1, %196 ]
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull align 8 dereferenceable(112) %9)
-          to label %193 unwind label %54
+          to label %199 unwind label %55
 
-193:                                              ; preds = %192, %133, %76, %51
-  %.0.sink = phi i8 [ 0, %51 ], [ 0, %76 ], [ 0, %133 ], [ %.0, %192 ]
-  %.sink189 = phi ptr [ %10, %51 ], [ %11, %76 ], [ %12, %133 ], [ %13, %192 ]
+199:                                              ; preds = %198, %139, %77, %52
+  %.0.sink = phi i8 [ 0, %52 ], [ 0, %77 ], [ 0, %139 ], [ %.0, %198 ]
+  %.sink189 = phi ptr [ %10, %52 ], [ %11, %77 ], [ %12, %139 ], [ %13, %198 ]
   store i8 %.0.sink, ptr %0, align 8
-  %194 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %194, ptr noundef nonnull align 8 dereferenceable(32) %.sink189) #19
+  %200 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %200, ptr noundef nonnull align 8 dereferenceable(32) %.sink189) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink189) #19
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #19
   %.not.i.i.i = icmp eq ptr %.sroa.0119.0167183, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EED2Ev.exit, label %195
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EED2Ev.exit, label %201
 
-195:                                              ; preds = %193
+201:                                              ; preds = %199
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0119.0167183) #18
   br label %_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EED2Ev.exit
 
-_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EED2Ev.exit: ; preds = %193, %195
+_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EED2Ev.exit: ; preds = %199, %201
   ret void
 
-196:                                              ; preds = %54, %52
-  %.sroa.0119.0168 = phi ptr [ %.sroa.0119.0167183, %54 ], [ %.sroa.0119.0167184, %52 ]
-  %.pn.pn = phi { ptr, i32 } [ %55, %54 ], [ %53, %52 ]
+202:                                              ; preds = %55, %53
+  %.sroa.0119.0168 = phi ptr [ %.sroa.0119.0167183, %55 ], [ %.sroa.0119.0167184, %53 ]
+  %.pn.pn = phi { ptr, i32 } [ %56, %55 ], [ %54, %53 ]
   %.not.i.i.i111 = icmp eq ptr %.sroa.0119.0168, null
-  br i1 %.not.i.i.i111, label %_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EED2Ev.exit112, label %197
+  br i1 %.not.i.i.i111, label %_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EED2Ev.exit112, label %203
 
-197:                                              ; preds = %196
+203:                                              ; preds = %202
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0119.0168) #18
   br label %_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EED2Ev.exit112
 
-_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EED2Ev.exit112: ; preds = %197, %196
+_ZNSt6vectorIZN10hypothesis9chi2_testB5cxx11EiPKdS2_iddiE4CellSaIS3_EED2Ev.exit112: ; preds = %203, %202
   resume { ptr, i32 } %.pn.pn
 }
 

@@ -596,88 +596,86 @@ define hidden void @_ZN10DFSClosure9add_chainEv(ptr nocapture noundef nonnull re
   %10 = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 32
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 40
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 8
-  %17 = load i64, ptr %16, align 8
-  %18 = shl i64 %5, 4
-  %19 = add i64 %18, 32
-  %20 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %19, i32 noundef 0) #12
-  %21 = load i64, ptr %4, align 8
-  br label %22
+  %13 = load <2 x ptr>, ptr %12, align 8
+  %14 = load ptr, ptr %12, align 8
+  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %16 = load i64, ptr %15, align 8
+  %17 = shl i64 %5, 4
+  %18 = add i64 %17, 32
+  %19 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %18, i32 noundef 0) #12
+  %20 = load i64, ptr %4, align 8
+  br label %21
 
-22:                                               ; preds = %1, %22
-  %23 = phi i64 [ %21, %1 ], [ %29, %22 ]
-  %.029 = phi i64 [ 0, %1 ], [ %24, %22 ]
-  %24 = add i64 %.029, 1
-  %25 = sub nuw i64 %23, %.029
-  %26 = getelementptr %class.Edge, ptr %20, i64 %24
-  %27 = getelementptr inbounds [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %25
-  %.sroa.01.0.copyload = load i64, ptr %27, align 8
-  call void @_ZN4EdgeC1EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %26, i64 %.sroa.01.0.copyload) #12
-  %28 = getelementptr inbounds %class.Edge, ptr %20, i64 %.029
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
-  %29 = load i64, ptr %4, align 8
-  %.not = icmp ugt i64 %24, %29
-  br i1 %.not, label %30, label %22, !llvm.loop !6
+21:                                               ; preds = %1, %21
+  %22 = phi i64 [ %20, %1 ], [ %28, %21 ]
+  %.029 = phi i64 [ 0, %1 ], [ %23, %21 ]
+  %23 = add i64 %.029, 1
+  %24 = sub nuw i64 %22, %.029
+  %25 = getelementptr %class.Edge, ptr %19, i64 %23
+  %26 = getelementptr inbounds [4000 x %struct.UnifiedOopRef], ptr @_ZN10DFSClosure16_reference_stackE, i64 0, i64 %24
+  %.sroa.01.0.copyload = load i64, ptr %26, align 8
+  call void @_ZN4EdgeC1EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %25, i64 %.sroa.01.0.copyload) #12
+  %27 = getelementptr inbounds %class.Edge, ptr %19, i64 %.029
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  %28 = load i64, ptr %4, align 8
+  %.not = icmp ugt i64 %23, %28
+  br i1 %.not, label %29, label %21, !llvm.loop !6
 
-30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
-  %32 = load ptr, ptr %31, align 8
-  %.not23 = icmp eq ptr %32, null
-  br i1 %.not23, label %35, label %33
+29:                                               ; preds = %21
+  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = load ptr, ptr %30, align 8
+  %.not23 = icmp eq ptr %31, null
+  br i1 %.not23, label %34, label %32
 
-33:                                               ; preds = %30
-  %34 = add i64 %.029, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
-  br label %38
+32:                                               ; preds = %29
+  %33 = add i64 %.029, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
+  br label %37
 
-35:                                               ; preds = %30
-  %36 = getelementptr i8, ptr %26, i64 -16
-  %37 = getelementptr i8, ptr %26, i64 -8
-  %.sroa.0.0.copyload.i = load i64, ptr %37, align 8
+34:                                               ; preds = %29
+  %35 = getelementptr i8, ptr %25, i64 -16
+  %36 = getelementptr i8, ptr %25, i64 -8
+  %.sroa.0.0.copyload.i = load i64, ptr %36, align 8
   call void @_ZN4EdgeC1EPKS_13UnifiedOopRef(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef null, i64 %.sroa.0.0.copyload.i) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  br label %38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  br label %37
 
-38:                                               ; preds = %35, %33
-  %.1 = phi i64 [ %34, %33 ], [ %24, %35 ]
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %31, align 8
-  %.not24 = icmp eq ptr %41, null
-  br i1 %.not24, label %44, label %42
+37:                                               ; preds = %34, %32
+  %.1 = phi i64 [ %33, %32 ], [ %23, %34 ]
+  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %30, align 8
+  %.not24 = icmp eq ptr %40, null
+  br i1 %.not24, label %43, label %41
 
-42:                                               ; preds = %38
-  %43 = call noundef i64 @_ZNK4Edge16distance_to_rootEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #12
-  br label %44
+41:                                               ; preds = %37
+  %42 = call noundef i64 @_ZNK4Edge16distance_to_rootEv(ptr noundef nonnull align 8 dereferenceable(16) %40) #12
+  br label %43
 
-44:                                               ; preds = %38, %42
-  %45 = phi i64 [ %43, %42 ], [ 0, %38 ]
-  %46 = add i64 %45, %.1
-  call void @_ZN9EdgeStore9put_chainEPK4Edgem(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull %20, i64 noundef %46) #12
-  %47 = load ptr, ptr %11, align 8
-  %.not.i.i.i.i = icmp eq ptr %47, null
-  br i1 %.not.i.i.i.i, label %49, label %48
+43:                                               ; preds = %37, %41
+  %44 = phi i64 [ %42, %41 ], [ 0, %37 ]
+  %45 = add i64 %44, %.1
+  call void @_ZN9EdgeStore9put_chainEPK4Edgem(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull %19, i64 noundef %45) #12
+  %46 = load ptr, ptr %11, align 8
+  %.not.i.i.i.i = icmp eq ptr %46, null
+  br i1 %.not.i.i.i.i, label %48, label %47
 
-48:                                               ; preds = %44
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %17) #12
+47:                                               ; preds = %43
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %16) #12
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %11) #12
-  br label %49
+  br label %48
 
-49:                                               ; preds = %48, %44
-  %50 = load ptr, ptr %12, align 8
-  %.not8.i.i.i.i = icmp eq ptr %50, %13
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %51
+48:                                               ; preds = %47, %43
+  %49 = load ptr, ptr %12, align 8
+  %.not8.i.i.i.i = icmp eq ptr %49, %14
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %50
 
-51:                                               ; preds = %49
+50:                                               ; preds = %48
   store ptr %11, ptr %10, align 8
-  store ptr %13, ptr %12, align 8
-  store ptr %15, ptr %14, align 8
+  store <2 x ptr> %13, ptr %12, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %49, %51
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %48, %50
   ret void
 }
 

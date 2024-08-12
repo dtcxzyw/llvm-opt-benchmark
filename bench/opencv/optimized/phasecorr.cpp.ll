@@ -134,12 +134,12 @@ _ZNK2cv11_InputArray6getMatEi.exit580:            ; preds = %25, %28
 53:                                               ; preds = %28, %25, %_ZNK2cv11_InputArray6getMatEi.exit
   %54 = landingpad { ptr, i32 }
           cleanup
-  br label %520
+  br label %521
 
 55:                                               ; preds = %80, %77, %74, %73
   %56 = landingpad { ptr, i32 }
           cleanup
-  br label %519
+  br label %520
 
 .critedge:                                        ; preds = %_ZNK2cv11_InputArray6getMatEi.exit580, %42
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #13
@@ -167,7 +167,7 @@ _ZNK2cv11_InputArray6getMatEi.exit580:            ; preds = %25, %28
 63:                                               ; preds = %61, %59
   %.pn = phi { ptr, i32 } [ %62, %61 ], [ %60, %59 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #13
-  br label %519
+  br label %520
 
 64:                                               ; preds = %42
   switch i32 %34, label %65 [
@@ -203,7 +203,7 @@ _ZNK2cv11_InputArray6getMatEi.exit580:            ; preds = %25, %28
 72:                                               ; preds = %70, %68
   %.pn555 = phi { ptr, i32 } [ %71, %70 ], [ %69, %68 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #13
-  br label %519
+  br label %520
 
 73:                                               ; preds = %64, %64, %64, %64
   invoke void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %36, i32 noundef %38, i32 noundef %34, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
@@ -250,13 +250,13 @@ _ZNK2cv11_InputArray6getMatEi.exit588:            ; preds = %77, %80
 88:                                               ; preds = %85
   %89 = landingpad { ptr, i32 }
           cleanup
-  br label %518
+  br label %519
 
 90:                                               ; preds = %86
   %91 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #13
-  br label %518
+  br label %519
 
 92:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit588
   %93 = getelementptr inbounds i8, ptr %7, i64 16
@@ -279,13 +279,13 @@ _ZNK2cv11_InputArray6getMatEi.exit588:            ; preds = %77, %80
 98:                                               ; preds = %95
   %99 = landingpad { ptr, i32 }
           cleanup
-  br label %518
+  br label %519
 
 100:                                              ; preds = %96
   %101 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #13
-  br label %518
+  br label %519
 
 102:                                              ; preds = %92
   %103 = and i32 %3, 4
@@ -783,10 +783,10 @@ _ZNK2cv11_InputArray6getMatEi.exit588:            ; preds = %77, %80
   br label %.lr.ph632.split.us
 
 .lr.ph632.split.us:                               ; preds = %.lr.ph632.split.us.preheader, %.loopexit602.us
-  %406 = phi i32 [ %448, %.loopexit602.us ], [ %.pre-phi, %.lr.ph632.split.us.preheader ]
-  %.4542630.us = phi ptr [ %445, %.loopexit602.us ], [ %.0538, %.lr.ph632.split.us.preheader ]
-  %.4547628.us = phi ptr [ %446, %.loopexit602.us ], [ %.0543, %.lr.ph632.split.us.preheader ]
-  %.4552626.us = phi ptr [ %447, %.loopexit602.us ], [ %.0548, %.lr.ph632.split.us.preheader ]
+  %406 = phi i32 [ %449, %.loopexit602.us ], [ %.pre-phi, %.lr.ph632.split.us.preheader ]
+  %.4542630.us = phi ptr [ %446, %.loopexit602.us ], [ %.0538, %.lr.ph632.split.us.preheader ]
+  %.4547628.us = phi ptr [ %447, %.loopexit602.us ], [ %.0543, %.lr.ph632.split.us.preheader ]
+  %.4552626.us = phi ptr [ %448, %.loopexit602.us ], [ %.0548, %.lr.ph632.split.us.preheader ]
   br i1 %or.cond14, label %407, label %.preheader601.us
 
 407:                                              ; preds = %.lr.ph632.split.us
@@ -822,31 +822,32 @@ _ZNK2cv11_InputArray6getMatEi.exit588:            ; preds = %77, %80
   %426 = call double @llvm.fmuladd.f64(double %421, double %421, double %425)
   %427 = fadd double %426, 0x3CB0000000000000
   %428 = getelementptr inbounds double, ptr %.4542630.us, i64 %indvars.iv679
-  %429 = getelementptr inbounds double, ptr %.4552626.us, i64 %indvars.iv679
-  %430 = load <2 x double>, ptr %428, align 8
-  %431 = extractelement <2 x double> %430, i64 1
-  %432 = fneg double %431
-  %433 = insertelement <2 x double> poison, double %424, i64 0
-  %434 = shufflevector <2 x double> %433, <2 x double> poison, <2 x i32> zeroinitializer
-  %435 = shufflevector <2 x double> %430, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %436 = insertelement <2 x double> %435, double %432, i64 0
-  %437 = fmul <2 x double> %434, %436
-  %438 = insertelement <2 x double> poison, double %421, i64 0
-  %439 = shufflevector <2 x double> %438, <2 x double> poison, <2 x i32> zeroinitializer
-  %440 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %430, <2 x double> %439, <2 x double> %437)
-  %441 = insertelement <2 x double> poison, double %427, i64 0
-  %442 = shufflevector <2 x double> %441, <2 x double> poison, <2 x i32> zeroinitializer
-  %443 = fdiv <2 x double> %440, %442
-  store <2 x double> %443, ptr %429, align 8
+  %429 = getelementptr inbounds double, ptr %.4542630.us, i64 %422
+  %430 = getelementptr inbounds double, ptr %.4552626.us, i64 %indvars.iv679
+  %431 = load double, ptr %429, align 8
+  %432 = load <2 x double>, ptr %428, align 8
+  %433 = fneg double %431
+  %434 = insertelement <2 x double> poison, double %424, i64 0
+  %435 = shufflevector <2 x double> %434, <2 x double> poison, <2 x i32> zeroinitializer
+  %436 = shufflevector <2 x double> %432, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %437 = insertelement <2 x double> %436, double %433, i64 0
+  %438 = fmul <2 x double> %435, %437
+  %439 = insertelement <2 x double> poison, double %421, i64 0
+  %440 = shufflevector <2 x double> %439, <2 x double> poison, <2 x i32> zeroinitializer
+  %441 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %432, <2 x double> %440, <2 x double> %438)
+  %442 = insertelement <2 x double> poison, double %427, i64 0
+  %443 = shufflevector <2 x double> %442, <2 x double> poison, <2 x i32> zeroinitializer
+  %444 = fdiv <2 x double> %441, %443
+  store <2 x double> %444, ptr %430, align 8
   %indvars.iv.next680 = add nuw nsw i64 %indvars.iv679, 2
-  %444 = icmp slt i64 %indvars.iv.next680, %403
-  br i1 %444, label %.lr.ph624.us, label %.loopexit602.us, !llvm.loop !23
+  %445 = icmp slt i64 %indvars.iv.next680, %403
+  br i1 %445, label %.lr.ph624.us, label %.loopexit602.us, !llvm.loop !23
 
 .loopexit602.us:                                  ; preds = %.lr.ph624.us, %.preheader601.us
-  %445 = getelementptr inbounds double, ptr %.4542630.us, i64 %317
-  %446 = getelementptr inbounds double, ptr %.4547628.us, i64 %318
-  %447 = getelementptr inbounds double, ptr %.4552626.us, i64 %319
-  %448 = add nsw i32 %406, -1
+  %446 = getelementptr inbounds double, ptr %.4542630.us, i64 %317
+  %447 = getelementptr inbounds double, ptr %.4547628.us, i64 %318
+  %448 = getelementptr inbounds double, ptr %.4552626.us, i64 %319
+  %449 = add nsw i32 %406, -1
   %.not567.us = icmp eq i32 %406, 0
   br i1 %.not567.us, label %.loopexit594, label %.lr.ph632.split.us, !llvm.loop !24
 
@@ -854,75 +855,75 @@ _ZNK2cv11_InputArray6getMatEi.exit588:            ; preds = %77, %80
   br i1 %404, label %.lr.ph632.split.split.us.preheader, label %.lr.ph632.split.split
 
 .lr.ph632.split.split.us.preheader:               ; preds = %.lr.ph632.split
-  %449 = zext i1 %123 to i64
+  %450 = zext i1 %123 to i64
   br label %.lr.ph632.split.split.us
 
 .lr.ph632.split.split.us:                         ; preds = %.lr.ph632.split.split.us.preheader, %..loopexit604_crit_edge.us
-  %450 = phi i32 [ %492, %..loopexit604_crit_edge.us ], [ %.pre-phi, %.lr.ph632.split.split.us.preheader ]
-  %.4542630.us633 = phi ptr [ %489, %..loopexit604_crit_edge.us ], [ %.0538, %.lr.ph632.split.split.us.preheader ]
-  %.4547628.us634 = phi ptr [ %490, %..loopexit604_crit_edge.us ], [ %.0543, %.lr.ph632.split.split.us.preheader ]
-  %.4552626.us635 = phi ptr [ %491, %..loopexit604_crit_edge.us ], [ %.0548, %.lr.ph632.split.split.us.preheader ]
-  br i1 %or.cond14, label %451, label %.preheader603.us.preheader
+  %451 = phi i32 [ %493, %..loopexit604_crit_edge.us ], [ %.pre-phi, %.lr.ph632.split.split.us.preheader ]
+  %.4542630.us633 = phi ptr [ %490, %..loopexit604_crit_edge.us ], [ %.0538, %.lr.ph632.split.split.us.preheader ]
+  %.4547628.us634 = phi ptr [ %491, %..loopexit604_crit_edge.us ], [ %.0543, %.lr.ph632.split.split.us.preheader ]
+  %.4552626.us635 = phi ptr [ %492, %..loopexit604_crit_edge.us ], [ %.0548, %.lr.ph632.split.split.us.preheader ]
+  br i1 %or.cond14, label %452, label %.preheader603.us.preheader
 
-451:                                              ; preds = %.lr.ph632.split.split.us
-  %452 = load double, ptr %.4542630.us633, align 8
-  %453 = load double, ptr %.4547628.us634, align 8
-  %454 = fadd double %453, 0x3CB0000000000000
-  %455 = fdiv double %452, %454
-  store double %455, ptr %.4552626.us635, align 8
-  br i1 %126, label %456, label %.preheader603.us.preheader
+452:                                              ; preds = %.lr.ph632.split.split.us
+  %453 = load double, ptr %.4542630.us633, align 8
+  %454 = load double, ptr %.4547628.us634, align 8
+  %455 = fadd double %454, 0x3CB0000000000000
+  %456 = fdiv double %453, %455
+  store double %456, ptr %.4552626.us635, align 8
+  br i1 %126, label %457, label %.preheader603.us.preheader
 
-456:                                              ; preds = %451
-  %457 = getelementptr inbounds double, ptr %.4542630.us633, i64 %403
-  %458 = load double, ptr %457, align 8
-  %459 = getelementptr inbounds double, ptr %.4547628.us634, i64 %403
-  %460 = load double, ptr %459, align 8
-  %461 = fadd double %460, 0x3CB0000000000000
-  %462 = fdiv double %458, %461
-  %463 = getelementptr inbounds double, ptr %.4552626.us635, i64 %403
-  store double %462, ptr %463, align 8
+457:                                              ; preds = %452
+  %458 = getelementptr inbounds double, ptr %.4542630.us633, i64 %403
+  %459 = load double, ptr %458, align 8
+  %460 = getelementptr inbounds double, ptr %.4547628.us634, i64 %403
+  %461 = load double, ptr %460, align 8
+  %462 = fadd double %461, 0x3CB0000000000000
+  %463 = fdiv double %459, %462
+  %464 = getelementptr inbounds double, ptr %.4552626.us635, i64 %403
+  store double %463, ptr %464, align 8
   br label %.preheader603.us.preheader
 
-.preheader603.us.preheader:                       ; preds = %456, %451, %.lr.ph632.split.split.us
+.preheader603.us.preheader:                       ; preds = %457, %452, %.lr.ph632.split.split.us
   br label %.preheader603.us
 
 .preheader603.us:                                 ; preds = %.preheader603.us.preheader, %.preheader603.us
-  %indvars.iv676 = phi i64 [ %indvars.iv.next677, %.preheader603.us ], [ %449, %.preheader603.us.preheader ]
-  %464 = getelementptr inbounds double, ptr %.4547628.us634, i64 %indvars.iv676
-  %465 = load double, ptr %464, align 8
-  %466 = add nuw nsw i64 %indvars.iv676, 1
-  %467 = getelementptr inbounds double, ptr %.4547628.us634, i64 %466
-  %468 = load double, ptr %467, align 8
-  %469 = fmul double %468, %468
-  %470 = call double @llvm.fmuladd.f64(double %465, double %465, double %469)
-  %471 = fadd double %470, 0x3CB0000000000000
-  %472 = getelementptr inbounds double, ptr %.4542630.us633, i64 %indvars.iv676
-  %473 = getelementptr inbounds double, ptr %.4552626.us635, i64 %indvars.iv676
-  %474 = load <2 x double>, ptr %472, align 8
-  %475 = extractelement <2 x double> %474, i64 0
-  %476 = fneg double %475
-  %477 = insertelement <2 x double> poison, double %468, i64 0
-  %478 = shufflevector <2 x double> %477, <2 x double> poison, <2 x i32> zeroinitializer
-  %479 = shufflevector <2 x double> %474, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %480 = insertelement <2 x double> %479, double %476, i64 1
-  %481 = fmul <2 x double> %478, %480
-  %482 = insertelement <2 x double> poison, double %465, i64 0
-  %483 = shufflevector <2 x double> %482, <2 x double> poison, <2 x i32> zeroinitializer
-  %484 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %474, <2 x double> %483, <2 x double> %481)
-  %485 = insertelement <2 x double> poison, double %471, i64 0
-  %486 = shufflevector <2 x double> %485, <2 x double> poison, <2 x i32> zeroinitializer
-  %487 = fdiv <2 x double> %484, %486
-  store <2 x double> %487, ptr %473, align 8
+  %indvars.iv676 = phi i64 [ %indvars.iv.next677, %.preheader603.us ], [ %450, %.preheader603.us.preheader ]
+  %465 = getelementptr inbounds double, ptr %.4547628.us634, i64 %indvars.iv676
+  %466 = load double, ptr %465, align 8
+  %467 = add nuw nsw i64 %indvars.iv676, 1
+  %468 = getelementptr inbounds double, ptr %.4547628.us634, i64 %467
+  %469 = load double, ptr %468, align 8
+  %470 = fmul double %469, %469
+  %471 = call double @llvm.fmuladd.f64(double %466, double %466, double %470)
+  %472 = fadd double %471, 0x3CB0000000000000
+  %473 = getelementptr inbounds double, ptr %.4542630.us633, i64 %indvars.iv676
+  %474 = getelementptr inbounds double, ptr %.4552626.us635, i64 %indvars.iv676
+  %475 = load <2 x double>, ptr %473, align 8
+  %476 = extractelement <2 x double> %475, i64 0
+  %477 = fneg double %476
+  %478 = insertelement <2 x double> poison, double %469, i64 0
+  %479 = shufflevector <2 x double> %478, <2 x double> poison, <2 x i32> zeroinitializer
+  %480 = shufflevector <2 x double> %475, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %481 = insertelement <2 x double> %480, double %477, i64 1
+  %482 = fmul <2 x double> %479, %481
+  %483 = insertelement <2 x double> poison, double %466, i64 0
+  %484 = shufflevector <2 x double> %483, <2 x double> poison, <2 x i32> zeroinitializer
+  %485 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %475, <2 x double> %484, <2 x double> %482)
+  %486 = insertelement <2 x double> poison, double %472, i64 0
+  %487 = shufflevector <2 x double> %486, <2 x double> poison, <2 x i32> zeroinitializer
+  %488 = fdiv <2 x double> %485, %487
+  store <2 x double> %488, ptr %474, align 8
   %indvars.iv.next677 = add nuw nsw i64 %indvars.iv676, 2
-  %488 = icmp slt i64 %indvars.iv.next677, %403
-  br i1 %488, label %.preheader603.us, label %..loopexit604_crit_edge.us, !llvm.loop !25
+  %489 = icmp slt i64 %indvars.iv.next677, %403
+  br i1 %489, label %.preheader603.us, label %..loopexit604_crit_edge.us, !llvm.loop !25
 
 ..loopexit604_crit_edge.us:                       ; preds = %.preheader603.us
-  %489 = getelementptr inbounds double, ptr %.4542630.us633, i64 %317
-  %490 = getelementptr inbounds double, ptr %.4547628.us634, i64 %318
-  %491 = getelementptr inbounds double, ptr %.4552626.us635, i64 %319
-  %492 = add nsw i32 %450, -1
-  %.not567.us636 = icmp eq i32 %450, 0
+  %490 = getelementptr inbounds double, ptr %.4542630.us633, i64 %317
+  %491 = getelementptr inbounds double, ptr %.4547628.us634, i64 %318
+  %492 = getelementptr inbounds double, ptr %.4552626.us635, i64 %319
+  %493 = add nsw i32 %451, -1
+  %.not567.us636 = icmp eq i32 %451, 0
   br i1 %.not567.us636, label %.loopexit594, label %.lr.ph632.split.split.us, !llvm.loop !24
 
 .lr.ph632.split.split:                            ; preds = %.lr.ph632.split
@@ -932,45 +933,45 @@ _ZNK2cv11_InputArray6getMatEi.exit588:            ; preds = %77, %80
   br i1 %126, label %.preheader603.us640.us, label %.preheader603.us640
 
 .preheader603.us640.us:                           ; preds = %.lr.ph632.split.split.split.us, %.preheader603.us640.us
-  %493 = phi i32 [ %508, %.preheader603.us640.us ], [ %.pre-phi, %.lr.ph632.split.split.split.us ]
-  %.4542630.us637.us = phi ptr [ %505, %.preheader603.us640.us ], [ %.0538, %.lr.ph632.split.split.split.us ]
-  %.4547628.us638.us = phi ptr [ %506, %.preheader603.us640.us ], [ %.0543, %.lr.ph632.split.split.split.us ]
-  %.4552626.us639.us = phi ptr [ %507, %.preheader603.us640.us ], [ %.0548, %.lr.ph632.split.split.split.us ]
-  %494 = load double, ptr %.4542630.us637.us, align 8
-  %495 = load double, ptr %.4547628.us638.us, align 8
-  %496 = fadd double %495, 0x3CB0000000000000
-  %497 = fdiv double %494, %496
-  store double %497, ptr %.4552626.us639.us, align 8
-  %498 = getelementptr inbounds double, ptr %.4542630.us637.us, i64 %403
-  %499 = load double, ptr %498, align 8
-  %500 = getelementptr inbounds double, ptr %.4547628.us638.us, i64 %403
-  %501 = load double, ptr %500, align 8
-  %502 = fadd double %501, 0x3CB0000000000000
-  %503 = fdiv double %499, %502
-  %504 = getelementptr inbounds double, ptr %.4552626.us639.us, i64 %403
-  store double %503, ptr %504, align 8
-  %505 = getelementptr inbounds double, ptr %.4542630.us637.us, i64 %317
-  %506 = getelementptr inbounds double, ptr %.4547628.us638.us, i64 %318
-  %507 = getelementptr inbounds double, ptr %.4552626.us639.us, i64 %319
-  %508 = add nsw i32 %493, -1
-  %.not567.us641.us = icmp eq i32 %493, 0
+  %494 = phi i32 [ %509, %.preheader603.us640.us ], [ %.pre-phi, %.lr.ph632.split.split.split.us ]
+  %.4542630.us637.us = phi ptr [ %506, %.preheader603.us640.us ], [ %.0538, %.lr.ph632.split.split.split.us ]
+  %.4547628.us638.us = phi ptr [ %507, %.preheader603.us640.us ], [ %.0543, %.lr.ph632.split.split.split.us ]
+  %.4552626.us639.us = phi ptr [ %508, %.preheader603.us640.us ], [ %.0548, %.lr.ph632.split.split.split.us ]
+  %495 = load double, ptr %.4542630.us637.us, align 8
+  %496 = load double, ptr %.4547628.us638.us, align 8
+  %497 = fadd double %496, 0x3CB0000000000000
+  %498 = fdiv double %495, %497
+  store double %498, ptr %.4552626.us639.us, align 8
+  %499 = getelementptr inbounds double, ptr %.4542630.us637.us, i64 %403
+  %500 = load double, ptr %499, align 8
+  %501 = getelementptr inbounds double, ptr %.4547628.us638.us, i64 %403
+  %502 = load double, ptr %501, align 8
+  %503 = fadd double %502, 0x3CB0000000000000
+  %504 = fdiv double %500, %503
+  %505 = getelementptr inbounds double, ptr %.4552626.us639.us, i64 %403
+  store double %504, ptr %505, align 8
+  %506 = getelementptr inbounds double, ptr %.4542630.us637.us, i64 %317
+  %507 = getelementptr inbounds double, ptr %.4547628.us638.us, i64 %318
+  %508 = getelementptr inbounds double, ptr %.4552626.us639.us, i64 %319
+  %509 = add nsw i32 %494, -1
+  %.not567.us641.us = icmp eq i32 %494, 0
   br i1 %.not567.us641.us, label %.loopexit594, label %.preheader603.us640.us, !llvm.loop !24
 
 .preheader603.us640:                              ; preds = %.lr.ph632.split.split.split.us, %.preheader603.us640
-  %509 = phi i32 [ %517, %.preheader603.us640 ], [ %.pre-phi, %.lr.ph632.split.split.split.us ]
-  %.4542630.us637 = phi ptr [ %514, %.preheader603.us640 ], [ %.0538, %.lr.ph632.split.split.split.us ]
-  %.4547628.us638 = phi ptr [ %515, %.preheader603.us640 ], [ %.0543, %.lr.ph632.split.split.split.us ]
-  %.4552626.us639 = phi ptr [ %516, %.preheader603.us640 ], [ %.0548, %.lr.ph632.split.split.split.us ]
-  %510 = load double, ptr %.4542630.us637, align 8
-  %511 = load double, ptr %.4547628.us638, align 8
-  %512 = fadd double %511, 0x3CB0000000000000
-  %513 = fdiv double %510, %512
-  store double %513, ptr %.4552626.us639, align 8
-  %514 = getelementptr inbounds double, ptr %.4542630.us637, i64 %317
-  %515 = getelementptr inbounds double, ptr %.4547628.us638, i64 %318
-  %516 = getelementptr inbounds double, ptr %.4552626.us639, i64 %319
-  %517 = add nsw i32 %509, -1
-  %.not567.us641 = icmp eq i32 %509, 0
+  %510 = phi i32 [ %518, %.preheader603.us640 ], [ %.pre-phi, %.lr.ph632.split.split.split.us ]
+  %.4542630.us637 = phi ptr [ %515, %.preheader603.us640 ], [ %.0538, %.lr.ph632.split.split.split.us ]
+  %.4547628.us638 = phi ptr [ %516, %.preheader603.us640 ], [ %.0543, %.lr.ph632.split.split.split.us ]
+  %.4552626.us639 = phi ptr [ %517, %.preheader603.us640 ], [ %.0548, %.lr.ph632.split.split.split.us ]
+  %511 = load double, ptr %.4542630.us637, align 8
+  %512 = load double, ptr %.4547628.us638, align 8
+  %513 = fadd double %512, 0x3CB0000000000000
+  %514 = fdiv double %511, %513
+  store double %514, ptr %.4552626.us639, align 8
+  %515 = getelementptr inbounds double, ptr %.4542630.us637, i64 %317
+  %516 = getelementptr inbounds double, ptr %.4547628.us638, i64 %318
+  %517 = getelementptr inbounds double, ptr %.4552626.us639, i64 %319
+  %518 = add nsw i32 %510, -1
+  %.not567.us641 = icmp eq i32 %510, 0
   br i1 %.not567.us641, label %.loopexit594, label %.preheader603.us640, !llvm.loop !24
 
 .loopexit594:                                     ; preds = %.preheader603.us640, %.preheader603.us640.us, %..loopexit604_crit_edge.us, %.loopexit602.us, %.loopexit, %.lr.ph632.split.split, %.loopexit611, %.loopexit600
@@ -979,20 +980,20 @@ _ZNK2cv11_InputArray6getMatEi.exit588:            ; preds = %77, %80
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #13
   ret void
 
-518:                                              ; preds = %98, %100, %88, %90
+519:                                              ; preds = %98, %100, %88, %90
   %.sink = phi ptr [ %14, %90 ], [ %14, %88 ], [ %16, %100 ], [ %16, %98 ]
   %.pn561.pn = phi { ptr, i32 } [ %91, %90 ], [ %89, %88 ], [ %101, %100 ], [ %99, %98 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #13
-  br label %519
-
-519:                                              ; preds = %518, %72, %63, %55
-  %.pn561.pn.pn = phi { ptr, i32 } [ %.pn561.pn, %518 ], [ %56, %55 ], [ %.pn555, %72 ], [ %.pn, %63 ]
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #13
   br label %520
 
-520:                                              ; preds = %519, %53
-  %.pn561.pn.pn.pn = phi { ptr, i32 } [ %.pn561.pn.pn, %519 ], [ %54, %53 ]
+520:                                              ; preds = %519, %72, %63, %55
+  %.pn561.pn.pn = phi { ptr, i32 } [ %.pn561.pn, %519 ], [ %56, %55 ], [ %.pn555, %72 ], [ %.pn, %63 ]
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #13
+  br label %521
+
+521:                                              ; preds = %520, %53
+  %.pn561.pn.pn.pn = phi { ptr, i32 } [ %.pn561.pn.pn, %520 ], [ %54, %53 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #13
   resume { ptr, i32 } %.pn561.pn.pn.pn
 }

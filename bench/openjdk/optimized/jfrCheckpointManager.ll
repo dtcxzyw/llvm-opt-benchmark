@@ -1975,48 +1975,46 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %20 = getelementptr inbounds i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 32
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %19, i64 40
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %19, i64 8
-  %27 = load i64, ptr %26, align 8
+  %23 = load <2 x ptr>, ptr %22, align 8
+  %24 = load ptr, ptr %22, align 8
+  %25 = getelementptr inbounds i8, ptr %19, i64 8
+  %26 = load i64, ptr %25, align 8
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %1) #20
   call void @_ZN19JfrCheckpointWriterC1EbP6Threadb17JfrCheckpointType(ptr noundef nonnull align 8 dereferenceable(73) %4, i1 noundef zeroext true, ptr noundef nonnull %1, i1 noundef zeroext true, i32 noundef 8) #20
   call void @_ZN14JfrTypeManager13write_threadsER19JfrCheckpointWriter(ptr noundef nonnull align 8 dereferenceable(73) %4) #20
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds i8, ptr %4, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %4, align 8
   call void @_ZN19JfrCheckpointWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(73) %4) #20
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #20
-  %31 = load ptr, ptr %21, align 8
-  %.not.i.i.i.i4 = icmp eq ptr %31, null
-  br i1 %.not.i.i.i.i4, label %33, label %32
+  %30 = load ptr, ptr %21, align 8
+  %.not.i.i.i.i4 = icmp eq ptr %30, null
+  br i1 %.not.i.i.i.i4, label %32, label %31
 
-32:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %19, i64 noundef %27) #20
+31:                                               ; preds = %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %19, i64 noundef %26) #20
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %21) #20
-  br label %33
+  br label %32
 
-33:                                               ; preds = %32, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %34 = load ptr, ptr %22, align 8
-  %.not8.i.i.i.i = icmp eq ptr %34, %23
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %35
+32:                                               ; preds = %31, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
+  %33 = load ptr, ptr %22, align 8
+  %.not8.i.i.i.i = icmp eq ptr %33, %24
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %34
 
-35:                                               ; preds = %33
+34:                                               ; preds = %32
   store ptr %21, ptr %20, align 8
-  store ptr %23, ptr %22, align 8
-  store ptr %25, ptr %24, align 8
+  store <2 x ptr> %23, ptr %22, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %33, %35
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %32, %34
+  %35 = ptrtoint ptr %28 to i64
   %36 = ptrtoint ptr %29 to i64
-  %37 = ptrtoint ptr %30 to i64
-  %38 = sub i64 %36, %37
-  %39 = getelementptr inbounds i8, ptr %1, i64 928
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %39) #20
+  %37 = sub i64 %35, %36
+  %38 = getelementptr inbounds i8, ptr %1, i64 928
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %38) #20
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !8
   store volatile i32 4, ptr %7, align 4
-  ret i64 %38
+  ret i64 %37
 }
 
 declare void @_ZN14JfrTypeManager13write_threadsER19JfrCheckpointWriter(ptr noundef nonnull align 8 dereferenceable(73)) local_unnamed_addr #3

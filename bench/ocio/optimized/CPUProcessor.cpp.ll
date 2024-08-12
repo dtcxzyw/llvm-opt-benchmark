@@ -2036,7 +2036,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 define hidden void @_ZN19OpenColorIO_v2_4dev15CreateCPUEngineERKNS_10OpRcPtrVecENS_8BitDepthES3_NS_17OptimizationFlagsERSt10shared_ptrIKNS_5OpCPUEERSt6vectorIS8_SaIS8_EES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %ops, i32 noundef %in, i32 noundef %out, i64 noundef %oFlags, ptr nocapture noundef nonnull align 8 dereferenceable(16) %inBitDepthOp, ptr noundef nonnull align 8 dereferenceable(24) %cpuOps, ptr nocapture noundef nonnull align 8 dereferenceable(16) %outBitDepthOp) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %op = alloca %"class.std::shared_ptr.122", align 8
-  %opData = alloca %"class.std::shared_ptr.128", align 8
+  %opData = alloca %"class.std::shared_ptr.128", align 16
   %lut = alloca %"class.std::shared_ptr.134", align 8
   %ref.tmp = alloca %"class.std::shared_ptr", align 16
   %ref.tmp17 = alloca %"class.std::shared_ptr", align 16
@@ -2121,16 +2121,15 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev2OpEEC2IS1_vEERKS_IT_E.exit: ; preds = 
   call void @llvm.experimental.noalias.scope.decl(metadata !112)
   %m_data.i = getelementptr inbounds i8, ptr %8, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !115)
-  %9 = load ptr, ptr %m_data.i, align 8, !noalias !118
-  store ptr %9, ptr %opData, align 8, !alias.scope !118
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
-  %10 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !118
-  store ptr %10, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !118
-  %cmp.not.i.i.i.i.i = icmp eq ptr %10, null
+  %9 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !118
+  %10 = load <2 x ptr>, ptr %m_data.i, align 8, !noalias !118
+  store <2 x ptr> %10, ptr %opData, align 16, !alias.scope !118
+  %cmp.not.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev2Op4dataEv.exit, label %if.then.i.i.i.i.i25
 
 if.then.i.i.i.i.i25:                              ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev2OpEEC2IS1_vEERKS_IT_E.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !noalias !118
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -2150,7 +2149,7 @@ _ZNK19OpenColorIO_v2_4dev2Op4dataEv.exit:         ; preds = %_ZNSt10shared_ptrIK
   br i1 %cmp4, label %if.then, label %if.else42
 
 if.then:                                          ; preds = %_ZNK19OpenColorIO_v2_4dev2Op4dataEv.exit
-  %14 = load ptr, ptr %opData, align 8
+  %14 = load ptr, ptr %opData, align 16
   %vtable = load ptr, ptr %14, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %15 = load ptr, ptr %vfn, align 8
@@ -2969,7 +2968,7 @@ if.else42:                                        ; preds = %_ZNK19OpenColorIO_v
   br i1 %cmp43, label %if.then44, label %if.else82
 
 if.then44:                                        ; preds = %if.else42
-  %141 = load ptr, ptr %opData, align 8
+  %141 = load ptr, ptr %opData, align 16
   %vtable46 = load ptr, ptr %141, align 8
   %vfn47 = getelementptr inbounds i8, ptr %vtable46, i64 24
   %142 = load ptr, ptr %vfn47, align 8

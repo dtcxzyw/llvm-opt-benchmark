@@ -948,7 +948,7 @@ define linkonce_odr void @_ZNSt22_Optional_payload_baseISt8functionIFvP10gmx_mdo
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %1, i64 16
   %13 = load <2 x ptr>, ptr %12, align 8
-  %14 = extractelement <2 x ptr> %13, i64 0
+  %14 = load ptr, ptr %12, align 8
   %.not.i.i.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFvP10gmx_mdoutfldbbEEC2EOS3_.exit.i, label %15
 
@@ -966,9 +966,9 @@ _ZNSt8functionIFvP10gmx_mdoutfldbbEEC2EOS3_.exit.i: ; preds = %15, %11
   %16 = getelementptr inbounds i8, ptr %3, i64 16
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load <2 x ptr>, ptr %17, align 8
+  %19 = load ptr, ptr %17, align 8
   store <2 x ptr> %18, ptr %16, align 8
   store <2 x ptr> %13, ptr %17, align 8
-  %19 = extractelement <2 x ptr> %18, i64 0
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZNSt8functionIFvP10gmx_mdoutfldbbEEaSEOS3_.exit, label %20
 

@@ -20563,22 +20563,23 @@ define internal i32 @dissect_ProtocolExtensionFieldExtensionValue(ptr noundef %0
 ngap_get_private_data.exit:                       ; preds = %4, %10
   %.0.i = phi ptr [ %9, %4 ], [ %12, %10 ]
   %16 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %17 = load <4 x i32>, ptr %16, align 8
-  %18 = shufflevector <4 x i32> %17, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  store <4 x i32> %18, ptr %5, align 16
-  %19 = load ptr, ptr @ngap_extension_dissector_table, align 8
-  %20 = extractelement <4 x i32> %17, i64 2
-  %21 = call i32 @dissector_try_uint_new(ptr noundef %19, i32 noundef %20, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %5) #10
-  %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %24, label %22
+  %17 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %18 = load i32, ptr %17, align 8
+  %19 = load <4 x i32>, ptr %16, align 8
+  %20 = shufflevector <4 x i32> %19, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
+  store <4 x i32> %20, ptr %5, align 16
+  %21 = load ptr, ptr @ngap_extension_dissector_table, align 8
+  %22 = call i32 @dissector_try_uint_new(ptr noundef %21, i32 noundef %18, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %5) #10
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %25, label %23
 
-22:                                               ; preds = %ngap_get_private_data.exit
-  %23 = call i32 @tvb_captured_length(ptr noundef %0) #10
-  br label %24
+23:                                               ; preds = %ngap_get_private_data.exit
+  %24 = call i32 @tvb_captured_length(ptr noundef %0) #10
+  br label %25
 
-24:                                               ; preds = %ngap_get_private_data.exit, %22
-  %25 = phi i32 [ %23, %22 ], [ 0, %ngap_get_private_data.exit ]
-  ret i32 %25
+25:                                               ; preds = %ngap_get_private_data.exit, %23
+  %26 = phi i32 [ %24, %23 ], [ 0, %ngap_get_private_data.exit ]
+  ret i32 %26
 }
 
 declare i32 @dissector_try_uint_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -20781,22 +20782,23 @@ define internal i32 @dissect_ProtocolIEFieldValue(ptr noundef %0, ptr noundef %1
 ngap_get_private_data.exit:                       ; preds = %4, %10
   %.0.i = phi ptr [ %9, %4 ], [ %12, %10 ]
   %16 = getelementptr inbounds i8, ptr %.0.i, i64 8
-  %17 = load <4 x i32>, ptr %16, align 8
-  %18 = shufflevector <4 x i32> %17, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
-  store <4 x i32> %18, ptr %5, align 16
-  %19 = load ptr, ptr @ngap_ies_dissector_table, align 8
-  %20 = extractelement <4 x i32> %17, i64 1
-  %21 = call i32 @dissector_try_uint_new(ptr noundef %19, i32 noundef %20, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #10
-  %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %24, label %22
+  %17 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %18 = load <4 x i32>, ptr %16, align 8
+  %19 = load i32, ptr %17, align 4
+  %20 = shufflevector <4 x i32> %18, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
+  store <4 x i32> %20, ptr %5, align 16
+  %21 = load ptr, ptr @ngap_ies_dissector_table, align 8
+  %22 = call i32 @dissector_try_uint_new(ptr noundef %21, i32 noundef %19, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5) #10
+  %.not = icmp eq i32 %22, 0
+  br i1 %.not, label %25, label %23
 
-22:                                               ; preds = %ngap_get_private_data.exit
-  %23 = call i32 @tvb_captured_length(ptr noundef %0) #10
-  br label %24
+23:                                               ; preds = %ngap_get_private_data.exit
+  %24 = call i32 @tvb_captured_length(ptr noundef %0) #10
+  br label %25
 
-24:                                               ; preds = %ngap_get_private_data.exit, %22
-  %25 = phi i32 [ %23, %22 ], [ 0, %ngap_get_private_data.exit ]
-  ret i32 %25
+25:                                               ; preds = %ngap_get_private_data.exit, %23
+  %26 = phi i32 [ %24, %23 ], [ 0, %ngap_get_private_data.exit ]
+  ret i32 %26
 }
 
 ; Function Attrs: nounwind uwtable

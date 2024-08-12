@@ -5358,14 +5358,14 @@ _ZNSt10unique_ptrIN9grpc_core19LoadBalancingPolicy20ChannelControlHelperESt14def
 
 _ZN9grpc_core19LoadBalancingPolicy4ArgsC2Ev.exit.i: ; preds = %if.then243
   %work_serializer_.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %119 = load ptr, ptr %work_serializer_.i.i, align 8, !noalias !52
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %120 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !52
-  %cmp.not.i.i.i.i.i = icmp eq ptr %120, null
+  %119 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !52
+  %120 = load <2 x ptr>, ptr %work_serializer_.i.i, align 8, !noalias !52
+  %cmp.not.i.i.i.i.i = icmp eq ptr %119, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN9grpc_core19LoadBalancingPolicy4ArgsC2Ev.exit.i
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %120, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %119, i64 8
   %121 = load i8, ptr @__libc_single_threaded, align 1, !noalias !52
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %121, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -5381,10 +5381,9 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
   br label %_ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit.i
 
 _ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit.i: ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %_ZN9grpc_core19LoadBalancingPolicy4ArgsC2Ev.exit.i
-  store ptr %119, ptr %lb_policy_args.i, align 16, !noalias !49
   %_M_refcount3.i.i.i2.i = getelementptr inbounds i8, ptr %lb_policy_args.i, i64 8
   %124 = load ptr, ptr %_M_refcount3.i.i.i2.i, align 8, !noalias !49
-  store ptr %120, ptr %_M_refcount3.i.i.i2.i, align 8, !noalias !49
+  store <2 x ptr> %120, ptr %lb_policy_args.i, align 16, !noalias !49
   %cmp.not.i.i.i.i3.i = icmp eq ptr %124, null
   br i1 %cmp.not.i.i.i.i3.i, label %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev.exit.i, label %if.then.i.i.i.i4.i
 

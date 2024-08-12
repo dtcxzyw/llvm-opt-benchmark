@@ -1737,14 +1737,12 @@ invoke.cont:                                      ; preds = %_ZNK7openvdb5v11_04
   store i8 0, ptr %call2, align 8
   %mTree.i = getelementptr inbounds i8, ptr %call2, i64 8
   %mTree2.i = getelementptr inbounds i8, ptr %inter, i64 8
-  %13 = load ptr, ptr %mTree2.i, align 8
-  store ptr %13, ptr %mTree.i, align 8
-  %mGrid.i5 = getelementptr inbounds i8, ptr %call2, i64 16
-  %14 = load ptr, ptr %mGrid.i, align 8
-  store ptr %14, ptr %mGrid.i5, align 8
+  %13 = load <2 x ptr>, ptr %mTree2.i, align 8
+  %14 = load ptr, ptr %mTree2.i, align 8
+  store <2 x ptr> %13, ptr %mTree.i, align 8
   %mAccessor.i = getelementptr inbounds i8, ptr %call2, i64 24
   %mTree.i.i.i6 = getelementptr inbounds i8, ptr %call2, i64 32
-  store ptr %13, ptr %mTree.i.i.i6, align 8
+  store ptr %14, ptr %mTree.i.i.i6, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAccessor.i, align 8
   %mKeys.i.i7 = getelementptr inbounds i8, ptr %call2, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mKeys.i.i7, i8 0, i64 36, i1 false)
@@ -1764,7 +1762,7 @@ invoke.cont4:                                     ; preds = %for.body.i.i.i.i.i.
   %mNodes.i.i14 = getelementptr inbounds i8, ptr %call2, i64 80
   %15 = getelementptr inbounds i8, ptr %call2, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 24, i1 false)
-  %mRoot.i.i.i.i15 = getelementptr inbounds i8, ptr %13, i64 8
+  %mRoot.i.i.i.i15 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %mRoot.i.i.i.i15, ptr %mNodes.i.i14, align 8
   %mRay.i = getelementptr inbounds i8, ptr %call2, i64 112
   %mRay5.i = getelementptr inbounds i8, ptr %inter, i64 112
@@ -1790,14 +1788,12 @@ invoke.cont4:                                     ; preds = %for.body.i.i.i.i.i.
 invoke.cont6:                                     ; preds = %invoke.cont4
   store i8 0, ptr %call7, align 8
   %mTree.i16 = getelementptr inbounds i8, ptr %call7, i64 8
-  %17 = load ptr, ptr %mTree2.i, align 8
-  store ptr %17, ptr %mTree.i16, align 8
-  %mGrid.i18 = getelementptr inbounds i8, ptr %call7, i64 16
-  %18 = load ptr, ptr %mGrid.i, align 8
-  store ptr %18, ptr %mGrid.i18, align 8
+  %17 = load <2 x ptr>, ptr %mTree2.i, align 8
+  %18 = load ptr, ptr %mTree2.i, align 8
+  store <2 x ptr> %17, ptr %mTree.i16, align 8
   %mAccessor.i20 = getelementptr inbounds i8, ptr %call7, i64 24
   %mTree.i.i.i21 = getelementptr inbounds i8, ptr %call7, i64 32
-  store ptr %17, ptr %mTree.i.i.i21, align 8
+  store ptr %18, ptr %mTree.i.i.i21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAccessor.i20, align 8
   %mKeys.i.i22 = getelementptr inbounds i8, ptr %call7, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mKeys.i.i22, i8 0, i64 36, i1 false)
@@ -1817,7 +1813,7 @@ invoke.cont9:                                     ; preds = %for.body.i.i.i.i.i.
   %mNodes.i.i29 = getelementptr inbounds i8, ptr %call7, i64 80
   %19 = getelementptr inbounds i8, ptr %call7, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false)
-  %mRoot.i.i.i.i30 = getelementptr inbounds i8, ptr %17, i64 8
+  %mRoot.i.i.i.i30 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %mRoot.i.i.i.i30, ptr %mNodes.i.i29, align 8
   %mRay.i31 = getelementptr inbounds i8, ptr %call7, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mRay.i31, ptr noundef nonnull align 8 dereferenceable(88) %mRay5.i, i64 88, i1 false)
@@ -3655,15 +3651,12 @@ entry:
   store i8 0, ptr %call, align 8
   %mTree.i = getelementptr inbounds i8, ptr %call, i64 8
   %mTree2.i = getelementptr inbounds i8, ptr %inter, i64 8
-  %0 = load ptr, ptr %mTree2.i, align 8
-  store ptr %0, ptr %mTree.i, align 8
-  %mGrid.i = getelementptr inbounds i8, ptr %call, i64 16
-  %mGrid3.i = getelementptr inbounds i8, ptr %inter, i64 16
-  %1 = load ptr, ptr %mGrid3.i, align 8
-  store ptr %1, ptr %mGrid.i, align 8
+  %0 = load <2 x ptr>, ptr %mTree2.i, align 8
+  %1 = load ptr, ptr %mTree2.i, align 8
+  store <2 x ptr> %0, ptr %mTree.i, align 8
   %mAccessor.i = getelementptr inbounds i8, ptr %call, i64 24
   %mTree.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
-  store ptr %0, ptr %mTree.i.i.i, align 8
+  store ptr %1, ptr %mTree.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAccessor.i, align 8
   %mKeys.i.i = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mKeys.i.i, i8 0, i64 36, i1 false)
@@ -3683,7 +3676,7 @@ invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.
   %mNodes.i.i = getelementptr inbounds i8, ptr %call, i64 80
   %2 = getelementptr inbounds i8, ptr %call, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
-  %mRoot.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %mRoot.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRay.i = getelementptr inbounds i8, ptr %call, i64 112
   %mRay5.i = getelementptr inbounds i8, ptr %inter, i64 112
@@ -3733,14 +3726,12 @@ _ZNSt10unique_ptrIN7openvdb5v11_05tools20VolumeRayIntersectorINS1_4GridINS1_4tre
   %call2 = tail call noalias noundef nonnull dereferenceable(496) ptr @_Znwm(i64 noundef 496) #25
   store i8 0, ptr %call2, align 8
   %mTree.i3 = getelementptr inbounds i8, ptr %call2, i64 8
-  %8 = load ptr, ptr %mTree2.i, align 8
-  store ptr %8, ptr %mTree.i3, align 8
-  %mGrid.i5 = getelementptr inbounds i8, ptr %call2, i64 16
-  %9 = load ptr, ptr %mGrid3.i, align 8
-  store ptr %9, ptr %mGrid.i5, align 8
+  %8 = load <2 x ptr>, ptr %mTree2.i, align 8
+  %9 = load ptr, ptr %mTree2.i, align 8
+  store <2 x ptr> %8, ptr %mTree.i3, align 8
   %mAccessor.i7 = getelementptr inbounds i8, ptr %call2, i64 24
   %mTree.i.i.i8 = getelementptr inbounds i8, ptr %call2, i64 32
-  store ptr %8, ptr %mTree.i.i.i8, align 8
+  store ptr %9, ptr %mTree.i.i.i8, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAccessor.i7, align 8
   %mKeys.i.i9 = getelementptr inbounds i8, ptr %call2, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mKeys.i.i9, i8 0, i64 36, i1 false)
@@ -3760,7 +3751,7 @@ invoke.cont4:                                     ; preds = %for.body.i.i.i.i.i.
   %mNodes.i.i16 = getelementptr inbounds i8, ptr %call2, i64 80
   %10 = getelementptr inbounds i8, ptr %call2, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false)
-  %mRoot.i.i.i.i17 = getelementptr inbounds i8, ptr %8, i64 8
+  %mRoot.i.i.i.i17 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %mRoot.i.i.i.i17, ptr %mNodes.i.i16, align 8
   %mRay.i18 = getelementptr inbounds i8, ptr %call2, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mRay.i18, ptr noundef nonnull align 8 dereferenceable(88) %mRay5.i, i64 88, i1 false)
@@ -4141,14 +4132,12 @@ invoke.cont:                                      ; preds = %_ZNK7openvdb5v11_04
   store i8 0, ptr %call2, align 8
   %mTree.i = getelementptr inbounds i8, ptr %call2, i64 8
   %mTree2.i = getelementptr inbounds i8, ptr %inter, i64 8
-  %13 = load ptr, ptr %mTree2.i, align 8
-  store ptr %13, ptr %mTree.i, align 8
-  %mGrid.i5 = getelementptr inbounds i8, ptr %call2, i64 16
-  %14 = load ptr, ptr %mGrid.i, align 8
-  store ptr %14, ptr %mGrid.i5, align 8
+  %13 = load <2 x ptr>, ptr %mTree2.i, align 8
+  %14 = load ptr, ptr %mTree2.i, align 8
+  store <2 x ptr> %13, ptr %mTree.i, align 8
   %mAccessor.i = getelementptr inbounds i8, ptr %call2, i64 24
   %mTree.i.i.i6 = getelementptr inbounds i8, ptr %call2, i64 32
-  store ptr %13, ptr %mTree.i.i.i6, align 8
+  store ptr %14, ptr %mTree.i.i.i6, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAccessor.i, align 8
   %mKeys.i.i7 = getelementptr inbounds i8, ptr %call2, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mKeys.i.i7, i8 0, i64 36, i1 false)
@@ -4168,7 +4157,7 @@ invoke.cont4:                                     ; preds = %for.body.i.i.i.i.i.
   %mNodes.i.i14 = getelementptr inbounds i8, ptr %call2, i64 80
   %15 = getelementptr inbounds i8, ptr %call2, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 24, i1 false)
-  %mRoot.i.i.i.i15 = getelementptr inbounds i8, ptr %13, i64 8
+  %mRoot.i.i.i.i15 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %mRoot.i.i.i.i15, ptr %mNodes.i.i14, align 8
   %mRay.i = getelementptr inbounds i8, ptr %call2, i64 112
   %mRay5.i = getelementptr inbounds i8, ptr %inter, i64 112
@@ -4194,14 +4183,12 @@ invoke.cont4:                                     ; preds = %for.body.i.i.i.i.i.
 invoke.cont6:                                     ; preds = %invoke.cont4
   store i8 0, ptr %call7, align 8
   %mTree.i16 = getelementptr inbounds i8, ptr %call7, i64 8
-  %17 = load ptr, ptr %mTree2.i, align 8
-  store ptr %17, ptr %mTree.i16, align 8
-  %mGrid.i18 = getelementptr inbounds i8, ptr %call7, i64 16
-  %18 = load ptr, ptr %mGrid.i, align 8
-  store ptr %18, ptr %mGrid.i18, align 8
+  %17 = load <2 x ptr>, ptr %mTree2.i, align 8
+  %18 = load ptr, ptr %mTree2.i, align 8
+  store <2 x ptr> %17, ptr %mTree.i16, align 8
   %mAccessor.i20 = getelementptr inbounds i8, ptr %call7, i64 24
   %mTree.i.i.i21 = getelementptr inbounds i8, ptr %call7, i64 32
-  store ptr %17, ptr %mTree.i.i.i21, align 8
+  store ptr %18, ptr %mTree.i.i.i21, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAccessor.i20, align 8
   %mKeys.i.i22 = getelementptr inbounds i8, ptr %call7, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mKeys.i.i22, i8 0, i64 36, i1 false)
@@ -4221,7 +4208,7 @@ invoke.cont9:                                     ; preds = %for.body.i.i.i.i.i.
   %mNodes.i.i29 = getelementptr inbounds i8, ptr %call7, i64 80
   %19 = getelementptr inbounds i8, ptr %call7, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false)
-  %mRoot.i.i.i.i30 = getelementptr inbounds i8, ptr %17, i64 8
+  %mRoot.i.i.i.i30 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %mRoot.i.i.i.i30, ptr %mNodes.i.i29, align 8
   %mRay.i31 = getelementptr inbounds i8, ptr %call7, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mRay.i31, ptr noundef nonnull align 8 dereferenceable(88) %mRay5.i, i64 88, i1 false)
@@ -6032,15 +6019,12 @@ entry:
   store i8 0, ptr %call, align 8
   %mTree.i = getelementptr inbounds i8, ptr %call, i64 8
   %mTree2.i = getelementptr inbounds i8, ptr %inter, i64 8
-  %0 = load ptr, ptr %mTree2.i, align 8
-  store ptr %0, ptr %mTree.i, align 8
-  %mGrid.i = getelementptr inbounds i8, ptr %call, i64 16
-  %mGrid3.i = getelementptr inbounds i8, ptr %inter, i64 16
-  %1 = load ptr, ptr %mGrid3.i, align 8
-  store ptr %1, ptr %mGrid.i, align 8
+  %0 = load <2 x ptr>, ptr %mTree2.i, align 8
+  %1 = load ptr, ptr %mTree2.i, align 8
+  store <2 x ptr> %0, ptr %mTree.i, align 8
   %mAccessor.i = getelementptr inbounds i8, ptr %call, i64 24
   %mTree.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
-  store ptr %0, ptr %mTree.i.i.i, align 8
+  store ptr %1, ptr %mTree.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAccessor.i, align 8
   %mKeys.i.i = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mKeys.i.i, i8 0, i64 36, i1 false)
@@ -6060,7 +6044,7 @@ invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.
   %mNodes.i.i = getelementptr inbounds i8, ptr %call, i64 80
   %2 = getelementptr inbounds i8, ptr %call, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
-  %mRoot.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %mRoot.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRay.i = getelementptr inbounds i8, ptr %call, i64 112
   %mRay5.i = getelementptr inbounds i8, ptr %inter, i64 112
@@ -6110,14 +6094,12 @@ _ZNSt10unique_ptrIN7openvdb5v11_05tools20VolumeRayIntersectorINS1_4GridINS1_4tre
   %call2 = tail call noalias noundef nonnull dereferenceable(496) ptr @_Znwm(i64 noundef 496) #25
   store i8 0, ptr %call2, align 8
   %mTree.i3 = getelementptr inbounds i8, ptr %call2, i64 8
-  %8 = load ptr, ptr %mTree2.i, align 8
-  store ptr %8, ptr %mTree.i3, align 8
-  %mGrid.i5 = getelementptr inbounds i8, ptr %call2, i64 16
-  %9 = load ptr, ptr %mGrid3.i, align 8
-  store ptr %9, ptr %mGrid.i5, align 8
+  %8 = load <2 x ptr>, ptr %mTree2.i, align 8
+  %9 = load ptr, ptr %mTree2.i, align 8
+  store <2 x ptr> %8, ptr %mTree.i3, align 8
   %mAccessor.i7 = getelementptr inbounds i8, ptr %call2, i64 24
   %mTree.i.i.i8 = getelementptr inbounds i8, ptr %call2, i64 32
-  store ptr %8, ptr %mTree.i.i.i8, align 8
+  store ptr %9, ptr %mTree.i.i.i8, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEE, i64 16), ptr %mAccessor.i7, align 8
   %mKeys.i.i9 = getelementptr inbounds i8, ptr %call2, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mKeys.i.i9, i8 0, i64 36, i1 false)
@@ -6137,7 +6119,7 @@ invoke.cont4:                                     ; preds = %for.body.i.i.i.i.i.
   %mNodes.i.i16 = getelementptr inbounds i8, ptr %call2, i64 80
   %10 = getelementptr inbounds i8, ptr %call2, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false)
-  %mRoot.i.i.i.i17 = getelementptr inbounds i8, ptr %8, i64 8
+  %mRoot.i.i.i.i17 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %mRoot.i.i.i.i17, ptr %mNodes.i.i16, align 8
   %mRay.i18 = getelementptr inbounds i8, ptr %call2, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %mRay.i18, ptr noundef nonnull align 8 dereferenceable(88) %mRay5.i, i64 88, i1 false)
@@ -24551,14 +24533,14 @@ if.end5.i:                                        ; preds = %_ZN7openvdb5v11_05t
   %1804 = load <2 x double>, ptr %mInter, align 8
   %1805 = fadd <2 x double> %1803, %1804
   %add9.i.i.i.i.i = fadd double %mul7.i.i.i.i.i, %ref.tmp.sroa.6.0.copyload3.i.i
+  %1806 = extractelement <2 x double> %1805, i64 0
+  %1807 = extractelement <2 x double> %1805, i64 1
   store <2 x double> %1805, ptr %xyz, align 16
   store double %add9.i.i.i.i.i, ptr %ref.tmp.sroa.6.0.xyz.sroa_idx.i.i, align 16
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ijk.i.i)
-  %1806 = extractelement <2 x double> %1805, i64 0
-  %1807 = call noundef double @llvm.floor.f64(double %1806)
-  %conv.i.i.i.i = fptosi double %1807 to i32
-  %1808 = extractelement <2 x double> %1805, i64 1
-  %1809 = call noundef double @llvm.floor.f64(double %1808)
+  %1808 = call noundef double @llvm.floor.f64(double %1806)
+  %conv.i.i.i.i = fptosi double %1808 to i32
+  %1809 = call noundef double @llvm.floor.f64(double %1807)
   %conv.i3.i.i.i = fptosi double %1809 to i32
   %1810 = call noundef double @llvm.floor.f64(double %add9.i.i.i.i.i)
   %conv.i5.i.i.i = fptosi double %1810 to i32
@@ -26813,13 +26795,13 @@ _ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS
   %call.fca.0.extract.i = extractvalue { <2 x float>, float } %call.i, 0
   %call.fca.1.extract.i = extractvalue { <2 x float>, float } %call.i, 1
   %2134 = fpext <2 x float> %call.fca.0.extract.i to <2 x double>
+  %2135 = extractelement <2 x double> %2134, i64 0
   store <2 x double> %2134, ptr %nml, align 16
   %conv7.i11.i = fpext float %call.fca.1.extract.i to double
   store double %conv7.i11.i, ptr %arrayidx9.i12.i, align 16
-  %2135 = fmul <2 x double> %2134, %2134
-  %mul8.i.i.i = extractelement <2 x double> %2135, i64 1
-  %2136 = extractelement <2 x double> %2134, i64 0
-  %2137 = call double @llvm.fmuladd.f64(double %2136, double %2136, double %mul8.i.i.i)
+  %2136 = fmul <2 x double> %2134, %2134
+  %mul8.i.i.i = extractelement <2 x double> %2136, i64 1
+  %2137 = call double @llvm.fmuladd.f64(double %2135, double %2135, double %mul8.i.i.i)
   %2138 = call double @llvm.fmuladd.f64(double %conv7.i11.i, double %conv7.i11.i, double %2137)
   %sqrt.i.i.i = call noundef double @llvm.sqrt.f64(double %2138)
   %2139 = call noundef double @llvm.fabs.f64(double %sqrt.i.i.i)
@@ -39601,13 +39583,13 @@ if.end5.i57:                                      ; preds = %_ZN7openvdb5v11_05t
   %3941 = load <2 x double>, ptr %mInter, align 8
   %3942 = fadd <2 x double> %3940, %3941
   %add9.i.i.i.i.i93 = fadd double %mul7.i.i.i.i.i85, %ref.tmp.sroa.6.0.copyload3.i.i90
+  %3943 = extractelement <2 x double> %3942, i64 0
+  %3944 = extractelement <2 x double> %3942, i64 1
   store <2 x double> %3942, ptr %xyz, align 16
   store double %add9.i.i.i.i.i93, ptr %ref.tmp.sroa.6.0.xyz.sroa_idx.i.i, align 16
-  %3943 = extractelement <2 x double> %3942, i64 0
-  %3944 = call noundef double @llvm.floor.f64(double %3943)
-  %conv.i.i.i.i97 = fptosi double %3944 to i32
-  %3945 = extractelement <2 x double> %3942, i64 1
-  %3946 = call noundef double @llvm.floor.f64(double %3945)
+  %3945 = call noundef double @llvm.floor.f64(double %3943)
+  %conv.i.i.i.i97 = fptosi double %3945 to i32
+  %3946 = call noundef double @llvm.floor.f64(double %3944)
   %conv.i3.i.i.i98 = fptosi double %3946 to i32
   %3947 = call noundef double @llvm.floor.f64(double %add9.i.i.i.i.i93)
   %conv.i5.i.i.i99 = fptosi double %3947 to i32
@@ -44968,13 +44950,13 @@ _ZN7openvdb5v11_04math11BaseStencilINS1_10BoxStencilINS0_4GridINS0_4tree4TreeINS
   %call.fca.0.extract.i121 = extractvalue { <2 x float>, float } %call.i120, 0
   %call.fca.1.extract.i122 = extractvalue { <2 x float>, float } %call.i120, 1
   %4628 = fpext <2 x float> %call.fca.0.extract.i121 to <2 x double>
+  %4629 = extractelement <2 x double> %4628, i64 0
   store <2 x double> %4628, ptr %nml, align 16
   %conv7.i11.i128 = fpext float %call.fca.1.extract.i122 to double
   store double %conv7.i11.i128, ptr %arrayidx9.i12.i, align 16
-  %4629 = fmul <2 x double> %4628, %4628
-  %mul8.i.i.i130 = extractelement <2 x double> %4629, i64 1
-  %4630 = extractelement <2 x double> %4628, i64 0
-  %4631 = call double @llvm.fmuladd.f64(double %4630, double %4630, double %mul8.i.i.i130)
+  %4630 = fmul <2 x double> %4628, %4628
+  %mul8.i.i.i130 = extractelement <2 x double> %4630, i64 1
+  %4631 = call double @llvm.fmuladd.f64(double %4629, double %4629, double %mul8.i.i.i130)
   %4632 = call double @llvm.fmuladd.f64(double %conv7.i11.i128, double %conv7.i11.i128, double %4631)
   %sqrt.i.i.i131 = call noundef double @llvm.sqrt.f64(double %4632)
   %4633 = call noundef double @llvm.fabs.f64(double %sqrt.i.i.i131)
@@ -47605,17 +47587,15 @@ if.then13.critedge:                               ; preds = %land.rhs.i
 if.then13:                                        ; preds = %if.then13.critedge, %if.end.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !384)
   call void @llvm.experimental.noalias.scope.decl(metadata !387)
-  %8 = load ptr, ptr %second, align 8, !noalias !390
-  store ptr %8, ptr %agg.result, align 8, !alias.scope !390
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_refcount2.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 72
-  %9 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !390
-  store ptr %9, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !390
-  %cmp.not.i.i.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %_M_refcount2.i.i.i.i, align 8, !noalias !390
+  %9 = load <2 x ptr>, ptr %second, align 8, !noalias !390
+  store <2 x ptr> %9, ptr %agg.result, align 8, !alias.scope !390
+  %cmp.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i.i, label %return, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then13
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !390
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i

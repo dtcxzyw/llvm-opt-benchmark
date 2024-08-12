@@ -2019,105 +2019,103 @@ _ZN31ShenandoahParallelWorkerSessionC2Ej.exit:    ; preds = %2, %9
   %23 = getelementptr inbounds i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %22, i64 32
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %22, i64 40
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %22, i64 8
-  %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 544
-  %34 = load i64, ptr %33, align 8
-  %35 = trunc i64 %34 to i32
-  %36 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %35, i32 noundef 8) #13
+  %26 = load <2 x ptr>, ptr %25, align 8
+  %27 = load ptr, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %22, i64 8
+  %29 = load i64, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 544
+  %33 = load i64, ptr %32, align 8
+  %34 = trunc i64 %33 to i32
+  %35 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %34, i32 noundef 8) #13
   store i32 0, ptr %5, align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %35, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %36, ptr %38, align 8
-  %39 = icmp sgt i32 %35, 0
-  br i1 %39, label %.lr.ph.preheader.i.i, label %_ZN13GrowableArrayIP20ShenandoahHeapRegionEC2Ei.exit
+  %36 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 %34, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %35, ptr %37, align 8
+  %38 = icmp sgt i32 %34, 0
+  br i1 %38, label %.lr.ph.preheader.i.i, label %_ZN13GrowableArrayIP20ShenandoahHeapRegionEC2Ei.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %18
-  %40 = shl i64 %34, 3
-  %41 = and i64 %40, 17179869176
-  call void @llvm.memset.p0.i64(ptr align 8 %36, i8 0, i64 %41, i1 false)
+  %39 = shl i64 %33, 3
+  %40 = and i64 %39, 17179869176
+  call void @llvm.memset.p0.i64(ptr align 8 %35, i8 0, i64 %40, i1 false)
   br label %_ZN13GrowableArrayIP20ShenandoahHeapRegionEC2Ei.exit
 
 _ZN13GrowableArrayIP20ShenandoahHeapRegionEC2Ei.exit: ; preds = %18, %.lr.ph.preheader.i.i
-  %42 = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 24
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %class.Padded, ptr %46, i64 %13
+  %41 = getelementptr inbounds i8, ptr %5, i64 16
+  store i64 0, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds %class.Padded, ptr %45, i64 %13
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV43ShenandoahPrepareForCompactionObjectClosure, i64 16), ptr %6, align 8
-  %48 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %6, i64 16
-  %50 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  store ptr %50, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %5, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %6, i64 32
-  store i32 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %6, i64 40
-  store ptr %16, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %6, i64 48
-  store ptr null, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %6, i64 56
-  %56 = getelementptr inbounds i8, ptr %16, i64 8
-  %57 = load ptr, ptr %56, align 8
-  store ptr %57, ptr %55, align 8
+  %47 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %46, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %6, i64 16
+  %49 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  store ptr %49, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr %5, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %6, i64 32
+  store i32 0, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %6, i64 40
+  store ptr %16, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %6, i64 48
+  store ptr null, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %6, i64 56
+  %55 = getelementptr inbounds i8, ptr %16, i64 8
+  %56 = load ptr, ptr %55, align 8
+  store ptr %56, ptr %54, align 8
   call void @_ZN34ShenandoahPrepareForCompactionTask22prepare_for_compactionI43ShenandoahPrepareForCompactionObjectClosureEEvRT_R13GrowableArrayIP20ShenandoahHeapRegionER31ShenandoahHeapRegionSetIteratorS6_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %16)
-  %58 = load i64, ptr %42, align 8
-  %59 = and i64 %58, 1
-  %.not.i = icmp eq i64 %59, 0
-  br i1 %.not.i, label %_ZN13GrowableArrayIP20ShenandoahHeapRegionED2Ev.exit, label %60
+  %57 = load i64, ptr %41, align 8
+  %58 = and i64 %57, 1
+  %.not.i = icmp eq i64 %58, 0
+  br i1 %.not.i, label %_ZN13GrowableArrayIP20ShenandoahHeapRegionED2Ev.exit, label %59
 
-60:                                               ; preds = %_ZN13GrowableArrayIP20ShenandoahHeapRegionEC2Ei.exit
+59:                                               ; preds = %_ZN13GrowableArrayIP20ShenandoahHeapRegionEC2Ei.exit
   store i32 0, ptr %5, align 8
-  %61 = load i32, ptr %37, align 4
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %_ZN13GrowableArrayIP20ShenandoahHeapRegionED2Ev.exit, label %.loopexit.i
+  %60 = load i32, ptr %36, align 4
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %_ZN13GrowableArrayIP20ShenandoahHeapRegionED2Ev.exit, label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %60
-  %63 = load ptr, ptr %38, align 8
-  store i32 0, ptr %37, align 4
-  %.not.i7 = icmp eq ptr %63, null
+.loopexit.i:                                      ; preds = %59
+  %62 = load ptr, ptr %37, align 8
+  store i32 0, ptr %36, align 4
+  %.not.i7 = icmp eq ptr %62, null
   br i1 %.not.i7, label %_ZN13GrowableArrayIP20ShenandoahHeapRegionE10deallocateEPS1_.exit.i, label %.loopexit.thread.i
 
 .loopexit.thread.i:                               ; preds = %.loopexit.i
-  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %63) #13
+  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %62) #13
   br label %_ZN13GrowableArrayIP20ShenandoahHeapRegionE10deallocateEPS1_.exit.i
 
 _ZN13GrowableArrayIP20ShenandoahHeapRegionE10deallocateEPS1_.exit.i: ; preds = %.loopexit.thread.i, %.loopexit.i
-  store ptr null, ptr %38, align 8
+  store ptr null, ptr %37, align 8
   br label %_ZN13GrowableArrayIP20ShenandoahHeapRegionED2Ev.exit
 
-_ZN13GrowableArrayIP20ShenandoahHeapRegionED2Ev.exit: ; preds = %_ZN13GrowableArrayIP20ShenandoahHeapRegionE10deallocateEPS1_.exit.i, %60, %_ZN13GrowableArrayIP20ShenandoahHeapRegionEC2Ei.exit
-  %64 = load ptr, ptr %24, align 8
-  %.not.i.i.i.i = icmp eq ptr %64, null
-  br i1 %.not.i.i.i.i, label %66, label %65
+_ZN13GrowableArrayIP20ShenandoahHeapRegionED2Ev.exit: ; preds = %_ZN13GrowableArrayIP20ShenandoahHeapRegionE10deallocateEPS1_.exit.i, %59, %_ZN13GrowableArrayIP20ShenandoahHeapRegionEC2Ei.exit
+  %63 = load ptr, ptr %24, align 8
+  %.not.i.i.i.i = icmp eq ptr %63, null
+  br i1 %.not.i.i.i.i, label %65, label %64
 
-65:                                               ; preds = %_ZN13GrowableArrayIP20ShenandoahHeapRegionED2Ev.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %22, i64 noundef %30) #13
+64:                                               ; preds = %_ZN13GrowableArrayIP20ShenandoahHeapRegionED2Ev.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %22, i64 noundef %29) #13
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %24) #13
-  br label %66
+  br label %65
 
-66:                                               ; preds = %65, %_ZN13GrowableArrayIP20ShenandoahHeapRegionED2Ev.exit
-  %67 = load ptr, ptr %25, align 8
-  %.not8.i.i.i.i = icmp eq ptr %67, %26
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %68
+65:                                               ; preds = %64, %_ZN13GrowableArrayIP20ShenandoahHeapRegionED2Ev.exit
+  %66 = load ptr, ptr %25, align 8
+  %.not8.i.i.i.i = icmp eq ptr %66, %27
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %67
 
-68:                                               ; preds = %66
+67:                                               ; preds = %65
   store ptr %24, ptr %23, align 8
-  store ptr %26, ptr %25, align 8
-  store ptr %28, ptr %27, align 8
+  store <2 x ptr> %26, ptr %25, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %68, %66, %_ZN31ShenandoahParallelWorkerSessionC2Ej.exit
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %67, %65, %_ZN31ShenandoahParallelWorkerSessionC2Ej.exit
   call void @_ZN31ShenandoahParallelWorkerSessionD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #13
   ret void
 }

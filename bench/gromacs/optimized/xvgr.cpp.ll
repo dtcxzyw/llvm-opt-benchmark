@@ -2736,17 +2736,17 @@ define void @_Z17readXvgTimeSeriesRKNSt10filesystem7__cxx114pathESt8optionalIfES
 
 .thread:                                          ; preds = %9
   %11 = load <2 x ptr>, ptr %5, align 16
+  %12 = load ptr, ptr %5, align 16
   store <2 x ptr> %11, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
-  %14 = load ptr, ptr %13, align 16
-  store ptr %14, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 32
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 16 dereferenceable(24) %15, i64 24, i1 false)
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
-  %18 = extractelement <2 x ptr> %11, i64 0
-  store ptr %18, ptr %17, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = load ptr, ptr %14, align 16
+  store ptr %15, ptr %13, align 8
+  %16 = getelementptr inbounds i8, ptr %5, i64 32
+  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 16 dereferenceable(24) %16, i64 24, i1 false)
+  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %12, ptr %18, align 8
   br label %_ZN3gmx13MultiDimArrayISt6vectorIdSaIdEENS_7extentsIJLln1ELln1EEEENS_12layout_rightEED2Ev.exit32
 
 19:                                               ; preds = %9, %4

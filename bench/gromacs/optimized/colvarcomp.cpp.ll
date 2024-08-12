@@ -1729,9 +1729,9 @@ define void @_ZN6colvar3cvc15debug_gradientsEv(ptr noundef nonnull align 8 deref
   %108 = fneg double %99
   %109 = load <2 x double>, ptr %104, align 8, !noalias !20
   %110 = extractelement <2 x double> %109, i64 0
-  %111 = call double @llvm.fmuladd.f64(double %110, double %110, double %107)
-  %112 = extractelement <2 x double> %109, i64 1
-  %113 = fmul double %112, %108
+  %111 = extractelement <2 x double> %109, i64 1
+  %112 = call double @llvm.fmuladd.f64(double %110, double %110, double %107)
+  %113 = fmul double %111, %108
   %114 = call double @llvm.fmuladd.f64(double %101, double %110, double %113)
   %115 = fmul double %114, 2.000000e+00
   %116 = insertelement <2 x double> poison, double %101, i64 0
@@ -1743,13 +1743,13 @@ define void @_ZN6colvar3cvc15debug_gradientsEv(ptr noundef nonnull align 8 deref
   %122 = shufflevector <2 x double> %121, <2 x double> %109, <2 x i32> <i32 0, i32 2>
   %123 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %122, <2 x double> %109, <2 x double> %120)
   %124 = fmul double %101, %110
-  %125 = call double @llvm.fmuladd.f64(double %99, double %112, double %124)
+  %125 = call double @llvm.fmuladd.f64(double %99, double %111, double %124)
   %126 = fmul double %125, 2.000000e+00
   %127 = fmul <2 x double> %123, <double 2.000000e+00, double 2.000000e+00>
   %128 = fmul double %110, %108
-  %129 = call double @llvm.fmuladd.f64(double %101, double %112, double %128)
+  %129 = call double @llvm.fmuladd.f64(double %101, double %111, double %128)
   %130 = fmul double %129, 2.000000e+00
-  %131 = fmul double %110, %112
+  %131 = fmul double %110, %111
   %132 = call double @llvm.fmuladd.f64(double %99, double %101, double %131)
   %133 = fmul double %132, 2.000000e+00
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
@@ -1759,10 +1759,10 @@ define void @_ZN6colvar3cvc15debug_gradientsEv(ptr noundef nonnull align 8 deref
   %135 = extractelement <2 x double> %134, i64 0
   %136 = call double @llvm.fmuladd.f64(double %135, double %110, double %103)
   %137 = extractelement <2 x double> %134, i64 1
-  %138 = call double @llvm.fmuladd.f64(double %137, double %112, double %136)
-  %139 = call double @llvm.fmuladd.f64(double %137, double %112, double %111)
+  %138 = call double @llvm.fmuladd.f64(double %137, double %111, double %136)
+  %139 = call double @llvm.fmuladd.f64(double %137, double %111, double %112)
   %140 = call double @llvm.fmuladd.f64(double %135, double %110, double %107)
-  %141 = call double @llvm.fmuladd.f64(double %112, double %112, double %140)
+  %141 = call double @llvm.fmuladd.f64(double %111, double %111, double %140)
   store <2 x double> %134, ptr %75, align 8, !alias.scope !21, !noalias !24
   call void @_ZN12colvarmodule8rotationC1ERKNS_10quaternionE(ptr noundef nonnull align 8 dereferenceable(568) %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)

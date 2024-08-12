@@ -3037,16 +3037,17 @@ define hidden void @"_ZN201_$LT$elliptic_curve..public_key..PublicKey$LT$C$GT$$u
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.235.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.235, i64 52, i1 false)
   store i64 1, ptr %0, align 8
-  br label %67
+  br label %66
 
 .thread51:                                        ; preds = %20
   %.fca.1.extract = extractvalue { ptr, i64 } %21, 1
-  br label %29
+  br label %28
 
 25:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15)
   call void @_ZN3der3tag3Tag11value_error17ha60f5ad96cdb1a68E(ptr noalias nocapture noundef nonnull sret({ { i32, i32 }, { i8, [47 x i8] } }) align 8 dereferenceable(56) %15, i24 2)
   %26 = load <2 x i32>, ptr %15, align 8
+  %.sroa.015.0.copyload = load i32, ptr %15, align 8
   %.sroa.619.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
   %.sroa.619.0.copyload = load ptr, ptr %.sroa.619.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
@@ -3054,27 +3055,26 @@ define hidden void @"_ZN201_$LT$elliptic_curve..public_key..PublicKey$LT$C$GT$$u
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.10.0..sroa_idx, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15)
-  %27 = extractelement <2 x i32> %26, i64 0
-  %28 = icmp eq i32 %27, 2
-  br i1 %28, label %29, label %65
+  %27 = icmp eq i32 %.sroa.015.0.copyload, 2
+  br i1 %27, label %28, label %64
 
-29:                                               ; preds = %25, %.thread51
+28:                                               ; preds = %25, %.thread51
   %.sroa.8.061 = phi i64 [ %.fca.1.extract, %.thread51 ], [ %.sroa.8.0.copyload, %25 ]
   %.sroa.619.056 = phi ptr [ %.fca.0.extract, %.thread51 ], [ %.sroa.619.0.copyload, %25 ]
-  %30 = icmp ne ptr %.sroa.619.056, null
-  tail call void @llvm.assume(i1 %30)
+  %29 = icmp ne ptr %.sroa.619.056, null
+  tail call void @llvm.assume(i1 %29)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.10)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %10), !noalias !450
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9), !noalias !450
   call void @"_ZN4sec15point24EncodedPoint$LT$Size$GT$10from_bytes17h676582423d32aca3E"(ptr noalias nocapture noundef nonnull sret({ i8, [71 x i8] }) align 8 dereferenceable(72) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.619.056, i64 noundef %.sroa.8.061), !noalias !454
-  %31 = load i8, ptr %9, align 8, !range !455, !alias.scope !456, !noalias !459, !noundef !4
-  %trunc.i.i = trunc nuw i8 %31 to i1
-  br i1 %trunc.i.i, label %"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread", label %32
+  %30 = load i8, ptr %9, align 8, !range !455, !alias.scope !456, !noalias !459, !noundef !4
+  %trunc.i.i = trunc nuw i8 %30 to i1
+  br i1 %trunc.i.i, label %"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread", label %31
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %9, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %10, ptr noundef nonnull align 1 dereferenceable(65) %33, i64 65, i1 false), !noalias !450
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds i8, ptr %9, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %10, ptr noundef nonnull align 1 dereferenceable(65) %32, i64 65, i1 false), !noalias !450
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9), !noalias !450
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.013.i)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8), !noalias !450
@@ -3084,96 +3084,96 @@ define hidden void @"_ZN201_$LT$elliptic_curve..public_key..PublicKey$LT$C$GT$$u
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.02.i.i), !noalias !450
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7), !noalias !464
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) @anon.fb60ad9b4e811ac5b3a9c6868ed6715f.2.llvm.18228136452100008479, i64 72, i1 false), !noalias !464
-  %34 = getelementptr inbounds i8, ptr %8, i64 72
-  %35 = load i8, ptr %34, align 8, !alias.scope !461, !noalias !466, !noundef !4
+  %33 = getelementptr inbounds i8, ptr %8, i64 72
+  %34 = load i8, ptr %33, align 8, !alias.scope !461, !noalias !466, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !467)
   call void @llvm.experimental.noalias.scope.decl(metadata !470)
-  call void @"_ZN89_$LT$p256..arithmetic..field..FieldElement$u20$as$u20$subtle..ConditionallySelectable$GT$18conditional_select17hbd522d9cfcc5fc00E"(ptr noalias nocapture noundef nonnull sret({ { [4 x i64] } }) align 8 dereferenceable(32) %.sroa.02.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i8 noundef %35), !noalias !472
-  %36 = getelementptr inbounds i8, ptr %7, i64 32
-  %37 = getelementptr inbounds i8, ptr %8, i64 32
+  call void @"_ZN89_$LT$p256..arithmetic..field..FieldElement$u20$as$u20$subtle..ConditionallySelectable$GT$18conditional_select17hbd522d9cfcc5fc00E"(ptr noalias nocapture noundef nonnull sret({ { [4 x i64] } }) align 8 dereferenceable(32) %.sroa.02.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, i8 noundef %34), !noalias !472
+  %35 = getelementptr inbounds i8, ptr %7, i64 32
+  %36 = getelementptr inbounds i8, ptr %8, i64 32
   %.sroa.02.32..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sroa.02.i.i, i64 32
-  call void @"_ZN89_$LT$p256..arithmetic..field..FieldElement$u20$as$u20$subtle..ConditionallySelectable$GT$18conditional_select17hbd522d9cfcc5fc00E"(ptr noalias nocapture noundef nonnull sret({ { [4 x i64] } }) align 8 dereferenceable(32) %.sroa.02.32..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %37, i8 noundef %35), !noalias !472
-  %38 = getelementptr inbounds i8, ptr %7, i64 64
-  %39 = load i8, ptr %38, align 8, !alias.scope !467, !noalias !473, !noundef !4
-  %40 = getelementptr inbounds i8, ptr %8, i64 64
-  %41 = load i8, ptr %40, align 8, !alias.scope !475, !noalias !476, !noundef !4
+  call void @"_ZN89_$LT$p256..arithmetic..field..FieldElement$u20$as$u20$subtle..ConditionallySelectable$GT$18conditional_select17hbd522d9cfcc5fc00E"(ptr noalias nocapture noundef nonnull sret({ { [4 x i64] } }) align 8 dereferenceable(32) %.sroa.02.32..sroa_idx.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %36, i8 noundef %34), !noalias !472
+  %37 = getelementptr inbounds i8, ptr %7, i64 64
+  %38 = load i8, ptr %37, align 8, !alias.scope !467, !noalias !473, !noundef !4
+  %39 = getelementptr inbounds i8, ptr %8, i64 64
+  %40 = load i8, ptr %39, align 8, !alias.scope !475, !noalias !476, !noundef !4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6), !noalias !477
   call void @_ZN4sec15point3Tag7from_u817h0bcc195108734500E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %6, i8 noundef %.val.i), !noalias !483
   call void @llvm.experimental.noalias.scope.decl(metadata !484)
-  %42 = load i64, ptr %6, align 8, !range !487, !alias.scope !484, !noalias !488, !noundef !4
-  %43 = icmp eq i64 %42, 9
-  br i1 %43, label %"_ZN6subtle17CtOption$LT$T$GT$8and_then17h3823605dd6d79942E.exit.i", label %44
+  %41 = load i64, ptr %6, align 8, !range !487, !alias.scope !484, !noalias !488, !noundef !4
+  %42 = icmp eq i64 %41, 9
+  br i1 %42, label %"_ZN6subtle17CtOption$LT$T$GT$8and_then17h3823605dd6d79942E.exit.i", label %43
 
-44:                                               ; preds = %32
+43:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !491
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false), !noalias !488
   call void @_ZN4core6result13unwrap_failed17hed0fccbe07e724fcE(ptr noalias noundef nonnull readonly align 1 @anon.50e4b3fdc7e30e1eefc60711095a76f7.13.llvm.16029863518473859452, i64 noundef 11, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.50e4b3fdc7e30e1eefc60711095a76f7.3.llvm.16029863518473859452, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.50e4b3fdc7e30e1eefc60711095a76f7.14.llvm.16029863518473859452) #24, !noalias !492
   unreachable
 
-"_ZN6subtle17CtOption$LT$T$GT$8and_then17h3823605dd6d79942E.exit.i": ; preds = %32
-  %45 = getelementptr inbounds i8, ptr %6, i64 8
-  %46 = load i8, ptr %45, align 8, !range !493, !alias.scope !484, !noalias !488, !noundef !4
+"_ZN6subtle17CtOption$LT$T$GT$8and_then17h3823605dd6d79942E.exit.i": ; preds = %31
+  %44 = getelementptr inbounds i8, ptr %6, i64 8
+  %45 = load i8, ptr %44, align 8, !range !493, !alias.scope !484, !noalias !488, !noundef !4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !477
-  %47 = call noundef zeroext i1 @_ZN4sec15point3Tag11is_identity17h71bf8bb6bc7974ffE(i8 noundef %46), !noalias !494
-  %48 = zext i1 %47 to i8
-  %49 = call noundef i8 @_ZN6subtle9black_box17hae95d5a5795b5a0cE(i8 noundef %48), !noalias !494
-  %50 = and i8 %49, 1
-  %51 = xor i8 %50, 1
-  %52 = call noundef i8 @_ZN6subtle9black_box17hae95d5a5795b5a0cE(i8 noundef %51), !noalias !494
+  %46 = call noundef zeroext i1 @_ZN4sec15point3Tag11is_identity17h71bf8bb6bc7974ffE(i8 noundef %45), !noalias !494
+  %47 = zext i1 %46 to i8
+  %48 = call noundef i8 @_ZN6subtle9black_box17hae95d5a5795b5a0cE(i8 noundef %47), !noalias !494
+  %49 = and i8 %48, 1
+  %50 = xor i8 %49, 1
+  %51 = call noundef i8 @_ZN6subtle9black_box17hae95d5a5795b5a0cE(i8 noundef %50), !noalias !494
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !464
-  %53 = load i8, ptr %34, align 8, !alias.scope !461, !noalias !466, !noundef !4
-  %54 = and i8 %53, %52
-  %55 = call noundef i8 @_ZN6subtle9black_box17hae95d5a5795b5a0cE(i8 noundef %54), !noalias !472
+  %52 = load i8, ptr %33, align 8, !alias.scope !461, !noalias !466, !noundef !4
+  %53 = and i8 %52, %51
+  %54 = call noundef i8 @_ZN6subtle9black_box17hae95d5a5795b5a0cE(i8 noundef %53), !noalias !472
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.013.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.02.i.i, i64 64, i1 false), !noalias !495
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.02.i.i), !noalias !450
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8), !noalias !450
-  %56 = icmp eq i8 %55, 1
-  br i1 %56, label %57, label %"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread72"
+  %55 = icmp eq i8 %54, 1
+  br i1 %55, label %56, label %"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread72"
 
 "_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread72": ; preds = %"_ZN6subtle17CtOption$LT$T$GT$8and_then17h3823605dd6d79942E.exit.i"
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.013.i)
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %10), !noalias !450
-  br label %63
+  br label %62
 
-"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread": ; preds = %29
+"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread": ; preds = %28
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9), !noalias !450
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %10), !noalias !450
-  br label %63
+  br label %62
 
-57:                                               ; preds = %"_ZN6subtle17CtOption$LT$T$GT$8and_then17h3823605dd6d79942E.exit.i"
-  %58 = xor i8 %41, %39
-  %59 = sub i8 0, %35
-  %60 = and i8 %58, %59
-  %61 = xor i8 %60, %39
+56:                                               ; preds = %"_ZN6subtle17CtOption$LT$T$GT$8and_then17h3823605dd6d79942E.exit.i"
+  %57 = xor i8 %40, %38
+  %58 = sub i8 0, %34
+  %59 = and i8 %57, %58
+  %60 = xor i8 %59, %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.013.i, i64 64, i1 false), !noalias !496
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.013.i)
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %10), !noalias !450
   call void @llvm.experimental.noalias.scope.decl(metadata !497)
   call void @llvm.experimental.noalias.scope.decl(metadata !500)
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %62, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5, i64 64, i1 false), !alias.scope !502
+  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %61, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5, i64 64, i1 false), !alias.scope !502
   %.sroa.748.8..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
-  store i8 %61, ptr %.sroa.748.8..sroa_idx, align 8, !alias.scope !502
+  store i8 %60, ptr %.sroa.748.8..sroa_idx, align 8, !alias.scope !502
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h944904dda22797eeE.exit"
 
-63:                                               ; preds = %"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread72", %"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread"
+62:                                               ; preds = %"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread72", %"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread"
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !502
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3), !noalias !503
   call void @_ZN3der3tag3Tag11value_error17ha60f5ad96cdb1a68E(ptr noalias nocapture noundef nonnull sret({ { i32, i32 }, { i8, [47 x i8] } }) align 8 dereferenceable(56) %3, i24 2), !noalias !503
   call void @"_ZN83_$LT$spki..error..Error$u20$as$u20$core..convert..From$LT$der..error..Error$GT$$GT$4from17h7b422a2c3e250720E"(ptr noalias nocapture noundef nonnull sret({ i32, [13 x i32] }) align 8 dereferenceable(56) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %3), !noalias !502
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !503
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %64, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false), !noalias !500
+  %63 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %63, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false), !noalias !500
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !502
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h944904dda22797eeE.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h944904dda22797eeE.exit": ; preds = %57, %63
-  %.sink.i = phi i64 [ 1, %63 ], [ 0, %57 ]
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h944904dda22797eeE.exit": ; preds = %56, %62
+  %.sink.i = phi i64 [ 1, %62 ], [ 0, %56 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !497, !noalias !500
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.5)
-  br label %67
+  br label %66
 
-65:                                               ; preds = %25
+64:                                               ; preds = %25
   %.sroa.529.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 24
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.529.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.10, i64 32, i1 false)
@@ -3185,14 +3185,14 @@ define hidden void @"_ZN201_$LT$elliptic_curve..public_key..PublicKey$LT$C$GT$$u
   store i64 %.sroa.8.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13)
   call void @"_ZN83_$LT$spki..error..Error$u20$as$u20$core..convert..From$LT$der..error..Error$GT$$GT$4from17h7b422a2c3e250720E"(ptr noalias nocapture noundef nonnull sret({ i32, [13 x i32] }) align 8 dereferenceable(56) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %14)
-  %66 = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %66, ptr noundef nonnull align 8 dereferenceable(56) %13, i64 56, i1 false)
+  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %65, ptr noundef nonnull align 8 dereferenceable(56) %13, i64 56, i1 false)
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14)
-  br label %67
+  br label %66
 
-67:                                               ; preds = %65, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h944904dda22797eeE.exit", %23
+66:                                               ; preds = %64, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h944904dda22797eeE.exit", %23
   ret void
 }
 

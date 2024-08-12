@@ -3681,34 +3681,32 @@ define hidden void @_ZN23virtual_call_Relocation18clear_inline_cacheEv(ptr nound
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 32
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
-  %13 = load i64, ptr %12, align 8
-  %14 = tail call noundef ptr @_Z13CompiledIC_atP10Relocation(ptr noundef nonnull %0) #19
-  tail call void @_ZN10CompiledIC12set_to_cleanEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #19
-  %15 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i.i.i, label %17, label %16
+  %9 = load <2 x ptr>, ptr %8, align 8
+  %10 = load ptr, ptr %8, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = load i64, ptr %11, align 8
+  %13 = tail call noundef ptr @_Z13CompiledIC_atP10Relocation(ptr noundef nonnull %0) #19
+  tail call void @_ZN10CompiledIC12set_to_cleanEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #19
+  %14 = load ptr, ptr %7, align 8
+  %.not.i.i.i.i = icmp eq ptr %14, null
+  br i1 %.not.i.i.i.i, label %16, label %15
 
-16:                                               ; preds = %1
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %13) #19
+15:                                               ; preds = %1
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %12) #19
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %7) #19
-  br label %17
+  br label %16
 
-17:                                               ; preds = %16, %1
-  %18 = load ptr, ptr %8, align 8
-  %.not8.i.i.i.i = icmp eq ptr %18, %9
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %19
+16:                                               ; preds = %15, %1
+  %17 = load ptr, ptr %8, align 8
+  %.not8.i.i.i.i = icmp eq ptr %17, %10
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %18
 
-19:                                               ; preds = %17
+18:                                               ; preds = %16
   store ptr %7, ptr %6, align 8
-  store ptr %9, ptr %8, align 8
-  store ptr %11, ptr %10, align 8
+  store <2 x ptr> %9, ptr %8, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %17, %19
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %16, %18
   ret void
 }
 
@@ -3836,39 +3834,37 @@ define hidden void @_ZN27opt_virtual_call_Relocation18clear_inline_cacheEv(ptr n
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 32
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
-  %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
-  %17 = load ptr, ptr %16, align 8
-  %18 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i32 noundef 0) #19
-  store ptr %17, ptr %18, align 8
-  tail call void @_ZN18CompiledDirectCall12set_to_cleanEv(ptr noundef nonnull align 8 dereferenceable(8) %18) #19
-  %19 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i.i.i, label %21, label %20
+  %9 = load <2 x ptr>, ptr %8, align 8
+  %10 = load ptr, ptr %8, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i32 noundef 0) #19
+  store ptr %16, ptr %17, align 8
+  tail call void @_ZN18CompiledDirectCall12set_to_cleanEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #19
+  %18 = load ptr, ptr %7, align 8
+  %.not.i.i.i.i = icmp eq ptr %18, null
+  br i1 %.not.i.i.i.i, label %20, label %19
 
-20:                                               ; preds = %1
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %13) #19
+19:                                               ; preds = %1
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %12) #19
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %7) #19
-  br label %21
+  br label %20
 
-21:                                               ; preds = %20, %1
-  %22 = load ptr, ptr %8, align 8
-  %.not8.i.i.i.i = icmp eq ptr %22, %9
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %23
+20:                                               ; preds = %19, %1
+  %21 = load ptr, ptr %8, align 8
+  %.not8.i.i.i.i = icmp eq ptr %21, %10
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %22
 
-23:                                               ; preds = %21
+22:                                               ; preds = %20
   store ptr %7, ptr %6, align 8
-  store ptr %9, ptr %8, align 8
-  store ptr %11, ptr %10, align 8
+  store <2 x ptr> %9, ptr %8, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %21, %23
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %20, %22
   ret void
 }
 
@@ -4213,39 +4209,37 @@ define hidden void @_ZN22static_call_Relocation18clear_inline_cacheEv(ptr nocapt
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 32
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
-  %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
-  %17 = load ptr, ptr %16, align 8
-  %18 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i32 noundef 0) #19
-  store ptr %17, ptr %18, align 8
-  tail call void @_ZN18CompiledDirectCall12set_to_cleanEv(ptr noundef nonnull align 8 dereferenceable(8) %18) #19
-  %19 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i.i.i, label %21, label %20
+  %9 = load <2 x ptr>, ptr %8, align 8
+  %10 = load ptr, ptr %8, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = load i64, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i32 noundef 0) #19
+  store ptr %16, ptr %17, align 8
+  tail call void @_ZN18CompiledDirectCall12set_to_cleanEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #19
+  %18 = load ptr, ptr %7, align 8
+  %.not.i.i.i.i = icmp eq ptr %18, null
+  br i1 %.not.i.i.i.i, label %20, label %19
 
-20:                                               ; preds = %1
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %13) #19
+19:                                               ; preds = %1
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %12) #19
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %7) #19
-  br label %21
+  br label %20
 
-21:                                               ; preds = %20, %1
-  %22 = load ptr, ptr %8, align 8
-  %.not8.i.i.i.i = icmp eq ptr %22, %9
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %23
+20:                                               ; preds = %19, %1
+  %21 = load ptr, ptr %8, align 8
+  %.not8.i.i.i.i = icmp eq ptr %21, %10
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %22
 
-23:                                               ; preds = %21
+22:                                               ; preds = %20
   store ptr %7, ptr %6, align 8
-  store ptr %9, ptr %8, align 8
-  store ptr %11, ptr %10, align 8
+  store <2 x ptr> %9, ptr %8, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %21, %23
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %20, %22
   ret void
 }
 

@@ -298,12 +298,11 @@ _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %92
   store ptr %104, ptr %109, align 8, !alias.scope !13
   %110 = getelementptr inbounds i8, ptr %20, i64 24
   %111 = getelementptr inbounds i8, ptr %7, i64 24
-  %112 = load ptr, ptr %111, align 8, !noalias !13
-  store ptr %112, ptr %110, align 8, !alias.scope !13
-  %113 = getelementptr inbounds i8, ptr %20, i64 32
-  %114 = getelementptr inbounds i8, ptr %7, i64 32
-  %115 = load ptr, ptr %114, align 8, !noalias !13
-  store ptr %115, ptr %113, align 8, !alias.scope !13
+  %112 = getelementptr inbounds i8, ptr %20, i64 32
+  %113 = getelementptr inbounds i8, ptr %7, i64 32
+  %114 = load ptr, ptr %113, align 8, !noalias !13
+  %115 = load <2 x ptr>, ptr %111, align 8, !noalias !13
+  store <2 x ptr> %115, ptr %110, align 8, !alias.scope !13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   store double 0.000000e+00, ptr %104, align 8
   %.not.i.i.i55 = icmp eq ptr %105, null
@@ -312,7 +311,7 @@ _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %92
 116:                                              ; preds = %103
   %117 = getelementptr inbounds i8, ptr %104, i64 %108
   store ptr %117, ptr %109, align 8
-  %.not1.i.i.i56 = icmp ult ptr %117, %115
+  %.not1.i.i.i56 = icmp ult ptr %117, %114
   br i1 %.not1.i.i.i56, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit58, label %118
 
 118:                                              ; preds = %116
@@ -336,7 +335,7 @@ _ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit58: ; preds = %._ZN2cv20MatComma
   %123 = load ptr, ptr %109, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 %122
   store ptr %124, ptr %109, align 8
-  %125 = load ptr, ptr %113, align 8
+  %125 = load ptr, ptr %112, align 8
   %.not1.i.i.i60 = icmp ult ptr %124, %125
   br i1 %.not1.i.i.i60, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit62, label %126
 

@@ -454,29 +454,22 @@ _ZNK6hermes2vm8GCConfig17getTripwireConfigEv.exit.thread: ; preds = %_ZNK6hermes
 
 _ZNK6hermes2vm8GCConfig17getTripwireConfigEv.exit: ; preds = %_ZNK6hermes2vm8GCConfig20getAnalyticsCallbackEv.exit
   %Callback_3.i.i = getelementptr inbounds i8, ptr %gcConfig, i64 96
-  %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %_M_manager.i.i.i.i10 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %call3.i.i.i = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Callback_3.i.i, i32 noundef 2) #27
-  %_M_invoker4.i.i.i = getelementptr inbounds i8, ptr %gcConfig, i64 120
-  %10 = load ptr, ptr %_M_invoker4.i.i.i, align 8, !noalias !7
-  store ptr %10, ptr %_M_invoker.i.i.i, align 8, !alias.scope !7
+  %10 = load <2 x ptr>, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !7
   %11 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !7
-  store ptr %11, ptr %_M_manager.i.i.i.i10, align 8, !alias.scope !7
-  call void @llvm.experimental.noalias.scope.decl(metadata !13)
+  store <2 x ptr> %10, ptr %_M_manager.i.i.i.i10, align 8, !alias.scope !7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %tripwireCallback_, i8 0, i64 32, i1 false), !alias.scope !13
   %tobool.not.i.i.not.i.i12 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.not.i.i12, label %_ZN6hermes2vm16GCTripwireConfigD2Ev.exit, label %_ZNK6hermes2vm16GCTripwireConfig11getCallbackEv.exit
 
 _ZNK6hermes2vm16GCTripwireConfig11getCallbackEv.exit: ; preds = %_ZNK6hermes2vm8GCConfig17getTripwireConfigEv.exit
   %_M_manager.i.i.i.i11 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  %_M_invoker.i.i14 = getelementptr inbounds i8, ptr %this, i64 728
   %_M_manager.i.i.i15 = getelementptr inbounds i8, ptr %this, i64 720
   %call3.i.i16 = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %tripwireCallback_, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i, i32 noundef 2) #27
-  %_M_invoker4.i.i17 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  %12 = load ptr, ptr %_M_invoker4.i.i17, align 8, !noalias !13
-  store ptr %12, ptr %_M_invoker.i.i14, align 8, !alias.scope !13
+  %12 = load <2 x ptr>, ptr %_M_manager.i.i.i.i11, align 8
   %13 = load ptr, ptr %_M_manager.i.i.i.i11, align 8
-  store ptr %13, ptr %_M_manager.i.i.i15, align 8, !alias.scope !13
+  store <2 x ptr> %12, ptr %_M_manager.i.i.i15, align 8, !alias.scope !13
   %tobool.not.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i, label %_ZN6hermes2vm16GCTripwireConfigD2Ev.exit, label %if.then.i.i.i19
 
@@ -497,14 +490,11 @@ _ZN6hermes2vm16GCTripwireConfigD2Ev.exit:         ; preds = %_ZNK6hermes2vm8GCCo
 
 _ZNK6hermes2vm8GCConfig17getTripwireConfigEv.exit31: ; preds = %_ZN6hermes2vm16GCTripwireConfigD2Ev.exit
   %Callback_3.i.i26 = getelementptr inbounds i8, ptr %gcConfig, i64 96
-  %_M_invoker.i.i.i27 = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
   %_M_manager.i.i.i.i28 = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
   %call3.i.i.i29 = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i22, ptr noundef nonnull align 8 dereferenceable(16) %Callback_3.i.i26, i32 noundef 2) #27
-  %_M_invoker4.i.i.i30 = getelementptr inbounds i8, ptr %gcConfig, i64 120
-  %16 = load ptr, ptr %_M_invoker4.i.i.i30, align 8, !noalias !15
-  store ptr %16, ptr %_M_invoker.i.i.i27, align 8, !alias.scope !15
+  %16 = load <2 x ptr>, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !15
   %17 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !15
-  store ptr %17, ptr %_M_manager.i.i.i.i28, align 8, !alias.scope !15
+  store <2 x ptr> %16, ptr %_M_manager.i.i.i.i28, align 8, !alias.scope !15
   %.pre = load i32, ptr %ref.tmp2, align 8
   %tobool.not.i.i.i33 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i33, label %_ZN6hermes2vm16GCTripwireConfigD2Ev.exit37, label %if.then.i.i.i34

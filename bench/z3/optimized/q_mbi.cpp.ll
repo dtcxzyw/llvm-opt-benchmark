@@ -6551,17 +6551,15 @@ lpad.i.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i.i
 
 _ZNSt11_Tuple_implILm2EJ10ref_vectorI4expr11ast_managerEjEEC2IRS3_JRjEvEEOT_DpOT0_.exit.i.i.i: ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i.i.i.i.i.i
   %29 = getelementptr inbounds i8, ptr %ref.tmp35, i64 24
-  %30 = load ptr, ptr %proj, align 8
-  store ptr %30, ptr %29, align 8
   %m_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp35, i64 32
-  %m_manager3.i.i.i.i.i = getelementptr inbounds i8, ptr %proj, i64 8
-  %31 = load ptr, ptr %m_manager3.i.i.i.i.i, align 8
-  store ptr %31, ptr %m_manager.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %30, null
+  %30 = load <2 x ptr>, ptr %proj, align 8
+  %31 = load ptr, ptr %proj, align 8
+  store <2 x ptr> %30, ptr %29, align 8
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont37, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i.i.i.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i.i.i.i.i.i:  ; preds = %_ZNSt11_Tuple_implILm2EJ10ref_vectorI4expr11ast_managerEjEEC2IRS3_JRjEvEEOT_DpOT0_.exit.i.i.i
-  %m_ref_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
+  %m_ref_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 8
   %32 = load i32, ptr %m_ref_count.i.i.i.i.i.i.i.i, align 4
   %inc.i.i.i.i.i.i.i.i = add i32 %32, 1
   store i32 %inc.i.i.i.i.i.i.i.i, ptr %m_ref_count.i.i.i.i.i.i.i.i, align 4

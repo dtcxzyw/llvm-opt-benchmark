@@ -11926,69 +11926,67 @@ define internal fastcc i32 @session_process_settings_frame(ptr noundef %0) unnam
   %2 = getelementptr inbounds i8, ptr %0, i64 928
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %25, label %4
+  br i1 %.not, label %26, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 824
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr %struct.nghttp2_settings_entry, ptr %6, i64 %3
   %8 = getelementptr i8, ptr %7, i64 -8
-  %.sroa.0.0.copyload = load i32, ptr %8, align 4
   %.sroa.2.0..sroa_idx = getelementptr i8, ptr %7, i64 -4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
+  %9 = load <2 x i32>, ptr %8, align 4
   %.not30 = icmp eq i32 %.sroa.2.0.copyload, -1
-  br i1 %.not30, label %25, label %.preheader
+  br i1 %.not30, label %26, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 920
-  %10 = load i64, ptr %9, align 8
-  %.not38 = icmp eq i64 %10, 0
+  %10 = getelementptr inbounds i8, ptr %0, i64 920
+  %11 = load i64, ptr %10, align 8
+  %.not38 = icmp eq i64 %11, 0
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %14
-  %.033 = phi i64 [ %15, %14 ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %6, i64 %.033
-  %12 = load i32, ptr %11, align 4
-  %13 = icmp eq i32 %12, 1
-  br i1 %13, label %._crit_edge, label %14
+.lr.ph:                                           ; preds = %.preheader, %15
+  %.033 = phi i64 [ %16, %15 ], [ 0, %.preheader ]
+  %12 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %6, i64 %.033
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp eq i32 %13, 1
+  br i1 %14, label %._crit_edge, label %15
 
-14:                                               ; preds = %.lr.ph
-  %15 = add nuw i64 %.033, 1
-  %exitcond.not = icmp eq i64 %15, %10
+15:                                               ; preds = %.lr.ph
+  %16 = add nuw i64 %.033, 1
+  %exitcond.not = icmp eq i64 %16, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %14, %.lr.ph, %.preheader
-  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %.033, %.lr.ph ], [ %10, %14 ]
-  %16 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %6, i64 %.0.lcssa, i32 1
-  %17 = load i32, ptr %16, align 4
-  %.not31 = icmp eq i32 %.sroa.2.0.copyload, %17
-  br i1 %.not31, label %25, label %18
+._crit_edge:                                      ; preds = %15, %.lr.ph, %.preheader
+  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %.033, %.lr.ph ], [ %11, %15 ]
+  %17 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %6, i64 %.0.lcssa, i32 1
+  %18 = load i32, ptr %17, align 4
+  %.not31 = icmp eq i32 %.sroa.2.0.copyload, %18
+  br i1 %.not31, label %26, label %19
 
-18:                                               ; preds = %._crit_edge
-  %19 = add i64 %10, 1
-  store i64 %19, ptr %9, align 8
-  %20 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %6, i64 %10
-  %21 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %6, i64 %.0.lcssa
-  %22 = load i64, ptr %21, align 4
-  store i64 %22, ptr %20, align 4
-  %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %23, i64 %.0.lcssa
-  store i32 %.sroa.0.0.copyload, ptr %24, align 4
-  %.sroa.2.0..sroa_idx2 = getelementptr inbounds i8, ptr %24, i64 4
-  store i32 %.sroa.2.0.copyload, ptr %.sroa.2.0..sroa_idx2, align 4
-  br label %25
+19:                                               ; preds = %._crit_edge
+  %20 = add i64 %11, 1
+  store i64 %20, ptr %10, align 8
+  %21 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %6, i64 %11
+  %22 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %6, i64 %.0.lcssa
+  %23 = load i64, ptr %22, align 4
+  store i64 %23, ptr %21, align 4
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %24, i64 %.0.lcssa
+  store <2 x i32> %9, ptr %25, align 4
+  br label %26
 
-25:                                               ; preds = %4, %18, %._crit_edge, %1
-  %26 = getelementptr inbounds i8, ptr %0, i64 728
-  %27 = getelementptr inbounds i8, ptr %0, i64 824
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 920
-  %30 = load i64, ptr %29, align 8
-  tail call void @nghttp2_frame_unpack_settings_payload(ptr noundef nonnull %26, ptr noundef %28, i64 noundef %30) #20
-  store ptr null, ptr %27, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  %31 = tail call i32 @nghttp2_session_on_settings_received(ptr noundef nonnull %0, ptr noundef nonnull %26, i32 noundef 0)
-  ret i32 %31
+26:                                               ; preds = %4, %19, %._crit_edge, %1
+  %27 = getelementptr inbounds i8, ptr %0, i64 728
+  %28 = getelementptr inbounds i8, ptr %0, i64 824
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 920
+  %31 = load i64, ptr %30, align 8
+  tail call void @nghttp2_frame_unpack_settings_payload(ptr noundef nonnull %27, ptr noundef %29, i64 noundef %31) #20
+  store ptr null, ptr %28, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
+  %32 = tail call i32 @nghttp2_session_on_settings_received(ptr noundef nonnull %0, ptr noundef nonnull %27, i32 noundef 0)
+  ret i32 %32
 }
 
 declare ptr @nghttp2_cpymem(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3

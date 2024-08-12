@@ -128,8 +128,8 @@ define noundef i32 @_ZN3gmx35TrajectoryAnalysisCommandLineRunner9runAsMainEiPPcR
 
 11:                                               ; preds = %9
   %12 = load <2 x ptr>, ptr %7, align 8
+  %13 = load ptr, ptr %7, align 8
   store <2 x ptr> %12, ptr %6, align 8
-  %13 = extractelement <2 x ptr> %12, i64 0
   br label %_ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEC2ERKS7_.exit
 
 14:                                               ; preds = %9
@@ -562,8 +562,8 @@ define void @_ZN3gmx35TrajectoryAnalysisCommandLineRunner14registerModuleEPNS_24
 
 12:                                               ; preds = %10
   %13 = load <2 x ptr>, ptr %8, align 8
+  %14 = load ptr, ptr %8, align 8
   store <2 x ptr> %13, ptr %7, align 8
-  %14 = extractelement <2 x ptr> %13, i64 0
   br label %_ZNSt8functionIFSt10unique_ptrIN3gmx24TrajectoryAnalysisModuleESt14default_deleteIS2_EEvEEC2ERKS7_.exit
 
 15:                                               ; preds = %10
@@ -1175,14 +1175,14 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt10shared_ptrIN3gmx16IOptionsBehaviorEED2Ev.exit: ; preds = %64, %82, %95, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
   %100 = getelementptr inbounds i8, ptr %7, i64 8
-  %101 = load <2 x ptr>, ptr %5, align 16
-  store <2 x ptr> %101, ptr %7, align 16
-  %102 = extractelement <2 x ptr> %101, i64 1
-  %.not.i.i.i18 = icmp eq ptr %102, null
+  %101 = load ptr, ptr %35, align 8
+  %102 = load <2 x ptr>, ptr %5, align 16
+  store <2 x ptr> %102, ptr %7, align 16
+  %.not.i.i.i18 = icmp eq ptr %101, null
   br i1 %.not.i.i.i18, label %_ZNSt10shared_ptrIN3gmx16IOptionsBehaviorEEC2INS0_23SelectionOptionBehaviorEvEERKS_IT_E.exit, label %103
 
 103:                                              ; preds = %_ZNSt10shared_ptrIN3gmx16IOptionsBehaviorEED2Ev.exit
-  %104 = getelementptr inbounds i8, ptr %102, i64 8
+  %104 = getelementptr inbounds i8, ptr %101, i64 8
   %105 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i19 = icmp eq i8 %105, 0
   br i1 %.not.i.i.i.i19, label %109, label %106

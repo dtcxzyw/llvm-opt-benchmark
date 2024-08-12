@@ -1490,7 +1490,7 @@ define internal i32 @cid_slot_load_glyph(ptr noundef %0, ptr noundef %1, i32 nou
   store i8 %45, ptr %46, align 1
   %47 = call i32 @cid_load_glyph(ptr noundef nonnull %5, i32 noundef %2)
   %.not130 = icmp eq i32 %47, 0
-  br i1 %.not130, label %48, label %215
+  br i1 %.not130, label %48, label %218
 
 48:                                               ; preds = %43
   %.not129 = icmp eq i64 %44, 0
@@ -1738,31 +1738,35 @@ define internal i32 @cid_slot_load_glyph(ptr noundef %0, ptr noundef %1, i32 nou
 205:                                              ; preds = %146, %.loopexit
   call void @FT_Outline_Get_CBox(ptr noundef nonnull %24, ptr noundef nonnull %7) #13
   %206 = getelementptr inbounds i8, ptr %7, i64 16
-  %207 = load <2 x i64>, ptr %206, align 16
-  %208 = load <2 x i64>, ptr %7, align 16
-  %209 = sub nsw <2 x i64> %207, %208
-  store <2 x i64> %209, ptr %77, align 8
-  %210 = getelementptr inbounds i8, ptr %0, i64 64
-  %211 = shufflevector <2 x i64> %208, <2 x i64> %207, <2 x i32> <i32 0, i32 3>
-  store <2 x i64> %211, ptr %210, align 8
-  %212 = and i64 %26, 16
-  %.not131 = icmp eq i64 %212, 0
-  br i1 %.not131, label %.thread, label %213
+  %207 = getelementptr inbounds i8, ptr %7, i64 24
+  %208 = load i64, ptr %207, align 8
+  %209 = load <2 x i64>, ptr %206, align 16
+  %210 = load <2 x i64>, ptr %7, align 16
+  %211 = load i64, ptr %7, align 16
+  %212 = sub nsw <2 x i64> %209, %210
+  store <2 x i64> %212, ptr %77, align 8
+  %213 = getelementptr inbounds i8, ptr %0, i64 64
+  store i64 %211, ptr %213, align 8
+  %214 = getelementptr inbounds i8, ptr %0, i64 72
+  store i64 %208, ptr %214, align 8
+  %215 = and i64 %26, 16
+  %.not131 = icmp eq i64 %215, 0
+  br i1 %.not131, label %.thread, label %216
 
-213:                                              ; preds = %205
-  %214 = load i64, ptr %96, align 8
-  call void @ft_synthesize_vertical_metrics(ptr noundef nonnull %77, i64 noundef %214) #13
+216:                                              ; preds = %205
+  %217 = load i64, ptr %96, align 8
+  call void @ft_synthesize_vertical_metrics(ptr noundef nonnull %77, i64 noundef %217) #13
   br label %.thread
 
-215:                                              ; preds = %43
-  %216 = load ptr, ptr %37, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 8
-  %218 = load ptr, ptr %217, align 8
-  call void %218(ptr noundef nonnull %5) #13
+218:                                              ; preds = %43
+  %219 = load ptr, ptr %37, align 8
+  %220 = getelementptr inbounds i8, ptr %219, i64 8
+  %221 = load ptr, ptr %220, align 8
+  call void %221(ptr noundef nonnull %5) #13
   br label %.thread
 
-.thread:                                          ; preds = %4, %205, %213, %60, %13, %215
-  %.0120135 = phi i32 [ %47, %215 ], [ 6, %4 ], [ 0, %205 ], [ 0, %213 ], [ 0, %60 ], [ %42, %13 ]
+.thread:                                          ; preds = %4, %205, %216, %60, %13, %218
+  %.0120135 = phi i32 [ %47, %218 ], [ 6, %4 ], [ 0, %205 ], [ 0, %216 ], [ 0, %60 ], [ %42, %13 ]
   ret i32 %.0120135
 }
 

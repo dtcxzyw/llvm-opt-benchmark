@@ -375,14 +375,15 @@ entry:
   %0 = load i64, ptr %dump_options, align 8
   store i64 %0, ptr %options_.i, align 8
   %cache_.i = getelementptr inbounds i8, ptr %call, i64 16
-  %1 = load <2 x ptr>, ptr %cache, align 8
-  store <2 x ptr> %1, ptr %cache_.i, align 8
-  %2 = extractelement <2 x ptr> %1, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %2, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %cache, i64 8
+  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %2 = load <2 x ptr>, ptr %cache, align 8
+  store <2 x ptr> %2, ptr %cache_.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7rocksdb15CacheDumperImplC2ERKNS_16CacheDumpOptionsERKSt10shared_ptrINS_5CacheEEOSt10unique_ptrINS_15CacheDumpWriterESt14default_deleteISA_EE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -440,14 +441,15 @@ entry:
   %0 = load i64, ptr %dump_options, align 8
   store i64 %0, ptr %options_.i, align 8
   %secondary_cache_.i = getelementptr inbounds i8, ptr %call, i64 16
-  %1 = load <2 x ptr>, ptr %secondary_cache, align 8
-  store <2 x ptr> %1, ptr %secondary_cache_.i, align 8
-  %2 = extractelement <2 x ptr> %1, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %2, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %secondary_cache, i64 8
+  %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %2 = load <2 x ptr>, ptr %secondary_cache, align 8
+  store <2 x ptr> %2, ptr %secondary_cache_.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7rocksdb21CacheDumpedLoaderImplC2ERKNS_16CacheDumpOptionsERKNS_22BlockBasedTableOptionsERKSt10shared_ptrINS_14SecondaryCacheEEOSt10unique_ptrINS_15CacheDumpReaderESt14default_deleteISD_EE.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

@@ -976,10 +976,10 @@ _ZNSt8functionIFdN3gmx8ArrayRefIKNS0_11BasicVectorIfEEEES5_EEC2IRKPS6_vEEOT_.exi
   %19 = getelementptr inbounds i8, ptr %0, i64 72
   %20 = getelementptr inbounds i8, ptr %0, i64 80
   %21 = load <2 x ptr>, ptr %19, align 8
+  %22 = load ptr, ptr %19, align 8
   store ptr %17, ptr %19, align 8
   store <2 x ptr> %21, ptr %18, align 8
   store ptr %16, ptr %20, align 8
-  %22 = extractelement <2 x ptr> %21, i64 0
   %.not.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i, label %_ZNSt8functionIFdN3gmx8ArrayRefIKNS0_11BasicVectorIfEEEES5_EEaSIRKPS6_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS5_S5_EEEE5valueERS7_E4typeEOSE_.exit, label %23
 
@@ -1030,10 +1030,10 @@ _ZNSt8functionIFdN3gmx8ArrayRefIKNS0_11BasicVectorIfEEEES5_EEC2IRKPS6_vEEOT_.exi
   %40 = getelementptr inbounds i8, ptr %0, i64 72
   %41 = getelementptr inbounds i8, ptr %0, i64 80
   %42 = load <2 x ptr>, ptr %40, align 8
+  %43 = load ptr, ptr %40, align 8
   store ptr %38, ptr %40, align 8
   store <2 x ptr> %42, ptr %39, align 8
   store ptr %37, ptr %41, align 8
-  %43 = extractelement <2 x ptr> %42, i64 0
   %.not.i.i.i28 = icmp eq ptr %43, null
   br i1 %.not.i.i.i28, label %_ZNSt8functionIFdN3gmx8ArrayRefIKNS0_11BasicVectorIfEEEES5_EEaSIRKPS6_EENSt9enable_ifIXsrNS7_9_CallableIT_NSC_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISE_E4typeEE4typeES7_EE5valueESt5decayISE_EE4type4typeESt15__invoke_resultIRSP_JS5_S5_EEEE5valueERS7_E4typeEOSE_.exit29, label %44
 
@@ -2048,9 +2048,9 @@ _ZN3gmx15analysismodules12_GLOBAL__N_120MsdCoordinateManager16buildCoordinatesER
   %227 = insertelement <4 x ptr> %226, ptr %225, i64 2
   %228 = insertelement <4 x ptr> %227, ptr %220, i64 3
   %229 = load <2 x ptr>, ptr %221, align 8
+  %230 = load ptr, ptr %221, align 8
   store <4 x ptr> %228, ptr %119, align 8
   store <2 x ptr> %229, ptr %222, align 8
-  %230 = extractelement <2 x ptr> %229, i64 0
   %231 = ptrtoint ptr %230 to i64
   %232 = ptrtoint ptr %220 to i64
   %233 = sub i64 %231, %232
@@ -2708,12 +2708,12 @@ _ZN3gmx15analysismodulesL17calculateFitIndexEidid.exit38: ; preds = %42, %47
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %.sroa.045.048.us, i64 160
   %65 = load <2 x ptr>, ptr %6, align 16
+  %66 = load ptr, ptr %6, align 16
   store <2 x ptr> %65, ptr %62, align 8
-  %66 = load ptr, ptr %57, align 16
-  store ptr %66, ptr %64, align 8
+  %67 = load ptr, ptr %57, align 16
+  store ptr %67, ptr %64, align 8
   %.not.i.i.i.i.i.us = icmp eq ptr %63, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  %67 = extractelement <2 x ptr> %65, i64 0
   br i1 %.not.i.i.i.i.i.us, label %_ZNSt6vectorIfSaIfEED2Ev.exit.us, label %68
 
 68:                                               ; preds = %.lr.ph.split.us
@@ -2722,7 +2722,7 @@ _ZN3gmx15analysismodulesL17calculateFitIndexEidid.exit38: ; preds = %42, %47
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit.us
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.us:                 ; preds = %68, %.lr.ph.split.us
-  %69 = phi ptr [ %.pre56, %68 ], [ %67, %.lr.ph.split.us ]
+  %69 = phi ptr [ %.pre56, %68 ], [ %66, %.lr.ph.split.us ]
   %70 = load i64, ptr %37, align 8
   %71 = trunc i64 %70 to i32
   %72 = add i32 %59, %71
@@ -2776,12 +2776,12 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.us:                 ; preds = %68, %.lr.ph.split.u
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds i8, ptr %.sroa.045.048, i64 160
   %108 = load <2 x ptr>, ptr %6, align 16
+  %109 = load ptr, ptr %6, align 16
   store <2 x ptr> %108, ptr %105, align 8
-  %109 = load ptr, ptr %57, align 16
-  store ptr %109, ptr %107, align 8
+  %110 = load ptr, ptr %57, align 16
+  store ptr %110, ptr %107, align 8
   %.not.i.i.i.i.i = icmp eq ptr %106, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  %110 = extractelement <2 x ptr> %108, i64 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %111
 
 111:                                              ; preds = %.lr.ph.split
@@ -2790,7 +2790,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.us:                 ; preds = %68, %.lr.ph.split.u
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %111, %.lr.ph.split
-  %112 = phi ptr [ %.pre, %111 ], [ %110, %.lr.ph.split ]
+  %112 = phi ptr [ %.pre, %111 ], [ %109, %.lr.ph.split ]
   %113 = load i64, ptr %37, align 8
   %114 = load ptr, ptr %13, align 8
   %115 = getelementptr inbounds double, ptr %114, i64 %113

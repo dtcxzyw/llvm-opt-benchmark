@@ -5305,11 +5305,11 @@ invoke.cont240:                                   ; preds = %for.body232
   %normal_matrix.sroa.11.0.copyload = load float, ptr %normal_matrix.sroa.11.0.call241.sroa_idx, align 4
   %arrayidx247 = getelementptr inbounds i8, ptr %arrayidx233, i64 4
   %arrayidx248 = getelementptr inbounds i8, ptr %arrayidx233, i64 8
-  %151 = load <2 x float>, ptr %call241, align 4
-  %152 = load <2 x float>, ptr %b1.i351, align 4
-  %153 = extractelement <2 x float> %151, i64 1
-  store float %153, ptr %b1.i351, align 4
-  %154 = extractelement <2 x float> %152, i64 0
+  %151 = load float, ptr %a2.i352, align 4
+  %152 = load <2 x float>, ptr %call241, align 4
+  %153 = load <2 x float>, ptr %b1.i351, align 4
+  store float %151, ptr %b1.i351, align 4
+  %154 = extractelement <2 x float> %153, i64 0
   store float %154, ptr %a2.i352, align 4
   %155 = load <2 x float>, ptr %c1.i353, align 4
   store float %145, ptr %c1.i353, align 4
@@ -5330,10 +5330,10 @@ invoke.cont240:                                   ; preds = %for.body232
   %163 = load float, ptr %arrayidx248, align 4
   %164 = insertelement <2 x float> poison, float %162, i64 0
   %165 = shufflevector <2 x float> %164, <2 x float> poison, <2 x i32> zeroinitializer
-  %166 = fmul <2 x float> %152, %165
+  %166 = fmul <2 x float> %153, %165
   %167 = insertelement <2 x float> poison, float %161, i64 0
   %168 = shufflevector <2 x float> %167, <2 x float> poison, <2 x i32> zeroinitializer
-  %169 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %151, <2 x float> %168, <2 x float> %166)
+  %169 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %152, <2 x float> %168, <2 x float> %166)
   %170 = insertelement <2 x float> poison, float %163, i64 0
   %171 = shufflevector <2 x float> %170, <2 x float> poison, <2 x i32> zeroinitializer
   %172 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %155, <2 x float> %171, <2 x float> %169)
@@ -8294,15 +8294,15 @@ for.end174:                                       ; preds = %_ZN10aiVector3tIfEi
   %95 = shufflevector <4 x float> %83, <4 x float> %88, <4 x i32> <i32 1, i32 6, i32 0, i32 4>
   %96 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %95, <4 x float> %85, <4 x float> %94)
   %mValue177 = getelementptr inbounds i8, ptr %arrayidx122, i64 8
-  store <4 x float> %96, ptr %mValue177, align 8
-  %97 = fmul <4 x float> %96, %96
-  %mul4.i141 = extractelement <4 x float> %97, i64 2
+  %97 = extractelement <4 x float> %96, i64 0
   %98 = extractelement <4 x float> %96, i64 1
-  %99 = call float @llvm.fmuladd.f32(float %98, float %98, float %mul4.i141)
-  %100 = extractelement <4 x float> %96, i64 3
-  %101 = call float @llvm.fmuladd.f32(float %100, float %100, float %99)
-  %102 = extractelement <4 x float> %96, i64 0
-  %103 = call float @llvm.fmuladd.f32(float %102, float %102, float %101)
+  store <4 x float> %96, ptr %mValue177, align 8
+  %99 = fmul <4 x float> %96, %96
+  %mul4.i141 = extractelement <4 x float> %99, i64 2
+  %100 = call float @llvm.fmuladd.f32(float %98, float %98, float %mul4.i141)
+  %101 = extractelement <4 x float> %96, i64 3
+  %102 = call float @llvm.fmuladd.f32(float %101, float %101, float %100)
+  %103 = call float @llvm.fmuladd.f32(float %97, float %97, float %102)
   %tobool.i = fcmp une float %103, 0.000000e+00
   br i1 %tobool.i, label %if.then.i144, label %_ZN13aiQuaterniontIfE9NormalizeEv.exit
 

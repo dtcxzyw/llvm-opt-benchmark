@@ -6096,7 +6096,7 @@ entry:
   store <2 x ptr> %1, ptr %num_, align 8
   %block_bits_ = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load <2 x i32>, ptr %block_bits, align 8
-  %3 = extractelement <2 x i32> %2, i64 0
+  %3 = load i32, ptr %block_bits, align 8
   %sh_prom5 = zext nneg i32 %3 to i64
   %shl6 = shl nuw i64 1, %sh_prom5
   store i64 %shl6, ptr %block_size_, align 8
@@ -6124,7 +6124,7 @@ entry:
   %block_size_ = getelementptr inbounds i8, ptr %self, i64 8
   %block_mask_ = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load <2 x i32>, ptr %block_bits, align 8
-  %2 = extractelement <2 x i32> %1, i64 0
+  %2 = load i32, ptr %block_bits, align 8
   %sh_prom5 = zext nneg i32 %2 to i64
   %shl6 = shl nuw i64 1, %sh_prom5
   store i64 %shl6, ptr %block_size_, align 8
@@ -6739,7 +6739,7 @@ if.then:                                          ; preds = %entry
   %block_size_.i = getelementptr inbounds i8, ptr %self, i64 8
   %block_mask_.i = getelementptr inbounds i8, ptr %self, i64 24
   %7 = load <2 x i32>, ptr %block_bits.i, align 8, !noalias !121
-  %8 = extractelement <2 x i32> %7, i64 0
+  %8 = load i32, ptr %block_bits.i, align 8, !noalias !121
   %sh_prom5.i = zext nneg i32 %8 to i64
   %shl6.i = shl nuw i64 1, %sh_prom5.i
   store i64 %shl6.i, ptr %block_size_.i, align 8, !alias.scope !121

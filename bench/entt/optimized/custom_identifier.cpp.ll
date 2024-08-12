@@ -5209,19 +5209,18 @@ _ZN4entt8any_castINS_14basic_registryI9entity_idSaIS2_EEELm16ELm8EEEPT_PNS_9basi
   store ptr null, ptr %agg.tmp, align 8, !tbaa !125
   %info.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %info2.i = getelementptr inbounds i8, ptr %value, i64 16
-  %11 = load ptr, ptr %info2.i, align 8, !tbaa !145
-  store ptr %11, ptr %info.i, align 8, !tbaa !145
   %vtable.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %vtable3.i = getelementptr inbounds i8, ptr %value, i64 24
-  %12 = load ptr, ptr %vtable3.i, align 8, !tbaa !147
-  store ptr %12, ptr %vtable.i, align 8, !tbaa !147
+  %11 = load ptr, ptr %vtable3.i, align 8, !tbaa !147
+  %12 = load <2 x ptr>, ptr %info2.i, align 8, !tbaa !20
+  store <2 x ptr> %12, ptr %info.i, align 8, !tbaa !20
   %mode.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   store i8 %9, ptr %mode.i, align 8, !tbaa !148
-  %tobool.not.i = icmp eq ptr %12, null
+  %tobool.not.i = icmp eq ptr %11, null
   br i1 %tobool.not.i, label %_ZN4entt9basic_anyILm16ELm8EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4entt8any_castINS_14basic_registryI9entity_idSaIS2_EEELm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit
-  %call.i = invoke noundef ptr %12(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
+  %call.i = invoke noundef ptr %11(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
           to label %_ZN4entt9basic_anyILm16ELm8EEC2EOS1_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -8264,19 +8263,18 @@ _ZN4entt8any_castINS_14basic_registryI9entity_idSaIS2_EEELm16ELm8EEEPT_PNS_9basi
   store ptr null, ptr %agg.tmp, align 8, !tbaa !125
   %info.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %info2.i = getelementptr inbounds i8, ptr %value, i64 16
-  %11 = load ptr, ptr %info2.i, align 8, !tbaa !145
-  store ptr %11, ptr %info.i, align 8, !tbaa !145
   %vtable.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %vtable3.i = getelementptr inbounds i8, ptr %value, i64 24
-  %12 = load ptr, ptr %vtable3.i, align 8, !tbaa !147
-  store ptr %12, ptr %vtable.i, align 8, !tbaa !147
+  %11 = load ptr, ptr %vtable3.i, align 8, !tbaa !147
+  %12 = load <2 x ptr>, ptr %info2.i, align 8, !tbaa !20
+  store <2 x ptr> %12, ptr %info.i, align 8, !tbaa !20
   %mode.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   store i8 %9, ptr %mode.i, align 8, !tbaa !148
-  %tobool.not.i = icmp eq ptr %12, null
+  %tobool.not.i = icmp eq ptr %11, null
   br i1 %tobool.not.i, label %_ZN4entt9basic_anyILm16ELm8EED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4entt8any_castINS_14basic_registryI9entity_idSaIS2_EEELm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit
-  %call.i = invoke noundef ptr %12(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
+  %call.i = invoke noundef ptr %11(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef nonnull %agg.tmp)
           to label %_ZN4entt9basic_anyILm16ELm8EEC2EOS1_.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i

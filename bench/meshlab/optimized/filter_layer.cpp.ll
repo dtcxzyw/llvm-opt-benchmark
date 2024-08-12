@@ -13486,12 +13486,12 @@ _ZN3vcg8Matrix44IfEC2EPKf.exit.preheader:         ; preds = %2712
   %2738 = getelementptr inbounds i8, ptr %.sroa.02417.02764, i64 72
   %2739 = fneg float %2737
   %2740 = getelementptr inbounds i8, ptr %.sroa.02417.02764, i64 136
-  %2741 = load <2 x float>, ptr %201, align 8
-  %2742 = load <2 x float>, ptr %2646, align 4
-  %2743 = extractelement <2 x float> %2742, i64 0
-  store float %2743, ptr %2645, align 4
-  %2744 = extractelement <2 x float> %2741, i64 1
-  store float %2744, ptr %2646, align 4
+  %2741 = load float, ptr %2645, align 4
+  %2742 = load <2 x float>, ptr %201, align 8
+  %2743 = load <2 x float>, ptr %2646, align 4
+  %2744 = extractelement <2 x float> %2743, i64 0
+  store float %2744, ptr %2645, align 4
+  store float %2741, ptr %2646, align 4
   %2745 = load <2 x float>, ptr %2648, align 8
   %2746 = extractelement <2 x float> %2745, i64 0
   store float %2746, ptr %2647, align 8
@@ -13501,10 +13501,10 @@ _ZN3vcg8Matrix44IfEC2EPKf.exit.preheader:         ; preds = %2712
   store float %2730, ptr %2650, align 4
   %2748 = insertelement <2 x float> poison, float %2732, i64 0
   %2749 = shufflevector <2 x float> %2748, <2 x float> poison, <2 x i32> zeroinitializer
-  %2750 = fmul <2 x float> %2749, %2742
+  %2750 = fmul <2 x float> %2749, %2743
   %2751 = insertelement <2 x float> poison, float %2731, i64 0
   %2752 = shufflevector <2 x float> %2751, <2 x float> poison, <2 x i32> zeroinitializer
-  %2753 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %2741, <2 x float> %2752, <2 x float> %2750)
+  %2753 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %2742, <2 x float> %2752, <2 x float> %2750)
   %2754 = insertelement <2 x float> poison, float %2733, i64 0
   %2755 = shufflevector <2 x float> %2754, <2 x float> poison, <2 x i32> zeroinitializer
   %2756 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %2745, <2 x float> %2755, <2 x float> %2753)

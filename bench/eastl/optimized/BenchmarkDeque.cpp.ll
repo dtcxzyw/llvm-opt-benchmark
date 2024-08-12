@@ -125,14 +125,12 @@ for.cond.preheader:                               ; preds = %for.body.i
   %_M_last.i.i.i.i391 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
   %_M_node.i.i.i.i392 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 24
   %_M_first.i1.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 8
-  %_M_last.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 16
   %_M_node.i5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i, i64 24
   %tv_nsec.i.i.i.i428 = getelementptr inbounds i8, ptr %ts.i.i.i.i421, i64 8
   %mpBegin.i.i.i.i465 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i419, i64 8
   %mpEnd.i.i.i.i466 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i419, i64 16
   %mpCurrentArrayPtr.i.i.i.i467 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i419, i64 24
   %mpBegin.i1.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i420, i64 8
-  %mpEnd.i3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i420, i64 16
   %mpCurrentArrayPtr.i5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i.i.i420, i64 24
   %tv_nsec.i.i.i.i554 = getelementptr inbounds i8, ptr %ts.i.i.i.i546, i64 8
   %tv_nsec.i.i.i.i624 = getelementptr inbounds i8, ptr %ts.i.i.i.i617, i64 8
@@ -1695,23 +1693,23 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i363:        ; preds = %_ZN2EA4StdC9Stopwat
   %181 = load ptr, ptr %_M_last.i.i.i.i, align 8, !noalias !62
   %182 = load ptr, ptr %_M_node.i.i.i.i, align 8, !noalias !62
   %183 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !65
-  %184 = load ptr, ptr %_M_first.i11.i.i.i, align 8, !noalias !65
-  %185 = load ptr, ptr %_M_last.i13.i.i.i, align 8, !noalias !65
-  %186 = load ptr, ptr %_M_node.i10.i.i.i, align 8, !noalias !65
+  %184 = load <2 x ptr>, ptr %_M_first.i11.i.i.i, align 8, !noalias !65
+  %185 = load ptr, ptr %_M_node.i10.i.i.i, align 8, !noalias !65
   %cmp.i.i.not.i.i369 = icmp eq ptr %179, %183
   br i1 %cmp.i.i.not.i.i369, label %_ZN5eastl10quick_sortISt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS3_PS3_ENS2_9VPCompareEEEvT_S8_T0_.exit.i, label %if.then.i.i370
 
 if.then.i.i370:                                   ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i363
-  %sub.ptr.lhs.cast.i.i.i371 = ptrtoint ptr %186 to i64
+  %186 = load ptr, ptr %_M_first.i11.i.i.i, align 8, !noalias !65
+  %sub.ptr.lhs.cast.i.i.i371 = ptrtoint ptr %185 to i64
   %sub.ptr.rhs.cast.i.i.i372 = ptrtoint ptr %182 to i64
   %sub.ptr.sub.i.i.i373 = sub i64 %sub.ptr.lhs.cast.i.i.i371, %sub.ptr.rhs.cast.i.i.i372
   %sub.ptr.div.i.i.i374 = ashr exact i64 %sub.ptr.sub.i.i.i373, 3
-  %tobool.i.i.i375 = icmp ne ptr %186, null
+  %tobool.i.i.i375 = icmp ne ptr %185, null
   %conv.neg.i.i.i376 = sext i1 %tobool.i.i.i375 to i64
   %sub.i.i.i377 = add nsw i64 %sub.ptr.div.i.i.i374, %conv.neg.i.i.i376
   %mul.i.i.i378 = shl nsw i64 %sub.i.i.i377, 6
   %sub.ptr.lhs.cast3.i.i.i379 = ptrtoint ptr %183 to i64
-  %sub.ptr.rhs.cast4.i.i.i380 = ptrtoint ptr %184 to i64
+  %sub.ptr.rhs.cast4.i.i.i380 = ptrtoint ptr %186 to i64
   %sub.ptr.sub5.i.i.i381 = sub i64 %sub.ptr.lhs.cast3.i.i.i379, %sub.ptr.rhs.cast4.i.i.i380
   %sub.ptr.div6.i.i.i382 = ashr exact i64 %sub.ptr.sub5.i.i.i381, 3
   %sub.ptr.lhs.cast8.i.i.i383 = ptrtoint ptr %181 to i64
@@ -1745,9 +1743,8 @@ _ZN5eastl8Internal4Log2IlEET_S2_.exit.i.i:        ; preds = %for.end.loopexit.i.
   store ptr %181, ptr %_M_last.i.i.i.i391, align 8
   store ptr %182, ptr %_M_node.i.i.i.i392, align 8
   store ptr %183, ptr %agg.tmp1.i.i.i, align 8
-  store ptr %184, ptr %_M_first.i1.i.i.i, align 8
-  store ptr %185, ptr %_M_last.i3.i.i.i, align 8
-  store ptr %186, ptr %_M_node.i5.i.i.i, align 8
+  store <2 x ptr> %184, ptr %_M_first.i1.i.i.i, align 8
+  store ptr %185, ptr %_M_node.i5.i.i.i, align 8
   call fastcc void @_ZN5eastl8Internal22quick_sort_impl_helperISt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS4_PS4_ElNS3_9VPCompareEKS4_EEvT_SA_T0_T1_(ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i, i64 noundef %i.0.lcssa.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i)
@@ -2204,19 +2201,19 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit.i431:        ; preds = %_ZN2EA4StdC9Stopwat
   %231 = load ptr, ptr %mpEnd.i.i.i.i, align 8, !noalias !82
   %232 = load ptr, ptr %mpCurrentArrayPtr.i.i.i.i, align 8, !noalias !82
   %233 = load ptr, ptr %mItEnd.i.i, align 8, !noalias !85
-  %234 = load ptr, ptr %mpBegin.i11.i.i.i, align 8, !noalias !85
-  %235 = load ptr, ptr %mpEnd.i13.i.i.i, align 8, !noalias !85
-  %236 = load ptr, ptr %mpCurrentArrayPtr.i10.i.i.i, align 8, !noalias !85
+  %234 = load <2 x ptr>, ptr %mpBegin.i11.i.i.i, align 8, !noalias !85
+  %235 = load ptr, ptr %mpCurrentArrayPtr.i10.i.i.i, align 8, !noalias !85
   %cmp.i.not.i.i438 = icmp eq ptr %229, %233
   br i1 %cmp.i.not.i.i438, label %_ZN5eastl10quick_sortINS_13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS3_RS3_Lj128EEENS2_9VPCompareEEEvT_S8_T0_.exit.i, label %if.then.i.i439
 
 if.then.i.i439:                                   ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i431
-  %sub.ptr.lhs.cast.i.i.i440 = ptrtoint ptr %236 to i64
+  %236 = load ptr, ptr %mpBegin.i11.i.i.i, align 8, !noalias !85
+  %sub.ptr.lhs.cast.i.i.i440 = ptrtoint ptr %235 to i64
   %sub.ptr.rhs.cast.i.i.i441 = ptrtoint ptr %232 to i64
   %sub.ptr.sub.i.i.i442 = sub i64 %sub.ptr.lhs.cast.i.i.i440, %sub.ptr.rhs.cast.i.i.i441
   %sub.i.i.i443 = shl i64 %sub.ptr.sub.i.i.i442, 4
   %sub.ptr.lhs.cast2.i.i.i444 = ptrtoint ptr %233 to i64
-  %sub.ptr.rhs.cast3.i.i.i445 = ptrtoint ptr %234 to i64
+  %sub.ptr.rhs.cast3.i.i.i445 = ptrtoint ptr %236 to i64
   %sub.ptr.sub4.i.i.i446 = sub i64 %sub.ptr.lhs.cast2.i.i.i444, %sub.ptr.rhs.cast3.i.i.i445
   %sub.ptr.div5.i.i.i447 = ashr exact i64 %sub.ptr.sub4.i.i.i446, 3
   %sub.ptr.lhs.cast7.i.i.i448 = ptrtoint ptr %231 to i64
@@ -2251,9 +2248,8 @@ _ZN5eastl8Internal4Log2IlEET_S2_.exit.i.i463:     ; preds = %for.end.loopexit.i.
   store ptr %231, ptr %mpEnd.i.i.i.i466, align 8
   store ptr %232, ptr %mpCurrentArrayPtr.i.i.i.i467, align 8
   store ptr %233, ptr %agg.tmp1.i.i.i420, align 8
-  store ptr %234, ptr %mpBegin.i1.i.i.i, align 8
-  store ptr %235, ptr %mpEnd.i3.i.i.i, align 8
-  store ptr %236, ptr %mpCurrentArrayPtr.i5.i.i.i, align 8
+  store <2 x ptr> %234, ptr %mpBegin.i1.i.i.i, align 8
+  store ptr %235, ptr %mpCurrentArrayPtr.i5.i.i.i, align 8
   call fastcc void @_ZN5eastl8Internal22quick_sort_impl_helperINS_13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS4_RS4_Lj128EEElNS3_9VPCompareEKS4_EEvT_SA_T0_T1_(ptr noundef nonnull %agg.tmp.i.i.i419, ptr noundef nonnull %agg.tmp1.i.i.i420, i64 noundef %i.0.lcssa.i.i.i464)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i419)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i.i.i420)

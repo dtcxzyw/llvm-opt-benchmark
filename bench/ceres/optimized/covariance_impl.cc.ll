@@ -74447,8 +74447,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(72) ptr @_ZN5
 .noexc:                                           ; preds = %18
   unreachable
 
-common.resume:                                    ; preds = %50, %20
-  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %51, %50 ]
+common.resume:                                    ; preds = %48, %20
+  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %49, %48 ]
   resume { ptr, i32 } %common.resume.op
 
 20:                                               ; preds = %18
@@ -74461,61 +74461,58 @@ common.resume:                                    ; preds = %50, %20
 _ZN5Eigen12SparseMatrixIdLi0EiEC2Ell.exit:        ; preds = %2
   store i64 %11, ptr %12, align 8
   invoke void @_ZN5Eigen8internal26permutation_matrix_productINS_12SparseMatrixIdLi0EiEELi2ELb0ENS_11SparseShapeEE3runIS3_NS_17PermutationMatrixILin1ELin1EiEEEEvRT_RKT0_RKS3_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(72) %5)
-          to label %23 unwind label %50
+          to label %23 unwind label %48
 
 23:                                               ; preds = %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ell.exit
   %24 = getelementptr inbounds i8, ptr %3, i64 32
   %25 = getelementptr inbounds i8, ptr %0, i64 24
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  %28 = load <2 x i64>, ptr %12, align 8
-  %29 = load <2 x i64>, ptr %27, align 8
-  store <2 x i64> %28, ptr %27, align 8
-  store <2 x i64> %29, ptr %12, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
-  %31 = load <2 x ptr>, ptr %15, align 8
-  store ptr %26, ptr %15, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = load <2 x i64>, ptr %12, align 8
+  %28 = load <2 x i64>, ptr %26, align 8
+  store <2 x i64> %27, ptr %26, align 8
+  store <2 x i64> %28, ptr %12, align 8
+  %29 = load <2 x ptr>, ptr %15, align 8
+  %30 = load <2 x ptr>, ptr %25, align 8
+  %31 = load ptr, ptr %25, align 8
+  store <2 x ptr> %29, ptr %25, align 8
+  store <2 x ptr> %30, ptr %15, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 40
   %33 = getelementptr inbounds i8, ptr %3, i64 40
-  %34 = getelementptr inbounds i8, ptr %0, i64 48
-  %35 = getelementptr inbounds i8, ptr %3, i64 48
-  %36 = load ptr, ptr %34, align 8
-  %37 = load <2 x ptr>, ptr %33, align 8
-  %38 = load <2 x ptr>, ptr %30, align 8
-  store <2 x ptr> %31, ptr %25, align 8
-  store <2 x ptr> %38, ptr %24, align 8
-  store <2 x ptr> %37, ptr %32, align 8
-  store ptr %36, ptr %35, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
-  %40 = load <2 x i64>, ptr %14, align 8
-  %41 = load <2 x i64>, ptr %39, align 8
-  store <2 x i64> %40, ptr %39, align 8
-  store <2 x i64> %41, ptr %14, align 8
-  call void @free(ptr noundef %26) #28
-  %42 = load ptr, ptr %24, align 8
-  call void @free(ptr noundef %42) #28
-  %43 = load ptr, ptr %33, align 8
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %46, label %45
+  %34 = getelementptr inbounds i8, ptr %3, i64 48
+  %35 = load <2 x ptr>, ptr %33, align 8
+  %36 = load <2 x ptr>, ptr %32, align 8
+  store <2 x ptr> %35, ptr %32, align 8
+  store <2 x ptr> %36, ptr %33, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 56
+  %38 = load <2 x i64>, ptr %14, align 8
+  %39 = load <2 x i64>, ptr %37, align 8
+  store <2 x i64> %38, ptr %37, align 8
+  store <2 x i64> %39, ptr %14, align 8
+  call void @free(ptr noundef %31) #28
+  %40 = load ptr, ptr %24, align 8
+  call void @free(ptr noundef %40) #28
+  %41 = load ptr, ptr %33, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %44, label %43
 
-45:                                               ; preds = %23
-  call void @_ZdaPv(ptr noundef nonnull %43) #30
-  br label %46
+43:                                               ; preds = %23
+  call void @_ZdaPv(ptr noundef nonnull %41) #30
+  br label %44
 
-46:                                               ; preds = %45, %23
-  %47 = load ptr, ptr %35, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %_ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit, label %49
+44:                                               ; preds = %43, %23
+  %45 = load ptr, ptr %34, align 8
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %_ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit, label %47
 
-49:                                               ; preds = %46
-  call void @_ZdaPv(ptr noundef nonnull %47) #30
+47:                                               ; preds = %44
+  call void @_ZdaPv(ptr noundef nonnull %45) #30
   br label %_ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit
 
-_ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit:         ; preds = %46, %49
+_ZN5Eigen12SparseMatrixIdLi0EiED2Ev.exit:         ; preds = %44, %47
   ret ptr %0
 
-50:                                               ; preds = %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ell.exit
-  %51 = landingpad { ptr, i32 }
+48:                                               ; preds = %_ZN5Eigen12SparseMatrixIdLi0EiEC2Ell.exit
+  %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5Eigen12SparseMatrixIdLi0EiED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #28
   br label %common.resume

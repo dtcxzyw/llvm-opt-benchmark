@@ -1328,36 +1328,37 @@ if.end:                                           ; preds = %entry
   %cluster_size3.i = getelementptr inbounds i8, ptr %0, i64 12
   %table_size5.i = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load <2 x i32>, ptr %cluster_size.i, align 4
+  %5 = load i32, ptr %cluster_size.i, align 4
   store <2 x i32> %4, ptr %cluster_size3.i, align 1
   %header_size.i = getelementptr inbounds i8, ptr %le_header, i64 12
-  %5 = load i32, ptr %header_size.i, align 4
+  %6 = load i32, ptr %header_size.i, align 4
   %header_size7.i = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %5, ptr %header_size7.i, align 1
+  store i32 %6, ptr %header_size7.i, align 1
   %features.i = getelementptr inbounds i8, ptr %le_header, i64 16
-  %6 = load i64, ptr %features.i, align 4
+  %7 = load i64, ptr %features.i, align 4
   %features9.i = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %6, ptr %features9.i, align 1
+  store i64 %7, ptr %features9.i, align 1
   %compat_features.i = getelementptr inbounds i8, ptr %le_header, i64 24
-  %7 = load i64, ptr %compat_features.i, align 4
+  %8 = load i64, ptr %compat_features.i, align 4
   %compat_features11.i = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %7, ptr %compat_features11.i, align 1
+  store i64 %8, ptr %compat_features11.i, align 1
   %autoclear_features.i = getelementptr inbounds i8, ptr %le_header, i64 32
-  %8 = load i64, ptr %autoclear_features.i, align 4
+  %9 = load i64, ptr %autoclear_features.i, align 4
   %autoclear_features13.i = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %8, ptr %autoclear_features13.i, align 1
+  store i64 %9, ptr %autoclear_features13.i, align 1
   %l1_table_offset.i = getelementptr inbounds i8, ptr %le_header, i64 40
-  %9 = load i64, ptr %l1_table_offset.i, align 4
+  %10 = load i64, ptr %l1_table_offset.i, align 4
   %l1_table_offset15.i = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %9, ptr %l1_table_offset15.i, align 1
+  store i64 %10, ptr %l1_table_offset15.i, align 1
   %image_size.i = getelementptr inbounds i8, ptr %le_header, i64 48
-  %10 = load i64, ptr %image_size.i, align 4
+  %11 = load i64, ptr %image_size.i, align 4
   %image_size17.i = getelementptr inbounds i8, ptr %0, i64 56
-  store i64 %10, ptr %image_size17.i, align 1
+  store i64 %11, ptr %image_size17.i, align 1
   %backing_filename_offset.i = getelementptr inbounds i8, ptr %le_header, i64 56
   %backing_filename_offset19.i = getelementptr inbounds i8, ptr %0, i64 64
   %backing_filename_size21.i = getelementptr inbounds i8, ptr %0, i64 68
-  %11 = load <2 x i32>, ptr %backing_filename_offset.i, align 4
-  store <2 x i32> %11, ptr %backing_filename_offset19.i, align 1
+  %12 = load <2 x i32>, ptr %backing_filename_offset.i, align 4
+  store <2 x i32> %12, ptr %backing_filename_offset19.i, align 1
   %cmp2.not = icmp eq i32 %3, 4474193
   br i1 %cmp2.not, label %if.end4, label %if.then3
 
@@ -1366,7 +1367,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %and = and i64 %6, -8
+  %and = and i64 %7, -8
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %if.end10, label %if.then6
 
@@ -1375,11 +1376,10 @@ if.then6:                                         ; preds = %if.end4
   br label %return
 
 if.end10:                                         ; preds = %if.end4
-  %12 = extractelement <2 x i32> %4, i64 0
-  %13 = add i32 %12, -4096
+  %13 = add i32 %5, -4096
   %or.cond.i = icmp ult i32 %13, 67104769
-  %sub.i = add nuw nsw i32 %12, 134217727
-  %and.i = and i32 %sub.i, %12
+  %sub.i = add nuw nsw i32 %5, 134217727
+  %and.i = and i32 %sub.i, %5
   %tobool.not.i = icmp eq i32 %and.i, 0
   %retval.0.i = select i1 %or.cond.i, i1 %tobool.not.i, i1 false
   br i1 %retval.0.i, label %if.end14, label %if.then13

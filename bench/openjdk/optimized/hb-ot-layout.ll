@@ -79075,10 +79075,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT6Layout9GSUB_impl11SubstLoo
 _ZNK2OT6Layout4GSUB10get_lookupEj.exit:           ; preds = %2, %21, %40
   %.0.i.i = phi ptr [ %.0.i.i.i.i.i, %40 ], [ @_hb_NullPool, %21 ], [ @_hb_NullPool, %2 ]
   %54 = getelementptr inbounds i8, ptr %0, i64 308
-  %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 304
-  %57 = load i32, ptr %56, align 8
-  store i32 %1, ptr %56, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 304
+  %56 = load i32, ptr %54, align 4
+  %57 = load <2 x i32>, ptr %55, align 8
+  store i32 %1, ptr %55, align 8
   %58 = getelementptr inbounds i8, ptr %.0.i.i, i64 2
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i32
@@ -79254,15 +79254,14 @@ _ZNR9hb_iter_tI13hb_map_iter_tI10hb_array_tIKN2OT33hb_accelerate_subtables_conte
 
 "_ZorI13hb_map_iter_tI10hb_array_tIKN2OT33hb_accelerate_subtables_context_t15hb_applicable_tEEZNKS2_33hb_ot_layout_lookup_accelerator_t5applyEPNS2_21hb_ot_apply_context_tEjbEUlRS5_E0_L24hb_function_sortedness_t0ELPv0EERK4$_34TnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSJ_6item_tEEE5valueEvE4typeELSD_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISJ_Efp_EEEOSJ_OSO_.exit": ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tI10hb_array_tIKN2OT33hb_accelerate_subtables_context_t15hb_applicable_tEEZNKS2_33hb_ot_layout_lookup_accelerator_t5applyEPNS2_21hb_ot_apply_context_tEjbEUlRS5_E0_L24hb_function_sortedness_t0ELPv0EEbEppEv.exit.i.i, %_ZN9hb_iter_tI13hb_map_iter_tI10hb_array_tIKN2OT33hb_accelerate_subtables_context_t15hb_applicable_tEEZNKS2_33hb_ot_layout_lookup_accelerator_t5applyEPNS2_21hb_ot_apply_context_tEjbEUlRS5_E0_L24hb_function_sortedness_t0ELPv0EEbEdeEv.exit.i.i, %130, %_ZNK2OT6Lookup9get_propsEv.exit
   %175 = phi i1 [ false, %_ZNK2OT6Lookup9get_propsEv.exit ], [ false, %130 ], [ false, %_ZNR9hb_iter_tI13hb_map_iter_tI10hb_array_tIKN2OT33hb_accelerate_subtables_context_t15hb_applicable_tEEZNKS2_33hb_ot_layout_lookup_accelerator_t5applyEPNS2_21hb_ot_apply_context_tEjbEUlRS5_E0_L24hb_function_sortedness_t0ELPv0EEbEppEv.exit.i.i ], [ true, %_ZN9hb_iter_tI13hb_map_iter_tI10hb_array_tIKN2OT33hb_accelerate_subtables_context_t15hb_applicable_tEEZNKS2_33hb_ot_layout_lookup_accelerator_t5applyEPNS2_21hb_ot_apply_context_tEjbEUlRS5_E0_L24hb_function_sortedness_t0ELPv0EEbEdeEv.exit.i.i ]
-  store i32 %57, ptr %56, align 8
-  store i32 %55, ptr %54, align 4
+  store <2 x i32> %57, ptr %55, align 8
   store ptr %0, ptr %88, align 8
   %176 = load ptr, ptr %89, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 88
   %178 = load i32, ptr %177, align 8
   store i32 %178, ptr %93, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %95, i8 0, i64 24, i1 false)
-  store i32 %55, ptr %94, align 8
+  store i32 %56, ptr %94, align 8
   %179 = load i32, ptr %96, align 8
   %180 = icmp eq i32 %179, 1
   %181 = zext i1 %180 to i8
@@ -79282,7 +79281,7 @@ _ZNR9hb_iter_tI13hb_map_iter_tI10hb_array_tIKN2OT33hb_accelerate_subtables_conte
   %189 = load i32, ptr %177, align 8
   store i32 %189, ptr %117, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, i8 0, i64 24, i1 false)
-  store i32 %55, ptr %118, align 8
+  store i32 %56, ptr %118, align 8
   %190 = load i8, ptr %120, align 1
   %191 = and i8 %190, 1
   %.sink.i32 = select i1 %180, i8 1, i8 %191
@@ -79365,10 +79364,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2OT6Layout9GPOS_impl9PosLookup
 _ZNK2OT6Layout4GPOS10get_lookupEj.exit:           ; preds = %2, %21, %40
   %.0.i.i = phi ptr [ %.0.i.i.i.i.i, %40 ], [ @_hb_NullPool, %21 ], [ @_hb_NullPool, %2 ]
   %54 = getelementptr inbounds i8, ptr %0, i64 308
-  %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i8, ptr %0, i64 304
-  %57 = load i32, ptr %56, align 8
-  store i32 %1, ptr %56, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 304
+  %56 = load i32, ptr %54, align 4
+  %57 = load <2 x i32>, ptr %55, align 8
+  store i32 %1, ptr %55, align 8
   %58 = getelementptr inbounds i8, ptr %.0.i.i, i64 2
   %59 = load i8, ptr %58, align 1
   %60 = zext i8 %59 to i32
@@ -79544,15 +79543,14 @@ _ZNR9hb_iter_tI13hb_map_iter_tI10hb_array_tIKN2OT33hb_accelerate_subtables_conte
 
 "_ZorI13hb_map_iter_tI10hb_array_tIKN2OT33hb_accelerate_subtables_context_t15hb_applicable_tEEZNKS2_33hb_ot_layout_lookup_accelerator_t5applyEPNS2_21hb_ot_apply_context_tEjbEUlRS5_E0_L24hb_function_sortedness_t0ELPv0EERK4$_34TnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSJ_6item_tEEE5valueEvE4typeELSD_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISJ_Efp_EEEOSJ_OSO_.exit": ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tI10hb_array_tIKN2OT33hb_accelerate_subtables_context_t15hb_applicable_tEEZNKS2_33hb_ot_layout_lookup_accelerator_t5applyEPNS2_21hb_ot_apply_context_tEjbEUlRS5_E0_L24hb_function_sortedness_t0ELPv0EEbEppEv.exit.i.i, %_ZN9hb_iter_tI13hb_map_iter_tI10hb_array_tIKN2OT33hb_accelerate_subtables_context_t15hb_applicable_tEEZNKS2_33hb_ot_layout_lookup_accelerator_t5applyEPNS2_21hb_ot_apply_context_tEjbEUlRS5_E0_L24hb_function_sortedness_t0ELPv0EEbEdeEv.exit.i.i, %130, %_ZNK2OT6Lookup9get_propsEv.exit
   %175 = phi i1 [ false, %_ZNK2OT6Lookup9get_propsEv.exit ], [ false, %130 ], [ false, %_ZNR9hb_iter_tI13hb_map_iter_tI10hb_array_tIKN2OT33hb_accelerate_subtables_context_t15hb_applicable_tEEZNKS2_33hb_ot_layout_lookup_accelerator_t5applyEPNS2_21hb_ot_apply_context_tEjbEUlRS5_E0_L24hb_function_sortedness_t0ELPv0EEbEppEv.exit.i.i ], [ true, %_ZN9hb_iter_tI13hb_map_iter_tI10hb_array_tIKN2OT33hb_accelerate_subtables_context_t15hb_applicable_tEEZNKS2_33hb_ot_layout_lookup_accelerator_t5applyEPNS2_21hb_ot_apply_context_tEjbEUlRS5_E0_L24hb_function_sortedness_t0ELPv0EEbEdeEv.exit.i.i ]
-  store i32 %57, ptr %56, align 8
-  store i32 %55, ptr %54, align 4
+  store <2 x i32> %57, ptr %55, align 8
   store ptr %0, ptr %88, align 8
   %176 = load ptr, ptr %89, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 88
   %178 = load i32, ptr %177, align 8
   store i32 %178, ptr %93, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %95, i8 0, i64 24, i1 false)
-  store i32 %55, ptr %94, align 8
+  store i32 %56, ptr %94, align 8
   %179 = load i32, ptr %96, align 8
   %180 = icmp eq i32 %179, 1
   %181 = zext i1 %180 to i8
@@ -79572,7 +79570,7 @@ _ZNR9hb_iter_tI13hb_map_iter_tI10hb_array_tIKN2OT33hb_accelerate_subtables_conte
   %189 = load i32, ptr %177, align 8
   store i32 %189, ptr %117, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, i8 0, i64 24, i1 false)
-  store i32 %55, ptr %118, align 8
+  store i32 %56, ptr %118, align 8
   %190 = load i8, ptr %120, align 1
   %191 = and i8 %190, 1
   %.sink.i32 = select i1 %180, i8 1, i8 %191

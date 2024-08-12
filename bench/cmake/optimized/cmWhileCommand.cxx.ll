@@ -422,14 +422,14 @@ _ZSt5equalIN9__gnu_cxx17__normal_iteratorIPK18cmListFileArgumentSt6vectorIS2_SaI
 define dso_local noundef zeroext i1 @_ZN22cmWhileFunctionBlocker6ReplayESt6vectorI18cmListFileFunctionSaIS1_EER17cmExecutionStatus(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull align 8 dereferenceable(80) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x %"struct.std::pair"], align 8
   %5 = alloca %class.cmAlphaNum, align 8
-  %6 = alloca %class.cmListFileBacktrace, align 8
+  %6 = alloca %class.cmListFileBacktrace, align 16
   %7 = alloca %class.cmListFileBacktrace, align 8
   %8 = alloca %class.cmListFileContext, align 8
   %9 = alloca %"class.std::vector.174", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca i32, align 4
   %12 = alloca %class.cmConditionEvaluator, align 8
-  %13 = alloca %class.cmListFileBacktrace, align 8
+  %13 = alloca %class.cmListFileBacktrace, align 16
   %14 = alloca %class.cmExecutionStatus, align 8
   %15 = alloca %"class.std::optional", align 8
   %16 = alloca %"class.std::vector.76", align 16
@@ -619,17 +619,16 @@ _ZNSt12_Vector_baseI25cmExpandedCommandArgumentSaIS0_EE13_M_deallocateEPS0_m.exi
 
 _ZNSt6vectorI25cmExpandedCommandArgumentSaIS0_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseI25cmExpandedCommandArgumentSaIS0_EE13_M_deallocateEPS0_m.exit.i, %92
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
-  %98 = load ptr, ptr %6, align 8
-  store ptr %98, ptr %13, align 8
-  %99 = getelementptr inbounds i8, ptr %13, i64 8
-  %100 = getelementptr inbounds i8, ptr %6, i64 8
-  %101 = load ptr, ptr %100, align 8
-  store ptr %101, ptr %99, align 8
-  %.not.i.i.i.i.i52 = icmp eq ptr %101, null
+  %98 = getelementptr inbounds i8, ptr %13, i64 8
+  %99 = getelementptr inbounds i8, ptr %6, i64 8
+  %100 = load ptr, ptr %99, align 8
+  %101 = load <2 x ptr>, ptr %6, align 16
+  store <2 x ptr> %101, ptr %13, align 16
+  %.not.i.i.i.i.i52 = icmp eq ptr %100, null
   br i1 %.not.i.i.i.i.i52, label %_ZN19cmListFileBacktraceC2ERKS_.exit, label %102
 
 102:                                              ; preds = %_ZNSt6vectorI25cmExpandedCommandArgumentSaIS0_EE7reserveEm.exit
-  %103 = getelementptr inbounds i8, ptr %101, i64 8
+  %103 = getelementptr inbounds i8, ptr %100, i64 8
   %104 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i53 = icmp eq i8 %104, 0
   br i1 %.not.i.i.i.i.i.i53, label %108, label %105
@@ -649,7 +648,7 @@ _ZN19cmListFileBacktraceC2ERKS_.exit:             ; preds = %_ZNSt6vectorI25cmEx
           to label %110 unwind label %176
 
 110:                                              ; preds = %_ZN19cmListFileBacktraceC2ERKS_.exit
-  %111 = load ptr, ptr %99, align 8
+  %111 = load ptr, ptr %98, align 8
   %.not.i.i.i.i.i54 = icmp eq ptr %111, null
   br i1 %.not.i.i.i.i.i54, label %_ZN19cmListFileBacktraceD2Ev.exit60, label %112
 
@@ -1381,7 +1380,7 @@ _ZSt8_DestroyIP25cmExpandedCommandArgumentS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %
   br label %_ZNSt6vectorI25cmExpandedCommandArgumentSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI25cmExpandedCommandArgumentSaIS0_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP25cmExpandedCommandArgumentS0_EvT_S2_RSaIT0_E.exit.i, %377
-  %378 = load ptr, ptr %100, align 8
+  %378 = load ptr, ptr %99, align 8
   %.not.i.i.i.i.i91 = icmp eq ptr %378, null
   br i1 %.not.i.i.i.i.i91, label %_ZN19cmListFileBacktraceD2Ev.exit97, label %379
 

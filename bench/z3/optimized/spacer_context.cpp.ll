@@ -9618,7 +9618,7 @@ _ZN7obj_refI4expr11ast_managerEC2ERKS2_.exit:     ; preds = %entry, %_ZN11ast_ma
 _ZNK6vectorIP3appLb0EjE8capacityEv.exit.i.i.i:    ; preds = %_ZN7obj_refI4expr11ast_managerEC2ERKS2_.exit
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %5, i64 -8
   %6 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
-  %7 = extractelement <2 x i32> %6, i64 0
+  %7 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %7 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 3
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 8
@@ -25661,7 +25661,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i: ; preds = %_ZN11ast_manager7i
 _ZNK6vectorIP3appLb0EjE8capacityEv.exit.i.i.i.i:  ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i
   %arrayidx.i11.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 -8
   %13 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i, align 4
-  %14 = extractelement <2 x i32> %13, i64 0
+  %14 = load i32, ptr %arrayidx.i11.i.i.i.i, align 4
   %conv.i.i.i.i = zext i32 %14 to i64
   %mul.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 3
   %add.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i, 8
@@ -43445,7 +43445,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad.i, %lp
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6spacer7context10get_answerEv(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(712) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %pr.i = alloca %class.obj_ref.39, align 8
+  %pr.i = alloca %class.obj_ref.39, align 16
   %m_last_result = getelementptr inbounds i8, ptr %this, i64 360
   %0 = load i32, ptr %m_last_result, align 8
   switch i32 %0, label %sw.default [
@@ -43457,17 +43457,15 @@ sw.bb:                                            ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !186)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pr.i)
   call void @_ZNK6spacer7context21get_ground_refutationEv(ptr nonnull sret(%class.obj_ref.39) align 8 %pr.i, ptr noundef nonnull align 8 dereferenceable(712) %this), !noalias !186
-  %1 = load ptr, ptr %pr.i, align 8, !noalias !186
-  %m_manager.i.i = getelementptr inbounds i8, ptr %pr.i, i64 8
-  %2 = load ptr, ptr %m_manager.i.i, align 8, !noalias !186
-  store ptr %1, ptr %agg.result, align 8, !alias.scope !186
-  %m_manager.i1.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %2, ptr %m_manager.i1.i, align 8, !alias.scope !186
-  %tobool.not.i.i.i = icmp eq ptr %1, null
+  %1 = load <2 x ptr>, ptr %pr.i, align 16, !noalias !186
+  %2 = load ptr, ptr %pr.i, align 16, !noalias !186
+  store <2 x ptr> %1, ptr %agg.result, align 8, !alias.scope !186
+  %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZNK6spacer7context13mk_sat_answerEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb
-  %m_ref_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %m_manager.i.i = getelementptr inbounds i8, ptr %pr.i, i64 8
+  %m_ref_count.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %m_ref_count.i.i.i.i.i, align 4, !noalias !186
   %inc.i.i.i.i.i = add i32 %3, 1
   store i32 %inc.i.i.i.i.i, ptr %m_ref_count.i.i.i.i.i, align 4, !noalias !186
@@ -43477,7 +43475,7 @@ if.then.i.i.i.i:                                  ; preds = %sw.bb
   br i1 %cmp.i.i.i.i, label %if.then2.i.i.i.i, label %_ZNK6spacer7context13mk_sat_answerEv.exit
 
 if.then2.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
-  invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %4, ptr noundef nonnull %1)
+  invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %4, ptr noundef nonnull %2)
           to label %_ZNK6spacer7context13mk_sat_answerEv.exit unwind label %terminate.lpad.i.i, !noalias !186
 
 terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i
@@ -52673,7 +52671,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i: ; preds = %_ZN11ast_manager7i
 _ZNK6vectorIP3appLb0EjE8capacityEv.exit.i.i.i.i:  ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.i
   %arrayidx.i11.i.i.i.i = getelementptr inbounds i8, ptr %183, i64 -8
   %184 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i, align 4
-  %185 = extractelement <2 x i32> %184, i64 0
+  %185 = load i32, ptr %arrayidx.i11.i.i.i.i, align 4
   %conv.i.i.i.i = zext i32 %185 to i64
   %mul.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 3
   %add.i.i.i.i287 = add nuw nsw i64 %mul.i.i.i.i, 8

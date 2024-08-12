@@ -6161,7 +6161,7 @@ _ZNSt12_Vector_baseI24cmCustomCommandGeneratorSaIS0_EED2Ev.exit: ; preds = %_ZSt
 define dso_local noundef zeroext i1 @_ZN21cmLocalNinjaGenerator19HasUniqueByproductsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERK19cmListFileBacktrace(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector", align 8
   %5 = alloca %class.cmGeneratorExpression, align 8
-  %6 = alloca %class.cmListFileBacktrace, align 8
+  %6 = alloca %class.cmListFileBacktrace, align 16
   %7 = alloca %"class.std::set", align 8
   %8 = alloca %"class.std::unique_ptr.877", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6173,17 +6173,16 @@ define dso_local noundef zeroext i1 @_ZN21cmLocalNinjaGenerator19HasUniqueByprod
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 120
   %16 = load ptr, ptr %15, align 8
-  %17 = load ptr, ptr %2, align 8
-  store ptr %17, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %18, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %20, null
+  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = load <2 x ptr>, ptr %2, align 8
+  store <2 x ptr> %20, ptr %6, align 16
+  %.not.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i.i, label %_ZN19cmListFileBacktraceC2ERKS_.exit, label %21
 
 21:                                               ; preds = %3
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds i8, ptr %19, i64 8
   %23 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %23, 0
   br i1 %.not.i.i.i.i.i.i, label %27, label %24
@@ -6203,7 +6202,7 @@ _ZN19cmListFileBacktraceC2ERKS_.exit:             ; preds = %3, %24, %27
           to label %29 unwind label %79
 
 29:                                               ; preds = %_ZN19cmListFileBacktraceC2ERKS_.exit
-  %30 = load ptr, ptr %18, align 8
+  %30 = load ptr, ptr %17, align 8
   %.not.i.i.i.i.i34 = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i.i34, label %_ZN19cmListFileBacktraceD2Ev.exit, label %31
 

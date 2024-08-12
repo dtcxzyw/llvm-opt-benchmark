@@ -10767,39 +10767,37 @@ define linkonce_odr dso_local void @_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St1
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
-  %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8
-  %10 = load ptr, ptr %1, align 8
-  store ptr %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
-  %17 = load ptr, ptr %16, align 16
-  store ptr %9, ptr %16, align 16
-  %18 = load <2 x ptr>, ptr %3, align 16
-  store ptr %5, ptr %3, align 16
-  store ptr %7, ptr %15, align 8
-  store <2 x ptr> %18, ptr %1, align 8
-  store ptr %17, ptr %13, align 8
-  %.not.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %19
+  %8 = load ptr, ptr %1, align 8
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = load ptr, ptr %11, align 16
+  %13 = load <2 x ptr>, ptr %0, align 8
+  %14 = load ptr, ptr %0, align 8
+  store ptr %8, ptr %0, align 8
+  %15 = load ptr, ptr %9, align 8
+  store ptr %15, ptr %5, align 8
+  %16 = load ptr, ptr %10, align 8
+  store ptr %16, ptr %6, align 8
+  store ptr %7, ptr %11, align 16
+  %17 = load <2 x ptr>, ptr %3, align 16
+  store <2 x ptr> %13, ptr %3, align 16
+  store <2 x ptr> %17, ptr %1, align 8
+  store ptr %12, ptr %10, align 8
+  %.not.i.i.i = icmp eq ptr %14, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %18
 
-19:                                               ; preds = %2
-  %20 = ptrtoint ptr %9 to i64
-  %21 = ptrtoint ptr %5 to i64
-  %22 = sub i64 %20, %21
-  call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %22) #24
+18:                                               ; preds = %2
+  %19 = ptrtoint ptr %7 to i64
+  %20 = ptrtoint ptr %14 to i64
+  %21 = sub i64 %19, %20
+  call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %21) #24
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
-_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %2, %19
+_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %2, %18
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
   ret void
 }
@@ -11483,51 +11481,48 @@ _ZN7msgpack2v14type3extC2EaPKcj.exit:             ; preds = %_ZNSt6vectorIcSaIcE
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
-  %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %32 = load <2 x ptr>, ptr %6, align 16
-  store <2 x ptr> %32, ptr %2, align 8
-  %33 = load ptr, ptr %20, align 16
-  store ptr %33, ptr %30, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 16
-  %36 = load ptr, ptr %35, align 16
-  store ptr %31, ptr %35, align 16
-  %37 = load <2 x ptr>, ptr %4, align 16
-  store ptr %27, ptr %4, align 16
-  store ptr %29, ptr %34, align 8
-  store <2 x ptr> %37, ptr %6, align 16
-  store ptr %36, ptr %20, align 16
-  %.not.i.i.i.i6 = icmp eq ptr %27, null
-  br i1 %.not.i.i.i.i6, label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, label %38
+  %27 = getelementptr inbounds i8, ptr %2, i64 16
+  %28 = load ptr, ptr %27, align 8
+  %29 = load <2 x ptr>, ptr %6, align 16
+  %30 = load ptr, ptr %20, align 16
+  store ptr %30, ptr %27, align 8
+  %31 = getelementptr inbounds i8, ptr %4, i64 16
+  %32 = load ptr, ptr %31, align 16
+  %33 = load <2 x ptr>, ptr %2, align 8
+  %34 = load ptr, ptr %2, align 8
+  store <2 x ptr> %29, ptr %2, align 8
+  store ptr %28, ptr %31, align 16
+  %35 = load <2 x ptr>, ptr %4, align 16
+  store <2 x ptr> %33, ptr %4, align 16
+  store <2 x ptr> %35, ptr %6, align 16
+  store ptr %32, ptr %20, align 16
+  %.not.i.i.i.i6 = icmp eq ptr %34, null
+  br i1 %.not.i.i.i.i6, label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, label %36
 
-38:                                               ; preds = %_ZN7msgpack2v14type3extC2EaPKcj.exit
-  %39 = ptrtoint ptr %31 to i64
-  %40 = ptrtoint ptr %27 to i64
-  %41 = sub i64 %39, %40
-  call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef %41) #24
+36:                                               ; preds = %_ZN7msgpack2v14type3extC2EaPKcj.exit
+  %37 = ptrtoint ptr %28 to i64
+  %38 = ptrtoint ptr %34 to i64
+  %39 = sub i64 %37, %38
+  call void @_ZdlPvm(ptr noundef nonnull %34, i64 noundef %39) #24
   br label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit
 
-_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; preds = %_ZN7msgpack2v14type3extC2EaPKcj.exit, %38
+_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; preds = %_ZN7msgpack2v14type3extC2EaPKcj.exit, %36
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %42 = load ptr, ptr %6, align 16
-  %.not.i.i.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i.i.i, label %_ZN7msgpack2v14type3extD2Ev.exit, label %43
+  %40 = load ptr, ptr %6, align 16
+  %.not.i.i.i.i = icmp eq ptr %40, null
+  br i1 %.not.i.i.i.i, label %_ZN7msgpack2v14type3extD2Ev.exit, label %41
 
-43:                                               ; preds = %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit
-  %44 = load ptr, ptr %20, align 16
-  %45 = ptrtoint ptr %44 to i64
-  %46 = ptrtoint ptr %42 to i64
-  %47 = sub i64 %45, %46
-  call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef %47) #24
+41:                                               ; preds = %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit
+  %42 = load ptr, ptr %20, align 16
+  %43 = ptrtoint ptr %42 to i64
+  %44 = ptrtoint ptr %40 to i64
+  %45 = sub i64 %43, %44
+  call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %45) #24
   br label %_ZN7msgpack2v14type3extD2Ev.exit
 
-_ZN7msgpack2v14type3extD2Ev.exit:                 ; preds = %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, %43
+_ZN7msgpack2v14type3extD2Ev.exit:                 ; preds = %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, %41
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #23
   ret ptr %1
 }

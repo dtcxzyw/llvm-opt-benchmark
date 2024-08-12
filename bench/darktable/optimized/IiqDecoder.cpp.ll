@@ -5063,7 +5063,7 @@ define hidden void @_ZN8rawspeed10IiqDecoder22decodeMetaDataInternalEPKNS_14Came
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK8rawspeed10IiqDecoder16correctBadColumnEt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::array.152", align 2
-  %4 = alloca %"struct.std::array", align 4
+  %4 = alloca %"struct.std::array", align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !115
   %7 = getelementptr inbounds i8, ptr %6, i64 560
@@ -5120,183 +5120,179 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16correctBadColumnEt(ptr nocapture 
   %50 = getelementptr inbounds i16, ptr %8, i64 %40
   %51 = zext nneg i32 %18 to i64
   %52 = zext nneg i32 %15 to i64
-  %53 = getelementptr inbounds i8, ptr %4, i64 4
-  %54 = getelementptr inbounds i8, ptr %4, i64 8
-  %55 = getelementptr inbounds i8, ptr %4, i64 12
-  br label %56
+  br label %53
 
-.loopexit:                                        ; preds = %180, %2
+.loopexit:                                        ; preds = %178, %2
   ret void
 
-56:                                               ; preds = %180, %31
-  %57 = phi i64 [ 2, %31 ], [ %181, %180 ]
-  %58 = phi ptr [ %6, %31 ], [ %182, %180 ]
-  %59 = getelementptr inbounds i8, ptr %58, i64 64
-  %60 = trunc i64 %57 to i32
-  %61 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %59, i32 noundef %32, i32 noundef %60)
-  %62 = icmp eq i8 %61, 1
-  br i1 %62, label %63, label %130
+53:                                               ; preds = %178, %31
+  %54 = phi i64 [ 2, %31 ], [ %179, %178 ]
+  %55 = phi ptr [ %6, %31 ], [ %180, %178 ]
+  %56 = getelementptr inbounds i8, ptr %55, i64 64
+  %57 = trunc i64 %54 to i32
+  %58 = tail call noundef zeroext i8 @_ZNK8rawspeed16ColorFilterArray10getColorAtEii(ptr noundef nonnull align 8 dereferenceable(32) %56, i32 noundef %32, i32 noundef %57)
+  %59 = icmp eq i8 %58, 1
+  br i1 %59, label %60, label %128
 
-63:                                               ; preds = %56
+60:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #24
-  %64 = add nsw i64 %57, -1
+  %61 = add nsw i64 %54, -1
   tail call void @llvm.assume(i1 %42)
-  %65 = icmp ult i64 %64, %52
-  tail call void @llvm.assume(i1 %65)
-  %66 = mul nuw nsw i64 %64, %51
-  %67 = trunc i64 %66 to i32
-  %68 = add i32 %13, %67
-  %69 = icmp ule i32 %68, %19
-  tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds i16, ptr %8, i64 %66
-  %71 = getelementptr inbounds i16, ptr %70, i64 %43
-  %72 = load i16, ptr %71, align 2, !tbaa !225
-  store i16 %72, ptr %3, align 2, !tbaa !225
-  %73 = zext i16 %72 to i32
-  %74 = add nuw nsw i64 %57, 1
-  %75 = icmp ult i64 %74, %52
+  %62 = icmp ult i64 %61, %52
+  tail call void @llvm.assume(i1 %62)
+  %63 = mul nuw nsw i64 %61, %51
+  %64 = trunc i64 %63 to i32
+  %65 = add i32 %13, %64
+  %66 = icmp ule i32 %65, %19
+  tail call void @llvm.assume(i1 %66)
+  %67 = getelementptr inbounds i16, ptr %8, i64 %63
+  %68 = getelementptr inbounds i16, ptr %67, i64 %43
+  %69 = load i16, ptr %68, align 2, !tbaa !225
+  store i16 %69, ptr %3, align 2, !tbaa !225
+  %70 = add nuw nsw i64 %54, 1
+  %71 = icmp ult i64 %70, %52
+  tail call void @llvm.assume(i1 %71)
+  %72 = mul nuw nsw i64 %70, %51
+  %73 = trunc i64 %72 to i32
+  %74 = add i32 %13, %73
+  %75 = icmp ule i32 %74, %19
   tail call void @llvm.assume(i1 %75)
-  %76 = mul nuw nsw i64 %74, %51
-  %77 = trunc i64 %76 to i32
-  %78 = add i32 %13, %77
-  %79 = icmp ule i32 %78, %19
-  tail call void @llvm.assume(i1 %79)
-  %80 = getelementptr inbounds i16, ptr %8, i64 %76
-  %81 = getelementptr inbounds i16, ptr %80, i64 %43
-  %82 = load i16, ptr %81, align 2, !tbaa !225
-  store i16 %82, ptr %44, align 2, !tbaa !225
-  %83 = zext i16 %82 to i32
-  %84 = add nuw nsw i32 %83, %73
+  %76 = getelementptr inbounds i16, ptr %8, i64 %72
+  %77 = getelementptr inbounds i16, ptr %76, i64 %43
+  %78 = load i16, ptr %77, align 2, !tbaa !225
+  store i16 %78, ptr %44, align 2, !tbaa !225
   tail call void @llvm.assume(i1 %46)
-  %85 = getelementptr inbounds i16, ptr %70, i64 %47
-  %86 = load i16, ptr %85, align 2, !tbaa !225
-  store i16 %86, ptr %48, align 2, !tbaa !225
-  %87 = zext i16 %86 to i32
-  %88 = add nuw nsw i32 %84, %87
-  %89 = getelementptr inbounds i16, ptr %80, i64 %47
-  %90 = load i16, ptr %89, align 2, !tbaa !225
-  store i16 %90, ptr %49, align 2, !tbaa !225
-  %91 = zext i16 %90 to i32
-  %92 = add nuw nsw i32 %88, %91
-  %93 = shl nuw nsw i32 %73, 2
-  %94 = sub nsw i32 %93, %92
-  %95 = tail call i32 @llvm.abs.i32(i32 %94, i1 true)
-  store i32 %95, ptr %4, align 4, !tbaa !20
-  %96 = shl nuw nsw i32 %83, 2
-  %97 = sub nsw i32 %96, %92
-  %98 = tail call i32 @llvm.abs.i32(i32 %97, i1 true)
-  store i32 %98, ptr %53, align 4, !tbaa !20
-  %99 = icmp ult i32 %95, %98
-  %100 = zext i1 %99 to i32
-  %101 = shl nuw nsw i32 %87, 2
-  %102 = sub nsw i32 %101, %92
-  %103 = tail call i32 @llvm.abs.i32(i32 %102, i1 true)
-  store i32 %103, ptr %54, align 4, !tbaa !20
-  %104 = zext i1 %99 to i64
-  %105 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %104
-  %106 = load i32, ptr %105, align 4, !tbaa !20
-  %107 = icmp slt i32 %106, %103
-  %108 = select i1 %107, i32 2, i32 %100
-  %109 = shl nuw nsw i32 %91, 2
-  %110 = sub nsw i32 %109, %92
-  %111 = tail call i32 @llvm.abs.i32(i32 %110, i1 true)
-  store i32 %111, ptr %55, align 4, !tbaa !20
-  %112 = zext nneg i32 %108 to i64
-  %113 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %112
-  %114 = load i32, ptr %113, align 4, !tbaa !20
-  %115 = icmp slt i32 %114, %111
-  %116 = select i1 %115, i32 3, i32 %108
-  %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr inbounds [4 x i16], ptr %3, i64 0, i64 %117
-  %119 = load i16, ptr %118, align 2, !tbaa !225
-  %120 = zext i16 %119 to i32
-  %121 = add nuw nsw i32 %92, 1
-  %122 = sub nsw i32 %121, %120
-  %123 = sdiv i32 %122, 3
-  %124 = trunc i32 %123 to i16
-  %125 = mul nuw nsw i64 %57, %51
-  %126 = trunc i64 %125 to i32
-  %127 = add i32 %13, %126
-  %128 = icmp ule i32 %127, %19
-  tail call void @llvm.assume(i1 %128)
+  %79 = getelementptr inbounds i16, ptr %67, i64 %47
+  %80 = load i16, ptr %79, align 2, !tbaa !225
+  store i16 %80, ptr %48, align 2, !tbaa !225
+  %81 = getelementptr inbounds i16, ptr %76, i64 %47
+  %82 = load i16, ptr %81, align 2, !tbaa !225
+  store i16 %82, ptr %49, align 2, !tbaa !225
+  %83 = zext i16 %82 to i32
+  %84 = insertelement <4 x i16> poison, i16 %69, i64 0
+  %85 = insertelement <4 x i16> %84, i16 %78, i64 1
+  %86 = insertelement <4 x i16> %85, i16 %80, i64 2
+  %87 = insertelement <4 x i16> %86, i16 %82, i64 3
+  %88 = zext <4 x i16> %87 to <4 x i32>
+  %89 = zext i16 %80 to i32
+  %90 = zext i16 %78 to i32
+  %91 = zext i16 %69 to i32
+  %92 = add nuw nsw i32 %90, %91
+  %93 = add nuw nsw i32 %92, %89
+  %94 = add nuw nsw i32 %93, %83
+  %95 = shl nuw nsw <4 x i32> %88, <i32 2, i32 2, i32 2, i32 2>
+  %96 = insertelement <4 x i32> poison, i32 %94, i64 0
+  %97 = shufflevector <4 x i32> %96, <4 x i32> poison, <4 x i32> zeroinitializer
+  %98 = sub nsw <4 x i32> %95, %97
+  %99 = tail call <4 x i32> @llvm.abs.v4i32(<4 x i32> %98, i1 true)
+  %shift = shufflevector <4 x i32> %99, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %100 = icmp ult <4 x i32> %99, %shift
+  %101 = extractelement <4 x i1> %100, i64 0
+  %102 = zext i1 %101 to i32
+  %103 = zext i1 %101 to i64
+  %104 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %103
+  store <4 x i32> %99, ptr %4, align 16, !tbaa !20
+  %105 = load i32, ptr %104, align 4, !tbaa !20
+  %106 = extractelement <4 x i32> %99, i64 2
+  %107 = icmp slt i32 %105, %106
+  %108 = select i1 %107, i32 2, i32 %102
+  %109 = zext nneg i32 %108 to i64
+  %110 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %109
+  %111 = load i32, ptr %110, align 4, !tbaa !20
+  %112 = extractelement <4 x i32> %99, i64 3
+  %113 = icmp slt i32 %111, %112
+  %114 = select i1 %113, i32 3, i32 %108
+  %115 = zext nneg i32 %114 to i64
+  %116 = getelementptr inbounds [4 x i16], ptr %3, i64 0, i64 %115
+  %117 = load i16, ptr %116, align 2, !tbaa !225
+  %118 = zext i16 %117 to i32
+  %119 = add nuw nsw i32 %94, 1
+  %120 = sub nsw i32 %119, %118
+  %121 = sdiv i32 %120, 3
+  %122 = trunc i32 %121 to i16
+  %123 = mul nuw nsw i64 %54, %51
+  %124 = trunc i64 %123 to i32
+  %125 = add i32 %13, %124
+  %126 = icmp ule i32 %125, %19
+  tail call void @llvm.assume(i1 %126)
   tail call void @llvm.assume(i1 %39)
-  %129 = getelementptr inbounds i16, ptr %50, i64 %125
-  store i16 %124, ptr %129, align 2, !tbaa !225
+  %127 = getelementptr inbounds i16, ptr %50, i64 %123
+  store i16 %122, ptr %127, align 2, !tbaa !225
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
-  br label %180
+  br label %178
 
-130:                                              ; preds = %56
-  %131 = add nuw nsw i64 %57, 2
+128:                                              ; preds = %53
+  %129 = add nuw nsw i64 %54, 2
   tail call void @llvm.assume(i1 %34)
-  %132 = icmp ult i64 %131, %52
-  tail call void @llvm.assume(i1 %132)
-  %133 = mul nuw nsw i64 %131, %51
-  %134 = trunc i64 %133 to i32
-  %135 = add i32 %13, %134
-  %136 = icmp ule i32 %135, %19
-  tail call void @llvm.assume(i1 %136)
-  %137 = getelementptr inbounds i16, ptr %8, i64 %133
-  %138 = getelementptr inbounds i16, ptr %137, i64 %35
-  %139 = load i16, ptr %138, align 2, !tbaa !225
-  %140 = zext i16 %139 to i32
-  %141 = add nsw i64 %57, -2
-  %142 = icmp ult i64 %141, %52
-  tail call void @llvm.assume(i1 %142)
-  %143 = mul nuw nsw i64 %141, %51
-  %144 = trunc i64 %143 to i32
-  %145 = add i32 %13, %144
-  %146 = icmp ule i32 %145, %19
-  tail call void @llvm.assume(i1 %146)
-  %147 = getelementptr inbounds i16, ptr %8, i64 %143
-  %148 = getelementptr inbounds i16, ptr %147, i64 %35
-  %149 = load i16, ptr %148, align 2, !tbaa !225
-  %150 = zext i16 %149 to i32
-  %151 = add nuw nsw i32 %150, %140
+  %130 = icmp ult i64 %129, %52
+  tail call void @llvm.assume(i1 %130)
+  %131 = mul nuw nsw i64 %129, %51
+  %132 = trunc i64 %131 to i32
+  %133 = add i32 %13, %132
+  %134 = icmp ule i32 %133, %19
+  tail call void @llvm.assume(i1 %134)
+  %135 = getelementptr inbounds i16, ptr %8, i64 %131
+  %136 = getelementptr inbounds i16, ptr %135, i64 %35
+  %137 = load i16, ptr %136, align 2, !tbaa !225
+  %138 = zext i16 %137 to i32
+  %139 = add nsw i64 %54, -2
+  %140 = icmp ult i64 %139, %52
+  tail call void @llvm.assume(i1 %140)
+  %141 = mul nuw nsw i64 %139, %51
+  %142 = trunc i64 %141 to i32
+  %143 = add i32 %13, %142
+  %144 = icmp ule i32 %143, %19
+  tail call void @llvm.assume(i1 %144)
+  %145 = getelementptr inbounds i16, ptr %8, i64 %141
+  %146 = getelementptr inbounds i16, ptr %145, i64 %35
+  %147 = load i16, ptr %146, align 2, !tbaa !225
+  %148 = zext i16 %147 to i32
+  %149 = add nuw nsw i32 %148, %138
   tail call void @llvm.assume(i1 %37)
-  %152 = getelementptr inbounds i16, ptr %137, i64 %38
-  %153 = load i16, ptr %152, align 2, !tbaa !225
-  %154 = zext i16 %153 to i32
-  %155 = add nuw nsw i32 %151, %154
-  %156 = getelementptr inbounds i16, ptr %147, i64 %38
-  %157 = load i16, ptr %156, align 2, !tbaa !225
-  %158 = zext i16 %157 to i32
-  %159 = add nuw nsw i32 %155, %158
-  %160 = mul nuw nsw i64 %57, %51
-  %161 = trunc i64 %160 to i32
-  %162 = add i32 %13, %161
-  %163 = icmp ule i32 %162, %19
-  tail call void @llvm.assume(i1 %163)
-  %164 = getelementptr inbounds i16, ptr %8, i64 %160
-  %165 = getelementptr inbounds i16, ptr %164, i64 %35
-  %166 = load i16, ptr %165, align 2, !tbaa !225
-  %167 = zext i16 %166 to i32
-  %168 = getelementptr inbounds i16, ptr %164, i64 %38
-  %169 = load i16, ptr %168, align 2, !tbaa !225
-  %170 = zext i16 %169 to i32
-  %171 = add nuw nsw i32 %170, %167
-  %172 = uitofp nneg i32 %159 to double
-  %173 = uitofp nneg i32 %171 to double
-  %174 = fmul double %173, 0x3FD6A09E7098EF50
-  %175 = tail call double @llvm.fmuladd.f64(double %172, double 7.322330e-02, double %174)
-  %176 = tail call i64 @lround(double noundef %175) #24
-  %177 = trunc i64 %176 to i16
+  %150 = getelementptr inbounds i16, ptr %135, i64 %38
+  %151 = load i16, ptr %150, align 2, !tbaa !225
+  %152 = zext i16 %151 to i32
+  %153 = add nuw nsw i32 %149, %152
+  %154 = getelementptr inbounds i16, ptr %145, i64 %38
+  %155 = load i16, ptr %154, align 2, !tbaa !225
+  %156 = zext i16 %155 to i32
+  %157 = add nuw nsw i32 %153, %156
+  %158 = mul nuw nsw i64 %54, %51
+  %159 = trunc i64 %158 to i32
+  %160 = add i32 %13, %159
+  %161 = icmp ule i32 %160, %19
+  tail call void @llvm.assume(i1 %161)
+  %162 = getelementptr inbounds i16, ptr %8, i64 %158
+  %163 = getelementptr inbounds i16, ptr %162, i64 %35
+  %164 = load i16, ptr %163, align 2, !tbaa !225
+  %165 = zext i16 %164 to i32
+  %166 = getelementptr inbounds i16, ptr %162, i64 %38
+  %167 = load i16, ptr %166, align 2, !tbaa !225
+  %168 = zext i16 %167 to i32
+  %169 = add nuw nsw i32 %168, %165
+  %170 = uitofp nneg i32 %157 to double
+  %171 = uitofp nneg i32 %169 to double
+  %172 = fmul double %171, 0x3FD6A09E7098EF50
+  %173 = tail call double @llvm.fmuladd.f64(double %170, double 7.322330e-02, double %172)
+  %174 = tail call i64 @lround(double noundef %173) #24
+  %175 = trunc i64 %174 to i16
   tail call void @llvm.assume(i1 %39)
-  %178 = getelementptr inbounds i16, ptr %164, i64 %40
-  store i16 %177, ptr %178, align 2, !tbaa !225
-  %179 = add nuw nsw i64 %57, 1
-  br label %180
+  %176 = getelementptr inbounds i16, ptr %162, i64 %40
+  store i16 %175, ptr %176, align 2, !tbaa !225
+  %177 = add nuw nsw i64 %54, 1
+  br label %178
 
-180:                                              ; preds = %130, %63
-  %181 = phi i64 [ %74, %63 ], [ %179, %130 ]
-  %182 = load ptr, ptr %5, align 8, !tbaa !115
-  %183 = getelementptr inbounds i8, ptr %182, i64 44
-  %184 = load i32, ptr %183, align 4, !tbaa !223
-  %185 = add nsw i32 %184, -2
-  %186 = sext i32 %185 to i64
-  %187 = icmp slt i64 %181, %186
-  br i1 %187, label %56, label %.loopexit, !llvm.loop !324
+178:                                              ; preds = %128, %60
+  %179 = phi i64 [ %70, %60 ], [ %177, %128 ]
+  %180 = load ptr, ptr %5, align 8, !tbaa !115
+  %181 = getelementptr inbounds i8, ptr %180, i64 44
+  %182 = load i32, ptr %181, align 4, !tbaa !223
+  %183 = add nsw i32 %182, -2
+  %184 = sext i32 %183 to i64
+  %185 = icmp slt i64 %179, %184
+  br i1 %185, label %53, label %.loopexit, !llvm.loop !324
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5318,14 +5314,11 @@ define hidden void @_ZNK8rawspeed10IiqDecoder14handleBadPixelEtt(ptr nocapture n
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #6
-
 ; Function Attrs: nounwind
-declare i64 @lround(double noundef) local_unnamed_addr #7
+declare i64 @lround(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #6
+declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed19AbstractTiffDecoderD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5988,7 +5981,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
@@ -6034,7 +6027,7 @@ define linkonce_odr hidden void @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEE
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #6
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #7
 
 declare void @_ZN8rawspeed8writeLogENS_10DEBUG_PRIOEPKcz(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -6111,10 +6104,10 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #6
+declare i32 @llvm.bswap.i32(i32) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #6
+declare i16 @llvm.bswap.i16(i16) #7
 
 declare noundef zeroext i1 @_ZN8rawspeed10RawDecoder20checkCameraSupportedEPKNS_14CameraMetaDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
@@ -6448,7 +6441,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19RawDecoderExceptionCI2NS_17Rawspe
 }
 
 ; Function Attrs: nounwind
-declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #7
+declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
@@ -7099,25 +7092,25 @@ define linkonce_odr hidden void @_ZN8rawspeed6SplineItE7prepareEv(ptr noundef no
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #6
+declare i64 @llvm.smax.i64(i64, i64) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #6
+declare i64 @llvm.smin.i64(i64, i64) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #6
+declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #6
+declare i64 @llvm.umax.i64(i64, i64) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #6
+declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x double> @llvm.fmuladd.v4f64(<4 x double>, <4 x double>, <4 x double>) #6
+declare <4 x double> @llvm.fmuladd.v4f64(<4 x double>, <4 x double>, <4 x double>) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(write)
 declare void @llvm.masked.scatter.v4f64.v4p0(<4 x double>, <4 x ptr>, i32 immarg, <4 x i1>) #20
@@ -7134,14 +7127,17 @@ declare i32 @llvm.smin.i32(i32, i32) #22
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x i16> @llvm.bswap.v2i16(<2 x i16>) #22
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <4 x i32> @llvm.abs.v4i32(<4 x i32>, i1 immarg) #22
+
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #4 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #5 = { cold mustprogress noreturn optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #9 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }

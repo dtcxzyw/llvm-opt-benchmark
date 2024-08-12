@@ -3799,13 +3799,13 @@ if.then.i.i.i.i76.i:                              ; preds = %_ZN4llvh12DenseMapB
   store ptr %call.i.i.i.i.i.i, ptr %commons.i, align 8
   %NumEntries.i.i.i.i.i.i.i78.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
   %266 = load <2 x i32>, ptr %NumEntries.i.i.i.i.i.i.i78.i, align 8
+  %267 = load i32, ptr %NumEntries.i.i.i.i.i.i.i78.i, align 8
   store <2 x i32> %266, ptr %NumEntries.i.i3.i.i.i.i.i.i, align 8
-  %267 = load ptr, ptr %second.i.i, align 8
-  %268 = load i32, ptr %NumBuckets.i.i.i.i.i.i, align 8
-  %conv.i2.i.i.i.i.i = zext i32 %268 to i64
+  %268 = load ptr, ptr %second.i.i, align 8
+  %269 = load i32, ptr %NumBuckets.i.i.i.i.i.i, align 8
+  %conv.i2.i.i.i.i.i = zext i32 %269 to i64
   %mul.i3.i.i.i.i.i = shl nuw nsw i64 %conv.i2.i.i.i.i.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i.i.i.i, ptr align 8 %267, i64 %mul.i3.i.i.i.i.i, i1 false)
-  %269 = extractelement <2 x i32> %266, i64 0
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i.i.i.i, ptr align 8 %268, i64 %mul.i3.i.i.i.i.i, i1 false)
   br label %_ZN4llvh8DenseSetIPN6hermes8VariableENS_12DenseMapInfoIS3_EEEC2ERKS6_.exit.i
 
 if.else.i.i.i.i.i:                                ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockENS_8DenseSetIPNS2_8VariableENS_12DenseMapInfoIS7_EEEENS8_IS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SB_SE_EixEOS4_.exit.i
@@ -3813,7 +3813,7 @@ if.else.i.i.i.i.i:                                ; preds = %_ZN4llvh12DenseMapB
   br label %_ZN4llvh8DenseSetIPN6hermes8VariableENS_12DenseMapInfoIS3_EEEC2ERKS6_.exit.i
 
 _ZN4llvh8DenseSetIPN6hermes8VariableENS_12DenseMapInfoIS3_EEEC2ERKS6_.exit.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i76.i
-  %270 = phi i32 [ %269, %if.then.i.i.i.i76.i ], [ 0, %if.else.i.i.i.i.i ]
+  %270 = phi i32 [ %267, %if.then.i.i.i.i76.i ], [ 0, %if.else.i.i.i.i.i ]
   %271 = load ptr, ptr %Users.i.i.i.i.i, align 8, !noalias !54
   %272 = load i32, ptr %Size.i.i.i.i.i.i, align 8, !noalias !54
   %conv.i.i.i.i.i81.i = zext i32 %272 to i64

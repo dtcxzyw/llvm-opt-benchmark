@@ -487,7 +487,7 @@ define void @_ZN16PacketListRecord12columnStringEP13_capture_fileib(ptr dead_on_
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef ptr @_ZNK6QCacheIj5QListI7QStringEE6relinkERKj(ptr noundef nonnull align 8 dereferenceable(72) @_ZN16PacketListRecord15col_text_cache_E, ptr noundef nonnull align 4 dereferenceable(4) %37) #20
   %.not21 = icmp eq ptr %38, null
-  br i1 %.not21, label %50, label %.thread22..thread24_crit_edge
+  br i1 %.not21, label %48, label %.thread22..thread24_crit_edge
 
 .thread22..thread24_crit_edge:                    ; preds = %.thread22
   %.phi.trans.insert = getelementptr inbounds i8, ptr %38, i64 8
@@ -499,28 +499,25 @@ define void @_ZN16PacketListRecord12columnStringEP13_capture_fileib(ptr dead_on_
   %.pre-phi = phi i64 [ %.pre29, %.thread22..thread24_crit_edge ], [ %27, %30 ]
   %39 = phi ptr [ %.pre, %.thread22..thread24_crit_edge ], [ %32, %30 ]
   %40 = getelementptr %class.QString, ptr %39, i64 %.pre-phi
-  %41 = load ptr, ptr %40, align 8
-  store ptr %41, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 8
-  %44 = load ptr, ptr %43, align 8
-  store ptr %44, ptr %42, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
-  %46 = getelementptr inbounds i8, ptr %40, i64 16
-  %47 = load i64, ptr %46, align 8
-  store i64 %47, ptr %45, align 8
-  %.not.i.i.i = icmp eq ptr %41, null
-  br i1 %.not.i.i.i, label %_ZN7QStringC2ERKS_.exit, label %48
+  %41 = load <2 x ptr>, ptr %40, align 8
+  %42 = load ptr, ptr %40, align 8
+  store <2 x ptr> %41, ptr %0, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = getelementptr inbounds i8, ptr %40, i64 16
+  %45 = load i64, ptr %44, align 8
+  store i64 %45, ptr %43, align 8
+  %.not.i.i.i = icmp eq ptr %42, null
+  br i1 %.not.i.i.i, label %_ZN7QStringC2ERKS_.exit, label %46
 
-48:                                               ; preds = %.thread24
-  %49 = atomicrmw add ptr %41, i32 1 seq_cst, align 4
+46:                                               ; preds = %.thread24
+  %47 = atomicrmw add ptr %42, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit
 
-50:                                               ; preds = %.thread22
+48:                                               ; preds = %.thread22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZN7QStringC2ERKS_.exit
 
-_ZN7QStringC2ERKS_.exit:                          ; preds = %48, %.thread24, %50, %11
+_ZN7QStringC2ERKS_.exit:                          ; preds = %46, %.thread24, %48, %11
   ret void
 }
 
@@ -2355,13 +2352,12 @@ _ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit: ; preds = %
   br i1 %7, label %95, label %101
 
 95:                                               ; preds = %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit
-  %96 = load ptr, ptr %3, align 8
+  %96 = getelementptr inbounds i8, ptr %3, i64 8
+  %97 = load <2 x ptr>, ptr %3, align 8
+  %98 = load ptr, ptr %3, align 8
   store ptr %88, ptr %3, align 8
-  store ptr %96, ptr %5, align 16
-  %97 = getelementptr inbounds i8, ptr %3, i64 8
-  %98 = load ptr, ptr %97, align 8
-  store ptr %90, ptr %97, align 8
-  store ptr %98, ptr %29, align 8
+  store ptr %90, ptr %96, align 8
+  store <2 x ptr> %97, ptr %5, align 16
   %99 = getelementptr inbounds i8, ptr %3, i64 16
   %100 = load i64, ptr %99, align 8
   store i64 %93, ptr %99, align 8
@@ -2369,7 +2365,7 @@ _ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit: ; preds = %
   br label %101
 
 101:                                              ; preds = %95, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit
-  %102 = phi ptr [ %96, %95 ], [ %88, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit ]
+  %102 = phi ptr [ %98, %95 ], [ %88, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit ]
   %.not.i.i = icmp eq ptr %102, null
   br i1 %.not.i.i, label %_ZN17QArrayDataPointerI7QStringED2Ev.exit, label %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i
 

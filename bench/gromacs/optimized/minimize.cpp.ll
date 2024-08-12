@@ -3041,7 +3041,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115EnergyEvaluator3runEP8em_statePf
   %25 = alloca %"class.gmx::ArrayRef.188", align 8
   %26 = alloca %"class.gmx::ArrayRefWithPadding", align 8
   %27 = alloca %"class.gmx::ArrayRefWithPadding", align 8
-  %28 = alloca %"class.gmx::ArrayRef.321", align 8
+  %28 = alloca %"class.gmx::ArrayRef.321", align 16
   %29 = alloca %"class.gmx::ArrayRefWithPadding", align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 48
   %31 = load ptr, ptr %30, align 8
@@ -3562,138 +3562,136 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %_ZNSt6vect
   %371 = getelementptr inbounds i8, ptr %0, i64 128
   %372 = load ptr, ptr %371, align 8
   %.not54 = icmp eq ptr %372, null
-  br i1 %.not54, label %420, label %373
+  br i1 %.not54, label %419, label %373
 
 373:                                              ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
   store float 0.000000e+00, ptr %19, align 4
-  %374 = load ptr, ptr %248, align 8, !noalias !36
-  %375 = getelementptr inbounds i8, ptr %1, i64 920
-  call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  %376 = load ptr, ptr %232, align 8, !noalias !39
-  %377 = load ptr, ptr %234, align 8, !noalias !39
-  %378 = ptrtoint ptr %377 to i64
-  %379 = ptrtoint ptr %376 to i64
-  %380 = sub i64 %378, %379
-  %381 = getelementptr inbounds i8, ptr %376, i64 %380
-  %382 = load ptr, ptr %240, align 8, !noalias !39
-  %383 = ptrtoint ptr %382 to i64
-  %384 = sub i64 %383, %379
-  %385 = getelementptr inbounds i8, ptr %376, i64 %384
-  store ptr %376, ptr %26, align 8, !alias.scope !39
-  %386 = getelementptr inbounds i8, ptr %26, i64 8
-  store ptr %381, ptr %386, align 8, !alias.scope !39
-  %387 = getelementptr inbounds i8, ptr %26, i64 16
-  store ptr %385, ptr %387, align 8, !alias.scope !39
-  store ptr %374, ptr %27, align 8
-  %388 = getelementptr inbounds i8, ptr %27, i64 8
-  %389 = load <2 x ptr>, ptr %375, align 8, !noalias !36
-  store <2 x ptr> %389, ptr %388, align 8
-  store ptr %374, ptr %28, align 8
-  %390 = getelementptr inbounds i8, ptr %28, i64 8
-  %391 = extractelement <2 x ptr> %389, i64 0
-  store ptr %391, ptr %390, align 8
-  %392 = getelementptr inbounds i8, ptr %1, i64 40
-  %393 = load float, ptr %392, align 4
+  %374 = getelementptr inbounds i8, ptr %1, i64 920
+  call void @llvm.experimental.noalias.scope.decl(metadata !36)
+  %375 = load ptr, ptr %232, align 8, !noalias !36
+  %376 = load ptr, ptr %234, align 8, !noalias !36
+  %377 = ptrtoint ptr %376 to i64
+  %378 = ptrtoint ptr %375 to i64
+  %379 = sub i64 %377, %378
+  %380 = getelementptr inbounds i8, ptr %375, i64 %379
+  %381 = load ptr, ptr %240, align 8, !noalias !36
+  %382 = ptrtoint ptr %381 to i64
+  %383 = sub i64 %382, %378
+  %384 = getelementptr inbounds i8, ptr %375, i64 %383
+  store ptr %375, ptr %26, align 8, !alias.scope !36
+  %385 = getelementptr inbounds i8, ptr %26, i64 8
+  store ptr %380, ptr %385, align 8, !alias.scope !36
+  %386 = getelementptr inbounds i8, ptr %26, i64 16
+  store ptr %384, ptr %386, align 8, !alias.scope !36
+  %387 = getelementptr inbounds i8, ptr %27, i64 8
+  %388 = load <2 x ptr>, ptr %374, align 8, !noalias !39
+  store <2 x ptr> %388, ptr %387, align 8
+  %389 = load <2 x ptr>, ptr %248, align 8, !noalias !39
+  %390 = load ptr, ptr %248, align 8, !noalias !39
+  store ptr %390, ptr %27, align 8
+  store <2 x ptr> %389, ptr %28, align 16
+  %391 = getelementptr inbounds i8, ptr %1, i64 40
+  %392 = load float, ptr %391, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
-  %394 = call noundef zeroext i1 @_ZN3gmx11Constraints5applyEblifNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEEES4_NS_8ArrayRefIS3_EEPA3_KffPfS4_bPA3_fNS_18ConstraintVariableE(ptr noundef nonnull align 8 dereferenceable(8) %372, i1 noundef zeroext false, i64 noundef %5, i32 noundef 0, float noundef 1.000000e+00, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull byval(%"class.gmx::ArrayRef.321") align 8 %28, ptr noundef nonnull %231, float noundef %393, ptr noundef nonnull %19, ptr noundef nonnull %29, i1 noundef zeroext true, ptr noundef nonnull %17, i32 noundef 5)
-  %395 = load float, ptr %19, align 4
-  %396 = load ptr, ptr %251, align 8
-  %397 = getelementptr inbounds i8, ptr %396, i64 344
-  %398 = load float, ptr %397, align 4
-  %399 = fadd float %395, %398
-  store float %399, ptr %397, align 4
-  %400 = load <4 x float>, ptr %16, align 16
-  %401 = load <4 x float>, ptr %17, align 16
-  %402 = fadd <4 x float> %400, %401
-  store <4 x float> %402, ptr %3, align 4
-  %403 = getelementptr inbounds i8, ptr %16, i64 16
-  %404 = getelementptr inbounds i8, ptr %17, i64 16
-  %405 = getelementptr inbounds i8, ptr %3, i64 16
+  %393 = call noundef zeroext i1 @_ZN3gmx11Constraints5applyEblifNS_19ArrayRefWithPaddingINS_11BasicVectorIfEEEES4_NS_8ArrayRefIS3_EEPA3_KffPfS4_bPA3_fNS_18ConstraintVariableE(ptr noundef nonnull align 8 dereferenceable(8) %372, i1 noundef zeroext false, i64 noundef %5, i32 noundef 0, float noundef 1.000000e+00, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull byval(%"class.gmx::ArrayRef.321") align 8 %28, ptr noundef nonnull %231, float noundef %392, ptr noundef nonnull %19, ptr noundef nonnull %29, i1 noundef zeroext true, ptr noundef nonnull %17, i32 noundef 5)
+  %394 = load float, ptr %19, align 4
+  %395 = load ptr, ptr %251, align 8
+  %396 = getelementptr inbounds i8, ptr %395, i64 344
+  %397 = load float, ptr %396, align 4
+  %398 = fadd float %394, %397
+  store float %398, ptr %396, align 4
+  %399 = load <4 x float>, ptr %16, align 16
+  %400 = load <4 x float>, ptr %17, align 16
+  %401 = fadd <4 x float> %399, %400
+  store <4 x float> %401, ptr %3, align 4
+  %402 = getelementptr inbounds i8, ptr %16, i64 16
+  %403 = getelementptr inbounds i8, ptr %17, i64 16
+  %404 = getelementptr inbounds i8, ptr %3, i64 16
+  %405 = load <2 x float>, ptr %402, align 16
   %406 = load <2 x float>, ptr %403, align 16
-  %407 = load <2 x float>, ptr %404, align 16
-  %408 = fadd <2 x float> %406, %407
-  store <2 x float> %408, ptr %405, align 4
-  %409 = getelementptr inbounds i8, ptr %16, i64 24
-  %410 = load float, ptr %409, align 8
-  %411 = getelementptr inbounds i8, ptr %17, i64 24
-  %412 = load float, ptr %411, align 8
-  %413 = fadd float %410, %412
-  %414 = getelementptr inbounds i8, ptr %3, i64 24
-  store float %413, ptr %414, align 4
-  %415 = getelementptr inbounds i8, ptr %16, i64 28
-  %416 = getelementptr inbounds i8, ptr %17, i64 28
+  %407 = fadd <2 x float> %405, %406
+  store <2 x float> %407, ptr %404, align 4
+  %408 = getelementptr inbounds i8, ptr %16, i64 24
+  %409 = load float, ptr %408, align 8
+  %410 = getelementptr inbounds i8, ptr %17, i64 24
+  %411 = load float, ptr %410, align 8
+  %412 = fadd float %409, %411
+  %413 = getelementptr inbounds i8, ptr %3, i64 24
+  store float %412, ptr %413, align 4
+  %414 = getelementptr inbounds i8, ptr %16, i64 28
+  %415 = getelementptr inbounds i8, ptr %17, i64 28
+  %416 = load <2 x float>, ptr %414, align 4
   %417 = load <2 x float>, ptr %415, align 4
-  %418 = load <2 x float>, ptr %416, align 4
-  %419 = fadd <2 x float> %417, %418
-  br label %430
+  %418 = fadd <2 x float> %416, %417
+  br label %429
 
-420:                                              ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
-  %421 = load <4 x float>, ptr %16, align 16
-  store <4 x float> %421, ptr %3, align 4
-  %422 = getelementptr inbounds i8, ptr %16, i64 16
-  %423 = getelementptr inbounds i8, ptr %3, i64 16
-  %424 = load <2 x float>, ptr %422, align 16
-  store <2 x float> %424, ptr %423, align 4
-  %425 = getelementptr inbounds i8, ptr %16, i64 24
-  %426 = getelementptr inbounds i8, ptr %3, i64 24
-  %427 = load float, ptr %425, align 8
-  store float %427, ptr %426, align 4
-  %428 = getelementptr inbounds i8, ptr %16, i64 28
-  %429 = load <2 x float>, ptr %428, align 4
-  br label %430
+419:                                              ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit
+  %420 = load <4 x float>, ptr %16, align 16
+  store <4 x float> %420, ptr %3, align 4
+  %421 = getelementptr inbounds i8, ptr %16, i64 16
+  %422 = getelementptr inbounds i8, ptr %3, i64 16
+  %423 = load <2 x float>, ptr %421, align 16
+  store <2 x float> %423, ptr %422, align 4
+  %424 = getelementptr inbounds i8, ptr %16, i64 24
+  %425 = getelementptr inbounds i8, ptr %3, i64 24
+  %426 = load float, ptr %424, align 8
+  store float %426, ptr %425, align 4
+  %427 = getelementptr inbounds i8, ptr %16, i64 28
+  %428 = load <2 x float>, ptr %427, align 4
+  br label %429
 
-430:                                              ; preds = %420, %373
-  %431 = phi <2 x float> [ %429, %420 ], [ %419, %373 ]
-  %432 = getelementptr inbounds i8, ptr %3, i64 28
-  store <2 x float> %431, ptr %432, align 4
+429:                                              ; preds = %419, %373
+  %430 = phi <2 x float> [ %428, %419 ], [ %418, %373 ]
+  %431 = getelementptr inbounds i8, ptr %3, i64 28
+  store <2 x float> %430, ptr %431, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %18, i8 0, i64 36, i1 false)
-  %433 = load ptr, ptr %169, align 8
-  %434 = getelementptr inbounds i8, ptr %433, i64 8
-  %435 = load i32, ptr %434, align 8
-  %436 = load ptr, ptr %30, align 8
-  %437 = getelementptr inbounds i8, ptr %436, i64 536
-  %438 = load i32, ptr %437, align 8
-  %439 = call noundef float @_Z9calc_pres7PbcTypeiPA3_KfS2_S2_PA3_f(i32 noundef %435, i32 noundef %438, ptr noundef nonnull %231, ptr noundef nonnull %18, ptr noundef nonnull %3, ptr noundef nonnull %4)
-  %440 = load ptr, ptr %251, align 8
-  %441 = getelementptr inbounds i8, ptr %440, i64 340
-  store float %439, ptr %441, align 4
-  %442 = load ptr, ptr %30, align 8
-  %443 = getelementptr inbounds i8, ptr %442, i64 396
-  %444 = load i32, ptr %443, align 4
-  %.not55 = icmp eq i32 %444, 0
-  br i1 %.not55, label %449, label %445
+  %432 = load ptr, ptr %169, align 8
+  %433 = getelementptr inbounds i8, ptr %432, i64 8
+  %434 = load i32, ptr %433, align 8
+  %435 = load ptr, ptr %30, align 8
+  %436 = getelementptr inbounds i8, ptr %435, i64 536
+  %437 = load i32, ptr %436, align 8
+  %438 = call noundef float @_Z9calc_pres7PbcTypeiPA3_KfS2_S2_PA3_f(i32 noundef %434, i32 noundef %437, ptr noundef nonnull %231, ptr noundef nonnull %18, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %439 = load ptr, ptr %251, align 8
+  %440 = getelementptr inbounds i8, ptr %439, i64 340
+  store float %438, ptr %440, align 4
+  %441 = load ptr, ptr %30, align 8
+  %442 = getelementptr inbounds i8, ptr %441, i64 396
+  %443 = load i32, ptr %442, align 4
+  %.not55 = icmp eq i32 %443, 0
+  br i1 %.not55, label %448, label %444
 
-445:                                              ; preds = %430
-  %446 = load ptr, ptr %251, align 8
-  %447 = getelementptr inbounds i8, ptr %442, i64 400
-  %448 = load ptr, ptr %447, align 8
-  call void @_Z33accumulateKineticLambdaComponentsP14gmx_enerdata_tN3gmx8ArrayRefIKfEERK8t_lambda(ptr noundef %446, ptr nonnull %253, ptr nonnull %231, ptr noundef nonnull align 8 dereferenceable(288) %448)
+444:                                              ; preds = %429
+  %445 = load ptr, ptr %251, align 8
+  %446 = getelementptr inbounds i8, ptr %441, i64 400
+  %447 = load ptr, ptr %446, align 8
+  call void @_Z33accumulateKineticLambdaComponentsP14gmx_enerdata_tN3gmx8ArrayRefIKfEERK8t_lambda(ptr noundef %445, ptr nonnull %253, ptr nonnull %231, ptr noundef nonnull align 8 dereferenceable(288) %447)
   %.pre105 = load ptr, ptr %30, align 8
-  br label %449
+  br label %448
 
-449:                                              ; preds = %445, %430
-  %450 = phi ptr [ %.pre105, %445 ], [ %442, %430 ]
-  %451 = getelementptr inbounds i8, ptr %450, i64 4
-  %452 = load i32, ptr %451, align 4
-  switch i32 %452, label %462 [
-    i32 1, label %453
-    i32 2, label %453
-    i32 6, label %453
+448:                                              ; preds = %444, %429
+  %449 = phi ptr [ %.pre105, %444 ], [ %441, %429 ]
+  %450 = getelementptr inbounds i8, ptr %449, i64 4
+  %451 = load i32, ptr %450, align 4
+  switch i32 %451, label %461 [
+    i32 1, label %452
+    i32 2, label %452
+    i32 6, label %452
   ]
 
-453:                                              ; preds = %449, %449, %449
-  %454 = load ptr, ptr %212, align 8
-  %455 = getelementptr inbounds i8, ptr %450, i64 720
-  %456 = load ptr, ptr %173, align 8
-  %457 = load ptr, ptr %456, align 8
-  %458 = load ptr, ptr %248, align 8
-  %459 = getelementptr inbounds i8, ptr %1, i64 980
-  %460 = getelementptr inbounds i8, ptr %1, i64 984
-  %461 = getelementptr inbounds i8, ptr %1, i64 988
-  call fastcc void @_ZL14get_f_norm_maxPK9t_commrecPK9t_grpoptsP9t_mdatomsN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEPfSD_Pi(ptr noundef %454, ptr noundef nonnull readonly %455, ptr noundef readonly %457, ptr %458, ptr noundef nonnull %459, ptr noundef nonnull %460, ptr noundef nonnull %461)
-  br label %462
+452:                                              ; preds = %448, %448, %448
+  %453 = load ptr, ptr %212, align 8
+  %454 = getelementptr inbounds i8, ptr %449, i64 720
+  %455 = load ptr, ptr %173, align 8
+  %456 = load ptr, ptr %455, align 8
+  %457 = load ptr, ptr %248, align 8
+  %458 = getelementptr inbounds i8, ptr %1, i64 980
+  %459 = getelementptr inbounds i8, ptr %1, i64 984
+  %460 = getelementptr inbounds i8, ptr %1, i64 988
+  call fastcc void @_ZL14get_f_norm_maxPK9t_commrecPK9t_grpoptsP9t_mdatomsN3gmx8ArrayRefIKNS7_11BasicVectorIfEEEEPfSD_Pi(ptr noundef %453, ptr noundef nonnull readonly %454, ptr noundef readonly %456, ptr %457, ptr noundef nonnull %458, ptr noundef nonnull %459, ptr noundef nonnull %460)
+  br label %461
 
-462:                                              ; preds = %449, %453
+461:                                              ; preds = %448, %452
   ret void
 }
 
@@ -11538,11 +11536,11 @@ attributes #31 = { builtin allocsize(0) }
 !34 = distinct !{!34, !35, !"_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEE19arrayRefWithPaddingEv: argument 0"}
 !35 = distinct !{!35, !"_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEE19arrayRefWithPaddingEv"}
 !36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZN3gmx16ForceBuffersView16forceWithPaddingEv: argument 0"}
-!38 = distinct !{!38, !"_ZN3gmx16ForceBuffersView16forceWithPaddingEv"}
+!37 = distinct !{!37, !38, !"_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEE19arrayRefWithPaddingEv: argument 0"}
+!38 = distinct !{!38, !"_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEE19arrayRefWithPaddingEv"}
 !39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEE19arrayRefWithPaddingEv: argument 0"}
-!41 = distinct !{!41, !"_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEE19arrayRefWithPaddingEv"}
+!40 = distinct !{!40, !41, !"_ZN3gmx16ForceBuffersView16forceWithPaddingEv: argument 0"}
+!41 = distinct !{!41, !"_ZN3gmx16ForceBuffersView16forceWithPaddingEv"}
 !42 = distinct !{!42, !7}
 !43 = distinct !{!43, !7}
 !44 = distinct !{!44, !7}

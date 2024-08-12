@@ -3262,14 +3262,12 @@ while.end105:                                     ; preds = %while.cond.backedge
   store i32 1, ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %text3.i) #21
   %line_109 = getelementptr inbounds i8, ptr %this, i64 156
-  %103 = load i32, ptr %line_109, align 4
-  store i32 %103, ptr %line4.i, align 8
   %column_112 = getelementptr inbounds i8, ptr %this, i64 160
-  %104 = load i32, ptr %column_112, align 8
-  %column114 = getelementptr inbounds i8, ptr %this, i64 44
-  store i32 %104, ptr %column114, align 4
+  %103 = load i32, ptr %column_112, align 8
+  %104 = load <2 x i32>, ptr %line_109, align 4
+  store <2 x i32> %104, ptr %line4.i, align 8
   %end_column117 = getelementptr inbounds i8, ptr %this, i64 48
-  store i32 %104, ptr %end_column117, align 8
+  store i32 %103, ptr %end_column117, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit, %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit28, %while.end105, %_ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit87

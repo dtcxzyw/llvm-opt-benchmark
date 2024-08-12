@@ -547,14 +547,14 @@ if.else.i206:                                     ; preds = %cond.end209
   %msg_length20.i = getelementptr inbounds i8, ptr %rmd102, i64 8
   %msg_length22.i = getelementptr inbounds i8, ptr %rda10.i, i64 8
   %94 = load <2 x i32>, ptr %msg_length20.i, align 4
+  %95 = load i32, ptr %msg_length20.i, align 4
   store <2 x i32> %94, ptr %msg_length22.i, align 4
-  %95 = and i16 %79, 255
-  %cmp.i208 = icmp eq i16 %95, 3
+  %96 = and i16 %79, 255
+  %cmp.i208 = icmp eq i16 %96, 3
   br i1 %cmp.i208, label %if.then30.i, label %if.end.i
 
 if.then30.i:                                      ; preds = %if.else.i206
-  %96 = extractelement <2 x i32> %94, i64 0
-  store i32 %96, ptr %rda10.i, align 4
+  store i32 %95, ptr %rda10.i, align 4
   store i32 %92, ptr %msg_length22.i, align 4
   br label %if.end.i
 
@@ -901,14 +901,14 @@ if.else.i240:                                     ; preds = %if.end579
   %msg_length20.i245 = getelementptr inbounds i8, ptr %rmd102, i64 8
   %msg_length22.i246 = getelementptr inbounds i8, ptr %rda10.i237, i64 8
   %193 = load <2 x i32>, ptr %msg_length20.i245, align 4
+  %194 = load i32, ptr %msg_length20.i245, align 4
   store <2 x i32> %193, ptr %msg_length22.i246, align 4
-  %194 = and i16 %181, 255
-  %cmp.i249 = icmp eq i16 %194, 3
+  %195 = and i16 %181, 255
+  %cmp.i249 = icmp eq i16 %195, 3
   br i1 %cmp.i249, label %if.then30.i253, label %if.end.i250
 
 if.then30.i253:                                   ; preds = %if.else.i240
-  %195 = extractelement <2 x i32> %193, i64 0
-  store i32 %195, ptr %rda10.i237, align 4
+  store i32 %194, ptr %rda10.i237, align 4
   store i32 %191, ptr %msg_length22.i246, align 4
   br label %if.end.i250
 
@@ -1652,14 +1652,14 @@ if.else:                                          ; preds = %entry
   %msg_length20 = getelementptr inbounds i8, ptr %rmd, i64 8
   %msg_length22 = getelementptr inbounds i8, ptr %rda10, i64 8
   %10 = load <2 x i32>, ptr %msg_length20, align 4
+  %11 = load i32, ptr %msg_length20, align 4
   store <2 x i32> %10, ptr %msg_length22, align 4
-  %11 = and i16 %0, 255
-  %cmp = icmp eq i16 %11, 3
+  %12 = and i16 %0, 255
+  %cmp = icmp eq i16 %12, 3
   br i1 %cmp, label %if.then30, label %if.end
 
 if.then30:                                        ; preds = %if.else
-  %12 = extractelement <2 x i32> %10, i64 0
-  store i32 %12, ptr %rda10, align 4
+  store i32 %11, ptr %rda10, align 4
   store i32 %2, ptr %msg_length22, align 4
   br label %if.end
 
@@ -3560,14 +3560,14 @@ if.else.i82:                                      ; preds = %txdone
   store i16 %97, ptr %length16.i, align 4
   store i16 %and228, ptr %status19.i, align 2
   %98 = load <2 x i32>, ptr %misc17.i, align 4
+  %99 = load i32, ptr %misc17.i, align 4
   store <2 x i32> %98, ptr %misc22.i, align 4
-  %99 = and i16 %79, 255
-  %cmp.i84 = icmp eq i16 %99, 3
+  %100 = and i16 %79, 255
+  %cmp.i84 = icmp eq i16 %100, 3
   br i1 %cmp.i84, label %if.then30.i, label %if.end.i
 
 if.then30.i:                                      ; preds = %if.else.i82
-  %100 = extractelement <2 x i32> %98, i64 0
-  store i32 %100, ptr %xda10.i, align 4
+  store i32 %99, ptr %xda10.i, align 4
   store i32 %96, ptr %misc22.i, align 4
   br label %if.end.i
 

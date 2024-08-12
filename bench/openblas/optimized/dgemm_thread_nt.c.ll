@@ -137,25 +137,25 @@ define noundef i32 @dgemm_thread_nt(ptr noundef %0, ptr noundef %1, ptr noundef 
   %82 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %81, ptr %82, align 16, !tbaa !19
   %83 = load <4 x i64>, ptr %15, align 8, !tbaa !10
+  %84 = load i64, ptr %15, align 8, !tbaa !3
   store <4 x i64> %83, ptr %78, align 16, !tbaa !10
-  %84 = getelementptr inbounds i8, ptr %0, i64 80
-  %85 = getelementptr inbounds i8, ptr %9, i64 80
-  %86 = load <2 x i64>, ptr %84, align 8, !tbaa !10
-  store <2 x i64> %86, ptr %85, align 16, !tbaa !10
-  %87 = getelementptr inbounds i8, ptr %0, i64 32
-  %88 = getelementptr inbounds i8, ptr %9, i64 32
-  %89 = load <2 x ptr>, ptr %87, align 8, !tbaa !18
-  store <2 x ptr> %89, ptr %88, align 16, !tbaa !18
-  %90 = load i64, ptr %76, align 8, !tbaa !11
-  %91 = getelementptr inbounds i8, ptr %9, i64 112
-  store i64 %90, ptr %91, align 16, !tbaa !11
-  %92 = getelementptr inbounds i8, ptr %9, i64 104
-  store ptr %10, ptr %92, align 8, !tbaa !20
-  %93 = getelementptr inbounds i8, ptr %12, i64 8
-  %94 = getelementptr inbounds i8, ptr %13, i64 8
+  %85 = getelementptr inbounds i8, ptr %0, i64 80
+  %86 = getelementptr inbounds i8, ptr %9, i64 80
+  %87 = load <2 x i64>, ptr %85, align 8, !tbaa !10
+  store <2 x i64> %87, ptr %86, align 16, !tbaa !10
+  %88 = getelementptr inbounds i8, ptr %0, i64 32
+  %89 = getelementptr inbounds i8, ptr %9, i64 32
+  %90 = load <2 x ptr>, ptr %88, align 8, !tbaa !18
+  store <2 x ptr> %90, ptr %89, align 16, !tbaa !18
+  %91 = load i64, ptr %76, align 8, !tbaa !11
+  %92 = getelementptr inbounds i8, ptr %9, i64 112
+  store i64 %91, ptr %92, align 16, !tbaa !11
+  %93 = getelementptr inbounds i8, ptr %9, i64 104
+  store ptr %10, ptr %93, align 8, !tbaa !20
+  %94 = getelementptr inbounds i8, ptr %12, i64 8
+  %95 = getelementptr inbounds i8, ptr %13, i64 8
   store i64 %45, ptr %12, align 16, !tbaa !10
   store i64 %70, ptr %13, align 16, !tbaa !10
-  %95 = extractelement <4 x i64> %83, i64 0
   br i1 %19, label %101, label %96
 
 96:                                               ; preds = %75
@@ -167,8 +167,8 @@ define noundef i32 @dgemm_thread_nt(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 101:                                              ; preds = %75, %96
   %.sink = phi i64 [ %97, %96 ], [ 0, %75 ]
-  %102 = phi i64 [ %100, %96 ], [ %95, %75 ]
-  store i64 %.sink, ptr %93, align 8
+  %102 = phi i64 [ %100, %96 ], [ %84, %75 ]
+  store i64 %.sink, ptr %94, align 8
   %103 = icmp sgt i64 %102, 0
   br i1 %103, label %.preheader, label %.thread
 
@@ -221,7 +221,7 @@ define noundef i32 @dgemm_thread_nt(ptr noundef %0, ptr noundef %1, ptr noundef 
   %136 = select i1 %135, i64 %110, i64 %133
   %137 = add nsw i64 %136, %108
   %138 = add nuw nsw i64 %109, 1
-  %139 = getelementptr inbounds i64, ptr %93, i64 %138
+  %139 = getelementptr inbounds i64, ptr %94, i64 %138
   store i64 %137, ptr %139, align 8, !tbaa !10
   %140 = icmp sgt i64 %134, 0
   br i1 %140, label %.preheader, label %104, !llvm.loop !21
@@ -229,7 +229,7 @@ define noundef i32 @dgemm_thread_nt(ptr noundef %0, ptr noundef %1, ptr noundef 
 141:                                              ; preds = %141, %.thread
   %142 = phi i64 [ %107, %.thread ], [ %143, %141 ]
   %143 = add nuw nsw i64 %142, 1
-  %144 = getelementptr inbounds i64, ptr %93, i64 %143
+  %144 = getelementptr inbounds i64, ptr %94, i64 %143
   store i64 %106, ptr %144, align 8, !tbaa !10
   %145 = icmp eq i64 %143, 16
   br i1 %145, label %.loopexit23.preheader, label %141, !llvm.loop !22
@@ -246,9 +246,9 @@ define noundef i32 @dgemm_thread_nt(ptr noundef %0, ptr noundef %1, ptr noundef 
   %149 = getelementptr inbounds i8, ptr %147, i64 24
   store ptr %9, ptr %149, align 8, !tbaa !26
   %150 = getelementptr inbounds i8, ptr %147, i64 32
-  store ptr %93, ptr %150, align 8, !tbaa !27
+  store ptr %94, ptr %150, align 8, !tbaa !27
   %151 = getelementptr inbounds i8, ptr %147, i64 40
-  store ptr %94, ptr %151, align 8, !tbaa !28
+  store ptr %95, ptr %151, align 8, !tbaa !28
   %152 = getelementptr inbounds i8, ptr %147, i64 48
   %153 = add nuw nsw i64 %146, 1
   %154 = getelementptr inbounds [16 x %struct.blas_queue], ptr %11, i64 0, i64 %153
@@ -287,7 +287,7 @@ define noundef i32 @dgemm_thread_nt(ptr noundef %0, ptr noundef %1, ptr noundef 
 172:                                              ; preds = %233, %170
   %173 = phi i64 [ %166, %170 ], [ %235, %233 ]
   %174 = sub nsw i64 %168, %173
-  store i64 %173, ptr %94, align 8, !tbaa !10
+  store i64 %173, ptr %95, align 8, !tbaa !10
   %175 = icmp sgt i64 %174, 0
   br i1 %175, label %176, label %.thread21
 
@@ -326,7 +326,7 @@ define noundef i32 @dgemm_thread_nt(ptr noundef %0, ptr noundef %1, ptr noundef 
   %198 = extractvalue { i32, i32 } %197, 0
   store volatile i32 %198, ptr %7, align 4, !tbaa !15
   %.0..0..0..0.2 = load volatile i32, ptr %7, align 4, !tbaa !15
-  %.phi.trans.insert = getelementptr inbounds i64, ptr %94, i64 %184
+  %.phi.trans.insert = getelementptr inbounds i64, ptr %95, i64 %184
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !10
   br label %199
 
@@ -348,7 +348,7 @@ define noundef i32 @dgemm_thread_nt(ptr noundef %0, ptr noundef %1, ptr noundef 
   %213 = select i1 %212, i64 %185, i64 %210
   %214 = add nsw i64 %213, %200
   %215 = add nuw nsw i64 %184, 1
-  %216 = getelementptr inbounds i64, ptr %94, i64 %215
+  %216 = getelementptr inbounds i64, ptr %95, i64 %215
   store i64 %214, ptr %216, align 8, !tbaa !10
   %217 = icmp sgt i64 %211, 0
   br i1 %217, label %182, label %178, !llvm.loop !33
@@ -356,7 +356,7 @@ define noundef i32 @dgemm_thread_nt(ptr noundef %0, ptr noundef %1, ptr noundef 
 218:                                              ; preds = %218, %.thread21
   %219 = phi i64 [ %181, %.thread21 ], [ %220, %218 ]
   %220 = add nuw nsw i64 %219, 1
-  %221 = getelementptr inbounds i64, ptr %94, i64 %220
+  %221 = getelementptr inbounds i64, ptr %95, i64 %220
   store i64 %180, ptr %221, align 8, !tbaa !10
   %222 = icmp eq i64 %220, 16
   br i1 %222, label %.loopexit.preheader, label %218, !llvm.loop !34

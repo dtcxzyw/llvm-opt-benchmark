@@ -7587,78 +7587,78 @@ declare noundef i64 @_ZNK13QElapsedTimer7elapsedEv(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN22AmbientOcclusionPlugin9setCameraEN3vcg6Point3IfEERNS0_4Box3IfEE(ptr nocapture noundef nonnull align 8 dereferenceable(185) %0, <2 x float> %1, float %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %3) local_unnamed_addr #16 align 2 {
-  %5 = extractelement <2 x float> %1, i64 1
-  %6 = extractelement <2 x float> %1, i64 0
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
-  store <2 x float> %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 112
-  store float %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 12
-  %10 = load float, ptr %3, align 4
-  %11 = load float, ptr %9, align 4
-  %12 = fsub float %10, %11
-  %13 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %.sroa.069.0.vec.extract = extractelement <2 x float> %1, i64 0
+  %.sroa.069.4.vec.extract = extractelement <2 x float> %1, i64 1
+  store <2 x float> %1, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  store float %2, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %3, i64 12
+  %8 = load float, ptr %3, align 4
+  %9 = load float, ptr %7, align 4
+  %10 = fsub float %8, %9
+  %11 = getelementptr inbounds i8, ptr %3, i64 4
+  %12 = load float, ptr %11, align 4
+  %13 = getelementptr inbounds i8, ptr %3, i64 16
   %14 = load float, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
-  %16 = load float, ptr %15, align 4
-  %17 = fsub float %14, %16
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = fsub float %12, %14
+  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = load float, ptr %16, align 4
+  %18 = getelementptr inbounds i8, ptr %3, i64 20
   %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %3, i64 20
-  %21 = load float, ptr %20, align 4
-  %22 = fsub float %19, %21
-  %23 = fmul float %17, %17
-  %24 = tail call float @llvm.fmuladd.f32(float %12, float %12, float %23)
-  %25 = tail call float @llvm.fmuladd.f32(float %22, float %22, float %24)
-  %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %25)
-  %26 = fpext float %sqrt.i.i.i to double
-  %27 = fmul double %26, 5.000000e-01
-  %28 = fmul double %27, 1.100000e+00
-  %29 = fptrunc double %28 to float
-  %30 = fadd float %10, %11
-  %31 = fadd float %14, %16
-  %32 = fadd float %19, %21
+  %20 = fsub float %17, %19
+  %21 = fmul float %15, %15
+  %22 = tail call float @llvm.fmuladd.f32(float %10, float %10, float %21)
+  %23 = tail call float @llvm.fmuladd.f32(float %20, float %20, float %22)
+  %sqrt.i.i.i = tail call noundef float @llvm.sqrt.f32(float %23)
+  %24 = fpext float %sqrt.i.i.i to double
+  %25 = fmul double %24, 5.000000e-01
+  %26 = fmul double %25, 1.100000e+00
+  %27 = fptrunc double %26 to float
+  %28 = fadd float %8, %9
+  %29 = fadd float %12, %14
+  %30 = fadd float %17, %19
+  %31 = fmul float %28, 5.000000e-01
+  %32 = fmul float %29, 5.000000e-01
   %33 = fmul float %30, 5.000000e-01
-  %34 = fmul float %31, 5.000000e-01
-  %35 = fmul float %32, 5.000000e-01
-  %36 = fadd float %29, 0x3FB99999A0000000
-  %37 = fmul float %6, %36
-  %38 = fmul float %5, %36
-  %39 = fmul float %36, %2
+  %34 = fadd float %27, 0x3FB99999A0000000
+  %35 = fmul float %.sroa.069.0.vec.extract, %34
+  %36 = fmul float %.sroa.069.4.vec.extract, %34
+  %37 = fmul float %34, %2
+  %38 = fadd float %31, %35
+  %39 = fadd float %32, %36
   %40 = fadd float %33, %37
-  %41 = fadd float %34, %38
-  %42 = fadd float %35, %39
-  %43 = getelementptr inbounds i8, ptr %0, i64 176
-  %44 = load i32, ptr %43, align 8
-  tail call void @glViewport(i32 noundef 0, i32 noundef 0, i32 noundef %44, i32 noundef %44)
+  %41 = getelementptr inbounds i8, ptr %0, i64 176
+  %42 = load i32, ptr %41, align 8
+  tail call void @glViewport(i32 noundef 0, i32 noundef 0, i32 noundef %42, i32 noundef %42)
   tail call void @glMatrixMode(i32 noundef 5889)
   tail call void @glLoadIdentity()
-  %45 = fneg float %29
-  %46 = fpext float %45 to double
-  %47 = fpext float %29 to double
-  %48 = tail call double @llvm.fmuladd.f64(double %47, double 2.000000e+00, double 0x3FB99999A0000000)
-  tail call void @glOrtho(double noundef %46, double noundef %47, double noundef %46, double noundef %47, double noundef 0x3FB99999A0000000, double noundef %48)
+  %43 = fneg float %27
+  %44 = fpext float %43 to double
+  %45 = fpext float %27 to double
+  %46 = tail call double @llvm.fmuladd.f64(double %45, double 2.000000e+00, double 0x3FB99999A0000000)
+  tail call void @glOrtho(double noundef %44, double noundef %45, double noundef %44, double noundef %45, double noundef 0x3FB99999A0000000, double noundef %46)
   tail call void @glMatrixMode(i32 noundef 5888)
   tail call void @glLoadIdentity()
+  %47 = fpext float %38 to double
+  %48 = fpext float %39 to double
   %49 = fpext float %40 to double
-  %50 = fpext float %41 to double
-  %51 = fpext float %42 to double
-  %52 = load float, ptr %3, align 4
-  %53 = load float, ptr %9, align 4
-  %54 = fadd float %52, %53
-  %55 = load float, ptr %13, align 4
-  %56 = load float, ptr %15, align 4
-  %57 = fadd float %55, %56
-  %58 = load float, ptr %18, align 4
-  %59 = load float, ptr %20, align 4
-  %60 = fadd float %58, %59
-  %61 = fmul float %54, 5.000000e-01
-  %62 = fmul float %57, 5.000000e-01
-  %63 = fmul float %60, 5.000000e-01
+  %50 = load float, ptr %3, align 4
+  %51 = load float, ptr %7, align 4
+  %52 = fadd float %50, %51
+  %53 = load float, ptr %11, align 4
+  %54 = load float, ptr %13, align 4
+  %55 = fadd float %53, %54
+  %56 = load float, ptr %16, align 4
+  %57 = load float, ptr %18, align 4
+  %58 = fadd float %56, %57
+  %59 = fmul float %52, 5.000000e-01
+  %60 = fmul float %55, 5.000000e-01
+  %61 = fmul float %58, 5.000000e-01
+  %62 = fpext float %59 to double
+  %63 = fpext float %60 to double
   %64 = fpext float %61 to double
-  %65 = fpext float %62 to double
-  %66 = fpext float %63 to double
-  tail call void @gluLookAt(double noundef %49, double noundef %50, double noundef %51, double noundef %64, double noundef %65, double noundef %66, double noundef 0.000000e+00, double noundef 1.000000e+00, double noundef 0.000000e+00)
+  tail call void @gluLookAt(double noundef %47, double noundef %48, double noundef %49, double noundef %62, double noundef %63, double noundef %64, double noundef 0.000000e+00, double noundef 1.000000e+00, double noundef 0.000000e+00)
   ret void
 }
 

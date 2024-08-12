@@ -350,68 +350,66 @@ define hidden void @_ZN17KlassCleaningTask4workEv(ptr noundef nonnull align 8 de
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 32
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
-  %13 = load i64, ptr %12, align 8
-  %14 = load volatile i32, ptr %0, align 8
-  %.not.i = icmp eq i32 %14, 0
+  %9 = load <2 x ptr>, ptr %8, align 8
+  %10 = load ptr, ptr %8, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = load i64, ptr %11, align 8
+  %13 = load volatile i32, ptr %0, align 8
+  %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit, label %_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit.thread
 
 _ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit: ; preds = %1
-  %15 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %0) #3, !srcloc !15
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit.thread
+  %14 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %0) #3, !srcloc !15
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit.thread
 
-17:                                               ; preds = %_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit
+16:                                               ; preds = %_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit
   tail call void @_ZN5Klass22clean_weak_klass_linksEbb(i1 noundef zeroext true, i1 noundef zeroext false) #3
   br label %_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit.thread
 
-_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit.thread: ; preds = %1, %17, %_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %19
+_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit.thread: ; preds = %1, %16, %_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %18
 
-19:                                               ; preds = %.backedge, %_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit.thread
-  %20 = tail call noundef ptr @_ZN39ClassLoaderDataGraphKlassIteratorAtomic10next_klassEv(ptr noundef nonnull align 8 dereferenceable(8) %18) #3
-  %.not.i2 = icmp eq ptr %20, null
-  br i1 %.not.i2, label %25, label %21
+18:                                               ; preds = %.backedge, %_ZN17KlassCleaningTask27claim_clean_klass_tree_taskEv.exit.thread
+  %19 = tail call noundef ptr @_ZN39ClassLoaderDataGraphKlassIteratorAtomic10next_klassEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
+  %.not.i2 = icmp eq ptr %19, null
+  br i1 %.not.i2, label %24, label %20
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %20, i64 12
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp slt i32 %23, 5
-  br i1 %24, label %_ZN17KlassCleaningTask16claim_next_klassEv.exit, label %.backedge
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds i8, ptr %19, i64 12
+  %22 = load i32, ptr %21, align 4
+  %23 = icmp slt i32 %22, 5
+  br i1 %23, label %_ZN17KlassCleaningTask16claim_next_klassEv.exit, label %.backedge
 
-.backedge:                                        ; preds = %21, %_ZN17KlassCleaningTask16claim_next_klassEv.exit
-  br label %19, !llvm.loop !17
+.backedge:                                        ; preds = %20, %_ZN17KlassCleaningTask16claim_next_klassEv.exit
+  br label %18, !llvm.loop !17
 
-_ZN17KlassCleaningTask16claim_next_klassEv.exit:  ; preds = %21
-  tail call void @_ZN13InstanceKlass30clean_weak_instanceklass_linksEv(ptr noundef nonnull align 8 dereferenceable(464) %20) #3
+_ZN17KlassCleaningTask16claim_next_klassEv.exit:  ; preds = %20
+  tail call void @_ZN13InstanceKlass30clean_weak_instanceklass_linksEv(ptr noundef nonnull align 8 dereferenceable(464) %19) #3
   br label %.backedge
 
-25:                                               ; preds = %19
-  %26 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i, label %28, label %27
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %7, align 8
+  %.not.i.i.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i.i.i, label %27, label %26
 
-27:                                               ; preds = %25
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %13) #3
+26:                                               ; preds = %24
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %5, i64 noundef %12) #3
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %7) #3
-  br label %28
+  br label %27
 
-28:                                               ; preds = %27, %25
-  %29 = load ptr, ptr %8, align 8
-  %.not8.i.i.i.i = icmp eq ptr %29, %9
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %30
+27:                                               ; preds = %26, %24
+  %28 = load ptr, ptr %8, align 8
+  %.not8.i.i.i.i = icmp eq ptr %28, %10
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %29
 
-30:                                               ; preds = %28
+29:                                               ; preds = %27
   store ptr %7, ptr %6, align 8
-  store ptr %9, ptr %8, align 8
-  store ptr %11, ptr %10, align 8
+  store <2 x ptr> %9, ptr %8, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %28, %30
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %27, %29
   ret void
 }
 

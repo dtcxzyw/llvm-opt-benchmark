@@ -5527,84 +5527,84 @@ if.then175:                                       ; preds = %for.body168
   br i1 %tobool177.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.then175
-  %60 = extractelement <2 x float> %cur.sroa.10.2203, i64 1
-  %neg8.i = fneg float %60
-  %61 = shufflevector <2 x float> %q.sroa.6.0.copyload, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %62 = shufflevector <2 x float> %cur.sroa.0.2204, <2 x float> %cur.sroa.10.2203, <2 x i32> <i32 1, i32 2>
-  %63 = fneg <2 x float> %62
-  %64 = shufflevector <2 x float> %q.sroa.2.0.copyload, <2 x float> %cur.sroa.0.2204, <2 x i32> <i32 1, i32 3>
-  %65 = shufflevector <2 x float> %63, <2 x float> %q.sroa.2.0.copyload, <2 x i32> <i32 0, i32 2>
-  %66 = fmul <2 x float> %64, %65
-  %67 = shufflevector <2 x float> %cur.sroa.0.2204, <2 x float> poison, <2 x i32> zeroinitializer
-  %68 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %67, <2 x float> %q.sroa.2.0.copyload, <2 x float> %66)
-  %69 = shufflevector <2 x float> %63, <2 x float> %cur.sroa.10.2203, <2 x i32> <i32 1, i32 2>
-  %70 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %69, <2 x float> %q.sroa.6.0.copyload, <2 x float> %68)
-  %71 = insertelement <2 x float> poison, float %neg8.i, i64 0
-  %72 = shufflevector <2 x float> %71, <2 x float> poison, <2 x i32> zeroinitializer
-  %73 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %72, <2 x float> %61, <2 x float> %70)
-  %74 = shufflevector <2 x float> %q.sroa.2.0.copyload, <2 x float> poison, <2 x i32> zeroinitializer
-  %75 = fmul <2 x float> %cur.sroa.10.2203, %74
-  %76 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %67, <2 x float> %q.sroa.6.0.copyload, <2 x float> %75)
-  %77 = shufflevector <2 x float> %cur.sroa.10.2203, <2 x float> %cur.sroa.0.2204, <2 x i32> <i32 1, i32 3>
-  %78 = shufflevector <2 x float> %q.sroa.2.0.copyload, <2 x float> %q.sroa.6.0.copyload, <2 x i32> <i32 1, i32 2>
-  %79 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %77, <2 x float> %78, <2 x float> %76)
-  %80 = shufflevector <2 x float> %q.sroa.6.0.copyload, <2 x float> %q.sroa.2.0.copyload, <2 x i32> <i32 1, i32 3>
-  %81 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %63, <2 x float> %80, <2 x float> %79)
+  %60 = shufflevector <2 x float> %q.sroa.6.0.copyload, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %cur.sroa.10.12.vec.extract = extractelement <2 x float> %cur.sroa.10.2203, i64 1
+  %neg8.i = fneg float %cur.sroa.10.12.vec.extract
+  %61 = shufflevector <2 x float> %cur.sroa.0.2204, <2 x float> %cur.sroa.10.2203, <2 x i32> <i32 1, i32 2>
+  %62 = fneg <2 x float> %61
+  %63 = shufflevector <2 x float> %q.sroa.2.0.copyload, <2 x float> %cur.sroa.0.2204, <2 x i32> <i32 1, i32 3>
+  %64 = shufflevector <2 x float> %62, <2 x float> %q.sroa.2.0.copyload, <2 x i32> <i32 0, i32 2>
+  %65 = fmul <2 x float> %63, %64
+  %66 = shufflevector <2 x float> %cur.sroa.0.2204, <2 x float> poison, <2 x i32> zeroinitializer
+  %67 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %66, <2 x float> %q.sroa.2.0.copyload, <2 x float> %65)
+  %68 = shufflevector <2 x float> %62, <2 x float> %cur.sroa.10.2203, <2 x i32> <i32 1, i32 2>
+  %69 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %68, <2 x float> %q.sroa.6.0.copyload, <2 x float> %67)
+  %70 = insertelement <2 x float> poison, float %neg8.i, i64 0
+  %71 = shufflevector <2 x float> %70, <2 x float> poison, <2 x i32> zeroinitializer
+  %72 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %71, <2 x float> %60, <2 x float> %69)
+  %73 = shufflevector <2 x float> %q.sroa.2.0.copyload, <2 x float> poison, <2 x i32> zeroinitializer
+  %74 = fmul <2 x float> %cur.sroa.10.2203, %73
+  %75 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %66, <2 x float> %q.sroa.6.0.copyload, <2 x float> %74)
+  %76 = shufflevector <2 x float> %cur.sroa.10.2203, <2 x float> %cur.sroa.0.2204, <2 x i32> <i32 1, i32 3>
+  %77 = shufflevector <2 x float> %q.sroa.2.0.copyload, <2 x float> %q.sroa.6.0.copyload, <2 x i32> <i32 1, i32 2>
+  %78 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %76, <2 x float> %77, <2 x float> %75)
+  %79 = shufflevector <2 x float> %q.sroa.6.0.copyload, <2 x float> %q.sroa.2.0.copyload, <2 x i32> <i32 1, i32 3>
+  %80 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %62, <2 x float> %79, <2 x float> %78)
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then175, %cond.true
-  %ref.tmp176.sroa.3.0 = phi <2 x float> [ %81, %cond.true ], [ %q.sroa.6.0.copyload, %if.then175 ]
-  %ref.tmp176.sroa.0.0 = phi <2 x float> [ %73, %cond.true ], [ %q.sroa.2.0.copyload, %if.then175 ]
-  %82 = fmul <2 x float> %ref.tmp176.sroa.3.0, %ref.tmp176.sroa.3.0
-  %mul4.i = extractelement <2 x float> %82, i64 0
-  %83 = extractelement <2 x float> %ref.tmp176.sroa.0.0, i64 1
-  %84 = call float @llvm.fmuladd.f32(float %83, float %83, float %mul4.i)
-  %85 = extractelement <2 x float> %ref.tmp176.sroa.3.0, i64 1
-  %86 = call float @llvm.fmuladd.f32(float %85, float %85, float %84)
-  %87 = extractelement <2 x float> %ref.tmp176.sroa.0.0, i64 0
-  %88 = call float @llvm.fmuladd.f32(float %87, float %87, float %86)
-  %tobool.i = fcmp une float %88, 0.000000e+00
+  %ref.tmp176.sroa.3.0 = phi <2 x float> [ %80, %cond.true ], [ %q.sroa.6.0.copyload, %if.then175 ]
+  %ref.tmp176.sroa.0.0 = phi <2 x float> [ %72, %cond.true ], [ %q.sroa.2.0.copyload, %if.then175 ]
+  %cur.sroa.0.4.vec.extract173 = extractelement <2 x float> %ref.tmp176.sroa.0.0, i64 1
+  %81 = fmul <2 x float> %ref.tmp176.sroa.3.0, %ref.tmp176.sroa.3.0
+  %mul4.i = extractelement <2 x float> %81, i64 0
+  %82 = call float @llvm.fmuladd.f32(float %cur.sroa.0.4.vec.extract173, float %cur.sroa.0.4.vec.extract173, float %mul4.i)
+  %cur.sroa.10.12.vec.extract184 = extractelement <2 x float> %ref.tmp176.sroa.3.0, i64 1
+  %83 = call float @llvm.fmuladd.f32(float %cur.sroa.10.12.vec.extract184, float %cur.sroa.10.12.vec.extract184, float %82)
+  %cur.sroa.0.0.vec.extract168 = extractelement <2 x float> %ref.tmp176.sroa.0.0, i64 0
+  %84 = call float @llvm.fmuladd.f32(float %cur.sroa.0.0.vec.extract168, float %cur.sroa.0.0.vec.extract168, float %83)
+  %tobool.i = fcmp une float %84, 0.000000e+00
   br i1 %tobool.i, label %if.then.i, label %if.end182
 
 if.then.i:                                        ; preds = %cond.end
-  %sqrt.i = call float @llvm.sqrt.f32(float %88)
+  %sqrt.i = call float @llvm.sqrt.f32(float %84)
   %div.i = fdiv float 1.000000e+00, %sqrt.i
-  %89 = insertelement <2 x float> poison, float %div.i, i64 0
-  %90 = shufflevector <2 x float> %89, <2 x float> poison, <2 x i32> zeroinitializer
-  %91 = fmul <2 x float> %ref.tmp176.sroa.3.0, %90
-  %92 = fmul <2 x float> %ref.tmp176.sroa.0.0, %90
+  %85 = insertelement <2 x float> poison, float %div.i, i64 0
+  %86 = shufflevector <2 x float> %85, <2 x float> poison, <2 x i32> zeroinitializer
+  %87 = fmul <2 x float> %ref.tmp176.sroa.3.0, %86
+  %88 = fmul <2 x float> %ref.tmp176.sroa.0.0, %86
   br label %if.end182
 
 if.end182:                                        ; preds = %if.then.i, %cond.end, %for.body168
-  %cur.sroa.10.3 = phi <2 x float> [ %cur.sroa.10.2203, %for.body168 ], [ %91, %if.then.i ], [ %ref.tmp176.sroa.3.0, %cond.end ]
-  %cur.sroa.0.3 = phi <2 x float> [ %cur.sroa.0.2204, %for.body168 ], [ %92, %if.then.i ], [ %ref.tmp176.sroa.0.0, %cond.end ]
-  %q.sroa.6.0 = phi <2 x float> [ %q.sroa.6.0.copyload, %for.body168 ], [ %91, %if.then.i ], [ %ref.tmp176.sroa.3.0, %cond.end ]
-  %q.sroa.2.0 = phi <2 x float> [ %q.sroa.2.0.copyload, %for.body168 ], [ %92, %if.then.i ], [ %ref.tmp176.sroa.0.0, %cond.end ]
-  %93 = load ptr, ptr %mRotationKeys.i107, align 8
-  %arrayidx185 = getelementptr inbounds %struct.aiQuatKey, ptr %93, i64 %indvars.iv
+  %cur.sroa.10.3 = phi <2 x float> [ %cur.sroa.10.2203, %for.body168 ], [ %87, %if.then.i ], [ %ref.tmp176.sroa.3.0, %cond.end ]
+  %cur.sroa.0.3 = phi <2 x float> [ %cur.sroa.0.2204, %for.body168 ], [ %88, %if.then.i ], [ %ref.tmp176.sroa.0.0, %cond.end ]
+  %q.sroa.6.0 = phi <2 x float> [ %q.sroa.6.0.copyload, %for.body168 ], [ %87, %if.then.i ], [ %ref.tmp176.sroa.3.0, %cond.end ]
+  %q.sroa.2.0 = phi <2 x float> [ %q.sroa.2.0.copyload, %for.body168 ], [ %88, %if.then.i ], [ %ref.tmp176.sroa.0.0, %cond.end ]
+  %89 = load ptr, ptr %mRotationKeys.i107, align 8
+  %arrayidx185 = getelementptr inbounds %struct.aiQuatKey, ptr %89, i64 %indvars.iv
   store double %q.sroa.0.0.copyload, ptr %arrayidx185, align 8
   %q.sroa.2.0.arrayidx185.sroa_idx = getelementptr inbounds i8, ptr %arrayidx185, i64 8
   store <2 x float> %q.sroa.2.0, ptr %q.sroa.2.0.arrayidx185.sroa_idx, align 8
   %q.sroa.6.0.arrayidx185.sroa_idx = getelementptr inbounds i8, ptr %arrayidx185, i64 16
   store <2 x float> %q.sroa.6.0, ptr %q.sroa.6.0.arrayidx185.sroa_idx, align 8
-  %94 = load ptr, ptr %mRotationKeys.i107, align 8
-  %mValue189 = getelementptr inbounds %struct.aiQuatKey, ptr %94, i64 %indvars.iv, i32 1
-  %95 = load float, ptr %mValue189, align 8
-  %mul190 = fneg float %95
+  %90 = load ptr, ptr %mRotationKeys.i107, align 8
+  %mValue189 = getelementptr inbounds %struct.aiQuatKey, ptr %90, i64 %indvars.iv, i32 1
+  %91 = load float, ptr %mValue189, align 8
+  %mul190 = fneg float %91
   store float %mul190, ptr %mValue189, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %96 = load i32, ptr %mNumRotationKeys, align 8
-  %97 = zext i32 %96 to i64
-  %cmp167 = icmp ult i64 %indvars.iv.next, %97
+  %92 = load i32, ptr %mNumRotationKeys, align 8
+  %93 = zext i32 %92 to i64
+  %cmp167 = icmp ult i64 %indvars.iv.next, %93
   br i1 %cmp167, label %for.body168, label %if.end194, !llvm.loop !74
 
 if.end194:                                        ; preds = %if.end182, %arrayctor.cont164, %if.end144
   %akeyScaling196 = getelementptr inbounds i8, ptr %30, i64 224
   %_M_finish.i148 = getelementptr inbounds i8, ptr %30, i64 232
-  %98 = load ptr, ptr %_M_finish.i148, align 8
-  %99 = load ptr, ptr %akeyScaling196, align 8
-  %sub.ptr.lhs.cast.i149 = ptrtoint ptr %98 to i64
-  %sub.ptr.rhs.cast.i150 = ptrtoint ptr %99 to i64
+  %94 = load ptr, ptr %_M_finish.i148, align 8
+  %95 = load ptr, ptr %akeyScaling196, align 8
+  %sub.ptr.lhs.cast.i149 = ptrtoint ptr %94 to i64
+  %sub.ptr.rhs.cast.i150 = ptrtoint ptr %95 to i64
   %sub.ptr.sub.i151 = sub i64 %sub.ptr.lhs.cast.i149, %sub.ptr.rhs.cast.i150
   %sub.ptr.div.i152 = sdiv exact i64 %sub.ptr.sub.i151, 24
   %cmp198 = icmp ugt i64 %sub.ptr.div.i152, 1
@@ -5614,8 +5614,8 @@ if.then199:                                       ; preds = %if.end194
   %conv203 = trunc i64 %sub.ptr.div.i152 to i32
   store i32 %conv203, ptr %mNumScalingKeys.i108, align 8
   %conv205 = and i64 %sub.ptr.div.i152, 4294967295
-  %100 = mul nuw nsw i64 %conv205, 24
-  %call206 = call noalias noundef nonnull ptr @_Znam(i64 noundef %100) #21
+  %96 = mul nuw nsw i64 %conv205, 24
+  %call206 = call noalias noundef nonnull ptr @_Znam(i64 noundef %96) #21
   %isempty207 = icmp eq i64 %conv205, 0
   br i1 %isempty207, label %arrayctor.cont214, label %new.ctorloop208
 
@@ -5632,15 +5632,15 @@ arrayctor.loop210:                                ; preds = %arrayctor.loop210, 
 
 arrayctor.cont214:                                ; preds = %arrayctor.loop210, %if.then199
   store ptr %call206, ptr %mScalingKeys.i109, align 8
-  %101 = load ptr, ptr %akeyScaling196, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call206, ptr nonnull align 8 %101, i64 %100, i1 false)
+  %97 = load ptr, ptr %akeyScaling196, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call206, ptr nonnull align 8 %97, i64 %96, i1 false)
   br label %for.inc224
 
 for.inc224:                                       ; preds = %lor.lhs.false101, %arrayctor.cont214, %if.end194
   %iNum.5 = phi i32 [ %inc110, %arrayctor.cont214 ], [ %inc110, %if.end194 ], [ %iNum.4, %lor.lhs.false101 ]
   %incdec.ptr.i159 = getelementptr inbounds i8, ptr %i.sroa.0.1211, i64 8
-  %102 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i76.not = icmp eq ptr %incdec.ptr.i159, %102
+  %98 = load ptr, ptr %_M_finish.i, align 8
+  %cmp.i76.not = icmp eq ptr %incdec.ptr.i159, %98
   br i1 %cmp.i76.not, label %if.end227, label %for.body61, !llvm.loop !75
 
 if.end227:                                        ; preds = %for.inc224, %entry, %if.then44, %for.end

@@ -969,14 +969,14 @@ define dso_local noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr nocapture noundef r
   %7 = shl i32 %6, 16
   %8 = or i32 %7, %5
   %9 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 44), align 4
-  %10 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 52), align 4
-  %11 = extractelement <2 x i32> %9, i64 1
-  %12 = add nsw i32 %11, -24
+  %10 = extractelement <2 x i32> %9, i64 1
+  %11 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 52), align 4
+  %12 = add nsw i32 %10, -24
   store i32 %12, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
   br i1 %2, label %13, label %_Z6inRectiiiib.exit
 
 13:                                               ; preds = %3
-  %14 = add nsw i32 %11, -20
+  %14 = add nsw i32 %10, -20
   %15 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 56), align 4
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %_Z6inRectiiiib.exit
@@ -985,7 +985,7 @@ define dso_local noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr nocapture noundef r
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 4), align 4
   %19 = extractelement <2 x i32> %9, i64 0
   %.not.i = icmp slt i32 %18, %19
-  %20 = add nsw i32 %10, %19
+  %20 = add nsw i32 %11, %19
   %.not10.i = icmp sgt i32 %18, %20
   %or.cond.i = select i1 %.not.i, i1 true, i1 %.not10.i
   br i1 %or.cond.i, label %_Z6inRectiiiib.exit, label %21
@@ -993,7 +993,7 @@ define dso_local noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr nocapture noundef r
 21:                                               ; preds = %17
   %22 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 8), align 4
   %.not11.i = icmp sge i32 %22, %14
-  %23 = icmp sle i32 %22, %11
+  %23 = icmp sle i32 %22, %10
   %spec.select = and i1 %.not11.i, %23
   br label %_Z6inRectiiiib.exit
 
@@ -1068,124 +1068,124 @@ _Z6inRectiiiib.exit:                              ; preds = %21, %17, %13, %3
 
 _ZL11buttonLogicjb.exit:                          ; preds = %43, %47
   %48 = add nsw <2 x i32> %9, <i32 6, i32 -14>
-  %49 = sitofp <2 x i32> %48 to <2 x float>
-  %50 = icmp eq i32 %44, %8
-  %51 = load i32, ptr @_ZL17g_gfxCmdQueueSize, align 4
-  %52 = icmp ugt i32 %51, 4999
-  br i1 %52, label %_ZL20addGfxCmdRoundedRectfffffj.exit, label %53
+  %49 = add nsw i32 %10, -14
+  %50 = sitofp <2 x i32> %48 to <2 x float>
+  %51 = icmp eq i32 %44, %8
+  %52 = load i32, ptr @_ZL17g_gfxCmdQueueSize, align 4
+  %53 = icmp ugt i32 %52, 4999
+  br i1 %53, label %_ZL20addGfxCmdRoundedRectfffffj.exit, label %54
 
-53:                                               ; preds = %_ZL11buttonLogicjb.exit
-  %54 = select i1 %50, i32 -998211456, i32 1619034240
-  %55 = add nuw nsw i32 %51, 1
-  store i32 %55, ptr @_ZL17g_gfxCmdQueueSize, align 4
-  %56 = zext nneg i32 %51 to i64
-  %57 = getelementptr inbounds [5000 x %struct.imguiGfxCmd], ptr @_ZL13g_gfxCmdQueue, i64 0, i64 %56
-  store i8 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 1
-  store i8 0, ptr %58, align 1
-  %59 = getelementptr inbounds i8, ptr %57, i64 4
-  store i32 %54, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %57, i64 8
-  %61 = fadd <2 x float> %49, <float -3.000000e+00, float -3.000000e+00>
-  %62 = fmul <2 x float> %61, <float 8.000000e+00, float 8.000000e+00>
-  %63 = fptosi <2 x float> %62 to <2 x i16>
-  store <2 x i16> %63, ptr %60, align 8
-  %64 = getelementptr inbounds i8, ptr %57, i64 12
-  store i16 112, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %57, i64 14
-  store i16 112, ptr %65, align 2
-  %66 = getelementptr inbounds i8, ptr %57, i64 16
-  store i16 32, ptr %66, align 8
+54:                                               ; preds = %_ZL11buttonLogicjb.exit
+  %55 = select i1 %51, i32 -998211456, i32 1619034240
+  %56 = add nuw nsw i32 %52, 1
+  store i32 %56, ptr @_ZL17g_gfxCmdQueueSize, align 4
+  %57 = zext nneg i32 %52 to i64
+  %58 = getelementptr inbounds [5000 x %struct.imguiGfxCmd], ptr @_ZL13g_gfxCmdQueue, i64 0, i64 %57
+  store i8 0, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 1
+  store i8 0, ptr %59, align 1
+  %60 = getelementptr inbounds i8, ptr %58, i64 4
+  store i32 %55, ptr %60, align 4
+  %61 = getelementptr inbounds i8, ptr %58, i64 8
+  %62 = fadd <2 x float> %50, <float -3.000000e+00, float -3.000000e+00>
+  %63 = fmul <2 x float> %62, <float 8.000000e+00, float 8.000000e+00>
+  %64 = fptosi <2 x float> %63 to <2 x i16>
+  store <2 x i16> %64, ptr %61, align 8
+  %65 = getelementptr inbounds i8, ptr %58, i64 12
+  store i16 112, ptr %65, align 4
+  %66 = getelementptr inbounds i8, ptr %58, i64 14
+  store i16 112, ptr %66, align 2
+  %67 = getelementptr inbounds i8, ptr %58, i64 16
+  store i16 32, ptr %67, align 8
   br label %_ZL20addGfxCmdRoundedRectfffffj.exit
 
-_ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %_ZL11buttonLogicjb.exit, %53
-  %67 = phi i32 [ %51, %_ZL11buttonLogicjb.exit ], [ %55, %53 ]
-  br i1 %1, label %68, label %_ZL20addGfxCmdRoundedRectfffffj.exit28
+_ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %_ZL11buttonLogicjb.exit, %54
+  %68 = phi i32 [ %52, %_ZL11buttonLogicjb.exit ], [ %56, %54 ]
+  br i1 %1, label %69, label %_ZL20addGfxCmdRoundedRectfffffj.exit28
 
-68:                                               ; preds = %_ZL20addGfxCmdRoundedRectfffffj.exit
-  %69 = icmp ugt i32 %67, 4999
-  br i1 %2, label %70, label %84
+69:                                               ; preds = %_ZL20addGfxCmdRoundedRectfffffj.exit
+  %70 = icmp ugt i32 %68, 4999
+  br i1 %2, label %71, label %85
 
-70:                                               ; preds = %68
-  br i1 %69, label %_ZL13addGfxCmdTextiiiPKcj.exit, label %71
+71:                                               ; preds = %69
+  br i1 %70, label %_ZL13addGfxCmdTextiiiPKcj.exit, label %72
 
-71:                                               ; preds = %70
-  %72 = select i1 %50, i32 -1, i32 -922746881
-  %73 = add nuw nsw i32 %67, 1
-  store i32 %73, ptr @_ZL17g_gfxCmdQueueSize, align 4
-  %74 = zext nneg i32 %67 to i64
-  %75 = getelementptr inbounds [5000 x %struct.imguiGfxCmd], ptr @_ZL13g_gfxCmdQueue, i64 0, i64 %74
-  store i8 0, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 1
-  store i8 0, ptr %76, align 1
-  %77 = getelementptr inbounds i8, ptr %75, i64 4
-  store i32 %72, ptr %77, align 4
-  %78 = fmul <2 x float> %49, <float 8.000000e+00, float 8.000000e+00>
-  %79 = getelementptr inbounds i8, ptr %75, i64 8
-  %80 = fptosi <2 x float> %78 to <2 x i16>
-  store <2 x i16> %80, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %75, i64 12
-  store i16 64, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %75, i64 14
-  store i16 64, ptr %82, align 2
-  %83 = getelementptr inbounds i8, ptr %75, i64 16
-  store i16 24, ptr %83, align 8
+72:                                               ; preds = %71
+  %73 = select i1 %51, i32 -1, i32 -922746881
+  %74 = add nuw nsw i32 %68, 1
+  store i32 %74, ptr @_ZL17g_gfxCmdQueueSize, align 4
+  %75 = zext nneg i32 %68 to i64
+  %76 = getelementptr inbounds [5000 x %struct.imguiGfxCmd], ptr @_ZL13g_gfxCmdQueue, i64 0, i64 %75
+  store i8 0, ptr %76, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 1
+  store i8 0, ptr %77, align 1
+  %78 = getelementptr inbounds i8, ptr %76, i64 4
+  store i32 %73, ptr %78, align 4
+  %79 = fmul <2 x float> %50, <float 8.000000e+00, float 8.000000e+00>
+  %80 = getelementptr inbounds i8, ptr %76, i64 8
+  %81 = fptosi <2 x float> %79 to <2 x i16>
+  store <2 x i16> %81, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %76, i64 12
+  store i16 64, ptr %82, align 4
+  %83 = getelementptr inbounds i8, ptr %76, i64 14
+  store i16 64, ptr %83, align 2
+  %84 = getelementptr inbounds i8, ptr %76, i64 16
+  store i16 24, ptr %84, align 8
   br label %_ZL20addGfxCmdRoundedRectfffffj.exit28.thread
 
-84:                                               ; preds = %68
-  br i1 %69, label %_ZL13addGfxCmdTextiiiPKcj.exit, label %85
+85:                                               ; preds = %69
+  br i1 %70, label %_ZL13addGfxCmdTextiiiPKcj.exit, label %86
 
-85:                                               ; preds = %84
-  %86 = add nuw nsw i32 %67, 1
-  store i32 %86, ptr @_ZL17g_gfxCmdQueueSize, align 4
-  %87 = zext nneg i32 %67 to i64
-  %88 = getelementptr inbounds [5000 x %struct.imguiGfxCmd], ptr @_ZL13g_gfxCmdQueue, i64 0, i64 %87
-  store i8 0, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 1
-  store i8 0, ptr %89, align 1
-  %90 = getelementptr inbounds i8, ptr %88, i64 4
-  store i32 -931102592, ptr %90, align 4
-  %91 = getelementptr inbounds i8, ptr %88, i64 8
-  %92 = fmul <2 x float> %49, <float 8.000000e+00, float 8.000000e+00>
-  %93 = fptosi <2 x float> %92 to <2 x i16>
-  store <2 x i16> %93, ptr %91, align 8
-  %94 = getelementptr inbounds i8, ptr %88, i64 12
-  store i16 64, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %88, i64 14
-  store i16 64, ptr %95, align 2
-  %96 = getelementptr inbounds i8, ptr %88, i64 16
-  store i16 24, ptr %96, align 8
+86:                                               ; preds = %85
+  %87 = add nuw nsw i32 %68, 1
+  store i32 %87, ptr @_ZL17g_gfxCmdQueueSize, align 4
+  %88 = zext nneg i32 %68 to i64
+  %89 = getelementptr inbounds [5000 x %struct.imguiGfxCmd], ptr @_ZL13g_gfxCmdQueue, i64 0, i64 %88
+  store i8 0, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 1
+  store i8 0, ptr %90, align 1
+  %91 = getelementptr inbounds i8, ptr %89, i64 4
+  store i32 -931102592, ptr %91, align 4
+  %92 = getelementptr inbounds i8, ptr %89, i64 8
+  %93 = fmul <2 x float> %50, <float 8.000000e+00, float 8.000000e+00>
+  %94 = fptosi <2 x float> %93 to <2 x i16>
+  store <2 x i16> %94, ptr %92, align 8
+  %95 = getelementptr inbounds i8, ptr %89, i64 12
+  store i16 64, ptr %95, align 4
+  %96 = getelementptr inbounds i8, ptr %89, i64 14
+  store i16 64, ptr %96, align 2
+  %97 = getelementptr inbounds i8, ptr %89, i64 16
+  store i16 24, ptr %97, align 8
   br label %_ZL20addGfxCmdRoundedRectfffffj.exit28.thread34
 
 _ZL20addGfxCmdRoundedRectfffffj.exit28:           ; preds = %_ZL20addGfxCmdRoundedRectfffffj.exit
   br i1 %2, label %_ZL20addGfxCmdRoundedRectfffffj.exit28.thread, label %_ZL20addGfxCmdRoundedRectfffffj.exit28.thread34
 
-_ZL20addGfxCmdRoundedRectfffffj.exit28.thread:    ; preds = %71, %_ZL20addGfxCmdRoundedRectfffffj.exit28
-  %97 = phi i32 [ %73, %71 ], [ %67, %_ZL20addGfxCmdRoundedRectfffffj.exit28 ]
-  %98 = icmp ugt i32 %97, 4999
-  br i1 %98, label %_ZL13addGfxCmdTextiiiPKcj.exit, label %99
+_ZL20addGfxCmdRoundedRectfffffj.exit28.thread:    ; preds = %72, %_ZL20addGfxCmdRoundedRectfffffj.exit28
+  %98 = phi i32 [ %74, %72 ], [ %68, %_ZL20addGfxCmdRoundedRectfffffj.exit28 ]
+  %99 = icmp ugt i32 %98, 4999
+  br i1 %99, label %_ZL13addGfxCmdTextiiiPKcj.exit, label %100
 
-99:                                               ; preds = %_ZL20addGfxCmdRoundedRectfffffj.exit28.thread
+100:                                              ; preds = %_ZL20addGfxCmdRoundedRectfffffj.exit28.thread
   %spec.select35 = select i1 %46, i32 -16726785, i32 -922746881
-  %100 = add nuw nsw i32 %97, 1
-  store i32 %100, ptr @_ZL17g_gfxCmdQueueSize, align 4
-  %101 = zext nneg i32 %97 to i64
-  %102 = getelementptr inbounds [5000 x %struct.imguiGfxCmd], ptr @_ZL13g_gfxCmdQueue, i64 0, i64 %101
-  store i8 3, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 1
-  store i8 0, ptr %103, align 1
-  %104 = getelementptr inbounds i8, ptr %102, i64 4
-  store i32 %spec.select35, ptr %104, align 4
-  %105 = bitcast <2 x i32> %9 to <4 x i16>
-  %106 = extractelement <4 x i16> %105, i64 0
-  %107 = add i16 %106, 20
-  %108 = getelementptr inbounds i8, ptr %102, i64 8
-  store i16 %107, ptr %108, align 8
-  %109 = bitcast <2 x i32> %48 to <4 x i16>
-  %110 = extractelement <4 x i16> %109, i64 2
-  %111 = getelementptr inbounds i8, ptr %102, i64 10
+  %101 = add nuw nsw i32 %98, 1
+  store i32 %101, ptr @_ZL17g_gfxCmdQueueSize, align 4
+  %102 = zext nneg i32 %98 to i64
+  %103 = getelementptr inbounds [5000 x %struct.imguiGfxCmd], ptr @_ZL13g_gfxCmdQueue, i64 0, i64 %102
+  store i8 3, ptr %103, align 8
+  %104 = getelementptr inbounds i8, ptr %103, i64 1
+  store i8 0, ptr %104, align 1
+  %105 = getelementptr inbounds i8, ptr %103, i64 4
+  store i32 %spec.select35, ptr %105, align 4
+  %106 = bitcast <2 x i32> %9 to <4 x i16>
+  %107 = extractelement <4 x i16> %106, i64 0
+  %108 = add i16 %107, 20
+  %109 = getelementptr inbounds i8, ptr %103, i64 8
+  store i16 %108, ptr %109, align 8
+  %110 = trunc i32 %49 to i16
+  %111 = getelementptr inbounds i8, ptr %103, i64 10
   store i16 %110, ptr %111, align 2
-  %112 = getelementptr inbounds i8, ptr %102, i64 12
+  %112 = getelementptr inbounds i8, ptr %103, i64 12
   store i16 0, ptr %112, align 4
   %113 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
   %114 = trunc i64 %113 to i32
@@ -1195,8 +1195,8 @@ _ZL20addGfxCmdRoundedRectfffffj.exit28.thread:    ; preds = %71, %_ZL20addGfxCmd
   %118 = icmp ugt i32 %117, 49999
   br i1 %118, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split
 
-_ZL20addGfxCmdRoundedRectfffffj.exit28.thread34:  ; preds = %85, %_ZL20addGfxCmdRoundedRectfffffj.exit28
-  %.pr = phi i32 [ %86, %85 ], [ %67, %_ZL20addGfxCmdRoundedRectfffffj.exit28 ]
+_ZL20addGfxCmdRoundedRectfffffj.exit28.thread34:  ; preds = %86, %_ZL20addGfxCmdRoundedRectfffffj.exit28
+  %.pr = phi i32 [ %87, %86 ], [ %68, %_ZL20addGfxCmdRoundedRectfffffj.exit28 ]
   %119 = icmp ugt i32 %.pr, 4999
   br i1 %119, label %_ZL13addGfxCmdTextiiiPKcj.exit, label %120
 
@@ -1215,40 +1215,39 @@ _ZL20addGfxCmdRoundedRectfffffj.exit28.thread34:  ; preds = %85, %_ZL20addGfxCmd
   %128 = add i16 %127, 20
   %129 = getelementptr inbounds i8, ptr %123, i64 8
   store i16 %128, ptr %129, align 8
-  %130 = bitcast <2 x i32> %48 to <4 x i16>
-  %131 = extractelement <4 x i16> %130, i64 2
-  %132 = getelementptr inbounds i8, ptr %123, i64 10
-  store i16 %131, ptr %132, align 2
-  %133 = getelementptr inbounds i8, ptr %123, i64 12
-  store i16 0, ptr %133, align 4
-  %134 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
-  %135 = trunc i64 %134 to i32
-  %136 = add i32 %135, 1
-  %137 = load i32, ptr @_ZL14g_textPoolSize, align 4
-  %138 = add i32 %136, %137
-  %139 = icmp ugt i32 %138, 49999
-  br i1 %139, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split
+  %130 = trunc i32 %49 to i16
+  %131 = getelementptr inbounds i8, ptr %123, i64 10
+  store i16 %130, ptr %131, align 2
+  %132 = getelementptr inbounds i8, ptr %123, i64 12
+  store i16 0, ptr %132, align 4
+  %133 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
+  %134 = trunc i64 %133 to i32
+  %135 = add i32 %134, 1
+  %136 = load i32, ptr @_ZL14g_textPoolSize, align 4
+  %137 = add i32 %135, %136
+  %138 = icmp ugt i32 %137, 49999
+  br i1 %138, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split
 
-_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split: ; preds = %120, %99
-  %.sink42 = phi i32 [ %116, %99 ], [ %137, %120 ]
-  %.sink40 = phi i32 [ %115, %99 ], [ %136, %120 ]
-  %.sink = phi i32 [ %117, %99 ], [ %138, %120 ]
-  %.sink37.ph = phi ptr [ %102, %99 ], [ %123, %120 ]
-  %140 = zext i32 %.sink42 to i64
-  %141 = getelementptr inbounds [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %140
-  %142 = zext i32 %.sink40 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %141, ptr readonly align 1 %0, i64 %142, i1 false)
+_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split: ; preds = %120, %100
+  %.sink42 = phi i32 [ %116, %100 ], [ %136, %120 ]
+  %.sink40 = phi i32 [ %115, %100 ], [ %135, %120 ]
+  %.sink = phi i32 [ %117, %100 ], [ %137, %120 ]
+  %.sink37.ph = phi ptr [ %103, %100 ], [ %123, %120 ]
+  %139 = zext i32 %.sink42 to i64
+  %140 = getelementptr inbounds [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %139
+  %141 = zext i32 %.sink40 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %140, ptr readonly align 1 %0, i64 %141, i1 false)
   store i32 %.sink, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split
 
-_ZL13addGfxCmdTextiiiPKcj.exit.sink.split:        ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split, %120, %99
-  %.sink37 = phi ptr [ %102, %99 ], [ %123, %120 ], [ %.sink37.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
-  %.0.i.i31.sink = phi ptr [ null, %99 ], [ null, %120 ], [ %141, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
-  %143 = getelementptr inbounds i8, ptr %.sink37, i64 16
-  store ptr %.0.i.i31.sink, ptr %143, align 8
+_ZL13addGfxCmdTextiiiPKcj.exit.sink.split:        ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split, %120, %100
+  %.sink37 = phi ptr [ %103, %100 ], [ %123, %120 ], [ %.sink37.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
+  %.0.i.i31.sink = phi ptr [ null, %100 ], [ null, %120 ], [ %140, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
+  %142 = getelementptr inbounds i8, ptr %.sink37, i64 16
+  store ptr %.0.i.i31.sink, ptr %142, align 8
   br label %_ZL13addGfxCmdTextiiiPKcj.exit
 
-_ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split, %70, %84, %_ZL20addGfxCmdRoundedRectfffffj.exit28.thread34, %_ZL20addGfxCmdRoundedRectfffffj.exit28.thread
+_ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split, %71, %85, %_ZL20addGfxCmdRoundedRectfffffj.exit28.thread34, %_ZL20addGfxCmdRoundedRectfffffj.exit28.thread
   ret i1 %.0.i
 }
 
@@ -1266,156 +1265,156 @@ define dso_local noundef zeroext i1 @_Z13imguiCollapsePKcS0_bb(ptr nocapture nou
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 52), align 4
   store i32 %12, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 48), align 4
   %14 = add nsw <2 x i32> %10, <i32 6, i32 -14>
-  br i1 %3, label %15, label %_Z6inRectiiiib.exit
+  %15 = add nsw i32 %11, -14
+  br i1 %3, label %16, label %_Z6inRectiiiib.exit
 
-15:                                               ; preds = %4
-  %16 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 56), align 4
-  %17 = trunc i8 %16 to i1
-  br i1 %17, label %18, label %_Z6inRectiiiib.exit
+16:                                               ; preds = %4
+  %17 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 56), align 4
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %19, label %_Z6inRectiiiib.exit
 
-18:                                               ; preds = %15
-  %19 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 4), align 4
-  %20 = extractelement <2 x i32> %10, i64 0
-  %.not.i = icmp slt i32 %19, %20
-  %21 = add nsw i32 %13, %20
-  %.not10.i = icmp sgt i32 %19, %21
+19:                                               ; preds = %16
+  %20 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 4), align 4
+  %21 = extractelement <2 x i32> %10, i64 0
+  %.not.i = icmp slt i32 %20, %21
+  %22 = add nsw i32 %13, %21
+  %.not10.i = icmp sgt i32 %20, %22
   %or.cond.i = select i1 %.not.i, i1 true, i1 %.not10.i
-  br i1 %or.cond.i, label %_Z6inRectiiiib.exit, label %22
+  br i1 %or.cond.i, label %_Z6inRectiiiib.exit, label %23
 
-22:                                               ; preds = %18
-  %23 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 8), align 4
-  %.not11.i = icmp sge i32 %23, %12
-  %24 = icmp sle i32 %23, %11
-  %spec.select = and i1 %.not11.i, %24
+23:                                               ; preds = %19
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 8), align 4
+  %.not11.i = icmp sge i32 %24, %12
+  %25 = icmp sle i32 %24, %11
+  %spec.select = and i1 %.not11.i, %25
   br label %_Z6inRectiiiib.exit
 
-_Z6inRectiiiib.exit:                              ; preds = %22, %18, %15, %4
-  %25 = phi i1 [ false, %4 ], [ false, %18 ], [ false, %15 ], [ %spec.select, %22 ]
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
-  %.not.i29 = icmp eq i32 %26, 0
-  br i1 %.not.i29, label %27, label %35
+_Z6inRectiiiib.exit:                              ; preds = %23, %19, %16, %4
+  %26 = phi i1 [ false, %4 ], [ false, %19 ], [ false, %16 ], [ %spec.select, %23 ]
+  %27 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
+  %.not.i29 = icmp eq i32 %27, 0
+  br i1 %.not.i29, label %28, label %36
 
-27:                                               ; preds = %_Z6inRectiiiib.exit
-  br i1 %25, label %28, label %29
+28:                                               ; preds = %_Z6inRectiiiib.exit
+  br i1 %26, label %29, label %30
 
-28:                                               ; preds = %27
+29:                                               ; preds = %28
   store i32 %9, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 24), align 4
-  br label %29
+  br label %30
 
-29:                                               ; preds = %28, %27
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
-  %31 = icmp eq i32 %30, %9
-  br i1 %31, label %32, label %35
+30:                                               ; preds = %29, %28
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
+  %32 = icmp eq i32 %31, %9
+  br i1 %32, label %33, label %36
 
-32:                                               ; preds = %29
-  %33 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 1), align 1
-  %34 = trunc i8 %33 to i1
-  br i1 %34, label %.thread.i, label %35
+33:                                               ; preds = %30
+  %34 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 1), align 1
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %.thread.i, label %36
 
-.thread.i:                                        ; preds = %32
+.thread.i:                                        ; preds = %33
   store i32 %9, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 30), align 2
-  br label %37
+  br label %38
 
-35:                                               ; preds = %32, %29, %_Z6inRectiiiib.exit
-  %36 = icmp eq i32 %26, %9
-  br i1 %36, label %37, label %._crit_edge.i
+36:                                               ; preds = %33, %30, %_Z6inRectiiiib.exit
+  %37 = icmp eq i32 %27, %9
+  br i1 %37, label %38, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %35
+._crit_edge.i:                                    ; preds = %36
   %.pre.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
-  br label %44
+  br label %45
 
-37:                                               ; preds = %35, %.thread.i
+38:                                               ; preds = %36, %.thread.i
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 29), align 1
-  br i1 %25, label %38, label %39
+  br i1 %26, label %39, label %40
 
-38:                                               ; preds = %37
+39:                                               ; preds = %38
   store i32 %9, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 24), align 4
-  br label %39
+  br label %40
 
-39:                                               ; preds = %38, %37
-  %40 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 2), align 2
-  %41 = trunc i8 %40 to i1
+40:                                               ; preds = %39, %38
+  %41 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 2), align 2
+  %42 = trunc i8 %41 to i1
   %.pre10.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 20), align 4
-  br i1 %41, label %42, label %44
+  br i1 %42, label %43, label %45
 
-42:                                               ; preds = %39
-  %43 = icmp eq i32 %.pre10.i, %9
+43:                                               ; preds = %40
+  %44 = icmp eq i32 %.pre10.i, %9
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 16), align 4
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 1), align 1
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 2), align 2
   store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 12), align 4
-  br label %44
+  br label %45
 
-44:                                               ; preds = %42, %39, %._crit_edge.i
-  %45 = phi i32 [ 0, %42 ], [ %9, %39 ], [ %26, %._crit_edge.i ]
-  %46 = phi i32 [ %.pre10.i, %42 ], [ %.pre10.i, %39 ], [ %.pre.i, %._crit_edge.i ]
-  %.0.i = phi i1 [ %43, %42 ], [ false, %39 ], [ false, %._crit_edge.i ]
-  %47 = icmp eq i32 %46, %9
-  br i1 %47, label %48, label %_ZL11buttonLogicjb.exit
+45:                                               ; preds = %43, %40, %._crit_edge.i
+  %46 = phi i32 [ 0, %43 ], [ %9, %40 ], [ %27, %._crit_edge.i ]
+  %47 = phi i32 [ %.pre10.i, %43 ], [ %.pre10.i, %40 ], [ %.pre.i, %._crit_edge.i ]
+  %.0.i = phi i1 [ %44, %43 ], [ false, %40 ], [ false, %._crit_edge.i ]
+  %48 = icmp eq i32 %47, %9
+  br i1 %48, label %49, label %_ZL11buttonLogicjb.exit
 
-48:                                               ; preds = %44
+49:                                               ; preds = %45
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL7g_state, i64 28), align 4
   br label %_ZL11buttonLogicjb.exit
 
-_ZL11buttonLogicjb.exit:                          ; preds = %44, %48
-  %49 = load i32, ptr @_ZL17g_gfxCmdQueueSize, align 4
-  %50 = icmp ugt i32 %49, 4999
-  br i1 %50, label %_ZL17addGfxCmdTriangleiiiiij.exit, label %_ZL17addGfxCmdTriangleiiiiij.exit.sink.split
+_ZL11buttonLogicjb.exit:                          ; preds = %45, %49
+  %50 = load i32, ptr @_ZL17g_gfxCmdQueueSize, align 4
+  %51 = icmp ugt i32 %50, 4999
+  br i1 %51, label %_ZL17addGfxCmdTriangleiiiiij.exit, label %_ZL17addGfxCmdTriangleiiiiij.exit.sink.split
 
 _ZL17addGfxCmdTriangleiiiiij.exit.sink.split:     ; preds = %_ZL11buttonLogicjb.exit
   %. = select i1 %2, i8 2, i8 1
-  %51 = icmp eq i32 %45, %9
-  %52 = select i1 %51, i32 -1, i32 -922746881
-  %53 = add nuw nsw i32 %49, 1
-  store i32 %53, ptr @_ZL17g_gfxCmdQueueSize, align 4
-  %54 = zext nneg i32 %49 to i64
-  %55 = getelementptr inbounds [5000 x %struct.imguiGfxCmd], ptr @_ZL13g_gfxCmdQueue, i64 0, i64 %54
-  store i8 1, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 1
-  store i8 %., ptr %56, align 1
-  %57 = getelementptr inbounds i8, ptr %55, i64 4
-  store i32 %52, ptr %57, align 4
-  %58 = sitofp <2 x i32> %14 to <2 x float>
-  %59 = getelementptr inbounds i8, ptr %55, i64 8
-  %60 = fmul <2 x float> %58, <float 8.000000e+00, float 8.000000e+00>
-  %61 = fptosi <2 x float> %60 to <2 x i16>
-  store <2 x i16> %61, ptr %59, align 8
-  %62 = getelementptr inbounds i8, ptr %55, i64 12
-  store i16 64, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %55, i64 14
-  store i16 64, ptr %63, align 2
+  %52 = icmp eq i32 %46, %9
+  %53 = select i1 %52, i32 -1, i32 -922746881
+  %54 = add nuw nsw i32 %50, 1
+  store i32 %54, ptr @_ZL17g_gfxCmdQueueSize, align 4
+  %55 = zext nneg i32 %50 to i64
+  %56 = getelementptr inbounds [5000 x %struct.imguiGfxCmd], ptr @_ZL13g_gfxCmdQueue, i64 0, i64 %55
+  store i8 1, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 1
+  store i8 %., ptr %57, align 1
+  %58 = getelementptr inbounds i8, ptr %56, i64 4
+  store i32 %53, ptr %58, align 4
+  %59 = sitofp <2 x i32> %14 to <2 x float>
+  %60 = getelementptr inbounds i8, ptr %56, i64 8
+  %61 = fmul <2 x float> %59, <float 8.000000e+00, float 8.000000e+00>
+  %62 = fptosi <2 x float> %61 to <2 x i16>
+  store <2 x i16> %62, ptr %60, align 8
+  %63 = getelementptr inbounds i8, ptr %56, i64 12
+  store i16 64, ptr %63, align 4
+  %64 = getelementptr inbounds i8, ptr %56, i64 14
+  store i16 64, ptr %64, align 2
   br label %_ZL17addGfxCmdTriangleiiiiij.exit
 
 _ZL17addGfxCmdTriangleiiiiij.exit:                ; preds = %_ZL11buttonLogicjb.exit, %_ZL17addGfxCmdTriangleiiiiij.exit.sink.split
-  %64 = phi i32 [ %53, %_ZL17addGfxCmdTriangleiiiiij.exit.sink.split ], [ %49, %_ZL11buttonLogicjb.exit ]
-  %65 = icmp ugt i32 %64, 4999
-  br i1 %3, label %66, label %87
+  %65 = phi i32 [ %54, %_ZL17addGfxCmdTriangleiiiiij.exit.sink.split ], [ %50, %_ZL11buttonLogicjb.exit ]
+  %66 = icmp ugt i32 %65, 4999
+  br i1 %3, label %67, label %87
 
-66:                                               ; preds = %_ZL17addGfxCmdTriangleiiiiij.exit
-  br i1 %65, label %_ZL13addGfxCmdTextiiiPKcj.exit, label %67
+67:                                               ; preds = %_ZL17addGfxCmdTriangleiiiiij.exit
+  br i1 %66, label %_ZL13addGfxCmdTextiiiPKcj.exit, label %68
 
-67:                                               ; preds = %66
-  %spec.select37 = select i1 %47, i32 -16726785, i32 -922746881
-  %68 = add nuw nsw i32 %64, 1
-  store i32 %68, ptr @_ZL17g_gfxCmdQueueSize, align 4
-  %69 = zext nneg i32 %64 to i64
-  %70 = getelementptr inbounds [5000 x %struct.imguiGfxCmd], ptr @_ZL13g_gfxCmdQueue, i64 0, i64 %69
-  store i8 3, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 1
-  store i8 0, ptr %71, align 1
-  %72 = getelementptr inbounds i8, ptr %70, i64 4
-  store i32 %spec.select37, ptr %72, align 4
-  %73 = bitcast <2 x i32> %10 to <4 x i16>
-  %74 = extractelement <4 x i16> %73, i64 0
-  %75 = add i16 %74, 20
-  %76 = getelementptr inbounds i8, ptr %70, i64 8
-  store i16 %75, ptr %76, align 8
-  %77 = bitcast <2 x i32> %14 to <4 x i16>
-  %78 = extractelement <4 x i16> %77, i64 2
-  %79 = getelementptr inbounds i8, ptr %70, i64 10
+68:                                               ; preds = %67
+  %spec.select37 = select i1 %48, i32 -16726785, i32 -922746881
+  %69 = add nuw nsw i32 %65, 1
+  store i32 %69, ptr @_ZL17g_gfxCmdQueueSize, align 4
+  %70 = zext nneg i32 %65 to i64
+  %71 = getelementptr inbounds [5000 x %struct.imguiGfxCmd], ptr @_ZL13g_gfxCmdQueue, i64 0, i64 %70
+  store i8 3, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 1
+  store i8 0, ptr %72, align 1
+  %73 = getelementptr inbounds i8, ptr %71, i64 4
+  store i32 %spec.select37, ptr %73, align 4
+  %74 = bitcast <2 x i32> %10 to <4 x i16>
+  %75 = extractelement <4 x i16> %74, i64 0
+  %76 = add i16 %75, 20
+  %77 = getelementptr inbounds i8, ptr %71, i64 8
+  store i16 %76, ptr %77, align 8
+  %78 = trunc i32 %15 to i16
+  %79 = getelementptr inbounds i8, ptr %71, i64 10
   store i16 %78, ptr %79, align 2
-  %80 = getelementptr inbounds i8, ptr %70, i64 12
+  %80 = getelementptr inbounds i8, ptr %71, i64 12
   store i16 0, ptr %80, align 4
   %81 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
   %82 = trunc i64 %81 to i32
@@ -1426,12 +1425,12 @@ _ZL17addGfxCmdTriangleiiiiij.exit:                ; preds = %_ZL11buttonLogicjb.
   br i1 %86, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split
 
 87:                                               ; preds = %_ZL17addGfxCmdTriangleiiiiij.exit
-  br i1 %65, label %_ZL13addGfxCmdTextiiiPKcj.exit, label %88
+  br i1 %66, label %_ZL13addGfxCmdTextiiiPKcj.exit, label %88
 
 88:                                               ; preds = %87
-  %89 = add nuw nsw i32 %64, 1
+  %89 = add nuw nsw i32 %65, 1
   store i32 %89, ptr @_ZL17g_gfxCmdQueueSize, align 4
-  %90 = zext nneg i32 %64 to i64
+  %90 = zext nneg i32 %65 to i64
   %91 = getelementptr inbounds [5000 x %struct.imguiGfxCmd], ptr @_ZL13g_gfxCmdQueue, i64 0, i64 %90
   store i8 3, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 1
@@ -1443,90 +1442,88 @@ _ZL17addGfxCmdTriangleiiiiij.exit:                ; preds = %_ZL11buttonLogicjb.
   %96 = add i16 %95, 20
   %97 = getelementptr inbounds i8, ptr %91, i64 8
   store i16 %96, ptr %97, align 8
-  %98 = bitcast <2 x i32> %14 to <4 x i16>
-  %99 = extractelement <4 x i16> %98, i64 2
-  %100 = getelementptr inbounds i8, ptr %91, i64 10
-  store i16 %99, ptr %100, align 2
-  %101 = getelementptr inbounds i8, ptr %91, i64 12
-  store i16 0, ptr %101, align 4
-  %102 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
-  %103 = trunc i64 %102 to i32
-  %104 = add i32 %103, 1
-  %105 = load i32, ptr @_ZL14g_textPoolSize, align 4
-  %106 = add i32 %104, %105
-  %107 = icmp ugt i32 %106, 49999
-  br i1 %107, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split
+  %98 = trunc i32 %15 to i16
+  %99 = getelementptr inbounds i8, ptr %91, i64 10
+  store i16 %98, ptr %99, align 2
+  %100 = getelementptr inbounds i8, ptr %91, i64 12
+  store i16 0, ptr %100, align 4
+  %101 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #14
+  %102 = trunc i64 %101 to i32
+  %103 = add i32 %102, 1
+  %104 = load i32, ptr @_ZL14g_textPoolSize, align 4
+  %105 = add i32 %103, %104
+  %106 = icmp ugt i32 %105, 49999
+  br i1 %106, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split, label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split
 
-_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split: ; preds = %88, %67
-  %.sink60 = phi i32 [ %84, %67 ], [ %105, %88 ]
-  %.sink58 = phi i32 [ %83, %67 ], [ %104, %88 ]
-  %.sink = phi i32 [ %85, %67 ], [ %106, %88 ]
-  %.sink55.ph = phi ptr [ %70, %67 ], [ %91, %88 ]
-  %.ph.ph = phi i32 [ %68, %67 ], [ %89, %88 ]
-  %108 = zext i32 %.sink60 to i64
-  %109 = getelementptr inbounds [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %108
-  %110 = zext i32 %.sink58 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %109, ptr readonly align 1 %0, i64 %110, i1 false)
+_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split: ; preds = %88, %68
+  %.sink60 = phi i32 [ %84, %68 ], [ %104, %88 ]
+  %.sink58 = phi i32 [ %83, %68 ], [ %103, %88 ]
+  %.sink = phi i32 [ %85, %68 ], [ %105, %88 ]
+  %.sink55.ph = phi ptr [ %71, %68 ], [ %91, %88 ]
+  %.ph.ph = phi i32 [ %69, %68 ], [ %89, %88 ]
+  %107 = zext i32 %.sink60 to i64
+  %108 = getelementptr inbounds [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %107
+  %109 = zext i32 %.sink58 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %108, ptr readonly align 1 %0, i64 %109, i1 false)
   store i32 %.sink, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split
 
-_ZL13addGfxCmdTextiiiPKcj.exit.sink.split:        ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split, %88, %67
-  %.sink55 = phi ptr [ %70, %67 ], [ %91, %88 ], [ %.sink55.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
-  %.0.i.i32.sink = phi ptr [ null, %67 ], [ null, %88 ], [ %109, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
-  %.ph = phi i32 [ %68, %67 ], [ %89, %88 ], [ %.ph.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
-  %111 = getelementptr inbounds i8, ptr %.sink55, i64 16
-  store ptr %.0.i.i32.sink, ptr %111, align 8
+_ZL13addGfxCmdTextiiiPKcj.exit.sink.split:        ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split, %88, %68
+  %.sink55 = phi ptr [ %71, %68 ], [ %91, %88 ], [ %.sink55.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
+  %.0.i.i32.sink = phi ptr [ null, %68 ], [ null, %88 ], [ %108, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
+  %.ph = phi i32 [ %69, %68 ], [ %89, %88 ], [ %.ph.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split.sink.split ]
+  %110 = getelementptr inbounds i8, ptr %.sink55, i64 16
+  store ptr %.0.i.i32.sink, ptr %110, align 8
   br label %_ZL13addGfxCmdTextiiiPKcj.exit
 
-_ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split, %87, %66
-  %112 = phi i32 [ %64, %87 ], [ %64, %66 ], [ %.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split ]
+_ZL13addGfxCmdTextiiiPKcj.exit:                   ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split, %87, %67
+  %111 = phi i32 [ %65, %87 ], [ %65, %67 ], [ %.ph, %_ZL13addGfxCmdTextiiiPKcj.exit.sink.split ]
   %.not = icmp eq ptr %1, null
-  %113 = icmp ugt i32 %112, 4999
-  %or.cond = select i1 %.not, i1 true, i1 %113
-  br i1 %or.cond, label %_ZL13addGfxCmdTextiiiPKcj.exit36, label %114
+  %112 = icmp ugt i32 %111, 4999
+  %or.cond = select i1 %.not, i1 true, i1 %112
+  br i1 %or.cond, label %_ZL13addGfxCmdTextiiiPKcj.exit36, label %113
 
-114:                                              ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit
-  %115 = extractelement <2 x i32> %10, i64 0
-  %116 = add nsw i32 %13, %115
-  %117 = add nuw nsw i32 %112, 1
-  store i32 %117, ptr @_ZL17g_gfxCmdQueueSize, align 4
-  %118 = zext nneg i32 %112 to i64
-  %119 = getelementptr inbounds [5000 x %struct.imguiGfxCmd], ptr @_ZL13g_gfxCmdQueue, i64 0, i64 %118
-  store i8 3, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 1
-  store i8 0, ptr %120, align 1
-  %121 = getelementptr inbounds i8, ptr %119, i64 4
-  store i32 -2130706433, ptr %121, align 4
-  %122 = trunc i32 %116 to i16
-  %123 = add i16 %122, -10
-  %124 = getelementptr inbounds i8, ptr %119, i64 8
-  store i16 %123, ptr %124, align 8
-  %125 = bitcast <2 x i32> %14 to <4 x i16>
-  %126 = extractelement <4 x i16> %125, i64 2
-  %127 = getelementptr inbounds i8, ptr %119, i64 10
-  store i16 %126, ptr %127, align 2
-  %128 = getelementptr inbounds i8, ptr %119, i64 12
-  store i16 2, ptr %128, align 4
-  %129 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #14
-  %130 = trunc i64 %129 to i32
-  %131 = add i32 %130, 1
-  %132 = load i32, ptr @_ZL14g_textPoolSize, align 4
-  %133 = add i32 %131, %132
-  %134 = icmp ugt i32 %133, 49999
-  br i1 %134, label %_ZL9allocTextPKc.exit.i34, label %135
+113:                                              ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit
+  %114 = extractelement <2 x i32> %10, i64 0
+  %115 = add nsw i32 %13, %114
+  %116 = add nuw nsw i32 %111, 1
+  store i32 %116, ptr @_ZL17g_gfxCmdQueueSize, align 4
+  %117 = zext nneg i32 %111 to i64
+  %118 = getelementptr inbounds [5000 x %struct.imguiGfxCmd], ptr @_ZL13g_gfxCmdQueue, i64 0, i64 %117
+  store i8 3, ptr %118, align 8
+  %119 = getelementptr inbounds i8, ptr %118, i64 1
+  store i8 0, ptr %119, align 1
+  %120 = getelementptr inbounds i8, ptr %118, i64 4
+  store i32 -2130706433, ptr %120, align 4
+  %121 = trunc i32 %115 to i16
+  %122 = add i16 %121, -10
+  %123 = getelementptr inbounds i8, ptr %118, i64 8
+  store i16 %122, ptr %123, align 8
+  %124 = trunc i32 %15 to i16
+  %125 = getelementptr inbounds i8, ptr %118, i64 10
+  store i16 %124, ptr %125, align 2
+  %126 = getelementptr inbounds i8, ptr %118, i64 12
+  store i16 2, ptr %126, align 4
+  %127 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #14
+  %128 = trunc i64 %127 to i32
+  %129 = add i32 %128, 1
+  %130 = load i32, ptr @_ZL14g_textPoolSize, align 4
+  %131 = add i32 %129, %130
+  %132 = icmp ugt i32 %131, 49999
+  br i1 %132, label %_ZL9allocTextPKc.exit.i34, label %133
 
-135:                                              ; preds = %114
-  %136 = zext i32 %132 to i64
-  %137 = getelementptr inbounds [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %136
-  %138 = zext i32 %131 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %137, ptr nonnull readonly align 1 %1, i64 %138, i1 false)
-  store i32 %133, ptr @_ZL14g_textPoolSize, align 4
+133:                                              ; preds = %113
+  %134 = zext i32 %130 to i64
+  %135 = getelementptr inbounds [50000 x i8], ptr @_ZL10g_textPool, i64 0, i64 %134
+  %136 = zext i32 %129 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %135, ptr nonnull readonly align 1 %1, i64 %136, i1 false)
+  store i32 %131, ptr @_ZL14g_textPoolSize, align 4
   br label %_ZL9allocTextPKc.exit.i34
 
-_ZL9allocTextPKc.exit.i34:                        ; preds = %135, %114
-  %.0.i.i35 = phi ptr [ %137, %135 ], [ null, %114 ]
-  %139 = getelementptr inbounds i8, ptr %119, i64 16
-  store ptr %.0.i.i35, ptr %139, align 8
+_ZL9allocTextPKc.exit.i34:                        ; preds = %133, %113
+  %.0.i.i35 = phi ptr [ %135, %133 ], [ null, %113 ]
+  %137 = getelementptr inbounds i8, ptr %118, i64 16
+  store ptr %.0.i.i35, ptr %137, align 8
   br label %_ZL13addGfxCmdTextiiiPKcj.exit36
 
 _ZL13addGfxCmdTextiiiPKcj.exit36:                 ; preds = %_ZL9allocTextPKc.exit.i34, %_ZL13addGfxCmdTextiiiPKcj.exit

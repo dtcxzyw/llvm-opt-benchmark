@@ -9348,880 +9348,876 @@ ma_mutex_init.exit.thread:                        ; preds = %ma_channel_map_copy
   %206 = load i32, ptr %146, align 8
   %207 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %206, ptr %207, align 8
-  %208 = load i32, ptr %149, align 8
-  %209 = getelementptr inbounds i8, ptr %4, i64 12
-  store i32 %208, ptr %209, align 4
-  %210 = load i32, ptr %152, align 4
-  %211 = getelementptr inbounds i8, ptr %4, i64 16
-  store i32 %210, ptr %211, align 8
-  %212 = load i32, ptr %103, align 4
-  %213 = getelementptr inbounds i8, ptr %4, i64 20
-  store i32 %212, ptr %213, align 4
-  %214 = getelementptr inbounds i8, ptr %4, i64 24
-  %215 = load ptr, ptr %156, align 8
-  call void @ma_channel_map_copy_or_default(ptr noundef nonnull %214, i64 noundef 254, ptr noundef %215, i32 noundef %210)
-  %216 = getelementptr inbounds i8, ptr %1, i64 8
-  %217 = load i32, ptr %216, align 8
-  %218 = getelementptr inbounds i8, ptr %4, i64 280
-  store i32 %217, ptr %218, align 8
-  %219 = getelementptr inbounds i8, ptr %1, i64 12
-  %220 = load i32, ptr %219, align 4
-  %221 = getelementptr inbounds i8, ptr %4, i64 284
-  store i32 %220, ptr %221, align 4
-  %222 = getelementptr inbounds i8, ptr %1, i64 16
-  %223 = load i32, ptr %222, align 8
-  %224 = getelementptr inbounds i8, ptr %4, i64 288
-  %225 = icmp eq i32 %223, 0
-  %storemerge = select i1 %225, i32 3, i32 %223
-  store i32 %storemerge, ptr %224, align 8
-  %226 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %226, i8 0, i64 272, i1 false)
-  %227 = load ptr, ptr %82, align 8
-  store ptr %227, ptr %5, align 8
-  %228 = load i32, ptr %118, align 8
-  %229 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %228, ptr %229, align 8
-  %230 = load i32, ptr %121, align 8
-  %231 = getelementptr inbounds i8, ptr %5, i64 12
-  store i32 %230, ptr %231, align 4
-  %232 = load i32, ptr %124, align 4
-  %233 = getelementptr inbounds i8, ptr %5, i64 16
-  store i32 %232, ptr %233, align 8
-  %234 = getelementptr inbounds i8, ptr %5, i64 20
-  store i32 %212, ptr %234, align 4
-  %235 = getelementptr inbounds i8, ptr %5, i64 24
-  %236 = load ptr, ptr %128, align 8
-  call void @ma_channel_map_copy_or_default(ptr noundef nonnull %235, i64 noundef 254, ptr noundef %236, i32 noundef %232)
-  %237 = getelementptr inbounds i8, ptr %5, i64 280
-  store i32 %217, ptr %237, align 8
-  %238 = getelementptr inbounds i8, ptr %5, i64 284
-  store i32 %220, ptr %238, align 4
-  %239 = getelementptr inbounds i8, ptr %5, i64 288
-  store i32 %storemerge, ptr %239, align 8
-  %240 = load ptr, ptr %18, align 8
-  %241 = call i32 %240(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #66
-  %.not354 = icmp eq i32 %241, 0
-  br i1 %.not354, label %252, label %242
+  %208 = getelementptr inbounds i8, ptr %4, i64 12
+  %209 = load i32, ptr %152, align 4
+  %210 = load <2 x i32>, ptr %149, align 8
+  store <2 x i32> %210, ptr %208, align 4
+  %211 = load i32, ptr %103, align 4
+  %212 = getelementptr inbounds i8, ptr %4, i64 20
+  store i32 %211, ptr %212, align 4
+  %213 = getelementptr inbounds i8, ptr %4, i64 24
+  %214 = load ptr, ptr %156, align 8
+  call void @ma_channel_map_copy_or_default(ptr noundef nonnull %213, i64 noundef 254, ptr noundef %214, i32 noundef %209)
+  %215 = getelementptr inbounds i8, ptr %1, i64 8
+  %216 = load i32, ptr %215, align 8
+  %217 = getelementptr inbounds i8, ptr %4, i64 280
+  store i32 %216, ptr %217, align 8
+  %218 = getelementptr inbounds i8, ptr %1, i64 12
+  %219 = load i32, ptr %218, align 4
+  %220 = getelementptr inbounds i8, ptr %4, i64 284
+  store i32 %219, ptr %220, align 4
+  %221 = getelementptr inbounds i8, ptr %1, i64 16
+  %222 = load i32, ptr %221, align 8
+  %223 = getelementptr inbounds i8, ptr %4, i64 288
+  %224 = icmp eq i32 %222, 0
+  %storemerge = select i1 %224, i32 3, i32 %222
+  store i32 %storemerge, ptr %223, align 8
+  %225 = getelementptr inbounds i8, ptr %5, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %225, i8 0, i64 272, i1 false)
+  %226 = load ptr, ptr %82, align 8
+  store ptr %226, ptr %5, align 8
+  %227 = load i32, ptr %118, align 8
+  %228 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 %227, ptr %228, align 8
+  %229 = getelementptr inbounds i8, ptr %5, i64 12
+  %230 = load i32, ptr %124, align 4
+  %231 = load <2 x i32>, ptr %121, align 8
+  store <2 x i32> %231, ptr %229, align 4
+  %232 = getelementptr inbounds i8, ptr %5, i64 20
+  store i32 %211, ptr %232, align 4
+  %233 = getelementptr inbounds i8, ptr %5, i64 24
+  %234 = load ptr, ptr %128, align 8
+  call void @ma_channel_map_copy_or_default(ptr noundef nonnull %233, i64 noundef 254, ptr noundef %234, i32 noundef %230)
+  %235 = getelementptr inbounds i8, ptr %5, i64 280
+  store i32 %216, ptr %235, align 8
+  %236 = getelementptr inbounds i8, ptr %5, i64 284
+  store i32 %219, ptr %236, align 4
+  %237 = getelementptr inbounds i8, ptr %5, i64 288
+  store i32 %storemerge, ptr %237, align 8
+  %238 = load ptr, ptr %18, align 8
+  %239 = call i32 %238(ptr noundef nonnull %2, ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #66
+  %.not354 = icmp eq i32 %239, 0
+  br i1 %.not354, label %250, label %240
 
-242:                                              ; preds = %203
-  %243 = getelementptr inbounds i8, ptr %2, i64 240
-  %244 = call i32 @pthread_cond_destroy(ptr noundef nonnull %243) #66
-  %245 = getelementptr inbounds i8, ptr %2, i64 200
-  %246 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %245) #66
-  %247 = getelementptr inbounds i8, ptr %2, i64 144
-  %248 = call i32 @pthread_cond_destroy(ptr noundef nonnull %247) #66
-  %249 = getelementptr inbounds i8, ptr %2, i64 104
-  %250 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %249) #66
-  %251 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %174) #66
+240:                                              ; preds = %203
+  %241 = getelementptr inbounds i8, ptr %2, i64 240
+  %242 = call i32 @pthread_cond_destroy(ptr noundef nonnull %241) #66
+  %243 = getelementptr inbounds i8, ptr %2, i64 200
+  %244 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %243) #66
+  %245 = getelementptr inbounds i8, ptr %2, i64 144
+  %246 = call i32 @pthread_cond_destroy(ptr noundef nonnull %245) #66
+  %247 = getelementptr inbounds i8, ptr %2, i64 104
+  %248 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %247) #66
+  %249 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %174) #66
   br label %ma__is_channel_map_valid.exit
 
-252:                                              ; preds = %203
-  %253 = load i32, ptr %1, align 8
-  %254 = call i32 @ma_device_post_init(ptr noundef nonnull %2, i32 noundef %253, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %.not355 = icmp eq i32 %254, 0
-  br i1 %.not355, label %256, label %255
+250:                                              ; preds = %203
+  %251 = load i32, ptr %1, align 8
+  %252 = call i32 @ma_device_post_init(ptr noundef nonnull %2, i32 noundef %251, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %.not355 = icmp eq i32 %252, 0
+  br i1 %.not355, label %254, label %253
 
-255:                                              ; preds = %252
+253:                                              ; preds = %250
   call void @ma_device_uninit(ptr noundef nonnull %2)
   br label %ma__is_channel_map_valid.exit
 
-256:                                              ; preds = %252
-  %257 = load i8, ptr %97, align 1
-  %258 = icmp eq i8 %257, 0
-  br i1 %258, label %259, label %376
+254:                                              ; preds = %250
+  %255 = load i8, ptr %97, align 1
+  %256 = icmp eq i8 %255, 0
+  br i1 %256, label %257, label %374
 
-259:                                              ; preds = %256
-  %260 = load i32, ptr %216, align 8
-  %261 = icmp eq i32 %260, 0
-  br i1 %261, label %262, label %ma_calculate_buffer_size_in_frames_from_milliseconds.exit
+257:                                              ; preds = %254
+  %258 = load i32, ptr %215, align 8
+  %259 = icmp eq i32 %258, 0
+  br i1 %259, label %260, label %ma_calculate_buffer_size_in_frames_from_milliseconds.exit
 
-262:                                              ; preds = %259
-  %263 = load i32, ptr %105, align 4
-  %264 = icmp eq i32 %263, 0
-  br i1 %264, label %ma_calculate_buffer_size_in_frames_from_milliseconds.exit.thread, label %265
+260:                                              ; preds = %257
+  %261 = load i32, ptr %105, align 4
+  %262 = icmp eq i32 %261, 0
+  br i1 %262, label %ma_calculate_buffer_size_in_frames_from_milliseconds.exit.thread, label %263
 
-265:                                              ; preds = %262
-  %266 = load i32, ptr %219, align 4
-  %267 = mul i32 %266, %263
-  %268 = udiv i32 %267, 1000
+263:                                              ; preds = %260
+  %264 = load i32, ptr %218, align 4
+  %265 = mul i32 %264, %261
+  %266 = udiv i32 %265, 1000
   br label %ma_calculate_buffer_size_in_frames_from_milliseconds.exit
 
-ma_calculate_buffer_size_in_frames_from_milliseconds.exit: ; preds = %265, %259
-  %.0321 = phi i32 [ %260, %259 ], [ %268, %265 ]
-  %269 = load i32, ptr %1, align 8
-  %.off370 = add i32 %269, -2
+ma_calculate_buffer_size_in_frames_from_milliseconds.exit: ; preds = %263, %257
+  %.0321 = phi i32 [ %258, %257 ], [ %266, %263 ]
+  %267 = load i32, ptr %1, align 8
+  %.off370 = add i32 %267, -2
   %switch371 = icmp ult i32 %.off370, 3
-  br i1 %switch371, label %273, label %322
+  br i1 %switch371, label %271, label %320
 
-ma_calculate_buffer_size_in_frames_from_milliseconds.exit.thread: ; preds = %262
-  %270 = load i32, ptr %1, align 8
-  %.off370516 = add i32 %270, -2
+ma_calculate_buffer_size_in_frames_from_milliseconds.exit.thread: ; preds = %260
+  %268 = load i32, ptr %1, align 8
+  %.off370516 = add i32 %268, -2
   %switch371517 = icmp ult i32 %.off370516, 3
-  br i1 %switch371517, label %.thread, label %322
+  br i1 %switch371517, label %.thread, label %320
 
 .thread:                                          ; preds = %ma_calculate_buffer_size_in_frames_from_milliseconds.exit.thread
-  %271 = getelementptr inbounds i8, ptr %2, i64 3420
-  store i32 0, ptr %271, align 4
-  %272 = getelementptr inbounds i8, ptr %2, i64 3416
-  br label %277
+  %269 = getelementptr inbounds i8, ptr %2, i64 3420
+  store i32 0, ptr %269, align 4
+  %270 = getelementptr inbounds i8, ptr %2, i64 3416
+  br label %275
 
-273:                                              ; preds = %ma_calculate_buffer_size_in_frames_from_milliseconds.exit
-  %274 = getelementptr inbounds i8, ptr %2, i64 3420
-  store i32 0, ptr %274, align 4
-  %275 = getelementptr inbounds i8, ptr %2, i64 3416
-  store i32 %.0321, ptr %275, align 8
-  %276 = icmp eq i32 %.0321, 0
-  br i1 %276, label %277, label %282
+271:                                              ; preds = %ma_calculate_buffer_size_in_frames_from_milliseconds.exit
+  %272 = getelementptr inbounds i8, ptr %2, i64 3420
+  store i32 0, ptr %272, align 4
+  %273 = getelementptr inbounds i8, ptr %2, i64 3416
+  store i32 %.0321, ptr %273, align 8
+  %274 = icmp eq i32 %.0321, 0
+  br i1 %274, label %275, label %280
 
-277:                                              ; preds = %.thread, %273
-  %278 = phi ptr [ %272, %.thread ], [ %275, %273 ]
-  %279 = phi ptr [ %271, %.thread ], [ %274, %273 ]
-  %280 = getelementptr inbounds i8, ptr %2, i64 3080
-  %281 = load i32, ptr %280, align 8
-  store i32 %281, ptr %278, align 8
-  br label %282
+275:                                              ; preds = %.thread, %271
+  %276 = phi ptr [ %270, %.thread ], [ %273, %271 ]
+  %277 = phi ptr [ %269, %.thread ], [ %272, %271 ]
+  %278 = getelementptr inbounds i8, ptr %2, i64 3080
+  %279 = load i32, ptr %278, align 8
+  store i32 %279, ptr %276, align 8
+  br label %280
 
-282:                                              ; preds = %277, %273
-  %283 = phi i32 [ %281, %277 ], [ %.0321, %273 ]
-  %284 = phi ptr [ %278, %277 ], [ %275, %273 ]
-  %285 = phi ptr [ %279, %277 ], [ %274, %273 ]
-  %.0321518521 = phi i32 [ 0, %277 ], [ %.0321, %273 ]
-  %286 = getelementptr inbounds i8, ptr %0, i64 296
-  %287 = load ptr, ptr %286, align 8
-  %.not8.i = icmp eq ptr %287, null
+280:                                              ; preds = %275, %271
+  %281 = phi i32 [ %279, %275 ], [ %.0321, %271 ]
+  %282 = phi ptr [ %276, %275 ], [ %273, %271 ]
+  %283 = phi ptr [ %277, %275 ], [ %272, %271 ]
+  %.0321518521 = phi i32 [ 0, %275 ], [ %.0321, %271 ]
+  %284 = getelementptr inbounds i8, ptr %0, i64 296
+  %285 = load ptr, ptr %284, align 8
+  %.not8.i = icmp eq ptr %285, null
   br i1 %.not8.i, label %ma_malloc.exit.thread, label %ma_malloc.exit
 
-ma_malloc.exit.thread:                            ; preds = %282
-  %288 = getelementptr inbounds i8, ptr %2, i64 3408
-  store ptr null, ptr %288, align 8
-  br label %302
+ma_malloc.exit.thread:                            ; preds = %280
+  %286 = getelementptr inbounds i8, ptr %2, i64 3408
+  store ptr null, ptr %286, align 8
+  br label %300
 
-ma_malloc.exit:                                   ; preds = %282
-  %289 = getelementptr inbounds i8, ptr %0, i64 288
-  %290 = load i32, ptr %123, align 4
-  %291 = zext i32 %290 to i64
-  %292 = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %291
-  %293 = load i32, ptr %292, align 4
-  %294 = load i32, ptr %126, align 8
-  %295 = mul i32 %293, %283
-  %296 = mul i32 %295, %294
-  %297 = zext i32 %296 to i64
-  %298 = load ptr, ptr %289, align 8
-  %299 = call ptr %287(i64 noundef %297, ptr noundef %298) #66
-  %300 = getelementptr inbounds i8, ptr %2, i64 3408
-  store ptr %299, ptr %300, align 8
-  %301 = icmp eq ptr %299, null
-  br i1 %301, label %302, label %303
+ma_malloc.exit:                                   ; preds = %280
+  %287 = getelementptr inbounds i8, ptr %0, i64 288
+  %288 = load i32, ptr %123, align 4
+  %289 = zext i32 %288 to i64
+  %290 = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %289
+  %291 = load i32, ptr %290, align 4
+  %292 = load i32, ptr %126, align 8
+  %293 = mul i32 %291, %281
+  %294 = mul i32 %293, %292
+  %295 = zext i32 %294 to i64
+  %296 = load ptr, ptr %287, align 8
+  %297 = call ptr %285(i64 noundef %295, ptr noundef %296) #66
+  %298 = getelementptr inbounds i8, ptr %2, i64 3408
+  store ptr %297, ptr %298, align 8
+  %299 = icmp eq ptr %297, null
+  br i1 %299, label %300, label %301
 
-302:                                              ; preds = %ma_malloc.exit.thread, %ma_malloc.exit
+300:                                              ; preds = %ma_malloc.exit.thread, %ma_malloc.exit
   call void @ma_device_uninit(ptr noundef nonnull %2)
   br label %ma__is_channel_map_valid.exit
 
-303:                                              ; preds = %ma_malloc.exit
-  %304 = load i32, ptr %284, align 8
-  %305 = zext i32 %304 to i64
-  %306 = load i32, ptr %123, align 4
-  %307 = load i32, ptr %126, align 8
-  %308 = icmp eq i32 %306, 1
-  br i1 %308, label %309, label %312
+301:                                              ; preds = %ma_malloc.exit
+  %302 = load i32, ptr %282, align 8
+  %303 = zext i32 %302 to i64
+  %304 = load i32, ptr %123, align 4
+  %305 = load i32, ptr %126, align 8
+  %306 = icmp eq i32 %304, 1
+  br i1 %306, label %307, label %310
 
-309:                                              ; preds = %303
-  %310 = zext i32 %307 to i64
-  %311 = mul nuw i64 %310, %305
-  %.not37.i = icmp eq i64 %311, 0
+307:                                              ; preds = %301
+  %308 = zext i32 %305 to i64
+  %309 = mul nuw i64 %308, %303
+  %.not37.i = icmp eq i64 %309, 0
   br i1 %.not37.i, label %ma_silence_pcm_frames.exit, label %.lr.ph36.preheader.i
 
-.lr.ph36.preheader.i:                             ; preds = %309
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %299, i8 -128, i64 %311, i1 false)
+.lr.ph36.preheader.i:                             ; preds = %307
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %297, i8 -128, i64 %309, i1 false)
   br label %ma_silence_pcm_frames.exit
 
-312:                                              ; preds = %303
-  %313 = zext i32 %306 to i64
-  %314 = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %313
-  %315 = load i32, ptr %314, align 4
-  %316 = mul i32 %315, %307
-  %317 = zext i32 %316 to i64
-  %318 = mul nuw i64 %317, %305
-  %.not32.i = icmp eq i64 %318, 0
+310:                                              ; preds = %301
+  %311 = zext i32 %304 to i64
+  %312 = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %311
+  %313 = load i32, ptr %312, align 4
+  %314 = mul i32 %313, %305
+  %315 = zext i32 %314 to i64
+  %316 = mul nuw i64 %315, %303
+  %.not32.i = icmp eq i64 %316, 0
   br i1 %.not32.i, label %ma_silence_pcm_frames.exit, label %.preheader531
 
-.preheader531:                                    ; preds = %312, %.preheader531
-  %.02734.i = phi ptr [ %320, %.preheader531 ], [ %299, %312 ]
-  %.02833.i = phi i64 [ %319, %.preheader531 ], [ %318, %312 ]
+.preheader531:                                    ; preds = %310, %.preheader531
+  %.02734.i = phi ptr [ %318, %.preheader531 ], [ %297, %310 ]
+  %.02833.i = phi i64 [ %317, %.preheader531 ], [ %316, %310 ]
   %spec.store.select.i = call i64 @llvm.umin.i64(i64 %.02833.i, i64 4294967295)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.02734.i, i8 0, i64 %spec.store.select.i, i1 false)
-  %319 = sub i64 %.02833.i, %spec.store.select.i
-  %320 = getelementptr inbounds i8, ptr %.02734.i, i64 %spec.store.select.i
-  %.not.i402 = icmp eq i64 %319, 0
+  %317 = sub i64 %.02833.i, %spec.store.select.i
+  %318 = getelementptr inbounds i8, ptr %.02734.i, i64 %spec.store.select.i
+  %.not.i402 = icmp eq i64 %317, 0
   br i1 %.not.i402, label %ma_silence_pcm_frames.exit, label %.preheader531
 
-ma_silence_pcm_frames.exit:                       ; preds = %.preheader531, %309, %.lr.ph36.preheader.i, %312
-  %321 = load i32, ptr %284, align 8
-  store i32 %321, ptr %285, align 4
+ma_silence_pcm_frames.exit:                       ; preds = %.preheader531, %307, %.lr.ph36.preheader.i, %310
+  %319 = load i32, ptr %282, align 8
+  store i32 %319, ptr %283, align 4
   %.pr = load i32, ptr %1, align 8
-  br label %322
+  br label %320
 
-322:                                              ; preds = %ma_calculate_buffer_size_in_frames_from_milliseconds.exit.thread, %ma_calculate_buffer_size_in_frames_from_milliseconds.exit, %ma_silence_pcm_frames.exit
-  %323 = phi i32 [ %270, %ma_calculate_buffer_size_in_frames_from_milliseconds.exit.thread ], [ %269, %ma_calculate_buffer_size_in_frames_from_milliseconds.exit ], [ %.pr, %ma_silence_pcm_frames.exit ]
+320:                                              ; preds = %ma_calculate_buffer_size_in_frames_from_milliseconds.exit.thread, %ma_calculate_buffer_size_in_frames_from_milliseconds.exit, %ma_silence_pcm_frames.exit
+  %321 = phi i32 [ %268, %ma_calculate_buffer_size_in_frames_from_milliseconds.exit.thread ], [ %267, %ma_calculate_buffer_size_in_frames_from_milliseconds.exit ], [ %.pr, %ma_silence_pcm_frames.exit ]
   %.0321519 = phi i32 [ 0, %ma_calculate_buffer_size_in_frames_from_milliseconds.exit.thread ], [ %.0321, %ma_calculate_buffer_size_in_frames_from_milliseconds.exit ], [ %.0321518521, %ma_silence_pcm_frames.exit ]
-  switch i32 %323, label %376 [
-    i32 1, label %324
-    i32 3, label %324
+  switch i32 %321, label %374 [
+    i32 1, label %322
+    i32 3, label %322
   ]
 
-324:                                              ; preds = %322, %322
-  %325 = getelementptr inbounds i8, ptr %2, i64 1988
-  store i32 0, ptr %325, align 4
-  %326 = load i32, ptr %1, align 8
-  %327 = icmp eq i32 %326, 3
-  br i1 %327, label %328, label %332
+322:                                              ; preds = %320, %320
+  %323 = getelementptr inbounds i8, ptr %2, i64 1988
+  store i32 0, ptr %323, align 4
+  %324 = load i32, ptr %1, align 8
+  %325 = icmp eq i32 %324, 3
+  br i1 %325, label %326, label %330
 
-328:                                              ; preds = %324
-  %329 = getelementptr inbounds i8, ptr %2, i64 3416
-  %330 = load i32, ptr %329, align 8
+326:                                              ; preds = %322
+  %327 = getelementptr inbounds i8, ptr %2, i64 3416
+  %328 = load i32, ptr %327, align 8
+  %329 = getelementptr inbounds i8, ptr %2, i64 1984
+  store i32 %328, ptr %329, align 8
+  br label %336
+
+330:                                              ; preds = %322
   %331 = getelementptr inbounds i8, ptr %2, i64 1984
-  store i32 %330, ptr %331, align 8
-  br label %338
+  store i32 %.0321519, ptr %331, align 8
+  %332 = icmp eq i32 %.0321519, 0
+  br i1 %332, label %333, label %336
 
-332:                                              ; preds = %324
-  %333 = getelementptr inbounds i8, ptr %2, i64 1984
-  store i32 %.0321519, ptr %333, align 8
-  %334 = icmp eq i32 %.0321519, 0
-  br i1 %334, label %335, label %338
+333:                                              ; preds = %330
+  %334 = getelementptr inbounds i8, ptr %2, i64 1648
+  %335 = load i32, ptr %334, align 8
+  store i32 %335, ptr %331, align 8
+  br label %336
 
-335:                                              ; preds = %332
-  %336 = getelementptr inbounds i8, ptr %2, i64 1648
-  %337 = load i32, ptr %336, align 8
-  store i32 %337, ptr %333, align 8
-  br label %338
-
-338:                                              ; preds = %332, %335, %328
-  %339 = phi i32 [ %.0321519, %332 ], [ %337, %335 ], [ %330, %328 ]
-  %340 = getelementptr inbounds i8, ptr %2, i64 1984
-  %341 = getelementptr inbounds i8, ptr %0, i64 296
-  %342 = load ptr, ptr %341, align 8
-  %.not8.i405 = icmp eq ptr %342, null
+336:                                              ; preds = %330, %333, %326
+  %337 = phi i32 [ %.0321519, %330 ], [ %335, %333 ], [ %328, %326 ]
+  %338 = getelementptr inbounds i8, ptr %2, i64 1984
+  %339 = getelementptr inbounds i8, ptr %0, i64 296
+  %340 = load ptr, ptr %339, align 8
+  %.not8.i405 = icmp eq ptr %340, null
   br i1 %.not8.i405, label %ma_malloc.exit407.thread, label %ma_malloc.exit407
 
-ma_malloc.exit407.thread:                         ; preds = %338
-  %343 = getelementptr inbounds i8, ptr %2, i64 1976
-  store ptr null, ptr %343, align 8
-  br label %357
+ma_malloc.exit407.thread:                         ; preds = %336
+  %341 = getelementptr inbounds i8, ptr %2, i64 1976
+  store ptr null, ptr %341, align 8
+  br label %355
 
-ma_malloc.exit407:                                ; preds = %338
-  %344 = getelementptr inbounds i8, ptr %0, i64 288
-  %345 = load i32, ptr %151, align 4
-  %346 = zext i32 %345 to i64
-  %347 = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %346
-  %348 = load i32, ptr %347, align 4
-  %349 = load i32, ptr %154, align 8
-  %350 = mul i32 %348, %339
-  %351 = mul i32 %350, %349
-  %352 = zext i32 %351 to i64
-  %353 = load ptr, ptr %344, align 8
-  %354 = call ptr %342(i64 noundef %352, ptr noundef %353) #66
-  %355 = getelementptr inbounds i8, ptr %2, i64 1976
-  store ptr %354, ptr %355, align 8
-  %356 = icmp eq ptr %354, null
-  br i1 %356, label %357, label %358
+ma_malloc.exit407:                                ; preds = %336
+  %342 = getelementptr inbounds i8, ptr %0, i64 288
+  %343 = load i32, ptr %151, align 4
+  %344 = zext i32 %343 to i64
+  %345 = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %344
+  %346 = load i32, ptr %345, align 4
+  %347 = load i32, ptr %154, align 8
+  %348 = mul i32 %346, %337
+  %349 = mul i32 %348, %347
+  %350 = zext i32 %349 to i64
+  %351 = load ptr, ptr %342, align 8
+  %352 = call ptr %340(i64 noundef %350, ptr noundef %351) #66
+  %353 = getelementptr inbounds i8, ptr %2, i64 1976
+  store ptr %352, ptr %353, align 8
+  %354 = icmp eq ptr %352, null
+  br i1 %354, label %355, label %356
 
-357:                                              ; preds = %ma_malloc.exit407.thread, %ma_malloc.exit407
+355:                                              ; preds = %ma_malloc.exit407.thread, %ma_malloc.exit407
   call void @ma_device_uninit(ptr noundef nonnull %2)
   br label %ma__is_channel_map_valid.exit
 
-358:                                              ; preds = %ma_malloc.exit407
-  %359 = load i32, ptr %340, align 8
-  %360 = zext i32 %359 to i64
-  %361 = load i32, ptr %151, align 4
-  %362 = load i32, ptr %154, align 8
-  %363 = icmp eq i32 %361, 1
-  br i1 %363, label %364, label %367
+356:                                              ; preds = %ma_malloc.exit407
+  %357 = load i32, ptr %338, align 8
+  %358 = zext i32 %357 to i64
+  %359 = load i32, ptr %151, align 4
+  %360 = load i32, ptr %154, align 8
+  %361 = icmp eq i32 %359, 1
+  br i1 %361, label %362, label %365
 
-364:                                              ; preds = %358
-  %365 = zext i32 %362 to i64
-  %366 = mul nuw i64 %365, %360
-  %.not37.i416 = icmp eq i64 %366, 0
+362:                                              ; preds = %356
+  %363 = zext i32 %360 to i64
+  %364 = mul nuw i64 %363, %358
+  %.not37.i416 = icmp eq i64 %364, 0
   br i1 %.not37.i416, label %ma_silence_pcm_frames.exit418, label %.lr.ph36.preheader.i417
 
-.lr.ph36.preheader.i417:                          ; preds = %364
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %354, i8 -128, i64 %366, i1 false)
+.lr.ph36.preheader.i417:                          ; preds = %362
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %352, i8 -128, i64 %364, i1 false)
   br label %ma_silence_pcm_frames.exit418
 
-367:                                              ; preds = %358
-  %368 = zext i32 %361 to i64
-  %369 = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %368
-  %370 = load i32, ptr %369, align 4
-  %371 = mul i32 %370, %362
-  %372 = zext i32 %371 to i64
-  %373 = mul nuw i64 %372, %360
-  %.not32.i408 = icmp eq i64 %373, 0
+365:                                              ; preds = %356
+  %366 = zext i32 %359 to i64
+  %367 = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %366
+  %368 = load i32, ptr %367, align 4
+  %369 = mul i32 %368, %360
+  %370 = zext i32 %369 to i64
+  %371 = mul nuw i64 %370, %358
+  %.not32.i408 = icmp eq i64 %371, 0
   br i1 %.not32.i408, label %ma_silence_pcm_frames.exit418, label %.preheader
 
-.preheader:                                       ; preds = %367, %.preheader
-  %.02734.i410 = phi ptr [ %375, %.preheader ], [ %354, %367 ]
-  %.02833.i411 = phi i64 [ %374, %.preheader ], [ %373, %367 ]
+.preheader:                                       ; preds = %365, %.preheader
+  %.02734.i410 = phi ptr [ %373, %.preheader ], [ %352, %365 ]
+  %.02833.i411 = phi i64 [ %372, %.preheader ], [ %371, %365 ]
   %spec.store.select.i412 = call i64 @llvm.umin.i64(i64 %.02833.i411, i64 4294967295)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.02734.i410, i8 0, i64 %spec.store.select.i412, i1 false)
-  %374 = sub i64 %.02833.i411, %spec.store.select.i412
-  %375 = getelementptr inbounds i8, ptr %.02734.i410, i64 %spec.store.select.i412
-  %.not.i414 = icmp eq i64 %374, 0
+  %372 = sub i64 %.02833.i411, %spec.store.select.i412
+  %373 = getelementptr inbounds i8, ptr %.02734.i410, i64 %spec.store.select.i412
+  %.not.i414 = icmp eq i64 %372, 0
   br i1 %.not.i414, label %ma_silence_pcm_frames.exit418, label %.preheader
 
-ma_silence_pcm_frames.exit418:                    ; preds = %.preheader, %364, %.lr.ph36.preheader.i417, %367
-  store i32 0, ptr %325, align 4
-  br label %376
+ma_silence_pcm_frames.exit418:                    ; preds = %.preheader, %362, %.lr.ph36.preheader.i417, %365
+  store i32 0, ptr %323, align 4
+  br label %374
 
-376:                                              ; preds = %322, %256, %ma_silence_pcm_frames.exit418
-  %377 = getelementptr inbounds i8, ptr %0, i64 64
-  %378 = load ptr, ptr %377, align 8
-  %379 = icmp eq ptr %378, null
-  br i1 %379, label %380, label %ma_context_is_backend_asynchronous.exit.thread
+374:                                              ; preds = %320, %254, %ma_silence_pcm_frames.exit418
+  %375 = getelementptr inbounds i8, ptr %0, i64 64
+  %376 = load ptr, ptr %375, align 8
+  %377 = icmp eq ptr %376, null
+  br i1 %377, label %378, label %ma_context_is_backend_asynchronous.exit.thread
 
-380:                                              ; preds = %376
-  %381 = getelementptr inbounds i8, ptr %0, i64 72
-  %382 = load ptr, ptr %381, align 8
-  %383 = icmp eq ptr %382, null
-  br i1 %383, label %ma_context_is_backend_asynchronous.exit, label %ma_context_is_backend_asynchronous.exit.thread
+378:                                              ; preds = %374
+  %379 = getelementptr inbounds i8, ptr %0, i64 72
+  %380 = load ptr, ptr %379, align 8
+  %381 = icmp eq ptr %380, null
+  br i1 %381, label %ma_context_is_backend_asynchronous.exit, label %ma_context_is_backend_asynchronous.exit.thread
 
-ma_context_is_backend_asynchronous.exit:          ; preds = %380
-  %384 = getelementptr inbounds i8, ptr %0, i64 80
-  %385 = load ptr, ptr %384, align 8
-  %.not = icmp eq ptr %385, null
+ma_context_is_backend_asynchronous.exit:          ; preds = %378
+  %382 = getelementptr inbounds i8, ptr %0, i64 80
+  %383 = load ptr, ptr %382, align 8
+  %.not = icmp eq ptr %383, null
   br i1 %.not, label %ma_context_is_backend_asynchronous.exit422, label %ma_context_is_backend_asynchronous.exit.thread
 
-ma_context_is_backend_asynchronous.exit.thread:   ; preds = %376, %380, %ma_context_is_backend_asynchronous.exit
-  %386 = getelementptr inbounds i8, ptr %2, i64 384
-  %387 = getelementptr inbounds i8, ptr %0, i64 264
-  %388 = load i32, ptr %387, align 8
-  %389 = getelementptr inbounds i8, ptr %0, i64 272
-  %390 = load i64, ptr %389, align 8
-  %391 = getelementptr inbounds i8, ptr %0, i64 288
-  %392 = call fastcc i32 @ma_thread_create(ptr noundef nonnull %386, i32 noundef %388, i64 noundef %390, ptr noundef nonnull @ma_worker_thread, ptr noundef %2, ptr noundef nonnull %391)
-  %.not357 = icmp eq i32 %392, 0
-  br i1 %.not357, label %394, label %393
+ma_context_is_backend_asynchronous.exit.thread:   ; preds = %374, %378, %ma_context_is_backend_asynchronous.exit
+  %384 = getelementptr inbounds i8, ptr %2, i64 384
+  %385 = getelementptr inbounds i8, ptr %0, i64 264
+  %386 = load i32, ptr %385, align 8
+  %387 = getelementptr inbounds i8, ptr %0, i64 272
+  %388 = load i64, ptr %387, align 8
+  %389 = getelementptr inbounds i8, ptr %0, i64 288
+  %390 = call fastcc i32 @ma_thread_create(ptr noundef nonnull %384, i32 noundef %386, i64 noundef %388, ptr noundef nonnull @ma_worker_thread, ptr noundef %2, ptr noundef nonnull %389)
+  %.not357 = icmp eq i32 %390, 0
+  br i1 %.not357, label %392, label %391
 
-393:                                              ; preds = %ma_context_is_backend_asynchronous.exit.thread
+391:                                              ; preds = %ma_context_is_backend_asynchronous.exit.thread
   call void @ma_device_uninit(ptr noundef %2)
   br label %ma__is_channel_map_valid.exit
 
-394:                                              ; preds = %ma_context_is_backend_asynchronous.exit.thread
-  %395 = call i32 @ma_event_wait(ptr noundef nonnull %191)
+392:                                              ; preds = %ma_context_is_backend_asynchronous.exit.thread
+  %393 = call i32 @ma_event_wait(ptr noundef nonnull %191)
   br label %ma_device_get_context.exit.i
 
 ma_context_is_backend_asynchronous.exit422:       ; preds = %ma_context_is_backend_asynchronous.exit
-  %396 = load i32, ptr %1, align 8
-  %397 = icmp eq i32 %396, 3
-  br i1 %397, label %398, label %ma_context_is_backend_asynchronous.exit422.thread
+  %394 = load i32, ptr %1, align 8
+  %395 = icmp eq i32 %394, 3
+  br i1 %395, label %396, label %ma_context_is_backend_asynchronous.exit422.thread
 
-398:                                              ; preds = %ma_context_is_backend_asynchronous.exit422
-  %399 = load i32, ptr %123, align 4
-  %400 = load i32, ptr %126, align 8
-  %401 = load i32, ptr %105, align 4
-  %402 = getelementptr inbounds i8, ptr %2, i64 2820
-  %403 = load i32, ptr %402, align 4
-  %404 = getelementptr inbounds i8, ptr %2, i64 3080
-  %405 = load i32, ptr %404, align 8
-  %406 = load ptr, ptr %2, align 8
-  %407 = getelementptr inbounds i8, ptr %406, i64 288
-  %408 = getelementptr inbounds i8, ptr %2, i64 408
-  %409 = call i32 @ma_duplex_rb_init(i32 noundef %399, i32 noundef %400, i32 noundef %401, i32 noundef %403, i32 noundef %405, ptr noundef nonnull %407, ptr noundef nonnull %408)
-  %.not359 = icmp eq i32 %409, 0
-  br i1 %.not359, label %ma_context_is_backend_asynchronous.exit422.thread, label %410
+396:                                              ; preds = %ma_context_is_backend_asynchronous.exit422
+  %397 = load i32, ptr %123, align 4
+  %398 = load i32, ptr %126, align 8
+  %399 = load i32, ptr %105, align 4
+  %400 = getelementptr inbounds i8, ptr %2, i64 2820
+  %401 = load i32, ptr %400, align 4
+  %402 = getelementptr inbounds i8, ptr %2, i64 3080
+  %403 = load i32, ptr %402, align 8
+  %404 = load ptr, ptr %2, align 8
+  %405 = getelementptr inbounds i8, ptr %404, i64 288
+  %406 = getelementptr inbounds i8, ptr %2, i64 408
+  %407 = call i32 @ma_duplex_rb_init(i32 noundef %397, i32 noundef %398, i32 noundef %399, i32 noundef %401, i32 noundef %403, ptr noundef nonnull %405, ptr noundef nonnull %406)
+  %.not359 = icmp eq i32 %407, 0
+  br i1 %.not359, label %ma_context_is_backend_asynchronous.exit422.thread, label %408
 
-410:                                              ; preds = %398
+408:                                              ; preds = %396
   call void @ma_device_uninit(ptr noundef nonnull %2)
   br label %ma__is_channel_map_valid.exit
 
-ma_context_is_backend_asynchronous.exit422.thread: ; preds = %ma_context_is_backend_asynchronous.exit422, %398
-  %411 = getelementptr inbounds i8, ptr %2, i64 16
-  store atomic i32 1, ptr %411 seq_cst, align 4
+ma_context_is_backend_asynchronous.exit422.thread: ; preds = %ma_context_is_backend_asynchronous.exit422, %396
+  %409 = getelementptr inbounds i8, ptr %2, i64 16
+  store atomic i32 1, ptr %409 seq_cst, align 4
   br label %ma_device_get_context.exit.i
 
-ma_device_get_context.exit.i:                     ; preds = %394, %ma_context_is_backend_asynchronous.exit422.thread
-  %412 = load ptr, ptr %2, align 8
-  %413 = icmp eq ptr %412, null
-  br i1 %413, label %ma_device_get_log.exit, label %414
+ma_device_get_context.exit.i:                     ; preds = %392, %ma_context_is_backend_asynchronous.exit422.thread
+  %410 = load ptr, ptr %2, align 8
+  %411 = icmp eq ptr %410, null
+  br i1 %411, label %ma_device_get_log.exit, label %412
 
-414:                                              ; preds = %ma_device_get_context.exit.i
-  %415 = getelementptr inbounds i8, ptr %412, i64 112
-  %416 = load ptr, ptr %415, align 8
+412:                                              ; preds = %ma_device_get_context.exit.i
+  %413 = getelementptr inbounds i8, ptr %410, i64 112
+  %414 = load ptr, ptr %413, align 8
   br label %ma_device_get_log.exit
 
-ma_device_get_log.exit:                           ; preds = %ma_device_get_context.exit.i, %414
-  %.0.i1.i = phi ptr [ %416, %414 ], [ null, %ma_device_get_context.exit.i ]
-  %417 = getelementptr inbounds i8, ptr %412, i64 104
-  %418 = load i32, ptr %417, align 8
-  %419 = icmp ugt i32 %418, 14
-  br i1 %419, label %ma_get_backend_name.exit, label %420
+ma_device_get_log.exit:                           ; preds = %ma_device_get_context.exit.i, %412
+  %.0.i1.i = phi ptr [ %414, %412 ], [ null, %ma_device_get_context.exit.i ]
+  %415 = getelementptr inbounds i8, ptr %410, i64 104
+  %416 = load i32, ptr %415, align 8
+  %417 = icmp ugt i32 %416, 14
+  br i1 %417, label %ma_get_backend_name.exit, label %418
 
-420:                                              ; preds = %ma_device_get_log.exit
-  %421 = zext nneg i32 %418 to i64
-  %422 = getelementptr inbounds [15 x %struct.ma_backend_info], ptr @gBackendInfo, i64 0, i64 %421, i32 1
-  %423 = load ptr, ptr %422, align 8
+418:                                              ; preds = %ma_device_get_log.exit
+  %419 = zext nneg i32 %416 to i64
+  %420 = getelementptr inbounds [15 x %struct.ma_backend_info], ptr @gBackendInfo, i64 0, i64 %419, i32 1
+  %421 = load ptr, ptr %420, align 8
   br label %ma_get_backend_name.exit
 
-ma_get_backend_name.exit:                         ; preds = %ma_device_get_log.exit, %420
-  %.0.i423 = phi ptr [ %423, %420 ], [ @.str.9, %ma_device_get_log.exit ]
-  %424 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef %.0.i423)
-  %425 = load i32, ptr %102, align 8
-  %.off372 = add i32 %425, -2
+ma_get_backend_name.exit:                         ; preds = %ma_device_get_log.exit, %418
+  %.0.i423 = phi ptr [ %421, %418 ], [ @.str.9, %ma_device_get_log.exit ]
+  %422 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i, i32 noundef 3, ptr noundef nonnull @.str.28, ptr noundef %.0.i423)
+  %423 = load i32, ptr %102, align 8
+  %.off372 = add i32 %423, -2
   %switch373 = icmp ult i32 %.off372, 3
-  br i1 %switch373, label %ma_device_get_context.exit.i424, label %545
+  br i1 %switch373, label %ma_device_get_context.exit.i424, label %543
 
 ma_device_get_context.exit.i424:                  ; preds = %ma_get_backend_name.exit
-  %426 = icmp eq i32 %425, 4
-  %427 = select i1 %426, i32 1, i32 2
-  %428 = call i32 @ma_device_get_name(ptr noundef nonnull %2, i32 noundef %427, ptr noundef nonnull %6, i64 noundef 256, ptr noundef null)
-  %429 = load ptr, ptr %2, align 8
-  %430 = icmp eq ptr %429, null
-  br i1 %430, label %ma_device_get_context.exit.i427, label %431
+  %424 = icmp eq i32 %423, 4
+  %425 = select i1 %424, i32 1, i32 2
+  %426 = call i32 @ma_device_get_name(ptr noundef nonnull %2, i32 noundef %425, ptr noundef nonnull %6, i64 noundef 256, ptr noundef null)
+  %427 = load ptr, ptr %2, align 8
+  %428 = icmp eq ptr %427, null
+  br i1 %428, label %ma_device_get_context.exit.i427, label %429
 
-431:                                              ; preds = %ma_device_get_context.exit.i424
-  %432 = getelementptr inbounds i8, ptr %429, i64 112
-  %433 = load ptr, ptr %432, align 8
+429:                                              ; preds = %ma_device_get_context.exit.i424
+  %430 = getelementptr inbounds i8, ptr %427, i64 112
+  %431 = load ptr, ptr %430, align 8
   br label %ma_device_get_context.exit.i427
 
-ma_device_get_context.exit.i427:                  ; preds = %431, %ma_device_get_context.exit.i424
-  %.0.i1.i425 = phi ptr [ %433, %431 ], [ null, %ma_device_get_context.exit.i424 ]
-  %434 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i425, i32 noundef 3, ptr noundef nonnull @.str.29, ptr noundef nonnull %6, ptr noundef nonnull @.str.30)
-  %435 = load ptr, ptr %2, align 8
-  %436 = icmp eq ptr %435, null
-  br i1 %436, label %ma_device_get_log.exit429, label %437
+ma_device_get_context.exit.i427:                  ; preds = %429, %ma_device_get_context.exit.i424
+  %.0.i1.i425 = phi ptr [ %431, %429 ], [ null, %ma_device_get_context.exit.i424 ]
+  %432 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i425, i32 noundef 3, ptr noundef nonnull @.str.29, ptr noundef nonnull %6, ptr noundef nonnull @.str.30)
+  %433 = load ptr, ptr %2, align 8
+  %434 = icmp eq ptr %433, null
+  br i1 %434, label %ma_device_get_log.exit429, label %435
 
-437:                                              ; preds = %ma_device_get_context.exit.i427
-  %438 = getelementptr inbounds i8, ptr %435, i64 112
-  %439 = load ptr, ptr %438, align 8
+435:                                              ; preds = %ma_device_get_context.exit.i427
+  %436 = getelementptr inbounds i8, ptr %433, i64 112
+  %437 = load ptr, ptr %436, align 8
   br label %ma_device_get_log.exit429
 
-ma_device_get_log.exit429:                        ; preds = %ma_device_get_context.exit.i427, %437
-  %.0.i1.i428 = phi ptr [ %439, %437 ], [ null, %ma_device_get_context.exit.i427 ]
-  %440 = getelementptr inbounds i8, ptr %2, i64 2812
-  %441 = load i32, ptr %440, align 4
-  %442 = icmp ult i32 %441, 6
-  br i1 %442, label %switch.lookup, label %ma_get_format_name.exit
+ma_device_get_log.exit429:                        ; preds = %ma_device_get_context.exit.i427, %435
+  %.0.i1.i428 = phi ptr [ %437, %435 ], [ null, %ma_device_get_context.exit.i427 ]
+  %438 = getelementptr inbounds i8, ptr %2, i64 2812
+  %439 = load i32, ptr %438, align 4
+  %440 = icmp ult i32 %439, 6
+  br i1 %440, label %switch.lookup, label %ma_get_format_name.exit
 
 switch.lookup:                                    ; preds = %ma_device_get_log.exit429
-  %443 = zext nneg i32 %441 to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.58, i64 0, i64 %443
+  %441 = zext nneg i32 %439 to i64
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.58, i64 0, i64 %441
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %ma_get_format_name.exit
 
 ma_get_format_name.exit:                          ; preds = %ma_device_get_log.exit429, %switch.lookup
   %.0.i430 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.168, %ma_device_get_log.exit429 ]
-  %444 = load i32, ptr %123, align 4
-  %445 = icmp ult i32 %444, 6
-  br i1 %445, label %switch.lookup537, label %ma_device_get_context.exit.i433
+  %442 = load i32, ptr %123, align 4
+  %443 = icmp ult i32 %442, 6
+  br i1 %443, label %switch.lookup537, label %ma_device_get_context.exit.i433
 
 switch.lookup537:                                 ; preds = %ma_get_format_name.exit
-  %446 = zext nneg i32 %444 to i64
-  %switch.gep538 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.58, i64 0, i64 %446
+  %444 = zext nneg i32 %442 to i64
+  %switch.gep538 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.58, i64 0, i64 %444
   %switch.load539 = load ptr, ptr %switch.gep538, align 8
   br label %ma_device_get_context.exit.i433
 
 ma_device_get_context.exit.i433:                  ; preds = %ma_get_format_name.exit, %switch.lookup537
   %.0.i431 = phi ptr [ %switch.load539, %switch.lookup537 ], [ @.str.168, %ma_get_format_name.exit ]
-  %447 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i428, i32 noundef 3, ptr noundef nonnull @.str.31, ptr noundef nonnull %.0.i430, ptr noundef nonnull %.0.i431)
-  %448 = load ptr, ptr %2, align 8
-  %449 = icmp eq ptr %448, null
-  br i1 %449, label %ma_device_get_context.exit.i436, label %450
+  %445 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i428, i32 noundef 3, ptr noundef nonnull @.str.31, ptr noundef nonnull %.0.i430, ptr noundef nonnull %.0.i431)
+  %446 = load ptr, ptr %2, align 8
+  %447 = icmp eq ptr %446, null
+  br i1 %447, label %ma_device_get_context.exit.i436, label %448
 
-450:                                              ; preds = %ma_device_get_context.exit.i433
-  %451 = getelementptr inbounds i8, ptr %448, i64 112
-  %452 = load ptr, ptr %451, align 8
+448:                                              ; preds = %ma_device_get_context.exit.i433
+  %449 = getelementptr inbounds i8, ptr %446, i64 112
+  %450 = load ptr, ptr %449, align 8
   br label %ma_device_get_context.exit.i436
 
-ma_device_get_context.exit.i436:                  ; preds = %450, %ma_device_get_context.exit.i433
-  %.0.i1.i434 = phi ptr [ %452, %450 ], [ null, %ma_device_get_context.exit.i433 ]
-  %453 = getelementptr inbounds i8, ptr %2, i64 2816
-  %454 = load i32, ptr %453, align 8
-  %455 = load i32, ptr %126, align 8
-  %456 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i434, i32 noundef 3, ptr noundef nonnull @.str.32, i32 noundef %454, i32 noundef %455)
-  %457 = load ptr, ptr %2, align 8
-  %458 = icmp eq ptr %457, null
-  br i1 %458, label %ma_device_get_context.exit.i439, label %459
+ma_device_get_context.exit.i436:                  ; preds = %448, %ma_device_get_context.exit.i433
+  %.0.i1.i434 = phi ptr [ %450, %448 ], [ null, %ma_device_get_context.exit.i433 ]
+  %451 = getelementptr inbounds i8, ptr %2, i64 2816
+  %452 = load i32, ptr %451, align 8
+  %453 = load i32, ptr %126, align 8
+  %454 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i434, i32 noundef 3, ptr noundef nonnull @.str.32, i32 noundef %452, i32 noundef %453)
+  %455 = load ptr, ptr %2, align 8
+  %456 = icmp eq ptr %455, null
+  br i1 %456, label %ma_device_get_context.exit.i439, label %457
 
-459:                                              ; preds = %ma_device_get_context.exit.i436
-  %460 = getelementptr inbounds i8, ptr %457, i64 112
-  %461 = load ptr, ptr %460, align 8
+457:                                              ; preds = %ma_device_get_context.exit.i436
+  %458 = getelementptr inbounds i8, ptr %455, i64 112
+  %459 = load ptr, ptr %458, align 8
   br label %ma_device_get_context.exit.i439
 
-ma_device_get_context.exit.i439:                  ; preds = %459, %ma_device_get_context.exit.i436
-  %.0.i1.i437 = phi ptr [ %461, %459 ], [ null, %ma_device_get_context.exit.i436 ]
-  %462 = getelementptr inbounds i8, ptr %2, i64 2820
-  %463 = load i32, ptr %462, align 4
-  %464 = load i32, ptr %105, align 4
-  %465 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i437, i32 noundef 3, ptr noundef nonnull @.str.33, i32 noundef %463, i32 noundef %464)
-  %466 = load ptr, ptr %2, align 8
-  %467 = icmp eq ptr %466, null
-  br i1 %467, label %ma_device_get_context.exit.i442, label %468
+ma_device_get_context.exit.i439:                  ; preds = %457, %ma_device_get_context.exit.i436
+  %.0.i1.i437 = phi ptr [ %459, %457 ], [ null, %ma_device_get_context.exit.i436 ]
+  %460 = getelementptr inbounds i8, ptr %2, i64 2820
+  %461 = load i32, ptr %460, align 4
+  %462 = load i32, ptr %105, align 4
+  %463 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i437, i32 noundef 3, ptr noundef nonnull @.str.33, i32 noundef %461, i32 noundef %462)
+  %464 = load ptr, ptr %2, align 8
+  %465 = icmp eq ptr %464, null
+  br i1 %465, label %ma_device_get_context.exit.i442, label %466
 
-468:                                              ; preds = %ma_device_get_context.exit.i439
-  %469 = getelementptr inbounds i8, ptr %466, i64 112
-  %470 = load ptr, ptr %469, align 8
+466:                                              ; preds = %ma_device_get_context.exit.i439
+  %467 = getelementptr inbounds i8, ptr %464, i64 112
+  %468 = load ptr, ptr %467, align 8
   br label %ma_device_get_context.exit.i442
 
-ma_device_get_context.exit.i442:                  ; preds = %468, %ma_device_get_context.exit.i439
-  %.0.i1.i440 = phi ptr [ %470, %468 ], [ null, %ma_device_get_context.exit.i439 ]
-  %471 = getelementptr inbounds i8, ptr %2, i64 3080
-  %472 = load i32, ptr %471, align 8
-  %473 = getelementptr inbounds i8, ptr %2, i64 3084
-  %474 = load i32, ptr %473, align 4
-  %475 = mul i32 %474, %472
-  %476 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i440, i32 noundef 3, ptr noundef nonnull @.str.34, i32 noundef %472, i32 noundef %474, i32 noundef %475)
-  %477 = load ptr, ptr %2, align 8
-  %478 = icmp eq ptr %477, null
-  br i1 %478, label %ma_device_get_context.exit.i445, label %479
+ma_device_get_context.exit.i442:                  ; preds = %466, %ma_device_get_context.exit.i439
+  %.0.i1.i440 = phi ptr [ %468, %466 ], [ null, %ma_device_get_context.exit.i439 ]
+  %469 = getelementptr inbounds i8, ptr %2, i64 3080
+  %470 = load i32, ptr %469, align 8
+  %471 = getelementptr inbounds i8, ptr %2, i64 3084
+  %472 = load i32, ptr %471, align 4
+  %473 = mul i32 %472, %470
+  %474 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i440, i32 noundef 3, ptr noundef nonnull @.str.34, i32 noundef %470, i32 noundef %472, i32 noundef %473)
+  %475 = load ptr, ptr %2, align 8
+  %476 = icmp eq ptr %475, null
+  br i1 %476, label %ma_device_get_context.exit.i445, label %477
 
-479:                                              ; preds = %ma_device_get_context.exit.i442
-  %480 = getelementptr inbounds i8, ptr %477, i64 112
-  %481 = load ptr, ptr %480, align 8
+477:                                              ; preds = %ma_device_get_context.exit.i442
+  %478 = getelementptr inbounds i8, ptr %475, i64 112
+  %479 = load ptr, ptr %478, align 8
   br label %ma_device_get_context.exit.i445
 
-ma_device_get_context.exit.i445:                  ; preds = %479, %ma_device_get_context.exit.i442
-  %.0.i1.i443 = phi ptr [ %481, %479 ], [ null, %ma_device_get_context.exit.i442 ]
-  %482 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i443, i32 noundef 3, ptr noundef nonnull @.str.35)
-  %483 = load ptr, ptr %2, align 8
-  %484 = icmp eq ptr %483, null
-  br i1 %484, label %ma_device_get_context.exit.i448, label %485
+ma_device_get_context.exit.i445:                  ; preds = %477, %ma_device_get_context.exit.i442
+  %.0.i1.i443 = phi ptr [ %479, %477 ], [ null, %ma_device_get_context.exit.i442 ]
+  %480 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i443, i32 noundef 3, ptr noundef nonnull @.str.35)
+  %481 = load ptr, ptr %2, align 8
+  %482 = icmp eq ptr %481, null
+  br i1 %482, label %ma_device_get_context.exit.i448, label %483
 
-485:                                              ; preds = %ma_device_get_context.exit.i445
-  %486 = getelementptr inbounds i8, ptr %483, i64 112
-  %487 = load ptr, ptr %486, align 8
+483:                                              ; preds = %ma_device_get_context.exit.i445
+  %484 = getelementptr inbounds i8, ptr %481, i64 112
+  %485 = load ptr, ptr %484, align 8
   br label %ma_device_get_context.exit.i448
 
-ma_device_get_context.exit.i448:                  ; preds = %485, %ma_device_get_context.exit.i445
-  %.0.i1.i446 = phi ptr [ %487, %485 ], [ null, %ma_device_get_context.exit.i445 ]
-  %488 = getelementptr inbounds i8, ptr %2, i64 3392
-  %489 = load i8, ptr %488, align 8
-  %.not360 = icmp eq i8 %489, 0
-  %490 = select i1 %.not360, ptr @.str.23, ptr @.str.22
-  %491 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i446, i32 noundef 3, ptr noundef nonnull @.str.36, ptr noundef nonnull %490)
-  %492 = load ptr, ptr %2, align 8
-  %493 = icmp eq ptr %492, null
-  br i1 %493, label %ma_device_get_context.exit.i451, label %494
+ma_device_get_context.exit.i448:                  ; preds = %483, %ma_device_get_context.exit.i445
+  %.0.i1.i446 = phi ptr [ %485, %483 ], [ null, %ma_device_get_context.exit.i445 ]
+  %486 = getelementptr inbounds i8, ptr %2, i64 3392
+  %487 = load i8, ptr %486, align 8
+  %.not360 = icmp eq i8 %487, 0
+  %488 = select i1 %.not360, ptr @.str.23, ptr @.str.22
+  %489 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i446, i32 noundef 3, ptr noundef nonnull @.str.36, ptr noundef nonnull %488)
+  %490 = load ptr, ptr %2, align 8
+  %491 = icmp eq ptr %490, null
+  br i1 %491, label %ma_device_get_context.exit.i451, label %492
 
-494:                                              ; preds = %ma_device_get_context.exit.i448
-  %495 = getelementptr inbounds i8, ptr %492, i64 112
-  %496 = load ptr, ptr %495, align 8
+492:                                              ; preds = %ma_device_get_context.exit.i448
+  %493 = getelementptr inbounds i8, ptr %490, i64 112
+  %494 = load ptr, ptr %493, align 8
   br label %ma_device_get_context.exit.i451
 
-ma_device_get_context.exit.i451:                  ; preds = %494, %ma_device_get_context.exit.i448
-  %.0.i1.i449 = phi ptr [ %496, %494 ], [ null, %ma_device_get_context.exit.i448 ]
-  %497 = getelementptr inbounds i8, ptr %2, i64 3393
-  %498 = load i8, ptr %497, align 1
-  %.not361 = icmp eq i8 %498, 0
-  %499 = select i1 %.not361, ptr @.str.23, ptr @.str.22
-  %500 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i449, i32 noundef 3, ptr noundef nonnull @.str.37, ptr noundef nonnull %499)
-  %501 = load ptr, ptr %2, align 8
-  %502 = icmp eq ptr %501, null
-  br i1 %502, label %ma_device_get_context.exit.i454, label %503
+ma_device_get_context.exit.i451:                  ; preds = %492, %ma_device_get_context.exit.i448
+  %.0.i1.i449 = phi ptr [ %494, %492 ], [ null, %ma_device_get_context.exit.i448 ]
+  %495 = getelementptr inbounds i8, ptr %2, i64 3393
+  %496 = load i8, ptr %495, align 1
+  %.not361 = icmp eq i8 %496, 0
+  %497 = select i1 %.not361, ptr @.str.23, ptr @.str.22
+  %498 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i449, i32 noundef 3, ptr noundef nonnull @.str.37, ptr noundef nonnull %497)
+  %499 = load ptr, ptr %2, align 8
+  %500 = icmp eq ptr %499, null
+  br i1 %500, label %ma_device_get_context.exit.i454, label %501
 
-503:                                              ; preds = %ma_device_get_context.exit.i451
-  %504 = getelementptr inbounds i8, ptr %501, i64 112
-  %505 = load ptr, ptr %504, align 8
+501:                                              ; preds = %ma_device_get_context.exit.i451
+  %502 = getelementptr inbounds i8, ptr %499, i64 112
+  %503 = load ptr, ptr %502, align 8
   br label %ma_device_get_context.exit.i454
 
-ma_device_get_context.exit.i454:                  ; preds = %503, %ma_device_get_context.exit.i451
-  %.0.i1.i452 = phi ptr [ %505, %503 ], [ null, %ma_device_get_context.exit.i451 ]
-  %506 = getelementptr inbounds i8, ptr %2, i64 3394
-  %507 = load i8, ptr %506, align 2
-  %.not362 = icmp eq i8 %507, 0
-  %508 = select i1 %.not362, ptr @.str.23, ptr @.str.22
-  %509 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i452, i32 noundef 3, ptr noundef nonnull @.str.38, ptr noundef nonnull %508)
-  %510 = load ptr, ptr %2, align 8
-  %511 = icmp eq ptr %510, null
-  br i1 %511, label %ma_device_get_context.exit.i457, label %512
+ma_device_get_context.exit.i454:                  ; preds = %501, %ma_device_get_context.exit.i451
+  %.0.i1.i452 = phi ptr [ %503, %501 ], [ null, %ma_device_get_context.exit.i451 ]
+  %504 = getelementptr inbounds i8, ptr %2, i64 3394
+  %505 = load i8, ptr %504, align 2
+  %.not362 = icmp eq i8 %505, 0
+  %506 = select i1 %.not362, ptr @.str.23, ptr @.str.22
+  %507 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i452, i32 noundef 3, ptr noundef nonnull @.str.38, ptr noundef nonnull %506)
+  %508 = load ptr, ptr %2, align 8
+  %509 = icmp eq ptr %508, null
+  br i1 %509, label %ma_device_get_context.exit.i457, label %510
 
-512:                                              ; preds = %ma_device_get_context.exit.i454
-  %513 = getelementptr inbounds i8, ptr %510, i64 112
-  %514 = load ptr, ptr %513, align 8
+510:                                              ; preds = %ma_device_get_context.exit.i454
+  %511 = getelementptr inbounds i8, ptr %508, i64 112
+  %512 = load ptr, ptr %511, align 8
   br label %ma_device_get_context.exit.i457
 
-ma_device_get_context.exit.i457:                  ; preds = %512, %ma_device_get_context.exit.i454
-  %.0.i1.i455 = phi ptr [ %514, %512 ], [ null, %ma_device_get_context.exit.i454 ]
-  %515 = getelementptr inbounds i8, ptr %2, i64 3395
-  %516 = load i8, ptr %515, align 1
-  %.not363 = icmp eq i8 %516, 0
-  %517 = select i1 %.not363, ptr @.str.23, ptr @.str.22
-  %518 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i455, i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef nonnull %517)
-  %519 = load ptr, ptr %2, align 8
-  %520 = icmp eq ptr %519, null
-  br i1 %520, label %ma_device_get_context.exit.i460, label %521
+ma_device_get_context.exit.i457:                  ; preds = %510, %ma_device_get_context.exit.i454
+  %.0.i1.i455 = phi ptr [ %512, %510 ], [ null, %ma_device_get_context.exit.i454 ]
+  %513 = getelementptr inbounds i8, ptr %2, i64 3395
+  %514 = load i8, ptr %513, align 1
+  %.not363 = icmp eq i8 %514, 0
+  %515 = select i1 %.not363, ptr @.str.23, ptr @.str.22
+  %516 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i455, i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef nonnull %515)
+  %517 = load ptr, ptr %2, align 8
+  %518 = icmp eq ptr %517, null
+  br i1 %518, label %ma_device_get_context.exit.i460, label %519
 
-521:                                              ; preds = %ma_device_get_context.exit.i457
-  %522 = getelementptr inbounds i8, ptr %519, i64 112
-  %523 = load ptr, ptr %522, align 8
+519:                                              ; preds = %ma_device_get_context.exit.i457
+  %520 = getelementptr inbounds i8, ptr %517, i64 112
+  %521 = load ptr, ptr %520, align 8
   br label %ma_device_get_context.exit.i460
 
-ma_device_get_context.exit.i460:                  ; preds = %521, %ma_device_get_context.exit.i457
-  %.0.i1.i458 = phi ptr [ %523, %521 ], [ null, %ma_device_get_context.exit.i457 ]
-  %524 = getelementptr inbounds i8, ptr %2, i64 3396
-  %525 = load i8, ptr %524, align 4
-  %.not364 = icmp eq i8 %525, 0
-  %526 = select i1 %.not364, ptr @.str.23, ptr @.str.22
-  %527 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i458, i32 noundef 3, ptr noundef nonnull @.str.40, ptr noundef nonnull %526)
-  %528 = getelementptr inbounds i8, ptr %2, i64 2824
-  %529 = load i32, ptr %453, align 8
-  %530 = call i64 @ma_channel_map_to_string(ptr noundef nonnull %528, i32 noundef %529, ptr noundef nonnull %7, i64 noundef 1024)
-  %531 = load ptr, ptr %2, align 8
-  %532 = icmp eq ptr %531, null
-  br i1 %532, label %ma_device_get_context.exit.i463, label %533
+ma_device_get_context.exit.i460:                  ; preds = %519, %ma_device_get_context.exit.i457
+  %.0.i1.i458 = phi ptr [ %521, %519 ], [ null, %ma_device_get_context.exit.i457 ]
+  %522 = getelementptr inbounds i8, ptr %2, i64 3396
+  %523 = load i8, ptr %522, align 4
+  %.not364 = icmp eq i8 %523, 0
+  %524 = select i1 %.not364, ptr @.str.23, ptr @.str.22
+  %525 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i458, i32 noundef 3, ptr noundef nonnull @.str.40, ptr noundef nonnull %524)
+  %526 = getelementptr inbounds i8, ptr %2, i64 2824
+  %527 = load i32, ptr %451, align 8
+  %528 = call i64 @ma_channel_map_to_string(ptr noundef nonnull %526, i32 noundef %527, ptr noundef nonnull %7, i64 noundef 1024)
+  %529 = load ptr, ptr %2, align 8
+  %530 = icmp eq ptr %529, null
+  br i1 %530, label %ma_device_get_context.exit.i463, label %531
 
-533:                                              ; preds = %ma_device_get_context.exit.i460
-  %534 = getelementptr inbounds i8, ptr %531, i64 112
-  %535 = load ptr, ptr %534, align 8
+531:                                              ; preds = %ma_device_get_context.exit.i460
+  %532 = getelementptr inbounds i8, ptr %529, i64 112
+  %533 = load ptr, ptr %532, align 8
   br label %ma_device_get_context.exit.i463
 
-ma_device_get_context.exit.i463:                  ; preds = %533, %ma_device_get_context.exit.i460
-  %.0.i1.i461 = phi ptr [ %535, %533 ], [ null, %ma_device_get_context.exit.i460 ]
-  %536 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i461, i32 noundef 3, ptr noundef nonnull @.str.41, ptr noundef nonnull %7)
-  %537 = load i32, ptr %126, align 8
-  %538 = call i64 @ma_channel_map_to_string(ptr noundef nonnull %127, i32 noundef %537, ptr noundef nonnull %7, i64 noundef 1024)
-  %539 = load ptr, ptr %2, align 8
-  %540 = icmp eq ptr %539, null
-  br i1 %540, label %ma_device_get_log.exit465, label %541
+ma_device_get_context.exit.i463:                  ; preds = %531, %ma_device_get_context.exit.i460
+  %.0.i1.i461 = phi ptr [ %533, %531 ], [ null, %ma_device_get_context.exit.i460 ]
+  %534 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i461, i32 noundef 3, ptr noundef nonnull @.str.41, ptr noundef nonnull %7)
+  %535 = load i32, ptr %126, align 8
+  %536 = call i64 @ma_channel_map_to_string(ptr noundef nonnull %127, i32 noundef %535, ptr noundef nonnull %7, i64 noundef 1024)
+  %537 = load ptr, ptr %2, align 8
+  %538 = icmp eq ptr %537, null
+  br i1 %538, label %ma_device_get_log.exit465, label %539
 
-541:                                              ; preds = %ma_device_get_context.exit.i463
-  %542 = getelementptr inbounds i8, ptr %539, i64 112
-  %543 = load ptr, ptr %542, align 8
+539:                                              ; preds = %ma_device_get_context.exit.i463
+  %540 = getelementptr inbounds i8, ptr %537, i64 112
+  %541 = load ptr, ptr %540, align 8
   br label %ma_device_get_log.exit465
 
-ma_device_get_log.exit465:                        ; preds = %ma_device_get_context.exit.i463, %541
-  %.0.i1.i464 = phi ptr [ %543, %541 ], [ null, %ma_device_get_context.exit.i463 ]
-  %544 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i464, i32 noundef 3, ptr noundef nonnull @.str.42, ptr noundef nonnull %7)
+ma_device_get_log.exit465:                        ; preds = %ma_device_get_context.exit.i463, %539
+  %.0.i1.i464 = phi ptr [ %541, %539 ], [ null, %ma_device_get_context.exit.i463 ]
+  %542 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i464, i32 noundef 3, ptr noundef nonnull @.str.42, ptr noundef nonnull %7)
   %.pr529 = load i32, ptr %102, align 8
-  br label %545
+  br label %543
 
-545:                                              ; preds = %ma_get_backend_name.exit, %ma_device_get_log.exit465
-  %546 = phi i32 [ %425, %ma_get_backend_name.exit ], [ %.pr529, %ma_device_get_log.exit465 ]
-  switch i32 %546, label %ma__is_channel_map_valid.exit [
+543:                                              ; preds = %ma_get_backend_name.exit, %ma_device_get_log.exit465
+  %544 = phi i32 [ %423, %ma_get_backend_name.exit ], [ %.pr529, %ma_device_get_log.exit465 ]
+  switch i32 %544, label %ma__is_channel_map_valid.exit [
     i32 1, label %ma_device_get_context.exit.i466
     i32 3, label %ma_device_get_context.exit.i466
   ]
 
-ma_device_get_context.exit.i466:                  ; preds = %545, %545
-  %547 = call i32 @ma_device_get_name(ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull %8, i64 noundef 256, ptr noundef null)
-  %548 = load ptr, ptr %2, align 8
-  %549 = icmp eq ptr %548, null
-  br i1 %549, label %ma_device_get_context.exit.i469, label %550
+ma_device_get_context.exit.i466:                  ; preds = %543, %543
+  %545 = call i32 @ma_device_get_name(ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull %8, i64 noundef 256, ptr noundef null)
+  %546 = load ptr, ptr %2, align 8
+  %547 = icmp eq ptr %546, null
+  br i1 %547, label %ma_device_get_context.exit.i469, label %548
 
-550:                                              ; preds = %ma_device_get_context.exit.i466
-  %551 = getelementptr inbounds i8, ptr %548, i64 112
-  %552 = load ptr, ptr %551, align 8
+548:                                              ; preds = %ma_device_get_context.exit.i466
+  %549 = getelementptr inbounds i8, ptr %546, i64 112
+  %550 = load ptr, ptr %549, align 8
   br label %ma_device_get_context.exit.i469
 
-ma_device_get_context.exit.i469:                  ; preds = %550, %ma_device_get_context.exit.i466
-  %.0.i1.i467 = phi ptr [ %552, %550 ], [ null, %ma_device_get_context.exit.i466 ]
-  %553 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i467, i32 noundef 3, ptr noundef nonnull @.str.29, ptr noundef nonnull %8, ptr noundef nonnull @.str.43)
-  %554 = load ptr, ptr %2, align 8
-  %555 = icmp eq ptr %554, null
-  br i1 %555, label %ma_device_get_log.exit471, label %556
+ma_device_get_context.exit.i469:                  ; preds = %548, %ma_device_get_context.exit.i466
+  %.0.i1.i467 = phi ptr [ %550, %548 ], [ null, %ma_device_get_context.exit.i466 ]
+  %551 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i467, i32 noundef 3, ptr noundef nonnull @.str.29, ptr noundef nonnull %8, ptr noundef nonnull @.str.43)
+  %552 = load ptr, ptr %2, align 8
+  %553 = icmp eq ptr %552, null
+  br i1 %553, label %ma_device_get_log.exit471, label %554
 
-556:                                              ; preds = %ma_device_get_context.exit.i469
-  %557 = getelementptr inbounds i8, ptr %554, i64 112
-  %558 = load ptr, ptr %557, align 8
+554:                                              ; preds = %ma_device_get_context.exit.i469
+  %555 = getelementptr inbounds i8, ptr %552, i64 112
+  %556 = load ptr, ptr %555, align 8
   br label %ma_device_get_log.exit471
 
-ma_device_get_log.exit471:                        ; preds = %ma_device_get_context.exit.i469, %556
-  %.0.i1.i470 = phi ptr [ %558, %556 ], [ null, %ma_device_get_context.exit.i469 ]
-  %559 = load i32, ptr %151, align 4
-  %560 = icmp ult i32 %559, 6
-  br i1 %560, label %switch.lookup540, label %ma_get_format_name.exit473
+ma_device_get_log.exit471:                        ; preds = %ma_device_get_context.exit.i469, %554
+  %.0.i1.i470 = phi ptr [ %556, %554 ], [ null, %ma_device_get_context.exit.i469 ]
+  %557 = load i32, ptr %151, align 4
+  %558 = icmp ult i32 %557, 6
+  br i1 %558, label %switch.lookup540, label %ma_get_format_name.exit473
 
 switch.lookup540:                                 ; preds = %ma_device_get_log.exit471
-  %561 = zext nneg i32 %559 to i64
-  %switch.gep541 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.58, i64 0, i64 %561
+  %559 = zext nneg i32 %557 to i64
+  %switch.gep541 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.58, i64 0, i64 %559
   %switch.load542 = load ptr, ptr %switch.gep541, align 8
   br label %ma_get_format_name.exit473
 
 ma_get_format_name.exit473:                       ; preds = %ma_device_get_log.exit471, %switch.lookup540
   %.0.i472 = phi ptr [ %switch.load542, %switch.lookup540 ], [ @.str.168, %ma_device_get_log.exit471 ]
-  %562 = getelementptr inbounds i8, ptr %2, i64 1380
-  %563 = load i32, ptr %562, align 4
-  %564 = icmp ult i32 %563, 6
-  br i1 %564, label %switch.lookup543, label %ma_device_get_context.exit.i476
+  %560 = getelementptr inbounds i8, ptr %2, i64 1380
+  %561 = load i32, ptr %560, align 4
+  %562 = icmp ult i32 %561, 6
+  br i1 %562, label %switch.lookup543, label %ma_device_get_context.exit.i476
 
 switch.lookup543:                                 ; preds = %ma_get_format_name.exit473
-  %565 = zext nneg i32 %563 to i64
-  %switch.gep544 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.58, i64 0, i64 %565
+  %563 = zext nneg i32 %561 to i64
+  %switch.gep544 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.58, i64 0, i64 %563
   %switch.load545 = load ptr, ptr %switch.gep544, align 8
   br label %ma_device_get_context.exit.i476
 
 ma_device_get_context.exit.i476:                  ; preds = %ma_get_format_name.exit473, %switch.lookup543
   %.0.i474 = phi ptr [ %switch.load545, %switch.lookup543 ], [ @.str.168, %ma_get_format_name.exit473 ]
-  %566 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i470, i32 noundef 3, ptr noundef nonnull @.str.31, ptr noundef nonnull %.0.i472, ptr noundef nonnull %.0.i474)
-  %567 = load ptr, ptr %2, align 8
-  %568 = icmp eq ptr %567, null
-  br i1 %568, label %ma_device_get_context.exit.i479, label %569
+  %564 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i470, i32 noundef 3, ptr noundef nonnull @.str.31, ptr noundef nonnull %.0.i472, ptr noundef nonnull %.0.i474)
+  %565 = load ptr, ptr %2, align 8
+  %566 = icmp eq ptr %565, null
+  br i1 %566, label %ma_device_get_context.exit.i479, label %567
 
-569:                                              ; preds = %ma_device_get_context.exit.i476
-  %570 = getelementptr inbounds i8, ptr %567, i64 112
-  %571 = load ptr, ptr %570, align 8
+567:                                              ; preds = %ma_device_get_context.exit.i476
+  %568 = getelementptr inbounds i8, ptr %565, i64 112
+  %569 = load ptr, ptr %568, align 8
   br label %ma_device_get_context.exit.i479
 
-ma_device_get_context.exit.i479:                  ; preds = %569, %ma_device_get_context.exit.i476
-  %.0.i1.i477 = phi ptr [ %571, %569 ], [ null, %ma_device_get_context.exit.i476 ]
-  %572 = load i32, ptr %154, align 8
-  %573 = getelementptr inbounds i8, ptr %2, i64 1384
-  %574 = load i32, ptr %573, align 8
-  %575 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i477, i32 noundef 3, ptr noundef nonnull @.str.32, i32 noundef %572, i32 noundef %574)
-  %576 = load ptr, ptr %2, align 8
-  %577 = icmp eq ptr %576, null
-  br i1 %577, label %ma_device_get_context.exit.i482, label %578
+ma_device_get_context.exit.i479:                  ; preds = %567, %ma_device_get_context.exit.i476
+  %.0.i1.i477 = phi ptr [ %569, %567 ], [ null, %ma_device_get_context.exit.i476 ]
+  %570 = load i32, ptr %154, align 8
+  %571 = getelementptr inbounds i8, ptr %2, i64 1384
+  %572 = load i32, ptr %571, align 8
+  %573 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i477, i32 noundef 3, ptr noundef nonnull @.str.32, i32 noundef %570, i32 noundef %572)
+  %574 = load ptr, ptr %2, align 8
+  %575 = icmp eq ptr %574, null
+  br i1 %575, label %ma_device_get_context.exit.i482, label %576
 
-578:                                              ; preds = %ma_device_get_context.exit.i479
-  %579 = getelementptr inbounds i8, ptr %576, i64 112
-  %580 = load ptr, ptr %579, align 8
+576:                                              ; preds = %ma_device_get_context.exit.i479
+  %577 = getelementptr inbounds i8, ptr %574, i64 112
+  %578 = load ptr, ptr %577, align 8
   br label %ma_device_get_context.exit.i482
 
-ma_device_get_context.exit.i482:                  ; preds = %578, %ma_device_get_context.exit.i479
-  %.0.i1.i480 = phi ptr [ %580, %578 ], [ null, %ma_device_get_context.exit.i479 ]
-  %581 = load i32, ptr %105, align 4
-  %582 = getelementptr inbounds i8, ptr %2, i64 1388
-  %583 = load i32, ptr %582, align 4
-  %584 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i480, i32 noundef 3, ptr noundef nonnull @.str.33, i32 noundef %581, i32 noundef %583)
-  %585 = load ptr, ptr %2, align 8
-  %586 = icmp eq ptr %585, null
-  br i1 %586, label %ma_device_get_context.exit.i485, label %587
+ma_device_get_context.exit.i482:                  ; preds = %576, %ma_device_get_context.exit.i479
+  %.0.i1.i480 = phi ptr [ %578, %576 ], [ null, %ma_device_get_context.exit.i479 ]
+  %579 = load i32, ptr %105, align 4
+  %580 = getelementptr inbounds i8, ptr %2, i64 1388
+  %581 = load i32, ptr %580, align 4
+  %582 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i480, i32 noundef 3, ptr noundef nonnull @.str.33, i32 noundef %579, i32 noundef %581)
+  %583 = load ptr, ptr %2, align 8
+  %584 = icmp eq ptr %583, null
+  br i1 %584, label %ma_device_get_context.exit.i485, label %585
 
-587:                                              ; preds = %ma_device_get_context.exit.i482
-  %588 = getelementptr inbounds i8, ptr %585, i64 112
-  %589 = load ptr, ptr %588, align 8
+585:                                              ; preds = %ma_device_get_context.exit.i482
+  %586 = getelementptr inbounds i8, ptr %583, i64 112
+  %587 = load ptr, ptr %586, align 8
   br label %ma_device_get_context.exit.i485
 
-ma_device_get_context.exit.i485:                  ; preds = %587, %ma_device_get_context.exit.i482
-  %.0.i1.i483 = phi ptr [ %589, %587 ], [ null, %ma_device_get_context.exit.i482 ]
-  %590 = getelementptr inbounds i8, ptr %2, i64 1648
-  %591 = load i32, ptr %590, align 8
-  %592 = getelementptr inbounds i8, ptr %2, i64 1652
-  %593 = load i32, ptr %592, align 4
-  %594 = mul i32 %593, %591
-  %595 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i483, i32 noundef 3, ptr noundef nonnull @.str.34, i32 noundef %591, i32 noundef %593, i32 noundef %594)
-  %596 = load ptr, ptr %2, align 8
-  %597 = icmp eq ptr %596, null
-  br i1 %597, label %ma_device_get_context.exit.i488, label %598
+ma_device_get_context.exit.i485:                  ; preds = %585, %ma_device_get_context.exit.i482
+  %.0.i1.i483 = phi ptr [ %587, %585 ], [ null, %ma_device_get_context.exit.i482 ]
+  %588 = getelementptr inbounds i8, ptr %2, i64 1648
+  %589 = load i32, ptr %588, align 8
+  %590 = getelementptr inbounds i8, ptr %2, i64 1652
+  %591 = load i32, ptr %590, align 4
+  %592 = mul i32 %591, %589
+  %593 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i483, i32 noundef 3, ptr noundef nonnull @.str.34, i32 noundef %589, i32 noundef %591, i32 noundef %592)
+  %594 = load ptr, ptr %2, align 8
+  %595 = icmp eq ptr %594, null
+  br i1 %595, label %ma_device_get_context.exit.i488, label %596
 
-598:                                              ; preds = %ma_device_get_context.exit.i485
-  %599 = getelementptr inbounds i8, ptr %596, i64 112
-  %600 = load ptr, ptr %599, align 8
+596:                                              ; preds = %ma_device_get_context.exit.i485
+  %597 = getelementptr inbounds i8, ptr %594, i64 112
+  %598 = load ptr, ptr %597, align 8
   br label %ma_device_get_context.exit.i488
 
-ma_device_get_context.exit.i488:                  ; preds = %598, %ma_device_get_context.exit.i485
-  %.0.i1.i486 = phi ptr [ %600, %598 ], [ null, %ma_device_get_context.exit.i485 ]
-  %601 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i486, i32 noundef 3, ptr noundef nonnull @.str.35)
-  %602 = load ptr, ptr %2, align 8
-  %603 = icmp eq ptr %602, null
-  br i1 %603, label %ma_device_get_context.exit.i491, label %604
+ma_device_get_context.exit.i488:                  ; preds = %596, %ma_device_get_context.exit.i485
+  %.0.i1.i486 = phi ptr [ %598, %596 ], [ null, %ma_device_get_context.exit.i485 ]
+  %599 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i486, i32 noundef 3, ptr noundef nonnull @.str.35)
+  %600 = load ptr, ptr %2, align 8
+  %601 = icmp eq ptr %600, null
+  br i1 %601, label %ma_device_get_context.exit.i491, label %602
 
-604:                                              ; preds = %ma_device_get_context.exit.i488
-  %605 = getelementptr inbounds i8, ptr %602, i64 112
-  %606 = load ptr, ptr %605, align 8
+602:                                              ; preds = %ma_device_get_context.exit.i488
+  %603 = getelementptr inbounds i8, ptr %600, i64 112
+  %604 = load ptr, ptr %603, align 8
   br label %ma_device_get_context.exit.i491
 
-ma_device_get_context.exit.i491:                  ; preds = %604, %ma_device_get_context.exit.i488
-  %.0.i1.i489 = phi ptr [ %606, %604 ], [ null, %ma_device_get_context.exit.i488 ]
-  %607 = getelementptr inbounds i8, ptr %2, i64 1960
-  %608 = load i8, ptr %607, align 8
-  %.not365 = icmp eq i8 %608, 0
-  %609 = select i1 %.not365, ptr @.str.23, ptr @.str.22
-  %610 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i489, i32 noundef 3, ptr noundef nonnull @.str.36, ptr noundef nonnull %609)
-  %611 = load ptr, ptr %2, align 8
-  %612 = icmp eq ptr %611, null
-  br i1 %612, label %ma_device_get_context.exit.i494, label %613
+ma_device_get_context.exit.i491:                  ; preds = %602, %ma_device_get_context.exit.i488
+  %.0.i1.i489 = phi ptr [ %604, %602 ], [ null, %ma_device_get_context.exit.i488 ]
+  %605 = getelementptr inbounds i8, ptr %2, i64 1960
+  %606 = load i8, ptr %605, align 8
+  %.not365 = icmp eq i8 %606, 0
+  %607 = select i1 %.not365, ptr @.str.23, ptr @.str.22
+  %608 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i489, i32 noundef 3, ptr noundef nonnull @.str.36, ptr noundef nonnull %607)
+  %609 = load ptr, ptr %2, align 8
+  %610 = icmp eq ptr %609, null
+  br i1 %610, label %ma_device_get_context.exit.i494, label %611
 
-613:                                              ; preds = %ma_device_get_context.exit.i491
-  %614 = getelementptr inbounds i8, ptr %611, i64 112
-  %615 = load ptr, ptr %614, align 8
+611:                                              ; preds = %ma_device_get_context.exit.i491
+  %612 = getelementptr inbounds i8, ptr %609, i64 112
+  %613 = load ptr, ptr %612, align 8
   br label %ma_device_get_context.exit.i494
 
-ma_device_get_context.exit.i494:                  ; preds = %613, %ma_device_get_context.exit.i491
-  %.0.i1.i492 = phi ptr [ %615, %613 ], [ null, %ma_device_get_context.exit.i491 ]
-  %616 = getelementptr inbounds i8, ptr %2, i64 1961
-  %617 = load i8, ptr %616, align 1
-  %.not366 = icmp eq i8 %617, 0
-  %618 = select i1 %.not366, ptr @.str.23, ptr @.str.22
-  %619 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i492, i32 noundef 3, ptr noundef nonnull @.str.37, ptr noundef nonnull %618)
-  %620 = load ptr, ptr %2, align 8
-  %621 = icmp eq ptr %620, null
-  br i1 %621, label %ma_device_get_context.exit.i497, label %622
+ma_device_get_context.exit.i494:                  ; preds = %611, %ma_device_get_context.exit.i491
+  %.0.i1.i492 = phi ptr [ %613, %611 ], [ null, %ma_device_get_context.exit.i491 ]
+  %614 = getelementptr inbounds i8, ptr %2, i64 1961
+  %615 = load i8, ptr %614, align 1
+  %.not366 = icmp eq i8 %615, 0
+  %616 = select i1 %.not366, ptr @.str.23, ptr @.str.22
+  %617 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i492, i32 noundef 3, ptr noundef nonnull @.str.37, ptr noundef nonnull %616)
+  %618 = load ptr, ptr %2, align 8
+  %619 = icmp eq ptr %618, null
+  br i1 %619, label %ma_device_get_context.exit.i497, label %620
 
-622:                                              ; preds = %ma_device_get_context.exit.i494
-  %623 = getelementptr inbounds i8, ptr %620, i64 112
-  %624 = load ptr, ptr %623, align 8
+620:                                              ; preds = %ma_device_get_context.exit.i494
+  %621 = getelementptr inbounds i8, ptr %618, i64 112
+  %622 = load ptr, ptr %621, align 8
   br label %ma_device_get_context.exit.i497
 
-ma_device_get_context.exit.i497:                  ; preds = %622, %ma_device_get_context.exit.i494
-  %.0.i1.i495 = phi ptr [ %624, %622 ], [ null, %ma_device_get_context.exit.i494 ]
-  %625 = getelementptr inbounds i8, ptr %2, i64 1962
-  %626 = load i8, ptr %625, align 2
-  %.not367 = icmp eq i8 %626, 0
-  %627 = select i1 %.not367, ptr @.str.23, ptr @.str.22
-  %628 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i495, i32 noundef 3, ptr noundef nonnull @.str.38, ptr noundef nonnull %627)
-  %629 = load ptr, ptr %2, align 8
-  %630 = icmp eq ptr %629, null
-  br i1 %630, label %ma_device_get_context.exit.i500, label %631
+ma_device_get_context.exit.i497:                  ; preds = %620, %ma_device_get_context.exit.i494
+  %.0.i1.i495 = phi ptr [ %622, %620 ], [ null, %ma_device_get_context.exit.i494 ]
+  %623 = getelementptr inbounds i8, ptr %2, i64 1962
+  %624 = load i8, ptr %623, align 2
+  %.not367 = icmp eq i8 %624, 0
+  %625 = select i1 %.not367, ptr @.str.23, ptr @.str.22
+  %626 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i495, i32 noundef 3, ptr noundef nonnull @.str.38, ptr noundef nonnull %625)
+  %627 = load ptr, ptr %2, align 8
+  %628 = icmp eq ptr %627, null
+  br i1 %628, label %ma_device_get_context.exit.i500, label %629
 
-631:                                              ; preds = %ma_device_get_context.exit.i497
-  %632 = getelementptr inbounds i8, ptr %629, i64 112
-  %633 = load ptr, ptr %632, align 8
+629:                                              ; preds = %ma_device_get_context.exit.i497
+  %630 = getelementptr inbounds i8, ptr %627, i64 112
+  %631 = load ptr, ptr %630, align 8
   br label %ma_device_get_context.exit.i500
 
-ma_device_get_context.exit.i500:                  ; preds = %631, %ma_device_get_context.exit.i497
-  %.0.i1.i498 = phi ptr [ %633, %631 ], [ null, %ma_device_get_context.exit.i497 ]
-  %634 = getelementptr inbounds i8, ptr %2, i64 1963
-  %635 = load i8, ptr %634, align 1
-  %.not368 = icmp eq i8 %635, 0
-  %636 = select i1 %.not368, ptr @.str.23, ptr @.str.22
-  %637 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i498, i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef nonnull %636)
-  %638 = load ptr, ptr %2, align 8
-  %639 = icmp eq ptr %638, null
-  br i1 %639, label %ma_device_get_context.exit.i503, label %640
+ma_device_get_context.exit.i500:                  ; preds = %629, %ma_device_get_context.exit.i497
+  %.0.i1.i498 = phi ptr [ %631, %629 ], [ null, %ma_device_get_context.exit.i497 ]
+  %632 = getelementptr inbounds i8, ptr %2, i64 1963
+  %633 = load i8, ptr %632, align 1
+  %.not368 = icmp eq i8 %633, 0
+  %634 = select i1 %.not368, ptr @.str.23, ptr @.str.22
+  %635 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i498, i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef nonnull %634)
+  %636 = load ptr, ptr %2, align 8
+  %637 = icmp eq ptr %636, null
+  br i1 %637, label %ma_device_get_context.exit.i503, label %638
 
-640:                                              ; preds = %ma_device_get_context.exit.i500
-  %641 = getelementptr inbounds i8, ptr %638, i64 112
-  %642 = load ptr, ptr %641, align 8
+638:                                              ; preds = %ma_device_get_context.exit.i500
+  %639 = getelementptr inbounds i8, ptr %636, i64 112
+  %640 = load ptr, ptr %639, align 8
   br label %ma_device_get_context.exit.i503
 
-ma_device_get_context.exit.i503:                  ; preds = %640, %ma_device_get_context.exit.i500
-  %.0.i1.i501 = phi ptr [ %642, %640 ], [ null, %ma_device_get_context.exit.i500 ]
-  %643 = getelementptr inbounds i8, ptr %2, i64 1964
-  %644 = load i8, ptr %643, align 4
-  %.not369 = icmp eq i8 %644, 0
-  %645 = select i1 %.not369, ptr @.str.23, ptr @.str.22
-  %646 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i501, i32 noundef 3, ptr noundef nonnull @.str.40, ptr noundef nonnull %645)
-  %647 = load i32, ptr %154, align 8
-  %648 = call i64 @ma_channel_map_to_string(ptr noundef nonnull %155, i32 noundef %647, ptr noundef nonnull %9, i64 noundef 1024)
-  %649 = load ptr, ptr %2, align 8
-  %650 = icmp eq ptr %649, null
-  br i1 %650, label %ma_device_get_context.exit.i506, label %651
+ma_device_get_context.exit.i503:                  ; preds = %638, %ma_device_get_context.exit.i500
+  %.0.i1.i501 = phi ptr [ %640, %638 ], [ null, %ma_device_get_context.exit.i500 ]
+  %641 = getelementptr inbounds i8, ptr %2, i64 1964
+  %642 = load i8, ptr %641, align 4
+  %.not369 = icmp eq i8 %642, 0
+  %643 = select i1 %.not369, ptr @.str.23, ptr @.str.22
+  %644 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i501, i32 noundef 3, ptr noundef nonnull @.str.40, ptr noundef nonnull %643)
+  %645 = load i32, ptr %154, align 8
+  %646 = call i64 @ma_channel_map_to_string(ptr noundef nonnull %155, i32 noundef %645, ptr noundef nonnull %9, i64 noundef 1024)
+  %647 = load ptr, ptr %2, align 8
+  %648 = icmp eq ptr %647, null
+  br i1 %648, label %ma_device_get_context.exit.i506, label %649
 
-651:                                              ; preds = %ma_device_get_context.exit.i503
-  %652 = getelementptr inbounds i8, ptr %649, i64 112
-  %653 = load ptr, ptr %652, align 8
+649:                                              ; preds = %ma_device_get_context.exit.i503
+  %650 = getelementptr inbounds i8, ptr %647, i64 112
+  %651 = load ptr, ptr %650, align 8
   br label %ma_device_get_context.exit.i506
 
-ma_device_get_context.exit.i506:                  ; preds = %651, %ma_device_get_context.exit.i503
-  %.0.i1.i504 = phi ptr [ %653, %651 ], [ null, %ma_device_get_context.exit.i503 ]
-  %654 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i504, i32 noundef 3, ptr noundef nonnull @.str.41, ptr noundef nonnull %9)
-  %655 = getelementptr inbounds i8, ptr %2, i64 1392
-  %656 = load i32, ptr %573, align 8
-  %657 = call i64 @ma_channel_map_to_string(ptr noundef nonnull %655, i32 noundef %656, ptr noundef nonnull %9, i64 noundef 1024)
-  %658 = load ptr, ptr %2, align 8
-  %659 = icmp eq ptr %658, null
-  br i1 %659, label %ma_device_get_log.exit508, label %660
+ma_device_get_context.exit.i506:                  ; preds = %649, %ma_device_get_context.exit.i503
+  %.0.i1.i504 = phi ptr [ %651, %649 ], [ null, %ma_device_get_context.exit.i503 ]
+  %652 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i504, i32 noundef 3, ptr noundef nonnull @.str.41, ptr noundef nonnull %9)
+  %653 = getelementptr inbounds i8, ptr %2, i64 1392
+  %654 = load i32, ptr %571, align 8
+  %655 = call i64 @ma_channel_map_to_string(ptr noundef nonnull %653, i32 noundef %654, ptr noundef nonnull %9, i64 noundef 1024)
+  %656 = load ptr, ptr %2, align 8
+  %657 = icmp eq ptr %656, null
+  br i1 %657, label %ma_device_get_log.exit508, label %658
 
-660:                                              ; preds = %ma_device_get_context.exit.i506
-  %661 = getelementptr inbounds i8, ptr %658, i64 112
-  %662 = load ptr, ptr %661, align 8
+658:                                              ; preds = %ma_device_get_context.exit.i506
+  %659 = getelementptr inbounds i8, ptr %656, i64 112
+  %660 = load ptr, ptr %659, align 8
   br label %ma_device_get_log.exit508
 
-ma_device_get_log.exit508:                        ; preds = %ma_device_get_context.exit.i506, %660
-  %.0.i1.i507 = phi ptr [ %662, %660 ], [ null, %ma_device_get_context.exit.i506 ]
-  %663 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i507, i32 noundef 3, ptr noundef nonnull @.str.42, ptr noundef nonnull %9)
+ma_device_get_log.exit508:                        ; preds = %ma_device_get_context.exit.i506, %658
+  %.0.i1.i507 = phi ptr [ %660, %658 ], [ null, %ma_device_get_context.exit.i506 ]
+  %661 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %.0.i1.i507, i32 noundef 3, ptr noundef nonnull @.str.42, ptr noundef nonnull %9)
   br label %ma__is_channel_map_valid.exit
 
-ma__is_channel_map_valid.exit:                    ; preds = %40, %60, %53, %33, %ma_device_get_log.exit508, %545, %ma_mutex_init.exit, %44, %24, %17, %15, %13, %410, %393, %357, %302, %255, %242, %193, %184, %179, %11
-  %.0 = phi i32 [ %12, %11 ], [ %178, %179 ], [ %183, %184 ], [ %192, %193 ], [ %241, %242 ], [ %254, %255 ], [ -4, %302 ], [ -4, %357 ], [ %409, %410 ], [ %392, %393 ], [ -2, %13 ], [ -2, %15 ], [ -3, %17 ], [ -2, %24 ], [ -2, %44 ], [ %176, %ma_mutex_init.exit ], [ 0, %545 ], [ 0, %ma_device_get_log.exit508 ], [ -2, %33 ], [ -2, %53 ], [ -2, %60 ], [ -2, %40 ]
+ma__is_channel_map_valid.exit:                    ; preds = %40, %60, %53, %33, %ma_device_get_log.exit508, %543, %ma_mutex_init.exit, %44, %24, %17, %15, %13, %408, %391, %355, %300, %253, %240, %193, %184, %179, %11
+  %.0 = phi i32 [ %12, %11 ], [ %178, %179 ], [ %183, %184 ], [ %192, %193 ], [ %239, %240 ], [ %252, %253 ], [ -4, %300 ], [ -4, %355 ], [ %407, %408 ], [ %390, %391 ], [ -2, %13 ], [ -2, %15 ], [ -3, %17 ], [ -2, %24 ], [ -2, %44 ], [ %176, %ma_mutex_init.exit ], [ 0, %543 ], [ 0, %ma_device_get_log.exit508 ], [ -2, %33 ], [ -2, %53 ], [ -2, %60 ], [ -2, %40 ]
   ret i32 %.0
 }
 
@@ -19728,7 +19724,7 @@ define hidden noundef i32 @ma_lpf2_init_preallocated(ptr noundef readonly %0, pt
   %63 = shufflevector <2 x double> %60, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %64 = shufflevector <4 x double> %62, <4 x double> %63, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %65 = fptrunc <4 x double> %64 to <4 x float>
-  %66 = extractelement <4 x float> %65, i64 1
+  %66 = fptrunc double %53 to float
   store float %66, ptr %55, align 8
   store <4 x float> %65, ptr %57, align 4
   br label %ma_biquad_init_preallocated.exit
@@ -19966,7 +19962,7 @@ define hidden range(i32 -3, 1) i32 @ma_lpf2_reinit(ptr noundef readonly %0, ptr 
   %50 = shufflevector <2 x double> %47, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %51 = shufflevector <4 x double> %49, <4 x double> %50, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %52 = fptrunc <4 x double> %51 to <4 x float>
-  %53 = extractelement <4 x float> %52, i64 1
+  %53 = fptrunc double %40 to float
   store float %53, ptr %42, align 8
   store <4 x float> %52, ptr %44, align 4
   br label %ma_biquad_reinit.exit
@@ -22304,7 +22300,7 @@ define hidden noundef i32 @ma_hpf2_init_preallocated(ptr noundef readonly %0, pt
   %64 = shufflevector <2 x double> %61, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %65 = shufflevector <4 x double> %63, <4 x double> %64, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %66 = fptrunc <4 x double> %65 to <4 x float>
-  %67 = extractelement <4 x float> %66, i64 1
+  %67 = fptrunc double %54 to float
   store float %67, ptr %56, align 8
   store <4 x float> %66, ptr %58, align 4
   br label %ma_biquad_init_preallocated.exit
@@ -22543,7 +22539,7 @@ define hidden range(i32 -3, 1) i32 @ma_hpf2_reinit(ptr noundef readonly %0, ptr 
   %51 = shufflevector <2 x double> %48, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %52 = shufflevector <4 x double> %50, <4 x double> %51, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %53 = fptrunc <4 x double> %52 to <4 x float>
-  %54 = extractelement <4 x float> %53, i64 1
+  %54 = fptrunc double %41 to float
   store float %54, ptr %43, align 8
   store <4 x float> %53, ptr %45, align 4
   br label %ma_biquad_reinit.exit
@@ -29689,25 +29685,25 @@ define hidden float @ma_vec3f_dist(<2 x float> %0, float %1, <2 x float> %2, flo
 
 ; Function Attrs: nounwind uwtable
 define hidden { <2 x float>, float } @ma_vec3f_normalize(<2 x float> %0, float %1) local_unnamed_addr #38 {
-  %3 = extractelement <2 x float> %0, i64 0
-  %4 = fmul <2 x float> %0, %0
-  %5 = extractelement <2 x float> %4, i64 1
-  %6 = tail call float @llvm.fmuladd.f32(float %3, float %3, float %5)
-  %7 = tail call float @llvm.fmuladd.f32(float %1, float %1, float %6)
-  %8 = fcmp oeq float %7, 0.000000e+00
-  br i1 %8, label %15, label %9
+  %.sroa.04.0.vec.extract.i.i = extractelement <2 x float> %0, i64 0
+  %3 = fmul <2 x float> %0, %0
+  %4 = extractelement <2 x float> %3, i64 1
+  %5 = tail call float @llvm.fmuladd.f32(float %.sroa.04.0.vec.extract.i.i, float %.sroa.04.0.vec.extract.i.i, float %4)
+  %6 = tail call float @llvm.fmuladd.f32(float %1, float %1, float %5)
+  %7 = fcmp oeq float %6, 0.000000e+00
+  br i1 %7, label %14, label %8
 
-9:                                                ; preds = %2
-  %10 = tail call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %7) #66, !srcloc !148
-  %11 = insertelement <2 x float> poison, float %10, i64 0
-  %12 = shufflevector <2 x float> %11, <2 x float> poison, <2 x i32> zeroinitializer
-  %13 = fmul <2 x float> %12, %0
-  %14 = fmul float %10, %1
-  br label %15
+8:                                                ; preds = %2
+  %9 = tail call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %6) #66, !srcloc !148
+  %10 = insertelement <2 x float> poison, float %9, i64 0
+  %11 = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> zeroinitializer
+  %12 = fmul <2 x float> %11, %0
+  %13 = fmul float %9, %1
+  br label %14
 
-15:                                               ; preds = %2, %9
-  %.sroa.015.0 = phi <2 x float> [ %13, %9 ], [ zeroinitializer, %2 ]
-  %.sroa.3.0 = phi float [ %14, %9 ], [ 0.000000e+00, %2 ]
+14:                                               ; preds = %2, %8
+  %.sroa.015.0 = phi <2 x float> [ %12, %8 ], [ zeroinitializer, %2 ]
+  %.sroa.3.0 = phi float [ %13, %8 ], [ 0.000000e+00, %2 ]
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.015.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %.sroa.3.0, 1
   ret { <2 x float>, float } %.fca.1.insert
@@ -33287,7 +33283,7 @@ define hidden void @ma_spatializer_get_relative_position_and_direction(ptr nound
 
 10:                                               ; preds = %8, %7
   %11 = icmp eq ptr %0, null
-  br i1 %11, label %188, label %12
+  br i1 %11, label %184, label %12
 
 12:                                               ; preds = %10
   %13 = icmp eq ptr %1, null
@@ -33336,7 +33332,7 @@ ma_spatializer_get_position.exit:                 ; preds = %.loopexit.i.i.i, %1
   br label %29
 
 29:                                               ; preds = %ma_spatializer_get_position.exit, %17
-  br i1 %.not195, label %188, label %30
+  br i1 %.not195, label %184, label %30
 
 30:                                               ; preds = %29
   %31 = getelementptr inbounds i8, ptr %0, i64 88
@@ -33478,33 +33474,34 @@ ma_spatializer_listener_get_direction.exit:       ; preds = %.loopexit.i.i.i239,
   %.sroa.24.0..sroa_idx.i.i242 = getelementptr inbounds i8, ptr %1, i64 72
   %.sroa.24.0.copyload.i.i243 = load float, ptr %.sroa.24.0..sroa_idx.i.i242, align 4
   store atomic volatile i32 0, ptr %73 release, align 4
+  %.sroa.04.0.vec.extract.i.i.i = extractelement <2 x float> %.sroa.03.0.copyload.i.i241, i64 0
   %82 = fmul <2 x float> %.sroa.03.0.copyload.i.i241, %.sroa.03.0.copyload.i.i241
   %83 = extractelement <2 x float> %82, i64 1
-  %84 = extractelement <2 x float> %.sroa.03.0.copyload.i.i241, i64 0
-  %85 = tail call float @llvm.fmuladd.f32(float %84, float %84, float %83)
-  %86 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i243, float %.sroa.24.0.copyload.i.i243, float %85)
-  %87 = fcmp oeq float %86, 0.000000e+00
-  br i1 %87, label %ma_vec3f_normalize.exit, label %88
+  %84 = tail call float @llvm.fmuladd.f32(float %.sroa.04.0.vec.extract.i.i.i, float %.sroa.04.0.vec.extract.i.i.i, float %83)
+  %85 = tail call float @llvm.fmuladd.f32(float %.sroa.24.0.copyload.i.i243, float %.sroa.24.0.copyload.i.i243, float %84)
+  %86 = fcmp oeq float %85, 0.000000e+00
+  br i1 %86, label %ma_vec3f_normalize.exit, label %87
 
-88:                                               ; preds = %ma_spatializer_listener_get_direction.exit
-  %89 = tail call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %86) #66, !srcloc !148
-  %90 = insertelement <2 x float> poison, float %89, i64 0
-  %91 = shufflevector <2 x float> %90, <2 x float> poison, <2 x i32> zeroinitializer
-  %92 = fmul <2 x float> %.sroa.03.0.copyload.i.i241, %91
-  %93 = fmul float %.sroa.24.0.copyload.i.i243, %89
+87:                                               ; preds = %ma_spatializer_listener_get_direction.exit
+  %88 = tail call float asm sideeffect "rsqrtss $1, $0", "=x,x,~{dirflag},~{fpsr},~{flags}"(float %85) #66, !srcloc !148
+  %89 = insertelement <2 x float> poison, float %88, i64 0
+  %90 = shufflevector <2 x float> %89, <2 x float> poison, <2 x i32> zeroinitializer
+  %91 = fmul <2 x float> %.sroa.03.0.copyload.i.i241, %90
+  %92 = fmul float %.sroa.24.0.copyload.i.i243, %88
   br label %ma_vec3f_normalize.exit
 
-ma_vec3f_normalize.exit:                          ; preds = %ma_spatializer_listener_get_direction.exit, %88
-  %.sroa.015.0.i = phi <2 x float> [ %92, %88 ], [ zeroinitializer, %ma_spatializer_listener_get_direction.exit ]
-  %.sroa.3.0.i = phi float [ %93, %88 ], [ 0.000000e+00, %ma_spatializer_listener_get_direction.exit ]
-  %94 = getelementptr inbounds i8, ptr %1, i64 36
-  %.sroa.053.0.copyload = load <2 x float>, ptr %94, align 4
+ma_vec3f_normalize.exit:                          ; preds = %ma_spatializer_listener_get_direction.exit, %87
+  %.sroa.015.0.i = phi <2 x float> [ %91, %87 ], [ zeroinitializer, %ma_spatializer_listener_get_direction.exit ]
+  %.sroa.3.0.i = phi float [ %92, %87 ], [ 0.000000e+00, %ma_spatializer_listener_get_direction.exit ]
+  %93 = getelementptr inbounds i8, ptr %1, i64 36
+  %.sroa.053.0.copyload = load <2 x float>, ptr %93, align 4
   %.sroa.254.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 44
   %.sroa.254.0.copyload = load float, ptr %.sroa.254.0..sroa_idx, align 4
   %.sroa.013.4.vec.extract.i = extractelement <2 x float> %.sroa.015.0.i, i64 1
   %.sroa.05.4.vec.extract.i = extractelement <2 x float> %.sroa.053.0.copyload, i64 1
   %.sroa.05.0.vec.extract.i = extractelement <2 x float> %.sroa.053.0.copyload, i64 0
   %.sroa.013.0.vec.extract.i = extractelement <2 x float> %.sroa.015.0.i, i64 0
+  %94 = fneg float %.sroa.013.0.vec.extract.i
   %95 = shufflevector <2 x float> %.sroa.053.0.copyload, <2 x float> %.sroa.015.0.i, <2 x i32> <i32 1, i32 2>
   %96 = fneg <2 x float> %95
   %97 = insertelement <2 x float> poison, float %.sroa.3.0.i, i64 0
@@ -33543,97 +33540,95 @@ ma_vec3f_normalize.exit258:                       ; preds = %ma_vec3f_normalize.
   %122 = fcmp oeq float %121, 0.000000e+00
   %.sroa.0111.0 = select i1 %122, <2 x float> <float 1.000000e+00, float 0.000000e+00>, <2 x float> %.sroa.015.0.i254
   %.sroa.9116.0 = select i1 %122, float 0.000000e+00, float %.sroa.3.0.i255
+  %.sroa.013.4.vec.extract.i259 = extractelement <2 x float> %.sroa.0111.0, i64 1
   %123 = fmul float %.sroa.9116.0, %103
-  %124 = extractelement <2 x float> %.sroa.0111.0, i64 1
-  %125 = tail call float @llvm.fmuladd.f32(float %124, float %.sroa.3.0.i, float %123)
-  %126 = fneg <2 x float> %.sroa.0111.0
-  %127 = extractelement <2 x float> %126, i64 0
-  %128 = fmul float %.sroa.3.0.i, %127
-  %129 = tail call float @llvm.fmuladd.f32(float %.sroa.9116.0, float %.sroa.013.0.vec.extract.i, float %128)
-  %shift = shufflevector <2 x float> %126, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %130 = fmul <2 x float> %.sroa.015.0.i, %shift
-  %131 = extractelement <2 x float> %130, i64 0
-  %132 = extractelement <2 x float> %.sroa.0111.0, i64 0
-  %133 = tail call float @llvm.fmuladd.f32(float %132, float %.sroa.013.4.vec.extract.i, float %131)
-  %134 = getelementptr inbounds i8, ptr %1, i64 16
-  %135 = load i32, ptr %134, align 8
-  %136 = icmp eq i32 %135, 1
-  %137 = fneg float %.sroa.9116.0
-  %.sroa.0111.1 = select i1 %136, <2 x float> %126, <2 x float> %.sroa.0111.0
-  %.sroa.9116.1 = select i1 %136, float %137, float %.sroa.9116.0
-  %138 = fneg float %.sroa.3.0.i
-  br i1 %.not, label %169, label %139
+  %124 = tail call float @llvm.fmuladd.f32(float %.sroa.013.4.vec.extract.i259, float %.sroa.3.0.i, float %123)
+  %.sroa.013.0.vec.extract.i262 = extractelement <2 x float> %.sroa.0111.0, i64 0
+  %125 = fneg <2 x float> %.sroa.0111.0
+  %126 = extractelement <2 x float> %125, i64 0
+  %127 = fmul float %.sroa.3.0.i, %126
+  %128 = tail call float @llvm.fmuladd.f32(float %.sroa.9116.0, float %.sroa.013.0.vec.extract.i, float %127)
+  %shift = shufflevector <2 x float> %125, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %129 = fmul <2 x float> %.sroa.015.0.i, %shift
+  %130 = extractelement <2 x float> %129, i64 0
+  %131 = tail call float @llvm.fmuladd.f32(float %.sroa.013.0.vec.extract.i262, float %.sroa.013.4.vec.extract.i, float %130)
+  %132 = getelementptr inbounds i8, ptr %1, i64 16
+  %133 = load i32, ptr %132, align 8
+  %134 = icmp eq i32 %133, 1
+  %135 = fneg float %.sroa.9116.0
+  %.sroa.0111.1 = select i1 %134, <2 x float> %125, <2 x float> %.sroa.0111.0
+  %.sroa.9116.1 = select i1 %134, float %135, float %.sroa.9116.0
+  %136 = fneg float %.sroa.3.0.i
+  br i1 %.not, label %166, label %137
 
-139:                                              ; preds = %ma_vec3f_normalize.exit258
+137:                                              ; preds = %ma_vec3f_normalize.exit258
   %.sroa.01.0.vec.extract.i = extractelement <2 x float> %.sroa.03.0.copyload.i.i231, i64 0
   %.sroa.01.4.vec.extract.i = extractelement <2 x float> %.sroa.03.0.copyload.i.i231, i64 1
-  %140 = fmul float %.sroa.01.4.vec.extract.i, %103
-  %141 = extractelement <2 x float> %96, i64 1
-  %142 = tail call float @llvm.fmuladd.f32(float %141, float %.sroa.01.0.vec.extract.i, float %140)
-  %143 = tail call float @llvm.fmuladd.f32(float %138, float %.sroa.24.0.copyload.i.i233, float %142)
+  %138 = fmul float %.sroa.01.4.vec.extract.i, %103
+  %139 = tail call float @llvm.fmuladd.f32(float %94, float %.sroa.01.0.vec.extract.i, float %138)
+  %140 = tail call float @llvm.fmuladd.f32(float %136, float %.sroa.24.0.copyload.i.i233, float %139)
   %.sroa.0146.0.vec.extract = extractelement <2 x float> %.sroa.03.0.copyload.i.i209, i64 0
   %.sroa.0146.4.vec.extract = extractelement <2 x float> %.sroa.03.0.copyload.i.i209, i64 1
-  %144 = shufflevector <2 x float> %.sroa.03.0.copyload.i.i231, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %145 = shufflevector <2 x float> %.sroa.0111.1, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %146 = insertelement <2 x float> %145, float %129, i64 1
-  %147 = fmul <2 x float> %144, %146
-  %148 = insertelement <2 x float> %.sroa.0111.1, float %125, i64 1
-  %149 = shufflevector <2 x float> %.sroa.03.0.copyload.i.i231, <2 x float> poison, <2 x i32> zeroinitializer
-  %150 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %148, <2 x float> %149, <2 x float> %147)
-  %151 = insertelement <2 x float> poison, float %.sroa.9116.1, i64 0
-  %152 = insertelement <2 x float> %151, float %133, i64 1
-  %153 = insertelement <2 x float> poison, float %.sroa.24.0.copyload.i.i233, i64 0
-  %154 = shufflevector <2 x float> %153, <2 x float> poison, <2 x i32> zeroinitializer
-  %155 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %152, <2 x float> %154, <2 x float> %150)
-  %156 = shufflevector <2 x float> %.sroa.03.0.copyload.i.i209, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %157 = fmul <2 x float> %156, %146
-  %158 = shufflevector <2 x float> %.sroa.03.0.copyload.i.i209, <2 x float> poison, <2 x i32> zeroinitializer
-  %159 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %148, <2 x float> %158, <2 x float> %157)
-  %160 = insertelement <2 x float> poison, float %.sroa.24.0.copyload.i.i211, i64 0
-  %161 = shufflevector <2 x float> %160, <2 x float> poison, <2 x i32> zeroinitializer
-  %162 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %152, <2 x float> %161, <2 x float> %159)
-  %163 = fsub <2 x float> %162, %155
-  store <2 x float> %163, ptr %2, align 4
-  %164 = fmul float %.sroa.0146.4.vec.extract, %103
-  %165 = tail call float @llvm.fmuladd.f32(float %141, float %.sroa.0146.0.vec.extract, float %164)
-  %166 = tail call float @llvm.fmuladd.f32(float %138, float %.sroa.24.0.copyload.i.i211, float %165)
-  %167 = fsub float %166, %143
-  %168 = getelementptr inbounds i8, ptr %2, i64 8
-  store float %167, ptr %168, align 4
-  br label %169
+  %141 = shufflevector <2 x float> %.sroa.03.0.copyload.i.i231, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %142 = shufflevector <2 x float> %.sroa.0111.1, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %143 = insertelement <2 x float> %142, float %128, i64 1
+  %144 = fmul <2 x float> %141, %143
+  %145 = insertelement <2 x float> %.sroa.0111.1, float %124, i64 1
+  %146 = shufflevector <2 x float> %.sroa.03.0.copyload.i.i231, <2 x float> poison, <2 x i32> zeroinitializer
+  %147 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %145, <2 x float> %146, <2 x float> %144)
+  %148 = insertelement <2 x float> poison, float %.sroa.9116.1, i64 0
+  %149 = insertelement <2 x float> %148, float %131, i64 1
+  %150 = insertelement <2 x float> poison, float %.sroa.24.0.copyload.i.i233, i64 0
+  %151 = shufflevector <2 x float> %150, <2 x float> poison, <2 x i32> zeroinitializer
+  %152 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %149, <2 x float> %151, <2 x float> %147)
+  %153 = shufflevector <2 x float> %.sroa.03.0.copyload.i.i209, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %154 = fmul <2 x float> %153, %143
+  %155 = shufflevector <2 x float> %.sroa.03.0.copyload.i.i209, <2 x float> poison, <2 x i32> zeroinitializer
+  %156 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %145, <2 x float> %155, <2 x float> %154)
+  %157 = insertelement <2 x float> poison, float %.sroa.24.0.copyload.i.i211, i64 0
+  %158 = shufflevector <2 x float> %157, <2 x float> poison, <2 x i32> zeroinitializer
+  %159 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %149, <2 x float> %158, <2 x float> %156)
+  %160 = fsub <2 x float> %159, %152
+  store <2 x float> %160, ptr %2, align 4
+  %161 = fmul float %.sroa.0146.4.vec.extract, %103
+  %162 = tail call float @llvm.fmuladd.f32(float %94, float %.sroa.0146.0.vec.extract, float %161)
+  %163 = tail call float @llvm.fmuladd.f32(float %136, float %.sroa.24.0.copyload.i.i211, float %162)
+  %164 = fsub float %163, %140
+  %165 = getelementptr inbounds i8, ptr %2, i64 8
+  store float %164, ptr %165, align 4
+  br label %166
 
-169:                                              ; preds = %139, %ma_vec3f_normalize.exit258
-  br i1 %.not195, label %188, label %170
+166:                                              ; preds = %137, %ma_vec3f_normalize.exit258
+  br i1 %.not195, label %184, label %167
 
-170:                                              ; preds = %169
+167:                                              ; preds = %166
   %.sroa.0144.0.vec.extract = extractelement <2 x float> %.sroa.03.0.copyload.i.i220, i64 0
   %.sroa.0144.4.vec.extract = extractelement <2 x float> %.sroa.03.0.copyload.i.i220, i64 1
-  %171 = shufflevector <2 x float> %.sroa.03.0.copyload.i.i220, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %172 = shufflevector <2 x float> %.sroa.0111.1, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %173 = insertelement <2 x float> %172, float %129, i64 1
-  %174 = fmul <2 x float> %171, %173
-  %175 = insertelement <2 x float> %.sroa.0111.1, float %125, i64 1
-  %176 = shufflevector <2 x float> %.sroa.03.0.copyload.i.i220, <2 x float> poison, <2 x i32> zeroinitializer
-  %177 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %175, <2 x float> %176, <2 x float> %174)
-  %178 = insertelement <2 x float> poison, float %.sroa.9116.1, i64 0
-  %179 = insertelement <2 x float> %178, float %133, i64 1
-  %180 = insertelement <2 x float> poison, float %.sroa.24.0.copyload.i.i222, i64 0
-  %181 = shufflevector <2 x float> %180, <2 x float> poison, <2 x i32> zeroinitializer
-  %182 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %179, <2 x float> %181, <2 x float> %177)
-  store <2 x float> %182, ptr %3, align 4
-  %183 = fmul float %.sroa.0144.4.vec.extract, %103
-  %184 = extractelement <2 x float> %96, i64 1
-  %185 = tail call float @llvm.fmuladd.f32(float %184, float %.sroa.0144.0.vec.extract, float %183)
-  %186 = tail call float @llvm.fmuladd.f32(float %138, float %.sroa.24.0.copyload.i.i222, float %185)
+  %168 = shufflevector <2 x float> %.sroa.03.0.copyload.i.i220, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %169 = shufflevector <2 x float> %.sroa.0111.1, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %170 = insertelement <2 x float> %169, float %128, i64 1
+  %171 = fmul <2 x float> %168, %170
+  %172 = insertelement <2 x float> %.sroa.0111.1, float %124, i64 1
+  %173 = shufflevector <2 x float> %.sroa.03.0.copyload.i.i220, <2 x float> poison, <2 x i32> zeroinitializer
+  %174 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %172, <2 x float> %173, <2 x float> %171)
+  %175 = insertelement <2 x float> poison, float %.sroa.9116.1, i64 0
+  %176 = insertelement <2 x float> %175, float %131, i64 1
+  %177 = insertelement <2 x float> poison, float %.sroa.24.0.copyload.i.i222, i64 0
+  %178 = shufflevector <2 x float> %177, <2 x float> poison, <2 x i32> zeroinitializer
+  %179 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %176, <2 x float> %178, <2 x float> %174)
+  store <2 x float> %179, ptr %3, align 4
+  %180 = fmul float %.sroa.0144.4.vec.extract, %103
+  %181 = tail call float @llvm.fmuladd.f32(float %94, float %.sroa.0144.0.vec.extract, float %180)
+  %182 = tail call float @llvm.fmuladd.f32(float %136, float %.sroa.24.0.copyload.i.i222, float %181)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %ma_spatializer_get_direction.exit, %170
-  %.sink = phi float [ %186, %170 ], [ %.sroa.24.0.copyload.i.i201, %ma_spatializer_get_direction.exit ]
-  %187 = getelementptr inbounds i8, ptr %3, i64 8
-  store float %.sink, ptr %187, align 4
-  br label %188
+.sink.split:                                      ; preds = %ma_spatializer_get_direction.exit, %167
+  %.sink = phi float [ %182, %167 ], [ %.sroa.24.0.copyload.i.i201, %ma_spatializer_get_direction.exit ]
+  %183 = getelementptr inbounds i8, ptr %3, i64 8
+  store float %.sink, ptr %183, align 4
+  br label %184
 
-188:                                              ; preds = %.sink.split, %169, %29, %10
+184:                                              ; preds = %.sink.split, %166, %29, %10
   ret void
 }
 
@@ -47695,6 +47690,7 @@ define hidden range(i32 -4, 1) i32 @ma_audio_buffer_alloc_and_init(ptr noundef r
   %.sroa.0.0.copyload = load i32, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load <2 x i32>, ptr %.sroa.2.0..sroa_idx, align 4
+  %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.443.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.443.0.copyload = load i64, ptr %.sroa.443.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
@@ -47736,171 +47732,169 @@ ma_allocation_callbacks_init_copy.exit:           ; preds = %.thread19.i, %11, %
   %18 = zext i32 %.sroa.0.0.copyload to i64
   %19 = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
-  %21 = extractelement <2 x i32> %7, i64 0
-  %22 = mul i32 %20, %21
-  %23 = zext i32 %22 to i64
-  %24 = mul i64 %.sroa.443.0.copyload, %23
-  %25 = add i64 %24, 151
-  %26 = icmp ugt i64 %25, 4294967295
+  %21 = mul i32 %20, %.sroa.2.0.copyload
+  %22 = zext i32 %21 to i64
+  %23 = mul i64 %.sroa.443.0.copyload, %22
+  %24 = add i64 %23, 151
+  %25 = icmp ugt i64 %24, 4294967295
   %.not8.i = icmp eq ptr %.sroa.14.0, null
-  %or.cond = select i1 %26, i1 true, i1 %.not8.i
+  %or.cond = select i1 %25, i1 true, i1 %.not8.i
   br i1 %or.cond, label %ma_free.exit, label %ma_malloc.exit
 
 ma_allocation_callbacks_init_copy.exit.thread:    ; preds = %13
-  %27 = zext i32 %.sroa.0.0.copyload to i64
-  %28 = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %27
-  %29 = load i32, ptr %28, align 4
-  %30 = extractelement <2 x i32> %7, i64 0
-  %31 = mul i32 %29, %30
-  %32 = zext i32 %31 to i64
-  %33 = mul i64 %.sroa.443.0.copyload, %32
-  %34 = add i64 %33, 151
-  %35 = icmp ugt i64 %34, 4294967295
-  br i1 %35, label %ma_free.exit, label %ma_malloc.exit
+  %26 = zext i32 %.sroa.0.0.copyload to i64
+  %27 = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %26
+  %28 = load i32, ptr %27, align 4
+  %29 = mul i32 %28, %.sroa.2.0.copyload
+  %30 = zext i32 %29 to i64
+  %31 = mul i64 %.sroa.443.0.copyload, %30
+  %32 = add i64 %31, 151
+  %33 = icmp ugt i64 %32, 4294967295
+  br i1 %33, label %ma_free.exit, label %ma_malloc.exit
 
 ma_malloc.exit:                                   ; preds = %ma_allocation_callbacks_init_copy.exit, %ma_allocation_callbacks_init_copy.exit.thread
   %.sroa.14.06375 = phi ptr [ @ma__malloc_default, %ma_allocation_callbacks_init_copy.exit.thread ], [ %.sroa.14.0, %ma_allocation_callbacks_init_copy.exit ]
   %.sroa.18.06473 = phi ptr [ @ma__realloc_default, %ma_allocation_callbacks_init_copy.exit.thread ], [ %.sroa.18.0.copyload, %ma_allocation_callbacks_init_copy.exit ]
   %.sroa.21.06571 = phi ptr [ @ma__free_default, %ma_allocation_callbacks_init_copy.exit.thread ], [ %.sroa.21.0.copyload, %ma_allocation_callbacks_init_copy.exit ]
-  %36 = phi i64 [ %34, %ma_allocation_callbacks_init_copy.exit.thread ], [ %25, %ma_allocation_callbacks_init_copy.exit ]
-  %37 = tail call ptr %.sroa.14.06375(i64 noundef %36, ptr noundef %.sroa.8.0.copyload) #66
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %ma_free.exit, label %39
+  %34 = phi i64 [ %32, %ma_allocation_callbacks_init_copy.exit.thread ], [ %24, %ma_allocation_callbacks_init_copy.exit ]
+  %35 = tail call ptr %.sroa.14.06375(i64 noundef %34, ptr noundef %.sroa.8.0.copyload) #66
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %ma_free.exit, label %37
 
-39:                                               ; preds = %ma_malloc.exit
-  %40 = load ptr, ptr %.sroa.6.0..sroa_idx, align 8
-  %.not = icmp eq ptr %40, null
-  %41 = getelementptr inbounds i8, ptr %37, i64 148
-  br i1 %.not, label %57, label %42
+37:                                               ; preds = %ma_malloc.exit
+  %38 = load ptr, ptr %.sroa.6.0..sroa_idx, align 8
+  %.not = icmp eq ptr %38, null
+  %39 = getelementptr inbounds i8, ptr %35, i64 148
+  br i1 %.not, label %55, label %40
 
-42:                                               ; preds = %39
-  %43 = icmp eq ptr %41, %40
-  br i1 %43, label %.loopexit, label %44
+40:                                               ; preds = %37
+  %41 = icmp eq ptr %39, %38
+  br i1 %41, label %.loopexit, label %42
 
-44:                                               ; preds = %42
-  %45 = load i32, ptr %.sroa.2.0..sroa_idx, align 4
-  %46 = load i32, ptr %0, align 8
-  %47 = load i64, ptr %.sroa.443.0..sroa_idx, align 8
-  %48 = zext i32 %46 to i64
-  %49 = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %48
-  %50 = load i32, ptr %49, align 4
-  %51 = mul i32 %50, %45
-  %52 = zext i32 %51 to i64
-  %53 = mul i64 %47, %52
-  %.not24.i = icmp eq i64 %53, 0
+42:                                               ; preds = %40
+  %43 = load i32, ptr %.sroa.2.0..sroa_idx, align 4
+  %44 = load i32, ptr %0, align 8
+  %45 = load i64, ptr %.sroa.443.0..sroa_idx, align 8
+  %46 = zext i32 %44 to i64
+  %47 = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %46
+  %48 = load i32, ptr %47, align 4
+  %49 = mul i32 %48, %43
+  %50 = zext i32 %49 to i64
+  %51 = mul i64 %45, %50
+  %.not24.i = icmp eq i64 %51, 0
   br i1 %.not24.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %44, %.lr.ph.i
-  %.027.i = phi ptr [ %55, %.lr.ph.i ], [ %41, %44 ]
-  %.02026.i = phi ptr [ %56, %.lr.ph.i ], [ %40, %44 ]
-  %.02125.i = phi i64 [ %54, %.lr.ph.i ], [ %53, %44 ]
+.lr.ph.i:                                         ; preds = %42, %.lr.ph.i
+  %.027.i = phi ptr [ %53, %.lr.ph.i ], [ %39, %42 ]
+  %.02026.i = phi ptr [ %54, %.lr.ph.i ], [ %38, %42 ]
+  %.02125.i = phi i64 [ %52, %.lr.ph.i ], [ %51, %42 ]
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %.02125.i, i64 4294967295)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.027.i, ptr noundef nonnull align 1 dereferenceable(1) %.02026.i, i64 %spec.store.select.i, i1 false)
-  %54 = sub i64 %.02125.i, %spec.store.select.i
-  %55 = getelementptr inbounds i8, ptr %.027.i, i64 %spec.store.select.i
-  %56 = getelementptr inbounds i8, ptr %.02026.i, i64 %spec.store.select.i
-  %.not.i = icmp eq i64 %54, 0
+  %52 = sub i64 %.02125.i, %spec.store.select.i
+  %53 = getelementptr inbounds i8, ptr %.027.i, i64 %spec.store.select.i
+  %54 = getelementptr inbounds i8, ptr %.02026.i, i64 %spec.store.select.i
+  %.not.i = icmp eq i64 %52, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
-57:                                               ; preds = %39
-  %58 = load i64, ptr %.sroa.443.0..sroa_idx, align 8
-  %59 = load i32, ptr %0, align 8
-  %60 = load i32, ptr %.sroa.2.0..sroa_idx, align 4
-  %61 = icmp eq i32 %59, 1
-  br i1 %61, label %62, label %65
+55:                                               ; preds = %37
+  %56 = load i64, ptr %.sroa.443.0..sroa_idx, align 8
+  %57 = load i32, ptr %0, align 8
+  %58 = load i32, ptr %.sroa.2.0..sroa_idx, align 4
+  %59 = icmp eq i32 %57, 1
+  br i1 %59, label %60, label %63
 
-62:                                               ; preds = %57
-  %63 = zext i32 %60 to i64
-  %64 = mul i64 %58, %63
-  %.not37.i = icmp eq i64 %64, 0
+60:                                               ; preds = %55
+  %61 = zext i32 %58 to i64
+  %62 = mul i64 %56, %61
+  %.not37.i = icmp eq i64 %62, 0
   br i1 %.not37.i, label %.loopexit, label %.lr.ph36.preheader.i
 
-.lr.ph36.preheader.i:                             ; preds = %62
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %41, i8 -128, i64 %64, i1 false)
+.lr.ph36.preheader.i:                             ; preds = %60
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %39, i8 -128, i64 %62, i1 false)
   br label %.loopexit
 
-65:                                               ; preds = %57
-  %66 = zext i32 %59 to i64
-  %67 = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %66
-  %68 = load i32, ptr %67, align 4
-  %69 = mul i32 %68, %60
-  %70 = zext i32 %69 to i64
-  %71 = mul i64 %58, %70
-  %.not32.i = icmp eq i64 %71, 0
+63:                                               ; preds = %55
+  %64 = zext i32 %57 to i64
+  %65 = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %64
+  %66 = load i32, ptr %65, align 4
+  %67 = mul i32 %66, %58
+  %68 = zext i32 %67 to i64
+  %69 = mul i64 %56, %68
+  %.not32.i = icmp eq i64 %69, 0
   br i1 %.not32.i, label %.loopexit, label %.lr.ph.i38
 
-.lr.ph.i38:                                       ; preds = %65, %.lr.ph.i38
-  %.02734.i = phi ptr [ %73, %.lr.ph.i38 ], [ %41, %65 ]
-  %.02833.i = phi i64 [ %72, %.lr.ph.i38 ], [ %71, %65 ]
+.lr.ph.i38:                                       ; preds = %63, %.lr.ph.i38
+  %.02734.i = phi ptr [ %71, %.lr.ph.i38 ], [ %39, %63 ]
+  %.02833.i = phi i64 [ %70, %.lr.ph.i38 ], [ %69, %63 ]
   %spec.store.select.i39 = tail call i64 @llvm.umin.i64(i64 %.02833.i, i64 4294967295)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.02734.i, i8 0, i64 %spec.store.select.i39, i1 false)
-  %72 = sub i64 %.02833.i, %spec.store.select.i39
-  %73 = getelementptr inbounds i8, ptr %.02734.i, i64 %spec.store.select.i39
-  %.not.i40 = icmp eq i64 %72, 0
+  %70 = sub i64 %.02833.i, %spec.store.select.i39
+  %71 = getelementptr inbounds i8, ptr %.02734.i, i64 %spec.store.select.i39
+  %.not.i40 = icmp eq i64 %70, 0
   br i1 %.not.i40, label %.loopexit, label %.lr.ph.i38
 
-.loopexit:                                        ; preds = %.lr.ph.i, %.lr.ph.i38, %42, %44, %62, %.lr.ph36.preheader.i, %65
-  %74 = getelementptr inbounds i8, ptr %37, i64 148
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(151) %37, i8 0, i64 151, i1 false)
-  %75 = icmp eq i64 %.sroa.443.0.copyload, 0
-  br i1 %75, label %ma_audio_buffer_init_ex.exit, label %76
+.loopexit:                                        ; preds = %.lr.ph.i, %.lr.ph.i38, %40, %42, %60, %.lr.ph36.preheader.i, %63
+  %72 = getelementptr inbounds i8, ptr %35, i64 148
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(151) %35, i8 0, i64 151, i1 false)
+  %73 = icmp eq i64 %.sroa.443.0.copyload, 0
+  br i1 %73, label %ma_audio_buffer_init_ex.exit, label %74
 
-76:                                               ; preds = %.loopexit
-  %77 = getelementptr inbounds i8, ptr %37, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %77, i8 0, i64 24, i1 false)
-  store ptr @g_ma_audio_buffer_ref_data_source_vtable, ptr %37, align 8
-  %78 = getelementptr inbounds i8, ptr %37, i64 8
+74:                                               ; preds = %.loopexit
+  %75 = getelementptr inbounds i8, ptr %35, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %75, i8 0, i64 24, i1 false)
+  store ptr @g_ma_audio_buffer_ref_data_source_vtable, ptr %35, align 8
+  %76 = getelementptr inbounds i8, ptr %35, i64 8
+  store i64 0, ptr %76, align 8
+  %77 = getelementptr inbounds i8, ptr %35, i64 16
+  store i64 -1, ptr %77, align 8
+  %78 = getelementptr inbounds i8, ptr %35, i64 24
   store i64 0, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %37, i64 16
+  %79 = getelementptr inbounds i8, ptr %35, i64 32
   store i64 -1, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %37, i64 24
-  store i64 0, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %37, i64 32
-  store i64 -1, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %37, i64 40
-  store ptr %37, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %37, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false)
-  %84 = getelementptr inbounds i8, ptr %37, i64 72
-  store i32 %.sroa.0.0.copyload, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %37, i64 76
-  %86 = getelementptr inbounds i8, ptr %37, i64 88
-  %87 = getelementptr inbounds i8, ptr %37, i64 96
-  %88 = getelementptr inbounds i8, ptr %37, i64 104
-  store <2 x i32> %7, ptr %85, align 4
-  %89 = icmp eq ptr %.sroa.21.06571, null
-  br i1 %89, label %92, label %.thread19.i.i
+  %80 = getelementptr inbounds i8, ptr %35, i64 40
+  store ptr %35, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %35, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, i8 0, i64 16, i1 false)
+  %82 = getelementptr inbounds i8, ptr %35, i64 72
+  store i32 %.sroa.0.0.copyload, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %35, i64 76
+  %84 = getelementptr inbounds i8, ptr %35, i64 88
+  %85 = getelementptr inbounds i8, ptr %35, i64 96
+  %86 = getelementptr inbounds i8, ptr %35, i64 104
+  store <2 x i32> %7, ptr %83, align 4
+  %87 = icmp eq ptr %.sroa.21.06571, null
+  br i1 %87, label %90, label %.thread19.i.i
 
-.thread19.i.i:                                    ; preds = %76
-  %90 = getelementptr inbounds i8, ptr %37, i64 112
-  store ptr %.sroa.8.0.copyload, ptr %90, align 8
-  %.sroa.14.32..sroa_idx48 = getelementptr inbounds i8, ptr %37, i64 120
+.thread19.i.i:                                    ; preds = %74
+  %88 = getelementptr inbounds i8, ptr %35, i64 112
+  store ptr %.sroa.8.0.copyload, ptr %88, align 8
+  %.sroa.14.32..sroa_idx48 = getelementptr inbounds i8, ptr %35, i64 120
   store ptr %.sroa.14.06375, ptr %.sroa.14.32..sroa_idx48, align 8
-  %.sroa.18.32..sroa_idx52 = getelementptr inbounds i8, ptr %37, i64 128
+  %.sroa.18.32..sroa_idx52 = getelementptr inbounds i8, ptr %35, i64 128
   store ptr %.sroa.18.06473, ptr %.sroa.18.32..sroa_idx52, align 8
-  %.sroa.21.32..sroa_idx55 = getelementptr inbounds i8, ptr %37, i64 136
+  %.sroa.21.32..sroa_idx55 = getelementptr inbounds i8, ptr %35, i64 136
   store ptr %.sroa.21.06571, ptr %.sroa.21.32..sroa_idx55, align 8
-  br label %92
+  br label %90
 
 ma_audio_buffer_init_ex.exit:                     ; preds = %.loopexit
   %.not9.i = icmp eq ptr %.sroa.21.06571, null
-  br i1 %.not9.i, label %ma_free.exit, label %91
+  br i1 %.not9.i, label %ma_free.exit, label %89
 
-91:                                               ; preds = %ma_audio_buffer_init_ex.exit
-  tail call void %.sroa.21.06571(ptr noundef nonnull %37, ptr noundef %.sroa.8.0.copyload) #66
+89:                                               ; preds = %ma_audio_buffer_init_ex.exit
+  tail call void %.sroa.21.06571(ptr noundef nonnull %35, ptr noundef %.sroa.8.0.copyload) #66
   br label %ma_free.exit
 
-92:                                               ; preds = %76, %.thread19.i.i
-  store i64 0, ptr %86, align 8
-  store i64 %.sroa.443.0.copyload, ptr %87, align 8
-  store ptr %74, ptr %88, align 8
-  %93 = getelementptr inbounds i8, ptr %37, i64 144
-  store i32 0, ptr %93, align 8
-  store ptr %37, ptr %1, align 8
+90:                                               ; preds = %74, %.thread19.i.i
+  store i64 0, ptr %84, align 8
+  store i64 %.sroa.443.0.copyload, ptr %85, align 8
+  store ptr %72, ptr %86, align 8
+  %91 = getelementptr inbounds i8, ptr %35, i64 144
+  store i32 0, ptr %91, align 8
+  store ptr %35, ptr %1, align 8
   br label %ma_free.exit
 
-ma_free.exit:                                     ; preds = %91, %ma_audio_buffer_init_ex.exit, %ma_allocation_callbacks_init_copy.exit.thread, %ma_malloc.exit, %ma_allocation_callbacks_init_copy.exit, %4, %2, %92
-  %.0 = phi i32 [ 0, %92 ], [ -2, %2 ], [ -2, %4 ], [ -4, %ma_allocation_callbacks_init_copy.exit ], [ -4, %ma_malloc.exit ], [ -4, %ma_allocation_callbacks_init_copy.exit.thread ], [ -2, %ma_audio_buffer_init_ex.exit ], [ -2, %91 ]
+ma_free.exit:                                     ; preds = %89, %ma_audio_buffer_init_ex.exit, %ma_allocation_callbacks_init_copy.exit.thread, %ma_malloc.exit, %ma_allocation_callbacks_init_copy.exit, %4, %2, %90
+  %.0 = phi i32 [ 0, %90 ], [ -2, %2 ], [ -2, %4 ], [ -4, %ma_allocation_callbacks_init_copy.exit ], [ -4, %ma_malloc.exit ], [ -4, %ma_allocation_callbacks_init_copy.exit.thread ], [ -2, %ma_audio_buffer_init_ex.exit ], [ -2, %89 ]
   ret i32 %.0
 }
 
@@ -54607,35 +54601,33 @@ define hidden range(i32 0, 2) i32 @drwav_init(ptr noundef %0, ptr noundef %1, pt
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.copyload21.i.i = load ptr, ptr %4, align 8
   %.sroa.3.0..sroa_idx22.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.3.0.copyload23.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i, align 8
   %.sroa.4.0..sroa_idx24.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.4.0.copyload25.i.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i.i, align 8
   %.sroa.5.0..sroa_idx26.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %.sroa.5.0.copyload27.i.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i.i, align 8
-  store ptr %.sroa.0.0.copyload21.i.i, ptr %13, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.sroa.3.0.copyload23.i.i, ptr %.sroa.3.0..sroa_idx.i.i, align 8
+  %.sroa.3.0.copyload23.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i, align 8
+  %14 = load <2 x ptr>, ptr %4, align 8
+  store <2 x ptr> %14, ptr %13, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.4.0.copyload25.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %.sroa.5.0.copyload27.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8
-  %14 = icmp eq ptr %.sroa.5.0.copyload27.i.i, null
-  br i1 %14, label %drwav_init_ex.exit, label %15
+  %15 = icmp eq ptr %.sroa.5.0.copyload27.i.i, null
+  br i1 %15, label %drwav_init_ex.exit, label %16
 
-15:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i
-  %16 = icmp eq ptr %.sroa.3.0.copyload23.i.i, null
-  %17 = icmp eq ptr %.sroa.4.0.copyload25.i.i, null
-  %or.cond33.i.i = select i1 %16, i1 %17, i1 false
+16:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i
+  %17 = icmp eq ptr %.sroa.3.0.copyload23.i.i, null
+  %18 = icmp eq ptr %.sroa.4.0.copyload25.i.i, null
+  %or.cond33.i.i = select i1 %17, i1 %18, i1 false
   br i1 %or.cond33.i.i, label %drwav_init_ex.exit, label %drwav_preinit.exit.i
 
-drwav_preinit.exit.i:                             ; preds = %15, %.thread.i.i
-  %18 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef 0)
+drwav_preinit.exit.i:                             ; preds = %16, %.thread.i.i
+  %19 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef 0)
   br label %drwav_init_ex.exit
 
-drwav_init_ex.exit:                               ; preds = %5, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i, %15, %drwav_preinit.exit.i
-  %.0.i = phi i32 [ %18, %drwav_preinit.exit.i ], [ 0, %5 ], [ 0, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i ], [ 0, %15 ]
+drwav_init_ex.exit:                               ; preds = %5, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i, %16, %drwav_preinit.exit.i
+  %.0.i = phi i32 [ %19, %drwav_preinit.exit.i ], [ 0, %5 ], [ 0, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i ], [ 0, %16 ]
   ret i32 %.0.i
 }
 
@@ -54670,35 +54662,33 @@ define hidden range(i32 0, 2) i32 @drwav_init_ex(ptr noundef %0, ptr noundef %1,
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %12
   %16 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.copyload21.i = load ptr, ptr %7, align 8
   %.sroa.3.0..sroa_idx22.i = getelementptr inbounds i8, ptr %7, i64 8
-  %.sroa.3.0.copyload23.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i, align 8
   %.sroa.4.0..sroa_idx24.i = getelementptr inbounds i8, ptr %7, i64 16
   %.sroa.4.0.copyload25.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i, align 8
   %.sroa.5.0..sroa_idx26.i = getelementptr inbounds i8, ptr %7, i64 24
   %.sroa.5.0.copyload27.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i, align 8
-  store ptr %.sroa.0.0.copyload21.i, ptr %16, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.sroa.3.0.copyload23.i, ptr %.sroa.3.0..sroa_idx.i, align 8
+  %.sroa.3.0.copyload23.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i, align 8
+  %17 = load <2 x ptr>, ptr %7, align 8
+  store <2 x ptr> %17, ptr %16, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.4.0.copyload25.i, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %.sroa.5.0.copyload27.i, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %17 = icmp eq ptr %.sroa.5.0.copyload27.i, null
-  br i1 %17, label %drwav_preinit.exit.thread, label %18
+  %18 = icmp eq ptr %.sroa.5.0.copyload27.i, null
+  br i1 %18, label %drwav_preinit.exit.thread, label %19
 
-18:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i
-  %19 = icmp eq ptr %.sroa.3.0.copyload23.i, null
-  %20 = icmp eq ptr %.sroa.4.0.copyload25.i, null
-  %or.cond33.i = select i1 %19, i1 %20, i1 false
+19:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i
+  %20 = icmp eq ptr %.sroa.3.0.copyload23.i, null
+  %21 = icmp eq ptr %.sroa.4.0.copyload25.i, null
+  %or.cond33.i = select i1 %20, i1 %21, i1 false
   br i1 %or.cond33.i, label %drwav_preinit.exit.thread, label %drwav_preinit.exit
 
-drwav_preinit.exit:                               ; preds = %18, %.thread.i
-  %21 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %5, i32 noundef %6)
+drwav_preinit.exit:                               ; preds = %19, %.thread.i
+  %22 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %5, i32 noundef %6)
   br label %drwav_preinit.exit.thread
 
-drwav_preinit.exit.thread:                        ; preds = %18, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %8, %drwav_preinit.exit
-  %.0 = phi i32 [ %21, %drwav_preinit.exit ], [ 0, %8 ], [ 0, %drwav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %18 ]
+drwav_preinit.exit.thread:                        ; preds = %19, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %8, %drwav_preinit.exit
+  %.0 = phi i32 [ %22, %drwav_preinit.exit ], [ 0, %8 ], [ 0, %drwav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -56953,36 +56943,34 @@ define hidden range(i32 0, 2) i32 @drwav_init_with_metadata(ptr noundef %0, ptr 
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %10
   %14 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.copyload21.i = load ptr, ptr %5, align 8
   %.sroa.3.0..sroa_idx22.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.3.0.copyload23.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i, align 8
   %.sroa.4.0..sroa_idx24.i = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.4.0.copyload25.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i, align 8
   %.sroa.5.0..sroa_idx26.i = getelementptr inbounds i8, ptr %5, i64 24
   %.sroa.5.0.copyload27.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i, align 8
-  store ptr %.sroa.0.0.copyload21.i, ptr %14, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.sroa.3.0.copyload23.i, ptr %.sroa.3.0..sroa_idx.i, align 8
+  %.sroa.3.0.copyload23.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i, align 8
+  %15 = load <2 x ptr>, ptr %5, align 8
+  store <2 x ptr> %15, ptr %14, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.4.0.copyload25.i, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %.sroa.5.0.copyload27.i, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %15 = icmp eq ptr %.sroa.5.0.copyload27.i, null
-  br i1 %15, label %drwav_preinit.exit.thread, label %16
+  %16 = icmp eq ptr %.sroa.5.0.copyload27.i, null
+  br i1 %16, label %drwav_preinit.exit.thread, label %17
 
-16:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i
-  %17 = icmp eq ptr %.sroa.3.0.copyload23.i, null
-  %18 = icmp eq ptr %.sroa.4.0.copyload25.i, null
-  %or.cond33.i = select i1 %17, i1 %18, i1 false
+17:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i
+  %18 = icmp eq ptr %.sroa.3.0.copyload23.i, null
+  %19 = icmp eq ptr %.sroa.4.0.copyload25.i, null
+  %or.cond33.i = select i1 %18, i1 %19, i1 false
   br i1 %or.cond33.i, label %drwav_preinit.exit.thread, label %drwav_preinit.exit
 
-drwav_preinit.exit:                               ; preds = %16, %.thread.i
-  %19 = or i32 %4, 2
-  %20 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %19)
+drwav_preinit.exit:                               ; preds = %17, %.thread.i
+  %20 = or i32 %4, 2
+  %21 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %20)
   br label %drwav_preinit.exit.thread
 
-drwav_preinit.exit.thread:                        ; preds = %16, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %6, %drwav_preinit.exit
-  %.0 = phi i32 [ %20, %drwav_preinit.exit ], [ 0, %6 ], [ 0, %drwav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %16 ]
+drwav_preinit.exit.thread:                        ; preds = %17, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %6, %drwav_preinit.exit
+  %.0 = phi i32 [ %21, %drwav_preinit.exit ], [ 0, %6 ], [ 0, %drwav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -57032,75 +57020,73 @@ define hidden range(i32 0, 2) i32 @drwav_init_write(ptr noundef %0, ptr nocaptur
   store ptr @drwav__realloc_default, ptr %.sroa.4.0..sroa_idx53.i, align 8
   %.sroa.5.0..sroa_idx54.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr @drwav__free_default, ptr %.sroa.5.0..sroa_idx54.i, align 8
-  br label %22
+  br label %23
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %13
   %17 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.copyload43.i = load ptr, ptr %5, align 8
   %.sroa.3.0..sroa_idx44.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.3.0.copyload45.i = load ptr, ptr %.sroa.3.0..sroa_idx44.i, align 8
   %.sroa.4.0..sroa_idx46.i = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.4.0.copyload47.i = load ptr, ptr %.sroa.4.0..sroa_idx46.i, align 8
   %.sroa.5.0..sroa_idx48.i = getelementptr inbounds i8, ptr %5, i64 24
   %.sroa.5.0.copyload49.i = load ptr, ptr %.sroa.5.0..sroa_idx48.i, align 8
-  store ptr %.sroa.0.0.copyload43.i, ptr %17, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.sroa.3.0.copyload45.i, ptr %.sroa.3.0..sroa_idx.i, align 8
+  %.sroa.3.0.copyload45.i = load ptr, ptr %.sroa.3.0..sroa_idx44.i, align 8
+  %18 = load <2 x ptr>, ptr %5, align 8
+  store <2 x ptr> %18, ptr %17, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.4.0.copyload47.i, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %.sroa.5.0.copyload49.i, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %18 = icmp eq ptr %.sroa.5.0.copyload49.i, null
-  br i1 %18, label %drwav_preinit_write.exit.thread, label %19
+  %19 = icmp eq ptr %.sroa.5.0.copyload49.i, null
+  br i1 %19, label %drwav_preinit_write.exit.thread, label %20
 
-19:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i
-  %20 = icmp eq ptr %.sroa.3.0.copyload45.i, null
-  %21 = icmp eq ptr %.sroa.4.0.copyload47.i, null
-  %or.cond55.i = select i1 %20, i1 %21, i1 false
-  br i1 %or.cond55.i, label %drwav_preinit_write.exit.thread, label %22
+20:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i
+  %21 = icmp eq ptr %.sroa.3.0.copyload45.i, null
+  %22 = icmp eq ptr %.sroa.4.0.copyload47.i, null
+  %or.cond55.i = select i1 %21, i1 %22, i1 false
+  br i1 %or.cond55.i, label %drwav_preinit_write.exit.thread, label %23
 
-22:                                               ; preds = %19, %.thread.i
-  %23 = load i32, ptr %11, align 4
-  %24 = trunc i32 %23 to i16
-  %25 = getelementptr inbounds i8, ptr %0, i64 68
-  store i16 %24, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  %27 = load i32, ptr %26, align 4
-  %28 = trunc i32 %27 to i16
-  %29 = getelementptr inbounds i8, ptr %0, i64 70
-  store i16 %28, ptr %29, align 2
-  %30 = getelementptr inbounds i8, ptr %1, i64 12
-  %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 %31, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
-  %34 = load i32, ptr %33, align 4
-  %35 = mul i32 %34, %31
-  %36 = load i32, ptr %26, align 4
-  %37 = mul i32 %35, %36
-  %38 = lshr i32 %37, 3
-  %39 = getelementptr inbounds i8, ptr %0, i64 76
-  store i32 %38, ptr %39, align 4
-  %40 = load i32, ptr %26, align 4
-  %41 = load i32, ptr %33, align 4
-  %42 = mul i32 %41, %40
-  %43 = lshr i32 %42, 3
-  %44 = trunc i32 %43 to i16
-  %45 = getelementptr inbounds i8, ptr %0, i64 80
-  store i16 %44, ptr %45, align 4
-  %46 = load i32, ptr %33, align 4
-  %47 = trunc i32 %46 to i16
-  %48 = getelementptr inbounds i8, ptr %0, i64 82
-  store i16 %47, ptr %48, align 2
-  %49 = getelementptr inbounds i8, ptr %0, i64 84
-  store i16 0, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 168
-  store i32 0, ptr %50, align 8
-  %51 = tail call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 0)
+23:                                               ; preds = %20, %.thread.i
+  %24 = load i32, ptr %11, align 4
+  %25 = trunc i32 %24 to i16
+  %26 = getelementptr inbounds i8, ptr %0, i64 68
+  store i16 %25, ptr %26, align 4
+  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = load i32, ptr %27, align 4
+  %29 = trunc i32 %28 to i16
+  %30 = getelementptr inbounds i8, ptr %0, i64 70
+  store i16 %29, ptr %30, align 2
+  %31 = getelementptr inbounds i8, ptr %1, i64 12
+  %32 = load i32, ptr %31, align 4
+  %33 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 %32, ptr %33, align 4
+  %34 = getelementptr inbounds i8, ptr %1, i64 16
+  %35 = load i32, ptr %34, align 4
+  %36 = mul i32 %35, %32
+  %37 = load i32, ptr %27, align 4
+  %38 = mul i32 %36, %37
+  %39 = lshr i32 %38, 3
+  %40 = getelementptr inbounds i8, ptr %0, i64 76
+  store i32 %39, ptr %40, align 4
+  %41 = load i32, ptr %27, align 4
+  %42 = load i32, ptr %34, align 4
+  %43 = mul i32 %42, %41
+  %44 = lshr i32 %43, 3
+  %45 = trunc i32 %44 to i16
+  %46 = getelementptr inbounds i8, ptr %0, i64 80
+  store i16 %45, ptr %46, align 4
+  %47 = load i32, ptr %34, align 4
+  %48 = trunc i32 %47 to i16
+  %49 = getelementptr inbounds i8, ptr %0, i64 82
+  store i16 %48, ptr %49, align 2
+  %50 = getelementptr inbounds i8, ptr %0, i64 84
+  store i16 0, ptr %50, align 4
+  %51 = getelementptr inbounds i8, ptr %0, i64 168
+  store i32 0, ptr %51, align 8
+  %52 = tail call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 0)
   br label %drwav_preinit_write.exit.thread
 
-drwav_preinit_write.exit.thread:                  ; preds = %19, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %10, %10, %10, %6, %22
-  %.0 = phi i32 [ %51, %22 ], [ 0, %6 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %drwav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %19 ]
+drwav_preinit_write.exit.thread:                  ; preds = %20, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %10, %10, %10, %6, %23
+  %.0 = phi i32 [ %52, %23 ], [ 0, %6 ], [ 0, %10 ], [ 0, %10 ], [ 0, %10 ], [ 0, %drwav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -57511,75 +57497,73 @@ define hidden range(i32 0, 2) i32 @drwav_init_write_sequential(ptr noundef %0, p
   store ptr @drwav__realloc_default, ptr %.sroa.4.0..sroa_idx53.i, align 8
   %.sroa.5.0..sroa_idx54.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr @drwav__free_default, ptr %.sroa.5.0..sroa_idx54.i, align 8
-  br label %20
+  br label %21
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %12
   %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.copyload43.i = load ptr, ptr %5, align 8
   %.sroa.3.0..sroa_idx44.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.3.0.copyload45.i = load ptr, ptr %.sroa.3.0..sroa_idx44.i, align 8
   %.sroa.4.0..sroa_idx46.i = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.4.0.copyload47.i = load ptr, ptr %.sroa.4.0..sroa_idx46.i, align 8
   %.sroa.5.0..sroa_idx48.i = getelementptr inbounds i8, ptr %5, i64 24
   %.sroa.5.0.copyload49.i = load ptr, ptr %.sroa.5.0..sroa_idx48.i, align 8
-  store ptr %.sroa.0.0.copyload43.i, ptr %15, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.sroa.3.0.copyload45.i, ptr %.sroa.3.0..sroa_idx.i, align 8
+  %.sroa.3.0.copyload45.i = load ptr, ptr %.sroa.3.0..sroa_idx44.i, align 8
+  %16 = load <2 x ptr>, ptr %5, align 8
+  store <2 x ptr> %16, ptr %15, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.4.0.copyload47.i, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %.sroa.5.0.copyload49.i, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %16 = icmp eq ptr %.sroa.5.0.copyload49.i, null
-  br i1 %16, label %drwav_preinit_write.exit.thread, label %17
+  %17 = icmp eq ptr %.sroa.5.0.copyload49.i, null
+  br i1 %17, label %drwav_preinit_write.exit.thread, label %18
 
-17:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i
-  %18 = icmp eq ptr %.sroa.3.0.copyload45.i, null
-  %19 = icmp eq ptr %.sroa.4.0.copyload47.i, null
-  %or.cond55.i = select i1 %18, i1 %19, i1 false
-  br i1 %or.cond55.i, label %drwav_preinit_write.exit.thread, label %20
+18:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i
+  %19 = icmp eq ptr %.sroa.3.0.copyload45.i, null
+  %20 = icmp eq ptr %.sroa.4.0.copyload47.i, null
+  %or.cond55.i = select i1 %19, i1 %20, i1 false
+  br i1 %or.cond55.i, label %drwav_preinit_write.exit.thread, label %21
 
-20:                                               ; preds = %17, %.thread.i
-  %21 = load i32, ptr %10, align 4
-  %22 = trunc i32 %21 to i16
-  %23 = getelementptr inbounds i8, ptr %0, i64 68
-  store i16 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
-  %25 = load i32, ptr %24, align 4
-  %26 = trunc i32 %25 to i16
-  %27 = getelementptr inbounds i8, ptr %0, i64 70
-  store i16 %26, ptr %27, align 2
-  %28 = getelementptr inbounds i8, ptr %1, i64 12
-  %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 %29, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
-  %32 = load i32, ptr %31, align 4
-  %33 = mul i32 %32, %29
-  %34 = load i32, ptr %24, align 4
-  %35 = mul i32 %33, %34
-  %36 = lshr i32 %35, 3
-  %37 = getelementptr inbounds i8, ptr %0, i64 76
-  store i32 %36, ptr %37, align 4
-  %38 = load i32, ptr %24, align 4
-  %39 = load i32, ptr %31, align 4
-  %40 = mul i32 %39, %38
-  %41 = lshr i32 %40, 3
-  %42 = trunc i32 %41 to i16
-  %43 = getelementptr inbounds i8, ptr %0, i64 80
-  store i16 %42, ptr %43, align 4
-  %44 = load i32, ptr %31, align 4
-  %45 = trunc i32 %44 to i16
-  %46 = getelementptr inbounds i8, ptr %0, i64 82
-  store i16 %45, ptr %46, align 2
-  %47 = getelementptr inbounds i8, ptr %0, i64 84
-  store i16 0, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 168
-  store i32 1, ptr %48, align 8
-  %49 = tail call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2)
+21:                                               ; preds = %18, %.thread.i
+  %22 = load i32, ptr %10, align 4
+  %23 = trunc i32 %22 to i16
+  %24 = getelementptr inbounds i8, ptr %0, i64 68
+  store i16 %23, ptr %24, align 4
+  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = load i32, ptr %25, align 4
+  %27 = trunc i32 %26 to i16
+  %28 = getelementptr inbounds i8, ptr %0, i64 70
+  store i16 %27, ptr %28, align 2
+  %29 = getelementptr inbounds i8, ptr %1, i64 12
+  %30 = load i32, ptr %29, align 4
+  %31 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 %30, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %1, i64 16
+  %33 = load i32, ptr %32, align 4
+  %34 = mul i32 %33, %30
+  %35 = load i32, ptr %25, align 4
+  %36 = mul i32 %34, %35
+  %37 = lshr i32 %36, 3
+  %38 = getelementptr inbounds i8, ptr %0, i64 76
+  store i32 %37, ptr %38, align 4
+  %39 = load i32, ptr %25, align 4
+  %40 = load i32, ptr %32, align 4
+  %41 = mul i32 %40, %39
+  %42 = lshr i32 %41, 3
+  %43 = trunc i32 %42 to i16
+  %44 = getelementptr inbounds i8, ptr %0, i64 80
+  store i16 %43, ptr %44, align 4
+  %45 = load i32, ptr %32, align 4
+  %46 = trunc i32 %45 to i16
+  %47 = getelementptr inbounds i8, ptr %0, i64 82
+  store i16 %46, ptr %47, align 2
+  %48 = getelementptr inbounds i8, ptr %0, i64 84
+  store i16 0, ptr %48, align 4
+  %49 = getelementptr inbounds i8, ptr %0, i64 168
+  store i32 1, ptr %49, align 8
+  %50 = tail call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2)
   br label %drwav_preinit_write.exit.thread
 
-drwav_preinit_write.exit.thread:                  ; preds = %17, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %9, %9, %9, %6, %20
-  %.0 = phi i32 [ %49, %20 ], [ 0, %6 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %drwav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %17 ]
+drwav_preinit_write.exit.thread:                  ; preds = %18, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %9, %9, %9, %6, %21
+  %.0 = phi i32 [ %50, %21 ], [ 0, %6 ], [ 0, %9 ], [ 0, %9 ], [ 0, %9 ], [ 0, %drwav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -57637,79 +57621,77 @@ define hidden range(i32 0, 2) i32 @drwav_init_write_with_metadata(ptr noundef %0
   store ptr @drwav__realloc_default, ptr %.sroa.4.0..sroa_idx53.i, align 8
   %.sroa.5.0..sroa_idx54.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr @drwav__free_default, ptr %.sroa.5.0..sroa_idx54.i, align 8
-  br label %24
+  br label %25
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %15
   %19 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.copyload43.i = load ptr, ptr %5, align 8
   %.sroa.3.0..sroa_idx44.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.3.0.copyload45.i = load ptr, ptr %.sroa.3.0..sroa_idx44.i, align 8
   %.sroa.4.0..sroa_idx46.i = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.4.0.copyload47.i = load ptr, ptr %.sroa.4.0..sroa_idx46.i, align 8
   %.sroa.5.0..sroa_idx48.i = getelementptr inbounds i8, ptr %5, i64 24
   %.sroa.5.0.copyload49.i = load ptr, ptr %.sroa.5.0..sroa_idx48.i, align 8
-  store ptr %.sroa.0.0.copyload43.i, ptr %19, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.sroa.3.0.copyload45.i, ptr %.sroa.3.0..sroa_idx.i, align 8
+  %.sroa.3.0.copyload45.i = load ptr, ptr %.sroa.3.0..sroa_idx44.i, align 8
+  %20 = load <2 x ptr>, ptr %5, align 8
+  store <2 x ptr> %20, ptr %19, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.4.0.copyload47.i, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %.sroa.5.0.copyload49.i, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %20 = icmp eq ptr %.sroa.5.0.copyload49.i, null
-  br i1 %20, label %drwav_preinit_write.exit.thread, label %21
+  %21 = icmp eq ptr %.sroa.5.0.copyload49.i, null
+  br i1 %21, label %drwav_preinit_write.exit.thread, label %22
 
-21:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i
-  %22 = icmp eq ptr %.sroa.3.0.copyload45.i, null
-  %23 = icmp eq ptr %.sroa.4.0.copyload47.i, null
-  %or.cond55.i = select i1 %22, i1 %23, i1 false
-  br i1 %or.cond55.i, label %drwav_preinit_write.exit.thread, label %24
+22:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i
+  %23 = icmp eq ptr %.sroa.3.0.copyload45.i, null
+  %24 = icmp eq ptr %.sroa.4.0.copyload47.i, null
+  %or.cond55.i = select i1 %23, i1 %24, i1 false
+  br i1 %or.cond55.i, label %drwav_preinit_write.exit.thread, label %25
 
-24:                                               ; preds = %21, %.thread.i
-  %25 = load i32, ptr %13, align 4
-  %26 = trunc i32 %25 to i16
-  %27 = getelementptr inbounds i8, ptr %0, i64 68
-  store i16 %26, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
-  %29 = load i32, ptr %28, align 4
-  %30 = trunc i32 %29 to i16
-  %31 = getelementptr inbounds i8, ptr %0, i64 70
-  store i16 %30, ptr %31, align 2
-  %32 = getelementptr inbounds i8, ptr %1, i64 12
-  %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 %33, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %1, i64 16
-  %36 = load i32, ptr %35, align 4
-  %37 = mul i32 %36, %33
-  %38 = load i32, ptr %28, align 4
-  %39 = mul i32 %37, %38
-  %40 = lshr i32 %39, 3
-  %41 = getelementptr inbounds i8, ptr %0, i64 76
-  store i32 %40, ptr %41, align 4
-  %42 = load i32, ptr %28, align 4
-  %43 = load i32, ptr %35, align 4
-  %44 = mul i32 %43, %42
-  %45 = lshr i32 %44, 3
-  %46 = trunc i32 %45 to i16
-  %47 = getelementptr inbounds i8, ptr %0, i64 80
-  store i16 %46, ptr %47, align 4
-  %48 = load i32, ptr %35, align 4
-  %49 = trunc i32 %48 to i16
-  %50 = getelementptr inbounds i8, ptr %0, i64 82
-  store i16 %49, ptr %50, align 2
-  %51 = getelementptr inbounds i8, ptr %0, i64 84
-  store i16 0, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %0, i64 168
-  store i32 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 176
-  store ptr %6, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 184
-  store i32 %7, ptr %54, align 8
-  %55 = tail call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 0)
+25:                                               ; preds = %22, %.thread.i
+  %26 = load i32, ptr %13, align 4
+  %27 = trunc i32 %26 to i16
+  %28 = getelementptr inbounds i8, ptr %0, i64 68
+  store i16 %27, ptr %28, align 4
+  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = load i32, ptr %29, align 4
+  %31 = trunc i32 %30 to i16
+  %32 = getelementptr inbounds i8, ptr %0, i64 70
+  store i16 %31, ptr %32, align 2
+  %33 = getelementptr inbounds i8, ptr %1, i64 12
+  %34 = load i32, ptr %33, align 4
+  %35 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 %34, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %1, i64 16
+  %37 = load i32, ptr %36, align 4
+  %38 = mul i32 %37, %34
+  %39 = load i32, ptr %29, align 4
+  %40 = mul i32 %38, %39
+  %41 = lshr i32 %40, 3
+  %42 = getelementptr inbounds i8, ptr %0, i64 76
+  store i32 %41, ptr %42, align 4
+  %43 = load i32, ptr %29, align 4
+  %44 = load i32, ptr %36, align 4
+  %45 = mul i32 %44, %43
+  %46 = lshr i32 %45, 3
+  %47 = trunc i32 %46 to i16
+  %48 = getelementptr inbounds i8, ptr %0, i64 80
+  store i16 %47, ptr %48, align 4
+  %49 = load i32, ptr %36, align 4
+  %50 = trunc i32 %49 to i16
+  %51 = getelementptr inbounds i8, ptr %0, i64 82
+  store i16 %50, ptr %51, align 2
+  %52 = getelementptr inbounds i8, ptr %0, i64 84
+  store i16 0, ptr %52, align 4
+  %53 = getelementptr inbounds i8, ptr %0, i64 168
+  store i32 0, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 176
+  store ptr %6, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 184
+  store i32 %7, ptr %55, align 8
+  %56 = tail call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 0)
   br label %drwav_preinit_write.exit.thread
 
-drwav_preinit_write.exit.thread:                  ; preds = %21, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %12, %12, %12, %8, %24
-  %.0 = phi i32 [ %55, %24 ], [ 0, %8 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %drwav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %21 ]
+drwav_preinit_write.exit.thread:                  ; preds = %22, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %12, %12, %12, %8, %25
+  %.0 = phi i32 [ %56, %25 ], [ 0, %8 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %drwav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %22 ]
   ret i32 %.0
 }
 
@@ -57800,36 +57782,34 @@ drwav_fopen.exit.i:                               ; preds = %5
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.copyload21.i.i.i = load ptr, ptr %2, align 8
   %.sroa.3.0..sroa_idx22.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %.sroa.3.0.copyload23.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i, align 8
   %.sroa.4.0..sroa_idx24.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.4.0.copyload25.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i.i.i, align 8
   %.sroa.5.0..sroa_idx26.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %.sroa.5.0.copyload27.i.i.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i.i.i, align 8
-  store ptr %.sroa.0.0.copyload21.i.i.i, ptr %13, align 8
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.sroa.3.0.copyload23.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
+  %.sroa.3.0.copyload23.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i, align 8
+  %14 = load <2 x ptr>, ptr %2, align 8
+  store <2 x ptr> %14, ptr %13, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.4.0.copyload25.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %.sroa.5.0.copyload27.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
-  %14 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i, null
-  br i1 %14, label %.sink.split.i.i, label %15
+  %15 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i, null
+  br i1 %15, label %.sink.split.i.i, label %16
 
-15:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i
-  %16 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i, null
-  %17 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i, null
-  %or.cond33.i.i.i = select i1 %16, i1 %17, i1 false
+16:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i
+  %17 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i, null
+  %18 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i, null
+  %or.cond33.i.i.i = select i1 %17, i1 %18, i1 false
   br i1 %or.cond33.i.i.i, label %.sink.split.i.i, label %drwav_preinit.exit.i.i
 
-drwav_preinit.exit.i.i:                           ; preds = %15, %.thread.i.i.i
-  %18 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef 0)
-  %.not.not15.i.i = icmp eq i32 %18, 0
+drwav_preinit.exit.i.i:                           ; preds = %16, %.thread.i.i.i
+  %19 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef 0)
+  %.not.not15.i.i = icmp eq i32 %19, 0
   br i1 %.not.not15.i.i, label %.sink.split.i.i, label %drwav_init_file_ex.exit
 
-.sink.split.i.i:                                  ; preds = %drwav_preinit.exit.i.i, %15, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %drwav_fopen.exit.i
-  %19 = tail call i32 @fclose(ptr noundef nonnull %6)
+.sink.split.i.i:                                  ; preds = %drwav_preinit.exit.i.i, %16, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %drwav_fopen.exit.i
+  %20 = tail call i32 @fclose(ptr noundef nonnull %6)
   br label %drwav_init_file_ex.exit
 
 drwav_init_file_ex.exit:                          ; preds = %3, %5, %drwav_preinit.exit.i.i, %.sink.split.i.i
@@ -57873,36 +57853,34 @@ drwav_fopen.exit:                                 ; preds = %8
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %12
   %16 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.copyload21.i.i = load ptr, ptr %5, align 8
   %.sroa.3.0..sroa_idx22.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.3.0.copyload23.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i, align 8
   %.sroa.4.0..sroa_idx24.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.4.0.copyload25.i.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i.i, align 8
   %.sroa.5.0..sroa_idx26.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %.sroa.5.0.copyload27.i.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i.i, align 8
-  store ptr %.sroa.0.0.copyload21.i.i, ptr %16, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.sroa.3.0.copyload23.i.i, ptr %.sroa.3.0..sroa_idx.i.i, align 8
+  %.sroa.3.0.copyload23.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i, align 8
+  %17 = load <2 x ptr>, ptr %5, align 8
+  store <2 x ptr> %17, ptr %16, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.4.0.copyload25.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %.sroa.5.0.copyload27.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8
-  %17 = icmp eq ptr %.sroa.5.0.copyload27.i.i, null
-  br i1 %17, label %.sink.split.i, label %18
+  %18 = icmp eq ptr %.sroa.5.0.copyload27.i.i, null
+  br i1 %18, label %.sink.split.i, label %19
 
-18:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i
-  %19 = icmp eq ptr %.sroa.3.0.copyload23.i.i, null
-  %20 = icmp eq ptr %.sroa.4.0.copyload25.i.i, null
-  %or.cond33.i.i = select i1 %19, i1 %20, i1 false
+19:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i
+  %20 = icmp eq ptr %.sroa.3.0.copyload23.i.i, null
+  %21 = icmp eq ptr %.sroa.4.0.copyload25.i.i, null
+  %or.cond33.i.i = select i1 %20, i1 %21, i1 false
   br i1 %or.cond33.i.i, label %.sink.split.i, label %drwav_preinit.exit.i
 
-drwav_preinit.exit.i:                             ; preds = %18, %.thread.i.i
-  %21 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i32 noundef %4)
-  %.not.not15.i = icmp eq i32 %21, 0
+drwav_preinit.exit.i:                             ; preds = %19, %.thread.i.i
+  %22 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+  %.not.not15.i = icmp eq i32 %22, 0
   br i1 %.not.not15.i, label %.sink.split.i, label %drwav_init_file__internal_FILE.exit
 
-.sink.split.i:                                    ; preds = %drwav_preinit.exit.i, %18, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i, %drwav_fopen.exit
-  %22 = tail call i32 @fclose(ptr noundef nonnull %9)
+.sink.split.i:                                    ; preds = %drwav_preinit.exit.i, %19, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i, %drwav_fopen.exit
+  %23 = tail call i32 @fclose(ptr noundef nonnull %9)
   br label %drwav_init_file__internal_FILE.exit
 
 drwav_init_file__internal_FILE.exit:              ; preds = %8, %6, %.sink.split.i, %drwav_preinit.exit.i
@@ -57945,36 +57923,34 @@ define hidden range(i32 0, 2) i32 @drwav_init_file_w(ptr noundef %0, ptr noundef
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.copyload21.i.i.i = load ptr, ptr %2, align 8
   %.sroa.3.0..sroa_idx22.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %.sroa.3.0.copyload23.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i, align 8
   %.sroa.4.0..sroa_idx24.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.4.0.copyload25.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i.i.i, align 8
   %.sroa.5.0..sroa_idx26.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %.sroa.5.0.copyload27.i.i.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i.i.i, align 8
-  store ptr %.sroa.0.0.copyload21.i.i.i, ptr %13, align 8
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.sroa.3.0.copyload23.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
+  %.sroa.3.0.copyload23.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i, align 8
+  %14 = load <2 x ptr>, ptr %2, align 8
+  store <2 x ptr> %14, ptr %13, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.4.0.copyload25.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %.sroa.5.0.copyload27.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
-  %14 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i, null
-  br i1 %14, label %.sink.split.i.i, label %15
+  %15 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i, null
+  br i1 %15, label %.sink.split.i.i, label %16
 
-15:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i
-  %16 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i, null
-  %17 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i, null
-  %or.cond33.i.i.i = select i1 %16, i1 %17, i1 false
+16:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i
+  %17 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i, null
+  %18 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i, null
+  %or.cond33.i.i.i = select i1 %17, i1 %18, i1 false
   br i1 %or.cond33.i.i.i, label %.sink.split.i.i, label %drwav_preinit.exit.i.i
 
-drwav_preinit.exit.i.i:                           ; preds = %15, %.thread.i.i.i
-  %18 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef 0)
-  %.not.not15.i.i = icmp eq i32 %18, 0
+drwav_preinit.exit.i.i:                           ; preds = %16, %.thread.i.i.i
+  %19 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef 0)
+  %.not.not15.i.i = icmp eq i32 %19, 0
   br i1 %.not.not15.i.i, label %.sink.split.i.i, label %drwav_init_file_ex_w.exit
 
-.sink.split.i.i:                                  ; preds = %drwav_preinit.exit.i.i, %15, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %6
-  %19 = call i32 @fclose(ptr noundef %7)
+.sink.split.i.i:                                  ; preds = %drwav_preinit.exit.i.i, %16, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %6
+  %20 = call i32 @fclose(ptr noundef %7)
   br label %drwav_init_file_ex_w.exit
 
 drwav_init_file_ex_w.exit:                        ; preds = %3, %drwav_preinit.exit.i.i, %.sink.split.i.i
@@ -58017,36 +57993,34 @@ define hidden range(i32 0, 2) i32 @drwav_init_file_ex_w(ptr noundef %0, ptr noun
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %12
   %16 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.copyload21.i.i = load ptr, ptr %5, align 8
   %.sroa.3.0..sroa_idx22.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.3.0.copyload23.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i, align 8
   %.sroa.4.0..sroa_idx24.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.4.0.copyload25.i.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i.i, align 8
   %.sroa.5.0..sroa_idx26.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %.sroa.5.0.copyload27.i.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i.i, align 8
-  store ptr %.sroa.0.0.copyload21.i.i, ptr %16, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.sroa.3.0.copyload23.i.i, ptr %.sroa.3.0..sroa_idx.i.i, align 8
+  %.sroa.3.0.copyload23.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i, align 8
+  %17 = load <2 x ptr>, ptr %5, align 8
+  store <2 x ptr> %17, ptr %16, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.4.0.copyload25.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %.sroa.5.0.copyload27.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8
-  %17 = icmp eq ptr %.sroa.5.0.copyload27.i.i, null
-  br i1 %17, label %.sink.split.i, label %18
+  %18 = icmp eq ptr %.sroa.5.0.copyload27.i.i, null
+  br i1 %18, label %.sink.split.i, label %19
 
-18:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i
-  %19 = icmp eq ptr %.sroa.3.0.copyload23.i.i, null
-  %20 = icmp eq ptr %.sroa.4.0.copyload25.i.i, null
-  %or.cond33.i.i = select i1 %19, i1 %20, i1 false
+19:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i
+  %20 = icmp eq ptr %.sroa.3.0.copyload23.i.i, null
+  %21 = icmp eq ptr %.sroa.4.0.copyload25.i.i, null
+  %or.cond33.i.i = select i1 %20, i1 %21, i1 false
   br i1 %or.cond33.i.i, label %.sink.split.i, label %drwav_preinit.exit.i
 
-drwav_preinit.exit.i:                             ; preds = %18, %.thread.i.i
-  %21 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i32 noundef %4)
-  %.not.not15.i = icmp eq i32 %21, 0
+drwav_preinit.exit.i:                             ; preds = %19, %.thread.i.i
+  %22 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+  %.not.not15.i = icmp eq i32 %22, 0
   br i1 %.not.not15.i, label %.sink.split.i, label %drwav_init_file__internal_FILE.exit
 
-.sink.split.i:                                    ; preds = %drwav_preinit.exit.i, %18, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i, %9
-  %22 = call i32 @fclose(ptr noundef %10)
+.sink.split.i:                                    ; preds = %drwav_preinit.exit.i, %19, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i, %9
+  %23 = call i32 @fclose(ptr noundef %10)
   br label %drwav_init_file__internal_FILE.exit
 
 drwav_init_file__internal_FILE.exit:              ; preds = %.sink.split.i, %drwav_preinit.exit.i, %6
@@ -58200,36 +58174,34 @@ drwav_fopen.exit:                                 ; preds = %6
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %11
   %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.copyload21.i.i = load ptr, ptr %3, align 8
   %.sroa.3.0..sroa_idx22.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.3.0.copyload23.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i, align 8
   %.sroa.4.0..sroa_idx24.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %.sroa.4.0.copyload25.i.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i.i, align 8
   %.sroa.5.0..sroa_idx26.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %.sroa.5.0.copyload27.i.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i.i, align 8
-  store ptr %.sroa.0.0.copyload21.i.i, ptr %15, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.sroa.3.0.copyload23.i.i, ptr %.sroa.3.0..sroa_idx.i.i, align 8
+  %.sroa.3.0.copyload23.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i, align 8
+  %16 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %16, ptr %15, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.4.0.copyload25.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %.sroa.5.0.copyload27.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8
-  %16 = icmp eq ptr %.sroa.5.0.copyload27.i.i, null
-  br i1 %16, label %.sink.split.i, label %17
+  %17 = icmp eq ptr %.sroa.5.0.copyload27.i.i, null
+  br i1 %17, label %.sink.split.i, label %18
 
-17:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i
-  %18 = icmp eq ptr %.sroa.3.0.copyload23.i.i, null
-  %19 = icmp eq ptr %.sroa.4.0.copyload25.i.i, null
-  %or.cond33.i.i = select i1 %18, i1 %19, i1 false
+18:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i
+  %19 = icmp eq ptr %.sroa.3.0.copyload23.i.i, null
+  %20 = icmp eq ptr %.sroa.4.0.copyload25.i.i, null
+  %or.cond33.i.i = select i1 %19, i1 %20, i1 false
   br i1 %or.cond33.i.i, label %.sink.split.i, label %drwav_preinit.exit.i
 
-drwav_preinit.exit.i:                             ; preds = %17, %.thread.i.i
-  %20 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %9)
-  %.not.not15.i = icmp eq i32 %20, 0
+drwav_preinit.exit.i:                             ; preds = %18, %.thread.i.i
+  %21 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %9)
+  %.not.not15.i = icmp eq i32 %21, 0
   br i1 %.not.not15.i, label %.sink.split.i, label %drwav_init_file__internal_FILE.exit
 
-.sink.split.i:                                    ; preds = %drwav_preinit.exit.i, %17, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i, %drwav_fopen.exit
-  %21 = tail call i32 @fclose(ptr noundef nonnull %7)
+.sink.split.i:                                    ; preds = %drwav_preinit.exit.i, %18, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i, %drwav_fopen.exit
+  %22 = tail call i32 @fclose(ptr noundef nonnull %7)
   br label %drwav_init_file__internal_FILE.exit
 
 drwav_init_file__internal_FILE.exit:              ; preds = %6, %4, %.sink.split.i, %drwav_preinit.exit.i
@@ -58272,36 +58244,34 @@ define hidden range(i32 0, 2) i32 @drwav_init_file_with_metadata_w(ptr noundef %
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %11
   %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.copyload21.i.i = load ptr, ptr %3, align 8
   %.sroa.3.0..sroa_idx22.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.3.0.copyload23.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i, align 8
   %.sroa.4.0..sroa_idx24.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %.sroa.4.0.copyload25.i.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i.i, align 8
   %.sroa.5.0..sroa_idx26.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %.sroa.5.0.copyload27.i.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i.i, align 8
-  store ptr %.sroa.0.0.copyload21.i.i, ptr %15, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.sroa.3.0.copyload23.i.i, ptr %.sroa.3.0..sroa_idx.i.i, align 8
+  %.sroa.3.0.copyload23.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i, align 8
+  %16 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %16, ptr %15, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.4.0.copyload25.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %.sroa.5.0.copyload27.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8
-  %16 = icmp eq ptr %.sroa.5.0.copyload27.i.i, null
-  br i1 %16, label %.sink.split.i, label %17
+  %17 = icmp eq ptr %.sroa.5.0.copyload27.i.i, null
+  br i1 %17, label %.sink.split.i, label %18
 
-17:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i
-  %18 = icmp eq ptr %.sroa.3.0.copyload23.i.i, null
-  %19 = icmp eq ptr %.sroa.4.0.copyload25.i.i, null
-  %or.cond33.i.i = select i1 %18, i1 %19, i1 false
+18:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i
+  %19 = icmp eq ptr %.sroa.3.0.copyload23.i.i, null
+  %20 = icmp eq ptr %.sroa.4.0.copyload25.i.i, null
+  %or.cond33.i.i = select i1 %19, i1 %20, i1 false
   br i1 %or.cond33.i.i, label %.sink.split.i, label %drwav_preinit.exit.i
 
-drwav_preinit.exit.i:                             ; preds = %17, %.thread.i.i
-  %20 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %9)
-  %.not.not15.i = icmp eq i32 %20, 0
+drwav_preinit.exit.i:                             ; preds = %18, %.thread.i.i
+  %21 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %9)
+  %.not.not15.i = icmp eq i32 %21, 0
   br i1 %.not.not15.i, label %.sink.split.i, label %drwav_init_file__internal_FILE.exit
 
-.sink.split.i:                                    ; preds = %drwav_preinit.exit.i, %17, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i, %7
-  %21 = call i32 @fclose(ptr noundef %8)
+.sink.split.i:                                    ; preds = %drwav_preinit.exit.i, %18, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i, %7
+  %22 = call i32 @fclose(ptr noundef %8)
   br label %drwav_init_file__internal_FILE.exit
 
 drwav_init_file__internal_FILE.exit:              ; preds = %.sink.split.i, %drwav_preinit.exit.i, %4
@@ -58474,41 +58444,39 @@ define hidden range(i32 0, 2) i32 @drwav_init_memory(ptr noundef %0, ptr noundef
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.copyload21.i.i = load ptr, ptr %3, align 8
   %.sroa.3.0..sroa_idx22.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.3.0.copyload23.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i, align 8
   %.sroa.4.0..sroa_idx24.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %.sroa.4.0.copyload25.i.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i.i, align 8
   %.sroa.5.0..sroa_idx26.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %.sroa.5.0.copyload27.i.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i.i, align 8
-  store ptr %.sroa.0.0.copyload21.i.i, ptr %12, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.sroa.3.0.copyload23.i.i, ptr %.sroa.3.0..sroa_idx.i.i, align 8
+  %.sroa.3.0.copyload23.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i, align 8
+  %13 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %13, ptr %12, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.4.0.copyload25.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %.sroa.5.0.copyload27.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8
-  %13 = icmp eq ptr %.sroa.5.0.copyload27.i.i, null
-  br i1 %13, label %drwav_init_memory_ex.exit, label %14
+  %14 = icmp eq ptr %.sroa.5.0.copyload27.i.i, null
+  br i1 %14, label %drwav_init_memory_ex.exit, label %15
 
-14:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i
-  %15 = icmp eq ptr %.sroa.3.0.copyload23.i.i, null
-  %16 = icmp eq ptr %.sroa.4.0.copyload25.i.i, null
-  %or.cond33.i.i = select i1 %15, i1 %16, i1 false
+15:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i
+  %16 = icmp eq ptr %.sroa.3.0.copyload23.i.i, null
+  %17 = icmp eq ptr %.sroa.4.0.copyload25.i.i, null
+  %or.cond33.i.i = select i1 %16, i1 %17, i1 false
   br i1 %or.cond33.i.i, label %drwav_init_memory_ex.exit, label %drwav_preinit.exit.i
 
-drwav_preinit.exit.i:                             ; preds = %14, %.thread.i.i
-  %17 = getelementptr inbounds i8, ptr %0, i64 192
-  store ptr %1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 200
-  store i64 %2, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 208
-  store i64 0, ptr %19, align 8
-  %20 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef 0)
+drwav_preinit.exit.i:                             ; preds = %15, %.thread.i.i
+  %18 = getelementptr inbounds i8, ptr %0, i64 192
+  store ptr %1, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 200
+  store i64 %2, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 208
+  store i64 0, ptr %20, align 8
+  %21 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef 0)
   br label %drwav_init_memory_ex.exit
 
-drwav_init_memory_ex.exit:                        ; preds = %4, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i, %14, %drwav_preinit.exit.i
-  %.0.i = phi i32 [ %20, %drwav_preinit.exit.i ], [ 0, %4 ], [ 0, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i ], [ 0, %14 ]
+drwav_init_memory_ex.exit:                        ; preds = %4, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i, %15, %drwav_preinit.exit.i
+  %.0.i = phi i32 [ %21, %drwav_preinit.exit.i ], [ 0, %4 ], [ 0, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i ], [ 0, %15 ]
   ret i32 %.0.i
 }
 
@@ -58543,41 +58511,39 @@ define hidden range(i32 0, 2) i32 @drwav_init_memory_ex(ptr noundef %0, ptr noun
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %11
   %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.copyload21.i = load ptr, ptr %6, align 8
   %.sroa.3.0..sroa_idx22.i = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.3.0.copyload23.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i, align 8
   %.sroa.4.0..sroa_idx24.i = getelementptr inbounds i8, ptr %6, i64 16
   %.sroa.4.0.copyload25.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i, align 8
   %.sroa.5.0..sroa_idx26.i = getelementptr inbounds i8, ptr %6, i64 24
   %.sroa.5.0.copyload27.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i, align 8
-  store ptr %.sroa.0.0.copyload21.i, ptr %15, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.sroa.3.0.copyload23.i, ptr %.sroa.3.0..sroa_idx.i, align 8
+  %.sroa.3.0.copyload23.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i, align 8
+  %16 = load <2 x ptr>, ptr %6, align 8
+  store <2 x ptr> %16, ptr %15, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.4.0.copyload25.i, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %.sroa.5.0.copyload27.i, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %16 = icmp eq ptr %.sroa.5.0.copyload27.i, null
-  br i1 %16, label %drwav_preinit.exit.thread, label %17
+  %17 = icmp eq ptr %.sroa.5.0.copyload27.i, null
+  br i1 %17, label %drwav_preinit.exit.thread, label %18
 
-17:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i
-  %18 = icmp eq ptr %.sroa.3.0.copyload23.i, null
-  %19 = icmp eq ptr %.sroa.4.0.copyload25.i, null
-  %or.cond33.i = select i1 %18, i1 %19, i1 false
+18:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i
+  %19 = icmp eq ptr %.sroa.3.0.copyload23.i, null
+  %20 = icmp eq ptr %.sroa.4.0.copyload25.i, null
+  %or.cond33.i = select i1 %19, i1 %20, i1 false
   br i1 %or.cond33.i, label %drwav_preinit.exit.thread, label %drwav_preinit.exit
 
-drwav_preinit.exit:                               ; preds = %17, %.thread.i
-  %20 = getelementptr inbounds i8, ptr %0, i64 192
-  store ptr %1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 200
-  store i64 %2, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 208
-  store i64 0, ptr %22, align 8
-  %23 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %4, i32 noundef %5)
+drwav_preinit.exit:                               ; preds = %18, %.thread.i
+  %21 = getelementptr inbounds i8, ptr %0, i64 192
+  store ptr %1, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 200
+  store i64 %2, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 208
+  store i64 0, ptr %23, align 8
+  %24 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %4, i32 noundef %5)
   br label %drwav_preinit.exit.thread
 
-drwav_preinit.exit.thread:                        ; preds = %17, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %7, %drwav_preinit.exit
-  %.0 = phi i32 [ %23, %drwav_preinit.exit ], [ 0, %7 ], [ 0, %drwav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %17 ]
+drwav_preinit.exit.thread:                        ; preds = %18, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %7, %drwav_preinit.exit
+  %.0 = phi i32 [ %24, %drwav_preinit.exit ], [ 0, %7 ], [ 0, %drwav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %18 ]
   ret i32 %.0
 }
 
@@ -58687,42 +58653,40 @@ define hidden range(i32 0, 2) i32 @drwav_init_memory_with_metadata(ptr noundef %
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %9
   %13 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.copyload21.i = load ptr, ptr %4, align 8
   %.sroa.3.0..sroa_idx22.i = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.3.0.copyload23.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i, align 8
   %.sroa.4.0..sroa_idx24.i = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.4.0.copyload25.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i, align 8
   %.sroa.5.0..sroa_idx26.i = getelementptr inbounds i8, ptr %4, i64 24
   %.sroa.5.0.copyload27.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i, align 8
-  store ptr %.sroa.0.0.copyload21.i, ptr %13, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.sroa.3.0.copyload23.i, ptr %.sroa.3.0..sroa_idx.i, align 8
+  %.sroa.3.0.copyload23.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i, align 8
+  %14 = load <2 x ptr>, ptr %4, align 8
+  store <2 x ptr> %14, ptr %13, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.4.0.copyload25.i, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %.sroa.5.0.copyload27.i, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %14 = icmp eq ptr %.sroa.5.0.copyload27.i, null
-  br i1 %14, label %drwav_preinit.exit.thread, label %15
+  %15 = icmp eq ptr %.sroa.5.0.copyload27.i, null
+  br i1 %15, label %drwav_preinit.exit.thread, label %16
 
-15:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i
-  %16 = icmp eq ptr %.sroa.3.0.copyload23.i, null
-  %17 = icmp eq ptr %.sroa.4.0.copyload25.i, null
-  %or.cond33.i = select i1 %16, i1 %17, i1 false
+16:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i
+  %17 = icmp eq ptr %.sroa.3.0.copyload23.i, null
+  %18 = icmp eq ptr %.sroa.4.0.copyload25.i, null
+  %or.cond33.i = select i1 %17, i1 %18, i1 false
   br i1 %or.cond33.i, label %drwav_preinit.exit.thread, label %drwav_preinit.exit
 
-drwav_preinit.exit:                               ; preds = %15, %.thread.i
-  %18 = getelementptr inbounds i8, ptr %0, i64 192
-  store ptr %1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 200
-  store i64 %2, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 208
-  store i64 0, ptr %20, align 8
-  %21 = or i32 %3, 2
-  %22 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %21)
+drwav_preinit.exit:                               ; preds = %16, %.thread.i
+  %19 = getelementptr inbounds i8, ptr %0, i64 192
+  store ptr %1, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 200
+  store i64 %2, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 208
+  store i64 0, ptr %21, align 8
+  %22 = or i32 %3, 2
+  %23 = tail call fastcc i32 @drwav_init__internal(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i32 noundef %22)
   br label %drwav_preinit.exit.thread
 
-drwav_preinit.exit.thread:                        ; preds = %15, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %5, %drwav_preinit.exit
-  %.0 = phi i32 [ %22, %drwav_preinit.exit ], [ 0, %5 ], [ 0, %drwav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %15 ]
+drwav_preinit.exit.thread:                        ; preds = %16, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %5, %drwav_preinit.exit
+  %.0 = phi i32 [ %23, %drwav_preinit.exit ], [ 0, %5 ], [ 0, %drwav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -58772,81 +58736,79 @@ define internal fastcc range(i32 0, 2) i32 @drwav_init_memory_write__internal(pt
   store ptr @drwav__realloc_default, ptr %.sroa.4.0..sroa_idx53.i, align 8
   %.sroa.5.0..sroa_idx54.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr @drwav__free_default, ptr %.sroa.5.0..sroa_idx54.i, align 8
-  br label %24
+  br label %25
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %15
   %19 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.copyload43.i = load ptr, ptr %6, align 8
   %.sroa.3.0..sroa_idx44.i = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.3.0.copyload45.i = load ptr, ptr %.sroa.3.0..sroa_idx44.i, align 8
   %.sroa.4.0..sroa_idx46.i = getelementptr inbounds i8, ptr %6, i64 16
   %.sroa.4.0.copyload47.i = load ptr, ptr %.sroa.4.0..sroa_idx46.i, align 8
   %.sroa.5.0..sroa_idx48.i = getelementptr inbounds i8, ptr %6, i64 24
   %.sroa.5.0.copyload49.i = load ptr, ptr %.sroa.5.0..sroa_idx48.i, align 8
-  store ptr %.sroa.0.0.copyload43.i, ptr %19, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.sroa.3.0.copyload45.i, ptr %.sroa.3.0..sroa_idx.i, align 8
+  %.sroa.3.0.copyload45.i = load ptr, ptr %.sroa.3.0..sroa_idx44.i, align 8
+  %20 = load <2 x ptr>, ptr %6, align 8
+  store <2 x ptr> %20, ptr %19, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.4.0.copyload47.i, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %.sroa.5.0.copyload49.i, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %20 = icmp eq ptr %.sroa.5.0.copyload49.i, null
-  br i1 %20, label %drwav_preinit_write.exit.thread, label %21
+  %21 = icmp eq ptr %.sroa.5.0.copyload49.i, null
+  br i1 %21, label %drwav_preinit_write.exit.thread, label %22
 
-21:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i
-  %22 = icmp eq ptr %.sroa.3.0.copyload45.i, null
-  %23 = icmp eq ptr %.sroa.4.0.copyload47.i, null
-  %or.cond55.i = select i1 %22, i1 %23, i1 false
-  br i1 %or.cond55.i, label %drwav_preinit_write.exit.thread, label %24
+22:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i
+  %23 = icmp eq ptr %.sroa.3.0.copyload45.i, null
+  %24 = icmp eq ptr %.sroa.4.0.copyload47.i, null
+  %or.cond55.i = select i1 %23, i1 %24, i1 false
+  br i1 %or.cond55.i, label %drwav_preinit_write.exit.thread, label %25
 
-24:                                               ; preds = %21, %.thread.i
-  %25 = load i32, ptr %13, align 4
-  %26 = trunc i32 %25 to i16
-  %27 = getelementptr inbounds i8, ptr %0, i64 68
-  store i16 %26, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
-  %29 = load i32, ptr %28, align 4
-  %30 = trunc i32 %29 to i16
-  %31 = getelementptr inbounds i8, ptr %0, i64 70
-  store i16 %30, ptr %31, align 2
-  %32 = getelementptr inbounds i8, ptr %3, i64 12
-  %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 %33, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %3, i64 16
-  %36 = load i32, ptr %35, align 4
-  %37 = mul i32 %36, %33
-  %38 = load i32, ptr %28, align 4
-  %39 = mul i32 %37, %38
-  %40 = lshr i32 %39, 3
-  %41 = getelementptr inbounds i8, ptr %0, i64 76
-  store i32 %40, ptr %41, align 4
-  %42 = load i32, ptr %28, align 4
-  %43 = load i32, ptr %35, align 4
-  %44 = mul i32 %43, %42
-  %45 = lshr i32 %44, 3
-  %46 = trunc i32 %45 to i16
-  %47 = getelementptr inbounds i8, ptr %0, i64 80
-  store i16 %46, ptr %47, align 4
-  %48 = load i32, ptr %35, align 4
-  %49 = trunc i32 %48 to i16
-  %50 = getelementptr inbounds i8, ptr %0, i64 82
-  store i16 %49, ptr %50, align 2
-  %51 = getelementptr inbounds i8, ptr %0, i64 84
-  store i16 0, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %0, i64 168
-  store i32 %5, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 216
-  store ptr %1, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 224
-  store ptr %2, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 232
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
-  %56 = tail call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %4)
+25:                                               ; preds = %22, %.thread.i
+  %26 = load i32, ptr %13, align 4
+  %27 = trunc i32 %26 to i16
+  %28 = getelementptr inbounds i8, ptr %0, i64 68
+  store i16 %27, ptr %28, align 4
+  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %30 = load i32, ptr %29, align 4
+  %31 = trunc i32 %30 to i16
+  %32 = getelementptr inbounds i8, ptr %0, i64 70
+  store i16 %31, ptr %32, align 2
+  %33 = getelementptr inbounds i8, ptr %3, i64 12
+  %34 = load i32, ptr %33, align 4
+  %35 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 %34, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %3, i64 16
+  %37 = load i32, ptr %36, align 4
+  %38 = mul i32 %37, %34
+  %39 = load i32, ptr %29, align 4
+  %40 = mul i32 %38, %39
+  %41 = lshr i32 %40, 3
+  %42 = getelementptr inbounds i8, ptr %0, i64 76
+  store i32 %41, ptr %42, align 4
+  %43 = load i32, ptr %29, align 4
+  %44 = load i32, ptr %36, align 4
+  %45 = mul i32 %44, %43
+  %46 = lshr i32 %45, 3
+  %47 = trunc i32 %46 to i16
+  %48 = getelementptr inbounds i8, ptr %0, i64 80
+  store i16 %47, ptr %48, align 4
+  %49 = load i32, ptr %36, align 4
+  %50 = trunc i32 %49 to i16
+  %51 = getelementptr inbounds i8, ptr %0, i64 82
+  store i16 %50, ptr %51, align 2
+  %52 = getelementptr inbounds i8, ptr %0, i64 84
+  store i16 0, ptr %52, align 4
+  %53 = getelementptr inbounds i8, ptr %0, i64 168
+  store i32 %5, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 216
+  store ptr %1, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 224
+  store ptr %2, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %0, i64 232
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
+  %57 = tail call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %4)
   br label %drwav_preinit_write.exit.thread
 
-drwav_preinit_write.exit.thread:                  ; preds = %21, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %12, %12, %12, %10, %7, %24
-  %.0 = phi i32 [ %56, %24 ], [ 0, %7 ], [ 0, %10 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %drwav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %21 ]
+drwav_preinit_write.exit.thread:                  ; preds = %22, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %12, %12, %12, %10, %7, %25
+  %.0 = phi i32 [ %57, %25 ], [ 0, %7 ], [ 0, %10 ], [ 0, %12 ], [ 0, %12 ], [ 0, %12 ], [ 0, %drwav_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %22 ]
   ret i32 %.0
 }
 
@@ -63785,40 +63747,38 @@ define hidden ptr @drwav_open_and_read_pcm_frames_s16(ptr noundef %0, ptr nounde
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %17
   %21 = getelementptr inbounds i8, ptr %8, i64 32
-  %.sroa.0.0.copyload21.i.i.i = load ptr, ptr %6, align 8
   %.sroa.3.0..sroa_idx22.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.3.0.copyload23.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i, align 8
   %.sroa.4.0..sroa_idx24.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %.sroa.4.0.copyload25.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i.i.i, align 8
   %.sroa.5.0..sroa_idx26.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %.sroa.5.0.copyload27.i.i.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i.i.i, align 8
-  store ptr %.sroa.0.0.copyload21.i.i.i, ptr %21, align 8
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 40
-  store ptr %.sroa.3.0.copyload23.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
+  %.sroa.3.0.copyload23.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i, align 8
+  %22 = load <2 x ptr>, ptr %6, align 8
+  store <2 x ptr> %22, ptr %21, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 48
   store ptr %.sroa.4.0.copyload25.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 56
   store ptr %.sroa.5.0.copyload27.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
-  %22 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i, null
-  br i1 %22, label %drwav_init.exit.thread, label %23
+  %23 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i, null
+  br i1 %23, label %drwav_init.exit.thread, label %24
 
-23:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i
-  %24 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i, null
-  %25 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i, null
-  %or.cond33.i.i.i = select i1 %24, i1 %25, i1 false
+24:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i
+  %25 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i, null
+  %26 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i, null
+  %or.cond33.i.i.i = select i1 %25, i1 %26, i1 false
   br i1 %or.cond33.i.i.i, label %drwav_init.exit.thread, label %drwav_init.exit
 
-drwav_init.exit:                                  ; preds = %.thread.i.i.i, %23
-  %26 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %8, ptr noundef null, ptr noundef null, i32 noundef 0)
-  %.not19 = icmp eq i32 %26, 0
-  br i1 %.not19, label %drwav_init.exit.thread, label %27
+drwav_init.exit:                                  ; preds = %.thread.i.i.i, %24
+  %27 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %8, ptr noundef null, ptr noundef null, i32 noundef 0)
+  %.not19 = icmp eq i32 %27, 0
+  br i1 %.not19, label %drwav_init.exit.thread, label %28
 
-27:                                               ; preds = %drwav_init.exit
-  %28 = call fastcc ptr @drwav__read_pcm_frames_and_close_s16(ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+28:                                               ; preds = %drwav_init.exit
+  %29 = call fastcc ptr @drwav__read_pcm_frames_and_close_s16(ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %drwav_init.exit.thread
 
-drwav_init.exit.thread:                           ; preds = %23, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %14, %drwav_init.exit, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %drwav_init.exit ], [ null, %14 ], [ null, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i ], [ null, %23 ]
+drwav_init.exit.thread:                           ; preds = %24, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %14, %drwav_init.exit, %28
+  %.0 = phi ptr [ %29, %28 ], [ null, %drwav_init.exit ], [ null, %14 ], [ null, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i ], [ null, %24 ]
   ret ptr %.0
 }
 
@@ -63973,40 +63933,38 @@ define hidden ptr @drwav_open_and_read_pcm_frames_f32(ptr noundef %0, ptr nounde
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %17
   %21 = getelementptr inbounds i8, ptr %8, i64 32
-  %.sroa.0.0.copyload21.i.i.i = load ptr, ptr %6, align 8
   %.sroa.3.0..sroa_idx22.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.3.0.copyload23.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i, align 8
   %.sroa.4.0..sroa_idx24.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %.sroa.4.0.copyload25.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i.i.i, align 8
   %.sroa.5.0..sroa_idx26.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %.sroa.5.0.copyload27.i.i.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i.i.i, align 8
-  store ptr %.sroa.0.0.copyload21.i.i.i, ptr %21, align 8
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 40
-  store ptr %.sroa.3.0.copyload23.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
+  %.sroa.3.0.copyload23.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i, align 8
+  %22 = load <2 x ptr>, ptr %6, align 8
+  store <2 x ptr> %22, ptr %21, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 48
   store ptr %.sroa.4.0.copyload25.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 56
   store ptr %.sroa.5.0.copyload27.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
-  %22 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i, null
-  br i1 %22, label %drwav_init.exit.thread, label %23
+  %23 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i, null
+  br i1 %23, label %drwav_init.exit.thread, label %24
 
-23:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i
-  %24 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i, null
-  %25 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i, null
-  %or.cond33.i.i.i = select i1 %24, i1 %25, i1 false
+24:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i
+  %25 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i, null
+  %26 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i, null
+  %or.cond33.i.i.i = select i1 %25, i1 %26, i1 false
   br i1 %or.cond33.i.i.i, label %drwav_init.exit.thread, label %drwav_init.exit
 
-drwav_init.exit:                                  ; preds = %.thread.i.i.i, %23
-  %26 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %8, ptr noundef null, ptr noundef null, i32 noundef 0)
-  %.not19 = icmp eq i32 %26, 0
-  br i1 %.not19, label %drwav_init.exit.thread, label %27
+drwav_init.exit:                                  ; preds = %.thread.i.i.i, %24
+  %27 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %8, ptr noundef null, ptr noundef null, i32 noundef 0)
+  %.not19 = icmp eq i32 %27, 0
+  br i1 %.not19, label %drwav_init.exit.thread, label %28
 
-27:                                               ; preds = %drwav_init.exit
-  %28 = call fastcc ptr @drwav__read_pcm_frames_and_close_f32(ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+28:                                               ; preds = %drwav_init.exit
+  %29 = call fastcc ptr @drwav__read_pcm_frames_and_close_f32(ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %drwav_init.exit.thread
 
-drwav_init.exit.thread:                           ; preds = %23, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %14, %drwav_init.exit, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %drwav_init.exit ], [ null, %14 ], [ null, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i ], [ null, %23 ]
+drwav_init.exit.thread:                           ; preds = %24, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %14, %drwav_init.exit, %28
+  %.0 = phi ptr [ %29, %28 ], [ null, %drwav_init.exit ], [ null, %14 ], [ null, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i ], [ null, %24 ]
   ret ptr %.0
 }
 
@@ -64161,40 +64119,38 @@ define hidden ptr @drwav_open_and_read_pcm_frames_s32(ptr noundef %0, ptr nounde
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %17
   %21 = getelementptr inbounds i8, ptr %8, i64 32
-  %.sroa.0.0.copyload21.i.i.i = load ptr, ptr %6, align 8
   %.sroa.3.0..sroa_idx22.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.3.0.copyload23.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i, align 8
   %.sroa.4.0..sroa_idx24.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %.sroa.4.0.copyload25.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i.i.i, align 8
   %.sroa.5.0..sroa_idx26.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %.sroa.5.0.copyload27.i.i.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i.i.i, align 8
-  store ptr %.sroa.0.0.copyload21.i.i.i, ptr %21, align 8
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 40
-  store ptr %.sroa.3.0.copyload23.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
+  %.sroa.3.0.copyload23.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i, align 8
+  %22 = load <2 x ptr>, ptr %6, align 8
+  store <2 x ptr> %22, ptr %21, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 48
   store ptr %.sroa.4.0.copyload25.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 56
   store ptr %.sroa.5.0.copyload27.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
-  %22 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i, null
-  br i1 %22, label %drwav_init.exit.thread, label %23
+  %23 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i, null
+  br i1 %23, label %drwav_init.exit.thread, label %24
 
-23:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i
-  %24 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i, null
-  %25 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i, null
-  %or.cond33.i.i.i = select i1 %24, i1 %25, i1 false
+24:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i
+  %25 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i, null
+  %26 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i, null
+  %or.cond33.i.i.i = select i1 %25, i1 %26, i1 false
   br i1 %or.cond33.i.i.i, label %drwav_init.exit.thread, label %drwav_init.exit
 
-drwav_init.exit:                                  ; preds = %.thread.i.i.i, %23
-  %26 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %8, ptr noundef null, ptr noundef null, i32 noundef 0)
-  %.not19 = icmp eq i32 %26, 0
-  br i1 %.not19, label %drwav_init.exit.thread, label %27
+drwav_init.exit:                                  ; preds = %.thread.i.i.i, %24
+  %27 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %8, ptr noundef null, ptr noundef null, i32 noundef 0)
+  %.not19 = icmp eq i32 %27, 0
+  br i1 %.not19, label %drwav_init.exit.thread, label %28
 
-27:                                               ; preds = %drwav_init.exit
-  %28 = call fastcc ptr @drwav__read_pcm_frames_and_close_s32(ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+28:                                               ; preds = %drwav_init.exit
+  %29 = call fastcc ptr @drwav__read_pcm_frames_and_close_s32(ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %drwav_init.exit.thread
 
-drwav_init.exit.thread:                           ; preds = %23, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %14, %drwav_init.exit, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %drwav_init.exit ], [ null, %14 ], [ null, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i ], [ null, %23 ]
+drwav_init.exit.thread:                           ; preds = %24, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %14, %drwav_init.exit, %28
+  %.0 = phi ptr [ %29, %28 ], [ null, %drwav_init.exit ], [ null, %14 ], [ null, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i ], [ null, %24 ]
   ret ptr %.0
 }
 
@@ -64352,44 +64308,42 @@ drwav_fopen.exit.i.i:                             ; preds = %14
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i: ; preds = %drwav_fopen.exit.i.i
   %20 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.0.0.copyload21.i.i.i.i = load ptr, ptr %4, align 8
   %.sroa.3.0..sroa_idx22.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.3.0.copyload23.i.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i.i, align 8
   %.sroa.4.0..sroa_idx24.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.4.0.copyload25.i.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i.i.i.i, align 8
   %.sroa.5.0..sroa_idx26.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %.sroa.5.0.copyload27.i.i.i.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i.i.i.i, align 8
-  store ptr %.sroa.0.0.copyload21.i.i.i.i, ptr %20, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
-  store ptr %.sroa.3.0.copyload23.i.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 8
+  %.sroa.3.0.copyload23.i.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i.i, align 8
+  %21 = load <2 x ptr>, ptr %4, align 8
+  store <2 x ptr> %21, ptr %20, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 48
   store ptr %.sroa.4.0.copyload25.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 56
   store ptr %.sroa.5.0.copyload27.i.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8
-  %21 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i.i, null
-  br i1 %21, label %.sink.split.i.i.i, label %22
+  %22 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i.i, null
+  br i1 %22, label %.sink.split.i.i.i, label %23
 
-22:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
-  %23 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i.i, null
-  %24 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i.i, null
-  %or.cond33.i.i.i.i = select i1 %23, i1 %24, i1 false
+23:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
+  %24 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i.i, null
+  %25 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i.i, null
+  %or.cond33.i.i.i.i = select i1 %24, i1 %25, i1 false
   br i1 %or.cond33.i.i.i.i, label %.sink.split.i.i.i, label %drwav_preinit.exit.i.i.i
 
-drwav_preinit.exit.i.i.i:                         ; preds = %22, %.thread.i.i.i.i
-  %25 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %6, ptr noundef null, ptr noundef null, i32 noundef 0)
-  %.not.not15.i.i.i = icmp eq i32 %25, 0
+drwav_preinit.exit.i.i.i:                         ; preds = %23, %.thread.i.i.i.i
+  %26 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %6, ptr noundef null, ptr noundef null, i32 noundef 0)
+  %.not.not15.i.i.i = icmp eq i32 %26, 0
   br i1 %.not.not15.i.i.i, label %.sink.split.i.i.i, label %drwav_init_file.exit
 
-.sink.split.i.i.i:                                ; preds = %drwav_preinit.exit.i.i.i, %22, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
-  %26 = call i32 @fclose(ptr noundef nonnull %15)
+.sink.split.i.i.i:                                ; preds = %drwav_preinit.exit.i.i.i, %23, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
+  %27 = call i32 @fclose(ptr noundef nonnull %15)
   br label %drwav_init_file.exit.thread
 
 drwav_init_file.exit:                             ; preds = %drwav_preinit.exit.i.i.i
-  %27 = call fastcc ptr @drwav__read_pcm_frames_and_close_s16(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %28 = call fastcc ptr @drwav__read_pcm_frames_and_close_s16(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %drwav_init_file.exit.thread
 
 drwav_init_file.exit.thread:                      ; preds = %14, %12, %.sink.split.i.i.i, %drwav_init_file.exit
-  %.0 = phi ptr [ %27, %drwav_init_file.exit ], [ null, %.sink.split.i.i.i ], [ null, %12 ], [ null, %14 ]
+  %.0 = phi ptr [ %28, %drwav_init_file.exit ], [ null, %.sink.split.i.i.i ], [ null, %12 ], [ null, %14 ]
   ret ptr %.0
 }
 
@@ -64450,44 +64404,42 @@ drwav_fopen.exit.i.i:                             ; preds = %14
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i: ; preds = %drwav_fopen.exit.i.i
   %20 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.0.0.copyload21.i.i.i.i = load ptr, ptr %4, align 8
   %.sroa.3.0..sroa_idx22.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.3.0.copyload23.i.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i.i, align 8
   %.sroa.4.0..sroa_idx24.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.4.0.copyload25.i.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i.i.i.i, align 8
   %.sroa.5.0..sroa_idx26.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %.sroa.5.0.copyload27.i.i.i.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i.i.i.i, align 8
-  store ptr %.sroa.0.0.copyload21.i.i.i.i, ptr %20, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
-  store ptr %.sroa.3.0.copyload23.i.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 8
+  %.sroa.3.0.copyload23.i.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i.i, align 8
+  %21 = load <2 x ptr>, ptr %4, align 8
+  store <2 x ptr> %21, ptr %20, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 48
   store ptr %.sroa.4.0.copyload25.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 56
   store ptr %.sroa.5.0.copyload27.i.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8
-  %21 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i.i, null
-  br i1 %21, label %.sink.split.i.i.i, label %22
+  %22 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i.i, null
+  br i1 %22, label %.sink.split.i.i.i, label %23
 
-22:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
-  %23 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i.i, null
-  %24 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i.i, null
-  %or.cond33.i.i.i.i = select i1 %23, i1 %24, i1 false
+23:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
+  %24 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i.i, null
+  %25 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i.i, null
+  %or.cond33.i.i.i.i = select i1 %24, i1 %25, i1 false
   br i1 %or.cond33.i.i.i.i, label %.sink.split.i.i.i, label %drwav_preinit.exit.i.i.i
 
-drwav_preinit.exit.i.i.i:                         ; preds = %22, %.thread.i.i.i.i
-  %25 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %6, ptr noundef null, ptr noundef null, i32 noundef 0)
-  %.not.not15.i.i.i = icmp eq i32 %25, 0
+drwav_preinit.exit.i.i.i:                         ; preds = %23, %.thread.i.i.i.i
+  %26 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %6, ptr noundef null, ptr noundef null, i32 noundef 0)
+  %.not.not15.i.i.i = icmp eq i32 %26, 0
   br i1 %.not.not15.i.i.i, label %.sink.split.i.i.i, label %drwav_init_file.exit
 
-.sink.split.i.i.i:                                ; preds = %drwav_preinit.exit.i.i.i, %22, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
-  %26 = call i32 @fclose(ptr noundef nonnull %15)
+.sink.split.i.i.i:                                ; preds = %drwav_preinit.exit.i.i.i, %23, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
+  %27 = call i32 @fclose(ptr noundef nonnull %15)
   br label %drwav_init_file.exit.thread
 
 drwav_init_file.exit:                             ; preds = %drwav_preinit.exit.i.i.i
-  %27 = call fastcc ptr @drwav__read_pcm_frames_and_close_f32(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %28 = call fastcc ptr @drwav__read_pcm_frames_and_close_f32(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %drwav_init_file.exit.thread
 
 drwav_init_file.exit.thread:                      ; preds = %14, %12, %.sink.split.i.i.i, %drwav_init_file.exit
-  %.0 = phi ptr [ %27, %drwav_init_file.exit ], [ null, %.sink.split.i.i.i ], [ null, %12 ], [ null, %14 ]
+  %.0 = phi ptr [ %28, %drwav_init_file.exit ], [ null, %.sink.split.i.i.i ], [ null, %12 ], [ null, %14 ]
   ret ptr %.0
 }
 
@@ -64548,44 +64500,42 @@ drwav_fopen.exit.i.i:                             ; preds = %14
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i: ; preds = %drwav_fopen.exit.i.i
   %20 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.0.0.copyload21.i.i.i.i = load ptr, ptr %4, align 8
   %.sroa.3.0..sroa_idx22.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.3.0.copyload23.i.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i.i, align 8
   %.sroa.4.0..sroa_idx24.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.4.0.copyload25.i.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i.i.i.i, align 8
   %.sroa.5.0..sroa_idx26.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %.sroa.5.0.copyload27.i.i.i.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i.i.i.i, align 8
-  store ptr %.sroa.0.0.copyload21.i.i.i.i, ptr %20, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
-  store ptr %.sroa.3.0.copyload23.i.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 8
+  %.sroa.3.0.copyload23.i.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i.i, align 8
+  %21 = load <2 x ptr>, ptr %4, align 8
+  store <2 x ptr> %21, ptr %20, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 48
   store ptr %.sroa.4.0.copyload25.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 56
   store ptr %.sroa.5.0.copyload27.i.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8
-  %21 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i.i, null
-  br i1 %21, label %.sink.split.i.i.i, label %22
+  %22 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i.i, null
+  br i1 %22, label %.sink.split.i.i.i, label %23
 
-22:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
-  %23 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i.i, null
-  %24 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i.i, null
-  %or.cond33.i.i.i.i = select i1 %23, i1 %24, i1 false
+23:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
+  %24 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i.i, null
+  %25 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i.i, null
+  %or.cond33.i.i.i.i = select i1 %24, i1 %25, i1 false
   br i1 %or.cond33.i.i.i.i, label %.sink.split.i.i.i, label %drwav_preinit.exit.i.i.i
 
-drwav_preinit.exit.i.i.i:                         ; preds = %22, %.thread.i.i.i.i
-  %25 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %6, ptr noundef null, ptr noundef null, i32 noundef 0)
-  %.not.not15.i.i.i = icmp eq i32 %25, 0
+drwav_preinit.exit.i.i.i:                         ; preds = %23, %.thread.i.i.i.i
+  %26 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %6, ptr noundef null, ptr noundef null, i32 noundef 0)
+  %.not.not15.i.i.i = icmp eq i32 %26, 0
   br i1 %.not.not15.i.i.i, label %.sink.split.i.i.i, label %drwav_init_file.exit
 
-.sink.split.i.i.i:                                ; preds = %drwav_preinit.exit.i.i.i, %22, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
-  %26 = call i32 @fclose(ptr noundef nonnull %15)
+.sink.split.i.i.i:                                ; preds = %drwav_preinit.exit.i.i.i, %23, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
+  %27 = call i32 @fclose(ptr noundef nonnull %15)
   br label %drwav_init_file.exit.thread
 
 drwav_init_file.exit:                             ; preds = %drwav_preinit.exit.i.i.i
-  %27 = call fastcc ptr @drwav__read_pcm_frames_and_close_s32(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %28 = call fastcc ptr @drwav__read_pcm_frames_and_close_s32(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %drwav_init_file.exit.thread
 
 drwav_init_file.exit.thread:                      ; preds = %14, %12, %.sink.split.i.i.i, %drwav_init_file.exit
-  %.0 = phi ptr [ %27, %drwav_init_file.exit ], [ null, %.sink.split.i.i.i ], [ null, %12 ], [ null, %14 ]
+  %.0 = phi ptr [ %28, %drwav_init_file.exit ], [ null, %.sink.split.i.i.i ], [ null, %12 ], [ null, %14 ]
   ret ptr %.0
 }
 
@@ -64645,49 +64595,47 @@ define hidden ptr @drwav_open_file_and_read_pcm_frames_s16_w(ptr noundef %0, ptr
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i: ; preds = %15
   %20 = getelementptr inbounds i8, ptr %7, i64 32
-  %.sroa.0.0.copyload21.i.i.i.i = load ptr, ptr %4, align 8
   %.sroa.3.0..sroa_idx22.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.3.0.copyload23.i.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i.i, align 8
   %.sroa.4.0..sroa_idx24.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.4.0.copyload25.i.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i.i.i.i, align 8
   %.sroa.5.0..sroa_idx26.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %.sroa.5.0.copyload27.i.i.i.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i.i.i.i, align 8
-  store ptr %.sroa.0.0.copyload21.i.i.i.i, ptr %20, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr %.sroa.3.0.copyload23.i.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 8
+  %.sroa.3.0.copyload23.i.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i.i, align 8
+  %21 = load <2 x ptr>, ptr %4, align 8
+  store <2 x ptr> %21, ptr %20, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 48
   store ptr %.sroa.4.0.copyload25.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 56
   store ptr %.sroa.5.0.copyload27.i.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8
-  %21 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i.i, null
-  br i1 %21, label %.sink.split.i.i.i, label %22
+  %22 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i.i, null
+  br i1 %22, label %.sink.split.i.i.i, label %23
 
-22:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
-  %23 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i.i, null
-  %24 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i.i, null
-  %or.cond33.i.i.i.i = select i1 %23, i1 %24, i1 false
+23:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
+  %24 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i.i, null
+  %25 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i.i, null
+  %or.cond33.i.i.i.i = select i1 %24, i1 %25, i1 false
   br i1 %or.cond33.i.i.i.i, label %.sink.split.i.i.i, label %drwav_preinit.exit.i.i.i
 
-drwav_preinit.exit.i.i.i:                         ; preds = %22, %.thread.i.i.i.i
-  %25 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0)
-  %.not.not15.i.i.i = icmp eq i32 %25, 0
-  br i1 %.not.not15.i.i.i, label %.sink.split.i.i.i, label %27
+drwav_preinit.exit.i.i.i:                         ; preds = %23, %.thread.i.i.i.i
+  %26 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0)
+  %.not.not15.i.i.i = icmp eq i32 %26, 0
+  br i1 %.not.not15.i.i.i, label %.sink.split.i.i.i, label %28
 
-.sink.split.i.i.i:                                ; preds = %drwav_preinit.exit.i.i.i, %22, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
-  %26 = call i32 @fclose(ptr noundef %16)
+.sink.split.i.i.i:                                ; preds = %drwav_preinit.exit.i.i.i, %23, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
+  %27 = call i32 @fclose(ptr noundef %16)
   br label %drwav_init_file_w.exit.thread
 
 drwav_init_file_w.exit.thread:                    ; preds = %13, %.sink.split.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %29
+  br label %30
 
-27:                                               ; preds = %drwav_preinit.exit.i.i.i
+28:                                               ; preds = %drwav_preinit.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %28 = call fastcc ptr @drwav__read_pcm_frames_and_close_s16(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  br label %29
+  %29 = call fastcc ptr @drwav__read_pcm_frames_and_close_s16(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  br label %30
 
-29:                                               ; preds = %drwav_init_file_w.exit.thread, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %drwav_init_file_w.exit.thread ]
+30:                                               ; preds = %drwav_init_file_w.exit.thread, %28
+  %.0 = phi ptr [ %29, %28 ], [ null, %drwav_init_file_w.exit.thread ]
   ret ptr %.0
 }
 
@@ -64747,49 +64695,47 @@ define hidden ptr @drwav_open_file_and_read_pcm_frames_f32_w(ptr noundef %0, ptr
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i: ; preds = %15
   %20 = getelementptr inbounds i8, ptr %7, i64 32
-  %.sroa.0.0.copyload21.i.i.i.i = load ptr, ptr %4, align 8
   %.sroa.3.0..sroa_idx22.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.3.0.copyload23.i.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i.i, align 8
   %.sroa.4.0..sroa_idx24.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.4.0.copyload25.i.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i.i.i.i, align 8
   %.sroa.5.0..sroa_idx26.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %.sroa.5.0.copyload27.i.i.i.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i.i.i.i, align 8
-  store ptr %.sroa.0.0.copyload21.i.i.i.i, ptr %20, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr %.sroa.3.0.copyload23.i.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 8
+  %.sroa.3.0.copyload23.i.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i.i, align 8
+  %21 = load <2 x ptr>, ptr %4, align 8
+  store <2 x ptr> %21, ptr %20, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 48
   store ptr %.sroa.4.0.copyload25.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 56
   store ptr %.sroa.5.0.copyload27.i.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8
-  %21 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i.i, null
-  br i1 %21, label %.sink.split.i.i.i, label %22
+  %22 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i.i, null
+  br i1 %22, label %.sink.split.i.i.i, label %23
 
-22:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
-  %23 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i.i, null
-  %24 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i.i, null
-  %or.cond33.i.i.i.i = select i1 %23, i1 %24, i1 false
+23:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
+  %24 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i.i, null
+  %25 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i.i, null
+  %or.cond33.i.i.i.i = select i1 %24, i1 %25, i1 false
   br i1 %or.cond33.i.i.i.i, label %.sink.split.i.i.i, label %drwav_preinit.exit.i.i.i
 
-drwav_preinit.exit.i.i.i:                         ; preds = %22, %.thread.i.i.i.i
-  %25 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0)
-  %.not.not15.i.i.i = icmp eq i32 %25, 0
-  br i1 %.not.not15.i.i.i, label %.sink.split.i.i.i, label %27
+drwav_preinit.exit.i.i.i:                         ; preds = %23, %.thread.i.i.i.i
+  %26 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0)
+  %.not.not15.i.i.i = icmp eq i32 %26, 0
+  br i1 %.not.not15.i.i.i, label %.sink.split.i.i.i, label %28
 
-.sink.split.i.i.i:                                ; preds = %drwav_preinit.exit.i.i.i, %22, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
-  %26 = call i32 @fclose(ptr noundef %16)
+.sink.split.i.i.i:                                ; preds = %drwav_preinit.exit.i.i.i, %23, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
+  %27 = call i32 @fclose(ptr noundef %16)
   br label %drwav_init_file_w.exit.thread
 
 drwav_init_file_w.exit.thread:                    ; preds = %13, %.sink.split.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %29
+  br label %30
 
-27:                                               ; preds = %drwav_preinit.exit.i.i.i
+28:                                               ; preds = %drwav_preinit.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %28 = call fastcc ptr @drwav__read_pcm_frames_and_close_f32(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  br label %29
+  %29 = call fastcc ptr @drwav__read_pcm_frames_and_close_f32(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  br label %30
 
-29:                                               ; preds = %drwav_init_file_w.exit.thread, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %drwav_init_file_w.exit.thread ]
+30:                                               ; preds = %drwav_init_file_w.exit.thread, %28
+  %.0 = phi ptr [ %29, %28 ], [ null, %drwav_init_file_w.exit.thread ]
   ret ptr %.0
 }
 
@@ -64849,49 +64795,47 @@ define hidden ptr @drwav_open_file_and_read_pcm_frames_s32_w(ptr noundef %0, ptr
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i: ; preds = %15
   %20 = getelementptr inbounds i8, ptr %7, i64 32
-  %.sroa.0.0.copyload21.i.i.i.i = load ptr, ptr %4, align 8
   %.sroa.3.0..sroa_idx22.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.3.0.copyload23.i.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i.i, align 8
   %.sroa.4.0..sroa_idx24.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.4.0.copyload25.i.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i.i.i.i, align 8
   %.sroa.5.0..sroa_idx26.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %.sroa.5.0.copyload27.i.i.i.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i.i.i.i, align 8
-  store ptr %.sroa.0.0.copyload21.i.i.i.i, ptr %20, align 8
-  %.sroa.3.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr %.sroa.3.0.copyload23.i.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i, align 8
+  %.sroa.3.0.copyload23.i.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i.i, align 8
+  %21 = load <2 x ptr>, ptr %4, align 8
+  store <2 x ptr> %21, ptr %20, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 48
   store ptr %.sroa.4.0.copyload25.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 56
   store ptr %.sroa.5.0.copyload27.i.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i, align 8
-  %21 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i.i, null
-  br i1 %21, label %.sink.split.i.i.i, label %22
+  %22 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i.i, null
+  br i1 %22, label %.sink.split.i.i.i, label %23
 
-22:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
-  %23 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i.i, null
-  %24 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i.i, null
-  %or.cond33.i.i.i.i = select i1 %23, i1 %24, i1 false
+23:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
+  %24 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i.i, null
+  %25 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i.i, null
+  %or.cond33.i.i.i.i = select i1 %24, i1 %25, i1 false
   br i1 %or.cond33.i.i.i.i, label %.sink.split.i.i.i, label %drwav_preinit.exit.i.i.i
 
-drwav_preinit.exit.i.i.i:                         ; preds = %22, %.thread.i.i.i.i
-  %25 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0)
-  %.not.not15.i.i.i = icmp eq i32 %25, 0
-  br i1 %.not.not15.i.i.i, label %.sink.split.i.i.i, label %27
+drwav_preinit.exit.i.i.i:                         ; preds = %23, %.thread.i.i.i.i
+  %26 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0)
+  %.not.not15.i.i.i = icmp eq i32 %26, 0
+  br i1 %.not.not15.i.i.i, label %.sink.split.i.i.i, label %28
 
-.sink.split.i.i.i:                                ; preds = %drwav_preinit.exit.i.i.i, %22, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
-  %26 = call i32 @fclose(ptr noundef %16)
+.sink.split.i.i.i:                                ; preds = %drwav_preinit.exit.i.i.i, %23, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i.i
+  %27 = call i32 @fclose(ptr noundef %16)
   br label %drwav_init_file_w.exit.thread
 
 drwav_init_file_w.exit.thread:                    ; preds = %13, %.sink.split.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %29
+  br label %30
 
-27:                                               ; preds = %drwav_preinit.exit.i.i.i
+28:                                               ; preds = %drwav_preinit.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %28 = call fastcc ptr @drwav__read_pcm_frames_and_close_s32(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  br label %29
+  %29 = call fastcc ptr @drwav__read_pcm_frames_and_close_s32(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  br label %30
 
-29:                                               ; preds = %drwav_init_file_w.exit.thread, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %drwav_init_file_w.exit.thread ]
+30:                                               ; preds = %drwav_init_file_w.exit.thread, %28
+  %.0 = phi ptr [ %29, %28 ], [ null, %drwav_init_file_w.exit.thread ]
   ret ptr %.0
 }
 
@@ -64949,46 +64893,44 @@ define hidden ptr @drwav_open_memory_and_read_pcm_frames_s16(ptr noundef %0, i64
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %16
   %20 = getelementptr inbounds i8, ptr %7, i64 32
-  %.sroa.0.0.copyload21.i.i.i = load ptr, ptr %5, align 8
   %.sroa.3.0..sroa_idx22.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.3.0.copyload23.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i, align 8
   %.sroa.4.0..sroa_idx24.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.4.0.copyload25.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i.i.i, align 8
   %.sroa.5.0..sroa_idx26.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %.sroa.5.0.copyload27.i.i.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i.i.i, align 8
-  store ptr %.sroa.0.0.copyload21.i.i.i, ptr %20, align 8
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr %.sroa.3.0.copyload23.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
+  %.sroa.3.0.copyload23.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i, align 8
+  %21 = load <2 x ptr>, ptr %5, align 8
+  store <2 x ptr> %21, ptr %20, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %7, i64 48
   store ptr %.sroa.4.0.copyload25.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %7, i64 56
   store ptr %.sroa.5.0.copyload27.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
-  %21 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i, null
-  br i1 %21, label %drwav_init_memory.exit.thread, label %22
+  %22 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i, null
+  br i1 %22, label %drwav_init_memory.exit.thread, label %23
 
-22:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i
-  %23 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i, null
-  %24 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i, null
-  %or.cond33.i.i.i = select i1 %23, i1 %24, i1 false
+23:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i
+  %24 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i, null
+  %25 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i, null
+  %or.cond33.i.i.i = select i1 %24, i1 %25, i1 false
   br i1 %or.cond33.i.i.i, label %drwav_init_memory.exit.thread, label %drwav_init_memory.exit
 
-drwav_init_memory.exit:                           ; preds = %.thread.i.i.i, %22
-  %25 = getelementptr inbounds i8, ptr %7, i64 192
-  store ptr %0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 200
-  store i64 %1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 208
-  store i64 0, ptr %27, align 8
-  %28 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0)
-  %.not17 = icmp eq i32 %28, 0
-  br i1 %.not17, label %drwav_init_memory.exit.thread, label %29
+drwav_init_memory.exit:                           ; preds = %.thread.i.i.i, %23
+  %26 = getelementptr inbounds i8, ptr %7, i64 192
+  store ptr %0, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %7, i64 200
+  store i64 %1, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %7, i64 208
+  store i64 0, ptr %28, align 8
+  %29 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0)
+  %.not17 = icmp eq i32 %29, 0
+  br i1 %.not17, label %drwav_init_memory.exit.thread, label %30
 
-29:                                               ; preds = %drwav_init_memory.exit
-  %30 = call fastcc ptr @drwav__read_pcm_frames_and_close_s16(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+30:                                               ; preds = %drwav_init_memory.exit
+  %31 = call fastcc ptr @drwav__read_pcm_frames_and_close_s16(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br label %drwav_init_memory.exit.thread
 
-drwav_init_memory.exit.thread:                    ; preds = %22, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %13, %drwav_init_memory.exit, %29
-  %.0 = phi ptr [ %30, %29 ], [ null, %drwav_init_memory.exit ], [ null, %13 ], [ null, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i ], [ null, %22 ]
+drwav_init_memory.exit.thread:                    ; preds = %23, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %13, %drwav_init_memory.exit, %30
+  %.0 = phi ptr [ %31, %30 ], [ null, %drwav_init_memory.exit ], [ null, %13 ], [ null, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i ], [ null, %23 ]
   ret ptr %.0
 }
 
@@ -65046,46 +64988,44 @@ define hidden ptr @drwav_open_memory_and_read_pcm_frames_f32(ptr noundef %0, i64
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %16
   %20 = getelementptr inbounds i8, ptr %7, i64 32
-  %.sroa.0.0.copyload21.i.i.i = load ptr, ptr %5, align 8
   %.sroa.3.0..sroa_idx22.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.3.0.copyload23.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i, align 8
   %.sroa.4.0..sroa_idx24.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.4.0.copyload25.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i.i.i, align 8
   %.sroa.5.0..sroa_idx26.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %.sroa.5.0.copyload27.i.i.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i.i.i, align 8
-  store ptr %.sroa.0.0.copyload21.i.i.i, ptr %20, align 8
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr %.sroa.3.0.copyload23.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
+  %.sroa.3.0.copyload23.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i, align 8
+  %21 = load <2 x ptr>, ptr %5, align 8
+  store <2 x ptr> %21, ptr %20, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %7, i64 48
   store ptr %.sroa.4.0.copyload25.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %7, i64 56
   store ptr %.sroa.5.0.copyload27.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
-  %21 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i, null
-  br i1 %21, label %drwav_init_memory.exit.thread, label %22
+  %22 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i, null
+  br i1 %22, label %drwav_init_memory.exit.thread, label %23
 
-22:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i
-  %23 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i, null
-  %24 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i, null
-  %or.cond33.i.i.i = select i1 %23, i1 %24, i1 false
+23:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i
+  %24 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i, null
+  %25 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i, null
+  %or.cond33.i.i.i = select i1 %24, i1 %25, i1 false
   br i1 %or.cond33.i.i.i, label %drwav_init_memory.exit.thread, label %drwav_init_memory.exit
 
-drwav_init_memory.exit:                           ; preds = %.thread.i.i.i, %22
-  %25 = getelementptr inbounds i8, ptr %7, i64 192
-  store ptr %0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 200
-  store i64 %1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 208
-  store i64 0, ptr %27, align 8
-  %28 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0)
-  %.not17 = icmp eq i32 %28, 0
-  br i1 %.not17, label %drwav_init_memory.exit.thread, label %29
+drwav_init_memory.exit:                           ; preds = %.thread.i.i.i, %23
+  %26 = getelementptr inbounds i8, ptr %7, i64 192
+  store ptr %0, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %7, i64 200
+  store i64 %1, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %7, i64 208
+  store i64 0, ptr %28, align 8
+  %29 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0)
+  %.not17 = icmp eq i32 %29, 0
+  br i1 %.not17, label %drwav_init_memory.exit.thread, label %30
 
-29:                                               ; preds = %drwav_init_memory.exit
-  %30 = call fastcc ptr @drwav__read_pcm_frames_and_close_f32(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+30:                                               ; preds = %drwav_init_memory.exit
+  %31 = call fastcc ptr @drwav__read_pcm_frames_and_close_f32(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br label %drwav_init_memory.exit.thread
 
-drwav_init_memory.exit.thread:                    ; preds = %22, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %13, %drwav_init_memory.exit, %29
-  %.0 = phi ptr [ %30, %29 ], [ null, %drwav_init_memory.exit ], [ null, %13 ], [ null, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i ], [ null, %22 ]
+drwav_init_memory.exit.thread:                    ; preds = %23, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %13, %drwav_init_memory.exit, %30
+  %.0 = phi ptr [ %31, %30 ], [ null, %drwav_init_memory.exit ], [ null, %13 ], [ null, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i ], [ null, %23 ]
   ret ptr %.0
 }
 
@@ -65143,46 +65083,44 @@ define hidden ptr @drwav_open_memory_and_read_pcm_frames_s32(ptr noundef %0, i64
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i: ; preds = %16
   %20 = getelementptr inbounds i8, ptr %7, i64 32
-  %.sroa.0.0.copyload21.i.i.i = load ptr, ptr %5, align 8
   %.sroa.3.0..sroa_idx22.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.3.0.copyload23.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i, align 8
   %.sroa.4.0..sroa_idx24.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.4.0.copyload25.i.i.i = load ptr, ptr %.sroa.4.0..sroa_idx24.i.i.i, align 8
   %.sroa.5.0..sroa_idx26.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %.sroa.5.0.copyload27.i.i.i = load ptr, ptr %.sroa.5.0..sroa_idx26.i.i.i, align 8
-  store ptr %.sroa.0.0.copyload21.i.i.i, ptr %20, align 8
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr %.sroa.3.0.copyload23.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
+  %.sroa.3.0.copyload23.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx22.i.i.i, align 8
+  %21 = load <2 x ptr>, ptr %5, align 8
+  store <2 x ptr> %21, ptr %20, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %7, i64 48
   store ptr %.sroa.4.0.copyload25.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %7, i64 56
   store ptr %.sroa.5.0.copyload27.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
-  %21 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i, null
-  br i1 %21, label %drwav_init_memory.exit.thread, label %22
+  %22 = icmp eq ptr %.sroa.5.0.copyload27.i.i.i, null
+  br i1 %22, label %drwav_init_memory.exit.thread, label %23
 
-22:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i
-  %23 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i, null
-  %24 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i, null
-  %or.cond33.i.i.i = select i1 %23, i1 %24, i1 false
+23:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i
+  %24 = icmp eq ptr %.sroa.3.0.copyload23.i.i.i, null
+  %25 = icmp eq ptr %.sroa.4.0.copyload25.i.i.i, null
+  %or.cond33.i.i.i = select i1 %24, i1 %25, i1 false
   br i1 %or.cond33.i.i.i, label %drwav_init_memory.exit.thread, label %drwav_init_memory.exit
 
-drwav_init_memory.exit:                           ; preds = %.thread.i.i.i, %22
-  %25 = getelementptr inbounds i8, ptr %7, i64 192
-  store ptr %0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 200
-  store i64 %1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %7, i64 208
-  store i64 0, ptr %27, align 8
-  %28 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0)
-  %.not17 = icmp eq i32 %28, 0
-  br i1 %.not17, label %drwav_init_memory.exit.thread, label %29
+drwav_init_memory.exit:                           ; preds = %.thread.i.i.i, %23
+  %26 = getelementptr inbounds i8, ptr %7, i64 192
+  store ptr %0, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %7, i64 200
+  store i64 %1, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %7, i64 208
+  store i64 0, ptr %28, align 8
+  %29 = call fastcc i32 @drwav_init__internal(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, i32 noundef 0)
+  %.not17 = icmp eq i32 %29, 0
+  br i1 %.not17, label %drwav_init_memory.exit.thread, label %30
 
-29:                                               ; preds = %drwav_init_memory.exit
-  %30 = call fastcc ptr @drwav__read_pcm_frames_and_close_s32(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+30:                                               ; preds = %drwav_init_memory.exit
+  %31 = call fastcc ptr @drwav__read_pcm_frames_and_close_s32(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br label %drwav_init_memory.exit.thread
 
-drwav_init_memory.exit.thread:                    ; preds = %22, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %13, %drwav_init_memory.exit, %29
-  %.0 = phi ptr [ %30, %29 ], [ null, %drwav_init_memory.exit ], [ null, %13 ], [ null, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i ], [ null, %22 ]
+drwav_init_memory.exit.thread:                    ; preds = %23, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i, %13, %drwav_init_memory.exit, %30
+  %.0 = phi ptr [ %31, %30 ], [ null, %drwav_init_memory.exit ], [ null, %13 ], [ null, %drwav_copy_allocation_callbacks_or_defaults.exit.i.i.i ], [ null, %23 ]
   ret ptr %.0
 }
 
@@ -68896,7 +68834,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
   store i8 1, ptr %5, align 1
   %6 = tail call fastcc i32 @start_page(ptr noundef %0)
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %1276, label %7
+  br i1 %.not, label %1275, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 1763
@@ -68909,7 +68847,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 12:                                               ; preds = %7
   %13 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 34, ptr %13, align 4
-  br label %1276
+  br label %1275
 
 14:                                               ; preds = %7
   %15 = and i32 %10, 4
@@ -68919,7 +68857,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 16:                                               ; preds = %14
   %17 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 34, ptr %17, align 4
-  br label %1276
+  br label %1275
 
 18:                                               ; preds = %14
   %19 = and i32 %10, 1
@@ -68929,7 +68867,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 20:                                               ; preds = %18
   %21 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 34, ptr %21, align 4
-  br label %1276
+  br label %1275
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %0, i64 1504
@@ -68940,7 +68878,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 34, ptr %26, align 4
-  br label %1276
+  br label %1275
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds i8, ptr %0, i64 1508
@@ -68982,12 +68920,12 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 48:                                               ; preds = %45
   %49 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 38, ptr %49, align 4
-  br label %1276
+  br label %1275
 
 50:                                               ; preds = %27, %45, %42, %30
   %51 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 34, ptr %51, align 4
-  br label %1276
+  br label %1275
 
 52:                                               ; preds = %27
   %53 = tail call fastcc zeroext i8 @get8(ptr noundef nonnull %0)
@@ -68997,7 +68935,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 54:                                               ; preds = %52
   %55 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 34, ptr %55, align 4
-  br label %1276
+  br label %1275
 
 56:                                               ; preds = %52
   %57 = call fastcc i32 @getn(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 6)
@@ -69007,7 +68945,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 58:                                               ; preds = %56
   %59 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 10, ptr %59, align 4
-  br label %1276
+  br label %1275
 
 60:                                               ; preds = %56
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %2, ptr noundef nonnull dereferenceable(6) @vorbis_validate.vorbis, i64 6)
@@ -69017,7 +68955,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 61:                                               ; preds = %60
   %62 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 34, ptr %62, align 4
-  br label %1276
+  br label %1275
 
 63:                                               ; preds = %60
   %64 = tail call fastcc i32 @get32(ptr noundef nonnull %0)
@@ -69027,7 +68965,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 65:                                               ; preds = %63
   %66 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 34, ptr %66, align 4
-  br label %1276
+  br label %1275
 
 67:                                               ; preds = %63
   %68 = tail call fastcc zeroext i8 @get8(ptr noundef nonnull %0)
@@ -69040,7 +68978,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 71:                                               ; preds = %67
   %72 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 34, ptr %72, align 4
-  br label %1276
+  br label %1275
 
 73:                                               ; preds = %67
   %74 = icmp ugt i8 %68, 16
@@ -69049,7 +68987,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 75:                                               ; preds = %73
   %76 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 5, ptr %76, align 4
-  br label %1276
+  br label %1275
 
 77:                                               ; preds = %73
   %78 = tail call fastcc i32 @get32(ptr noundef nonnull %0)
@@ -69060,7 +68998,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 79:                                               ; preds = %77
   %80 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 34, ptr %80, align 4
-  br label %1276
+  br label %1275
 
 81:                                               ; preds = %77
   %82 = tail call fastcc i32 @get32(ptr noundef nonnull %0)
@@ -69083,7 +69021,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 94:                                               ; preds = %81
   %95 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %95, align 4
-  br label %1276
+  br label %1275
 
 96:                                               ; preds = %81
   %97 = add i8 %85, 32
@@ -69093,7 +69031,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 98:                                               ; preds = %96
   %99 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %99, align 4
-  br label %1276
+  br label %1275
 
 100:                                              ; preds = %96
   %101 = icmp ugt i32 %87, %88
@@ -69102,7 +69040,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 102:                                              ; preds = %100
   %103 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %103, align 4
-  br label %1276
+  br label %1275
 
 104:                                              ; preds = %100
   %105 = tail call fastcc zeroext i8 @get8(ptr noundef nonnull %0)
@@ -69113,22 +69051,22 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 107:                                              ; preds = %104
   %108 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 34, ptr %108, align 4
-  br label %1276
+  br label %1275
 
 109:                                              ; preds = %104
   %110 = tail call fastcc i32 @start_page(ptr noundef nonnull %0)
   %.not1006 = icmp eq i32 %110, 0
-  br i1 %.not1006, label %1276, label %111
+  br i1 %.not1006, label %1275, label %111
 
 111:                                              ; preds = %109
   %112 = tail call fastcc i32 @start_packet(ptr noundef nonnull %0)
   %.not1007 = icmp eq i32 %112, 0
-  br i1 %.not1007, label %1276, label %113
+  br i1 %.not1007, label %1275, label %113
 
 113:                                              ; preds = %111
   %114 = tail call fastcc i32 @next_segment(ptr noundef nonnull %0)
   %.not1008 = icmp eq i32 %114, 0
-  br i1 %.not1008, label %1276, label %115
+  br i1 %.not1008, label %1275, label %115
 
 115:                                              ; preds = %113
   %116 = tail call fastcc range(i32 -1, 256) i32 @get8_packet_raw(ptr noundef nonnull %0)
@@ -69140,7 +69078,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 118:                                              ; preds = %115
   %119 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %119, align 4
-  br label %1276
+  br label %1275
 
 .preheader1140:                                   ; preds = %115, %.preheader1140
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader1140 ], [ 0, %115 ]
@@ -69161,7 +69099,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 124:                                              ; preds = %123
   %125 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %125, align 4
-  br label %1276
+  br label %1275
 
 126:                                              ; preds = %123
   %127 = tail call fastcc i32 @get32_packet(ptr noundef nonnull %0)
@@ -69183,7 +69121,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 133:                                              ; preds = %126
   %134 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %134, align 4
-  br label %1276
+  br label %1275
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv1408 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next1409, %.lr.ph ]
@@ -69224,7 +69162,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 150:                                              ; preds = %146
   %151 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %151, align 4
-  br label %1276
+  br label %1275
 
 152:                                              ; preds = %146
   %.pre1527 = load i32, ptr %143, align 8
@@ -69256,7 +69194,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 164:                                              ; preds = %.lr.ph1208
   %165 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %165, align 4
-  br label %1276
+  br label %1275
 
 .lr.ph1204:                                       ; preds = %.lr.ph1204.preheader, %.lr.ph1204
   %indvars.iv1412 = phi i64 [ 0, %.lr.ph1204.preheader ], [ %indvars.iv.next1413, %.lr.ph1204 ]
@@ -69299,7 +69237,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 180:                                              ; preds = %._crit_edge1209
   %181 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %181, align 4
-  br label %1276
+  br label %1275
 
 .split:                                           ; preds = %._crit_edge1209
   %182 = getelementptr inbounds i8, ptr %0, i64 1764
@@ -69323,7 +69261,7 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
 ._crit_edge1211:                                  ; preds = %.split950, %.split
   %187 = tail call fastcc i32 @start_packet(ptr noundef nonnull %0)
   %.not1013 = icmp eq i32 %187, 0
-  br i1 %.not1013, label %1276, label %188
+  br i1 %.not1013, label %1275, label %188
 
 188:                                              ; preds = %._crit_edge1211
   %189 = getelementptr inbounds i8, ptr %0, i64 92
@@ -69343,11 +69281,11 @@ define internal fastcc noundef i32 @start_decoder(ptr noundef %0) unnamed_addr #
   %194 = getelementptr inbounds i8, ptr %0, i64 156
   %195 = load i32, ptr %194, align 4
   %196 = icmp eq i32 %195, 21
-  br i1 %196, label %197, label %1276
+  br i1 %196, label %197, label %1275
 
 197:                                              ; preds = %193
   store i32 20, ptr %194, align 4
-  br label %1276
+  br label %1275
 
 198:                                              ; preds = %.preheader1752, %206
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %206 ], [ 0, %.preheader1752 ]
@@ -69382,7 +69320,7 @@ crc32_init.exit:                                  ; preds = %206
 209:                                              ; preds = %crc32_init.exit
   %210 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %210, align 4
-  br label %1276
+  br label %1275
 
 .preheader1137:                                   ; preds = %crc32_init.exit, %.preheader1137
   %indvars.iv1420 = phi i64 [ %indvars.iv.next1421, %.preheader1137 ], [ 0, %crc32_init.exit ]
@@ -69403,7 +69341,7 @@ crc32_init.exit:                                  ; preds = %206
 215:                                              ; preds = %214
   %216 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %216, align 4
-  br label %1276
+  br label %1275
 
 217:                                              ; preds = %214
   %218 = tail call fastcc i32 @get_bits(ptr noundef nonnull %0, i32 noundef 8)
@@ -69420,7 +69358,7 @@ crc32_init.exit:                                  ; preds = %206
 225:                                              ; preds = %217
   %226 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %226, align 4
-  br label %1276
+  br label %1275
 
 227:                                              ; preds = %217
   %228 = load i32, ptr %220, align 8
@@ -69449,7 +69387,7 @@ crc32_init.exit:                                  ; preds = %206
 241:                                              ; preds = %236
   %242 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %242, align 4
-  br label %1276
+  br label %1275
 
 243:                                              ; preds = %236
   %244 = tail call fastcc i32 @get_bits(ptr noundef nonnull %0, i32 noundef 8)
@@ -69460,7 +69398,7 @@ crc32_init.exit:                                  ; preds = %206
 246:                                              ; preds = %243
   %247 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %247, align 4
-  br label %1276
+  br label %1275
 
 248:                                              ; preds = %243
   %249 = tail call fastcc i32 @get_bits(ptr noundef nonnull %0, i32 noundef 8)
@@ -69471,7 +69409,7 @@ crc32_init.exit:                                  ; preds = %206
 251:                                              ; preds = %248
   %252 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %252, align 4
-  br label %1276
+  br label %1275
 
 253:                                              ; preds = %248
   %254 = tail call fastcc i32 @get_bits(ptr noundef nonnull %0, i32 noundef 8)
@@ -69516,7 +69454,7 @@ crc32_init.exit:                                  ; preds = %206
 280:                                              ; preds = %278
   %281 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %281, align 4
-  br label %1276
+  br label %1275
 
 282:                                              ; preds = %278, %272
   %.not1048 = icmp eq i8 %274, 0
@@ -69541,7 +69479,7 @@ crc32_init.exit:                                  ; preds = %206
 290:                                              ; preds = %289
   %291 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %291, align 4
-  br label %1276
+  br label %1275
 
 292:                                              ; preds = %289
   br i1 %.not1046, label %.preheader1134, label %295
@@ -69571,7 +69509,7 @@ crc32_init.exit:                                  ; preds = %206
 304:                                              ; preds = %.lr.ph1217
   %305 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %305, align 4
-  br label %1276
+  br label %1275
 
 306:                                              ; preds = %.lr.ph1217
   %307 = add nsw i32 %302, %.09381214
@@ -69582,7 +69520,7 @@ crc32_init.exit:                                  ; preds = %206
 310:                                              ; preds = %306
   %311 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %311, align 4
-  br label %1276
+  br label %1275
 
 312:                                              ; preds = %306
   %313 = sext i32 %.09381214 to i64
@@ -69619,7 +69557,7 @@ crc32_init.exit:                                  ; preds = %206
 328:                                              ; preds = %.thread
   %329 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %329, align 4
-  br label %1276
+  br label %1275
 
 330:                                              ; preds = %320
   %331 = getelementptr inbounds i8, ptr %.0936, i64 %indvars.iv1424
@@ -69667,7 +69605,7 @@ crc32_init.exit:                                  ; preds = %206
 349:                                              ; preds = %344
   %350 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %350, align 4
-  br label %1276
+  br label %1275
 
 351:                                              ; preds = %344
   %352 = load i32, ptr %268, align 4
@@ -69738,7 +69676,7 @@ setup_temp_free.exit:                             ; preds = %355, %361
 374:                                              ; preds = %._crit_edge1224
   %375 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %375, align 4
-  br label %1276
+  br label %1275
 
 376:                                              ; preds = %.thread1106
   %377 = tail call fastcc ptr @setup_malloc(ptr noundef %0, i32 noundef %.0932)
@@ -69750,7 +69688,7 @@ setup_temp_free.exit:                             ; preds = %355, %361
 379:                                              ; preds = %376
   %380 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %380, align 4
-  br label %1276
+  br label %1275
 
 381:                                              ; preds = %376
   %382 = load i32, ptr %365, align 8
@@ -69764,7 +69702,7 @@ setup_temp_free.exit:                             ; preds = %355, %361
 386:                                              ; preds = %381
   %387 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %387, align 4
-  br label %1276
+  br label %1275
 
 388:                                              ; preds = %381
   %389 = load i32, ptr %365, align 8
@@ -69780,7 +69718,7 @@ setup_temp_free.exit:                             ; preds = %355, %361
 392:                                              ; preds = %388
   %393 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %393, align 4
-  br label %1276
+  br label %1275
 
 394:                                              ; preds = %._crit_edge1531, %.thread1106
   %395 = phi i32 [ %.pre1532, %._crit_edge1531 ], [ 0, %.thread1106 ]
@@ -69822,7 +69760,7 @@ setup_temp_free.exit:                             ; preds = %355, %361
 setup_temp_free.exit1079:                         ; preds = %408, %410, %406
   %411 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %411, align 4
-  br label %1276
+  br label %1275
 
 412:                                              ; preds = %402
   %413 = load i32, ptr %403, align 8
@@ -69841,7 +69779,7 @@ setup_temp_free.exit1079:                         ; preds = %408, %410, %406
 420:                                              ; preds = %414
   %421 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %421, align 4
-  br label %1276
+  br label %1275
 
 422:                                              ; preds = %414
   %423 = load i32, ptr %403, align 8
@@ -69856,7 +69794,7 @@ setup_temp_free.exit1079:                         ; preds = %408, %410, %406
 429:                                              ; preds = %422
   %430 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %430, align 4
-  br label %1276
+  br label %1275
 
 431:                                              ; preds = %422
   %432 = getelementptr inbounds i8, ptr %426, i64 4
@@ -69943,7 +69881,7 @@ setup_temp_free.exit1085:                         ; preds = %453, %460
 468:                                              ; preds = %462
   %469 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %469, align 4
-  br label %1276
+  br label %1275
 
 470:                                              ; preds = %462
   %.not1066 = icmp eq i32 %466, 0
@@ -69981,7 +69919,7 @@ setup_temp_free.exit1085:                         ; preds = %453, %460
 492:                                              ; preds = %489
   %493 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %493, align 4
-  br label %1276
+  br label %1275
 
 494:                                              ; preds = %471
   %495 = mul nsw i32 %488, %487
@@ -69998,7 +69936,7 @@ setup_temp_free.exit1085:                         ; preds = %453, %460
 500:                                              ; preds = %496
   %501 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %501, align 4
-  br label %1276
+  br label %1275
 
 502:                                              ; preds = %496
   %503 = shl i32 %.sink1617, 1
@@ -70014,7 +69952,7 @@ setup_temp_free.exit1085:                         ; preds = %453, %460
 508:                                              ; preds = %502
   %509 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %509, align 4
-  br label %1276
+  br label %1275
 
 .lr.ph1227:                                       ; preds = %.preheader1132, %525
   %indvars.iv1432 = phi i64 [ %indvars.iv.next1433, %525 ], [ 0, %.preheader1132 ]
@@ -70046,7 +69984,7 @@ setup_temp_free.exit1085:                         ; preds = %453, %460
 setup_temp_free.exit1087:                         ; preds = %516, %523
   %524 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %524, align 4
-  br label %1276
+  br label %1275
 
 525:                                              ; preds = %.lr.ph1227
   %526 = trunc i32 %512 to i16
@@ -70112,7 +70050,7 @@ setup_temp_free.exit1087:                         ; preds = %516, %523
 setup_temp_free.exit1089:                         ; preds = %550, %557
   %558 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %558, align 4
-  br label %1276
+  br label %1275
 
 559:                                              ; preds = %540
   %. = select i1 %.not1068, ptr %268, ptr %403
@@ -70200,7 +70138,7 @@ setup_temp_free.exit1089:                         ; preds = %550, %557
 setup_temp_free.exit1091:                         ; preds = %598, %604
   %605 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %605, align 4
-  br label %1276
+  br label %1275
 
 606:                                              ; preds = %594
   %607 = mul i32 %595, %.09461233
@@ -70251,7 +70189,7 @@ setup_temp_free.exit1091:                         ; preds = %598, %604
 setup_temp_free.exit1093:                         ; preds = %617, %624
   %625 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %625, align 4
-  br label %1276
+  br label %1275
 
 .lr.ph1232:                                       ; preds = %.preheader1130, %.lr.ph1232
   %indvars.iv1435 = phi i64 [ %indvars.iv.next1436, %.lr.ph1232 ], [ 0, %.preheader1130 ]
@@ -70322,7 +70260,7 @@ setup_temp_free.exit1095:                         ; preds = %647, %640, %470
 657:                                              ; preds = %.lr.ph1251
   %658 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %658, align 4
-  br label %1276
+  br label %1275
 
 ._crit_edge1252:                                  ; preds = %654, %._crit_edge1248
   %659 = tail call fastcc i32 @get_bits(ptr noundef nonnull %0, i32 noundef 6)
@@ -70348,7 +70286,7 @@ setup_temp_free.exit1095:                         ; preds = %647, %640, %470
 669:                                              ; preds = %._crit_edge1252
   %670 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %670, align 4
-  br label %1276
+  br label %1275
 
 671:                                              ; preds = %.lr.ph1285, %._crit_edge1281
   %indvars.iv1475 = phi i64 [ 0, %.lr.ph1285 ], [ %indvars.iv.next1476, %._crit_edge1281 ]
@@ -70364,7 +70302,7 @@ setup_temp_free.exit1095:                         ; preds = %647, %640, %470
 677:                                              ; preds = %671
   %678 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %678, align 4
-  br label %1276
+  br label %1275
 
 679:                                              ; preds = %671
   %680 = icmp eq i32 %675, 0
@@ -70419,7 +70357,7 @@ setup_temp_free.exit1095:                         ; preds = %647, %640, %470
 ._crit_edge1337:                                  ; preds = %703, %683
   %710 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 4, ptr %710, align 4
-  br label %1276
+  br label %1275
 
 711:                                              ; preds = %679
   %712 = call fastcc i32 @get_bits(ptr noundef nonnull %0, i32 noundef 5)
@@ -70484,7 +70422,7 @@ setup_temp_free.exit1095:                         ; preds = %647, %640, %470
 743:                                              ; preds = %737
   %744 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %744, align 4
-  br label %1276
+  br label %1275
 
 745:                                              ; preds = %737
   %.pre1536 = load i8, ptr %736, align 1
@@ -70518,7 +70456,7 @@ setup_temp_free.exit1095:                         ; preds = %647, %640, %470
 758:                                              ; preds = %.lr.ph1260
   %759 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %759, align 4
-  br label %1276
+  br label %1275
 
 ._crit_edge1261:                                  ; preds = %746, %745
   %indvars.iv.next1454 = add nuw nsw i64 %indvars.iv1453, 1
@@ -70656,7 +70594,7 @@ setup_temp_free.exit1095:                         ; preds = %647, %640, %470
 821:                                              ; preds = %815
   %822 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %822, align 4
-  br label %1276
+  br label %1275
 
 .preheader1125:                                   ; preds = %825
   %823 = icmp sgt i32 %830, 2
@@ -70761,7 +70699,7 @@ neighbors.exit:                                   ; preds = %850
 866:                                              ; preds = %._crit_edge1286
   %867 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %867, align 4
-  br label %1276
+  br label %1275
 
 868:                                              ; preds = %._crit_edge1286
   %869 = load i32, ptr %861, align 8
@@ -70791,7 +70729,7 @@ neighbors.exit:                                   ; preds = %850
 883:                                              ; preds = %875
   %884 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %884, align 4
-  br label %1276
+  br label %1275
 
 885:                                              ; preds = %875
   %886 = call fastcc i32 @get_bits(ptr noundef nonnull %0, i32 noundef 24)
@@ -70806,7 +70744,7 @@ neighbors.exit:                                   ; preds = %850
 891:                                              ; preds = %885
   %892 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %892, align 4
-  br label %1276
+  br label %1275
 
 893:                                              ; preds = %885
   %894 = call fastcc i32 @get_bits(ptr noundef nonnull %0, i32 noundef 24)
@@ -70835,7 +70773,7 @@ neighbors.exit:                                   ; preds = %850
 907:                                              ; preds = %893
   %908 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %908, align 4
-  br label %1276
+  br label %1275
 
 .lr.ph1289:                                       ; preds = %.preheader1124, %913
   %indvars.iv1478 = phi i64 [ %indvars.iv.next1479, %913 ], [ 0, %.preheader1124 ]
@@ -70879,7 +70817,7 @@ neighbors.exit:                                   ; preds = %850
 926:                                              ; preds = %._crit_edge1290
   %927 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %927, align 4
-  br label %1276
+  br label %1275
 
 .preheader1122:                                   ; preds = %.preheader1123, %951
   %indvars.iv1485 = phi i64 [ %indvars.iv.next1486, %951 ], [ 0, %.preheader1123 ]
@@ -70913,7 +70851,7 @@ neighbors.exit:                                   ; preds = %850
 945:                                              ; preds = %935
   %946 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %946, align 4
-  br label %1276
+  br label %1275
 
 947:                                              ; preds = %931
   %948 = load ptr, ptr %923, align 8
@@ -70949,7 +70887,7 @@ neighbors.exit:                                   ; preds = %850
 963:                                              ; preds = %._crit_edge1294
   %964 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %964, align 4
-  br label %1276
+  br label %1275
 
 965:                                              ; preds = %._crit_edge1294
   %966 = load ptr, ptr %223, align 8
@@ -70996,7 +70934,7 @@ neighbors.exit:                                   ; preds = %850
 992:                                              ; preds = %.lr.ph1301
   %993 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %993, align 4
-  br label %1276
+  br label %1275
 
 .lr.ph1297:                                       ; preds = %.lr.ph1297.preheader, %.lr.ph1297
   %994 = phi i8 [ %.pre1538, %.lr.ph1297.preheader ], [ %1002, %.lr.ph1297 ]
@@ -71051,7 +70989,7 @@ neighbors.exit:                                   ; preds = %850
 1024:                                             ; preds = %._crit_edge1306
   %1025 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %1025, align 4
-  br label %1276
+  br label %1275
 
 1026:                                             ; preds = %._crit_edge1306
   %1027 = load i32, ptr %1019, align 8
@@ -71073,7 +71011,7 @@ neighbors.exit:                                   ; preds = %850
 1035:                                             ; preds = %.lr.ph1320
   %1036 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %1036, align 4
-  br label %1276
+  br label %1275
 
 1037:                                             ; preds = %.lr.ph1320
   %1038 = load i32, ptr %70, align 4
@@ -71087,7 +71025,7 @@ neighbors.exit:                                   ; preds = %850
 1043:                                             ; preds = %1037
   %1044 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %1044, align 4
-  br label %1276
+  br label %1275
 
 1045:                                             ; preds = %1037
   %1046 = call fastcc i32 @get_bits(ptr noundef nonnull %0, i32 noundef 1)
@@ -71125,7 +71063,7 @@ neighbors.exit:                                   ; preds = %850
 1061:                                             ; preds = %1054
   %1062 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %1062, align 4
-  br label %1276
+  br label %1275
 
 1063:                                             ; preds = %1094
   %indvars.iv.next1498 = add nuw nsw i64 %indvars.iv1497, 1
@@ -71163,7 +71101,7 @@ neighbors.exit:                                   ; preds = %850
 1086:                                             ; preds = %.lr.ph1308
   %1087 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %1087, align 4
-  br label %1276
+  br label %1275
 
 1088:                                             ; preds = %.lr.ph1308
   %1089 = getelementptr inbounds i8, ptr %1082, i64 1
@@ -71175,7 +71113,7 @@ neighbors.exit:                                   ; preds = %850
 1092:                                             ; preds = %1088
   %1093 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %1093, align 4
-  br label %1276
+  br label %1275
 
 1094:                                             ; preds = %1088
   %1095 = icmp eq i8 %1083, %1090
@@ -71184,7 +71122,7 @@ neighbors.exit:                                   ; preds = %850
 1096:                                             ; preds = %1094
   %1097 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %1097, align 4
-  br label %1276
+  br label %1275
 
 1098:                                             ; preds = %1051
   store i16 0, ptr %1033, align 8
@@ -71198,7 +71136,7 @@ neighbors.exit:                                   ; preds = %850
 1100:                                             ; preds = %.loopexit1120
   %1101 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %1101, align 4
-  br label %1276
+  br label %1275
 
 1102:                                             ; preds = %.loopexit1120
   %1103 = load i8, ptr %1052, align 8
@@ -71237,7 +71175,7 @@ neighbors.exit:                                   ; preds = %850
 1119:                                             ; preds = %.lr.ph1312
   %1120 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %1120, align 4
-  br label %1276
+  br label %1275
 
 .lr.ph1310:                                       ; preds = %.preheader1117, %.lr.ph1310
   %indvars.iv1500 = phi i64 [ %indvars.iv.next1501, %.lr.ph1310 ], [ 0, %.preheader1117 ]
@@ -71291,7 +71229,7 @@ neighbors.exit:                                   ; preds = %850
 1144:                                             ; preds = %1133
   %1145 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %1145, align 4
-  br label %1276
+  br label %1275
 
 1146:                                             ; preds = %1133
   %1147 = and i32 %1138, 255
@@ -71302,7 +71240,7 @@ neighbors.exit:                                   ; preds = %850
 1149:                                             ; preds = %1146
   %1150 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %1150, align 4
-  br label %1276
+  br label %1275
 
 ._crit_edge1316:                                  ; preds = %1129, %.loopexit
   %indvars.iv.next1510 = add nuw nsw i64 %indvars.iv1509, 1
@@ -71358,7 +71296,7 @@ neighbors.exit:                                   ; preds = %850
 1177:                                             ; preds = %1163
   %1178 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %1178, align 4
-  br label %1276
+  br label %1275
 
 1179:                                             ; preds = %1163
   %1180 = load i16, ptr %1172, align 2
@@ -71368,7 +71306,7 @@ neighbors.exit:                                   ; preds = %850
 1181:                                             ; preds = %1179
   %1182 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %1182, align 4
-  br label %1276
+  br label %1275
 
 1183:                                             ; preds = %1179
   %1184 = and i32 %1173, 255
@@ -71379,7 +71317,7 @@ neighbors.exit:                                   ; preds = %850
 1186:                                             ; preds = %1183
   %1187 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 20, ptr %1187, align 4
-  br label %1276
+  br label %1275
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %1188 = call fastcc i32 @get8_packet_raw(ptr noundef %0)
@@ -71429,7 +71367,7 @@ flush_packet.exit:                                ; preds = %.preheader
 1213:                                             ; preds = %1209, %1196
   %1214 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 3, ptr %1214, align 4
-  br label %1276
+  br label %1275
 
 1215:                                             ; preds = %1209
   %1216 = load i32, ptr %92, align 4
@@ -71446,104 +71384,102 @@ flush_packet.exit:                                ; preds = %.preheader
   %1222 = load i32, ptr %90, align 8
   %1223 = call fastcc i32 @init_blocksize(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %1222)
   %.not1018 = icmp eq i32 %1223, 0
-  br i1 %.not1018, label %1276, label %1224
+  br i1 %.not1018, label %1275, label %1224
 
 1224:                                             ; preds = %._crit_edge1327
   %1225 = load i32, ptr %92, align 4
   %1226 = call fastcc i32 @init_blocksize(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %1225)
   %.not1019 = icmp eq i32 %1226, 0
-  br i1 %.not1019, label %1276, label %1227
+  br i1 %.not1019, label %1275, label %1227
 
 1227:                                             ; preds = %1224
-  %1228 = load i32, ptr %90, align 8
-  %1229 = getelementptr inbounds i8, ptr %0, i64 160
-  store i32 %1228, ptr %1229, align 8
-  %1230 = load i32, ptr %92, align 4
-  %1231 = getelementptr inbounds i8, ptr %0, i64 164
-  store i32 %1230, ptr %1231, align 4
-  %1232 = shl i32 %1230, 1
-  %1233 = load i32, ptr %861, align 8
-  %1234 = icmp sgt i32 %1233, 0
-  br i1 %1234, label %.lr.ph1331, label %._crit_edge1332
+  %1228 = getelementptr inbounds i8, ptr %0, i64 160
+  %1229 = load i32, ptr %92, align 4
+  %1230 = load <2 x i32>, ptr %90, align 8
+  store <2 x i32> %1230, ptr %1228, align 8
+  %1231 = shl i32 %1229, 1
+  %1232 = load i32, ptr %861, align 8
+  %1233 = icmp sgt i32 %1232, 0
+  br i1 %1233, label %.lr.ph1331, label %._crit_edge1332
 
 .lr.ph1331:                                       ; preds = %1227
-  %1235 = load ptr, ptr %864, align 8
-  %1236 = sdiv i32 %1230, 2
-  %wide.trip.count1521 = zext nneg i32 %1233 to i64
-  br label %1237
+  %1234 = load ptr, ptr %864, align 8
+  %1235 = sdiv i32 %1229, 2
+  %wide.trip.count1521 = zext nneg i32 %1232 to i64
+  br label %1236
 
-1237:                                             ; preds = %.lr.ph1331, %1237
-  %indvars.iv1518 = phi i64 [ 0, %.lr.ph1331 ], [ %indvars.iv.next1519, %1237 ]
-  %.09201329 = phi i32 [ 0, %.lr.ph1331 ], [ %.1921, %1237 ]
-  %1238 = getelementptr inbounds %struct.Residue, ptr %1235, i64 %indvars.iv1518
-  %1239 = load i32, ptr %1238, align 8
-  %.1074 = call i32 @llvm.umin.i32(i32 %1239, i32 %1236)
-  %1240 = getelementptr inbounds i8, ptr %1238, i64 4
-  %1241 = load i32, ptr %1240, align 4
-  %1242 = call i32 @llvm.umin.i32(i32 %1241, i32 %1236)
-  %1243 = sub i32 %1242, %.1074
-  %1244 = getelementptr inbounds i8, ptr %1238, i64 8
-  %1245 = load i32, ptr %1244, align 8
-  %1246 = udiv i32 %1243, %1245
-  %.1921 = call i32 @llvm.smax.i32(i32 %1246, i32 %.09201329)
+1236:                                             ; preds = %.lr.ph1331, %1236
+  %indvars.iv1518 = phi i64 [ 0, %.lr.ph1331 ], [ %indvars.iv.next1519, %1236 ]
+  %.09201329 = phi i32 [ 0, %.lr.ph1331 ], [ %.1921, %1236 ]
+  %1237 = getelementptr inbounds %struct.Residue, ptr %1234, i64 %indvars.iv1518
+  %1238 = load i32, ptr %1237, align 8
+  %.1074 = call i32 @llvm.umin.i32(i32 %1238, i32 %1235)
+  %1239 = getelementptr inbounds i8, ptr %1237, i64 4
+  %1240 = load i32, ptr %1239, align 4
+  %1241 = call i32 @llvm.umin.i32(i32 %1240, i32 %1235)
+  %1242 = sub i32 %1241, %.1074
+  %1243 = getelementptr inbounds i8, ptr %1237, i64 8
+  %1244 = load i32, ptr %1243, align 8
+  %1245 = udiv i32 %1242, %1244
+  %.1921 = call i32 @llvm.smax.i32(i32 %1245, i32 %.09201329)
   %indvars.iv.next1519 = add nuw nsw i64 %indvars.iv1518, 1
   %exitcond1522.not = icmp eq i64 %indvars.iv.next1519, %wide.trip.count1521
-  br i1 %exitcond1522.not, label %._crit_edge1332.loopexit, label %1237
+  br i1 %exitcond1522.not, label %._crit_edge1332.loopexit, label %1236
 
-._crit_edge1332.loopexit:                         ; preds = %1237
-  %1247 = shl i32 %.1921, 3
-  %1248 = add i32 %1247, 8
+._crit_edge1332.loopexit:                         ; preds = %1236
+  %1246 = shl i32 %.1921, 3
+  %1247 = add i32 %1246, 8
   br label %._crit_edge1332
 
 ._crit_edge1332:                                  ; preds = %._crit_edge1332.loopexit, %1227
-  %.0920.lcssa = phi i32 [ 8, %1227 ], [ %1248, %._crit_edge1332.loopexit ]
-  %1249 = load i32, ptr %70, align 4
-  %1250 = mul i32 %1249, %.0920.lcssa
-  %1251 = getelementptr inbounds i8, ptr %0, i64 12
-  %spec.select1075 = call i32 @llvm.umax.i32(i32 %1232, i32 %1250)
-  store i32 %spec.select1075, ptr %1251, align 4
-  %1252 = getelementptr inbounds i8, ptr %0, i64 128
-  %1253 = load ptr, ptr %1252, align 8
-  %.not1020 = icmp eq ptr %1253, null
-  br i1 %.not1020, label %1267, label %1254
+  %.0920.lcssa = phi i32 [ 8, %1227 ], [ %1247, %._crit_edge1332.loopexit ]
+  %1248 = load i32, ptr %70, align 4
+  %1249 = mul i32 %1248, %.0920.lcssa
+  %1250 = getelementptr inbounds i8, ptr %0, i64 12
+  %spec.select1075 = call i32 @llvm.umax.i32(i32 %1231, i32 %1249)
+  store i32 %spec.select1075, ptr %1250, align 4
+  %1251 = getelementptr inbounds i8, ptr %0, i64 128
+  %1252 = load ptr, ptr %1251, align 8
+  %.not1020 = icmp eq ptr %1252, null
+  br i1 %.not1020, label %1266, label %1253
 
-1254:                                             ; preds = %._crit_edge1332
-  %1255 = getelementptr inbounds i8, ptr %0, i64 144
-  %1256 = load i32, ptr %1255, align 8
-  %1257 = sext i32 %1256 to i64
-  %1258 = zext i32 %spec.select1075 to i64
-  %1259 = add nuw nsw i64 %1258, 1904
-  %1260 = add nsw i64 %1259, %1257
-  %1261 = getelementptr inbounds i8, ptr %0, i64 148
-  %1262 = load i32, ptr %1261, align 4
-  %1263 = zext i32 %1262 to i64
-  %1264 = icmp ugt i64 %1260, %1263
-  br i1 %1264, label %1265, label %1267
+1253:                                             ; preds = %._crit_edge1332
+  %1254 = getelementptr inbounds i8, ptr %0, i64 144
+  %1255 = load i32, ptr %1254, align 8
+  %1256 = sext i32 %1255 to i64
+  %1257 = zext i32 %spec.select1075 to i64
+  %1258 = add nuw nsw i64 %1257, 1904
+  %1259 = add nsw i64 %1258, %1256
+  %1260 = getelementptr inbounds i8, ptr %0, i64 148
+  %1261 = load i32, ptr %1260, align 4
+  %1262 = zext i32 %1261 to i64
+  %1263 = icmp ugt i64 %1259, %1262
+  br i1 %1263, label %1264, label %1266
 
-1265:                                             ; preds = %1254
-  %1266 = getelementptr inbounds i8, ptr %0, i64 156
-  store i32 3, ptr %1266, align 4
-  br label %1276
+1264:                                             ; preds = %1253
+  %1265 = getelementptr inbounds i8, ptr %0, i64 156
+  store i32 3, ptr %1265, align 4
+  br label %1275
 
-1267:                                             ; preds = %1254, %._crit_edge1332
-  %1268 = getelementptr inbounds i8, ptr %0, i64 1768
-  %1269 = load i32, ptr %1268, align 8
-  %1270 = icmp eq i32 %1269, -1
-  br i1 %1270, label %1271, label %1274
+1266:                                             ; preds = %1253, %._crit_edge1332
+  %1267 = getelementptr inbounds i8, ptr %0, i64 1768
+  %1268 = load i32, ptr %1267, align 8
+  %1269 = icmp eq i32 %1268, -1
+  br i1 %1269, label %1270, label %1273
 
-1271:                                             ; preds = %1267
-  %1272 = call i32 @stb_vorbis_get_file_offset(ptr noundef nonnull %0)
-  %1273 = getelementptr inbounds i8, ptr %0, i64 96
-  store i32 %1272, ptr %1273, align 8
-  br label %1276
+1270:                                             ; preds = %1266
+  %1271 = call i32 @stb_vorbis_get_file_offset(ptr noundef nonnull %0)
+  %1272 = getelementptr inbounds i8, ptr %0, i64 96
+  store i32 %1271, ptr %1272, align 8
+  br label %1275
 
-1274:                                             ; preds = %1267
-  %1275 = getelementptr inbounds i8, ptr %0, i64 96
-  store i32 0, ptr %1275, align 8
-  br label %1276
+1273:                                             ; preds = %1266
+  %1274 = getelementptr inbounds i8, ptr %0, i64 96
+  store i32 0, ptr %1274, align 8
+  br label %1275
 
-1276:                                             ; preds = %1271, %1274, %1224, %._crit_edge1327, %193, %197, %._crit_edge1211, %113, %111, %109, %1, %1265, %1213, %1186, %1181, %1177, %1149, %1144, %1119, %1100, %1096, %1092, %1086, %1061, %1043, %1035, %1024, %992, %963, %945, %926, %907, %891, %883, %866, %821, %758, %743, %._crit_edge1337, %677, %669, %657, %setup_temp_free.exit1093, %setup_temp_free.exit1091, %setup_temp_free.exit1089, %setup_temp_free.exit1087, %508, %500, %492, %468, %429, %420, %setup_temp_free.exit1079, %392, %386, %379, %374, %349, %328, %310, %304, %290, %280, %251, %246, %241, %225, %215, %209, %180, %164, %150, %133, %124, %118, %107, %102, %98, %94, %79, %75, %71, %65, %61, %58, %54, %50, %48, %25, %20, %16, %12
-  %.0 = phi i32 [ 0, %16 ], [ 0, %20 ], [ 0, %25 ], [ 0, %48 ], [ 0, %50 ], [ 0, %54 ], [ 0, %65 ], [ 0, %75 ], [ 0, %94 ], [ 0, %98 ], [ 0, %102 ], [ 0, %118 ], [ 0, %133 ], [ 0, %150 ], [ 0, %164 ], [ 0, %209 ], [ 0, %225 ], [ 0, %241 ], [ 0, %246 ], [ 0, %251 ], [ 0, %280 ], [ 0, %304 ], [ 0, %310 ], [ 0, %349 ], [ 0, %420 ], [ 0, %429 ], [ 0, %468 ], [ 0, %492 ], [ 0, %500 ], [ 0, %508 ], [ 0, %setup_temp_free.exit1087 ], [ 0, %setup_temp_free.exit1089 ], [ 0, %setup_temp_free.exit1091 ], [ 0, %setup_temp_free.exit1093 ], [ 0, %setup_temp_free.exit1079 ], [ 0, %392 ], [ 0, %386 ], [ 0, %379 ], [ 0, %374 ], [ 0, %328 ], [ 0, %290 ], [ 0, %657 ], [ 0, %669 ], [ 0, %677 ], [ 0, %._crit_edge1337 ], [ 0, %743 ], [ 0, %758 ], [ 0, %821 ], [ 0, %866 ], [ 0, %883 ], [ 0, %891 ], [ 0, %907 ], [ 0, %926 ], [ 0, %945 ], [ 0, %992 ], [ 0, %963 ], [ 0, %1024 ], [ 0, %1035 ], [ 0, %1043 ], [ 0, %1061 ], [ 0, %1086 ], [ 0, %1092 ], [ 0, %1096 ], [ 0, %1100 ], [ 0, %1119 ], [ 0, %1144 ], [ 0, %1149 ], [ 0, %1177 ], [ 0, %1181 ], [ 0, %1186 ], [ 0, %1213 ], [ 0, %1265 ], [ 0, %215 ], [ 0, %180 ], [ 0, %124 ], [ 0, %107 ], [ 0, %79 ], [ 0, %71 ], [ 0, %61 ], [ 0, %58 ], [ 0, %12 ], [ 0, %1 ], [ 0, %109 ], [ 0, %111 ], [ 0, %113 ], [ 0, %._crit_edge1211 ], [ 0, %197 ], [ 0, %193 ], [ 0, %._crit_edge1327 ], [ 0, %1224 ], [ 1, %1274 ], [ 1, %1271 ]
+1275:                                             ; preds = %1270, %1273, %1224, %._crit_edge1327, %193, %197, %._crit_edge1211, %113, %111, %109, %1, %1264, %1213, %1186, %1181, %1177, %1149, %1144, %1119, %1100, %1096, %1092, %1086, %1061, %1043, %1035, %1024, %992, %963, %945, %926, %907, %891, %883, %866, %821, %758, %743, %._crit_edge1337, %677, %669, %657, %setup_temp_free.exit1093, %setup_temp_free.exit1091, %setup_temp_free.exit1089, %setup_temp_free.exit1087, %508, %500, %492, %468, %429, %420, %setup_temp_free.exit1079, %392, %386, %379, %374, %349, %328, %310, %304, %290, %280, %251, %246, %241, %225, %215, %209, %180, %164, %150, %133, %124, %118, %107, %102, %98, %94, %79, %75, %71, %65, %61, %58, %54, %50, %48, %25, %20, %16, %12
+  %.0 = phi i32 [ 0, %16 ], [ 0, %20 ], [ 0, %25 ], [ 0, %48 ], [ 0, %50 ], [ 0, %54 ], [ 0, %65 ], [ 0, %75 ], [ 0, %94 ], [ 0, %98 ], [ 0, %102 ], [ 0, %118 ], [ 0, %133 ], [ 0, %150 ], [ 0, %164 ], [ 0, %209 ], [ 0, %225 ], [ 0, %241 ], [ 0, %246 ], [ 0, %251 ], [ 0, %280 ], [ 0, %304 ], [ 0, %310 ], [ 0, %349 ], [ 0, %420 ], [ 0, %429 ], [ 0, %468 ], [ 0, %492 ], [ 0, %500 ], [ 0, %508 ], [ 0, %setup_temp_free.exit1087 ], [ 0, %setup_temp_free.exit1089 ], [ 0, %setup_temp_free.exit1091 ], [ 0, %setup_temp_free.exit1093 ], [ 0, %setup_temp_free.exit1079 ], [ 0, %392 ], [ 0, %386 ], [ 0, %379 ], [ 0, %374 ], [ 0, %328 ], [ 0, %290 ], [ 0, %657 ], [ 0, %669 ], [ 0, %677 ], [ 0, %._crit_edge1337 ], [ 0, %743 ], [ 0, %758 ], [ 0, %821 ], [ 0, %866 ], [ 0, %883 ], [ 0, %891 ], [ 0, %907 ], [ 0, %926 ], [ 0, %945 ], [ 0, %992 ], [ 0, %963 ], [ 0, %1024 ], [ 0, %1035 ], [ 0, %1043 ], [ 0, %1061 ], [ 0, %1086 ], [ 0, %1092 ], [ 0, %1096 ], [ 0, %1100 ], [ 0, %1119 ], [ 0, %1144 ], [ 0, %1149 ], [ 0, %1177 ], [ 0, %1181 ], [ 0, %1186 ], [ 0, %1213 ], [ 0, %1264 ], [ 0, %215 ], [ 0, %180 ], [ 0, %124 ], [ 0, %107 ], [ 0, %79 ], [ 0, %71 ], [ 0, %61 ], [ 0, %58 ], [ 0, %12 ], [ 0, %1 ], [ 0, %109 ], [ 0, %111 ], [ 0, %113 ], [ 0, %._crit_edge1211 ], [ 0, %197 ], [ 0, %193 ], [ 0, %._crit_edge1327 ], [ 0, %1224 ], [ 1, %1273 ], [ 1, %1270 ]
   ret i32 %.0
 }
 
@@ -81290,64 +81226,62 @@ define hidden range(i32 0, 2) i32 @drmp3_init(ptr noundef %0, ptr noundef %1, pt
   store ptr @drmp3__realloc_default, ptr %.sroa.4.0..sroa_idx30.i, align 8
   %.sroa.5.0..sroa_idx31.i = getelementptr inbounds i8, ptr %0, i64 6728
   store ptr @drmp3__free_default, ptr %.sroa.5.0..sroa_idx31.i, align 8
-  br label %17
+  br label %18
 
 drmp3_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %8
-  %.sroa.0.0.copyload20.i = load ptr, ptr %4, align 8
   %.sroa.3.0..sroa_idx21.i = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.3.0.copyload22.i = load ptr, ptr %.sroa.3.0..sroa_idx21.i, align 8
   %.sroa.4.0..sroa_idx23.i = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.4.0.copyload24.i = load ptr, ptr %.sroa.4.0..sroa_idx23.i, align 8
   %.sroa.5.0..sroa_idx25.i = getelementptr inbounds i8, ptr %4, i64 24
   %.sroa.5.0.copyload26.i = load ptr, ptr %.sroa.5.0..sroa_idx25.i, align 8
-  store ptr %.sroa.0.0.copyload20.i, ptr %12, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 6712
-  store ptr %.sroa.3.0.copyload22.i, ptr %.sroa.3.0..sroa_idx.i, align 8
+  %.sroa.3.0.copyload22.i = load ptr, ptr %.sroa.3.0..sroa_idx21.i, align 8
+  %13 = load <2 x ptr>, ptr %4, align 8
+  store <2 x ptr> %13, ptr %12, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 6720
   store ptr %.sroa.4.0.copyload24.i, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 6728
   store ptr %.sroa.5.0.copyload26.i, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %13 = icmp eq ptr %.sroa.5.0.copyload26.i, null
-  br i1 %13, label %drmp3_init_internal.exit, label %14
+  %14 = icmp eq ptr %.sroa.5.0.copyload26.i, null
+  br i1 %14, label %drmp3_init_internal.exit, label %15
 
-14:                                               ; preds = %drmp3_copy_allocation_callbacks_or_defaults.exit.i
-  %15 = icmp eq ptr %.sroa.3.0.copyload22.i, null
-  %16 = icmp eq ptr %.sroa.4.0.copyload24.i, null
-  %or.cond.i = select i1 %15, i1 %16, i1 false
-  br i1 %or.cond.i, label %drmp3_init_internal.exit, label %17
+15:                                               ; preds = %drmp3_copy_allocation_callbacks_or_defaults.exit.i
+  %16 = icmp eq ptr %.sroa.3.0.copyload22.i, null
+  %17 = icmp eq ptr %.sroa.4.0.copyload24.i, null
+  %or.cond.i = select i1 %16, i1 %17, i1 false
+  br i1 %or.cond.i, label %drmp3_init_internal.exit, label %18
 
-17:                                               ; preds = %14, %.thread.i
-  %.sroa.5.0..sroa_idx3234.i = phi ptr [ %.sroa.5.0..sroa_idx31.i, %.thread.i ], [ %.sroa.5.0..sroa_idx.i, %14 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 6752
-  %19 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %18)
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %29
+18:                                               ; preds = %15, %.thread.i
+  %.sroa.5.0..sroa_idx3234.i = phi ptr [ %.sroa.5.0..sroa_idx31.i, %.thread.i ], [ %.sroa.5.0..sroa_idx.i, %15 ]
+  %19 = getelementptr inbounds i8, ptr %0, i64 6752
+  %20 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %19)
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %30
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 16024
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %drmp3_init_internal.exit, label %25
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds i8, ptr %0, i64 16024
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %drmp3_init_internal.exit, label %26
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %.sroa.5.0..sroa_idx3234.i, align 8
-  %.not.i19.i = icmp eq ptr %26, null
-  br i1 %.not.i19.i, label %drmp3_init_internal.exit, label %27
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %.sroa.5.0..sroa_idx3234.i, align 8
+  %.not.i19.i = icmp eq ptr %27, null
+  br i1 %.not.i19.i, label %drmp3_init_internal.exit, label %28
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %12, align 8
-  tail call void %26(ptr noundef nonnull %23, ptr noundef %28) #66
+28:                                               ; preds = %26
+  %29 = load ptr, ptr %12, align 8
+  tail call void %27(ptr noundef nonnull %24, ptr noundef %29) #66
   br label %drmp3_init_internal.exit
 
-29:                                               ; preds = %17
-  %30 = getelementptr inbounds i8, ptr %0, i64 6736
-  %31 = getelementptr inbounds i8, ptr %0, i64 6668
-  %32 = load <2 x i32>, ptr %30, align 8
-  store <2 x i32> %32, ptr %31, align 4
+30:                                               ; preds = %18
+  %31 = getelementptr inbounds i8, ptr %0, i64 6736
+  %32 = getelementptr inbounds i8, ptr %0, i64 6668
+  %33 = load <2 x i32>, ptr %31, align 8
+  store <2 x i32> %33, ptr %32, align 4
   br label %drmp3_init_internal.exit
 
-drmp3_init_internal.exit:                         ; preds = %29, %27, %25, %21, %14, %drmp3_copy_allocation_callbacks_or_defaults.exit.i, %5
-  %.0 = phi i32 [ 0, %5 ], [ 1, %29 ], [ 0, %drmp3_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %21 ], [ 0, %25 ], [ 0, %27 ], [ 0, %14 ]
+drmp3_init_internal.exit:                         ; preds = %30, %28, %26, %22, %15, %drmp3_copy_allocation_callbacks_or_defaults.exit.i, %5
+  %.0 = phi i32 [ 0, %5 ], [ 1, %30 ], [ 0, %drmp3_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %22 ], [ 0, %26 ], [ 0, %28 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -81387,64 +81321,62 @@ define hidden range(i32 0, 2) i32 @drmp3_init_memory(ptr noundef %0, ptr noundef
   store ptr @drmp3__realloc_default, ptr %.sroa.4.0..sroa_idx30.i, align 8
   %.sroa.5.0..sroa_idx31.i = getelementptr inbounds i8, ptr %0, i64 6728
   store ptr @drmp3__free_default, ptr %.sroa.5.0..sroa_idx31.i, align 8
-  br label %21
+  br label %22
 
 drmp3_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %9
-  %.sroa.0.0.copyload20.i = load ptr, ptr %3, align 8
   %.sroa.3.0..sroa_idx21.i = getelementptr inbounds i8, ptr %3, i64 8
-  %.sroa.3.0.copyload22.i = load ptr, ptr %.sroa.3.0..sroa_idx21.i, align 8
   %.sroa.4.0..sroa_idx23.i = getelementptr inbounds i8, ptr %3, i64 16
   %.sroa.4.0.copyload24.i = load ptr, ptr %.sroa.4.0..sroa_idx23.i, align 8
   %.sroa.5.0..sroa_idx25.i = getelementptr inbounds i8, ptr %3, i64 24
   %.sroa.5.0.copyload26.i = load ptr, ptr %.sroa.5.0..sroa_idx25.i, align 8
-  store ptr %.sroa.0.0.copyload20.i, ptr %16, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 6712
-  store ptr %.sroa.3.0.copyload22.i, ptr %.sroa.3.0..sroa_idx.i, align 8
+  %.sroa.3.0.copyload22.i = load ptr, ptr %.sroa.3.0..sroa_idx21.i, align 8
+  %17 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %17, ptr %16, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 6720
   store ptr %.sroa.4.0.copyload24.i, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 6728
   store ptr %.sroa.5.0.copyload26.i, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %17 = icmp eq ptr %.sroa.5.0.copyload26.i, null
-  br i1 %17, label %drmp3_init_internal.exit, label %18
+  %18 = icmp eq ptr %.sroa.5.0.copyload26.i, null
+  br i1 %18, label %drmp3_init_internal.exit, label %19
 
-18:                                               ; preds = %drmp3_copy_allocation_callbacks_or_defaults.exit.i
-  %19 = icmp eq ptr %.sroa.3.0.copyload22.i, null
-  %20 = icmp eq ptr %.sroa.4.0.copyload24.i, null
-  %or.cond.i = select i1 %19, i1 %20, i1 false
-  br i1 %or.cond.i, label %drmp3_init_internal.exit, label %21
+19:                                               ; preds = %drmp3_copy_allocation_callbacks_or_defaults.exit.i
+  %20 = icmp eq ptr %.sroa.3.0.copyload22.i, null
+  %21 = icmp eq ptr %.sroa.4.0.copyload24.i, null
+  %or.cond.i = select i1 %20, i1 %21, i1 false
+  br i1 %or.cond.i, label %drmp3_init_internal.exit, label %22
 
-21:                                               ; preds = %18, %.thread.i
-  %.sroa.5.0..sroa_idx3234.i = phi ptr [ %.sroa.5.0..sroa_idx31.i, %.thread.i ], [ %.sroa.5.0..sroa_idx.i, %18 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 6752
-  %23 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %22)
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %33
+22:                                               ; preds = %19, %.thread.i
+  %.sroa.5.0..sroa_idx3234.i = phi ptr [ %.sroa.5.0..sroa_idx31.i, %.thread.i ], [ %.sroa.5.0..sroa_idx.i, %19 ]
+  %23 = getelementptr inbounds i8, ptr %0, i64 6752
+  %24 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %23)
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %34
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 16024
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %drmp3_init_internal.exit, label %29
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %0, i64 16024
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %drmp3_init_internal.exit, label %30
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %.sroa.5.0..sroa_idx3234.i, align 8
-  %.not.i19.i = icmp eq ptr %30, null
-  br i1 %.not.i19.i, label %drmp3_init_internal.exit, label %31
+30:                                               ; preds = %26
+  %31 = load ptr, ptr %.sroa.5.0..sroa_idx3234.i, align 8
+  %.not.i19.i = icmp eq ptr %31, null
+  br i1 %.not.i19.i, label %drmp3_init_internal.exit, label %32
 
-31:                                               ; preds = %29
-  %32 = load ptr, ptr %16, align 8
-  tail call void %30(ptr noundef nonnull %27, ptr noundef %32) #66
+32:                                               ; preds = %30
+  %33 = load ptr, ptr %16, align 8
+  tail call void %31(ptr noundef nonnull %28, ptr noundef %33) #66
   br label %drmp3_init_internal.exit
 
-33:                                               ; preds = %21
-  %34 = getelementptr inbounds i8, ptr %0, i64 6736
-  %35 = getelementptr inbounds i8, ptr %0, i64 6668
-  %36 = load <2 x i32>, ptr %34, align 8
-  store <2 x i32> %36, ptr %35, align 4
+34:                                               ; preds = %22
+  %35 = getelementptr inbounds i8, ptr %0, i64 6736
+  %36 = getelementptr inbounds i8, ptr %0, i64 6668
+  %37 = load <2 x i32>, ptr %35, align 8
+  store <2 x i32> %37, ptr %36, align 4
   br label %drmp3_init_internal.exit
 
-drmp3_init_internal.exit:                         ; preds = %33, %31, %29, %25, %18, %drmp3_copy_allocation_callbacks_or_defaults.exit.i, %6, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ 1, %33 ], [ 0, %drmp3_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %25 ], [ 0, %29 ], [ 0, %31 ], [ 0, %18 ]
+drmp3_init_internal.exit:                         ; preds = %34, %32, %30, %26, %19, %drmp3_copy_allocation_callbacks_or_defaults.exit.i, %6, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %6 ], [ 1, %34 ], [ 0, %drmp3_copy_allocation_callbacks_or_defaults.exit.i ], [ 0, %26 ], [ 0, %30 ], [ 0, %32 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -81550,7 +81482,7 @@ define hidden range(i32 0, 2) i32 @drmp3_init_file(ptr noundef %0, ptr noundef r
 
 drmp3_fopen.exit:                                 ; preds = %5
   %8 = icmp eq ptr %0, null
-  br i1 %8, label %33, label %9
+  br i1 %8, label %34, label %9
 
 9:                                                ; preds = %drmp3_fopen.exit
   %10 = getelementptr inbounds i8, ptr %0, i64 6680
@@ -81571,68 +81503,66 @@ drmp3_fopen.exit:                                 ; preds = %5
   store ptr @drmp3__realloc_default, ptr %.sroa.4.0..sroa_idx30.i.i, align 8
   %.sroa.5.0..sroa_idx31.i.i = getelementptr inbounds i8, ptr %0, i64 6728
   store ptr @drmp3__free_default, ptr %.sroa.5.0..sroa_idx31.i.i, align 8
-  br label %18
+  br label %19
 
 drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
-  %.sroa.0.0.copyload20.i.i = load ptr, ptr %2, align 8
   %.sroa.3.0..sroa_idx21.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %.sroa.3.0.copyload22.i.i = load ptr, ptr %.sroa.3.0..sroa_idx21.i.i, align 8
   %.sroa.4.0..sroa_idx23.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.4.0.copyload24.i.i = load ptr, ptr %.sroa.4.0..sroa_idx23.i.i, align 8
   %.sroa.5.0..sroa_idx25.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %.sroa.5.0.copyload26.i.i = load ptr, ptr %.sroa.5.0..sroa_idx25.i.i, align 8
-  store ptr %.sroa.0.0.copyload20.i.i, ptr %13, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 6712
-  store ptr %.sroa.3.0.copyload22.i.i, ptr %.sroa.3.0..sroa_idx.i.i, align 8
+  %.sroa.3.0.copyload22.i.i = load ptr, ptr %.sroa.3.0..sroa_idx21.i.i, align 8
+  %14 = load <2 x ptr>, ptr %2, align 8
+  store <2 x ptr> %14, ptr %13, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 6720
   store ptr %.sroa.4.0.copyload24.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 6728
   store ptr %.sroa.5.0.copyload26.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8
-  %14 = icmp eq ptr %.sroa.5.0.copyload26.i.i, null
-  br i1 %14, label %33, label %15
+  %15 = icmp eq ptr %.sroa.5.0.copyload26.i.i, null
+  br i1 %15, label %34, label %16
 
-15:                                               ; preds = %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i
-  %16 = icmp eq ptr %.sroa.3.0.copyload22.i.i, null
-  %17 = icmp eq ptr %.sroa.4.0.copyload24.i.i, null
-  %or.cond.i.i = select i1 %16, i1 %17, i1 false
-  br i1 %or.cond.i.i, label %33, label %18
+16:                                               ; preds = %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i
+  %17 = icmp eq ptr %.sroa.3.0.copyload22.i.i, null
+  %18 = icmp eq ptr %.sroa.4.0.copyload24.i.i, null
+  %or.cond.i.i = select i1 %17, i1 %18, i1 false
+  br i1 %or.cond.i.i, label %34, label %19
 
-18:                                               ; preds = %15, %.thread.i.i
-  %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %15 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 6752
-  %20 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %19)
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %drmp3_init.exit
+19:                                               ; preds = %16, %.thread.i.i
+  %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %16 ]
+  %20 = getelementptr inbounds i8, ptr %0, i64 6752
+  %21 = tail call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %20)
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %drmp3_init.exit
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 16024
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %33, label %26
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds i8, ptr %0, i64 16024
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %34, label %27
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %.sroa.5.0..sroa_idx3234.i.i, align 8
-  %.not.i19.i.i = icmp eq ptr %27, null
-  br i1 %.not.i19.i.i, label %33, label %28
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %.sroa.5.0..sroa_idx3234.i.i, align 8
+  %.not.i19.i.i = icmp eq ptr %28, null
+  br i1 %.not.i19.i.i, label %34, label %29
 
-28:                                               ; preds = %26
-  %29 = load ptr, ptr %13, align 8
-  tail call void %27(ptr noundef nonnull %24, ptr noundef %29) #66
-  br label %33
+29:                                               ; preds = %27
+  %30 = load ptr, ptr %13, align 8
+  tail call void %28(ptr noundef nonnull %25, ptr noundef %30) #66
+  br label %34
 
-drmp3_init.exit:                                  ; preds = %18
-  %30 = getelementptr inbounds i8, ptr %0, i64 6736
-  %31 = getelementptr inbounds i8, ptr %0, i64 6668
-  %32 = load <2 x i32>, ptr %30, align 8
-  store <2 x i32> %32, ptr %31, align 4
+drmp3_init.exit:                                  ; preds = %19
+  %31 = getelementptr inbounds i8, ptr %0, i64 6736
+  %32 = getelementptr inbounds i8, ptr %0, i64 6668
+  %33 = load <2 x i32>, ptr %31, align 8
+  store <2 x i32> %33, ptr %32, align 4
   br label %drmp3_fopen.exit.thread
 
-33:                                               ; preds = %drmp3_fopen.exit, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i, %22, %26, %28, %15
-  %34 = tail call i32 @fclose(ptr noundef nonnull %6)
+34:                                               ; preds = %drmp3_fopen.exit, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i, %23, %27, %29, %16
+  %35 = tail call i32 @fclose(ptr noundef nonnull %6)
   br label %drmp3_fopen.exit.thread
 
-drmp3_fopen.exit.thread:                          ; preds = %5, %3, %drmp3_init.exit, %33
-  %.0 = phi i32 [ 0, %33 ], [ 1, %drmp3_init.exit ], [ 0, %3 ], [ 0, %5 ]
+drmp3_fopen.exit.thread:                          ; preds = %5, %3, %drmp3_init.exit, %34
+  %.0 = phi i32 [ 0, %34 ], [ 1, %drmp3_init.exit ], [ 0, %3 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -81752,19 +81682,19 @@ drmp3_wfopen.exit.thread:                         ; preds = %11, %3, %drmp3__mal
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br label %74
+  br label %75
 
 drmp3_wfopen.exit:                                ; preds = %32, %37
   %.not = icmp eq ptr %34, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br i1 %.not, label %74, label %46
+  br i1 %.not, label %75, label %46
 
 46:                                               ; preds = %drmp3_wfopen.exit.thread13, %drmp3_wfopen.exit
   %.0917 = phi ptr [ null, %drmp3_wfopen.exit.thread13 ], [ %34, %drmp3_wfopen.exit ]
   %47 = icmp eq ptr %0, null
-  br i1 %47, label %72, label %48
+  br i1 %47, label %73, label %48
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds i8, ptr %0, i64 6680
@@ -81785,68 +81715,66 @@ drmp3_wfopen.exit:                                ; preds = %32, %37
   store ptr @drmp3__realloc_default, ptr %.sroa.4.0..sroa_idx30.i.i, align 8
   %.sroa.5.0..sroa_idx31.i.i = getelementptr inbounds i8, ptr %0, i64 6728
   store ptr @drmp3__free_default, ptr %.sroa.5.0..sroa_idx31.i.i, align 8
-  br label %57
+  br label %58
 
 drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %48
-  %.sroa.0.0.copyload20.i.i = load ptr, ptr %2, align 8
   %.sroa.3.0..sroa_idx21.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %.sroa.3.0.copyload22.i.i = load ptr, ptr %.sroa.3.0..sroa_idx21.i.i, align 8
   %.sroa.4.0..sroa_idx23.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.4.0.copyload24.i.i = load ptr, ptr %.sroa.4.0..sroa_idx23.i.i, align 8
   %.sroa.5.0..sroa_idx25.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %.sroa.5.0.copyload26.i.i = load ptr, ptr %.sroa.5.0..sroa_idx25.i.i, align 8
-  store ptr %.sroa.0.0.copyload20.i.i, ptr %52, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 6712
-  store ptr %.sroa.3.0.copyload22.i.i, ptr %.sroa.3.0..sroa_idx.i.i, align 8
+  %.sroa.3.0.copyload22.i.i = load ptr, ptr %.sroa.3.0..sroa_idx21.i.i, align 8
+  %53 = load <2 x ptr>, ptr %2, align 8
+  store <2 x ptr> %53, ptr %52, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 6720
   store ptr %.sroa.4.0.copyload24.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 6728
   store ptr %.sroa.5.0.copyload26.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8
-  %53 = icmp eq ptr %.sroa.5.0.copyload26.i.i, null
-  br i1 %53, label %72, label %54
+  %54 = icmp eq ptr %.sroa.5.0.copyload26.i.i, null
+  br i1 %54, label %73, label %55
 
-54:                                               ; preds = %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i
-  %55 = icmp eq ptr %.sroa.3.0.copyload22.i.i, null
-  %56 = icmp eq ptr %.sroa.4.0.copyload24.i.i, null
-  %or.cond.i.i = select i1 %55, i1 %56, i1 false
-  br i1 %or.cond.i.i, label %72, label %57
+55:                                               ; preds = %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i
+  %56 = icmp eq ptr %.sroa.3.0.copyload22.i.i, null
+  %57 = icmp eq ptr %.sroa.4.0.copyload24.i.i, null
+  %or.cond.i.i = select i1 %56, i1 %57, i1 false
+  br i1 %or.cond.i.i, label %73, label %58
 
-57:                                               ; preds = %54, %.thread.i.i
-  %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %54 ]
-  %58 = getelementptr inbounds i8, ptr %0, i64 6752
-  %59 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %58)
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %drmp3_init.exit
+58:                                               ; preds = %55, %.thread.i.i
+  %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %55 ]
+  %59 = getelementptr inbounds i8, ptr %0, i64 6752
+  %60 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %0, ptr noundef nonnull %59)
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %62, label %drmp3_init.exit
 
-61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %0, i64 16024
-  %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %72, label %65
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds i8, ptr %0, i64 16024
+  %64 = load ptr, ptr %63, align 8
+  %65 = icmp eq ptr %64, null
+  br i1 %65, label %73, label %66
 
-65:                                               ; preds = %61
-  %66 = load ptr, ptr %.sroa.5.0..sroa_idx3234.i.i, align 8
-  %.not.i19.i.i = icmp eq ptr %66, null
-  br i1 %.not.i19.i.i, label %72, label %67
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %.sroa.5.0..sroa_idx3234.i.i, align 8
+  %.not.i19.i.i = icmp eq ptr %67, null
+  br i1 %.not.i19.i.i, label %73, label %68
 
-67:                                               ; preds = %65
-  %68 = load ptr, ptr %52, align 8
-  call void %66(ptr noundef nonnull %63, ptr noundef %68) #66
-  br label %72
+68:                                               ; preds = %66
+  %69 = load ptr, ptr %52, align 8
+  call void %67(ptr noundef nonnull %64, ptr noundef %69) #66
+  br label %73
 
-drmp3_init.exit:                                  ; preds = %57
-  %69 = getelementptr inbounds i8, ptr %0, i64 6736
-  %70 = getelementptr inbounds i8, ptr %0, i64 6668
-  %71 = load <2 x i32>, ptr %69, align 8
-  store <2 x i32> %71, ptr %70, align 4
-  br label %74
+drmp3_init.exit:                                  ; preds = %58
+  %70 = getelementptr inbounds i8, ptr %0, i64 6736
+  %71 = getelementptr inbounds i8, ptr %0, i64 6668
+  %72 = load <2 x i32>, ptr %70, align 8
+  store <2 x i32> %72, ptr %71, align 4
+  br label %75
 
-72:                                               ; preds = %46, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i, %61, %65, %67, %54
-  %73 = call i32 @fclose(ptr noundef %.0917)
-  br label %74
+73:                                               ; preds = %46, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i, %62, %66, %68, %55
+  %74 = call i32 @fclose(ptr noundef %.0917)
+  br label %75
 
-74:                                               ; preds = %drmp3_init.exit, %drmp3_wfopen.exit.thread, %drmp3_wfopen.exit, %72
-  %.0 = phi i32 [ 0, %72 ], [ 0, %drmp3_wfopen.exit ], [ 1, %drmp3_init.exit ], [ 0, %drmp3_wfopen.exit.thread ]
+75:                                               ; preds = %drmp3_init.exit, %drmp3_wfopen.exit.thread, %drmp3_wfopen.exit, %73
+  %.0 = phi i32 [ 0, %73 ], [ 0, %drmp3_wfopen.exit ], [ 1, %drmp3_init.exit ], [ 0, %drmp3_wfopen.exit.thread ]
   ret i32 %.0
 }
 
@@ -83150,65 +83078,63 @@ define hidden ptr @drmp3_open_and_read_pcm_frames_f32(ptr noundef %0, ptr nounde
   store ptr @drmp3__realloc_default, ptr %.sroa.4.0..sroa_idx30.i.i, align 8
   %.sroa.5.0..sroa_idx31.i.i = getelementptr inbounds i8, ptr %7, i64 6728
   store ptr @drmp3__free_default, ptr %.sroa.5.0..sroa_idx31.i.i, align 8
-  br label %18
+  br label %19
 
 drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
-  %.sroa.0.0.copyload20.i.i = load ptr, ptr %5, align 8
   %.sroa.3.0..sroa_idx21.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.3.0.copyload22.i.i = load ptr, ptr %.sroa.3.0..sroa_idx21.i.i, align 8
   %.sroa.4.0..sroa_idx23.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.4.0.copyload24.i.i = load ptr, ptr %.sroa.4.0..sroa_idx23.i.i, align 8
   %.sroa.5.0..sroa_idx25.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %.sroa.5.0.copyload26.i.i = load ptr, ptr %.sroa.5.0..sroa_idx25.i.i, align 8
-  store ptr %.sroa.0.0.copyload20.i.i, ptr %13, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 6712
-  store ptr %.sroa.3.0.copyload22.i.i, ptr %.sroa.3.0..sroa_idx.i.i, align 8
+  %.sroa.3.0.copyload22.i.i = load ptr, ptr %.sroa.3.0..sroa_idx21.i.i, align 8
+  %14 = load <2 x ptr>, ptr %5, align 8
+  store <2 x ptr> %14, ptr %13, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 6720
   store ptr %.sroa.4.0.copyload24.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 6728
   store ptr %.sroa.5.0.copyload26.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8
-  %14 = icmp eq ptr %.sroa.5.0.copyload26.i.i, null
-  br i1 %14, label %drmp3_init.exit.thread, label %15
+  %15 = icmp eq ptr %.sroa.5.0.copyload26.i.i, null
+  br i1 %15, label %drmp3_init.exit.thread, label %16
 
-15:                                               ; preds = %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i
-  %16 = icmp eq ptr %.sroa.3.0.copyload22.i.i, null
-  %17 = icmp eq ptr %.sroa.4.0.copyload24.i.i, null
-  %or.cond.i.i = select i1 %16, i1 %17, i1 false
-  br i1 %or.cond.i.i, label %drmp3_init.exit.thread, label %18
+16:                                               ; preds = %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i
+  %17 = icmp eq ptr %.sroa.3.0.copyload22.i.i, null
+  %18 = icmp eq ptr %.sroa.4.0.copyload24.i.i, null
+  %or.cond.i.i = select i1 %17, i1 %18, i1 false
+  br i1 %or.cond.i.i, label %drmp3_init.exit.thread, label %19
 
-18:                                               ; preds = %15, %.thread.i.i
-  %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %15 ]
-  %19 = getelementptr inbounds i8, ptr %7, i64 6752
-  %20 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %7, ptr noundef nonnull %19)
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %30
+19:                                               ; preds = %16, %.thread.i.i
+  %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %16 ]
+  %20 = getelementptr inbounds i8, ptr %7, i64 6752
+  %21 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %7, ptr noundef nonnull %20)
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %31
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %7, i64 16024
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %drmp3_init.exit.thread, label %26
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds i8, ptr %7, i64 16024
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %drmp3_init.exit.thread, label %27
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %.sroa.5.0..sroa_idx3234.i.i, align 8
-  %.not.i19.i.i = icmp eq ptr %27, null
-  br i1 %.not.i19.i.i, label %drmp3_init.exit.thread, label %28
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %.sroa.5.0..sroa_idx3234.i.i, align 8
+  %.not.i19.i.i = icmp eq ptr %28, null
+  br i1 %.not.i19.i.i, label %drmp3_init.exit.thread, label %29
 
-28:                                               ; preds = %26
-  %29 = load ptr, ptr %13, align 8
-  call void %27(ptr noundef nonnull %24, ptr noundef %29) #66
+29:                                               ; preds = %27
+  %30 = load ptr, ptr %13, align 8
+  call void %28(ptr noundef nonnull %25, ptr noundef %30) #66
   br label %drmp3_init.exit.thread
 
-30:                                               ; preds = %18
-  %31 = getelementptr inbounds i8, ptr %7, i64 6736
-  %32 = getelementptr inbounds i8, ptr %7, i64 6668
-  %33 = load <2 x i32>, ptr %31, align 8
-  store <2 x i32> %33, ptr %32, align 4
-  %34 = call fastcc ptr @drmp3__full_read_and_close_f32(ptr noundef nonnull %7, ptr noundef %3, ptr noundef %4)
+31:                                               ; preds = %19
+  %32 = getelementptr inbounds i8, ptr %7, i64 6736
+  %33 = getelementptr inbounds i8, ptr %7, i64 6668
+  %34 = load <2 x i32>, ptr %32, align 8
+  store <2 x i32> %34, ptr %33, align 4
+  %35 = call fastcc ptr @drmp3__full_read_and_close_f32(ptr noundef nonnull %7, ptr noundef %3, ptr noundef %4)
   br label %drmp3_init.exit.thread
 
-drmp3_init.exit.thread:                           ; preds = %15, %28, %26, %22, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i, %6, %30
-  %.0 = phi ptr [ %34, %30 ], [ null, %6 ], [ null, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ null, %22 ], [ null, %26 ], [ null, %28 ], [ null, %15 ]
+drmp3_init.exit.thread:                           ; preds = %16, %29, %27, %23, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i, %6, %31
+  %.0 = phi ptr [ %35, %31 ], [ null, %6 ], [ null, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ null, %23 ], [ null, %27 ], [ null, %29 ], [ null, %16 ]
   ret ptr %.0
 }
 
@@ -83396,65 +83322,63 @@ define hidden ptr @drmp3_open_and_read_pcm_frames_s16(ptr noundef %0, ptr nounde
   store ptr @drmp3__realloc_default, ptr %.sroa.4.0..sroa_idx30.i.i, align 8
   %.sroa.5.0..sroa_idx31.i.i = getelementptr inbounds i8, ptr %7, i64 6728
   store ptr @drmp3__free_default, ptr %.sroa.5.0..sroa_idx31.i.i, align 8
-  br label %18
+  br label %19
 
 drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
-  %.sroa.0.0.copyload20.i.i = load ptr, ptr %5, align 8
   %.sroa.3.0..sroa_idx21.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.3.0.copyload22.i.i = load ptr, ptr %.sroa.3.0..sroa_idx21.i.i, align 8
   %.sroa.4.0..sroa_idx23.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.4.0.copyload24.i.i = load ptr, ptr %.sroa.4.0..sroa_idx23.i.i, align 8
   %.sroa.5.0..sroa_idx25.i.i = getelementptr inbounds i8, ptr %5, i64 24
   %.sroa.5.0.copyload26.i.i = load ptr, ptr %.sroa.5.0..sroa_idx25.i.i, align 8
-  store ptr %.sroa.0.0.copyload20.i.i, ptr %13, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 6712
-  store ptr %.sroa.3.0.copyload22.i.i, ptr %.sroa.3.0..sroa_idx.i.i, align 8
+  %.sroa.3.0.copyload22.i.i = load ptr, ptr %.sroa.3.0..sroa_idx21.i.i, align 8
+  %14 = load <2 x ptr>, ptr %5, align 8
+  store <2 x ptr> %14, ptr %13, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 6720
   store ptr %.sroa.4.0.copyload24.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 6728
   store ptr %.sroa.5.0.copyload26.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8
-  %14 = icmp eq ptr %.sroa.5.0.copyload26.i.i, null
-  br i1 %14, label %drmp3_init.exit.thread, label %15
+  %15 = icmp eq ptr %.sroa.5.0.copyload26.i.i, null
+  br i1 %15, label %drmp3_init.exit.thread, label %16
 
-15:                                               ; preds = %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i
-  %16 = icmp eq ptr %.sroa.3.0.copyload22.i.i, null
-  %17 = icmp eq ptr %.sroa.4.0.copyload24.i.i, null
-  %or.cond.i.i = select i1 %16, i1 %17, i1 false
-  br i1 %or.cond.i.i, label %drmp3_init.exit.thread, label %18
+16:                                               ; preds = %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i
+  %17 = icmp eq ptr %.sroa.3.0.copyload22.i.i, null
+  %18 = icmp eq ptr %.sroa.4.0.copyload24.i.i, null
+  %or.cond.i.i = select i1 %17, i1 %18, i1 false
+  br i1 %or.cond.i.i, label %drmp3_init.exit.thread, label %19
 
-18:                                               ; preds = %15, %.thread.i.i
-  %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %15 ]
-  %19 = getelementptr inbounds i8, ptr %7, i64 6752
-  %20 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %7, ptr noundef nonnull %19)
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %30
+19:                                               ; preds = %16, %.thread.i.i
+  %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %16 ]
+  %20 = getelementptr inbounds i8, ptr %7, i64 6752
+  %21 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %7, ptr noundef nonnull %20)
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %31
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %7, i64 16024
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %drmp3_init.exit.thread, label %26
+23:                                               ; preds = %19
+  %24 = getelementptr inbounds i8, ptr %7, i64 16024
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %drmp3_init.exit.thread, label %27
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %.sroa.5.0..sroa_idx3234.i.i, align 8
-  %.not.i19.i.i = icmp eq ptr %27, null
-  br i1 %.not.i19.i.i, label %drmp3_init.exit.thread, label %28
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %.sroa.5.0..sroa_idx3234.i.i, align 8
+  %.not.i19.i.i = icmp eq ptr %28, null
+  br i1 %.not.i19.i.i, label %drmp3_init.exit.thread, label %29
 
-28:                                               ; preds = %26
-  %29 = load ptr, ptr %13, align 8
-  call void %27(ptr noundef nonnull %24, ptr noundef %29) #66
+29:                                               ; preds = %27
+  %30 = load ptr, ptr %13, align 8
+  call void %28(ptr noundef nonnull %25, ptr noundef %30) #66
   br label %drmp3_init.exit.thread
 
-30:                                               ; preds = %18
-  %31 = getelementptr inbounds i8, ptr %7, i64 6736
-  %32 = getelementptr inbounds i8, ptr %7, i64 6668
-  %33 = load <2 x i32>, ptr %31, align 8
-  store <2 x i32> %33, ptr %32, align 4
-  %34 = call fastcc ptr @drmp3__full_read_and_close_s16(ptr noundef nonnull %7, ptr noundef %3, ptr noundef %4)
+31:                                               ; preds = %19
+  %32 = getelementptr inbounds i8, ptr %7, i64 6736
+  %33 = getelementptr inbounds i8, ptr %7, i64 6668
+  %34 = load <2 x i32>, ptr %32, align 8
+  store <2 x i32> %34, ptr %33, align 4
+  %35 = call fastcc ptr @drmp3__full_read_and_close_s16(ptr noundef nonnull %7, ptr noundef %3, ptr noundef %4)
   br label %drmp3_init.exit.thread
 
-drmp3_init.exit.thread:                           ; preds = %15, %28, %26, %22, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i, %6, %30
-  %.0 = phi ptr [ %34, %30 ], [ null, %6 ], [ null, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ null, %22 ], [ null, %26 ], [ null, %28 ], [ null, %15 ]
+drmp3_init.exit.thread:                           ; preds = %16, %29, %27, %23, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i, %6, %31
+  %.0 = phi ptr [ %35, %31 ], [ null, %6 ], [ null, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ null, %23 ], [ null, %27 ], [ null, %29 ], [ null, %16 ]
   ret ptr %.0
 }
 
@@ -83697,65 +83621,63 @@ define hidden ptr @drmp3_open_memory_and_read_pcm_frames_f32(ptr noundef %0, i64
   store ptr @drmp3__realloc_default, ptr %.sroa.4.0..sroa_idx30.i.i, align 8
   %.sroa.5.0..sroa_idx31.i.i = getelementptr inbounds i8, ptr %6, i64 6728
   store ptr @drmp3__free_default, ptr %.sroa.5.0..sroa_idx31.i.i, align 8
-  br label %20
+  br label %21
 
 drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
-  %.sroa.0.0.copyload20.i.i = load ptr, ptr %4, align 8
   %.sroa.3.0..sroa_idx21.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.3.0.copyload22.i.i = load ptr, ptr %.sroa.3.0..sroa_idx21.i.i, align 8
   %.sroa.4.0..sroa_idx23.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.4.0.copyload24.i.i = load ptr, ptr %.sroa.4.0..sroa_idx23.i.i, align 8
   %.sroa.5.0..sroa_idx25.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %.sroa.5.0.copyload26.i.i = load ptr, ptr %.sroa.5.0..sroa_idx25.i.i, align 8
-  store ptr %.sroa.0.0.copyload20.i.i, ptr %15, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 6712
-  store ptr %.sroa.3.0.copyload22.i.i, ptr %.sroa.3.0..sroa_idx.i.i, align 8
+  %.sroa.3.0.copyload22.i.i = load ptr, ptr %.sroa.3.0..sroa_idx21.i.i, align 8
+  %16 = load <2 x ptr>, ptr %4, align 8
+  store <2 x ptr> %16, ptr %15, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 6720
   store ptr %.sroa.4.0.copyload24.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 6728
   store ptr %.sroa.5.0.copyload26.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8
-  %16 = icmp eq ptr %.sroa.5.0.copyload26.i.i, null
-  br i1 %16, label %drmp3_init_memory.exit.thread, label %17
+  %17 = icmp eq ptr %.sroa.5.0.copyload26.i.i, null
+  br i1 %17, label %drmp3_init_memory.exit.thread, label %18
 
-17:                                               ; preds = %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i
-  %18 = icmp eq ptr %.sroa.3.0.copyload22.i.i, null
-  %19 = icmp eq ptr %.sroa.4.0.copyload24.i.i, null
-  %or.cond.i.i = select i1 %18, i1 %19, i1 false
-  br i1 %or.cond.i.i, label %drmp3_init_memory.exit.thread, label %20
+18:                                               ; preds = %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i
+  %19 = icmp eq ptr %.sroa.3.0.copyload22.i.i, null
+  %20 = icmp eq ptr %.sroa.4.0.copyload24.i.i, null
+  %or.cond.i.i = select i1 %19, i1 %20, i1 false
+  br i1 %or.cond.i.i, label %drmp3_init_memory.exit.thread, label %21
 
-20:                                               ; preds = %17, %.thread.i.i
-  %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %17 ]
-  %21 = getelementptr inbounds i8, ptr %6, i64 6752
-  %22 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %6, ptr noundef nonnull %21)
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %32
+21:                                               ; preds = %18, %.thread.i.i
+  %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %18 ]
+  %22 = getelementptr inbounds i8, ptr %6, i64 6752
+  %23 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %6, ptr noundef nonnull %22)
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %33
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %6, i64 16024
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %drmp3_init_memory.exit.thread, label %28
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds i8, ptr %6, i64 16024
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %drmp3_init_memory.exit.thread, label %29
 
-28:                                               ; preds = %24
-  %29 = load ptr, ptr %.sroa.5.0..sroa_idx3234.i.i, align 8
-  %.not.i19.i.i = icmp eq ptr %29, null
-  br i1 %.not.i19.i.i, label %drmp3_init_memory.exit.thread, label %30
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %.sroa.5.0..sroa_idx3234.i.i, align 8
+  %.not.i19.i.i = icmp eq ptr %30, null
+  br i1 %.not.i19.i.i, label %drmp3_init_memory.exit.thread, label %31
 
-30:                                               ; preds = %28
-  %31 = load ptr, ptr %15, align 8
-  call void %29(ptr noundef nonnull %26, ptr noundef %31) #66
+31:                                               ; preds = %29
+  %32 = load ptr, ptr %15, align 8
+  call void %30(ptr noundef nonnull %27, ptr noundef %32) #66
   br label %drmp3_init_memory.exit.thread
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %6, i64 6736
-  %34 = getelementptr inbounds i8, ptr %6, i64 6668
-  %35 = load <2 x i32>, ptr %33, align 8
-  store <2 x i32> %35, ptr %34, align 4
-  %36 = call fastcc ptr @drmp3__full_read_and_close_f32(ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3)
+33:                                               ; preds = %21
+  %34 = getelementptr inbounds i8, ptr %6, i64 6736
+  %35 = getelementptr inbounds i8, ptr %6, i64 6668
+  %36 = load <2 x i32>, ptr %34, align 8
+  store <2 x i32> %36, ptr %35, align 4
+  %37 = call fastcc ptr @drmp3__full_read_and_close_f32(ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3)
   br label %drmp3_init_memory.exit.thread
 
-drmp3_init_memory.exit.thread:                    ; preds = %17, %30, %28, %24, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i, %5, %32
-  %.0 = phi ptr [ %36, %32 ], [ null, %5 ], [ null, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ null, %24 ], [ null, %28 ], [ null, %30 ], [ null, %17 ]
+drmp3_init_memory.exit.thread:                    ; preds = %18, %31, %29, %25, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i, %5, %33
+  %.0 = phi ptr [ %37, %33 ], [ null, %5 ], [ null, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ null, %25 ], [ null, %29 ], [ null, %31 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -83790,65 +83712,63 @@ define hidden ptr @drmp3_open_memory_and_read_pcm_frames_s16(ptr noundef %0, i64
   store ptr @drmp3__realloc_default, ptr %.sroa.4.0..sroa_idx30.i.i, align 8
   %.sroa.5.0..sroa_idx31.i.i = getelementptr inbounds i8, ptr %6, i64 6728
   store ptr @drmp3__free_default, ptr %.sroa.5.0..sroa_idx31.i.i, align 8
-  br label %20
+  br label %21
 
 drmp3_copy_allocation_callbacks_or_defaults.exit.i.i: ; preds = %9
-  %.sroa.0.0.copyload20.i.i = load ptr, ptr %4, align 8
   %.sroa.3.0..sroa_idx21.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.3.0.copyload22.i.i = load ptr, ptr %.sroa.3.0..sroa_idx21.i.i, align 8
   %.sroa.4.0..sroa_idx23.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.4.0.copyload24.i.i = load ptr, ptr %.sroa.4.0..sroa_idx23.i.i, align 8
   %.sroa.5.0..sroa_idx25.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %.sroa.5.0.copyload26.i.i = load ptr, ptr %.sroa.5.0..sroa_idx25.i.i, align 8
-  store ptr %.sroa.0.0.copyload20.i.i, ptr %15, align 8
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 6712
-  store ptr %.sroa.3.0.copyload22.i.i, ptr %.sroa.3.0..sroa_idx.i.i, align 8
+  %.sroa.3.0.copyload22.i.i = load ptr, ptr %.sroa.3.0..sroa_idx21.i.i, align 8
+  %16 = load <2 x ptr>, ptr %4, align 8
+  store <2 x ptr> %16, ptr %15, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 6720
   store ptr %.sroa.4.0.copyload24.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 6728
   store ptr %.sroa.5.0.copyload26.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8
-  %16 = icmp eq ptr %.sroa.5.0.copyload26.i.i, null
-  br i1 %16, label %drmp3_init_memory.exit.thread, label %17
+  %17 = icmp eq ptr %.sroa.5.0.copyload26.i.i, null
+  br i1 %17, label %drmp3_init_memory.exit.thread, label %18
 
-17:                                               ; preds = %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i
-  %18 = icmp eq ptr %.sroa.3.0.copyload22.i.i, null
-  %19 = icmp eq ptr %.sroa.4.0.copyload24.i.i, null
-  %or.cond.i.i = select i1 %18, i1 %19, i1 false
-  br i1 %or.cond.i.i, label %drmp3_init_memory.exit.thread, label %20
+18:                                               ; preds = %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i
+  %19 = icmp eq ptr %.sroa.3.0.copyload22.i.i, null
+  %20 = icmp eq ptr %.sroa.4.0.copyload24.i.i, null
+  %or.cond.i.i = select i1 %19, i1 %20, i1 false
+  br i1 %or.cond.i.i, label %drmp3_init_memory.exit.thread, label %21
 
-20:                                               ; preds = %17, %.thread.i.i
-  %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %17 ]
-  %21 = getelementptr inbounds i8, ptr %6, i64 6752
-  %22 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %6, ptr noundef nonnull %21)
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %32
+21:                                               ; preds = %18, %.thread.i.i
+  %.sroa.5.0..sroa_idx3234.i.i = phi ptr [ %.sroa.5.0..sroa_idx31.i.i, %.thread.i.i ], [ %.sroa.5.0..sroa_idx.i.i, %18 ]
+  %22 = getelementptr inbounds i8, ptr %6, i64 6752
+  %23 = call fastcc range(i32 0, 1153) i32 @drmp3_decode_next_frame_ex(ptr noundef nonnull %6, ptr noundef nonnull %22)
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %33
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %6, i64 16024
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %drmp3_init_memory.exit.thread, label %28
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds i8, ptr %6, i64 16024
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %drmp3_init_memory.exit.thread, label %29
 
-28:                                               ; preds = %24
-  %29 = load ptr, ptr %.sroa.5.0..sroa_idx3234.i.i, align 8
-  %.not.i19.i.i = icmp eq ptr %29, null
-  br i1 %.not.i19.i.i, label %drmp3_init_memory.exit.thread, label %30
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %.sroa.5.0..sroa_idx3234.i.i, align 8
+  %.not.i19.i.i = icmp eq ptr %30, null
+  br i1 %.not.i19.i.i, label %drmp3_init_memory.exit.thread, label %31
 
-30:                                               ; preds = %28
-  %31 = load ptr, ptr %15, align 8
-  call void %29(ptr noundef nonnull %26, ptr noundef %31) #66
+31:                                               ; preds = %29
+  %32 = load ptr, ptr %15, align 8
+  call void %30(ptr noundef nonnull %27, ptr noundef %32) #66
   br label %drmp3_init_memory.exit.thread
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds i8, ptr %6, i64 6736
-  %34 = getelementptr inbounds i8, ptr %6, i64 6668
-  %35 = load <2 x i32>, ptr %33, align 8
-  store <2 x i32> %35, ptr %34, align 4
-  %36 = call fastcc ptr @drmp3__full_read_and_close_s16(ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3)
+33:                                               ; preds = %21
+  %34 = getelementptr inbounds i8, ptr %6, i64 6736
+  %35 = getelementptr inbounds i8, ptr %6, i64 6668
+  %36 = load <2 x i32>, ptr %34, align 8
+  store <2 x i32> %36, ptr %35, align 4
+  %37 = call fastcc ptr @drmp3__full_read_and_close_s16(ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3)
   br label %drmp3_init_memory.exit.thread
 
-drmp3_init_memory.exit.thread:                    ; preds = %17, %30, %28, %24, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i, %5, %32
-  %.0 = phi ptr [ %36, %32 ], [ null, %5 ], [ null, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ null, %24 ], [ null, %28 ], [ null, %30 ], [ null, %17 ]
+drmp3_init_memory.exit.thread:                    ; preds = %18, %31, %29, %25, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i, %5, %33
+  %.0 = phi ptr [ %37, %33 ], [ null, %5 ], [ null, %drmp3_copy_allocation_callbacks_or_defaults.exit.i.i ], [ null, %25 ], [ null, %29 ], [ null, %31 ], [ null, %18 ]
   ret ptr %.0
 }
 
@@ -113986,80 +113906,78 @@ define internal fastcc range(i32 0, 2) i32 @drwav_init_file_write__internal_FILE
   store ptr @drwav__realloc_default, ptr %.sroa.4.0..sroa_idx53.i, align 8
   %.sroa.5.0..sroa_idx54.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr @drwav__free_default, ptr %.sroa.5.0..sroa_idx54.i, align 8
-  br label %20
+  br label %21
 
 drwav_copy_allocation_callbacks_or_defaults.exit.i: ; preds = %11
   %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %.sroa.0.0.copyload43.i = load ptr, ptr %5, align 8
   %.sroa.3.0..sroa_idx44.i = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.3.0.copyload45.i = load ptr, ptr %.sroa.3.0..sroa_idx44.i, align 8
   %.sroa.4.0..sroa_idx46.i = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.4.0.copyload47.i = load ptr, ptr %.sroa.4.0..sroa_idx46.i, align 8
   %.sroa.5.0..sroa_idx48.i = getelementptr inbounds i8, ptr %5, i64 24
   %.sroa.5.0.copyload49.i = load ptr, ptr %.sroa.5.0..sroa_idx48.i, align 8
-  store ptr %.sroa.0.0.copyload43.i, ptr %15, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.sroa.3.0.copyload45.i, ptr %.sroa.3.0..sroa_idx.i, align 8
+  %.sroa.3.0.copyload45.i = load ptr, ptr %.sroa.3.0..sroa_idx44.i, align 8
+  %16 = load <2 x ptr>, ptr %5, align 8
+  store <2 x ptr> %16, ptr %15, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.4.0.copyload47.i, ptr %.sroa.4.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %.sroa.5.0.copyload49.i, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %16 = icmp eq ptr %.sroa.5.0.copyload49.i, null
-  br i1 %16, label %.sink.split, label %17
+  %17 = icmp eq ptr %.sroa.5.0.copyload49.i, null
+  br i1 %17, label %.sink.split, label %18
 
-17:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i
-  %18 = icmp eq ptr %.sroa.3.0.copyload45.i, null
-  %19 = icmp eq ptr %.sroa.4.0.copyload47.i, null
-  %or.cond55.i = select i1 %18, i1 %19, i1 false
-  br i1 %or.cond55.i, label %.sink.split, label %20
+18:                                               ; preds = %drwav_copy_allocation_callbacks_or_defaults.exit.i
+  %19 = icmp eq ptr %.sroa.3.0.copyload45.i, null
+  %20 = icmp eq ptr %.sroa.4.0.copyload47.i, null
+  %or.cond55.i = select i1 %19, i1 %20, i1 false
+  br i1 %or.cond55.i, label %.sink.split, label %21
 
-20:                                               ; preds = %17, %.thread.i
-  %21 = load i32, ptr %9, align 4
-  %22 = trunc i32 %21 to i16
-  %23 = getelementptr inbounds i8, ptr %0, i64 68
-  store i16 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
-  %25 = load i32, ptr %24, align 4
-  %26 = trunc i32 %25 to i16
-  %27 = getelementptr inbounds i8, ptr %0, i64 70
-  store i16 %26, ptr %27, align 2
-  %28 = getelementptr inbounds i8, ptr %2, i64 12
-  %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 %29, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %2, i64 16
-  %32 = load i32, ptr %31, align 4
-  %33 = mul i32 %32, %29
-  %34 = load i32, ptr %24, align 4
-  %35 = mul i32 %33, %34
-  %36 = lshr i32 %35, 3
-  %37 = getelementptr inbounds i8, ptr %0, i64 76
-  store i32 %36, ptr %37, align 4
-  %38 = load i32, ptr %24, align 4
-  %39 = load i32, ptr %31, align 4
-  %40 = mul i32 %39, %38
-  %41 = lshr i32 %40, 3
-  %42 = trunc i32 %41 to i16
-  %43 = getelementptr inbounds i8, ptr %0, i64 80
-  store i16 %42, ptr %43, align 4
-  %44 = load i32, ptr %31, align 4
-  %45 = trunc i32 %44 to i16
-  %46 = getelementptr inbounds i8, ptr %0, i64 82
-  store i16 %45, ptr %46, align 2
-  %47 = getelementptr inbounds i8, ptr %0, i64 84
-  store i16 0, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 168
-  store i32 %4, ptr %48, align 8
-  %49 = tail call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %3)
-  %.not.not16 = icmp eq i32 %49, 0
-  br i1 %.not.not16, label %.sink.split, label %51
+21:                                               ; preds = %18, %.thread.i
+  %22 = load i32, ptr %9, align 4
+  %23 = trunc i32 %22 to i16
+  %24 = getelementptr inbounds i8, ptr %0, i64 68
+  store i16 %23, ptr %24, align 4
+  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = load i32, ptr %25, align 4
+  %27 = trunc i32 %26 to i16
+  %28 = getelementptr inbounds i8, ptr %0, i64 70
+  store i16 %27, ptr %28, align 2
+  %29 = getelementptr inbounds i8, ptr %2, i64 12
+  %30 = load i32, ptr %29, align 4
+  %31 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 %30, ptr %31, align 4
+  %32 = getelementptr inbounds i8, ptr %2, i64 16
+  %33 = load i32, ptr %32, align 4
+  %34 = mul i32 %33, %30
+  %35 = load i32, ptr %25, align 4
+  %36 = mul i32 %34, %35
+  %37 = lshr i32 %36, 3
+  %38 = getelementptr inbounds i8, ptr %0, i64 76
+  store i32 %37, ptr %38, align 4
+  %39 = load i32, ptr %25, align 4
+  %40 = load i32, ptr %32, align 4
+  %41 = mul i32 %40, %39
+  %42 = lshr i32 %41, 3
+  %43 = trunc i32 %42 to i16
+  %44 = getelementptr inbounds i8, ptr %0, i64 80
+  store i16 %43, ptr %44, align 4
+  %45 = load i32, ptr %32, align 4
+  %46 = trunc i32 %45 to i16
+  %47 = getelementptr inbounds i8, ptr %0, i64 82
+  store i16 %46, ptr %47, align 2
+  %48 = getelementptr inbounds i8, ptr %0, i64 84
+  store i16 0, ptr %48, align 4
+  %49 = getelementptr inbounds i8, ptr %0, i64 168
+  store i32 %4, ptr %49, align 8
+  %50 = tail call fastcc i32 @drwav_init_write__internal(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %3)
+  %.not.not16 = icmp eq i32 %50, 0
+  br i1 %.not.not16, label %.sink.split, label %52
 
-.sink.split:                                      ; preds = %20, %17, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %8, %8, %8, %6
-  %50 = tail call i32 @fclose(ptr noundef %1)
-  br label %51
+.sink.split:                                      ; preds = %21, %18, %drwav_copy_allocation_callbacks_or_defaults.exit.i, %8, %8, %8, %6
+  %51 = tail call i32 @fclose(ptr noundef %1)
+  br label %52
 
-51:                                               ; preds = %.sink.split, %20
-  %.0 = phi i32 [ 1, %20 ], [ 0, %.sink.split ]
+52:                                               ; preds = %.sink.split, %21
+  %.0 = phi i32 [ 1, %21 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -117761,8 +117679,8 @@ imdct_step3_inner_r_loop.exit.loopexit.us:        ; preds = %235
 
 .lr.ph.i419.us:                                   ; preds = %.lr.ph456, %imdct_step3_inner_s_loop.exit.loopexit.us
   %indvars.iv492 = phi i64 [ %indvars.iv.next493, %imdct_step3_inner_s_loop.exit.loopexit.us ], [ %215, %.lr.ph456 ]
-  %.0402454.us = phi ptr [ %462, %imdct_step3_inner_s_loop.exit.loopexit.us ], [ %31, %.lr.ph456 ]
-  %.0405452.us = phi i32 [ %463, %imdct_step3_inner_s_loop.exit.loopexit.us ], [ %335, %.lr.ph456 ]
+  %.0402454.us = phi ptr [ %469, %imdct_step3_inner_s_loop.exit.loopexit.us ], [ %31, %.lr.ph456 ]
+  %.0405452.us = phi i32 [ %470, %imdct_step3_inner_s_loop.exit.loopexit.us ], [ %335, %.lr.ph456 ]
   %357 = load float, ptr %.0402454.us, align 4
   %358 = getelementptr inbounds i8, ptr %.0402454.us, i64 4
   %359 = load float, ptr %358, align 4
@@ -117799,460 +117717,467 @@ imdct_step3_inner_r_loop.exit.loopexit.us:        ; preds = %235
   br label %390
 
 390:                                              ; preds = %390, %.lr.ph.i419.us
-  %.0108.i.us = phi ptr [ %373, %.lr.ph.i419.us ], [ %459, %390 ]
-  %.0104107.i.us = phi ptr [ %372, %.lr.ph.i419.us ], [ %458, %390 ]
-  %.0105106.i.us = phi i32 [ %337, %.lr.ph.i419.us ], [ %460, %390 ]
+  %.0108.i.us = phi ptr [ %373, %.lr.ph.i419.us ], [ %466, %390 ]
+  %.0104107.i.us = phi ptr [ %372, %.lr.ph.i419.us ], [ %465, %390 ]
+  %.0105106.i.us = phi i32 [ %337, %.lr.ph.i419.us ], [ %467, %390 ]
   %391 = getelementptr inbounds i8, ptr %.0104107.i.us, i64 -4
   %392 = getelementptr inbounds i8, ptr %.0108.i.us, i64 -4
   %393 = load <2 x float>, ptr %391, align 4
-  %394 = load <2 x float>, ptr %392, align 4
-  %395 = fsub <2 x float> %393, %394
-  %396 = fadd <2 x float> %393, %394
-  %397 = extractelement <2 x float> %396, i64 1
-  store float %397, ptr %.0104107.i.us, align 4
-  %398 = load float, ptr %392, align 4
-  %399 = extractelement <2 x float> %393, i64 0
-  %400 = fadd float %399, %398
-  store float %400, ptr %391, align 4
-  %401 = extractelement <2 x float> %395, i64 0
-  %402 = fneg float %401
-  %403 = shufflevector <2 x float> %395, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %404 = insertelement <2 x float> %403, float %402, i64 1
-  %405 = fmul <2 x float> %389, %404
-  %406 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %395, <2 x float> %387, <2 x float> %405)
-  store <2 x float> %406, ptr %392, align 4
-  %407 = getelementptr inbounds i8, ptr %.0104107.i.us, i64 -8
-  %408 = getelementptr inbounds i8, ptr %.0104107.i.us, i64 -12
-  %409 = getelementptr inbounds i8, ptr %.0108.i.us, i64 -12
-  %410 = load <2 x float>, ptr %408, align 4
-  %411 = load <2 x float>, ptr %409, align 4
-  %412 = fsub <2 x float> %410, %411
-  %413 = fadd <2 x float> %410, %411
-  %414 = extractelement <2 x float> %413, i64 1
-  store float %414, ptr %407, align 4
-  %415 = load float, ptr %409, align 4
-  %416 = extractelement <2 x float> %410, i64 0
-  %417 = fadd float %416, %415
+  %394 = load float, ptr %.0108.i.us, align 4
+  %395 = load <2 x float>, ptr %392, align 4
+  %396 = fsub <2 x float> %393, %395
+  %397 = extractelement <2 x float> %393, i64 1
+  %398 = fadd float %397, %394
+  store float %398, ptr %.0104107.i.us, align 4
+  %399 = load float, ptr %392, align 4
+  %400 = extractelement <2 x float> %393, i64 0
+  %401 = fadd float %400, %399
+  store float %401, ptr %391, align 4
+  %402 = extractelement <2 x float> %396, i64 0
+  %403 = fneg float %402
+  %404 = shufflevector <2 x float> %396, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %405 = insertelement <2 x float> %404, float %403, i64 1
+  %406 = fmul <2 x float> %389, %405
+  %407 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %396, <2 x float> %387, <2 x float> %406)
+  store <2 x float> %407, ptr %392, align 4
+  %408 = getelementptr inbounds i8, ptr %.0104107.i.us, i64 -8
+  %409 = getelementptr inbounds i8, ptr %.0108.i.us, i64 -8
+  %410 = getelementptr inbounds i8, ptr %.0104107.i.us, i64 -12
+  %411 = getelementptr inbounds i8, ptr %.0108.i.us, i64 -12
+  %412 = load <2 x float>, ptr %410, align 4
+  %413 = load float, ptr %409, align 4
+  %414 = load <2 x float>, ptr %411, align 4
+  %415 = fsub <2 x float> %412, %414
+  %416 = extractelement <2 x float> %412, i64 1
+  %417 = fadd float %416, %413
   store float %417, ptr %408, align 4
-  %418 = extractelement <2 x float> %412, i64 0
-  %419 = fneg float %418
-  %420 = shufflevector <2 x float> %412, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %421 = insertelement <2 x float> %420, float %419, i64 1
-  %422 = fmul <2 x float> %385, %421
-  %423 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %412, <2 x float> %383, <2 x float> %422)
-  store <2 x float> %423, ptr %409, align 4
-  %424 = getelementptr inbounds i8, ptr %.0104107.i.us, i64 -16
-  %425 = getelementptr inbounds i8, ptr %.0104107.i.us, i64 -20
-  %426 = getelementptr inbounds i8, ptr %.0108.i.us, i64 -20
-  %427 = load <2 x float>, ptr %425, align 4
-  %428 = load <2 x float>, ptr %426, align 4
-  %429 = fsub <2 x float> %427, %428
-  %430 = fadd <2 x float> %427, %428
-  %431 = extractelement <2 x float> %430, i64 1
-  store float %431, ptr %424, align 4
-  %432 = load float, ptr %426, align 4
-  %433 = extractelement <2 x float> %427, i64 0
-  %434 = fadd float %433, %432
-  store float %434, ptr %425, align 4
-  %435 = extractelement <2 x float> %429, i64 0
-  %436 = fneg float %435
-  %437 = shufflevector <2 x float> %429, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %438 = insertelement <2 x float> %437, float %436, i64 1
-  %439 = fmul <2 x float> %381, %438
-  %440 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %429, <2 x float> %379, <2 x float> %439)
-  store <2 x float> %440, ptr %426, align 4
-  %441 = getelementptr inbounds i8, ptr %.0104107.i.us, i64 -24
-  %442 = getelementptr inbounds i8, ptr %.0104107.i.us, i64 -28
-  %443 = getelementptr inbounds i8, ptr %.0108.i.us, i64 -28
-  %444 = load <2 x float>, ptr %442, align 4
-  %445 = load <2 x float>, ptr %443, align 4
-  %446 = fsub <2 x float> %444, %445
-  %447 = fadd <2 x float> %444, %445
-  %448 = extractelement <2 x float> %447, i64 1
-  store float %448, ptr %441, align 4
-  %449 = load float, ptr %443, align 4
-  %450 = extractelement <2 x float> %444, i64 0
-  %451 = fadd float %450, %449
-  store float %451, ptr %442, align 4
-  %452 = extractelement <2 x float> %446, i64 0
-  %453 = fneg float %452
-  %454 = shufflevector <2 x float> %446, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %455 = insertelement <2 x float> %454, float %453, i64 1
-  %456 = fmul <2 x float> %377, %455
-  %457 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %446, <2 x float> %375, <2 x float> %456)
-  store <2 x float> %457, ptr %443, align 4
-  %458 = getelementptr inbounds float, ptr %.0104107.i.us, i64 %354
-  %459 = getelementptr inbounds float, ptr %.0108.i.us, i64 %354
-  %460 = add nsw i32 %.0105106.i.us, -1
-  %461 = icmp ugt i32 %.0105106.i.us, 1
-  br i1 %461, label %390, label %imdct_step3_inner_s_loop.exit.loopexit.us
+  %418 = load float, ptr %411, align 4
+  %419 = extractelement <2 x float> %412, i64 0
+  %420 = fadd float %419, %418
+  store float %420, ptr %410, align 4
+  %421 = extractelement <2 x float> %415, i64 0
+  %422 = fneg float %421
+  %423 = shufflevector <2 x float> %415, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %424 = insertelement <2 x float> %423, float %422, i64 1
+  %425 = fmul <2 x float> %385, %424
+  %426 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %415, <2 x float> %383, <2 x float> %425)
+  store <2 x float> %426, ptr %411, align 4
+  %427 = getelementptr inbounds i8, ptr %.0104107.i.us, i64 -16
+  %428 = getelementptr inbounds i8, ptr %.0108.i.us, i64 -16
+  %429 = getelementptr inbounds i8, ptr %.0104107.i.us, i64 -20
+  %430 = getelementptr inbounds i8, ptr %.0108.i.us, i64 -20
+  %431 = load <2 x float>, ptr %429, align 4
+  %432 = load float, ptr %428, align 4
+  %433 = load <2 x float>, ptr %430, align 4
+  %434 = fsub <2 x float> %431, %433
+  %435 = extractelement <2 x float> %431, i64 1
+  %436 = fadd float %435, %432
+  store float %436, ptr %427, align 4
+  %437 = load float, ptr %430, align 4
+  %438 = extractelement <2 x float> %431, i64 0
+  %439 = fadd float %438, %437
+  store float %439, ptr %429, align 4
+  %440 = extractelement <2 x float> %434, i64 0
+  %441 = fneg float %440
+  %442 = shufflevector <2 x float> %434, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %443 = insertelement <2 x float> %442, float %441, i64 1
+  %444 = fmul <2 x float> %381, %443
+  %445 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %434, <2 x float> %379, <2 x float> %444)
+  store <2 x float> %445, ptr %430, align 4
+  %446 = getelementptr inbounds i8, ptr %.0104107.i.us, i64 -24
+  %447 = getelementptr inbounds i8, ptr %.0108.i.us, i64 -24
+  %448 = getelementptr inbounds i8, ptr %.0104107.i.us, i64 -28
+  %449 = getelementptr inbounds i8, ptr %.0108.i.us, i64 -28
+  %450 = load <2 x float>, ptr %448, align 4
+  %451 = load float, ptr %447, align 4
+  %452 = load <2 x float>, ptr %449, align 4
+  %453 = fsub <2 x float> %450, %452
+  %454 = extractelement <2 x float> %450, i64 1
+  %455 = fadd float %454, %451
+  store float %455, ptr %446, align 4
+  %456 = load float, ptr %449, align 4
+  %457 = extractelement <2 x float> %450, i64 0
+  %458 = fadd float %457, %456
+  store float %458, ptr %448, align 4
+  %459 = extractelement <2 x float> %453, i64 0
+  %460 = fneg float %459
+  %461 = shufflevector <2 x float> %453, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %462 = insertelement <2 x float> %461, float %460, i64 1
+  %463 = fmul <2 x float> %377, %462
+  %464 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %453, <2 x float> %375, <2 x float> %463)
+  store <2 x float> %464, ptr %449, align 4
+  %465 = getelementptr inbounds float, ptr %.0104107.i.us, i64 %354
+  %466 = getelementptr inbounds float, ptr %.0108.i.us, i64 %354
+  %467 = add nsw i32 %.0105106.i.us, -1
+  %468 = icmp ugt i32 %.0105106.i.us, 1
+  br i1 %468, label %390, label %imdct_step3_inner_s_loop.exit.loopexit.us
 
 imdct_step3_inner_s_loop.exit.loopexit.us:        ; preds = %390
-  %462 = getelementptr inbounds float, ptr %.0402454.us, i64 %356
+  %469 = getelementptr inbounds float, ptr %.0402454.us, i64 %356
   %indvars.iv.next493 = add nsw i64 %indvars.iv492, -8
-  %463 = add nsw i32 %.0405452.us, -1
-  %464 = icmp sgt i32 %.0405452.us, 1
-  br i1 %464, label %.lr.ph.i419.us, label %.loopexit
+  %470 = add nsw i32 %.0405452.us, -1
+  %471 = icmp sgt i32 %.0405452.us, 1
+  br i1 %471, label %.lr.ph.i419.us, label %.loopexit
 
 ._crit_edge459:                                   ; preds = %.loopexit, %.preheader
-  %465 = sext i32 %200 to i64
-  %466 = getelementptr inbounds float, ptr %0, i64 %465
+  %472 = sext i32 %200 to i64
+  %473 = getelementptr inbounds float, ptr %0, i64 %472
   %.neg421 = mul nsw i32 %203, -16
-  %467 = sext i32 %.neg421 to i64
-  %468 = getelementptr inbounds float, ptr %466, i64 %467
-  %469 = icmp sgt i32 %203, 0
-  br i1 %469, label %.lr.ph.i420, label %imdct_step3_inner_s_loop_ld654.exit
+  %474 = sext i32 %.neg421 to i64
+  %475 = getelementptr inbounds float, ptr %473, i64 %474
+  %476 = icmp sgt i32 %203, 0
+  br i1 %476, label %.lr.ph.i420, label %imdct_step3_inner_s_loop_ld654.exit
 
 .lr.ph.i420:                                      ; preds = %._crit_edge459
-  %470 = sext i32 %7 to i64
-  %471 = getelementptr inbounds float, ptr %31, i64 %470
-  %472 = load float, ptr %471, align 4
-  %473 = fneg float %472
-  %474 = insertelement <2 x float> poison, float %472, i64 0
-  %475 = shufflevector <2 x float> %474, <2 x float> poison, <2 x i32> zeroinitializer
-  %476 = insertelement <2 x float> %475, float %473, i64 0
-  br label %477
+  %477 = sext i32 %7 to i64
+  %478 = getelementptr inbounds float, ptr %31, i64 %477
+  %479 = load float, ptr %478, align 4
+  %480 = fneg float %479
+  %481 = insertelement <2 x float> poison, float %479, i64 0
+  %482 = shufflevector <2 x float> %481, <2 x float> poison, <2 x i32> zeroinitializer
+  %483 = insertelement <2 x float> %482, float %480, i64 0
+  br label %484
 
-477:                                              ; preds = %477, %.lr.ph.i420
-  %.075.i = phi ptr [ %466, %.lr.ph.i420 ], [ %553, %477 ]
-  %478 = getelementptr inbounds i8, ptr %.075.i, i64 -32
-  %479 = getelementptr inbounds i8, ptr %.075.i, i64 -4
-  %480 = getelementptr inbounds i8, ptr %.075.i, i64 -36
-  %481 = getelementptr inbounds i8, ptr %.075.i, i64 -40
-  %482 = getelementptr inbounds i8, ptr %.075.i, i64 -12
-  %483 = getelementptr inbounds i8, ptr %.075.i, i64 -44
-  %484 = getelementptr inbounds i8, ptr %.075.i, i64 -48
-  %485 = getelementptr inbounds i8, ptr %.075.i, i64 -20
-  %486 = getelementptr inbounds i8, ptr %.075.i, i64 -52
-  %487 = getelementptr inbounds i8, ptr %.075.i, i64 -56
-  %488 = getelementptr inbounds i8, ptr %.075.i, i64 -28
-  %489 = getelementptr inbounds i8, ptr %.075.i, i64 -60
-  %490 = load <2 x float>, ptr %479, align 4
-  %491 = load <2 x float>, ptr %480, align 4
-  %492 = load <2 x float>, ptr %482, align 4
-  %493 = load <2 x float>, ptr %483, align 4
-  %494 = fadd <2 x float> %490, %491
-  %495 = fadd <2 x float> %492, %493
-  %496 = load <2 x float>, ptr %485, align 4
+484:                                              ; preds = %484, %.lr.ph.i420
+  %.075.i = phi ptr [ %473, %.lr.ph.i420 ], [ %560, %484 ]
+  %485 = getelementptr inbounds i8, ptr %.075.i, i64 -32
+  %486 = getelementptr inbounds i8, ptr %.075.i, i64 -4
+  %487 = getelementptr inbounds i8, ptr %.075.i, i64 -36
+  %488 = getelementptr inbounds i8, ptr %.075.i, i64 -40
+  %489 = getelementptr inbounds i8, ptr %.075.i, i64 -12
+  %490 = getelementptr inbounds i8, ptr %.075.i, i64 -44
+  %491 = getelementptr inbounds i8, ptr %.075.i, i64 -48
+  %492 = getelementptr inbounds i8, ptr %.075.i, i64 -20
+  %493 = getelementptr inbounds i8, ptr %.075.i, i64 -52
+  %494 = getelementptr inbounds i8, ptr %.075.i, i64 -56
+  %495 = getelementptr inbounds i8, ptr %.075.i, i64 -28
+  %496 = getelementptr inbounds i8, ptr %.075.i, i64 -60
   %497 = load <2 x float>, ptr %486, align 4
-  %498 = load <2 x float>, ptr %488, align 4
+  %498 = load <2 x float>, ptr %487, align 4
   %499 = load <2 x float>, ptr %489, align 4
-  %500 = fadd <2 x float> %496, %497
-  %501 = fadd <2 x float> %498, %499
-  %502 = fsub <2 x float> %495, %501
-  %503 = shufflevector <2 x float> %502, <2 x float> poison, <4 x i32> <i32 1, i32 0, i32 1, i32 0>
-  %504 = fsub <2 x float> %494, %500
-  %505 = shufflevector <2 x float> %504, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %506 = fadd <2 x float> %494, %500
-  %507 = shufflevector <2 x float> %506, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %508 = fadd <2 x float> %495, %501
-  %509 = shufflevector <2 x float> %508, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %510 = fsub <4 x float> %507, %509
-  %511 = fadd <4 x float> %507, %509
-  %512 = shufflevector <4 x float> %510, <4 x float> %511, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  store <4 x float> %512, ptr %482, align 4
-  %513 = fadd <4 x float> %505, %503
-  %514 = fsub <4 x float> %505, %503
-  %515 = shufflevector <4 x float> %513, <4 x float> %514, <4 x i32> <i32 0, i32 5, i32 6, i32 3>
-  store <4 x float> %515, ptr %488, align 4
-  %516 = fsub <2 x float> %490, %491
-  %517 = shufflevector <2 x float> %516, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %518 = fsub <2 x float> %496, %497
-  %519 = shufflevector <2 x float> %498, <2 x float> %492, <2 x i32> <i32 1, i32 3>
-  %520 = shufflevector <2 x float> %499, <2 x float> %493, <2 x i32> <i32 1, i32 3>
-  %521 = fsub <2 x float> %519, %520
-  %522 = shufflevector <2 x float> %498, <2 x float> %492, <2 x i32> <i32 0, i32 2>
-  %523 = shufflevector <2 x float> %499, <2 x float> %493, <2 x i32> <i32 0, i32 2>
-  %524 = fsub <2 x float> %522, %523
-  %525 = fsub <2 x float> %524, %521
-  %526 = fmul <2 x float> %475, %525
-  %527 = fadd <2 x float> %521, %524
-  %528 = fmul <2 x float> %476, %527
-  %529 = shufflevector <2 x float> %528, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %530 = fsub <2 x float> %517, %518
-  %531 = extractelement <2 x float> %530, i64 0
-  %532 = fsub <2 x float> %529, %526
-  %533 = extractelement <2 x float> %532, i64 0
-  %534 = fadd <2 x float> %517, %518
-  %535 = fsub <2 x float> %517, %518
-  %536 = shufflevector <2 x float> %534, <2 x float> %535, <2 x i32> <i32 0, i32 3>
-  %537 = fadd <2 x float> %526, %529
-  %538 = fadd <2 x float> %536, %537
-  %539 = extractelement <2 x float> %538, i64 0
-  store float %539, ptr %478, align 4
-  %540 = fsub <2 x float> %526, %529
-  %541 = extractelement <2 x float> %540, i64 1
-  %542 = fadd float %531, %541
-  store float %542, ptr %484, align 4
-  %543 = fsub float %531, %541
-  store float %543, ptr %487, align 4
-  %544 = fadd <2 x float> %517, %518
-  %545 = extractelement <2 x float> %544, i64 1
-  %546 = fsub <2 x float> %536, %537
-  %547 = fadd <2 x float> %536, %537
-  %548 = shufflevector <2 x float> %546, <2 x float> %547, <2 x i32> <i32 0, i32 3>
-  store <2 x float> %548, ptr %481, align 4
-  %549 = fsub <2 x float> %536, %537
-  %550 = extractelement <2 x float> %549, i64 1
-  store float %550, ptr %483, align 4
-  %551 = fsub float %545, %533
-  store float %551, ptr %486, align 4
-  %552 = fadd float %545, %533
-  store float %552, ptr %489, align 4
-  %553 = getelementptr inbounds i8, ptr %.075.i, i64 -64
-  %554 = icmp ugt ptr %553, %468
-  br i1 %554, label %477, label %imdct_step3_inner_s_loop_ld654.exit
+  %500 = load <2 x float>, ptr %490, align 4
+  %501 = fadd <2 x float> %497, %498
+  %502 = fadd <2 x float> %499, %500
+  %503 = load <2 x float>, ptr %492, align 4
+  %504 = load <2 x float>, ptr %493, align 4
+  %505 = load <2 x float>, ptr %495, align 4
+  %506 = load <2 x float>, ptr %496, align 4
+  %507 = fadd <2 x float> %503, %504
+  %508 = fadd <2 x float> %505, %506
+  %509 = fsub <2 x float> %502, %508
+  %510 = shufflevector <2 x float> %509, <2 x float> poison, <4 x i32> <i32 1, i32 0, i32 1, i32 0>
+  %511 = fsub <2 x float> %501, %507
+  %512 = shufflevector <2 x float> %511, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %513 = fadd <2 x float> %501, %507
+  %514 = shufflevector <2 x float> %513, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %515 = fadd <2 x float> %502, %508
+  %516 = shufflevector <2 x float> %515, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %517 = fsub <4 x float> %514, %516
+  %518 = fadd <4 x float> %514, %516
+  %519 = shufflevector <4 x float> %517, <4 x float> %518, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  store <4 x float> %519, ptr %489, align 4
+  %520 = fadd <4 x float> %512, %510
+  %521 = fsub <4 x float> %512, %510
+  %522 = shufflevector <4 x float> %520, <4 x float> %521, <4 x i32> <i32 0, i32 5, i32 6, i32 3>
+  store <4 x float> %522, ptr %495, align 4
+  %523 = fsub <2 x float> %497, %498
+  %524 = shufflevector <2 x float> %523, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %525 = fsub <2 x float> %503, %504
+  %526 = shufflevector <2 x float> %505, <2 x float> %499, <2 x i32> <i32 1, i32 3>
+  %527 = shufflevector <2 x float> %506, <2 x float> %500, <2 x i32> <i32 1, i32 3>
+  %528 = fsub <2 x float> %526, %527
+  %529 = shufflevector <2 x float> %505, <2 x float> %499, <2 x i32> <i32 0, i32 2>
+  %530 = shufflevector <2 x float> %506, <2 x float> %500, <2 x i32> <i32 0, i32 2>
+  %531 = fsub <2 x float> %529, %530
+  %532 = fsub <2 x float> %531, %528
+  %533 = fmul <2 x float> %482, %532
+  %534 = fadd <2 x float> %528, %531
+  %535 = fmul <2 x float> %483, %534
+  %536 = shufflevector <2 x float> %535, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %537 = fsub <2 x float> %524, %525
+  %538 = extractelement <2 x float> %537, i64 0
+  %539 = fsub <2 x float> %536, %533
+  %540 = extractelement <2 x float> %539, i64 0
+  %541 = fadd <2 x float> %524, %525
+  %542 = fsub <2 x float> %524, %525
+  %543 = shufflevector <2 x float> %541, <2 x float> %542, <2 x i32> <i32 0, i32 3>
+  %544 = fadd <2 x float> %533, %536
+  %545 = fadd <2 x float> %543, %544
+  %546 = extractelement <2 x float> %545, i64 0
+  store float %546, ptr %485, align 4
+  %547 = fsub <2 x float> %533, %536
+  %548 = extractelement <2 x float> %547, i64 1
+  %549 = fadd float %538, %548
+  store float %549, ptr %491, align 4
+  %550 = fsub float %538, %548
+  store float %550, ptr %494, align 4
+  %551 = fadd <2 x float> %524, %525
+  %552 = extractelement <2 x float> %551, i64 1
+  %553 = fsub <2 x float> %543, %544
+  %554 = fadd <2 x float> %543, %544
+  %555 = shufflevector <2 x float> %553, <2 x float> %554, <2 x i32> <i32 0, i32 3>
+  store <2 x float> %555, ptr %488, align 4
+  %556 = fsub <2 x float> %543, %544
+  %557 = extractelement <2 x float> %556, i64 1
+  store float %557, ptr %490, align 4
+  %558 = fsub float %552, %540
+  store float %558, ptr %493, align 4
+  %559 = fadd float %552, %540
+  store float %559, ptr %496, align 4
+  %560 = getelementptr inbounds i8, ptr %.075.i, i64 -64
+  %561 = icmp ugt ptr %560, %475
+  br i1 %561, label %484, label %imdct_step3_inner_s_loop_ld654.exit
 
-imdct_step3_inner_s_loop_ld654.exit:              ; preds = %477, %._crit_edge459
-  %555 = add nsw i32 %5, -4
-  %556 = sext i32 %555 to i64
+imdct_step3_inner_s_loop_ld654.exit:              ; preds = %484, %._crit_edge459
+  %562 = add nsw i32 %5, -4
+  %563 = sext i32 %562 to i64
   %.not412460 = icmp slt i32 %6, 4
   br i1 %.not412460, label %._crit_edge465, label %.lr.ph464.preheader
 
 .lr.ph464.preheader:                              ; preds = %imdct_step3_inner_s_loop_ld654.exit
-  %557 = getelementptr inbounds float, ptr %27, i64 %556
-  %558 = add nsw i32 %6, -4
-  %559 = zext nneg i32 %558 to i64
-  %560 = getelementptr inbounds float, ptr %27, i64 %559
-  %561 = getelementptr inbounds i8, ptr %2, i64 1480
-  %562 = getelementptr inbounds [2 x ptr], ptr %561, i64 0, i64 %29
-  %563 = load ptr, ptr %562, align 8
+  %564 = getelementptr inbounds float, ptr %27, i64 %563
+  %565 = add nsw i32 %6, -4
+  %566 = zext nneg i32 %565 to i64
+  %567 = getelementptr inbounds float, ptr %27, i64 %566
+  %568 = getelementptr inbounds i8, ptr %2, i64 1480
+  %569 = getelementptr inbounds [2 x ptr], ptr %568, i64 0, i64 %29
+  %570 = load ptr, ptr %569, align 8
   br label %.lr.ph464
 
 .lr.ph464:                                        ; preds = %.lr.ph464.preheader, %.lr.ph464
-  %.0399463 = phi ptr [ %592, %.lr.ph464 ], [ %557, %.lr.ph464.preheader ]
-  %.0400462 = phi ptr [ %591, %.lr.ph464 ], [ %560, %.lr.ph464.preheader ]
-  %.0401461 = phi ptr [ %593, %.lr.ph464 ], [ %563, %.lr.ph464.preheader ]
-  %564 = load i16, ptr %.0401461, align 2
-  %565 = zext i16 %564 to i64
-  %566 = getelementptr inbounds float, ptr %0, i64 %565
-  %567 = load float, ptr %566, align 4
-  %568 = getelementptr inbounds i8, ptr %.0399463, i64 12
-  store float %567, ptr %568, align 4
-  %569 = getelementptr inbounds i8, ptr %566, i64 4
-  %570 = load float, ptr %569, align 4
-  %571 = getelementptr inbounds i8, ptr %.0399463, i64 8
-  store float %570, ptr %571, align 4
-  %572 = getelementptr inbounds i8, ptr %566, i64 8
-  %573 = load float, ptr %572, align 4
-  %574 = getelementptr inbounds i8, ptr %.0400462, i64 12
-  store float %573, ptr %574, align 4
-  %575 = getelementptr inbounds i8, ptr %566, i64 12
-  %576 = load float, ptr %575, align 4
-  %577 = getelementptr inbounds i8, ptr %.0400462, i64 8
-  store float %576, ptr %577, align 4
-  %578 = getelementptr inbounds i8, ptr %.0401461, i64 2
-  %579 = load i16, ptr %578, align 2
-  %580 = zext i16 %579 to i64
-  %581 = getelementptr inbounds float, ptr %0, i64 %580
-  %582 = load float, ptr %581, align 4
-  %583 = getelementptr inbounds i8, ptr %.0399463, i64 4
-  store float %582, ptr %583, align 4
-  %584 = getelementptr inbounds i8, ptr %581, i64 4
-  %585 = load float, ptr %584, align 4
-  store float %585, ptr %.0399463, align 4
-  %586 = getelementptr inbounds i8, ptr %581, i64 8
-  %587 = load float, ptr %586, align 4
-  %588 = getelementptr inbounds i8, ptr %.0400462, i64 4
-  store float %587, ptr %588, align 4
-  %589 = getelementptr inbounds i8, ptr %581, i64 12
-  %590 = load float, ptr %589, align 4
-  store float %590, ptr %.0400462, align 4
-  %591 = getelementptr inbounds i8, ptr %.0400462, i64 -16
-  %592 = getelementptr inbounds i8, ptr %.0399463, i64 -16
-  %593 = getelementptr inbounds i8, ptr %.0401461, i64 4
-  %.not412 = icmp ult ptr %591, %27
+  %.0399463 = phi ptr [ %599, %.lr.ph464 ], [ %564, %.lr.ph464.preheader ]
+  %.0400462 = phi ptr [ %598, %.lr.ph464 ], [ %567, %.lr.ph464.preheader ]
+  %.0401461 = phi ptr [ %600, %.lr.ph464 ], [ %570, %.lr.ph464.preheader ]
+  %571 = load i16, ptr %.0401461, align 2
+  %572 = zext i16 %571 to i64
+  %573 = getelementptr inbounds float, ptr %0, i64 %572
+  %574 = load float, ptr %573, align 4
+  %575 = getelementptr inbounds i8, ptr %.0399463, i64 12
+  store float %574, ptr %575, align 4
+  %576 = getelementptr inbounds i8, ptr %573, i64 4
+  %577 = load float, ptr %576, align 4
+  %578 = getelementptr inbounds i8, ptr %.0399463, i64 8
+  store float %577, ptr %578, align 4
+  %579 = getelementptr inbounds i8, ptr %573, i64 8
+  %580 = load float, ptr %579, align 4
+  %581 = getelementptr inbounds i8, ptr %.0400462, i64 12
+  store float %580, ptr %581, align 4
+  %582 = getelementptr inbounds i8, ptr %573, i64 12
+  %583 = load float, ptr %582, align 4
+  %584 = getelementptr inbounds i8, ptr %.0400462, i64 8
+  store float %583, ptr %584, align 4
+  %585 = getelementptr inbounds i8, ptr %.0401461, i64 2
+  %586 = load i16, ptr %585, align 2
+  %587 = zext i16 %586 to i64
+  %588 = getelementptr inbounds float, ptr %0, i64 %587
+  %589 = load float, ptr %588, align 4
+  %590 = getelementptr inbounds i8, ptr %.0399463, i64 4
+  store float %589, ptr %590, align 4
+  %591 = getelementptr inbounds i8, ptr %588, i64 4
+  %592 = load float, ptr %591, align 4
+  store float %592, ptr %.0399463, align 4
+  %593 = getelementptr inbounds i8, ptr %588, i64 8
+  %594 = load float, ptr %593, align 4
+  %595 = getelementptr inbounds i8, ptr %.0400462, i64 4
+  store float %594, ptr %595, align 4
+  %596 = getelementptr inbounds i8, ptr %588, i64 12
+  %597 = load float, ptr %596, align 4
+  store float %597, ptr %.0400462, align 4
+  %598 = getelementptr inbounds i8, ptr %.0400462, i64 -16
+  %599 = getelementptr inbounds i8, ptr %.0399463, i64 -16
+  %600 = getelementptr inbounds i8, ptr %.0401461, i64 4
+  %.not412 = icmp ult ptr %598, %27
   br i1 %.not412, label %._crit_edge465, label %.lr.ph464
 
 ._crit_edge465:                                   ; preds = %.lr.ph464, %imdct_step3_inner_s_loop_ld654.exit
-  %594 = getelementptr inbounds float, ptr %27, i64 %35
-  %.0395466 = getelementptr inbounds i8, ptr %594, i64 -16
-  %595 = icmp ult ptr %27, %.0395466
-  br i1 %595, label %.lr.ph472.preheader, label %._crit_edge473
+  %601 = getelementptr inbounds float, ptr %27, i64 %35
+  %.0395466 = getelementptr inbounds i8, ptr %601, i64 -16
+  %602 = icmp ult ptr %27, %.0395466
+  br i1 %602, label %.lr.ph472.preheader, label %._crit_edge473
 
 .lr.ph472.preheader:                              ; preds = %._crit_edge465
-  %596 = getelementptr inbounds i8, ptr %2, i64 1448
-  %597 = getelementptr inbounds [2 x ptr], ptr %596, i64 0, i64 %29
-  %598 = load ptr, ptr %597, align 8
+  %603 = getelementptr inbounds i8, ptr %2, i64 1448
+  %604 = getelementptr inbounds [2 x ptr], ptr %603, i64 0, i64 %29
+  %605 = load ptr, ptr %604, align 8
   br label %.lr.ph472
 
 .lr.ph472:                                        ; preds = %.lr.ph472.preheader, %.lr.ph472
   %.0395470 = phi ptr [ %.0395, %.lr.ph472 ], [ %.0395466, %.lr.ph472.preheader ]
-  %.pn416469 = phi ptr [ %.0395470, %.lr.ph472 ], [ %594, %.lr.ph472.preheader ]
-  %.0396468 = phi ptr [ %647, %.lr.ph472 ], [ %27, %.lr.ph472.preheader ]
-  %.0397467 = phi ptr [ %646, %.lr.ph472 ], [ %598, %.lr.ph472.preheader ]
-  %599 = getelementptr inbounds i8, ptr %.pn416469, i64 -8
-  %600 = getelementptr inbounds i8, ptr %.0397467, i64 4
-  %601 = load float, ptr %600, align 4
-  %602 = load float, ptr %.0397467, align 4
-  %603 = fneg float %602
-  %604 = load <2 x float>, ptr %.0396468, align 4
-  %605 = load <2 x float>, ptr %599, align 4
-  %606 = fsub <2 x float> %604, %605
-  %607 = fadd <2 x float> %604, %605
-  %608 = shufflevector <2 x float> %606, <2 x float> %607, <2 x i32> <i32 0, i32 3>
-  %609 = shufflevector <2 x float> %608, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %610 = insertelement <2 x float> poison, float %602, i64 0
-  %611 = insertelement <2 x float> %610, float %603, i64 1
-  %612 = fmul <2 x float> %609, %611
-  %613 = insertelement <2 x float> poison, float %601, i64 0
-  %614 = shufflevector <2 x float> %613, <2 x float> poison, <2 x i32> zeroinitializer
-  %615 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %614, <2 x float> %608, <2 x float> %612)
-  %616 = shufflevector <2 x float> %607, <2 x float> %606, <2 x i32> <i32 0, i32 3>
-  %617 = fadd <2 x float> %616, %615
-  store <2 x float> %617, ptr %.0396468, align 4
-  %618 = shufflevector <2 x float> %616, <2 x float> %615, <2 x i32> <i32 0, i32 3>
-  %619 = shufflevector <2 x float> %615, <2 x float> %616, <2 x i32> <i32 0, i32 3>
-  %620 = fsub <2 x float> %618, %619
-  store <2 x float> %620, ptr %599, align 4
-  %621 = getelementptr inbounds i8, ptr %.0396468, i64 8
-  %622 = getelementptr inbounds i8, ptr %.pn416469, i64 -12
-  %623 = getelementptr inbounds i8, ptr %.0397467, i64 12
-  %624 = load float, ptr %623, align 4
-  %625 = getelementptr inbounds i8, ptr %.0397467, i64 8
-  %626 = load float, ptr %625, align 4
-  %627 = fneg float %626
-  %628 = load <2 x float>, ptr %621, align 4
-  %629 = load <2 x float>, ptr %.0395470, align 4
-  %630 = fsub <2 x float> %628, %629
-  %631 = fadd <2 x float> %628, %629
-  %632 = shufflevector <2 x float> %630, <2 x float> %631, <2 x i32> <i32 0, i32 3>
-  %633 = shufflevector <2 x float> %632, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %634 = insertelement <2 x float> poison, float %626, i64 0
-  %635 = insertelement <2 x float> %634, float %627, i64 1
-  %636 = fmul <2 x float> %633, %635
-  %637 = insertelement <2 x float> poison, float %624, i64 0
-  %638 = shufflevector <2 x float> %637, <2 x float> poison, <2 x i32> zeroinitializer
-  %639 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %638, <2 x float> %632, <2 x float> %636)
-  %640 = shufflevector <2 x float> %631, <2 x float> %630, <2 x i32> <i32 0, i32 3>
-  %641 = fadd <2 x float> %640, %639
-  store <2 x float> %641, ptr %621, align 4
-  %642 = fsub <2 x float> %640, %639
-  %643 = extractelement <2 x float> %642, i64 0
-  store float %643, ptr %.0395470, align 4
-  %644 = fsub <2 x float> %639, %640
-  %645 = extractelement <2 x float> %644, i64 1
-  store float %645, ptr %622, align 4
-  %646 = getelementptr inbounds i8, ptr %.0397467, i64 16
-  %647 = getelementptr inbounds i8, ptr %.0396468, i64 16
+  %.pn416469 = phi ptr [ %.0395470, %.lr.ph472 ], [ %601, %.lr.ph472.preheader ]
+  %.0396468 = phi ptr [ %654, %.lr.ph472 ], [ %27, %.lr.ph472.preheader ]
+  %.0397467 = phi ptr [ %653, %.lr.ph472 ], [ %605, %.lr.ph472.preheader ]
+  %606 = getelementptr inbounds i8, ptr %.pn416469, i64 -8
+  %607 = getelementptr inbounds i8, ptr %.0397467, i64 4
+  %608 = load float, ptr %607, align 4
+  %609 = load float, ptr %.0397467, align 4
+  %610 = fneg float %609
+  %611 = load <2 x float>, ptr %.0396468, align 4
+  %612 = load <2 x float>, ptr %606, align 4
+  %613 = fsub <2 x float> %611, %612
+  %614 = fadd <2 x float> %611, %612
+  %615 = shufflevector <2 x float> %613, <2 x float> %614, <2 x i32> <i32 0, i32 3>
+  %616 = shufflevector <2 x float> %615, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %617 = insertelement <2 x float> poison, float %609, i64 0
+  %618 = insertelement <2 x float> %617, float %610, i64 1
+  %619 = fmul <2 x float> %616, %618
+  %620 = insertelement <2 x float> poison, float %608, i64 0
+  %621 = shufflevector <2 x float> %620, <2 x float> poison, <2 x i32> zeroinitializer
+  %622 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %621, <2 x float> %615, <2 x float> %619)
+  %623 = shufflevector <2 x float> %614, <2 x float> %613, <2 x i32> <i32 0, i32 3>
+  %624 = fadd <2 x float> %623, %622
+  store <2 x float> %624, ptr %.0396468, align 4
+  %625 = shufflevector <2 x float> %623, <2 x float> %622, <2 x i32> <i32 0, i32 3>
+  %626 = shufflevector <2 x float> %622, <2 x float> %623, <2 x i32> <i32 0, i32 3>
+  %627 = fsub <2 x float> %625, %626
+  store <2 x float> %627, ptr %606, align 4
+  %628 = getelementptr inbounds i8, ptr %.0396468, i64 8
+  %629 = getelementptr inbounds i8, ptr %.pn416469, i64 -12
+  %630 = getelementptr inbounds i8, ptr %.0397467, i64 12
+  %631 = load float, ptr %630, align 4
+  %632 = getelementptr inbounds i8, ptr %.0397467, i64 8
+  %633 = load float, ptr %632, align 4
+  %634 = fneg float %633
+  %635 = load <2 x float>, ptr %628, align 4
+  %636 = load <2 x float>, ptr %.0395470, align 4
+  %637 = fsub <2 x float> %635, %636
+  %638 = fadd <2 x float> %635, %636
+  %639 = shufflevector <2 x float> %637, <2 x float> %638, <2 x i32> <i32 0, i32 3>
+  %640 = shufflevector <2 x float> %639, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %641 = insertelement <2 x float> poison, float %633, i64 0
+  %642 = insertelement <2 x float> %641, float %634, i64 1
+  %643 = fmul <2 x float> %640, %642
+  %644 = insertelement <2 x float> poison, float %631, i64 0
+  %645 = shufflevector <2 x float> %644, <2 x float> poison, <2 x i32> zeroinitializer
+  %646 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %645, <2 x float> %639, <2 x float> %643)
+  %647 = shufflevector <2 x float> %638, <2 x float> %637, <2 x i32> <i32 0, i32 3>
+  %648 = fadd <2 x float> %647, %646
+  store <2 x float> %648, ptr %628, align 4
+  %649 = fsub <2 x float> %647, %646
+  %650 = extractelement <2 x float> %649, i64 0
+  store float %650, ptr %.0395470, align 4
+  %651 = fsub <2 x float> %646, %647
+  %652 = extractelement <2 x float> %651, i64 1
+  store float %652, ptr %629, align 4
+  %653 = getelementptr inbounds i8, ptr %.0397467, i64 16
+  %654 = getelementptr inbounds i8, ptr %.0396468, i64 16
   %.0395 = getelementptr inbounds i8, ptr %.0395470, i64 -16
-  %648 = icmp ult ptr %647, %.0395
-  br i1 %648, label %.lr.ph472, label %._crit_edge473
+  %655 = icmp ult ptr %654, %.0395
+  br i1 %655, label %.lr.ph472, label %._crit_edge473
 
 ._crit_edge473:                                   ; preds = %.lr.ph472, %._crit_edge465
-  %.0381474 = getelementptr inbounds i8, ptr %594, i64 -32
+  %.0381474 = getelementptr inbounds i8, ptr %601, i64 -32
   %.not413475 = icmp ult ptr %.0381474, %27
   br i1 %.not413475, label %._crit_edge485, label %.lr.ph484.preheader
 
 .lr.ph484.preheader:                              ; preds = %._crit_edge473
-  %649 = sext i32 %1 to i64
-  %650 = getelementptr float, ptr %0, i64 %649
-  %651 = getelementptr inbounds float, ptr %0, i64 %556
-  %652 = getelementptr inbounds i8, ptr %2, i64 1432
-  %653 = getelementptr inbounds [2 x ptr], ptr %652, i64 0, i64 %29
-  %654 = load ptr, ptr %653, align 8
-  %655 = getelementptr inbounds float, ptr %654, i64 %35
+  %656 = sext i32 %1 to i64
+  %657 = getelementptr float, ptr %0, i64 %656
+  %658 = getelementptr inbounds float, ptr %0, i64 %563
+  %659 = getelementptr inbounds i8, ptr %2, i64 1432
+  %660 = getelementptr inbounds [2 x ptr], ptr %659, i64 0, i64 %29
+  %661 = load ptr, ptr %660, align 8
+  %662 = getelementptr inbounds float, ptr %661, i64 %35
   br label %.lr.ph484
 
 .lr.ph484:                                        ; preds = %.lr.ph484.preheader, %.lr.ph484
   %.0381482 = phi ptr [ %.0381, %.lr.ph484 ], [ %.0381474, %.lr.ph484.preheader ]
-  %.pn414481 = phi ptr [ %.0381482, %.lr.ph484 ], [ %594, %.lr.ph484.preheader ]
-  %.pn480 = phi ptr [ %.0382, %.lr.ph484 ], [ %655, %.lr.ph484.preheader ]
-  %.pn415479 = phi ptr [ %.0383, %.lr.ph484 ], [ %650, %.lr.ph484.preheader ]
-  %.0384478 = phi ptr [ %727, %.lr.ph484 ], [ %36, %.lr.ph484.preheader ]
-  %.0385477 = phi ptr [ %728, %.lr.ph484 ], [ %651, %.lr.ph484.preheader ]
-  %.0386476 = phi ptr [ %726, %.lr.ph484 ], [ %0, %.lr.ph484.preheader ]
+  %.pn414481 = phi ptr [ %.0381482, %.lr.ph484 ], [ %601, %.lr.ph484.preheader ]
+  %.pn480 = phi ptr [ %.0382, %.lr.ph484 ], [ %662, %.lr.ph484.preheader ]
+  %.pn415479 = phi ptr [ %.0383, %.lr.ph484 ], [ %657, %.lr.ph484.preheader ]
+  %.0384478 = phi ptr [ %734, %.lr.ph484 ], [ %36, %.lr.ph484.preheader ]
+  %.0385477 = phi ptr [ %735, %.lr.ph484 ], [ %658, %.lr.ph484.preheader ]
+  %.0386476 = phi ptr [ %733, %.lr.ph484 ], [ %0, %.lr.ph484.preheader ]
   %.0383 = getelementptr inbounds i8, ptr %.pn415479, i64 -16
   %.0382 = getelementptr inbounds i8, ptr %.pn480, i64 -32
-  %656 = getelementptr inbounds i8, ptr %.pn414481, i64 -8
-  %657 = load float, ptr %656, align 4
-  %658 = getelementptr inbounds i8, ptr %.pn480, i64 -4
-  %659 = load float, ptr %658, align 4
-  %660 = getelementptr inbounds i8, ptr %.pn414481, i64 -4
-  %661 = load float, ptr %660, align 4
-  %662 = getelementptr inbounds i8, ptr %.pn480, i64 -8
-  %663 = load float, ptr %662, align 4
-  %664 = fneg float %661
-  %665 = fmul float %663, %664
-  %666 = call float @llvm.fmuladd.f32(float %657, float %659, float %665)
-  %667 = fneg float %657
-  %668 = fmul float %659, %664
-  %669 = call float @llvm.fmuladd.f32(float %667, float %663, float %668)
-  store float %666, ptr %.0386476, align 4
-  %670 = fneg float %666
-  %671 = getelementptr inbounds i8, ptr %.0385477, i64 12
-  store float %670, ptr %671, align 4
-  store float %669, ptr %.0384478, align 4
-  %672 = getelementptr inbounds i8, ptr %.pn415479, i64 -4
-  store float %669, ptr %672, align 4
-  %673 = getelementptr inbounds i8, ptr %.pn414481, i64 -16
-  %674 = load float, ptr %673, align 4
-  %675 = getelementptr inbounds i8, ptr %.pn480, i64 -12
-  %676 = load float, ptr %675, align 4
-  %677 = getelementptr inbounds i8, ptr %.pn414481, i64 -12
-  %678 = load float, ptr %677, align 4
-  %679 = getelementptr inbounds i8, ptr %.pn480, i64 -16
-  %680 = load float, ptr %679, align 4
-  %681 = fneg float %678
-  %682 = fmul float %680, %681
-  %683 = call float @llvm.fmuladd.f32(float %674, float %676, float %682)
-  %684 = fneg float %674
-  %685 = fmul float %676, %681
-  %686 = call float @llvm.fmuladd.f32(float %684, float %680, float %685)
-  %687 = getelementptr inbounds i8, ptr %.0386476, i64 4
-  store float %683, ptr %687, align 4
-  %688 = fneg float %683
-  %689 = getelementptr inbounds i8, ptr %.0385477, i64 8
-  store float %688, ptr %689, align 4
-  %690 = getelementptr inbounds i8, ptr %.0384478, i64 4
-  store float %686, ptr %690, align 4
-  %691 = getelementptr inbounds i8, ptr %.pn415479, i64 -8
-  store float %686, ptr %691, align 4
-  %692 = getelementptr inbounds i8, ptr %.pn414481, i64 -24
-  %693 = load float, ptr %692, align 4
-  %694 = getelementptr inbounds i8, ptr %.pn480, i64 -20
-  %695 = load float, ptr %694, align 4
-  %696 = getelementptr inbounds i8, ptr %.pn414481, i64 -20
-  %697 = load float, ptr %696, align 4
-  %698 = getelementptr inbounds i8, ptr %.pn480, i64 -24
-  %699 = load float, ptr %698, align 4
-  %700 = fneg float %697
-  %701 = fmul float %699, %700
-  %702 = call float @llvm.fmuladd.f32(float %693, float %695, float %701)
-  %703 = fneg float %693
-  %704 = fmul float %695, %700
-  %705 = call float @llvm.fmuladd.f32(float %703, float %699, float %704)
-  %706 = getelementptr inbounds i8, ptr %.0386476, i64 8
-  store float %702, ptr %706, align 4
-  %707 = fneg float %702
-  %708 = getelementptr inbounds i8, ptr %.0385477, i64 4
-  store float %707, ptr %708, align 4
-  %709 = getelementptr inbounds i8, ptr %.0384478, i64 8
-  store float %705, ptr %709, align 4
-  %710 = getelementptr inbounds i8, ptr %.pn415479, i64 -12
-  store float %705, ptr %710, align 4
-  %711 = load float, ptr %.0381482, align 4
-  %712 = getelementptr inbounds i8, ptr %.pn480, i64 -28
-  %713 = load float, ptr %712, align 4
-  %714 = getelementptr inbounds i8, ptr %.pn414481, i64 -28
-  %715 = load float, ptr %714, align 4
-  %716 = load float, ptr %.0382, align 4
-  %717 = fneg float %715
-  %718 = fmul float %716, %717
-  %719 = call float @llvm.fmuladd.f32(float %711, float %713, float %718)
-  %720 = fneg float %711
-  %721 = fmul float %713, %717
-  %722 = call float @llvm.fmuladd.f32(float %720, float %716, float %721)
-  %723 = getelementptr inbounds i8, ptr %.0386476, i64 12
-  store float %719, ptr %723, align 4
-  %724 = fneg float %719
-  store float %724, ptr %.0385477, align 4
-  %725 = getelementptr inbounds i8, ptr %.0384478, i64 12
-  store float %722, ptr %725, align 4
-  store float %722, ptr %.0383, align 4
-  %726 = getelementptr inbounds i8, ptr %.0386476, i64 16
-  %727 = getelementptr inbounds i8, ptr %.0384478, i64 16
-  %728 = getelementptr inbounds i8, ptr %.0385477, i64 -16
+  %663 = getelementptr inbounds i8, ptr %.pn414481, i64 -8
+  %664 = load float, ptr %663, align 4
+  %665 = getelementptr inbounds i8, ptr %.pn480, i64 -4
+  %666 = load float, ptr %665, align 4
+  %667 = getelementptr inbounds i8, ptr %.pn414481, i64 -4
+  %668 = load float, ptr %667, align 4
+  %669 = getelementptr inbounds i8, ptr %.pn480, i64 -8
+  %670 = load float, ptr %669, align 4
+  %671 = fneg float %668
+  %672 = fmul float %670, %671
+  %673 = call float @llvm.fmuladd.f32(float %664, float %666, float %672)
+  %674 = fneg float %664
+  %675 = fmul float %666, %671
+  %676 = call float @llvm.fmuladd.f32(float %674, float %670, float %675)
+  store float %673, ptr %.0386476, align 4
+  %677 = fneg float %673
+  %678 = getelementptr inbounds i8, ptr %.0385477, i64 12
+  store float %677, ptr %678, align 4
+  store float %676, ptr %.0384478, align 4
+  %679 = getelementptr inbounds i8, ptr %.pn415479, i64 -4
+  store float %676, ptr %679, align 4
+  %680 = getelementptr inbounds i8, ptr %.pn414481, i64 -16
+  %681 = load float, ptr %680, align 4
+  %682 = getelementptr inbounds i8, ptr %.pn480, i64 -12
+  %683 = load float, ptr %682, align 4
+  %684 = getelementptr inbounds i8, ptr %.pn414481, i64 -12
+  %685 = load float, ptr %684, align 4
+  %686 = getelementptr inbounds i8, ptr %.pn480, i64 -16
+  %687 = load float, ptr %686, align 4
+  %688 = fneg float %685
+  %689 = fmul float %687, %688
+  %690 = call float @llvm.fmuladd.f32(float %681, float %683, float %689)
+  %691 = fneg float %681
+  %692 = fmul float %683, %688
+  %693 = call float @llvm.fmuladd.f32(float %691, float %687, float %692)
+  %694 = getelementptr inbounds i8, ptr %.0386476, i64 4
+  store float %690, ptr %694, align 4
+  %695 = fneg float %690
+  %696 = getelementptr inbounds i8, ptr %.0385477, i64 8
+  store float %695, ptr %696, align 4
+  %697 = getelementptr inbounds i8, ptr %.0384478, i64 4
+  store float %693, ptr %697, align 4
+  %698 = getelementptr inbounds i8, ptr %.pn415479, i64 -8
+  store float %693, ptr %698, align 4
+  %699 = getelementptr inbounds i8, ptr %.pn414481, i64 -24
+  %700 = load float, ptr %699, align 4
+  %701 = getelementptr inbounds i8, ptr %.pn480, i64 -20
+  %702 = load float, ptr %701, align 4
+  %703 = getelementptr inbounds i8, ptr %.pn414481, i64 -20
+  %704 = load float, ptr %703, align 4
+  %705 = getelementptr inbounds i8, ptr %.pn480, i64 -24
+  %706 = load float, ptr %705, align 4
+  %707 = fneg float %704
+  %708 = fmul float %706, %707
+  %709 = call float @llvm.fmuladd.f32(float %700, float %702, float %708)
+  %710 = fneg float %700
+  %711 = fmul float %702, %707
+  %712 = call float @llvm.fmuladd.f32(float %710, float %706, float %711)
+  %713 = getelementptr inbounds i8, ptr %.0386476, i64 8
+  store float %709, ptr %713, align 4
+  %714 = fneg float %709
+  %715 = getelementptr inbounds i8, ptr %.0385477, i64 4
+  store float %714, ptr %715, align 4
+  %716 = getelementptr inbounds i8, ptr %.0384478, i64 8
+  store float %712, ptr %716, align 4
+  %717 = getelementptr inbounds i8, ptr %.pn415479, i64 -12
+  store float %712, ptr %717, align 4
+  %718 = load float, ptr %.0381482, align 4
+  %719 = getelementptr inbounds i8, ptr %.pn480, i64 -28
+  %720 = load float, ptr %719, align 4
+  %721 = getelementptr inbounds i8, ptr %.pn414481, i64 -28
+  %722 = load float, ptr %721, align 4
+  %723 = load float, ptr %.0382, align 4
+  %724 = fneg float %722
+  %725 = fmul float %723, %724
+  %726 = call float @llvm.fmuladd.f32(float %718, float %720, float %725)
+  %727 = fneg float %718
+  %728 = fmul float %720, %724
+  %729 = call float @llvm.fmuladd.f32(float %727, float %723, float %728)
+  %730 = getelementptr inbounds i8, ptr %.0386476, i64 12
+  store float %726, ptr %730, align 4
+  %731 = fneg float %726
+  store float %731, ptr %.0385477, align 4
+  %732 = getelementptr inbounds i8, ptr %.0384478, i64 12
+  store float %729, ptr %732, align 4
+  store float %729, ptr %.0383, align 4
+  %733 = getelementptr inbounds i8, ptr %.0386476, i64 16
+  %734 = getelementptr inbounds i8, ptr %.0384478, i64 16
+  %735 = getelementptr inbounds i8, ptr %.0385477, i64 -16
   %.0381 = getelementptr inbounds i8, ptr %.0381482, i64 -32
   %.not413 = icmp ult ptr %.0381, %27
   br i1 %.not413, label %._crit_edge485, label %.lr.ph484

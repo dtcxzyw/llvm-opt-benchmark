@@ -864,7 +864,7 @@ define void @_ZN4cvc56parser11ParserState27getExpressionForNameAndTypeERKNSt7__c
 entry:
   %agg.tmp.i = alloca %"class.cvc5::Sort", align 8
   %ref.tmp = alloca %"class.cvc5::Term", align 16
-  %agg.tmp = alloca %"class.cvc5::Sort", align 8
+  %agg.tmp = alloca %"class.cvc5::Sort", align 16
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::allocator.13", align 1
   %ref.tmp17 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -884,16 +884,14 @@ invoke.cont2:                                     ; preds = %if.then
   br i1 %call3, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %invoke.cont2
-  %0 = load ptr, ptr %t, align 8
-  store ptr %0, ptr %agg.tmp, align 8
   %d_type.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %d_type3.i = getelementptr inbounds i8, ptr %t, i64 8
-  %1 = load ptr, ptr %d_type3.i, align 8
-  store ptr %1, ptr %d_type.i, align 8
+  %0 = load <2 x ptr>, ptr %t, align 8
+  %1 = load ptr, ptr %t, align 8
+  store <2 x ptr> %0, ptr %agg.tmp, align 16
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
   %2 = load ptr, ptr %_M_refcount3.i.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i.i, align 8
+  store ptr %2, ptr %_M_refcount.i.i.i, align 16
   %cmp.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i, label %_ZN4cvc54SortC2ERKS0_.exit, label %if.then.i.i.i.i
 
@@ -911,26 +909,24 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   %5 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4
-  %.pre = load ptr, ptr %agg.tmp, align 8, !noalias !13
+  %.pre = load ptr, ptr %agg.tmp, align 16, !noalias !13
   br label %_ZN4cvc54SortC2ERKS0_.exit
 
 _ZN4cvc54SortC2ERKS0_.exit:                       ; preds = %if.then4, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
-  %6 = phi ptr [ %0, %if.then4 ], [ %0, %if.then.i.i.i.i.i.i ], [ %.pre, %if.else.i.i.i.i.i.i ]
+  %6 = phi ptr [ %1, %if.then4 ], [ %1, %if.then.i.i.i.i.i.i ], [ %.pre, %if.else.i.i.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i)
   %d_symtab.i = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load ptr, ptr %d_symtab.i, align 8, !noalias !13
   store ptr %6, ptr %agg.tmp.i, align 8, !noalias !13
   %d_type.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  %8 = load ptr, ptr %d_type.i, align 8, !noalias !13
-  store ptr %8, ptr %d_type.i.i, align 8, !noalias !13
-  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
-  %9 = load ptr, ptr %_M_refcount.i.i.i, align 8, !noalias !13
-  store ptr %9, ptr %_M_refcount.i.i.i.i, align 8, !noalias !13
-  %cmp.not.i.i.i.i.i = icmp eq ptr %9, null
+  %8 = load ptr, ptr %_M_refcount.i.i.i, align 16, !noalias !13
+  %9 = load <2 x ptr>, ptr %d_type.i, align 8, !noalias !13
+  store <2 x ptr> %9, ptr %d_type.i.i, align 8, !noalias !13
+  %cmp.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN4cvc54SortC2ERKS0_.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN4cvc54SortC2ERKS0_.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i8, ptr @__libc_single_threaded, align 1, !noalias !13
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i

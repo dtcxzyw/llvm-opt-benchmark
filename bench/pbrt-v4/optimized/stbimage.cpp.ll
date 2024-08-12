@@ -18965,6 +18965,8 @@ if.then130:                                       ; preds = %if.end124
   br label %return
 
 for.cond162.preheader:                            ; preds = %for.body136
+  %78 = extractelement <2 x i32> %82, i64 1
+  %79 = extractelement <2 x i32> %82, i64 0
   br i1 %cmp135327, label %for.body165.lr.ph, label %for.end185
 
 for.body165.lr.ph:                                ; preds = %for.cond162.preheader
@@ -18974,15 +18976,10 @@ for.body165.lr.ph:                                ; preds = %for.cond162.prehead
 
 for.body136:                                      ; preds = %for.body136.lr.ph, %for.body136
   %indvars.iv348 = phi i64 [ 0, %for.body136.lr.ph ], [ %indvars.iv.next349, %for.body136 ]
-  %v_max.0330 = phi i32 [ 1, %for.body136.lr.ph ], [ %v_max.1, %for.body136 ]
-  %h_max.0329 = phi i32 [ 1, %for.body136.lr.ph ], [ %spec.select, %for.body136 ]
-  %arrayidx139 = getelementptr inbounds [4 x %struct.anon], ptr %img_comp137, i64 0, i64 %indvars.iv348
-  %h140 = getelementptr inbounds i8, ptr %arrayidx139, i64 4
-  %78 = load i32, ptr %h140, align 4
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %78, i32 %h_max.0329)
-  %v151 = getelementptr inbounds i8, ptr %arrayidx139, i64 8
-  %79 = load i32, ptr %v151, align 8
-  %v_max.1 = tail call i32 @llvm.smax.i32(i32 %79, i32 %v_max.0330)
+  %80 = phi <2 x i32> [ <i32 1, i32 1>, %for.body136.lr.ph ], [ %82, %for.body136 ]
+  %h140 = getelementptr inbounds [4 x %struct.anon], ptr %img_comp137, i64 0, i64 %indvars.iv348, i32 1
+  %81 = load <2 x i32>, ptr %h140, align 4
+  %82 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %81, <2 x i32> %80)
   %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 1
   %exitcond352.not = icmp eq i64 %indvars.iv.next349, %wide.trip.count351
   br i1 %exitcond352.not, label %for.cond162.preheader, label %for.body136, !llvm.loop !146
@@ -18996,55 +18993,54 @@ for.body165:                                      ; preds = %for.body165.lr.ph, 
   %indvars.iv353 = phi i64 [ 0, %for.body165.lr.ph ], [ %indvars.iv.next354, %for.cond162 ]
   %arrayidx168 = getelementptr inbounds [4 x %struct.anon], ptr %img_comp166, i64 0, i64 %indvars.iv353
   %h169 = getelementptr inbounds i8, ptr %arrayidx168, i64 4
-  %80 = load i32, ptr %h169, align 4
-  %rem = srem i32 %spec.select, %80
+  %83 = load i32, ptr %h169, align 4
+  %rem = srem i32 %79, %83
   %cmp170.not = icmp eq i32 %rem, 0
   br i1 %cmp170.not, label %if.end173, label %if.then171
 
 if.then171:                                       ; preds = %for.body165
-  %81 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
-  store ptr @.str.56, ptr %81, align 8
+  %84 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
+  store ptr @.str.56, ptr %84, align 8
   br label %return
 
 if.end173:                                        ; preds = %for.body165
   %v177 = getelementptr inbounds i8, ptr %arrayidx168, i64 8
-  %82 = load i32, ptr %v177, align 8
-  %rem178 = srem i32 %v_max.1, %82
+  %85 = load i32, ptr %v177, align 8
+  %rem178 = srem i32 %78, %85
   %cmp179.not = icmp eq i32 %rem178, 0
   br i1 %cmp179.not, label %for.cond162, label %if.then180
 
 if.then180:                                       ; preds = %if.end173
-  %83 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
-  store ptr @.str.57, ptr %83, align 8
+  %86 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
+  store ptr @.str.57, ptr %86, align 8
   br label %return
 
 for.end185:                                       ; preds = %for.cond162, %for.cond133.preheader, %for.cond162.preheader
-  %v_max.0.lcssa364 = phi i32 [ %v_max.1, %for.cond162.preheader ], [ 1, %for.cond133.preheader ], [ %v_max.1, %for.cond162 ]
-  %h_max.0.lcssa363 = phi i32 [ %spec.select, %for.cond162.preheader ], [ 1, %for.cond133.preheader ], [ %spec.select, %for.cond162 ]
+  %v_max.0.lcssa364 = phi i32 [ %78, %for.cond162.preheader ], [ 1, %for.cond133.preheader ], [ %78, %for.cond162 ]
+  %h_max.0.lcssa363 = phi i32 [ %79, %for.cond162.preheader ], [ 1, %for.cond133.preheader ], [ %79, %for.cond162 ]
+  %87 = phi <2 x i32> [ %82, %for.cond162.preheader ], [ <i32 1, i32 1>, %for.cond133.preheader ], [ %82, %for.cond162 ]
   %img_h_max = getelementptr inbounds i8, ptr %z, i64 18056
-  store i32 %h_max.0.lcssa363, ptr %img_h_max, align 8
-  %img_v_max = getelementptr inbounds i8, ptr %z, i64 18060
-  store i32 %v_max.0.lcssa364, ptr %img_v_max, align 4
+  store <2 x i32> %87, ptr %img_h_max, align 8
   %mul186 = shl nsw i32 %h_max.0.lcssa363, 3
   %img_mcu_w = getelementptr inbounds i8, ptr %z, i64 18072
   store i32 %mul186, ptr %img_mcu_w, align 8
   %mul187 = shl nsw i32 %v_max.0.lcssa364, 3
   %img_mcu_h = getelementptr inbounds i8, ptr %z, i64 18076
   store i32 %mul187, ptr %img_mcu_h, align 4
-  %84 = load i32, ptr %0, align 8
+  %88 = load i32, ptr %0, align 8
   %add190 = add nsw i32 %mul186, -1
-  %sub = add i32 %add190, %84
+  %sub = add i32 %add190, %88
   %div = udiv i32 %sub, %mul186
   %img_mcu_x = getelementptr inbounds i8, ptr %z, i64 18064
   store i32 %div, ptr %img_mcu_x, align 8
-  %85 = load i32, ptr %img_y, align 4
+  %89 = load i32, ptr %img_y, align 4
   %add194 = add nsw i32 %mul187, -1
-  %sub195 = add i32 %add194, %85
+  %sub195 = add i32 %add194, %89
   %div197 = udiv i32 %sub195, %mul187
   %img_mcu_y = getelementptr inbounds i8, ptr %z, i64 18068
   store i32 %div197, ptr %img_mcu_y, align 4
-  %86 = load i32, ptr %img_n, align 8
-  %cmp200335 = icmp sgt i32 %86, 0
+  %90 = load i32, ptr %img_n, align 8
+  %cmp200335 = icmp sgt i32 %90, 0
   br i1 %cmp200335, label %for.body201.lr.ph, label %return
 
 for.body201.lr.ph:                                ; preds = %for.end185
@@ -19056,28 +19052,28 @@ for.body201.lr.ph:                                ; preds = %for.end185
 
 for.body201:                                      ; preds = %for.body201.lr.ph, %for.inc340
   %indvars.iv358 = phi i64 [ 0, %for.body201.lr.ph ], [ %indvars.iv.next359, %for.inc340 ]
-  %87 = load i32, ptr %0, align 8
+  %91 = load i32, ptr %0, align 8
   %arrayidx205 = getelementptr inbounds [4 x %struct.anon], ptr %img_comp203, i64 0, i64 %indvars.iv358
   %h206 = getelementptr inbounds i8, ptr %arrayidx205, i64 4
-  %88 = load i32, ptr %h206, align 4
-  %mul207 = mul i32 %88, %87
+  %92 = load i32, ptr %h206, align 4
+  %mul207 = mul i32 %92, %91
   %sub209 = add i32 %add208, %mul207
   %div210 = udiv i32 %sub209, %h_max.0.lcssa363
   %x = getelementptr inbounds i8, ptr %arrayidx205, i64 28
   store i32 %div210, ptr %x, align 4
-  %89 = load i32, ptr %img_y, align 4
+  %93 = load i32, ptr %img_y, align 4
   %v218 = getelementptr inbounds i8, ptr %arrayidx205, i64 8
-  %90 = load i32, ptr %v218, align 8
-  %mul219 = mul i32 %90, %89
+  %94 = load i32, ptr %v218, align 8
+  %mul219 = mul i32 %94, %93
   %sub221 = add i32 %add220, %mul219
   %div222 = udiv i32 %sub221, %v_max.0.lcssa364
   %y = getelementptr inbounds i8, ptr %arrayidx205, i64 32
   store i32 %div222, ptr %y, align 8
-  %mul231 = mul nsw i32 %88, %div
+  %mul231 = mul nsw i32 %92, %div
   %mul232 = shl nsw i32 %mul231, 3
   %w2 = getelementptr inbounds i8, ptr %arrayidx205, i64 36
   store i32 %mul232, ptr %w2, align 4
-  %mul241 = mul nsw i32 %90, %div197
+  %mul241 = mul nsw i32 %94, %div197
   %mul242 = shl nsw i32 %mul241, 3
   %h2 = getelementptr inbounds i8, ptr %arrayidx205, i64 40
   store i32 %mul242, ptr %h2, align 8
@@ -19091,22 +19087,22 @@ for.body201:                                      ; preds = %for.body201.lr.ph, 
   br i1 %cmp272, label %if.then273, label %if.end277
 
 if.then273:                                       ; preds = %for.body201
-  %91 = trunc nuw nsw i64 %indvars.iv358 to i32
-  %add274 = add nuw nsw i32 %91, 1
-  %92 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
-  store ptr @.str.8, ptr %92, align 8
+  %95 = trunc nuw nsw i64 %indvars.iv358 to i32
+  %add274 = add nuw nsw i32 %95, 1
+  %96 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
+  store ptr @.str.8, ptr %96, align 8
   tail call fastcc void @_ZL26stbi__free_jpeg_componentsP10stbi__jpegii(ptr noundef nonnull %z, i32 noundef %add274)
   br label %return
 
 if.end277:                                        ; preds = %for.body201
-  %93 = ptrtoint ptr %call264 to i64
-  %add282 = add i64 %93, 15
+  %97 = ptrtoint ptr %call264 to i64
+  %add282 = add i64 %97, 15
   %and283 = and i64 %add282, -16
-  %94 = inttoptr i64 %and283 to ptr
+  %98 = inttoptr i64 %and283 to ptr
   %data287 = getelementptr inbounds i8, ptr %arrayidx205, i64 48
-  store ptr %94, ptr %data287, align 8
-  %95 = load i32, ptr %progressive, align 8
-  %tobool288.not = icmp eq i32 %95, 0
+  store ptr %98, ptr %data287, align 8
+  %99 = load i32, ptr %progressive, align 8
+  %tobool288.not = icmp eq i32 %99, 0
   br i1 %tobool288.not, label %for.inc340, label %if.then289
 
 if.then289:                                       ; preds = %if.end277
@@ -19120,26 +19116,26 @@ if.then289:                                       ; preds = %if.end277
   br i1 %cmp323, label %if.then324, label %if.end328
 
 if.then324:                                       ; preds = %if.then289
-  %96 = trunc nuw nsw i64 %indvars.iv358 to i32
-  %add325 = add nuw nsw i32 %96, 1
-  %97 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
-  store ptr @.str.8, ptr %97, align 8
+  %100 = trunc nuw nsw i64 %indvars.iv358 to i32
+  %add325 = add nuw nsw i32 %100, 1
+  %101 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
+  store ptr @.str.8, ptr %101, align 8
   tail call fastcc void @_ZL26stbi__free_jpeg_componentsP10stbi__jpegii(ptr noundef nonnull %z, i32 noundef %add325)
   br label %return
 
 if.end328:                                        ; preds = %if.then289
-  %98 = ptrtoint ptr %call314 to i64
-  %add333 = add i64 %98, 15
+  %102 = ptrtoint ptr %call314 to i64
+  %add333 = add i64 %102, 15
   %and334 = and i64 %add333, -16
-  %99 = inttoptr i64 %and334 to ptr
-  store ptr %99, ptr %coeff, align 8
+  %103 = inttoptr i64 %and334 to ptr
+  store ptr %103, ptr %coeff, align 8
   br label %for.inc340
 
 for.inc340:                                       ; preds = %if.end277, %if.end328
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
-  %100 = load i32, ptr %img_n, align 8
-  %101 = sext i32 %100 to i64
-  %cmp200 = icmp slt i64 %indvars.iv.next359, %101
+  %104 = load i32, ptr %img_n, align 8
+  %105 = sext i32 %104 to i64
+  %cmp200 = icmp slt i64 %indvars.iv.next359, %105
   br i1 %cmp200, label %for.body201, label %return, !llvm.loop !148
 
 return:                                           ; preds = %for.inc340, %for.end185, %for.end121, %if.then324, %if.then273, %if.then180, %if.then171, %if.then130, %if.then116, %if.then103, %if.then86, %if.then45, %if.then36, %if.then22, %if.then17, %if.then11, %if.then5, %if.then
@@ -22997,6 +22993,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #30
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare <2 x i32> @llvm.smax.v2i32(<2 x i32>, <2 x i32>) #30
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

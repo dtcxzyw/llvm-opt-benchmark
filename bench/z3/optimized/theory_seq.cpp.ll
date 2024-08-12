@@ -7729,7 +7729,6 @@ if.then.i.i:                                      ; preds = %invoke.cont
   %add_axiom5 = getelementptr inbounds i8, ptr %this, i64 3392
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
   store i64 %0, ptr %ref.tmp.i, align 8
@@ -7739,18 +7738,17 @@ if.then.i.i:                                      ; preds = %invoke.cont
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add_axiom5, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 3408
-  %2 = load ptr, ptr %_M_manager3.i.i, align 8
-  store ptr %2, ptr %_M_manager.i.i.i, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvN3sat7literalES1_S1_S1_S1_EZN3smt10theory_seq4initEvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager3.i.i, align 8
   %_M_invoker4.i2.i = getelementptr inbounds i8, ptr %this, i64 3416
-  %3 = load ptr, ptr %_M_invoker4.i2.i, align 8
-  store ptr %3, ptr %_M_invoker.i.i, align 8
+  %2 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %3 = load ptr, ptr %_M_manager3.i.i, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvN3sat7literalES1_S1_S1_S1_EZN3smt10theory_seq4initEvE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %_M_manager3.i.i, align 8
+  store <2 x ptr> %2, ptr %_M_manager.i.i.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFvN3sat7literalES1_S1_S1_S1_EZN3smt10theory_seq4initEvE3$_0E9_M_invokeERKSt9_Any_dataOS1_SA_SA_SA_SA_", ptr %_M_invoker4.i2.i, align 8
-  %tobool.not.i.i4.i = icmp eq ptr %2, null
+  %tobool.not.i.i4.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i4.i, label %if.then.i.i11, label %if.then.i.i5.i
 
 if.then.i.i5.i:                                   ; preds = %if.then.i.i
-  %call.i.i6.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i6.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %if.then.i.i11 unwind label %terminate.lpad.i.i7.i
 
 terminate.lpad.i.i7.i:                            ; preds = %if.then.i.i5.i
@@ -7765,7 +7763,6 @@ if.then.i.i11:                                    ; preds = %if.then.i.i, %if.th
   %mk_eq_empty2 = getelementptr inbounds i8, ptr %this, i64 3424
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i6)
   %_M_manager.i.i.i7 = getelementptr inbounds i8, ptr %ref.tmp.i6, i64 16
-  %_M_invoker.i.i8 = getelementptr inbounds i8, ptr %ref.tmp.i6, i64 24
   %6 = getelementptr inbounds i8, ptr %ref.tmp.i6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
   store i64 %0, ptr %ref.tmp.i6, align 8
@@ -7775,18 +7772,17 @@ if.then.i.i11:                                    ; preds = %if.then.i.i, %if.th
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mk_eq_empty2, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i5)
   %_M_manager3.i.i21 = getelementptr inbounds i8, ptr %this, i64 3440
-  %7 = load ptr, ptr %_M_manager3.i.i21, align 8
-  store ptr %7, ptr %_M_manager.i.i.i7, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN3sat7literalEP4exprbEZN3smt10theory_seq4initEvE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager3.i.i21, align 8
   %_M_invoker4.i2.i22 = getelementptr inbounds i8, ptr %this, i64 3448
-  %8 = load ptr, ptr %_M_invoker4.i2.i22, align 8
-  store ptr %8, ptr %_M_invoker.i.i8, align 8
+  %7 = load <2 x ptr>, ptr %_M_manager3.i.i21, align 8
+  %8 = load ptr, ptr %_M_manager3.i.i21, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN3sat7literalEP4exprbEZN3smt10theory_seq4initEvE3$_1E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager3.i.i21, align 8
+  store <2 x ptr> %7, ptr %_M_manager.i.i.i7, align 8
   store ptr @"_ZNSt17_Function_handlerIFN3sat7literalEP4exprbEZN3smt10theory_seq4initEvE3$_1E9_M_invokeERKSt9_Any_dataOS3_Ob", ptr %_M_invoker4.i2.i22, align 8
-  %tobool.not.i.i4.i23 = icmp eq ptr %7, null
+  %tobool.not.i.i4.i23 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i4.i23, label %invoke.cont7, label %if.then.i.i5.i24
 
 if.then.i.i5.i24:                                 ; preds = %if.then.i.i11
-  %call.i.i6.i25 = invoke noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i6, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i6, i32 noundef 3)
+  %call.i.i6.i25 = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i6, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i6, i32 noundef 3)
           to label %invoke.cont7 unwind label %terminate.lpad.i.i7.i26
 
 terminate.lpad.i.i7.i26:                          ; preds = %if.then.i.i5.i24
@@ -14756,7 +14752,7 @@ entry:
 _ZNK6vectorIN3sat7literalELb0EjE8capacityEv.exit.i.i.i: ; preds = %entry
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
-  %2 = extractelement <2 x i32> %1, i64 0
+  %2 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %2 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 2
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 8
@@ -15035,7 +15031,7 @@ _ZN7svectorIN3sat7literalEjEC2ERKS2_.exit.thread: ; preds = %if.then29
 _ZNK6vectorIN3sat7literalELb0EjE8capacityEv.exit.i.i.i: ; preds = %if.then29
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %2 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
-  %3 = extractelement <2 x i32> %2, i64 0
+  %3 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %3 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 2
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 8
@@ -16726,7 +16722,7 @@ if.end:                                           ; preds = %entry
 _ZNK6vectorIN3sat7literalELb0EjE8capacityEv.exit.i.i.i: ; preds = %if.end
   %arrayidx.i11.i.i.i = getelementptr inbounds i8, ptr %14, i64 -8
   %15 = load <2 x i32>, ptr %arrayidx.i11.i.i.i, align 4
-  %16 = extractelement <2 x i32> %15, i64 0
+  %16 = load i32, ptr %arrayidx.i11.i.i.i, align 4
   %conv.i.i.i = zext i32 %16 to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 2
   %add.i.i.i = add nuw nsw i64 %mul.i.i.i, 8

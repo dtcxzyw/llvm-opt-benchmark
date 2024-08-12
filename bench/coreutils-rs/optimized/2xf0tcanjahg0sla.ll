@@ -2035,24 +2035,21 @@ common.resume:                                    ; preds = %32, %16
 define void @_ZN6uucore8features5fsext7FsUsage3new17habc5cc7f5c7c3909E(ptr noalias nocapture noundef writeonly sret({ i64, i64, i64, i64, i64, i64, i8, [7 x i8] }) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
-  %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
-  %7 = getelementptr inbounds i8, ptr %1, i64 48
-  %8 = load i64, ptr %7, align 8, !noundef !4
-  %9 = load <2 x i64>, ptr %3, align 8
-  store <2 x i64> %9, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %5, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
-  %13 = load <2 x i64>, ptr %6, align 8
-  %14 = extractelement <2 x i64> %13, i64 0
-  %.lobit = lshr i64 %14, 63
-  %15 = trunc nuw nsw i64 %.lobit to i8
-  store i8 %15, ptr %12, align 8
-  store <2 x i64> %13, ptr %11, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %8, ptr %16, align 8
+  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = load <2 x i64>, ptr %3, align 8
+  store <2 x i64> %7, ptr %0, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = load i64, ptr %5, align 8, !noundef !4
+  %10 = load <2 x i64>, ptr %4, align 8
+  store <2 x i64> %10, ptr %8, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %.lobit = lshr i64 %9, 63
+  %12 = trunc nuw nsw i64 %.lobit to i8
+  store i8 %12, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = load <2 x i64>, ptr %6, align 8
+  store <2 x i64> %14, ptr %13, align 8
   ret void
 }
 

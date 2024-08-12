@@ -2103,8 +2103,8 @@ init_slab_allocator.exit:                         ; preds = %51, %._crit_edge.i,
   %112 = load ptr, ptr %82, align 8
   store ptr %112, ptr %81, align 8
   %113 = load <2 x i32>, ptr %56, align 8
+  %114 = load i32, ptr %56, align 8
   store <2 x i32> %113, ptr %80, align 8
-  %114 = extractelement <2 x i32> %113, i64 0
   %115 = sext i32 %114 to i64
   %116 = shl nsw i64 %115, 3
   %117 = call ptr @palloc0(i64 noundef %116) #12

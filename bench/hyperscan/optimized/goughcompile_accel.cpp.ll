@@ -4480,7 +4480,7 @@ lpad:                                             ; preds = %invoke.cont12
 define linkonce_odr hidden void @_ZN5boost18depth_first_searchINS_14adjacency_listINS_4vecSES2_NS_14bidirectionalSENS_11no_propertyES4_S4_NS_5listSEEEN3ue217detect_back_edgesENS_25shared_array_property_mapINS_18default_color_typeENS_26vec_adj_list_vertex_id_mapIS4_mEEEEEEvRKT_T0_T1_NS_12graph_traitsISE_E17vertex_descriptorE(ptr noundef nonnull align 8 dereferenceable(56) %g, i16 %vis.coerce, ptr noundef %color, i64 noundef %start_vertex) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %vis = alloca %"struct.ue2::detect_back_edges", align 2
-  %agg.tmp = alloca %"class.boost::shared_array_property_map", align 8
+  %agg.tmp = alloca %"class.boost::shared_array_property_map", align 16
   %agg.tmp25 = alloca %"class.boost::shared_array_property_map", align 8
   store i16 %vis.coerce, ptr %vis, align 2
   %m_vertices.i.i = getelementptr inbounds i8, ptr %g, i64 24
@@ -4517,17 +4517,16 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end
-  %5 = load ptr, ptr %color, align 8
-  store ptr %5, ptr %agg.tmp, align 8
   %pn.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %pn3.i.i = getelementptr inbounds i8, ptr %color, i64 8
-  %6 = load ptr, ptr %pn3.i.i, align 8
-  store ptr %6, ptr %pn.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %pn3.i.i, align 8
+  %6 = load <2 x ptr>, ptr %color, align 8
+  store <2 x ptr> %6, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZN5boost25shared_array_property_mapINS_18default_color_typeENS_26vec_adj_list_vertex_id_mapINS_11no_propertyEmEEEC2ERKS5_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %use_count_.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %use_count_.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = atomicrmw add ptr %use_count_.i.i.i.i, i32 1 monotonic, align 4
   br label %_ZN5boost25shared_array_property_mapINS_18default_color_typeENS_26vec_adj_list_vertex_id_mapINS_11no_propertyEmEEEC2ERKS5_.exit
 

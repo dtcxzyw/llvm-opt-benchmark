@@ -138,46 +138,42 @@ entry:
   store i8 %frombool9, ptr %_writeA, align 2
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %outputFile)
   %call11 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
-  %4 = load i32, ptr %call11, align 4
-  %y3.i.i = getelementptr inbounds i8, ptr %call11, i64 4
-  %5 = load i32, ptr %y3.i.i, align 4
   %max3.i = getelementptr inbounds i8, ptr %call11, i64 8
-  %6 = load i32, ptr %max3.i, align 4
   %y3.i3.i = getelementptr inbounds i8, ptr %call11, i64 12
-  %7 = load i32, ptr %y3.i3.i, align 4
   %_xMin = getelementptr inbounds i8, ptr %this, i64 52
-  store i32 %4, ptr %_xMin, align 4
-  %reass.sub = sub i32 %6, %4
-  %add = add i32 %reass.sub, 1
   %_width = getelementptr inbounds i8, ptr %this, i64 56
-  store i32 %add, ptr %_width, align 8
-  %reass.sub12 = sub i32 %7, %5
-  %add19 = add i32 %reass.sub12, 1
-  %_height = getelementptr inbounds i8, ptr %this, i64 60
-  store i32 %add19, ptr %_height, align 4
+  %4 = load <2 x i32>, ptr %call11, align 4
+  %5 = load i32, ptr %y3.i3.i, align 4
+  %6 = load <2 x i32>, ptr %max3.i, align 4
+  %7 = extractelement <2 x i32> %4, i64 0
+  store i32 %7, ptr %_xMin, align 4
+  %8 = sub <2 x i32> %6, %4
+  %9 = add <2 x i32> %8, <i32 1, i32 1>
+  store <2 x i32> %9, ptr %_width, align 8
   %_linesConverted = getelementptr inbounds i8, ptr %this, i64 64
   store i32 0, ptr %_linesConverted, align 8
-  %8 = load ptr, ptr %_outputFile, align 8
-  %call21 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %10 = load ptr, ptr %_outputFile, align 8
+  %call21 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
   %call22 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header9lineOrderEv(ptr noundef nonnull align 8 dereferenceable(49) %call21)
-  %9 = load i32, ptr %call22, align 4
+  %11 = load i32, ptr %call22, align 4
   %_lineOrder = getelementptr inbounds i8, ptr %this, i64 68
-  store i32 %9, ptr %_lineOrder, align 4
-  %cmp = icmp eq i32 %9, 0
-  %spec.select = select i1 %cmp, i32 %5, i32 %7
-  %10 = getelementptr inbounds i8, ptr %this, i64 72
-  store i32 %spec.select, ptr %10, align 8
-  %11 = load ptr, ptr %_outputFile, align 8
-  %call30 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
+  store i32 %11, ptr %_lineOrder, align 4
+  %cmp = icmp eq i32 %11, 0
+  %12 = extractelement <2 x i32> %4, i64 1
+  %spec.select = select i1 %cmp, i32 %12, i32 %5
+  %13 = getelementptr inbounds i8, ptr %this, i64 72
+  store i32 %spec.select, ptr %13, align 8
+  %14 = load ptr, ptr %_outputFile, align 8
+  %call30 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_210OutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(16) %14)
   call fastcc void @_ZN7Imf_3_212_GLOBAL__N_112ywFromHeaderERKNS_6HeaderE(ptr noalias nonnull align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(49) %call30)
-  %12 = load <2 x float>, ptr %ref.tmp, align 8
-  store <2 x float> %12, ptr %_yw, align 4
+  %15 = load <2 x float>, ptr %ref.tmp, align 8
+  store <2 x float> %15, ptr %_yw, align 4
   %z.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %13 = load float, ptr %z.i, align 8
+  %16 = load float, ptr %z.i, align 8
   %z4.i = getelementptr inbounds i8, ptr %this, i64 84
-  store float %13, ptr %z4.i, align 4
-  %14 = load i32, ptr %_width, align 8
-  %conv = sext i32 %14 to i64
+  store float %16, ptr %z4.i, align 4
+  %17 = load i32, ptr %_width, align 8
+  %conv = sext i32 %17 to i64
   %mul = shl nsw i64 %conv, 3
   br label %while.cond.i
 
@@ -215,10 +211,10 @@ _ZN7Imf_3_212_GLOBAL__N_112cachePaddingEl.exit:   ; preds = %if.then.i, %if.end.
   %div7 = lshr i64 %retval.0.i, 3
   %add37 = add nsw i64 %div7, %conv
   %mul38 = mul nsw i64 %add37, 27
-  %15 = icmp ugt i64 %mul38, 2305843009213693951
-  %16 = mul i64 %add37, 216
-  %17 = select i1 %15, i64 -1, i64 %16
-  %call39 = call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #23
+  %18 = icmp ugt i64 %mul38, 2305843009213693951
+  %19 = mul i64 %add37, 216
+  %20 = select i1 %18, i64 -1, i64 %19
+  %call39 = call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #23
   %_bufBase = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %call39, ptr %_bufBase, align 8
   %_buf = getelementptr inbounds i8, ptr %this, i64 96
@@ -235,12 +231,12 @@ for.body:                                         ; preds = %_ZN7Imf_3_212_GLOBA
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.body
-  %sub49 = add nsw i32 %14, 26
+  %sub49 = add nsw i32 %17, 26
   %conv50 = sext i32 %sub49 to i64
-  %18 = icmp slt i32 %14, -26
-  %19 = shl nsw i64 %conv50, 3
-  %20 = select i1 %18, i64 -1, i64 %19
-  %call51 = call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #23
+  %21 = icmp slt i32 %17, -26
+  %22 = shl nsw i64 %conv50, 3
+  %23 = select i1 %21, i64 -1, i64 %22
+  %call51 = call noalias noundef nonnull ptr @_Znam(i64 noundef %23) #23
   %_tmpBuf = getelementptr inbounds i8, ptr %this, i64 312
   store ptr %call51, ptr %_tmpBuf, align 8
   %_fbBase = getelementptr inbounds i8, ptr %this, i64 320
@@ -2261,47 +2257,40 @@ entry:
   store i8 %frombool, ptr %_readC, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %inputFile)
   %call3 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
-  %2 = load i32, ptr %call3, align 4
-  %y3.i.i = getelementptr inbounds i8, ptr %call3, i64 4
-  %3 = load i32, ptr %y3.i.i, align 4
   %max3.i = getelementptr inbounds i8, ptr %call3, i64 8
-  %4 = load i32, ptr %max3.i, align 4
   %y3.i3.i = getelementptr inbounds i8, ptr %call3, i64 12
-  %5 = load i32, ptr %y3.i3.i, align 4
   %_xMin = getelementptr inbounds i8, ptr %this, i64 52
-  store i32 %2, ptr %_xMin, align 4
-  %_yMin = getelementptr inbounds i8, ptr %this, i64 56
-  store i32 %3, ptr %_yMin, align 8
   %_yMax = getelementptr inbounds i8, ptr %this, i64 60
-  store i32 %5, ptr %_yMax, align 4
-  %reass.sub = sub i32 %4, %2
-  %add = add i32 %reass.sub, 1
   %_width = getelementptr inbounds i8, ptr %this, i64 64
-  store i32 %add, ptr %_width, align 8
-  %reass.sub16 = sub i32 %5, %3
-  %add15 = add i32 %reass.sub16, 1
-  %_height = getelementptr inbounds i8, ptr %this, i64 68
-  store i32 %add15, ptr %_height, align 4
-  %sub19 = add nsw i32 %3, -29
+  %2 = load <2 x i32>, ptr %call3, align 4
+  %3 = load i32, ptr %y3.i3.i, align 4
+  %4 = load <2 x i32>, ptr %max3.i, align 4
+  %5 = extractelement <2 x i32> %2, i64 1
+  store <2 x i32> %2, ptr %_xMin, align 4
+  store i32 %3, ptr %_yMax, align 4
+  %6 = sub <2 x i32> %4, %2
+  %7 = add <2 x i32> %6, <i32 1, i32 1>
+  store <2 x i32> %7, ptr %_width, align 8
+  %sub19 = add nsw i32 %5, -29
   %_currentScanLine = getelementptr inbounds i8, ptr %this, i64 72
   store i32 %sub19, ptr %_currentScanLine, align 8
-  %6 = load ptr, ptr %_inputPart, align 8
-  %call21 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %call22 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header9lineOrderEv(ptr noundef nonnull align 8 dereferenceable(49) %call21)
-  %7 = load i32, ptr %call22, align 4
-  %_lineOrder = getelementptr inbounds i8, ptr %this, i64 76
-  store i32 %7, ptr %_lineOrder, align 4
   %8 = load ptr, ptr %_inputPart, align 8
-  %call24 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %call21 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %call22 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_26Header9lineOrderEv(ptr noundef nonnull align 8 dereferenceable(49) %call21)
+  %9 = load i32, ptr %call22, align 4
+  %_lineOrder = getelementptr inbounds i8, ptr %this, i64 76
+  store i32 %9, ptr %_lineOrder, align 4
+  %10 = load ptr, ptr %_inputPart, align 8
+  %call24 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_29InputPart6headerEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
   call fastcc void @_ZN7Imf_3_212_GLOBAL__N_112ywFromHeaderERKNS_6HeaderE(ptr noalias nonnull align 4 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(49) %call24)
-  %9 = load <2 x float>, ptr %ref.tmp, align 8
-  store <2 x float> %9, ptr %_yw, align 8
+  %11 = load <2 x float>, ptr %ref.tmp, align 8
+  store <2 x float> %11, ptr %_yw, align 8
   %z.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %10 = load float, ptr %z.i, align 8
+  %12 = load float, ptr %z.i, align 8
   %z4.i = getelementptr inbounds i8, ptr %this, i64 88
-  store float %10, ptr %z4.i, align 8
-  %11 = load i32, ptr %_width, align 8
-  %conv = sext i32 %11 to i64
+  store float %12, ptr %z4.i, align 8
+  %13 = load i32, ptr %_width, align 8
+  %conv = sext i32 %13 to i64
   %mul = shl nsw i64 %conv, 3
   br label %while.cond.i
 
@@ -2338,11 +2327,11 @@ _ZN7Imf_3_212_GLOBAL__N_112cachePaddingEl.exit:   ; preds = %if.then.i, %if.end.
   %retval.0.i = phi i64 [ %add6.i, %if.then.i ], [ %add13.i, %if.then10.i ], [ 0, %if.end.i ]
   %div9 = lshr i64 %retval.0.i, 3
   %add31 = add nsw i64 %div9, %conv
-  %12 = and i64 %add31, 504403158265495552
-  %.not = icmp eq i64 %12, 0
-  %13 = shl i64 %add31, 8
-  %14 = select i1 %.not, i64 %13, i64 -1
-  %call33 = call noalias noundef nonnull ptr @_Znam(i64 noundef %14) #23
+  %14 = and i64 %add31, 504403158265495552
+  %.not = icmp eq i64 %14, 0
+  %15 = shl i64 %add31, 8
+  %16 = select i1 %.not, i64 %15, i64 -1
+  %call33 = call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #23
   %_bufBase = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %call33, ptr %_bufBase, align 8
   %_buf1 = getelementptr inbounds i8, ptr %this, i64 104
@@ -2364,8 +2353,8 @@ for.body:                                         ; preds = %_ZN7Imf_3_212_GLOBA
 
 for.body43:                                       ; preds = %for.cond41.preheader, %for.body43
   %indvars.iv20 = phi i64 [ 0, %for.cond41.preheader ], [ %indvars.iv.next21, %for.body43 ]
-  %15 = add nuw nsw i64 %indvars.iv20, 29
-  %mul51 = mul nsw i64 %add31, %15
+  %17 = add nuw nsw i64 %indvars.iv20, 29
+  %mul51 = mul nsw i64 %add31, %17
   %add.ptr52 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %call33, i64 %mul51
   %arrayidx54 = getelementptr inbounds [3 x ptr], ptr %_buf2, i64 0, i64 %indvars.iv20
   store ptr %add.ptr52, ptr %arrayidx54, align 8
@@ -2374,12 +2363,12 @@ for.body43:                                       ; preds = %for.cond41.preheade
   br i1 %exitcond24.not, label %for.end57, label %for.body43, !llvm.loop !16
 
 for.end57:                                        ; preds = %for.body43
-  %sub60 = add nsw i32 %11, 26
+  %sub60 = add nsw i32 %13, 26
   %conv61 = sext i32 %sub60 to i64
-  %16 = icmp slt i32 %11, -26
-  %17 = shl nsw i64 %conv61, 3
-  %18 = select i1 %16, i64 -1, i64 %17
-  %call62 = call noalias noundef nonnull ptr @_Znam(i64 noundef %18) #23
+  %18 = icmp slt i32 %13, -26
+  %19 = shl nsw i64 %conv61, 3
+  %20 = select i1 %18, i64 -1, i64 %19
+  %call62 = call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #23
   %_tmpBuf = getelementptr inbounds i8, ptr %this, i64 360
   store ptr %call62, ptr %_tmpBuf, align 8
   %_fbBase = getelementptr inbounds i8, ptr %this, i64 368

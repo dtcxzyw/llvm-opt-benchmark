@@ -426,10 +426,10 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i:            ; preds = %126
   %135 = getelementptr inbounds i8, ptr %125, i64 240
   %136 = getelementptr inbounds i8, ptr %125, i64 248
   %137 = load <2 x ptr>, ptr %135, align 8
+  %138 = load ptr, ptr %135, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui13MessageDialogC1EPNS1_6WidgetENS2_4TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_bE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %135, align 8
   store <2 x ptr> %137, ptr %133, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui13MessageDialogC1EPNS1_6WidgetENS2_4TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_bE3$_0E9_M_invokeERKSt9_Any_data", ptr %136, align 8
-  %138 = extractelement <2 x ptr> %137, i64 0
   %.not.i.i2.i.i = icmp eq ptr %138, null
   br i1 %.not.i.i2.i.i, label %.thread, label %139
 
@@ -553,10 +553,10 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i65:          ; preds = %165
   %174 = getelementptr inbounds i8, ptr %164, i64 240
   %175 = getelementptr inbounds i8, ptr %164, i64 248
   %176 = load <2 x ptr>, ptr %174, align 8
+  %177 = load ptr, ptr %174, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui13MessageDialogC1EPNS1_6WidgetENS2_4TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_bE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %174, align 8
   store <2 x ptr> %176, ptr %172, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui13MessageDialogC1EPNS1_6WidgetENS2_4TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_bE3$_1E9_M_invokeERKSt9_Any_data", ptr %175, align 8
-  %177 = extractelement <2 x ptr> %176, i64 0
   %.not.i.i2.i.i66 = icmp eq ptr %177, null
   br i1 %.not.i.i2.i.i66, label %.thread85, label %178
 

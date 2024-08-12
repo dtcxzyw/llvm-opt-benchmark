@@ -1872,9 +1872,9 @@ define hidden noundef i32 @_ZN12PhaseChaitin5SplitEjP12ResourceArea(ptr noundef 
   %9 = getelementptr inbounds i8, ptr %2, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 32
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
-  %14 = load ptr, ptr %13, align 8
+  %12 = getelementptr inbounds i8, ptr %2, i64 40
+  %13 = load <2 x ptr>, ptr %11, align 8
+  %14 = load ptr, ptr %11, align 8
   %15 = getelementptr inbounds i8, ptr %2, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %1, i32 noundef 4, ptr noundef %2) #9
@@ -1907,7 +1907,7 @@ _ZN13GrowableArrayIjEC2EP5ArenaiiRKj.exit818:     ; preds = %_ZN13GrowableArrayI
   %33 = shl nuw nsw i64 %32, 2
   %34 = add nuw nsw i64 %33, 7
   %35 = and i64 %34, 34359738360
-  %36 = load ptr, ptr %13, align 8
+  %36 = load ptr, ptr %12, align 8
   %37 = load ptr, ptr %11, align 8
   %38 = ptrtoint ptr %36 to i64
   %39 = ptrtoint ptr %37 to i64
@@ -2067,7 +2067,7 @@ _ZN26GrowableArrayWithAllocatorIj13GrowableArrayIjEE6appendERKj.exit: ; preds = 
   %107 = add i32 %106, 1
   %108 = zext i32 %107 to i64
   %109 = shl nuw nsw i64 %108, 3
-  %110 = load ptr, ptr %13, align 8
+  %110 = load ptr, ptr %12, align 8
   %111 = load ptr, ptr %11, align 8
   %112 = ptrtoint ptr %110 to i64
   %113 = ptrtoint ptr %111 to i64
@@ -2082,7 +2082,7 @@ _ZN26GrowableArrayWithAllocatorIj13GrowableArrayIjEE6appendERKj.exit: ; preds = 
 
 117:                                              ; preds = %._crit_edge
   %118 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef %109, i32 noundef 0) #9
-  %.pre1745 = load ptr, ptr %13, align 8
+  %.pre1745 = load ptr, ptr %12, align 8
   %.pre1746 = load ptr, ptr %11, align 8
   %.pre1766 = ptrtoint ptr %.pre1745 to i64
   br label %_ZN12ResourceArea14allocate_bytesEmN17AllocFailStrategy13AllocFailEnumE.exit821
@@ -2109,7 +2109,7 @@ _ZN12ResourceArea14allocate_bytesEmN17AllocFailStrategy13AllocFailEnumE.exit821:
 
 130:                                              ; preds = %_ZN12ResourceArea14allocate_bytesEmN17AllocFailStrategy13AllocFailEnumE.exit821
   %131 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef %125, i32 noundef 0) #9
-  %.pre1747 = load ptr, ptr %13, align 8
+  %.pre1747 = load ptr, ptr %12, align 8
   %.pre1748 = load ptr, ptr %11, align 8
   %.pre1767 = ptrtoint ptr %.pre1747 to i64
   br label %_ZN12ResourceArea14allocate_bytesEmN17AllocFailStrategy13AllocFailEnumE.exit824
@@ -2132,7 +2132,7 @@ _ZN12ResourceArea14allocate_bytesEmN17AllocFailStrategy13AllocFailEnumE.exit824:
 
 139:                                              ; preds = %_ZN12ResourceArea14allocate_bytesEmN17AllocFailStrategy13AllocFailEnumE.exit824
   %140 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %2, i64 noundef %134, i32 noundef 0) #9
-  %.pre1749 = load ptr, ptr %13, align 8
+  %.pre1749 = load ptr, ptr %12, align 8
   %.pre1750 = load ptr, ptr %11, align 8
   %.pre1769 = ptrtoint ptr %.pre1749 to i64
   br label %_ZN12ResourceArea14allocate_bytesEmN17AllocFailStrategy13AllocFailEnumE.exit827
@@ -2175,7 +2175,7 @@ _ZN12ResourceArea14allocate_bytesEmN17AllocFailStrategy13AllocFailEnumE.exit830:
 
 153:                                              ; preds = %.lr.ph1478, %._crit_edge1476
   %indvars.iv1684 = phi i64 [ 0, %.lr.ph1478 ], [ %indvars.iv.next1685, %._crit_edge1476 ]
-  %154 = load ptr, ptr %13, align 8
+  %154 = load ptr, ptr %12, align 8
   %155 = load ptr, ptr %11, align 8
   %156 = ptrtoint ptr %154 to i64
   %157 = ptrtoint ptr %155 to i64
@@ -2196,7 +2196,7 @@ _ZN12ResourceArea14allocate_bytesEmN17AllocFailStrategy13AllocFailEnumE.exit833:
   %.0.i.i.i832 = phi ptr [ %155, %159 ], [ %162, %161 ]
   %163 = getelementptr inbounds ptr, ptr %.0.i.i.i820, i64 %indvars.iv1684
   store ptr %.0.i.i.i832, ptr %163, align 8
-  %164 = load ptr, ptr %13, align 8
+  %164 = load ptr, ptr %12, align 8
   %165 = load ptr, ptr %11, align 8
   %166 = ptrtoint ptr %164 to i64
   %167 = ptrtoint ptr %165 to i64
@@ -2254,7 +2254,7 @@ _ZN12ResourceArea14allocate_bytesEmN17AllocFailStrategy13AllocFailEnumE.exit836:
   store ptr %2, ptr %6, align 8
   %185 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 8, ptr %185, align 8
-  %186 = load ptr, ptr %13, align 8
+  %186 = load ptr, ptr %12, align 8
   %187 = load ptr, ptr %11, align 8
   %188 = ptrtoint ptr %186 to i64
   %189 = ptrtoint ptr %187 to i64
@@ -2285,7 +2285,7 @@ _ZN9Node_ListC2EP5Arenaj.exit:                    ; preds = %191, %193
   store ptr %2, ptr %7, align 8
   %200 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 16, ptr %200, align 8
-  %201 = load ptr, ptr %13, align 8
+  %201 = load ptr, ptr %12, align 8
   %202 = load ptr, ptr %11, align 8
   %203 = ptrtoint ptr %201 to i64
   %204 = ptrtoint ptr %202 to i64
@@ -5616,13 +5616,12 @@ _ZN13GrowableArrayIjED2Ev.exit997:                ; preds = %2069, %.loopexit.th
 
 2073:                                             ; preds = %2072, %_ZN13GrowableArrayIjED2Ev.exit997
   %2074 = load ptr, ptr %11, align 8
-  %.not8.i.i.i.i = icmp eq ptr %2074, %12
+  %.not8.i.i.i.i = icmp eq ptr %2074, %14
   br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %2075
 
 2075:                                             ; preds = %2073
   store ptr %10, ptr %9, align 8
-  store ptr %12, ptr %11, align 8
-  store ptr %14, ptr %13, align 8
+  store <2 x ptr> %13, ptr %11, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %2073, %2075

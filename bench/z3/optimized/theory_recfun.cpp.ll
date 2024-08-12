@@ -3831,7 +3831,7 @@ _ZNKSt8functionIF7svectorIN3sat7literalEjEvEEclEv.exit.i: ; preds = %invoke.cont
 _ZNK6vectorIN3sat7literalELb0EjE8capacityEv.exit.i.i.i.i.i.i.i: ; preds = %_ZNKSt8functionIF7svectorIN3sat7literalEjEvEEclEv.exit.i
   %arrayidx.i11.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %105, i64 -8
   %106 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i.i.i.i, align 4, !noalias !35
-  %107 = extractelement <2 x i32> %106, i64 0
+  %107 = load i32, ptr %arrayidx.i11.i.i.i.i.i.i.i, align 4, !noalias !35
   %conv.i.i.i.i.i.i.i = zext i32 %107 to i64
   %mul.i.i.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i.i.i, 2
   %add.i.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i.i, 8
@@ -10407,7 +10407,7 @@ entry:
 _ZNK6vectorIN3sat7literalELb0EjE8capacityEv.exit.i.i.i.i.i.i: ; preds = %entry
   %arrayidx.i11.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i.i.i, align 4, !noalias !69
-  %2 = extractelement <2 x i32> %1, i64 0
+  %2 = load i32, ptr %arrayidx.i11.i.i.i.i.i.i, align 4, !noalias !69
   %conv.i.i.i.i.i.i = zext i32 %2 to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i.i.i, 2
   %add.i.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i.i, 8

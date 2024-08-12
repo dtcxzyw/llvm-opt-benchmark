@@ -3257,7 +3257,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK6Assimp7Blender3DNA22ConvertBlobToStructureERKNS0_9StructureERKNS0_12FileDatabaseE(ptr noalias sret(%"class.std::shared_ptr.46") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(120) %structure, ptr noundef nonnull align 8 dereferenceable(232) %db) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.46", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.46", align 16
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -3357,17 +3357,16 @@ memptr.nonvirtual16:                              ; preds = %memptr.end
 
 memptr.end18:                                     ; preds = %memptr.nonvirtual16, %memptr.virtual13
   %14 = phi ptr [ %memptr.virtualfn15, %memptr.virtual13 ], [ %memptr.nonvirtualfn17, %memptr.nonvirtual16 ]
-  %15 = load ptr, ptr %agg.result, align 8
-  store ptr %15, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %16 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %16, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i9 = icmp eq ptr %16, null
+  %15 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %16 = load <2 x ptr>, ptr %agg.result, align 8
+  store <2 x ptr> %16, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i9 = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i9, label %_ZNSt10shared_ptrIN6Assimp7Blender8ElemBaseEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %memptr.end18
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %17, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

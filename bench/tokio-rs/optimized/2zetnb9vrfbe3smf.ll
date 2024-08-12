@@ -199,13 +199,13 @@ define hidden void @_ZN20signal_hook_registry23register_unchecked_impl17h8482fad
   %.sroa.0.i = alloca { ptr, i64, i64, i64 }, align 8
   %14 = alloca { i64, [3 x i64] }, align 8
   %15 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i128 }, align 8
-  %16 = alloca { ptr, ptr }, align 8
+  %16 = alloca { ptr, ptr }, align 16
   %17 = alloca { i64, [23 x i64] }, align 8
   %18 = alloca { { { i64, { [16 x i64] }, i32, [1 x i32], ptr }, i32, [1 x i32] }, { { ptr, i64 }, i64, { {} }, {} } }, align 8
   %19 = alloca { i64, [20 x i64] }, align 8
   %20 = alloca { i64, [20 x i64] }, align 8
   %21 = alloca { ptr, ptr, { ptr, i8 } }, align 8
-  %22 = alloca { ptr, ptr }, align 8
+  %22 = alloca { ptr, ptr }, align 16
   %23 = alloca { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i128 }, align 8
   %24 = alloca { ptr, ptr, { ptr, i8 } }, align 8
   %25 = alloca ptr, align 8
@@ -397,18 +397,16 @@ define hidden void @_ZN20signal_hook_registry23register_unchecked_impl17h8482fad
   %.sroa.43.0.copyload.i = load i64, ptr %.sroa.43.0..sroa_idx.i, align 8, !noalias !51
   %80 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 176
   %81 = getelementptr inbounds { ptr, ptr }, ptr %80, i64 %.sroa.43.0.copyload.i
-  %82 = load ptr, ptr %81, align 8, !noalias !60, !nonnull !19, !noundef !19
-  %83 = getelementptr inbounds i8, ptr %81, i64 8
-  %84 = load ptr, ptr %83, align 8, !noalias !60, !nonnull !19, !align !32, !noundef !19
-  store ptr %61, ptr %81, align 8, !noalias !60
-  store ptr @anon.3f5780a7fef518180bd2fb61a12abd81.7, ptr %83, align 8, !noalias !60
+  %82 = getelementptr inbounds i8, ptr %81, i64 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !51
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
+  %83 = load <2 x ptr>, ptr %81, align 8, !noalias !60
+  %84 = load ptr, ptr %81, align 8, !noalias !60, !nonnull !19, !noundef !19
+  store ptr %61, ptr %81, align 8, !noalias !60
+  store ptr @anon.3f5780a7fef518180bd2fb61a12abd81.7, ptr %82, align 8, !noalias !60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  store ptr %82, ptr %22, align 8
-  %.fca.1.gep = getelementptr inbounds i8, ptr %22, i64 8
-  store ptr %84, ptr %.fca.1.gep, align 8
-  %85 = atomicrmw sub ptr %82, i64 1 release, align 8, !noalias !64
+  store <2 x ptr> %83, ptr %22, align 16
+  %85 = atomicrmw sub ptr %84, i64 1 release, align 8, !noalias !64
   %86 = icmp eq i64 %85, 1
   br i1 %86, label %87, label %"_ZN4core3ptr265drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$libc..unix..linux_like..linux..gnu..b64..x86_64..siginfo_t$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h323b877f3df65107E.exit"
 
@@ -647,18 +645,16 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.700930863383756518.exit.i
   %.sroa.43.0.copyload.i106 = load i64, ptr %.sroa.43.0..sroa_idx.i105, align 8, !noalias !99
   %157 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i104, i64 176
   %158 = getelementptr inbounds { ptr, ptr }, ptr %157, i64 %.sroa.43.0.copyload.i106
-  %159 = load ptr, ptr %158, align 8, !noalias !108, !nonnull !19, !noundef !19
-  %160 = getelementptr inbounds i8, ptr %158, i64 8
-  %161 = load ptr, ptr %160, align 8, !noalias !108, !nonnull !19, !align !32, !noundef !19
-  store ptr %139, ptr %158, align 8, !noalias !108
-  store ptr @anon.3f5780a7fef518180bd2fb61a12abd81.7, ptr %160, align 8, !noalias !108
+  %159 = getelementptr inbounds i8, ptr %158, i64 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !99
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
+  %160 = load <2 x ptr>, ptr %158, align 8, !noalias !108
+  %161 = load ptr, ptr %158, align 8, !noalias !108, !nonnull !19, !noundef !19
+  store ptr %139, ptr %158, align 8, !noalias !108
+  store ptr @anon.3f5780a7fef518180bd2fb61a12abd81.7, ptr %159, align 8, !noalias !108
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  store ptr %159, ptr %16, align 8
-  %.fca.1.gep33 = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr %161, ptr %.fca.1.gep33, align 8
-  %162 = atomicrmw sub ptr %159, i64 1 release, align 8, !noalias !112
+  store <2 x ptr> %160, ptr %16, align 16
+  %162 = atomicrmw sub ptr %161, i64 1 release, align 8, !noalias !112
   %163 = icmp eq i64 %162, 1
   br i1 %163, label %164, label %"_ZN4core3ptr265drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$libc..unix..linux_like..linux..gnu..b64..x86_64..siginfo_t$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h323b877f3df65107E.exit112"
 

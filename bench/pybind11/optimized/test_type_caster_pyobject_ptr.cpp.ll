@@ -24494,29 +24494,27 @@ _ZNSt8functionIFN8pybind116objectEiEEC2IRPS2_vEEOT_.exit: ; preds = %2, %5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
   %8 = getelementptr inbounds i8, ptr %3, i64 16
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = load <2 x ptr>, ptr %9, align 8
+  %12 = load ptr, ptr %9, align 8
   store ptr %7, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %11, align 8
-  store ptr %6, ptr %12, align 8
-  %.not.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i, label %_ZNSt8functionIFN8pybind116objectEiEED2Ev.exit, label %14
+  store <2 x ptr> %11, ptr %8, align 8
+  store ptr %6, ptr %10, align 8
+  %.not.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i, label %_ZNSt8functionIFN8pybind116objectEiEED2Ev.exit, label %13
 
-14:                                               ; preds = %_ZNSt8functionIFN8pybind116objectEiEEC2IRPS2_vEEOT_.exit
-  %15 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFN8pybind116objectEiEED2Ev.exit unwind label %16
+13:                                               ; preds = %_ZNSt8functionIFN8pybind116objectEiEEC2IRPS2_vEEOT_.exit
+  %14 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFN8pybind116objectEiEED2Ev.exit unwind label %15
 
-16:                                               ; preds = %14
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %13
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #24
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #24
   unreachable
 
-_ZNSt8functionIFN8pybind116objectEiEED2Ev.exit:   ; preds = %_ZNSt8functionIFN8pybind116objectEiEEC2IRPS2_vEEOT_.exit, %14
+_ZNSt8functionIFN8pybind116objectEiEED2Ev.exit:   ; preds = %_ZNSt8functionIFN8pybind116objectEiEEC2IRPS2_vEEOT_.exit, %13
   ret ptr %0
 }
 
@@ -24540,36 +24538,34 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %2
 
 _ZNSt8functionIFN8pybind116objectEiEEC2IZNS0_6detail11type_casterIS3_vE4loadENS0_6handleEbE12func_wrappervEEOT_.exit: ; preds = %2
   %8 = getelementptr inbounds i8, ptr %3, i64 16
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %5, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %8, align 8
-  store ptr @_ZNSt17_Function_handlerIFN8pybind116objectEiEZNS0_6detail11type_casterISt8functionIS2_EvE4loadENS0_6handleEbE12func_wrapperE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %9, align 8
-  store ptr @_ZNSt17_Function_handlerIFN8pybind116objectEiEZNS0_6detail11type_casterISt8functionIS2_EvE4loadENS0_6handleEbE12func_wrapperE9_M_invokeERKSt9_Any_dataOi, ptr %12, align 8
-  %.not.i.i2 = icmp eq ptr %11, null
-  br i1 %.not.i.i2, label %_ZNSt8functionIFN8pybind116objectEiEED2Ev.exit, label %14
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = load <2 x ptr>, ptr %9, align 8
+  %12 = load ptr, ptr %9, align 8
+  store ptr @_ZNSt17_Function_handlerIFN8pybind116objectEiEZNS0_6detail11type_casterISt8functionIS2_EvE4loadENS0_6handleEbE12func_wrapperE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %9, align 8
+  store <2 x ptr> %11, ptr %8, align 8
+  store ptr @_ZNSt17_Function_handlerIFN8pybind116objectEiEZNS0_6detail11type_casterISt8functionIS2_EvE4loadENS0_6handleEbE12func_wrapperE9_M_invokeERKSt9_Any_dataOi, ptr %10, align 8
+  %.not.i.i2 = icmp eq ptr %12, null
+  br i1 %.not.i.i2, label %_ZNSt8functionIFN8pybind116objectEiEED2Ev.exit, label %13
 
-14:                                               ; preds = %_ZNSt8functionIFN8pybind116objectEiEEC2IZNS0_6detail11type_casterIS3_vE4loadENS0_6handleEbE12func_wrappervEEOT_.exit
-  %15 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFN8pybind116objectEiEED2Ev.exit unwind label %16
+13:                                               ; preds = %_ZNSt8functionIFN8pybind116objectEiEEC2IZNS0_6detail11type_casterIS3_vE4loadENS0_6handleEbE12func_wrappervEEOT_.exit
+  %14 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFN8pybind116objectEiEED2Ev.exit unwind label %15
 
-16:                                               ; preds = %14
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %13
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #24
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #24
   unreachable
 
-_ZNSt8functionIFN8pybind116objectEiEED2Ev.exit:   ; preds = %_ZNSt8functionIFN8pybind116objectEiEEC2IZNS0_6detail11type_casterIS3_vE4loadENS0_6handleEbE12func_wrappervEEOT_.exit, %14
+_ZNSt8functionIFN8pybind116objectEiEED2Ev.exit:   ; preds = %_ZNSt8functionIFN8pybind116objectEiEEC2IZNS0_6detail11type_casterIS3_vE4loadENS0_6handleEbE12func_wrappervEEOT_.exit, %13
   ret ptr %0
 }
 
@@ -25444,29 +25440,27 @@ _ZNSt8functionIFP7_objectiEEC2IRPS2_vEEOT_.exit:  ; preds = %2, %5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
   %8 = getelementptr inbounds i8, ptr %3, i64 16
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = load <2 x ptr>, ptr %9, align 8
+  %12 = load ptr, ptr %9, align 8
   store ptr %7, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %11, align 8
-  store ptr %6, ptr %12, align 8
-  %.not.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i, label %_ZNSt8functionIFP7_objectiEED2Ev.exit, label %14
+  store <2 x ptr> %11, ptr %8, align 8
+  store ptr %6, ptr %10, align 8
+  %.not.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i, label %_ZNSt8functionIFP7_objectiEED2Ev.exit, label %13
 
-14:                                               ; preds = %_ZNSt8functionIFP7_objectiEEC2IRPS2_vEEOT_.exit
-  %15 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFP7_objectiEED2Ev.exit unwind label %16
+13:                                               ; preds = %_ZNSt8functionIFP7_objectiEEC2IRPS2_vEEOT_.exit
+  %14 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFP7_objectiEED2Ev.exit unwind label %15
 
-16:                                               ; preds = %14
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %13
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #24
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #24
   unreachable
 
-_ZNSt8functionIFP7_objectiEED2Ev.exit:            ; preds = %_ZNSt8functionIFP7_objectiEEC2IRPS2_vEEOT_.exit, %14
+_ZNSt8functionIFP7_objectiEED2Ev.exit:            ; preds = %_ZNSt8functionIFP7_objectiEEC2IRPS2_vEEOT_.exit, %13
   ret ptr %0
 }
 
@@ -25490,36 +25484,34 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %2
 
 _ZNSt8functionIFP7_objectiEEC2IZN8pybind116detail11type_casterIS3_vE4loadENS5_6handleEbE12func_wrappervEEOT_.exit: ; preds = %2
   %8 = getelementptr inbounds i8, ptr %3, i64 16
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %5, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %8, align 8
-  store ptr @_ZNSt17_Function_handlerIFP7_objectiEZN8pybind116detail11type_casterISt8functionIS2_EvE4loadENS3_6handleEbE12func_wrapperE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %9, align 8
-  store ptr @_ZNSt17_Function_handlerIFP7_objectiEZN8pybind116detail11type_casterISt8functionIS2_EvE4loadENS3_6handleEbE12func_wrapperE9_M_invokeERKSt9_Any_dataOi, ptr %12, align 8
-  %.not.i.i2 = icmp eq ptr %11, null
-  br i1 %.not.i.i2, label %_ZNSt8functionIFP7_objectiEED2Ev.exit, label %14
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = load <2 x ptr>, ptr %9, align 8
+  %12 = load ptr, ptr %9, align 8
+  store ptr @_ZNSt17_Function_handlerIFP7_objectiEZN8pybind116detail11type_casterISt8functionIS2_EvE4loadENS3_6handleEbE12func_wrapperE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %9, align 8
+  store <2 x ptr> %11, ptr %8, align 8
+  store ptr @_ZNSt17_Function_handlerIFP7_objectiEZN8pybind116detail11type_casterISt8functionIS2_EvE4loadENS3_6handleEbE12func_wrapperE9_M_invokeERKSt9_Any_dataOi, ptr %10, align 8
+  %.not.i.i2 = icmp eq ptr %12, null
+  br i1 %.not.i.i2, label %_ZNSt8functionIFP7_objectiEED2Ev.exit, label %13
 
-14:                                               ; preds = %_ZNSt8functionIFP7_objectiEEC2IZN8pybind116detail11type_casterIS3_vE4loadENS5_6handleEbE12func_wrappervEEOT_.exit
-  %15 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFP7_objectiEED2Ev.exit unwind label %16
+13:                                               ; preds = %_ZNSt8functionIFP7_objectiEEC2IZN8pybind116detail11type_casterIS3_vE4loadENS5_6handleEbE12func_wrappervEEOT_.exit
+  %14 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFP7_objectiEED2Ev.exit unwind label %15
 
-16:                                               ; preds = %14
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %13
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #24
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #24
   unreachable
 
-_ZNSt8functionIFP7_objectiEED2Ev.exit:            ; preds = %_ZNSt8functionIFP7_objectiEEC2IZN8pybind116detail11type_casterIS3_vE4loadENS5_6handleEbE12func_wrappervEEOT_.exit, %14
+_ZNSt8functionIFP7_objectiEED2Ev.exit:            ; preds = %_ZNSt8functionIFP7_objectiEEC2IZN8pybind116detail11type_casterIS3_vE4loadENS5_6handleEbE12func_wrappervEEOT_.exit, %13
   ret ptr %0
 }
 
@@ -26347,29 +26339,27 @@ _ZNSt8functionIFiP7_objectEEC2IRPS2_vEEOT_.exit:  ; preds = %2, %5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
   %8 = getelementptr inbounds i8, ptr %3, i64 16
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = load <2 x ptr>, ptr %9, align 8
+  %12 = load ptr, ptr %9, align 8
   store ptr %7, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %11, align 8
-  store ptr %6, ptr %12, align 8
-  %.not.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i, label %_ZNSt8functionIFiP7_objectEED2Ev.exit, label %14
+  store <2 x ptr> %11, ptr %8, align 8
+  store ptr %6, ptr %10, align 8
+  %.not.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i, label %_ZNSt8functionIFiP7_objectEED2Ev.exit, label %13
 
-14:                                               ; preds = %_ZNSt8functionIFiP7_objectEEC2IRPS2_vEEOT_.exit
-  %15 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFiP7_objectEED2Ev.exit unwind label %16
+13:                                               ; preds = %_ZNSt8functionIFiP7_objectEEC2IRPS2_vEEOT_.exit
+  %14 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFiP7_objectEED2Ev.exit unwind label %15
 
-16:                                               ; preds = %14
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %13
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #24
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #24
   unreachable
 
-_ZNSt8functionIFiP7_objectEED2Ev.exit:            ; preds = %_ZNSt8functionIFiP7_objectEEC2IRPS2_vEEOT_.exit, %14
+_ZNSt8functionIFiP7_objectEED2Ev.exit:            ; preds = %_ZNSt8functionIFiP7_objectEEC2IRPS2_vEEOT_.exit, %13
   ret ptr %0
 }
 
@@ -26393,36 +26383,34 @@ _ZNSt14_Function_baseD2Ev.exit.i:                 ; preds = %2
 
 _ZNSt8functionIFiP7_objectEEC2IZN8pybind116detail11type_casterIS3_vE4loadENS5_6handleEbE12func_wrappervEEOT_.exit: ; preds = %2
   %8 = getelementptr inbounds i8, ptr %3, i64 16
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %5, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i)
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %8, align 8
-  store ptr @_ZNSt17_Function_handlerIFiP7_objectEZN8pybind116detail11type_casterISt8functionIS2_EvE4loadENS3_6handleEbE12func_wrapperE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %9, align 8
-  store ptr @_ZNSt17_Function_handlerIFiP7_objectEZN8pybind116detail11type_casterISt8functionIS2_EvE4loadENS3_6handleEbE12func_wrapperE9_M_invokeERKSt9_Any_dataOS1_, ptr %12, align 8
-  %.not.i.i2 = icmp eq ptr %11, null
-  br i1 %.not.i.i2, label %_ZNSt8functionIFiP7_objectEED2Ev.exit, label %14
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = load <2 x ptr>, ptr %9, align 8
+  %12 = load ptr, ptr %9, align 8
+  store ptr @_ZNSt17_Function_handlerIFiP7_objectEZN8pybind116detail11type_casterISt8functionIS2_EvE4loadENS3_6handleEbE12func_wrapperE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %9, align 8
+  store <2 x ptr> %11, ptr %8, align 8
+  store ptr @_ZNSt17_Function_handlerIFiP7_objectEZN8pybind116detail11type_casterISt8functionIS2_EvE4loadENS3_6handleEbE12func_wrapperE9_M_invokeERKSt9_Any_dataOS1_, ptr %10, align 8
+  %.not.i.i2 = icmp eq ptr %12, null
+  br i1 %.not.i.i2, label %_ZNSt8functionIFiP7_objectEED2Ev.exit, label %13
 
-14:                                               ; preds = %_ZNSt8functionIFiP7_objectEEC2IZN8pybind116detail11type_casterIS3_vE4loadENS5_6handleEbE12func_wrappervEEOT_.exit
-  %15 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
-          to label %_ZNSt8functionIFiP7_objectEED2Ev.exit unwind label %16
+13:                                               ; preds = %_ZNSt8functionIFiP7_objectEEC2IZN8pybind116detail11type_casterIS3_vE4loadENS5_6handleEbE12func_wrappervEEOT_.exit
+  %14 = invoke noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 3)
+          to label %_ZNSt8functionIFiP7_objectEED2Ev.exit unwind label %15
 
-16:                                               ; preds = %14
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %13
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #24
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #24
   unreachable
 
-_ZNSt8functionIFiP7_objectEED2Ev.exit:            ; preds = %_ZNSt8functionIFiP7_objectEEC2IZN8pybind116detail11type_casterIS3_vE4loadENS5_6handleEbE12func_wrappervEEOT_.exit, %14
+_ZNSt8functionIFiP7_objectEED2Ev.exit:            ; preds = %_ZNSt8functionIFiP7_objectEEC2IZN8pybind116detail11type_casterIS3_vE4loadENS5_6handleEbE12func_wrappervEEOT_.exit, %13
   ret ptr %0
 }
 

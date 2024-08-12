@@ -3909,17 +3909,17 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge:
   %10 = lshr i64 %9, 32
   %11 = getelementptr inbounds i8, ptr %0, i64 248
   %12 = load <4 x float>, ptr %11, align 8
-  %13 = insertelement <2 x i64> poison, i64 %9, i64 0
-  %14 = insertelement <2 x i64> %13, i64 %10, i64 1
-  %15 = trunc <2 x i64> %14 to <2 x i32>
-  %16 = sitofp <2 x i32> %15 to <2 x float>
-  %17 = shufflevector <4 x float> %12, <4 x float> poison, <2 x i32> zeroinitializer
-  %18 = fdiv <2 x float> %16, %17
-  %19 = fptosi <2 x float> %18 to <2 x i32>
-  store <2 x i32> %19, ptr %7, align 8
-  %20 = extractelement <2 x i32> %15, i64 0
-  %21 = extractelement <2 x i32> %15, i64 1
-  tail call void @glViewport(i32 noundef 0, i32 noundef 0, i32 noundef %20, i32 noundef %21)
+  %13 = trunc nuw i64 %10 to i32
+  %14 = insertelement <2 x i64> poison, i64 %9, i64 0
+  %15 = insertelement <2 x i64> %14, i64 %10, i64 1
+  %16 = trunc <2 x i64> %15 to <2 x i32>
+  %17 = trunc i64 %9 to i32
+  %18 = sitofp <2 x i32> %16 to <2 x float>
+  %19 = shufflevector <4 x float> %12, <4 x float> poison, <2 x i32> zeroinitializer
+  %20 = fdiv <2 x float> %18, %19
+  %21 = fptosi <2 x float> %20 to <2 x i32>
+  store <2 x i32> %21, ptr %7, align 8
+  tail call void @glViewport(i32 noundef 0, i32 noundef 0, i32 noundef %17, i32 noundef %13)
   ret void
 }
 

@@ -3290,7 +3290,6 @@ if.end59:                                         ; preds = %invoke.cont38
   %cb_ = getelementptr inbounds i8, ptr %this, i64 920
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %cb, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
   %36 = load ptr, ptr %_M_manager.i.i.i.i, align 8
@@ -3331,17 +3330,15 @@ _ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cb_, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 936
-  %43 = load ptr, ptr %_M_manager3.i.i, align 8
-  store ptr %43, ptr %_M_manager.i.i.i, align 8
-  %_M_invoker4.i2.i = getelementptr inbounds i8, ptr %this, i64 944
-  %44 = load ptr, ptr %_M_invoker4.i2.i, align 8
-  store ptr %44, ptr %_M_invoker.i.i, align 8
+  %43 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %44 = load ptr, ptr %_M_manager3.i.i, align 8
+  store <2 x ptr> %43, ptr %_M_manager.i.i.i, align 8
   store <2 x ptr> %42, ptr %_M_manager3.i.i, align 8
-  %tobool.not.i.i4.i = icmp eq ptr %43, null
+  %tobool.not.i.i4.i = icmp eq ptr %44, null
   br i1 %tobool.not.i.i4.i, label %invoke.cont60, label %if.then.i.i5.i
 
 if.then.i.i5.i:                                   ; preds = %_ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusEEEC2ERKSA_.exit.i
-  %call.i.i6.i = invoke noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
+  %call.i.i6.i = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i32 noundef 3)
           to label %invoke.cont60 unwind label %terminate.lpad.i.i7.i
 
 terminate.lpad.i.i7.i:                            ; preds = %if.then.i.i5.i
@@ -3681,11 +3678,9 @@ common.resume:                                    ; preds = %if.then.i.i46, %ehc
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusEEEC2ERKSA_.exit: ; preds = %if.then.i
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %this, i64 944
-  %5 = load ptr, ptr %_M_invoker4.i, align 8
-  store ptr %5, ptr %_M_invoker.i, align 8
+  %5 = load <2 x ptr>, ptr %_M_manager.i.i.i, align 8
   %6 = load ptr, ptr %_M_manager.i.i.i, align 8
-  store ptr %6, ptr %_M_manager.i.i, align 8
+  store <2 x ptr> %5, ptr %_M_manager.i.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i6
 

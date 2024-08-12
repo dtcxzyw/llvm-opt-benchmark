@@ -2707,15 +2707,15 @@ define linkonce_odr void @_ZN3gmx19changePinningPolicyINS_12PaddedVectorINS_11Ba
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   %12 = load <2 x ptr>, ptr %10, align 8
+  %13 = load ptr, ptr %10, align 8
   store <2 x ptr> %12, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %11, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %11, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   store i32 %6, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = load i64, ptr %15, align 8
-  %17 = extractelement <2 x ptr> %12, i64 0
+  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = load i64, ptr %16, align 8
   br label %_ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEEC2EOS6_RKS5_.exit
 
 18:                                               ; preds = %2
@@ -2758,8 +2758,8 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2
   unreachable
 
 _ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPolicyEEEEC2EOS6_RKS5_.exit: ; preds = %9, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEESB_ET0_T_SD_SC_.exit.i
-  %.pr = phi ptr [ %17, %9 ], [ %34, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEESB_ET0_T_SD_SC_.exit.i ]
-  %storemerge.i = phi i64 [ %16, %9 ], [ %36, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEESB_ET0_T_SD_SC_.exit.i ]
+  %.pr = phi ptr [ %13, %9 ], [ %34, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEESB_ET0_T_SD_SC_.exit.i ]
+  %storemerge.i = phi i64 [ %17, %9 ], [ %36, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_NS2_9AllocatorIS4_NS2_20HostAllocationPolicyEEEEEESB_ET0_T_SD_SC_.exit.i ]
   %40 = getelementptr inbounds i8, ptr %4, i64 32
   store i64 %storemerge.i, ptr %40, align 8
   %.not.i = icmp eq ptr %4, %0
@@ -2779,20 +2779,20 @@ _ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPo
   %49 = getelementptr inbounds i8, ptr %4, i64 16
   %50 = getelementptr inbounds i8, ptr %3, i64 24
   %51 = load <2 x ptr>, ptr %45, align 8
+  %52 = load ptr, ptr %45, align 8
   store ptr %.pr, ptr %45, align 8
-  %52 = load <2 x ptr>, ptr %49, align 8
-  store <2 x ptr> %52, ptr %46, align 8
+  %53 = load <2 x ptr>, ptr %49, align 8
+  store <2 x ptr> %53, ptr %46, align 8
   store <2 x ptr> %51, ptr %44, align 8
   store ptr %48, ptr %50, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  %53 = load i32, ptr %4, align 8
-  store i32 %53, ptr %0, align 4
-  %54 = extractelement <2 x ptr> %51, i64 0
-  %.not.i.i.i.i.i.i2 = icmp eq ptr %54, null
+  %54 = load i32, ptr %4, align 8
+  store i32 %54, ptr %0, align 4
+  %.not.i.i.i.i.i.i2 = icmp eq ptr %52, null
   br i1 %.not.i.i.i.i.i.i2, label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEEaSEOS6_.exit.i, label %55
 
 55:                                               ; preds = %41
-  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull %54) #17
+  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull %52) #17
   %.pre = load ptr, ptr %45, align 8
   %.pre4 = load ptr, ptr %7, align 8
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEEaSEOS6_.exit.i
@@ -4141,13 +4141,13 @@ _ZN3gmx12PaddedVectorINS_11BasicVectorIfEENS_9AllocatorIS2_NS_20HostAllocationPo
   store ptr %18, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %3, i64 24
   %46 = load <2 x ptr>, ptr %41, align 8
+  %47 = load ptr, ptr %41, align 8
   store ptr %12, ptr %41, align 8
   store ptr %15, ptr %42, align 8
   store <2 x ptr> %46, ptr %40, align 8
   store ptr %44, ptr %45, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   store i32 %9, ptr %1, align 8
-  %47 = extractelement <2 x ptr> %46, i64 0
   %.not.i.i.i.i.i.i6 = icmp eq ptr %47, null
   br i1 %.not.i.i.i.i.i.i6, label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEEaSEOS6_.exit.i7, label %48
 

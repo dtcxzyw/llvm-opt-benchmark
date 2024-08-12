@@ -7621,54 +7621,52 @@ define linkonce_odr dso_local void @_ZN9AstVarRefC2EP8FileLineP11AstVarScopeRK7V
   %9 = load i8, ptr %3, align 1
   store i8 %9, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 184
-  %11 = load ptr, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 192
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, i64 8), align 8
-  store ptr %13, ptr %12, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i.i.i, label %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i, label %14
+  %11 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, i64 8), align 8
+  %12 = load <2 x ptr>, ptr @_ZN16VSelfPointerText8s_emptypB5cxx11E, align 8
+  store <2 x ptr> %12, ptr %10, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i.i.i.i, label %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i, label %13
 
-14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
-  %16 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %16, 0
-  br i1 %.not.i.i.i.i.i.i, label %20, label %17
+13:                                               ; preds = %4
+  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %15, 0
+  br i1 %.not.i.i.i.i.i.i, label %19, label %16
 
-17:                                               ; preds = %14
-  %18 = load i32, ptr %15, align 4
-  %19 = add nsw i32 %18, 1
-  store i32 %19, ptr %15, align 4
+16:                                               ; preds = %13
+  %17 = load i32, ptr %14, align 4
+  %18 = add nsw i32 %17, 1
+  store i32 %18, ptr %14, align 4
   br label %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i
 
-20:                                               ; preds = %14
-  %21 = atomicrmw volatile add ptr %15, i32 1 acq_rel, align 4
+19:                                               ; preds = %13
+  %20 = atomicrmw volatile add ptr %14, i32 1 acq_rel, align 4
   br label %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i
 
-_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i:        ; preds = %20, %17, %4
+_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i:        ; preds = %19, %16, %4
   store ptr %6, ptr %7, align 8
   %.not.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i, label %_ZN13AstNodeVarRefC2E6VNTypeP8FileLineP6AstVarRK7VAccess.exit, label %22
+  br i1 %.not.i.i.i, label %_ZN13AstNodeVarRefC2E6VNTypeP8FileLineP6AstVarRK7VAccess.exit, label %21
 
-22:                                               ; preds = %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i
-  %23 = getelementptr inbounds i8, ptr %6, i64 72
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 72
-  %26 = load ptr, ptr %25, align 8
-  %.not.i.i.i.i = icmp eq ptr %26, %24
-  br i1 %.not.i.i.i.i, label %_ZN13AstNodeVarRefC2E6VNTypeP8FileLineP6AstVarRK7VAccess.exit, label %27
+21:                                               ; preds = %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i
+  %22 = getelementptr inbounds i8, ptr %6, i64 72
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 72
+  %25 = load ptr, ptr %24, align 8
+  %.not.i.i.i.i = icmp eq ptr %25, %23
+  br i1 %.not.i.i.i.i, label %_ZN13AstNodeVarRefC2E6VNTypeP8FileLineP6AstVarRK7VAccess.exit, label %26
 
-27:                                               ; preds = %22
-  store ptr %24, ptr %25, align 8
-  %28 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8
-  %29 = add i64 %28, 1
-  store i64 %29, ptr @_ZN7AstNode12s_editCntGblE, align 8
+26:                                               ; preds = %21
+  store ptr %23, ptr %24, align 8
+  %27 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8
+  %28 = add i64 %27, 1
+  store i64 %28, ptr @_ZN7AstNode12s_editCntGblE, align 8
   br label %_ZN13AstNodeVarRefC2E6VNTypeP8FileLineP6AstVarRK7VAccess.exit
 
-_ZN13AstNodeVarRefC2E6VNTypeP8FileLineP6AstVarRK7VAccess.exit: ; preds = %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i, %22, %27
+_ZN13AstNodeVarRefC2E6VNTypeP8FileLineP6AstVarRK7VAccess.exit: ; preds = %_ZN16VSelfPointerTextC2ENS_5EmptyE.exit.i, %21, %26
   store ptr getelementptr inbounds (i8, ptr @_ZTV9AstVarRef, i64 16), ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 160
-  store ptr %2, ptr %30, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 160
+  store ptr %2, ptr %29, align 8
   ret void
 }
 

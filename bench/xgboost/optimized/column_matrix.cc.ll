@@ -2548,7 +2548,7 @@ _ZN7xgboost6common25AlignedResourceReadStream4ReadINS0_11BinTypeSizeEEENSt9enabl
 define linkonce_odr noundef zeroext i1 @_ZN7xgboost6common7ReadVecINS0_15RefResourceViewIhEEEEbPNS0_25AlignedResourceReadStreamEPT_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.xgboost::common::RefResourceView.0", align 8
-  %5 = alloca %"class.std::shared_ptr", align 8
+  %5 = alloca %"class.std::shared_ptr", align 16
   store i64 0, ptr %3, align 8
   %6 = call noundef zeroext i1 @_ZN7xgboost6common25AlignedResourceReadStream7ConsumeImEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEbE4typeEPS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3)
   br i1 %6, label %7, label %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEED2Ev.exit
@@ -2600,17 +2600,16 @@ _ZN7xgboost6common25AlignedResourceReadStream7ConsumeEm.exit: ; preds = %17
 35:                                               ; preds = %_ZN7xgboost6common25AlignedResourceReadStream7ConsumeEm.exit
   %36 = load i64, ptr %3, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  %37 = load ptr, ptr %11, align 8, !noalias !20
-  store ptr %37, ptr %5, align 8, !alias.scope !20
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8, !noalias !20
-  store ptr %40, ptr %38, align 8, !alias.scope !20
-  %.not.i.i.i.i = icmp eq ptr %40, null
+  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = load ptr, ptr %38, align 8, !noalias !20
+  %40 = load <2 x ptr>, ptr %11, align 8, !noalias !20
+  store <2 x ptr> %40, ptr %5, align 16, !alias.scope !20
+  %.not.i.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.i.i, label %_ZN7xgboost6common25AlignedResourceReadStream5ShareEv.exit, label %41
 
 41:                                               ; preds = %35
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = getelementptr inbounds i8, ptr %39, i64 8
   %43 = load i8, ptr @__libc_single_threaded, align 1, !noalias !20
   %.not.i.i.i.i.i = icmp eq i8 %43, 0
   br i1 %.not.i.i.i.i.i, label %47, label %44
@@ -2784,7 +2783,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN7xgboost6common15RefResourceViewIhED2Ev.exit
 
 _ZN7xgboost6common15RefResourceViewIhED2Ev.exit:  ; preds = %_ZN7xgboost6common15RefResourceViewIhEaSEOS2_.exit, %107, %120, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %125 = load ptr, ptr %38, align 8
+  %125 = load ptr, ptr %37, align 8
   %.not.i.i.i = icmp eq ptr %125, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEED2Ev.exit, label %126
 
@@ -2871,7 +2870,7 @@ _ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEED2Ev.exit: ; preds = %_ZNSt
 define linkonce_odr noundef zeroext i1 @_ZN7xgboost6common7ReadVecINS0_15RefResourceViewINS0_10ColumnTypeEEEEEbPNS0_25AlignedResourceReadStreamEPT_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.xgboost::common::RefResourceView.9", align 8
-  %5 = alloca %"class.std::shared_ptr", align 8
+  %5 = alloca %"class.std::shared_ptr", align 16
   store i64 0, ptr %3, align 8
   %6 = call noundef zeroext i1 @_ZN7xgboost6common25AlignedResourceReadStream7ConsumeImEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEbE4typeEPS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3)
   br i1 %6, label %7, label %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEED2Ev.exit
@@ -2923,17 +2922,16 @@ _ZN7xgboost6common25AlignedResourceReadStream7ConsumeEm.exit: ; preds = %17
 35:                                               ; preds = %_ZN7xgboost6common25AlignedResourceReadStream7ConsumeEm.exit
   %36 = load i64, ptr %3, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  %37 = load ptr, ptr %11, align 8, !noalias !23
-  store ptr %37, ptr %5, align 8, !alias.scope !23
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
-  %40 = load ptr, ptr %39, align 8, !noalias !23
-  store ptr %40, ptr %38, align 8, !alias.scope !23
-  %.not.i.i.i.i = icmp eq ptr %40, null
+  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = load ptr, ptr %38, align 8, !noalias !23
+  %40 = load <2 x ptr>, ptr %11, align 8, !noalias !23
+  store <2 x ptr> %40, ptr %5, align 16, !alias.scope !23
+  %.not.i.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.i.i, label %_ZN7xgboost6common25AlignedResourceReadStream5ShareEv.exit, label %41
 
 41:                                               ; preds = %35
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = getelementptr inbounds i8, ptr %39, i64 8
   %43 = load i8, ptr @__libc_single_threaded, align 1, !noalias !23
   %.not.i.i.i.i.i = icmp eq i8 %43, 0
   br i1 %.not.i.i.i.i.i, label %47, label %44
@@ -3107,7 +3105,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN7xgboost6common15RefResourceViewINS0_10ColumnTypeEED2Ev.exit
 
 _ZN7xgboost6common15RefResourceViewINS0_10ColumnTypeEED2Ev.exit: ; preds = %_ZN7xgboost6common15RefResourceViewINS0_10ColumnTypeEEaSEOS3_.exit, %107, %120, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %125 = load ptr, ptr %38, align 8
+  %125 = load ptr, ptr %37, align 8
   %.not.i.i.i = icmp eq ptr %125, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEED2Ev.exit, label %126
 
@@ -3194,7 +3192,7 @@ _ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEED2Ev.exit: ; preds = %_ZNSt
 define linkonce_odr noundef zeroext i1 @_ZN7xgboost6common7ReadVecINS0_15RefResourceViewImEEEEbPNS0_25AlignedResourceReadStreamEPT_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.xgboost::common::RefResourceView", align 8
-  %5 = alloca %"class.std::shared_ptr", align 8
+  %5 = alloca %"class.std::shared_ptr", align 16
   store i64 0, ptr %3, align 8
   %6 = call noundef zeroext i1 @_ZN7xgboost6common25AlignedResourceReadStream7ConsumeImEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEbE4typeEPS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3)
   br i1 %6, label %7, label %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEED2Ev.exit
@@ -3247,17 +3245,16 @@ _ZN7xgboost6common25AlignedResourceReadStream7ConsumeEm.exit: ; preds = %18
 36:                                               ; preds = %_ZN7xgboost6common25AlignedResourceReadStream7ConsumeEm.exit
   %37 = load i64, ptr %3, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  %38 = load ptr, ptr %12, align 8, !noalias !26
-  store ptr %38, ptr %5, align 8, !alias.scope !26
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
-  %41 = load ptr, ptr %40, align 8, !noalias !26
-  store ptr %41, ptr %39, align 8, !alias.scope !26
-  %.not.i.i.i.i = icmp eq ptr %41, null
+  %38 = getelementptr inbounds i8, ptr %5, i64 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = load ptr, ptr %39, align 8, !noalias !26
+  %41 = load <2 x ptr>, ptr %12, align 8, !noalias !26
+  store <2 x ptr> %41, ptr %5, align 16, !alias.scope !26
+  %.not.i.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i.i.i, label %_ZN7xgboost6common25AlignedResourceReadStream5ShareEv.exit, label %42
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds i8, ptr %40, i64 8
   %44 = load i8, ptr @__libc_single_threaded, align 1, !noalias !26
   %.not.i.i.i.i.i = icmp eq i8 %44, 0
   br i1 %.not.i.i.i.i.i, label %48, label %45
@@ -3431,7 +3428,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN7xgboost6common15RefResourceViewImED2Ev.exit
 
 _ZN7xgboost6common15RefResourceViewImED2Ev.exit:  ; preds = %_ZN7xgboost6common15RefResourceViewImEaSEOS2_.exit, %108, %121, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %126 = load ptr, ptr %39, align 8
+  %126 = load ptr, ptr %38, align 8
   %.not.i.i.i = icmp eq ptr %126, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEED2Ev.exit, label %127
 
@@ -3518,7 +3515,7 @@ _ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEED2Ev.exit: ; preds = %_ZNSt
 define linkonce_odr noundef zeroext i1 @_ZN7xgboost6common7ReadVecINS0_15RefResourceViewIjEEEEbPNS0_25AlignedResourceReadStreamEPT_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.xgboost::common::RefResourceView.10", align 8
-  %5 = alloca %"class.std::shared_ptr", align 8
+  %5 = alloca %"class.std::shared_ptr", align 16
   store i64 0, ptr %3, align 8
   %6 = call noundef zeroext i1 @_ZN7xgboost6common25AlignedResourceReadStream7ConsumeImEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEbE4typeEPS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3)
   br i1 %6, label %7, label %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEED2Ev.exit
@@ -3571,17 +3568,16 @@ _ZN7xgboost6common25AlignedResourceReadStream7ConsumeEm.exit: ; preds = %18
 36:                                               ; preds = %_ZN7xgboost6common25AlignedResourceReadStream7ConsumeEm.exit
   %37 = load i64, ptr %3, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  %38 = load ptr, ptr %12, align 8, !noalias !29
-  store ptr %38, ptr %5, align 8, !alias.scope !29
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
-  %41 = load ptr, ptr %40, align 8, !noalias !29
-  store ptr %41, ptr %39, align 8, !alias.scope !29
-  %.not.i.i.i.i = icmp eq ptr %41, null
+  %38 = getelementptr inbounds i8, ptr %5, i64 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = load ptr, ptr %39, align 8, !noalias !29
+  %41 = load <2 x ptr>, ptr %12, align 8, !noalias !29
+  store <2 x ptr> %41, ptr %5, align 16, !alias.scope !29
+  %.not.i.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i.i.i, label %_ZN7xgboost6common25AlignedResourceReadStream5ShareEv.exit, label %42
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds i8, ptr %40, i64 8
   %44 = load i8, ptr @__libc_single_threaded, align 1, !noalias !29
   %.not.i.i.i.i.i = icmp eq i8 %44, 0
   br i1 %.not.i.i.i.i.i, label %48, label %45
@@ -3755,7 +3751,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN7xgboost6common15RefResourceViewIjED2Ev.exit
 
 _ZN7xgboost6common15RefResourceViewIjED2Ev.exit:  ; preds = %_ZN7xgboost6common15RefResourceViewIjEaSEOS2_.exit, %108, %121, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %126 = load ptr, ptr %39, align 8
+  %126 = load ptr, ptr %38, align 8
   %.not.i.i.i = icmp eq ptr %126, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEED2Ev.exit, label %127
 
@@ -5155,18 +5151,17 @@ declare double @llvm.ceil.f64(double) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7xgboost6common15RefResourceViewIjEC2EPjmSt10shared_ptrINS0_15ResourceHandlerEERKj(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %6 = alloca %"class.std::shared_ptr", align 8
-  %7 = load ptr, ptr %3, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %8, align 8
-  %.not.i.i.i = icmp eq ptr %10, null
+  %6 = alloca %"class.std::shared_ptr", align 16
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %10, ptr %6, align 16
+  %.not.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2ERKS3_.exit, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %13, 0
   br i1 %.not.i.i.i.i, label %17, label %14
@@ -5186,7 +5181,7 @@ _ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2ERKS3_.exit: ; preds = %5
           to label %19 unwind label %60
 
 19:                                               ; preds = %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2ERKS3_.exit
-  %20 = load ptr, ptr %8, align 8
+  %20 = load ptr, ptr %7, align 8
   %.not.i.i.i10 = icmp eq ptr %20, null
   br i1 %.not.i.i.i10, label %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEED2Ev.exit, label %21
 
@@ -5683,18 +5678,17 @@ define linkonce_odr void @_ZN4dmlc14LogCheckFormatImmEESt10unique_ptrINSt7__cxx1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7xgboost6common15RefResourceViewImEC2EPmmSt10shared_ptrINS0_15ResourceHandlerEERKm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %6 = alloca %"class.std::shared_ptr", align 8
-  %7 = load ptr, ptr %3, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %8, align 8
-  %.not.i.i.i = icmp eq ptr %10, null
+  %6 = alloca %"class.std::shared_ptr", align 16
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %10, ptr %6, align 16
+  %.not.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2ERKS3_.exit, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %13, 0
   br i1 %.not.i.i.i.i, label %17, label %14
@@ -5714,7 +5708,7 @@ _ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2ERKS3_.exit: ; preds = %5
           to label %19 unwind label %60
 
 19:                                               ; preds = %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2ERKS3_.exit
-  %20 = load ptr, ptr %8, align 8
+  %20 = load ptr, ptr %7, align 8
   %.not.i.i.i10 = icmp eq ptr %20, null
   br i1 %.not.i.i.i10, label %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEED2Ev.exit, label %21
 
@@ -5815,18 +5809,17 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit:              ; preds = %.lr.ph.i.i.i.i, %_Z
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7xgboost6common15RefResourceViewINS0_10ColumnTypeEEC2EPS2_mSt10shared_ptrINS0_15ResourceHandlerEERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %6 = alloca %"class.std::shared_ptr", align 8
-  %7 = load ptr, ptr %3, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %8, align 8
-  %.not.i.i.i = icmp eq ptr %10, null
+  %6 = alloca %"class.std::shared_ptr", align 16
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %10, ptr %6, align 16
+  %.not.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2ERKS3_.exit, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %13, 0
   br i1 %.not.i.i.i.i, label %17, label %14
@@ -5846,7 +5839,7 @@ _ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2ERKS3_.exit: ; preds = %5
           to label %19 unwind label %56
 
 19:                                               ; preds = %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2ERKS3_.exit
-  %20 = load ptr, ptr %8, align 8
+  %20 = load ptr, ptr %7, align 8
   %.not.i.i.i10 = icmp eq ptr %20, null
   br i1 %.not.i.i.i10, label %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEED2Ev.exit, label %21
 
@@ -5997,18 +5990,17 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef no
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7xgboost6common15RefResourceViewIhEC2EPhmSt10shared_ptrINS0_15ResourceHandlerEERKh(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %6 = alloca %"class.std::shared_ptr", align 8
-  %7 = load ptr, ptr %3, align 8
-  store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %8, align 8
-  %.not.i.i.i = icmp eq ptr %10, null
+  %6 = alloca %"class.std::shared_ptr", align 16
+  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %10, ptr %6, align 16
+  %.not.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2ERKS3_.exit, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %13, 0
   br i1 %.not.i.i.i.i, label %17, label %14
@@ -6028,7 +6020,7 @@ _ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2ERKS3_.exit: ; preds = %5
           to label %19 unwind label %57
 
 19:                                               ; preds = %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEEC2ERKS3_.exit
-  %20 = load ptr, ptr %8, align 8
+  %20 = load ptr, ptr %7, align 8
   %.not.i.i.i10 = icmp eq ptr %20, null
   br i1 %.not.i.i.i10, label %_ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEED2Ev.exit, label %21
 

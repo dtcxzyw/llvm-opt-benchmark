@@ -1317,31 +1317,31 @@ define linkonce_odr void @_ZN3gmx19changePinningPolicyINS_12PaddedVectorIfNS_9Al
   store ptr %18, ptr %15, align 8
   %19 = getelementptr inbounds i8, ptr %3, i64 24
   %20 = load <2 x ptr>, ptr %14, align 8
-  %21 = load <2 x ptr>, ptr %11, align 8
-  %22 = extractelement <2 x ptr> %21, i64 0
-  %23 = ptrtoint ptr %22 to i64
-  %24 = sub i64 %12, %23
-  store <2 x ptr> %21, ptr %14, align 8
+  %21 = load ptr, ptr %14, align 8
+  %22 = load <2 x ptr>, ptr %11, align 8
+  %23 = load ptr, ptr %11, align 8
+  %24 = ptrtoint ptr %23 to i64
+  %25 = sub i64 %12, %24
+  store <2 x ptr> %22, ptr %14, align 8
   store <2 x ptr> %20, ptr %13, align 8
   store ptr %16, ptr %19, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  %25 = load i32, ptr %4, align 8
-  store i32 %25, ptr %0, align 4
-  %26 = extractelement <2 x ptr> %20, i64 0
-  %.not.i.i.i.i.i.i = icmp eq ptr %26, null
+  %26 = load i32, ptr %4, align 8
+  store i32 %26, ptr %0, align 4
+  %.not.i.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEEaSEOS4_.exit.i, label %27
 
 27:                                               ; preds = %8
-  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull %26) #12
+  call void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull %21) #12
   %.pre = load ptr, ptr %14, align 8
   %.pre2 = load ptr, ptr %11, align 8
   br label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEEaSEOS4_.exit.i
 
 _ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEEaSEOS4_.exit.i: ; preds = %27, %8
   %28 = phi ptr [ %.pre2, %27 ], [ null, %8 ]
-  %29 = phi ptr [ %.pre, %27 ], [ %22, %8 ]
+  %29 = phi ptr [ %.pre, %27 ], [ %23, %8 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %30 = getelementptr inbounds i8, ptr %29, i64 %24
+  %30 = getelementptr inbounds i8, ptr %29, i64 %25
   %31 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %30, ptr %31, align 8
   store ptr %28, ptr %9, align 8

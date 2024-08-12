@@ -960,215 +960,213 @@ define void @_ZN3nix16triggerInterruptEv() local_unnamed_addr #6 personality ptr
   %2 = alloca %"class.std::function.22", align 8
   store atomic i8 1, ptr @_ZN3nix14_isInterruptedE seq_cst, align 1
   %3 = getelementptr inbounds i8, ptr %1, i64 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
-  br label %7
+  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  br label %6
 
-7:                                                ; preds = %_ZNSt8functionIFvvEED2Ev.exit, %0
+6:                                                ; preds = %_ZNSt8functionIFvvEED2Ev.exit, %0
   %.023 = phi i64 [ 0, %0 ], [ %.12428, %_ZNSt8functionIFvvEED2Ev.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
-  %8 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN3nixL19_interruptCallbacksE) #3, !noalias !4
-  %.not.i.i.i.i.i = icmp eq i32 %8, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4lockEv.exit, label %9
+  %7 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN3nixL19_interruptCallbacksE) #3, !noalias !4
+  %.not.i.i.i.i.i = icmp eq i32 %7, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4lockEv.exit, label %8
 
-9:                                                ; preds = %7
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %8) #27
+8:                                                ; preds = %6
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %7) #27
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %9
+.noexc:                                           ; preds = %8
   unreachable
 
-_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4lockEv.exit: ; preds = %7
-  %10 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3nixL19_interruptCallbacksE, i64 64), align 8
-  %.not10.i.i.i = icmp eq ptr %10, null
+_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4lockEv.exit: ; preds = %6
+  %9 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN3nixL19_interruptCallbacksE, i64 64), align 8
+  %.not10.i.i.i = icmp eq ptr %9, null
   br i1 %.not10.i.i.i, label %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit10.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4lockEv.exit, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %10, %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4lockEv.exit ]
+  %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %9, %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4lockEv.exit ]
   %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ getelementptr inbounds (i8, ptr @_ZN3nixL19_interruptCallbacksE, i64 56), %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4lockEv.exit ]
-  %11 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  %12 = load i64, ptr %11, align 8
-  %13 = icmp slt i64 %12, %.023
-  %.19.i.i.i = select i1 %13, ptr %.0811.i.i.i, ptr %.012.i.i.i
-  %.1.in.v.i.i.i = select i1 %13, i64 24, i64 16
+  %10 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
+  %11 = load i64, ptr %10, align 8
+  %12 = icmp slt i64 %11, %.023
+  %.19.i.i.i = select i1 %12, ptr %.0811.i.i.i, ptr %.012.i.i.i
+  %.1.in.v.i.i.i = select i1 %12, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
   br i1 %.not.i.i.i, label %_ZNSt3mapIlSt8functionIFvvEESt4lessIlESaISt4pairIKlS2_EEE11lower_boundERS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !7
 
 _ZNSt3mapIlSt8functionIFvvEESt4lessIlESaISt4pairIKlS2_EEE11lower_boundERS6_.exit: ; preds = %.lr.ph.i.i.i
-  %14 = icmp eq ptr %.19.i.i.i, getelementptr inbounds (i8, ptr @_ZN3nixL19_interruptCallbacksE, i64 56)
-  br i1 %14, label %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit10.thread, label %16
+  %13 = icmp eq ptr %.19.i.i.i, getelementptr inbounds (i8, ptr @_ZN3nixL19_interruptCallbacksE, i64 56)
+  br i1 %13, label %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit10.thread, label %15
 
-.loopexit:                                        ; preds = %54
+.loopexit:                                        ; preds = %53
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  br label %62
 
-.loopexit.split-lp:                               ; preds = %9
+.loopexit.split-lp:                               ; preds = %8
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  br label %62
 
-_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit: ; preds = %25, %28
-  %15 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN3nixL19_interruptCallbacksE) #3
-  br label %63
+_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit: ; preds = %24, %27
+  %14 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN3nixL19_interruptCallbacksE) #3
+  br label %62
 
-16:                                               ; preds = %_ZNSt3mapIlSt8functionIFvvEESt4lessIlESaISt4pairIKlS2_EEE11lower_boundERS6_.exit
-  %17 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
+15:                                               ; preds = %_ZNSt3mapIlSt8functionIFvvEESt4lessIlESaISt4pairIKlS2_EEE11lower_boundERS6_.exit
+  %16 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1)
-  %18 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 56
+  %17 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false)
-  %19 = load ptr, ptr %18, align 8
-  %.not.i.i.not.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFvvEEC2ERKS1_.exit.i, label %20
+  %18 = load ptr, ptr %17, align 8
+  %.not.i.i.not.i.i = icmp eq ptr %18, null
+  br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFvvEEC2ERKS1_.exit.i, label %19
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
-  %22 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %21, i32 noundef 2)
-          to label %23 unwind label %25
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds i8, ptr %.19.i.i.i, i64 40
+  %21 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 noundef 2)
+          to label %22 unwind label %24
 
-23:                                               ; preds = %20
-  %24 = load <2 x ptr>, ptr %18, align 8
+22:                                               ; preds = %19
+  %23 = load <2 x ptr>, ptr %17, align 8
   br label %_ZNSt8functionIFvvEEC2ERKS1_.exit.i
 
-25:                                               ; preds = %20
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %19
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %27 = load ptr, ptr %3, align 8
-  %.not.i.i.i8 = icmp eq ptr %27, null
-  br i1 %.not.i.i.i8, label %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit, label %28
+  %26 = load ptr, ptr %3, align 8
+  %.not.i.i.i8 = icmp eq ptr %26, null
+  br i1 %.not.i.i.i8, label %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit, label %27
 
-28:                                               ; preds = %25
-  %29 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3)
-          to label %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit unwind label %30
+27:                                               ; preds = %24
+  %28 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3)
+          to label %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit unwind label %29
 
-30:                                               ; preds = %28
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %27
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #25
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #25
   unreachable
 
-_ZNSt8functionIFvvEEC2ERKS1_.exit.i:              ; preds = %23, %16
-  %33 = phi <2 x ptr> [ zeroinitializer, %16 ], [ %24, %23 ]
+_ZNSt8functionIFvvEEC2ERKS1_.exit.i:              ; preds = %22, %15
+  %32 = phi <2 x ptr> [ zeroinitializer, %15 ], [ %23, %22 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  %34 = load ptr, ptr %5, align 8
-  store ptr %34, ptr %3, align 8
-  %35 = load ptr, ptr %6, align 8
-  store ptr %35, ptr %4, align 8
-  store <2 x ptr> %33, ptr %5, align 8
+  %33 = load <2 x ptr>, ptr %4, align 8
+  %34 = load ptr, ptr %4, align 8
+  store <2 x ptr> %33, ptr %3, align 8
+  store <2 x ptr> %32, ptr %4, align 8
   %.not.i.i2.i = icmp eq ptr %34, null
-  br i1 %.not.i.i2.i, label %42, label %36
+  br i1 %.not.i.i2.i, label %41, label %35
 
-36:                                               ; preds = %_ZNSt8functionIFvvEEC2ERKS1_.exit.i
-  %37 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3)
-          to label %42 unwind label %38
+35:                                               ; preds = %_ZNSt8functionIFvvEEC2ERKS1_.exit.i
+  %36 = invoke noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3)
+          to label %41 unwind label %37
 
-38:                                               ; preds = %36
-  %39 = landingpad { ptr, i32 }
+37:                                               ; preds = %35
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #25
+  %39 = extractvalue { ptr, i32 } %38, 0
+  call void @__clang_call_terminate(ptr %39) #25
   unreachable
 
 _ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit10.thread: ; preds = %_ZNSt3mapIlSt8functionIFvvEESt4lessIlESaISt4pairIKlS2_EEE11lower_boundERS6_.exit, %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4lockEv.exit
-  %41 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN3nixL19_interruptCallbacksE) #3
+  %40 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN3nixL19_interruptCallbacksE) #3
   br label %_ZNKSt8functionIFvvEEclEv.exit
 
-42:                                               ; preds = %36, %_ZNSt8functionIFvvEEC2ERKS1_.exit.i
+41:                                               ; preds = %35, %_ZNSt8functionIFvvEEC2ERKS1_.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
-  %43 = load i64, ptr %17, align 8
-  %44 = add nsw i64 %43, 1
-  %45 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN3nixL19_interruptCallbacksE) #3
-  %46 = load ptr, ptr %5, align 8
-  %.not.i.i = icmp eq ptr %46, null
-  br i1 %.not.i.i, label %47, label %48
+  %42 = load i64, ptr %16, align 8
+  %43 = add nsw i64 %42, 1
+  %44 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZN3nixL19_interruptCallbacksE) #3
+  %45 = load ptr, ptr %4, align 8
+  %.not.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i, label %46, label %47
 
-47:                                               ; preds = %42
+46:                                               ; preds = %41
   invoke void @_ZSt25__throw_bad_function_callv() #27
-          to label %.noexc11 unwind label %50
+          to label %.noexc11 unwind label %49
 
-.noexc11:                                         ; preds = %47
+.noexc11:                                         ; preds = %46
   unreachable
 
-48:                                               ; preds = %42
-  %49 = load ptr, ptr %6, align 8
-  invoke void %49(ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %_ZNKSt8functionIFvvEEclEv.exit unwind label %50
+47:                                               ; preds = %41
+  %48 = load ptr, ptr %5, align 8
+  invoke void %48(ptr noundef nonnull align 8 dereferenceable(16) %2)
+          to label %_ZNKSt8functionIFvvEEclEv.exit unwind label %49
 
-50:                                               ; preds = %48, %47
-  %51 = landingpad { ptr, i32 }
+49:                                               ; preds = %47, %46
+  %50 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = extractvalue { ptr, i32 } %51, 0
-  %53 = call ptr @__cxa_begin_catch(ptr %52) #3
+  %51 = extractvalue { ptr, i32 } %50, 0
+  %52 = call ptr @__cxa_begin_catch(ptr %51) #3
   invoke void @_ZN3nix15ignoreExceptionENS_9VerbosityE(i32 noundef 0)
-          to label %54 unwind label %61
+          to label %53 unwind label %60
 
-54:                                               ; preds = %50
+53:                                               ; preds = %49
   invoke void @__cxa_end_catch()
           to label %_ZNKSt8functionIFvvEEclEv.exit unwind label %.loopexit
 
-_ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %48, %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit10.thread, %54
-  %.12428 = phi i64 [ %44, %54 ], [ %.023, %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit10.thread ], [ %44, %48 ]
-  %switch = phi i1 [ true, %54 ], [ false, %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit10.thread ], [ true, %48 ]
-  %55 = load ptr, ptr %5, align 8
-  %.not.i.i13 = icmp eq ptr %55, null
-  br i1 %.not.i.i13, label %_ZNSt8functionIFvvEED2Ev.exit, label %56
+_ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %47, %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit10.thread, %53
+  %.12428 = phi i64 [ %43, %53 ], [ %.023, %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit10.thread ], [ %43, %47 ]
+  %switch = phi i1 [ true, %53 ], [ false, %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit10.thread ], [ true, %47 ]
+  %54 = load ptr, ptr %4, align 8
+  %.not.i.i13 = icmp eq ptr %54, null
+  br i1 %.not.i.i13, label %_ZNSt8functionIFvvEED2Ev.exit, label %55
 
-56:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit
-  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %58
+55:                                               ; preds = %_ZNKSt8functionIFvvEEclEv.exit
+  %56 = invoke noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+          to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %57
 
-58:                                               ; preds = %56
-  %59 = landingpad { ptr, i32 }
+57:                                               ; preds = %55
+  %58 = landingpad { ptr, i32 }
           catch ptr null
-  %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #25
+  %59 = extractvalue { ptr, i32 } %58, 0
+  call void @__clang_call_terminate(ptr %59) #25
   unreachable
 
-_ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZNKSt8functionIFvvEEclEv.exit, %56
-  br i1 %switch, label %7, label %70
+_ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZNKSt8functionIFvvEEclEv.exit, %55
+  br i1 %switch, label %6, label %69
 
-61:                                               ; preds = %50
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %49
+  %61 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %63 unwind label %71
+          to label %62 unwind label %70
 
-63:                                               ; preds = %.loopexit, %.loopexit.split-lp, %61, %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit
-  %.pn = phi { ptr, i32 } [ %62, %61 ], [ %26, %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %64 = load ptr, ptr %5, align 8
-  %.not.i.i14 = icmp eq ptr %64, null
-  br i1 %.not.i.i14, label %_ZNSt8functionIFvvEED2Ev.exit15, label %65
+62:                                               ; preds = %.loopexit, %.loopexit.split-lp, %60, %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit
+  %.pn = phi { ptr, i32 } [ %61, %60 ], [ %25, %_ZN3nix4SyncINS_18InterruptCallbacksESt5mutexE4LockD2Ev.exit ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %63 = load ptr, ptr %4, align 8
+  %.not.i.i14 = icmp eq ptr %63, null
+  br i1 %.not.i.i14, label %_ZNSt8functionIFvvEED2Ev.exit15, label %64
 
-65:                                               ; preds = %63
-  %66 = invoke noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
-          to label %_ZNSt8functionIFvvEED2Ev.exit15 unwind label %67
+64:                                               ; preds = %62
+  %65 = invoke noundef zeroext i1 %63(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 3)
+          to label %_ZNSt8functionIFvvEED2Ev.exit15 unwind label %66
 
-67:                                               ; preds = %65
-  %68 = landingpad { ptr, i32 }
+66:                                               ; preds = %64
+  %67 = landingpad { ptr, i32 }
           catch ptr null
-  %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #25
+  %68 = extractvalue { ptr, i32 } %67, 0
+  call void @__clang_call_terminate(ptr %68) #25
   unreachable
 
-_ZNSt8functionIFvvEED2Ev.exit15:                  ; preds = %63, %65
+_ZNSt8functionIFvvEED2Ev.exit15:                  ; preds = %62, %64
   resume { ptr, i32 } %.pn
 
-70:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit
+69:                                               ; preds = %_ZNSt8functionIFvvEED2Ev.exit
   ret void
 
-71:                                               ; preds = %61
-  %72 = landingpad { ptr, i32 }
+70:                                               ; preds = %60
+  %71 = landingpad { ptr, i32 }
           catch ptr null
-  %73 = extractvalue { ptr, i32 } %72, 0
-  call void @__clang_call_terminate(ptr %73) #25
+  %72 = extractvalue { ptr, i32 } %71, 0
+  call void @__clang_call_terminate(ptr %72) #25
   unreachable
 }
 

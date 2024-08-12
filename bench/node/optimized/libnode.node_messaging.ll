@@ -6836,7 +6836,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i16 @_ZN4node6worker15MessagePortData8DispatchESt10shared_ptrINS0_7MessageEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef readonly %message, ptr noundef %error) local_unnamed_addr #6 align 2 {
 entry:
-  %agg.tmp = alloca %"class.std::shared_ptr.372", align 8
+  %agg.tmp = alloca %"class.std::shared_ptr.372", align 16
   %group_ = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %group_, align 8
   %cmp.i.not = icmp eq ptr %0, null
@@ -6851,13 +6851,12 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 if.end5:                                          ; preds = %entry
-  %1 = load ptr, ptr %message, align 8
-  store ptr %1, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %message, i64 8
-  %2 = load ptr, ptr %_M_refcount3.i.i, align 8
-  store ptr %2, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %2 = load <2 x ptr>, ptr %message, align 8
+  store <2 x ptr> %2, ptr %agg.tmp, align 16
+  %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN4node6worker7MessageEEC2ERKS3_.exit.thread, label %if.then.i.i.i
 
 _ZNSt10shared_ptrIN4node6worker7MessageEEC2ERKS3_.exit.thread: ; preds = %if.end5
@@ -6865,7 +6864,7 @@ _ZNSt10shared_ptrIN4node6worker7MessageEEC2ERKS3_.exit.thread: ; preds = %if.end
   br label %return
 
 if.then.i.i.i:                                    ; preds = %if.end5
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %_ZNSt10shared_ptrIN4node6worker7MessageEEC2ERKS3_.exit, label %_ZNSt10shared_ptrIN4node6worker7MessageEEC2ERKS3_.exit.thread14
@@ -6886,7 +6885,7 @@ _ZNSt10shared_ptrIN4node6worker7MessageEEC2ERKS3_.exit: ; preds = %if.then.i.i.i
 
 if.then.i.i.i5:                                   ; preds = %_ZNSt10shared_ptrIN4node6worker7MessageEEC2ERKS3_.exit.thread14, %_ZNSt10shared_ptrIN4node6worker7MessageEEC2ERKS3_.exit
   %call819 = phi i16 [ %call816, %_ZNSt10shared_ptrIN4node6worker7MessageEEC2ERKS3_.exit.thread14 ], [ %call8, %_ZNSt10shared_ptrIN4node6worker7MessageEEC2ERKS3_.exit ]
-  %.pr18 = phi ptr [ %2, %_ZNSt10shared_ptrIN4node6worker7MessageEEC2ERKS3_.exit.thread14 ], [ %.pr.pre, %_ZNSt10shared_ptrIN4node6worker7MessageEEC2ERKS3_.exit ]
+  %.pr18 = phi ptr [ %1, %_ZNSt10shared_ptrIN4node6worker7MessageEEC2ERKS3_.exit.thread14 ], [ %.pr.pre, %_ZNSt10shared_ptrIN4node6worker7MessageEEC2ERKS3_.exit ]
   %_M_use_count.i.i.i.i6 = getelementptr inbounds i8, ptr %.pr18, i64 8
   %6 = load atomic i64, ptr %_M_use_count.i.i.i.i6 acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %6, 4294967297
@@ -16009,17 +16008,15 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIN2v81
 _ZNSt12_Vector_baseIN2v818CompiledWasmModuleESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN2v818CompiledWasmModuleESaIS1_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i12 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN2v818CompiledWasmModuleESaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.v8::CompiledWasmModule", ptr %cond.i12, i64 %sub.ptr.div.i
-  %3 = load ptr, ptr %__args, align 8
-  store ptr %3, ptr %add.ptr, align 8
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
-  %4 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
-  store ptr %4, ptr %_M_refcount.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8
+  %4 = load <2 x ptr>, ptr %__args, align 8
+  store <2 x ptr> %4, ptr %add.ptr, align 8
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN2v818CompiledWasmModuleEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIN2v818CompiledWasmModuleESaIS1_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i

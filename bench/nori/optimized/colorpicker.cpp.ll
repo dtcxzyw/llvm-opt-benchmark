@@ -214,10 +214,10 @@ _ZN7nanogui6Widget10set_layoutEPNS_6LayoutE.exit: ; preds = %39, %46
   %62 = getelementptr inbounds i8, ptr %0, i64 376
   %63 = getelementptr inbounds i8, ptr %0, i64 384
   %64 = load <2 x ptr>, ptr %62, align 8
+  %65 = load ptr, ptr %62, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN7nanogui5ColorEEZNS0_11ColorPickerC1EPNS0_6WidgetES3_E3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %62, align 8
   store <2 x ptr> %64, ptr %61, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN7nanogui5ColorEEZNS0_11ColorPickerC1EPNS0_6WidgetES3_E3$_1E9_M_invokeERKSt9_Any_dataS3_", ptr %63, align 8
-  %65 = extractelement <2 x ptr> %64, i64 0
   %.not.i.i.i29 = icmp eq ptr %65, null
   br i1 %.not.i.i.i29, label %"_ZNSt8functionIFvRKN7nanogui5ColorEEEaSIZNS0_11ColorPickerC1EPNS0_6WidgetES3_E3$_1EENSt9enable_ifIXsrNS5_9_CallableIT_NSB_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISD_E4typeEE4typeES5_EE5valueESt5decayISD_EE4type4typeESt15__invoke_resultIRSO_JS3_EEEE5valueERS5_E4typeEOSD_.exit", label %66
 
@@ -469,10 +469,10 @@ _ZNSt8functionIFvbEEC2ERKS1_.exit.i.i:            ; preds = %139
   %152 = getelementptr inbounds i8, ptr %0, i64 272
   %153 = getelementptr inbounds i8, ptr %0, i64 280
   %154 = load <2 x ptr>, ptr %152, align 8
+  %155 = load ptr, ptr %152, align 8
   store ptr @"_ZNSt17_Function_handlerIFvbEZN7nanogui11ColorPickerC1EPNS1_6WidgetERKNS1_5ColorEE3$_2E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %152, align 8
   store <2 x ptr> %154, ptr %150, align 8
   store ptr @"_ZNSt17_Function_handlerIFvbEZN7nanogui11ColorPickerC1EPNS1_6WidgetERKNS1_5ColorEE3$_2E9_M_invokeERKSt9_Any_dataOb", ptr %153, align 8
-  %155 = extractelement <2 x ptr> %154, i64 0
   %.not.i.i2.i.i = icmp eq ptr %155, null
   br i1 %.not.i.i2.i.i, label %.thread, label %156
 
@@ -511,10 +511,10 @@ _ZNSt8functionIFvRKN7nanogui5ColorEEEC2ERKS5_.exit.i.i: ; preds = %161, %.thread
   %166 = getelementptr inbounds i8, ptr %162, i64 176
   %167 = getelementptr inbounds i8, ptr %162, i64 184
   %168 = load <2 x ptr>, ptr %166, align 8
+  %169 = load ptr, ptr %166, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN7nanogui5ColorEEZNS0_11ColorPickerC1EPNS0_6WidgetES3_E3$_3E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %166, align 8
   store <2 x ptr> %168, ptr %164, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN7nanogui5ColorEEZNS0_11ColorPickerC1EPNS0_6WidgetES3_E3$_3E9_M_invokeERKSt9_Any_dataS3_", ptr %167, align 8
-  %169 = extractelement <2 x ptr> %168, i64 0
   %.not.i.i2.i.i63 = icmp eq ptr %169, null
   br i1 %.not.i.i2.i.i63, label %.thread135, label %170
 
@@ -553,10 +553,10 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i:            ; preds = %175, %.thread135
   %180 = getelementptr inbounds i8, ptr %176, i64 240
   %181 = getelementptr inbounds i8, ptr %176, i64 248
   %182 = load <2 x ptr>, ptr %180, align 8
+  %183 = load ptr, ptr %180, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui11ColorPickerC1EPNS1_6WidgetERKNS1_5ColorEE3$_4E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %180, align 8
   store <2 x ptr> %182, ptr %178, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui11ColorPickerC1EPNS1_6WidgetERKNS1_5ColorEE3$_4E9_M_invokeERKSt9_Any_data", ptr %181, align 8
-  %183 = extractelement <2 x ptr> %182, i64 0
   %.not.i.i2.i.i72 = icmp eq ptr %183, null
   br i1 %.not.i.i2.i.i72, label %.thread137, label %184
 
@@ -595,10 +595,10 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i81:          ; preds = %189, %.thread137
   %194 = getelementptr inbounds i8, ptr %190, i64 240
   %195 = getelementptr inbounds i8, ptr %190, i64 248
   %196 = load <2 x ptr>, ptr %194, align 8
+  %197 = load ptr, ptr %194, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui11ColorPickerC1EPNS1_6WidgetERKNS1_5ColorEE3$_5E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %194, align 8
   store <2 x ptr> %196, ptr %192, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN7nanogui11ColorPickerC1EPNS1_6WidgetERKNS1_5ColorEE3$_5E9_M_invokeERKSt9_Any_data", ptr %195, align 8
-  %197 = extractelement <2 x ptr> %196, i64 0
   %.not.i.i2.i.i82 = icmp eq ptr %197, null
   br i1 %.not.i.i2.i.i82, label %.thread139, label %198
 

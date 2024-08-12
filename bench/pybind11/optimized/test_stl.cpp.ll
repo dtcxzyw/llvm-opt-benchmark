@@ -44398,16 +44398,16 @@ _ZN8pybind1118reinterpret_borrowINS_8sequenceEEET_NS_6handleE.exit: ; preds = %_
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   %16 = load <2 x ptr>, ptr %15, align 8, !noalias !1428
   %17 = getelementptr inbounds i8, ptr %0, i64 32
-  %18 = load ptr, ptr %17, align 8, !noalias !1428
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
-  %20 = load ptr, ptr %19, align 8, !noalias !1428
+  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = load ptr, ptr %18, align 8, !noalias !1428
+  %20 = load <2 x ptr>, ptr %17, align 8, !noalias !1428
   %21 = getelementptr inbounds i8, ptr %0, i64 72
   %22 = load ptr, ptr %21, align 8
-  %23 = icmp ult ptr %20, %22
+  %23 = icmp ult ptr %19, %22
   br i1 %23, label %.lr.ph.i.i.i, label %.loopexit
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN8pybind1118reinterpret_borrowINS_8sequenceEEET_NS_6handleE.exit, %.lr.ph.i.i.i
-  %.06.i.pn.i.i = phi ptr [ %.06.i.i.i, %.lr.ph.i.i.i ], [ %20, %_ZN8pybind1118reinterpret_borrowINS_8sequenceEEET_NS_6handleE.exit ]
+  %.06.i.pn.i.i = phi ptr [ %.06.i.i.i, %.lr.ph.i.i.i ], [ %19, %_ZN8pybind1118reinterpret_borrowINS_8sequenceEEET_NS_6handleE.exit ]
   %.06.i.i.i = getelementptr inbounds i8, ptr %.06.i.pn.i.i, i64 8
   %24 = load ptr, ptr %.06.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %24) #32
@@ -44418,8 +44418,7 @@ _ZN8pybind1118reinterpret_borrowINS_8sequenceEEET_NS_6handleE.exit: ; preds = %_
   %26 = getelementptr inbounds i8, ptr %0, i64 48
   store <2 x ptr> %16, ptr %26, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr %18, ptr %.sroa.3.0..sroa_idx.i, align 8
-  store ptr %20, ptr %21, align 8
+  store <2 x ptr> %20, ptr %.sroa.3.0..sroa_idx.i, align 8
   %27 = invoke i64 @PySequence_Size(ptr noundef nonnull %1)
           to label %.preheader unwind label %47
 

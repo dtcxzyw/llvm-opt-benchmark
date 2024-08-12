@@ -18171,14 +18171,14 @@ return:                                           ; preds = %_ZNSt20back_insert_
 define linkonce_odr hidden ptr @_ZN3fmt3v106detail11write_floatIcNS0_8appenderEeEET0_S4_T1_NS0_12format_specsIT_EENS1_10locale_refE(ptr %out.coerce, x86_fp80 noundef %value, i64 %specs.coerce0, i64 %specs.coerce1, ptr %loc.coerce) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i20 = alloca %class.anon.98, align 8
-  %specs.i = alloca %"struct.fmt::v10::format_specs", align 8
+  %specs.i = alloca %"struct.fmt::v10::format_specs", align 16
   %ref.tmp.i = alloca %class.anon.85, align 8
-  %specs = alloca %"struct.fmt::v10::format_specs", align 8
+  %specs = alloca %"struct.fmt::v10::format_specs", align 16
   %ref.tmp = alloca %"struct.fmt::v10::detail::error_handler", align 1
   %buffer = alloca %"class.fmt::v10::basic_memory_buffer", align 8
   %ref.tmp76 = alloca %"class.std::allocator", align 1
   %f = alloca %"struct.fmt::v10::detail::big_decimal_fp", align 8
-  store i64 %specs.coerce0, ptr %specs, align 8
+  store i64 %specs.coerce0, ptr %specs, align 16
   %0 = getelementptr inbounds i8, ptr %specs, i64 8
   store i64 %specs.coerce1, ptr %0, align 8
   %call = call i64 @_ZN3fmt3v106detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_12format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -18213,13 +18213,11 @@ if.end21:                                         ; preds = %if.else, %if.then
 
 if.then23:                                        ; preds = %if.end21
   %cmp.i = fcmp uno x86_fp80 %value.addr.0, 0xK00000000000000000000
-  %agg.tmp25.sroa.0.0.copyload = load i64, ptr %specs, align 8
-  %agg.tmp25.sroa.2.0.copyload = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  store i64 %agg.tmp25.sroa.0.0.copyload, ptr %specs.i, align 8
-  %6 = getelementptr inbounds i8, ptr %specs.i, i64 8
-  store i64 %agg.tmp25.sroa.2.0.copyload, ptr %6, align 8
+  %agg.tmp25.sroa.2.0.copyload = load i64, ptr %0, align 8
+  %6 = load <2 x i64>, ptr %specs, align 16
+  store <2 x i64> %6, ptr %specs.i, align 16
   %7 = and i64 %agg.tmp25.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %7, 72057594843234304
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit
@@ -18286,13 +18284,13 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %18, i64 %17
   store i8 %13, ptr %arrayidx.i.i, align 1
   %bf.clear69 = and i32 %fspecs.sroa.5.0, -65281
-  %19 = load i32, ptr %specs, align 8
+  %19 = load i32, ptr %specs, align 16
   %cmp71.not = icmp eq i32 %19, 0
   br i1 %cmp71.not, label %if.end75, label %if.then72
 
 if.then72:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
   %dec = add nsw i32 %19, -1
-  store i32 %dec, ptr %specs, align 8
+  store i32 %dec, ptr %specs, align 16
   br label %if.end75
 
 if.end75:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit, %if.then72, %if.end31
@@ -34177,14 +34175,14 @@ cond.end:                                         ; preds = %if.end.i, %land.lhs
 define linkonce_odr hidden ptr @_ZN3fmt3v106detail11write_floatIcNS0_8appenderEfEET0_S4_T1_NS0_12format_specsIT_EENS1_10locale_refE(ptr %out.coerce, float noundef %value, i64 %specs.coerce0, i64 %specs.coerce1, ptr %loc.coerce) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i21 = alloca %class.anon.98, align 8
-  %specs.i = alloca %"struct.fmt::v10::format_specs", align 8
+  %specs.i = alloca %"struct.fmt::v10::format_specs", align 16
   %ref.tmp.i = alloca %class.anon.85, align 8
-  %specs = alloca %"struct.fmt::v10::format_specs", align 8
+  %specs = alloca %"struct.fmt::v10::format_specs", align 16
   %ref.tmp = alloca %"struct.fmt::v10::detail::error_handler", align 1
   %buffer = alloca %"class.fmt::v10::basic_memory_buffer", align 8
   %ref.tmp76 = alloca %"class.std::allocator", align 1
   %f = alloca %"struct.fmt::v10::detail::big_decimal_fp", align 8
-  store i64 %specs.coerce0, ptr %specs, align 8
+  store i64 %specs.coerce0, ptr %specs, align 16
   %0 = getelementptr inbounds i8, ptr %specs, i64 8
   store i64 %specs.coerce1, ptr %0, align 8
   %call = call i64 @_ZN3fmt3v106detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_12format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -34219,13 +34217,11 @@ if.end21:                                         ; preds = %if.else, %if.then
 
 if.then23:                                        ; preds = %if.end21
   %cmp.i = fcmp uno float %value.addr.0, 0.000000e+00
-  %agg.tmp25.sroa.0.0.copyload = load i64, ptr %specs, align 8
-  %agg.tmp25.sroa.2.0.copyload = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  store i64 %agg.tmp25.sroa.0.0.copyload, ptr %specs.i, align 8
-  %6 = getelementptr inbounds i8, ptr %specs.i, i64 8
-  store i64 %agg.tmp25.sroa.2.0.copyload, ptr %6, align 8
+  %agg.tmp25.sroa.2.0.copyload = load i64, ptr %0, align 8
+  %6 = load <2 x i64>, ptr %specs, align 16
+  store <2 x i64> %6, ptr %specs.i, align 16
   %7 = and i64 %agg.tmp25.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %7, 72057594843234304
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit
@@ -34292,13 +34288,13 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %18, i64 %17
   store i8 %13, ptr %arrayidx.i.i, align 1
   %bf.clear69 = and i32 %fspecs.sroa.5.0, -65281
-  %19 = load i32, ptr %specs, align 8
+  %19 = load i32, ptr %specs, align 16
   %cmp71.not = icmp eq i32 %19, 0
   br i1 %cmp71.not, label %if.end75, label %if.then72
 
 if.then72:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
   %dec = add nsw i32 %19, -1
-  store i32 %dec, ptr %specs, align 8
+  store i32 %dec, ptr %specs, align 16
   br label %if.end75
 
 if.end75:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit, %if.then72, %if.end31
@@ -35799,14 +35795,14 @@ return:                                           ; preds = %if.end.i, %if.then.
 define linkonce_odr hidden ptr @_ZN3fmt3v106detail11write_floatIcNS0_8appenderEdEET0_S4_T1_NS0_12format_specsIT_EENS1_10locale_refE(ptr %out.coerce, double noundef %value, i64 %specs.coerce0, i64 %specs.coerce1, ptr %loc.coerce) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i20 = alloca %class.anon.98, align 8
-  %specs.i = alloca %"struct.fmt::v10::format_specs", align 8
+  %specs.i = alloca %"struct.fmt::v10::format_specs", align 16
   %ref.tmp.i = alloca %class.anon.85, align 8
-  %specs = alloca %"struct.fmt::v10::format_specs", align 8
+  %specs = alloca %"struct.fmt::v10::format_specs", align 16
   %ref.tmp = alloca %"struct.fmt::v10::detail::error_handler", align 1
   %buffer = alloca %"class.fmt::v10::basic_memory_buffer", align 8
   %ref.tmp76 = alloca %"class.std::allocator", align 1
   %f = alloca %"struct.fmt::v10::detail::big_decimal_fp", align 8
-  store i64 %specs.coerce0, ptr %specs, align 8
+  store i64 %specs.coerce0, ptr %specs, align 16
   %0 = getelementptr inbounds i8, ptr %specs, i64 8
   store i64 %specs.coerce1, ptr %0, align 8
   %call = call i64 @_ZN3fmt3v106detail21parse_float_type_specINS1_13error_handlerEcEENS1_11float_specsERKNS0_12format_specsIT0_EEOT_(ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -35841,13 +35837,11 @@ if.end21:                                         ; preds = %if.else, %if.then
 
 if.then23:                                        ; preds = %if.end21
   %cmp.i = fcmp uno double %value.addr.0, 0.000000e+00
-  %agg.tmp25.sroa.0.0.copyload = load i64, ptr %specs, align 8
-  %agg.tmp25.sroa.2.0.copyload = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  store i64 %agg.tmp25.sroa.0.0.copyload, ptr %specs.i, align 8
-  %6 = getelementptr inbounds i8, ptr %specs.i, i64 8
-  store i64 %agg.tmp25.sroa.2.0.copyload, ptr %6, align 8
+  %agg.tmp25.sroa.2.0.copyload = load i64, ptr %0, align 8
+  %6 = load <2 x i64>, ptr %specs, align 16
+  store <2 x i64> %6, ptr %specs.i, align 16
   %7 = and i64 %agg.tmp25.sroa.2.0.copyload, -72057589759737856
   %or.cond.i = icmp eq i64 %7, 72057594843234304
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit
@@ -35914,13 +35908,13 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit: ; preds = %i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %18, i64 %17
   store i8 %13, ptr %arrayidx.i.i, align 1
   %bf.clear69 = and i32 %fspecs.sroa.5.0, -65281
-  %19 = load i32, ptr %specs, align 8
+  %19 = load i32, ptr %specs, align 16
   %cmp71.not = icmp eq i32 %19, 0
   br i1 %cmp71.not, label %if.end75, label %if.then72
 
 if.then72:                                        ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit
   %dec = add nsw i32 %19, -1
-  store i32 %dec, ptr %specs, align 8
+  store i32 %dec, ptr %specs, align 16
   br label %if.end75
 
 if.end75:                                         ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit, %if.then72, %if.end31

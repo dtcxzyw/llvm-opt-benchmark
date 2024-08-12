@@ -1980,7 +1980,7 @@ define void @_ZNK2cv5aruco15CharucoDetector14detectDiamondsERKNS_11_InputArrayER
   %16 = alloca %"class.cv::Mat", align 8
   %17 = alloca %"class.cv::_OutputArray", align 8
   %18 = alloca %"class.cv::Mat", align 8
-  %19 = alloca %"class.cv::aruco::CharucoBoard", align 8
+  %19 = alloca %"class.cv::aruco::CharucoBoard", align 16
   %20 = alloca %"class.cv::Mat", align 8
   %21 = alloca %"class.cv::Mat", align 8
   %22 = alloca %"class.std::vector.28", align 8
@@ -2290,17 +2290,16 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %150, %153
 
 158:                                              ; preds = %140, %155
   %159 = load ptr, ptr %51, align 8
-  %160 = load ptr, ptr %159, align 8
-  store ptr %160, ptr %19, align 8
-  %161 = getelementptr inbounds i8, ptr %19, i64 8
-  %162 = getelementptr inbounds i8, ptr %159, i64 8
-  %163 = load ptr, ptr %162, align 8
-  store ptr %163, ptr %161, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %163, null
+  %160 = getelementptr inbounds i8, ptr %19, i64 8
+  %161 = getelementptr inbounds i8, ptr %159, i64 8
+  %162 = load ptr, ptr %161, align 8
+  %163 = load <2 x ptr>, ptr %159, align 8
+  store <2 x ptr> %163, ptr %19, align 16
+  %.not.i.i.i.i.i.i = icmp eq ptr %162, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN2cv5aruco12CharucoBoardC2ERKS1_.exit, label %164
 
 164:                                              ; preds = %158
-  %165 = getelementptr inbounds i8, ptr %163, i64 8
+  %165 = getelementptr inbounds i8, ptr %162, i64 8
   %166 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %166, 0
   br i1 %.not.i.i.i.i.i.i.i, label %170, label %167
@@ -3763,10 +3762,10 @@ _ZNSt6vectorIiSaIiEED2Ev.exit265:                 ; preds = %750, %752
   %.sroa.9.1 = phi ptr [ %.sroa.9.3, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit257 ], [ %.sroa.9.0, %234 ]
   %.sroa.0358.6 = phi ptr [ %.sroa.0358.9, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit257 ], [ %.sroa.0358.4, %234 ]
   %755 = load ptr, ptr %51, align 8
-  %756 = load ptr, ptr %19, align 8
+  %756 = load ptr, ptr %19, align 16
   store ptr %756, ptr %755, align 8
   %757 = getelementptr inbounds i8, ptr %755, i64 8
-  %758 = load ptr, ptr %161, align 8
+  %758 = load ptr, ptr %160, align 8
   %759 = load ptr, ptr %757, align 8
   %.not.i.i.i.i.i.i266 = icmp eq ptr %758, %759
   br i1 %.not.i.i.i.i.i.i266, label %_ZN2cv5aruco12CharucoBoardaSERKS1_.exit, label %760
@@ -4048,7 +4047,7 @@ _ZN2cv3Mat2atINS_6Point_IfEEEERT_i.exit286:       ; preds = %871, %865, %858
   br i1 %896, label %839, label %.loopexit390, !llvm.loop !56
 
 .loopexit390:                                     ; preds = %887, %.preheader389, %_ZN2cv5aruco12CharucoBoardaSERKS1_.exit
-  %897 = load ptr, ptr %161, align 8
+  %897 = load ptr, ptr %160, align 8
   %.not.i.i.i.i.i.i287 = icmp eq ptr %897, null
   br i1 %.not.i.i.i.i.i.i287, label %_ZN2cv5aruco12CharucoBoardD2Ev.exit293, label %898
 

@@ -39125,23 +39125,22 @@ _ZNSt6vectorIPN7jsonnet8internal12_GLOBAL__N_19HeapThunkESaIS4_EE18_M_insert_dis
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE5parseEONS_6detail13input_adapterESt8functionIFbiNSB_6parserISA_E13parse_event_tERSA_EEb(ptr dead_on_unwind noalias writable sret(%"class.nlohmann::basic_json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.nlohmann::detail::parser", align 8
-  %6 = alloca %"class.std::shared_ptr", align 8
+  %6 = alloca %"class.std::shared_ptr", align 16
   %7 = alloca %"class.std::function", align 8
   store i8 0, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %8, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !159)
-  %9 = load ptr, ptr %1, align 8, !noalias !159
-  store ptr %9, ptr %6, align 8, !alias.scope !159
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !noalias !159
-  store ptr %12, ptr %10, align 8, !alias.scope !159
-  %.not.i.i.i.i = icmp eq ptr %12, null
+  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !159
+  %12 = load <2 x ptr>, ptr %1, align 8, !noalias !159
+  store <2 x ptr> %12, ptr %6, align 16, !alias.scope !159
+  %.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i.i, label %_ZN8nlohmann6detail13input_adaptercvSt10shared_ptrINS0_22input_adapter_protocolEEEv.exit, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds i8, ptr %11, i64 8
   %15 = load i8, ptr @__libc_single_threaded, align 1, !noalias !159
   %.not.i.i.i.i.i = icmp eq i8 %15, 0
   br i1 %.not.i.i.i.i.i, label %19, label %16
@@ -39235,7 +39234,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   unreachable
 
 _ZNSt8functionIFbiN8nlohmann6detail6parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerEEEE13parse_event_tERSD_EED2Ev.exit: ; preds = %_ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEED2Ev.exit, %47
-  %52 = load ptr, ptr %10, align 8
+  %52 = load ptr, ptr %9, align 8
   %.not.i.i.i10 = icmp eq ptr %52, null
   br i1 %.not.i.i.i10, label %_ZNSt10shared_ptrIN8nlohmann6detail22input_adapter_protocolEED2Ev.exit, label %53
 

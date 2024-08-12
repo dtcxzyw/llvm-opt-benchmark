@@ -5087,19 +5087,18 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt10_ConstructIN2cv3mcc16CCheckerDrawImplEJRKNS0_3PtrINS1_8CCheckerEEERKNS0_7Scalar_IdEERKiEEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %5 = alloca %"struct.cv::Ptr", align 8
+  %5 = alloca %"struct.cv::Ptr", align 16
   %6 = alloca %"class.cv::Scalar_", align 8
-  %7 = load ptr, ptr %1, align 8
-  store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8
-  store ptr %10, ptr %8, align 8
-  %.not.i.i.i.i = icmp eq ptr %10, null
+  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %10, ptr %5, align 16
+  %.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %.not.i.i.i.i.i, label %17, label %14
@@ -5121,7 +5120,7 @@ _ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit:       ; preds = %4, %14, %17
           to label %20 unwind label %56
 
 20:                                               ; preds = %_ZN2cv3PtrINS_3mcc8CCheckerEEC2ERKS3_.exit
-  %21 = load ptr, ptr %8, align 8
+  %21 = load ptr, ptr %7, align 8
   %.not.i.i.i.i5 = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i5, label %_ZN2cv3PtrINS_3mcc8CCheckerEED2Ev.exit, label %22
 

@@ -5285,15 +5285,15 @@ _ZN4rand3rng3Rng4fill17ha1d7fe16595929b4E.exit:   ; preds = %.noexc30
 89:                                               ; preds = %85
   %90 = getelementptr inbounds i8, ptr %10, i64 8
   %91 = load <2 x i64>, ptr %90, align 8, !noalias !1206
+  %92 = load i64, ptr %90, align 8, !noalias !1206
   %.sroa.048.0.copyload = load i64, ptr %14, align 8, !noalias !1201
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %79, i64 16, i1 false), !noalias !5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1206
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @llvm.experimental.noalias.scope.decl(metadata !1208)
   call void @llvm.experimental.noalias.scope.decl(metadata !1211)
-  %92 = icmp eq i64 %.sroa.048.0.copyload, -9223372036854775808
-  %93 = extractelement <2 x i64> %91, i64 0
-  br i1 %92, label %100, label %94
+  %93 = icmp eq i64 %.sroa.048.0.copyload, -9223372036854775808
+  br i1 %93, label %100, label %94
 
 94:                                               ; preds = %89
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12), !noalias !1213
@@ -5321,7 +5321,7 @@ _ZN4rand3rng3Rng4fill17ha1d7fe16595929b4E.exit:   ; preds = %.noexc30
   unreachable
 
 100:                                              ; preds = %89, %.thread68
-  %.sroa.6.sroa.6.0 = phi i64 [ %93, %89 ], [ %82, %.thread68 ]
+  %.sroa.6.sroa.6.0 = phi i64 [ %92, %89 ], [ %82, %.thread68 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, i64 16, i1 false), !alias.scope !1213
   %.sroa.6.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
   store i64 %.sroa.6.sroa.6.0, ptr %.sroa.6.sroa.6.0..sroa_idx, align 8, !alias.scope !1213

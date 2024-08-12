@@ -203,15 +203,15 @@ if.then20:                                        ; preds = %for.end
   br label %if.end114.sink.split
 
 if.end33:                                         ; preds = %for.end
-  %40 = fsub <2 x float> %20, %34
-  %41 = fsub <2 x float> %36, %34
-  %sub.i83 = extractelement <2 x float> %41, i64 0
-  %42 = extractelement <2 x float> %36, i64 1
-  %43 = extractelement <2 x float> %34, i64 1
-  %sub3.i86 = fsub float %42, %43
-  %44 = extractelement <2 x float> %40, i64 1
+  %40 = extractelement <2 x float> %34, i64 1
+  %41 = fsub <2 x float> %20, %34
+  %42 = fsub <2 x float> %36, %34
+  %sub.i83 = extractelement <2 x float> %42, i64 0
+  %43 = extractelement <2 x float> %36, i64 1
+  %sub3.i86 = fsub float %43, %40
+  %44 = extractelement <2 x float> %41, i64 1
   %mul3.i91 = fmul float %44, %sub3.i86
-  %45 = extractelement <2 x float> %40, i64 0
+  %45 = extractelement <2 x float> %41, i64 0
   %46 = tail call noundef float @llvm.fmuladd.f32(float %45, float %sub.i83, float %mul3.i91)
   %47 = fsub <2 x float> %20, %36
   %cmp44 = fcmp ugt float %46, 0.000000e+00
@@ -236,8 +236,8 @@ if.end49:                                         ; preds = %if.then45
   %div.i = fdiv float 1.000000e+00, %sqrt.i.i
   %50 = insertelement <2 x float> poison, float %div.i, i64 0
   %51 = shufflevector <2 x float> %50, <2 x float> poison, <2 x i32> zeroinitializer
-  %52 = fmul <2 x float> %40, %51
-  %storemerge = select i1 %cmp.i, <2 x float> %40, <2 x float> %52
+  %52 = fmul <2 x float> %41, %51
+  %storemerge = select i1 %cmp.i, <2 x float> %41, <2 x float> %52
   store <2 x float> %storemerge, ptr %localNormal54, align 4
   %localPoint57 = getelementptr inbounds i8, ptr %manifold, i64 48
   store <2 x i32> %33, ptr %localPoint57, align 4
@@ -246,7 +246,7 @@ if.end49:                                         ; preds = %if.then45
 if.else:                                          ; preds = %if.end33
   %53 = fsub <2 x float> %34, %36
   %sub.i98 = extractelement <2 x float> %53, i64 0
-  %sub3.i101 = fsub float %43, %42
+  %sub3.i101 = fsub float %40, %43
   %54 = extractelement <2 x float> %47, i64 1
   %mul3.i106 = fmul float %54, %sub3.i101
   %55 = extractelement <2 x float> %47, i64 0

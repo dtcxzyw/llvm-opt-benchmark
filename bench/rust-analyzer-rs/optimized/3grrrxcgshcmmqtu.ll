@@ -4898,7 +4898,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   %.sroa.6172.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 24
   %.sroa.7173.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 56
   %80 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !891
-  %81 = extractelement <2 x i64> %80, i64 0
+  %81 = load i64, ptr %.0.i.i2.i, align 8, !noalias !891, !noundef !4
   %82 = add i64 %81, 1
   store i64 %82, ptr %.0.i.i2.i, align 8, !noalias !891
   store i64 0, ptr %39, align 8

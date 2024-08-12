@@ -3986,7 +3986,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.llvm.14160
   %12 = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 40
   %13 = load <2 x i64>, ptr %.0.i.i3.i, align 8, !noalias !891
-  %14 = extractelement <2 x i64> %13, i64 0
+  %14 = load i64, ptr %.0.i.i3.i, align 8, !noalias !891, !noundef !4
   %15 = add i64 %14, 1
   store i64 %15, ptr %.0.i.i3.i, align 8, !noalias !891
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !896
@@ -4177,7 +4177,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hd28ef352
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load <2 x i64>, ptr %4, align 8
-  %9 = extractelement <2 x i64> %8, i64 0
+  %9 = load i64, ptr %4, align 8, !noundef !4
   %10 = add i64 %9, 1
   store i64 %10, ptr %4, align 8
   store <2 x i64> %8, ptr %7, align 8
@@ -20297,7 +20297,7 @@ define void @"_ZN85_$LT$tokenizers..models..bpe..model..BpeBuilder$u20$as$u20$co
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 152
   %.sroa.10.sroa.4.0..sroa.10.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 184
   %11 = load <2 x i64>, ptr %.0.i.i15, align 8, !noalias !5444
-  %12 = extractelement <2 x i64> %11, i64 0
+  %12 = load i64, ptr %.0.i.i15, align 8, !noalias !5444, !noundef !4
   %13 = add i64 %12, 1
   store i64 %13, ptr %.0.i.i15, align 8, !noalias !5444
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.sroa.6, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
@@ -21078,7 +21078,7 @@ define void @_ZN10tokenizers6models3bpe5model10BpeBuilder5build17hacef91625eb03c
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h18827e038e7b6ccdE.llvm.15403311311865522351.exit.i": ; preds = %.noexc122
   %173 = load <2 x i64>, ptr %170, align 8, !noalias !5581
-  %174 = extractelement <2 x i64> %173, i64 0
+  %174 = load i64, ptr %170, align 8, !noalias !5581, !noundef !4
   %175 = add i64 %174, 1
   store i64 %175, ptr %170, align 8, !noalias !5581
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !5585
@@ -21776,7 +21776,7 @@ common.resume:                                    ; preds = %24, %11
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 152
   %.sroa.10.sroa.4.0..sroa.10.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 184
   %16 = load <2 x i64>, ptr %.0.i.i15.i, align 8, !noalias !5731
-  %17 = extractelement <2 x i64> %16, i64 0
+  %17 = load i64, ptr %.0.i.i15.i, align 8, !noalias !5731, !noundef !4
   %18 = add i64 %17, 1
   store i64 %18, ptr %.0.i.i15.i, align 8, !noalias !5731
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
@@ -21893,7 +21893,7 @@ define void @"_ZN74_$LT$tokenizers..models..bpe..model..BPE$u20$as$u20$core..clo
   %29 = getelementptr inbounds i8, ptr %20, i64 8
   %.sroa.520.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 56
   %30 = load <2 x i64>, ptr %26, align 8, !noalias !5748
-  %31 = extractelement <2 x i64> %30, i64 0
+  %31 = load i64, ptr %26, align 8, !noalias !5748, !noundef !4
   %32 = add i64 %31, 1
   store i64 %32, ptr %26, align 8, !noalias !5748
   call void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb8f4b7ebb897beaeE.llvm.11083375685992158394(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %10, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef 48, i64 noundef 16, i64 noundef %25, i1 noundef zeroext true), !noalias !5745
@@ -22338,7 +22338,7 @@ define void @_ZN10tokenizers6models3bpe5model3BPE3new17hec958c2497a9b053E(ptr no
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 152
   %.sroa.10.sroa.4.0..sroa.10.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 184
   %22 = load <2 x i64>, ptr %.0.i.i15.i, align 8, !noalias !5819
-  %23 = extractelement <2 x i64> %22, i64 0
+  %23 = load i64, ptr %.0.i.i15.i, align 8, !noalias !5819, !noundef !4
   %24 = add i64 %23, 1
   store i64 %24, ptr %.0.i.i15.i, align 8, !noalias !5819
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
@@ -22484,7 +22484,7 @@ common.resume:                                    ; preds = %.body.thread33, %53
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 152
   %.sroa.10.sroa.4.0..sroa.10.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 184
   %21 = load <2 x i64>, ptr %.0.i.i15.i, align 8, !noalias !5841
-  %22 = extractelement <2 x i64> %21, i64 0
+  %22 = load i64, ptr %.0.i.i15.i, align 8, !noalias !5841, !noundef !4
   %23 = add i64 %22, 1
   store i64 %23, ptr %.0.i.i15.i, align 8, !noalias !5841
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.sroa.6.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
@@ -22943,7 +22943,7 @@ common.resume:                                    ; preds = %202, %300, %66, %50
   %.0.i.i212 = phi ptr [ %95, %.noexc155 ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hac0b16592a59a329E, i64 8), %92 ]
   %.sroa.489.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 32
   %114 = load <2 x i64>, ptr %.0.i.i212, align 8, !noalias !5891
-  %115 = extractelement <2 x i64> %114, i64 0
+  %115 = load i64, ptr %.0.i.i212, align 8, !noalias !5891, !noundef !4
   %116 = add i64 %115, 1
   store i64 %116, ptr %.0.i.i212, align 8, !noalias !5891
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) @anon.bc29ea270c7cb723c25a24faa4c0614a.14.llvm.14160285242575610615, i64 32, i1 false)
@@ -26792,7 +26792,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.llvm.14160
   %.0.i.i21 = phi ptr [ %6, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.llvm.14160285242575610615.exit ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hac0b16592a59a329E, i64 8), %2 ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
   %9 = load <2 x i64>, ptr %.0.i.i21, align 8, !noalias !6688
-  %10 = extractelement <2 x i64> %9, i64 0
+  %10 = load i64, ptr %.0.i.i21, align 8, !noalias !6688, !noundef !4
   %11 = add i64 %10, 1
   store i64 %11, ptr %.0.i.i21, align 8, !noalias !6688
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) @anon.bc29ea270c7cb723c25a24faa4c0614a.14.llvm.14160285242575610615, i64 32, i1 false)
@@ -26828,7 +26828,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.llvm.14160
   %19 = getelementptr inbounds i8, ptr %0, i64 48
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
   %20 = load <2 x i64>, ptr %.0.i.i1427, align 8, !noalias !6697
-  %21 = extractelement <2 x i64> %20, i64 0
+  %21 = load i64, ptr %.0.i.i1427, align 8, !noalias !6697, !noundef !4
   %22 = add i64 %21, 1
   store i64 %22, ptr %.0.i.i1427, align 8, !noalias !6697
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
@@ -27152,7 +27152,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.llvm.14160
   store i8 0, ptr %7, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load <2 x i64>, ptr %.0.i.i3, align 8, !noalias !6755
-  %9 = extractelement <2 x i64> %8, i64 0
+  %9 = load i64, ptr %.0.i.i3, align 8, !noalias !6755, !noundef !4
   %10 = add i64 %9, 1
   store i64 %10, ptr %.0.i.i3, align 8, !noalias !6755
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.bc29ea270c7cb723c25a24faa4c0614a.14.llvm.14160285242575610615, i64 32, i1 false)
@@ -28683,7 +28683,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.llvm.14160
   %.0.i.i2.i.i = phi ptr [ %27, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h2e060df0334ea3a6E.llvm.14160285242575610615.exit.i.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hac0b16592a59a329E, i64 8), %"_ZN94_$LT$tokenizers..pre_tokenizers..byte_level..BYTES_CHAR$u20$as$u20$core..ops..deref..Deref$GT$5deref17h5bf9f0a58c1c6862E.exit" ]
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 32
   %30 = load <2 x i64>, ptr %.0.i.i2.i.i, align 8, !noalias !7081
-  %31 = extractelement <2 x i64> %30, i64 0
+  %31 = load i64, ptr %.0.i.i2.i.i, align 8, !noalias !7081, !noundef !4
   %32 = add i64 %31, 1
   store i64 %32, ptr %.0.i.i2.i.i, align 8, !noalias !7081
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) @anon.bc29ea270c7cb723c25a24faa4c0614a.14.llvm.14160285242575610615, i64 32, i1 false), !noalias !7069
@@ -36085,7 +36085,7 @@ define internal fastcc void @"_ZN84_$LT$tokenizers..tokenizer..encoding..Encodin
   %41 = getelementptr inbounds i8, ptr %0, i64 192
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 224
   %42 = load <2 x i64>, ptr %.0.i.i7, align 8, !noalias !8459
-  %43 = extractelement <2 x i64> %42, i64 0
+  %43 = load i64, ptr %.0.i.i7, align 8, !noalias !8459, !noundef !4
   %44 = add i64 %43, 1
   store i64 %44, ptr %.0.i.i7, align 8, !noalias !8459
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)

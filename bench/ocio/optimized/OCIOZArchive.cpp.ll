@@ -2091,9 +2091,7 @@ invoke.cont23:                                    ; preds = %if.else
 
 do.body.preheader:                                ; preds = %invoke.cont23
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
-  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp31, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %invoke.cont40
@@ -2119,10 +2117,9 @@ invoke.cont32:                                    ; preds = %if.then30
 invoke.cont34:                                    ; preds = %invoke.cont32
   %10 = load ptr, ptr %ref.tmp31, align 8
   store ptr %10, ptr %agg.result, align 8
-  %11 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
-  store ptr %11, ptr %_M_finish.i.i.i.i, align 8
-  %12 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
-  store ptr %12, ptr %_M_end_of_storage.i.i.i.i, align 8
+  %11 = load <2 x ptr>, ptr %_M_finish.i2.i.i.i, align 8
+  %12 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  store <2 x ptr> %11, ptr %_M_finish.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %6, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp31, i8 0, i64 24, i1 false)
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %_ZNSt6vectorIhSaIhEEaSEOS1_.exit
@@ -2139,7 +2136,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIhSaIhE
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %invoke.cont34, %_ZNSt6vectorIhSaIhEEaSEOS1_.exit, %if.then.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #15
-  %cmp.i.i = icmp eq ptr %10, %11
+  %cmp.i.i = icmp eq ptr %10, %12
   br i1 %cmp.i.i, label %do.cond, label %if.end44.loopexit
 
 lpad33:                                           ; preds = %invoke.cont32

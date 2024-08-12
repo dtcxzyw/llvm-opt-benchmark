@@ -18812,17 +18812,16 @@ define linkonce_odr void @_ZN3nix8LRUCacheINSt7__cxx1112basic_stringIcSt11char_t
   store i64 %26, ptr %25, align 8, !alias.scope !97
   %27 = getelementptr inbounds i8, ptr %4, i64 16
   %28 = getelementptr inbounds i8, ptr %2, i64 8
-  %29 = load ptr, ptr %28, align 8, !noalias !97
-  store ptr %29, ptr %27, align 8, !alias.scope !97
-  %30 = getelementptr inbounds i8, ptr %4, i64 24
-  %31 = getelementptr inbounds i8, ptr %2, i64 16
-  %32 = load ptr, ptr %31, align 8, !noalias !97
-  store ptr %32, ptr %30, align 8, !alias.scope !97
-  %.not.i.i.i.i.i.i = icmp eq ptr %32, null
+  %29 = getelementptr inbounds i8, ptr %4, i64 24
+  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %31 = load ptr, ptr %30, align 8, !noalias !97
+  %32 = load <2 x ptr>, ptr %28, align 8, !noalias !97
+  store <2 x ptr> %32, ptr %27, align 8, !alias.scope !97
+  %.not.i.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt9make_pairIN3nix8LRUCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Store18PathInfoCacheValueEE11LRUIteratorERKS9_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSF_INSG_IT0_E4typeEE6__typeEEOSH_OSM_.exit, label %33
 
 33:                                               ; preds = %24
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load i8, ptr @__libc_single_threaded, align 1, !noalias !97
   %.not.i.i.i.i.i.i.i = icmp eq i8 %35, 0
   br i1 %.not.i.i.i.i.i.i.i, label %39, label %36
@@ -18843,7 +18842,7 @@ _ZSt9make_pairIN3nix8LRUCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 42:                                               ; preds = %_ZSt9make_pairIN3nix8LRUCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Store18PathInfoCacheValueEE11LRUIteratorERKS9_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSF_INSG_IT0_E4typeEE6__typeEEOSH_OSM_.exit
   %43 = extractvalue { ptr, i8 } %41, 0
-  %44 = load ptr, ptr %30, align 8
+  %44 = load ptr, ptr %29, align 8
   %.not.i.i.i.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt4pairIN3nix8LRUCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5Store18PathInfoCacheValueEE11LRUIteratorES9_ED2Ev.exit, label %45
 

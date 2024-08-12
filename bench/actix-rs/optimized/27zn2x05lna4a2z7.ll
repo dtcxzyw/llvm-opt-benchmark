@@ -658,9 +658,8 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   ret void
 
 11:                                               ; preds = %.lr.ph
+  %12 = load <2 x ptr>, ptr %.sroa.016.029, align 8
   %.sroa.6.0.val = load ptr, ptr %.sroa.016.029, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr i8, ptr %.sroa.016.029, i64 8
-  %.sroa.6.0.val15 = load ptr, ptr %12, align 8, !nonnull !4, !align !54, !noundef !4
   %.val.i.i = load i64, ptr %.sroa.6.0.val, align 8, !noundef !4
   %13 = icmp ne i64 %.val.i.i, 0
   tail call void @llvm.assume(i1 %13)
@@ -677,11 +676,9 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %18 = add nuw nsw i64 %.sroa.7.028, 1
   %19 = getelementptr inbounds i8, ptr %.sroa.016.029, i64 16
   %20 = getelementptr inbounds [0 x { [2 x i64] }], ptr %6, i64 0, i64 %.sroa.7.028
-  store ptr %.sroa.6.0.val, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
-  store ptr %.sroa.6.0.val15, ptr %21, align 8
-  %22 = icmp eq i64 %9, 0
-  br i1 %22, label %.thread, label %.lr.ph
+  store <2 x ptr> %12, ptr %20, align 8
+  %21 = icmp eq i64 %9, 0
+  br i1 %21, label %.thread, label %.lr.ph
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1632,9 +1629,8 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   br i1 %13, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h40b75be783859cc6E.llvm.13892041527173094624.exit", label %14
 
 14:                                               ; preds = %.lr.ph.i
+  %15 = load <2 x ptr>, ptr %.sroa.016.029.i, align 8, !alias.scope !237, !noalias !242
   %.sroa.6.0.val.i = load ptr, ptr %.sroa.016.029.i, align 8, !alias.scope !237, !noalias !242, !nonnull !4, !noundef !4
-  %15 = getelementptr i8, ptr %.sroa.016.029.i, i64 8
-  %.sroa.6.0.val15.i = load ptr, ptr %15, align 8, !alias.scope !237, !noalias !242, !nonnull !4, !align !54, !noundef !4
   %.val.i.i.i = load i64, ptr %.sroa.6.0.val.i, align 8, !noalias !242, !noundef !4
   %16 = icmp ne i64 %.val.i.i.i, 0
   tail call void @llvm.assume(i1 %16)
@@ -1651,11 +1647,9 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %21 = add nuw nsw i64 %.sroa.7.028.i, 1
   %22 = getelementptr inbounds i8, ptr %.sroa.016.029.i, i64 16
   %23 = getelementptr inbounds [0 x { [2 x i64] }], ptr %9, i64 0, i64 %.sroa.7.028.i
-  store ptr %.sroa.6.0.val.i, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
-  store ptr %.sroa.6.0.val15.i, ptr %24, align 8
-  %25 = icmp eq i64 %12, 0
-  br i1 %25, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h40b75be783859cc6E.llvm.13892041527173094624.exit", label %.lr.ph.i
+  store <2 x ptr> %15, ptr %23, align 8
+  %24 = icmp eq i64 %12, 0
+  br i1 %24, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h40b75be783859cc6E.llvm.13892041527173094624.exit", label %.lr.ph.i
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h40b75be783859cc6E.llvm.13892041527173094624.exit": ; preds = %.lr.ph.i, %20, %2
   store i64 %8, ptr %0, align 8, !noalias !237

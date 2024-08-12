@@ -2305,17 +2305,17 @@ if.end17:                                         ; preds = %if.end4
   %isolated.i.i = getelementptr inbounds i8, ptr %config, i64 8
   %use_environment.i.i = getelementptr inbounds i8, ptr %config, i64 12
   %8 = load <4 x i32>, ptr %config, align 4
+  %9 = load i32, ptr %config, align 4
   %configure_locale.i.i = getelementptr inbounds i8, ptr %config, i64 16
-  %9 = load i32, ptr %configure_locale.i.i, align 4
+  %10 = load i32, ptr %configure_locale.i.i, align 4
   %dev_mode.i.i = getelementptr inbounds i8, ptr %config, i64 32
   %coerce_c_locale.i.i = getelementptr inbounds i8, ptr %config, i64 20
   %coerce_c_locale_warn.i.i = getelementptr inbounds i8, ptr %config, i64 24
-  %10 = load i32, ptr %coerce_c_locale_warn.i.i, align 4, !noalias !11
+  %11 = load i32, ptr %coerce_c_locale_warn.i.i, align 4, !noalias !11
   %utf8_mode.i.i = getelementptr inbounds i8, ptr %config, i64 28
   %allocator.i.i = getelementptr inbounds i8, ptr %config, i64 36
-  %11 = load <2 x i32>, ptr %dev_mode.i.i, align 4, !noalias !11
-  %tobool.not = icmp eq i32 %9, 0
-  %12 = extractelement <4 x i32> %8, i64 0
+  %12 = load <2 x i32>, ptr %dev_mode.i.i, align 4, !noalias !11
+  %tobool.not = icmp eq i32 %10, 0
   br i1 %tobool.not, label %if.end20, label %if.then18
 
 if.then18:                                        ; preds = %if.end17
@@ -2324,7 +2324,7 @@ if.then18:                                        ; preds = %if.end17
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then18, %if.end17
-  %.pre = phi i32 [ %.pre.pre, %if.then18 ], [ %12, %if.end17 ]
+  %.pre = phi i32 [ %.pre.pre, %if.then18 ], [ %9, %if.end17 ]
   %.pr = load i32, ptr %utf8_mode.i.i, align 4
   %13 = load <4 x i32>, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3536), align 8
   %14 = load <4 x i32>, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3552), align 8
@@ -2346,7 +2346,7 @@ if.end20:                                         ; preds = %if.then18, %if.end1
   br label %if.end28
 
 if.end28:                                         ; preds = %if.end20, %if.end60
-  %19 = phi i32 [ %.pre, %if.end20 ], [ %12, %if.end60 ]
+  %19 = phi i32 [ %.pre, %if.end20 ], [ %9, %if.end60 ]
   %inc127 = phi i32 [ 1, %if.end20 ], [ %inc, %if.end60 ]
   %locale_coerced.0126 = phi i32 [ 0, %if.end20 ], [ %locale_coerced.1, %if.end60 ]
   %20 = phi i32 [ %.pr, %if.end20 ], [ %70, %if.end60 ]
@@ -2400,10 +2400,9 @@ if.then.i:                                        ; preds = %if.end36
   br label %preconfig_read.exit.thread
 
 if.end.i75:                                       ; preds = %if.end36
-  %32 = load i32, ptr %16, align 8, !noalias !14
-  store i32 %32, ptr %isolated.i.i, align 4, !noalias !14
-  %33 = load i32, ptr %17, align 4, !noalias !14
-  store i32 %33, ptr %use_environment.i.i, align 4, !noalias !14
+  %32 = load i32, ptr %17, align 4, !noalias !14
+  %33 = load <2 x i32>, ptr %16, align 8, !noalias !14
+  store <2 x i32> %33, ptr %isolated.i.i, align 4, !noalias !14
   %34 = load i32, ptr %18, align 8, !noalias !14
   store i32 %34, ptr %dev_mode.i.i, align 4, !noalias !14
   %35 = load i32, ptr %configure_locale.i.i, align 4, !noalias !14
@@ -2415,7 +2414,7 @@ if.then.i.i:                                      ; preds = %if.end.i75
   br label %if.end44.sink.split.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i75
-  %tobool.not.i.i.i = icmp eq i32 %33, 0
+  %tobool.not.i.i.i = icmp eq i32 %32, 0
   br i1 %tobool.not.i.i.i, label %if.end26.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
@@ -2710,9 +2709,9 @@ if.else:                                          ; preds = %if.end46
 if.end60:                                         ; preds = %if.then48, %if.else
   %71 = load i32, ptr %coerce_c_locale.i.i, align 4
   store <4 x i32> %8, ptr %config, align 4
-  store i32 %9, ptr %configure_locale.i.i, align 4
-  store i32 %10, ptr %coerce_c_locale_warn.i.i, align 4
-  store <2 x i32> %11, ptr %dev_mode.i.i, align 4
+  store i32 %10, ptr %configure_locale.i.i, align 4
+  store i32 %11, ptr %coerce_c_locale_warn.i.i, align 4
+  store <2 x i32> %12, ptr %dev_mode.i.i, align 4
   store i32 %70, ptr %utf8_mode.i.i, align 4
   store i32 %71, ptr %coerce_c_locale.i.i, align 4
   %inc = add nuw nsw i32 %inc127, 1
@@ -2766,8 +2765,9 @@ if.end:
   %2 = load i32, ptr %coerce_c_locale.i.i, align 4, !noalias !23
   %coerce_c_locale_warn.i.i = getelementptr inbounds i8, ptr %src_config, i64 24
   %3 = load <4 x i32>, ptr %coerce_c_locale_warn.i.i, align 4, !noalias !23
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 308), align 4
-  %tobool.not = icmp eq i32 %4, 0
+  %4 = load i32, ptr %coerce_c_locale_warn.i.i, align 4, !noalias !23
+  %5 = load i32, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 308), align 4
+  %tobool.not = icmp eq i32 %5, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
 
 if.then1:                                         ; preds = %if.end
@@ -2775,12 +2775,12 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %5 = extractelement <4 x i32> %3, i64 3
-  %cmp4.not = icmp eq i32 %5, 0
+  %6 = extractelement <4 x i32> %3, i64 3
+  %cmp4.not = icmp eq i32 %6, 0
   br i1 %cmp4.not, label %if.end10, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %call = tail call i32 @_PyMem_SetupAllocators(i32 noundef %5) #17
+  %call = tail call i32 @_PyMem_SetupAllocators(i32 noundef %6) #17
   %cmp6 = icmp slt i32 %call, 0
   br i1 %cmp6, label %if.then7, label %if.end10
 
@@ -2795,32 +2795,32 @@ if.then7:                                         ; preds = %if.then5
   br label %return
 
 if.end10:                                         ; preds = %if.then5, %if.end3
-  %6 = extractelement <4 x i32> %0, i64 2
-  %cmp.i = icmp sgt i32 %6, -1
+  %7 = extractelement <4 x i32> %0, i64 2
+  %cmp.i = icmp sgt i32 %7, -1
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end10
-  store i32 %6, ptr @Py_IsolatedFlag, align 4
+  store i32 %7, ptr @Py_IsolatedFlag, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end10
-  %7 = extractelement <4 x i32> %0, i64 3
-  %cmp2.i = icmp sgt i32 %7, -1
+  %8 = extractelement <4 x i32> %0, i64 3
+  %cmp2.i = icmp sgt i32 %8, -1
   br i1 %cmp2.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %tobool.not.i = icmp eq i32 %7, 0
+  %tobool.not.i = icmp eq i32 %8, 0
   %lnot.ext.i = zext i1 %tobool.not.i to i32
   store i32 %lnot.ext.i, ptr @Py_IgnoreEnvironmentFlag, align 4
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then3.i, %if.end.i
-  %8 = extractelement <4 x i32> %3, i64 1
-  %cmp6.i = icmp sgt i32 %8, -1
+  %9 = extractelement <4 x i32> %3, i64 1
+  %cmp6.i = icmp sgt i32 %9, -1
   br i1 %cmp6.i, label %if.then7.i, label %preconfig_set_global_vars.exit
 
 if.then7.i:                                       ; preds = %if.end5.i
-  store i32 %8, ptr @Py_UTF8Mode, align 4
+  store i32 %9, ptr @Py_UTF8Mode, align 4
   br label %preconfig_set_global_vars.exit
 
 preconfig_set_global_vars.exit:                   ; preds = %if.end5.i, %if.then7.i
@@ -2832,8 +2832,7 @@ if.then12:                                        ; preds = %preconfig_set_globa
   br i1 %tobool13.not, label %if.end20, label %if.then14
 
 if.then14:                                        ; preds = %if.then12
-  %9 = extractelement <4 x i32> %3, i64 0
-  %call15 = tail call i32 @_Py_CoerceLegacyLocale(i32 noundef %9) #17
+  %call15 = tail call i32 @_Py_CoerceLegacyLocale(i32 noundef %4) #17
   %tobool16.not = icmp eq i32 %call15, 0
   %spec.select = select i1 %tobool16.not, i32 0, i32 %2
   br label %if.end20

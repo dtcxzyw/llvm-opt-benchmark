@@ -513,7 +513,7 @@ define hidden void @_ZN13CollectedHeap20print_heap_before_gcEv(ptr noundef nonnu
   %2 = alloca %class.LogStream, align 8
   %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not4 = icmp eq ptr %3, null
-  br i1 %.not4, label %31, label %4
+  br i1 %.not4, label %30, label %4
 
 4:                                                ; preds = %1
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext false) #18
@@ -537,50 +537,48 @@ define hidden void @_ZN13CollectedHeap20print_heap_before_gcEv(ptr noundef nonnu
   %15 = getelementptr inbounds i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 32
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 40
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 8
-  %22 = load i64, ptr %21, align 8
-  %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 312
-  %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %2) #18
-  %26 = load ptr, ptr %16, align 8
-  %.not.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i, label %28, label %27
+  %18 = load <2 x ptr>, ptr %17, align 8
+  %19 = load ptr, ptr %17, align 8
+  %20 = getelementptr inbounds i8, ptr %14, i64 8
+  %21 = load i64, ptr %20, align 8
+  %22 = load ptr, ptr %0, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 312
+  %24 = load ptr, ptr %23, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %2) #18
+  %25 = load ptr, ptr %16, align 8
+  %.not.i.i.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i.i.i, label %27, label %26
 
-27:                                               ; preds = %4
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %14, i64 noundef %22) #18
+26:                                               ; preds = %4
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %14, i64 noundef %21) #18
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %16) #18
-  br label %28
+  br label %27
 
-28:                                               ; preds = %27, %4
-  %29 = load ptr, ptr %17, align 8
-  %.not8.i.i.i.i = icmp eq ptr %29, %18
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %30
+27:                                               ; preds = %26, %4
+  %28 = load ptr, ptr %17, align 8
+  %.not8.i.i.i.i = icmp eq ptr %28, %19
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %29
 
-30:                                               ; preds = %28
+29:                                               ; preds = %27
   store ptr %16, ptr %15, align 8
-  store ptr %18, ptr %17, align 8
-  store ptr %20, ptr %19, align 8
+  store <2 x ptr> %18, ptr %17, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %28, %30
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %27, %29
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %2) #18
-  br label %31
+  br label %30
 
-31:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %1
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %.not = icmp eq ptr %33, null
-  br i1 %.not, label %35, label %34
+30:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %1
+  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %.not = icmp eq ptr %32, null
+  br i1 %.not, label %34, label %33
 
-34:                                               ; preds = %31
-  call void @_ZN9GCHeapLog8log_heapEP13CollectedHeapb(ptr noundef nonnull align 8 dereferenceable(160) %33, ptr noundef nonnull %0, i1 noundef zeroext true)
-  br label %35
+33:                                               ; preds = %30
+  call void @_ZN9GCHeapLog8log_heapEP13CollectedHeapb(ptr noundef nonnull align 8 dereferenceable(160) %32, ptr noundef nonnull %0, i1 noundef zeroext true)
+  br label %34
 
-35:                                               ; preds = %34, %31
+34:                                               ; preds = %33, %30
   ret void
 }
 
@@ -595,7 +593,7 @@ define hidden void @_ZN13CollectedHeap19print_heap_after_gcEv(ptr noundef nonnul
   %2 = alloca %class.LogStream, align 8
   %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not4 = icmp eq ptr %3, null
-  br i1 %.not4, label %31, label %4
+  br i1 %.not4, label %30, label %4
 
 4:                                                ; preds = %1
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext false) #18
@@ -619,50 +617,48 @@ define hidden void @_ZN13CollectedHeap19print_heap_after_gcEv(ptr noundef nonnul
   %15 = getelementptr inbounds i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 32
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 40
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 8
-  %22 = load i64, ptr %21, align 8
-  %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 312
-  %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %2) #18
-  %26 = load ptr, ptr %16, align 8
-  %.not.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i, label %28, label %27
+  %18 = load <2 x ptr>, ptr %17, align 8
+  %19 = load ptr, ptr %17, align 8
+  %20 = getelementptr inbounds i8, ptr %14, i64 8
+  %21 = load i64, ptr %20, align 8
+  %22 = load ptr, ptr %0, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 312
+  %24 = load ptr, ptr %23, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %2) #18
+  %25 = load ptr, ptr %16, align 8
+  %.not.i.i.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i.i.i, label %27, label %26
 
-27:                                               ; preds = %4
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %14, i64 noundef %22) #18
+26:                                               ; preds = %4
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %14, i64 noundef %21) #18
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %16) #18
-  br label %28
+  br label %27
 
-28:                                               ; preds = %27, %4
-  %29 = load ptr, ptr %17, align 8
-  %.not8.i.i.i.i = icmp eq ptr %29, %18
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %30
+27:                                               ; preds = %26, %4
+  %28 = load ptr, ptr %17, align 8
+  %.not8.i.i.i.i = icmp eq ptr %28, %19
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %29
 
-30:                                               ; preds = %28
+29:                                               ; preds = %27
   store ptr %16, ptr %15, align 8
-  store ptr %18, ptr %17, align 8
-  store ptr %20, ptr %19, align 8
+  store <2 x ptr> %18, ptr %17, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %28, %30
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %27, %29
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %2) #18
-  br label %31
+  br label %30
 
-31:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %1
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %.not = icmp eq ptr %33, null
-  br i1 %.not, label %35, label %34
+30:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %1
+  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %.not = icmp eq ptr %32, null
+  br i1 %.not, label %34, label %33
 
-34:                                               ; preds = %31
-  call void @_ZN9GCHeapLog8log_heapEP13CollectedHeapb(ptr noundef nonnull align 8 dereferenceable(160) %33, ptr noundef nonnull %0, i1 noundef zeroext false)
-  br label %35
+33:                                               ; preds = %30
+  call void @_ZN9GCHeapLog8log_heapEP13CollectedHeapb(ptr noundef nonnull align 8 dereferenceable(160) %32, ptr noundef nonnull %0, i1 noundef zeroext false)
+  br label %34
 
-35:                                               ; preds = %34, %31
+34:                                               ; preds = %33, %30
   ret void
 }
 
@@ -1917,117 +1913,115 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE1ELN6LogTag4typeE49ELS3_17ELS3_0ELS3_0E
   %117 = getelementptr inbounds i8, ptr %116, i64 24
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds i8, ptr %116, i64 32
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %116, i64 40
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %116, i64 8
-  %124 = load i64, ptr %123, align 8
+  %120 = load <2 x ptr>, ptr %119, align 8
+  %121 = load ptr, ptr %119, align 8
+  %122 = getelementptr inbounds i8, ptr %116, i64 8
+  %123 = load i64, ptr %122, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(56) %6, i1 noundef zeroext false) #18
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %6, align 8
-  %125 = getelementptr inbounds i8, ptr %6, i64 56
-  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %125) #18
-  %126 = getelementptr inbounds i8, ptr %6, i64 144
-  store i32 1, ptr %126, align 8
+  %124 = getelementptr inbounds i8, ptr %6, i64 56
+  call void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %124) #18
+  %125 = getelementptr inbounds i8, ptr %6, i64 144
+  store i32 1, ptr %125, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_17ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %6, align 8
-  %127 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr null, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %7, i64 24
-  store i8 0, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %7, i64 25
-  store i8 0, ptr %129, align 1
-  %130 = getelementptr inbounds i8, ptr %7, i64 16
-  store i32 0, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %7, i64 28
-  store i32 6, ptr %131, align 4
-  %132 = getelementptr inbounds i8, ptr %7, i64 32
-  store i8 0, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %7, i64 20
-  store i32 0, ptr %133, align 4
+  %126 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr null, ptr %126, align 8
+  %127 = getelementptr inbounds i8, ptr %7, i64 24
+  store i8 0, ptr %127, align 8
+  %128 = getelementptr inbounds i8, ptr %7, i64 25
+  store i8 0, ptr %128, align 1
+  %129 = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 0, ptr %129, align 8
+  %130 = getelementptr inbounds i8, ptr %7, i64 28
+  store i32 6, ptr %130, align 4
+  %131 = getelementptr inbounds i8, ptr %7, i64 32
+  store i8 0, ptr %131, align 8
+  %132 = getelementptr inbounds i8, ptr %7, i64 20
+  store i32 0, ptr %132, align 4
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV20VM_GC_HeapInspection, i64 16), ptr %7, align 8
-  %134 = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr %6, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %7, i64 48
-  store i8 0, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %7, i64 52
-  store i32 1, ptr %136, align 4
+  %133 = getelementptr inbounds i8, ptr %7, i64 40
+  store ptr %6, ptr %133, align 8
+  %134 = getelementptr inbounds i8, ptr %7, i64 48
+  store i8 0, ptr %134, align 8
+  %135 = getelementptr inbounds i8, ptr %7, i64 52
+  store i32 1, ptr %135, align 4
   call void @_ZN20VM_GC_HeapInspection4doitEv(ptr noundef nonnull align 8 dereferenceable(56) %7) #18
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %7) #18
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %6) #18
-  %137 = load ptr, ptr %118, align 8
-  %.not.i.i.i.i23 = icmp eq ptr %137, null
-  br i1 %.not.i.i.i.i23, label %139, label %138
+  %136 = load ptr, ptr %118, align 8
+  %.not.i.i.i.i23 = icmp eq ptr %136, null
+  br i1 %.not.i.i.i.i23, label %138, label %137
 
-138:                                              ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE1ELN6LogTag4typeE49ELS3_17ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %116, i64 noundef %124) #18
+137:                                              ; preds = %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE1ELN6LogTag4typeE49ELS3_17ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %116, i64 noundef %123) #18
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %118) #18
-  br label %139
+  br label %138
 
-139:                                              ; preds = %138, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE1ELN6LogTag4typeE49ELS3_17ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit
-  %140 = load ptr, ptr %119, align 8
-  %.not8.i.i.i.i = icmp eq ptr %140, %120
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %141
+138:                                              ; preds = %137, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE1ELN6LogTag4typeE49ELS3_17ELS3_0ELS3_0ELS3_0ELS3_0EEC2EPKcP7GCTimerN7GCCause5CauseEb.exit
+  %139 = load ptr, ptr %119, align 8
+  %.not8.i.i.i.i = icmp eq ptr %139, %121
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %140
 
-141:                                              ; preds = %139
+140:                                              ; preds = %138
   store ptr %118, ptr %117, align 8
-  store ptr %120, ptr %119, align 8
-  store ptr %122, ptr %121, align 8
+  store <2 x ptr> %120, ptr %119, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %139, %141
-  %142 = load ptr, ptr %95, align 8
-  %.not.i.i.i.i24 = icmp ne ptr %142, null
-  %143 = load ptr, ptr %98, align 8
-  %.not1.i.i.i.i25 = icmp ne ptr %143, null
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %138, %140
+  %141 = load ptr, ptr %95, align 8
+  %.not.i.i.i.i24 = icmp ne ptr %141, null
+  %142 = load ptr, ptr %98, align 8
+  %.not1.i.i.i.i25 = icmp ne ptr %142, null
   %or.cond.i.not16.i.i.i26 = select i1 %.not.i.i.i.i24, i1 true, i1 %.not1.i.i.i.i25
-  %144 = load ptr, ptr %99, align 8
-  %145 = icmp ne ptr %144, null
-  %or.cond.i.i.i27 = select i1 %or.cond.i.not16.i.i.i26, i1 true, i1 %145
-  br i1 %or.cond.i.i.i27, label %146, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i28
+  %143 = load ptr, ptr %99, align 8
+  %144 = icmp ne ptr %143, null
+  %or.cond.i.i.i27 = select i1 %or.cond.i.not16.i.i.i26, i1 true, i1 %144
+  br i1 %or.cond.i.i.i27, label %145, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i28
 
-146:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit
-  %147 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #18
-  %148 = extractvalue { i64, i64 } %147, 0
-  %149 = extractvalue { i64, i64 } %147, 1
+145:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit
+  %146 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #18
+  %147 = extractvalue { i64, i64 } %146, 0
+  %148 = extractvalue { i64, i64 } %146, 1
   %.pre.i.i.i34 = load ptr, ptr %95, align 8
   %.not.i5.i.i.i35 = icmp eq ptr %.pre.i.i.i34, null
-  br i1 %.not.i5.i.i.i35, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i28, label %150
+  br i1 %.not.i5.i.i.i35, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i28, label %149
 
-150:                                              ; preds = %146
-  %151 = load ptr, ptr %.pre.i.i.i34, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 8
-  %153 = load ptr, ptr %152, align 8
-  call void %153(ptr noundef nonnull align 8 dereferenceable(8) %.pre.i.i.i34, i64 %148, i64 %149) #18
+149:                                              ; preds = %145
+  %150 = load ptr, ptr %.pre.i.i.i34, align 8
+  %151 = getelementptr inbounds i8, ptr %150, i64 8
+  %152 = load ptr, ptr %151, align 8
+  call void %152(ptr noundef nonnull align 8 dereferenceable(8) %.pre.i.i.i34, i64 %147, i64 %148) #18
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i28
 
-_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i28: ; preds = %150, %146, %_ZN12ResourceMarkD2Ev.exit
-  %.sroa.5.021.i.i.i29 = phi i64 [ %149, %146 ], [ %149, %150 ], [ 0, %_ZN12ResourceMarkD2Ev.exit ]
-  %.sroa.0.020.i.i.i30 = phi i64 [ %148, %146 ], [ %148, %150 ], [ 0, %_ZN12ResourceMarkD2Ev.exit ]
-  %154 = load ptr, ptr %98, align 8
-  %.not.i6.i.i.i31 = icmp eq ptr %154, null
-  br i1 %.not.i6.i.i.i31, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i32, label %155
+_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i28: ; preds = %149, %145, %_ZN12ResourceMarkD2Ev.exit
+  %.sroa.5.021.i.i.i29 = phi i64 [ %148, %145 ], [ %148, %149 ], [ 0, %_ZN12ResourceMarkD2Ev.exit ]
+  %.sroa.0.020.i.i.i30 = phi i64 [ %147, %145 ], [ %147, %149 ], [ 0, %_ZN12ResourceMarkD2Ev.exit ]
+  %153 = load ptr, ptr %98, align 8
+  %.not.i6.i.i.i31 = icmp eq ptr %153, null
+  br i1 %.not.i6.i.i.i31, label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i32, label %154
 
-155:                                              ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i28
-  %156 = load ptr, ptr %154, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 8
-  %158 = load ptr, ptr %157, align 8
-  call void %158(ptr noundef nonnull align 8 dereferenceable(8) %154, i64 %.sroa.0.020.i.i.i30, i64 %.sroa.5.021.i.i.i29) #18
+154:                                              ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i28
+  %155 = load ptr, ptr %153, align 8
+  %156 = getelementptr inbounds i8, ptr %155, i64 8
+  %157 = load ptr, ptr %156, align 8
+  call void %157(ptr noundef nonnull align 8 dereferenceable(8) %153, i64 %.sroa.0.020.i.i.i30, i64 %.sroa.5.021.i.i.i29) #18
   br label %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i32
 
-_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i32: ; preds = %155, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i28
-  %159 = load ptr, ptr %99, align 8
-  %.not.i8.i.i.i33 = icmp eq ptr %159, null
-  br i1 %.not.i8.i.i.i33, label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE1ELN6LogTag4typeE49ELS3_17ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit, label %160
+_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i32: ; preds = %154, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit.i.i.i28
+  %158 = load ptr, ptr %99, align 8
+  %.not.i8.i.i.i33 = icmp eq ptr %158, null
+  br i1 %.not.i8.i.i.i33, label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE1ELN6LogTag4typeE49ELS3_17ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit, label %159
 
-160:                                              ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i32
-  %161 = load ptr, ptr %159, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 8
-  %163 = load ptr, ptr %162, align 8
-  call void %163(ptr noundef nonnull align 8 dereferenceable(8) %159, i64 %.sroa.0.020.i.i.i30, i64 %.sroa.5.021.i.i.i29) #18
+159:                                              ; preds = %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i32
+  %160 = load ptr, ptr %158, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i64 8
+  %162 = load ptr, ptr %161, align 8
+  call void %162(ptr noundef nonnull align 8 dereferenceable(8) %158, i64 %.sroa.0.020.i.i.i30, i64 %.sroa.5.021.i.i.i29) #18
   br label %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE1ELN6LogTag4typeE49ELS3_17ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit
 
-_ZN18GCTraceTimeWrapperILN8LogLevel4typeE1ELN6LogTag4typeE49ELS3_17ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit: ; preds = %160, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i32, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit
+_ZN18GCTraceTimeWrapperILN8LogLevel4typeE1ELN6LogTag4typeE49ELS3_17ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit: ; preds = %159, %_ZN17GCTraceTimeDriver6at_endEP16TimespanCallback11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE.exit7.i.i.i32, %_ZN18GCTraceTimeWrapperILN8LogLevel4typeE3ELN6LogTag4typeE49ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EED2Ev.exit
   ret void
 }
 

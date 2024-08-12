@@ -2245,7 +2245,7 @@ _ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i.i:      ; preds = %lor.lhs.false.i12, 
   store ptr null, ptr %add.ptr.i18, align 8
   %arrayidx.i11.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 -8
   %20 = load <2 x i32>, ptr %arrayidx.i11.i.i.i.i, align 4
-  %21 = extractelement <2 x i32> %20, i64 0
+  %21 = load i32, ptr %arrayidx.i11.i.i.i.i, align 4
   %conv.i.i.i.i = zext i32 %21 to i64
   %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
   %call3.i.i.i.i26 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %add.i.i.i.i)

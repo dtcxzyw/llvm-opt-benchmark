@@ -212,37 +212,37 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing8ImageCut3CutENS_3RefINS_10
   %6 = fsub float 1.000000e+00, %1
   %7 = fadd float %1, 1.000000e+00
   %8 = load <2 x i32>, ptr %5, align 8
-  %9 = sitofp <2 x i32> %8 to <2 x float>
-  %10 = insertelement <2 x float> poison, float %6, i64 0
-  %11 = shufflevector <2 x float> %10, <2 x float> poison, <2 x i32> zeroinitializer
-  %12 = fmul <2 x float> %11, %9
-  %13 = fmul <2 x float> %12, <float 5.000000e-01, float 5.000000e-01>
-  %14 = fptosi <2 x float> %13 to <2 x i32>
-  %15 = insertelement <2 x float> poison, float %7, i64 0
-  %16 = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> zeroinitializer
-  %17 = fmul <2 x float> %16, %9
-  %18 = fmul <2 x float> %17, <float 5.000000e-01, float 5.000000e-01>
-  %19 = fadd <2 x float> %18, <float -1.000000e+00, float -1.000000e+00>
-  %20 = fptosi <2 x float> %19 to <2 x i32>
-  %21 = extractelement <2 x i32> %14, i64 1
-  %22 = icmp sgt i32 %21, -1
-  %23 = extractelement <2 x i32> %20, i64 0
-  %24 = icmp sle i32 %21, %23
-  %or.cond.not56 = select i1 %22, i1 %24, i1 false
-  %25 = icmp sgt <2 x i32> %8, %20
-  %.not = extractelement <2 x i1> %25, i64 0
+  %9 = load i32, ptr %5, align 8
+  %10 = sitofp <2 x i32> %8 to <2 x float>
+  %11 = insertelement <2 x float> poison, float %6, i64 0
+  %12 = shufflevector <2 x float> %11, <2 x float> poison, <2 x i32> zeroinitializer
+  %13 = fmul <2 x float> %12, %10
+  %14 = fmul <2 x float> %13, <float 5.000000e-01, float 5.000000e-01>
+  %15 = fptosi <2 x float> %14 to <2 x i32>
+  %16 = insertelement <2 x float> poison, float %7, i64 0
+  %17 = shufflevector <2 x float> %16, <2 x float> poison, <2 x i32> zeroinitializer
+  %18 = fmul <2 x float> %17, %10
+  %19 = fmul <2 x float> %18, <float 5.000000e-01, float 5.000000e-01>
+  %20 = fadd <2 x float> %19, <float -1.000000e+00, float -1.000000e+00>
+  %21 = fptosi <2 x float> %20 to <2 x i32>
+  %22 = extractelement <2 x i32> %15, i64 1
+  %23 = icmp sgt i32 %22, -1
+  %24 = extractelement <2 x i32> %21, i64 0
+  %25 = icmp sle i32 %22, %24
+  %or.cond.not56 = select i1 %23, i1 %25, i1 false
+  %.not = icmp sgt i32 %9, %24
   %or.cond51 = select i1 %or.cond.not56, i1 %.not, i1 false
   br i1 %or.cond51, label %26, label %.loopexit
 
 26:                                               ; preds = %3
-  %27 = extractelement <2 x i32> %14, i64 0
+  %27 = extractelement <2 x i32> %15, i64 0
   %28 = icmp slt i32 %27, 0
-  %29 = icmp sgt i32 %27, %23
+  %29 = icmp sgt i32 %27, %24
   %or.cond52 = select i1 %28, i1 true, i1 %29
   br i1 %or.cond52, label %.loopexit, label %30
 
 30:                                               ; preds = %26
-  %31 = sub nsw <2 x i32> %20, %14
+  %31 = sub nsw <2 x i32> %21, %15
   %32 = add nsw <2 x i32> %31, <i32 1, i32 1>
   %33 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #7
   %34 = extractelement <2 x i32> %32, i64 0
@@ -317,12 +317,12 @@ _ZN5zxing8ArrayRefIhEaSEPNS_5ArrayIhEE.exit:      ; preds = %44, %48, %53
   br i1 %or.cond, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %_ZN5zxing8ArrayRefIhEaSEPNS_5ArrayIhEE.exit
-  %61 = add nsw i32 %23, 1
+  %61 = add nsw i32 %24, 1
   %62 = sub i32 %61, %27
-  %63 = zext nneg i32 %21 to i64
-  %64 = extractelement <2 x i32> %20, i64 1
+  %63 = zext nneg i32 %22 to i64
+  %64 = extractelement <2 x i32> %21, i64 1
   %65 = add i32 %64, 1
-  %66 = sub i32 %65, %21
+  %66 = sub i32 %65, %22
   %wide.trip.count = zext i32 %66 to i64
   br label %.preheader
 

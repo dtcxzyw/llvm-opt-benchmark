@@ -2022,14 +2022,14 @@ terminate.lpad.i.i605:                            ; preds = %lpad288.body
   unreachable
 
 invoke.cont347:                                   ; preds = %invoke.cont296
-  %mul3.i.i610 = fmul float %agg.tmp.sroa.2.0.copyload, 3.750000e-01
-  store float %mul3.i.i610, ptr %ref.tmp.sroa.3.0.p.sroa_idx.i.i554, align 8
   %176 = fmul <2 x float> %agg.tmp.sroa.0.0.copyload, <float 3.750000e-01, float 3.750000e-01>
+  %mul3.i.i610 = fmul float %agg.tmp.sroa.2.0.copyload, 3.750000e-01
   store <2 x float> %176, ptr %call.i.i.i.i556, align 8
+  store float %mul3.i.i610, ptr %ref.tmp.sroa.3.0.p.sroa_idx.i.i554, align 8
   %agg.tmp343.sroa.0.0.copyload = load <2 x float>, ptr %.sroa.speculated.i540, align 8
   %agg.tmp343.sroa.2.0.copyload = load float, ptr %agg.tmp320.sroa.2.0.p323.sroa_idx, align 8
-  %177 = fmul <2 x float> %agg.tmp343.sroa.0.0.copyload, <float 3.750000e-01, float 3.750000e-01>
   %mul3.i.i619 = fmul float %agg.tmp343.sroa.2.0.copyload, 3.750000e-01
+  %177 = fmul <2 x float> %agg.tmp343.sroa.0.0.copyload, <float 3.750000e-01, float 3.750000e-01>
   %178 = fadd <2 x float> %177, %176
   store <2 x float> %178, ptr %call.i.i.i.i556, align 4
   %add6.i630 = fadd float %mul3.i.i610, %mul3.i.i619

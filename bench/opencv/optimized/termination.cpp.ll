@@ -301,51 +301,49 @@ define hidden void @_ZN2cv4usac15SPRTTermination6createERKNS_3PtrINS0_12Adaptive
 .noexc.i.i.i.i.i:                                 ; preds = %6
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN2cv4usac19SPRTTerminationImplE, i64 16), ptr %10, align 8, !noalias !9
   %11 = getelementptr inbounds i8, ptr %7, i64 24
-  %12 = load ptr, ptr %1, align 8, !noalias !9
-  store ptr %12, ptr %11, align 8, !noalias !9
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !noalias !9
-  store ptr %15, ptr %13, align 8, !noalias !9
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac19SPRTTerminationImplEED2Ev.exit, label %16
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8, !noalias !9
+  %14 = load <2 x ptr>, ptr %1, align 8, !noalias !9
+  store <2 x ptr> %14, ptr %11, align 8, !noalias !9
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac19SPRTTerminationImplEED2Ev.exit, label %15
 
-16:                                               ; preds = %.noexc.i.i.i.i.i
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
-  %18 = load i8, ptr @__libc_single_threaded, align 1, !noalias !9
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %18, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %22, label %19
+15:                                               ; preds = %.noexc.i.i.i.i.i
+  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = load i8, ptr @__libc_single_threaded, align 1, !noalias !9
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %17, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %21, label %18
 
-19:                                               ; preds = %16
-  %20 = load i32, ptr %17, align 4, !noalias !9
-  %21 = add nsw i32 %20, 1
-  store i32 %21, ptr %17, align 4, !noalias !9
+18:                                               ; preds = %15
+  %19 = load i32, ptr %16, align 4, !noalias !9
+  %20 = add nsw i32 %19, 1
+  store i32 %20, ptr %16, align 4, !noalias !9
   br label %_ZN2cv3PtrINS_4usac19SPRTTerminationImplEED2Ev.exit
 
-22:                                               ; preds = %16
-  %23 = atomicrmw volatile add ptr %17, i32 1 acq_rel, align 4, !noalias !9
+21:                                               ; preds = %15
+  %22 = atomicrmw volatile add ptr %16, i32 1 acq_rel, align 4, !noalias !9
   br label %_ZN2cv3PtrINS_4usac19SPRTTerminationImplEED2Ev.exit
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac19SPRTTerminationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i: ; preds = %6
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %7) #17, !noalias !9
-  resume { ptr, i32 } %24
+  resume { ptr, i32 } %23
 
-_ZN2cv3PtrINS_4usac19SPRTTerminationImplEED2Ev.exit: ; preds = %22, %19, %.noexc.i.i.i.i.i
-  %25 = getelementptr inbounds i8, ptr %7, i64 40
-  %26 = fsub double 1.000000e+00, %2
-  %27 = tail call double @log(double noundef %26) #18, !noalias !9
-  store double %27, ptr %25, align 8, !noalias !9
-  %28 = getelementptr inbounds i8, ptr %7, i64 48
-  store i32 %3, ptr %28, align 8, !noalias !9
-  %29 = getelementptr inbounds i8, ptr %7, i64 52
-  store i32 %4, ptr %29, align 4, !noalias !9
-  %30 = getelementptr inbounds i8, ptr %7, i64 56
-  store i32 %5, ptr %30, align 8, !noalias !9
+_ZN2cv3PtrINS_4usac19SPRTTerminationImplEED2Ev.exit: ; preds = %21, %18, %.noexc.i.i.i.i.i
+  %24 = getelementptr inbounds i8, ptr %7, i64 40
+  %25 = fsub double 1.000000e+00, %2
+  %26 = tail call double @log(double noundef %25) #18, !noalias !9
+  store double %26, ptr %24, align 8, !noalias !9
+  %27 = getelementptr inbounds i8, ptr %7, i64 48
+  store i32 %3, ptr %27, align 8, !noalias !9
+  %28 = getelementptr inbounds i8, ptr %7, i64 52
+  store i32 %4, ptr %28, align 4, !noalias !9
+  %29 = getelementptr inbounds i8, ptr %7, i64 56
+  store i32 %5, ptr %29, align 8, !noalias !9
   store ptr %10, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %7, ptr %31, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %7, ptr %30, align 8
   ret void
 }
 
@@ -365,77 +363,75 @@ define hidden void @_ZN2cv4usac22SPRTPNapsacTermination6createERKNS_3PtrINS0_12A
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN2cv4usac26SPRTPNapsacTerminationImplE, i64 16), ptr %11, align 8, !noalias !14
   %12 = getelementptr inbounds i8, ptr %8, i64 24
   invoke void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %.noexc.i.i unwind label %26, !noalias !14
+          to label %.noexc.i.i unwind label %25, !noalias !14
 
 .noexc.i.i:                                       ; preds = %.noexc
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN2cv4usac19SPRTTerminationImplE, i64 16), ptr %12, align 8, !noalias !14
   %13 = getelementptr inbounds i8, ptr %8, i64 32
-  %14 = load ptr, ptr %1, align 8, !noalias !14
-  store ptr %14, ptr %13, align 8, !noalias !14
-  %15 = getelementptr inbounds i8, ptr %8, i64 40
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  %17 = load ptr, ptr %16, align 8, !noalias !14
-  store ptr %17, ptr %15, align 8, !noalias !14
-  %.not.i.i.i.i.i.i.i1 = icmp eq ptr %17, null
-  br i1 %.not.i.i.i.i.i.i.i1, label %_ZN2cv3PtrINS_4usac26SPRTPNapsacTerminationImplEED2Ev.exit, label %18
+  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = load ptr, ptr %14, align 8, !noalias !14
+  %16 = load <2 x ptr>, ptr %1, align 8, !noalias !14
+  store <2 x ptr> %16, ptr %13, align 8, !noalias !14
+  %.not.i.i.i.i.i.i.i1 = icmp eq ptr %15, null
+  br i1 %.not.i.i.i.i.i.i.i1, label %_ZN2cv3PtrINS_4usac26SPRTPNapsacTerminationImplEED2Ev.exit, label %17
 
-18:                                               ; preds = %.noexc.i.i
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
-  %20 = load i8, ptr @__libc_single_threaded, align 1, !noalias !14
-  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %20, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %24, label %21
+17:                                               ; preds = %.noexc.i.i
+  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = load i8, ptr @__libc_single_threaded, align 1, !noalias !14
+  %.not.i.i.i.i.i.i.i.i = icmp eq i8 %19, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %23, label %20
 
-21:                                               ; preds = %18
-  %22 = load i32, ptr %19, align 4, !noalias !14
-  %23 = add nsw i32 %22, 1
-  store i32 %23, ptr %19, align 4, !noalias !14
+20:                                               ; preds = %17
+  %21 = load i32, ptr %18, align 4, !noalias !14
+  %22 = add nsw i32 %21, 1
+  store i32 %22, ptr %18, align 4, !noalias !14
   br label %_ZN2cv3PtrINS_4usac26SPRTPNapsacTerminationImplEED2Ev.exit
 
-24:                                               ; preds = %18
-  %25 = atomicrmw volatile add ptr %19, i32 1 acq_rel, align 4, !noalias !14
+23:                                               ; preds = %17
+  %24 = atomicrmw volatile add ptr %18, i32 1 acq_rel, align 4, !noalias !14
   br label %_ZN2cv3PtrINS_4usac26SPRTPNapsacTerminationImplEED2Ev.exit
 
-26:                                               ; preds = %.noexc
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %.noexc
+  %26 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #18, !noalias !14
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac26SPRTPNapsacTerminationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.body
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac26SPRTPNapsacTerminationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i: ; preds = %7
-  %28 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac26SPRTPNapsacTerminationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.body
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac26SPRTPNapsacTerminationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.body: ; preds = %26, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac26SPRTPNapsacTerminationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %28, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac26SPRTPNapsacTerminationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i ], [ %27, %26 ]
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac26SPRTPNapsacTerminationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i.body: ; preds = %25, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac26SPRTPNapsacTerminationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i
+  %eh.lpad-body = phi { ptr, i32 } [ %27, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac26SPRTPNapsacTerminationImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i.i ], [ %26, %25 ]
   tail call void @_ZdlPv(ptr noundef nonnull %8) #17, !noalias !14
   resume { ptr, i32 } %eh.lpad-body
 
-_ZN2cv3PtrINS_4usac26SPRTPNapsacTerminationImplEED2Ev.exit: ; preds = %.noexc.i.i, %21, %24
-  %29 = getelementptr inbounds i8, ptr %8, i64 48
-  %30 = fsub double 1.000000e+00, %2
-  %31 = tail call double @log(double noundef %30) #18, !noalias !14
-  store double %31, ptr %29, align 8, !noalias !14
-  %32 = getelementptr inbounds i8, ptr %8, i64 56
-  store i32 %3, ptr %32, align 8, !noalias !14
-  %33 = getelementptr inbounds i8, ptr %8, i64 60
-  store i32 %4, ptr %33, align 4, !noalias !14
-  %34 = getelementptr inbounds i8, ptr %8, i64 64
-  store i32 %5, ptr %34, align 8, !noalias !14
-  %35 = getelementptr inbounds i8, ptr %8, i64 72
-  store double %6, ptr %35, align 8, !noalias !14
-  %36 = getelementptr inbounds i8, ptr %8, i64 80
-  %37 = tail call double @log(double noundef %30) #18, !noalias !14
-  store double %37, ptr %36, align 8, !noalias !14
-  %38 = getelementptr inbounds i8, ptr %8, i64 88
-  store i32 %3, ptr %38, align 8, !noalias !14
-  %39 = getelementptr inbounds i8, ptr %8, i64 92
-  store i32 %4, ptr %39, align 4, !noalias !14
-  %40 = getelementptr inbounds i8, ptr %8, i64 96
-  store i32 %5, ptr %40, align 8, !noalias !14
+_ZN2cv3PtrINS_4usac26SPRTPNapsacTerminationImplEED2Ev.exit: ; preds = %.noexc.i.i, %20, %23
+  %28 = getelementptr inbounds i8, ptr %8, i64 48
+  %29 = fsub double 1.000000e+00, %2
+  %30 = tail call double @log(double noundef %29) #18, !noalias !14
+  store double %30, ptr %28, align 8, !noalias !14
+  %31 = getelementptr inbounds i8, ptr %8, i64 56
+  store i32 %3, ptr %31, align 8, !noalias !14
+  %32 = getelementptr inbounds i8, ptr %8, i64 60
+  store i32 %4, ptr %32, align 4, !noalias !14
+  %33 = getelementptr inbounds i8, ptr %8, i64 64
+  store i32 %5, ptr %33, align 8, !noalias !14
+  %34 = getelementptr inbounds i8, ptr %8, i64 72
+  store double %6, ptr %34, align 8, !noalias !14
+  %35 = getelementptr inbounds i8, ptr %8, i64 80
+  %36 = tail call double @log(double noundef %29) #18, !noalias !14
+  store double %36, ptr %35, align 8, !noalias !14
+  %37 = getelementptr inbounds i8, ptr %8, i64 88
+  store i32 %3, ptr %37, align 8, !noalias !14
+  %38 = getelementptr inbounds i8, ptr %8, i64 92
+  store i32 %4, ptr %38, align 4, !noalias !14
+  %39 = getelementptr inbounds i8, ptr %8, i64 96
+  store i32 %5, ptr %39, align 8, !noalias !14
   store ptr %11, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %8, ptr %41, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %8, ptr %40, align 8
   ret void
 }
 

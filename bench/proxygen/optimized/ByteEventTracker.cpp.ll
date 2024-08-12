@@ -665,7 +665,6 @@ define linkonce_odr void @_ZN8proxygen20TransactionByteEventC2EmNS_9ByteEvent9Ev
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
@@ -677,11 +676,9 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %callback, i64 24
-  %1 = load ptr, ptr %_M_invoker4.i, align 8
-  store ptr %1, ptr %_M_invoker.i, align 8
+  %1 = load <2 x ptr>, ptr %_M_manager.i.i.i, align 8
   %2 = load ptr, ptr %_M_manager.i.i.i, align 8
-  store ptr %2, ptr %_M_manager.i.i, align 8
+  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
   br label %_ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit
 
 lpad.i:                                           ; preds = %if.then.i
@@ -719,7 +716,6 @@ _ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit: ; preds = %entry, %invok
   store i64 %bf.set11.i, ptr %eventType_.i, align 8
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 32
   %_M_manager.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 48
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, i8 0, i64 32, i1 false)
   %tobool.not.i.i.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, label %if.then.i.i3
@@ -747,10 +743,9 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 invoke.cont:                                      ; preds = %if.then.i.i3
-  %13 = load ptr, ptr %_M_invoker.i, align 8
-  store ptr %13, ptr %_M_invoker.i.i, align 8
+  %13 = load <2 x ptr>, ptr %_M_manager.i.i, align 8
   %14 = load ptr, ptr %_M_manager.i.i, align 8
-  store ptr %14, ptr %_M_manager.i.i.i2, align 8
+  store <2 x ptr> %13, ptr %_M_manager.i.i.i2, align 8
   %tobool.not.i.i6 = icmp eq ptr %14, null
   br i1 %tobool.not.i.i6, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, label %if.then.i.i7
 
@@ -1311,7 +1306,6 @@ define linkonce_odr void @_ZN8proxygen13PingByteEventC2EmNSt6chrono10time_pointI
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
@@ -1323,11 +1317,9 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  %_M_invoker4.i = getelementptr inbounds i8, ptr %callback, i64 24
-  %1 = load ptr, ptr %_M_invoker4.i, align 8
-  store ptr %1, ptr %_M_invoker.i, align 8
+  %1 = load <2 x ptr>, ptr %_M_manager.i.i.i, align 8
   %2 = load ptr, ptr %_M_manager.i.i.i, align 8
-  store ptr %2, ptr %_M_manager.i.i, align 8
+  store <2 x ptr> %1, ptr %_M_manager.i.i, align 8
   br label %_ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit
 
 lpad.i:                                           ; preds = %if.then.i
@@ -1363,7 +1355,6 @@ _ZNSt8functionIFvRN8proxygen9ByteEventEEEC2ERKS4_.exit: ; preds = %entry, %invok
   store i64 %bf.set11.i, ptr %eventType_.i, align 8
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 32
   %_M_manager.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 48
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %callback_.i, i8 0, i64 32, i1 false)
   %tobool.not.i.i.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, label %if.then.i.i2
@@ -1391,10 +1382,9 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 invoke.cont:                                      ; preds = %if.then.i.i2
-  %12 = load ptr, ptr %_M_invoker.i, align 8
-  store ptr %12, ptr %_M_invoker.i.i, align 8
+  %12 = load <2 x ptr>, ptr %_M_manager.i.i, align 8
   %13 = load ptr, ptr %_M_manager.i.i, align 8
-  store ptr %13, ptr %_M_manager.i.i.i1, align 8
+  store <2 x ptr> %12, ptr %_M_manager.i.i.i1, align 8
   %tobool.not.i.i5 = icmp eq ptr %13, null
   br i1 %tobool.not.i.i5, label %_ZNSt8functionIFvRN8proxygen9ByteEventEEED2Ev.exit, label %if.then.i.i6
 

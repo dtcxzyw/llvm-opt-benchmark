@@ -123,60 +123,58 @@ define hidden void @_ZN8GCTracer28report_object_count_after_gcEP17BoolObjectClos
   %13 = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %12, i64 32
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 40
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 8
-  %20 = load i64, ptr %19, align 8
+  %16 = load <2 x ptr>, ptr %15, align 8
+  %17 = load ptr, ptr %15, align 8
+  %18 = getelementptr inbounds i8, ptr %12, i64 8
+  %19 = load i64, ptr %18, align 8
   call void @_ZN14KlassInfoTableC1Eb(ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext false) #7
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %35, label %24
+  %20 = getelementptr inbounds i8, ptr %4, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %34, label %23
 
-24:                                               ; preds = %8
-  %25 = call noundef i64 @_ZN14HeapInspection14populate_tableEP14KlassInfoTableP17BoolObjectClosureP13WorkerThreads(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2) #7
-  %26 = call noundef i64 @_ZNK14KlassInfoTable26size_of_instances_in_wordsEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
-  %27 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
-  %28 = extractvalue { i64, i64 } %27, 0
-  %29 = extractvalue { i64, i64 } %27, 1
+23:                                               ; preds = %8
+  %24 = call noundef i64 @_ZN14HeapInspection14populate_tableEP14KlassInfoTableP17BoolObjectClosureP13WorkerThreads(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2) #7
+  %25 = call noundef i64 @_ZNK14KlassInfoTable26size_of_instances_in_wordsEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
+  %26 = call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #7
+  %27 = extractvalue { i64, i64 } %26, 0
+  %28 = extractvalue { i64, i64 } %26, 1
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV29ObjectCountEventSenderClosure, i64 16), ptr %6, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 8
-  %31 = load double, ptr @ObjectCountCutOffPercent, align 8
-  %32 = fdiv double %31, 1.000000e+02
-  store double %32, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %6, i64 16
-  store i64 %26, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %6, i64 24
-  store i64 %28, ptr %34, align 8
+  %29 = getelementptr inbounds i8, ptr %6, i64 8
+  %30 = load double, ptr @ObjectCountCutOffPercent, align 8
+  %31 = fdiv double %30, 1.000000e+02
+  store double %31, ptr %29, align 8
+  %32 = getelementptr inbounds i8, ptr %6, i64 16
+  store i64 %25, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %6, i64 24
+  store i64 %27, ptr %33, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
-  store i64 %29, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 %28, ptr %.sroa.2.0..sroa_idx, align 8
   call void @_ZN14KlassInfoTable7iterateEP16KlassInfoClosure(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %6) #7
-  br label %35
+  br label %34
 
-35:                                               ; preds = %24, %8
+34:                                               ; preds = %23, %8
   call void @_ZN14KlassInfoTableD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
-  %36 = load ptr, ptr %14, align 8
-  %.not.i.i.i.i = icmp eq ptr %36, null
-  br i1 %.not.i.i.i.i, label %38, label %37
+  %35 = load ptr, ptr %14, align 8
+  %.not.i.i.i.i = icmp eq ptr %35, null
+  br i1 %.not.i.i.i.i, label %37, label %36
 
-37:                                               ; preds = %35
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef %20) #7
+36:                                               ; preds = %34
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef %19) #7
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %14) #7
-  br label %38
+  br label %37
 
-38:                                               ; preds = %37, %35
-  %39 = load ptr, ptr %15, align 8
-  %.not8.i.i.i.i = icmp eq ptr %39, %16
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %40
+37:                                               ; preds = %36, %34
+  %38 = load ptr, ptr %15, align 8
+  %.not8.i.i.i.i = icmp eq ptr %38, %17
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %39
 
-40:                                               ; preds = %38
+39:                                               ; preds = %37
   store ptr %14, ptr %13, align 8
-  store ptr %16, ptr %15, align 8
-  store ptr %18, ptr %17, align 8
+  store <2 x ptr> %16, ptr %15, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %40, %38, %3
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %39, %37, %3
   ret void
 }
 

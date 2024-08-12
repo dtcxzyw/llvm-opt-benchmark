@@ -706,47 +706,45 @@ define hidden void @_ZN2cv4usac13RansacQuality6createEidRKNS_3PtrINS0_5ErrorEEE(
 .noexc.i.i.i.i.i:                                 ; preds = %4
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN2cv4usac17RansacQualityImplE, i64 16), ptr %8, align 8, !noalias !7
   %9 = getelementptr inbounds i8, ptr %5, i64 24
-  %10 = load ptr, ptr %3, align 8, !noalias !7
-  store ptr %10, ptr %9, align 8, !noalias !7
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
-  %13 = load ptr, ptr %12, align 8, !noalias !7
-  store ptr %13, ptr %11, align 8, !noalias !7
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac17RansacQualityImplEED2Ev.exit, label %14
+  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !7
+  %12 = load <2 x ptr>, ptr %3, align 8, !noalias !7
+  store <2 x ptr> %12, ptr %9, align 8, !noalias !7
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac17RansacQualityImplEED2Ev.exit, label %13
 
-14:                                               ; preds = %.noexc.i.i.i.i.i
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
-  %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !7
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %16, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %20, label %17
+13:                                               ; preds = %.noexc.i.i.i.i.i
+  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = load i8, ptr @__libc_single_threaded, align 1, !noalias !7
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %15, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %19, label %16
 
-17:                                               ; preds = %14
-  %18 = load i32, ptr %15, align 4, !noalias !7
-  %19 = add nsw i32 %18, 1
-  store i32 %19, ptr %15, align 4, !noalias !7
+16:                                               ; preds = %13
+  %17 = load i32, ptr %14, align 4, !noalias !7
+  %18 = add nsw i32 %17, 1
+  store i32 %18, ptr %14, align 4, !noalias !7
   br label %_ZN2cv3PtrINS_4usac17RansacQualityImplEED2Ev.exit
 
-20:                                               ; preds = %14
-  %21 = atomicrmw volatile add ptr %15, i32 1 acq_rel, align 4, !noalias !7
+19:                                               ; preds = %13
+  %20 = atomicrmw volatile add ptr %14, i32 1 acq_rel, align 4, !noalias !7
   br label %_ZN2cv3PtrINS_4usac17RansacQualityImplEED2Ev.exit
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac17RansacQualityImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i: ; preds = %4
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %5) #17, !noalias !7
-  resume { ptr, i32 } %22
+  resume { ptr, i32 } %21
 
-_ZN2cv3PtrINS_4usac17RansacQualityImplEED2Ev.exit: ; preds = %20, %17, %.noexc.i.i.i.i.i
-  %23 = getelementptr inbounds i8, ptr %5, i64 40
-  store i32 %1, ptr %23, align 8, !noalias !7
-  %24 = getelementptr inbounds i8, ptr %5, i64 48
-  store double %2, ptr %24, align 8, !noalias !7
-  %25 = getelementptr inbounds i8, ptr %5, i64 56
-  store double 0x7FEFFFFFFFFFFFFF, ptr %25, align 8, !noalias !7
+_ZN2cv3PtrINS_4usac17RansacQualityImplEED2Ev.exit: ; preds = %19, %16, %.noexc.i.i.i.i.i
+  %22 = getelementptr inbounds i8, ptr %5, i64 40
+  store i32 %1, ptr %22, align 8, !noalias !7
+  %23 = getelementptr inbounds i8, ptr %5, i64 48
+  store double %2, ptr %23, align 8, !noalias !7
+  %24 = getelementptr inbounds i8, ptr %5, i64 56
+  store double 0x7FEFFFFFFFFFFFFF, ptr %24, align 8, !noalias !7
   store ptr %8, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %5, ptr %26, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %5, ptr %25, align 8
   ret void
 }
 
@@ -765,56 +763,54 @@ define hidden void @_ZN2cv4usac11MsacQuality6createEidRKNS_3PtrINS0_5ErrorEEEd(p
 .noexc.i.i.i.i.i:                                 ; preds = %5
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN2cv4usac15MsacQualityImplE, i64 16), ptr %9, align 8, !noalias !12
   %10 = getelementptr inbounds i8, ptr %6, i64 24
-  %11 = load ptr, ptr %3, align 8, !noalias !12
-  store ptr %11, ptr %10, align 8, !noalias !12
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
-  %14 = load ptr, ptr %13, align 8, !noalias !12
-  store ptr %14, ptr %12, align 8, !noalias !12
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac15MsacQualityImplEED2Ev.exit, label %15
+  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !12
+  %13 = load <2 x ptr>, ptr %3, align 8, !noalias !12
+  store <2 x ptr> %13, ptr %10, align 8, !noalias !12
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac15MsacQualityImplEED2Ev.exit, label %14
 
-15:                                               ; preds = %.noexc.i.i.i.i.i
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
-  %17 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %17, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %21, label %18
+14:                                               ; preds = %.noexc.i.i.i.i.i
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %16, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %20, label %17
 
-18:                                               ; preds = %15
-  %19 = load i32, ptr %16, align 4, !noalias !12
-  %20 = add nsw i32 %19, 1
-  store i32 %20, ptr %16, align 4, !noalias !12
+17:                                               ; preds = %14
+  %18 = load i32, ptr %15, align 4, !noalias !12
+  %19 = add nsw i32 %18, 1
+  store i32 %19, ptr %15, align 4, !noalias !12
   br label %_ZN2cv3PtrINS_4usac15MsacQualityImplEED2Ev.exit
 
-21:                                               ; preds = %15
-  %22 = atomicrmw volatile add ptr %16, i32 1 acq_rel, align 4, !noalias !12
+20:                                               ; preds = %14
+  %21 = atomicrmw volatile add ptr %15, i32 1 acq_rel, align 4, !noalias !12
   br label %_ZN2cv3PtrINS_4usac15MsacQualityImplEED2Ev.exit
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac15MsacQualityImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i.i: ; preds = %5
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %6) #17, !noalias !12
-  resume { ptr, i32 } %23
+  resume { ptr, i32 } %22
 
-_ZN2cv3PtrINS_4usac15MsacQualityImplEED2Ev.exit:  ; preds = %21, %18, %.noexc.i.i.i.i.i
-  %24 = getelementptr inbounds i8, ptr %6, i64 40
-  store i32 %1, ptr %24, align 8, !noalias !12
-  %25 = getelementptr inbounds i8, ptr %6, i64 48
-  store double %2, ptr %25, align 8, !noalias !12
-  %26 = getelementptr inbounds i8, ptr %6, i64 56
-  store double %4, ptr %26, align 8, !noalias !12
-  %27 = getelementptr inbounds i8, ptr %6, i64 64
-  %28 = fmul double %2, %4
-  %29 = fptrunc double %28 to float
-  store float %29, ptr %27, align 8, !noalias !12
-  %30 = getelementptr inbounds i8, ptr %6, i64 68
-  %31 = fdiv float 1.000000e+00, %29
-  store float %31, ptr %30, align 4, !noalias !12
-  %32 = getelementptr inbounds i8, ptr %6, i64 72
-  store float 0x47EFFFFFE0000000, ptr %32, align 8, !noalias !12
+_ZN2cv3PtrINS_4usac15MsacQualityImplEED2Ev.exit:  ; preds = %20, %17, %.noexc.i.i.i.i.i
+  %23 = getelementptr inbounds i8, ptr %6, i64 40
+  store i32 %1, ptr %23, align 8, !noalias !12
+  %24 = getelementptr inbounds i8, ptr %6, i64 48
+  store double %2, ptr %24, align 8, !noalias !12
+  %25 = getelementptr inbounds i8, ptr %6, i64 56
+  store double %4, ptr %25, align 8, !noalias !12
+  %26 = getelementptr inbounds i8, ptr %6, i64 64
+  %27 = fmul double %2, %4
+  %28 = fptrunc double %27 to float
+  store float %28, ptr %26, align 8, !noalias !12
+  %29 = getelementptr inbounds i8, ptr %6, i64 68
+  %30 = fdiv float 1.000000e+00, %28
+  store float %30, ptr %29, align 4, !noalias !12
+  %31 = getelementptr inbounds i8, ptr %6, i64 72
+  store float 0x47EFFFFFE0000000, ptr %31, align 8, !noalias !12
   store ptr %9, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %6, ptr %33, align 8
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %6, ptr %32, align 8
   ret void
 }
 
@@ -858,45 +854,43 @@ define hidden void @_ZN2cv4usac12LMedsQuality6createEidRKNS_3PtrINS0_5ErrorEEE(p
 .noexc.i.i.i.i.i:                                 ; preds = %4
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN2cv4usac16LMedsQualityImplE, i64 16), ptr %8, align 8, !noalias !22
   %9 = getelementptr inbounds i8, ptr %5, i64 24
-  %10 = load ptr, ptr %3, align 8, !noalias !22
-  store ptr %10, ptr %9, align 8, !noalias !22
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
-  %13 = load ptr, ptr %12, align 8, !noalias !22
-  store ptr %13, ptr %11, align 8, !noalias !22
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac16LMedsQualityImplEED2Ev.exit, label %14
+  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = load ptr, ptr %10, align 8, !noalias !22
+  %12 = load <2 x ptr>, ptr %3, align 8, !noalias !22
+  store <2 x ptr> %12, ptr %9, align 8, !noalias !22
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac16LMedsQualityImplEED2Ev.exit, label %13
 
-14:                                               ; preds = %.noexc.i.i.i.i.i
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
-  %16 = load i8, ptr @__libc_single_threaded, align 1, !noalias !22
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %16, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %20, label %17
+13:                                               ; preds = %.noexc.i.i.i.i.i
+  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = load i8, ptr @__libc_single_threaded, align 1, !noalias !22
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %15, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %19, label %16
 
-17:                                               ; preds = %14
-  %18 = load i32, ptr %15, align 4, !noalias !22
-  %19 = add nsw i32 %18, 1
-  store i32 %19, ptr %15, align 4, !noalias !22
+16:                                               ; preds = %13
+  %17 = load i32, ptr %14, align 4, !noalias !22
+  %18 = add nsw i32 %17, 1
+  store i32 %18, ptr %14, align 4, !noalias !22
   br label %_ZN2cv3PtrINS_4usac16LMedsQualityImplEED2Ev.exit
 
-20:                                               ; preds = %14
-  %21 = atomicrmw volatile add ptr %15, i32 1 acq_rel, align 4, !noalias !22
+19:                                               ; preds = %13
+  %20 = atomicrmw volatile add ptr %14, i32 1 acq_rel, align 4, !noalias !22
   br label %_ZN2cv3PtrINS_4usac16LMedsQualityImplEED2Ev.exit
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac16LMedsQualityImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i.i: ; preds = %4
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %5) #17, !noalias !22
-  resume { ptr, i32 } %22
+  resume { ptr, i32 } %21
 
-_ZN2cv3PtrINS_4usac16LMedsQualityImplEED2Ev.exit: ; preds = %20, %17, %.noexc.i.i.i.i.i
-  %23 = getelementptr inbounds i8, ptr %5, i64 40
-  store i32 %1, ptr %23, align 8, !noalias !22
-  %24 = getelementptr inbounds i8, ptr %5, i64 48
-  store double %2, ptr %24, align 8, !noalias !22
+_ZN2cv3PtrINS_4usac16LMedsQualityImplEED2Ev.exit: ; preds = %19, %16, %.noexc.i.i.i.i.i
+  %22 = getelementptr inbounds i8, ptr %5, i64 40
+  store i32 %1, ptr %22, align 8, !noalias !22
+  %23 = getelementptr inbounds i8, ptr %5, i64 48
+  store double %2, ptr %23, align 8, !noalias !22
   store ptr %8, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %5, ptr %25, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %5, ptr %24, align 8
   ret void
 }
 
@@ -915,41 +909,39 @@ define hidden void @_ZN2cv4usac13ModelVerifier6createERKNS_3PtrINS0_7QualityEEE(
 .noexc.i.i.i.i.i:                                 ; preds = %2
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN2cv4usac17ModelVerifierImplE, i64 16), ptr %6, align 8, !noalias !27
   %7 = getelementptr inbounds i8, ptr %3, i64 24
-  %8 = load ptr, ptr %1, align 8, !noalias !27
-  store ptr %8, ptr %7, align 8, !noalias !27
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !27
-  store ptr %11, ptr %9, align 8, !noalias !27
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac17ModelVerifierImplEED2Ev.exit, label %12
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8, !noalias !27
+  %10 = load <2 x ptr>, ptr %1, align 8, !noalias !27
+  store <2 x ptr> %10, ptr %7, align 8, !noalias !27
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN2cv3PtrINS_4usac17ModelVerifierImplEED2Ev.exit, label %11
 
-12:                                               ; preds = %.noexc.i.i.i.i.i
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
-  %14 = load i8, ptr @__libc_single_threaded, align 1, !noalias !27
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %14, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %18, label %15
+11:                                               ; preds = %.noexc.i.i.i.i.i
+  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = load i8, ptr @__libc_single_threaded, align 1, !noalias !27
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %13, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %17, label %14
 
-15:                                               ; preds = %12
-  %16 = load i32, ptr %13, align 4, !noalias !27
-  %17 = add nsw i32 %16, 1
-  store i32 %17, ptr %13, align 4, !noalias !27
+14:                                               ; preds = %11
+  %15 = load i32, ptr %12, align 4, !noalias !27
+  %16 = add nsw i32 %15, 1
+  store i32 %16, ptr %12, align 4, !noalias !27
   br label %_ZN2cv3PtrINS_4usac17ModelVerifierImplEED2Ev.exit
 
-18:                                               ; preds = %12
-  %19 = atomicrmw volatile add ptr %13, i32 1 acq_rel, align 4, !noalias !27
+17:                                               ; preds = %11
+  %18 = atomicrmw volatile add ptr %12, i32 1 acq_rel, align 4, !noalias !27
   br label %_ZN2cv3PtrINS_4usac17ModelVerifierImplEED2Ev.exit
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac17ModelVerifierImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10.i.i.i.i.i: ; preds = %2
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %3) #17, !noalias !27
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %19
 
-_ZN2cv3PtrINS_4usac17ModelVerifierImplEED2Ev.exit: ; preds = %18, %15, %.noexc.i.i.i.i.i
+_ZN2cv3PtrINS_4usac17ModelVerifierImplEED2Ev.exit: ; preds = %17, %14, %.noexc.i.i.i.i.i
   store ptr %6, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %3, ptr %21, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %3, ptr %20, align 8
   ret void
 }
 
@@ -1596,32 +1588,30 @@ define linkonce_odr hidden noundef double @_ZNK2cv4usac17RansacQualityImpl12getT
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK2cv4usac17RansacQualityImpl11getErrorFncEv(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  store ptr %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %.not.i.i.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit, label %8
+  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  %6 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %6, ptr %0, align 8
+  %.not.i.i.i.i = icmp eq ptr %5, null
+  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit, label %7
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
-  %10 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i = icmp eq i8 %10, 0
-  br i1 %.not.i.i.i.i.i, label %14, label %11
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i = icmp eq i8 %9, 0
+  br i1 %.not.i.i.i.i.i, label %13, label %10
 
-11:                                               ; preds = %8
-  %12 = load i32, ptr %9, align 4
-  %13 = add nsw i32 %12, 1
-  store i32 %13, ptr %9, align 4
+10:                                               ; preds = %7
+  %11 = load i32, ptr %8, align 4
+  %12 = add nsw i32 %11, 1
+  store i32 %12, ptr %8, align 4
   br label %_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit
 
-14:                                               ; preds = %8
-  %15 = atomicrmw volatile add ptr %9, i32 1 acq_rel, align 4
+13:                                               ; preds = %7
+  %14 = atomicrmw volatile add ptr %8, i32 1 acq_rel, align 4
   br label %_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit
 
-_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit:         ; preds = %2, %11, %14
+_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit:         ; preds = %2, %10, %13
   ret void
 }
 
@@ -2329,32 +2319,30 @@ define linkonce_odr hidden noundef double @_ZNK2cv4usac15MsacQualityImpl12getThr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK2cv4usac15MsacQualityImpl11getErrorFncEv(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(60) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  store ptr %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %.not.i.i.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit, label %8
+  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  %6 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %6, ptr %0, align 8
+  %.not.i.i.i.i = icmp eq ptr %5, null
+  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit, label %7
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
-  %10 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i = icmp eq i8 %10, 0
-  br i1 %.not.i.i.i.i.i, label %14, label %11
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i = icmp eq i8 %9, 0
+  br i1 %.not.i.i.i.i.i, label %13, label %10
 
-11:                                               ; preds = %8
-  %12 = load i32, ptr %9, align 4
-  %13 = add nsw i32 %12, 1
-  store i32 %13, ptr %9, align 4
+10:                                               ; preds = %7
+  %11 = load i32, ptr %8, align 4
+  %12 = add nsw i32 %11, 1
+  store i32 %12, ptr %8, align 4
   br label %_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit
 
-14:                                               ; preds = %8
-  %15 = atomicrmw volatile add ptr %9, i32 1 acq_rel, align 4
+13:                                               ; preds = %7
+  %14 = atomicrmw volatile add ptr %8, i32 1 acq_rel, align 4
   br label %_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit
 
-_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit:         ; preds = %2, %11, %14
+_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit:         ; preds = %2, %10, %13
   ret void
 }
 
@@ -3294,32 +3282,30 @@ define linkonce_odr hidden noundef double @_ZNK2cv4usac17MagsacQualityImpl12getT
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK2cv4usac17MagsacQualityImpl11getErrorFncEv(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(132) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  store ptr %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %.not.i.i.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit, label %8
+  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  %6 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %6, ptr %0, align 8
+  %.not.i.i.i.i = icmp eq ptr %5, null
+  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit, label %7
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
-  %10 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i = icmp eq i8 %10, 0
-  br i1 %.not.i.i.i.i.i, label %14, label %11
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i = icmp eq i8 %9, 0
+  br i1 %.not.i.i.i.i.i, label %13, label %10
 
-11:                                               ; preds = %8
-  %12 = load i32, ptr %9, align 4
-  %13 = add nsw i32 %12, 1
-  store i32 %13, ptr %9, align 4
+10:                                               ; preds = %7
+  %11 = load i32, ptr %8, align 4
+  %12 = add nsw i32 %11, 1
+  store i32 %12, ptr %8, align 4
   br label %_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit
 
-14:                                               ; preds = %8
-  %15 = atomicrmw volatile add ptr %9, i32 1 acq_rel, align 4
+13:                                               ; preds = %7
+  %14 = atomicrmw volatile add ptr %8, i32 1 acq_rel, align 4
   br label %_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit
 
-_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit:         ; preds = %2, %11, %14
+_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit:         ; preds = %2, %10, %13
   ret void
 }
 
@@ -4013,32 +3999,30 @@ define linkonce_odr hidden noundef double @_ZNK2cv4usac16LMedsQualityImpl12getTh
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK2cv4usac16LMedsQualityImpl11getErrorFncEv(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8
-  store ptr %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %5, align 8
-  %.not.i.i.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit, label %8
+  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = load ptr, ptr %4, align 8
+  %6 = load <2 x ptr>, ptr %3, align 8
+  store <2 x ptr> %6, ptr %0, align 8
+  %.not.i.i.i.i = icmp eq ptr %5, null
+  br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit, label %7
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
-  %10 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i = icmp eq i8 %10, 0
-  br i1 %.not.i.i.i.i.i, label %14, label %11
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i = icmp eq i8 %9, 0
+  br i1 %.not.i.i.i.i.i, label %13, label %10
 
-11:                                               ; preds = %8
-  %12 = load i32, ptr %9, align 4
-  %13 = add nsw i32 %12, 1
-  store i32 %13, ptr %9, align 4
+10:                                               ; preds = %7
+  %11 = load i32, ptr %8, align 4
+  %12 = add nsw i32 %11, 1
+  store i32 %12, ptr %8, align 4
   br label %_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit
 
-14:                                               ; preds = %8
-  %15 = atomicrmw volatile add ptr %9, i32 1 acq_rel, align 4
+13:                                               ; preds = %7
+  %14 = atomicrmw volatile add ptr %8, i32 1 acq_rel, align 4
   br label %_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit
 
-_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit:         ; preds = %2, %11, %14
+_ZN2cv3PtrINS_4usac5ErrorEEC2ERKS3_.exit:         ; preds = %2, %10, %13
   ret void
 }
 

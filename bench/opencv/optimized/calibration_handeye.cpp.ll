@@ -12918,12 +12918,11 @@ define internal fastcc void @_ZN2cvL15rot2quatMinimalERKNS_3MatE(ptr dead_on_unw
   store ptr %125, ptr %130, align 8, !alias.scope !283
   %131 = getelementptr inbounds i8, ptr %7, i64 24
   %132 = getelementptr inbounds i8, ptr %3, i64 24
-  %133 = load ptr, ptr %132, align 8, !noalias !283
-  store ptr %133, ptr %131, align 8, !alias.scope !283
-  %134 = getelementptr inbounds i8, ptr %7, i64 32
-  %135 = getelementptr inbounds i8, ptr %3, i64 32
-  %136 = load ptr, ptr %135, align 8, !noalias !283
-  store ptr %136, ptr %134, align 8, !alias.scope !283
+  %133 = getelementptr inbounds i8, ptr %7, i64 32
+  %134 = getelementptr inbounds i8, ptr %3, i64 32
+  %135 = load ptr, ptr %134, align 8, !noalias !283
+  %136 = load <2 x ptr>, ptr %132, align 8, !noalias !283
+  store <2 x ptr> %136, ptr %131, align 8, !alias.scope !283
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %137 = extractelement <2 x double> %112, i64 1
   store double %137, ptr %125, align 8
@@ -12933,7 +12932,7 @@ define internal fastcc void @_ZN2cvL15rot2quatMinimalERKNS_3MatE(ptr dead_on_unw
 138:                                              ; preds = %124
   %139 = getelementptr inbounds i8, ptr %125, i64 %129
   store ptr %139, ptr %130, align 8
-  %.not1.i.i.i = icmp ult ptr %139, %136
+  %.not1.i.i.i = icmp ult ptr %139, %135
   br i1 %.not1.i.i.i, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit, label %140
 
 140:                                              ; preds = %138
@@ -12957,7 +12956,7 @@ _ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit: ; preds = %._ZN2cv20MatCommaIn
   %145 = load ptr, ptr %130, align 8
   %146 = getelementptr inbounds i8, ptr %145, i64 %144
   store ptr %146, ptr %130, align 8
-  %147 = load ptr, ptr %134, align 8
+  %147 = load ptr, ptr %133, align 8
   %.not1.i.i.i90 = icmp ult ptr %146, %147
   br i1 %.not1.i.i.i90, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit92, label %148
 
@@ -13116,12 +13115,11 @@ define internal fastcc void @_ZN2cvL4skewERKNS_3MatE(ptr dead_on_unwind noalias 
   store ptr %49, ptr %54, align 8, !alias.scope !289
   %55 = getelementptr inbounds i8, ptr %7, i64 24
   %56 = getelementptr inbounds i8, ptr %3, i64 24
-  %57 = load ptr, ptr %56, align 8, !noalias !289
-  store ptr %57, ptr %55, align 8, !alias.scope !289
-  %58 = getelementptr inbounds i8, ptr %7, i64 32
-  %59 = getelementptr inbounds i8, ptr %3, i64 32
-  %60 = load ptr, ptr %59, align 8, !noalias !289
-  store ptr %60, ptr %58, align 8, !alias.scope !289
+  %57 = getelementptr inbounds i8, ptr %7, i64 32
+  %58 = getelementptr inbounds i8, ptr %3, i64 32
+  %59 = load ptr, ptr %58, align 8, !noalias !289
+  %60 = load <2 x ptr>, ptr %56, align 8, !noalias !289
+  store <2 x ptr> %60, ptr %55, align 8, !alias.scope !289
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %61 = fneg double %37
   store double %61, ptr %49, align 8
@@ -13131,7 +13129,7 @@ define internal fastcc void @_ZN2cvL4skewERKNS_3MatE(ptr dead_on_unwind noalias 
 62:                                               ; preds = %48
   %63 = getelementptr inbounds i8, ptr %49, i64 %53
   store ptr %63, ptr %54, align 8
-  %.not1.i.i.i = icmp ult ptr %63, %60
+  %.not1.i.i.i = icmp ult ptr %63, %59
   br i1 %.not1.i.i.i, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit, label %64
 
 64:                                               ; preds = %62
@@ -13155,7 +13153,7 @@ _ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit: ; preds = %._ZN2cv20MatCommaIn
   %68 = load i64, ptr %51, align 8
   %69 = getelementptr inbounds i8, ptr %.pre53, i64 %68
   store ptr %69, ptr %54, align 8
-  %70 = load ptr, ptr %58, align 8
+  %70 = load ptr, ptr %57, align 8
   %.not1.i.i.i26 = icmp ult ptr %69, %70
   br i1 %.not1.i.i.i26, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit28, label %71
 
@@ -13180,7 +13178,7 @@ _ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit28: ; preds = %._ZN2cv20MatComma
   %75 = load i64, ptr %51, align 8
   %76 = getelementptr inbounds i8, ptr %.pre55, i64 %75
   store ptr %76, ptr %54, align 8
-  %77 = load ptr, ptr %58, align 8
+  %77 = load ptr, ptr %57, align 8
   %.not1.i.i.i30 = icmp ult ptr %76, %77
   br i1 %.not1.i.i.i30, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit32, label %78
 
@@ -13205,7 +13203,7 @@ _ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit32: ; preds = %._ZN2cv20MatComma
   %82 = load i64, ptr %51, align 8
   %83 = getelementptr inbounds i8, ptr %.pre57, i64 %82
   store ptr %83, ptr %54, align 8
-  %84 = load ptr, ptr %58, align 8
+  %84 = load ptr, ptr %57, align 8
   %.not1.i.i.i34 = icmp ult ptr %83, %84
   br i1 %.not1.i.i.i34, label %_ZN2cv20MatCommaInitializer_IdEcmIiEERS1_T_.exit, label %85
 
@@ -13231,7 +13229,7 @@ _ZN2cv20MatCommaInitializer_IdEcmIiEERS1_T_.exit: ; preds = %._ZN2cv20MatCommaIn
   %90 = load i64, ptr %51, align 8
   %91 = getelementptr inbounds i8, ptr %.pre59, i64 %90
   store ptr %91, ptr %54, align 8
-  %92 = load ptr, ptr %58, align 8
+  %92 = load ptr, ptr %57, align 8
   %.not1.i.i.i37 = icmp ult ptr %91, %92
   br i1 %.not1.i.i.i37, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit39, label %93
 
@@ -13257,7 +13255,7 @@ _ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit39: ; preds = %._ZN2cv20MatComma
   %98 = load i64, ptr %51, align 8
   %99 = getelementptr inbounds i8, ptr %.pre61, i64 %98
   store ptr %99, ptr %54, align 8
-  %100 = load ptr, ptr %58, align 8
+  %100 = load ptr, ptr %57, align 8
   %.not1.i.i.i41 = icmp ult ptr %99, %100
   br i1 %.not1.i.i.i41, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit43, label %101
 
@@ -13282,7 +13280,7 @@ _ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit43: ; preds = %._ZN2cv20MatComma
   %105 = load i64, ptr %51, align 8
   %106 = getelementptr inbounds i8, ptr %.pre63, i64 %105
   store ptr %106, ptr %54, align 8
-  %107 = load ptr, ptr %58, align 8
+  %107 = load ptr, ptr %57, align 8
   %.not1.i.i.i45 = icmp ult ptr %106, %107
   br i1 %.not1.i.i.i45, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit47, label %108
 
@@ -13307,7 +13305,7 @@ _ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit47: ; preds = %._ZN2cv20MatComma
   %113 = load ptr, ptr %54, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 %112
   store ptr %114, ptr %54, align 8
-  %115 = load ptr, ptr %58, align 8
+  %115 = load ptr, ptr %57, align 8
   %.not1.i.i.i49 = icmp ult ptr %114, %115
   br i1 %.not1.i.i.i49, label %_ZN2cv20MatCommaInitializer_IdEcmIiEERS1_T_.exit51, label %116
 
@@ -13705,12 +13703,11 @@ define internal fastcc void @_ZN2cvL8rot2quatERKNS_3MatE(ptr dead_on_unwind noal
   store ptr %120, ptr %125, align 8, !alias.scope !295
   %126 = getelementptr inbounds i8, ptr %7, i64 24
   %127 = getelementptr inbounds i8, ptr %3, i64 24
-  %128 = load ptr, ptr %127, align 8, !noalias !295
-  store ptr %128, ptr %126, align 8, !alias.scope !295
-  %129 = getelementptr inbounds i8, ptr %7, i64 32
-  %130 = getelementptr inbounds i8, ptr %3, i64 32
-  %131 = load ptr, ptr %130, align 8, !noalias !295
-  store ptr %131, ptr %129, align 8, !alias.scope !295
+  %128 = getelementptr inbounds i8, ptr %7, i64 32
+  %129 = getelementptr inbounds i8, ptr %3, i64 32
+  %130 = load ptr, ptr %129, align 8, !noalias !295
+  %131 = load <2 x ptr>, ptr %127, align 8, !noalias !295
+  store <2 x ptr> %131, ptr %126, align 8, !alias.scope !295
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   store double %.080, ptr %120, align 8
   %.not.i.i.i = icmp eq ptr %121, null
@@ -13719,7 +13716,7 @@ define internal fastcc void @_ZN2cvL8rot2quatERKNS_3MatE(ptr dead_on_unwind noal
 132:                                              ; preds = %119
   %133 = getelementptr inbounds i8, ptr %120, i64 %124
   store ptr %133, ptr %125, align 8
-  %.not1.i.i.i = icmp ult ptr %133, %131
+  %.not1.i.i.i = icmp ult ptr %133, %130
   br i1 %.not1.i.i.i, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit, label %134
 
 134:                                              ; preds = %132
@@ -13743,7 +13740,7 @@ _ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit: ; preds = %._ZN2cv20MatCommaIn
   %138 = load i64, ptr %122, align 8
   %139 = getelementptr inbounds i8, ptr %.pre110, i64 %138
   store ptr %139, ptr %125, align 8
-  %140 = load ptr, ptr %129, align 8
+  %140 = load ptr, ptr %128, align 8
   %.not1.i.i.i102 = icmp ult ptr %139, %140
   br i1 %.not1.i.i.i102, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit104, label %141
 
@@ -13768,7 +13765,7 @@ _ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit104: ; preds = %._ZN2cv20MatComm
   %146 = load ptr, ptr %125, align 8
   %147 = getelementptr inbounds i8, ptr %146, i64 %145
   store ptr %147, ptr %125, align 8
-  %148 = load ptr, ptr %129, align 8
+  %148 = load ptr, ptr %128, align 8
   %.not1.i.i.i106 = icmp ult ptr %147, %148
   br i1 %.not1.i.i.i106, label %_ZN2cv20MatCommaInitializer_IdEcmIdEERS1_T_.exit108, label %149
 

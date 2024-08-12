@@ -461,21 +461,18 @@ copy_address.exit1268:                            ; preds = %39, %33, %45
   %72 = getelementptr inbounds i8, ptr %3, i64 86
   %73 = getelementptr inbounds i8, ptr %3, i64 84
   %74 = load <2 x i16>, ptr %73, align 4
+  %75 = load i16, ptr %73, align 4
   store <2 x i16> %74, ptr %6, align 8
-  %75 = load ptr, ptr getelementptr inbounds (i8, ptr @sctp_tapinfo_struct, i64 8), align 8
-  %76 = tail call ptr @g_list_last(ptr noundef %75) #8
-  %.not.i = icmp eq ptr %76, null
-  br i1 %.not.i, label %.loopexit1335, label %.preheader.i.preheader
+  %76 = load ptr, ptr getelementptr inbounds (i8, ptr @sctp_tapinfo_struct, i64 8), align 8
+  %77 = tail call ptr @g_list_last(ptr noundef %76) #8
+  %.not.i = icmp eq ptr %77, null
+  br i1 %.not.i, label %.loopexit1335, label %.preheader.i
 
-.preheader.i.preheader:                           ; preds = %69
-  %77 = extractelement <2 x i16> %74, i64 0
-  br label %.preheader.i
-
-.preheader.i:                                     ; preds = %.preheader.i.preheader, %81
-  %.0.i = phi ptr [ %83, %81 ], [ %76, %.preheader.i.preheader ]
+.preheader.i:                                     ; preds = %69, %81
+  %.0.i = phi ptr [ %83, %81 ], [ %77, %69 ]
   %78 = load ptr, ptr %.0.i, align 8
   %79 = load i16, ptr %78, align 8
-  %80 = icmp eq i16 %77, %79
+  %80 = icmp eq i16 %75, %79
   br i1 %80, label %find_assoc.exit, label %81
 
 81:                                               ; preds = %.preheader.i

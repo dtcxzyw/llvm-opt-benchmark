@@ -4646,19 +4646,18 @@ if.end:                                           ; preds = %_ZNKSt10type_indexe
   store ptr null, ptr %call.i10, align 16, !tbaa !17, !noalias !247
   %call_.i.i.i = getelementptr inbounds i8, ptr %call.i10, i64 48
   %call_2.i.i.i = getelementptr inbounds i8, ptr %16, i64 48
-  %17 = load ptr, ptr %call_2.i.i.i, align 16, !tbaa !76, !noalias !247
-  store ptr %17, ptr %call_.i.i.i, align 16, !tbaa !76, !noalias !247
   %exec_.i.i.i = getelementptr inbounds i8, ptr %call.i10, i64 56
   %exec_3.i.i.i = getelementptr inbounds i8, ptr %16, i64 56
-  %18 = load ptr, ptr %exec_3.i.i.i, align 8, !tbaa !78, !noalias !247
-  store ptr %18, ptr %exec_.i.i.i, align 8, !tbaa !78, !noalias !247
+  %17 = load ptr, ptr %exec_3.i.i.i, align 8, !tbaa !78, !noalias !247
+  %18 = load <2 x ptr>, ptr %call_2.i.i.i, align 16, !tbaa !12, !noalias !247
+  store <2 x ptr> %18, ptr %call_.i.i.i, align 16, !tbaa !12, !noalias !247
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i.i.i, align 16, !tbaa !76, !noalias !247
   store ptr null, ptr %exec_3.i.i.i, align 8, !tbaa !78, !noalias !247
-  %tobool.not.i.i.i.i = icmp eq ptr %18, null
+  %tobool.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end
-  %call.i.i.i.i = tail call noundef i64 %18(i32 noundef 0, ptr noundef nonnull %16, ptr noundef nonnull %call.i10) #11, !noalias !247
+  %call.i.i.i.i = tail call noundef i64 %17(i32 noundef 0, ptr noundef nonnull %16, ptr noundef nonnull %call.i10) #11, !noalias !247
   br label %_ZN5folly8FunctionIFvvEEC2EOS2_.exit.i.i
 
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit.i.i:         ; preds = %if.end.i.i.i.i, %if.end
@@ -4670,29 +4669,27 @@ _ZN5folly8FunctionIFvvEEC2EOS2_.exit.i.i:         ; preds = %if.end.i.i.i.i, %if
 
 call.i.noexc.i.i:                                 ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit.i.i
   %rcontext.i.i = getelementptr inbounds i8, ptr %call.i10, i64 72
-  %19 = load ptr, ptr %call.i3.i.i, align 8, !tbaa !255, !noalias !256
-  store ptr %19, ptr %rcontext.i.i, align 8, !tbaa !255, !alias.scope !252, !noalias !247
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i10, i64 80
   %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i3.i.i, i64 8
-  %20 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !tbaa !198, !noalias !256
-  store ptr %20, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !198, !alias.scope !252, !noalias !247
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %20, null
+  %19 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !tbaa !198, !noalias !255
+  %20 = load <2 x ptr>, ptr %call.i3.i.i, align 8, !tbaa !12, !noalias !255
+  store <2 x ptr> %20, ptr %rcontext.i.i, align 8, !tbaa !12, !alias.scope !252, !noalias !247
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZSt11make_uniqueIN5folly6fibers12FiberManager10RemoteTaskEJNS0_8FunctionIFvvEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.noexc.i.i
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
-  %21 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17, !noalias !256
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17, !noalias !255
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
-  %22 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i, align 4, !tbaa !18, !noalias !256
+  %22 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i, align 4, !tbaa !18, !noalias !255
   %add.i.i.i.i.i.i.i.i = add nsw i32 %22, 1
-  store i32 %add.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i, align 4, !tbaa !18, !noalias !256
+  store i32 %add.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i, align 4, !tbaa !18, !noalias !255
   br label %_ZSt11make_uniqueIN5folly6fibers12FiberManager10RemoteTaskEJNS0_8FunctionIFvvEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
-  %23 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !256
+  %23 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !255
   br label %_ZSt11make_uniqueIN5folly6fibers12FiberManager10RemoteTaskEJNS0_8FunctionIFvvEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 lpad.i.i:                                         ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit.i.i
@@ -4709,7 +4706,7 @@ if.end.i.i5.i.i:                                  ; preds = %lpad.i.i
 
 _ZSt11make_uniqueIN5folly6fibers12FiberManager10RemoteTaskEJNS0_8FunctionIFvvEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %call.i.noexc.i.i
   %nextRemoteTask.i.i = getelementptr inbounds i8, ptr %call.i10, i64 88
-  store ptr null, ptr %nextRemoteTask.i.i, align 8, !tbaa !257, !noalias !247
+  store ptr null, ptr %nextRemoteTask.i.i, align 8, !tbaa !256, !noalias !247
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZSt11make_uniqueIN5folly6fibers12FiberManager10RemoteTaskEJNS0_8FunctionIFvvEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %if.then
@@ -4743,56 +4740,54 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %if.end.i.i, %entry
   %localData = getelementptr inbounds i8, ptr %this, i64 64
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !259)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !258)
   %call.i6 = invoke noalias noundef nonnull align 64 dereferenceable(192) ptr @_ZnwmSt11align_val_t(i64 noundef 192, i64 noundef 64) #31
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
   invoke void @_ZN5folly6fibers5Fiber9LocalDataC1ERKS2_(ptr noundef nonnull align 64 dereferenceable(176) %call.i6, ptr noundef nonnull align 64 dereferenceable(176) %localData_)
-          to label %invoke.cont unwind label %lpad.i, !noalias !259
+          to label %invoke.cont unwind label %lpad.i, !noalias !258
 
 lpad.i:                                           ; preds = %call.i.noexc
   %2 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %call.i6, i64 noundef 64) #29, !noalias !259
+  tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %call.i6, i64 noundef 64) #29, !noalias !258
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %call.i.noexc
-  store ptr %call.i6, ptr %localData, align 16, !tbaa !12, !alias.scope !259
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !262)
+  store ptr %call.i6, ptr %localData, align 16, !tbaa !12, !alias.scope !258
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !261)
   %call.i8 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14RequestContext16getStaticContextEv()
           to label %call.i.noexc7 unwind label %lpad2
 
 call.i.noexc7:                                    ; preds = %invoke.cont
   %rcontext = getelementptr inbounds i8, ptr %this, i64 72
-  %3 = load ptr, ptr %call.i8, align 8, !tbaa !255, !noalias !262
-  store ptr %3, ptr %rcontext, align 8, !tbaa !255, !alias.scope !262
-  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %call.i8, i64 8
-  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !198, !noalias !262
-  store ptr %4, ptr %_M_refcount.i.i.i, align 16, !tbaa !198, !alias.scope !262
-  %cmp.not.i.i.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !198, !noalias !261
+  %4 = load <2 x ptr>, ptr %call.i8, align 8, !tbaa !12, !noalias !261
+  store <2 x ptr> %4, ptr %rcontext, align 8, !tbaa !12, !alias.scope !261
+  %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont3, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %call.i.noexc7
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17, !noalias !262
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17, !noalias !261
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
-  %6 = load i32, ptr %_M_use_count.i.i.i.i.i, align 4, !tbaa !18, !noalias !262
+  %6 = load i32, ptr %_M_use_count.i.i.i.i.i, align 4, !tbaa !18, !noalias !261
   %add.i.i.i.i.i.i = add nsw i32 %6, 1
-  store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4, !tbaa !18, !noalias !262
+  store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4, !tbaa !18, !noalias !261
   br label %invoke.cont3
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
-  %7 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !262
+  %7 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !261
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %call.i.noexc7
   %nextRemoteTask = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr null, ptr %nextRemoteTask, align 8, !tbaa !257
+  store ptr null, ptr %nextRemoteTask, align 8, !tbaa !256
   ret void
 
 lpad:                                             ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
@@ -5264,13 +5259,12 @@ attributes #35 = { cold }
 !252 = !{!253}
 !253 = distinct !{!253, !254, !"_ZN5folly14RequestContext11saveContextEv: %agg.result"}
 !254 = distinct !{!254, !"_ZN5folly14RequestContext11saveContextEv"}
-!255 = !{!166, !9, i64 0}
-!256 = !{!253, !248}
-!257 = !{!258, !9, i64 0}
-!258 = !{!"_ZTSN5folly29AtomicIntrusiveLinkedListHookINS_6fibers12FiberManager10RemoteTaskEEE", !9, i64 0}
-!259 = !{!260}
-!260 = distinct !{!260, !261, !"_ZSt11make_uniqueIN5folly6fibers5Fiber9LocalDataEJRKS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!261 = distinct !{!261, !"_ZSt11make_uniqueIN5folly6fibers5Fiber9LocalDataEJRKS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!262 = !{!263}
-!263 = distinct !{!263, !264, !"_ZN5folly14RequestContext11saveContextEv: %agg.result"}
-!264 = distinct !{!264, !"_ZN5folly14RequestContext11saveContextEv"}
+!255 = !{!253, !248}
+!256 = !{!257, !9, i64 0}
+!257 = !{!"_ZTSN5folly29AtomicIntrusiveLinkedListHookINS_6fibers12FiberManager10RemoteTaskEEE", !9, i64 0}
+!258 = !{!259}
+!259 = distinct !{!259, !260, !"_ZSt11make_uniqueIN5folly6fibers5Fiber9LocalDataEJRKS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!260 = distinct !{!260, !"_ZSt11make_uniqueIN5folly6fibers5Fiber9LocalDataEJRKS3_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!261 = !{!262}
+!262 = distinct !{!262, !263, !"_ZN5folly14RequestContext11saveContextEv: %agg.result"}
+!263 = distinct !{!263, !"_ZN5folly14RequestContext11saveContextEv"}

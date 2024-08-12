@@ -709,12 +709,12 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   store ptr %12, ptr %data_.i.i.i.i.i.i.i, align 8, !alias.scope !17, !noalias !20
   %size_6.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i, i64 16
   %13 = load <2 x i64>, ptr %size_6.i.i.i.i.i.i.i, align 8, !alias.scope !20, !noalias !17
+  %14 = load i64, ptr %size_6.i.i.i.i.i.i.i, align 8, !alias.scope !20, !noalias !17
   store <2 x i64> %13, ptr %size_.i.i.i.i.i.i.i, align 8, !alias.scope !17, !noalias !20
   invoke void @_ZN8facebook5velox6memory20ContiguousAllocation5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.09.i.i.i)
           to label %invoke.cont.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i, !noalias !17
 
 invoke.cont.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i
-  %14 = extractelement <2 x i64> %13, i64 0
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %14, 0
   %15 = icmp eq ptr %12, null
   %lnot.i.i.i.i.i.i.i.i = xor i1 %15, %cmp.i.i.i.i.i.i.i.i
@@ -767,12 +767,12 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN8face
   store ptr %19, ptr %data_.i.i.i.i.i.i.i15, align 8, !alias.scope !23, !noalias !26
   %size_6.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i14, i64 16
   %20 = load <2 x i64>, ptr %size_6.i.i.i.i.i.i.i19, align 8, !alias.scope !26, !noalias !23
+  %21 = load i64, ptr %size_6.i.i.i.i.i.i.i19, align 8, !alias.scope !26, !noalias !23
   store <2 x i64> %20, ptr %size_.i.i.i.i.i.i.i16, align 8, !alias.scope !23, !noalias !26
   invoke void @_ZN8facebook5velox6memory20ContiguousAllocation5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.09.i.i.i14)
           to label %invoke.cont.i.i.i.i.i.i.i22 unwind label %terminate.lpad.i.i.i.i.i.i.i21, !noalias !23
 
 invoke.cont.i.i.i.i.i.i.i22:                      ; preds = %for.body.i.i.i12
-  %21 = extractelement <2 x i64> %20, i64 0
   %cmp.i.i.i.i.i.i.i.i23 = icmp eq i64 %21, 0
   %22 = icmp eq ptr %19, null
   %lnot.i.i.i.i.i.i.i.i24 = xor i1 %22, %cmp.i.i.i.i.i.i.i.i23

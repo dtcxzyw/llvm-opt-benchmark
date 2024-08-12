@@ -35181,11 +35181,11 @@ define internal void @_ZN12_GLOBAL__N_121DOCTEST_ANON_FUNC_199Ev() #5 personalit
   %3 = alloca %struct._Guard, align 8
   %4 = alloca %struct._Guard, align 8
   %5 = alloca %struct._Guard, align 8
-  %6 = alloca %"class.std::shared_ptr.133", align 8
+  %6 = alloca %"class.std::shared_ptr.133", align 16
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.0", align 1
   %9 = alloca %"struct.Luau::LoadDefinitionFileResult", align 8
-  %10 = alloca %"class.std::shared_ptr.133", align 8
+  %10 = alloca %"class.std::shared_ptr.133", align 16
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::allocator.0", align 1
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -35278,17 +35278,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %41 unwind label %228
 
 41:                                               ; preds = %38
-  %42 = load ptr, ptr %6, align 8
-  store ptr %42, ptr %10, align 8
-  %43 = getelementptr inbounds i8, ptr %10, i64 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 8
-  %45 = load ptr, ptr %44, align 8
-  store ptr %45, ptr %43, align 8
-  %.not.i.i.i.i = icmp eq ptr %45, null
+  %42 = getelementptr inbounds i8, ptr %10, i64 8
+  %43 = getelementptr inbounds i8, ptr %6, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %45 = load <2 x ptr>, ptr %6, align 16
+  store <2 x ptr> %45, ptr %10, align 16
+  %.not.i.i.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit.i, label %46
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = getelementptr inbounds i8, ptr %44, i64 8
   %48 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %48, 0
   br i1 %.not.i.i.i.i.i, label %52, label %49
@@ -35510,7 +35509,7 @@ _ZSt8_DestroyIPN4Luau10HotCommentES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt
 _ZN4Luau11ParseResultD2Ev.exit.i:                 ; preds = %130, %_ZSt8_DestroyIPN4Luau10HotCommentES1_EvT_S3_RSaIT0_E.exit.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #20
-  %136 = load ptr, ptr %43, align 8
+  %136 = load ptr, ptr %42, align 8
   %.not.i.i.i34.i = icmp eq ptr %136, null
   br i1 %.not.i.i.i34.i, label %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit.i, label %137
 
@@ -35995,7 +35994,7 @@ _ZSt8_DestroyIPN4Luau11LintWarningES1_EvT_S3_RSaIT0_E.exit.i7.i.i: ; preds = %_Z
   br label %_ZN4Luau10LintResultD2Ev.exit.i
 
 _ZN4Luau10LintResultD2Ev.exit.i:                  ; preds = %290, %_ZSt8_DestroyIPN4Luau11LintWarningES1_EvT_S3_RSaIT0_E.exit.i7.i.i
-  %296 = load ptr, ptr %44, align 8
+  %296 = load ptr, ptr %43, align 8
   %.not.i.i.i56.i = icmp eq ptr %296, null
   br i1 %.not.i.i.i56.i, label %337, label %297
 

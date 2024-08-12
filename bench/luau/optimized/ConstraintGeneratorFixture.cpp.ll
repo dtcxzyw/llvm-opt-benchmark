@@ -2848,21 +2848,20 @@ _ZN4Luau12DenseHashMapIPKNS_7AstExprEPKNS_3DefENS_16DenseHashPointerESt8equal_to
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt11make_uniqueIN4Luau19ConstraintGeneratorEJRSt10shared_ptrINS0_6ModuleEENS0_7NotNullINS0_10NormalizerEEENS6_INS0_18NullModuleResolverEEERNS6_INS0_12BuiltinTypesEEENS6_INS0_21InternalErrorReporterEEERS2_INS0_5ScopeEEDnPNS0_9DcrLoggerENS6_INS0_13DataFlowGraphEEESt6vectorINS0_12RequireCycleESaISO_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.405") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(24) %10) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
-  %12 = alloca %"class.std::shared_ptr.209", align 8
+  %12 = alloca %"class.std::shared_ptr.209", align 16
   %13 = alloca %"class.std::function.555", align 8
   %14 = alloca %"class.std::vector.525", align 16
   %15 = tail call noalias noundef nonnull dereferenceable(456) ptr @_Znwm(i64 noundef 456) #15
-  %16 = load ptr, ptr %1, align 8
-  store ptr %16, ptr %12, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %17, align 8
-  %.not.i.i.i = icmp eq ptr %19, null
+  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %19, ptr %12, align 16
+  %.not.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN4Luau6ModuleEEC2ERKS2_.exit, label %20
 
 20:                                               ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds i8, ptr %18, i64 8
   %22 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %22, 0
   br i1 %.not.i.i.i.i, label %26, label %23
@@ -2978,7 +2977,7 @@ _ZNSt6vectorIN4Luau12RequireCycleESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN
   unreachable
 
 _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN4Luau5ScopeEEEED2Ev.exit: ; preds = %_ZNSt6vectorIN4Luau12RequireCycleESaIS1_EED2Ev.exit, %59
-  %64 = load ptr, ptr %17, align 8
+  %64 = load ptr, ptr %16, align 8
   %.not.i.i.i17 = icmp eq ptr %64, null
   br i1 %.not.i.i.i17, label %_ZNSt10shared_ptrIN4Luau6ModuleEED2Ev.exit, label %65
 

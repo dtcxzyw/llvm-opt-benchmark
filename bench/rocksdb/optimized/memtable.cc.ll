@@ -4326,14 +4326,15 @@ _ZNK7rocksdb14CoreLocalArrayISt10shared_ptrINS_33FragmentedRangeTombstoneListCac
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %__lock.i)
   call void @_ZNSt10_Sp_lockerC1EPKv(ptr noundef nonnull align 1 dereferenceable(2) %__lock.i, ptr noundef %arrayidx.i.i.i.i) #28, !noalias !37
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %cache, i64 8
-  %9 = load <2 x ptr>, ptr %arrayidx.i.i.i.i, align 8, !noalias !37
-  store <2 x ptr> %9, ptr %cache, align 16, !alias.scope !37
-  %10 = extractelement <2 x ptr> %9, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %10, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 8
+  %9 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !37
+  %10 = load <2 x ptr>, ptr %arrayidx.i.i.i.i, align 8, !noalias !37
+  store <2 x ptr> %10, ptr %cache, align 16, !alias.scope !37
+  %cmp.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i.i, label %_ZSt20atomic_load_explicitIN7rocksdb33FragmentedRangeTombstoneListCacheEESt10shared_ptrIT_EPKS4_St12memory_order.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNK7rocksdb14CoreLocalArrayISt10shared_ptrINS_33FragmentedRangeTombstoneListCacheEEE6AccessEv.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !noalias !37
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i

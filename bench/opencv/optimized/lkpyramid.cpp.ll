@@ -954,9 +954,9 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:             ; preds = %.noexc, %2
 
 370:                                              ; preds = %.lr.ph475, %507
   %.0259473 = phi i32 [ 0, %.lr.ph475 ], [ %508, %507 ]
-  %.sroa.0371.3472 = phi <2 x float> [ %363, %.lr.ph475 ], [ %478, %507 ]
-  %.sroa.0363.0471 = phi float [ 0.000000e+00, %.lr.ph475 ], [ %482, %507 ]
-  %.sroa.3.0470 = phi float [ 0.000000e+00, %.lr.ph475 ], [ %484, %507 ]
+  %.sroa.0371.3472 = phi <2 x float> [ %363, %.lr.ph475 ], [ %480, %507 ]
+  %.sroa.0363.0471 = phi float [ 0.000000e+00, %.lr.ph475 ], [ %478, %507 ]
+  %.sroa.3.0470 = phi float [ 0.000000e+00, %.lr.ph475 ], [ %479, %507 ]
   %371 = call <2 x float> @llvm.floor.v2f32(<2 x float> %.sroa.0371.3472)
   %372 = fptosi <2 x float> %371 to <2 x i32>
   %373 = load i32, ptr %9, align 8
@@ -1116,17 +1116,17 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:             ; preds = %.noexc, %2
   %475 = fmul <2 x float> %474, %364
   %476 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %369, <2 x float> %473, <2 x float> %475)
   %477 = fmul <2 x float> %367, %476
-  %478 = fadd <2 x float> %.sroa.0371.3472, %477
-  %479 = fadd <2 x float> %14, %478
-  %480 = load ptr, ptr %60, align 8
-  %481 = getelementptr inbounds %"class.cv::Point_", ptr %480, i64 %indvars.iv533
-  store <2 x float> %479, ptr %481, align 4
-  %482 = extractelement <2 x float> %477, i64 0
-  %483 = fpext float %482 to double
-  %484 = extractelement <2 x float> %477, i64 1
-  %485 = fpext float %484 to double
+  %478 = extractelement <2 x float> %477, i64 0
+  %479 = extractelement <2 x float> %477, i64 1
+  %480 = fadd <2 x float> %.sroa.0371.3472, %477
+  %481 = fadd <2 x float> %14, %480
+  %482 = load ptr, ptr %60, align 8
+  %483 = getelementptr inbounds %"class.cv::Point_", ptr %482, i64 %indvars.iv533
+  store <2 x float> %481, ptr %483, align 4
+  %484 = fpext float %478 to double
+  %485 = fpext float %479 to double
   %486 = fmul double %485, %485
-  %487 = call noundef double @llvm.fmuladd.f64(double %483, double %483, double %486)
+  %487 = call noundef double @llvm.fmuladd.f64(double %484, double %484, double %486)
   %488 = load double, ptr %81, align 8
   %489 = fcmp ugt double %487, %488
   br i1 %489, label %490, label %.loopexit
@@ -1136,14 +1136,14 @@ _ZN2cv10AutoBufferIsLm520EEC2Em.exit:             ; preds = %.noexc, %2
   br i1 %.not304, label %507, label %491
 
 491:                                              ; preds = %490
-  %492 = fadd float %.sroa.0363.0471, %482
+  %492 = fadd float %.sroa.0363.0471, %478
   %493 = call noundef float @llvm.fabs.f32(float %492)
   %494 = fpext float %493 to double
   %495 = fcmp olt double %494, 1.000000e-02
   br i1 %495, label %496, label %507
 
 496:                                              ; preds = %491
-  %497 = fadd float %.sroa.3.0470, %484
+  %497 = fadd float %.sroa.3.0470, %479
   %498 = call noundef float @llvm.fabs.f32(float %497)
   %499 = fpext float %498 to double
   %500 = fcmp olt double %499, 1.000000e-02

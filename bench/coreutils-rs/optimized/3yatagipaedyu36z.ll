@@ -4696,10 +4696,10 @@ _ZN6uu_env16debug_print_args17h41b86b97cb4c6f83E.exit: ; preds = %.noexc28, %.no
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN6uu_env10EnvAppData28process_all_string_arguments17h5f5c91a2e7f258ecE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef writeonly align 1 dereferenceable(3) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { { { i64, ptr, {} }, i64 } } }, align 8
-  %5 = alloca { ptr, [1 x i64] }, align 8
-  %6 = alloca { ptr, [1 x i64] }, align 8
-  %7 = alloca { ptr, [1 x i64] }, align 8
-  %8 = alloca { ptr, [1 x i64] }, align 8
+  %5 = alloca { ptr, [1 x i64] }, align 16
+  %6 = alloca { ptr, [1 x i64] }, align 16
+  %7 = alloca { ptr, [1 x i64] }, align 16
+  %8 = alloca { ptr, [1 x i64] }, align 16
   %9 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   store i64 0, ptr %9, align 8
@@ -4756,15 +4756,15 @@ define void @_ZN6uu_env10EnvAppData28process_all_string_arguments17h5f5c91a2e7f2
   ret void
 
 29:                                               ; preds = %24
-  %30 = load ptr, ptr %8, align 8, !noundef !5
-  %31 = icmp eq ptr %30, null
-  %32 = load i8, ptr %16, align 8, !range !276
-  %33 = load ptr, ptr %16, align 8, !nonnull !5, !align !146
+  %30 = load i8, ptr %16, align 8, !range !276
+  %31 = load <2 x ptr>, ptr %8, align 16
+  %32 = load ptr, ptr %8, align 16, !noundef !5
+  %33 = icmp eq ptr %32, null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  br i1 %31, label %34, label %88
+  br i1 %33, label %34, label %88
 
 34:                                               ; preds = %29
-  %35 = trunc nuw i8 %32 to i1
+  %35 = trunc nuw i8 %30 to i1
   br i1 %35, label %37, label %36
 
 36:                                               ; preds = %34
@@ -4779,15 +4779,15 @@ define void @_ZN6uu_env10EnvAppData28process_all_string_arguments17h5f5c91a2e7f2
   br label %86
 
 38:                                               ; preds = %36
-  %39 = load ptr, ptr %7, align 8, !noundef !5
-  %40 = icmp eq ptr %39, null
-  %41 = load i8, ptr %17, align 8, !range !276
-  %42 = load ptr, ptr %17, align 8, !nonnull !5, !align !146
+  %39 = load i8, ptr %17, align 8, !range !276
+  %40 = load <2 x ptr>, ptr %7, align 16
+  %41 = load ptr, ptr %7, align 16, !noundef !5
+  %42 = icmp eq ptr %41, null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br i1 %40, label %43, label %88
+  br i1 %42, label %43, label %88
 
 43:                                               ; preds = %38
-  %44 = trunc nuw i8 %41 to i1
+  %44 = trunc nuw i8 %39 to i1
   br i1 %44, label %46, label %45
 
 45:                                               ; preds = %43
@@ -4802,15 +4802,15 @@ define void @_ZN6uu_env10EnvAppData28process_all_string_arguments17h5f5c91a2e7f2
   br label %86
 
 47:                                               ; preds = %45
-  %48 = load ptr, ptr %6, align 8, !noundef !5
-  %49 = icmp eq ptr %48, null
-  %50 = load i8, ptr %18, align 8, !range !276
-  %51 = load ptr, ptr %18, align 8, !nonnull !5, !align !146
+  %48 = load i8, ptr %18, align 8, !range !276
+  %49 = load <2 x ptr>, ptr %6, align 16
+  %50 = load ptr, ptr %6, align 16, !noundef !5
+  %51 = icmp eq ptr %50, null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br i1 %49, label %52, label %88
+  br i1 %51, label %52, label %88
 
 52:                                               ; preds = %47
-  %53 = trunc nuw i8 %50 to i1
+  %53 = trunc nuw i8 %48 to i1
   br i1 %53, label %55, label %54
 
 54:                                               ; preds = %52
@@ -4826,15 +4826,15 @@ define void @_ZN6uu_env10EnvAppData28process_all_string_arguments17h5f5c91a2e7f2
   br label %86
 
 56:                                               ; preds = %54
-  %57 = load ptr, ptr %5, align 8, !noundef !5
-  %58 = icmp eq ptr %57, null
-  %59 = load i8, ptr %19, align 8, !range !276
-  %60 = load ptr, ptr %19, align 8, !nonnull !5, !align !146
+  %57 = load i8, ptr %19, align 8, !range !276
+  %58 = load <2 x ptr>, ptr %5, align 16
+  %59 = load ptr, ptr %5, align 16, !noundef !5
+  %60 = icmp eq ptr %59, null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br i1 %58, label %61, label %88
+  br i1 %60, label %61, label %88
 
 61:                                               ; preds = %56
-  %62 = trunc nuw i8 %59 to i1
+  %62 = trunc nuw i8 %57 to i1
   br i1 %62, label %67, label %63
 
 63:                                               ; preds = %61
@@ -4900,12 +4900,9 @@ define void @_ZN6uu_env10EnvAppData28process_all_string_arguments17h5f5c91a2e7f2
   br i1 %87, label %._crit_edge, label %24
 
 88:                                               ; preds = %56, %47, %38, %29
-  %.lcssa124.sink = phi ptr [ %30, %29 ], [ %39, %38 ], [ %48, %47 ], [ %57, %56 ]
-  %.lcssa122.sink = phi ptr [ %33, %29 ], [ %42, %38 ], [ %51, %47 ], [ %60, %56 ]
-  %89 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.lcssa124.sink, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.lcssa122.sink, ptr %90, align 8
+  %89 = phi <2 x ptr> [ %31, %29 ], [ %40, %38 ], [ %49, %47 ], [ %58, %56 ]
+  %90 = getelementptr inbounds i8, ptr %0, i64 8
+  store <2 x ptr> %89, ptr %90, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   call void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$std..ffi..os_str..OsString$GT$$GT$17h516c9ed8a46e8d06E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)

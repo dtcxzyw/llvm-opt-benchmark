@@ -3058,21 +3058,21 @@ BufferGetPage.exit.i73:                           ; preds = %427, %423
   %441 = zext i16 %.val273.i to i32
   %442 = or disjoint i32 %440, %441
   %443 = load <2 x i32>, ptr %433, align 4
+  %444 = load i32, ptr %433, align 4
   call void @LockBuffer(i32 noundef %.0, i32 noundef 0) #9
-  %444 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i75 = icmp eq i32 %444, 0
-  br i1 %.not.i75, label %446, label %445
+  %445 = load volatile i32, ptr @InterruptPending, align 4
+  %.not.i75 = icmp eq i32 %445, 0
+  br i1 %.not.i75, label %447, label %446
 
-445:                                              ; preds = %BufferGetPage.exit.i73
+446:                                              ; preds = %BufferGetPage.exit.i73
   call void @ProcessInterrupts() #9
-  br label %446
+  br label %447
 
-446:                                              ; preds = %445, %BufferGetPage.exit.i73
+447:                                              ; preds = %446, %BufferGetPage.exit.i73
   %.not320.i = icmp eq i32 %442, -1
-  %447 = extractelement <2 x i32> %443, i64 0
   br i1 %.not320.i, label %.thread.i, label %448
 
-448:                                              ; preds = %446
+448:                                              ; preds = %447
   %449 = call i32 @ReadBuffer(ptr noundef %0, i32 noundef %442) #9
   call void @LockBuffer(i32 noundef %449, i32 noundef 1) #9
   call void @_bt_checkpage(ptr noundef %0, i32 noundef %449)
@@ -3112,12 +3112,12 @@ BufferGetPage.exit.i73:                           ; preds = %427, %423
   call void @LockBuffer(i32 noundef %.0, i32 noundef 2) #9
   br label %.thread.i
 
-.thread.i:                                        ; preds = %471, %463, %446
-  %.not247314.i = phi i1 [ false, %471 ], [ true, %463 ], [ true, %446 ]
-  %.0233313.i = phi i32 [ %442, %471 ], [ %421, %463 ], [ %421, %446 ]
-  %.0234312.i = phi i32 [ %468, %471 ], [ %468, %463 ], [ %447, %446 ]
-  %.0239311.i = phi i32 [ %470, %471 ], [ %470, %463 ], [ 0, %446 ]
-  %.0240309.i = phi i32 [ %449, %471 ], [ %449, %463 ], [ %.0, %446 ]
+.thread.i:                                        ; preds = %471, %463, %447
+  %.not247314.i = phi i1 [ false, %471 ], [ true, %463 ], [ true, %447 ]
+  %.0233313.i = phi i32 [ %442, %471 ], [ %421, %463 ], [ %421, %447 ]
+  %.0234312.i = phi i32 [ %468, %471 ], [ %468, %463 ], [ %444, %447 ]
+  %.0239311.i = phi i32 [ %470, %471 ], [ %470, %463 ], [ 0, %447 ]
+  %.0240309.i = phi i32 [ %449, %471 ], [ %449, %463 ], [ %.0, %447 ]
   %.not248.i = icmp eq i32 %.0234312.i, 0
   br i1 %.not248.i, label %.loopexit.i, label %472
 

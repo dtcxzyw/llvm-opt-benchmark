@@ -338,14 +338,15 @@ _ZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11Ev.exit: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %name_.i)
   %second.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 40
-  %6 = load <2 x ptr>, ptr %factory, align 8
-  store <2 x ptr> %6, ptr %second.i, align 8
-  %7 = extractelement <2 x ptr> %6, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %7, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %factory, i64 8
+  %6 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %7 = load <2 x ptr>, ptr %factory, align 8
+  store <2 x ptr> %7, ptr %second.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN8facebook5velox9connector16ConnectorFactoryEEEC2IRS6_RSC_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISI_SJ_EEEbE4typeELb1EEEOSI_OSJ_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11Ev.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -594,14 +595,15 @@ if.then:                                          ; preds = %_ZN8facebook5velox9
 
 if.end:                                           ; preds = %_ZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11Ev.exit5
   %second = getelementptr inbounds i8, ptr %call.i, i64 40
-  %6 = load <2 x ptr>, ptr %second, align 8
-  store <2 x ptr> %6, ptr %agg.result, align 8
-  %7 = extractelement <2 x ptr> %6, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %second, align 8
+  store <2 x ptr> %7, ptr %agg.result, align 8
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox9connector16ConnectorFactoryEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -649,14 +651,15 @@ _ZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11Ev.exit: ; preds = 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %id_.i)
   %second.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 32
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 40
-  %4 = load <2 x ptr>, ptr %connector, align 8
-  store <2 x ptr> %4, ptr %second.i, align 8
-  %5 = extractelement <2 x ptr> %4, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %5, null
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %connector, i64 8
+  %4 = load ptr, ptr %_M_refcount3.i.i.i, align 8
+  %5 = load <2 x ptr>, ptr %connector, align 8
+  store <2 x ptr> %5, ptr %second.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN8facebook5velox9connector9ConnectorEEEC2IRS6_RSC_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISI_SJ_EEEbE4typeELb1EEEOSI_OSJ_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11Ev.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -930,14 +933,15 @@ if.then:                                          ; preds = %_ZN8facebook5velox9
 
 if.end:                                           ; preds = %_ZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11Ev.exit5
   %second = getelementptr inbounds i8, ptr %call.i, i64 40
-  %6 = load <2 x ptr>, ptr %second, align 8
-  store <2 x ptr> %6, ptr %agg.result, align 8
-  %7 = extractelement <2 x ptr> %6, i64 1
-  %cmp.not.i.i.i = icmp eq ptr %7, null
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %6 = load ptr, ptr %_M_refcount3.i.i, align 8
+  %7 = load <2 x ptr>, ptr %second, align 8
+  store <2 x ptr> %7, ptr %agg.result, align 8
+  %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox9connector9ConnectorEEC2ERKS4_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i

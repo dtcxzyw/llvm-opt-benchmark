@@ -64511,7 +64511,7 @@ define void @_ZN2cv3dnn14dnn4_v2024052115readNetFromONNXERKNSt7__cxx1112basic_st
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v202405216detail17readNetDiagnosticINS1_12ONNXImporterEJPKcEEENS1_3NetEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.cv::dnn::dnn4_v20240521::Net") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::dnn::dnn4_v20240521::ONNXImporter", align 8
   %4 = alloca %"class.cv::dnn::dnn4_v20240521::ONNXImporter", align 8
-  %5 = alloca %"class.cv::dnn::dnn4_v20240521::Net", align 8
+  %5 = alloca %"class.cv::dnn::dnn4_v20240521::Net", align 16
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %4)
   call void @_ZN2cv3dnn14dnn4_v202405213NetC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
   %6 = load ptr, ptr %1, align 8, !noalias !381
@@ -64578,32 +64578,30 @@ _ZN2cv3dnn14dnn4_v202405216detail7readNetINS1_12ONNXImporterEJPKcEEENS1_3NetEDpO
   br label %common.resume
 
 24:                                               ; preds = %11, %_ZN2cv3dnn14dnn4_v202405216detail7readNetINS1_12ONNXImporterEJPKcEEENS1_3NetEDpOT0_.exit
-  %25 = load ptr, ptr %5, align 8
-  store ptr %25, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 8
-  %28 = load ptr, ptr %27, align 8
-  store ptr %28, ptr %26, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i.i.i.i, label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit, label %29
+  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = load <2 x ptr>, ptr %5, align 16
+  store <2 x ptr> %27, ptr %0, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %26, null
+  br i1 %.not.i.i.i.i.i, label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit, label %28
 
-29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
-  %31 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i.i.i.i.i, label %35, label %32
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %30, 0
+  br i1 %.not.i.i.i.i.i.i, label %34, label %31
 
-32:                                               ; preds = %29
-  %33 = load i32, ptr %30, align 4
-  %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %30, align 4
+31:                                               ; preds = %28
+  %32 = load i32, ptr %29, align 4
+  %33 = add nsw i32 %32, 1
+  store i32 %33, ptr %29, align 4
   br label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
 
-35:                                               ; preds = %29
-  %36 = atomicrmw volatile add ptr %30, i32 1 acq_rel, align 4
+34:                                               ; preds = %28
+  %35 = atomicrmw volatile add ptr %29, i32 1 acq_rel, align 4
   br label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
 
-_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit:      ; preds = %35, %32, %24, %19
+_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit:      ; preds = %34, %31, %24, %19
   call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   ret void
 }
@@ -64622,7 +64620,7 @@ define void @_ZN2cv3dnn14dnn4_v2024052115readNetFromONNXEPKcm(ptr dead_on_unwind
 define linkonce_odr hidden void @_ZN2cv3dnn14dnn4_v202405216detail17readNetDiagnosticINS1_12ONNXImporterEJRPKcRmEEENS1_3NetEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.cv::dnn::dnn4_v20240521::Net") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::dnn::dnn4_v20240521::ONNXImporter", align 8
   %5 = alloca %"class.cv::dnn::dnn4_v20240521::ONNXImporter", align 8
-  %6 = alloca %"class.cv::dnn::dnn4_v20240521::Net", align 8
+  %6 = alloca %"class.cv::dnn::dnn4_v20240521::Net", align 16
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %5)
   call void @_ZN2cv3dnn14dnn4_v202405213NetC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
   %7 = load ptr, ptr %1, align 8, !noalias !387
@@ -64691,32 +64689,30 @@ _ZN2cv3dnn14dnn4_v202405216detail7readNetINS1_12ONNXImporterEJRPKcRmEEENS1_3NetE
   br label %common.resume
 
 27:                                               ; preds = %13, %_ZN2cv3dnn14dnn4_v202405216detail7readNetINS1_12ONNXImporterEJRPKcRmEEENS1_3NetEDpOT0_.exit
-  %28 = load ptr, ptr %6, align 8
-  store ptr %28, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 8
-  %31 = load ptr, ptr %30, align 8
-  store ptr %31, ptr %29, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i.i.i.i, label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit, label %32
+  %28 = getelementptr inbounds i8, ptr %6, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = load <2 x ptr>, ptr %6, align 16
+  store <2 x ptr> %30, ptr %0, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %29, null
+  br i1 %.not.i.i.i.i.i, label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit, label %31
 
-32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %31, i64 8
-  %34 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i = icmp eq i8 %34, 0
-  br i1 %.not.i.i.i.i.i.i, label %38, label %35
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i = icmp eq i8 %33, 0
+  br i1 %.not.i.i.i.i.i.i, label %37, label %34
 
-35:                                               ; preds = %32
-  %36 = load i32, ptr %33, align 4
-  %37 = add nsw i32 %36, 1
-  store i32 %37, ptr %33, align 4
+34:                                               ; preds = %31
+  %35 = load i32, ptr %32, align 4
+  %36 = add nsw i32 %35, 1
+  store i32 %36, ptr %32, align 4
   br label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
 
-38:                                               ; preds = %32
-  %39 = atomicrmw volatile add ptr %33, i32 1 acq_rel, align 4
+37:                                               ; preds = %31
+  %38 = atomicrmw volatile add ptr %32, i32 1 acq_rel, align 4
   br label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
 
-_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit:      ; preds = %38, %35, %27, %22
+_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit:      ; preds = %37, %34, %27, %22
   call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
   ret void
 }

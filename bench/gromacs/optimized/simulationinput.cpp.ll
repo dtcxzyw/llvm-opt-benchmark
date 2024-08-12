@@ -59,18 +59,18 @@ define void @_ZN3gmx26applyGlobalSimulationStateERKNS_15SimulationInputEP26Parti
   %18 = getelementptr inbounds i8, ptr %6, i64 16
   %19 = load ptr, ptr %18, align 16
   %20 = load <2 x ptr>, ptr %11, align 8
+  %21 = load ptr, ptr %11, align 8
   store <2 x ptr> %15, ptr %11, align 8
   store ptr %14, ptr %18, align 16
-  %21 = load <2 x ptr>, ptr %6, align 16
+  %22 = load <2 x ptr>, ptr %6, align 16
   store <2 x ptr> %20, ptr %6, align 16
-  store <2 x ptr> %21, ptr %12, align 8
+  store <2 x ptr> %22, ptr %12, align 8
   store ptr %19, ptr %16, align 8
-  %22 = extractelement <2 x ptr> %20, i64 0
-  %.not.i.i.i.i6 = icmp eq ptr %22, null
+  %.not.i.i.i.i6 = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i6, label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit, label %23
 
 23:                                               ; preds = %10
-  call void @_ZdlPv(ptr noundef nonnull %22) #10
+  call void @_ZdlPv(ptr noundef nonnull %21) #10
   br label %_ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit
 
 _ZNSt6vectorIcSaIcEE14_M_move_assignEOS1_St17integral_constantIbLb1EE.exit: ; preds = %10, %23

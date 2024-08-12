@@ -2198,7 +2198,7 @@ define hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hadb9cd18
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load <2 x i64>, ptr %4, align 8
-  %9 = extractelement <2 x i64> %8, i64 0
+  %9 = load i64, ptr %4, align 8, !noundef !14
   %10 = add i64 %9, 1
   store i64 %10, ptr %4, align 8
   store <2 x i64> %8, ptr %7, align 8
@@ -2604,7 +2604,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.13384
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.04.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load <2 x i64>, ptr %.0.i.i2.i.i, align 8, !noalias !385
-  %10 = extractelement <2 x i64> %9, i64 0
+  %10 = load i64, ptr %.0.i.i2.i.i, align 8, !noalias !385, !noundef !14
   %11 = add i64 %10, 1
   store i64 %11, ptr %.0.i.i2.i.i, align 8, !noalias !385
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) @anon.8d772ffa9413b792ed50c546bd2fbae8.69.llvm.13384026782562829524, i64 32, i1 false)
@@ -2640,7 +2640,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.13384
   %.0.i.i2.i = phi ptr [ %4, %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.13384026782562829524.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, i64 8), %1 ]
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load <2 x i64>, ptr %.0.i.i2.i, align 8, !noalias !398
-  %8 = extractelement <2 x i64> %7, i64 0
+  %8 = load i64, ptr %.0.i.i2.i, align 8, !noalias !398, !noundef !14
   %9 = add i64 %8, 1
   store i64 %9, ptr %.0.i.i2.i, align 8, !noalias !398
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.8d772ffa9413b792ed50c546bd2fbae8.69.llvm.13384026782562829524, i64 32, i1 false)

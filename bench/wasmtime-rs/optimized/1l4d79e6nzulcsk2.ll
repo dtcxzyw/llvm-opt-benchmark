@@ -127,20 +127,18 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h84916b10df8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$12to_uppercase17h967a4ecdc00c91adE"(ptr nocapture writeonly sret({ { [2 x i32], i32 } }) align 4 %0, i32 %1) unnamed_addr #0 {
-  %3 = alloca [3 x i32], align 4
+  %3 = alloca [3 x i32], align 8
   call void @_ZN4core7unicode12unicode_data11conversions8to_upper17h3d15e8f6bc4279a0E(ptr nonnull sret([3 x i32]) align 4 %3, i32 %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = load i32, ptr %4, align 4, !range !3, !noundef !4
+  %5 = load i32, ptr %4, align 8, !range !3, !noundef !4
   %6 = icmp eq i32 %5, 0
   %7 = getelementptr inbounds i8, ptr %3, i64 4
   %8 = load i32, ptr %7, align 4, !range !3
-  %9 = icmp eq i32 %8, 0
-  %. = select i1 %9, i32 1114113, i32 1114112
+  %9 = load <2 x i32>, ptr %3, align 8
+  %10 = icmp eq i32 %8, 0
+  %. = select i1 %10, i32 1114113, i32 1114112
   %.sroa.6.0 = select i1 %6, i32 %., i32 %5
-  %.sroa.0.0 = load i32, ptr %3, align 4, !range !3, !noundef !4
-  store i32 %.sroa.0.0, ptr %0, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %8, ptr %.sroa.4.0..sroa_idx, align 4
+  store <2 x i32> %9, ptr %0, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 4
   ret void

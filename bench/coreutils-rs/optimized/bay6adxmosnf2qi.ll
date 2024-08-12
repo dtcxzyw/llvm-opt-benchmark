@@ -1923,13 +1923,13 @@ define hidden { ptr, ptr } @_ZN5uu_dd8progress10ProgUpdate15write_prog_line17hb4
   %90 = getelementptr inbounds i8, ptr %47, i64 17
   %91 = getelementptr inbounds i8, ptr %47, i64 18
   %92 = load <4 x i8>, ptr %89, align 1
+  %93 = load i8, ptr %89, align 1, !range !4, !noundef !5
   store <4 x i8> %92, ptr %90, align 1
-  %93 = getelementptr inbounds i8, ptr %47, i64 8
-  %94 = load <2 x i64>, ptr %46, align 16
-  store <2 x i64> %94, ptr %47, align 16
+  %94 = getelementptr inbounds i8, ptr %47, i64 8
+  %95 = load <2 x i64>, ptr %46, align 16
+  store <2 x i64> %95, ptr %47, align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !309)
-  %95 = extractelement <4 x i8> %92, i64 0
-  switch i8 %95, label %default.unreachable [
+  switch i8 %93, label %default.unreachable [
     i8 0, label %.thread.i
     i8 1, label %97
     i8 2, label %116
@@ -2106,14 +2106,14 @@ default.unreachable:                              ; preds = %.noexc109, %140, %8
   ]
 
 143:                                              ; preds = %140
-  %144 = load i64, ptr %93, align 8, !alias.scope !309, !noalias !352, !noundef !5
+  %144 = load i64, ptr %94, align 8, !alias.scope !309, !noalias !352, !noundef !5
   %145 = load i8, ptr %88, align 4, !range !32, !alias.scope !309, !noalias !352, !noundef !5
   %146 = trunc nuw i8 %145 to i1
   invoke void @_ZN6uucore8features6format10num_format20format_float_decimal17h41dd471bd646599cE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %32, double noundef %70, i64 noundef %144, i1 noundef zeroext %146)
           to label %.noexc109 unwind label %83
 
 147:                                              ; preds = %140
-  %148 = load i64, ptr %93, align 8, !alias.scope !309, !noalias !352, !noundef !5
+  %148 = load i64, ptr %94, align 8, !alias.scope !309, !noalias !352, !noundef !5
   %149 = load i8, ptr %87, align 1, !range !32, !alias.scope !309, !noalias !352, !noundef !5
   %150 = trunc nuw i8 %149 to i1
   %151 = load i8, ptr %88, align 4, !range !32, !alias.scope !309, !noalias !352, !noundef !5
@@ -2122,7 +2122,7 @@ default.unreachable:                              ; preds = %.noexc109, %140, %8
           to label %.noexc109 unwind label %83
 
 153:                                              ; preds = %140
-  %154 = load i64, ptr %93, align 8, !alias.scope !309, !noalias !352, !noundef !5
+  %154 = load i64, ptr %94, align 8, !alias.scope !309, !noalias !352, !noundef !5
   %155 = load i8, ptr %87, align 1, !range !32, !alias.scope !309, !noalias !352, !noundef !5
   %156 = trunc nuw i8 %155 to i1
   %157 = load i8, ptr %88, align 4, !range !32, !alias.scope !309, !noalias !352, !noundef !5
@@ -2131,7 +2131,7 @@ default.unreachable:                              ; preds = %.noexc109, %140, %8
           to label %.noexc109 unwind label %83
 
 159:                                              ; preds = %140
-  %160 = load i64, ptr %93, align 8, !alias.scope !309, !noalias !352, !noundef !5
+  %160 = load i64, ptr %94, align 8, !alias.scope !309, !noalias !352, !noundef !5
   %161 = load i8, ptr %87, align 1, !range !32, !alias.scope !309, !noalias !352, !noundef !5
   %162 = trunc nuw i8 %161 to i1
   %163 = load i8, ptr %88, align 4, !range !32, !alias.scope !309, !noalias !352, !noundef !5

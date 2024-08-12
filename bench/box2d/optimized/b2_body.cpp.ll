@@ -371,13 +371,13 @@ if.end13:                                         ; preds = %for.body
   call void %9(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %massData, float noundef %7)
   %10 = load float, ptr %m_mass, align 8
   %11 = load float, ptr %y.i5, align 8
-  %12 = load <2 x float>, ptr %massData, align 8
-  %13 = shufflevector <2 x float> %12, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %14 = extractelement <2 x float> %12, i64 0
-  %add = fadd float %14, %10
+  %12 = load float, ptr %massData, align 8
+  %13 = load <2 x float>, ptr %massData, align 8
+  %14 = shufflevector <2 x float> %13, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %add = fadd float %12, %10
   store float %add, ptr %m_mass, align 8
-  %15 = insertelement <2 x float> %12, float %11, i64 1
-  %16 = fmul <2 x float> %13, %15
+  %15 = insertelement <2 x float> %13, float %11, i64 1
+  %16 = fmul <2 x float> %14, %15
   %17 = fadd <2 x float> %6, %16
   %18 = load float, ptr %I, align 4
   %19 = load float, ptr %m_I, align 8

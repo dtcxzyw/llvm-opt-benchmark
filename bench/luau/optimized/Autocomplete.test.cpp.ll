@@ -197560,11 +197560,11 @@ _ZN9ACFixtureD2Ev.exit:                           ; preds = %1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13ACFixtureImplIN4Luau7FixtureEE14loadDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::LoadDefinitionFileResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2280) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.std::shared_ptr.133", align 8
+  %4 = alloca %"class.std::shared_ptr.133", align 16
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.0", align 1
   %7 = alloca %"struct.Luau::LoadDefinitionFileResult", align 8
-  %8 = alloca %"class.std::shared_ptr.133", align 8
+  %8 = alloca %"class.std::shared_ptr.133", align 16
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator.0", align 1
   %11 = alloca %"class.doctest::detail::ContextScope.562", align 8
@@ -197577,17 +197577,16 @@ define linkonce_odr dso_local void @_ZN13ACFixtureImplIN4Luau7FixtureEE14loadDef
   %18 = getelementptr inbounds i8, ptr %1, i64 1352
   tail call void @_ZN4Luau8unfreezeERNS_9TypeArenaE(ptr noundef nonnull align 8 dereferenceable(88) %18)
   %19 = getelementptr inbounds i8, ptr %1, i64 1680
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %4, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 1688
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %21, align 8
-  %.not.i.i.i = icmp eq ptr %23, null
+  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds i8, ptr %1, i64 1688
+  %22 = load ptr, ptr %21, align 8
+  %23 = load <2 x ptr>, ptr %19, align 8
+  store <2 x ptr> %23, ptr %4, align 16
+  %.not.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit, label %24
 
 24:                                               ; preds = %3
-  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = getelementptr inbounds i8, ptr %22, i64 8
   %26 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i = icmp eq i8 %26, 0
   br i1 %.not.i.i.i.i, label %30, label %27
@@ -197632,7 +197631,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 39:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #22
-  %40 = load ptr, ptr %21, align 8
+  %40 = load ptr, ptr %20, align 8
   %.not.i.i.i33 = icmp eq ptr %40, null
   br i1 %.not.i.i.i33, label %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit, label %41
 
@@ -197721,17 +197720,16 @@ _ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit:        ; preds = %39, %57, %70, %_ZNS
 
 81:                                               ; preds = %78
   %82 = getelementptr inbounds i8, ptr %1, i64 1328
-  %83 = load ptr, ptr %82, align 8
-  store ptr %83, ptr %8, align 8
-  %84 = getelementptr inbounds i8, ptr %8, i64 8
-  %85 = getelementptr inbounds i8, ptr %1, i64 1336
-  %86 = load ptr, ptr %85, align 8
-  store ptr %86, ptr %84, align 8
-  %.not.i.i.i35 = icmp eq ptr %86, null
+  %83 = getelementptr inbounds i8, ptr %8, i64 8
+  %84 = getelementptr inbounds i8, ptr %1, i64 1336
+  %85 = load ptr, ptr %84, align 8
+  %86 = load <2 x ptr>, ptr %82, align 8
+  store <2 x ptr> %86, ptr %8, align 16
+  %.not.i.i.i35 = icmp eq ptr %85, null
   br i1 %.not.i.i.i35, label %_ZNSt10shared_ptrIN4Luau5ScopeEEC2ERKS2_.exit37, label %87
 
 87:                                               ; preds = %81
-  %88 = getelementptr inbounds i8, ptr %86, i64 8
+  %88 = getelementptr inbounds i8, ptr %85, i64 8
   %89 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i36 = icmp eq i8 %89, 0
   br i1 %.not.i.i.i.i36, label %93, label %90
@@ -197775,7 +197773,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit42: ; 
 101:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit42
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #22
-  %102 = load ptr, ptr %84, align 8
+  %102 = load ptr, ptr %83, align 8
   %.not.i.i.i43 = icmp eq ptr %102, null
   br i1 %.not.i.i.i43, label %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit49, label %103
 

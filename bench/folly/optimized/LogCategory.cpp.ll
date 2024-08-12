@@ -1312,17 +1312,15 @@ _ZNSt12_Vector_baseISt10shared_ptrIN5folly10LogHandlerEESaIS3_EE11_M_allocateEm.
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN5folly10LogHandlerEESaIS3_EE11_M_allocateEm.exit.i, %_ZSt10_ConstructISt10shared_ptrIN5folly10LogHandlerEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
   %__cur.015.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIN5folly10LogHandlerEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %call5.i.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN5folly10LogHandlerEESaIS3_EE11_M_allocateEm.exit.i ]
   %__first.sroa.0.014.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIN5folly10LogHandlerEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %1, %_ZNSt12_Vector_baseISt10shared_ptrIN5folly10LogHandlerEESaIS3_EE11_M_allocateEm.exit.i ]
-  %4 = load ptr, ptr %__first.sroa.0.014.i.i.i.i.i, align 8, !tbaa !76
-  store ptr %4, ptr %__cur.015.i.i.i.i.i, align 8, !tbaa !76
-  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.015.i.i.i.i.i, i64 8
   %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.014.i.i.i.i.i, i64 8
-  %5 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !40
-  store ptr %5, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !tbaa !40
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !40
+  %5 = load <2 x ptr>, ptr %__first.sroa.0.014.i.i.i.i.i, align 8, !tbaa !57
+  store <2 x ptr> %5, ptr %__cur.015.i.i.i.i.i, align 8, !tbaa !57
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN5folly10LogHandlerEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !34
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -1729,17 +1727,15 @@ _ZSt4copyIPSt10shared_ptrIN5folly10LogHandlerEES4_ET0_T_S6_S5_.exit: ; preds = %
 for.body.i.i.i.i:                                 ; preds = %_ZSt4copyIPSt10shared_ptrIN5folly10LogHandlerEES4_ET0_T_S6_S5_.exit, %_ZSt10_ConstructISt10shared_ptrIN5folly10LogHandlerEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i
   %__cur.013.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIN5folly10LogHandlerEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i ], [ %55, %_ZSt4copyIPSt10shared_ptrIN5folly10LogHandlerEES4_ET0_T_S6_S5_.exit ]
   %__first.addr.012.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i193, %_ZSt10_ConstructISt10shared_ptrIN5folly10LogHandlerEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i ], [ %add.ptr62, %_ZSt4copyIPSt10shared_ptrIN5folly10LogHandlerEES4_ET0_T_S6_S5_.exit ]
-  %57 = load ptr, ptr %__first.addr.012.i.i.i.i, align 8, !tbaa !76
-  store ptr %57, ptr %__cur.013.i.i.i.i, align 8, !tbaa !76
-  %_M_refcount.i.i.i.i.i.i.i185 = getelementptr inbounds i8, ptr %__cur.013.i.i.i.i, i64 8
   %_M_refcount3.i.i.i.i.i.i.i186 = getelementptr inbounds i8, ptr %__first.addr.012.i.i.i.i, i64 8
-  %58 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i186, align 8, !tbaa !40
-  store ptr %58, ptr %_M_refcount.i.i.i.i.i.i.i185, align 8, !tbaa !40
-  %cmp.not.i.i.i.i.i.i.i.i187 = icmp eq ptr %58, null
+  %57 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i186, align 8, !tbaa !40
+  %58 = load <2 x ptr>, ptr %__first.addr.012.i.i.i.i, align 8, !tbaa !57
+  store <2 x ptr> %58, ptr %__cur.013.i.i.i.i, align 8, !tbaa !57
+  %cmp.not.i.i.i.i.i.i.i.i187 = icmp eq ptr %57, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i187, label %_ZSt10_ConstructISt10shared_ptrIN5folly10LogHandlerEEJRS3_EEvPT_DpOT0_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i188
 
 if.then.i.i.i.i.i.i.i.i188:                       ; preds = %for.body.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i189 = getelementptr inbounds i8, ptr %58, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i189 = getelementptr inbounds i8, ptr %57, i64 8
   %59 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !34
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i190 = icmp eq i8 %59, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i190, label %if.else.i.i.i.i.i.i.i.i.i.i194, label %if.then.i.i.i.i.i.i.i.i.i.i191
@@ -3470,17 +3466,15 @@ for.body.i.i.i.i.i.preheader:                     ; preds = %_ZNSt16allocator_tr
 for.body.i.i.i.i.i:                               ; preds = %_ZSt10_ConstructISt10shared_ptrIN5folly10LogHandlerEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, %for.body.i.i.i.i.i.preheader
   %__cur.015.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIN5folly10LogHandlerEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %call5.i.i.i.i4.i20.i4, %for.body.i.i.i.i.i.preheader ]
   %__first.sroa.0.014.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZSt10_ConstructISt10shared_ptrIN5folly10LogHandlerEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %6, %for.body.i.i.i.i.i.preheader ]
-  %7 = load ptr, ptr %__first.sroa.0.014.i.i.i.i.i, align 8, !tbaa !76
-  store ptr %7, ptr %__cur.015.i.i.i.i.i, align 8, !tbaa !76
-  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.015.i.i.i.i.i, i64 8
   %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.014.i.i.i.i.i, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !40
-  store ptr %8, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !tbaa !40
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
+  %7 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !tbaa !40
+  %8 = load <2 x ptr>, ptr %__first.sroa.0.014.i.i.i.i.i, align 8, !tbaa !57
+  store <2 x ptr> %8, ptr %__cur.015.i.i.i.i.i, align 8, !tbaa !57
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN5folly10LogHandlerEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !34
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i

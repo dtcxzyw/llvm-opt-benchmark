@@ -2655,11 +2655,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix7CmdRepl3runENS_3refINS_5StoreEEEOSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca %"class.nix::ref.168", align 8
+  %4 = alloca %"class.nix::ref.168", align 16
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = alloca %"class.nix::ref.121", align 8
   %7 = alloca %"class.std::map.81", align 8
-  %8 = alloca %"class.nix::ref.168", align 8
+  %8 = alloca %"class.nix::ref.168", align 16
   %9 = alloca %"class.std::function.172", align 8
   call void @_ZN3nix11EvalCommand12getEvalStateEv(ptr dead_on_unwind nonnull writable sret(%"class.nix::ref.168") align 8 %4, ptr noundef nonnull align 8 dereferenceable(160) %0)
   %10 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2676,17 +2676,16 @@ define linkonce_odr void @_ZN3nix7CmdRepl3runENS_3refINS_5StoreEEEOSt6vectorINSt
           to label %16 unwind label %171
 
 16:                                               ; preds = %3
-  %17 = load ptr, ptr %4, align 8
-  store ptr %17, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %18, align 8
-  %.not.i.i.i.i = icmp eq ptr %20, null
+  %17 = getelementptr inbounds i8, ptr %8, i64 8
+  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = load <2 x ptr>, ptr %4, align 16
+  store <2 x ptr> %20, ptr %8, align 16
+  %.not.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i, label %_ZN3nix3refINS_9EvalStateEEC2ERKS2_.exit, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds i8, ptr %19, i64 8
   %23 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %23, 0
   br i1 %.not.i.i.i.i.i, label %27, label %24
@@ -2739,7 +2738,7 @@ _ZN3nix3refINS_9EvalStateEEC2ERKS2_.exit:         ; preds = %16, %24, %27
   unreachable
 
 _ZNSt8functionIFSt6vectorISt4pairIPN3nix5ValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISB_EEvEED2Ev.exit: ; preds = %33, %35
-  %40 = load ptr, ptr %18, align 8
+  %40 = load ptr, ptr %17, align 8
   %.not.i.i.i.i10 = icmp eq ptr %40, null
   br i1 %.not.i.i.i.i10, label %_ZN3nix3refINS_9EvalStateEED2Ev.exit, label %41
 
@@ -2936,7 +2935,7 @@ _ZNKSt14default_deleteIN3nix15AbstractNixReplEEclEPS1_.exit.i: ; preds = %131
 
 _ZNSt10unique_ptrIN3nix15AbstractNixReplESt14default_deleteIS1_EED2Ev.exit: ; preds = %131, %_ZNKSt14default_deleteIN3nix15AbstractNixReplEEclEPS1_.exit.i
   store ptr null, ptr %5, align 8
-  %136 = load ptr, ptr %19, align 8
+  %136 = load ptr, ptr %18, align 8
   %.not.i.i.i.i18 = icmp eq ptr %136, null
   br i1 %.not.i.i.i.i18, label %_ZN3nix3refINS_9EvalStateEED2Ev.exit24, label %137
 
@@ -5099,7 +5098,7 @@ define linkonce_odr void @_ZZN3nix7CmdRepl3runENS_3refINS_5StoreEEEOSt6vectorINS
   %3 = alloca [1 x ptr], align 8
   %4 = alloca [1 x ptr], align 8
   %5 = alloca %"class.std::vector.302", align 8
-  %6 = alloca %"class.nix::ref.121", align 8
+  %6 = alloca %"class.nix::ref.121", align 16
   %7 = alloca %"class.std::vector", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5108,17 +5107,16 @@ define linkonce_odr void @_ZZN3nix7CmdRepl3runENS_3refINS_5StoreEEEOSt6vectorINS
   %12 = load ptr, ptr %1, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %16, align 8
-  %.not.i.i.i.i = icmp eq ptr %18, null
+  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = load ptr, ptr %16, align 8
+  %18 = load <2 x ptr>, ptr %14, align 8
+  store <2 x ptr> %18, ptr %6, align 16
+  %.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i, label %_ZN3nix3refINS_5StoreEEC2ERKS2_.exit, label %19
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds i8, ptr %17, i64 8
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %21, 0
   br i1 %.not.i.i.i.i.i, label %25, label %22
@@ -5188,7 +5186,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %42
-  %43 = load ptr, ptr %16, align 8
+  %43 = load ptr, ptr %15, align 8
   %.not.i.i.i.i80 = icmp eq ptr %43, null
   br i1 %.not.i.i.i.i80, label %_ZN3nix3refINS_5StoreEED2Ev.exit, label %44
 

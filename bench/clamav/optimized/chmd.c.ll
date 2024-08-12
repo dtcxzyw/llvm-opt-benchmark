@@ -1200,65 +1200,65 @@ define internal fastcc ptr @chmd_real_open(ptr noundef %0, ptr noundef %1, i32 n
   %147 = getelementptr inbounds i8, ptr %14, i64 128
   store i32 %146, ptr %147, align 8
   %148 = getelementptr inbounds i8, ptr %14, i64 148
-  %149 = load <4 x i32>, ptr %68, align 4
-  store <4 x i32> %149, ptr %132, align 8
-  %150 = getelementptr inbounds i8, ptr %4, i64 36
-  %151 = load i32, ptr %150, align 4
-  %152 = getelementptr inbounds i8, ptr %14, i64 152
-  store i32 %151, ptr %152, align 8
-  %153 = load i32, ptr %14, align 8
-  %154 = icmp ult i32 %153, 3
-  br i1 %154, label %155, label %._crit_edge.i
+  %149 = load i32, ptr %83, align 16
+  %150 = load <4 x i32>, ptr %68, align 4
+  store <4 x i32> %150, ptr %132, align 8
+  %151 = getelementptr inbounds i8, ptr %4, i64 36
+  %152 = load i32, ptr %151, align 4
+  %153 = getelementptr inbounds i8, ptr %14, i64 152
+  store i32 %152, ptr %153, align 8
+  %154 = load i32, ptr %14, align 8
+  %155 = icmp ult i32 %154, 3
+  br i1 %155, label %156, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %117
   %.pre.i = load i64, ptr %82, align 8
-  br label %159
+  br label %160
 
-155:                                              ; preds = %117
-  %156 = mul i32 %146, %130
-  %157 = zext i32 %156 to i64
-  %158 = add nsw i64 %120, %157
-  store i64 %158, ptr %82, align 8
-  br label %159
+156:                                              ; preds = %117
+  %157 = mul i32 %146, %130
+  %158 = zext i32 %157 to i64
+  %159 = add nsw i64 %120, %158
+  store i64 %159, ptr %82, align 8
+  br label %160
 
-159:                                              ; preds = %155, %._crit_edge.i
-  %160 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %158, %155 ]
-  %161 = load i64, ptr %92, align 8
-  %162 = icmp sgt i64 %160, %161
-  %163 = icmp ult i32 %130, 22
-  %or.cond306.i = select i1 %162, i1 true, i1 %163
-  br i1 %or.cond306.i, label %348, label %164
+160:                                              ; preds = %156, %._crit_edge.i
+  %161 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %159, %156 ]
+  %162 = load i64, ptr %92, align 8
+  %163 = icmp sgt i64 %161, %162
+  %164 = icmp ult i32 %130, 22
+  %or.cond306.i = select i1 %163, i1 true, i1 %164
+  br i1 %or.cond306.i, label %348, label %165
 
-164:                                              ; preds = %159
-  %165 = add i32 %146, -100001
-  %or.cond258.i = icmp ult i32 %165, -100000
-  %166 = icmp ugt i32 %130, 8192
-  %or.cond259.i = or i1 %166, %or.cond258.i
+165:                                              ; preds = %160
+  %166 = add i32 %146, -100001
+  %or.cond258.i = icmp ult i32 %166, -100000
+  %167 = icmp ugt i32 %130, 8192
+  %or.cond259.i = or i1 %167, %or.cond258.i
   %narrow.i = mul nuw nsw i32 %146, %130
-  %167 = zext nneg i32 %narrow.i to i64
-  %168 = icmp slt i64 %161, %167
-  %or.cond261.i = select i1 %or.cond259.i, i1 true, i1 %168
-  br i1 %or.cond261.i, label %348, label %169
+  %168 = zext nneg i32 %narrow.i to i64
+  %169 = icmp slt i64 %162, %168
+  %or.cond261.i = select i1 %or.cond259.i, i1 true, i1 %169
+  br i1 %or.cond261.i, label %348, label %170
 
-169:                                              ; preds = %164
+170:                                              ; preds = %165
   %.not235.i = icmp eq i32 %130, 4096
-  %170 = extractelement <4 x i32> %149, i64 3
   br i1 %.not235.i, label %174, label %171
 
-171:                                              ; preds = %169
+171:                                              ; preds = %170
   %172 = getelementptr inbounds i8, ptr %8, i64 48
   %173 = load ptr, ptr %172, align 8
   call void (ptr, ptr, ...) %173(ptr noundef nonnull %10, ptr noundef nonnull @.str.4) #12
   %.pre391.i = load i32, ptr %148, align 4
   br label %174
 
-174:                                              ; preds = %171, %169
-  %175 = phi i32 [ %.pre391.i, %171 ], [ %170, %169 ]
+174:                                              ; preds = %171, %170
+  %175 = phi i32 [ %.pre391.i, %171 ], [ %149, %170 ]
   %.not236.i = icmp eq i32 %175, 0
   br i1 %.not236.i, label %.thread.i, label %177
 
 .thread.i:                                        ; preds = %174
-  %176 = load i32, ptr %152, align 8
+  %176 = load i32, ptr %153, align 8
   br label %182
 
 177:                                              ; preds = %174
@@ -1266,7 +1266,7 @@ define internal fastcc ptr @chmd_real_open(ptr noundef %0, ptr noundef %1, i32 n
   %179 = load ptr, ptr %178, align 8
   call void (ptr, ptr, ...) %179(ptr noundef nonnull %10, ptr noundef nonnull @.str.5) #12
   %.pr.i = load i32, ptr %148, align 4
-  %180 = load i32, ptr %152, align 8
+  %180 = load i32, ptr %153, align 8
   %181 = icmp ugt i32 %.pr.i, %180
   br i1 %181, label %348, label %182
 
@@ -1301,7 +1301,7 @@ define internal fastcc ptr @chmd_real_open(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %.not241.i, label %._crit_edge392.i, label %chmd_read_headers.exit.thread
 
 ._crit_edge392.i:                                 ; preds = %190
-  %.pre393.i = load i32, ptr %152, align 8
+  %.pre393.i = load i32, ptr %153, align 8
   %.pre394.i = load i32, ptr %148, align 4
   %.pre395.i = load i32, ptr %131, align 4
   br label %196
@@ -1695,7 +1695,7 @@ chmd_read_headers.exit:                           ; preds = %343, %188
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %356
 
-348:                                              ; preds = %343, %159, %164, %177, %186
+348:                                              ; preds = %343, %160, %165, %177, %186
   call void @llvm.lifetime.end.p0(i64 84, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %349 = load ptr, ptr %17, align 8

@@ -4782,21 +4782,19 @@ define void @_ZN12typst_syntax4node10LinkedNode8children17h64f63f77cb76667dE(ptr
 
 "_ZN69_$LT$typst_syntax..node..LinkedNode$u20$as$u20$core..clone..Clone$GT$5clone17h33a3d8026d7ff696E.llvm.5914695560033043764.exit": ; preds = %2, %8
   %14 = getelementptr inbounds i8, ptr %1, i64 16
-  %15 = load i64, ptr %14, align 8, !alias.scope !726, !noalias !729, !noundef !7
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
-  %17 = load i64, ptr %16, align 8, !noundef !7
+  %15 = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !732
   store i64 1, ptr %3, align 8, !noalias !732
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 1, ptr %18, align 8, !noalias !732
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %4, ptr %19, align 8
+  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 1, ptr %16, align 8, !noalias !732
+  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %4, ptr %17, align 8
   %.sroa.4.0..sroa_idx3 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %6, ptr %.sroa.4.0..sroa_idx3, align 8
   %.sroa.5.0..sroa_idx4 = getelementptr inbounds i8, ptr %3, i64 32
-  store i64 %15, ptr %.sroa.5.0..sroa_idx4, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 40
-  store i64 %17, ptr %.sroa.6.0..sroa_idx, align 8
+  %18 = load i64, ptr %15, align 8, !noundef !7
+  %19 = load <2 x i64>, ptr %14, align 8
+  store <2 x i64> %19, ptr %.sroa.5.0..sroa_idx4, align 8
   %20 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h996700ad2487d67cE.llvm.2808647571845796349(ptr noalias noundef nonnull readonly align 1 @anon.60930daf61e4c888d844e235b7f0a1d4.5.llvm.2808647571845796349, i64 noundef 8, i64 noundef 48, i1 noundef zeroext false)
           to label %.noexc.i unwind label %24, !noalias !732
 
@@ -4815,7 +4813,7 @@ define void @_ZN12typst_syntax4node10LinkedNode8children17h64f63f77cb76667dE(ptr
 24:                                               ; preds = %23, %"_ZN69_$LT$typst_syntax..node..LinkedNode$u20$as$u20$core..clone..Clone$GT$5clone17h33a3d8026d7ff696E.llvm.5914695560033043764.exit"
   %25 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %19)
+  invoke void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17)
           to label %"_ZN4core3ptr75drop_in_place$LT$alloc..rc..RcBox$LT$typst_syntax..node..LinkedNode$GT$$GT$17h88341adb78b85030E.exit.i" unwind label %26, !noalias !732
 
 26:                                               ; preds = %24
@@ -4893,7 +4891,7 @@ define void @_ZN12typst_syntax4node10LinkedNode8children17h64f63f77cb76667dE(ptr
 
 _ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit: ; preds = %54, %50, %42
   %.0.i = phi i64 [ %.0.i.i1.i, %54 ], [ %53, %50 ], [ %.0.i.i.i, %42 ]
-  %63 = add i64 %.0.i, %17
+  %63 = add i64 %.0.i, %18
   store ptr %21, ptr %0, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.0.0.i, ptr %64, align 8
@@ -4902,7 +4900,7 @@ _ZN12typst_syntax4node10SyntaxNode3len17hac1f0d036770c8edE.exit: ; preds = %54, 
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 8
   %65 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %17, ptr %65, align 8
+  store i64 %18, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %63, ptr %66, align 8
   ret void
@@ -5886,22 +5884,22 @@ define void @_ZN12typst_syntax4node10LinkedNode9prev_leaf17haa29ee23dd868697E(pt
   %4 = alloca { ptr, [3 x i64] }, align 8
   %5 = alloca { ptr, ptr, i64, i64 }, align 8
   %6 = alloca { ptr, [3 x i64] }, align 8
-  %7 = alloca { ptr, ptr, i64, i64 }, align 8
+  %7 = alloca { ptr, ptr, i64, i64 }, align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !910)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !913)
-  %8 = load ptr, ptr %1, align 8, !alias.scope !913, !noalias !910, !nonnull !7, !align !712, !noundef !7
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !noundef !7
-  %11 = icmp eq ptr %10, null
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8, !noundef !7
+  %10 = load <2 x ptr>, ptr %1, align 8
+  %11 = icmp eq ptr %9, null
   br i1 %11, label %"_ZN69_$LT$typst_syntax..node..LinkedNode$u20$as$u20$core..clone..Clone$GT$5clone17h33a3d8026d7ff696E.llvm.5914695560033043764.exit", label %12
 
 12:                                               ; preds = %2
-  %13 = load i64, ptr %10, align 8, !noalias !915, !noundef !7
+  %13 = load i64, ptr %9, align 8, !noalias !915, !noundef !7
   %14 = icmp ne i64 %13, 0
   tail call void @llvm.assume(i1 %14)
   %15 = add i64 %13, 1
-  store i64 %15, ptr %10, align 8, !noalias !915
+  store i64 %15, ptr %9, align 8, !noalias !915
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %17, label %"_ZN69_$LT$typst_syntax..node..LinkedNode$u20$as$u20$core..clone..Clone$GT$5clone17h33a3d8026d7ff696E.llvm.5914695560033043764.exit"
 
@@ -5911,117 +5909,115 @@ define void @_ZN12typst_syntax4node10LinkedNode9prev_leaf17haa29ee23dd868697E(pt
 
 "_ZN69_$LT$typst_syntax..node..LinkedNode$u20$as$u20$core..clone..Clone$GT$5clone17h33a3d8026d7ff696E.llvm.5914695560033043764.exit": ; preds = %2, %12
   %18 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr %8, ptr %7, align 8, !alias.scope !910, !noalias !913
-  %19 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %10, ptr %19, align 8, !alias.scope !910, !noalias !913
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
-  %21 = load <2 x i64>, ptr %18, align 8, !alias.scope !913, !noalias !910
-  store <2 x i64> %21, ptr %20, align 8, !alias.scope !910, !noalias !913
-  br label %22
+  store <2 x ptr> %10, ptr %7, align 16, !alias.scope !910, !noalias !913
+  %19 = getelementptr inbounds i8, ptr %7, i64 16
+  %20 = load <2 x i64>, ptr %18, align 8, !alias.scope !913, !noalias !910
+  store <2 x i64> %20, ptr %19, align 16, !alias.scope !910, !noalias !913
+  br label %21
 
-22:                                               ; preds = %35, %"_ZN69_$LT$typst_syntax..node..LinkedNode$u20$as$u20$core..clone..Clone$GT$5clone17h33a3d8026d7ff696E.llvm.5914695560033043764.exit"
+21:                                               ; preds = %34, %"_ZN69_$LT$typst_syntax..node..LinkedNode$u20$as$u20$core..clone..Clone$GT$5clone17h33a3d8026d7ff696E.llvm.5914695560033043764.exit"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   invoke void @_ZN12typst_syntax4node10LinkedNode12prev_sibling17h4dc2d3e396d591c4E(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)
-          to label %24 unwind label %.loopexit
+          to label %23 unwind label %.loopexit
 
-23:                                               ; preds = %.loopexit, %.loopexit.split-lp, %27, %36
-  %.pn7 = phi { ptr, i32 } [ %37, %36 ], [ %28, %27 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+22:                                               ; preds = %.loopexit, %.loopexit.split-lp, %26, %35
+  %.pn7 = phi { ptr, i32 } [ %36, %35 ], [ %27, %26 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #38
-          to label %45 unwind label %38
+          to label %44 unwind label %37
 
-.loopexit:                                        ; preds = %22
+.loopexit:                                        ; preds = %21
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %23
+  br label %22
 
-.loopexit.split-lp:                               ; preds = %31, %41
+.loopexit.split-lp:                               ; preds = %30, %40
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %23
+  br label %22
 
-24:                                               ; preds = %22
-  %25 = load ptr, ptr %6, align 8, !noundef !7
-  %.not = icmp eq ptr %25, null
-  br i1 %.not, label %40, label %26
+23:                                               ; preds = %21
+  %24 = load ptr, ptr %6, align 8, !noundef !7
+  %.not = icmp eq ptr %24, null
+  br i1 %.not, label %39, label %25
 
-26:                                               ; preds = %24
+25:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   invoke void @_ZN12typst_syntax4node10LinkedNode14rightmost_leaf17h14113f3935e47a63E(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6)
-          to label %29 unwind label %36
+          to label %28 unwind label %35
 
-27:                                               ; preds = %34
-  %28 = landingpad { ptr, i32 }
+26:                                               ; preds = %33
+  %27 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  br label %23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  br label %22
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %4, align 8, !noundef !7
-  %.not5 = icmp eq ptr %30, null
-  br i1 %.not5, label %34, label %31
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %4, align 8, !noundef !7
+  %.not5 = icmp eq ptr %29, null
+  br i1 %.not5, label %33, label %30
 
-31:                                               ; preds = %29
+30:                                               ; preds = %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   invoke void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
-          to label %32 unwind label %.loopexit.split-lp
+          to label %31 unwind label %.loopexit.split-lp
 
-32:                                               ; preds = %31
+31:                                               ; preds = %30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %33
+  br label %32
 
-33:                                               ; preds = %44, %43, %32
+32:                                               ; preds = %43, %42, %31
   ret void
 
-34:                                               ; preds = %29
+33:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   invoke void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-          to label %35 unwind label %27
+          to label %34 unwind label %26
 
-35:                                               ; preds = %34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+34:                                               ; preds = %33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br label %22
+  br label %21
 
-36:                                               ; preds = %26
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %25
+  %36 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #38
-          to label %23 unwind label %38
+          to label %22 unwind label %37
 
-38:                                               ; preds = %36, %23
-  %39 = landingpad { ptr, i32 }
+37:                                               ; preds = %35, %22
+  %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #36
   unreachable
 
-40:                                               ; preds = %24
+39:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br i1 %11, label %43, label %41
+  br i1 %11, label %42, label %40
 
-41:                                               ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %10, i64 16
-  invoke void @_ZN12typst_syntax4node10LinkedNode9prev_leaf17haa29ee23dd868697E(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %42)
-          to label %44 unwind label %.loopexit.split-lp
+40:                                               ; preds = %39
+  %41 = getelementptr inbounds i8, ptr %9, i64 16
+  invoke void @_ZN12typst_syntax4node10LinkedNode9prev_leaf17haa29ee23dd868697E(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %41)
+          to label %43 unwind label %.loopexit.split-lp
 
-43:                                               ; preds = %40
+42:                                               ; preds = %39
   store ptr null, ptr %0, align 8
   call void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %33
+  br label %32
 
-44:                                               ; preds = %41
+43:                                               ; preds = %40
   call void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %33
+  br label %32
 
-45:                                               ; preds = %23
+44:                                               ; preds = %22
   resume { ptr, i32 } %.pn7
 }
 
@@ -6961,22 +6957,22 @@ define void @_ZN12typst_syntax4node10LinkedNode9next_leaf17h695c0027cb64b3d0E(pt
   %4 = alloca { ptr, [3 x i64] }, align 8
   %5 = alloca { ptr, ptr, i64, i64 }, align 8
   %6 = alloca { ptr, [3 x i64] }, align 8
-  %7 = alloca { ptr, ptr, i64, i64 }, align 8
+  %7 = alloca { ptr, ptr, i64, i64 }, align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1160)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1163)
-  %8 = load ptr, ptr %1, align 8, !alias.scope !1163, !noalias !1160, !nonnull !7, !align !712, !noundef !7
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !noundef !7
-  %11 = icmp eq ptr %10, null
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load ptr, ptr %8, align 8, !noundef !7
+  %10 = load <2 x ptr>, ptr %1, align 8
+  %11 = icmp eq ptr %9, null
   br i1 %11, label %"_ZN69_$LT$typst_syntax..node..LinkedNode$u20$as$u20$core..clone..Clone$GT$5clone17h33a3d8026d7ff696E.llvm.5914695560033043764.exit", label %12
 
 12:                                               ; preds = %2
-  %13 = load i64, ptr %10, align 8, !noalias !1165, !noundef !7
+  %13 = load i64, ptr %9, align 8, !noalias !1165, !noundef !7
   %14 = icmp ne i64 %13, 0
   tail call void @llvm.assume(i1 %14)
   %15 = add i64 %13, 1
-  store i64 %15, ptr %10, align 8, !noalias !1165
+  store i64 %15, ptr %9, align 8, !noalias !1165
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %17, label %"_ZN69_$LT$typst_syntax..node..LinkedNode$u20$as$u20$core..clone..Clone$GT$5clone17h33a3d8026d7ff696E.llvm.5914695560033043764.exit"
 
@@ -6986,117 +6982,115 @@ define void @_ZN12typst_syntax4node10LinkedNode9next_leaf17h695c0027cb64b3d0E(pt
 
 "_ZN69_$LT$typst_syntax..node..LinkedNode$u20$as$u20$core..clone..Clone$GT$5clone17h33a3d8026d7ff696E.llvm.5914695560033043764.exit": ; preds = %2, %12
   %18 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr %8, ptr %7, align 8, !alias.scope !1160, !noalias !1163
-  %19 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %10, ptr %19, align 8, !alias.scope !1160, !noalias !1163
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
-  %21 = load <2 x i64>, ptr %18, align 8, !alias.scope !1163, !noalias !1160
-  store <2 x i64> %21, ptr %20, align 8, !alias.scope !1160, !noalias !1163
-  br label %22
+  store <2 x ptr> %10, ptr %7, align 16, !alias.scope !1160, !noalias !1163
+  %19 = getelementptr inbounds i8, ptr %7, i64 16
+  %20 = load <2 x i64>, ptr %18, align 8, !alias.scope !1163, !noalias !1160
+  store <2 x i64> %20, ptr %19, align 16, !alias.scope !1160, !noalias !1163
+  br label %21
 
-22:                                               ; preds = %35, %"_ZN69_$LT$typst_syntax..node..LinkedNode$u20$as$u20$core..clone..Clone$GT$5clone17h33a3d8026d7ff696E.llvm.5914695560033043764.exit"
+21:                                               ; preds = %34, %"_ZN69_$LT$typst_syntax..node..LinkedNode$u20$as$u20$core..clone..Clone$GT$5clone17h33a3d8026d7ff696E.llvm.5914695560033043764.exit"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   invoke void @_ZN12typst_syntax4node10LinkedNode12next_sibling17h598b634df6211ffbE(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)
-          to label %24 unwind label %.loopexit
+          to label %23 unwind label %.loopexit
 
-23:                                               ; preds = %.loopexit, %.loopexit.split-lp, %27, %36
-  %.pn7 = phi { ptr, i32 } [ %37, %36 ], [ %28, %27 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+22:                                               ; preds = %.loopexit, %.loopexit.split-lp, %26, %35
+  %.pn7 = phi { ptr, i32 } [ %36, %35 ], [ %27, %26 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #38
-          to label %45 unwind label %38
+          to label %44 unwind label %37
 
-.loopexit:                                        ; preds = %22
+.loopexit:                                        ; preds = %21
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %23
+  br label %22
 
-.loopexit.split-lp:                               ; preds = %31, %41
+.loopexit.split-lp:                               ; preds = %30, %40
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %23
+  br label %22
 
-24:                                               ; preds = %22
-  %25 = load ptr, ptr %6, align 8, !noundef !7
-  %.not = icmp eq ptr %25, null
-  br i1 %.not, label %40, label %26
+23:                                               ; preds = %21
+  %24 = load ptr, ptr %6, align 8, !noundef !7
+  %.not = icmp eq ptr %24, null
+  br i1 %.not, label %39, label %25
 
-26:                                               ; preds = %24
+25:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   invoke void @_ZN12typst_syntax4node10LinkedNode13leftmost_leaf17hc1c9e18beb13ea3bE(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6)
-          to label %29 unwind label %36
+          to label %28 unwind label %35
 
-27:                                               ; preds = %34
-  %28 = landingpad { ptr, i32 }
+26:                                               ; preds = %33
+  %27 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  br label %23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  br label %22
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %4, align 8, !noundef !7
-  %.not5 = icmp eq ptr %30, null
-  br i1 %.not5, label %34, label %31
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %4, align 8, !noundef !7
+  %.not5 = icmp eq ptr %29, null
+  br i1 %.not5, label %33, label %30
 
-31:                                               ; preds = %29
+30:                                               ; preds = %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   invoke void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
-          to label %32 unwind label %.loopexit.split-lp
+          to label %31 unwind label %.loopexit.split-lp
 
-32:                                               ; preds = %31
+31:                                               ; preds = %30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %33
+  br label %32
 
-33:                                               ; preds = %44, %43, %32
+32:                                               ; preds = %43, %42, %31
   ret void
 
-34:                                               ; preds = %29
+33:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   invoke void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-          to label %35 unwind label %27
+          to label %34 unwind label %26
 
-35:                                               ; preds = %34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+34:                                               ; preds = %33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br label %22
+  br label %21
 
-36:                                               ; preds = %26
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %25
+  %36 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #38
-          to label %23 unwind label %38
+          to label %22 unwind label %37
 
-38:                                               ; preds = %36, %23
-  %39 = landingpad { ptr, i32 }
+37:                                               ; preds = %35, %22
+  %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #36
   unreachable
 
-40:                                               ; preds = %24
+39:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br i1 %11, label %43, label %41
+  br i1 %11, label %42, label %40
 
-41:                                               ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %10, i64 16
-  invoke void @_ZN12typst_syntax4node10LinkedNode9next_leaf17h695c0027cb64b3d0E(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %42)
-          to label %44 unwind label %.loopexit.split-lp
+40:                                               ; preds = %39
+  %41 = getelementptr inbounds i8, ptr %9, i64 16
+  invoke void @_ZN12typst_syntax4node10LinkedNode9next_leaf17h695c0027cb64b3d0E(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %41)
+          to label %43 unwind label %.loopexit.split-lp
 
-43:                                               ; preds = %40
+42:                                               ; preds = %39
   store ptr null, ptr %0, align 8
   call void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %33
+  br label %32
 
-44:                                               ; preds = %41
+43:                                               ; preds = %40
   call void @"_ZN4core3ptr51drop_in_place$LT$typst_syntax..node..LinkedNode$GT$17h90790b914957a83aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  br label %33
+  br label %32
 
-45:                                               ; preds = %23
+44:                                               ; preds = %22
   resume { ptr, i32 } %.pn7
 }
 
@@ -7436,18 +7430,18 @@ switch.lookup:
 
 ; Function Attrs: inlinehint nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN69_$LT$typst_syntax..node..LinkedNode$u20$as$u20$core..clone..Clone$GT$5clone17h33a3d8026d7ff696E.llvm.5914695560033043764"(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, i64, i64 }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #20 {
-  %3 = load ptr, ptr %1, align 8, !nonnull !7, !align !712, !noundef !7
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !noundef !7
-  %6 = icmp eq ptr %5, null
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = load ptr, ptr %3, align 8, !noundef !7
+  %5 = load <2 x ptr>, ptr %1, align 8
+  %6 = icmp eq ptr %4, null
   br i1 %6, label %_ZN5alloc2rc10RcInnerPtr10inc_strong17hdd259021e0155155E.llvm.5914695560033043764.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = load i64, ptr %5, align 8, !noundef !7
+  %8 = load i64, ptr %4, align 8, !noundef !7
   %9 = icmp ne i64 %8, 0
   tail call void @llvm.assume(i1 %9)
   %10 = add i64 %8, 1
-  store i64 %10, ptr %5, align 8
+  store i64 %10, ptr %4, align 8
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %_ZN5alloc2rc10RcInnerPtr10inc_strong17hdd259021e0155155E.llvm.5914695560033043764.exit
 
@@ -7457,12 +7451,10 @@ define hidden void @"_ZN69_$LT$typst_syntax..node..LinkedNode$u20$as$u20$core..c
 
 _ZN5alloc2rc10RcInnerPtr10inc_strong17hdd259021e0155155E.llvm.5914695560033043764.exit: ; preds = %7, %2
   %13 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr %3, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %5, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
-  %16 = load <2 x i64>, ptr %13, align 8
-  store <2 x i64> %16, ptr %15, align 8
+  store <2 x ptr> %5, ptr %0, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = load <2 x i64>, ptr %13, align 8
+  store <2 x i64> %15, ptr %14, align 8
   ret void
 }
 

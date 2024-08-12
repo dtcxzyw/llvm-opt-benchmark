@@ -4485,76 +4485,74 @@ define hidden void @_ZN8GraphKit16kill_dead_localsEv(ptr nocapture noundef nonnu
   %15 = getelementptr inbounds i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 32
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 40
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 8
-  %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 56
-  %24 = load i32, ptr %23, align 8
-  call void @_ZN8ciMethod15liveness_at_bciEi(ptr dead_on_unwind nonnull writable sret(%class.MethodLivenessResult) align 8 %2, ptr noundef nonnull align 8 dereferenceable(160) %4, i32 noundef %24) #13
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
-  %26 = load i64, ptr %25, align 8
-  %27 = trunc i64 %26 to i32
-  %28 = icmp sgt i32 %27, 0
-  br i1 %28, label %.lr.ph, label %._crit_edge
+  %18 = load <2 x ptr>, ptr %17, align 8
+  %19 = load ptr, ptr %17, align 8
+  %20 = getelementptr inbounds i8, ptr %14, i64 8
+  %21 = load i64, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = load i32, ptr %22, align 8
+  call void @_ZN8ciMethod15liveness_at_bciEi(ptr dead_on_unwind nonnull writable sret(%class.MethodLivenessResult) align 8 %2, ptr noundef nonnull align 8 dereferenceable(160) %4, i32 noundef %23) #13
+  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = load i64, ptr %24, align 8
+  %26 = trunc i64 %25 to i32
+  %27 = icmp sgt i32 %26, 0
+  br i1 %27, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %10
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
-  %wide.trip.count = and i64 %26, 2147483647
-  br label %31
+  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %wide.trip.count = and i64 %25, 2147483647
+  br label %30
 
-31:                                               ; preds = %.lr.ph, %47
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %32 = load ptr, ptr %2, align 8
-  %33 = lshr i64 %indvars.iv, 6
-  %34 = getelementptr inbounds i64, ptr %32, i64 %33
-  %35 = load i64, ptr %34, align 8
-  %36 = and i64 %indvars.iv, 63
-  %37 = shl nuw i64 1, %36
-  %38 = and i64 %35, %37
-  %.not = icmp eq i64 %38, 0
-  br i1 %.not, label %39, label %47
+30:                                               ; preds = %.lr.ph, %46
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
+  %31 = load ptr, ptr %2, align 8
+  %32 = lshr i64 %indvars.iv, 6
+  %33 = getelementptr inbounds i64, ptr %31, i64 %32
+  %34 = load i64, ptr %33, align 8
+  %35 = and i64 %indvars.iv, 63
+  %36 = shl nuw i64 1, %35
+  %37 = and i64 %34, %36
+  %.not = icmp eq i64 %37, 0
+  br i1 %.not, label %38, label %46
 
-39:                                               ; preds = %31
-  %40 = load ptr, ptr %29, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 744
-  %42 = load ptr, ptr %41, align 8
-  %43 = load ptr, ptr %30, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 56
-  %45 = load ptr, ptr %44, align 8
-  %46 = trunc nuw nsw i64 %indvars.iv to i32
-  call void @_ZN13SafePointNode9set_localEP8JVMStatejP4Node(ptr noundef nonnull align 8 dereferenceable(81) %43, ptr noundef %45, i32 noundef %46, ptr noundef %42) #13
-  br label %47
+38:                                               ; preds = %30
+  %39 = load ptr, ptr %28, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 744
+  %41 = load ptr, ptr %40, align 8
+  %42 = load ptr, ptr %29, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 56
+  %44 = load ptr, ptr %43, align 8
+  %45 = trunc nuw nsw i64 %indvars.iv to i32
+  call void @_ZN13SafePointNode9set_localEP8JVMStatejP4Node(ptr noundef nonnull align 8 dereferenceable(81) %42, ptr noundef %44, i32 noundef %45, ptr noundef %41) #13
+  br label %46
 
-47:                                               ; preds = %31, %39
+46:                                               ; preds = %30, %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %47, %10
-  %48 = load ptr, ptr %16, align 8
-  %.not.i.i.i.i = icmp eq ptr %48, null
-  br i1 %.not.i.i.i.i, label %50, label %49
+._crit_edge:                                      ; preds = %46, %10
+  %47 = load ptr, ptr %16, align 8
+  %.not.i.i.i.i = icmp eq ptr %47, null
+  br i1 %.not.i.i.i.i, label %49, label %48
 
-49:                                               ; preds = %._crit_edge
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %14, i64 noundef %22) #13
+48:                                               ; preds = %._crit_edge
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %14, i64 noundef %21) #13
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %16) #13
-  br label %50
+  br label %49
 
-50:                                               ; preds = %49, %._crit_edge
-  %51 = load ptr, ptr %17, align 8
-  %.not8.i.i.i.i = icmp eq ptr %51, %18
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %52
+49:                                               ; preds = %48, %._crit_edge
+  %50 = load ptr, ptr %17, align 8
+  %.not8.i.i.i.i = icmp eq ptr %50, %19
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %51
 
-52:                                               ; preds = %50
+51:                                               ; preds = %49
   store ptr %16, ptr %15, align 8
-  store ptr %18, ptr %17, align 8
-  store ptr %20, ptr %19, align 8
+  store <2 x ptr> %18, ptr %17, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %52, %50, %1, %6
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %51, %49, %1, %6
   ret void
 }
 

@@ -818,10 +818,10 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN12_GLOBAL__N_164gtest_TestManyByteSizesConcurrentSequenceLockTest_EvalGenerator_Ev(ptr noalias sret(%"class.testing::internal::ParamGenerator") align 8 %agg.result) #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp = alloca %"class.testing::internal::CartesianProductHolder", align 8
-  %ref.tmp1 = alloca %"class.testing::internal::ParamGenerator.24", align 8
+  %ref.tmp = alloca %"class.testing::internal::CartesianProductHolder", align 16
+  %ref.tmp1 = alloca %"class.testing::internal::ParamGenerator.24", align 16
   %ref.tmp2 = alloca %"class.std::vector.104", align 8
-  %ref.tmp3 = alloca %"class.testing::internal::ParamGenerator.24", align 8
+  %ref.tmp3 = alloca %"class.testing::internal::ParamGenerator.24", align 16
   %ref.tmp4 = alloca %"class.std::vector.104", align 8
   call fastcc void @_ZN12_GLOBAL__N_122InterestingBufferSizesEv(ptr noalias nonnull align 8 %ref.tmp2)
   %0 = load ptr, ptr %ref.tmp2, align 8
@@ -844,17 +844,15 @@ invoke.cont6:                                     ; preds = %invoke.cont
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  %5 = load ptr, ptr %ref.tmp3, align 8, !noalias !11
-  store ptr %5, ptr %ref.tmp, align 8, !alias.scope !11
-  %_M_refcount.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %_M_refcount3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
-  %6 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i, align 8, !noalias !11
-  store ptr %6, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !11
-  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i, align 8, !noalias !11
+  %6 = load <2 x ptr>, ptr %ref.tmp3, align 16, !noalias !11
+  store <2 x ptr> %6, ptr %ref.tmp, align 16, !alias.scope !11
+  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt11_Tuple_implILm1EJN7testing8internal14ParamGeneratorIiEEEEC2ERKS3_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont8
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1, !noalias !11
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
@@ -871,17 +869,15 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i
 
 _ZNSt11_Tuple_implILm1EJN7testing8internal14ParamGeneratorIiEEEEC2ERKS3_.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont8
   %10 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %11 = load ptr, ptr %ref.tmp1, align 8, !noalias !11
-  store ptr %11, ptr %10, align 8, !alias.scope !11
-  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
-  %12 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !noalias !11
-  store ptr %12, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !alias.scope !11
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
+  %11 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !noalias !11
+  %12 = load <2 x ptr>, ptr %ref.tmp1, align 16, !noalias !11
+  store <2 x ptr> %12, ptr %10, align 16, !alias.scope !11
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont10, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt11_Tuple_implILm1EJN7testing8internal14ParamGeneratorIiEEEEC2ERKS3_.exit.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i8, ptr @__libc_single_threaded, align 1, !noalias !11
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -1125,11 +1121,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit47:                  ; preds = %ehcleanup15, %if.th
 define internal void @_ZN12_GLOBAL__N_167gtest_TestManyByteSizesConcurrentSequenceLockTest_EvalGenerateName_B5cxx11ERKN7testing13TestParamInfoISt5tupleIJiiEEEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 1 %info) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %name_stream.i = alloca %"class.testing::Message", align 8
-  %t = alloca %"class.std::tuple.147", align 8
-  %ref.tmp = alloca %"class.testing::internal::CartesianProductHolder", align 8
-  %ref.tmp1 = alloca %"class.testing::internal::ParamGenerator.24", align 8
+  %t = alloca %"class.std::tuple.147", align 16
+  %ref.tmp = alloca %"class.testing::internal::CartesianProductHolder", align 16
+  %ref.tmp1 = alloca %"class.testing::internal::ParamGenerator.24", align 16
   %ref.tmp2 = alloca %"class.std::vector.104", align 8
-  %ref.tmp3 = alloca %"class.testing::internal::ParamGenerator.24", align 8
+  %ref.tmp3 = alloca %"class.testing::internal::ParamGenerator.24", align 16
   %ref.tmp4 = alloca %"class.std::vector.104", align 8
   %call.i = tail call noundef zeroext i1 @_ZN7testing8internal10AlwaysTrueEv()
   br i1 %call.i, label %if.end, label %if.then
@@ -1156,17 +1152,16 @@ invoke.cont6:                                     ; preds = %invoke.cont
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  %5 = load ptr, ptr %ref.tmp3, align 8, !noalias !20
-  store ptr %5, ptr %ref.tmp, align 8, !alias.scope !20
   %_M_refcount.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %_M_refcount3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
-  %6 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i, align 8, !noalias !20
-  store ptr %6, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !20
-  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
+  %5 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i, align 8, !noalias !20
+  %6 = load <2 x ptr>, ptr %ref.tmp3, align 16, !noalias !20
+  store <2 x ptr> %6, ptr %ref.tmp, align 16, !alias.scope !20
+  %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt11_Tuple_implILm1EJN7testing8internal14ParamGeneratorIiEEEEC2ERKS3_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont8
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i8, ptr @__libc_single_threaded, align 1, !noalias !20
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1183,17 +1178,16 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i
 
 _ZNSt11_Tuple_implILm1EJN7testing8internal14ParamGeneratorIiEEEEC2ERKS3_.exit.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont8
   %10 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %11 = load ptr, ptr %ref.tmp1, align 8, !noalias !20
-  store ptr %11, ptr %10, align 8, !alias.scope !20
   %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
-  %12 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !noalias !20
-  store ptr %12, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !alias.scope !20
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
+  %11 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8, !noalias !20
+  %12 = load <2 x ptr>, ptr %ref.tmp1, align 16, !noalias !20
+  store <2 x ptr> %12, ptr %10, align 16, !alias.scope !20
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont10, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt11_Tuple_implILm1EJN7testing8internal14ParamGeneratorIiEEEEC2ERKS3_.exit.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load i8, ptr @__libc_single_threaded, align 1, !noalias !20
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -1210,16 +1204,14 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i
 
 invoke.cont10:                                    ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt11_Tuple_implILm1EJN7testing8internal14ParamGeneratorIiEEEEC2ERKS3_.exit.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  %16 = load ptr, ptr %ref.tmp, align 8, !noalias !23
-  store ptr %16, ptr %t, align 8, !alias.scope !23
-  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 8
-  %17 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8, !noalias !23
-  store ptr %17, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !23
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %17, null
+  %16 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8, !noalias !23
+  %17 = load <2 x ptr>, ptr %ref.tmp, align 16, !noalias !23
+  store <2 x ptr> %17, ptr %t, align 16, !alias.scope !23
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt11_Tuple_implILm1EJN7testing8internal14ParamGeneratorIiEEEEC2EOS4_.exit.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %invoke.cont10
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load i8, ptr @__libc_single_threaded, align 1, !noalias !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %18, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1236,16 +1228,14 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:            ; preds = %if.then.i.i.i.i.i.i
 
 _ZNSt11_Tuple_implILm1EJN7testing8internal14ParamGeneratorIiEEEEC2EOS4_.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont10
   %21 = getelementptr inbounds i8, ptr %t, i64 16
-  %22 = load ptr, ptr %10, align 8, !noalias !23
-  store ptr %22, ptr %21, align 8, !alias.scope !23
-  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 24
-  %23 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !noalias !23
-  store ptr %23, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !23
-  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %23, null
+  %22 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8, !noalias !23
+  %23 = load <2 x ptr>, ptr %10, align 16, !noalias !23
+  store <2 x ptr> %23, ptr %21, align 16, !alias.scope !23
+  %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont12, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i7
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i7:                 ; preds = %_ZNSt11_Tuple_implILm1EJN7testing8internal14ParamGeneratorIiEEEEC2EOS4_.exit.i.i.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i8, ptr @__libc_single_threaded, align 1, !noalias !23
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %24, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -4685,17 +4675,15 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal25CartesianProductGeneratorIJiiEEE, i64 16), ptr %call, align 8
   %generators_.i = getelementptr inbounds i8, ptr %call, i64 8
-  %0 = load ptr, ptr %this, align 8
-  store ptr %0, ptr %generators_.i, align 8
-  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   %_M_refcount3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8
-  store ptr %1, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %1, null
+  %0 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i, align 8
+  %1 = load <2 x ptr>, ptr %this, align 8
+  store <2 x ptr> %1, ptr %generators_.i, align 8
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt11_Tuple_implILm1EJN7testing8internal14ParamGeneratorIiEEEEC2ERKS4_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -4713,17 +4701,15 @@ if.else.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i
 _ZNSt11_Tuple_implILm1EJN7testing8internal14ParamGeneratorIiEEEEC2ERKS4_.exit.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i, %entry
   %5 = getelementptr inbounds i8, ptr %call, i64 24
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load ptr, ptr %add.ptr.i.i.i, align 8
-  store ptr %6, ptr %5, align 8
-  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
   %_M_refcount3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8
-  store ptr %7, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %7, null
+  %6 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i, align 8
+  %7 = load <2 x ptr>, ptr %add.ptr.i.i.i, align 8
+  store <2 x ptr> %7, ptr %5, align 8
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt11_Tuple_implILm1EJN7testing8internal14ParamGeneratorIiEEEEC2ERKS4_.exit.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i

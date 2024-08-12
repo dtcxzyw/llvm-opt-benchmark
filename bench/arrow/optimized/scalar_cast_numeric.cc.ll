@@ -1810,13 +1810,14 @@ entry:
   %bound_lower = alloca %"struct.arrow::Int32Scalar", align 8
   %bound_upper = alloca %"struct.arrow::Int32Scalar", align 8
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5int32Ev(), !noalias !37
-  %0 = load <2 x ptr>, ptr %call.i.i.i, align 8, !noalias !37
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  %0 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !noalias !37
+  %1 = load <2 x ptr>, ptr %call.i.i.i, align 8, !noalias !37
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5arrow11Int32ScalarCI2NS_13NumericScalarINS_9Int32TypeEEEEi.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !37
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -1836,7 +1837,7 @@ _ZN5arrow11Int32ScalarCI2NS_13NumericScalarINS_9Int32TypeEEEEi.exit: ; preds = %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %type2.i.i.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 24
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 32
-  store <2 x ptr> %0, ptr %type2.i.i.i.i.i, align 8
+  store <2 x ptr> %1, ptr %type2.i.i.i.i.i, align 8
   %is_valid3.i.i.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 40
   store i8 1, ptr %is_valid3.i.i.i.i.i, align 8
   %value2.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 44
@@ -1846,13 +1847,14 @@ _ZN5arrow11Int32ScalarCI2NS_13NumericScalarINS_9Int32TypeEEEEi.exit: ; preds = %
           to label %call.i.i.i2.noexc unwind label %lpad
 
 call.i.i.i2.noexc:                                ; preds = %_ZN5arrow11Int32ScalarCI2NS_13NumericScalarINS_9Int32TypeEEEEi.exit
-  %6 = load <2 x ptr>, ptr %call.i.i.i215, align 8, !noalias !40
-  %7 = extractelement <2 x ptr> %6, i64 1
-  %cmp.not.i.i.i.i.i.i4 = icmp eq ptr %7, null
+  %_M_refcount3.i.i.i.i.i3 = getelementptr inbounds i8, ptr %call.i.i.i215, i64 8
+  %6 = load ptr, ptr %_M_refcount3.i.i.i.i.i3, align 8, !noalias !40
+  %7 = load <2 x ptr>, ptr %call.i.i.i215, align 8, !noalias !40
+  %cmp.not.i.i.i.i.i.i4 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i4, label %invoke.cont, label %if.then.i.i.i.i.i.i5
 
 if.then.i.i.i.i.i.i5:                             ; preds = %call.i.i.i2.noexc
-  %_M_use_count.i.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1, !noalias !40
   %tobool.i.i.not.i.i.i.i.i.i.i7 = icmp eq i8 %8, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i7, label %if.else.i.i.i.i.i.i.i.i14, label %if.then.i.i.i.i.i.i.i.i8
@@ -1871,7 +1873,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
   %11 = getelementptr inbounds i8, ptr %bound_upper, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %type2.i.i.i.i.i10 = getelementptr inbounds i8, ptr %bound_upper, i64 24
-  store <2 x ptr> %6, ptr %type2.i.i.i.i.i10, align 8
+  store <2 x ptr> %7, ptr %type2.i.i.i.i.i10, align 8
   %is_valid3.i.i.i.i.i12 = getelementptr inbounds i8, ptr %bound_upper, i64 40
   store i8 1, ptr %is_valid3.i.i.i.i.i12, align 8
   %value2.i.i.i13 = getelementptr inbounds i8, ptr %bound_upper, i64 44
@@ -2123,13 +2125,14 @@ entry:
   %bound_lower = alloca %"struct.arrow::UInt32Scalar", align 8
   %bound_upper = alloca %"struct.arrow::UInt32Scalar", align 8
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6uint32Ev(), !noalias !43
-  %0 = load <2 x ptr>, ptr %call.i.i.i, align 8, !noalias !43
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  %0 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !noalias !43
+  %1 = load <2 x ptr>, ptr %call.i.i.i, align 8, !noalias !43
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5arrow12UInt32ScalarCI2NS_13NumericScalarINS_10UInt32TypeEEEEj.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !43
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -2149,7 +2152,7 @@ _ZN5arrow12UInt32ScalarCI2NS_13NumericScalarINS_10UInt32TypeEEEEj.exit: ; preds 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %type2.i.i.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 24
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 32
-  store <2 x ptr> %0, ptr %type2.i.i.i.i.i, align 8
+  store <2 x ptr> %1, ptr %type2.i.i.i.i.i, align 8
   %is_valid3.i.i.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 40
   store i8 1, ptr %is_valid3.i.i.i.i.i, align 8
   %value2.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 44
@@ -2159,13 +2162,14 @@ _ZN5arrow12UInt32ScalarCI2NS_13NumericScalarINS_10UInt32TypeEEEEj.exit: ; preds 
           to label %call.i.i.i2.noexc unwind label %lpad
 
 call.i.i.i2.noexc:                                ; preds = %_ZN5arrow12UInt32ScalarCI2NS_13NumericScalarINS_10UInt32TypeEEEEj.exit
-  %6 = load <2 x ptr>, ptr %call.i.i.i215, align 8, !noalias !46
-  %7 = extractelement <2 x ptr> %6, i64 1
-  %cmp.not.i.i.i.i.i.i4 = icmp eq ptr %7, null
+  %_M_refcount3.i.i.i.i.i3 = getelementptr inbounds i8, ptr %call.i.i.i215, i64 8
+  %6 = load ptr, ptr %_M_refcount3.i.i.i.i.i3, align 8, !noalias !46
+  %7 = load <2 x ptr>, ptr %call.i.i.i215, align 8, !noalias !46
+  %cmp.not.i.i.i.i.i.i4 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i4, label %invoke.cont, label %if.then.i.i.i.i.i.i5
 
 if.then.i.i.i.i.i.i5:                             ; preds = %call.i.i.i2.noexc
-  %_M_use_count.i.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1, !noalias !46
   %tobool.i.i.not.i.i.i.i.i.i.i7 = icmp eq i8 %8, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i7, label %if.else.i.i.i.i.i.i.i.i14, label %if.then.i.i.i.i.i.i.i.i8
@@ -2184,7 +2188,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
   %11 = getelementptr inbounds i8, ptr %bound_upper, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %type2.i.i.i.i.i10 = getelementptr inbounds i8, ptr %bound_upper, i64 24
-  store <2 x ptr> %6, ptr %type2.i.i.i.i.i10, align 8
+  store <2 x ptr> %7, ptr %type2.i.i.i.i.i10, align 8
   %is_valid3.i.i.i.i.i12 = getelementptr inbounds i8, ptr %bound_upper, i64 40
   store i8 1, ptr %is_valid3.i.i.i.i.i12, align 8
   %value2.i.i.i13 = getelementptr inbounds i8, ptr %bound_upper, i64 44
@@ -2436,13 +2440,14 @@ entry:
   %bound_lower = alloca %"struct.arrow::Int64Scalar", align 8
   %bound_upper = alloca %"struct.arrow::Int64Scalar", align 8
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5int64Ev(), !noalias !49
-  %0 = load <2 x ptr>, ptr %call.i.i.i, align 8, !noalias !49
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  %0 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !noalias !49
+  %1 = load <2 x ptr>, ptr %call.i.i.i, align 8, !noalias !49
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5arrow11Int64ScalarCI2NS_13NumericScalarINS_9Int64TypeEEEEl.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !49
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -2462,7 +2467,7 @@ _ZN5arrow11Int64ScalarCI2NS_13NumericScalarINS_9Int64TypeEEEEl.exit: ; preds = %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %type2.i.i.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 24
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 32
-  store <2 x ptr> %0, ptr %type2.i.i.i.i.i, align 8
+  store <2 x ptr> %1, ptr %type2.i.i.i.i.i, align 8
   %is_valid3.i.i.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 40
   store i8 1, ptr %is_valid3.i.i.i.i.i, align 8
   %value2.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 48
@@ -2472,13 +2477,14 @@ _ZN5arrow11Int64ScalarCI2NS_13NumericScalarINS_9Int64TypeEEEEl.exit: ; preds = %
           to label %call.i.i.i2.noexc unwind label %lpad
 
 call.i.i.i2.noexc:                                ; preds = %_ZN5arrow11Int64ScalarCI2NS_13NumericScalarINS_9Int64TypeEEEEl.exit
-  %6 = load <2 x ptr>, ptr %call.i.i.i215, align 8, !noalias !52
-  %7 = extractelement <2 x ptr> %6, i64 1
-  %cmp.not.i.i.i.i.i.i4 = icmp eq ptr %7, null
+  %_M_refcount3.i.i.i.i.i3 = getelementptr inbounds i8, ptr %call.i.i.i215, i64 8
+  %6 = load ptr, ptr %_M_refcount3.i.i.i.i.i3, align 8, !noalias !52
+  %7 = load <2 x ptr>, ptr %call.i.i.i215, align 8, !noalias !52
+  %cmp.not.i.i.i.i.i.i4 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i4, label %invoke.cont, label %if.then.i.i.i.i.i.i5
 
 if.then.i.i.i.i.i.i5:                             ; preds = %call.i.i.i2.noexc
-  %_M_use_count.i.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1, !noalias !52
   %tobool.i.i.not.i.i.i.i.i.i.i7 = icmp eq i8 %8, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i7, label %if.else.i.i.i.i.i.i.i.i14, label %if.then.i.i.i.i.i.i.i.i8
@@ -2497,7 +2503,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
   %11 = getelementptr inbounds i8, ptr %bound_upper, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %type2.i.i.i.i.i10 = getelementptr inbounds i8, ptr %bound_upper, i64 24
-  store <2 x ptr> %6, ptr %type2.i.i.i.i.i10, align 8
+  store <2 x ptr> %7, ptr %type2.i.i.i.i.i10, align 8
   %is_valid3.i.i.i.i.i12 = getelementptr inbounds i8, ptr %bound_upper, i64 40
   store i8 1, ptr %is_valid3.i.i.i.i.i12, align 8
   %value2.i.i.i13 = getelementptr inbounds i8, ptr %bound_upper, i64 48
@@ -2749,13 +2755,14 @@ entry:
   %bound_lower = alloca %"struct.arrow::Int64Scalar", align 8
   %bound_upper = alloca %"struct.arrow::Int64Scalar", align 8
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5int64Ev(), !noalias !55
-  %0 = load <2 x ptr>, ptr %call.i.i.i, align 8, !noalias !55
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  %0 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !noalias !55
+  %1 = load <2 x ptr>, ptr %call.i.i.i, align 8, !noalias !55
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5arrow11Int64ScalarCI2NS_13NumericScalarINS_9Int64TypeEEEEl.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !55
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -2775,7 +2782,7 @@ _ZN5arrow11Int64ScalarCI2NS_13NumericScalarINS_9Int64TypeEEEEl.exit: ; preds = %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %type2.i.i.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 24
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 32
-  store <2 x ptr> %0, ptr %type2.i.i.i.i.i, align 8
+  store <2 x ptr> %1, ptr %type2.i.i.i.i.i, align 8
   %is_valid3.i.i.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 40
   store i8 1, ptr %is_valid3.i.i.i.i.i, align 8
   %value2.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 48
@@ -2785,13 +2792,14 @@ _ZN5arrow11Int64ScalarCI2NS_13NumericScalarINS_9Int64TypeEEEEl.exit: ; preds = %
           to label %call.i.i.i2.noexc unwind label %lpad
 
 call.i.i.i2.noexc:                                ; preds = %_ZN5arrow11Int64ScalarCI2NS_13NumericScalarINS_9Int64TypeEEEEl.exit
-  %6 = load <2 x ptr>, ptr %call.i.i.i215, align 8, !noalias !58
-  %7 = extractelement <2 x ptr> %6, i64 1
-  %cmp.not.i.i.i.i.i.i4 = icmp eq ptr %7, null
+  %_M_refcount3.i.i.i.i.i3 = getelementptr inbounds i8, ptr %call.i.i.i215, i64 8
+  %6 = load ptr, ptr %_M_refcount3.i.i.i.i.i3, align 8, !noalias !58
+  %7 = load <2 x ptr>, ptr %call.i.i.i215, align 8, !noalias !58
+  %cmp.not.i.i.i.i.i.i4 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i4, label %invoke.cont, label %if.then.i.i.i.i.i.i5
 
 if.then.i.i.i.i.i.i5:                             ; preds = %call.i.i.i2.noexc
-  %_M_use_count.i.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1, !noalias !58
   %tobool.i.i.not.i.i.i.i.i.i.i7 = icmp eq i8 %8, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i7, label %if.else.i.i.i.i.i.i.i.i14, label %if.then.i.i.i.i.i.i.i.i8
@@ -2810,7 +2818,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
   %11 = getelementptr inbounds i8, ptr %bound_upper, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %type2.i.i.i.i.i10 = getelementptr inbounds i8, ptr %bound_upper, i64 24
-  store <2 x ptr> %6, ptr %type2.i.i.i.i.i10, align 8
+  store <2 x ptr> %7, ptr %type2.i.i.i.i.i10, align 8
   %is_valid3.i.i.i.i.i12 = getelementptr inbounds i8, ptr %bound_upper, i64 40
   store i8 1, ptr %is_valid3.i.i.i.i.i12, align 8
   %value2.i.i.i13 = getelementptr inbounds i8, ptr %bound_upper, i64 48
@@ -3062,13 +3070,14 @@ entry:
   %bound_lower = alloca %"struct.arrow::UInt64Scalar", align 8
   %bound_upper = alloca %"struct.arrow::UInt64Scalar", align 8
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6uint64Ev(), !noalias !61
-  %0 = load <2 x ptr>, ptr %call.i.i.i, align 8, !noalias !61
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  %0 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !noalias !61
+  %1 = load <2 x ptr>, ptr %call.i.i.i, align 8, !noalias !61
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5arrow12UInt64ScalarCI2NS_13NumericScalarINS_10UInt64TypeEEEEm.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !61
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -3088,7 +3097,7 @@ _ZN5arrow12UInt64ScalarCI2NS_13NumericScalarINS_10UInt64TypeEEEEm.exit: ; preds 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %type2.i.i.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 24
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 32
-  store <2 x ptr> %0, ptr %type2.i.i.i.i.i, align 8
+  store <2 x ptr> %1, ptr %type2.i.i.i.i.i, align 8
   %is_valid3.i.i.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 40
   store i8 1, ptr %is_valid3.i.i.i.i.i, align 8
   %value2.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 48
@@ -3098,13 +3107,14 @@ _ZN5arrow12UInt64ScalarCI2NS_13NumericScalarINS_10UInt64TypeEEEEm.exit: ; preds 
           to label %call.i.i.i2.noexc unwind label %lpad
 
 call.i.i.i2.noexc:                                ; preds = %_ZN5arrow12UInt64ScalarCI2NS_13NumericScalarINS_10UInt64TypeEEEEm.exit
-  %6 = load <2 x ptr>, ptr %call.i.i.i215, align 8, !noalias !64
-  %7 = extractelement <2 x ptr> %6, i64 1
-  %cmp.not.i.i.i.i.i.i4 = icmp eq ptr %7, null
+  %_M_refcount3.i.i.i.i.i3 = getelementptr inbounds i8, ptr %call.i.i.i215, i64 8
+  %6 = load ptr, ptr %_M_refcount3.i.i.i.i.i3, align 8, !noalias !64
+  %7 = load <2 x ptr>, ptr %call.i.i.i215, align 8, !noalias !64
+  %cmp.not.i.i.i.i.i.i4 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i4, label %invoke.cont, label %if.then.i.i.i.i.i.i5
 
 if.then.i.i.i.i.i.i5:                             ; preds = %call.i.i.i2.noexc
-  %_M_use_count.i.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1, !noalias !64
   %tobool.i.i.not.i.i.i.i.i.i.i7 = icmp eq i8 %8, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i7, label %if.else.i.i.i.i.i.i.i.i14, label %if.then.i.i.i.i.i.i.i.i8
@@ -3123,7 +3133,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
   %11 = getelementptr inbounds i8, ptr %bound_upper, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %type2.i.i.i.i.i10 = getelementptr inbounds i8, ptr %bound_upper, i64 24
-  store <2 x ptr> %6, ptr %type2.i.i.i.i.i10, align 8
+  store <2 x ptr> %7, ptr %type2.i.i.i.i.i10, align 8
   %is_valid3.i.i.i.i.i12 = getelementptr inbounds i8, ptr %bound_upper, i64 40
   store i8 1, ptr %is_valid3.i.i.i.i.i12, align 8
   %value2.i.i.i13 = getelementptr inbounds i8, ptr %bound_upper, i64 48
@@ -3375,13 +3385,14 @@ entry:
   %bound_lower = alloca %"struct.arrow::UInt64Scalar", align 8
   %bound_upper = alloca %"struct.arrow::UInt64Scalar", align 8
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6uint64Ev(), !noalias !67
-  %0 = load <2 x ptr>, ptr %call.i.i.i, align 8, !noalias !67
-  %1 = extractelement <2 x ptr> %0, i64 1
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %1, null
+  %_M_refcount3.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  %0 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !noalias !67
+  %1 = load <2 x ptr>, ptr %call.i.i.i, align 8, !noalias !67
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5arrow12UInt64ScalarCI2NS_13NumericScalarINS_10UInt64TypeEEEEm.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !noalias !67
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -3401,7 +3412,7 @@ _ZN5arrow12UInt64ScalarCI2NS_13NumericScalarINS_10UInt64TypeEEEEm.exit: ; preds 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %type2.i.i.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 24
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 32
-  store <2 x ptr> %0, ptr %type2.i.i.i.i.i, align 8
+  store <2 x ptr> %1, ptr %type2.i.i.i.i.i, align 8
   %is_valid3.i.i.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 40
   store i8 1, ptr %is_valid3.i.i.i.i.i, align 8
   %value2.i.i.i = getelementptr inbounds i8, ptr %bound_lower, i64 48
@@ -3411,13 +3422,14 @@ _ZN5arrow12UInt64ScalarCI2NS_13NumericScalarINS_10UInt64TypeEEEEm.exit: ; preds 
           to label %call.i.i.i2.noexc unwind label %lpad
 
 call.i.i.i2.noexc:                                ; preds = %_ZN5arrow12UInt64ScalarCI2NS_13NumericScalarINS_10UInt64TypeEEEEm.exit
-  %6 = load <2 x ptr>, ptr %call.i.i.i215, align 8, !noalias !70
-  %7 = extractelement <2 x ptr> %6, i64 1
-  %cmp.not.i.i.i.i.i.i4 = icmp eq ptr %7, null
+  %_M_refcount3.i.i.i.i.i3 = getelementptr inbounds i8, ptr %call.i.i.i215, i64 8
+  %6 = load ptr, ptr %_M_refcount3.i.i.i.i.i3, align 8, !noalias !70
+  %7 = load <2 x ptr>, ptr %call.i.i.i215, align 8, !noalias !70
+  %cmp.not.i.i.i.i.i.i4 = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i4, label %invoke.cont, label %if.then.i.i.i.i.i.i5
 
 if.then.i.i.i.i.i.i5:                             ; preds = %call.i.i.i2.noexc
-  %_M_use_count.i.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %7, i64 8
+  %_M_use_count.i.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1, !noalias !70
   %tobool.i.i.not.i.i.i.i.i.i.i7 = icmp eq i8 %8, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i7, label %if.else.i.i.i.i.i.i.i.i14, label %if.then.i.i.i.i.i.i.i.i8
@@ -3436,7 +3448,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
   %11 = getelementptr inbounds i8, ptr %bound_upper, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %type2.i.i.i.i.i10 = getelementptr inbounds i8, ptr %bound_upper, i64 24
-  store <2 x ptr> %6, ptr %type2.i.i.i.i.i10, align 8
+  store <2 x ptr> %7, ptr %type2.i.i.i.i.i10, align 8
   %is_valid3.i.i.i.i.i12 = getelementptr inbounds i8, ptr %bound_upper, i64 40
   store i8 1, ptr %is_valid3.i.i.i.i.i12, align 8
   %value2.i.i.i13 = getelementptr inbounds i8, ptr %bound_upper, i64 48
@@ -4855,14 +4867,15 @@ _ZSt11make_sharedIN5arrow7compute8internal12CastFunctionEJNSt7__cxx1112basic_str
 
 call.i.noexc.i:                                   ; preds = %_ZSt11make_sharedIN5arrow7compute8internal12CastFunctionEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_4Type4typeEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_.exit.i
   %_M_refcount.i.i.i15.i = getelementptr inbounds i8, ptr %out_ty.i, i64 8
-  %64 = load <2 x ptr>, ptr %call.i16.i, align 8, !noalias !94
-  store <2 x ptr> %64, ptr %out_ty.i, align 16, !alias.scope !91, !noalias !84
-  %65 = extractelement <2 x ptr> %64, i64 1
-  %cmp.not.i.i.i.i.i = icmp eq ptr %65, null
+  %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %call.i16.i, i64 8
+  %64 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !noalias !94
+  %65 = load <2 x ptr>, ptr %call.i16.i, align 8, !noalias !94
+  store <2 x ptr> %65, ptr %out_ty.i, align 16, !alias.scope !91, !noalias !84
+  %cmp.not.i.i.i.i.i = icmp eq ptr %64, null
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i105, label %if.then.i.i.i.i.i101
 
 if.then.i.i.i.i.i101:                             ; preds = %call.i.noexc.i
-  %_M_use_count.i.i.i.i.i.i102 = getelementptr inbounds i8, ptr %65, i64 8
+  %_M_use_count.i.i.i.i.i.i102 = getelementptr inbounds i8, ptr %64, i64 8
   %66 = load i8, ptr @__libc_single_threaded, align 1, !noalias !94
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %66, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i166, label %if.then.i.i.i.i.i.i.i103
@@ -9608,14 +9621,15 @@ _ZSt11make_sharedIN5arrow7compute8internal12CastFunctionEJNSt7__cxx1112basic_str
 
 call.i.noexc.i266:                                ; preds = %_ZSt11make_sharedIN5arrow7compute8internal12CastFunctionEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_4Type4typeEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_.exit.i260
   %_M_refcount.i.i.i15.i267 = getelementptr inbounds i8, ptr %out_ty.i231, i64 8
-  %734 = load <2 x ptr>, ptr %call.i16.i262, align 8, !noalias !105
-  store <2 x ptr> %734, ptr %out_ty.i231, align 16, !alias.scope !102, !noalias !95
-  %735 = extractelement <2 x ptr> %734, i64 1
-  %cmp.not.i.i.i.i.i269 = icmp eq ptr %735, null
+  %_M_refcount3.i.i.i.i268 = getelementptr inbounds i8, ptr %call.i16.i262, i64 8
+  %734 = load ptr, ptr %_M_refcount3.i.i.i.i268, align 8, !noalias !105
+  %735 = load <2 x ptr>, ptr %call.i16.i262, align 8, !noalias !105
+  store <2 x ptr> %735, ptr %out_ty.i231, align 16, !alias.scope !102, !noalias !95
+  %cmp.not.i.i.i.i.i269 = icmp eq ptr %734, null
   br i1 %cmp.not.i.i.i.i.i269, label %invoke.cont.i275, label %if.then.i.i.i.i.i270
 
 if.then.i.i.i.i.i270:                             ; preds = %call.i.noexc.i266
-  %_M_use_count.i.i.i.i.i.i271 = getelementptr inbounds i8, ptr %735, i64 8
+  %_M_use_count.i.i.i.i.i.i271 = getelementptr inbounds i8, ptr %734, i64 8
   %736 = load i8, ptr @__libc_single_threaded, align 1, !noalias !105
   %tobool.i.i.not.i.i.i.i.i.i272 = icmp eq i8 %736, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i272, label %if.else.i.i.i.i.i.i.i2133, label %if.then.i.i.i.i.i.i.i273
@@ -14361,14 +14375,15 @@ _ZSt11make_sharedIN5arrow7compute8internal12CastFunctionEJNSt7__cxx1112basic_str
 
 call.i.noexc.i2239:                               ; preds = %_ZSt11make_sharedIN5arrow7compute8internal12CastFunctionEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_4Type4typeEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_.exit.i2233
   %_M_refcount.i.i.i15.i2240 = getelementptr inbounds i8, ptr %out_ty.i2204, i64 8
-  %1404 = load <2 x ptr>, ptr %call.i16.i2235, align 8, !noalias !116
-  store <2 x ptr> %1404, ptr %out_ty.i2204, align 16, !alias.scope !113, !noalias !106
-  %1405 = extractelement <2 x ptr> %1404, i64 1
-  %cmp.not.i.i.i.i.i2242 = icmp eq ptr %1405, null
+  %_M_refcount3.i.i.i.i2241 = getelementptr inbounds i8, ptr %call.i16.i2235, i64 8
+  %1404 = load ptr, ptr %_M_refcount3.i.i.i.i2241, align 8, !noalias !116
+  %1405 = load <2 x ptr>, ptr %call.i16.i2235, align 8, !noalias !116
+  store <2 x ptr> %1405, ptr %out_ty.i2204, align 16, !alias.scope !113, !noalias !106
+  %cmp.not.i.i.i.i.i2242 = icmp eq ptr %1404, null
   br i1 %cmp.not.i.i.i.i.i2242, label %invoke.cont.i2248, label %if.then.i.i.i.i.i2243
 
 if.then.i.i.i.i.i2243:                            ; preds = %call.i.noexc.i2239
-  %_M_use_count.i.i.i.i.i.i2244 = getelementptr inbounds i8, ptr %1405, i64 8
+  %_M_use_count.i.i.i.i.i.i2244 = getelementptr inbounds i8, ptr %1404, i64 8
   %1406 = load i8, ptr @__libc_single_threaded, align 1, !noalias !116
   %tobool.i.i.not.i.i.i.i.i.i2245 = icmp eq i8 %1406, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i2245, label %if.else.i.i.i.i.i.i.i4106, label %if.then.i.i.i.i.i.i.i2246
@@ -19613,14 +19628,15 @@ _ZSt11make_sharedIN5arrow7compute8internal12CastFunctionEJNSt7__cxx1112basic_str
 
 call.i.noexc.i4412:                               ; preds = %_ZSt11make_sharedIN5arrow7compute8internal12CastFunctionEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_4Type4typeEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_.exit.i4406
   %_M_refcount.i.i.i15.i4413 = getelementptr inbounds i8, ptr %out_ty.i4377, i64 8
-  %2151 = load <2 x ptr>, ptr %call.i16.i4408, align 8, !noalias !127
-  store <2 x ptr> %2151, ptr %out_ty.i4377, align 16, !alias.scope !124, !noalias !117
-  %2152 = extractelement <2 x ptr> %2151, i64 1
-  %cmp.not.i.i.i.i.i4415 = icmp eq ptr %2152, null
+  %_M_refcount3.i.i.i.i4414 = getelementptr inbounds i8, ptr %call.i16.i4408, i64 8
+  %2151 = load ptr, ptr %_M_refcount3.i.i.i.i4414, align 8, !noalias !127
+  %2152 = load <2 x ptr>, ptr %call.i16.i4408, align 8, !noalias !127
+  store <2 x ptr> %2152, ptr %out_ty.i4377, align 16, !alias.scope !124, !noalias !117
+  %cmp.not.i.i.i.i.i4415 = icmp eq ptr %2151, null
   br i1 %cmp.not.i.i.i.i.i4415, label %invoke.cont.i4421, label %if.then.i.i.i.i.i4416
 
 if.then.i.i.i.i.i4416:                            ; preds = %call.i.noexc.i4412
-  %_M_use_count.i.i.i.i.i.i4417 = getelementptr inbounds i8, ptr %2152, i64 8
+  %_M_use_count.i.i.i.i.i.i4417 = getelementptr inbounds i8, ptr %2151, i64 8
   %2153 = load i8, ptr @__libc_single_threaded, align 1, !noalias !127
   %tobool.i.i.not.i.i.i.i.i.i4418 = icmp eq i8 %2153, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i4418, label %if.else.i.i.i.i.i.i.i6279, label %if.then.i.i.i.i.i.i.i4419
@@ -25206,14 +25222,15 @@ _ZSt11make_sharedIN5arrow7compute8internal12CastFunctionEJNSt7__cxx1112basic_str
 
 call.i.noexc.i6733:                               ; preds = %_ZSt11make_sharedIN5arrow7compute8internal12CastFunctionEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_4Type4typeEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_.exit.i6727
   %_M_refcount.i.i.i15.i6734 = getelementptr inbounds i8, ptr %out_ty.i6698, i64 8
-  %2949 = load <2 x ptr>, ptr %call.i16.i6729, align 8, !noalias !138
-  store <2 x ptr> %2949, ptr %out_ty.i6698, align 16, !alias.scope !135, !noalias !128
-  %2950 = extractelement <2 x ptr> %2949, i64 1
-  %cmp.not.i.i.i.i.i6736 = icmp eq ptr %2950, null
+  %_M_refcount3.i.i.i.i6735 = getelementptr inbounds i8, ptr %call.i16.i6729, i64 8
+  %2949 = load ptr, ptr %_M_refcount3.i.i.i.i6735, align 8, !noalias !138
+  %2950 = load <2 x ptr>, ptr %call.i16.i6729, align 8, !noalias !138
+  store <2 x ptr> %2950, ptr %out_ty.i6698, align 16, !alias.scope !135, !noalias !128
+  %cmp.not.i.i.i.i.i6736 = icmp eq ptr %2949, null
   br i1 %cmp.not.i.i.i.i.i6736, label %invoke.cont.i6742, label %if.then.i.i.i.i.i6737
 
 if.then.i.i.i.i.i6737:                            ; preds = %call.i.noexc.i6733
-  %_M_use_count.i.i.i.i.i.i6738 = getelementptr inbounds i8, ptr %2950, i64 8
+  %_M_use_count.i.i.i.i.i.i6738 = getelementptr inbounds i8, ptr %2949, i64 8
   %2951 = load i8, ptr @__libc_single_threaded, align 1, !noalias !138
   %tobool.i.i.not.i.i.i.i.i.i6739 = icmp eq i8 %2951, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i6739, label %if.else.i.i.i.i.i.i.i8600, label %if.then.i.i.i.i.i.i.i6740
@@ -29959,14 +29976,15 @@ _ZSt11make_sharedIN5arrow7compute8internal12CastFunctionEJNSt7__cxx1112basic_str
 
 call.i.noexc.i8706:                               ; preds = %_ZSt11make_sharedIN5arrow7compute8internal12CastFunctionEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_4Type4typeEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_.exit.i8700
   %_M_refcount.i.i.i15.i8707 = getelementptr inbounds i8, ptr %out_ty.i8671, i64 8
-  %3619 = load <2 x ptr>, ptr %call.i16.i8702, align 8, !noalias !149
-  store <2 x ptr> %3619, ptr %out_ty.i8671, align 16, !alias.scope !146, !noalias !139
-  %3620 = extractelement <2 x ptr> %3619, i64 1
-  %cmp.not.i.i.i.i.i8709 = icmp eq ptr %3620, null
+  %_M_refcount3.i.i.i.i8708 = getelementptr inbounds i8, ptr %call.i16.i8702, i64 8
+  %3619 = load ptr, ptr %_M_refcount3.i.i.i.i8708, align 8, !noalias !149
+  %3620 = load <2 x ptr>, ptr %call.i16.i8702, align 8, !noalias !149
+  store <2 x ptr> %3620, ptr %out_ty.i8671, align 16, !alias.scope !146, !noalias !139
+  %cmp.not.i.i.i.i.i8709 = icmp eq ptr %3619, null
   br i1 %cmp.not.i.i.i.i.i8709, label %invoke.cont.i8715, label %if.then.i.i.i.i.i8710
 
 if.then.i.i.i.i.i8710:                            ; preds = %call.i.noexc.i8706
-  %_M_use_count.i.i.i.i.i.i8711 = getelementptr inbounds i8, ptr %3620, i64 8
+  %_M_use_count.i.i.i.i.i.i8711 = getelementptr inbounds i8, ptr %3619, i64 8
   %3621 = load i8, ptr @__libc_single_threaded, align 1, !noalias !149
   %tobool.i.i.not.i.i.i.i.i.i8712 = icmp eq i8 %3621, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i8712, label %if.else.i.i.i.i.i.i.i10573, label %if.then.i.i.i.i.i.i.i8713
@@ -34712,14 +34730,15 @@ _ZSt11make_sharedIN5arrow7compute8internal12CastFunctionEJNSt7__cxx1112basic_str
 
 call.i.noexc.i10679:                              ; preds = %_ZSt11make_sharedIN5arrow7compute8internal12CastFunctionEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_4Type4typeEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_.exit.i10673
   %_M_refcount.i.i.i15.i10680 = getelementptr inbounds i8, ptr %out_ty.i10644, i64 8
-  %4289 = load <2 x ptr>, ptr %call.i16.i10675, align 8, !noalias !160
-  store <2 x ptr> %4289, ptr %out_ty.i10644, align 16, !alias.scope !157, !noalias !150
-  %4290 = extractelement <2 x ptr> %4289, i64 1
-  %cmp.not.i.i.i.i.i10682 = icmp eq ptr %4290, null
+  %_M_refcount3.i.i.i.i10681 = getelementptr inbounds i8, ptr %call.i16.i10675, i64 8
+  %4289 = load ptr, ptr %_M_refcount3.i.i.i.i10681, align 8, !noalias !160
+  %4290 = load <2 x ptr>, ptr %call.i16.i10675, align 8, !noalias !160
+  store <2 x ptr> %4290, ptr %out_ty.i10644, align 16, !alias.scope !157, !noalias !150
+  %cmp.not.i.i.i.i.i10682 = icmp eq ptr %4289, null
   br i1 %cmp.not.i.i.i.i.i10682, label %invoke.cont.i10688, label %if.then.i.i.i.i.i10683
 
 if.then.i.i.i.i.i10683:                           ; preds = %call.i.noexc.i10679
-  %_M_use_count.i.i.i.i.i.i10684 = getelementptr inbounds i8, ptr %4290, i64 8
+  %_M_use_count.i.i.i.i.i.i10684 = getelementptr inbounds i8, ptr %4289, i64 8
   %4291 = load i8, ptr @__libc_single_threaded, align 1, !noalias !160
   %tobool.i.i.not.i.i.i.i.i.i10685 = icmp eq i8 %4291, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i10685, label %if.else.i.i.i.i.i.i.i12546, label %if.then.i.i.i.i.i.i.i10686
@@ -39465,14 +39484,15 @@ _ZSt11make_sharedIN5arrow7compute8internal12CastFunctionEJNSt7__cxx1112basic_str
 
 call.i.noexc.i12652:                              ; preds = %_ZSt11make_sharedIN5arrow7compute8internal12CastFunctionEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_4Type4typeEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_.exit.i12646
   %_M_refcount.i.i.i15.i12653 = getelementptr inbounds i8, ptr %out_ty.i12617, i64 8
-  %4959 = load <2 x ptr>, ptr %call.i16.i12648, align 8, !noalias !171
-  store <2 x ptr> %4959, ptr %out_ty.i12617, align 16, !alias.scope !168, !noalias !161
-  %4960 = extractelement <2 x ptr> %4959, i64 1
-  %cmp.not.i.i.i.i.i12655 = icmp eq ptr %4960, null
+  %_M_refcount3.i.i.i.i12654 = getelementptr inbounds i8, ptr %call.i16.i12648, i64 8
+  %4959 = load ptr, ptr %_M_refcount3.i.i.i.i12654, align 8, !noalias !171
+  %4960 = load <2 x ptr>, ptr %call.i16.i12648, align 8, !noalias !171
+  store <2 x ptr> %4960, ptr %out_ty.i12617, align 16, !alias.scope !168, !noalias !161
+  %cmp.not.i.i.i.i.i12655 = icmp eq ptr %4959, null
   br i1 %cmp.not.i.i.i.i.i12655, label %invoke.cont.i12661, label %if.then.i.i.i.i.i12656
 
 if.then.i.i.i.i.i12656:                           ; preds = %call.i.noexc.i12652
-  %_M_use_count.i.i.i.i.i.i12657 = getelementptr inbounds i8, ptr %4960, i64 8
+  %_M_use_count.i.i.i.i.i.i12657 = getelementptr inbounds i8, ptr %4959, i64 8
   %4961 = load i8, ptr @__libc_single_threaded, align 1, !noalias !171
   %tobool.i.i.not.i.i.i.i.i.i12658 = icmp eq i8 %4961, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i12658, label %if.else.i.i.i.i.i.i.i14519, label %if.then.i.i.i.i.i.i.i12659
@@ -44496,14 +44516,15 @@ _ZSt11make_sharedIN5arrow7compute8internal12CastFunctionEJNSt7__cxx1112basic_str
 
 call.i.noexc.i14737:                              ; preds = %_ZSt11make_sharedIN5arrow7compute8internal12CastFunctionEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_4Type4typeEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_.exit.i14731
   %_M_refcount.i.i.i15.i14738 = getelementptr inbounds i8, ptr %out_ty.i14702, i64 8
-  %5671 = load <2 x ptr>, ptr %call.i16.i14733, align 8, !noalias !185
-  store <2 x ptr> %5671, ptr %out_ty.i14702, align 16, !alias.scope !182, !noalias !175
-  %5672 = extractelement <2 x ptr> %5671, i64 1
-  %cmp.not.i.i.i.i.i14740 = icmp eq ptr %5672, null
+  %_M_refcount3.i.i.i.i14739 = getelementptr inbounds i8, ptr %call.i16.i14733, i64 8
+  %5671 = load ptr, ptr %_M_refcount3.i.i.i.i14739, align 8, !noalias !185
+  %5672 = load <2 x ptr>, ptr %call.i16.i14733, align 8, !noalias !185
+  store <2 x ptr> %5672, ptr %out_ty.i14702, align 16, !alias.scope !182, !noalias !175
+  %cmp.not.i.i.i.i.i14740 = icmp eq ptr %5671, null
   br i1 %cmp.not.i.i.i.i.i14740, label %invoke.cont.i14746, label %if.then.i.i.i.i.i14741
 
 if.then.i.i.i.i.i14741:                           ; preds = %call.i.noexc.i14737
-  %_M_use_count.i.i.i.i.i.i14742 = getelementptr inbounds i8, ptr %5672, i64 8
+  %_M_use_count.i.i.i.i.i.i14742 = getelementptr inbounds i8, ptr %5671, i64 8
   %5673 = load i8, ptr @__libc_single_threaded, align 1, !noalias !185
   %tobool.i.i.not.i.i.i.i.i.i14743 = icmp eq i8 %5673, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i14743, label %if.else.i.i.i.i.i.i.i16604, label %if.then.i.i.i.i.i.i.i14744
@@ -49249,14 +49270,15 @@ _ZSt11make_sharedIN5arrow7compute8internal12CastFunctionEJNSt7__cxx1112basic_str
 
 call.i.noexc.i16710:                              ; preds = %_ZSt11make_sharedIN5arrow7compute8internal12CastFunctionEJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_4Type4typeEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESG_E4typeEEDpOT0_.exit.i16704
   %_M_refcount.i.i.i15.i16711 = getelementptr inbounds i8, ptr %out_ty.i16675, i64 8
-  %6341 = load <2 x ptr>, ptr %call.i16.i16706, align 8, !noalias !196
-  store <2 x ptr> %6341, ptr %out_ty.i16675, align 16, !alias.scope !193, !noalias !186
-  %6342 = extractelement <2 x ptr> %6341, i64 1
-  %cmp.not.i.i.i.i.i16713 = icmp eq ptr %6342, null
+  %_M_refcount3.i.i.i.i16712 = getelementptr inbounds i8, ptr %call.i16.i16706, i64 8
+  %6341 = load ptr, ptr %_M_refcount3.i.i.i.i16712, align 8, !noalias !196
+  %6342 = load <2 x ptr>, ptr %call.i16.i16706, align 8, !noalias !196
+  store <2 x ptr> %6342, ptr %out_ty.i16675, align 16, !alias.scope !193, !noalias !186
+  %cmp.not.i.i.i.i.i16713 = icmp eq ptr %6341, null
   br i1 %cmp.not.i.i.i.i.i16713, label %invoke.cont.i16719, label %if.then.i.i.i.i.i16714
 
 if.then.i.i.i.i.i16714:                           ; preds = %call.i.noexc.i16710
-  %_M_use_count.i.i.i.i.i.i16715 = getelementptr inbounds i8, ptr %6342, i64 8
+  %_M_use_count.i.i.i.i.i.i16715 = getelementptr inbounds i8, ptr %6341, i64 8
   %6343 = load i8, ptr @__libc_single_threaded, align 1, !noalias !196
   %tobool.i.i.not.i.i.i.i.i.i16716 = icmp eq i8 %6343, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i16716, label %if.else.i.i.i.i.i.i.i18577, label %if.then.i.i.i.i.i.i.i16717
@@ -62459,9 +62481,9 @@ _ZNSt8functionIFN5arrow6ResultINS0_10TypeHolderEEEPNS0_7compute13KernelContextER
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i)
   %_M_manager3.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %23 = load <2 x ptr>, ptr %_M_manager3.i.i, align 8
+  %24 = load ptr, ptr %_M_manager3.i.i, align 8
   store <2 x ptr> %23, ptr %_M_manager.i.i.i, align 8
   store <2 x ptr> %22, ptr %_M_manager3.i.i, align 8
-  %24 = extractelement <2 x ptr> %23, i64 0
   %tobool.not.i.i4.i = icmp eq ptr %24, null
   br i1 %tobool.not.i.i4.i, label %invoke.cont, label %if.then.i.i5.i
 
@@ -81803,12 +81825,13 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %out_data.5 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc6 ], [ %out_data.0, %for.cond.preheader.i.i.i.i ]
   %data.5.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %.noexc6 ], [ %data.0.i.i.i, %for.cond.preheader.i.i.i.i ]
   %i.049.i.i.i.i = phi i64 [ %inc.i.i.i.i, %.noexc6 ], [ 0, %for.cond.preheader.i.i.i.i ]
-  %9 = load <2 x i64>, ptr %data.5.i.i.i, align 1
+  %9 = getelementptr i8, ptr %data.5.i.i.i, i64 8
+  %.val2.i.i.i.i.i = load i64, ptr %9, align 1
+  %10 = load <2 x i64>, ptr %data.5.i.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.sroa.0.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i.i.i.i.i.i)
-  %10 = extractelement <2 x i64> %9, i64 1
-  %low_bits.lobit.i.i.i.i.i.i.i.i.i.i.i.i = ashr i64 %10, 63
-  store <2 x i64> %9, ptr %ref.tmp4.i.i.i.i.i.i.i.i, align 16, !alias.scope !890, !noalias !893
+  %low_bits.lobit.i.i.i.i.i.i.i.i.i.i.i.i = ashr i64 %.val2.i.i.i.i.i, 63
+  store <2 x i64> %10, ptr %ref.tmp4.i.i.i.i.i.i.i.i, align 16, !alias.scope !890, !noalias !893
   store i64 %low_bits.lobit.i.i.i.i.i.i.i.i.i.i.i.i, ptr %ref.tmp.sroa.0.sroa.3.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i, align 16, !alias.scope !890, !noalias !893
   store i64 %low_bits.lobit.i.i.i.i.i.i.i.i.i.i.i.i, ptr %ref.tmp.sroa.0.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !890, !noalias !893
   %11 = load i32, ptr %functor, align 4, !noalias !893
@@ -81864,12 +81887,13 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
   br i1 %tobool.i.not.i.i.i.i, label %if.else26.i.i.i.i, label %if.then25.i.i.i.i
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
-  %19 = load <2 x i64>, ptr %data.2.i.i.i, align 1
+  %19 = getelementptr i8, ptr %data.2.i.i.i, i64 8
+  %.val2.i23.i.i.i.i = load i64, ptr %19, align 1
+  %20 = load <2 x i64>, ptr %data.2.i.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.sroa.0.i.i.i20.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i.i19.i.i.i.i)
-  %20 = extractelement <2 x i64> %19, i64 1
-  %low_bits.lobit.i.i.i.i.i.i.i.i24.i.i.i.i = ashr i64 %20, 63
-  store <2 x i64> %19, ptr %ref.tmp4.i.i.i.i19.i.i.i.i, align 16, !alias.scope !897, !noalias !900
+  %low_bits.lobit.i.i.i.i.i.i.i.i24.i.i.i.i = ashr i64 %.val2.i23.i.i.i.i, 63
+  store <2 x i64> %20, ptr %ref.tmp4.i.i.i.i19.i.i.i.i, align 16, !alias.scope !897, !noalias !900
   store i64 %low_bits.lobit.i.i.i.i.i.i.i.i24.i.i.i.i, ptr %ref.tmp.sroa.0.sroa.3.0.this.sroa_idx.i.i.i.i.i.i.i26.i.i.i.i, align 16, !alias.scope !897, !noalias !900
   store i64 %low_bits.lobit.i.i.i.i.i.i.i.i24.i.i.i.i, ptr %ref.tmp.sroa.0.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i27.i.i.i.i, align 8, !alias.scope !897, !noalias !900
   %21 = load i32, ptr %functor, align 4, !noalias !900
@@ -82029,12 +82053,13 @@ for.body.i.i.i.i:                                 ; preds = %for.cond.preheader.
   %out_data.5 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc6 ], [ %out_data.0, %for.cond.preheader.i.i.i.i ]
   %data.5.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i, %.noexc6 ], [ %data.0.i.i.i, %for.cond.preheader.i.i.i.i ]
   %i.049.i.i.i.i = phi i64 [ %inc.i.i.i.i, %.noexc6 ], [ 0, %for.cond.preheader.i.i.i.i ]
-  %9 = load <2 x i64>, ptr %data.5.i.i.i, align 1
+  %9 = getelementptr i8, ptr %data.5.i.i.i, i64 8
+  %.val2.i.i.i.i.i = load i64, ptr %9, align 1
+  %10 = load <2 x i64>, ptr %data.5.i.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.sroa.0.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i.i.i.i.i.i)
-  %10 = extractelement <2 x i64> %9, i64 1
-  %low_bits.lobit.i.i.i.i.i.i.i.i.i.i.i.i = ashr i64 %10, 63
-  store <2 x i64> %9, ptr %ref.tmp4.i.i.i.i.i.i.i.i, align 16, !alias.scope !908, !noalias !911
+  %low_bits.lobit.i.i.i.i.i.i.i.i.i.i.i.i = ashr i64 %.val2.i.i.i.i.i, 63
+  store <2 x i64> %10, ptr %ref.tmp4.i.i.i.i.i.i.i.i, align 16, !alias.scope !908, !noalias !911
   store i64 %low_bits.lobit.i.i.i.i.i.i.i.i.i.i.i.i, ptr %ref.tmp.sroa.0.sroa.3.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i, align 16, !alias.scope !908, !noalias !911
   store i64 %low_bits.lobit.i.i.i.i.i.i.i.i.i.i.i.i, ptr %ref.tmp.sroa.0.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !908, !noalias !911
   %11 = load i32, ptr %functor, align 4, !noalias !911
@@ -82090,12 +82115,13 @@ for.body23.i.i.i.i:                               ; preds = %for.cond19.preheade
   br i1 %tobool.i.not.i.i.i.i, label %if.else26.i.i.i.i, label %if.then25.i.i.i.i
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
-  %19 = load <2 x i64>, ptr %data.2.i.i.i, align 1
+  %19 = getelementptr i8, ptr %data.2.i.i.i, i64 8
+  %.val2.i23.i.i.i.i = load i64, ptr %19, align 1
+  %20 = load <2 x i64>, ptr %data.2.i.i.i, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.sroa.0.i.i.i20.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp4.i.i.i.i19.i.i.i.i)
-  %20 = extractelement <2 x i64> %19, i64 1
-  %low_bits.lobit.i.i.i.i.i.i.i.i24.i.i.i.i = ashr i64 %20, 63
-  store <2 x i64> %19, ptr %ref.tmp4.i.i.i.i19.i.i.i.i, align 16, !alias.scope !915, !noalias !918
+  %low_bits.lobit.i.i.i.i.i.i.i.i24.i.i.i.i = ashr i64 %.val2.i23.i.i.i.i, 63
+  store <2 x i64> %20, ptr %ref.tmp4.i.i.i.i19.i.i.i.i, align 16, !alias.scope !915, !noalias !918
   store i64 %low_bits.lobit.i.i.i.i.i.i.i.i24.i.i.i.i, ptr %ref.tmp.sroa.0.sroa.3.0.this.sroa_idx.i.i.i.i.i.i.i26.i.i.i.i, align 16, !alias.scope !915, !noalias !918
   store i64 %low_bits.lobit.i.i.i.i.i.i.i.i24.i.i.i.i, ptr %ref.tmp.sroa.0.sroa.4.0.this.sroa_idx.i.i.i.i.i.i.i27.i.i.i.i, align 8, !alias.scope !915, !noalias !918
   %21 = load i32, ptr %functor, align 4, !noalias !918
@@ -88810,14 +88836,15 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10s
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow7compute8internal12CastFunctionEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIN5arrow7compute8internal12CastFunctionEESaIS5_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorISt10shared_ptrIN5arrow7compute8internal12CastFunctionEESaIS5_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::shared_ptr.23", ptr %cond.i10, i64 %sub.ptr.div.i
-  %3 = load <2 x ptr>, ptr %__args, align 8
-  store <2 x ptr> %3, ptr %add.ptr, align 8
-  %4 = extractelement <2 x ptr> %3, i64 1
-  %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
+  %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
+  %3 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
+  %4 = load <2 x ptr>, ptr %__args, align 8
+  store <2 x ptr> %4, ptr %add.ptr, align 8
+  %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow7compute8internal12CastFunctionEESaIS5_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i

@@ -3480,11 +3480,11 @@ if.end17:                                         ; preds = %if.end16, %if.end
   %_M_first.i.i103 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %_M_last.i.i105 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %15 = load <2 x ptr>, ptr %_M_first3.i.i, align 8, !noalias !68
+  %16 = load ptr, ptr %_M_first3.i.i, align 8, !noalias !68
   store <2 x ptr> %15, ptr %_M_first.i.i103, align 8, !alias.scope !71
   %_M_node.i.i107 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr %14, ptr %_M_node.i.i107, align 8, !alias.scope !71
   %sub.ptr.lhs.cast.i.i109 = ptrtoint ptr %13 to i64
-  %16 = extractelement <2 x ptr> %15, i64 0
   %sub.ptr.rhs.cast.i.i110 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i111 = sub i64 %sub.ptr.lhs.cast.i.i109, %sub.ptr.rhs.cast.i.i110
   %sub.ptr.div.i.i112 = sdiv exact i64 %sub.ptr.sub.i.i111, 72
@@ -4042,7 +4042,7 @@ for.body.i.i.i:                                   ; preds = %while.body, %_ZN7ro
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i, i8 0, i64 24, i1 false)
   %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 24
   %3 = load <2 x ptr>, ptr %_M_manager.i.i.i.i.i, align 8
-  %4 = extractelement <2 x ptr> %3, i64 0
+  %4 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.not.i.i.i, label %_ZNSt8functionIFvvEEC2EOS1_.exit.i.i, label %if.then.i.i.i
 
@@ -4060,9 +4060,9 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.i.i:             ; preds = %if.then.i.i.i, %for
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i.i)
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i, i64 24
   %5 = load <2 x ptr>, ptr %_M_manager3.i.i.i, align 8
+  %6 = load ptr, ptr %_M_manager3.i.i.i, align 8
   store <2 x ptr> %3, ptr %_M_manager3.i.i.i, align 8
   store <2 x ptr> %5, ptr %_M_manager.i.i.i, align 8
-  %6 = extractelement <2 x ptr> %5, i64 0
   %tobool.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt8functionIFvvEEaSEOS1_.exit.i, label %if.then.i.i.i.i
 
@@ -4084,7 +4084,7 @@ _ZNSt8functionIFvvEEaSEOS1_.exit.i:               ; preds = %if.then.i.i.i.i, %_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i4.i, i8 0, i64 24, i1 false)
   %_M_manager.i.i.i.i7.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 56
   %9 = load <2 x ptr>, ptr %_M_manager.i.i.i.i7.i, align 8
-  %10 = extractelement <2 x ptr> %9, i64 0
+  %10 = load ptr, ptr %_M_manager.i.i.i.i7.i, align 8
   %tobool.not.i.i.not.i.i8.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.not.i.i8.i, label %_ZNSt8functionIFvvEEC2EOS1_.exit.i10.i, label %if.then.i.i9.i
 
@@ -4102,9 +4102,9 @@ _ZNSt8functionIFvvEEC2EOS1_.exit.i10.i:           ; preds = %if.then.i.i9.i, %_Z
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.sroa.0.i.i.i3.i)
   %_M_manager3.i.i12.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i, i64 56
   %11 = load <2 x ptr>, ptr %_M_manager3.i.i12.i, align 8
+  %12 = load ptr, ptr %_M_manager3.i.i12.i, align 8
   store <2 x ptr> %11, ptr %_M_manager.i.i11.i, align 8
   store <2 x ptr> %9, ptr %_M_manager3.i.i12.i, align 8
-  %12 = extractelement <2 x ptr> %11, i64 0
   %tobool.not.i.i.i14.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i14.i, label %_ZN7rocksdb14ThreadPoolImpl4Impl6BGItemaSEOS2_.exit, label %if.then.i.i.i15.i
 

@@ -80,18 +80,18 @@ gv_calloc.exit:                                   ; preds = %10
   %24 = getelementptr inbounds i8, ptr %14, i64 24
   %25 = getelementptr inbounds i8, ptr %14, i64 32
   %26 = fadd <2 x double> %19, %22
+  %27 = extractelement <2 x double> %26, i64 0
+  %28 = extractelement <2 x double> %26, i64 1
   store <2 x double> %26, ptr %14, align 8
-  %27 = fneg <2 x double> %26
-  %28 = extractelement <2 x double> %27, i64 0
-  store double %28, ptr %23, align 8
-  %29 = extractelement <2 x double> %26, i64 1
-  store double %29, ptr %24, align 8
-  store <2 x double> %27, ptr %25, align 8
-  %30 = getelementptr inbounds i8, ptr %14, i64 48
-  %31 = extractelement <2 x double> %26, i64 0
-  store double %31, ptr %30, align 8
+  %29 = fneg <2 x double> %26
+  %30 = extractelement <2 x double> %29, i64 0
+  store double %30, ptr %23, align 8
+  store double %28, ptr %24, align 8
+  store <2 x double> %29, ptr %25, align 8
+  %31 = getelementptr inbounds i8, ptr %14, i64 48
+  store double %27, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %14, i64 56
-  %33 = extractelement <2 x double> %27, i64 1
+  %33 = extractelement <2 x double> %29, i64 1
   store double %33, ptr %32, align 8
   br label %.loopexit
 
@@ -537,21 +537,21 @@ define range(i32 0, 2) i32 @makePoly(ptr nocapture noundef writeonly %0, ptr nou
 
 gv_calloc.exit:                                   ; preds = %10
   %19 = fmul <2 x double> %12, <double 5.000000e-01, double 5.000000e-01>
+  %20 = extractelement <2 x double> %19, i64 0
+  %21 = extractelement <2 x double> %19, i64 1
   store <2 x double> %19, ptr %14, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 16
-  %21 = getelementptr inbounds i8, ptr %14, i64 24
-  %22 = extractelement <2 x double> %19, i64 1
-  store double %22, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %14, i64 32
-  %24 = fneg <2 x double> %19
-  %25 = extractelement <2 x double> %24, i64 0
-  store double %25, ptr %20, align 8
-  store <2 x double> %24, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %14, i64 48
-  %27 = extractelement <2 x double> %19, i64 0
-  store double %27, ptr %26, align 8
+  %22 = getelementptr inbounds i8, ptr %14, i64 16
+  %23 = getelementptr inbounds i8, ptr %14, i64 24
+  store double %21, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %14, i64 32
+  %25 = fneg <2 x double> %19
+  %26 = extractelement <2 x double> %25, i64 0
+  store double %26, ptr %22, align 8
+  store <2 x double> %25, ptr %24, align 8
+  %27 = getelementptr inbounds i8, ptr %14, i64 48
+  store double %20, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %14, i64 56
-  %29 = extractelement <2 x double> %24, i64 1
+  %29 = extractelement <2 x double> %25, i64 1
   store double %29, ptr %28, align 8
   br label %153
 

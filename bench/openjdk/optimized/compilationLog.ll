@@ -254,40 +254,38 @@ define hidden void @_ZN14CompilationLog21log_metaspace_failureEPKc(ptr noundef n
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 32
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 40
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
-  %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr %16, ptr %3, align 8
-  store i8 0, ptr %16, align 8
+  %11 = load <2 x ptr>, ptr %10, align 8
+  %12 = load ptr, ptr %10, align 8
+  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = load i64, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %15, ptr %3, align 8
+  store i8 0, ptr %15, align 8
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EE5printEPKcz(ptr noundef nonnull align 8 dereferenceable(264) %3, ptr noundef nonnull @.str.12, i32 noundef -1, ptr noundef %1)
   call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EE5printEPKcz(ptr noundef nonnull align 8 dereferenceable(264) %3, ptr noundef nonnull @.str.11)
-  %17 = load ptr, ptr %4, align 8
-  %18 = load ptr, ptr %3, align 8
-  call void (ptr, ptr, ptr, ...) @_ZN20FormatStringEventLogILm256EE3logEP6ThreadPKcz(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %17, ptr noundef nonnull @.str.5, ptr noundef %18)
-  %19 = load ptr, ptr %9, align 8
-  %.not.i.i.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i.i.i, label %21, label %20
+  %16 = load ptr, ptr %4, align 8
+  %17 = load ptr, ptr %3, align 8
+  call void (ptr, ptr, ptr, ...) @_ZN20FormatStringEventLogILm256EE3logEP6ThreadPKcz(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %16, ptr noundef nonnull @.str.5, ptr noundef %17)
+  %18 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i = icmp eq ptr %18, null
+  br i1 %.not.i.i.i.i, label %20, label %19
 
-20:                                               ; preds = %2
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %15) #7
+19:                                               ; preds = %2
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %7, i64 noundef %14) #7
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %9) #7
-  br label %21
+  br label %20
 
-21:                                               ; preds = %20, %2
-  %22 = load ptr, ptr %10, align 8
-  %.not8.i.i.i.i = icmp eq ptr %22, %11
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %23
+20:                                               ; preds = %19, %2
+  %21 = load ptr, ptr %10, align 8
+  %.not8.i.i.i.i = icmp eq ptr %21, %12
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %22
 
-23:                                               ; preds = %21
+22:                                               ; preds = %20
   store ptr %9, ptr %8, align 8
-  store ptr %11, ptr %10, align 8
-  store ptr %13, ptr %12, align 8
+  store <2 x ptr> %11, ptr %10, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %21, %23
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %20, %22
   ret void
 }
 

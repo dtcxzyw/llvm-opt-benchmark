@@ -23112,8 +23112,7 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN7xgboost6common9WQSummar
 .lr.ph.i6:                                        ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN7xgboost6common9WQSummaryIffE5Queue6QEntryESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_T0_.exit, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7xgboost6common9WQSummaryIffE5Queue6QEntryESt6vectorIS7_SaIS7_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i8
   %.sroa.0.05.i = phi ptr [ %28, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN7xgboost6common9WQSummaryIffE5Queue6QEntryESt6vectorIS7_SaIS7_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i8 ], [ %20, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN7xgboost6common9WQSummaryIffE5Queue6QEntryESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_T0_.exit ]
   %21 = load <2 x i32>, ptr %.sroa.0.05.i, align 4
-  %bc = bitcast <2 x i32> %21 to <2 x float>
-  %22 = extractelement <2 x float> %bc, i64 0
+  %22 = load float, ptr %.sroa.0.05.i, align 4
   %.sroa.0.010.i.i = getelementptr inbounds i8, ptr %.sroa.0.05.i, i64 -8
   %23 = load float, ptr %.sroa.0.010.i.i, align 4
   %24 = fcmp ogt float %23, %22

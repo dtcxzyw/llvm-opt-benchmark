@@ -29086,43 +29086,43 @@ _ZN2cvmlIdLi3EEENS_3VecIT_XT0_EEERKS3_d.exit:     ; preds = %35
   %43 = load <2 x double>, ptr %4, align 16
   %44 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> zeroinitializer
   %45 = fmul <2 x double> %44, %43
-  %46 = extractelement <2 x double> %43, i64 1
-  %47 = fmul double %46, %46
+  %46 = extractelement <2 x double> %43, i64 0
+  %47 = extractelement <2 x double> %43, i64 1
+  %48 = fmul double %47, %47
   store <2 x double> %45, ptr %5, align 16
-  %48 = getelementptr inbounds i8, ptr %5, i64 16
-  %49 = getelementptr inbounds i8, ptr %5, i64 24
-  %50 = extractelement <2 x double> %45, i64 1
-  store double %50, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %5, i64 32
-  store double %47, ptr %51, align 16
-  %52 = getelementptr inbounds i8, ptr %5, i64 40
-  %53 = getelementptr inbounds i8, ptr %5, i64 48
-  %54 = insertelement <2 x double> poison, double %41, i64 0
-  %55 = shufflevector <2 x double> %54, <2 x double> poison, <2 x i32> zeroinitializer
-  %56 = fmul <2 x double> %43, %55
-  %57 = extractelement <2 x double> %56, i64 0
-  store double %57, ptr %48, align 16
-  %58 = extractelement <2 x double> %56, i64 1
-  store double %58, ptr %52, align 8
-  store <2 x double> %56, ptr %53, align 16
-  %59 = getelementptr inbounds i8, ptr %5, i64 64
-  store double %42, ptr %59, align 16
-  %60 = fneg double %41
+  %49 = getelementptr inbounds i8, ptr %5, i64 16
+  %50 = getelementptr inbounds i8, ptr %5, i64 24
+  %51 = extractelement <2 x double> %45, i64 1
+  store double %51, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %5, i64 32
+  store double %48, ptr %52, align 16
+  %53 = getelementptr inbounds i8, ptr %5, i64 40
+  %54 = getelementptr inbounds i8, ptr %5, i64 48
+  %55 = insertelement <2 x double> poison, double %41, i64 0
+  %56 = shufflevector <2 x double> %55, <2 x double> poison, <2 x i32> zeroinitializer
+  %57 = fmul <2 x double> %43, %56
+  %58 = extractelement <2 x double> %57, i64 0
+  store double %58, ptr %49, align 16
+  %59 = extractelement <2 x double> %57, i64 1
+  store double %59, ptr %53, align 8
+  store <2 x double> %57, ptr %54, align 16
+  %60 = getelementptr inbounds i8, ptr %5, i64 64
+  store double %42, ptr %60, align 16
+  %61 = fneg double %41
   store double 0.000000e+00, ptr %6, align 8
-  %61 = getelementptr inbounds i8, ptr %6, i64 8
-  store double %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %6, i64 16
-  store double %46, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %6, i64 24
-  store double %41, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %6, i64 32
-  store double 0.000000e+00, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %6, i64 40
-  %66 = fneg <2 x double> %43
-  store <2 x double> %66, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %6, i64 56
-  %68 = extractelement <2 x double> %43, i64 0
-  store double %68, ptr %67, align 8
+  %62 = getelementptr inbounds i8, ptr %6, i64 8
+  store double %61, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %6, i64 16
+  store double %47, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %6, i64 24
+  store double %41, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %6, i64 32
+  store double 0.000000e+00, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %6, i64 40
+  %67 = fneg <2 x double> %43
+  store <2 x double> %67, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %6, i64 56
+  store double %46, ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %6, i64 64
   store double 0.000000e+00, ptr %69, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false), !alias.scope !1194

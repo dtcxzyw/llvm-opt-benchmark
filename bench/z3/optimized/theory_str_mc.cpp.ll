@@ -19131,7 +19131,7 @@ invoke.cont:
   %cRHS = alloca %class.obj_ref, align 8
   %_e = alloca %class.obj_ref, align 8
   %ref.tmp = alloca %"class.std::tuple", align 8
-  %ref.tmp66 = alloca %"class.std::tuple.386", align 8
+  %ref.tmp66 = alloca %"class.std::tuple.386", align 16
   %ref.tmp67 = alloca %class.rational, align 8
   %m.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m.i, align 8
@@ -19200,11 +19200,7 @@ for.cond.preheader:                               ; preds = %_ZNK15ref_vector_co
   %m_den.i.i = getelementptr inbounds i8, ptr %ref.tmp67, i64 16
   %m_kind.i1.i.i = getelementptr inbounds i8, ptr %ref.tmp67, i64 20
   %m_ptr.i4.i.i = getelementptr inbounds i8, ptr %ref.tmp67, i64 24
-  %m_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp66, i64 8
-  %m_manager3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %rhs, i64 8
   %9 = getelementptr inbounds i8, ptr %ref.tmp66, i64 16
-  %m_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp66, i64 24
-  %m_manager3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %lhs, i64 8
   %10 = getelementptr inbounds i8, ptr %ref.tmp66, i64 32
   %m_kind.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp66, i64 36
   %m_ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp66, i64 40
@@ -19423,40 +19419,38 @@ _ZN11mpq_managerILb1EE3setER3mpqj.exit.i:         ; preds = %if.else.i.i.i.i, %i
 invoke.cont68:                                    ; preds = %_ZN11mpq_managerILb1EE3setER3mpqj.exit.i
   store i32 1, ptr %m_den.i.i, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !80)
-  %43 = load ptr, ptr %rhs, align 8, !noalias !80
-  store ptr %43, ptr %ref.tmp66, align 8, !alias.scope !80
-  %44 = load ptr, ptr %m_manager3.i.i.i.i.i.i.i, align 8, !noalias !80
-  store ptr %44, ptr %m_manager.i.i.i.i.i.i.i, align 8, !alias.scope !80
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %43, null
+  %43 = load <2 x ptr>, ptr %rhs, align 8, !noalias !80
+  %44 = load ptr, ptr %rhs, align 8, !noalias !80
+  store <2 x ptr> %43, ptr %ref.tmp66, align 16, !alias.scope !80
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %44, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZNSt11_Tuple_implILm2EJ7obj_refI4expr11ast_managerEEEC2IRS3_EEOT_.exit.i.i.i.i, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i.i.i.i.i.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i.i.i.i.i.i.i.i: ; preds = %invoke.cont68
-  %m_ref_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 8
+  %m_ref_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %44, i64 8
   %45 = load i32, ptr %m_ref_count.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !80
   %inc.i.i.i.i.i.i.i.i.i.i = add i32 %45, 1
   store i32 %inc.i.i.i.i.i.i.i.i.i.i, ptr %m_ref_count.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !80
   br label %_ZNSt11_Tuple_implILm2EJ7obj_refI4expr11ast_managerEEEC2IRS3_EEOT_.exit.i.i.i.i
 
 _ZNSt11_Tuple_implILm2EJ7obj_refI4expr11ast_managerEEEC2IRS3_EEOT_.exit.i.i.i.i: ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i.i.i.i.i.i, %invoke.cont68
-  %46 = load ptr, ptr %lhs, align 8, !noalias !80
-  store ptr %46, ptr %9, align 8, !alias.scope !80
-  %47 = load ptr, ptr %m_manager3.i.i.i.i.i.i, align 8, !noalias !80
-  store ptr %47, ptr %m_manager.i.i.i.i.i.i, align 8, !alias.scope !80
-  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %46, null
+  %46 = load <2 x ptr>, ptr %lhs, align 8, !noalias !80
+  %47 = load ptr, ptr %lhs, align 8, !noalias !80
+  store <2 x ptr> %46, ptr %9, align 16, !alias.scope !80
+  %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %47, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %invoke.cont72, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i.i.i.i.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt11_Tuple_implILm2EJ7obj_refI4expr11ast_managerEEEC2IRS3_EEOT_.exit.i.i.i.i
-  %m_ref_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %46, i64 8
+  %m_ref_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %47, i64 8
   %48 = load i32, ptr %m_ref_count.i.i.i.i.i.i.i.i.i, align 4, !noalias !80
   %inc.i.i.i.i.i.i.i.i.i = add i32 %48, 1
   store i32 %inc.i.i.i.i.i.i.i.i.i, ptr %m_ref_count.i.i.i.i.i.i.i.i.i, align 4, !noalias !80
-  %.pre130 = load ptr, ptr %9, align 8
+  %.pre130 = load ptr, ptr %9, align 16
   br label %invoke.cont72
 
 invoke.cont72:                                    ; preds = %_ZNSt11_Tuple_implILm2EJ7obj_refI4expr11ast_managerEEEC2IRS3_EEOT_.exit.i.i.i.i, %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i.i.i.i.i
   %49 = phi ptr [ null, %_ZNSt11_Tuple_implILm2EJ7obj_refI4expr11ast_managerEEEC2IRS3_EEOT_.exit.i.i.i.i ], [ %.pre130, %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i.i.i.i.i ]
   %50 = load i32, ptr %ref.tmp67, align 8, !noalias !80
-  store i32 %50, ptr %10, align 8, !alias.scope !80
+  store i32 %50, ptr %10, align 16, !alias.scope !80
   %bf.load.i.i.i.i.i.i.i = load i8, ptr %m_kind.i.i.i, align 4, !noalias !80
   %bf.load4.i.i.i.i.i.i.i = load i8, ptr %m_kind.i.i.i.i.i.i.i, align 4, !alias.scope !80
   %bf.clear5.i.i.i.i.i.i.i = and i8 %bf.load4.i.i.i.i.i.i.i, -4
@@ -19466,7 +19460,7 @@ invoke.cont72:                                    ; preds = %_ZNSt11_Tuple_implI
   %52 = load ptr, ptr %m_ptr.i.i.i, align 8, !noalias !80
   store ptr null, ptr %m_ptr.i.i.i, align 8, !noalias !80
   %53 = load i32, ptr %m_den.i.i, align 8, !noalias !80
-  store i32 %53, ptr %m_den.i.i.i.i.i.i, align 8, !alias.scope !80
+  store i32 %53, ptr %m_den.i.i.i.i.i.i, align 16, !alias.scope !80
   %bf.load.i4.i.i.i.i.i.i = load i8, ptr %m_kind.i1.i.i, align 4, !noalias !80
   %bf.load4.i6.i.i.i.i.i.i = load i8, ptr %m_kind.i2.i.i.i.i.i.i, align 4, !alias.scope !80
   %bf.clear5.i7.i.i.i.i.i.i = and i8 %bf.load4.i6.i.i.i.i.i.i, -4
@@ -19475,7 +19469,7 @@ invoke.cont72:                                    ; preds = %_ZNSt11_Tuple_implI
   store i8 %bf.set13.i12.i.i.i.i.i.i, ptr %m_kind.i2.i.i.i.i.i.i, align 4, !alias.scope !80
   %55 = load ptr, ptr %m_ptr.i4.i.i, align 8, !noalias !80
   store ptr null, ptr %m_ptr.i4.i.i, align 8, !noalias !80
-  store ptr %43, ptr %ref.tmp, align 8
+  store ptr %44, ptr %ref.tmp, align 8
   store ptr %49, ptr %11, align 8
   store i32 %50, ptr %12, align 8
   %bf.load4.i.i.i.i.i.i = load i8, ptr %m_kind.i.i.i.i.i.i, align 4
@@ -19491,7 +19485,7 @@ invoke.cont72:                                    ; preds = %_ZNSt11_Tuple_implI
   store ptr null, ptr %m_ptr.i13.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   store ptr %call2.i50, ptr %ref.tmp.i, align 8
-  %56 = ptrtoint ptr %43 to i64
+  %56 = ptrtoint ptr %44 to i64
   store i64 %56, ptr %m_value.i.i, align 8
   %57 = ptrtoint ptr %49 to i64
   store i64 %57, ptr %13, align 8

@@ -7227,49 +7227,47 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTEEaSEOS4_.e
 
 612:                                              ; preds = %608, %_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTEEaSEOS4_.exit.i.i10
   store atomic i8 1, ptr %202 seq_cst, align 8
-  %.val17.i.i = load ptr, ptr %567, align 8
   %613 = getelementptr i8, ptr %.sroa.026.030.i.i, i64 72
   %.val18.i.i = load ptr, ptr %613, align 8
+  %614 = load <2 x ptr>, ptr %567, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
-  %614 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #28
+  %615 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #28
           to label %.noexc.i.i14 unwind label %641
 
 .noexc.i.i14:                                     ; preds = %612
   %.not.i.i.i.i.i19.i.i = icmp eq ptr %.val18.i.i, null
-  br i1 %.not.i.i.i.i.i19.i.i, label %_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseSourceTEJRKSt10shared_ptrINS1_11SourceFileTEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i.i.i, label %615
+  br i1 %.not.i.i.i.i.i19.i.i, label %_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseSourceTEJRKSt10shared_ptrINS1_11SourceFileTEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i.i.i, label %616
 
-615:                                              ; preds = %.noexc.i.i14
-  %616 = getelementptr inbounds i8, ptr %.val18.i.i, i64 8
-  %617 = load i8, ptr @__libc_single_threaded, align 1, !noalias !66
-  %.not.i.i.i.i.i.i.i.i15 = icmp eq i8 %617, 0
-  br i1 %.not.i.i.i.i.i.i.i.i15, label %621, label %618
+616:                                              ; preds = %.noexc.i.i14
+  %617 = getelementptr inbounds i8, ptr %.val18.i.i, i64 8
+  %618 = load i8, ptr @__libc_single_threaded, align 1, !noalias !66
+  %.not.i.i.i.i.i.i.i.i15 = icmp eq i8 %618, 0
+  br i1 %.not.i.i.i.i.i.i.i.i15, label %622, label %619
 
-618:                                              ; preds = %615
-  %619 = load i32, ptr %616, align 4, !noalias !66
-  %620 = add nsw i32 %619, 1
-  store i32 %620, ptr %616, align 4, !noalias !66
+619:                                              ; preds = %616
+  %620 = load i32, ptr %617, align 4, !noalias !66
+  %621 = add nsw i32 %620, 1
+  store i32 %621, ptr %617, align 4, !noalias !66
   br label %_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseSourceTEJRKSt10shared_ptrINS1_11SourceFileTEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i.i.i
 
-621:                                              ; preds = %615
-  %622 = atomicrmw volatile add ptr %616, i32 1 acq_rel, align 4, !noalias !66
+622:                                              ; preds = %616
+  %623 = atomicrmw volatile add ptr %617, i32 1 acq_rel, align 4, !noalias !66
   br label %_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseSourceTEJRKSt10shared_ptrINS1_11SourceFileTEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i.i.i
 
-_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseSourceTEJRKSt10shared_ptrINS1_11SourceFileTEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i.i.i: ; preds = %621, %618, %.noexc.i.i14
-  %623 = getelementptr inbounds i8, ptr %614, i64 8
-  store ptr null, ptr %623, align 8, !noalias !66
-  %624 = getelementptr inbounds i8, ptr %614, i64 16
-  store i32 0, ptr %624, align 8, !noalias !66
-  %625 = getelementptr inbounds i8, ptr %614, i64 20
-  store i8 0, ptr %625, align 4, !noalias !66
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseTE, i64 16), ptr %614, align 8, !noalias !66
-  %626 = getelementptr inbounds i8, ptr %614, i64 24
-  store ptr %.val17.i.i, ptr %626, align 8, !noalias !66
-  %627 = getelementptr inbounds i8, ptr %614, i64 32
-  store ptr %.val18.i.i, ptr %627, align 8, !noalias !66
-  %628 = getelementptr inbounds i8, ptr %614, i64 40
+_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseSourceTEJRKSt10shared_ptrINS1_11SourceFileTEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i.i.i: ; preds = %622, %619, %.noexc.i.i14
+  %624 = getelementptr inbounds i8, ptr %615, i64 8
+  store ptr null, ptr %624, align 8, !noalias !66
+  %625 = getelementptr inbounds i8, ptr %615, i64 16
+  store i32 0, ptr %625, align 8, !noalias !66
+  %626 = getelementptr inbounds i8, ptr %615, i64 20
+  store i8 0, ptr %626, align 4, !noalias !66
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseTE, i64 16), ptr %615, align 8, !noalias !66
+  %627 = getelementptr inbounds i8, ptr %615, i64 24
+  store <2 x ptr> %614, ptr %627, align 8, !noalias !66
+  %628 = getelementptr inbounds i8, ptr %615, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %628) #24, !noalias !66
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseSourceTE, i64 16), ptr %614, align 8, !noalias !66
-  store ptr %614, ptr %29, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseSourceTE, i64 16), ptr %615, align 8, !noalias !66
+  store ptr %615, ptr %29, align 8
   %629 = invoke noundef zeroext i1 @_ZN12cmWorkerPool7PushJobEOSt10unique_ptrINS_4JobTESt14default_deleteIS1_EE(ptr noundef nonnull align 8 dereferenceable(24) %564, ptr noundef nonnull align 8 dereferenceable(8) %29)
           to label %630 unwind label %635
 
@@ -12740,49 +12738,47 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTEEaSEOS4_.e
 
 61:                                               ; preds = %57, %_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTEEaSEOS4_.exit
   store atomic i8 1, ptr %5 seq_cst, align 8
-  %.val17 = load ptr, ptr %16, align 8
   %62 = getelementptr i8, ptr %.sroa.026.030, i64 72
   %.val18 = load ptr, ptr %62, align 8
+  %63 = load <2 x ptr>, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %63 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #28
+  %64 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #28
           to label %.noexc unwind label %90
 
 .noexc:                                           ; preds = %61
   %.not.i.i.i.i.i19 = icmp eq ptr %.val18, null
-  br i1 %.not.i.i.i.i.i19, label %_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseHeaderTEJRKSt10shared_ptrINS1_11SourceFileTEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i, label %64
+  br i1 %.not.i.i.i.i.i19, label %_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseHeaderTEJRKSt10shared_ptrINS1_11SourceFileTEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i, label %65
 
-64:                                               ; preds = %.noexc
-  %65 = getelementptr inbounds i8, ptr %.val18, i64 8
-  %66 = load i8, ptr @__libc_single_threaded, align 1, !noalias !269
-  %.not.i.i.i.i.i.i = icmp eq i8 %66, 0
-  br i1 %.not.i.i.i.i.i.i, label %70, label %67
+65:                                               ; preds = %.noexc
+  %66 = getelementptr inbounds i8, ptr %.val18, i64 8
+  %67 = load i8, ptr @__libc_single_threaded, align 1, !noalias !269
+  %.not.i.i.i.i.i.i = icmp eq i8 %67, 0
+  br i1 %.not.i.i.i.i.i.i, label %71, label %68
 
-67:                                               ; preds = %64
-  %68 = load i32, ptr %65, align 4, !noalias !269
-  %69 = add nsw i32 %68, 1
-  store i32 %69, ptr %65, align 4, !noalias !269
+68:                                               ; preds = %65
+  %69 = load i32, ptr %66, align 4, !noalias !269
+  %70 = add nsw i32 %69, 1
+  store i32 %70, ptr %66, align 4, !noalias !269
   br label %_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseHeaderTEJRKSt10shared_ptrINS1_11SourceFileTEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
 
-70:                                               ; preds = %64
-  %71 = atomicrmw volatile add ptr %65, i32 1 acq_rel, align 4, !noalias !269
+71:                                               ; preds = %65
+  %72 = atomicrmw volatile add ptr %66, i32 1 acq_rel, align 4, !noalias !269
   br label %_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseHeaderTEJRKSt10shared_ptrINS1_11SourceFileTEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
 
-_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseHeaderTEJRKSt10shared_ptrINS1_11SourceFileTEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i: ; preds = %70, %67, %.noexc
-  %72 = getelementptr inbounds i8, ptr %63, i64 8
-  store ptr null, ptr %72, align 8, !noalias !269
-  %73 = getelementptr inbounds i8, ptr %63, i64 16
-  store i32 0, ptr %73, align 8, !noalias !269
-  %74 = getelementptr inbounds i8, ptr %63, i64 20
-  store i8 0, ptr %74, align 4, !noalias !269
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseTE, i64 16), ptr %63, align 8, !noalias !269
-  %75 = getelementptr inbounds i8, ptr %63, i64 24
-  store ptr %.val17, ptr %75, align 8, !noalias !269
-  %76 = getelementptr inbounds i8, ptr %63, i64 32
-  store ptr %.val18, ptr %76, align 8, !noalias !269
-  %77 = getelementptr inbounds i8, ptr %63, i64 40
+_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseHeaderTEJRKSt10shared_ptrINS1_11SourceFileTEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i: ; preds = %71, %68, %.noexc
+  %73 = getelementptr inbounds i8, ptr %64, i64 8
+  store ptr null, ptr %73, align 8, !noalias !269
+  %74 = getelementptr inbounds i8, ptr %64, i64 16
+  store i32 0, ptr %74, align 8, !noalias !269
+  %75 = getelementptr inbounds i8, ptr %64, i64 20
+  store i8 0, ptr %75, align 4, !noalias !269
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseTE, i64 16), ptr %64, align 8, !noalias !269
+  %76 = getelementptr inbounds i8, ptr %64, i64 24
+  store <2 x ptr> %63, ptr %76, align 8, !noalias !269
+  %77 = getelementptr inbounds i8, ptr %64, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %77) #24, !noalias !269
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseHeaderTE, i64 16), ptr %63, align 8, !noalias !269
-  store ptr %63, ptr %3, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseHeaderTE, i64 16), ptr %64, align 8, !noalias !269
+  store ptr %64, ptr %3, align 8
   %78 = invoke noundef zeroext i1 @_ZN12cmWorkerPool7PushJobEOSt10unique_ptrINS_4JobTESt14default_deleteIS1_EE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %79 unwind label %84
 
@@ -16907,11 +16903,11 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16J
   %30 = alloca %"class.std::__cxx11::basic_string", align 8
   %31 = alloca %"class.std::__cxx11::basic_string", align 8
   %32 = alloca %"class.std::shared_ptr.65", align 8
-  %33 = alloca %"class.std::shared_ptr.65", align 8
-  %34 = alloca %"class.std::shared_ptr.65", align 8
+  %33 = alloca %"class.std::shared_ptr.65", align 16
+  %34 = alloca %"class.std::shared_ptr.65", align 16
   %35 = alloca %"class.std::shared_ptr.65", align 16
   %36 = alloca %"class.std::shared_ptr.65", align 8
-  %37 = alloca %"class.std::shared_ptr.65", align 8
+  %37 = alloca %"class.std::shared_ptr.65", align 16
   %38 = alloca %"class.std::shared_ptr.65", align 16
   %39 = alloca %"class.std::__cxx11::basic_string", align 8
   %40 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16937,7 +16933,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16J
   %60 = alloca %"class.std::__cxx11::basic_string", align 8
   %61 = alloca %"class.std::__cxx11::basic_string", align 8
   %62 = alloca %"class.std::__cxx11::basic_string", align 8
-  %63 = alloca %"class.std::shared_ptr.65", align 8
+  %63 = alloca %"class.std::shared_ptr.65", align 16
   %64 = alloca %"class.std::shared_ptr.65", align 16
   %65 = alloca %"class.std::__cxx11::basic_string", align 8
   %66 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16949,7 +16945,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16J
   %72 = alloca %"class.std::__cxx11::basic_string", align 8
   %73 = alloca %"class.std::__cxx11::basic_string", align 8
   %74 = alloca %"class.std::shared_ptr.65", align 8
-  %75 = alloca %"class.std::shared_ptr.65", align 8
+  %75 = alloca %"class.std::shared_ptr.65", align 16
   %.val363 = load ptr, ptr %1, align 8
   %76 = getelementptr inbounds i8, ptr %.val363, i64 40
   %.val324 = load ptr, ptr %76, align 8
@@ -17564,7 +17560,7 @@ _ZNK12_GLOBAL__N_115cmQtAutoMocUicT4JobT11MessagePathB5cxx11ESt17basic_string_vi
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit.thread, label %303
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit.thread: ; preds = %300
-  store ptr %301, ptr %33, align 8
+  store ptr %301, ptr %33, align 16
   store ptr null, ptr %186, align 8
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit435
 
@@ -17586,9 +17582,8 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit.t
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit: ; preds = %306, %309
   %.pr = load ptr, ptr %185, align 8
-  %311 = load ptr, ptr %1, align 8
-  store ptr %311, ptr %33, align 8
-  store ptr %.pr, ptr %186, align 8
+  %311 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %311, ptr %33, align 16
   %.not.i.i.i433 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i433, label %_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit435, label %312
 
@@ -17881,15 +17876,14 @@ _ZNK12_GLOBAL__N_115cmQtAutoMocUicT12MocSettingsT7skippedERKNSt7__cxx1112basic_s
   br i1 %.not654, label %423, label %_ZNK12_GLOBAL__N_115cmQtAutoMocUicT12MocSettingsT7skippedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
 423:                                              ; preds = %_ZNK12_GLOBAL__N_115cmQtAutoMocUicT12MocSettingsT7skippedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %424 = load ptr, ptr %1, align 8
-  store ptr %424, ptr %34, align 8
-  %425 = load ptr, ptr %185, align 8
-  store ptr %425, ptr %187, align 8
-  %.not.i.i.i446 = icmp eq ptr %425, null
+  %424 = load ptr, ptr %185, align 8
+  %425 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %425, ptr %34, align 16
+  %.not.i.i.i446 = icmp eq ptr %424, null
   br i1 %.not.i.i.i446, label %_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit448, label %426
 
 426:                                              ; preds = %423
-  %427 = getelementptr inbounds i8, ptr %425, i64 8
+  %427 = getelementptr inbounds i8, ptr %424, i64 8
   %428 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i447 = icmp eq i8 %428, 0
   br i1 %.not.i.i.i.i447, label %432, label %429
@@ -18239,7 +18233,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %.not.i.i.i472, label %_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit474.thread, label %582
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit474.thread: ; preds = %579
-  store ptr %580, ptr %37, align 8
+  store ptr %580, ptr %37, align 16
   store ptr null, ptr %547, align 8
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit477
 
@@ -18261,9 +18255,8 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit47
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit474: ; preds = %585, %588
   %.pr644 = load ptr, ptr %546, align 8
-  %590 = load ptr, ptr %1, align 8
-  store ptr %590, ptr %37, align 8
-  store ptr %.pr644, ptr %547, align 8
+  %590 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %590, ptr %37, align 16
   %.not.i.i.i475 = icmp eq ptr %.pr644, null
   br i1 %.not.i.i.i475, label %_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit477, label %591
 
@@ -19026,15 +19019,14 @@ _ZNK12_GLOBAL__N_115cmQtAutoMocUicT4JobT11MessagePathB5cxx11ESt17basic_string_vi
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink729) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink728) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #24
-  %858 = load ptr, ptr %1, align 8
-  store ptr %858, ptr %63, align 8
-  %859 = load ptr, ptr %546, align 8
-  store ptr %859, ptr %564, align 8
-  %.not.i.i.i542 = icmp eq ptr %859, null
+  %858 = load ptr, ptr %546, align 8
+  %859 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %859, ptr %63, align 16
+  %.not.i.i.i542 = icmp eq ptr %858, null
   br i1 %.not.i.i.i542, label %_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit544, label %860
 
 860:                                              ; preds = %857
-  %861 = getelementptr inbounds i8, ptr %859, i64 8
+  %861 = getelementptr inbounds i8, ptr %858, i64 8
   %862 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i543 = icmp eq i8 %862, 0
   br i1 %.not.i.i.i.i543, label %866, label %863
@@ -19661,7 +19653,7 @@ _ZNK12_GLOBAL__N_115cmQtAutoMocUicT12MocSettingsT12MacrosStringB5cxx11Ev.exit602
   br i1 %.not.i.i.i610, label %_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit612.thread, label %1101
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit612.thread: ; preds = %1098
-  store ptr %1099, ptr %75, align 8
+  store ptr %1099, ptr %75, align 16
   store ptr null, ptr %992, align 8
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit615
 
@@ -19683,9 +19675,8 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit61
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit612: ; preds = %1104, %1107
   %.pr647 = load ptr, ptr %991, align 8
-  %1109 = load ptr, ptr %1, align 8
-  store ptr %1109, ptr %75, align 8
-  store ptr %.pr647, ptr %992, align 8
+  %1109 = load <2 x ptr>, ptr %1, align 8
+  store <2 x ptr> %1109, ptr %75, align 16
   %.not.i.i.i613 = icmp eq ptr %.pr647, null
   br i1 %.not.i.i.i613, label %_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit615, label %1110
 
@@ -21668,7 +21659,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_115cmQtAutoMocUicT16
   %17 = alloca %"class.std::__cxx11::basic_string", align 8
   %18 = alloca %"class.std::__cxx11::basic_string", align 8
   %19 = alloca %"class.std::__cxx11::basic_string", align 8
-  %20 = alloca %"class.std::shared_ptr", align 8
+  %20 = alloca %"class.std::shared_ptr", align 16
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %.val50 = load ptr, ptr %21, align 8
   %.val50.val = load ptr, ptr %.val50, align 8
@@ -22154,16 +22145,15 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEaSEOS3_.exit: ;
   %198 = getelementptr inbounds i8, ptr %.val60, i64 16
   %199 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %198, ptr noundef nonnull align 8 dereferenceable(32) %19) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #24
-  %200 = load ptr, ptr %23, align 8
-  store ptr %200, ptr %20, align 8
-  %201 = getelementptr inbounds i8, ptr %20, i64 8
-  %202 = load ptr, ptr %107, align 8
-  store ptr %202, ptr %201, align 8
-  %.not.i.i.i92 = icmp eq ptr %202, null
+  %200 = getelementptr inbounds i8, ptr %20, i64 8
+  %201 = load ptr, ptr %107, align 8
+  %202 = load <2 x ptr>, ptr %23, align 8
+  store <2 x ptr> %202, ptr %20, align 16
+  %.not.i.i.i92 = icmp eq ptr %201, null
   br i1 %.not.i.i.i92, label %_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT8MappingTEEC2ERKS3_.exit, label %203
 
 203:                                              ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEaSEOS3_.exit
-  %204 = getelementptr inbounds i8, ptr %202, i64 8
+  %204 = getelementptr inbounds i8, ptr %201, i64 8
   %205 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i93 = icmp eq i8 %205, 0
   br i1 %.not.i.i.i.i93, label %209, label %206
@@ -22184,7 +22174,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT8MappingTEEC2ERKS3_.exit: ; pr
           to label %211 unwind label %246
 
 211:                                              ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT8MappingTEEC2ERKS3_.exit
-  %.val47 = load ptr, ptr %201, align 8
+  %.val47 = load ptr, ptr %200, align 8
   %.not.i.i.i94 = icmp eq ptr %.val47, null
   br i1 %.not.i.i.i94, label %_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT8MappingTEED2Ev.exit100, label %212
 
@@ -22259,7 +22249,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 246:                                              ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT8MappingTEEC2ERKS3_.exit
   %247 = landingpad { ptr, i32 }
           cleanup
-  %.val = load ptr, ptr %201, align 8
+  %.val = load ptr, ptr %200, align 8
   call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT8MappingTEED2Ev(ptr %.val) #24
   br label %248
 
@@ -23955,7 +23945,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN
   %33 = alloca %"class.std::__cxx11::basic_string", align 8
   %34 = alloca %"class.std::__cxx11::basic_string", align 8
   %35 = alloca %"class.std::__cxx11::basic_string", align 8
-  %36 = alloca %"class.std::shared_ptr.65", align 8
+  %36 = alloca %"class.std::shared_ptr.65", align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32)
@@ -24430,17 +24420,16 @@ _ZNK12_GLOBAL__N_115cmQtAutoMocUicT12UicSettingsT7skippedERKNSt7__cxx1112basic_s
 207:                                              ; preds = %_ZNK12_GLOBAL__N_115cmQtAutoMocUicT12UicSettingsT7skippedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
   %208 = getelementptr inbounds i8, ptr %0, i64 24
   %209 = load ptr, ptr %208, align 8
-  %210 = load ptr, ptr %209, align 8
-  store ptr %210, ptr %36, align 8
-  %211 = getelementptr inbounds i8, ptr %36, i64 8
-  %212 = getelementptr inbounds i8, ptr %209, i64 8
-  %213 = load ptr, ptr %212, align 8
-  store ptr %213, ptr %211, align 8
-  %.not.i.i.i40.i = icmp eq ptr %213, null
+  %210 = getelementptr inbounds i8, ptr %36, i64 8
+  %211 = getelementptr inbounds i8, ptr %209, i64 8
+  %212 = load ptr, ptr %211, align 8
+  %213 = load <2 x ptr>, ptr %209, align 8
+  store <2 x ptr> %213, ptr %36, align 16
+  %.not.i.i.i40.i = icmp eq ptr %212, null
   br i1 %.not.i.i.i40.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEEC2ERKS3_.exit.i, label %214
 
 214:                                              ; preds = %207
-  %215 = getelementptr inbounds i8, ptr %213, i64 8
+  %215 = getelementptr inbounds i8, ptr %212, i64 8
   %216 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i = icmp eq i8 %216, 0
   br i1 %.not.i.i.i.i.i, label %220, label %217
@@ -24526,7 +24515,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN12
   br i1 %.not104.i.i, label %314, label %241
 
 241:                                              ; preds = %239
-  %.val55.i.i = load ptr, ptr %36, align 8
+  %.val55.i.i = load ptr, ptr %36, align 16
   %242 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.val55.i.i) #24
   %243 = extractvalue { i64, ptr } %242, 0
   %244 = extractvalue { i64, ptr } %242, 1
@@ -25247,7 +25236,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
-  %.val29.i = load ptr, ptr %211, align 8
+  %.val29.i = load ptr, ptr %210, align 8
   %.not.i.i.i52.i = icmp eq ptr %.val29.i, null
   br i1 %.not.i.i.i52.i, label %"_ZZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicT8EvalFileERKSt10shared_ptrINS0_11SourceFileTEEENK3$_0clERKNS0_11IncludeKeyTE.exit", label %507
 
@@ -25326,7 +25315,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 .body.i:                                          ; preds = %541, %.body.i.i, %313, %278
   %eh.lpad-body.i = phi { ptr, i32 } [ %542, %541 ], [ %.pn41.pn.i.i, %313 ], [ %279, %278 ], [ %eh.lpad-body.i.i, %.body.i.i ]
-  %.val.i = load ptr, ptr %211, align 8
+  %.val.i = load ptr, ptr %210, align 8
   call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEED2Ev(ptr %.val.i) #24
   br label %common.resume.i
 
@@ -27031,53 +27020,51 @@ _ZNK12_GLOBAL__N_115cmQtAutoMocUicT4JobT11MessagePathB5cxx11ESt17basic_string_vi
   %.val12 = load ptr, ptr %44, align 8
   %.val12.val = load ptr, ptr %.val12, align 8
   %336 = getelementptr inbounds i8, ptr %.val12.val, i64 3000
-  %.val21 = load ptr, ptr %1, align 8
   %337 = getelementptr inbounds i8, ptr %1, i64 8
   %.val22 = load ptr, ptr %337, align 8
+  %338 = load <2 x ptr>, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %338 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
+  %339 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #28
           to label %.noexc32 unwind label %373
 
 .noexc32:                                         ; preds = %335
   %.not.i.i.i.i.i = icmp eq ptr %.val22, null
-  br i1 %.not.i.i.i.i.i, label %_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileMocTEJRKSt10shared_ptrINS1_8MappingTEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISE_EES3_INS1_11ParseCacheT5FileTEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i, label %339
+  br i1 %.not.i.i.i.i.i, label %_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileMocTEJRKSt10shared_ptrINS1_8MappingTEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISE_EES3_INS1_11ParseCacheT5FileTEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i, label %340
 
-339:                                              ; preds = %.noexc32
-  %340 = getelementptr inbounds i8, ptr %.val22, i64 8
-  %341 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1209
-  %.not.i.i.i.i.i.i = icmp eq i8 %341, 0
-  br i1 %.not.i.i.i.i.i.i, label %345, label %342
+340:                                              ; preds = %.noexc32
+  %341 = getelementptr inbounds i8, ptr %.val22, i64 8
+  %342 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1209
+  %.not.i.i.i.i.i.i = icmp eq i8 %342, 0
+  br i1 %.not.i.i.i.i.i.i, label %346, label %343
 
-342:                                              ; preds = %339
-  %343 = load i32, ptr %340, align 4, !noalias !1209
-  %344 = add nsw i32 %343, 1
-  store i32 %344, ptr %340, align 4, !noalias !1209
+343:                                              ; preds = %340
+  %344 = load i32, ptr %341, align 4, !noalias !1209
+  %345 = add nsw i32 %344, 1
+  store i32 %345, ptr %341, align 4, !noalias !1209
   br label %_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileMocTEJRKSt10shared_ptrINS1_8MappingTEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISE_EES3_INS1_11ParseCacheT5FileTEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
 
-345:                                              ; preds = %339
-  %346 = atomicrmw volatile add ptr %340, i32 1 acq_rel, align 4, !noalias !1209
+346:                                              ; preds = %340
+  %347 = atomicrmw volatile add ptr %341, i32 1 acq_rel, align 4, !noalias !1209
   br label %_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileMocTEJRKSt10shared_ptrINS1_8MappingTEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISE_EES3_INS1_11ParseCacheT5FileTEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
 
-_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileMocTEJRKSt10shared_ptrINS1_8MappingTEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISE_EES3_INS1_11ParseCacheT5FileTEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i: ; preds = %345, %342, %.noexc32
-  %347 = load i64, ptr %41, align 8, !noalias !1209
+_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileMocTEJRKSt10shared_ptrINS1_8MappingTEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISE_EES3_INS1_11ParseCacheT5FileTEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i: ; preds = %346, %343, %.noexc32
+  %348 = load i64, ptr %41, align 8, !noalias !1209
   store ptr null, ptr %41, align 8, !noalias !1209
-  %348 = getelementptr inbounds i8, ptr %338, i64 8
-  store ptr null, ptr %348, align 8, !noalias !1209
-  %349 = getelementptr inbounds i8, ptr %338, i64 16
-  store i32 0, ptr %349, align 8, !noalias !1209
-  %350 = getelementptr inbounds i8, ptr %338, i64 20
-  store i8 0, ptr %350, align 4, !noalias !1209
-  %351 = getelementptr inbounds i8, ptr %338, i64 24
-  store ptr %.val21, ptr %351, align 8, !noalias !1209
-  %352 = getelementptr inbounds i8, ptr %338, i64 32
-  store ptr %.val22, ptr %352, align 8, !noalias !1209
-  %353 = getelementptr inbounds i8, ptr %338, i64 40
-  store i64 %347, ptr %353, align 8, !noalias !1209
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileMocTE, i64 16), ptr %338, align 8, !noalias !1209
-  %354 = getelementptr inbounds i8, ptr %338, i64 48
+  %349 = getelementptr inbounds i8, ptr %339, i64 8
+  store ptr null, ptr %349, align 8, !noalias !1209
+  %350 = getelementptr inbounds i8, ptr %339, i64 16
+  store i32 0, ptr %350, align 8, !noalias !1209
+  %351 = getelementptr inbounds i8, ptr %339, i64 20
+  store i8 0, ptr %351, align 4, !noalias !1209
+  %352 = getelementptr inbounds i8, ptr %339, i64 24
+  store <2 x ptr> %338, ptr %352, align 8, !noalias !1209
+  %353 = getelementptr inbounds i8, ptr %339, i64 40
+  store i64 %348, ptr %353, align 8, !noalias !1209
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileMocTE, i64 16), ptr %339, align 8, !noalias !1209
+  %354 = getelementptr inbounds i8, ptr %339, i64 48
   %355 = load <2 x ptr>, ptr %43, align 16, !noalias !1209
   store <2 x ptr> %355, ptr %354, align 8, !noalias !1209
-  store ptr %338, ptr %4, align 8
+  store ptr %339, ptr %4, align 8
   %356 = invoke noundef zeroext i1 @_ZN12cmWorkerPool7PushJobEOSt10unique_ptrINS_4JobTESt14default_deleteIS1_EE(ptr noundef nonnull align 8 dereferenceable(24) %336, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %357 unwind label %362
 
@@ -30310,50 +30297,48 @@ _ZNK12_GLOBAL__N_115cmQtAutoMocUicT4JobT11MessagePathB5cxx11ESt17basic_string_vi
   %.val = load ptr, ptr %22, align 8
   %.val.val = load ptr, ptr %.val, align 8
   %165 = getelementptr inbounds i8, ptr %.val.val, i64 3000
-  %.val20 = load ptr, ptr %54, align 8
   %166 = getelementptr i8, ptr %.sroa.036.040, i64 72
   %.val21 = load ptr, ptr %166, align 8
+  %167 = load <2 x ptr>, ptr %54, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %167 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
+  %168 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #28
           to label %.noexc28 unwind label %60
 
 .noexc28:                                         ; preds = %164
   %.not.i.i.i.i.i = icmp eq ptr %.val21, null
-  br i1 %.not.i.i.i.i.i, label %_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileUicTEJRKSt10shared_ptrINS1_8MappingTEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISE_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i, label %168
+  br i1 %.not.i.i.i.i.i, label %_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileUicTEJRKSt10shared_ptrINS1_8MappingTEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISE_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i, label %169
 
-168:                                              ; preds = %.noexc28
-  %169 = getelementptr inbounds i8, ptr %.val21, i64 8
-  %170 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1384
-  %.not.i.i.i.i.i.i = icmp eq i8 %170, 0
-  br i1 %.not.i.i.i.i.i.i, label %174, label %171
+169:                                              ; preds = %.noexc28
+  %170 = getelementptr inbounds i8, ptr %.val21, i64 8
+  %171 = load i8, ptr @__libc_single_threaded, align 1, !noalias !1384
+  %.not.i.i.i.i.i.i = icmp eq i8 %171, 0
+  br i1 %.not.i.i.i.i.i.i, label %175, label %172
 
-171:                                              ; preds = %168
-  %172 = load i32, ptr %169, align 4, !noalias !1384
-  %173 = add nsw i32 %172, 1
-  store i32 %173, ptr %169, align 4, !noalias !1384
+172:                                              ; preds = %169
+  %173 = load i32, ptr %170, align 4, !noalias !1384
+  %174 = add nsw i32 %173, 1
+  store i32 %174, ptr %170, align 4, !noalias !1384
   br label %_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileUicTEJRKSt10shared_ptrINS1_8MappingTEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISE_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
 
-174:                                              ; preds = %168
-  %175 = atomicrmw volatile add ptr %169, i32 1 acq_rel, align 4, !noalias !1384
+175:                                              ; preds = %169
+  %176 = atomicrmw volatile add ptr %170, i32 1 acq_rel, align 4, !noalias !1384
   br label %_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileUicTEJRKSt10shared_ptrINS1_8MappingTEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISE_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i
 
-_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileUicTEJRKSt10shared_ptrINS1_8MappingTEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISE_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i: ; preds = %174, %171, %.noexc28
-  %176 = load i64, ptr %20, align 8, !noalias !1384
+_ZSt11make_uniqueIN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileUicTEJRKSt10shared_ptrINS1_8MappingTEESt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteISE_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i: ; preds = %175, %172, %.noexc28
+  %177 = load i64, ptr %20, align 8, !noalias !1384
   store ptr null, ptr %20, align 8, !noalias !1384
-  %177 = getelementptr inbounds i8, ptr %167, i64 8
-  store ptr null, ptr %177, align 8, !noalias !1384
-  %178 = getelementptr inbounds i8, ptr %167, i64 16
-  store i32 0, ptr %178, align 8, !noalias !1384
-  %179 = getelementptr inbounds i8, ptr %167, i64 20
-  store i8 0, ptr %179, align 4, !noalias !1384
-  %180 = getelementptr inbounds i8, ptr %167, i64 24
-  store ptr %.val20, ptr %180, align 8, !noalias !1384
-  %181 = getelementptr inbounds i8, ptr %167, i64 32
-  store ptr %.val21, ptr %181, align 8, !noalias !1384
-  %182 = getelementptr inbounds i8, ptr %167, i64 40
-  store i64 %176, ptr %182, align 8, !noalias !1384
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileUicTE, i64 16), ptr %167, align 8, !noalias !1384
-  store ptr %167, ptr %2, align 8
+  %178 = getelementptr inbounds i8, ptr %168, i64 8
+  store ptr null, ptr %178, align 8, !noalias !1384
+  %179 = getelementptr inbounds i8, ptr %168, i64 16
+  store i32 0, ptr %179, align 8, !noalias !1384
+  %180 = getelementptr inbounds i8, ptr %168, i64 20
+  store i8 0, ptr %180, align 4, !noalias !1384
+  %181 = getelementptr inbounds i8, ptr %168, i64 24
+  store <2 x ptr> %167, ptr %181, align 8, !noalias !1384
+  %182 = getelementptr inbounds i8, ptr %168, i64 40
+  store i64 %177, ptr %182, align 8, !noalias !1384
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileUicTE, i64 16), ptr %168, align 8, !noalias !1384
+  store ptr %168, ptr %2, align 8
   %183 = invoke noundef zeroext i1 @_ZN12cmWorkerPool7PushJobEOSt10unique_ptrINS_4JobTESt14default_deleteIS1_EE(ptr noundef nonnull align 8 dereferenceable(24) %165, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %184 unwind label %189
 

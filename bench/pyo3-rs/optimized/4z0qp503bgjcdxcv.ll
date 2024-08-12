@@ -2750,9 +2750,9 @@ define void @_ZN19pyo3_macros_backend7pyclass14build_py_class17h61d04a95beddccc3
   %150 = getelementptr inbounds i8, ptr %146, i64 8
   %151 = getelementptr inbounds i8, ptr %146, i64 12
   %152 = load <2 x i32>, ptr %150, align 8
+  %153 = load i32, ptr %150, align 8
   store i32 1, ptr %150, align 8
   store i32 %136, ptr %151, align 4
-  %153 = extractelement <2 x i32> %152, i64 0
   %.not30 = icmp eq i32 %153, 2
   br i1 %.not30, label %145, label %154
 
@@ -2806,9 +2806,9 @@ define void @_ZN19pyo3_macros_backend7pyclass14build_py_class17h61d04a95beddccc3
   %173 = getelementptr inbounds i8, ptr %169, i64 16
   %174 = getelementptr inbounds i8, ptr %169, i64 20
   %175 = load <2 x i32>, ptr %173, align 8
+  %176 = load i32, ptr %173, align 8
   store i32 1, ptr %173, align 8
   store i32 %161, ptr %174, align 4
-  %176 = extractelement <2 x i32> %175, i64 0
   %.not31 = icmp eq i32 %176, 2
   br i1 %.not31, label %168, label %177
 
@@ -4847,6 +4847,7 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
   %.sroa.08.i.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %107, i64 24
   %275 = load i64, ptr %.sroa.08.i.sroa.5.0..sroa_idx.i, align 8, !noalias !24
   %276 = load <2 x i64>, ptr %115, align 16, !noalias !24
+  %277 = load i64, ptr %115, align 16, !noalias !24
   %.sroa.08.i.sroa.8.24..sroa_idx.i = getelementptr inbounds i8, ptr %115, i64 16
   %.sroa.08.i.sroa.8.24.copyload.i = load i64, ptr %.sroa.08.i.sroa.8.24..sroa_idx.i, align 16, !noalias !24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %107), !noalias !18
@@ -4859,7 +4860,6 @@ _ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new17h3e7f2d8550f6dc85E.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %114), !noalias !18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %115), !noalias !18
   %.not35.i = icmp eq i64 %.sroa.08.i.sroa.0.0.copyload.i, -9223372036854775808
-  %277 = extractelement <2 x i64> %276, i64 0
   br i1 %.not35.i, label %.thread, label %282
 
 278:                                              ; preds = %.noexc24, %.noexc21

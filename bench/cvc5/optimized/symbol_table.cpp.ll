@@ -882,11 +882,10 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 
 _ZN4cvc54TermC2ERKS0_.exit:                       ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
   %7 = phi ptr [ %1, %if.then.i.i.i.i.i.i ], [ %.pre, %if.else.i.i.i.i.i.i ]
-  %.pr = load ptr, ptr %_M_refcount.i.i.i, align 8
   store ptr %7, ptr %agg.tmp, align 8
-  %8 = load ptr, ptr %d_node.i, align 8
-  store ptr %8, ptr %d_node.i3, align 8
-  store ptr %.pr, ptr %_M_refcount.i.i.i5, align 8
+  %.pr = load ptr, ptr %_M_refcount.i.i.i, align 8
+  %8 = load <2 x ptr>, ptr %d_node.i, align 8
+  store <2 x ptr> %8, ptr %d_node.i3, align 8
   %cmp.not.i.i.i.i7 = icmp eq ptr %.pr, null
   br i1 %cmp.not.i.i.i.i7, label %_ZN4cvc54TermC2ERKS0_.exit14, label %if.then.i.i.i.i8
 
@@ -1010,16 +1009,14 @@ if.then11:                                        ; preds = %invoke.cont9
 if.then12:                                        ; preds = %if.then11
   store ptr %24, ptr %agg.result, align 8
   %d_node.i19 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %25 = load ptr, ptr %d_node.i, align 8
-  store ptr %25, ptr %d_node.i19, align 8
-  %_M_refcount.i.i.i21 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %26 = load ptr, ptr %_M_refcount.i.i.i, align 8
-  store ptr %26, ptr %_M_refcount.i.i.i21, align 8
-  %cmp.not.i.i.i.i23 = icmp eq ptr %26, null
+  %25 = load ptr, ptr %_M_refcount.i.i.i, align 8
+  %26 = load <2 x ptr>, ptr %d_node.i, align 8
+  store <2 x ptr> %26, ptr %d_node.i19, align 8
+  %cmp.not.i.i.i.i23 = icmp eq ptr %25, null
   br i1 %cmp.not.i.i.i.i23, label %cleanup18.critedge, label %if.then.i.i.i.i24
 
 if.then.i.i.i.i24:                                ; preds = %if.then12
-  %_M_use_count.i.i.i.i.i25 = getelementptr inbounds i8, ptr %26, i64 8
+  %_M_use_count.i.i.i.i.i25 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i26 = icmp eq i8 %27, 0
   br i1 %tobool.i.not.i.i.i.i.i26, label %if.else.i.i.i.i.i.i29, label %if.then.i.i.i.i.i.i27
@@ -2209,13 +2206,11 @@ if.else.i.i.i.i.i.i343:                           ; preds = %if.then.i.i.i.i338
 
 _ZN4cvc54TermC2ERKS0_.exit:                       ; preds = %if.then.i.i.i.i.i.i341, %if.else.i.i.i.i.i.i343
   %90 = phi ptr [ %84, %if.then.i.i.i.i.i.i341 ], [ %.pre, %if.else.i.i.i.i.i.i343 ]
-  %.pr = load ptr, ptr %_M_refcount.i.i.i335, align 8
   store ptr %90, ptr %agg.tmp, align 8
   %d_node.i344 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %91 = load ptr, ptr %d_node.i, align 8
-  store ptr %91, ptr %d_node.i344, align 8
-  %_M_refcount.i.i.i346 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  store ptr %.pr, ptr %_M_refcount.i.i.i346, align 8
+  %.pr = load ptr, ptr %_M_refcount.i.i.i335, align 8
+  %91 = load <2 x ptr>, ptr %d_node.i, align 8
+  store <2 x ptr> %91, ptr %d_node.i344, align 8
   %cmp.not.i.i.i.i348 = icmp eq ptr %.pr, null
   br i1 %cmp.not.i.i.i.i348, label %_ZN4cvc54TermC2ERKS0_.exit355, label %if.then.i.i.i.i349
 
