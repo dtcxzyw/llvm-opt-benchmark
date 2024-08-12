@@ -3661,7 +3661,7 @@ cmake/fty_num.c.ll 71128905
 cmake/getaddrinfo.c.ll 78905732
 cmake/getenv.c.ll 38156275
 cmake/getinfo.c.ll 133557696
-cmake/getnameinfo.c.ll 52194625
+cmake/getnameinfo.c.ll 52247099
 cmake/gzlib.c.ll 157280616
 cmake/gzread.c.ll 222038903
 cmake/gzwrite.c.ll 227409258
@@ -8120,7 +8120,7 @@ graphviz/stress.c.ll 887026402
 graphviz/stress_model.c.ll 54733983
 graphviz/strmatch.c.ll 389459172
 graphviz/stuff.c.ll 763696979
-graphviz/subg.c.ll 60669249
+graphviz/subg.c.ll 60730104
 graphviz/taper.c.ll 172276694
 graphviz/textspan.c.ll 84502336
 graphviz/textspan_lut.c.ll 234701978
@@ -18397,7 +18397,7 @@ oniguruma/iso8859_11.ll 38840653
 oniguruma/iso8859_13.ll 47117073
 oniguruma/iso8859_14.ll 47444806
 oniguruma/iso8859_15.ll 47213796
-oniguruma/iso8859_16.ll 47331388
+oniguruma/iso8859_16.ll 47378785
 oniguruma/iso8859_2.ll 47357388
 oniguruma/iso8859_3.ll 47225856
 oniguruma/iso8859_4.ll 47299354
@@ -22965,7 +22965,7 @@ openmpi/libmpi_c_profile_la-bcast_init.ll 91744190
 openmpi/libmpi_c_profile_la-bsend.ll 102789450
 openmpi/libmpi_c_profile_la-bsend_init.ll 89303233
 openmpi/libmpi_c_profile_la-buffer_attach.ll 41836125
-openmpi/libmpi_c_profile_la-buffer_detach.ll 41836333
+openmpi/libmpi_c_profile_la-buffer_detach.ll 41878171
 openmpi/libmpi_c_profile_la-cancel.ll 68126343
 openmpi/libmpi_c_profile_la-cart_coords.ll 79510432
 openmpi/libmpi_c_profile_la-cart_create.ll 104162955
@@ -28318,7 +28318,7 @@ pyo3-rs/4j2ap14wuiuq11rw.ll 84901093
 pyo3-rs/4jasan85b3uy4sdw.ll 475012211
 pyo3-rs/4u25hzdyj9ojt6ot.ll 90973827
 pyo3-rs/4w6r7rh8tcoxwvbr.ll 444961669
-pyo3-rs/4xqhuut9mffkjr9e.ll 56198174
+pyo3-rs/4xqhuut9mffkjr9e.ll 56254476
 pyo3-rs/4ybq1xu6nzdahol5.ll 73508950
 pyo3-rs/4yu5v8gwnt2k6ypk.ll 175850811
 pyo3-rs/4z0qp503bgjcdxcv.ll 3568729996
@@ -28684,7 +28684,7 @@ qemu/hw_char_mchp_pfsoc_mmuart.c.ll 64720780
 qemu/hw_char_riscv_htif.c.ll 135220136
 qemu/hw_char_serial-pci-multi.c.ll 85677556
 qemu/hw_char_serial.c.ll 326145812
-qemu/hw_char_shakti_uart.c.ll 64271273
+qemu/hw_char_shakti_uart.c.ll 64335609
 qemu/hw_char_sifive_uart.c.ll 91846415
 qemu/hw_char_virtio-console.c.ll 105632998
 qemu/hw_char_virtio-serial-bus.c.ll 512089846
@@ -34578,7 +34578,7 @@ wasmtime-rs/i5u7vsclgey2ddj.ll 689734400
 wasmtime-rs/ik84o2k0wlq2iqv.ll 88498962
 wasmtime-rs/ikljeakuo7p4s4j.ll 40769676
 wasmtime-rs/j0yk3zmzo17fnmy.ll 36146307
-wasmtime-rs/j1ejlm038aqxv7c.ll 43816231
+wasmtime-rs/j1ejlm038aqxv7c.ll 43860054
 wasmtime-rs/jcy3ulzaiykp2rl.ll 3338119453
 wasmtime-rs/jd0egfnydpuo3ak.ll 2328278911
 wasmtime-rs/joyny9bexuq72mb.ll 10700158141
