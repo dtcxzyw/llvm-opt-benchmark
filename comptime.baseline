@@ -2643,7 +2643,7 @@ ceres/partitioned_matrix_view_2_4_9.cc.ll 6767625987
 ceres/partitioned_matrix_view_2_4_d.cc.ll 5547973603
 ceres/partitioned_matrix_view_2_d_d.cc.ll 4948765664
 ceres/partitioned_matrix_view_3_3_3.cc.ll 5180412186
-ceres/partitioned_matrix_view_4_4_2.cc.ll 5416252235
+ceres/partitioned_matrix_view_4_4_2.cc.ll 5421669224
 ceres/partitioned_matrix_view_4_4_3.cc.ll 5472299612
 ceres/partitioned_matrix_view_4_4_4.cc.ll 4896161688
 ceres/partitioned_matrix_view_4_4_d.cc.ll 5465705746
@@ -6028,7 +6028,7 @@ darktable/UncompressedDecompressor.cpp.ll 2000699912
 darktable/VC5Decompressor.cpp.ll 2201823734
 darktable/amaze.cc.ll 2970512512
 darktable/avif.c.ll 230341872
-darktable/backgroundjobs.c.ll 98932176
+darktable/backgroundjobs.c.ll 99031165
 darktable/camera.c.ll 244642094
 darktable/collect.c.ll 934991519
 darktable/colorlabels.c.ll 96332083
@@ -12058,7 +12058,7 @@ libquic/speed.cc.ll 906793831
 libquic/sqrt.c.ll 153955055
 libquic/ssl_aead_ctx.c.ll 120478886
 libquic/ssl_asn1.c.ll 192129564
-libquic/ssl_buffer.c.ll 127503414
+libquic/ssl_buffer.c.ll 127630964
 libquic/ssl_cert.c.ll 171354690
 libquic/ssl_cipher.c.ll 1032402857
 libquic/ssl_decrepit.c.ll 65008452
